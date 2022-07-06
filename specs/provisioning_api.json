@@ -1,0 +1,255 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Provisioning API",
+    "version": "1.14.0",
+    "description": "This application enables a set of APIs that external systems can use to manage users, groups and apps.",
+    "license": {
+      "name": "agpl"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://{hostname}:{port}/ocs/v1.php/cloud",
+      "variables": {
+        "hostname": {
+          "default": "localhost"
+        },
+        "port": {
+          "default": "8080"
+        }
+      }
+    }
+  ],
+  "security": [
+    {
+      "basic_auth": []
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "basic_auth": {
+        "type": "http",
+        "scheme": "basic"
+      }
+    },
+    "schemas": {
+      "OCSMeta": {
+        "deprecated": true,
+        "description": "Stub"
+      },
+      "ProvisioningApiUser": {
+        "type": "object",
+        "properties": {
+          "ocs": {
+            "type": "object",
+            "properties": {
+              "meta": {
+                "$ref": "#/components/schemas/OCSMeta"
+              },
+              "data": {
+                "$ref": "#/components/schemas/ProvisioningApiUserDetails"
+              }
+            }
+          }
+        }
+      },
+      "ProvisioningApiUserDetails": {
+        "type": "object",
+        "properties": {
+          "storageLocation": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          },
+          "lastLogin": {
+            "type": "integer"
+          },
+          "backend": {
+            "type": "string"
+          },
+          "subadmin": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "quota": {
+            "type": "object",
+            "properties": {
+              "free": {
+                "type": "integer"
+              },
+              "used": {
+                "type": "integer"
+              },
+              "total": {
+                "type": "integer"
+              },
+              "relative": {
+                "type": "number"
+              },
+              "quota": {
+                "type": "integer"
+              }
+            }
+          },
+          "avatarScope": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "emailScope": {
+            "type": "string"
+          },
+          "additional_mail": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "additional_mailScope": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "displayname": {
+            "type": "string"
+          },
+          "displaynameScope": {
+            "type": "string"
+          },
+          "phone": {
+            "type": "string"
+          },
+          "phoneScope": {
+            "type": "string"
+          },
+          "address": {
+            "type": "string"
+          },
+          "addressScope": {
+            "type": "string"
+          },
+          "website": {
+            "type": "string"
+          },
+          "websiteScope": {
+            "type": "string"
+          },
+          "twitter": {
+            "type": "string"
+          },
+          "twitterScope": {
+            "type": "string"
+          },
+          "organisation": {
+            "type": "string"
+          },
+          "organisationScope": {
+            "type": "string"
+          },
+          "role": {
+            "type": "string"
+          },
+          "roleScope": {
+            "type": "string"
+          },
+          "headline": {
+            "type": "string"
+          },
+          "headlineScope": {
+            "type": "string"
+          },
+          "biography": {
+            "type": "string"
+          },
+          "biographyScope": {
+            "type": "string"
+          },
+          "profile_enabled": {
+            "type": "string"
+          },
+          "profile_enabledScope": {
+            "type": "string"
+          },
+          "groups": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "language": {
+            "type": "string"
+          },
+          "locale": {
+            "type": "string"
+          },
+          "backendCapabilities": {
+            "type": "object",
+            "properties": {
+              "setDisplayName": {
+                "type": "boolean"
+              },
+              "setPassword": {
+                "type": "boolean"
+              }
+            }
+          },
+          "display-name": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "paths": {
+    "/user": {
+      "get": {
+        "operationId": "get-current-user",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProvisioningApiUser"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/users/{userId}": {
+      "parameters": [
+        {
+          "name": "userId",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "get": {
+        "operationId": "get-user",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProvisioningApiUser"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

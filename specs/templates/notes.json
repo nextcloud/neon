@@ -1,0 +1,432 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Notes",
+    "version": "4.3.1",
+    "description": "Distraction-free notes and writing",
+    "license": {
+      "name": "agpl"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://{hostname}:{port}/apps/notes",
+      "variables": {
+        "hostname": {
+          "default": "localhost"
+        },
+        "port": {
+          "default": "8080"
+        }
+      }
+    }
+  ],
+  "security": [
+    {
+      "basic_auth": []
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "basic_auth": {
+        "type": "http",
+        "scheme": "basic"
+      }
+    }
+  },
+  "paths": {
+    "/notes": {
+      "get": {
+        "operationId": "notes-index-TODO",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "operationId": "notes-create-TODO",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/notes/dashboard": {
+      "get": {
+        "operationId": "notes-dashboard-TODO",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/notes/{id}": {
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "integer"
+          }
+        }
+      ],
+      "get": {
+        "operationId": "notes-get-TODO",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "operationId": "notes-update-TODO",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "operationId": "notes-destroy-TODO",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/notes/undo": {
+      "post": {
+        "operationId": "notes-undo-TODO",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/notes/{id}/autotitle": {
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "integer"
+          }
+        }
+      ],
+      "put": {
+        "operationId": "notes-autotitle-TODO",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/notes/{id}/{property}": {
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "integer"
+          }
+        },
+        {
+          "name": "property",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "put": {
+        "operationId": "notes-updateproperty-TODO",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/settings": {
+      "get": {
+        "operationId": "settings-get-TODO",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "operationId": "settings-set-TODO",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/{apiVersion}/notes": {
+      "parameters": [
+        {
+          "name": "apiVersion",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "TODO"
+          }
+        }
+      ],
+      "get": {
+        "operationId": "notes_api-index-TODO",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "operationId": "notes_api-create-TODO",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/{apiVersion}/notes/{id}": {
+      "parameters": [
+        {
+          "name": "apiVersion",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "TODO"
+          }
+        },
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "integer"
+          }
+        }
+      ],
+      "get": {
+        "operationId": "notes_api-get-TODO",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "operationId": "notes_api-update-TODO",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "operationId": "notes_api-destroy-TODO",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/{apiVersion}/settings": {
+      "parameters": [
+        {
+          "name": "apiVersion",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "TODO"
+          }
+        }
+      ],
+      "get": {
+        "operationId": "notes_api-getsettings-TODO",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "operationId": "notes_api-setsettings-TODO",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/{catchAll}": {
+      "parameters": [
+        {
+          "name": "catchAll",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "TODO"
+          }
+        }
+      ],
+      "get": {
+        "operationId": "notes_api-fail-TODO",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

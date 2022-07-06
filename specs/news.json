@@ -1,0 +1,724 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "News",
+    "version": "18.1.0",
+    "description": "An RSS/Atom feed reader",
+    "license": {
+      "name": "agpl"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://{hostname}:{port}/apps/news",
+      "variables": {
+        "hostname": {
+          "default": "localhost"
+        },
+        "port": {
+          "default": "8080"
+        }
+      }
+    }
+  ],
+  "security": [
+    {
+      "basic_auth": []
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "basic_auth": {
+        "type": "http",
+        "scheme": "basic"
+      }
+    },
+    "schemas": {
+      "NewsAddFeed": {
+        "type": "object",
+        "properties": {
+          "url": {
+            "type": "string"
+          },
+          "folderId": {
+            "type": "integer"
+          }
+        }
+      },
+      "NewsRenameFeed": {
+        "type": "object",
+        "properties": {
+          "feedTitle": {
+            "type": "string"
+          }
+        }
+      },
+      "NewsMoveFeed": {
+        "type": "object",
+        "properties": {
+          "folderId": {
+            "type": "integer"
+          }
+        }
+      },
+      "NewsListFeeds": {
+        "type": "object",
+        "properties": {
+          "starredCount": {
+            "type": "integer"
+          },
+          "newestItemId": {
+            "type": "integer"
+          },
+          "feeds": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/NewsFeed"
+            }
+          }
+        }
+      },
+      "NewsFeed": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "url": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "faviconLink": {
+            "type": "string"
+          },
+          "added": {
+            "type": "integer"
+          },
+          "folderId": {
+            "type": "integer"
+          },
+          "unreadCount": {
+            "type": "integer"
+          },
+          "ordering": {
+            "type": "integer"
+          },
+          "link": {
+            "type": "string"
+          },
+          "pinned": {
+            "type": "boolean"
+          },
+          "updateErrorCount": {
+            "type": "integer"
+          },
+          "lastUpdateError": {
+            "type": "string"
+          },
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/NewsArticle"
+            }
+          }
+        }
+      },
+      "NewsArticle": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "guid": {
+            "type": "string"
+          },
+          "guidHash": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "author": {
+            "type": "string"
+          },
+          "pubDate": {
+            "type": "integer"
+          },
+          "updatedDate": {
+            "type": "integer"
+          },
+          "body": {
+            "type": "string"
+          },
+          "enclosureMime": {
+            "type": "string"
+          },
+          "enclosureLink": {
+            "type": "string"
+          },
+          "mediaThumbnail": {
+            "type": "string"
+          },
+          "mediaDescription": {
+            "type": "string"
+          },
+          "feedId": {
+            "type": "integer"
+          },
+          "unread": {
+            "type": "boolean"
+          },
+          "starred": {
+            "type": "boolean"
+          },
+          "lastModified": {
+            "type": "integer"
+          },
+          "rtl": {
+            "type": "boolean"
+          },
+          "fingerprint": {
+            "type": "string"
+          },
+          "contentHash": {
+            "type": "string"
+          }
+        }
+      },
+      "NewsListArticles": {
+        "type": "object",
+        "properties": {
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/NewsArticle"
+            }
+          }
+        }
+      },
+      "NewsCreateFolder": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          }
+        }
+      },
+      "NewsRenameFolder": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          }
+        }
+      },
+      "NewsListFolders": {
+        "type": "object",
+        "properties": {
+          "folders": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/NewsFolder"
+            }
+          }
+        }
+      },
+      "NewsFolder": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "name": {
+            "type": "string"
+          },
+          "opened": {
+            "type": "boolean"
+          },
+          "feeds": {
+            "description": "This seems to be broken. In testing it is always empty",
+            "deprecated": true,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/NewsFeed"
+            }
+          }
+        }
+      },
+      "NewsMarkAsRead": {
+        "type": "object",
+        "properties": {
+          "newestItemId": {
+            "type": "integer"
+          }
+        }
+      }
+    }
+  },
+  "paths": {
+    "/api/v1-2/folders": {
+      "get": {
+        "operationId": "list-folders",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NewsListFolders"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "operationId": "create-folder",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewsCreateFolder"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NewsListFolders"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1-2/folders/{folderId}": {
+      "parameters": [
+        {
+          "name": "folderId",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "integer"
+          }
+        }
+      ],
+      "put": {
+        "operationId": "rename-folder",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewsRenameFolder"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      },
+      "delete": {
+        "operationId": "delete-folder",
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/api/v1-2/folders/{folderId}/read": {
+      "parameters": [
+        {
+          "name": "folderId",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "integer"
+          }
+        }
+      ],
+      "put": {
+        "operationId": "mark-folder-as-read",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewsMarkAsRead"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/api/v1-2/feeds": {
+      "get": {
+        "operationId": "list-feeds",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NewsListFeeds"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "operationId": "add-feed",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewsAddFeed"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NewsListFeeds"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1-2/feeds/{feedId}": {
+      "parameters": [
+        {
+          "name": "feedId",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "integer"
+          }
+        }
+      ],
+      "delete": {
+        "operationId": "delete-feed",
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/api/v1-2/feeds/{feedId}/move": {
+      "parameters": [
+        {
+          "name": "feedId",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "integer"
+          }
+        }
+      ],
+      "put": {
+        "operationId": "move-feed",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewsMoveFeed"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/api/v1-2/feeds/{feedId}/rename": {
+      "parameters": [
+        {
+          "name": "feedId",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "integer"
+          }
+        }
+      ],
+      "put": {
+        "operationId": "rename-feed",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewsRenameFeed"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/api/v1-2/feeds/{feedId}/read": {
+      "parameters": [
+        {
+          "name": "feedId",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "integer"
+          }
+        }
+      ],
+      "put": {
+        "operationId": "mark-feed-as-read",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewsMarkAsRead"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/api/v1-2/items": {
+      "parameters": [
+        {
+          "name": "type",
+          "in": "query",
+          "schema": {
+            "type": "integer"
+          }
+        },
+        {
+          "name": "id",
+          "in": "query",
+          "schema": {
+            "type": "integer"
+          }
+        },
+        {
+          "name": "getRead",
+          "in": "query",
+          "schema": {
+            "type": "boolean"
+          }
+        },
+        {
+          "name": "batchSize",
+          "in": "query",
+          "schema": {
+            "type": "integer"
+          }
+        },
+        {
+          "name": "offset",
+          "in": "query",
+          "schema": {
+            "type": "integer"
+          }
+        },
+        {
+          "name": "oldestFirst",
+          "in": "query",
+          "schema": {
+            "type": "boolean"
+          }
+        }
+      ],
+      "get": {
+        "operationId": "list-articles",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NewsListArticles"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1-2/items/updated": {
+      "parameters": [
+        {
+          "name": "lastModified",
+          "in": "query",
+          "schema": {
+            "type": "integer"
+          }
+        },
+        {
+          "name": "type",
+          "in": "query",
+          "schema": {
+            "type": "integer"
+          }
+        },
+        {
+          "name": "id",
+          "in": "query",
+          "schema": {
+            "type": "integer"
+          }
+        }
+      ],
+      "get": {
+        "operationId": "list-updated-articles",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NewsListArticles"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1-2/items/{itemId}/read": {
+      "parameters": [
+        {
+          "name": "itemId",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "integer"
+          }
+        }
+      ],
+      "put": {
+        "operationId": "mark-article-as-read",
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/api/v1-2/items/{itemId}/unread": {
+      "parameters": [
+        {
+          "name": "itemId",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "integer"
+          }
+        }
+      ],
+      "put": {
+        "operationId": "mark-article-as-unread",
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/api/v1-2/items/{feedId}/{guidHash}/star": {
+      "parameters": [
+        {
+          "name": "feedId",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "integer"
+          }
+        },
+        {
+          "name": "guidHash",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "put": {
+        "operationId": "star-article",
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/api/v1-2/items/{feedId}/{guidHash}/unstar": {
+      "parameters": [
+        {
+          "name": "feedId",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "integer"
+          }
+        },
+        {
+          "name": "guidHash",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "put": {
+        "operationId": "unstar-article",
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    }
+  }
+}

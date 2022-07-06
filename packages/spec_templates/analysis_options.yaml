@@ -1,0 +1,5 @@
+include: package:nit_picking/dart.yaml
+
+analyzer:
+  errors:
+    import_of_legacy_library_into_null_safe: ignore

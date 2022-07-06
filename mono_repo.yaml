@@ -1,0 +1,11 @@
+github:
+  on:
+     push:
+       branches:
+         - main
+     pull_request:
+
+self_validate: true
+
+merge_stages:
+  - analyze

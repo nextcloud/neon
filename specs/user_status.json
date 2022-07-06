@@ -1,0 +1,433 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "User status",
+    "version": "1.4.0",
+    "description": "User status",
+    "license": {
+      "name": "agpl"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://{hostname}:{port}/ocs/v1.php/apps/user_status",
+      "variables": {
+        "hostname": {
+          "default": "localhost"
+        },
+        "port": {
+          "default": "8080"
+        }
+      }
+    }
+  ],
+  "security": [
+    {
+      "basic_auth": []
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "basic_auth": {
+        "type": "http",
+        "scheme": "basic"
+      }
+    },
+    "schemas": {
+      "OCSMeta": {
+        "deprecated": true,
+        "description": "Stub"
+      },
+      "UserStatusPredefinedStatuses": {
+        "type": "object",
+        "properties": {
+          "ocs": {
+            "type": "object",
+            "properties": {
+              "meta": {
+                "$ref": "#/components/schemas/OCSMeta"
+              },
+              "data": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/UserStatusPredefinedStatus"
+                }
+              }
+            }
+          }
+        }
+      },
+      "UserStatusPredefinedStatus": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "icon": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          },
+          "clearAt": {
+            "type": "object"
+          }
+        }
+      },
+      "UserStatusClearAt": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string"
+          },
+          "time": {
+            "type": "integer"
+          }
+        }
+      },
+      "UserStatusTypeEnum": {
+        "type": "string",
+        "enum": [
+          "online",
+          "offline",
+          "dnd",
+          "away",
+          "invisible"
+        ]
+      },
+      "UserStatusSetUserStatus": {
+        "type": "object",
+        "properties": {
+          "statusType": {
+            "$ref": "#/components/schemas/UserStatusTypeEnum"
+          }
+        }
+      },
+      "UserStatusHeartbeat": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "$ref": "#/components/schemas/UserStatusTypeEnum"
+          }
+        }
+      },
+      "UserStatusGetUserStatus": {
+        "type": "object",
+        "properties": {
+          "ocs": {
+            "type": "object",
+            "properties": {
+              "meta": {
+                "$ref": "#/components/schemas/OCSMeta"
+              },
+              "data": {
+                "$ref": "#/components/schemas/UserStatus"
+              }
+            }
+          }
+        }
+      },
+      "UserStatusFindAllStatuses": {
+        "type": "object",
+        "properties": {
+          "ocs": {
+            "type": "object",
+            "properties": {
+              "meta": {
+                "$ref": "#/components/schemas/OCSMeta"
+              },
+              "data": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/UserStatusPublicUserStatus"
+                }
+              }
+            }
+          }
+        }
+      },
+      "UserStatusFindStatus": {
+        "type": "object",
+        "properties": {
+          "ocs": {
+            "type": "object",
+            "properties": {
+              "meta": {
+                "$ref": "#/components/schemas/OCSMeta"
+              },
+              "data": {
+                "$ref": "#/components/schemas/UserStatusPublicUserStatus"
+              }
+            }
+          }
+        }
+      },
+      "UserStatus": {
+        "type": "object",
+        "properties": {
+          "userId": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          },
+          "messageId": {
+            "type": "string"
+          },
+          "messageIsPredefined": {
+            "type": "boolean"
+          },
+          "icon": {
+            "type": "string"
+          },
+          "clearAt": {
+            "type": "object"
+          },
+          "status": {
+            "$ref": "#/components/schemas/UserStatusTypeEnum"
+          },
+          "statusIsUserDefined": {
+            "type": "boolean"
+          }
+        }
+      },
+      "UserStatusPublicUserStatus": {
+        "type": "object",
+        "properties": {
+          "userId": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          },
+          "icon": {
+            "type": "string"
+          },
+          "clearAt": {
+            "type": "object"
+          },
+          "status": {
+            "$ref": "#/components/schemas/UserStatusTypeEnum"
+          }
+        }
+      },
+      "UserStatusSetPredefinedMessage": {
+        "type": "object",
+        "properties": {
+          "messageId": {
+            "type": "string"
+          },
+          "clearAt": {
+            "type": "integer"
+          }
+        }
+      },
+      "UserStatusSetCustomMessage": {
+        "type": "object",
+        "properties": {
+          "statusIcon": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          },
+          "clearAt": {
+            "type": "integer"
+          }
+        }
+      }
+    }
+  },
+  "paths": {
+    "/api/v1/statuses": {
+      "get": {
+        "operationId": "find-all-statuses",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserStatusFindAllStatuses"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/statuses/{userId}": {
+      "parameters": [
+        {
+          "name": "userId",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "get": {
+        "operationId": "find-status",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserStatusFindStatus"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/user_status": {
+      "get": {
+        "operationId": "get-status",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserStatusGetUserStatus"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/user_status/status": {
+      "put": {
+        "operationId": "set-status",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserStatusSetUserStatus"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserStatusGetUserStatus"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/user_status/message/predefined": {
+      "put": {
+        "operationId": "set-predefined-message",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserStatusSetPredefinedMessage"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserStatusGetUserStatus"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/user_status/message/custom": {
+      "put": {
+        "operationId": "set-custom-message",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserStatusSetCustomMessage"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserStatusGetUserStatus"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/user_status/message": {
+      "delete": {
+        "operationId": "clear-message",
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/api/v1/predefined_statuses": {
+      "get": {
+        "operationId": "find-all-predefined-statuses",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserStatusPredefinedStatuses"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/heartbeat": {
+      "description": "Depends on https://github.com/nextcloud/server/pull/32646",
+      "put": {
+        "operationId": "heartbeat",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserStatusHeartbeat"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    }
+  }
+}

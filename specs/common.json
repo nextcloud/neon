@@ -1,0 +1,32 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Common",
+    "version": "0.0.1"
+  },
+  "paths": {},
+  "components": {
+    "schemas": {
+      "OCSMeta": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "statuscode": {
+            "type": "integer"
+          },
+          "message": {
+            "type": "string"
+          },
+          "totalitems": {
+            "type": "integer"
+          },
+          "itemsperpage": {
+            "type": "integer"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,294 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Notes",
+    "version": "4.3.1",
+    "description": "Distraction-free notes and writing",
+    "license": {
+      "name": "agpl"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://{hostname}:{port}/apps/notes",
+      "variables": {
+        "hostname": {
+          "default": "localhost"
+        },
+        "port": {
+          "default": "8080"
+        }
+      }
+    }
+  ],
+  "security": [
+    {
+      "basic_auth": []
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "basic_auth": {
+        "type": "http",
+        "scheme": "basic"
+      }
+    },
+    "schemas": {
+      "NotesNote": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "etag": {
+            "type": "string"
+          },
+          "readonly": {
+            "type": "boolean"
+          },
+          "content": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "category": {
+            "type": "string"
+          },
+          "favorite": {
+            "type": "boolean"
+          },
+          "modified": {
+            "type": "integer"
+          },
+          "error": {
+            "type": "boolean"
+          },
+          "errorType": {
+            "type": "string"
+          }
+        }
+      },
+      "NotesSettings": {
+        "type": "object",
+        "properties": {
+          "notesPath": {
+            "type": "string"
+          },
+          "fileSuffix": {
+            "type": "string"
+          },
+          "noteMode": {
+            "type": "string",
+            "enum": [
+              "edit",
+              "preview"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "paths": {
+    "/api/v1/notes": {
+      "get": {
+        "parameters": [
+          {
+            "name": "category",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "exclude",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "pruneBefore",
+            "in": "query",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "If-None-Match",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "operationId": "get-notes",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/NotesNote"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "operationId": "create-note",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NotesNote"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NotesNote"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/notes/{id}": {
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "integer"
+          }
+        },
+        {
+          "name": "If-None-Match",
+          "in": "header",
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "get": {
+        "operationId": "get-note",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NotesNote"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "operationId": "update-note",
+        "parameters": [
+          {
+            "name": "If-Match",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NotesNote"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NotesNote"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "operationId": "delete-note",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/settings": {
+      "get": {
+        "operationId": "get-settings",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NotesSettings"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "operationId": "update-settings",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NotesSettings"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NotesSettings"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

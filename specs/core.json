@@ -1,0 +1,947 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Core",
+    "version": "24.0.2",
+    "description": "Core functionality of Nextcloud",
+    "license": {
+      "name": "agpl"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://{hostname}:{port}",
+      "variables": {
+        "hostname": {
+          "default": "localhost"
+        },
+        "port": {
+          "default": "8080"
+        }
+      }
+    }
+  ],
+  "security": [
+    {
+      "basic_auth": []
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "basic_auth": {
+        "type": "http",
+        "scheme": "basic"
+      }
+    },
+    "schemas": {
+      "OCSMeta": {
+        "deprecated": true,
+        "description": "Stub"
+      },
+      "CoreServerStatus": {
+        "type": "object",
+        "properties": {
+          "installed": {
+            "type": "boolean"
+          },
+          "maintenance": {
+            "type": "boolean"
+          },
+          "needsDbUpgrade": {
+            "type": "boolean"
+          },
+          "version": {
+            "type": "string"
+          },
+          "versionstring": {
+            "type": "string"
+          },
+          "edition": {
+            "type": "string"
+          },
+          "productname": {
+            "type": "string"
+          },
+          "extendedSupport": {
+            "type": "boolean"
+          }
+        }
+      },
+      "CoreServerCapabilities": {
+        "type": "object",
+        "properties": {
+          "ocs": {
+            "type": "object",
+            "properties": {
+              "meta": {
+                "$ref": "#/components/schemas/OCSMeta"
+              },
+              "data": {
+                "type": "object",
+                "properties": {
+                  "version": {
+                    "type": "object",
+                    "properties": {
+                      "major": {
+                        "type": "integer"
+                      },
+                      "minor": {
+                        "type": "integer"
+                      },
+                      "micro": {
+                        "type": "integer"
+                      },
+                      "string": {
+                        "type": "string"
+                      },
+                      "edition": {
+                        "type": "string"
+                      },
+                      "extendedSupport": {
+                        "type": "boolean"
+                      }
+                    }
+                  },
+                  "capabilities": {
+                    "type": "object",
+                    "properties": {
+                      "core": {
+                        "type": "object",
+                        "properties": {
+                          "pollinterval": {
+                            "type": "integer"
+                          },
+                          "webdav-root": {
+                            "type": "string"
+                          }
+                        }
+                      },
+                      "bruteforce": {
+                        "type": "object",
+                        "properties": {
+                          "delay": {
+                            "type": "integer"
+                          }
+                        }
+                      },
+                      "metadataAvailable":{
+                        "type": "object",
+                        "properties": {
+                          "size": {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            }
+                          }
+                        }
+                      },
+                      "files": {
+                        "type": "object",
+                        "properties": {
+                          "bigfilechunking": {
+                            "type": "boolean"
+                          },
+                          "blacklisted_files": {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            }
+                          },
+                          "directEditing": {
+                            "type": "object",
+                            "properties": {
+                              "url": {
+                                "type": "string"
+                              },
+                              "etag": {
+                                "type": "string"
+                              }
+                            }
+                          },
+                          "comments": {
+                            "type": "boolean"
+                          },
+                          "undelete": {
+                            "type": "boolean"
+                          },
+                          "versioning": {
+                            "type": "boolean"
+                          }
+                        }
+                      },
+                      "activity": {
+                        "type": "object",
+                        "properties": {
+                          "apiv2": {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            }
+                          }
+                        }
+                      },
+                      "circles": {
+                        "type": "object",
+                        "properties": {
+                          "version": {
+                            "type": "string"
+                          },
+                          "status": {
+                            "type": "object",
+                            "properties": {
+                              "globalScale": {
+                                "type": "boolean"
+                              }
+                            }
+                          },
+                          "settings": {
+                            "type": "object",
+                            "properties": {
+                              "frontendEnabled": {
+                                "type": "boolean"
+                              },
+                              "allowedCircles": {
+                                "type": "integer"
+                              },
+                              "allowedUserTypes": {
+                                "type": "integer"
+                              },
+                              "membersLimit": {
+                                "type": "integer"
+                              }
+                            }
+                          },
+                          "circle": {
+                            "type": "object",
+                            "properties": {
+                              "constants": {
+                                "type": "object",
+                                "properties": {
+                                  "flags": {
+                                    "type": "object"
+                                  },
+                                  "source": {
+                                    "type": "object",
+                                    "properties": {
+                                      "core": {
+                                        "type": "object"
+                                      },
+                                      "extra": {
+                                        "type": "object"
+                                      }
+                                    }
+                                  }
+                                }
+                              },
+                              "config": {
+                                "type": "object",
+                                "properties": {
+                                  "coreFlags": {
+                                    "type": "array",
+                                    "items": {
+                                      "type": "integer"
+                                    }
+                                  },
+                                  "systemFlags": {
+                                    "type": "array",
+                                    "items": {
+                                      "type": "integer"
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          "member": {
+                            "type": "object",
+                            "properties": {
+                              "constants": {
+                                "type": "object",
+                                "properties": {
+                                  "level": {
+                                    "type": "object"
+                                  }
+                                }
+                              },
+                              "type": {
+                                "type": "object"
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "ocm": {
+                        "type": "object",
+                        "properties": {
+                          "enabled": {
+                            "type": "boolean"
+                          },
+                          "apiVersion": {
+                            "type": "string"
+                          },
+                          "endPoint": {
+                            "type": "string"
+                          },
+                          "resourceTypes": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "name": {
+                                  "type": "string"
+                                },
+                                "shareTypes": {
+                                  "type": "array",
+                                  "items": {
+                                    "type": "string"
+                                  }
+                                },
+                                "protocols": {
+                                  "type": "object",
+                                  "properties": {
+                                    "webdav": {
+                                      "type": "string"
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "dav": {
+                        "type": "object",
+                        "properties": {
+                          "chunking": {
+                            "type": "string"
+                          }
+                        }
+                      },
+                      "files_sharing": {
+                        "type": "object",
+                        "properties": {
+                          "api_enabled": {
+                            "type": "boolean"
+                          },
+                          "public": {
+                            "type": "object",
+                            "properties": {
+                              "enabled": {
+                                "type": "boolean"
+                              },
+                              "password": {
+                                "type": "object",
+                                "properties": {
+                                  "enforced": {
+                                    "type": "boolean"
+                                  },
+                                  "askForOptionalPassword": {
+                                    "type": "boolean"
+                                  }
+                                }
+                              },
+                              "expire_date": {
+                                "type": "object",
+                                "properties": {
+                                  "enabled": {
+                                    "type": "boolean"
+                                  }
+                                }
+                              },
+                              "multiple_links": {
+                                "type": "boolean"
+                              },
+                              "expire_date_internal": {
+                                "type": "object",
+                                "properties": {
+                                  "enabled": {
+                                    "type": "boolean"
+                                  }
+                                }
+                              },
+                              "expire_date_remote": {
+                                "type": "object",
+                                "properties": {
+                                  "enabled": {
+                                    "type": "boolean"
+                                  }
+                                }
+                              },
+                              "send_mail": {
+                                "type": "boolean"
+                              },
+                              "upload": {
+                                "type": "boolean"
+                              },
+                              "upload_files_drop": {
+                                "type": "boolean"
+                              }
+                            }
+                          },
+                          "resharing": {
+                            "type": "boolean"
+                          },
+                          "user": {
+                            "type": "object",
+                            "properties": {
+                              "send_mail": {
+                                "type": "boolean"
+                              },
+                              "expire_date": {
+                                "type": "object",
+                                "properties": {
+                                  "enabled": {
+                                    "type": "boolean"
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          "group_sharing": {
+                            "type": "boolean"
+                          },
+                          "group": {
+                            "type": "object",
+                            "properties": {
+                              "enabled": {
+                                "type": "boolean"
+                              },
+                              "expire_date": {
+                                "type": "object",
+                                "properties": {
+                                  "enabled": {
+                                    "type": "boolean"
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          "default_permissions": {
+                            "type": "integer"
+                          },
+                          "federation": {
+                            "type": "object",
+                            "properties": {
+                              "outgoing": {
+                                "type": "boolean"
+                              },
+                              "incoming": {
+                                "type": "boolean"
+                              },
+                              "expire_date": {
+                                "type": "object",
+                                "properties": {
+                                  "enabled": {
+                                    "type": "boolean"
+                                  }
+                                }
+                              },
+                              "expire_date_supported": {
+                                "type": "object",
+                                "properties": {
+                                  "enabled": {
+                                    "type": "boolean"
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          "sharee": {
+                            "type": "object",
+                            "properties": {
+                              "query_lookup_default": {
+                                "type": "boolean"
+                              },
+                              "always_show_unique": {
+                                "type": "boolean"
+                              }
+                            }
+                          },
+                          "sharebymail": {
+                            "type": "object",
+                            "properties": {
+                              "enabled": {
+                                "type": "boolean"
+                              },
+                              "send_password_by_mail": {
+                                "type": "boolean"
+                              },
+                              "upload_files_drop": {
+                                "type": "object",
+                                "properties": {
+                                  "enabled": {
+                                    "type": "boolean"
+                                  }
+                                }
+                              },
+                              "password": {
+                                "type": "object",
+                                "properties": {
+                                  "enabled": {
+                                    "type": "boolean"
+                                  },
+                                  "enforced": {
+                                    "type": "boolean"
+                                  }
+                                }
+                              },
+                              "expire_date": {
+                                "type": "object",
+                                "properties": {
+                                  "enabled": {
+                                    "type": "boolean"
+                                  },
+                                  "enforced": {
+                                    "type": "boolean"
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "notes": {
+                        "type": "object",
+                        "properties": {
+                          "api_version": {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            }
+                          },
+                          "version": {
+                            "type": "string"
+                          }
+                        }
+                      },
+                      "notifications": {
+                        "type": "object",
+                        "properties": {
+                          "ocs-endpoints": {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            }
+                          },
+                          "push": {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            }
+                          },
+                          "admin-notifications": {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            }
+                          }
+                        }
+                      },
+                      "password_policy": {
+                        "type": "object",
+                        "properties": {
+                          "minLength": {
+                            "type": "integer"
+                          },
+                          "enforceNonCommonPassword": {
+                            "type": "boolean"
+                          },
+                          "enforceNumericCharacters": {
+                            "type": "boolean"
+                          },
+                          "enforceSpecialCharacters": {
+                            "type": "boolean"
+                          },
+                          "enforceUpperLowerCase": {
+                            "type": "boolean"
+                          },
+                          "api": {
+                            "type": "object",
+                            "properties": {
+                              "generate": {
+                                "type": "string"
+                              },
+                              "validate": {
+                                "type": "string"
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "provisioning_api": {
+                        "type": "object",
+                        "properties": {
+                          "version": {
+                            "type": "string"
+                          },
+                          "AccountPropertyScopesVersion": {
+                            "type": "integer"
+                          },
+                          "AccountPropertyScopesFederatedEnabled": {
+                            "type": "boolean"
+                          },
+                          "AccountPropertyScopesPublishedEnabled": {
+                            "type": "boolean"
+                          }
+                        }
+                      },
+                      "theming": {
+                        "type": "object",
+                        "properties": {
+                          "name": {
+                            "type": "string"
+                          },
+                          "url": {
+                            "type": "string"
+                          },
+                          "slogan": {
+                            "type": "string"
+                          },
+                          "color": {
+                            "type": "string"
+                          },
+                          "color-text": {
+                            "type": "string"
+                          },
+                          "color-element": {
+                            "type": "string"
+                          },
+                          "color-element-bright": {
+                            "type": "string"
+                          },
+                          "color-element-dark": {
+                            "type": "string"
+                          },
+                          "logo": {
+                            "type": "string"
+                          },
+                          "background": {
+                            "type": "string"
+                          },
+                          "background-plain": {
+                            "type": "boolean"
+                          },
+                          "background-default": {
+                            "type": "boolean"
+                          },
+                          "logoheader": {
+                            "type": "string"
+                          },
+                          "favicon": {
+                            "type": "string"
+                          }
+                        }
+                      },
+                      "user_status": {
+                        "type": "object",
+                        "properties": {
+                          "enabled": {
+                            "type": "boolean"
+                          },
+                          "supports_emoji": {
+                            "type": "boolean"
+                          }
+                        }
+                      },
+                      "weather_status": {
+                        "type": "object",
+                        "properties": {
+                          "enabled": {
+                            "type": "boolean"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "CoreNavigationApps": {
+        "type": "object",
+        "properties": {
+          "ocs": {
+            "type": "object",
+            "properties": {
+              "meta": {
+                "$ref": "#/components/schemas/OCSMeta"
+              },
+              "data": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "order": {
+                      "type": "object",
+                      "description": "Can either be a string or integer, see bug report https://github.com/nextcloud/server/issues/32828"
+                    },
+                    "href": {
+                      "type": "string"
+                    },
+                    "icon": {
+                      "type": "string"
+                    },
+                    "type": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "active": {
+                      "type": "boolean"
+                    },
+                    "classes": {
+                      "type": "string"
+                    },
+                    "unread": {
+                      "type": "integer"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "CoreLoginFlowInit": {
+        "type": "object",
+        "properties": {
+          "poll": {
+            "type": "object",
+            "properties": {
+              "token": {
+                "type": "string"
+              },
+              "endpoint": {
+                "type": "string"
+              }
+            }
+          },
+          "login": {
+            "type": "string"
+          }
+        }
+      },
+      "CoreLoginFlowQuery": {
+        "type": "object",
+        "properties": {
+          "token": {
+            "type": "string"
+          }
+        }
+      },
+      "CoreLoginFlowResult": {
+        "type": "object",
+        "properties": {
+          "server": {
+            "type": "string"
+          },
+          "loginName": {
+            "type": "string"
+          },
+          "appPassword": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "paths": {
+    "/status.php": {
+      "get": {
+        "operationId": "get-status",
+        "responses": {
+          "200": {
+            "description": "Status of the Nextcloud instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CoreServerStatus"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ocs/v1.php/cloud/capabilities": {
+      "get": {
+        "operationId": "get-capabilities",
+        "responses": {
+          "200": {
+            "description": "Capabilities of the Nextcloud instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CoreServerCapabilities"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ocs/v1.php/core/navigation/apps": {
+      "get": {
+        "operationId": "get-navigation-apps",
+        "responses": {
+          "200": {
+            "description": "Navigation apps of the Nextcloud instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CoreNavigationApps"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/login/v2": {
+      "post": {
+        "operationId": "init-login-flow",
+        "responses": {
+          "200": {
+            "description": "Login flow init",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CoreLoginFlowInit"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/login/v2/poll": {
+      "post": {
+        "operationId": "get-login-flow-result",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CoreLoginFlowQuery"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Login flow result",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CoreLoginFlowResult"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/core/preview.png": {
+      "parameters": [
+        {
+          "name": "file",
+          "in": "query",
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "x",
+          "in": "query",
+          "schema": {
+            "type": "integer"
+          }
+        },
+        {
+          "name": "y",
+          "in": "query",
+          "schema": {
+            "type": "integer"
+          }
+        },
+        {
+          "name": "mode",
+          "in": "query",
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "forceIcon",
+          "in": "query",
+          "schema": {
+            "type": "boolean"
+          }
+        },
+        {
+          "name": "a",
+          "in": "query",
+          "schema": {
+            "type": "boolean"
+          }
+        }
+      ],
+      "get": {
+        "operationId": "get-preview",
+        "responses": {
+          "200": {
+            "description": "Preview image of a file",
+            "content": {
+              "image/png": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/avatar/{userId}/{size}": {
+      "parameters": [
+        {
+          "name": "userId",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "size",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "integer"
+          }
+        }
+      ],
+      "get": {
+        "operationId": "get-avatar",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

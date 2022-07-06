@@ -1,0 +1,38 @@
+import 'package:nextcloud/nextcloud.dart';
+import 'package:test/test.dart';
+
+import 'helper.dart';
+
+Future main() async {
+  final dockerImageName = await TestHelper.prepareDockerImage();
+
+  group('client', () {
+    late TestNextcloudClient client;
+    tearDown(() => client.destroy());
+
+    test('User-Agent from AppType', () async {
+      client = await TestHelper.getPreparedClient(
+        dockerImageName,
+        appType: AppType.nextcloud,
+      );
+      expect(client.userAgent, AppType.nextcloud.userAgent);
+    });
+
+    test('User-Agent with suffix', () async {
+      client = await TestHelper.getPreparedClient(
+        dockerImageName,
+        userAgentSuffix: 'test',
+      );
+      expect(client.userAgent, 'test');
+    });
+
+    test('User-Agent from AppType with suffix', () async {
+      client = await TestHelper.getPreparedClient(
+        dockerImageName,
+        appType: AppType.nextcloud,
+        userAgentSuffix: ' test',
+      );
+      expect(client.userAgent, '${AppType.nextcloud.userAgent} test');
+    });
+  });
+}

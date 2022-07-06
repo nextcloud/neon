@@ -1,0 +1,202 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "User status",
+    "version": "1.4.0",
+    "description": "User status",
+    "license": {
+      "name": "agpl"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://{hostname}:{port}",
+      "variables": {
+        "hostname": {
+          "default": "localhost"
+        },
+        "port": {
+          "default": "8080"
+        }
+      }
+    }
+  ],
+  "security": [
+    {
+      "basic_auth": []
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "basic_auth": {
+        "type": "http",
+        "scheme": "basic"
+      }
+    }
+  },
+  "paths": {
+    "/ocs/v1.php/apps/user_status/api/v1/statuses": {
+      "get": {
+        "operationId": "statuses-findall-TODO",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ocs/v1.php/apps/user_status/api/v1/statuses/{userId}": {
+      "parameters": [
+        {
+          "name": "userId",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "get": {
+        "operationId": "statuses-find-TODO",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ocs/v1.php/apps/user_status/api/v1/user_status": {
+      "get": {
+        "operationId": "userstatus-getstatus-TODO",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ocs/v1.php/apps/user_status/api/v1/user_status/status": {
+      "put": {
+        "operationId": "userstatus-setstatus-TODO",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ocs/v1.php/apps/user_status/api/v1/user_status/message/predefined": {
+      "put": {
+        "operationId": "userstatus-setpredefinedmessage-TODO",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ocs/v1.php/apps/user_status/api/v1/user_status/message/custom": {
+      "put": {
+        "operationId": "userstatus-setcustommessage-TODO",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ocs/v1.php/apps/user_status/api/v1/user_status/message": {
+      "delete": {
+        "operationId": "userstatus-clearmessage-TODO",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ocs/v1.php/apps/user_status/api/v1/predefined_statuses": {
+      "get": {
+        "operationId": "predefinedstatus-findall-TODO",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/apps/user_status/heartbeat": {
+      "put": {
+        "operationId": "heartbeat-heartbeat-TODO",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
