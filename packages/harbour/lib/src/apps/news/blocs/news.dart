@@ -187,7 +187,7 @@ class NewsBloc extends $NewsBloc {
           'news-folders',
           () async => (await client.news.listFolders())!,
           (final response) => response.folders,
-          previousData: _foldersSubject.hasValue ? _foldersSubject.value.data : null,
+          previousData: _foldersSubject.valueOrNull?.data,
         )
         .listen(_foldersSubject.add);
   }
@@ -203,7 +203,7 @@ class NewsBloc extends $NewsBloc {
         _newestItemId = response.newestItemId;
         return response.feeds;
       },
-      previousData: _feedsSubject.hasValue ? _feedsSubject.value.data : null,
+      previousData: _feedsSubject.valueOrNull?.data,
     ).listen(_feedsSubject.add);
   }
 

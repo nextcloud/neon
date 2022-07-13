@@ -157,7 +157,7 @@ class NewsArticlesBloc extends $NewsArticlesBloc {
             getRead: getRead,
           ))!,
           (final response) => response.items,
-          previousData: _articlesSubject.hasValue ? _articlesSubject.value.data : null,
+          previousData: _articlesSubject.valueOrNull?.data,
         )
         .listen(_articlesSubject.add);
   }

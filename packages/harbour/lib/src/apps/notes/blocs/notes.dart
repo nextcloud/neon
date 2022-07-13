@@ -77,7 +77,7 @@ class NotesBloc extends $NotesBloc {
           'notes-notes',
           () async => (await client.notes.getNotes())!,
           (final response) => response,
-          previousData: _notesSubject.hasValue ? _notesSubject.value.data : null,
+          previousData: _notesSubject.valueOrNull?.data,
         )
         .listen(_notesSubject.add);
   }
