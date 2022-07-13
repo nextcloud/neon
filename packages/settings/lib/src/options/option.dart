@@ -1,5 +1,7 @@
 part of '../../settings.dart';
 
+class OptionDisableException implements Exception {}
+
 abstract class Option<T> {
   Option({
     required this.storage,
@@ -24,7 +26,13 @@ abstract class Option<T> {
   late final BehaviorSubject<bool> enabled;
 
   late BehaviorSubject<T> stream;
-  T get value => stream.value ?? defaultValue.value;
+  T get value {
+    if (!enabled.value) {
+      throw OptionDisableException();
+    }
+
+    return stream.value ?? defaultValue.value;
+  }
 
   void dispose() {
     // ignore: discarded_futures
