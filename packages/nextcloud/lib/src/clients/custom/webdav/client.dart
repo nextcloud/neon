@@ -30,12 +30,6 @@ class WebDavClient {
     'http://sabredav.org/ns': 's', // mostly used in error responses
   };
 
-  Future<Uint8List> _responseToBodyBytes(final HttpClientResponse response) async =>
-      Uint8List.fromList((await response.toList()).reduce((final value, final element) => [...value, ...element]));
-
-  Future<String> _responseToBodyString(final HttpClientResponse response) async =>
-      utf8.decode(await _responseToBodyBytes(response));
-
   Future<HttpClientResponse> _send(
     final String method,
     final String url,
@@ -66,7 +60,7 @@ class WebDavClient {
     if (!expectedCodes.contains(response.statusCode)) {
       throw ApiException(
         response.statusCode,
-        await _responseToBodyString(response),
+        await response.body,
       );
     }
 
@@ -233,7 +227,7 @@ class WebDavClient {
     return treeFromWebDavXml(
       basePath,
       namespaces,
-      await _responseToBodyString(response),
+      await response.body,
     )..removeAt(0);
   }
 
@@ -284,7 +278,7 @@ class WebDavClient {
     return treeFromWebDavXml(
       basePath,
       namespaces,
-      await _responseToBodyString(response),
+      await response.body,
     );
   }
 
@@ -306,7 +300,7 @@ class WebDavClient {
     return fileFromWebDavXml(
       basePath,
       namespaces,
-      await _responseToBodyString(response),
+      await response.body,
     );
   }
 
@@ -350,7 +344,7 @@ class WebDavClient {
       [200, 207],
       data: Stream.value(Uint8List.fromList(utf8.encode(builder.buildDocument().toString()))),
     );
-    return checkUpdateFromWebDavXml(await _responseToBodyString(response));
+    return checkUpdateFromWebDavXml(await response.body);
   }
 
   /// Move a file from [sourcePath] to [destinationPath]

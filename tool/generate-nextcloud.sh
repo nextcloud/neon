@@ -99,6 +99,7 @@ mkdir -p /tmp/nextcloud-harbour
 
 spec_templates_generate external/nextcloud-news false
 spec_templates_generate external/nextcloud-notes false
+spec_templates_generate external/nextcloud-notifications false
 spec_templates_generate external/nextcloud-server/apps/provisioning_api false
 spec_templates_generate external/nextcloud-server/apps/user_status false
 spec_templates_generate external/nextcloud-server/core true
@@ -107,6 +108,7 @@ openapi_generate "common" true
 openapi_generate "core" false
 openapi_generate "news" false
 openapi_generate "notes" false
+openapi_generate "notifications" false
 openapi_generate "provisioning_api" false
 openapi_generate "user_status" false
 
