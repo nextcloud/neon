@@ -136,10 +136,14 @@ class TestHelper {
     final String dockerImageName, {
     final String? username = defaultUsername,
     final String? password = defaultPassword,
+    final bool useAppPassword = false,
     final AppType appType = AppType.unknown,
     final String? userAgentSuffix,
   }) async {
-    final port = 1024 + Random().nextInt(65535 - 1024);
+    // ignore: prefer_asserts_with_message
+    assert(!useAppPassword || (username != null && password != null));
+
+    final port = randomPort();
 
     final result = await runExecutableArguments(
       'docker',
@@ -149,6 +153,8 @@ class TestHelper {
         '-d',
         '-p',
         '$port:80',
+        '--add-host',
+        'host.docker.internal:host-gateway',
         dockerImageName,
       ],
     );
@@ -159,11 +165,38 @@ class TestHelper {
 
     final containerID = result.stdout.toString().replaceAll('\n', '');
 
+    var clientPassword = password;
+    if (useAppPassword) {
+      final inputStream = StreamController<List<int>>();
+      final process = runExecutableArguments(
+        'docker',
+        [
+          'exec',
+          '-i',
+          containerID,
+          'php',
+          '-f',
+          'occ',
+          'user:add-app-password',
+          username!,
+        ],
+        stdin: inputStream.stream,
+      );
+      inputStream.add(utf8.encode(password!));
+      await inputStream.close();
+
+      final result = await process;
+      if (result.exitCode != 0) {
+        throw Exception('Failed to run generate app password command\n${result.stderr}\n${result.stdout}');
+      }
+      clientPassword = (result.stdout as String).split('\n')[1];
+    }
+
     final client = TestNextcloudClient(
       'http://localhost:$port',
       containerID,
       username: username,
-      password: password,
+      password: clientPassword,
       appType: appType,
       userAgentSuffix: userAgentSuffix,
     );
@@ -222,6 +255,9 @@ class TestDockerHelper {
           generateInstallAppInstruction(app),
         ],
       ],
+      // Required to workaround restrictions for localhost and http only push proxies
+      'RUN ./occ config:system:set allow_local_remote_servers --value=true',
+      'RUN sed -i "s/localhost/host.docker.internal/" /usr/src/nextcloud/apps/notifications/lib/Controller/PushController.php',
       'ADD overlay /usr/src/nextcloud/',
       '',
     ];
@@ -292,4 +328,12 @@ extension ListExtension on List {
 
 extension MapExtension on Map<String, dynamic> {
   Map removeNulls() => removeNullsFromMap(this);
+}
+
+int randomPort() => 1024 + Random().nextInt(65535 - 1024);
+
+void expectDateInReasonableTimeRange(final DateTime actual, final DateTime expected) {
+  const duration = Duration(seconds: 5);
+  expect(actual.isAfter(expected.subtract(duration)), isTrue);
+  expect(actual.isBefore(expected.add(duration)), isTrue);
 }

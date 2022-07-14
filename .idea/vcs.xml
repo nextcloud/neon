@@ -4,6 +4,7 @@
     <mapping directory="" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/external/nextcloud-news" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/external/nextcloud-notes" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/external/nextcloud-notifications" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/external/nextcloud-server" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/external/openapi-generator" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/external/seti-ui" vcs="Git" />

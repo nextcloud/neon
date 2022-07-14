@@ -1,0 +1,389 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Notifications",
+    "version": "2.12.0",
+    "description": "This app provides a backend and frontend for the notification API available in Nextcloud.",
+    "license": {
+      "name": "agpl"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://{hostname}:{port}/ocs/v1.php/apps/notifications",
+      "variables": {
+        "hostname": {
+          "default": "localhost"
+        },
+        "port": {
+          "default": "8080"
+        }
+      }
+    }
+  ],
+  "security": [
+    {
+      "basic_auth": []
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "basic_auth": {
+        "type": "http",
+        "scheme": "basic"
+      }
+    },
+    "schemas": {
+      "OCSMeta": {
+        "deprecated": true,
+        "description": "Stub"
+      },
+      "AdminNotification": {
+        "type": "object",
+        "properties": {
+          "shortMessage": {
+            "type": "string"
+          },
+          "longMessage": {
+            "type": "string"
+          }
+        }
+      },
+      "EmptyResponse": {
+        "type": "object",
+        "properties": {
+          "ocs": {
+            "type": "object",
+            "properties": {
+              "meta": {
+                "$ref": "#/components/schemas/OCSMeta"
+              },
+              "data": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      },
+      "Notification": {
+        "type": "object",
+        "properties": {
+          "notification_id": {
+            "type": "integer"
+          },
+          "app": {
+            "type": "string"
+          },
+          "user": {
+            "type": "string"
+          },
+          "datetime": {
+            "type": "string"
+          },
+          "object_type": {
+            "type": "string"
+          },
+          "object_id": {
+            "type": "string"
+          },
+          "subject": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          },
+          "link": {
+            "type": "string"
+          },
+          "subjectRich": {
+            "type": "string"
+          },
+          "subjectRichParameters": {
+            "type": "array",
+            "items": {
+              "description": "TODO",
+              "type": "string"
+            }
+          },
+          "messageRich": {
+            "type": "string"
+          },
+          "messageRichParameters": {
+            "type": "array",
+            "items": {
+              "description": "TODO",
+              "type": "string"
+            }
+          },
+          "icon": {
+            "type": "string"
+          },
+          "actions": {
+            "type": "array",
+            "items": {
+              "description": "TODO",
+              "type": "string"
+            }
+          }
+        }
+      },
+      "ListNotificationsResponse": {
+        "type": "object",
+        "properties": {
+          "ocs": {
+            "type": "object",
+            "properties": {
+              "meta": {
+                "$ref": "#/components/schemas/OCSMeta"
+              },
+              "data": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Notification"
+                }
+              }
+            }
+          }
+        }
+      },
+      "GetNotificationResponse": {
+        "type": "object",
+        "properties": {
+          "ocs": {
+            "type": "object",
+            "properties": {
+              "meta": {
+                "$ref": "#/components/schemas/OCSMeta"
+              },
+              "data": {
+                "$ref": "#/components/schemas/Notification"
+              }
+            }
+          }
+        }
+      },
+      "PushServerDevice": {
+        "type": "object",
+        "properties": {
+          "pushTokenHash": {
+            "type": "string"
+          },
+          "devicePublicKey": {
+            "type": "string"
+          },
+          "proxyServer": {
+            "type": "string"
+          }
+        }
+      },
+      "PushServerSubscription": {
+        "type": "object",
+        "properties": {
+          "publicKey": {
+            "type": "string"
+          },
+          "deviceIdentifier": {
+            "type": "string"
+          },
+          "signature": {
+            "type": "string"
+          }
+        }
+      },
+      "PushServerRegistrationResponse": {
+        "type": "object",
+        "properties": {
+          "ocs": {
+            "type": "object",
+            "properties": {
+              "meta": {
+                "$ref": "#/components/schemas/OCSMeta"
+              },
+              "data": {
+                "$ref": "#/components/schemas/PushServerSubscription"
+              }
+            }
+          }
+        }
+      },
+      "PushNotificationDecryptedSubject": {
+        "type": "object",
+        "properties": {
+          "nid": {
+            "type": "integer"
+          },
+          "app": {
+            "type": "string"
+          },
+          "subject": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "paths": {
+    "/api/v2/notifications": {
+      "get": {
+        "operationId": "list-notifications",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "operationId": "delete-all-notifications",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v2/notifications/{id}": {
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "integer"
+          }
+        }
+      ],
+      "get": {
+        "operationId": "get-notification",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetNotificationResponse"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "operationId": "delete-notification",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EmptyResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v2/push": {
+      "post": {
+        "operationId": "register-device",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PushServerDevice"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PushServerRegistrationResponse"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "operationId": "remove-device",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v2/admin_notifications/{userId}": {
+      "parameters": [
+        {
+          "name": "userId",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "post": {
+        "operationId": "send-admin-notification",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AdminNotification"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EmptyResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -43,8 +43,7 @@ Future main() async {
       final file = files.singleWhere((final f) => f.name == 'Nextcloud.png');
       expect(file.hasPreview, isTrue);
       expect(file.mimeType, 'image/png');
-      expect(file.lastModified!.isBefore(DateTime.now()), isTrue);
-      expect(file.lastModified!.isAfter(DateTime.now().subtract(const Duration(seconds: 5))), isTrue);
+      expectDateInReasonableTimeRange(file.lastModified!, DateTime.now());
       expect(file.size!, 50598);
     });
 
@@ -154,8 +153,7 @@ Future main() async {
       );
       expect(file.hasPreview, isTrue);
       expect(file.mimeType, 'image/png');
-      expect(file.lastModified!.isBefore(DateTime.now()), isTrue);
-      expect(file.lastModified!.isAfter(DateTime.now().subtract(const Duration(seconds: 5))), isTrue);
+      expectDateInReasonableTimeRange(file.lastModified!, DateTime.now());
       expect(file.size!, 50598);
     });
 
@@ -176,8 +174,7 @@ Future main() async {
       expect(file.isDirectory, isTrue);
       expect(file.name, 'test');
       expect(file.mimeType, null);
-      expect(file.lastModified!.isBefore(DateTime.now()), isTrue);
-      expect(file.lastModified!.isAfter(DateTime.now().subtract(const Duration(seconds: 5))), isTrue);
+      expectDateInReasonableTimeRange(file.lastModified!, DateTime.now());
       expect(file.size!, data.lengthInBytes);
     });
 
@@ -225,8 +222,7 @@ Future main() async {
       );
       expect(file.favorite, isTrue);
       expect(file.createdDate!.isAtSameMomentAs(createdDate), isTrue);
-      expect(file.uploadedDate!.isAfter(uploadTime), isTrue);
-      expect(file.uploadedDate!.isBefore(DateTime.now()), isTrue);
+      expectDateInReasonableTimeRange(file.uploadedDate!, uploadTime);
     });
 
     test('Set custom properties', () async {

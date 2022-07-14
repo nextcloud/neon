@@ -29,6 +29,11 @@ class NextcloudClient {
       authentication,
       _addCommonSettings,
     );
+    _notifications = NextcloudNotificationsClient(
+      baseURL,
+      authentication,
+      _addCommonSettings,
+    );
     _provisioningApi = NextcloudProvisioningApiClient(
       baseURL,
       authentication,
@@ -103,6 +108,7 @@ class NextcloudClient {
   late NextcloudCoreClient _core;
   late NextcloudNewsClient _news;
   late NextcloudNotesClient _notes;
+  late NextcloudNotificationsClient _notifications;
   late NextcloudProvisioningApiClient _provisioningApi;
   late NextcloudUserStatusClient _userStatus;
 
@@ -117,6 +123,9 @@ class NextcloudClient {
 
   /// Client for Nextcloud Notes app
   NextcloudNotesClient get notes => _notes;
+
+  /// Client for Nextcloud Notifications API
+  NextcloudNotificationsClient get notifications => _notifications;
 
   /// Client for Provisioning APIs
   NextcloudProvisioningApiClient get provisioningApi => _provisioningApi;
