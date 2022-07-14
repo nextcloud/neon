@@ -73,6 +73,9 @@ class _NotesNotePageState extends State<NotesNotePage> {
     });
 
     WidgetsBinding.instance.addPostFrameCallback((final _) {
+      if (Provider.of<HarbourPlatform>(context, listen: false).canUseWakelock) {
+        Wakelock.enable();
+      }
       if (widget.bloc.options.defaultNoteViewTypeOption.value == DefaultNoteViewType.edit ||
           widget.note.content!.isEmpty) {
         setState(() {
@@ -94,6 +97,10 @@ class _NotesNotePageState extends State<NotesNotePage> {
     return WillPopScope(
       onWillPop: () async {
         _update();
+
+        if (Provider.of<HarbourPlatform>(context, listen: false).canUseWakelock) {
+          await Wakelock.disable();
+        }
         return true;
       },
       child: Scaffold(

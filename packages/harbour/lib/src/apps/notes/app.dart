@@ -9,11 +9,13 @@ import 'package:harbour/src/harbour.dart';
 import 'package:intersperse/intersperse.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:nextcloud/nextcloud.dart';
+import 'package:provider/provider.dart';
 import 'package:rxdart/rxdart.dart';
 import 'package:settings/settings.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:sort_box/sort_box.dart';
 import 'package:url_launcher/url_launcher_string.dart';
+import 'package:wakelock/wakelock.dart';
 
 part 'dialogs/create_note.dart';
 part 'dialogs/select_category.dart';
