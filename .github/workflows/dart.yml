@@ -35,16 +35,16 @@ jobs:
       - name: mono_repo self validate
         run: dart pub global run mono_repo generate --validate
   job_002:
-    name: "analyze; PKGS: packages/file_icons, packages/harbour, packages/nextcloud, packages/settings, packages/sort_box, packages/spec_templates; `dart format --output=none --set-exit-if-changed --line-length 120 .`"
+    name: "analyze; PKGS: packages/file_icons, packages/harbour, packages/nextcloud, packages/nextcloud_push_proxy, packages/settings, packages/sort_box, packages/spec_templates; `dart format --output=none --set-exit-if-changed --line-length 120 .`"
     runs-on: ubuntu-latest
     steps:
       - name: Cache Pub hosted dependencies
         uses: actions/cache@4504faf7e9bcf8f3ed0bc863c4e1d21499ab8ef8
         with:
           path: "~/.pub-cache/hosted"
-          key: "os:ubuntu-latest;pub-cache-hosted;sdk:stable;packages:packages/file_icons-packages/harbour-packages/nextcloud-packages/settings-packages/sort_box-packages/spec_templates;commands:format"
+          key: "os:ubuntu-latest;pub-cache-hosted;sdk:stable;packages:packages/file_icons-packages/harbour-packages/nextcloud-packages/nextcloud_push_proxy-packages/settings-packages/sort_box-packages/spec_templates;commands:format"
           restore-keys: |
-            os:ubuntu-latest;pub-cache-hosted;sdk:stable;packages:packages/file_icons-packages/harbour-packages/nextcloud-packages/settings-packages/sort_box-packages/spec_templates
+            os:ubuntu-latest;pub-cache-hosted;sdk:stable;packages:packages/file_icons-packages/harbour-packages/nextcloud-packages/nextcloud_push_proxy-packages/settings-packages/sort_box-packages/spec_templates
             os:ubuntu-latest;pub-cache-hosted;sdk:stable
             os:ubuntu-latest;pub-cache-hosted
             os:ubuntu-latest
@@ -79,6 +79,15 @@ jobs:
       - name: "packages/nextcloud; dart format --output=none --set-exit-if-changed --line-length 120 ."
         if: "always() && steps.packages_nextcloud_pub_upgrade.conclusion == 'success'"
         working-directory: packages/nextcloud
+        run: "dart format --output=none --set-exit-if-changed --line-length 120 ."
+      - id: packages_nextcloud_push_proxy_pub_upgrade
+        name: packages/nextcloud_push_proxy; flutter pub pub upgrade
+        if: "always() && steps.checkout.conclusion == 'success'"
+        working-directory: packages/nextcloud_push_proxy
+        run: flutter pub pub upgrade
+      - name: "packages/nextcloud_push_proxy; dart format --output=none --set-exit-if-changed --line-length 120 ."
+        if: "always() && steps.packages_nextcloud_push_proxy_pub_upgrade.conclusion == 'success'"
+        working-directory: packages/nextcloud_push_proxy
         run: "dart format --output=none --set-exit-if-changed --line-length 120 ."
       - id: packages_settings_pub_upgrade
         name: packages/settings; flutter pub pub upgrade
@@ -158,16 +167,16 @@ jobs:
     needs:
       - job_001
   job_004:
-    name: "analyze; PKGS: packages/nextcloud, packages/sort_box, packages/spec_templates; `dart analyze`"
+    name: "analyze; PKGS: packages/nextcloud, packages/nextcloud_push_proxy, packages/sort_box, packages/spec_templates; `dart analyze`"
     runs-on: ubuntu-latest
     steps:
       - name: Cache Pub hosted dependencies
         uses: actions/cache@4504faf7e9bcf8f3ed0bc863c4e1d21499ab8ef8
         with:
           path: "~/.pub-cache/hosted"
-          key: "os:ubuntu-latest;pub-cache-hosted;sdk:stable;packages:packages/nextcloud-packages/sort_box-packages/spec_templates;commands:analyze_1"
+          key: "os:ubuntu-latest;pub-cache-hosted;sdk:stable;packages:packages/nextcloud-packages/nextcloud_push_proxy-packages/sort_box-packages/spec_templates;commands:analyze_1"
           restore-keys: |
-            os:ubuntu-latest;pub-cache-hosted;sdk:stable;packages:packages/nextcloud-packages/sort_box-packages/spec_templates
+            os:ubuntu-latest;pub-cache-hosted;sdk:stable;packages:packages/nextcloud-packages/nextcloud_push_proxy-packages/sort_box-packages/spec_templates
             os:ubuntu-latest;pub-cache-hosted;sdk:stable
             os:ubuntu-latest;pub-cache-hosted
             os:ubuntu-latest
@@ -184,6 +193,15 @@ jobs:
       - name: packages/nextcloud; dart analyze
         if: "always() && steps.packages_nextcloud_pub_upgrade.conclusion == 'success'"
         working-directory: packages/nextcloud
+        run: dart analyze
+      - id: packages_nextcloud_push_proxy_pub_upgrade
+        name: packages/nextcloud_push_proxy; dart pub upgrade
+        if: "always() && steps.checkout.conclusion == 'success'"
+        working-directory: packages/nextcloud_push_proxy
+        run: dart pub upgrade
+      - name: packages/nextcloud_push_proxy; dart analyze
+        if: "always() && steps.packages_nextcloud_push_proxy_pub_upgrade.conclusion == 'success'"
+        working-directory: packages/nextcloud_push_proxy
         run: dart analyze
       - id: packages_sort_box_pub_upgrade
         name: packages/sort_box; dart pub upgrade

@@ -44,6 +44,11 @@
       <excludeFolder url="file://$MODULE_DIR$/external" />
       <excludeFolder url="file://$MODULE_DIR$/packages/nextcloud/lib/src/clients/common" />
       <excludeFolder url="file://$MODULE_DIR$/packages/nextcloud/lib/src/clients/generated" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/harbour/android/.gradle" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/harbour/linux/flutter/ephemeral" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/nextcloud_push_proxy/build" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/nextcloud_push_proxy/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/nextcloud_push_proxy/.pub" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
