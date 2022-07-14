@@ -31,7 +31,9 @@ Future main() async {
 
   final sharedPreferences = await SharedPreferences.getInstance();
 
-  final requestManager = RequestManager(platform);
+  final cache = Cache(platform);
+  await cache.init();
+  final requestManager = RequestManager(cache);
 
   final globalOptions = GlobalOptions(
     Storage('global', sharedPreferences),

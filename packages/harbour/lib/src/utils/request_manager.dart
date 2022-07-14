@@ -1,10 +1,9 @@
 part of '../harbour.dart';
 
 class RequestManager {
-  RequestManager(final HarbourPlatform platform) {
-    _cache = Cache(platform);
-  }
-  late final Cache _cache;
+  RequestManager(this._cache);
+
+  final Cache _cache;
 
   final bool _enablePrinting = false;
 
@@ -182,7 +181,7 @@ class Cache {
   final HarbourPlatform _platform;
   Database? _database;
 
-  Future _ensureInitialized() async {
+  Future init() async {
     if (_database != null) {
       return;
     }
@@ -199,26 +198,16 @@ class Cache {
     );
   }
 
-  Future<bool> has(final String key) async {
-    await _ensureInitialized();
+  Future<bool> has(final String key) async =>
+      Sqflite.firstIntValue(await _database!.rawQuery('SELECT COUNT(*) FROM cache WHERE key = ?', [key])) == 1;
 
-    return Sqflite.firstIntValue(await _database!.rawQuery('SELECT COUNT(*) FROM cache WHERE key = ?', [key])) == 1;
-  }
+  Future<String?> get(final String key) async =>
+      (await _database!.rawQuery('SELECT value FROM cache WHERE key = ?', [key]))[0]['value'] as String?;
 
-  Future<String?> get(final String key) async {
-    await _ensureInitialized();
-
-    return (await _database!.rawQuery('SELECT value FROM cache WHERE key = ?', [key]))[0]['value'] as String?;
-  }
-
-  Future set(final String key, final String value) async {
-    await _ensureInitialized();
-
-    await _database!.rawQuery(
-      'INSERT INTO cache (key, value) VALUES (?, ?) ON CONFLICT(key) DO UPDATE SET value = excluded.value',
-      [key, value],
-    );
-  }
+  Future set(final String key, final String value) async => _database!.rawQuery(
+        'INSERT INTO cache (key, value) VALUES (?, ?) ON CONFLICT(key) DO UPDATE SET value = excluded.value',
+        [key, value],
+      );
 }
 
 class ResultCached<T> implements Result<T> {
