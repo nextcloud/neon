@@ -39,7 +39,7 @@ class FilesBrowserBloc extends $FilesBrowserBloc {
 
     _$createFolderEvent.listen((final path) {
       _wrapAction(
-        () async => client.webdav!.mkdir(
+        () async => client.webdav.mkdir(
           path.join('/'),
           safe: false,
         ),
@@ -60,7 +60,7 @@ class FilesBrowserBloc extends $FilesBrowserBloc {
   void _loadFiles() {
     _requestManager
         .wrapWithoutCache(
-          () async => client.webdav!.ls(
+          () async => client.webdav.ls(
             _pathSubject.value.join('/'),
             props: {
               WebDavProps.davContentType.name,

@@ -13,7 +13,7 @@ class DownloadTask {
   Future execute(final NextcloudClient client, final IOSink sink) async {
     final completer = Completer();
 
-    final response = await client.webdav!.downloadStream(path.join('/'));
+    final response = await client.webdav.downloadStream(path.join('/'));
     var downloaded = 0;
 
     response.listen((final chunk) async {

@@ -113,7 +113,7 @@ class NextcloudClient {
   late NextcloudUserStatusClient _userStatus;
 
   /// Client for WebDAV. Might be null if no username is set for the client
-  NextcloudWebDAVClient? get webdav => _getUsernameRequiredClient(_webdav);
+  NextcloudWebDAVClient get webdav => _getUsernameRequiredClient(_webdav);
 
   /// Client for Core APIs
   NextcloudCoreClient get core => _core;
@@ -133,7 +133,7 @@ class NextcloudClient {
   /// Client for User Status
   NextcloudUserStatusClient get userStatus => _userStatus;
 
-  T? _getUsernameRequiredClient<T>(final T? t) {
+  T _getUsernameRequiredClient<T>(final T? t) {
     if (t != null) {
       return t;
     }

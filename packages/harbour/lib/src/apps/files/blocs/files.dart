@@ -119,13 +119,13 @@ class FilesBloc extends $FilesBloc {
     });
 
     _$deleteEvent.listen((final path) {
-      _wrapAction(false, () async => client.webdav!.delete(path.join('/')));
+      _wrapAction(false, () async => client.webdav.delete(path.join('/')));
     });
 
     _$renameEvent.listen((final event) {
       _wrapAction(
         false,
-        () async => client.webdav!.move(
+        () async => client.webdav.move(
           event.path.join('/'),
           (event.path.sublist(0, event.path.length - 1)..add(event.name)).join('/'),
         ),
@@ -135,7 +135,7 @@ class FilesBloc extends $FilesBloc {
     _$moveEvent.listen((final event) {
       _wrapAction(
         false,
-        () async => client.webdav!.move(
+        () async => client.webdav.move(
           event.path.join('/'),
           event.destination.join('/'),
         ),
@@ -145,7 +145,7 @@ class FilesBloc extends $FilesBloc {
     _$copyEvent.listen((final event) {
       _wrapAction(
         false,
-        () async => client.webdav!.copy(
+        () async => client.webdav.copy(
           event.path.join('/'),
           event.destination.join('/'),
         ),
@@ -155,7 +155,7 @@ class FilesBloc extends $FilesBloc {
     _$addFavoriteEvent.listen((final path) {
       _wrapAction(
         false,
-        () async => client.webdav!.updateProps(
+        () async => client.webdav.updateProps(
           path.join('/'),
           {WebDavProps.ocFavorite.name: '1'},
         ),
@@ -165,7 +165,7 @@ class FilesBloc extends $FilesBloc {
     _$removeFavoriteEvent.listen((final path) {
       _wrapAction(
         false,
-        () async => client.webdav!.updateProps(
+        () async => client.webdav.updateProps(
           path.join('/'),
           {WebDavProps.ocFavorite.name: '0'},
         ),
