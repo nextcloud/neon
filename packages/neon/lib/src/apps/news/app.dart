@@ -10,6 +10,11 @@ import 'package:html/dom.dart' as html_dom;
 import 'package:html/parser.dart' as html_parser;
 import 'package:intersperse/intersperse.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+import 'package:neon/l10n/localizations.dart';
+import 'package:neon/src/apps/news/blocs/articles.dart';
+import 'package:neon/src/apps/news/blocs/news.dart';
+import 'package:neon/src/blocs/accounts.dart';
+import 'package:neon/src/models/account.dart';
 import 'package:neon/src/neon.dart';
 import 'package:nextcloud/nextcloud.dart';
 import 'package:provider/provider.dart';
@@ -49,7 +54,7 @@ class NewsApp extends AppImplementation<NewsBloc, NewsAppSpecificOptions> {
     final NeonPlatform platform,
   ) : super(
           'news',
-          (final context) => AppLocalizations.of(context).newsName,
+          (final localizations) => localizations.newsName,
           sharedPreferences,
           (final storage) => NewsAppSpecificOptions(storage, platform),
           (final options, final client) => NewsBloc(

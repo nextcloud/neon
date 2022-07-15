@@ -1,5 +1,8 @@
 import 'dart:convert';
 
+import 'package:neon/src/blocs/user_details.dart';
+import 'package:neon/src/blocs/user_status.dart';
+import 'package:neon/src/models/account.dart';
 import 'package:neon/src/neon.dart';
 import 'package:rx_bloc/rx_bloc.dart';
 import 'package:rxdart/rxdart.dart';
@@ -34,8 +37,10 @@ class AccountsBloc extends $AccountsBloc {
 
     _$setActiveAccountEvent.listen((final account) async {
       if (account != null) {
-        await _storage.setString(_keyLastUsedAccount, account.id);
-        _activeAccountSubject.add(account);
+        if (_activeAccountSubject.value != account) {
+          await _storage.setString(_keyLastUsedAccount, account.id);
+          _activeAccountSubject.add(account);
+        }
       } else {
         final accounts = _accountsSubject.value;
         if (accounts.isNotEmpty) {
@@ -132,6 +137,7 @@ class AccountsBloc extends $AccountsBloc {
   final _accountsOptions = <String, AccountSpecificOptions>{};
   late final _activeAccountSubject = BehaviorSubject<Account?>.seeded(null);
   late final _accountsSubject = BehaviorSubject<List<Account>>.seeded([]);
+  String? pushNotificationApp;
 
   final Map<Account, UserDetailsBloc> _userDetailsBlocs = {};
   final Map<Account, UserStatusBloc> _userStatusBlocs = {};

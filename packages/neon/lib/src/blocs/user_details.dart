@@ -1,3 +1,4 @@
+import 'package:neon/src/models/account.dart';
 import 'package:neon/src/neon.dart';
 import 'package:nextcloud/nextcloud.dart';
 import 'package:rx_bloc/rx_bloc.dart';

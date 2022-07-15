@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:crypto/crypto.dart';
 import 'package:json_annotation/json_annotation.dart';
+import 'package:neon/l10n/localizations.dart';
 import 'package:neon/src/neon.dart';
 import 'package:nextcloud/nextcloud.dart';
 import 'package:rxdart/rxdart.dart';
@@ -78,14 +79,14 @@ class AccountSpecificOptions {
     initialApp,
   ];
 
-  void updateApps(final List<NextcloudApp> apps) {
+  void updateApps(final List<AppImplementation> apps) {
     if (apps.isEmpty) {
       return;
     }
     _appIDsSubject.add({
       null: (final context) => AppLocalizations.of(context).accountOptionsAutomatic,
       for (final app in apps) ...{
-        app.id: (final _) => app.name!,
+        app.id: app.name,
       },
     });
   }

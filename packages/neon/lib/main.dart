@@ -1,10 +1,10 @@
-import 'dart:io';
-
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:neon/app.dart';
+import 'package:neon/src/blocs/accounts.dart';
+import 'package:neon/src/blocs/push_notifications.dart';
 import 'package:neon/src/neon.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -27,15 +27,11 @@ Future main() async {
 
   await Global.init();
 
-  final platform = getNeonPlatform();
-
-  await platform.init?.call();
-
   final sharedPreferences = await SharedPreferences.getInstance();
 
-  final cache = Cache(platform);
-  await cache.init();
-  final requestManager = RequestManager(cache);
+  final platform = await getNeonPlatform();
+  final requestManager = await getRequestManager(platform);
+  final allAppImplementations = getAppImplementations(sharedPreferences, requestManager, platform);
 
   final globalOptions = GlobalOptions(
     Storage('global', sharedPreferences),
@@ -47,16 +43,20 @@ Future main() async {
     sharedPreferences,
     globalOptions,
   );
-
-  final allAppImplementations = <AppImplementation>[
-    FilesApp(sharedPreferences, requestManager, platform),
-    NewsApp(sharedPreferences, requestManager, platform),
-    NotesApp(sharedPreferences, requestManager),
-  ];
+  final pushNotificationsBloc = PushNotificationsBloc(
+    accountsBloc,
+    sharedPreferences,
+    globalOptions,
+    env,
+    platform,
+  );
 
   runApp(
     MultiProvider(
       providers: [
+        Provider<SharedPreferences>(
+          create: (final _) => sharedPreferences,
+        ),
         Provider<Env?>(
           create: (final _) => env,
         ),
@@ -72,22 +72,20 @@ Future main() async {
         Provider<AccountsBloc>(
           create: (final _) => accountsBloc,
         ),
+        Provider<PushNotificationsBloc>(
+          create: (final _) => pushNotificationsBloc,
+        ),
         Provider<List<AppImplementation>>(
           create: (final _) => allAppImplementations,
         ),
       ],
-      child: const NeonApp(),
+      child: NeonApp(
+        accountsBloc: accountsBloc,
+        sharedPreferences: sharedPreferences,
+        env: env,
+        platform: platform,
+        globalOptions: globalOptions,
+      ),
     ),
   );
-}
-
-NeonPlatform getNeonPlatform() {
-  if (Platform.isAndroid) {
-    return AndroidNeonPlatform();
-  }
-  if (Platform.isLinux) {
-    return LinuxNeonPlatform();
-  }
-
-  throw UnimplementedError('No implementation for platform ${Platform.operatingSystem} found');
 }

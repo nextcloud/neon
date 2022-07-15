@@ -13,9 +13,14 @@ class AccountSettingsTile extends SettingsTile {
   final Widget? trailing;
 
   @override
-  Widget build(final BuildContext context) => AccountTile(
-        account: account,
-        color: color,
-        trailing: trailing,
+  Widget build(final BuildContext context) => Container(
+        padding: const EdgeInsets.symmetric(
+          horizontal: 16,
+        ),
+        child: AccountTile(
+          account: account,
+          color: color,
+          trailing: trailing,
+        ),
       );
 }

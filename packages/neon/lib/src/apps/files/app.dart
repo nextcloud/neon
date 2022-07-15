@@ -14,7 +14,11 @@ import 'package:flutter_rx_bloc/flutter_rx_bloc.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:intersperse/intersperse.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+import 'package:neon/l10n/localizations.dart';
 import 'package:neon/src/apps/files/blocs/browser.dart';
+import 'package:neon/src/apps/files/blocs/files.dart';
+import 'package:neon/src/blocs/accounts.dart';
+import 'package:neon/src/models/account.dart';
 import 'package:neon/src/neon.dart';
 import 'package:nextcloud/nextcloud.dart';
 import 'package:path/path.dart' as p;
@@ -42,7 +46,7 @@ class FilesApp extends AppImplementation<FilesBloc, FilesAppSpecificOptions> {
     final NeonPlatform platform,
   ) : super(
           'files',
-          (final context) => AppLocalizations.of(context).filesName,
+          (final localizations) => localizations.filesName,
           sharedPreferences,
           FilesAppSpecificOptions.new,
           (final options, final client) => FilesBloc(
