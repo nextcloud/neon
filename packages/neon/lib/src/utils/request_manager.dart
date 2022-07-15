@@ -1,5 +1,11 @@
 part of '../neon.dart';
 
+Future<RequestManager> getRequestManager(NeonPlatform platform) async {
+  final cache = Cache(platform);
+  await cache.init();
+  return RequestManager(cache);
+}
+
 class RequestManager {
   RequestManager(this._cache);
 

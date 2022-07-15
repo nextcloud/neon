@@ -1,0 +1,4 @@
+apiVersion: "v1"
+name: nextcloud-neon
+version: 1.0.0
+description: nextcloud-neon

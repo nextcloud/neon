@@ -1,14 +1,27 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
-import 'package:flutter_rx_bloc/flutter_rx_bloc.dart';
+import 'package:neon/l10n/localizations.dart';
+import 'package:neon/src/blocs/accounts.dart';
+import 'package:neon/src/blocs/capabilities.dart';
 import 'package:neon/src/neon.dart';
-import 'package:provider/provider.dart';
 import 'package:rxdart/rxdart.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class NeonApp extends StatefulWidget {
   const NeonApp({
+    required this.accountsBloc,
+    required this.sharedPreferences,
+    required this.env,
+    required this.platform,
+    required this.globalOptions,
     super.key,
   });
+
+  final AccountsBloc accountsBloc;
+  final SharedPreferences sharedPreferences;
+  final Env? env;
+  final NeonPlatform platform;
+  final GlobalOptions globalOptions;
 
   @override
   State<NeonApp> createState() => _NeonAppState();
@@ -18,7 +31,6 @@ class NeonApp extends StatefulWidget {
 class _NeonAppState extends State<NeonApp> with WidgetsBindingObserver {
   final _navigatorKey = GlobalKey<NavigatorState>();
   NextcloudTheme? _userTheme;
-
   final _platformBrightness = BehaviorSubject<Brightness>.seeded(
     WidgetsBinding.instance.window.platformBrightness,
   );
@@ -37,7 +49,7 @@ class _NeonAppState extends State<NeonApp> with WidgetsBindingObserver {
     WidgetsBinding.instance.addObserver(this);
 
     WidgetsBinding.instance.addPostFrameCallback((final _) {
-      RxBlocProvider.of<AccountsBloc>(context).activeAccount.listen((final activeAccount) async {
+      widget.accountsBloc.activeAccount.listen((final activeAccount) async {
         FlutterNativeSplash.remove();
 
         if (activeAccount == null) {
@@ -79,34 +91,33 @@ class _NeonAppState extends State<NeonApp> with WidgetsBindingObserver {
   }
 
   @override
-  Widget build(final BuildContext context) {
-    final globalOptions = Provider.of<GlobalOptions>(context);
-    return StreamBuilder<Brightness>(
-      stream: _platformBrightness,
-      builder: (final context, final platformBrightnessSnapshot) => StreamBuilder<ThemeMode>(
-        stream: globalOptions.themeMode.stream,
-        builder: (final context, final themeModeSnapshot) => StreamBuilder<bool>(
-          stream: globalOptions.themeOLEDAsDark.stream,
-          builder: (final context, final themeOLEDAsDarkSnapshot) {
-            if (!platformBrightnessSnapshot.hasData || !themeOLEDAsDarkSnapshot.hasData || !themeModeSnapshot.hasData) {
-              return Container();
-            }
-            return MaterialApp(
-              localizationsDelegates: AppLocalizations.localizationsDelegates,
-              supportedLocales: AppLocalizations.supportedLocales,
-              navigatorKey: _navigatorKey,
-              debugShowCheckedModeBanner: false,
-              theme: getThemeFromNextcloudTheme(
-                _userTheme,
-                themeModeSnapshot.data!,
-                platformBrightnessSnapshot.data!,
-                oledAsDark: themeOLEDAsDarkSnapshot.data!,
-              ),
-              home: Container(),
-            );
-          },
+  Widget build(final BuildContext context) => StreamBuilder<Brightness>(
+        stream: _platformBrightness,
+        builder: (final context, final platformBrightnessSnapshot) => StreamBuilder<ThemeMode>(
+          stream: widget.globalOptions.themeMode.stream,
+          builder: (final context, final themeModeSnapshot) => StreamBuilder<bool>(
+            stream: widget.globalOptions.themeOLEDAsDark.stream,
+            builder: (final context, final themeOLEDAsDarkSnapshot) {
+              if (!platformBrightnessSnapshot.hasData ||
+                  !themeOLEDAsDarkSnapshot.hasData ||
+                  !themeModeSnapshot.hasData) {
+                return Container();
+              }
+              return MaterialApp(
+                localizationsDelegates: AppLocalizations.localizationsDelegates,
+                supportedLocales: AppLocalizations.supportedLocales,
+                navigatorKey: _navigatorKey,
+                debugShowCheckedModeBanner: false,
+                theme: getThemeFromNextcloudTheme(
+                  _userTheme,
+                  themeModeSnapshot.data!,
+                  platformBrightnessSnapshot.data!,
+                  oledAsDark: themeOLEDAsDarkSnapshot.data!,
+                ),
+                home: Container(),
+              );
+            },
+          ),
         ),
-      ),
-    );
-  }
+      );
 }

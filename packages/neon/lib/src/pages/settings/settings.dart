@@ -48,242 +48,278 @@ class _SettingsPageState extends State<SettingsPage> {
               final activeAccountSnapshot,
               final _,
             ) =>
-                OptionBuilder<bool>(
-              option: globalOptions.rememberLastUsedAccount,
-              builder: (final context, final rememberLastUsedAccount) => rememberLastUsedAccount == null
-                  ? Container()
-                  : OptionBuilder<String?>(
-                      option: globalOptions.lastAccount,
-                      builder: (final context, final lastAccount) => SettingsList(
-                        categories: [
-                          SettingsCategory(
-                            title: Text(AppLocalizations.of(context).settingsApps),
-                            tiles: <SettingsTile>[
-                              for (final appImplementation in appImplementations) ...[
-                                if (appImplementation.options.options.isNotEmpty) ...[
-                                  CustomSettingsTile(
-                                    leading: appImplementation.buildIcon(context),
-                                    title: Text(appImplementation.name(context)),
-                                    onTap: () async {
-                                      await Navigator.of(context).push(
-                                        MaterialPageRoute(
-                                          builder: (final context) => NextcloudAppSpecificSettingsPage(
-                                            appImplementation: appImplementation,
-                                          ),
-                                        ),
-                                      );
-                                    },
-                                  ),
-                                ],
-                              ],
-                            ],
-                          ),
-                          SettingsCategory(
-                            title: Text(AppLocalizations.of(context).optionsCategoryTheme),
-                            tiles: [
-                              DropdownButtonSettingsTile(
-                                option: globalOptions.themeMode,
-                              ),
-                              CheckBoxSettingsTile(
-                                option: globalOptions.themeOLEDAsDark,
-                              ),
-                            ],
-                          ),
-                          if (platform.canUseWindowManager) ...[
-                            SettingsCategory(
-                              title: Text(AppLocalizations.of(context).optionsCategoryStartup),
-                              tiles: [
-                                CheckBoxSettingsTile(
-                                  option: globalOptions.startupMinimized,
-                                ),
-                                CheckBoxSettingsTile(
-                                  option: globalOptions.startupMinimizeInsteadOfExit,
-                                ),
-                              ],
-                            ),
-                          ],
-                          if (platform.canUseWindowManager && platform.canUseSystemTray) ...[
-                            SettingsCategory(
-                              title: Text(AppLocalizations.of(context).optionsCategorySystemTray),
-                              tiles: [
-                                CheckBoxSettingsTile(
-                                  option: globalOptions.systemTrayEnabled,
-                                ),
-                                CheckBoxSettingsTile(
-                                  option: globalOptions.systemTrayHideToTrayWhenMinimized,
-                                ),
-                              ],
-                            ),
-                          ],
-                          if (accountsSnapshot.hasData) ...[
-                            SettingsCategory(
-                              title: Text(AppLocalizations.of(context).optionsCategoryAccounts),
-                              tiles: [
-                                if (accountsSnapshot.data!.length > 1) ...[
-                                  CheckBoxSettingsTile(
-                                    option: globalOptions.rememberLastUsedAccount,
-                                  ),
-                                ],
-                                for (final account in accountsSnapshot.data!) ...[
-                                  AccountSettingsTile(
-                                    account: account,
-                                    color: activeAccountSnapshot.data == account && accountsSnapshot.data!.length > 1
-                                        ? Theme.of(context).colorScheme.primary
-                                        : Theme.of(context).colorScheme.onBackground,
-                                    trailing: Row(
-                                      mainAxisSize: MainAxisSize.min,
-                                      children: [
-                                        PopupMenuButton<_AccountAction>(
-                                          itemBuilder: (final context) => [
-                                            PopupMenuItem(
-                                              value: _AccountAction.settings,
-                                              child: Text(AppLocalizations.of(context).settings),
-                                            ),
-                                            PopupMenuItem(
-                                              value: _AccountAction.delete,
-                                              child: Text(AppLocalizations.of(context).delete),
-                                            ),
-                                          ],
-                                          onSelected: (final action) async {
-                                            switch (action) {
-                                              case _AccountAction.settings:
-                                                await Navigator.of(context).push(
-                                                  MaterialPageRoute(
-                                                    builder: (final context) => AccountSpecificSettingsPage(
-                                                      bloc: accountsBloc,
-                                                      account: account,
-                                                    ),
-                                                  ),
-                                                );
-                                                break;
-                                              case _AccountAction.delete:
-                                                if (await showConfirmationDialog(
-                                                  context,
-                                                  AppLocalizations.of(context).globalOptionsAccountsRemoveConfirm(
-                                                    account.username,
-                                                    account.serverURL,
-                                                  ),
-                                                )) {
-                                                  accountsBloc.removeAccount(account);
-                                                }
-                                                break;
-                                            }
-                                          },
-                                        ),
-                                        if (accountsSnapshot.data!.length > 1) ...[
-                                          Radio<String>(
-                                            groupValue: lastAccount,
-                                            value: account.id,
-                                            onChanged: !rememberLastUsedAccount ? globalOptions.lastAccount.set : null,
-                                          ),
-                                        ],
-                                      ],
-                                    ),
-                                  ),
-                                ],
-                                CustomSettingsTile(
-                                  title: ElevatedButton.icon(
-                                    onPressed: () async {
-                                      await Navigator.of(context).push(
-                                        MaterialPageRoute(
-                                          builder: (final context) => const LoginPage(),
-                                        ),
-                                      );
-                                    },
-                                    icon: const Icon(MdiIcons.accountPlus),
-                                    label: Text(AppLocalizations.of(context).globalOptionsAccountsAdd),
-                                  ),
-                                )
-                              ],
-                            ),
-                          ],
-                          SettingsCategory(
-                            title: Text(AppLocalizations.of(context).optionsCategoryOther),
-                            tiles: <SettingsTile>[
+                StreamBuilder<bool>(
+              stream: globalOptions.pushNotificationsEnabled.enabled,
+              builder: (
+                final context,
+                final pushNotificationsEnabledEnabledSnapshot,
+              ) =>
+                  OptionBuilder<bool>(
+                option: globalOptions.rememberLastUsedAccount,
+                builder: (final context, final rememberLastUsedAccount) => OptionBuilder<String?>(
+                  option: globalOptions.lastAccount,
+                  builder: (final context, final lastAccount) => SettingsList(
+                    categories: [
+                      SettingsCategory(
+                        title: Text(AppLocalizations.of(context).settingsApps),
+                        tiles: <SettingsTile>[
+                          for (final appImplementation in appImplementations) ...[
+                            if (appImplementation.options.options.isNotEmpty) ...[
                               CustomSettingsTile(
-                                leading: Icon(
-                                  MdiIcons.scriptText,
-                                  color: Theme.of(context).colorScheme.primary,
-                                ),
-                                title: Text(AppLocalizations.of(context).licenses),
+                                leading: appImplementation.buildIcon(context),
+                                title: Text(appImplementation.name(context)),
                                 onTap: () async {
-                                  showLicensePage(
-                                    context: context,
-                                    applicationName: AppLocalizations.of(context).appName,
-                                    applicationIcon: const NeonLogo(
-                                      withoutText: true,
+                                  await Navigator.of(context).push(
+                                    MaterialPageRoute(
+                                      builder: (final context) => NextcloudAppSpecificSettingsPage(
+                                        appImplementation: appImplementation,
+                                      ),
                                     ),
-                                    applicationLegalese: await rootBundle.loadString('assets/LEGALESE.txt'),
-                                    applicationVersion: (await PackageInfo.fromPlatform()).version,
                                   );
                                 },
                               ),
-                              CustomSettingsTile(
-                                leading: Icon(
-                                  MdiIcons.export,
-                                  color: Theme.of(context).colorScheme.primary,
-                                ),
-                                title: Text(AppLocalizations.of(context).settingsExport),
-                                onTap: () async {
-                                  try {
-                                    final fileName =
-                                        'nextcloud-neon-settings-${DateTime.now().millisecondsSinceEpoch ~/ 1000}.json.base64';
-                                    final data = base64.encode(
-                                      utf8.encode(
-                                        json.encode(
-                                          settingsExportHelper.toJsonExport(),
-                                        ),
-                                      ),
-                                    );
-                                    await saveFileWithPickDialog(fileName, Uint8List.fromList(utf8.encode(data)));
-                                  } catch (e, s) {
-                                    debugPrint(e.toString());
-                                    debugPrintStack(stackTrace: s);
-                                    ExceptionWidget.showSnackbar(context, e);
-                                  }
-                                },
-                              ),
-                              CustomSettingsTile(
-                                leading: Icon(
-                                  MdiIcons.import,
-                                  color: Theme.of(context).colorScheme.primary,
-                                ),
-                                title: Text(AppLocalizations.of(context).settingsImport),
-                                onTap: () async {
-                                  try {
-                                    final result = await FilePicker.platform.pickFiles(
-                                      withData: true,
-                                    );
-
-                                    if (result == null) {
-                                      return;
-                                    }
-
-                                    if (!result.files.single.path!.endsWith('.json.base64')) {
-                                      if (mounted) {
-                                        ExceptionWidget.showSnackbar(
-                                          context,
-                                          AppLocalizations.of(context).settingsImportWrongFileExtension,
-                                        );
-                                      }
-                                      return;
-                                    }
-
-                                    final data = json
-                                        .decode(utf8.decode(base64.decode(utf8.decode(result.files.single.bytes!))));
-                                    await settingsExportHelper.applyFromJson(data as Map<String, dynamic>);
-                                  } catch (e, s) {
-                                    debugPrint(e.toString());
-                                    debugPrintStack(stackTrace: s);
-                                    ExceptionWidget.showSnackbar(context, e);
-                                  }
-                                },
-                              ),
                             ],
+                          ],
+                        ],
+                      ),
+                      SettingsCategory(
+                        title: Text(AppLocalizations.of(context).optionsCategoryTheme),
+                        tiles: [
+                          DropdownButtonSettingsTile(
+                            option: globalOptions.themeMode,
+                          ),
+                          CheckBoxSettingsTile(
+                            option: globalOptions.themeOLEDAsDark,
                           ),
                         ],
                       ),
-                    ),
+                      if (platform.canUsePushNotifications) ...[
+                        SettingsCategory(
+                          title: Text(AppLocalizations.of(context).optionsCategoryPushNotifications),
+                          tiles: [
+                            TextSettingsTile(
+                              text: AppLocalizations.of(context).globalOptionsPushNotificationsNotice,
+                              style: const TextStyle(
+                                fontWeight: FontWeight.w300,
+                                fontStyle: FontStyle.italic,
+                              ),
+                            ),
+                            if (pushNotificationsEnabledEnabledSnapshot.data != null &&
+                                !pushNotificationsEnabledEnabledSnapshot.data!) ...[
+                              TextSettingsTile(
+                                text: AppLocalizations.of(context).globalOptionsPushNotificationsEnabledDisabledNotice,
+                                style: const TextStyle(
+                                  fontWeight: FontWeight.w600,
+                                  fontStyle: FontStyle.italic,
+                                  color: Colors.red,
+                                ),
+                              ),
+                            ],
+                            CheckBoxSettingsTile(
+                              option: globalOptions.pushNotificationsEnabled,
+                            ),
+                            DropdownButtonSettingsTile(
+                              option: globalOptions.pushNotificationsDistributor,
+                            ),
+                          ],
+                        ),
+                      ],
+                      if (platform.canUseWindowManager) ...[
+                        SettingsCategory(
+                          title: Text(AppLocalizations.of(context).optionsCategoryStartup),
+                          tiles: [
+                            CheckBoxSettingsTile(
+                              option: globalOptions.startupMinimized,
+                            ),
+                            CheckBoxSettingsTile(
+                              option: globalOptions.startupMinimizeInsteadOfExit,
+                            ),
+                          ],
+                        ),
+                      ],
+                      if (platform.canUseWindowManager && platform.canUseSystemTray) ...[
+                        SettingsCategory(
+                          title: Text(AppLocalizations.of(context).optionsCategorySystemTray),
+                          tiles: [
+                            CheckBoxSettingsTile(
+                              option: globalOptions.systemTrayEnabled,
+                            ),
+                            CheckBoxSettingsTile(
+                              option: globalOptions.systemTrayHideToTrayWhenMinimized,
+                            ),
+                          ],
+                        ),
+                      ],
+                      if (accountsSnapshot.hasData) ...[
+                        SettingsCategory(
+                          title: Text(AppLocalizations.of(context).optionsCategoryAccounts),
+                          tiles: [
+                            if (accountsSnapshot.data!.length > 1) ...[
+                              CheckBoxSettingsTile(
+                                option: globalOptions.rememberLastUsedAccount,
+                              ),
+                            ],
+                            for (final account in accountsSnapshot.data!) ...[
+                              AccountSettingsTile(
+                                account: account,
+                                color: activeAccountSnapshot.data == account && accountsSnapshot.data!.length > 1
+                                    ? Theme.of(context).colorScheme.primary
+                                    : Theme.of(context).colorScheme.onBackground,
+                                trailing: Row(
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: [
+                                    PopupMenuButton<_AccountAction>(
+                                      itemBuilder: (final context) => [
+                                        PopupMenuItem(
+                                          value: _AccountAction.settings,
+                                          child: Text(AppLocalizations.of(context).settings),
+                                        ),
+                                        PopupMenuItem(
+                                          value: _AccountAction.delete,
+                                          child: Text(AppLocalizations.of(context).delete),
+                                        ),
+                                      ],
+                                      onSelected: (final action) async {
+                                        switch (action) {
+                                          case _AccountAction.settings:
+                                            await Navigator.of(context).push(
+                                              MaterialPageRoute(
+                                                builder: (final context) => AccountSpecificSettingsPage(
+                                                  bloc: accountsBloc,
+                                                  account: account,
+                                                ),
+                                              ),
+                                            );
+                                            break;
+                                          case _AccountAction.delete:
+                                            if (await showConfirmationDialog(
+                                              context,
+                                              AppLocalizations.of(context).globalOptionsAccountsRemoveConfirm(
+                                                account.username,
+                                                account.serverURL,
+                                              ),
+                                            )) {
+                                              accountsBloc.removeAccount(account);
+                                            }
+                                            break;
+                                        }
+                                      },
+                                    ),
+                                    if (accountsSnapshot.data!.length > 1 && rememberLastUsedAccount != null) ...[
+                                      Radio<String>(
+                                        groupValue: lastAccount,
+                                        value: account.id,
+                                        onChanged: !rememberLastUsedAccount ? globalOptions.lastAccount.set : null,
+                                      ),
+                                    ],
+                                  ],
+                                ),
+                              ),
+                            ],
+                            CustomSettingsTile(
+                              title: ElevatedButton.icon(
+                                onPressed: () async {
+                                  await Navigator.of(context).push(
+                                    MaterialPageRoute(
+                                      builder: (final context) => const LoginPage(),
+                                    ),
+                                  );
+                                },
+                                icon: const Icon(MdiIcons.accountPlus),
+                                label: Text(AppLocalizations.of(context).globalOptionsAccountsAdd),
+                              ),
+                            )
+                          ],
+                        ),
+                      ],
+                      SettingsCategory(
+                        title: Text(AppLocalizations.of(context).optionsCategoryOther),
+                        tiles: <SettingsTile>[
+                          CustomSettingsTile(
+                            leading: Icon(
+                              MdiIcons.scriptText,
+                              color: Theme.of(context).colorScheme.primary,
+                            ),
+                            title: Text(AppLocalizations.of(context).licenses),
+                            onTap: () async {
+                              showLicensePage(
+                                context: context,
+                                applicationName: AppLocalizations.of(context).appName,
+                                applicationIcon: const NeonLogo(
+                                  withoutText: true,
+                                ),
+                                applicationLegalese: await rootBundle.loadString('assets/LEGALESE.txt'),
+                                applicationVersion: (await PackageInfo.fromPlatform()).version,
+                              );
+                            },
+                          ),
+                          CustomSettingsTile(
+                            leading: Icon(
+                              MdiIcons.export,
+                              color: Theme.of(context).colorScheme.primary,
+                            ),
+                            title: Text(AppLocalizations.of(context).settingsExport),
+                            onTap: () async {
+                              try {
+                                final fileName =
+                                    'nextcloud-neon-settings-${DateTime.now().millisecondsSinceEpoch ~/ 1000}.json.base64';
+                                final data = base64.encode(
+                                  utf8.encode(
+                                    json.encode(
+                                      settingsExportHelper.toJsonExport(),
+                                    ),
+                                  ),
+                                );
+                                await saveFileWithPickDialog(fileName, Uint8List.fromList(utf8.encode(data)));
+                              } catch (e, s) {
+                                debugPrint(e.toString());
+                                debugPrintStack(stackTrace: s);
+                                ExceptionWidget.showSnackbar(context, e);
+                              }
+                            },
+                          ),
+                          CustomSettingsTile(
+                            leading: Icon(
+                              MdiIcons.import,
+                              color: Theme.of(context).colorScheme.primary,
+                            ),
+                            title: Text(AppLocalizations.of(context).settingsImport),
+                            onTap: () async {
+                              try {
+                                final result = await FilePicker.platform.pickFiles(
+                                  withData: true,
+                                );
+
+                                if (result == null) {
+                                  return;
+                                }
+
+                                if (!result.files.single.path!.endsWith('.json.base64')) {
+                                  if (mounted) {
+                                    ExceptionWidget.showSnackbar(
+                                      context,
+                                      AppLocalizations.of(context).settingsImportWrongFileExtension,
+                                    );
+                                  }
+                                  return;
+                                }
+
+                                final data =
+                                    json.decode(utf8.decode(base64.decode(utf8.decode(result.files.single.bytes!))));
+                                await settingsExportHelper.applyFromJson(data as Map<String, dynamic>);
+                              } catch (e, s) {
+                                debugPrint(e.toString());
+                                debugPrintStack(stackTrace: s);
+                                ExceptionWidget.showSnackbar(context, e);
+                              }
+                            },
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+              ),
             ),
           );
         },

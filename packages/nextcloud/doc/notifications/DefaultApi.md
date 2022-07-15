@@ -59,7 +59,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **deleteNotification**
-> EmptyResponse deleteNotification(id)
+> NotificationsEmptyResponse deleteNotification(id)
 
 
 
@@ -89,7 +89,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**EmptyResponse**](EmptyResponse.md)
+[**NotificationsEmptyResponse**](NotificationsEmptyResponse.md)
 
 ### Authorization
 
@@ -103,7 +103,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getNotification**
-> GetNotificationResponse getNotification(id)
+> NotificationsGetNotificationResponse getNotification(id)
 
 
 
@@ -133,7 +133,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetNotificationResponse**](GetNotificationResponse.md)
+[**NotificationsGetNotificationResponse**](NotificationsGetNotificationResponse.md)
 
 ### Authorization
 
@@ -147,7 +147,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **listNotifications**
-> String listNotifications()
+> NotificationsListNotificationsResponse listNotifications()
 
 
 
@@ -173,7 +173,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-**String**
+[**NotificationsListNotificationsResponse**](NotificationsListNotificationsResponse.md)
 
 ### Authorization
 
@@ -187,7 +187,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **registerDevice**
-> PushServerRegistrationResponse registerDevice(pushServerDevice)
+> NotificationsPushServerRegistrationResponse registerDevice(notificationsPushServerDevice)
 
 
 
@@ -199,10 +199,10 @@ import 'package:openapi/api.dart';
 //defaultApiClient.getAuthentication<HttpBasicAuth>('basic_auth').password = 'YOUR_PASSWORD';
 
 final api_instance = DefaultApi();
-final pushServerDevice = PushServerDevice(); // PushServerDevice | 
+final notificationsPushServerDevice = NotificationsPushServerDevice(); // NotificationsPushServerDevice | 
 
 try {
-    final result = api_instance.registerDevice(pushServerDevice);
+    final result = api_instance.registerDevice(notificationsPushServerDevice);
     print(result);
 } catch (e) {
     print('Exception when calling DefaultApi->registerDevice: $e\n');
@@ -213,11 +213,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **pushServerDevice** | [**PushServerDevice**](PushServerDevice.md)|  | 
+ **notificationsPushServerDevice** | [**NotificationsPushServerDevice**](NotificationsPushServerDevice.md)|  | 
 
 ### Return type
 
-[**PushServerRegistrationResponse**](PushServerRegistrationResponse.md)
+[**NotificationsPushServerRegistrationResponse**](NotificationsPushServerRegistrationResponse.md)
 
 ### Authorization
 
@@ -271,7 +271,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **sendAdminNotification**
-> EmptyResponse sendAdminNotification(userId, adminNotification)
+> NotificationsEmptyResponse sendAdminNotification(userId, notificationsAdminNotification)
 
 
 
@@ -284,10 +284,10 @@ import 'package:openapi/api.dart';
 
 final api_instance = DefaultApi();
 final userId = userId_example; // String | 
-final adminNotification = AdminNotification(); // AdminNotification | 
+final notificationsAdminNotification = NotificationsAdminNotification(); // NotificationsAdminNotification | 
 
 try {
-    final result = api_instance.sendAdminNotification(userId, adminNotification);
+    final result = api_instance.sendAdminNotification(userId, notificationsAdminNotification);
     print(result);
 } catch (e) {
     print('Exception when calling DefaultApi->sendAdminNotification: $e\n');
@@ -299,11 +299,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **String**|  | 
- **adminNotification** | [**AdminNotification**](AdminNotification.md)|  | 
+ **notificationsAdminNotification** | [**NotificationsAdminNotification**](NotificationsAdminNotification.md)|  | 
 
 ### Return type
 
-[**EmptyResponse**](EmptyResponse.md)
+[**NotificationsEmptyResponse**](NotificationsEmptyResponse.md)
 
 ### Authorization
 

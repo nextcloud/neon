@@ -1,3 +1,6 @@
+import 'package:flutter/foundation.dart';
+import 'package:neon/src/blocs/accounts.dart';
+import 'package:neon/src/models/account.dart';
 import 'package:neon/src/neon.dart';
 import 'package:nextcloud/nextcloud.dart';
 import 'package:rx_bloc/rx_bloc.dart';
@@ -33,6 +36,8 @@ class AppsBloc extends $AppsBloc {
       final data = (await _appImplementationsSubject.firstWhere((final result) => result.data != null)).data!;
       if (data.where((final app) => app.id == appId).isNotEmpty && _activeAppSubject.valueOrNull != appId) {
         _activeAppSubject.add(appId);
+      } else {
+        debugPrint('App $appId not found');
       }
     });
 
@@ -43,47 +48,50 @@ class AppsBloc extends $AppsBloc {
         _appImplementationsSubject.add(Result.error((result as ResultError).error));
       } else if (result is ResultSuccess) {
         _appImplementationsSubject.add(
-          Result.success(_getMatchingAppImplementations((result as ResultSuccess<List<NextcloudApp>>).data)),
+          Result.success(_filteredAppImplementations((result as ResultSuccess<List<NextcloudApp>>).data)),
         );
       } else if (result is ResultCached && result.data != null) {
         _appImplementationsSubject.add(
-          Result.success(_getMatchingAppImplementations((result as ResultCached<List<NextcloudApp>>).data)),
+          Result.success(_filteredAppImplementations((result as ResultCached<List<NextcloudApp>>).data)),
         );
       }
 
-      final matchingApps = result.data != null ? _getMatchingApps(result.data!) : <NextcloudApp>[];
-      final options = _accountsBloc.getOptions(_account)!..updateApps(matchingApps);
+      final appImplementations =
+          result.data != null ? _filteredAppImplementations(result.data!) : <AppImplementation>[];
 
       if (result.data != null) {
-        // ignore: discarded_futures
-        options.initialApp.stream.first.then((var initialApp) {
-          if (initialApp == null) {
-            if (matchingApps.where((final app) => app.id == 'files').isNotEmpty) {
-              initialApp = 'files';
-            } else if (matchingApps.isNotEmpty) {
-              // This should never happen, because the files app is always installed and can not be removed, but just in
-              // case this changes at a later point.
-              initialApp = matchingApps[0].id;
+        if (_accountsBloc.pushNotificationApp != null) {
+          setActiveApp(_accountsBloc.pushNotificationApp);
+          _accountsBloc.pushNotificationApp = null;
+        } else {
+          final options = _accountsBloc.getOptions(_account)!..updateApps(appImplementations);
+          options.initialApp.stream.first.then((var initialApp) {
+            if (initialApp == null) {
+              if (appImplementations.where((final a) => a.id == 'files').isNotEmpty) {
+                initialApp = 'files';
+              } else if (appImplementations.isNotEmpty) {
+                // This should never happen, because the files app is always installed and can not be removed, but just in
+                // case this changes at a later point.
+                initialApp = appImplementations[0].id;
+              }
             }
-          }
-          if (!_activeAppSubject.hasValue) {
-            setActiveApp(initialApp);
-          }
-        });
+            if (!_activeAppSubject.hasValue) {
+              setActiveApp(initialApp);
+            }
+          });
+        }
       }
     });
 
     _loadApps();
   }
 
-  // This implementation could be easier, but we want to keep the apps in order
-  List<AppImplementation> _getMatchingAppImplementations(final List<NextcloudApp> apps) => apps
-      .map((final a) => _allAppImplementations.where((final b) => b.id == a.id))
-      .reduce((final value, final element) => [...value, ...element])
-      .toList();
+  final _extraApps = ['notifications'];
 
-  List<NextcloudApp> _getMatchingApps(final List<NextcloudApp> apps) =>
-      apps.where((final a) => _allAppImplementations.where((final b) => b.id == a.id).isNotEmpty).toList();
+  List<AppImplementation> _filteredAppImplementations(final List<NextcloudApp> apps) {
+    final appIds = apps.map((final a) => a.id).toList();
+    return _allAppImplementations.where((final a) => appIds.contains(a.id) || _extraApps.contains(a.id)).toList();
+  }
 
   void _loadApps() {
     _requestManager

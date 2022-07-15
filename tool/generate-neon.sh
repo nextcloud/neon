@@ -44,6 +44,7 @@ mkdir -p /tmp/nextcloud-neon
 copy_nextcloud_app_svg files external/nextcloud-server/apps/files
 copy_nextcloud_app_svg news external/nextcloud-news
 copy_nextcloud_app_svg notes external/nextcloud-notes
+copy_nextcloud_app_svg notifications external/nextcloud-notifications
 
 (
   cd packages/neon
@@ -65,6 +66,7 @@ copy_nextcloud_app_svg notes external/nextcloud-notes
   export_mipmap_icon_all "assets/apps/files.svg" "app_files" &
   export_mipmap_icon_all "assets/apps/news.svg" "app_news" &
   export_mipmap_icon_all "assets/apps/notes.svg" "app_notes" &
+  export_mipmap_icon_all "assets/apps/notifications.svg" "app_notifications" &
   wait
 
   fvm dart run build_runner build --delete-conflicting-outputs

@@ -222,32 +222,34 @@ class ApiClient extends BaseApiClient {
           return valueString == 'true' || valueString == '1';
         case 'DateTime':
           return value is DateTime ? value : DateTime.tryParse(value);
-        case 'AdminNotification':
-          return AdminNotification.fromJson(value);
-        case 'EmptyResponse':
-          return EmptyResponse.fromJson(value);
-        case 'EmptyResponseOcs':
-          return EmptyResponseOcs.fromJson(value);
-        case 'GetNotificationResponse':
-          return GetNotificationResponse.fromJson(value);
-        case 'GetNotificationResponseOcs':
-          return GetNotificationResponseOcs.fromJson(value);
-        case 'ListNotificationsResponse':
-          return ListNotificationsResponse.fromJson(value);
-        case 'ListNotificationsResponseOcs':
-          return ListNotificationsResponseOcs.fromJson(value);
-        case 'Notification':
-          return Notification.fromJson(value);
-        case 'PushNotificationDecryptedSubject':
-          return PushNotificationDecryptedSubject.fromJson(value);
-        case 'PushServerDevice':
-          return PushServerDevice.fromJson(value);
-        case 'PushServerRegistrationResponse':
-          return PushServerRegistrationResponse.fromJson(value);
-        case 'PushServerRegistrationResponseOcs':
-          return PushServerRegistrationResponseOcs.fromJson(value);
-        case 'PushServerSubscription':
-          return PushServerSubscription.fromJson(value);
+        case 'NotificationsAdminNotification':
+          return NotificationsAdminNotification.fromJson(value);
+        case 'NotificationsEmptyResponse':
+          return NotificationsEmptyResponse.fromJson(value);
+        case 'NotificationsEmptyResponseOcs':
+          return NotificationsEmptyResponseOcs.fromJson(value);
+        case 'NotificationsGetNotificationResponse':
+          return NotificationsGetNotificationResponse.fromJson(value);
+        case 'NotificationsGetNotificationResponseOcs':
+          return NotificationsGetNotificationResponseOcs.fromJson(value);
+        case 'NotificationsListNotificationsResponse':
+          return NotificationsListNotificationsResponse.fromJson(value);
+        case 'NotificationsListNotificationsResponseOcs':
+          return NotificationsListNotificationsResponseOcs.fromJson(value);
+        case 'NotificationsNotification':
+          return NotificationsNotification.fromJson(value);
+        case 'NotificationsNotificationAction':
+          return NotificationsNotificationAction.fromJson(value);
+        case 'NotificationsPushNotificationDecryptedSubject':
+          return NotificationsPushNotificationDecryptedSubject.fromJson(value);
+        case 'NotificationsPushServerDevice':
+          return NotificationsPushServerDevice.fromJson(value);
+        case 'NotificationsPushServerRegistrationResponse':
+          return NotificationsPushServerRegistrationResponse.fromJson(value);
+        case 'NotificationsPushServerRegistrationResponseOcs':
+          return NotificationsPushServerRegistrationResponseOcs.fromJson(value);
+        case 'NotificationsPushServerSubscription':
+          return NotificationsPushServerSubscription.fromJson(value);
         default:
           dynamic match;
           if (value is List && (match = apiRegList.firstMatch(targetType)?.group(1)) != null) {

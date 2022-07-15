@@ -1,0 +1,23 @@
+kind: Config
+apiVersion: skaffold/v2beta27
+build:
+  artifacts:
+    - image: jld3103/nextcloud-push-proxy
+      context: packages/nextcloud_push_proxy
+  local:
+    useBuildkit: true
+    concurrency: 0
+    push: true
+  tagPolicy:
+    sha256: {}
+deploy:
+  helm:
+    releases:
+      - name: nextcloud-neon
+        chartPath: helm/nextcloud-neon
+        namespace: nextcloud-neon
+        valuesFiles:
+          - helm/nextcloud-neon/values.yaml
+        artifactOverrides:
+          imageNextcloudPushProxy: jld3103/nextcloud-push-proxy
+  statusCheckDeadlineSeconds: 300

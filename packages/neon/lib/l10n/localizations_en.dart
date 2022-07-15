@@ -130,6 +130,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get optionsCategoryTheme => 'Theme';
 
   @override
+  String get optionsCategoryPushNotifications => 'Push notifications';
+
+  @override
   String get optionsCategoryOther => 'Other';
 
   @override
@@ -161,6 +164,38 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get globalOptionsThemeOLEDAsDark => 'OLED theme as dark theme';
+
+  @override
+  String get globalOptionsPushNotificationsNotice =>
+      'External services are used for delivering push notifications. While the content is encrypted and can only be ready by this app, extracting metadata like the time and count of notifications is still possible.';
+
+  @override
+  String get globalOptionsPushNotificationsEnabled => 'Enabled';
+
+  @override
+  String get globalOptionsPushNotificationsEnabledDisabledNotice =>
+      'No UnifiedPush distributor could be found. Please go to https://unifiedpush.org/users/distributors and setup any of the listed distributors. Then re-open this app and you should be able to enable notifications';
+
+  @override
+  String get globalOptionsPushNotificationsDistributor => 'UnifiedPush Distributor';
+
+  @override
+  String get globalOptionsPushNotificationsDistributorGotifyUP => 'Gotify-UP';
+
+  @override
+  String get globalOptionsPushNotificationsDistributorFirebaseEmbedded => 'Firebase (FOSS)';
+
+  @override
+  String get globalOptionsPushNotificationsDistributorNtfy => 'ntfy';
+
+  @override
+  String get globalOptionsPushNotificationsDistributorFCMUP => 'FCM-UP';
+
+  @override
+  String get globalOptionsPushNotificationsDistributorNextPush => 'NextPush';
+
+  @override
+  String get globalOptionsPushNotificationsDistributorNoProvider2Push => 'NoProvider2Push';
 
   @override
   String get globalOptionsStartupMinimized => 'Start minimized';
@@ -508,4 +543,10 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get notesOptionsCategoriesSortPropertyNotesCount => 'Count of notes';
+
+  @override
+  String get notificationsName => 'Notifications';
+
+  @override
+  String get notificationsNextcloudAppNotImplementedYet => 'Sorry, this Nextcloud app has not been implemented yet';
 }

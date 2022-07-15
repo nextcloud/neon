@@ -8,6 +8,7 @@ class CachedURLImage extends StatelessWidget {
     this.height,
     this.width,
     this.fit,
+    this.color,
     super.key,
   });
 
@@ -18,6 +19,9 @@ class CachedURLImage extends StatelessWidget {
   final double? height;
   final double? width;
   final BoxFit? fit;
+
+  /// Only works for SVGs
+  final Color? color;
 
   @override
   Widget build(final BuildContext context) => SizedBox(
@@ -53,7 +57,10 @@ class CachedURLImage extends StatelessWidget {
                         try {
                           // TODO: Is this safe enough? Research in XML spec if a space is allowed between the < and the tag name
                           if (utf8.decode(data).contains('<svg')) {
-                            return SvgPicture.memory(data);
+                            return SvgPicture.memory(
+                              data,
+                              color: color,
+                            );
                           }
                         } catch (_) {
                           // If the data is not UTF-8

@@ -1,13 +1,16 @@
 part of '../neon.dart';
 
+const themePrimaryColor = Color(0xFFF37736);
+const themeOnPrimaryColor = Color(0xFFFFFFFF);
+
 ThemeData getThemeFromNextcloudTheme(
   final NextcloudTheme? nextcloudTheme,
   final ThemeMode themeMode,
   final Brightness platformBrightness, {
   required final bool oledAsDark,
 }) {
-  var primaryColor = const Color(0xFFF37736);
-  var onPrimaryColor = const Color(0xFFFFFFFF);
+  var primaryColor = themePrimaryColor;
+  var onPrimaryColor = themeOnPrimaryColor;
   if (nextcloudTheme != null) {
     primaryColor = HexColor(nextcloudTheme.color!);
     onPrimaryColor = HexColor(nextcloudTheme.colorText!);
