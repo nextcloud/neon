@@ -62,6 +62,7 @@ ThemeData getThemeFromNextcloudTheme(
     brightness: selectBrightness,
     scaffoldBackgroundColor: backgroundColor,
     canvasColor: canvasColor,
+    cardColor: backgroundColor,
     colorScheme: colorScheme,
     textSelectionTheme: TextSelectionThemeData(
       cursorColor: primaryColor,
