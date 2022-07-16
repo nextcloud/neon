@@ -2,7 +2,7 @@
   "openapi": "3.0.3",
   "info": {
     "title": "Notes",
-    "version": "4.3.1",
+    "version": "4.4.0",
     "description": "Distraction-free notes and writing",
     "license": {
       "name": "agpl"
@@ -206,6 +206,48 @@
       ],
       "put": {
         "operationId": "notes-updateproperty-TODO",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/notes/{noteid}/attachment": {
+      "parameters": [
+        {
+          "name": "noteid",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "integer"
+          }
+        }
+      ],
+      "get": {
+        "operationId": "notes-getattachment-TODO",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "operationId": "notes-uploadfile-TODO",
         "responses": {
           "200": {
             "description": "",
