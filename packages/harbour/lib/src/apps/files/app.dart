@@ -13,6 +13,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_rx_bloc/flutter_rx_bloc.dart';
 import 'package:harbour/src/apps/files/blocs/browser.dart';
 import 'package:harbour/src/harbour.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:intersperse/intersperse.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:nextcloud/nextcloud.dart';

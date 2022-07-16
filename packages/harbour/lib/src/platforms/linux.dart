@@ -8,6 +8,7 @@ class LinuxHarbourPlatform extends HarbourPlatform {
           canUseQuickActions: false,
           canUseSystemTray: true,
           canUseWindowManager: true,
+          canUseCamera: false,
           getApplicationCachePath: () async => p.join(
             xdg.cacheHome.absolute.path,
             'de.provokateurin.harbour',

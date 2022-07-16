@@ -102,6 +102,7 @@
   "filesName": "Files",
   "filesUploadFiles": "Upload files",
   "filesUploadImages": "Upload images",
+  "filesUploadCamera": "Upload from camera",
   "filesCreateFolder": "Create folder",
   "filesFolderName": "Folder name",
   "filesRenameFolder": "Rename folder",

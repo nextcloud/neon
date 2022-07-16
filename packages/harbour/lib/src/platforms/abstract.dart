@@ -7,6 +7,7 @@ abstract class HarbourPlatform {
     required this.canUseQuickActions,
     required this.canUseSystemTray,
     required this.canUseWindowManager,
+    required this.canUseCamera,
     required this.getApplicationCachePath,
     required this.getUserAccessibleAppDataPath,
     this.init,
@@ -21,6 +22,8 @@ abstract class HarbourPlatform {
   final bool canUseSystemTray;
 
   final bool canUseWindowManager;
+
+  final bool canUseCamera;
 
   final Future<String> Function() getApplicationCachePath;
 

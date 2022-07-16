@@ -8,6 +8,7 @@ class AndroidHarbourPlatform extends HarbourPlatform {
           canUseQuickActions: true,
           canUseSystemTray: false,
           canUseWindowManager: false,
+          canUseCamera: true,
           getApplicationCachePath: () async => (await getTemporaryDirectory()).absolute.path,
           getUserAccessibleAppDataPath: () async {
             if (!await Permission.storage.request().isGranted) {

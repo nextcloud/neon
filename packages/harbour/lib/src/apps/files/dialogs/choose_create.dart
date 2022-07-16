@@ -49,6 +49,24 @@ class FilesChooseCreateDialog extends StatelessWidget {
               await upload(FileType.image);
             },
           ),
+          if (Provider.of<HarbourPlatform>(context, listen: false).canUseCamera) ...[
+            ListTile(
+              leading: Icon(
+                MdiIcons.cameraPlus,
+                color: Theme.of(context).colorScheme.primary,
+              ),
+              title: Text(AppLocalizations.of(context).filesUploadCamera),
+              onTap: () async {
+                Navigator.of(context).pop();
+
+                final picker = ImagePicker();
+                final result = await picker.pickImage(source: ImageSource.camera);
+                if (result != null) {
+                  bloc.uploadFile([...basePath, result.name], result.path);
+                }
+              },
+            ),
+          ],
           ListTile(
             leading: Icon(
               MdiIcons.folderPlus,

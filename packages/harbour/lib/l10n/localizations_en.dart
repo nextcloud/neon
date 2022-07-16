@@ -201,6 +201,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get filesUploadImages => 'Upload images';
 
   @override
+  String get filesUploadCamera => 'Upload from camera';
+
+  @override
   String get filesCreateFolder => 'Create folder';
 
   @override

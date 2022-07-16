@@ -26,6 +26,7 @@ dependencies:
   flutter_svg: ^1.0.3
   html: ^0.15.0
   http: ^0.13.4
+  image_picker: ^0.8.5+3
   intersperse: ^2.0.0
   intl: ^0.17.0
   json_annotation: ^4.5.0

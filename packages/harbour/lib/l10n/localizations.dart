@@ -455,6 +455,12 @@ abstract class AppLocalizations {
   /// **'Upload images'**
   String get filesUploadImages;
 
+  /// No description provided for @filesUploadCamera.
+  ///
+  /// In en, this message translates to:
+  /// **'Upload from camera'**
+  String get filesUploadCamera;
+
   /// No description provided for @filesCreateFolder.
   ///
   /// In en, this message translates to:
