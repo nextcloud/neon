@@ -33,23 +33,21 @@ class DropdownButtonSettingsTile<T> extends InputSettingsTile<SelectOption<T>> {
                     : Theme.of(context).textTheme.subtitle1!.copyWith(color: Theme.of(context).disabledColor),
               ),
               trailing: valuesSnapshot.hasData
-                  ? DropdownButtonHideUnderline(
-                      child: DropdownButton<T>(
-                        value: value,
-                        items: valuesSnapshot.data!.keys
-                            .map(
-                              (final k) => DropdownMenuItem(
-                                value: k,
-                                child: Text(valuesSnapshot.data![k]!(context)),
-                              ),
-                            )
-                            .toList(),
-                        onChanged: enabledSnapshot.data ?? false
-                            ? (final value) async {
-                                await option.set(value as T);
-                              }
-                            : null,
-                      ),
+                  ? DropdownButton<T>(
+                      value: value,
+                      items: valuesSnapshot.data!.keys
+                          .map(
+                            (final k) => DropdownMenuItem(
+                              value: k,
+                              child: Text(valuesSnapshot.data![k]!(context)),
+                            ),
+                          )
+                          .toList(),
+                      onChanged: enabledSnapshot.data ?? false
+                          ? (final value) async {
+                              await option.set(value as T);
+                            }
+                          : null,
                     )
                   : null,
             ),
