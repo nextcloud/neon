@@ -22,7 +22,7 @@ class _NewsFolderViewState extends State<NewsFolderView> {
   Widget build(final BuildContext context) => Column(
         children: [
           Container(
-            margin: const EdgeInsets.all(10),
+            margin: const EdgeInsets.symmetric(horizontal: 15),
             child: DropdownButton<DefaultFolderViewType>(
               isExpanded: true,
               value: _viewType,
