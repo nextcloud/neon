@@ -157,6 +157,7 @@ class _HomePageState extends State<HomePage> with tray.TrayListener, WindowListe
     if (matches.isNotEmpty) {
       final appId = matches[0].group(1);
       _appsBloc.setActiveApp(appId);
+      Navigator.of(context).popUntil((final route) => route.settings.name == 'home');
       if (_platform.canUseWindowManager) {
         await _showAndRestoreWindow();
       }

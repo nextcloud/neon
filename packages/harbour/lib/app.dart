@@ -50,6 +50,9 @@ class _HarbourAppState extends State<HarbourApp> with WidgetsBindingObserver {
         } else {
           await _navigatorKey.currentState!.pushAndRemoveUntil(
             MaterialPageRoute(
+              settings: const RouteSettings(
+                name: 'home',
+              ),
               builder: (final context) => HomePage(
                 account: activeAccount,
                 onThemeChanged: (final theme) {
