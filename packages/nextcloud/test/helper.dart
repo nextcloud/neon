@@ -286,14 +286,24 @@ class TestDockerHelper {
       'RUN ./occ app:install $appName';
 }
 
-Future<T?> validateResponse<T, U>(final ApiInstance api, final Future<Response> input) async {
+/// Validates that the response matches the schema
+///
+/// [cleanResponse] can be used for compatibility reasons, because some APIs are very inconsistent in their responses and don't populate all fields
+Future<T?> validateResponse<T, U>(
+  final ApiInstance api,
+  final Future<Response> input, {
+  final bool cleanResponse = false,
+}) async {
   final response = await input;
 
   if (response.statusCode >= HttpStatus.badRequest) {
     throw ApiException(response.statusCode, await decodeBodyBytes(response));
   }
   if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-    final body = removeNulls(json.decode(await decodeBodyBytes(response)));
+    var body = json.decode(await decodeBodyBytes(response));
+    if (cleanResponse) {
+      body = removeNulls(body);
+    }
     var output = await api.apiClient.deserializeAsync(
       json.encode(body),
       T.toString(),
@@ -303,7 +313,10 @@ Future<T?> validateResponse<T, U>(final ApiInstance api, final Future<Response> 
     }
     output = output as T;
 
-    final parsedBody = removeNulls(json.decode(json.encode(output)));
+    var parsedBody = json.decode(json.encode(output));
+    if (cleanResponse) {
+      parsedBody = removeNulls(parsedBody);
+    }
     expect(parsedBody, body);
 
     return output;

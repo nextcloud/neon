@@ -17,6 +17,7 @@ Future main() async {
       final user = (await validateResponse<ProvisioningApiUser, void>(
         client.provisioningApi,
         client.provisioningApi.getCurrentUserWithHttpInfo(),
+        cleanResponse: true,
       ))!;
       expect(user.ocs!.data!.id, 'test');
       expect(user.ocs!.data!.getDisplayName(), 'Test');
@@ -28,6 +29,7 @@ Future main() async {
       final user = (await validateResponse<ProvisioningApiUser, void>(
         client.provisioningApi,
         client.provisioningApi.getUserWithHttpInfo('test'),
+        cleanResponse: true,
       ))!;
       expect(user.ocs!.data!.id, 'test');
       expect(user.ocs!.data!.getDisplayName(), 'Test');
