@@ -6,6 +6,3 @@ github:
      pull_request:
 
 self_validate: true
-
-merge_stages:
-  - analyze
