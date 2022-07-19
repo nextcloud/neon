@@ -4,6 +4,6 @@
     <name>Core</name>
     <summary>Core functionality of Nextcloud</summary>
     <description><![CDATA[Core functionality of Nextcloud]]></description>
-    <version>24.0.2</version>
+    <version>24.0.3</version>
     <licence>agpl</licence>
 </info>

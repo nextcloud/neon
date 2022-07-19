@@ -1,4 +1,4 @@
-FROM nextcloud:24.0.2
+FROM nextcloud:24.0.3
 WORKDIR /usr/src/nextcloud
 RUN chown -R www-data:www-data .
 USER www-data
