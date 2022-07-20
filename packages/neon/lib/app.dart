@@ -3,9 +3,11 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:neon/l10n/localizations.dart';
+import 'package:neon/src/apps/files/blocs/sync.dart';
 import 'package:neon/src/blocs/accounts.dart';
 import 'package:neon/src/neon.dart';
 import 'package:nextcloud/nextcloud.dart';
+import 'package:provider/provider.dart';
 import 'package:rxdart/rxdart.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -37,6 +39,8 @@ class _NeonAppState extends State<NeonApp> with WidgetsBindingObserver {
     WidgetsBinding.instance.window.platformBrightness,
   );
 
+  late FilesSyncBloc _filesSyncBloc;
+
   @override
   void didChangePlatformBrightness() {
     _platformBrightness.add(WidgetsBinding.instance.window.platformBrightness);
@@ -47,6 +51,11 @@ class _NeonAppState extends State<NeonApp> with WidgetsBindingObserver {
   @override
   void initState() {
     super.initState();
+
+    _filesSyncBloc = FilesSyncBloc(
+      Storage('files-sync', widget.sharedPreferences),
+      widget.accountsBloc,
+    );
 
     WidgetsBinding.instance.addObserver(this);
 
@@ -92,31 +101,34 @@ class _NeonAppState extends State<NeonApp> with WidgetsBindingObserver {
   }
 
   @override
-  Widget build(final BuildContext context) => StreamBuilder<Brightness>(
-        stream: _platformBrightness,
-        builder: (final context, final platformBrightnessSnapshot) => StreamBuilder<ThemeMode>(
-          stream: widget.globalOptions.themeMode.stream,
-          builder: (final context, final themeModeSnapshot) => StreamBuilder<bool>(
-            stream: widget.globalOptions.themeOLEDAsDark.stream,
-            builder: (final context, final themeOLEDAsDarkSnapshot) {
-              if (!platformBrightnessSnapshot.hasData ||
-                  !themeOLEDAsDarkSnapshot.hasData ||
-                  !themeModeSnapshot.hasData) {
-                return Container();
-              }
-              return MaterialApp(
-                localizationsDelegates: AppLocalizations.localizationsDelegates,
-                supportedLocales: AppLocalizations.supportedLocales,
-                navigatorKey: _navigatorKey,
-                theme: getThemeFromNextcloudTheme(
-                  _userTheme,
-                  themeModeSnapshot.data!,
-                  platformBrightnessSnapshot.data!,
-                  oledAsDark: themeOLEDAsDarkSnapshot.data!,
-                ),
-                home: Container(),
-              );
-            },
+  Widget build(final BuildContext context) => Provider<FilesSyncBloc>(
+        create: (final _) => _filesSyncBloc,
+        child: StreamBuilder<Brightness>(
+          stream: _platformBrightness,
+          builder: (final context, final platformBrightnessSnapshot) => StreamBuilder<ThemeMode>(
+            stream: widget.globalOptions.themeMode.stream,
+            builder: (final context, final themeModeSnapshot) => StreamBuilder<bool>(
+              stream: widget.globalOptions.themeOLEDAsDark.stream,
+              builder: (final context, final themeOLEDAsDarkSnapshot) {
+                if (!platformBrightnessSnapshot.hasData ||
+                    !themeOLEDAsDarkSnapshot.hasData ||
+                    !themeModeSnapshot.hasData) {
+                  return Container();
+                }
+                return MaterialApp(
+                  localizationsDelegates: AppLocalizations.localizationsDelegates,
+                  supportedLocales: AppLocalizations.supportedLocales,
+                  navigatorKey: _navigatorKey,
+                  theme: getThemeFromNextcloudTheme(
+                    _userTheme,
+                    themeModeSnapshot.data!,
+                    platformBrightnessSnapshot.data!,
+                    oledAsDark: themeOLEDAsDarkSnapshot.data!,
+                  ),
+                  home: Container(),
+                );
+              },
+            ),
           ),
         ),
       );

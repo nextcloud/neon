@@ -16,7 +16,7 @@ class FilesChooseCreateDialog extends StatefulWidget {
 
 class _FilesChooseCreateDialogState extends State<FilesChooseCreateDialog> {
   Future uploadFromPick(final FileType type) async {
-    final result = await FilePicker.platform.pickFiles(
+    final result = await FileUtils.loadFileWithPickDialog(
       allowMultiple: true,
       type: type,
     );

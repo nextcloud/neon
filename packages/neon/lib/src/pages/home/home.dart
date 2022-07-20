@@ -442,6 +442,7 @@ class _HomePageState extends State<HomePage> with tray.TrayListener, WindowListe
                                     builder: (final context) => AccountSpecificSettingsPage(
                                       bloc: accountsBloc,
                                       account: account,
+                                      appsBloc: _appsBloc,
                                     ),
                                   ),
                                 );
@@ -589,7 +590,9 @@ class _HomePageState extends State<HomePage> with tray.TrayListener, WindowListe
                               onTap: () async {
                                 await Navigator.of(context).push(
                                   MaterialPageRoute(
-                                    builder: (final context) => const SettingsPage(),
+                                    builder: (final context) => SettingsPage(
+                                      appsBloc: _appsBloc,
+                                    ),
                                   ),
                                 );
                               },
@@ -599,6 +602,9 @@ class _HomePageState extends State<HomePage> with tray.TrayListener, WindowListe
                       ),
                       body: Column(
                         children: [
+                          FilesSyncListener(
+                            appsBloc: _appsBloc,
+                          ),
                           ServerStatus(
                             account: widget.account,
                           ),

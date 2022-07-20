@@ -10,7 +10,6 @@ abstract class NeonPlatform {
     required this.canUseCamera,
     required this.canUsePushNotifications,
     required this.getApplicationCachePath,
-    required this.getUserAccessibleAppDataPath,
     this.init,
   });
 
@@ -29,8 +28,6 @@ abstract class NeonPlatform {
   final bool canUsePushNotifications;
 
   final Future<String> Function() getApplicationCachePath;
-
-  final Future<String> Function() getUserAccessibleAppDataPath;
 
   final Future Function()? init;
 }

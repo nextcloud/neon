@@ -48,6 +48,10 @@
   "no": "No",
   "close": "Close",
   "retry": "Retry",
+  "cancel": "Cancel",
+  "previous": "Previous",
+  "next": "Next",
+  "finish": "Finish",
   "showSlashHide": "Show/Hide",
   "exit": "Exit",
   "disabled": "Disabled",
@@ -181,6 +185,21 @@
       }
     }
   },
+  "filesSyncNConflicts": "{n} file conflicts",
+  "@filesSyncNConflicts": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "filesSyncForAllConflicts": "Apply for all conflicts",
+  "filesSyncLocal": "Local",
+  "filesSyncRemote": "Remote",
+  "filesSyncSkip": "Skip",
+  "filesSyncMappings": "File sync mappings",
+  "filesSyncAddMapping": "Add file sync mapping",
+  "filesSyncConfirmRemoveMapping": "Are you sure you want to remove this file sync mapping?",
   "filesOptionsShowPreviews": "Show previews for files",
   "filesOptionsUploadQueueParallelism": "Upload queue parallelism",
   "filesOptionsDownloadQueueParallelism": "Download queue parallelism",

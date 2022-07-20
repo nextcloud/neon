@@ -24,9 +24,6 @@ abstract class $FilesBloc extends RxBlocBase implements FilesBlocEvents, FilesBl
   /// Тhe [Subject] where events sink to by calling [uploadFile]
   final _$uploadFileEvent = PublishSubject<_UploadFileEventArgs>();
 
-  /// Тhe [Subject] where events sink to by calling [syncFile]
-  final _$syncFileEvent = PublishSubject<List<String>>();
-
   /// Тhe [Subject] where events sink to by calling [openFile]
   final _$openFileEvent = PublishSubject<_OpenFileEventArgs>();
 
@@ -69,9 +66,6 @@ abstract class $FilesBloc extends RxBlocBase implements FilesBlocEvents, FilesBl
         path,
         localPath,
       ));
-
-  @override
-  void syncFile(List<String> path) => _$syncFileEvent.add(path);
 
   @override
   void openFile(
@@ -149,7 +143,6 @@ abstract class $FilesBloc extends RxBlocBase implements FilesBlocEvents, FilesBl
   void dispose() {
     _$refreshEvent.close();
     _$uploadFileEvent.close();
-    _$syncFileEvent.close();
     _$openFileEvent.close();
     _$deleteEvent.close();
     _$renameEvent.close();

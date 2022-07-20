@@ -8,7 +8,7 @@ class FilesDetailsPage extends StatelessWidget {
   });
 
   final FilesBloc bloc;
-  final FileDetails details;
+  final FilesFileDetails details;
 
   @override
   Widget build(final BuildContext context) => Scaffold(

@@ -124,6 +124,13 @@ ThemeData getThemeFromNextcloudTheme(
         elevation: ButtonStyleButton.allOrNull(0),
       ),
     ),
+    outlinedButtonTheme: OutlinedButtonThemeData(
+      style: OutlinedButton.styleFrom(
+        side: BorderSide(
+          color: primaryColor,
+        ),
+      ),
+    ),
     popupMenuTheme: PopupMenuThemeData(
       color: canvasColor,
     ),

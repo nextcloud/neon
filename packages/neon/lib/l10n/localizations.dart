@@ -251,6 +251,30 @@ abstract class AppLocalizations {
   /// **'Retry'**
   String get retry;
 
+  /// No description provided for @cancel.
+  ///
+  /// In en, this message translates to:
+  /// **'Cancel'**
+  String get cancel;
+
+  /// No description provided for @previous.
+  ///
+  /// In en, this message translates to:
+  /// **'Previous'**
+  String get previous;
+
+  /// No description provided for @next.
+  ///
+  /// In en, this message translates to:
+  /// **'Next'**
+  String get next;
+
+  /// No description provided for @finish.
+  ///
+  /// In en, this message translates to:
+  /// **'Finish'**
+  String get finish;
+
   /// No description provided for @showSlashHide.
   ///
   /// In en, this message translates to:
@@ -682,6 +706,54 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Are you sure you want to download a file that is bigger than {warningSize} ({actualSize})?'**
   String filesConfirmDownloadSizeWarning(String warningSize, String actualSize);
+
+  /// No description provided for @filesSyncNConflicts.
+  ///
+  /// In en, this message translates to:
+  /// **'{n} file conflicts'**
+  String filesSyncNConflicts(int n);
+
+  /// No description provided for @filesSyncForAllConflicts.
+  ///
+  /// In en, this message translates to:
+  /// **'Apply for all conflicts'**
+  String get filesSyncForAllConflicts;
+
+  /// No description provided for @filesSyncLocal.
+  ///
+  /// In en, this message translates to:
+  /// **'Local'**
+  String get filesSyncLocal;
+
+  /// No description provided for @filesSyncRemote.
+  ///
+  /// In en, this message translates to:
+  /// **'Remote'**
+  String get filesSyncRemote;
+
+  /// No description provided for @filesSyncSkip.
+  ///
+  /// In en, this message translates to:
+  /// **'Skip'**
+  String get filesSyncSkip;
+
+  /// No description provided for @filesSyncMappings.
+  ///
+  /// In en, this message translates to:
+  /// **'File sync mappings'**
+  String get filesSyncMappings;
+
+  /// No description provided for @filesSyncAddMapping.
+  ///
+  /// In en, this message translates to:
+  /// **'Add file sync mapping'**
+  String get filesSyncAddMapping;
+
+  /// No description provided for @filesSyncConfirmRemoveMapping.
+  ///
+  /// In en, this message translates to:
+  /// **'Are you sure you want to remove this file sync mapping?'**
+  String get filesSyncConfirmRemoveMapping;
 
   /// No description provided for @filesOptionsShowPreviews.
   ///

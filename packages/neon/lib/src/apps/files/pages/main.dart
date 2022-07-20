@@ -27,6 +27,10 @@ class _FilesMainPageState extends State<FilesMainPage> {
         bloc: widget.bloc.browser,
         filesBloc: widget.bloc,
         onPickFile: (final details) async {
+          if (details.etag == null) {
+            // When the ETag is null we are uploading the file right now
+            return;
+          }
           final sizeWarning = widget.bloc.options.downloadSizeWarning.value;
           if (sizeWarning != null && details.size > sizeWarning) {
             if (!(await showConfirmationDialog(

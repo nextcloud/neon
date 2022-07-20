@@ -16,7 +16,7 @@ class FilePreview extends StatelessWidget {
         );
 
   final FilesBloc bloc;
-  final FileDetails details;
+  final FilesFileDetails details;
   final int width;
   final int height;
   final Color? color;

@@ -4,14 +4,14 @@ class FilesChooseFolderDialog extends StatelessWidget {
   const FilesChooseFolderDialog({
     required this.bloc,
     required this.filesBloc,
-    required this.originalPath,
+    this.originalPath,
     super.key,
   });
 
   final FilesBrowserBloc bloc;
   final FilesBloc filesBloc;
 
-  final List<String> originalPath;
+  final List<String>? originalPath;
 
   @override
   Widget build(final BuildContext context) => AlertDialog(

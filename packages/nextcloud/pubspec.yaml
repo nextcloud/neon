@@ -11,6 +11,7 @@ dependencies:
   intl: ^0.17.0
   json_annotation: ^4.6.0
   meta: ^1.7.0
+  path: ^1.8.1
   version: ^3.0.2
   xml: ^6.1.0
 

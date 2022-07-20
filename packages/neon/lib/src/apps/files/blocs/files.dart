@@ -4,7 +4,6 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:neon/src/apps/files/app.dart';
 import 'package:neon/src/apps/files/blocs/browser.dart';
-import 'package:neon/src/models/account.dart';
 import 'package:neon/src/neon.dart';
 import 'package:nextcloud/nextcloud.dart';
 import 'package:open_file/open_file.dart';
@@ -19,8 +18,6 @@ abstract class FilesBlocEvents {
   void refresh();
 
   void uploadFile(final List<String> path, final String localPath);
-
-  void syncFile(final List<String> path);
 
   void openFile(final List<String> path, final String etag, final String? mimeType);
 
@@ -64,35 +61,13 @@ class FilesBloc extends $FilesBloc {
           final stat = await file.stat();
           final task = UploadTask(
             path: event.path,
-            size: stat.size,
-            lastModified: stat.modified,
+            stat: stat,
           );
           _uploadTasksSubject.add(_uploadTasksSubject.value..add(task));
-          await _uploadQueue.add(() => task.execute(client, file.openRead()));
+          await _uploadQueue.add(() => task.execute(client, file));
           _uploadTasksSubject.add(_uploadTasksSubject.value..removeWhere((final t) => t == task));
         },
       );
-    });
-
-    _$syncFileEvent.listen((final path) {
-      final stream = _requestManager.wrapWithoutCache(
-        () async {
-          final file = File(
-            p.join(
-              await _platform.getUserAccessibleAppDataPath(),
-              client.humanReadableID,
-              'files',
-              path.join(Platform.pathSeparator),
-            ),
-          );
-          if (!file.parent.existsSync()) {
-            file.parent.createSync(recursive: true);
-          }
-          return _downloadFile(path, file);
-        },
-        disableTimeout: true,
-      ).asBroadcastStream();
-      stream.whereError().listen(_errorsStreamController.add);
     });
 
     _$openFileEvent.listen((final event) {
@@ -185,17 +160,12 @@ class FilesBloc extends $FilesBloc {
     final List<String> path,
     final File file,
   ) async {
-    final sink = file.openWrite();
     try {
-      final task = DownloadTask(
-        path: path,
-      );
+      final task = DownloadTask(path: path);
       _downloadTasksSubject.add(_downloadTasksSubject.value..add(task));
-      await _downloadQueue.add(() => task.execute(client, sink));
+      await _downloadQueue.add(() => task.execute(client, file));
       _downloadTasksSubject.add(_downloadTasksSubject.value..removeWhere((final t) => t == task));
-      await sink.close();
     } catch (e) {
-      await sink.close();
       rethrow;
     }
   }

@@ -1,7 +1,7 @@
 part of '../app.dart';
 
-class FileDetails {
-  FileDetails({
+class FilesFileDetails {
+  FilesFileDetails({
     required this.path,
     required this.isDirectory,
     required this.size,

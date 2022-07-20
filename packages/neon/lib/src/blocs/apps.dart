@@ -131,6 +131,9 @@ class AppsBloc extends $AppsBloc {
     return bloc as T;
   }
 
+  T getAppBlocByID<T extends RxBlocBase>(final String id) =>
+      getAppBloc(_appImplementationsSubject.value.data!.singleWhere((final app) => app.id == id));
+
   @override
   void dispose() {
     unawaited(_appsSubject.close());

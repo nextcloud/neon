@@ -11,11 +11,5 @@ class AndroidNeonPlatform extends NeonPlatform {
           canUseCamera: true,
           canUsePushNotifications: true,
           getApplicationCachePath: () async => (await getTemporaryDirectory()).absolute.path,
-          getUserAccessibleAppDataPath: () async {
-            if (!await Permission.storage.request().isGranted) {
-              throw MissingPermissionException(Permission.storage);
-            }
-            return p.join((await getExternalStorageDirectory())!.path);
-          },
         );
 }

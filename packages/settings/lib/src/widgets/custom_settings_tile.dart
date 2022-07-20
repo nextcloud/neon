@@ -7,6 +7,7 @@ class CustomSettingsTile extends SettingsTile {
     this.leading,
     this.trailing,
     this.onTap,
+    this.onLongPress,
     super.key,
   });
 
@@ -15,6 +16,7 @@ class CustomSettingsTile extends SettingsTile {
   final Widget? leading;
   final Widget? trailing;
   final Function()? onTap;
+  final Function()? onLongPress;
 
   @override
   Widget build(final BuildContext context) => ListTile(
@@ -23,5 +25,6 @@ class CustomSettingsTile extends SettingsTile {
         leading: leading,
         trailing: trailing,
         onTap: onTap,
+        onLongPress: onLongPress,
       );
 }

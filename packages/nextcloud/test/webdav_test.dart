@@ -47,6 +47,14 @@ Future main() async {
       expect(file.size!, 50598);
     });
 
+    test('List directory recursively', () async {
+      final files = await client.webdav.ls(
+        '/',
+        depth: 'infinity',
+      );
+      expect(files, hasLength(35));
+    });
+
     test('Create directory', () async {
       final response = await client.webdav.mkdir('test');
       expect(response.statusCode, equals(201));

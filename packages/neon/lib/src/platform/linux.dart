@@ -14,7 +14,6 @@ class LinuxNeonPlatform extends NeonPlatform {
             xdg.cacheHome.absolute.path,
             'de.provokateurin.neon',
           ),
-          getUserAccessibleAppDataPath: () async => p.join(Platform.environment['HOME']!, 'Neon'),
           init: () async {
             sqfliteFfiInit();
             databaseFactory = databaseFactoryFfi;

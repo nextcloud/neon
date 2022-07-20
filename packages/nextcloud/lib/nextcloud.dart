@@ -1,5 +1,6 @@
 library nextcloud;
 
+import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
 import 'dart:typed_data';
@@ -13,6 +14,7 @@ import 'package:xml/xml.dart' as xml;
 export 'package:crypton/crypton.dart' show RSAKeypair, RSAPublicKey, RSAPrivateKey;
 
 export 'src/nextcloud.openapi.dart';
+export 'src/sync/sync.dart';
 
 part 'src/app_type.dart';
 part 'src/client.dart';

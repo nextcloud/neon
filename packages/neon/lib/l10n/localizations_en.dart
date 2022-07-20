@@ -95,6 +95,18 @@ class AppLocalizationsEn extends AppLocalizations {
   String get retry => 'Retry';
 
   @override
+  String get cancel => 'Cancel';
+
+  @override
+  String get previous => 'Previous';
+
+  @override
+  String get next => 'Next';
+
+  @override
+  String get finish => 'Finish';
+
+  @override
   String get showSlashHide => 'Show/Hide';
 
   @override
@@ -325,6 +337,32 @@ class AppLocalizationsEn extends AppLocalizations {
   String filesConfirmDownloadSizeWarning(String warningSize, String actualSize) {
     return 'Are you sure you want to download a file that is bigger than $warningSize ($actualSize)?';
   }
+
+  @override
+  String filesSyncNConflicts(int n) {
+    return '$n file conflicts';
+  }
+
+  @override
+  String get filesSyncForAllConflicts => 'Apply for all conflicts';
+
+  @override
+  String get filesSyncLocal => 'Local';
+
+  @override
+  String get filesSyncRemote => 'Remote';
+
+  @override
+  String get filesSyncSkip => 'Skip';
+
+  @override
+  String get filesSyncMappings => 'File sync mappings';
+
+  @override
+  String get filesSyncAddMapping => 'Add file sync mapping';
+
+  @override
+  String get filesSyncConfirmRemoveMapping => 'Are you sure you want to remove this file sync mapping?';
 
   @override
   String get filesOptionsShowPreviews => 'Show previews for files';

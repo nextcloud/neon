@@ -2,8 +2,11 @@ part of '../../neon.dart';
 
 class SettingsPage extends StatefulWidget {
   const SettingsPage({
+    required this.appsBloc,
     super.key,
   });
+
+  final AppsBloc appsBloc;
 
   @override
   State<SettingsPage> createState() => _SettingsPageState();
@@ -185,6 +188,7 @@ class _SettingsPageState extends State<SettingsPage> {
                                   builder: (final context) => AccountSpecificSettingsPage(
                                     bloc: accountsBloc,
                                     account: account,
+                                    appsBloc: widget.appsBloc,
                                   ),
                                 ),
                               );
@@ -245,7 +249,7 @@ class _SettingsPageState extends State<SettingsPage> {
                                 ),
                               ),
                             );
-                            await saveFileWithPickDialog(fileName, Uint8List.fromList(utf8.encode(data)));
+                            await FileUtils.saveFileWithPickDialog(fileName, Uint8List.fromList(utf8.encode(data)));
                           } catch (e, s) {
                             debugPrint(e.toString());
                             debugPrintStack(stackTrace: s);

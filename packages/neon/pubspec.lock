@@ -252,7 +252,7 @@ packages:
     source: hosted
     version: "5.0.2"
   flutter_driver:
-    dependency: "direct dev"
+    dependency: transitive
     description: flutter
     source: sdk
     version: "0.0.0"
@@ -1276,7 +1276,7 @@ packages:
     source: hosted
     version: "0.2.0"
   watcher:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: watcher
       url: "https://pub.dartlang.org"

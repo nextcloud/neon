@@ -69,6 +69,18 @@ class Account {
   }
 }
 
+extension AccountsFind on List<Account> {
+  Account? find(final String id) {
+    for (final account in this) {
+      if (account.id == id) {
+        return account;
+      }
+    }
+
+    return null;
+  }
+}
+
 Map<String, String> _idCache = {};
 
 extension NextcloudClientHelpers on NextcloudClient {
