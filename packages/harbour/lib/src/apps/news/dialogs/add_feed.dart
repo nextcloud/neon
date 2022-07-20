@@ -85,7 +85,7 @@ class _NewsAddFeedDialogState extends State<NewsAddFeedDialog> {
                     ],
                   ],
                   ElevatedButton(
-                    onPressed: submit,
+                    onPressed: foldersData != null ? submit : null,
                     child: Text(AppLocalizations.of(context).newsAddFeed),
                   ),
                 ],
