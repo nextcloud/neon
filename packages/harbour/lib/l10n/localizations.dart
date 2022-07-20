@@ -257,6 +257,12 @@ abstract class AppLocalizations {
   /// **'Exit'**
   String get exit;
 
+  /// No description provided for @disabled.
+  ///
+  /// In en, this message translates to:
+  /// **'Disabled'**
+  String get disabled;
+
   /// No description provided for @settings.
   ///
   /// In en, this message translates to:
@@ -569,6 +575,18 @@ abstract class AppLocalizations {
   /// **'Remove from favorites'**
   String get filesRemoveFromFavorites;
 
+  /// No description provided for @filesConfirmUploadSizeWarning.
+  ///
+  /// In en, this message translates to:
+  /// **'Are you sure you want to upload a file that is bigger than {warningSize} ({actualSize})?'**
+  String filesConfirmUploadSizeWarning(String warningSize, String actualSize);
+
+  /// No description provided for @filesConfirmDownloadSizeWarning.
+  ///
+  /// In en, this message translates to:
+  /// **'Are you sure you want to download a file that is bigger than {warningSize} ({actualSize})?'**
+  String filesConfirmDownloadSizeWarning(String warningSize, String actualSize);
+
   /// No description provided for @filesOptionsShowPreviews.
   ///
   /// In en, this message translates to:
@@ -586,6 +604,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Download queue parallelism'**
   String get filesOptionsDownloadQueueParallelism;
+
+  /// No description provided for @filesOptionsUploadSizeWarning.
+  ///
+  /// In en, this message translates to:
+  /// **'Upload size warning'**
+  String get filesOptionsUploadSizeWarning;
+
+  /// No description provided for @filesOptionsDownloadSizeWarning.
+  ///
+  /// In en, this message translates to:
+  /// **'Download size warning'**
+  String get filesOptionsDownloadSizeWarning;
 
   /// No description provided for @newsName.
   ///

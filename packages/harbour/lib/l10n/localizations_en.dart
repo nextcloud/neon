@@ -96,6 +96,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get exit => 'Exit';
 
   @override
+  String get disabled => 'Disabled';
+
+  @override
   String get settings => 'Settings';
 
   @override
@@ -262,6 +265,16 @@ class AppLocalizationsEn extends AppLocalizations {
   String get filesRemoveFromFavorites => 'Remove from favorites';
 
   @override
+  String filesConfirmUploadSizeWarning(String warningSize, String actualSize) {
+    return 'Are you sure you want to upload a file that is bigger than $warningSize ($actualSize)?';
+  }
+
+  @override
+  String filesConfirmDownloadSizeWarning(String warningSize, String actualSize) {
+    return 'Are you sure you want to download a file that is bigger than $warningSize ($actualSize)?';
+  }
+
+  @override
   String get filesOptionsShowPreviews => 'Show previews for files';
 
   @override
@@ -269,6 +282,12 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get filesOptionsDownloadQueueParallelism => 'Download queue parallelism';
+
+  @override
+  String get filesOptionsUploadSizeWarning => 'Upload size warning';
+
+  @override
+  String get filesOptionsDownloadSizeWarning => 'Download size warning';
 
   @override
   String get newsName => 'News';

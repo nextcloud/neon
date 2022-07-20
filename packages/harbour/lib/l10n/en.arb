@@ -42,6 +42,7 @@
   "retry": "Retry",
   "showSlashHide": "Show/Hide",
   "exit": "Exit",
+  "disabled": "Disabled",
   "settings": "Settings",
   "settingsForApp": "Settings - {name}",
   "@settingsForApp": {
@@ -135,9 +136,33 @@
   "filesChooseFolder": "Choose folder",
   "filesAddToFavorites": "Add to favorites",
   "filesRemoveFromFavorites": "Remove from favorites",
+  "filesConfirmUploadSizeWarning": "Are you sure you want to upload a file that is bigger than {warningSize} ({actualSize})?",
+  "@filesConfirmUploadSizeWarning": {
+    "placeholders": {
+      "warningSize": {
+        "type": "String"
+      },
+      "actualSize": {
+        "type": "String"
+      }
+    }
+  },
+  "filesConfirmDownloadSizeWarning": "Are you sure you want to download a file that is bigger than {warningSize} ({actualSize})?",
+  "@filesConfirmDownloadSizeWarning": {
+    "placeholders": {
+      "warningSize": {
+        "type": "String"
+      },
+      "actualSize": {
+        "type": "String"
+      }
+    }
+  },
   "filesOptionsShowPreviews": "Show previews for files",
   "filesOptionsUploadQueueParallelism": "Upload queue parallelism",
   "filesOptionsDownloadQueueParallelism": "Download queue parallelism",
+  "filesOptionsUploadSizeWarning": "Upload size warning",
+  "filesOptionsDownloadSizeWarning": "Download size warning",
   "newsName": "News",
   "newsAddFeed": "Add feed",
   "newsFolder": "Folder",

@@ -17,6 +17,7 @@ import 'package:image_picker/image_picker.dart';
 import 'package:intersperse/intersperse.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:nextcloud/nextcloud.dart';
+import 'package:path/path.dart' as p;
 import 'package:provider/provider.dart';
 import 'package:rxdart/rxdart.dart';
 import 'package:settings/settings.dart';
