@@ -35,8 +35,7 @@ class LoginBloc extends $LoginBloc {
         try {
           final client = NextcloudClient(
             url,
-            userAgentSuffix: userAgentSuffix,
-            appType: appType,
+            userAgentOverride: userAgentOverride(),
           );
 
           final status = (await client.core.getStatus())!;

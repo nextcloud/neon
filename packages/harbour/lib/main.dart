@@ -25,6 +25,8 @@ Future main() async {
 
   FlutterNativeSplash.preserve(widgetsBinding: WidgetsBinding.instance);
 
+  await Global.init();
+
   final platform = getHarbourPlatform();
 
   await platform.init?.call();
