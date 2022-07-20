@@ -425,6 +425,18 @@ class _FilesBrowserViewState extends State<FilesBrowserView> {
                       }
                       break;
                     case _FileAction.sync:
+                      final sizeWarning = widget.bloc.options.downloadSizeWarning.value;
+                      if (sizeWarning != null && details.size > sizeWarning) {
+                        if (!(await showConfirmationDialog(
+                          context,
+                          AppLocalizations.of(context).filesConfirmDownloadSizeWarning(
+                            filesize(sizeWarning),
+                            filesize(details.size),
+                          ),
+                        ))) {
+                          return;
+                        }
+                      }
                       widget.filesBloc.syncFile(details.path);
                       break;
                     case _FileAction.delete:

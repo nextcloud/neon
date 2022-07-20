@@ -1,6 +1,6 @@
 part of '../app.dart';
 
-class FilesChooseCreateDialog extends StatelessWidget {
+class FilesChooseCreateDialog extends StatefulWidget {
   const FilesChooseCreateDialog({
     required this.bloc,
     required this.basePath,
@@ -10,16 +10,40 @@ class FilesChooseCreateDialog extends StatelessWidget {
   final FilesBloc bloc;
   final List<String> basePath;
 
-  Future upload(final FileType type) async {
+  @override
+  State<FilesChooseCreateDialog> createState() => _FilesChooseCreateDialogState();
+}
+
+class _FilesChooseCreateDialogState extends State<FilesChooseCreateDialog> {
+  Future uploadFromPick(final FileType type) async {
     final result = await FilePicker.platform.pickFiles(
       allowMultiple: true,
       type: type,
     );
     if (result != null) {
       for (final file in result.files) {
-        bloc.uploadFile([...basePath, file.name], file.path!);
+        await upload(File(file.path!));
       }
     }
+  }
+
+  Future upload(final File file) async {
+    final sizeWarning = widget.bloc.options.uploadSizeWarning.value;
+    if (sizeWarning != null) {
+      final stat = file.statSync();
+      if (stat.size > sizeWarning) {
+        if (!(await showConfirmationDialog(
+          context,
+          AppLocalizations.of(context).filesConfirmUploadSizeWarning(
+            filesize(sizeWarning),
+            filesize(stat.size),
+          ),
+        ))) {
+          return;
+        }
+      }
+    }
+    widget.bloc.uploadFile([...widget.basePath, p.basename(file.path)], file.path);
   }
 
   @override
@@ -32,9 +56,11 @@ class FilesChooseCreateDialog extends StatelessWidget {
             ),
             title: Text(AppLocalizations.of(context).filesUploadFiles),
             onTap: () async {
-              Navigator.of(context).pop();
+              await uploadFromPick(FileType.any);
 
-              await upload(FileType.any);
+              if (mounted) {
+                Navigator.of(context).pop();
+              }
             },
           ),
           ListTile(
@@ -44,9 +70,11 @@ class FilesChooseCreateDialog extends StatelessWidget {
             ),
             title: Text(AppLocalizations.of(context).filesUploadImages),
             onTap: () async {
-              Navigator.of(context).pop();
+              await uploadFromPick(FileType.image);
 
-              await upload(FileType.image);
+              if (mounted) {
+                Navigator.of(context).pop();
+              }
             },
           ),
           if (Provider.of<HarbourPlatform>(context, listen: false).canUseCamera) ...[
@@ -62,7 +90,7 @@ class FilesChooseCreateDialog extends StatelessWidget {
                 final picker = ImagePicker();
                 final result = await picker.pickImage(source: ImageSource.camera);
                 if (result != null) {
-                  bloc.uploadFile([...basePath, result.name], result.path);
+                  await upload(File(result.path));
                 }
               },
             ),
@@ -81,7 +109,7 @@ class FilesChooseCreateDialog extends StatelessWidget {
                 builder: (final context) => const FilesCreateFolderDialog(),
               );
               if (result != null) {
-                bloc.browser.createFolder([...basePath, ...result]);
+                widget.bloc.browser.createFolder([...widget.basePath, ...result]);
               }
             },
           ),

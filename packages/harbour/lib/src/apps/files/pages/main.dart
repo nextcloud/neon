@@ -26,7 +26,19 @@ class _FilesMainPageState extends State<FilesMainPage> {
   Widget build(BuildContext context) => FilesBrowserView(
         bloc: widget.bloc.browser,
         filesBloc: widget.bloc,
-        onPickFile: (final details) {
+        onPickFile: (final details) async {
+          final sizeWarning = widget.bloc.options.downloadSizeWarning.value;
+          if (sizeWarning != null && details.size > sizeWarning) {
+            if (!(await showConfirmationDialog(
+              context,
+              AppLocalizations.of(context).filesConfirmDownloadSizeWarning(
+                filesize(sizeWarning),
+                filesize(details.size),
+              ),
+            ))) {
+              return;
+            }
+          }
           widget.bloc.openFile(details.path, details.etag!, details.mimeType);
         },
       );
