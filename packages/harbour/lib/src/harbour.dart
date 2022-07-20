@@ -69,6 +69,7 @@ part 'utils/app_implementation.dart';
 part 'utils/confirmation_dialog.dart';
 part 'utils/custom_timeago.dart';
 part 'utils/env.dart';
+part 'utils/global.dart';
 part 'utils/global_options.dart';
 part 'utils/hex_color.dart';
 part 'utils/missing_permission_exception.dart';

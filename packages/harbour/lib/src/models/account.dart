@@ -9,9 +9,7 @@ import 'package:settings/settings.dart';
 
 part 'account.g.dart';
 
-// TODO: https://github.com/jld3103/nextcloud-harbour/issues/9
-const userAgentSuffix = ' // Harbour';
-const appType = AppType.nextcloud;
+String userAgentOverride() => 'Harbour ${Global.packageInfo.version}+${Global.packageInfo.buildNumber}';
 
 @JsonSerializable()
 class Account {
@@ -54,8 +52,7 @@ class Account {
         serverURL,
         username: username,
         password: password ?? appPassword,
-        userAgentSuffix: userAgentSuffix,
-        appType: appType,
+        userAgentOverride: userAgentOverride(),
       );
 }
 

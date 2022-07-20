@@ -21,18 +21,9 @@ Future main() async {
     test('User-Agent with suffix', () async {
       client = await TestHelper.getPreparedClient(
         dockerImageName,
-        userAgentSuffix: 'test',
+        userAgentOverride: 'test',
       );
       expect(client.userAgent, 'test');
-    });
-
-    test('User-Agent from AppType with suffix', () async {
-      client = await TestHelper.getPreparedClient(
-        dockerImageName,
-        appType: AppType.nextcloud,
-        userAgentSuffix: ' test',
-      );
-      expect(client.userAgent, '${AppType.nextcloud.userAgent} test');
     });
   });
 }

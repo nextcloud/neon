@@ -21,7 +21,7 @@ class TestNextcloudClient extends NextcloudClient {
     super.password,
     super.language,
     super.appType,
-    super.userAgentSuffix,
+    super.userAgentOverride,
   });
 
   final String containerID;
@@ -138,7 +138,7 @@ class TestHelper {
     final String? password = defaultPassword,
     final bool useAppPassword = false,
     final AppType appType = AppType.unknown,
-    final String? userAgentSuffix,
+    final String? userAgentOverride,
   }) async {
     // ignore: prefer_asserts_with_message
     assert(!useAppPassword || (username != null && password != null));
@@ -198,7 +198,7 @@ class TestHelper {
       username: username,
       password: clientPassword,
       appType: appType,
-      userAgentSuffix: userAgentSuffix,
+      userAgentOverride: userAgentOverride,
     );
 
     var iteration = 0;

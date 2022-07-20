@@ -73,6 +73,7 @@ class _LoginPageState extends State<LoginPage> {
     final Env? env,
   ) =>
       {
+        HttpHeaders.userAgentHeader: userAgentOverride(),
         if (env != null) ...{
           HttpHeaders.authorizationHeader:
               'Basic ${base64.encode(utf8.encode('${env.testUsername}:${env.testPassword}'))}',
@@ -136,6 +137,7 @@ class _LoginPageState extends State<LoginPage> {
                       ? WebView(
                           javascriptMode: JavascriptMode.unrestricted,
                           zoomEnabled: false,
+                          userAgent: userAgentOverride(),
                           onWebViewCreated: (final controller) async {
                             _webViewController = controller;
                             final url =

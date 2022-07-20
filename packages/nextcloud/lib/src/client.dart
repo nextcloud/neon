@@ -9,7 +9,7 @@ class NextcloudClient {
     this.password,
     this.language,
     this.appType = AppType.unknown,
-    this.userAgentSuffix,
+    this.userAgentOverride,
   }) {
     final authentication = username != null && password != null
         ? HttpBasicAuth(username: username!, password: password!)
@@ -55,17 +55,13 @@ class NextcloudClient {
   }
 
   /// Headers that should be used for all requests
-  late final commonHeaders = () {
-    // ignore: no_leading_underscores_for_local_identifiers
-    final _userAgent = userAgent;
-    return <String, String>{
-      'OCS-APIRequest': 'true',
-      'Accept': 'application/json',
-      if (_userAgent != null) ...{
-        'User-Agent': _userAgent,
-      }
-    };
-  }();
+  late final commonHeaders = <String, String>{
+    'OCS-APIRequest': 'true',
+    'Accept': 'application/json',
+    if (userAgent != null) ...{
+      'User-Agent': userAgent!,
+    },
+  };
 
   T _addCommonSettings<T extends BaseApiClient>(final T apiClient) {
     var newApiClient = apiClient;
@@ -91,17 +87,11 @@ class NextcloudClient {
   /// App type the client will register as. Only relevant for notifications. See [AppType] for explanations.
   final AppType appType;
 
-  /// Will be appended to the user-agent from [appType]
-  final String? userAgentSuffix;
+  /// Overrides the user-agent set by [appType]
+  final String? userAgentOverride;
 
-  /// User-agent made up from the user-agent from [appType] and the [userAgentSuffix]
-  String? get userAgent {
-    if (appType.userAgent != null || userAgentSuffix != null) {
-      return [appType.userAgent, userAgentSuffix].where((final a) => a != null).join();
-    }
-
-    return null;
-  }
+  /// User-agent made up from the user-agent from [userAgentOverride] and the [appType]
+  late String? userAgent = userAgentOverride ?? appType.userAgent;
 
   NextcloudWebDAVClient? _webdav;
 
