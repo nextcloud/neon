@@ -24,11 +24,6 @@ class _NotesNotePageState extends State<NotesNotePage> {
   bool _showEditor = false;
   bool _synced = true;
 
-  void _focusEditor() {
-    _contentFocusNode.requestFocus();
-    _contentController.selection = TextSelection.collapsed(offset: _contentController.text.length);
-  }
-
   void _update([final String? selectedCategory]) {
     final updatedTitle = _note.title != _titleController.text ? _titleController.text : null;
     final updatedCategory = selectedCategory != null && _note.category != selectedCategory ? selectedCategory : null;
@@ -137,7 +132,8 @@ class _NotesNotePageState extends State<NotesNotePage> {
                   _showEditor = !_showEditor;
                 });
                 if (_showEditor) {
-                  _focusEditor();
+                  _contentFocusNode.requestFocus();
+                  _contentController.selection = TextSelection.collapsed(offset: _contentController.text.length);
                 } else {
                   // Prevent the cursor going back to the title field
                   _contentFocusNode.unfocus();
@@ -165,42 +161,34 @@ class _NotesNotePageState extends State<NotesNotePage> {
             ),
           ],
         ),
-        body: GestureDetector(
-          onTap: () {
-            setState(() {
-              _showEditor = true;
-            });
-            _focusEditor();
-          },
-          child: Container(
-            padding: EdgeInsets.symmetric(
-              vertical: 10,
-              horizontal: _showEditor ? 20 : 10,
-            ),
-            color: Colors.transparent,
-            constraints: const BoxConstraints.expand(),
-            child: _showEditor
-                ? TextField(
-                    controller: _contentController,
-                    focusNode: _contentFocusNode,
-                    keyboardType: TextInputType.multiline,
-                    maxLines: null,
-                    decoration: const InputDecoration(
-                      border: InputBorder.none,
-                    ),
-                  )
-                : MarkdownBody(
-                    data: _contentController.text,
-                    onTapLink: (final text, final href, final title) {
-                      if (href != null) {
-                        launchUrlString(
-                          href,
-                          mode: LaunchMode.externalApplication,
-                        );
-                      }
-                    },
-                  ),
+        body: Container(
+          padding: EdgeInsets.symmetric(
+            vertical: 10,
+            horizontal: _showEditor ? 20 : 10,
           ),
+          color: Colors.transparent,
+          constraints: const BoxConstraints.expand(),
+          child: _showEditor
+              ? TextField(
+                  controller: _contentController,
+                  focusNode: _contentFocusNode,
+                  keyboardType: TextInputType.multiline,
+                  maxLines: null,
+                  decoration: const InputDecoration(
+                    border: InputBorder.none,
+                  ),
+                )
+              : MarkdownBody(
+                  data: _contentController.text,
+                  onTapLink: (final text, final href, final title) {
+                    if (href != null) {
+                      launchUrlString(
+                        href,
+                        mode: LaunchMode.externalApplication,
+                      );
+                    }
+                  },
+                ),
         ),
       ),
     );
