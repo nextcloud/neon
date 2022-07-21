@@ -201,17 +201,13 @@ class TestHelper {
       userAgentOverride: userAgentOverride,
     );
 
-    var iteration = 0;
     while (true) {
+      // Test will timeout after 30s
       try {
         await client.core.getStatus();
         break;
       } catch (_) {
-        iteration++;
         await Future.delayed(const Duration(milliseconds: 100));
-        if (iteration > 50) {
-          throw Exception('Failed to wait for Nextcloud instance');
-        }
       }
     }
 
