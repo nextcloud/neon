@@ -2,8 +2,8 @@
 set -euxo pipefail
 cd "$(dirname "$0")/.."
 
-rm -rf /tmp/nextcloud-harbour
-mkdir -p /tmp/nextcloud-harbour
+rm -rf /tmp/nextcloud-neon
+mkdir -p /tmp/nextcloud-neon
 
 (
   cd packages/nextcloud

@@ -17,13 +17,13 @@ else
   exit 1
 fi
 
-docker build -t nextcloud-harbour-dev --build-arg "username=$username" --build-arg "password=$password" -f - ./packages/nextcloud/test < tool/Dockerfile.dev
+docker build -t nextcloud-neon-dev --build-arg "username=$username" --build-arg "password=$password" -f - ./packages/nextcloud/test < tool/Dockerfile.dev
 echo "TEST_HOST=http://$ip:80
 TEST_USER=$username
-TEST_PASSWORD=$password" > packages/harbour/assets/.env
+TEST_PASSWORD=$password" > packages/neon/assets/.env
 function cleanup() {
-  rm packages/harbour/assets/.env
+  rm packages/neon/assets/.env
 }
 trap cleanup EXIT
 # The multiple ports are used to let the app think we are talking to two different servers when in fact it's only one
-docker run --rm -v nextcloud-harbour-dev:/usr/src/nextcloud -p "80:80" -p "81:80" nextcloud-harbour-dev
+docker run --rm -v nextcloud-neon-dev:/usr/src/nextcloud -p "80:80" -p "81:80" nextcloud-neon-dev

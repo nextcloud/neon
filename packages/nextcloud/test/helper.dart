@@ -96,7 +96,7 @@ class TestHelper {
         )
         .toString();
 
-    final dockerImageName = 'nextcloud-harbour-$hash';
+    final dockerImageName = 'nextcloud-neon-$hash';
 
     final inputStream = StreamController<List<int>>();
     final process = runExecutableArguments(
