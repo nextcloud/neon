@@ -146,25 +146,28 @@ class WebDavClient {
   }
 
   /// just like mkdir -p
-  Future mkdirs(
+  Future<HttpClientResponse?> mkdirs(
     final String remotePath, {
     final bool safe = true,
   }) async {
     final dirs = remotePath.trim().split('/')..removeWhere((final value) => value == '');
     if (dirs.isEmpty) {
-      return;
+      return null;
     }
     if (remotePath.trim().startsWith('/')) {
       dirs[0] = '/${dirs[0]}';
     }
     final prevPath = StringBuffer();
+    late HttpClientResponse response;
     for (final dir in dirs) {
-      await mkdir(
+      response = await mkdir(
         '$prevPath/$dir',
         safe: safe,
       );
       prevPath.write('/$dir');
     }
+
+    return response;
   }
 
   /// remove dir with given [path]

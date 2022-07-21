@@ -52,6 +52,15 @@ Future main() async {
       expect(response.statusCode, equals(201));
     });
 
+    test('Create directory recursively', () async {
+      final response = await client.webdav.mkdirs('test/bla');
+      expect(response!.statusCode, equals(201));
+
+      final files = await client.webdav.ls('/test');
+      expect(files, hasLength(1));
+      expect(files[0].path, '/test/bla/');
+    });
+
     test('Upload files', () async {
       final pngBytes = File('test/files/test.png').readAsBytesSync();
       final txtBytes = File('test/files/test.txt').readAsBytesSync();
