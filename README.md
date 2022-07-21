@@ -11,6 +11,12 @@ The development of this app and client just started, there will be a lot of chan
 
 Additional documentation is very much appreciated. If you find something that you think should be documented, please open an issue or pull request.
 
+## Development and support
+
+Either open an issue if you exactly know what you need or your problem is, otherwise please ask in Matrix.
+The Matrix space is here: https://matrix.to/#/#nextcloud-neon:matrix.org.  
+There are separate rooms for the client and the app. If you don't know which channel you should use if you have a question, just use the app channel.
+
 ## Features
 
 There are a lot of planned features that still need help. Go [here](https://github.com/jld3103/nextcloud-neon/issues?q=is%3Aopen+is%3Aissue+label%3Afeature) and grab an issue to work on.  
