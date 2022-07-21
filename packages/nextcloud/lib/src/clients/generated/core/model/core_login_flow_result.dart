@@ -64,12 +64,18 @@ class CoreLoginFlowResult {
     final _json = <String, dynamic>{};
     if (server != null) {
       _json[r'server'] = server;
+    } else {
+      _json[r'server'] = null;
     }
     if (loginName != null) {
       _json[r'loginName'] = loginName;
+    } else {
+      _json[r'loginName'] = null;
     }
     if (appPassword != null) {
       _json[r'appPassword'] = appPassword;
+    } else {
+      _json[r'appPassword'] = null;
     }
     return _json;
   }

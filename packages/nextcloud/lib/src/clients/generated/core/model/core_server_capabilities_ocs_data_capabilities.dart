@@ -208,51 +208,83 @@ class CoreServerCapabilitiesOcsDataCapabilities {
     final _json = <String, dynamic>{};
     if (core != null) {
       _json[r'core'] = core;
+    } else {
+      _json[r'core'] = null;
     }
     if (bruteforce != null) {
       _json[r'bruteforce'] = bruteforce;
+    } else {
+      _json[r'bruteforce'] = null;
     }
     if (metadataAvailable != null) {
       _json[r'metadataAvailable'] = metadataAvailable;
+    } else {
+      _json[r'metadataAvailable'] = null;
     }
     if (files != null) {
       _json[r'files'] = files;
+    } else {
+      _json[r'files'] = null;
     }
     if (activity != null) {
       _json[r'activity'] = activity;
+    } else {
+      _json[r'activity'] = null;
     }
     if (circles != null) {
       _json[r'circles'] = circles;
+    } else {
+      _json[r'circles'] = null;
     }
     if (ocm != null) {
       _json[r'ocm'] = ocm;
+    } else {
+      _json[r'ocm'] = null;
     }
     if (dav != null) {
       _json[r'dav'] = dav;
+    } else {
+      _json[r'dav'] = null;
     }
     if (filesSharing != null) {
       _json[r'files_sharing'] = filesSharing;
+    } else {
+      _json[r'files_sharing'] = null;
     }
     if (notes != null) {
       _json[r'notes'] = notes;
+    } else {
+      _json[r'notes'] = null;
     }
     if (notifications != null) {
       _json[r'notifications'] = notifications;
+    } else {
+      _json[r'notifications'] = null;
     }
     if (passwordPolicy != null) {
       _json[r'password_policy'] = passwordPolicy;
+    } else {
+      _json[r'password_policy'] = null;
     }
     if (provisioningApi != null) {
       _json[r'provisioning_api'] = provisioningApi;
+    } else {
+      _json[r'provisioning_api'] = null;
     }
     if (theming != null) {
       _json[r'theming'] = theming;
+    } else {
+      _json[r'theming'] = null;
     }
     if (userStatus != null) {
       _json[r'user_status'] = userStatus;
+    } else {
+      _json[r'user_status'] = null;
     }
     if (weatherStatus != null) {
       _json[r'weather_status'] = weatherStatus;
+    } else {
+      _json[r'weather_status'] = null;
     }
     return _json;
   }

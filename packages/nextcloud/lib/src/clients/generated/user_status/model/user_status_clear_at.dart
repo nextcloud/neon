@@ -49,9 +49,13 @@ class UserStatusClearAt {
     final _json = <String, dynamic>{};
     if (type != null) {
       _json[r'type'] = type;
+    } else {
+      _json[r'type'] = null;
     }
     if (time != null) {
       _json[r'time'] = time;
+    } else {
+      _json[r'time'] = null;
     }
     return _json;
   }

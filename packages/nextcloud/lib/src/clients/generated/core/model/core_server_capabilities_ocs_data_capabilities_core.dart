@@ -53,9 +53,13 @@ class CoreServerCapabilitiesOcsDataCapabilitiesCore {
     final _json = <String, dynamic>{};
     if (pollinterval != null) {
       _json[r'pollinterval'] = pollinterval;
+    } else {
+      _json[r'pollinterval'] = null;
     }
     if (webdavRoot != null) {
       _json[r'webdav-root'] = webdavRoot;
+    } else {
+      _json[r'webdav-root'] = null;
     }
     return _json;
   }

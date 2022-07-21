@@ -42,6 +42,7 @@ Name | Type | Description | Notes
 **groups** | **List<String>** |  | [optional] [default to const []]
 **language** | **String** |  | [optional] 
 **locale** | **String** |  | [optional] 
+**notifyEmail** | **String** |  | [optional] 
 **backendCapabilities** | [**ProvisioningApiUserDetailsBackendCapabilities**](ProvisioningApiUserDetailsBackendCapabilities.md) |  | [optional] 
 **displayName** | **String** |  | [optional] 
 

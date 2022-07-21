@@ -142,33 +142,53 @@ class NotesNote {
     final _json = <String, dynamic>{};
     if (id != null) {
       _json[r'id'] = id;
+    } else {
+      _json[r'id'] = null;
     }
     if (etag != null) {
       _json[r'etag'] = etag;
+    } else {
+      _json[r'etag'] = null;
     }
     if (readonly != null) {
       _json[r'readonly'] = readonly;
+    } else {
+      _json[r'readonly'] = null;
     }
     if (content != null) {
       _json[r'content'] = content;
+    } else {
+      _json[r'content'] = null;
     }
     if (title != null) {
       _json[r'title'] = title;
+    } else {
+      _json[r'title'] = null;
     }
     if (category != null) {
       _json[r'category'] = category;
+    } else {
+      _json[r'category'] = null;
     }
     if (favorite != null) {
       _json[r'favorite'] = favorite;
+    } else {
+      _json[r'favorite'] = null;
     }
     if (modified != null) {
       _json[r'modified'] = modified;
+    } else {
+      _json[r'modified'] = null;
     }
     if (error != null) {
       _json[r'error'] = error;
+    } else {
+      _json[r'error'] = null;
     }
     if (errorType != null) {
       _json[r'errorType'] = errorType;
+    } else {
+      _json[r'errorType'] = null;
     }
     return _json;
   }

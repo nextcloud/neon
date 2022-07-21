@@ -53,9 +53,13 @@ class CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingGroup {
     final _json = <String, dynamic>{};
     if (enabled != null) {
       _json[r'enabled'] = enabled;
+    } else {
+      _json[r'enabled'] = null;
     }
     if (expireDate != null) {
       _json[r'expire_date'] = expireDate;
+    } else {
+      _json[r'expire_date'] = null;
     }
     return _json;
   }

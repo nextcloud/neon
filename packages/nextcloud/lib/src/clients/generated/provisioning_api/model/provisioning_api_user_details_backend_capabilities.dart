@@ -53,9 +53,13 @@ class ProvisioningApiUserDetailsBackendCapabilities {
     final _json = <String, dynamic>{};
     if (setDisplayName != null) {
       _json[r'setDisplayName'] = setDisplayName;
+    } else {
+      _json[r'setDisplayName'] = null;
     }
     if (setPassword != null) {
       _json[r'setPassword'] = setPassword;
+    } else {
+      _json[r'setPassword'] = null;
     }
     return _json;
   }

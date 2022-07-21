@@ -132,30 +132,48 @@ class CoreNavigationAppsOcsDataInner {
     final _json = <String, dynamic>{};
     if (id != null) {
       _json[r'id'] = id;
+    } else {
+      _json[r'id'] = null;
     }
     if (order != null) {
       _json[r'order'] = order;
+    } else {
+      _json[r'order'] = null;
     }
     if (href != null) {
       _json[r'href'] = href;
+    } else {
+      _json[r'href'] = null;
     }
     if (icon != null) {
       _json[r'icon'] = icon;
+    } else {
+      _json[r'icon'] = null;
     }
     if (type != null) {
       _json[r'type'] = type;
+    } else {
+      _json[r'type'] = null;
     }
     if (name != null) {
       _json[r'name'] = name;
+    } else {
+      _json[r'name'] = null;
     }
     if (active != null) {
       _json[r'active'] = active;
+    } else {
+      _json[r'active'] = null;
     }
     if (classes != null) {
       _json[r'classes'] = classes;
+    } else {
+      _json[r'classes'] = null;
     }
     if (unread != null) {
       _json[r'unread'] = unread;
+    } else {
+      _json[r'unread'] = null;
     }
     return _json;
   }

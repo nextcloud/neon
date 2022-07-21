@@ -53,9 +53,13 @@ class CoreServerCapabilitiesOcsDataCapabilitiesPasswordPolicyApi {
     final _json = <String, dynamic>{};
     if (generate != null) {
       _json[r'generate'] = generate;
+    } else {
+      _json[r'generate'] = null;
     }
     if (validate != null) {
       _json[r'validate'] = validate;
+    } else {
+      _json[r'validate'] = null;
     }
     return _json;
   }

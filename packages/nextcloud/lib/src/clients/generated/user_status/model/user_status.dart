@@ -120,27 +120,43 @@ class UserStatus {
     final _json = <String, dynamic>{};
     if (userId != null) {
       _json[r'userId'] = userId;
+    } else {
+      _json[r'userId'] = null;
     }
     if (message != null) {
       _json[r'message'] = message;
+    } else {
+      _json[r'message'] = null;
     }
     if (messageId != null) {
       _json[r'messageId'] = messageId;
+    } else {
+      _json[r'messageId'] = null;
     }
     if (messageIsPredefined != null) {
       _json[r'messageIsPredefined'] = messageIsPredefined;
+    } else {
+      _json[r'messageIsPredefined'] = null;
     }
     if (icon != null) {
       _json[r'icon'] = icon;
+    } else {
+      _json[r'icon'] = null;
     }
     if (clearAt != null) {
       _json[r'clearAt'] = clearAt;
+    } else {
+      _json[r'clearAt'] = null;
     }
     if (status != null) {
       _json[r'status'] = status;
+    } else {
+      _json[r'status'] = null;
     }
     if (statusIsUserDefined != null) {
       _json[r'statusIsUserDefined'] = statusIsUserDefined;
+    } else {
+      _json[r'statusIsUserDefined'] = null;
     }
     return _json;
   }

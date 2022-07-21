@@ -41,6 +41,8 @@ class CoreServerCapabilitiesOcsDataCapabilitiesCirclesMemberConstants {
     final _json = <String, dynamic>{};
     if (level != null) {
       _json[r'level'] = level;
+    } else {
+      _json[r'level'] = null;
     }
     return _json;
   }

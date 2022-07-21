@@ -65,12 +65,18 @@ class PushServerDevice {
     final _json = <String, dynamic>{};
     if (pushTokenHash != null) {
       _json[r'pushTokenHash'] = pushTokenHash;
+    } else {
+      _json[r'pushTokenHash'] = null;
     }
     if (devicePublicKey != null) {
       _json[r'devicePublicKey'] = devicePublicKey;
+    } else {
+      _json[r'devicePublicKey'] = null;
     }
     if (proxyServer != null) {
       _json[r'proxyServer'] = proxyServer;
+    } else {
+      _json[r'proxyServer'] = null;
     }
     return _json;
   }

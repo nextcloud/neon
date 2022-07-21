@@ -76,15 +76,23 @@ class CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingFederation {
     final _json = <String, dynamic>{};
     if (outgoing != null) {
       _json[r'outgoing'] = outgoing;
+    } else {
+      _json[r'outgoing'] = null;
     }
     if (incoming != null) {
       _json[r'incoming'] = incoming;
+    } else {
+      _json[r'incoming'] = null;
     }
     if (expireDate != null) {
       _json[r'expire_date'] = expireDate;
+    } else {
+      _json[r'expire_date'] = null;
     }
     if (expireDateSupported != null) {
       _json[r'expire_date_supported'] = expireDateSupported;
+    } else {
+      _json[r'expire_date_supported'] = null;
     }
     return _json;
   }

@@ -131,30 +131,48 @@ class CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingPublic {
     final _json = <String, dynamic>{};
     if (enabled != null) {
       _json[r'enabled'] = enabled;
+    } else {
+      _json[r'enabled'] = null;
     }
     if (password != null) {
       _json[r'password'] = password;
+    } else {
+      _json[r'password'] = null;
     }
     if (expireDate != null) {
       _json[r'expire_date'] = expireDate;
+    } else {
+      _json[r'expire_date'] = null;
     }
     if (multipleLinks != null) {
       _json[r'multiple_links'] = multipleLinks;
+    } else {
+      _json[r'multiple_links'] = null;
     }
     if (expireDateInternal != null) {
       _json[r'expire_date_internal'] = expireDateInternal;
+    } else {
+      _json[r'expire_date_internal'] = null;
     }
     if (expireDateRemote != null) {
       _json[r'expire_date_remote'] = expireDateRemote;
+    } else {
+      _json[r'expire_date_remote'] = null;
     }
     if (sendMail != null) {
       _json[r'send_mail'] = sendMail;
+    } else {
+      _json[r'send_mail'] = null;
     }
     if (upload != null) {
       _json[r'upload'] = upload;
+    } else {
+      _json[r'upload'] = null;
     }
     if (uploadFilesDrop != null) {
       _json[r'upload_files_drop'] = uploadFilesDrop;
+    } else {
+      _json[r'upload_files_drop'] = null;
     }
     return _json;
   }

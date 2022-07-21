@@ -86,18 +86,28 @@ class PushNotificationDecryptedSubject {
     final _json = <String, dynamic>{};
     if (nid != null) {
       _json[r'nid'] = nid;
+    } else {
+      _json[r'nid'] = null;
     }
     if (app != null) {
       _json[r'app'] = app;
+    } else {
+      _json[r'app'] = null;
     }
     if (subject != null) {
       _json[r'subject'] = subject;
+    } else {
+      _json[r'subject'] = null;
     }
     if (type != null) {
       _json[r'type'] = type;
+    } else {
+      _json[r'type'] = null;
     }
     if (id != null) {
       _json[r'id'] = id;
+    } else {
+      _json[r'id'] = null;
     }
     return _json;
   }

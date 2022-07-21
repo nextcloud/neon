@@ -40,6 +40,8 @@ class UserStatusSetUserStatus {
     final _json = <String, dynamic>{};
     if (statusType != null) {
       _json[r'statusType'] = statusType;
+    } else {
+      _json[r'statusType'] = null;
     }
     return _json;
   }

@@ -40,6 +40,8 @@ class CoreServerCapabilitiesOcsDataCapabilitiesBruteforce {
     final _json = <String, dynamic>{};
     if (delay != null) {
       _json[r'delay'] = delay;
+    } else {
+      _json[r'delay'] = null;
     }
     return _json;
   }

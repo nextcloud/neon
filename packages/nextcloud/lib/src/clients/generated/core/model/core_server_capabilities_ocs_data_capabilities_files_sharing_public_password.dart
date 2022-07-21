@@ -54,9 +54,13 @@ class CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingPublicPassword {
     final _json = <String, dynamic>{};
     if (enforced != null) {
       _json[r'enforced'] = enforced;
+    } else {
+      _json[r'enforced'] = null;
     }
     if (askForOptionalPassword != null) {
       _json[r'askForOptionalPassword'] = askForOptionalPassword;
+    } else {
+      _json[r'askForOptionalPassword'] = null;
     }
     return _json;
   }

@@ -65,12 +65,18 @@ class PushServerSubscription {
     final _json = <String, dynamic>{};
     if (publicKey != null) {
       _json[r'publicKey'] = publicKey;
+    } else {
+      _json[r'publicKey'] = null;
     }
     if (deviceIdentifier != null) {
       _json[r'deviceIdentifier'] = deviceIdentifier;
+    } else {
+      _json[r'deviceIdentifier'] = null;
     }
     if (signature != null) {
       _json[r'signature'] = signature;
+    } else {
+      _json[r'signature'] = null;
     }
     return _json;
   }

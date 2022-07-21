@@ -40,6 +40,8 @@ class CoreServerCapabilitiesOcsDataCapabilitiesDav {
     final _json = <String, dynamic>{};
     if (chunking != null) {
       _json[r'chunking'] = chunking;
+    } else {
+      _json[r'chunking'] = null;
     }
     return _json;
   }

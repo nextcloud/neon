@@ -54,9 +54,13 @@ class CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingSharee {
     final _json = <String, dynamic>{};
     if (queryLookupDefault != null) {
       _json[r'query_lookup_default'] = queryLookupDefault;
+    } else {
+      _json[r'query_lookup_default'] = null;
     }
     if (alwaysShowUnique != null) {
       _json[r'always_show_unique'] = alwaysShowUnique;
+    } else {
+      _json[r'always_show_unique'] = null;
     }
     return _json;
   }

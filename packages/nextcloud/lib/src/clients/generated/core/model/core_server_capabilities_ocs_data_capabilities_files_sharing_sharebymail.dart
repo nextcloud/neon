@@ -87,18 +87,28 @@ class CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingSharebymail {
     final _json = <String, dynamic>{};
     if (enabled != null) {
       _json[r'enabled'] = enabled;
+    } else {
+      _json[r'enabled'] = null;
     }
     if (sendPasswordByMail != null) {
       _json[r'send_password_by_mail'] = sendPasswordByMail;
+    } else {
+      _json[r'send_password_by_mail'] = null;
     }
     if (uploadFilesDrop != null) {
       _json[r'upload_files_drop'] = uploadFilesDrop;
+    } else {
+      _json[r'upload_files_drop'] = null;
     }
     if (password != null) {
       _json[r'password'] = password;
+    } else {
+      _json[r'password'] = null;
     }
     if (expireDate != null) {
       _json[r'expire_date'] = expireDate;
+    } else {
+      _json[r'expire_date'] = null;
     }
     return _json;
   }

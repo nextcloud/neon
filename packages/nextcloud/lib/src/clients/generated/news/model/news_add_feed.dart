@@ -49,9 +49,13 @@ class NewsAddFeed {
     final _json = <String, dynamic>{};
     if (url != null) {
       _json[r'url'] = url;
+    } else {
+      _json[r'url'] = null;
     }
     if (folderId != null) {
       _json[r'folderId'] = folderId;
+    } else {
+      _json[r'folderId'] = null;
     }
     return _json;
   }

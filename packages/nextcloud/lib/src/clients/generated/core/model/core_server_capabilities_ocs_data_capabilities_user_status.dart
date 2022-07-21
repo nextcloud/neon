@@ -53,9 +53,13 @@ class CoreServerCapabilitiesOcsDataCapabilitiesUserStatus {
     final _json = <String, dynamic>{};
     if (enabled != null) {
       _json[r'enabled'] = enabled;
+    } else {
+      _json[r'enabled'] = null;
     }
     if (supportsEmoji != null) {
       _json[r'supports_emoji'] = supportsEmoji;
+    } else {
+      _json[r'supports_emoji'] = null;
     }
     return _json;
   }

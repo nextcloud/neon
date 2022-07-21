@@ -75,15 +75,23 @@ class UserStatusPredefinedStatus {
     final _json = <String, dynamic>{};
     if (id != null) {
       _json[r'id'] = id;
+    } else {
+      _json[r'id'] = null;
     }
     if (icon != null) {
       _json[r'icon'] = icon;
+    } else {
+      _json[r'icon'] = null;
     }
     if (message != null) {
       _json[r'message'] = message;
+    } else {
+      _json[r'message'] = null;
     }
     if (clearAt != null) {
       _json[r'clearAt'] = clearAt;
+    } else {
+      _json[r'clearAt'] = null;
     }
     return _json;
   }

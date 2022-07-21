@@ -50,9 +50,13 @@ class AdminNotification {
     final _json = <String, dynamic>{};
     if (shortMessage != null) {
       _json[r'shortMessage'] = shortMessage;
+    } else {
+      _json[r'shortMessage'] = null;
     }
     if (longMessage != null) {
       _json[r'longMessage'] = longMessage;
+    } else {
+      _json[r'longMessage'] = null;
     }
     return _json;
   }

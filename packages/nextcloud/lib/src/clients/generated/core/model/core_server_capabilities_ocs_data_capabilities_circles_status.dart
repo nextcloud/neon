@@ -41,6 +41,8 @@ class CoreServerCapabilitiesOcsDataCapabilitiesCirclesStatus {
     final _json = <String, dynamic>{};
     if (globalScale != null) {
       _json[r'globalScale'] = globalScale;
+    } else {
+      _json[r'globalScale'] = null;
     }
     return _json;
   }

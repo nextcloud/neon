@@ -38,6 +38,8 @@ class ListNotificationsResponseOcs {
     final _json = <String, dynamic>{};
     if (meta != null) {
       _json[r'meta'] = meta;
+    } else {
+      _json[r'meta'] = null;
     }
     _json[r'data'] = data;
     return _json;

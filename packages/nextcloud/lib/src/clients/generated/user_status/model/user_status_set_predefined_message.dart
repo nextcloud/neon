@@ -50,9 +50,13 @@ class UserStatusSetPredefinedMessage {
     final _json = <String, dynamic>{};
     if (messageId != null) {
       _json[r'messageId'] = messageId;
+    } else {
+      _json[r'messageId'] = null;
     }
     if (clearAt != null) {
       _json[r'clearAt'] = clearAt;
+    } else {
+      _json[r'clearAt'] = null;
     }
     return _json;
   }

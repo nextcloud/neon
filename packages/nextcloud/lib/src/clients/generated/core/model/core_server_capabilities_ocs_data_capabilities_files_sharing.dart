@@ -142,33 +142,53 @@ class CoreServerCapabilitiesOcsDataCapabilitiesFilesSharing {
     final _json = <String, dynamic>{};
     if (apiEnabled != null) {
       _json[r'api_enabled'] = apiEnabled;
+    } else {
+      _json[r'api_enabled'] = null;
     }
     if (public != null) {
       _json[r'public'] = public;
+    } else {
+      _json[r'public'] = null;
     }
     if (resharing != null) {
       _json[r'resharing'] = resharing;
+    } else {
+      _json[r'resharing'] = null;
     }
     if (user != null) {
       _json[r'user'] = user;
+    } else {
+      _json[r'user'] = null;
     }
     if (groupSharing != null) {
       _json[r'group_sharing'] = groupSharing;
+    } else {
+      _json[r'group_sharing'] = null;
     }
     if (group != null) {
       _json[r'group'] = group;
+    } else {
+      _json[r'group'] = null;
     }
     if (defaultPermissions != null) {
       _json[r'default_permissions'] = defaultPermissions;
+    } else {
+      _json[r'default_permissions'] = null;
     }
     if (federation != null) {
       _json[r'federation'] = federation;
+    } else {
+      _json[r'federation'] = null;
     }
     if (sharee != null) {
       _json[r'sharee'] = sharee;
+    } else {
+      _json[r'sharee'] = null;
     }
     if (sharebymail != null) {
       _json[r'sharebymail'] = sharebymail;
+    } else {
+      _json[r'sharebymail'] = null;
     }
     return _json;
   }

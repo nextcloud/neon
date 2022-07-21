@@ -49,9 +49,13 @@ class CoreLoginFlowInit {
     final _json = <String, dynamic>{};
     if (poll != null) {
       _json[r'poll'] = poll;
+    } else {
+      _json[r'poll'] = null;
     }
     if (login != null) {
       _json[r'login'] = login;
+    } else {
+      _json[r'login'] = null;
     }
     return _json;
   }

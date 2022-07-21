@@ -57,10 +57,14 @@ class CoreServerCapabilitiesOcsDataCapabilitiesOcmResourceTypesInner {
     final _json = <String, dynamic>{};
     if (name != null) {
       _json[r'name'] = name;
+    } else {
+      _json[r'name'] = null;
     }
     _json[r'shareTypes'] = shareTypes;
     if (protocols != null) {
       _json[r'protocols'] = protocols;
+    } else {
+      _json[r'protocols'] = null;
     }
     return _json;
   }

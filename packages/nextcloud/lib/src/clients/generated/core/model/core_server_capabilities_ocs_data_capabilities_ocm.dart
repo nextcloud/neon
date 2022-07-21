@@ -70,12 +70,18 @@ class CoreServerCapabilitiesOcsDataCapabilitiesOcm {
     final _json = <String, dynamic>{};
     if (enabled != null) {
       _json[r'enabled'] = enabled;
+    } else {
+      _json[r'enabled'] = null;
     }
     if (apiVersion != null) {
       _json[r'apiVersion'] = apiVersion;
+    } else {
+      _json[r'apiVersion'] = null;
     }
     if (endPoint != null) {
       _json[r'endPoint'] = endPoint;
+    } else {
+      _json[r'endPoint'] = null;
     }
     _json[r'resourceTypes'] = resourceTypes;
     return _json;

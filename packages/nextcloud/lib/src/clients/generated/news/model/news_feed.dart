@@ -169,39 +169,63 @@ class NewsFeed {
     final _json = <String, dynamic>{};
     if (id != null) {
       _json[r'id'] = id;
+    } else {
+      _json[r'id'] = null;
     }
     if (url != null) {
       _json[r'url'] = url;
+    } else {
+      _json[r'url'] = null;
     }
     if (title != null) {
       _json[r'title'] = title;
+    } else {
+      _json[r'title'] = null;
     }
     if (faviconLink != null) {
       _json[r'faviconLink'] = faviconLink;
+    } else {
+      _json[r'faviconLink'] = null;
     }
     if (added != null) {
       _json[r'added'] = added;
+    } else {
+      _json[r'added'] = null;
     }
     if (folderId != null) {
       _json[r'folderId'] = folderId;
+    } else {
+      _json[r'folderId'] = null;
     }
     if (unreadCount != null) {
       _json[r'unreadCount'] = unreadCount;
+    } else {
+      _json[r'unreadCount'] = null;
     }
     if (ordering != null) {
       _json[r'ordering'] = ordering;
+    } else {
+      _json[r'ordering'] = null;
     }
     if (link != null) {
       _json[r'link'] = link;
+    } else {
+      _json[r'link'] = null;
     }
     if (pinned != null) {
       _json[r'pinned'] = pinned;
+    } else {
+      _json[r'pinned'] = null;
     }
     if (updateErrorCount != null) {
       _json[r'updateErrorCount'] = updateErrorCount;
+    } else {
+      _json[r'updateErrorCount'] = null;
     }
     if (lastUpdateError != null) {
       _json[r'lastUpdateError'] = lastUpdateError;
+    } else {
+      _json[r'lastUpdateError'] = null;
     }
     _json[r'items'] = items;
     return _json;

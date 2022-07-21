@@ -87,18 +87,28 @@ class OCSMeta {
     final _json = <String, dynamic>{};
     if (status != null) {
       _json[r'status'] = status;
+    } else {
+      _json[r'status'] = null;
     }
     if (statuscode != null) {
       _json[r'statuscode'] = statuscode;
+    } else {
+      _json[r'statuscode'] = null;
     }
     if (message != null) {
       _json[r'message'] = message;
+    } else {
+      _json[r'message'] = null;
     }
     if (totalitems != null) {
       _json[r'totalitems'] = totalitems;
+    } else {
+      _json[r'totalitems'] = null;
     }
     if (itemsperpage != null) {
       _json[r'itemsperpage'] = itemsperpage;
+    } else {
+      _json[r'itemsperpage'] = null;
     }
     return _json;
   }
