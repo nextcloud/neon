@@ -53,9 +53,13 @@ class CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingSharebymailPassword {
     final _json = <String, dynamic>{};
     if (enabled != null) {
       _json[r'enabled'] = enabled;
+    } else {
+      _json[r'enabled'] = null;
     }
     if (enforced != null) {
       _json[r'enforced'] = enforced;
+    } else {
+      _json[r'enforced'] = null;
     }
     return _json;
   }

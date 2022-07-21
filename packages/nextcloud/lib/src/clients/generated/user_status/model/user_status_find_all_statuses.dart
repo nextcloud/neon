@@ -39,6 +39,8 @@ class UserStatusFindAllStatuses {
     final _json = <String, dynamic>{};
     if (ocs != null) {
       _json[r'ocs'] = ocs;
+    } else {
+      _json[r'ocs'] = null;
     }
     return _json;
   }

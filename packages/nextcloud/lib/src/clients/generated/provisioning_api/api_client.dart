@@ -220,6 +220,8 @@ class ApiClient extends BaseApiClient {
           }
           final valueString = '$value'.toLowerCase();
           return valueString == 'true' || valueString == '1';
+        case 'DateTime':
+          return value is DateTime ? value : DateTime.tryParse(value);
         case 'ProvisioningApiUser':
           return ProvisioningApiUser.fromJson(value);
         case 'ProvisioningApiUserDetails':

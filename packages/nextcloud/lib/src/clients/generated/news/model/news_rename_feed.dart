@@ -39,6 +39,8 @@ class NewsRenameFeed {
     final _json = <String, dynamic>{};
     if (feedTitle != null) {
       _json[r'feedTitle'] = feedTitle;
+    } else {
+      _json[r'feedTitle'] = null;
     }
     return _json;
   }

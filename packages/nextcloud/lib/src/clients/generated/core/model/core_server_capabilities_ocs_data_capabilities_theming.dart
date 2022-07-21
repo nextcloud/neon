@@ -186,45 +186,73 @@ class CoreServerCapabilitiesOcsDataCapabilitiesTheming {
     final _json = <String, dynamic>{};
     if (name != null) {
       _json[r'name'] = name;
+    } else {
+      _json[r'name'] = null;
     }
     if (url != null) {
       _json[r'url'] = url;
+    } else {
+      _json[r'url'] = null;
     }
     if (slogan != null) {
       _json[r'slogan'] = slogan;
+    } else {
+      _json[r'slogan'] = null;
     }
     if (color != null) {
       _json[r'color'] = color;
+    } else {
+      _json[r'color'] = null;
     }
     if (colorText != null) {
       _json[r'color-text'] = colorText;
+    } else {
+      _json[r'color-text'] = null;
     }
     if (colorElement != null) {
       _json[r'color-element'] = colorElement;
+    } else {
+      _json[r'color-element'] = null;
     }
     if (colorElementBright != null) {
       _json[r'color-element-bright'] = colorElementBright;
+    } else {
+      _json[r'color-element-bright'] = null;
     }
     if (colorElementDark != null) {
       _json[r'color-element-dark'] = colorElementDark;
+    } else {
+      _json[r'color-element-dark'] = null;
     }
     if (logo != null) {
       _json[r'logo'] = logo;
+    } else {
+      _json[r'logo'] = null;
     }
     if (background != null) {
       _json[r'background'] = background;
+    } else {
+      _json[r'background'] = null;
     }
     if (backgroundPlain != null) {
       _json[r'background-plain'] = backgroundPlain;
+    } else {
+      _json[r'background-plain'] = null;
     }
     if (backgroundDefault != null) {
       _json[r'background-default'] = backgroundDefault;
+    } else {
+      _json[r'background-default'] = null;
     }
     if (logoheader != null) {
       _json[r'logoheader'] = logoheader;
+    } else {
+      _json[r'logoheader'] = null;
     }
     if (favicon != null) {
       _json[r'favicon'] = favicon;
+    } else {
+      _json[r'favicon'] = null;
     }
     return _json;
   }

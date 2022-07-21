@@ -44,9 +44,13 @@ class CoreServerCapabilitiesOcs {
     final _json = <String, dynamic>{};
     if (meta != null) {
       _json[r'meta'] = meta;
+    } else {
+      _json[r'meta'] = null;
     }
     if (data != null) {
       _json[r'data'] = data;
+    } else {
+      _json[r'data'] = null;
     }
     return _json;
   }

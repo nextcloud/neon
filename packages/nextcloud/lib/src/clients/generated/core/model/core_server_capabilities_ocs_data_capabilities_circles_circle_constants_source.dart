@@ -53,9 +53,13 @@ class CoreServerCapabilitiesOcsDataCapabilitiesCirclesCircleConstantsSource {
     final _json = <String, dynamic>{};
     if (core != null) {
       _json[r'core'] = core;
+    } else {
+      _json[r'core'] = null;
     }
     if (extra != null) {
       _json[r'extra'] = extra;
+    } else {
+      _json[r'extra'] = null;
     }
     return _json;
   }

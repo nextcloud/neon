@@ -64,12 +64,18 @@ class UserStatusSetCustomMessage {
     final _json = <String, dynamic>{};
     if (statusIcon != null) {
       _json[r'statusIcon'] = statusIcon;
+    } else {
+      _json[r'statusIcon'] = null;
     }
     if (message != null) {
       _json[r'message'] = message;
+    } else {
+      _json[r'message'] = null;
     }
     if (clearAt != null) {
       _json[r'clearAt'] = clearAt;
+    } else {
+      _json[r'clearAt'] = null;
     }
     return _json;
   }

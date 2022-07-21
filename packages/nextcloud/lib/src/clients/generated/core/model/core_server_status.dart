@@ -120,27 +120,43 @@ class CoreServerStatus {
     final _json = <String, dynamic>{};
     if (installed != null) {
       _json[r'installed'] = installed;
+    } else {
+      _json[r'installed'] = null;
     }
     if (maintenance != null) {
       _json[r'maintenance'] = maintenance;
+    } else {
+      _json[r'maintenance'] = null;
     }
     if (needsDbUpgrade != null) {
       _json[r'needsDbUpgrade'] = needsDbUpgrade;
+    } else {
+      _json[r'needsDbUpgrade'] = null;
     }
     if (version != null) {
       _json[r'version'] = version;
+    } else {
+      _json[r'version'] = null;
     }
     if (versionstring != null) {
       _json[r'versionstring'] = versionstring;
+    } else {
+      _json[r'versionstring'] = null;
     }
     if (edition != null) {
       _json[r'edition'] = edition;
+    } else {
+      _json[r'edition'] = null;
     }
     if (productname != null) {
       _json[r'productname'] = productname;
+    } else {
+      _json[r'productname'] = null;
     }
     if (extendedSupport != null) {
       _json[r'extendedSupport'] = extendedSupport;
+    } else {
+      _json[r'extendedSupport'] = null;
     }
     return _json;
   }

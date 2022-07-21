@@ -50,9 +50,13 @@ class CoreServerCapabilitiesOcsData {
     final _json = <String, dynamic>{};
     if (version != null) {
       _json[r'version'] = version;
+    } else {
+      _json[r'version'] = null;
     }
     if (capabilities != null) {
       _json[r'capabilities'] = capabilities;
+    } else {
+      _json[r'capabilities'] = null;
     }
     return _json;
   }

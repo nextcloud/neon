@@ -49,9 +49,13 @@ class CoreLoginFlowInitPoll {
     final _json = <String, dynamic>{};
     if (token != null) {
       _json[r'token'] = token;
+    } else {
+      _json[r'token'] = null;
     }
     if (endpoint != null) {
       _json[r'endpoint'] = endpoint;
+    } else {
+      _json[r'endpoint'] = null;
     }
     return _json;
   }

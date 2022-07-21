@@ -252,63 +252,103 @@ class NewsArticle {
     final _json = <String, dynamic>{};
     if (id != null) {
       _json[r'id'] = id;
+    } else {
+      _json[r'id'] = null;
     }
     if (guid != null) {
       _json[r'guid'] = guid;
+    } else {
+      _json[r'guid'] = null;
     }
     if (guidHash != null) {
       _json[r'guidHash'] = guidHash;
+    } else {
+      _json[r'guidHash'] = null;
     }
     if (url != null) {
       _json[r'url'] = url;
+    } else {
+      _json[r'url'] = null;
     }
     if (title != null) {
       _json[r'title'] = title;
+    } else {
+      _json[r'title'] = null;
     }
     if (author != null) {
       _json[r'author'] = author;
+    } else {
+      _json[r'author'] = null;
     }
     if (pubDate != null) {
       _json[r'pubDate'] = pubDate;
+    } else {
+      _json[r'pubDate'] = null;
     }
     if (updatedDate != null) {
       _json[r'updatedDate'] = updatedDate;
+    } else {
+      _json[r'updatedDate'] = null;
     }
     if (body != null) {
       _json[r'body'] = body;
+    } else {
+      _json[r'body'] = null;
     }
     if (enclosureMime != null) {
       _json[r'enclosureMime'] = enclosureMime;
+    } else {
+      _json[r'enclosureMime'] = null;
     }
     if (enclosureLink != null) {
       _json[r'enclosureLink'] = enclosureLink;
+    } else {
+      _json[r'enclosureLink'] = null;
     }
     if (mediaThumbnail != null) {
       _json[r'mediaThumbnail'] = mediaThumbnail;
+    } else {
+      _json[r'mediaThumbnail'] = null;
     }
     if (mediaDescription != null) {
       _json[r'mediaDescription'] = mediaDescription;
+    } else {
+      _json[r'mediaDescription'] = null;
     }
     if (feedId != null) {
       _json[r'feedId'] = feedId;
+    } else {
+      _json[r'feedId'] = null;
     }
     if (unread != null) {
       _json[r'unread'] = unread;
+    } else {
+      _json[r'unread'] = null;
     }
     if (starred != null) {
       _json[r'starred'] = starred;
+    } else {
+      _json[r'starred'] = null;
     }
     if (lastModified != null) {
       _json[r'lastModified'] = lastModified;
+    } else {
+      _json[r'lastModified'] = null;
     }
     if (rtl != null) {
       _json[r'rtl'] = rtl;
+    } else {
+      _json[r'rtl'] = null;
     }
     if (fingerprint != null) {
       _json[r'fingerprint'] = fingerprint;
+    } else {
+      _json[r'fingerprint'] = null;
     }
     if (contentHash != null) {
       _json[r'contentHash'] = contentHash;
+    } else {
+      _json[r'contentHash'] = null;
     }
     return _json;
   }

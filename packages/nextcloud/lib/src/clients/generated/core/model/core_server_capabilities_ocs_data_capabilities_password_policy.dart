@@ -98,21 +98,33 @@ class CoreServerCapabilitiesOcsDataCapabilitiesPasswordPolicy {
     final _json = <String, dynamic>{};
     if (minLength != null) {
       _json[r'minLength'] = minLength;
+    } else {
+      _json[r'minLength'] = null;
     }
     if (enforceNonCommonPassword != null) {
       _json[r'enforceNonCommonPassword'] = enforceNonCommonPassword;
+    } else {
+      _json[r'enforceNonCommonPassword'] = null;
     }
     if (enforceNumericCharacters != null) {
       _json[r'enforceNumericCharacters'] = enforceNumericCharacters;
+    } else {
+      _json[r'enforceNumericCharacters'] = null;
     }
     if (enforceSpecialCharacters != null) {
       _json[r'enforceSpecialCharacters'] = enforceSpecialCharacters;
+    } else {
+      _json[r'enforceSpecialCharacters'] = null;
     }
     if (enforceUpperLowerCase != null) {
       _json[r'enforceUpperLowerCase'] = enforceUpperLowerCase;
+    } else {
+      _json[r'enforceUpperLowerCase'] = null;
     }
     if (api != null) {
       _json[r'api'] = api;
+    } else {
+      _json[r'api'] = null;
     }
     return _json;
   }

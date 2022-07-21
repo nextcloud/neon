@@ -188,6 +188,9 @@
           "locale": {
             "type": "string"
           },
+          "notify_email": {
+            "type": "string"
+          },
           "backendCapabilities": {
             "type": "object",
             "properties": {

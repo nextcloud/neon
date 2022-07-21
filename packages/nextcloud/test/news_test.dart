@@ -39,6 +39,7 @@ Future main() async {
       var response = (await validateResponse<NewsListFeeds, void>(
         client.news,
         client.news.listFeedsWithHttpInfo(),
+        cleanResponse: true,
       ))!;
       expect(response.starredCount, 0);
       expect(response.newestItemId, null);
@@ -53,7 +54,6 @@ Future main() async {
       response = (await validateResponse<NewsListFeeds, void>(
         client.news,
         client.news.listFeedsWithHttpInfo(),
-        cleanResponse: true,
       ))!;
       expect(response.starredCount, 0);
       expect(response.newestItemId, isNotNull);
@@ -67,7 +67,6 @@ Future main() async {
       var articlesResponse = (await validateResponse<NewsListArticles, void>(
         client.news,
         client.news.listArticlesWithHttpInfo(type: 6),
-        cleanResponse: true,
       ))!;
       expect(articlesResponse.items.length, greaterThan(0));
 
@@ -81,7 +80,6 @@ Future main() async {
       articlesResponse = (await validateResponse<NewsListArticles, void>(
         client.news,
         client.news.listArticlesWithHttpInfo(type: 6),
-        cleanResponse: true,
       ))!;
       expect(articlesResponse.items, hasLength(0));
     });
@@ -90,7 +88,6 @@ Future main() async {
       var response = (await validateResponse<NewsListArticles, void>(
         client.news,
         client.news.listArticlesWithHttpInfo(),
-        cleanResponse: true,
       ))!;
       expect(response.items, hasLength(0));
 
@@ -99,7 +96,6 @@ Future main() async {
       response = (await validateResponse<NewsListArticles, void>(
         client.news,
         client.news.listArticlesWithHttpInfo(),
-        cleanResponse: true,
       ))!;
       expect(response.items.length, greaterThan(0));
       expect(response.items[0].body, isNotNull);
@@ -119,7 +115,6 @@ Future main() async {
       var response = (await validateResponse<NewsListArticles, void>(
         client.news,
         client.news.listArticlesWithHttpInfo(),
-        cleanResponse: true,
       ))!;
       final wikipediaArticles = response.items.length;
       expect(wikipediaArticles, greaterThan(0));
@@ -129,7 +124,6 @@ Future main() async {
       response = (await validateResponse<NewsListArticles, void>(
         client.news,
         client.news.listArticlesWithHttpInfo(),
-        cleanResponse: true,
       ))!;
       final nasaArticles = response.items.length - wikipediaArticles;
       expect(nasaArticles, greaterThan(0));
@@ -139,7 +133,6 @@ Future main() async {
         client.news.listUpdatedArticlesWithHttpInfo(
           lastModified: response.items[response.items.length - 1 - nasaArticles].lastModified,
         ),
-        cleanResponse: true,
       ))!;
       expect(response.items, hasLength(nasaArticles));
     });
@@ -150,7 +143,6 @@ Future main() async {
       var response = (await validateResponse<NewsListArticles, void>(
         client.news,
         client.news.listArticlesWithHttpInfo(type: 6),
-        cleanResponse: true,
       ))!;
       final unreadArticles = response.items.length;
       expect(unreadArticles, greaterThan(0));
@@ -159,7 +151,6 @@ Future main() async {
       response = (await validateResponse<NewsListArticles, void>(
         client.news,
         client.news.listArticlesWithHttpInfo(type: 6),
-        cleanResponse: true,
       ))!;
       expect(response.items, hasLength(unreadArticles - 1));
     });
@@ -170,14 +161,12 @@ Future main() async {
       var response = (await validateResponse<NewsListArticles, void>(
         client.news,
         client.news.listArticlesWithHttpInfo(type: 6),
-        cleanResponse: true,
       ))!;
       final readArticle = response.items[0];
       await client.news.markArticleAsRead(readArticle.id!);
       response = (await validateResponse<NewsListArticles, void>(
         client.news,
         client.news.listArticlesWithHttpInfo(type: 6),
-        cleanResponse: true,
       ))!;
       final unreadArticles = response.items.length;
       expect(unreadArticles, greaterThan(0));
@@ -186,7 +175,6 @@ Future main() async {
       response = (await validateResponse<NewsListArticles, void>(
         client.news,
         client.news.listArticlesWithHttpInfo(type: 6),
-        cleanResponse: true,
       ))!;
       expect(response.items, hasLength(unreadArticles + 1));
     });
@@ -197,7 +185,6 @@ Future main() async {
       var response = (await validateResponse<NewsListArticles, void>(
         client.news,
         client.news.listArticlesWithHttpInfo(type: 2),
-        cleanResponse: true,
       ))!;
       final starredArticles = response.items.length;
       expect(starredArticles, 0);
@@ -205,13 +192,11 @@ Future main() async {
       response = (await validateResponse<NewsListArticles, void>(
         client.news,
         client.news.listArticlesWithHttpInfo(),
-        cleanResponse: true,
       ))!;
       await client.news.starArticle(response.items[0].feedId!, response.items[0].guidHash!);
       response = (await validateResponse<NewsListArticles, void>(
         client.news,
         client.news.listArticlesWithHttpInfo(type: 2),
-        cleanResponse: true,
       ))!;
       expect(response.items, hasLength(1));
     });
@@ -222,7 +207,6 @@ Future main() async {
       var response = (await validateResponse<NewsListArticles, void>(
         client.news,
         client.news.listArticlesWithHttpInfo(),
-        cleanResponse: true,
       ))!;
       final item = response.items[0];
 
@@ -230,7 +214,6 @@ Future main() async {
       response = (await validateResponse<NewsListArticles, void>(
         client.news,
         client.news.listArticlesWithHttpInfo(type: 2),
-        cleanResponse: true,
       ))!;
       expect(response.items, hasLength(1));
 
@@ -238,7 +221,6 @@ Future main() async {
       response = (await validateResponse<NewsListArticles, void>(
         client.news,
         client.news.listArticlesWithHttpInfo(type: 2),
-        cleanResponse: true,
       ))!;
       expect(response.items, hasLength(0));
     });
@@ -316,7 +298,6 @@ Future main() async {
       var articlesResponse = (await validateResponse<NewsListArticles, void>(
         client.news,
         client.news.listArticlesWithHttpInfo(type: 6),
-        cleanResponse: true,
       ))!;
       expect(articlesResponse.items.length, greaterThan(0));
 
@@ -330,7 +311,6 @@ Future main() async {
       articlesResponse = (await validateResponse<NewsListArticles, void>(
         client.news,
         client.news.listArticlesWithHttpInfo(type: 6),
-        cleanResponse: true,
       ))!;
       expect(articlesResponse.items, hasLength(0));
     });

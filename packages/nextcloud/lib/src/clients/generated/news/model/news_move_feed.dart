@@ -39,6 +39,8 @@ class NewsMoveFeed {
     final _json = <String, dynamic>{};
     if (folderId != null) {
       _json[r'folderId'] = folderId;
+    } else {
+      _json[r'folderId'] = null;
     }
     return _json;
   }

@@ -47,6 +47,7 @@ class ProvisioningApiUserDetails {
     this.groups = const [],
     this.language,
     this.locale,
+    this.notifyEmail,
     this.backendCapabilities,
     this.displayName,
   });
@@ -305,6 +306,14 @@ class ProvisioningApiUserDetails {
   /// source code must fall back to having a nullable type.
   /// Consider adding a "default:" property in the specification file to hide this note.
   ///
+  String? notifyEmail;
+
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
   ProvisioningApiUserDetailsBackendCapabilities? backendCapabilities;
 
   ///
@@ -353,6 +362,7 @@ class ProvisioningApiUserDetails {
           other.groups == groups &&
           other.language == language &&
           other.locale == locale &&
+          other.notifyEmail == notifyEmail &&
           other.backendCapabilities == backendCapabilities &&
           other.displayName == displayName;
 
@@ -393,114 +403,184 @@ class ProvisioningApiUserDetails {
       (groups.hashCode) +
       (language == null ? 0 : language!.hashCode) +
       (locale == null ? 0 : locale!.hashCode) +
+      (notifyEmail == null ? 0 : notifyEmail!.hashCode) +
       (backendCapabilities == null ? 0 : backendCapabilities!.hashCode) +
       (displayName == null ? 0 : displayName!.hashCode);
 
   @override
   String toString() =>
-      'ProvisioningApiUserDetails[storageLocation=$storageLocation, id=$id, lastLogin=$lastLogin, backend=$backend, subadmin=$subadmin, quota=$quota, avatarScope=$avatarScope, email=$email, emailScope=$emailScope, additionalMail=$additionalMail, additionalMailScope=$additionalMailScope, displayname=$displayname, displaynameScope=$displaynameScope, phone=$phone, phoneScope=$phoneScope, address=$address, addressScope=$addressScope, website=$website, websiteScope=$websiteScope, twitter=$twitter, twitterScope=$twitterScope, organisation=$organisation, organisationScope=$organisationScope, role=$role, roleScope=$roleScope, headline=$headline, headlineScope=$headlineScope, biography=$biography, biographyScope=$biographyScope, profileEnabled=$profileEnabled, profileEnabledScope=$profileEnabledScope, groups=$groups, language=$language, locale=$locale, backendCapabilities=$backendCapabilities, displayName=$displayName]';
+      'ProvisioningApiUserDetails[storageLocation=$storageLocation, id=$id, lastLogin=$lastLogin, backend=$backend, subadmin=$subadmin, quota=$quota, avatarScope=$avatarScope, email=$email, emailScope=$emailScope, additionalMail=$additionalMail, additionalMailScope=$additionalMailScope, displayname=$displayname, displaynameScope=$displaynameScope, phone=$phone, phoneScope=$phoneScope, address=$address, addressScope=$addressScope, website=$website, websiteScope=$websiteScope, twitter=$twitter, twitterScope=$twitterScope, organisation=$organisation, organisationScope=$organisationScope, role=$role, roleScope=$roleScope, headline=$headline, headlineScope=$headlineScope, biography=$biography, biographyScope=$biographyScope, profileEnabled=$profileEnabled, profileEnabledScope=$profileEnabledScope, groups=$groups, language=$language, locale=$locale, notifyEmail=$notifyEmail, backendCapabilities=$backendCapabilities, displayName=$displayName]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
     if (storageLocation != null) {
       _json[r'storageLocation'] = storageLocation;
+    } else {
+      _json[r'storageLocation'] = null;
     }
     if (id != null) {
       _json[r'id'] = id;
+    } else {
+      _json[r'id'] = null;
     }
     if (lastLogin != null) {
       _json[r'lastLogin'] = lastLogin;
+    } else {
+      _json[r'lastLogin'] = null;
     }
     if (backend != null) {
       _json[r'backend'] = backend;
+    } else {
+      _json[r'backend'] = null;
     }
     _json[r'subadmin'] = subadmin;
     if (quota != null) {
       _json[r'quota'] = quota;
+    } else {
+      _json[r'quota'] = null;
     }
     if (avatarScope != null) {
       _json[r'avatarScope'] = avatarScope;
+    } else {
+      _json[r'avatarScope'] = null;
     }
     if (email != null) {
       _json[r'email'] = email;
+    } else {
+      _json[r'email'] = null;
     }
     if (emailScope != null) {
       _json[r'emailScope'] = emailScope;
+    } else {
+      _json[r'emailScope'] = null;
     }
     _json[r'additional_mail'] = additionalMail;
     _json[r'additional_mailScope'] = additionalMailScope;
     if (displayname != null) {
       _json[r'displayname'] = displayname;
+    } else {
+      _json[r'displayname'] = null;
     }
     if (displaynameScope != null) {
       _json[r'displaynameScope'] = displaynameScope;
+    } else {
+      _json[r'displaynameScope'] = null;
     }
     if (phone != null) {
       _json[r'phone'] = phone;
+    } else {
+      _json[r'phone'] = null;
     }
     if (phoneScope != null) {
       _json[r'phoneScope'] = phoneScope;
+    } else {
+      _json[r'phoneScope'] = null;
     }
     if (address != null) {
       _json[r'address'] = address;
+    } else {
+      _json[r'address'] = null;
     }
     if (addressScope != null) {
       _json[r'addressScope'] = addressScope;
+    } else {
+      _json[r'addressScope'] = null;
     }
     if (website != null) {
       _json[r'website'] = website;
+    } else {
+      _json[r'website'] = null;
     }
     if (websiteScope != null) {
       _json[r'websiteScope'] = websiteScope;
+    } else {
+      _json[r'websiteScope'] = null;
     }
     if (twitter != null) {
       _json[r'twitter'] = twitter;
+    } else {
+      _json[r'twitter'] = null;
     }
     if (twitterScope != null) {
       _json[r'twitterScope'] = twitterScope;
+    } else {
+      _json[r'twitterScope'] = null;
     }
     if (organisation != null) {
       _json[r'organisation'] = organisation;
+    } else {
+      _json[r'organisation'] = null;
     }
     if (organisationScope != null) {
       _json[r'organisationScope'] = organisationScope;
+    } else {
+      _json[r'organisationScope'] = null;
     }
     if (role != null) {
       _json[r'role'] = role;
+    } else {
+      _json[r'role'] = null;
     }
     if (roleScope != null) {
       _json[r'roleScope'] = roleScope;
+    } else {
+      _json[r'roleScope'] = null;
     }
     if (headline != null) {
       _json[r'headline'] = headline;
+    } else {
+      _json[r'headline'] = null;
     }
     if (headlineScope != null) {
       _json[r'headlineScope'] = headlineScope;
+    } else {
+      _json[r'headlineScope'] = null;
     }
     if (biography != null) {
       _json[r'biography'] = biography;
+    } else {
+      _json[r'biography'] = null;
     }
     if (biographyScope != null) {
       _json[r'biographyScope'] = biographyScope;
+    } else {
+      _json[r'biographyScope'] = null;
     }
     if (profileEnabled != null) {
       _json[r'profile_enabled'] = profileEnabled;
+    } else {
+      _json[r'profile_enabled'] = null;
     }
     if (profileEnabledScope != null) {
       _json[r'profile_enabledScope'] = profileEnabledScope;
+    } else {
+      _json[r'profile_enabledScope'] = null;
     }
     _json[r'groups'] = groups;
     if (language != null) {
       _json[r'language'] = language;
+    } else {
+      _json[r'language'] = null;
     }
     if (locale != null) {
       _json[r'locale'] = locale;
+    } else {
+      _json[r'locale'] = null;
+    }
+    if (notifyEmail != null) {
+      _json[r'notify_email'] = notifyEmail;
+    } else {
+      _json[r'notify_email'] = null;
     }
     if (backendCapabilities != null) {
       _json[r'backendCapabilities'] = backendCapabilities;
+    } else {
+      _json[r'backendCapabilities'] = null;
     }
     if (displayName != null) {
       _json[r'display-name'] = displayName;
+    } else {
+      _json[r'display-name'] = null;
     }
     return _json;
   }
@@ -559,6 +639,7 @@ class ProvisioningApiUserDetails {
         groups: json[r'groups'] is List ? (json[r'groups'] as List).cast<String>() : const [],
         language: mapValueOfType<String>(json, r'language'),
         locale: mapValueOfType<String>(json, r'locale'),
+        notifyEmail: mapValueOfType<String>(json, r'notify_email'),
         backendCapabilities: ProvisioningApiUserDetailsBackendCapabilities.fromJson(json[r'backendCapabilities']),
         displayName: mapValueOfType<String>(json, r'display-name'),
       );

@@ -58,9 +58,13 @@ class NewsListFeeds {
     final _json = <String, dynamic>{};
     if (starredCount != null) {
       _json[r'starredCount'] = starredCount;
+    } else {
+      _json[r'starredCount'] = null;
     }
     if (newestItemId != null) {
       _json[r'newestItemId'] = newestItemId;
+    } else {
+      _json[r'newestItemId'] = null;
     }
     _json[r'feeds'] = feeds;
     return _json;

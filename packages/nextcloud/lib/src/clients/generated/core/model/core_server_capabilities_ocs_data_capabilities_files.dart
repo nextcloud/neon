@@ -92,19 +92,29 @@ class CoreServerCapabilitiesOcsDataCapabilitiesFiles {
     final _json = <String, dynamic>{};
     if (bigfilechunking != null) {
       _json[r'bigfilechunking'] = bigfilechunking;
+    } else {
+      _json[r'bigfilechunking'] = null;
     }
     _json[r'blacklisted_files'] = blacklistedFiles;
     if (directEditing != null) {
       _json[r'directEditing'] = directEditing;
+    } else {
+      _json[r'directEditing'] = null;
     }
     if (comments != null) {
       _json[r'comments'] = comments;
+    } else {
+      _json[r'comments'] = null;
     }
     if (undelete != null) {
       _json[r'undelete'] = undelete;
+    } else {
+      _json[r'undelete'] = null;
     }
     if (versioning != null) {
       _json[r'versioning'] = versioning;
+    } else {
+      _json[r'versioning'] = null;
     }
     return _json;
   }

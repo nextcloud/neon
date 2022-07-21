@@ -39,6 +39,8 @@ class UserStatusHeartbeat {
     final _json = <String, dynamic>{};
     if (status != null) {
       _json[r'status'] = status;
+    } else {
+      _json[r'status'] = null;
     }
     return _json;
   }

@@ -98,21 +98,33 @@ class CoreServerCapabilitiesOcsDataVersion {
     final _json = <String, dynamic>{};
     if (major != null) {
       _json[r'major'] = major;
+    } else {
+      _json[r'major'] = null;
     }
     if (minor != null) {
       _json[r'minor'] = minor;
+    } else {
+      _json[r'minor'] = null;
     }
     if (micro != null) {
       _json[r'micro'] = micro;
+    } else {
+      _json[r'micro'] = null;
     }
     if (string != null) {
       _json[r'string'] = string;
+    } else {
+      _json[r'string'] = null;
     }
     if (edition != null) {
       _json[r'edition'] = edition;
+    } else {
+      _json[r'edition'] = null;
     }
     if (extendedSupport != null) {
       _json[r'extendedSupport'] = extendedSupport;
+    } else {
+      _json[r'extendedSupport'] = null;
     }
     return _json;
   }

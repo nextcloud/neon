@@ -47,6 +47,8 @@ class CoreServerCapabilitiesOcsDataCapabilitiesNotes {
     _json[r'api_version'] = apiVersion;
     if (version != null) {
       _json[r'version'] = version;
+    } else {
+      _json[r'version'] = null;
     }
     return _json;
   }

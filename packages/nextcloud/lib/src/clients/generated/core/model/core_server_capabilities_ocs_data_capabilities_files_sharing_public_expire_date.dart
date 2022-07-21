@@ -41,6 +41,8 @@ class CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingPublicExpireDate {
     final _json = <String, dynamic>{};
     if (enabled != null) {
       _json[r'enabled'] = enabled;
+    } else {
+      _json[r'enabled'] = null;
     }
     return _json;
   }

@@ -179,41 +179,65 @@ class Notification {
     final _json = <String, dynamic>{};
     if (notificationId != null) {
       _json[r'notification_id'] = notificationId;
+    } else {
+      _json[r'notification_id'] = null;
     }
     if (app != null) {
       _json[r'app'] = app;
+    } else {
+      _json[r'app'] = null;
     }
     if (user != null) {
       _json[r'user'] = user;
+    } else {
+      _json[r'user'] = null;
     }
     if (datetime != null) {
       _json[r'datetime'] = datetime;
+    } else {
+      _json[r'datetime'] = null;
     }
     if (objectType != null) {
       _json[r'object_type'] = objectType;
+    } else {
+      _json[r'object_type'] = null;
     }
     if (objectId != null) {
       _json[r'object_id'] = objectId;
+    } else {
+      _json[r'object_id'] = null;
     }
     if (subject != null) {
       _json[r'subject'] = subject;
+    } else {
+      _json[r'subject'] = null;
     }
     if (message != null) {
       _json[r'message'] = message;
+    } else {
+      _json[r'message'] = null;
     }
     if (link != null) {
       _json[r'link'] = link;
+    } else {
+      _json[r'link'] = null;
     }
     if (subjectRich != null) {
       _json[r'subjectRich'] = subjectRich;
+    } else {
+      _json[r'subjectRich'] = null;
     }
     _json[r'subjectRichParameters'] = subjectRichParameters;
     if (messageRich != null) {
       _json[r'messageRich'] = messageRich;
+    } else {
+      _json[r'messageRich'] = null;
     }
     _json[r'messageRichParameters'] = messageRichParameters;
     if (icon != null) {
       _json[r'icon'] = icon;
+    } else {
+      _json[r'icon'] = null;
     }
     _json[r'actions'] = actions;
     return _json;

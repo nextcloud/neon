@@ -76,15 +76,23 @@ class CoreServerCapabilitiesOcsDataCapabilitiesProvisioningApi {
     final _json = <String, dynamic>{};
     if (version != null) {
       _json[r'version'] = version;
+    } else {
+      _json[r'version'] = null;
     }
     if (accountPropertyScopesVersion != null) {
       _json[r'AccountPropertyScopesVersion'] = accountPropertyScopesVersion;
+    } else {
+      _json[r'AccountPropertyScopesVersion'] = null;
     }
     if (accountPropertyScopesFederatedEnabled != null) {
       _json[r'AccountPropertyScopesFederatedEnabled'] = accountPropertyScopesFederatedEnabled;
+    } else {
+      _json[r'AccountPropertyScopesFederatedEnabled'] = null;
     }
     if (accountPropertyScopesPublishedEnabled != null) {
       _json[r'AccountPropertyScopesPublishedEnabled'] = accountPropertyScopesPublishedEnabled;
+    } else {
+      _json[r'AccountPropertyScopesPublishedEnabled'] = null;
     }
     return _json;
   }

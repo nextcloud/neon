@@ -40,6 +40,8 @@ class NewsMarkAsRead {
     final _json = <String, dynamic>{};
     if (newestItemId != null) {
       _json[r'newestItemId'] = newestItemId;
+    } else {
+      _json[r'newestItemId'] = null;
     }
     return _json;
   }

@@ -74,7 +74,13 @@ Future main() async {
           .id!;
       await validateResponse<NotesNote, void>(
         client.notes,
-        client.notes.updateNoteWithHttpInfo(id, NotesNote(title: 'b')),
+        client.notes.updateNoteWithHttpInfo(
+          id,
+          NotesNote(
+            id: id,
+            title: 'b',
+          ),
+        ),
       );
 
       final response = (await validateResponse<NotesNote, void>(
@@ -94,7 +100,10 @@ Future main() async {
         client.notes,
         client.notes.updateNoteWithHttpInfo(
           response.id!,
-          NotesNote(title: 'b'),
+          NotesNote(
+            id: response.id!,
+            title: 'b',
+          ),
           ifMatch: '"${response.etag}"',
         ),
       );
@@ -104,7 +113,10 @@ Future main() async {
           client.notes,
           client.notes.updateNoteWithHttpInfo(
             response.id!,
-            NotesNote(title: 'c'),
+            NotesNote(
+              id: response.id!,
+              title: 'c',
+            ),
             ifMatch: '"${response.etag}"',
           ),
         ),

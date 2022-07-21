@@ -87,18 +87,28 @@ class ProvisioningApiUserDetailsQuota {
     final _json = <String, dynamic>{};
     if (free != null) {
       _json[r'free'] = free;
+    } else {
+      _json[r'free'] = null;
     }
     if (used != null) {
       _json[r'used'] = used;
+    } else {
+      _json[r'used'] = null;
     }
     if (total != null) {
       _json[r'total'] = total;
+    } else {
+      _json[r'total'] = null;
     }
     if (relative != null) {
       _json[r'relative'] = relative;
+    } else {
+      _json[r'relative'] = null;
     }
     if (quota != null) {
       _json[r'quota'] = quota;
+    } else {
+      _json[r'quota'] = null;
     }
     return _json;
   }

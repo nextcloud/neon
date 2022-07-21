@@ -18,7 +18,6 @@ Future main() async {
       final response = (await validateResponse<UserStatusPredefinedStatuses, void>(
         client.userStatus,
         client.userStatus.findAllPredefinedStatusesWithHttpInfo(),
-        cleanResponse: true,
       ))!;
 
       expect(response.ocs!.data, hasLength(5));
@@ -56,7 +55,6 @@ Future main() async {
       final response = (await validateResponse<UserStatusGetUserStatus, void>(
         client.userStatus,
         client.userStatus.setStatusWithHttpInfo(UserStatusSetUserStatus(statusType: UserStatusTypeEnum.online)),
-        cleanResponse: true,
       ))!;
 
       expect(response.ocs!.data!.userId, 'test');
@@ -76,12 +74,10 @@ Future main() async {
       await validateResponse<UserStatusGetUserStatus, void>(
         client.userStatus,
         client.userStatus.setStatusWithHttpInfo(UserStatusSetUserStatus(statusType: UserStatusTypeEnum.online)),
-        cleanResponse: true,
       );
       final response = (await validateResponse<UserStatusGetUserStatus, void>(
         client.userStatus,
         client.userStatus.getStatusWithHttpInfo(),
-        cleanResponse: true,
       ))!;
 
       expect(response.ocs!.data!.userId, 'test');
@@ -104,13 +100,11 @@ Future main() async {
       await validateResponse<UserStatusGetUserStatus, void>(
         client.userStatus,
         client.userStatus.setStatusWithHttpInfo(UserStatusSetUserStatus(statusType: UserStatusTypeEnum.online)),
-        cleanResponse: true,
       );
 
       response = (await validateResponse<UserStatusFindAllStatuses, void>(
         client.userStatus,
         client.userStatus.findAllStatusesWithHttpInfo(),
-        cleanResponse: true,
       ))!;
       expect(response.ocs!.data, hasLength(1));
       expect(response.ocs!.data[0].userId, 'test');
@@ -125,13 +119,11 @@ Future main() async {
       await validateResponse<UserStatusGetUserStatus, void>(
         client.userStatus,
         client.userStatus.setStatusWithHttpInfo(UserStatusSetUserStatus(statusType: UserStatusTypeEnum.online)),
-        cleanResponse: true,
       );
 
       final response = (await validateResponse<UserStatusFindStatus, void>(
         client.userStatus,
         client.userStatus.findStatusWithHttpInfo('test'),
-        cleanResponse: true,
       ))!;
       expect(response.ocs!.data!.userId, 'test');
       expect(response.ocs!.data!.message, null);
@@ -150,7 +142,6 @@ Future main() async {
             clearAt: clearAt,
           ),
         ),
-        cleanResponse: true,
       ))!;
 
       expect(response.ocs!.data!.userId, 'test');
@@ -174,7 +165,6 @@ Future main() async {
             clearAt: clearAt,
           ),
         ),
-        cleanResponse: true,
       ))!;
 
       expect(response.ocs!.data!.userId, 'test');
@@ -198,14 +188,12 @@ Future main() async {
             clearAt: clearAt,
           ),
         ),
-        cleanResponse: true,
       );
       await client.userStatus.clearMessage();
 
       final response = (await validateResponse<UserStatusGetUserStatus, void>(
         client.userStatus,
         client.userStatus.getStatusWithHttpInfo(),
-        cleanResponse: true,
       ))!;
       expect(response.ocs!.data!.userId, 'test');
       expect(response.ocs!.data!.message, null);
@@ -222,7 +210,6 @@ Future main() async {
       final response = (await validateResponse<UserStatusGetUserStatus, void>(
         client.userStatus,
         client.userStatus.getStatusWithHttpInfo(),
-        cleanResponse: true,
       ))!;
 
       expect(response.ocs!.data!.userId, 'test');

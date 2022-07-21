@@ -76,15 +76,23 @@ class CoreServerCapabilitiesOcsDataCapabilitiesCirclesSettings {
     final _json = <String, dynamic>{};
     if (frontendEnabled != null) {
       _json[r'frontendEnabled'] = frontendEnabled;
+    } else {
+      _json[r'frontendEnabled'] = null;
     }
     if (allowedCircles != null) {
       _json[r'allowedCircles'] = allowedCircles;
+    } else {
+      _json[r'allowedCircles'] = null;
     }
     if (allowedUserTypes != null) {
       _json[r'allowedUserTypes'] = allowedUserTypes;
+    } else {
+      _json[r'allowedUserTypes'] = null;
     }
     if (membersLimit != null) {
       _json[r'membersLimit'] = membersLimit;
+    } else {
+      _json[r'membersLimit'] = null;
     }
     return _json;
   }

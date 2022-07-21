@@ -50,9 +50,13 @@ class CoreServerCapabilitiesOcsDataCapabilitiesFilesDirectEditing {
     final _json = <String, dynamic>{};
     if (url != null) {
       _json[r'url'] = url;
+    } else {
+      _json[r'url'] = null;
     }
     if (etag != null) {
       _json[r'etag'] = etag;
+    } else {
+      _json[r'etag'] = null;
     }
     return _json;
   }

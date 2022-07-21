@@ -41,6 +41,8 @@ class CoreServerCapabilitiesOcsDataCapabilitiesOcmResourceTypesInnerProtocols {
     final _json = <String, dynamic>{};
     if (webdav != null) {
       _json[r'webdav'] = webdav;
+    } else {
+      _json[r'webdav'] = null;
     }
     return _json;
   }

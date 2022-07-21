@@ -66,12 +66,18 @@ class NewsFolder {
     final _json = <String, dynamic>{};
     if (id != null) {
       _json[r'id'] = id;
+    } else {
+      _json[r'id'] = null;
     }
     if (name != null) {
       _json[r'name'] = name;
+    } else {
+      _json[r'name'] = null;
     }
     if (opened != null) {
       _json[r'opened'] = opened;
+    } else {
+      _json[r'opened'] = null;
     }
     _json[r'feeds'] = feeds;
     return _json;

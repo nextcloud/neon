@@ -58,12 +58,18 @@ class NotesSettings {
     final _json = <String, dynamic>{};
     if (notesPath != null) {
       _json[r'notesPath'] = notesPath;
+    } else {
+      _json[r'notesPath'] = null;
     }
     if (fileSuffix != null) {
       _json[r'fileSuffix'] = fileSuffix;
+    } else {
+      _json[r'fileSuffix'] = null;
     }
     if (noteMode != null) {
       _json[r'noteMode'] = noteMode;
+    } else {
+      _json[r'noteMode'] = null;
     }
     return _json;
   }

@@ -87,18 +87,28 @@ class CoreServerCapabilitiesOcsDataCapabilitiesCircles {
     final _json = <String, dynamic>{};
     if (version != null) {
       _json[r'version'] = version;
+    } else {
+      _json[r'version'] = null;
     }
     if (status != null) {
       _json[r'status'] = status;
+    } else {
+      _json[r'status'] = null;
     }
     if (settings != null) {
       _json[r'settings'] = settings;
+    } else {
+      _json[r'settings'] = null;
     }
     if (circle != null) {
       _json[r'circle'] = circle;
+    } else {
+      _json[r'circle'] = null;
     }
     if (member != null) {
       _json[r'member'] = member;
+    } else {
+      _json[r'member'] = null;
     }
     return _json;
   }

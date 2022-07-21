@@ -53,9 +53,13 @@ class CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingUser {
     final _json = <String, dynamic>{};
     if (sendMail != null) {
       _json[r'send_mail'] = sendMail;
+    } else {
+      _json[r'send_mail'] = null;
     }
     if (expireDate != null) {
       _json[r'expire_date'] = expireDate;
+    } else {
+      _json[r'expire_date'] = null;
     }
     return _json;
   }
