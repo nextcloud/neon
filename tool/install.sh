@@ -6,9 +6,5 @@ git submodule init
 git submodule update
 fvm dart pub global activate mono_repo 6.3.0
 fvm dart pub global activate fvm 2.4.1
-fvm install
-(
-  cd external/openapi-generator
-  ./mvnw package -DskipTests -Dmaven.test.skip=true
-)
+yes | fvm install
 fvm exec mono_repo pub get
