@@ -2,7 +2,7 @@
 
 A Nextcloud client written in Dart.  
 
-This client will become the replacement for https://github.com/jld3103/dart-nextcloud at some point ([See](https://github.com/jld3103/nextcloud-harbour/issues/1)).
+This client will become the replacement for https://github.com/jld3103/dart-nextcloud at some point ([See](https://github.com/jld3103/nextcloud-neon/issues/1)).
 
 ## Development
 

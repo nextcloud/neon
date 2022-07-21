@@ -7,7 +7,7 @@ import 'package:spec_templates/openapi_spec.dart';
 import 'package:xml/xml.dart';
 
 Future main(final List<String> args) async {
-  final tmpDirectory = Directory(p.join(Directory.systemTemp.path, 'nextcloud-harbour'));
+  final tmpDirectory = Directory(p.join(Directory.systemTemp.path, 'nextcloud-neon'));
   if (!tmpDirectory.existsSync()) {
     tmpDirectory.createSync();
   }

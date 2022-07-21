@@ -5,7 +5,7 @@ cd "$(dirname "$0")/.."
 openapi_generate() {
   codename="$1"
   is_common="$2" # Rewrites the package to use the common package
-  tmpdir="/tmp/nextcloud-harbour/$codename"
+  tmpdir="/tmp/nextcloud-neon/$codename"
   spec="specs/$codename.json"
 
   rm -rf "$tmpdir"
@@ -94,8 +94,8 @@ function spec_templates_generate() {
   fvm dart packages/spec_templates/bin/generate.dart "$appdir" "$is_core"
 }
 
-rm -rf /tmp/nextcloud-harbour
-mkdir -p /tmp/nextcloud-harbour
+rm -rf /tmp/nextcloud-neon
+mkdir -p /tmp/nextcloud-neon
 
 spec_templates_generate external/nextcloud-news false
 spec_templates_generate external/nextcloud-notes false

@@ -65,16 +65,16 @@ jobs:
     needs:
       - job_001
   job_003:
-    name: "analyze; PKG: packages/harbour; `dart format --output=none --set-exit-if-changed --line-length 120 .`"
+    name: "analyze; PKG: packages/neon; `dart format --output=none --set-exit-if-changed --line-length 120 .`"
     runs-on: ubuntu-latest
     steps:
       - name: Cache Pub hosted dependencies
         uses: actions/cache@4504faf7e9bcf8f3ed0bc863c4e1d21499ab8ef8
         with:
           path: "~/.pub-cache/hosted"
-          key: "os:ubuntu-latest;pub-cache-hosted;sdk:stable;packages:packages/harbour;commands:format"
+          key: "os:ubuntu-latest;pub-cache-hosted;sdk:stable;packages:packages/neon;commands:format"
           restore-keys: |
-            os:ubuntu-latest;pub-cache-hosted;sdk:stable;packages:packages/harbour
+            os:ubuntu-latest;pub-cache-hosted;sdk:stable;packages:packages/neon
             os:ubuntu-latest;pub-cache-hosted;sdk:stable
             os:ubuntu-latest;pub-cache-hosted
             os:ubuntu-latest
@@ -83,14 +83,14 @@ jobs:
           channel: stable
       - id: checkout
         uses: actions/checkout@d0651293c4a5a52e711f25b41b05b2212f385d28
-      - id: packages_harbour_pub_upgrade
-        name: packages/harbour; flutter pub pub upgrade
+      - id: packages_neon_pub_upgrade
+        name: packages/neon; flutter pub pub upgrade
         if: "always() && steps.checkout.conclusion == 'success'"
-        working-directory: packages/harbour
+        working-directory: packages/neon
         run: flutter pub pub upgrade
-      - name: "packages/harbour; dart format --output=none --set-exit-if-changed --line-length 120 ."
-        if: "always() && steps.packages_harbour_pub_upgrade.conclusion == 'success'"
-        working-directory: packages/harbour
+      - name: "packages/neon; dart format --output=none --set-exit-if-changed --line-length 120 ."
+        if: "always() && steps.packages_neon_pub_upgrade.conclusion == 'success'"
+        working-directory: packages/neon
         run: "dart format --output=none --set-exit-if-changed --line-length 120 ."
     needs:
       - job_001
@@ -275,16 +275,16 @@ jobs:
     needs:
       - job_001
   job_010:
-    name: "analyze; PKG: packages/harbour; `flutter analyze`"
+    name: "analyze; PKG: packages/neon; `flutter analyze`"
     runs-on: ubuntu-latest
     steps:
       - name: Cache Pub hosted dependencies
         uses: actions/cache@4504faf7e9bcf8f3ed0bc863c4e1d21499ab8ef8
         with:
           path: "~/.pub-cache/hosted"
-          key: "os:ubuntu-latest;pub-cache-hosted;sdk:stable;packages:packages/harbour;commands:analyze_0"
+          key: "os:ubuntu-latest;pub-cache-hosted;sdk:stable;packages:packages/neon;commands:analyze_0"
           restore-keys: |
-            os:ubuntu-latest;pub-cache-hosted;sdk:stable;packages:packages/harbour
+            os:ubuntu-latest;pub-cache-hosted;sdk:stable;packages:packages/neon
             os:ubuntu-latest;pub-cache-hosted;sdk:stable
             os:ubuntu-latest;pub-cache-hosted
             os:ubuntu-latest
@@ -293,14 +293,14 @@ jobs:
           channel: stable
       - id: checkout
         uses: actions/checkout@d0651293c4a5a52e711f25b41b05b2212f385d28
-      - id: packages_harbour_pub_upgrade
-        name: packages/harbour; flutter pub pub upgrade
+      - id: packages_neon_pub_upgrade
+        name: packages/neon; flutter pub pub upgrade
         if: "always() && steps.checkout.conclusion == 'success'"
-        working-directory: packages/harbour
+        working-directory: packages/neon
         run: flutter pub pub upgrade
-      - name: packages/harbour; flutter analyze
-        if: "always() && steps.packages_harbour_pub_upgrade.conclusion == 'success'"
-        working-directory: packages/harbour
+      - name: packages/neon; flutter analyze
+        if: "always() && steps.packages_neon_pub_upgrade.conclusion == 'success'"
+        working-directory: packages/neon
         run: flutter analyze
     needs:
       - job_001

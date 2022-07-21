@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="JAVA_MODULE" version="4">
+  <component name="Go" enabled="true" />
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file://$MODULE_DIR$">
+      <excludeFolder url="file://$MODULE_DIR$/external/openapi-generator/samples/openapi3/client/petstore/dart-dio/petstore_client_lib_fake_tests/build" />
+      <excludeFolder url="file://$MODULE_DIR$/external/openapi-generator/samples/openapi3/client/petstore/dart-dio/petstore_client_lib_fake_tests/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/external/openapi-generator/samples/openapi3/client/petstore/dart-dio/petstore_client_lib_fake_tests/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/file_icons/build" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/file_icons/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/file_icons/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/sort_box/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/sort_box/build" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/sort_box/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/external/openapi-generator/samples/openapi3/client/petstore/dart2/petstore_client_lib_fake/build" />
+      <excludeFolder url="file://$MODULE_DIR$/external/openapi-generator/samples/openapi3/client/petstore/dart2/petstore_client_lib_fake/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/external/openapi-generator/samples/openapi3/client/petstore/dart2/petstore_client_lib_fake/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/external/openapi-generator/samples/openapi3/client/petstore/dart-dio/petstore_client_lib_fake/build" />
+      <excludeFolder url="file://$MODULE_DIR$/external/openapi-generator/samples/openapi3/client/petstore/dart-dio/petstore_client_lib_fake/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/external/openapi-generator/samples/openapi3/client/petstore/dart-dio/petstore_client_lib_fake/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/external/openapi-generator/samples/openapi3/client/petstore/dart-dio/petstore_client_lib_fake-json_serializable/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/external/openapi-generator/samples/openapi3/client/petstore/dart-dio/petstore_client_lib_fake-json_serializable/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/external/openapi-generator/samples/openapi3/client/petstore/dart-dio/petstore_client_lib_fake-json_serializable/build" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/spec_templates/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/spec_templates/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/spec_templates/build" />
+      <excludeFolder url="file://$MODULE_DIR$/external/openapi-generator/samples/openapi3/client/petstore/dart2/petstore_client_lib/build" />
+      <excludeFolder url="file://$MODULE_DIR$/external/openapi-generator/samples/openapi3/client/petstore/dart2/petstore_client_lib/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/external/openapi-generator/samples/openapi3/client/petstore/dart2/petstore_client_lib/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/settings/build" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/settings/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/settings/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/external/openapi-generator/bin/utils/dart-keywords/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/external/openapi-generator/bin/utils/dart-keywords/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/external/openapi-generator/bin/utils/dart-keywords/build" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/nextcloud/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/nextcloud/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/nextcloud/build" />
+      <excludeFolder url="file://$MODULE_DIR$/.idea/libraries" />
+      <excludeFolder url="file://$MODULE_DIR$/external" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/nextcloud/lib/src/clients/common" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/nextcloud/lib/src/clients/generated" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/nextcloud_push_proxy/build" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/nextcloud_push_proxy/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/nextcloud_push_proxy/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/.fvm/flutter_sdk/packages/flutter_tools/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/.fvm/flutter_sdk/packages/flutter_tools/build" />
+      <excludeFolder url="file://$MODULE_DIR$/.fvm/flutter_sdk/packages/flutter_tools/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/.fvm/flutter_sdk/bin/cache/dart-sdk/lib/_internal/js_runtime/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/.fvm/flutter_sdk/bin/cache/dart-sdk/lib/_internal/js_runtime/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/.fvm/flutter_sdk/bin/cache/dart-sdk/lib/_internal/js_runtime/build" />
+      <excludeFolder url="file://$MODULE_DIR$/.fvm" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/neon/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/neon/linux/flutter/ephemeral" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/neon/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/neon/build" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/neon/android/.gradle" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="Dart SDK" level="project" />
+    <orderEntry type="library" name="Dart Packages" level="project" />
+  </component>
+  <component name="TemplatesService">
+    <option name="TEMPLATE_FOLDERS">
+      <list>
+        <option value="$MODULE_DIR$/external/nextcloud-server/core/templates" />
+      </list>
+    </option>
+  </component>
+</module>
