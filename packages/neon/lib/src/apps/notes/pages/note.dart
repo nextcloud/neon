@@ -36,9 +36,9 @@ class _NotesNotePageState extends State<NotesNotePage> {
 
     if (updatedTitle != null || updatedCategory != null || updatedContent != null) {
       widget.bloc.updateNote(
-        _note.id!,
-        _note.etag!,
         NotesNote(
+          id: _note.id!,
+          etag: _note.etag!,
           title: updatedTitle,
           category: updatedCategory,
           content: updatedContent,

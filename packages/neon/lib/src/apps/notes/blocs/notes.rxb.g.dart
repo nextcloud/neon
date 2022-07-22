@@ -25,7 +25,7 @@ abstract class $NotesBloc extends RxBlocBase implements NotesBlocEvents, NotesBl
   final _$createNoteEvent = PublishSubject<NotesNote>();
 
   /// Тhe [Subject] where events sink to by calling [updateNote]
-  final _$updateNoteEvent = PublishSubject<_UpdateNoteEventArgs>();
+  final _$updateNoteEvent = PublishSubject<NotesNote>();
 
   /// Тhe [Subject] where events sink to by calling [deleteNote]
   final _$deleteNoteEvent = PublishSubject<NotesNote>();
@@ -46,7 +46,7 @@ abstract class $NotesBloc extends RxBlocBase implements NotesBlocEvents, NotesBl
   void createNote(NotesNote note) => _$createNoteEvent.add(note);
 
   @override
-  void updateNote(int id, String etag, NotesNote note) => _$updateNoteEvent.add(_UpdateNoteEventArgs(id, etag, note));
+  void updateNote(NotesNote note) => _$updateNoteEvent.add(note);
 
   @override
   void deleteNote(NotesNote note) => _$deleteNoteEvent.add(note);
@@ -81,16 +81,4 @@ abstract class $NotesBloc extends RxBlocBase implements NotesBlocEvents, NotesBl
     _compositeSubscription.dispose();
     super.dispose();
   }
-}
-
-/// Helps providing the arguments in the [Subject.add] for
-/// [NotesBlocEvents.updateNote] event
-class _UpdateNoteEventArgs {
-  const _UpdateNoteEventArgs(this.id, this.etag, this.note);
-
-  final int id;
-
-  final String etag;
-
-  final NotesNote note;
 }

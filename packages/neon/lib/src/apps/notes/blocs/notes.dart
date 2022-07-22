@@ -12,11 +12,7 @@ abstract class NotesBlocEvents {
 
   void createNote(final NotesNote note);
 
-  void updateNote(
-    final int id,
-    final String etag,
-    final NotesNote note,
-  );
+  void updateNote(final NotesNote note);
 
   void deleteNote(final NotesNote note);
 }
@@ -42,13 +38,13 @@ class NotesBloc extends $NotesBloc {
       _wrapAction(() async => client.notes.createNote(note));
     });
 
-    _$updateNoteEvent.listen((final event) {
+    _$updateNoteEvent.listen((final note) {
       _wrapAction(
         () async => _noteUpdateController.add(
           (await client.notes.updateNote(
-            event.id,
-            event.note,
-            ifMatch: '"${event.etag}"',
+            note.id!,
+            note,
+            ifMatch: '"${note.etag}"',
           ))!,
         ),
       );

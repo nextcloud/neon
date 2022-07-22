@@ -132,9 +132,9 @@ class NotesView extends StatelessWidget {
           ),
           onPressed: () {
             bloc.updateNote(
-              note.id!,
-              note.etag!,
               NotesNote(
+                id: note.id!,
+                etag: note.etag!,
                 favorite: !note.favorite!,
               ),
             );
