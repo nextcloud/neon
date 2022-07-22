@@ -131,20 +131,20 @@ class NewsFoldersView extends StatelessWidget {
           ],
         ),
       ),
-      trailing: PopupMenuButton<_FolderAction>(
+      trailing: PopupMenuButton<NewsFolderAction>(
         itemBuilder: (final context) => [
           PopupMenuItem(
-            value: _FolderAction.delete,
+            value: NewsFolderAction.delete,
             child: Text(AppLocalizations.of(context).delete),
           ),
           PopupMenuItem(
-            value: _FolderAction.rename,
+            value: NewsFolderAction.rename,
             child: Text(AppLocalizations.of(context).rename),
           ),
         ],
         onSelected: (final action) async {
           switch (action) {
-            case _FolderAction.delete:
+            case NewsFolderAction.delete:
               if (await showConfirmationDialog(
                 context,
                 AppLocalizations.of(context).newsDeleteFolderConfirm(folderFeedsWrapper.folder.name!),
@@ -152,7 +152,7 @@ class NewsFoldersView extends StatelessWidget {
                 bloc.deleteFolder(folderFeedsWrapper.folder.id!);
               }
               break;
-            case _FolderAction.rename:
+            case NewsFolderAction.rename:
               final result = await showRenameDialog(
                 context: context,
                 title: AppLocalizations.of(context).newsRenameFolder,
@@ -184,7 +184,7 @@ class NewsFoldersView extends StatelessWidget {
   }
 }
 
-enum _FolderAction {
+enum NewsFolderAction {
   delete,
   rename,
 }

@@ -1,15 +1,11 @@
 part of '../neon.dart';
 
-Future<RequestManager> getRequestManager(NeonPlatform platform) async {
-  final cache = Cache(platform);
-  await cache.init();
-  return RequestManager(cache);
-}
-
 class RequestManager {
-  RequestManager(this._cache);
+  RequestManager([
+    this.cache,
+  ]);
 
-  final Cache _cache;
+  final Cache? cache;
 
   final bool _enablePrinting = false;
 
@@ -142,9 +138,9 @@ class RequestManager {
 
     _print('[Request]: $k');
 
-    if ((preferCache || preloadCache) && await _cache.has(key)) {
+    if ((preferCache || preloadCache) && cache != null && await cache!.has(key)) {
       _print('[Cache]: $k');
-      final s = unwrap(await deserialize((await _cache.get(key))!));
+      final s = unwrap(await deserialize((await cache!.get(key))!));
       if (preloadCache) {
         yield ResultCached(s, loading: true);
       } else {
@@ -158,14 +154,14 @@ class RequestManager {
 
       final s = await serialize(response);
       _print('[Response]: $k');
-      await _cache.set(key, s);
+      await cache?.set(key, s);
 
       yield Result.success(unwrap(response));
     } on Exception catch (e) {
-      if (await _cache.has(key)) {
+      if (cache != null && await cache!.has(key)) {
         _print('[Cache]: $k');
         debugPrint(e.toString());
-        yield ResultCached(unwrap(await deserialize((await _cache.get(key))!)), error: e);
+        yield ResultCached(unwrap(await deserialize((await cache!.get(key))!)), error: e);
         return;
       }
       _print('[Failure]: $k');
@@ -261,7 +257,7 @@ class ResultCached<T> implements Result<T> {
   String tag;
 }
 
-extension ResultData<T> on Result<T> {
+extension ResultDataError<T> on Result<T> {
   T? get data {
     if (this is ResultSuccess<T>) {
       return (this as ResultSuccess<T>).data;
@@ -269,6 +265,18 @@ extension ResultData<T> on Result<T> {
 
     if (this is ResultCached<T>) {
       return (this as ResultCached<T>).data;
+    }
+
+    return null;
+  }
+
+  Exception? get error {
+    if (this is ResultError<T>) {
+      return (this as ResultError<T>).error;
+    }
+
+    if (this is ResultCached<T>) {
+      return (this as ResultCached<T>).error;
     }
 
     return null;

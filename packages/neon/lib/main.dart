@@ -29,7 +29,9 @@ Future main() async {
   final sharedPreferences = await SharedPreferences.getInstance();
 
   final platform = await getNeonPlatform();
-  final requestManager = await getRequestManager(platform);
+  final cache = Cache(platform);
+  await cache.init();
+  final requestManager = RequestManager(cache);
   final allAppImplementations = getAppImplementations(sharedPreferences, requestManager, platform);
 
   final packageInfo = await PackageInfo.fromPlatform();

@@ -73,7 +73,9 @@ class PushUtils {
     final localizations = await AppLocalizations.delegate.load(Locale(parts[0], parts.length > 1 ? parts[1] : null));
 
     final platform = await getNeonPlatform();
-    final requestManager = await getRequestManager(platform);
+    final cache = Cache(platform);
+    await cache.init();
+    final requestManager = RequestManager(cache);
     final allAppImplementations = getAppImplementations(sharedPreferences, requestManager, platform);
 
     final matchingAppImplementations =

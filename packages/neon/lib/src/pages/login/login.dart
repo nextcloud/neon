@@ -85,6 +85,12 @@ class _LoginPageState extends State<LoginPage> {
       };
 
   @override
+  void dispose() {
+    _loginBloc.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(final BuildContext context) {
     final env = Provider.of<Env?>(context);
 

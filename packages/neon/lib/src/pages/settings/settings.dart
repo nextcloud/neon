@@ -168,20 +168,20 @@ class _SettingsPageState extends State<SettingsPage> {
                                 trailing: Row(
                                   mainAxisSize: MainAxisSize.min,
                                   children: [
-                                    PopupMenuButton<_AccountAction>(
+                                    PopupMenuButton<SettingsAccountAction>(
                                       itemBuilder: (final context) => [
                                         PopupMenuItem(
-                                          value: _AccountAction.settings,
+                                          value: SettingsAccountAction.settings,
                                           child: Text(AppLocalizations.of(context).settings),
                                         ),
                                         PopupMenuItem(
-                                          value: _AccountAction.delete,
+                                          value: SettingsAccountAction.delete,
                                           child: Text(AppLocalizations.of(context).delete),
                                         ),
                                       ],
                                       onSelected: (final action) async {
                                         switch (action) {
-                                          case _AccountAction.settings:
+                                          case SettingsAccountAction.settings:
                                             await Navigator.of(context).push(
                                               MaterialPageRoute(
                                                 builder: (final context) => AccountSpecificSettingsPage(
@@ -191,7 +191,7 @@ class _SettingsPageState extends State<SettingsPage> {
                                               ),
                                             );
                                             break;
-                                          case _AccountAction.delete:
+                                          case SettingsAccountAction.delete:
                                             if (await showConfirmationDialog(
                                               context,
                                               AppLocalizations.of(context).globalOptionsAccountsRemoveConfirm(
@@ -328,7 +328,7 @@ class _SettingsPageState extends State<SettingsPage> {
   }
 }
 
-enum _AccountAction {
+enum SettingsAccountAction {
   settings,
   delete,
 }

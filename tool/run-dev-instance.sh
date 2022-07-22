@@ -2,8 +2,6 @@
 set -euxo pipefail
 cd "$(dirname "$0")/.."
 
-username="test"
-password="supersafepasswordtocircumventpasswordpolicies"
 ip=""
 if [ "$#" -ne 1 ]; then
   echo "You need to give the platform type: localhost, android-emulator"
@@ -17,7 +15,8 @@ else
   exit 1
 fi
 
-docker build -t nextcloud-neon-dev --build-arg "username=$username" --build-arg "password=$password" -f - ./packages/nextcloud/test < tool/Dockerfile.dev
+source tool/common.sh
+
 echo "TEST_HOST=$ip
 TEST_USER=$username
 TEST_PASSWORD=$password" > packages/neon/assets/.env

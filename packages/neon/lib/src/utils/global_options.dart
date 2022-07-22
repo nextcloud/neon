@@ -10,8 +10,7 @@ class GlobalOptions {
     });
 
     _pushNotificationsDistributorsSubject.listen((final distributors) async {
-      _pushNotificationsEnabledSubject.add(distributors.isNotEmpty);
-      await pushNotificationsEnabled.set(distributors.isNotEmpty);
+      _pushNotificationsEnabledEnabledSubject.add(distributors.isNotEmpty);
       await _setDefaultDistributor();
     });
 
@@ -35,7 +34,7 @@ class GlobalOptions {
   final PackageInfo _packageInfo;
   final _accountsIDsSubject = BehaviorSubject<Map<String?, LabelBuilder>>();
   final _themeOLEDAsDarkEnabledSubject = BehaviorSubject<bool>();
-  final _pushNotificationsEnabledSubject = BehaviorSubject<bool>();
+  final _pushNotificationsEnabledEnabledSubject = BehaviorSubject<bool>();
   final _pushNotificationsDistributorsSubject = BehaviorSubject<Map<String?, LabelBuilder>>();
 
   late final _distributorsMap = <String, String Function(BuildContext)>{
@@ -128,7 +127,7 @@ class GlobalOptions {
     key: 'push-notifications-enabled',
     label: (final context) => AppLocalizations.of(context).globalOptionsPushNotificationsEnabled,
     defaultValue: BehaviorSubject.seeded(true),
-    enabled: _pushNotificationsEnabledSubject,
+    enabled: _pushNotificationsEnabledEnabledSubject,
   );
 
   late final pushNotificationsDistributor = SelectOption<String?>(
