@@ -4,6 +4,20 @@ A Nextcloud client written in Dart.
 
 This client will become the replacement for https://github.com/jld3103/dart-nextcloud at some point ([See](https://github.com/jld3103/nextcloud-neon/issues/1)).
 
+
+## Installing
+
+In the future this code will be available at https://pub.dev/packages/nextcloud, but for now you have to include it via git in your pubspec.yaml:
+```yaml
+dependencies:
+  nextcloud:
+    git:
+      url: https://github.com/jld3103/nextcloud-neon
+      path: packages/nextcloud
+      ref: $COMMIT
+```
+You can either remove the `ref` or use a commit hash. It's not recommended to remove it, because then the version will be updated very often.
+
 ## Development
 
 Except for WebDAV all client code is generated using OpenAPI specs which can be found in the `../../specs/` folder.  
