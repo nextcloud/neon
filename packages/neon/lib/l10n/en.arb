@@ -69,6 +69,7 @@
   "settingsImportWrongFileExtension": "Settings import has wrong file extension (has to be .json.base64)",
   "optionsCategoryGeneral": "General",
   "optionsCategoryTheme": "Theme",
+  "optionsCategoryPushNotifications": "Push notifications",
   "optionsCategoryOther": "Other",
   "optionsCategoryAccounts": "Accounts",
   "optionsCategoryStartup": "Startup",
@@ -80,6 +81,16 @@
   "globalOptionsThemeModeDark": "Dark",
   "globalOptionsThemeModeAutomatic": "Automatic",
   "globalOptionsThemeOLEDAsDark": "OLED theme as dark theme",
+  "globalOptionsPushNotificationsNotice": "External services are used for delivering push notifications. While the content is encrypted and can only be ready by this app, extracting metadata like the time and count of notifications is still possible.",
+  "globalOptionsPushNotificationsEnabled": "Enabled",
+  "globalOptionsPushNotificationsEnabledDisabledNotice": "No UnifiedPush distributor could be found. Please go to https://unifiedpush.org/users/distributors and setup any of the listed distributors. Then re-open this app and you should be able to enable notifications",
+  "globalOptionsPushNotificationsDistributor": "UnifiedPush Distributor",
+  "globalOptionsPushNotificationsDistributorGotifyUP": "Gotify-UP",
+  "globalOptionsPushNotificationsDistributorFirebaseEmbedded": "Firebase (FOSS)",
+  "globalOptionsPushNotificationsDistributorNtfy": "ntfy",
+  "globalOptionsPushNotificationsDistributorFCMUP": "FCM-UP",
+  "globalOptionsPushNotificationsDistributorNextPush": "NextPush",
+  "globalOptionsPushNotificationsDistributorNoProvider2Push": "NoProvider2Push",
   "globalOptionsStartupMinimized": "Start minimized",
   "globalOptionsStartupMinimizeInsteadOfExit": "Minimize instead of exit",
   "globalOptionsSystemTrayEnabled": "Enable system tray",
@@ -267,5 +278,7 @@
   "notesOptionsCategoriesSortOrder": "Sort order of categories",
   "notesOptionsCategoriesSortProperty": "How to sort categories",
   "notesOptionsCategoriesSortPropertyAlphabetical": "Alphabetical",
-  "notesOptionsCategoriesSortPropertyNotesCount": "Count of notes"
+  "notesOptionsCategoriesSortPropertyNotesCount": "Count of notes",
+  "notificationsName": "Notifications",
+  "notificationsNextcloudAppNotImplementedYet": "Sorry, this Nextcloud app has not been implemented yet"
 }

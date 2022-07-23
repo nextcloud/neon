@@ -18,6 +18,7 @@ dependencies:
   flutter_dotenv: ^5.0.2
   flutter_file_dialog: ^2.3.0
   flutter_html: ^3.0.0-alpha.3
+  flutter_local_notifications: ^9.7.0
   flutter_localizations:
     sdk: flutter
   flutter_markdown: ^0.6.10+2
@@ -52,6 +53,7 @@ dependencies:
   sqflite: ^2.0.2+1
   sqflite_common_ffi: ^2.1.1
   tray_manager: ^0.1.8
+  unifiedpush: ^4.0.1
   url_launcher: ^6.0.18
   wakelock: ^0.6.1+2
   webview_flutter: ^3.0.0

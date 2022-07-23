@@ -20,11 +20,11 @@ Future main() async {
     tearDown(() => client.destroy());
 
     Future sendTestNotification() async {
-      await validateResponse<EmptyResponse, void>(
+      await validateResponse<NotificationsEmptyResponse, void>(
         client.notifications,
         client.notifications.sendAdminNotificationWithHttpInfo(
           'admin',
-          AdminNotification(
+          NotificationsAdminNotification(
             shortMessage: '123',
             longMessage: '456',
           ),
@@ -40,7 +40,7 @@ Future main() async {
       await sendTestNotification();
 
       final startTime = DateTime.now().toUtc();
-      final response = (await validateResponse<ListNotificationsResponse, void>(
+      final response = (await validateResponse<NotificationsListNotificationsResponse, void>(
         client.notifications,
         client.notifications.listNotificationsWithHttpInfo(),
       ))!;
@@ -66,7 +66,7 @@ Future main() async {
       await sendTestNotification();
 
       final startTime = DateTime.now().toUtc();
-      final response = (await validateResponse<GetNotificationResponse, void>(
+      final response = (await validateResponse<NotificationsGetNotificationResponse, void>(
         client.notifications,
         client.notifications.getNotificationWithHttpInfo(1),
       ))!;
@@ -89,12 +89,12 @@ Future main() async {
 
     test('Delete notification', () async {
       await sendTestNotification();
-      await validateResponse<EmptyResponse, void>(
+      await validateResponse<NotificationsEmptyResponse, void>(
         client.notifications,
         client.notifications.deleteNotificationWithHttpInfo(1),
       );
 
-      final response = (await validateResponse<ListNotificationsResponse, void>(
+      final response = (await validateResponse<NotificationsListNotificationsResponse, void>(
         client.notifications,
         client.notifications.listNotificationsWithHttpInfo(),
       ))!;
@@ -104,12 +104,12 @@ Future main() async {
     test('Delete all notifications', () async {
       await sendTestNotification();
       await sendTestNotification();
-      await validateResponse<EmptyResponse, void>(
+      await validateResponse<NotificationsEmptyResponse, void>(
         client.notifications,
         client.notifications.deleteAllNotificationsWithHttpInfo(),
       );
 
-      final response = (await validateResponse<ListNotificationsResponse, void>(
+      final response = (await validateResponse<NotificationsListNotificationsResponse, void>(
         client.notifications,
         client.notifications.listNotificationsWithHttpInfo(),
       ))!;
@@ -169,14 +169,13 @@ Future main() async {
       });
       pushProxy.onNewNotification.listen((final notification) async {
         expect(notification.deviceIdentifier, subscription.deviceIdentifier);
-        expect(notification.pushTokenHash, client.notifications.generatePushTokenHash(pushToken));
+        expect(notification.pushTokenHash, generatePushTokenHash(pushToken));
         expect(notification.subject, isNotEmpty);
         expect(notification.signature, isNotEmpty);
         expect(notification.priority, 'normal');
         expect(notification.type, 'alert');
 
-        final decryptedSubject =
-            client.notifications.decryptPushNotificationSubject(keypair.privateKey, notification.subject);
+        final decryptedSubject = decryptPushNotificationSubject(keypair.privateKey, notification.subject);
         expect(decryptedSubject.nid, isNotNull);
         expect(decryptedSubject.app, 'admin_notifications');
         expect(decryptedSubject.subject, '123');
@@ -193,7 +192,7 @@ Future main() async {
       );
       await client.notifications.sendAdminNotification(
         'admin',
-        AdminNotification(
+        NotificationsAdminNotification(
           shortMessage: '123',
           longMessage: '456',
         ),
@@ -211,7 +210,7 @@ Future main() async {
         'https://example.com/',
       );
 
-      await validateResponse<EmptyResponse, void>(
+      await validateResponse<NotificationsEmptyResponse, void>(
         client.notifications,
         client.notifications.removeDeviceWithHttpInfo(),
       );

@@ -25,18 +25,20 @@ class NextcloudNotificationsClient extends DefaultApi {
 
   @override
   @Deprecated('Use registerDeviceAtServer instead')
-  Future<PushServerRegistrationResponse?> registerDevice(PushServerDevice pushServerDevice) =>
+  Future<NotificationsPushServerRegistrationResponse?> registerDevice(
+    NotificationsPushServerDevice notificationsPushServerDevice,
+  ) =>
       throw Exception('Use registerDeviceAtServer instead');
 
   /// Registers a device at the Nextcloud server
-  Future<PushServerRegistrationResponse?> registerDeviceAtServer(
+  Future<NotificationsPushServerRegistrationResponse?> registerDeviceAtServer(
     final String pushToken,
     final RSAPublicKey devicePublicKey,
     final String proxyServer,
   ) {
     _validateProxyServerURL(proxyServer);
     return super.registerDevice(
-      PushServerDevice(
+      NotificationsPushServerDevice(
         pushTokenHash: generatePushTokenHash(pushToken),
         devicePublicKey: devicePublicKey.toFormattedPEM(),
         proxyServer: proxyServer,
@@ -47,7 +49,7 @@ class NextcloudNotificationsClient extends DefaultApi {
   /// Registers a device at the push proxy server
   Future registerDeviceAtPushProxy(
     final String pushToken,
-    final PushServerSubscription subscription,
+    final NotificationsPushServerSubscription subscription,
     final String proxyServer,
   ) async {
     _validateProxyServerURL(proxyServer);
@@ -80,19 +82,21 @@ class NextcloudNotificationsClient extends DefaultApi {
     }
   }
 
-  /// Generates the push token hash which is just sha512
-  String generatePushTokenHash(final String pushToken) => sha512.convert(utf8.encode(pushToken)).toString();
-
-  /// Decrypts the subject of a push notification
-  PushNotificationDecryptedSubject decryptPushNotificationSubject(
-    final RSAPrivateKey privateKey,
-    final String subject,
-  ) =>
-      PushNotificationDecryptedSubject.fromJson(json.decode(privateKey.decrypt(subject)) as Map<String, dynamic>)!;
-
   void _validateProxyServerURL(final String proxyServer) {
     if (!proxyServer.endsWith('/')) {
       throw Exception('proxyServer URL has to end with a /');
     }
   }
 }
+
+/// Generates the push token hash which is just sha512
+String generatePushTokenHash(final String pushToken) => sha512.convert(utf8.encode(pushToken)).toString();
+
+/// Decrypts the subject of a push notification
+NotificationsPushNotificationDecryptedSubject decryptPushNotificationSubject(
+  final RSAPrivateKey privateKey,
+  final String subject,
+) =>
+    NotificationsPushNotificationDecryptedSubject.fromJson(
+      json.decode(privateKey.decrypt(subject)) as Map<String, dynamic>,
+    )!;

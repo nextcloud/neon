@@ -6,6 +6,19 @@ class GlobalOptions {
       _themeOLEDAsDarkEnabledSubject.add(value != ThemeMode.light);
     });
 
+    _pushNotificationsDistributorsSubject.listen((final distributors) async {
+      _pushNotificationsEnabledSubject.add(distributors.isNotEmpty);
+      await pushNotificationsEnabled.set(distributors.isNotEmpty);
+      await _setDefaultDistributor();
+    });
+
+    pushNotificationsEnabled.stream.listen((final enabled) async {
+      if (!enabled) {
+        await pushNotificationsDistributor.set(null);
+      }
+      await _setDefaultDistributor();
+    });
+
     rememberLastUsedAccount.stream.listen((final remember) async {
       if (remember) {
         await lastAccount.set(null);
@@ -18,10 +31,28 @@ class GlobalOptions {
   final Storage _storage;
   final _accountsIDsSubject = BehaviorSubject<Map<String?, LabelBuilder>>();
   final _themeOLEDAsDarkEnabledSubject = BehaviorSubject<bool>();
+  final _pushNotificationsEnabledSubject = BehaviorSubject<bool>();
+  final _pushNotificationsDistributorsSubject = BehaviorSubject<Map<String?, LabelBuilder>>();
+
+  final _distributorsMap = <String, String Function(BuildContext)>{
+    Global.packageInfo.packageName: (final context) =>
+        AppLocalizations.of(context).globalOptionsPushNotificationsDistributorFirebaseEmbedded,
+    'com.github.gotify.up': (final context) =>
+        AppLocalizations.of(context).globalOptionsPushNotificationsDistributorGotifyUP,
+    'io.heckel.ntfy': (final context) => AppLocalizations.of(context).globalOptionsPushNotificationsDistributorNtfy,
+    'org.unifiedpush.distributor.fcm': (final context) =>
+        AppLocalizations.of(context).globalOptionsPushNotificationsDistributorFCMUP,
+    'org.unifiedpush.distributor.nextpush': (final context) =>
+        AppLocalizations.of(context).globalOptionsPushNotificationsDistributorNextPush,
+    'org.unifiedpush.distributor.noprovider2push': (final context) =>
+        AppLocalizations.of(context).globalOptionsPushNotificationsDistributorNoProvider2Push,
+  };
 
   late final List<Option> options = [
     themeMode,
     themeOLEDAsDark,
+    pushNotificationsEnabled,
+    pushNotificationsDistributor,
     startupMinimized,
     startupMinimizeInsteadOfExit,
     systemTrayEnabled,
@@ -31,9 +62,7 @@ class GlobalOptions {
   ];
 
   void dispose() {
-    // ignore: discarded_futures
     _accountsIDsSubject.close();
-    // ignore: discarded_futures
     _themeOLEDAsDarkEnabledSubject.close();
     for (final option in options) {
       option.dispose();
@@ -49,6 +78,25 @@ class GlobalOptions {
         account.id: (final _) => '',
       },
     });
+  }
+
+  Future updateDistributors(final List<String> distributors) async {
+    _pushNotificationsDistributorsSubject.add({
+      for (final distributor in distributors) ...{
+        distributor: _distributorsMap[distributor] ?? (final _) => distributor,
+      },
+    });
+  }
+
+  Future _setDefaultDistributor() async {
+    if ((pushNotificationsEnabled.enabled.valueOrNull ?? false) &&
+        pushNotificationsEnabled.value &&
+        pushNotificationsDistributor.values.hasValue &&
+        pushNotificationsDistributor.values.value.isNotEmpty &&
+        pushNotificationsDistributor.stream.hasValue &&
+        pushNotificationsDistributor.value == null) {
+      await pushNotificationsDistributor.set((await pushNotificationsDistributor.values.first).keys.toList()[0]);
+    }
   }
 
   late final themeMode = SelectOption<ThemeMode>(
@@ -69,6 +117,23 @@ class GlobalOptions {
     label: (final context) => AppLocalizations.of(context).globalOptionsThemeOLEDAsDark,
     defaultValue: BehaviorSubject.seeded(false),
     enabled: _themeOLEDAsDarkEnabledSubject,
+  );
+
+  late final pushNotificationsEnabled = ToggleOption(
+    storage: _storage,
+    key: 'push-notifications-enabled',
+    label: (final context) => AppLocalizations.of(context).globalOptionsPushNotificationsEnabled,
+    defaultValue: BehaviorSubject.seeded(true),
+    enabled: _pushNotificationsEnabledSubject,
+  );
+
+  late final pushNotificationsDistributor = SelectOption<String?>(
+    storage: _storage,
+    key: 'push-notifications-distributor',
+    label: (final context) => AppLocalizations.of(context).globalOptionsPushNotificationsDistributor,
+    defaultValue: BehaviorSubject.seeded(null),
+    values: _pushNotificationsDistributorsSubject,
+    enabled: pushNotificationsEnabled.stream,
   );
 
   late final startupMinimized = ToggleOption(

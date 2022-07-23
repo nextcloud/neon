@@ -209,7 +209,8 @@ class _LoginPageState extends State<LoginPage> {
                               decoration: const InputDecoration(
                                 hintText: 'https://...',
                               ),
-                              initialValue: widget.serverURL ?? env?.testHost,
+                              initialValue:
+                                  widget.serverURL ?? (env?.testHost != null ? 'http://${env!.testHost}' : null),
                               validator: (final input) => validateHttpUrl(context, input),
                               onFieldSubmitted: (final input) {
                                 if (_formKey.currentState!.validate()) {

@@ -27,15 +27,17 @@ Even if a new feature is not listed yet, please open an issue.
 - :warning: Partially supported
 - :rocket: Planned
 
-| App      | Status                                                                                                                                                   |
-|----------|----------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Files    | :white_check_mark: [See here](https://github.com/jld3103/nextcloud-neon/issues?q=is%3Aopen+is%3Aissue+label%3A%22neon%3A+files%22+label%3Afeature) |
-| Notes    | :heavy_check_mark:                                                                                                                                       |
-| News     | :white_check_mark: [See here](https://github.com/jld3103/nextcloud-neon/issues?q=is%3Aopen+is%3Aissue+label%3Afeature+label%3A%22neon%3A+news%22)  |
-| Contacts | :rocket:                                                                                                                                                 |
-| Calendar | :rocket:                                                                                                                                                 |
-| Tasks    | :rocket:                                                                                                                                                 |
-| Cookbook | :rocket:                                                                                                                                                 |
+| App           | Status                                                                                                                                             |
+|---------------|----------------------------------------------------------------------------------------------------------------------------------------------------|
+| Activity      | :rocket:                                                                                                                                           |
+| Calendar      | :rocket:                                                                                                                                           |
+| Contacts      | :rocket:                                                                                                                                           |
+| Cookbook      | :rocket:                                                                                                                                           |
+| Files         | :white_check_mark: [See here](https://github.com/jld3103/nextcloud-neon/issues?q=is%3Aopen+is%3Aissue+label%3A%22neon%3A+files%22+label%3Afeature) |
+| News          | :white_check_mark: [See here](https://github.com/jld3103/nextcloud-neon/issues?q=is%3Aopen+is%3Aissue+label%3Afeature+label%3A%22neon%3A+news%22)  |
+| Notes         | :heavy_check_mark:                                                                                                                                 |
+| Notifications | :heavy_check_mark:                                                                                                                                 |
+| Tasks         | :rocket:                                                                                                                                           |
 
 
 ## Platform support

@@ -1,9 +1,21 @@
 part of '../neon.dart';
 
+List<AppImplementation> getAppImplementations(
+  final SharedPreferences sharedPreferences,
+  final RequestManager requestManager,
+  final NeonPlatform platform,
+) =>
+    [
+      FilesApp(sharedPreferences, requestManager, platform),
+      NewsApp(sharedPreferences, requestManager, platform),
+      NotesApp(sharedPreferences, requestManager),
+      NotificationsApp(sharedPreferences, requestManager),
+    ];
+
 abstract class AppImplementation<T extends RxBlocBase, R extends NextcloudAppSpecificOptions> {
   AppImplementation(
     this.id,
-    this.name,
+    this.nameFromLocalization,
     final SharedPreferences sharedPreferences,
     final R Function(Storage) buildOptions,
     this._buildBloc,
@@ -13,7 +25,8 @@ abstract class AppImplementation<T extends RxBlocBase, R extends NextcloudAppSpe
     options = buildOptions(storage);
   }
 
-  final String Function(BuildContext) name;
+  final String Function(AppLocalizations) nameFromLocalization;
+  String name(BuildContext context) => nameFromLocalization(AppLocalizations.of(context));
   final String id;
   late final R options;
   final T Function(R options, NextcloudClient client) _buildBloc;

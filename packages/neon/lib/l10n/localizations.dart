@@ -317,6 +317,12 @@ abstract class AppLocalizations {
   /// **'Theme'**
   String get optionsCategoryTheme;
 
+  /// No description provided for @optionsCategoryPushNotifications.
+  ///
+  /// In en, this message translates to:
+  /// **'Push notifications'**
+  String get optionsCategoryPushNotifications;
+
   /// No description provided for @optionsCategoryOther.
   ///
   /// In en, this message translates to:
@@ -382,6 +388,66 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'OLED theme as dark theme'**
   String get globalOptionsThemeOLEDAsDark;
+
+  /// No description provided for @globalOptionsPushNotificationsNotice.
+  ///
+  /// In en, this message translates to:
+  /// **'External services are used for delivering push notifications. While the content is encrypted and can only be ready by this app, extracting metadata like the time and count of notifications is still possible.'**
+  String get globalOptionsPushNotificationsNotice;
+
+  /// No description provided for @globalOptionsPushNotificationsEnabled.
+  ///
+  /// In en, this message translates to:
+  /// **'Enabled'**
+  String get globalOptionsPushNotificationsEnabled;
+
+  /// No description provided for @globalOptionsPushNotificationsEnabledDisabledNotice.
+  ///
+  /// In en, this message translates to:
+  /// **'No UnifiedPush distributor could be found. Please go to https://unifiedpush.org/users/distributors and setup any of the listed distributors. Then re-open this app and you should be able to enable notifications'**
+  String get globalOptionsPushNotificationsEnabledDisabledNotice;
+
+  /// No description provided for @globalOptionsPushNotificationsDistributor.
+  ///
+  /// In en, this message translates to:
+  /// **'UnifiedPush Distributor'**
+  String get globalOptionsPushNotificationsDistributor;
+
+  /// No description provided for @globalOptionsPushNotificationsDistributorGotifyUP.
+  ///
+  /// In en, this message translates to:
+  /// **'Gotify-UP'**
+  String get globalOptionsPushNotificationsDistributorGotifyUP;
+
+  /// No description provided for @globalOptionsPushNotificationsDistributorFirebaseEmbedded.
+  ///
+  /// In en, this message translates to:
+  /// **'Firebase (FOSS)'**
+  String get globalOptionsPushNotificationsDistributorFirebaseEmbedded;
+
+  /// No description provided for @globalOptionsPushNotificationsDistributorNtfy.
+  ///
+  /// In en, this message translates to:
+  /// **'ntfy'**
+  String get globalOptionsPushNotificationsDistributorNtfy;
+
+  /// No description provided for @globalOptionsPushNotificationsDistributorFCMUP.
+  ///
+  /// In en, this message translates to:
+  /// **'FCM-UP'**
+  String get globalOptionsPushNotificationsDistributorFCMUP;
+
+  /// No description provided for @globalOptionsPushNotificationsDistributorNextPush.
+  ///
+  /// In en, this message translates to:
+  /// **'NextPush'**
+  String get globalOptionsPushNotificationsDistributorNextPush;
+
+  /// No description provided for @globalOptionsPushNotificationsDistributorNoProvider2Push.
+  ///
+  /// In en, this message translates to:
+  /// **'NoProvider2Push'**
+  String get globalOptionsPushNotificationsDistributorNoProvider2Push;
 
   /// No description provided for @globalOptionsStartupMinimized.
   ///
@@ -1036,6 +1102,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Count of notes'**
   String get notesOptionsCategoriesSortPropertyNotesCount;
+
+  /// No description provided for @notificationsName.
+  ///
+  /// In en, this message translates to:
+  /// **'Notifications'**
+  String get notificationsName;
+
+  /// No description provided for @notificationsNextcloudAppNotImplementedYet.
+  ///
+  /// In en, this message translates to:
+  /// **'Sorry, this Nextcloud app has not been implemented yet'**
+  String get notificationsNextcloudAppNotImplementedYet;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

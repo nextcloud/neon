@@ -7,7 +7,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
 import 'package:intersperse/intersperse.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+import 'package:neon/l10n/localizations.dart';
+import 'package:neon/src/apps/notes/blocs/notes.dart';
 import 'package:neon/src/neon.dart';
+import 'package:neon/src/widgets/custom_auto_complete.dart';
 import 'package:nextcloud/nextcloud.dart';
 import 'package:provider/provider.dart';
 import 'package:rxdart/rxdart.dart';
@@ -37,7 +40,7 @@ class NotesApp extends AppImplementation<NotesBloc, NotesAppSpecificOptions> {
     final RequestManager requestManager,
   ) : super(
           'notes',
-          (final context) => AppLocalizations.of(context).notesName,
+          (final localizations) => localizations.notesName,
           sharedPreferences,
           NotesAppSpecificOptions.new,
           (final options, final client) => NotesBloc(

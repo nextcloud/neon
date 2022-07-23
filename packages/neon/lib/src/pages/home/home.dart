@@ -34,6 +34,7 @@ class _HomePageState extends State<HomePage> with tray.TrayListener, WindowListe
 
     _platform = Provider.of<NeonPlatform>(context, listen: false);
     _globalOptions = Provider.of<GlobalOptions>(context, listen: false);
+    final accountsBloc = RxBlocProvider.of<AccountsBloc>(context);
 
     if (_platform.canUseSystemTray) {
       tray.trayManager.addListener(this);
@@ -54,7 +55,7 @@ class _HomePageState extends State<HomePage> with tray.TrayListener, WindowListe
     });
     _appsBloc = AppsBloc(
       _requestManager,
-      RxBlocProvider.of<AccountsBloc>(context),
+      accountsBloc,
       widget.account,
       Provider.of<List<AppImplementation>>(context, listen: false),
     );
@@ -119,6 +120,58 @@ class _HomePageState extends State<HomePage> with tray.TrayListener, WindowListe
           }
         });
       }
+
+      Global.handleNotificationOpening = (final notification) async {
+        final allAppImplementations = Provider.of<List<AppImplementation>>(context, listen: false);
+        final matchingAppImplementations = allAppImplementations.where((final a) => a.id == notification.app);
+        if (matchingAppImplementations.isNotEmpty) {
+          _appsBloc.setActiveApp(notification.app!);
+          return true;
+        }
+
+        return false;
+      };
+
+      if (_platform.canUsePushNotifications) {
+        final localNotificationsPlugin = await PushUtils.initLocalNotifications();
+        Global.onPushNotificationReceived = () async {
+          final appImplementation = Provider.of<List<AppImplementation>>(context, listen: false)
+              .singleWhere((final a) => a.id == 'notifications');
+          _appsBloc.getAppBloc<NotificationsBloc>(appImplementation).refresh();
+        };
+        Global.onPushNotificationClicked = (final payload) async {
+          if (payload != null) {
+            final notification = NextcloudNotification.fromJson(json.decode(payload) as Map<String, dynamic>);
+            debugPrint('onNotificationClicked: ${notification.subject}');
+
+            final allAppImplementations = Provider.of<List<AppImplementation>>(context, listen: false);
+
+            final matchingAppImplementations =
+                allAppImplementations.where((final a) => a.id == notification.subject.app);
+
+            late AppImplementation appImplementation;
+            if (matchingAppImplementations.isNotEmpty) {
+              appImplementation = matchingAppImplementations.single;
+            } else {
+              appImplementation = allAppImplementations.singleWhere((final a) => a.id == 'notifications');
+            }
+
+            if (appImplementation.id != 'notifications') {
+              _appsBloc.getAppBloc<NotificationsBloc>(appImplementation).deleteNotification(
+                    NotificationsNotification(
+                      notificationId: notification.subject.nid,
+                    ),
+                  );
+            }
+            await _openAppFromExternal(appImplementation.id);
+          }
+        };
+
+        final details = await localNotificationsPlugin.getNotificationAppLaunchDetails();
+        if (details != null && details.didNotificationLaunchApp) {
+          await Global.onPushNotificationClicked!(details.payload);
+        }
+      }
     });
   }
 
@@ -155,13 +208,16 @@ class _HomePageState extends State<HomePage> with tray.TrayListener, WindowListe
 
     final matches = _appRegex.allMatches(shortcutType).toList();
     if (matches.isNotEmpty) {
-      final appId = matches[0].group(1);
-      _appsBloc.setActiveApp(appId);
-      Navigator.of(context).popUntil((final route) => route.settings.name == 'home');
-      if (_platform.canUseWindowManager) {
-        await _showAndRestoreWindow();
-      }
+      await _openAppFromExternal(matches[0].group(1)!);
       return;
+    }
+  }
+
+  Future _openAppFromExternal(final String id) async {
+    _appsBloc.setActiveApp(id);
+    Navigator.of(context).popUntil((final route) => route.settings.name == 'home');
+    if (_platform.canUseWindowManager) {
+      await _showAndRestoreWindow();
     }
   }
 

@@ -9,4 +9,6 @@ RUN OC_PASS="$password" ./occ user:add --password-from-env "$username"
 RUN ./occ app:install news
 RUN ./occ app:install notes
 RUN ./occ config:system:set trusted_domains 1 --value=10.0.2.2
+RUN ./occ config:system:set allow_local_remote_servers --value=true
+RUN sed -i "s/localhost/host.docker.internal/" /usr/src/nextcloud/apps/notifications/lib/Controller/PushController.php
 ADD overlay /usr/src/nextcloud/
