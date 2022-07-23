@@ -86,11 +86,8 @@ class FilesBrowserBloc extends $FilesBrowserBloc {
 
   @override
   void dispose() {
-    // ignore: discarded_futures
     _filesSubject.close();
-    // ignore: discarded_futures
     _pathSubject.close();
-    // ignore: discarded_futures
     _errorsStreamController.close();
     super.dispose();
   }

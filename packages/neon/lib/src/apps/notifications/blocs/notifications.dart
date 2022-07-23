@@ -73,9 +73,7 @@ class NotificationsBloc extends $NotificationsBloc {
 
   @override
   void dispose() {
-    // ignore: discarded_futures
     _notificationsSubject.close();
-    // ignore: discarded_futures
     _errorsStreamController.close();
     super.dispose();
   }

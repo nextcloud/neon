@@ -90,9 +90,7 @@ class NotesBloc extends $NotesBloc {
 
   @override
   void dispose() {
-    // ignore: discarded_futures
     _notesSubject.close();
-    // ignore: discarded_futures
     _errorsStreamController.close();
     super.dispose();
   }

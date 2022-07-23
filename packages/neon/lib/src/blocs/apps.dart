@@ -130,9 +130,7 @@ class AppsBloc extends $AppsBloc {
 
   @override
   void dispose() {
-    // ignore: discarded_futures
     _appsSubject.close();
-    // ignore: discarded_futures
     _activeAppSubject.close();
     for (final key in _blocs.keys) {
       _blocs[key]!.dispose();

@@ -35,9 +35,7 @@ abstract class Option<T> {
   }
 
   void dispose() {
-    // ignore: discarded_futures
     stream.close();
-    // ignore: discarded_futures
     enabled.close();
   }
 

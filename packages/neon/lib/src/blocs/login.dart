@@ -83,13 +83,9 @@ class LoginBloc extends $LoginBloc {
   @override
   void dispose() {
     _cancelPollTimer();
-    // ignore: discarded_futures
     _serverURLSubject.close();
-    // ignore: discarded_futures
     _serverConnectionStateSubject.close();
-    // ignore: discarded_futures
     _loginFlowInitSubject.close();
-    // ignore: discarded_futures
     _loginFlowResultSubject.close();
     super.dispose();
   }

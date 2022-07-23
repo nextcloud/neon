@@ -84,7 +84,6 @@ class _NeonAppState extends State<NeonApp> with WidgetsBindingObserver {
   @override
   void dispose() {
     WidgetsBinding.instance.removeObserver(this);
-    // ignore: discarded_futures
     _platformBrightness.close();
 
     super.dispose();

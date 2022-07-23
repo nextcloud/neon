@@ -44,7 +44,6 @@ class CapabilitiesBloc extends $CapabilitiesBloc {
 
   @override
   void dispose() {
-    // ignore: discarded_futures
     _capabilitiesSubject.close();
     super.dispose();
   }

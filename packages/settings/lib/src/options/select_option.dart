@@ -11,7 +11,6 @@ class SelectOption<T> extends Option<T> {
     super.enabled,
   }) {
     stream = BehaviorSubject();
-    // ignore: discarded_futures
     values.first.then((final vs) async {
       final valueStr = storage.getString(key);
       T? initialValue;

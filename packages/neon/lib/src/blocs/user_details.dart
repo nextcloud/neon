@@ -41,7 +41,6 @@ class UserDetailsBloc extends $UserDetailsBloc {
 
   @override
   void dispose() {
-    // ignore: discarded_futures
     _userDetailsSubject.close();
     super.dispose();
   }

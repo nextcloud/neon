@@ -39,7 +39,6 @@ class _NewsArticlePageState extends State<NewsArticlePage> {
 
     WidgetsBinding.instance.addPostFrameCallback((final _) {
       if (Provider.of<NeonPlatform>(context, listen: false).canUseWakelock) {
-        // ignore: discarded_futures
         Wakelock.enable();
       }
     });

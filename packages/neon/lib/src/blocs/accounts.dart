@@ -102,7 +102,6 @@ class AccountsBloc extends $AccountsBloc {
       final lastUsedAccountID = _storage.getString(_keyLastUsedAccount);
       _activeAccountSubject.add(accounts.singleWhere((final account) => account.id == lastUsedAccountID));
     } else {
-      // ignore: discarded_futures
       _globalOptions.lastAccount.stream.first.then((final lastAccount) {
         final matches = accounts.where((final account) => account.id == lastAccount).toList();
         if (matches.isNotEmpty) {
@@ -166,9 +165,7 @@ class AccountsBloc extends $AccountsBloc {
 
   @override
   void dispose() {
-    // ignore: discarded_futures
     _activeAccountSubject.close();
-    // ignore: discarded_futures
     _accountsSubject.close();
     for (final bloc in _userDetailsBlocs.values) {
       bloc.dispose();

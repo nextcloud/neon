@@ -80,9 +80,7 @@ class UserStatusBloc extends $UserStatusBloc {
   @override
   void dispose() {
     _cancelTimer();
-    // ignore: discarded_futures
     _activeAccountStreamSubscription.cancel();
-    // ignore: discarded_futures
     _userStatusSubject.close();
     super.dispose();
   }

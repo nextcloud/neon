@@ -92,7 +92,6 @@ class AccountSpecificOptions {
   }
 
   void dispose() {
-    // ignore: discarded_futures
     _appIDsSubject.close();
     for (final option in options) {
       option.dispose();

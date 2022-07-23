@@ -226,11 +226,8 @@ class NewsBloc extends $NewsBloc {
 
   @override
   void dispose() {
-    // ignore: discarded_futures
     _foldersSubject.close();
-    // ignore: discarded_futures
     _feedsSubject.close();
-    // ignore: discarded_futures
     _errorsStreamController.close();
     super.dispose();
   }
