@@ -95,6 +95,7 @@ void generateData() {
     '// THIS CODE IS GENERATED - DO NOT EDIT MANUALLY',
     '',
     "import 'package:file_icons/src/meta.dart';",
+    "import 'package:flutter/widgets.dart';",
     '',
     '// Code points',
     // This filters unused codepoints.
@@ -108,13 +109,23 @@ void generateData() {
       'const ${_toVariableName(colorName)} = ${colors[colorName]};',
     ],
     '',
-    '/// Mapping between file extensions and code points and colors',
+    "const _fontFamily = 'Seti';",
+    "const _fontPackage = 'file_icons';",
+    '',
+    '/// Mapping between file extensions and [IconData] and color',
     'const iconSetMap = {',
     // This filters icons where the code points are missing. That indicates the fonts in seti-ui are not up-to-date.
     // Run `gulp icons` in the seti-ui repository and everything should be there.
     // Please submit the changes upstream if you can.
     for (final pattern in iconSet.keys.where((final pattern) => codePoints.keys.contains(iconSet[pattern]![0]))) ...[
-      "  '$pattern': SetiMeta(${_toVariableName(iconSet[pattern]![0])}, ${_toVariableName(iconSet[pattern]![1])}),",
+      "  '$pattern': SetiMeta(",
+      '    IconData(',
+      '      ${_toVariableName(iconSet[pattern]![0])},',
+      '      fontFamily: _fontFamily,',
+      '      fontPackage: _fontPackage,',
+      '    ),',
+      '    ${_toVariableName(iconSet[pattern]![1])},',
+      '  ),',
     ],
     '};',
     '',
