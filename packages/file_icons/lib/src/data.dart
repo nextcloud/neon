@@ -1,6 +1,7 @@
 // THIS CODE IS GENERATED - DO NOT EDIT MANUALLY
 
 import 'package:file_icons/src/meta.dart';
+import 'package:flutter/widgets.dart';
 
 // Code points
 const _r = 0xE001;
@@ -168,394 +169,3113 @@ const _pink = 0xfff55385;
 const _orange = 0xffe37933;
 const _grey = 0xff4d5a5e;
 
-/// Mapping between file extensions and code points and colors
+const _fontFamily = 'Seti';
+const _fontPackage = 'file_icons';
+
+/// Mapping between file extensions and [IconData] and color
 const iconSetMap = {
-  '.bsl': SetiMeta(_bsl, _red),
-  '.mdo': SetiMeta(_mdo, _red),
-  '.cls': SetiMeta(_salesforce, _blue),
-  '.apex': SetiMeta(_salesforce, _blue),
-  '.asm': SetiMeta(_asm, _red),
-  '.s': SetiMeta(_asm, _red),
-  '.bicep': SetiMeta(_bicep, _blue),
-  '.bzl': SetiMeta(_bazel, _green),
-  '.bazel': SetiMeta(_bazel, _green),
-  '.build': SetiMeta(_bazel, _green),
-  '.workspace': SetiMeta(_bazel, _green),
-  '.bazelignore': SetiMeta(_bazel, _green),
-  '.bazelversion': SetiMeta(_bazel, _green),
-  '.c': SetiMeta(_c, _blue),
-  '.h': SetiMeta(_c, _purple),
-  '.m': SetiMeta(_c, _yellow),
-  '.cs': SetiMeta(_cSharp, _blue),
-  '.cshtml': SetiMeta(_html, _blue),
-  '.aspx': SetiMeta(_html, _blue),
-  '.ascx': SetiMeta(_html, _green),
-  '.asax': SetiMeta(_html, _yellow),
-  '.master': SetiMeta(_html, _yellow),
-  '.cc': SetiMeta(_cpp, _blue),
-  '.cpp': SetiMeta(_cpp, _blue),
-  '.cxx': SetiMeta(_cpp, _blue),
-  '.c++': SetiMeta(_cpp, _blue),
-  '.hh': SetiMeta(_cpp, _purple),
-  '.hpp': SetiMeta(_cpp, _purple),
-  '.hxx': SetiMeta(_cpp, _purple),
-  '.h++': SetiMeta(_cpp, _purple),
-  '.mm': SetiMeta(_cpp, _yellow),
-  '.clj': SetiMeta(_clojure, _green),
-  '.cljs': SetiMeta(_clojure, _green),
-  '.cljc': SetiMeta(_clojure, _green),
-  '.edn': SetiMeta(_clojure, _blue),
-  '.cfc': SetiMeta(_coldfusion, _blue),
-  '.cfm': SetiMeta(_coldfusion, _blue),
-  '.coffee': SetiMeta(_coffee, _yellow),
-  '.litcoffee': SetiMeta(_coffee, _yellow),
-  '.config': SetiMeta(_config, _greyLight),
-  '.cfg': SetiMeta(_config, _greyLight),
-  '.conf': SetiMeta(_config, _greyLight),
-  '.cr': SetiMeta(_crystal, _white),
-  '.ecr': SetiMeta(_crystalEmbedded, _white),
-  '.slang': SetiMeta(_crystalEmbedded, _white),
-  '.cson': SetiMeta(_json, _yellow),
-  '.css': SetiMeta(_css, _blue),
-  '.css.map': SetiMeta(_css, _blue),
-  '.sss': SetiMeta(_css, _blue),
-  '.csv': SetiMeta(_csv, _green),
-  '.xls': SetiMeta(_xls, _green),
-  '.xlsx': SetiMeta(_xls, _green),
-  '.cu': SetiMeta(_cu, _green),
-  '.cuh': SetiMeta(_cu, _purple),
-  '.hu': SetiMeta(_cu, _purple),
-  '.cake': SetiMeta(_cake, _red),
-  '.ctp': SetiMeta(_cakePhp, _red),
-  '.d': SetiMeta(_d, _red),
-  '.doc': SetiMeta(_word, _blue),
-  '.docx': SetiMeta(_word, _blue),
-  '.ejs': SetiMeta(_ejs, _yellow),
-  '.ex': SetiMeta(_elixir, _purple),
-  '.exs': SetiMeta(_elixirScript, _purple),
-  'mix': SetiMeta(_hex, _red),
-  '.elm': SetiMeta(_elm, _blue),
-  '.ico': SetiMeta(_favicon, _yellow),
-  '.fs': SetiMeta(_fSharp, _blue),
-  '.fsx': SetiMeta(_fSharp, _blue),
-  '.gitignore': SetiMeta(_git, _ignore),
-  '.gitconfig': SetiMeta(_git, _ignore),
-  '.gitkeep': SetiMeta(_git, _ignore),
-  '.gitattributes': SetiMeta(_git, _ignore),
-  '.gitmodules': SetiMeta(_git, _ignore),
-  'commit_editmsg': SetiMeta(_git, _ignore),
-  'merge_msg': SetiMeta(_git, _ignore),
-  '.go': SetiMeta(_go2, _blue),
-  '.slide': SetiMeta(_go, _blue),
-  '.article': SetiMeta(_go, _blue),
-  '.gd': SetiMeta(_godot, _blue),
-  '.godot': SetiMeta(_godot, _red),
-  '.tres': SetiMeta(_godot, _yellow),
-  '.tscn': SetiMeta(_godot, _purple),
-  '.gradle': SetiMeta(_gradle, _blue),
-  '.groovy': SetiMeta(_grails, _green),
-  '.gsp': SetiMeta(_grails, _green),
-  '.gql': SetiMeta(_graphql, _pink),
-  '.graphql': SetiMeta(_graphql, _pink),
-  '.graphqls': SetiMeta(_graphql, _pink),
-  '.hack': SetiMeta(_hacklang, _orange),
-  '.haml': SetiMeta(_haml, _red),
-  '.handlebars': SetiMeta(_mustache, _orange),
-  '.hbs': SetiMeta(_mustache, _orange),
-  '.hjs': SetiMeta(_mustache, _orange),
-  '.hs': SetiMeta(_haskell, _purple),
-  '.lhs': SetiMeta(_haskell, _purple),
-  '.hx': SetiMeta(_haxe, _orange),
-  '.hxs': SetiMeta(_haxe, _yellow),
-  '.hxp': SetiMeta(_haxe, _blue),
-  '.hxml': SetiMeta(_haxe, _purple),
-  '.html': SetiMeta(_html, _orange),
-  '.jade': SetiMeta(_jade, _red),
-  '.java': SetiMeta(_java, _red),
-  '.class': SetiMeta(_java, _blue),
-  '.classpath': SetiMeta(_java, _red),
-  '.properties': SetiMeta(_java, _red),
-  '.js': SetiMeta(_javascript, _yellow),
-  '.js.map': SetiMeta(_javascript, _yellow),
-  '.spec.js': SetiMeta(_javascript, _orange),
-  '.test.js': SetiMeta(_javascript, _orange),
-  '.es': SetiMeta(_javascript, _yellow),
-  '.es5': SetiMeta(_javascript, _yellow),
-  '.es6': SetiMeta(_javascript, _yellow),
-  '.es7': SetiMeta(_javascript, _yellow),
-  '.jinja': SetiMeta(_jinja, _red),
-  '.jinja2': SetiMeta(_jinja, _red),
-  '.json': SetiMeta(_json, _yellow),
-  '.jl': SetiMeta(_julia, _purple),
-  'karma.conf.js': SetiMeta(_karma, _green),
-  'karma.conf.coffee': SetiMeta(_karma, _green),
-  '.kt': SetiMeta(_kotlin, _orange),
-  '.kts': SetiMeta(_kotlin, _orange),
-  '.dart': SetiMeta(_dart, _blue),
-  '.less': SetiMeta(_less, _blue),
-  '.liquid': SetiMeta(_liquid, _green),
-  '.ls': SetiMeta(_livescript, _blue),
-  '.lua': SetiMeta(_lua, _blue),
-  '.markdown': SetiMeta(_markdown, _blue),
-  '.md': SetiMeta(_markdown, _blue),
-  '.argdown': SetiMeta(_argdown, _blue),
-  '.ad': SetiMeta(_argdown, _blue),
-  'readme.md': SetiMeta(_info, _blue),
-  'readme.txt': SetiMeta(_info, _blue),
-  'readme': SetiMeta(_info, _blue),
-  'changelog.md': SetiMeta(_clock, _blue),
-  'changelog.txt': SetiMeta(_clock, _blue),
-  'changelog': SetiMeta(_clock, _blue),
-  'changes.md': SetiMeta(_clock, _blue),
-  'changes.txt': SetiMeta(_clock, _blue),
-  'changes': SetiMeta(_clock, _blue),
-  'version.md': SetiMeta(_clock, _blue),
-  'version.txt': SetiMeta(_clock, _blue),
-  'version': SetiMeta(_clock, _blue),
-  'mvnw': SetiMeta(_maven, _red),
-  '.mustache': SetiMeta(_mustache, _orange),
-  '.stache': SetiMeta(_mustache, _orange),
-  '.nim': SetiMeta(_nim, _yellow),
-  '.nims': SetiMeta(_nim, _yellow),
-  '.github-issues': SetiMeta(_github, _white),
-  '.ipynb': SetiMeta(_notebook, _blue),
-  '.njk': SetiMeta(_nunjucks, _green),
-  '.nunjucks': SetiMeta(_nunjucks, _green),
-  '.nunjs': SetiMeta(_nunjucks, _green),
-  '.nunj': SetiMeta(_nunjucks, _green),
-  '.njs': SetiMeta(_nunjucks, _green),
-  '.nj': SetiMeta(_nunjucks, _green),
-  '.npm-debug.log': SetiMeta(_npm, _ignore),
-  '.npmignore': SetiMeta(_npm, _red),
-  '.npmrc': SetiMeta(_npm, _red),
-  '.ml': SetiMeta(_ocaml, _orange),
-  '.mli': SetiMeta(_ocaml, _orange),
-  '.cmx': SetiMeta(_ocaml, _orange),
-  '.cmxa': SetiMeta(_ocaml, _orange),
-  '.odata': SetiMeta(_odata, _orange),
-  '.pl': SetiMeta(_perl, _blue),
-  '.php': SetiMeta(_php, _purple),
-  '.php.inc': SetiMeta(_php, _purple),
-  '.pipeline': SetiMeta(_pipeline, _orange),
-  '.pddl': SetiMeta(_pddl, _purple),
-  '.plan': SetiMeta(_plan, _green),
-  '.happenings': SetiMeta(_happenings, _blue),
-  '.ps1': SetiMeta(_powershell, _blue),
-  '.psd1': SetiMeta(_powershell, _blue),
-  '.psm1': SetiMeta(_powershell, _blue),
-  '.prisma': SetiMeta(_prisma, _blue),
-  '.pug': SetiMeta(_pug, _red),
-  '.pp': SetiMeta(_puppet, _yellow),
-  '.epp': SetiMeta(_puppet, _yellow),
-  '.purs': SetiMeta(_purescript, _white),
-  '.py': SetiMeta(_python, _blue),
-  '.jsx': SetiMeta(_react, _blue),
-  '.spec.jsx': SetiMeta(_react, _orange),
-  '.test.jsx': SetiMeta(_react, _orange),
-  '.cjsx': SetiMeta(_react, _blue),
-  '.spec.tsx': SetiMeta(_react, _orange),
-  '.test.tsx': SetiMeta(_react, _orange),
-  '.re': SetiMeta(_reasonml, _red),
-  '.res': SetiMeta(_rescript, _red),
-  '.resi': SetiMeta(_rescript, _pink),
-  '.r': SetiMeta(_r, _blue),
-  '.rmd': SetiMeta(_r, _blue),
-  '.rb': SetiMeta(_ruby, _red),
-  'gemfile': SetiMeta(_ruby, _red),
-  '.erb': SetiMeta(_htmlErb, _red),
-  '.erb.html': SetiMeta(_htmlErb, _red),
-  '.html.erb': SetiMeta(_htmlErb, _red),
-  '.rs': SetiMeta(_rust, _greyLight),
-  '.sass': SetiMeta(_sass, _pink),
-  '.scss': SetiMeta(_sass, _pink),
-  '.springbeans': SetiMeta(_spring, _green),
-  '.slim': SetiMeta(_slim, _orange),
-  '.smarty.tpl': SetiMeta(_smarty, _yellow),
-  '.tpl': SetiMeta(_smarty, _yellow),
-  '.sbt': SetiMeta(_sbt, _blue),
-  '.scala': SetiMeta(_scala, _red),
-  '.sol': SetiMeta(_ethereum, _blue),
-  '.styl': SetiMeta(_stylus, _green),
-  '.svelte': SetiMeta(_svelte, _red),
-  '.swift': SetiMeta(_swift, _orange),
-  '.sql': SetiMeta(_db, _pink),
-  '.soql': SetiMeta(_db, _blue),
-  '.tf': SetiMeta(_terraform, _purple),
-  '.tf.json': SetiMeta(_terraform, _purple),
-  '.tfvars': SetiMeta(_terraform, _purple),
-  '.tfvars.json': SetiMeta(_terraform, _purple),
-  '.tex': SetiMeta(_tex, _blue),
-  '.sty': SetiMeta(_tex, _yellow),
-  '.dtx': SetiMeta(_tex, _orange),
-  '.ins': SetiMeta(_tex, _white),
-  '.txt': SetiMeta(_default, _white),
-  '.toml': SetiMeta(_config, _greyLight),
-  '.twig': SetiMeta(_twig, _green),
-  '.ts': SetiMeta(_typescript, _blue),
-  '.tsx': SetiMeta(_typescript, _blue),
-  '.spec.ts': SetiMeta(_typescript, _orange),
-  '.test.ts': SetiMeta(_typescript, _orange),
-  'tsconfig.json': SetiMeta(_tsconfig, _blue),
-  '.vala': SetiMeta(_vala, _greyLight),
-  '.vapi': SetiMeta(_vala, _greyLight),
-  '.component': SetiMeta(_html, _orange),
-  '.vue': SetiMeta(_vue, _green),
-  '.wasm': SetiMeta(_wasm, _purple),
-  '.wat': SetiMeta(_wat, _purple),
-  '.xml': SetiMeta(_xml, _orange),
-  '.yml': SetiMeta(_yml, _purple),
-  '.yaml': SetiMeta(_yml, _purple),
-  'swagger.json': SetiMeta(_json, _green),
-  'swagger.yml': SetiMeta(_json, _green),
-  'swagger.yaml': SetiMeta(_json, _green),
-  '.pro': SetiMeta(_prolog, _orange),
-  '.zig': SetiMeta(_zig, _orange),
-  '.jar': SetiMeta(_zip, _red),
-  '.zip': SetiMeta(_zip, _greyLight),
-  '.wgt': SetiMeta(_wgt, _blue),
-  '.ai': SetiMeta(_illustrator, _yellow),
-  '.psd': SetiMeta(_photoshop, _blue),
-  '.pdf': SetiMeta(_pdf, _red),
-  '.eot': SetiMeta(_font, _red),
-  '.ttf': SetiMeta(_font, _red),
-  '.woff': SetiMeta(_font, _red),
-  '.woff2': SetiMeta(_font, _red),
-  '.avif': SetiMeta(_image, _purple),
-  '.gif': SetiMeta(_image, _purple),
-  '.jpg': SetiMeta(_image, _purple),
-  '.jpeg': SetiMeta(_image, _purple),
-  '.png': SetiMeta(_image, _purple),
-  '.pxm': SetiMeta(_image, _purple),
-  '.svg': SetiMeta(_svg, _purple),
-  '.svgx': SetiMeta(_image, _purple),
-  '.tiff': SetiMeta(_image, _purple),
-  '.webp': SetiMeta(_image, _purple),
-  '.sublime-project': SetiMeta(_sublime, _orange),
-  '.sublime-workspace': SetiMeta(_sublime, _orange),
-  '.code-search': SetiMeta(_codeSearch, _purple),
-  '.sh': SetiMeta(_shell, _green),
-  '.zsh': SetiMeta(_shell, _green),
-  '.fish': SetiMeta(_shell, _green),
-  '.zshrc': SetiMeta(_shell, _green),
-  '.bashrc': SetiMeta(_shell, _green),
-  '.mov': SetiMeta(_video, _pink),
-  '.ogv': SetiMeta(_video, _pink),
-  '.webm': SetiMeta(_video, _pink),
-  '.avi': SetiMeta(_video, _pink),
-  '.mpg': SetiMeta(_video, _pink),
-  '.mp4': SetiMeta(_video, _pink),
-  '.mp3': SetiMeta(_audio, _purple),
-  '.ogg': SetiMeta(_audio, _purple),
-  '.wav': SetiMeta(_audio, _purple),
-  '.flac': SetiMeta(_audio, _purple),
-  '.3ds': SetiMeta(_svg, _blue),
-  '.3dm': SetiMeta(_svg, _blue),
-  '.stl': SetiMeta(_svg, _blue),
-  '.obj': SetiMeta(_svg, _blue),
-  '.dae': SetiMeta(_svg, _blue),
-  '.bat': SetiMeta(_windows, _blue),
-  '.cmd': SetiMeta(_windows, _blue),
-  'mime.types': SetiMeta(_config, _greyLight),
-  'jenkinsfile': SetiMeta(_jenkins, _red),
-  '.babelrc': SetiMeta(_babel, _yellow),
-  '.babelrc.js': SetiMeta(_babel, _yellow),
-  '.babelrc.cjs': SetiMeta(_babel, _yellow),
-  'babel.config.js': SetiMeta(_babel, _yellow),
-  'babel.config.json': SetiMeta(_babel, _yellow),
-  'babel.config.cjs': SetiMeta(_babel, _yellow),
-  'build': SetiMeta(_bazel, _green),
-  'build.bazel': SetiMeta(_bazel, _green),
-  'workspace': SetiMeta(_bazel, _green),
-  'workspace.bazel': SetiMeta(_bazel, _green),
-  '.bazelrc': SetiMeta(_bazel, _grey),
-  'bower.json': SetiMeta(_bower, _orange),
-  '.bowerrc': SetiMeta(_bower, _orange),
-  'dockerfile': SetiMeta(_docker, _blue),
-  '.dockerignore': SetiMeta(_docker, _grey),
-  'docker-healthcheck': SetiMeta(_docker, _green),
-  'docker-compose.yml': SetiMeta(_docker, _pink),
-  'docker-compose.yaml': SetiMeta(_docker, _pink),
-  'docker-compose.override.yml': SetiMeta(_docker, _pink),
-  'docker-compose.override.yaml': SetiMeta(_docker, _pink),
-  '.codeclimate.yml': SetiMeta(_codeClimate, _green),
-  '.eslintrc': SetiMeta(_eslint, _purple),
-  '.eslintrc.js': SetiMeta(_eslint, _purple),
-  '.eslintrc.cjs': SetiMeta(_eslint, _purple),
-  '.eslintrc.yaml': SetiMeta(_eslint, _purple),
-  '.eslintrc.yml': SetiMeta(_eslint, _purple),
-  '.eslintrc.json': SetiMeta(_eslint, _purple),
-  '.eslintignore': SetiMeta(_eslint, _grey),
-  '.firebaserc': SetiMeta(_firebase, _orange),
-  'firebase.json': SetiMeta(_firebase, _orange),
-  'geckodriver': SetiMeta(_firefox, _orange),
-  '.gitlab-ci.yml': SetiMeta(_gitlab, _orange),
-  'gruntfile.js': SetiMeta(_grunt, _orange),
-  'gruntfile.babel.js': SetiMeta(_grunt, _orange),
-  'gruntfile.coffee': SetiMeta(_grunt, _orange),
-  'gulpfile': SetiMeta(_gulp, _red),
-  'gulpfile.js': SetiMeta(_gulp, _red),
-  'ionic.config.json': SetiMeta(_ionic, _blue),
-  'ionic.project': SetiMeta(_ionic, _blue),
-  '.jshintrc': SetiMeta(_javascript, _blue),
-  '.jscsrc': SetiMeta(_javascript, _blue),
-  'platformio.ini': SetiMeta(_platformio, _orange),
-  'rollup.config.js': SetiMeta(_rollup, _red),
-  'sass-lint.yml': SetiMeta(_sass, _pink),
-  '.stylelintrc': SetiMeta(_stylelint, _white),
-  '.stylelintrc.json': SetiMeta(_stylelint, _white),
-  '.stylelintrc.yaml': SetiMeta(_stylelint, _white),
-  '.stylelintrc.yml': SetiMeta(_stylelint, _white),
-  '.stylelintrc.js': SetiMeta(_stylelint, _white),
-  '.stylelintignore': SetiMeta(_stylelint, _grey),
-  'stylelint.config.js': SetiMeta(_stylelint, _white),
-  'stylelint.config.cjs': SetiMeta(_stylelint, _white),
-  'yarn.clean': SetiMeta(_yarn, _blue),
-  'yarn.lock': SetiMeta(_yarn, _blue),
-  'webpack.config.js': SetiMeta(_webpack, _blue),
-  'webpack.config.cjs': SetiMeta(_webpack, _blue),
-  'webpack.config.build.js': SetiMeta(_webpack, _blue),
-  'webpack.config.build.cjs': SetiMeta(_webpack, _blue),
-  'webpack.common.js': SetiMeta(_webpack, _blue),
-  'webpack.common.cjs': SetiMeta(_webpack, _blue),
-  'webpack.dev.js': SetiMeta(_webpack, _blue),
-  'webpack.dev.cjs': SetiMeta(_webpack, _blue),
-  'webpack.prod.js': SetiMeta(_webpack, _blue),
-  'webpack.prod.cjs': SetiMeta(_webpack, _blue),
-  '.direnv': SetiMeta(_config, _greyLight),
-  '.env': SetiMeta(_config, _greyLight),
-  '.static': SetiMeta(_config, _greyLight),
-  '.editorconfig': SetiMeta(_config, _greyLight),
-  '.slugignore': SetiMeta(_config, _greyLight),
-  '.tmp': SetiMeta(_clock, _greyLight),
-  '.htaccess': SetiMeta(_config, _greyLight),
-  '.key': SetiMeta(_lock, _green),
-  '.cert': SetiMeta(_lock, _green),
-  '.cer': SetiMeta(_lock, _green),
-  '.crt': SetiMeta(_lock, _green),
-  '.pem': SetiMeta(_lock, _green),
-  'license': SetiMeta(_license, _yellow),
-  'licence': SetiMeta(_license, _yellow),
-  'license.txt': SetiMeta(_license, _yellow),
-  'licence.txt': SetiMeta(_license, _yellow),
-  'license.md': SetiMeta(_license, _yellow),
-  'licence.md': SetiMeta(_license, _yellow),
-  'copying': SetiMeta(_license, _yellow),
-  'copying.txt': SetiMeta(_license, _yellow),
-  'copying.md': SetiMeta(_license, _yellow),
-  'compiling': SetiMeta(_license, _orange),
-  'compiling.txt': SetiMeta(_license, _orange),
-  'compiling.md': SetiMeta(_license, _orange),
-  'contributing': SetiMeta(_license, _red),
-  'contributing.txt': SetiMeta(_license, _red),
-  'contributing.md': SetiMeta(_license, _red),
-  'makefile': SetiMeta(_makefile, _orange),
-  'qmakefile': SetiMeta(_makefile, _purple),
-  'omakefile': SetiMeta(_makefile, _greyLight),
-  'cmakelists.txt': SetiMeta(_makefile, _blue),
-  'procfile': SetiMeta(_heroku, _purple),
-  'todo': SetiMeta(_todo, _setiPrimary),
-  'todo.txt': SetiMeta(_todo, _setiPrimary),
-  'todo.md': SetiMeta(_todo, _setiPrimary),
-  'npm-debug.log': SetiMeta(_npmIgnored, _ignore),
-  '.ds_store': SetiMeta(_ignored, _ignore),
+  '.bsl': SetiMeta(
+    IconData(
+      _bsl,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _red,
+  ),
+  '.mdo': SetiMeta(
+    IconData(
+      _mdo,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _red,
+  ),
+  '.cls': SetiMeta(
+    IconData(
+      _salesforce,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _blue,
+  ),
+  '.apex': SetiMeta(
+    IconData(
+      _salesforce,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _blue,
+  ),
+  '.asm': SetiMeta(
+    IconData(
+      _asm,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _red,
+  ),
+  '.s': SetiMeta(
+    IconData(
+      _asm,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _red,
+  ),
+  '.bicep': SetiMeta(
+    IconData(
+      _bicep,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _blue,
+  ),
+  '.bzl': SetiMeta(
+    IconData(
+      _bazel,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _green,
+  ),
+  '.bazel': SetiMeta(
+    IconData(
+      _bazel,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _green,
+  ),
+  '.build': SetiMeta(
+    IconData(
+      _bazel,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _green,
+  ),
+  '.workspace': SetiMeta(
+    IconData(
+      _bazel,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _green,
+  ),
+  '.bazelignore': SetiMeta(
+    IconData(
+      _bazel,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _green,
+  ),
+  '.bazelversion': SetiMeta(
+    IconData(
+      _bazel,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _green,
+  ),
+  '.c': SetiMeta(
+    IconData(
+      _c,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _blue,
+  ),
+  '.h': SetiMeta(
+    IconData(
+      _c,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _purple,
+  ),
+  '.m': SetiMeta(
+    IconData(
+      _c,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _yellow,
+  ),
+  '.cs': SetiMeta(
+    IconData(
+      _cSharp,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _blue,
+  ),
+  '.cshtml': SetiMeta(
+    IconData(
+      _html,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _blue,
+  ),
+  '.aspx': SetiMeta(
+    IconData(
+      _html,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _blue,
+  ),
+  '.ascx': SetiMeta(
+    IconData(
+      _html,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _green,
+  ),
+  '.asax': SetiMeta(
+    IconData(
+      _html,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _yellow,
+  ),
+  '.master': SetiMeta(
+    IconData(
+      _html,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _yellow,
+  ),
+  '.cc': SetiMeta(
+    IconData(
+      _cpp,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _blue,
+  ),
+  '.cpp': SetiMeta(
+    IconData(
+      _cpp,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _blue,
+  ),
+  '.cxx': SetiMeta(
+    IconData(
+      _cpp,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _blue,
+  ),
+  '.c++': SetiMeta(
+    IconData(
+      _cpp,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _blue,
+  ),
+  '.hh': SetiMeta(
+    IconData(
+      _cpp,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _purple,
+  ),
+  '.hpp': SetiMeta(
+    IconData(
+      _cpp,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _purple,
+  ),
+  '.hxx': SetiMeta(
+    IconData(
+      _cpp,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _purple,
+  ),
+  '.h++': SetiMeta(
+    IconData(
+      _cpp,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _purple,
+  ),
+  '.mm': SetiMeta(
+    IconData(
+      _cpp,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _yellow,
+  ),
+  '.clj': SetiMeta(
+    IconData(
+      _clojure,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _green,
+  ),
+  '.cljs': SetiMeta(
+    IconData(
+      _clojure,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _green,
+  ),
+  '.cljc': SetiMeta(
+    IconData(
+      _clojure,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _green,
+  ),
+  '.edn': SetiMeta(
+    IconData(
+      _clojure,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _blue,
+  ),
+  '.cfc': SetiMeta(
+    IconData(
+      _coldfusion,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _blue,
+  ),
+  '.cfm': SetiMeta(
+    IconData(
+      _coldfusion,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _blue,
+  ),
+  '.coffee': SetiMeta(
+    IconData(
+      _coffee,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _yellow,
+  ),
+  '.litcoffee': SetiMeta(
+    IconData(
+      _coffee,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _yellow,
+  ),
+  '.config': SetiMeta(
+    IconData(
+      _config,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _greyLight,
+  ),
+  '.cfg': SetiMeta(
+    IconData(
+      _config,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _greyLight,
+  ),
+  '.conf': SetiMeta(
+    IconData(
+      _config,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _greyLight,
+  ),
+  '.cr': SetiMeta(
+    IconData(
+      _crystal,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _white,
+  ),
+  '.ecr': SetiMeta(
+    IconData(
+      _crystalEmbedded,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _white,
+  ),
+  '.slang': SetiMeta(
+    IconData(
+      _crystalEmbedded,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _white,
+  ),
+  '.cson': SetiMeta(
+    IconData(
+      _json,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _yellow,
+  ),
+  '.css': SetiMeta(
+    IconData(
+      _css,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _blue,
+  ),
+  '.css.map': SetiMeta(
+    IconData(
+      _css,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _blue,
+  ),
+  '.sss': SetiMeta(
+    IconData(
+      _css,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _blue,
+  ),
+  '.csv': SetiMeta(
+    IconData(
+      _csv,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _green,
+  ),
+  '.xls': SetiMeta(
+    IconData(
+      _xls,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _green,
+  ),
+  '.xlsx': SetiMeta(
+    IconData(
+      _xls,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _green,
+  ),
+  '.cu': SetiMeta(
+    IconData(
+      _cu,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _green,
+  ),
+  '.cuh': SetiMeta(
+    IconData(
+      _cu,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _purple,
+  ),
+  '.hu': SetiMeta(
+    IconData(
+      _cu,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _purple,
+  ),
+  '.cake': SetiMeta(
+    IconData(
+      _cake,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _red,
+  ),
+  '.ctp': SetiMeta(
+    IconData(
+      _cakePhp,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _red,
+  ),
+  '.d': SetiMeta(
+    IconData(
+      _d,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _red,
+  ),
+  '.doc': SetiMeta(
+    IconData(
+      _word,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _blue,
+  ),
+  '.docx': SetiMeta(
+    IconData(
+      _word,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _blue,
+  ),
+  '.ejs': SetiMeta(
+    IconData(
+      _ejs,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _yellow,
+  ),
+  '.ex': SetiMeta(
+    IconData(
+      _elixir,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _purple,
+  ),
+  '.exs': SetiMeta(
+    IconData(
+      _elixirScript,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _purple,
+  ),
+  'mix': SetiMeta(
+    IconData(
+      _hex,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _red,
+  ),
+  '.elm': SetiMeta(
+    IconData(
+      _elm,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _blue,
+  ),
+  '.ico': SetiMeta(
+    IconData(
+      _favicon,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _yellow,
+  ),
+  '.fs': SetiMeta(
+    IconData(
+      _fSharp,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _blue,
+  ),
+  '.fsx': SetiMeta(
+    IconData(
+      _fSharp,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _blue,
+  ),
+  '.gitignore': SetiMeta(
+    IconData(
+      _git,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _ignore,
+  ),
+  '.gitconfig': SetiMeta(
+    IconData(
+      _git,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _ignore,
+  ),
+  '.gitkeep': SetiMeta(
+    IconData(
+      _git,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _ignore,
+  ),
+  '.gitattributes': SetiMeta(
+    IconData(
+      _git,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _ignore,
+  ),
+  '.gitmodules': SetiMeta(
+    IconData(
+      _git,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _ignore,
+  ),
+  'commit_editmsg': SetiMeta(
+    IconData(
+      _git,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _ignore,
+  ),
+  'merge_msg': SetiMeta(
+    IconData(
+      _git,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _ignore,
+  ),
+  '.go': SetiMeta(
+    IconData(
+      _go2,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _blue,
+  ),
+  '.slide': SetiMeta(
+    IconData(
+      _go,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _blue,
+  ),
+  '.article': SetiMeta(
+    IconData(
+      _go,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _blue,
+  ),
+  '.gd': SetiMeta(
+    IconData(
+      _godot,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _blue,
+  ),
+  '.godot': SetiMeta(
+    IconData(
+      _godot,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _red,
+  ),
+  '.tres': SetiMeta(
+    IconData(
+      _godot,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _yellow,
+  ),
+  '.tscn': SetiMeta(
+    IconData(
+      _godot,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _purple,
+  ),
+  '.gradle': SetiMeta(
+    IconData(
+      _gradle,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _blue,
+  ),
+  '.groovy': SetiMeta(
+    IconData(
+      _grails,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _green,
+  ),
+  '.gsp': SetiMeta(
+    IconData(
+      _grails,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _green,
+  ),
+  '.gql': SetiMeta(
+    IconData(
+      _graphql,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _pink,
+  ),
+  '.graphql': SetiMeta(
+    IconData(
+      _graphql,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _pink,
+  ),
+  '.graphqls': SetiMeta(
+    IconData(
+      _graphql,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _pink,
+  ),
+  '.hack': SetiMeta(
+    IconData(
+      _hacklang,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _orange,
+  ),
+  '.haml': SetiMeta(
+    IconData(
+      _haml,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _red,
+  ),
+  '.handlebars': SetiMeta(
+    IconData(
+      _mustache,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _orange,
+  ),
+  '.hbs': SetiMeta(
+    IconData(
+      _mustache,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _orange,
+  ),
+  '.hjs': SetiMeta(
+    IconData(
+      _mustache,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _orange,
+  ),
+  '.hs': SetiMeta(
+    IconData(
+      _haskell,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _purple,
+  ),
+  '.lhs': SetiMeta(
+    IconData(
+      _haskell,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _purple,
+  ),
+  '.hx': SetiMeta(
+    IconData(
+      _haxe,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _orange,
+  ),
+  '.hxs': SetiMeta(
+    IconData(
+      _haxe,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _yellow,
+  ),
+  '.hxp': SetiMeta(
+    IconData(
+      _haxe,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _blue,
+  ),
+  '.hxml': SetiMeta(
+    IconData(
+      _haxe,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _purple,
+  ),
+  '.html': SetiMeta(
+    IconData(
+      _html,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _orange,
+  ),
+  '.jade': SetiMeta(
+    IconData(
+      _jade,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _red,
+  ),
+  '.java': SetiMeta(
+    IconData(
+      _java,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _red,
+  ),
+  '.class': SetiMeta(
+    IconData(
+      _java,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _blue,
+  ),
+  '.classpath': SetiMeta(
+    IconData(
+      _java,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _red,
+  ),
+  '.properties': SetiMeta(
+    IconData(
+      _java,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _red,
+  ),
+  '.js': SetiMeta(
+    IconData(
+      _javascript,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _yellow,
+  ),
+  '.js.map': SetiMeta(
+    IconData(
+      _javascript,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _yellow,
+  ),
+  '.spec.js': SetiMeta(
+    IconData(
+      _javascript,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _orange,
+  ),
+  '.test.js': SetiMeta(
+    IconData(
+      _javascript,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _orange,
+  ),
+  '.es': SetiMeta(
+    IconData(
+      _javascript,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _yellow,
+  ),
+  '.es5': SetiMeta(
+    IconData(
+      _javascript,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _yellow,
+  ),
+  '.es6': SetiMeta(
+    IconData(
+      _javascript,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _yellow,
+  ),
+  '.es7': SetiMeta(
+    IconData(
+      _javascript,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _yellow,
+  ),
+  '.jinja': SetiMeta(
+    IconData(
+      _jinja,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _red,
+  ),
+  '.jinja2': SetiMeta(
+    IconData(
+      _jinja,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _red,
+  ),
+  '.json': SetiMeta(
+    IconData(
+      _json,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _yellow,
+  ),
+  '.jl': SetiMeta(
+    IconData(
+      _julia,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _purple,
+  ),
+  'karma.conf.js': SetiMeta(
+    IconData(
+      _karma,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _green,
+  ),
+  'karma.conf.coffee': SetiMeta(
+    IconData(
+      _karma,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _green,
+  ),
+  '.kt': SetiMeta(
+    IconData(
+      _kotlin,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _orange,
+  ),
+  '.kts': SetiMeta(
+    IconData(
+      _kotlin,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _orange,
+  ),
+  '.dart': SetiMeta(
+    IconData(
+      _dart,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _blue,
+  ),
+  '.less': SetiMeta(
+    IconData(
+      _less,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _blue,
+  ),
+  '.liquid': SetiMeta(
+    IconData(
+      _liquid,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _green,
+  ),
+  '.ls': SetiMeta(
+    IconData(
+      _livescript,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _blue,
+  ),
+  '.lua': SetiMeta(
+    IconData(
+      _lua,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _blue,
+  ),
+  '.markdown': SetiMeta(
+    IconData(
+      _markdown,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _blue,
+  ),
+  '.md': SetiMeta(
+    IconData(
+      _markdown,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _blue,
+  ),
+  '.argdown': SetiMeta(
+    IconData(
+      _argdown,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _blue,
+  ),
+  '.ad': SetiMeta(
+    IconData(
+      _argdown,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _blue,
+  ),
+  'readme.md': SetiMeta(
+    IconData(
+      _info,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _blue,
+  ),
+  'readme.txt': SetiMeta(
+    IconData(
+      _info,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _blue,
+  ),
+  'readme': SetiMeta(
+    IconData(
+      _info,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _blue,
+  ),
+  'changelog.md': SetiMeta(
+    IconData(
+      _clock,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _blue,
+  ),
+  'changelog.txt': SetiMeta(
+    IconData(
+      _clock,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _blue,
+  ),
+  'changelog': SetiMeta(
+    IconData(
+      _clock,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _blue,
+  ),
+  'changes.md': SetiMeta(
+    IconData(
+      _clock,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _blue,
+  ),
+  'changes.txt': SetiMeta(
+    IconData(
+      _clock,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _blue,
+  ),
+  'changes': SetiMeta(
+    IconData(
+      _clock,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _blue,
+  ),
+  'version.md': SetiMeta(
+    IconData(
+      _clock,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _blue,
+  ),
+  'version.txt': SetiMeta(
+    IconData(
+      _clock,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _blue,
+  ),
+  'version': SetiMeta(
+    IconData(
+      _clock,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _blue,
+  ),
+  'mvnw': SetiMeta(
+    IconData(
+      _maven,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _red,
+  ),
+  '.mustache': SetiMeta(
+    IconData(
+      _mustache,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _orange,
+  ),
+  '.stache': SetiMeta(
+    IconData(
+      _mustache,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _orange,
+  ),
+  '.nim': SetiMeta(
+    IconData(
+      _nim,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _yellow,
+  ),
+  '.nims': SetiMeta(
+    IconData(
+      _nim,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _yellow,
+  ),
+  '.github-issues': SetiMeta(
+    IconData(
+      _github,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _white,
+  ),
+  '.ipynb': SetiMeta(
+    IconData(
+      _notebook,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _blue,
+  ),
+  '.njk': SetiMeta(
+    IconData(
+      _nunjucks,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _green,
+  ),
+  '.nunjucks': SetiMeta(
+    IconData(
+      _nunjucks,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _green,
+  ),
+  '.nunjs': SetiMeta(
+    IconData(
+      _nunjucks,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _green,
+  ),
+  '.nunj': SetiMeta(
+    IconData(
+      _nunjucks,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _green,
+  ),
+  '.njs': SetiMeta(
+    IconData(
+      _nunjucks,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _green,
+  ),
+  '.nj': SetiMeta(
+    IconData(
+      _nunjucks,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _green,
+  ),
+  '.npm-debug.log': SetiMeta(
+    IconData(
+      _npm,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _ignore,
+  ),
+  '.npmignore': SetiMeta(
+    IconData(
+      _npm,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _red,
+  ),
+  '.npmrc': SetiMeta(
+    IconData(
+      _npm,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _red,
+  ),
+  '.ml': SetiMeta(
+    IconData(
+      _ocaml,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _orange,
+  ),
+  '.mli': SetiMeta(
+    IconData(
+      _ocaml,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _orange,
+  ),
+  '.cmx': SetiMeta(
+    IconData(
+      _ocaml,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _orange,
+  ),
+  '.cmxa': SetiMeta(
+    IconData(
+      _ocaml,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _orange,
+  ),
+  '.odata': SetiMeta(
+    IconData(
+      _odata,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _orange,
+  ),
+  '.pl': SetiMeta(
+    IconData(
+      _perl,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _blue,
+  ),
+  '.php': SetiMeta(
+    IconData(
+      _php,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _purple,
+  ),
+  '.php.inc': SetiMeta(
+    IconData(
+      _php,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _purple,
+  ),
+  '.pipeline': SetiMeta(
+    IconData(
+      _pipeline,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _orange,
+  ),
+  '.pddl': SetiMeta(
+    IconData(
+      _pddl,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _purple,
+  ),
+  '.plan': SetiMeta(
+    IconData(
+      _plan,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _green,
+  ),
+  '.happenings': SetiMeta(
+    IconData(
+      _happenings,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _blue,
+  ),
+  '.ps1': SetiMeta(
+    IconData(
+      _powershell,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _blue,
+  ),
+  '.psd1': SetiMeta(
+    IconData(
+      _powershell,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _blue,
+  ),
+  '.psm1': SetiMeta(
+    IconData(
+      _powershell,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _blue,
+  ),
+  '.prisma': SetiMeta(
+    IconData(
+      _prisma,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _blue,
+  ),
+  '.pug': SetiMeta(
+    IconData(
+      _pug,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _red,
+  ),
+  '.pp': SetiMeta(
+    IconData(
+      _puppet,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _yellow,
+  ),
+  '.epp': SetiMeta(
+    IconData(
+      _puppet,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _yellow,
+  ),
+  '.purs': SetiMeta(
+    IconData(
+      _purescript,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _white,
+  ),
+  '.py': SetiMeta(
+    IconData(
+      _python,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _blue,
+  ),
+  '.jsx': SetiMeta(
+    IconData(
+      _react,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _blue,
+  ),
+  '.spec.jsx': SetiMeta(
+    IconData(
+      _react,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _orange,
+  ),
+  '.test.jsx': SetiMeta(
+    IconData(
+      _react,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _orange,
+  ),
+  '.cjsx': SetiMeta(
+    IconData(
+      _react,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _blue,
+  ),
+  '.spec.tsx': SetiMeta(
+    IconData(
+      _react,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _orange,
+  ),
+  '.test.tsx': SetiMeta(
+    IconData(
+      _react,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _orange,
+  ),
+  '.re': SetiMeta(
+    IconData(
+      _reasonml,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _red,
+  ),
+  '.res': SetiMeta(
+    IconData(
+      _rescript,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _red,
+  ),
+  '.resi': SetiMeta(
+    IconData(
+      _rescript,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _pink,
+  ),
+  '.r': SetiMeta(
+    IconData(
+      _r,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _blue,
+  ),
+  '.rmd': SetiMeta(
+    IconData(
+      _r,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _blue,
+  ),
+  '.rb': SetiMeta(
+    IconData(
+      _ruby,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _red,
+  ),
+  'gemfile': SetiMeta(
+    IconData(
+      _ruby,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _red,
+  ),
+  '.erb': SetiMeta(
+    IconData(
+      _htmlErb,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _red,
+  ),
+  '.erb.html': SetiMeta(
+    IconData(
+      _htmlErb,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _red,
+  ),
+  '.html.erb': SetiMeta(
+    IconData(
+      _htmlErb,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _red,
+  ),
+  '.rs': SetiMeta(
+    IconData(
+      _rust,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _greyLight,
+  ),
+  '.sass': SetiMeta(
+    IconData(
+      _sass,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _pink,
+  ),
+  '.scss': SetiMeta(
+    IconData(
+      _sass,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _pink,
+  ),
+  '.springbeans': SetiMeta(
+    IconData(
+      _spring,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _green,
+  ),
+  '.slim': SetiMeta(
+    IconData(
+      _slim,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _orange,
+  ),
+  '.smarty.tpl': SetiMeta(
+    IconData(
+      _smarty,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _yellow,
+  ),
+  '.tpl': SetiMeta(
+    IconData(
+      _smarty,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _yellow,
+  ),
+  '.sbt': SetiMeta(
+    IconData(
+      _sbt,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _blue,
+  ),
+  '.scala': SetiMeta(
+    IconData(
+      _scala,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _red,
+  ),
+  '.sol': SetiMeta(
+    IconData(
+      _ethereum,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _blue,
+  ),
+  '.styl': SetiMeta(
+    IconData(
+      _stylus,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _green,
+  ),
+  '.svelte': SetiMeta(
+    IconData(
+      _svelte,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _red,
+  ),
+  '.swift': SetiMeta(
+    IconData(
+      _swift,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _orange,
+  ),
+  '.sql': SetiMeta(
+    IconData(
+      _db,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _pink,
+  ),
+  '.soql': SetiMeta(
+    IconData(
+      _db,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _blue,
+  ),
+  '.tf': SetiMeta(
+    IconData(
+      _terraform,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _purple,
+  ),
+  '.tf.json': SetiMeta(
+    IconData(
+      _terraform,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _purple,
+  ),
+  '.tfvars': SetiMeta(
+    IconData(
+      _terraform,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _purple,
+  ),
+  '.tfvars.json': SetiMeta(
+    IconData(
+      _terraform,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _purple,
+  ),
+  '.tex': SetiMeta(
+    IconData(
+      _tex,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _blue,
+  ),
+  '.sty': SetiMeta(
+    IconData(
+      _tex,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _yellow,
+  ),
+  '.dtx': SetiMeta(
+    IconData(
+      _tex,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _orange,
+  ),
+  '.ins': SetiMeta(
+    IconData(
+      _tex,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _white,
+  ),
+  '.txt': SetiMeta(
+    IconData(
+      _default,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _white,
+  ),
+  '.toml': SetiMeta(
+    IconData(
+      _config,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _greyLight,
+  ),
+  '.twig': SetiMeta(
+    IconData(
+      _twig,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _green,
+  ),
+  '.ts': SetiMeta(
+    IconData(
+      _typescript,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _blue,
+  ),
+  '.tsx': SetiMeta(
+    IconData(
+      _typescript,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _blue,
+  ),
+  '.spec.ts': SetiMeta(
+    IconData(
+      _typescript,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _orange,
+  ),
+  '.test.ts': SetiMeta(
+    IconData(
+      _typescript,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _orange,
+  ),
+  'tsconfig.json': SetiMeta(
+    IconData(
+      _tsconfig,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _blue,
+  ),
+  '.vala': SetiMeta(
+    IconData(
+      _vala,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _greyLight,
+  ),
+  '.vapi': SetiMeta(
+    IconData(
+      _vala,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _greyLight,
+  ),
+  '.component': SetiMeta(
+    IconData(
+      _html,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _orange,
+  ),
+  '.vue': SetiMeta(
+    IconData(
+      _vue,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _green,
+  ),
+  '.wasm': SetiMeta(
+    IconData(
+      _wasm,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _purple,
+  ),
+  '.wat': SetiMeta(
+    IconData(
+      _wat,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _purple,
+  ),
+  '.xml': SetiMeta(
+    IconData(
+      _xml,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _orange,
+  ),
+  '.yml': SetiMeta(
+    IconData(
+      _yml,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _purple,
+  ),
+  '.yaml': SetiMeta(
+    IconData(
+      _yml,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _purple,
+  ),
+  'swagger.json': SetiMeta(
+    IconData(
+      _json,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _green,
+  ),
+  'swagger.yml': SetiMeta(
+    IconData(
+      _json,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _green,
+  ),
+  'swagger.yaml': SetiMeta(
+    IconData(
+      _json,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _green,
+  ),
+  '.pro': SetiMeta(
+    IconData(
+      _prolog,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _orange,
+  ),
+  '.zig': SetiMeta(
+    IconData(
+      _zig,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _orange,
+  ),
+  '.jar': SetiMeta(
+    IconData(
+      _zip,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _red,
+  ),
+  '.zip': SetiMeta(
+    IconData(
+      _zip,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _greyLight,
+  ),
+  '.wgt': SetiMeta(
+    IconData(
+      _wgt,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _blue,
+  ),
+  '.ai': SetiMeta(
+    IconData(
+      _illustrator,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _yellow,
+  ),
+  '.psd': SetiMeta(
+    IconData(
+      _photoshop,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _blue,
+  ),
+  '.pdf': SetiMeta(
+    IconData(
+      _pdf,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _red,
+  ),
+  '.eot': SetiMeta(
+    IconData(
+      _font,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _red,
+  ),
+  '.ttf': SetiMeta(
+    IconData(
+      _font,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _red,
+  ),
+  '.woff': SetiMeta(
+    IconData(
+      _font,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _red,
+  ),
+  '.woff2': SetiMeta(
+    IconData(
+      _font,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _red,
+  ),
+  '.avif': SetiMeta(
+    IconData(
+      _image,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _purple,
+  ),
+  '.gif': SetiMeta(
+    IconData(
+      _image,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _purple,
+  ),
+  '.jpg': SetiMeta(
+    IconData(
+      _image,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _purple,
+  ),
+  '.jpeg': SetiMeta(
+    IconData(
+      _image,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _purple,
+  ),
+  '.png': SetiMeta(
+    IconData(
+      _image,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _purple,
+  ),
+  '.pxm': SetiMeta(
+    IconData(
+      _image,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _purple,
+  ),
+  '.svg': SetiMeta(
+    IconData(
+      _svg,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _purple,
+  ),
+  '.svgx': SetiMeta(
+    IconData(
+      _image,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _purple,
+  ),
+  '.tiff': SetiMeta(
+    IconData(
+      _image,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _purple,
+  ),
+  '.webp': SetiMeta(
+    IconData(
+      _image,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _purple,
+  ),
+  '.sublime-project': SetiMeta(
+    IconData(
+      _sublime,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _orange,
+  ),
+  '.sublime-workspace': SetiMeta(
+    IconData(
+      _sublime,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _orange,
+  ),
+  '.code-search': SetiMeta(
+    IconData(
+      _codeSearch,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _purple,
+  ),
+  '.sh': SetiMeta(
+    IconData(
+      _shell,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _green,
+  ),
+  '.zsh': SetiMeta(
+    IconData(
+      _shell,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _green,
+  ),
+  '.fish': SetiMeta(
+    IconData(
+      _shell,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _green,
+  ),
+  '.zshrc': SetiMeta(
+    IconData(
+      _shell,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _green,
+  ),
+  '.bashrc': SetiMeta(
+    IconData(
+      _shell,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _green,
+  ),
+  '.mov': SetiMeta(
+    IconData(
+      _video,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _pink,
+  ),
+  '.ogv': SetiMeta(
+    IconData(
+      _video,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _pink,
+  ),
+  '.webm': SetiMeta(
+    IconData(
+      _video,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _pink,
+  ),
+  '.avi': SetiMeta(
+    IconData(
+      _video,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _pink,
+  ),
+  '.mpg': SetiMeta(
+    IconData(
+      _video,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _pink,
+  ),
+  '.mp4': SetiMeta(
+    IconData(
+      _video,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _pink,
+  ),
+  '.mp3': SetiMeta(
+    IconData(
+      _audio,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _purple,
+  ),
+  '.ogg': SetiMeta(
+    IconData(
+      _audio,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _purple,
+  ),
+  '.wav': SetiMeta(
+    IconData(
+      _audio,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _purple,
+  ),
+  '.flac': SetiMeta(
+    IconData(
+      _audio,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _purple,
+  ),
+  '.3ds': SetiMeta(
+    IconData(
+      _svg,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _blue,
+  ),
+  '.3dm': SetiMeta(
+    IconData(
+      _svg,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _blue,
+  ),
+  '.stl': SetiMeta(
+    IconData(
+      _svg,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _blue,
+  ),
+  '.obj': SetiMeta(
+    IconData(
+      _svg,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _blue,
+  ),
+  '.dae': SetiMeta(
+    IconData(
+      _svg,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _blue,
+  ),
+  '.bat': SetiMeta(
+    IconData(
+      _windows,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _blue,
+  ),
+  '.cmd': SetiMeta(
+    IconData(
+      _windows,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _blue,
+  ),
+  'mime.types': SetiMeta(
+    IconData(
+      _config,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _greyLight,
+  ),
+  'jenkinsfile': SetiMeta(
+    IconData(
+      _jenkins,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _red,
+  ),
+  '.babelrc': SetiMeta(
+    IconData(
+      _babel,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _yellow,
+  ),
+  '.babelrc.js': SetiMeta(
+    IconData(
+      _babel,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _yellow,
+  ),
+  '.babelrc.cjs': SetiMeta(
+    IconData(
+      _babel,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _yellow,
+  ),
+  'babel.config.js': SetiMeta(
+    IconData(
+      _babel,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _yellow,
+  ),
+  'babel.config.json': SetiMeta(
+    IconData(
+      _babel,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _yellow,
+  ),
+  'babel.config.cjs': SetiMeta(
+    IconData(
+      _babel,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _yellow,
+  ),
+  'build': SetiMeta(
+    IconData(
+      _bazel,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _green,
+  ),
+  'build.bazel': SetiMeta(
+    IconData(
+      _bazel,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _green,
+  ),
+  'workspace': SetiMeta(
+    IconData(
+      _bazel,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _green,
+  ),
+  'workspace.bazel': SetiMeta(
+    IconData(
+      _bazel,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _green,
+  ),
+  '.bazelrc': SetiMeta(
+    IconData(
+      _bazel,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _grey,
+  ),
+  'bower.json': SetiMeta(
+    IconData(
+      _bower,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _orange,
+  ),
+  '.bowerrc': SetiMeta(
+    IconData(
+      _bower,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _orange,
+  ),
+  'dockerfile': SetiMeta(
+    IconData(
+      _docker,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _blue,
+  ),
+  '.dockerignore': SetiMeta(
+    IconData(
+      _docker,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _grey,
+  ),
+  'docker-healthcheck': SetiMeta(
+    IconData(
+      _docker,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _green,
+  ),
+  'docker-compose.yml': SetiMeta(
+    IconData(
+      _docker,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _pink,
+  ),
+  'docker-compose.yaml': SetiMeta(
+    IconData(
+      _docker,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _pink,
+  ),
+  'docker-compose.override.yml': SetiMeta(
+    IconData(
+      _docker,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _pink,
+  ),
+  'docker-compose.override.yaml': SetiMeta(
+    IconData(
+      _docker,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _pink,
+  ),
+  '.codeclimate.yml': SetiMeta(
+    IconData(
+      _codeClimate,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _green,
+  ),
+  '.eslintrc': SetiMeta(
+    IconData(
+      _eslint,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _purple,
+  ),
+  '.eslintrc.js': SetiMeta(
+    IconData(
+      _eslint,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _purple,
+  ),
+  '.eslintrc.cjs': SetiMeta(
+    IconData(
+      _eslint,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _purple,
+  ),
+  '.eslintrc.yaml': SetiMeta(
+    IconData(
+      _eslint,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _purple,
+  ),
+  '.eslintrc.yml': SetiMeta(
+    IconData(
+      _eslint,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _purple,
+  ),
+  '.eslintrc.json': SetiMeta(
+    IconData(
+      _eslint,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _purple,
+  ),
+  '.eslintignore': SetiMeta(
+    IconData(
+      _eslint,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _grey,
+  ),
+  '.firebaserc': SetiMeta(
+    IconData(
+      _firebase,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _orange,
+  ),
+  'firebase.json': SetiMeta(
+    IconData(
+      _firebase,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _orange,
+  ),
+  'geckodriver': SetiMeta(
+    IconData(
+      _firefox,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _orange,
+  ),
+  '.gitlab-ci.yml': SetiMeta(
+    IconData(
+      _gitlab,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _orange,
+  ),
+  'gruntfile.js': SetiMeta(
+    IconData(
+      _grunt,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _orange,
+  ),
+  'gruntfile.babel.js': SetiMeta(
+    IconData(
+      _grunt,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _orange,
+  ),
+  'gruntfile.coffee': SetiMeta(
+    IconData(
+      _grunt,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _orange,
+  ),
+  'gulpfile': SetiMeta(
+    IconData(
+      _gulp,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _red,
+  ),
+  'gulpfile.js': SetiMeta(
+    IconData(
+      _gulp,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _red,
+  ),
+  'ionic.config.json': SetiMeta(
+    IconData(
+      _ionic,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _blue,
+  ),
+  'ionic.project': SetiMeta(
+    IconData(
+      _ionic,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _blue,
+  ),
+  '.jshintrc': SetiMeta(
+    IconData(
+      _javascript,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _blue,
+  ),
+  '.jscsrc': SetiMeta(
+    IconData(
+      _javascript,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _blue,
+  ),
+  'platformio.ini': SetiMeta(
+    IconData(
+      _platformio,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _orange,
+  ),
+  'rollup.config.js': SetiMeta(
+    IconData(
+      _rollup,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _red,
+  ),
+  'sass-lint.yml': SetiMeta(
+    IconData(
+      _sass,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _pink,
+  ),
+  '.stylelintrc': SetiMeta(
+    IconData(
+      _stylelint,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _white,
+  ),
+  '.stylelintrc.json': SetiMeta(
+    IconData(
+      _stylelint,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _white,
+  ),
+  '.stylelintrc.yaml': SetiMeta(
+    IconData(
+      _stylelint,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _white,
+  ),
+  '.stylelintrc.yml': SetiMeta(
+    IconData(
+      _stylelint,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _white,
+  ),
+  '.stylelintrc.js': SetiMeta(
+    IconData(
+      _stylelint,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _white,
+  ),
+  '.stylelintignore': SetiMeta(
+    IconData(
+      _stylelint,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _grey,
+  ),
+  'stylelint.config.js': SetiMeta(
+    IconData(
+      _stylelint,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _white,
+  ),
+  'stylelint.config.cjs': SetiMeta(
+    IconData(
+      _stylelint,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _white,
+  ),
+  'yarn.clean': SetiMeta(
+    IconData(
+      _yarn,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _blue,
+  ),
+  'yarn.lock': SetiMeta(
+    IconData(
+      _yarn,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _blue,
+  ),
+  'webpack.config.js': SetiMeta(
+    IconData(
+      _webpack,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _blue,
+  ),
+  'webpack.config.cjs': SetiMeta(
+    IconData(
+      _webpack,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _blue,
+  ),
+  'webpack.config.build.js': SetiMeta(
+    IconData(
+      _webpack,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _blue,
+  ),
+  'webpack.config.build.cjs': SetiMeta(
+    IconData(
+      _webpack,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _blue,
+  ),
+  'webpack.common.js': SetiMeta(
+    IconData(
+      _webpack,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _blue,
+  ),
+  'webpack.common.cjs': SetiMeta(
+    IconData(
+      _webpack,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _blue,
+  ),
+  'webpack.dev.js': SetiMeta(
+    IconData(
+      _webpack,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _blue,
+  ),
+  'webpack.dev.cjs': SetiMeta(
+    IconData(
+      _webpack,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _blue,
+  ),
+  'webpack.prod.js': SetiMeta(
+    IconData(
+      _webpack,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _blue,
+  ),
+  'webpack.prod.cjs': SetiMeta(
+    IconData(
+      _webpack,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _blue,
+  ),
+  '.direnv': SetiMeta(
+    IconData(
+      _config,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _greyLight,
+  ),
+  '.env': SetiMeta(
+    IconData(
+      _config,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _greyLight,
+  ),
+  '.static': SetiMeta(
+    IconData(
+      _config,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _greyLight,
+  ),
+  '.editorconfig': SetiMeta(
+    IconData(
+      _config,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _greyLight,
+  ),
+  '.slugignore': SetiMeta(
+    IconData(
+      _config,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _greyLight,
+  ),
+  '.tmp': SetiMeta(
+    IconData(
+      _clock,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _greyLight,
+  ),
+  '.htaccess': SetiMeta(
+    IconData(
+      _config,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _greyLight,
+  ),
+  '.key': SetiMeta(
+    IconData(
+      _lock,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _green,
+  ),
+  '.cert': SetiMeta(
+    IconData(
+      _lock,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _green,
+  ),
+  '.cer': SetiMeta(
+    IconData(
+      _lock,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _green,
+  ),
+  '.crt': SetiMeta(
+    IconData(
+      _lock,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _green,
+  ),
+  '.pem': SetiMeta(
+    IconData(
+      _lock,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _green,
+  ),
+  'license': SetiMeta(
+    IconData(
+      _license,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _yellow,
+  ),
+  'licence': SetiMeta(
+    IconData(
+      _license,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _yellow,
+  ),
+  'license.txt': SetiMeta(
+    IconData(
+      _license,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _yellow,
+  ),
+  'licence.txt': SetiMeta(
+    IconData(
+      _license,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _yellow,
+  ),
+  'license.md': SetiMeta(
+    IconData(
+      _license,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _yellow,
+  ),
+  'licence.md': SetiMeta(
+    IconData(
+      _license,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _yellow,
+  ),
+  'copying': SetiMeta(
+    IconData(
+      _license,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _yellow,
+  ),
+  'copying.txt': SetiMeta(
+    IconData(
+      _license,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _yellow,
+  ),
+  'copying.md': SetiMeta(
+    IconData(
+      _license,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _yellow,
+  ),
+  'compiling': SetiMeta(
+    IconData(
+      _license,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _orange,
+  ),
+  'compiling.txt': SetiMeta(
+    IconData(
+      _license,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _orange,
+  ),
+  'compiling.md': SetiMeta(
+    IconData(
+      _license,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _orange,
+  ),
+  'contributing': SetiMeta(
+    IconData(
+      _license,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _red,
+  ),
+  'contributing.txt': SetiMeta(
+    IconData(
+      _license,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _red,
+  ),
+  'contributing.md': SetiMeta(
+    IconData(
+      _license,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _red,
+  ),
+  'makefile': SetiMeta(
+    IconData(
+      _makefile,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _orange,
+  ),
+  'qmakefile': SetiMeta(
+    IconData(
+      _makefile,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _purple,
+  ),
+  'omakefile': SetiMeta(
+    IconData(
+      _makefile,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _greyLight,
+  ),
+  'cmakelists.txt': SetiMeta(
+    IconData(
+      _makefile,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _blue,
+  ),
+  'procfile': SetiMeta(
+    IconData(
+      _heroku,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _purple,
+  ),
+  'todo': SetiMeta(
+    IconData(
+      _todo,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _setiPrimary,
+  ),
+  'todo.txt': SetiMeta(
+    IconData(
+      _todo,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _setiPrimary,
+  ),
+  'todo.md': SetiMeta(
+    IconData(
+      _todo,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _setiPrimary,
+  ),
+  'npm-debug.log': SetiMeta(
+    IconData(
+      _npmIgnored,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _ignore,
+  ),
+  '.ds_store': SetiMeta(
+    IconData(
+      _ignored,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _ignore,
+  ),
 };

@@ -40,11 +40,7 @@ class FileIcon extends StatelessWidget {
 
     final meta = iconSetMap[key ?? '.txt']!;
     return Icon(
-      IconData(
-        meta.codePoint,
-        fontFamily: 'Seti',
-        fontPackage: 'file_icons',
-      ),
+      meta.iconData,
       color: color ?? Color(meta.color),
       size: size,
     );
