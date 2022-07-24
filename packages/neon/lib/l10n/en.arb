@@ -29,6 +29,14 @@
       }
     }
   },
+  "errorUnsupportedNextcloudVersion": "Sorry this Nextcloud instance version is not supported. You need at least version {version} of Nextcloud.",
+  "@errorUnsupportedNextcloudVersion" : {
+    "placeholders": {
+      "version": {
+        "type": "int"
+      }
+    }
+  },
   "validatorEmptyField": "This field can not be empty",
   "validatorInvalidURL": "Invalid URL provided",
   "delete": "Delete",

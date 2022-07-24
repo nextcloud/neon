@@ -50,7 +50,31 @@ class _HomePageState extends State<HomePage> with tray.TrayListener, WindowListe
     );
     _capabilitiesBloc.capabilities.listen((final result) {
       if (result.data != null) {
-        widget.onThemeChanged(result.data!.theming!);
+        widget.onThemeChanged(result.data!.capabilities!.theming!);
+
+        // ignore cached version and prevent duplicate dialogs
+        if (result is ResultSuccess) {
+          const requiredMajorVersion = 24;
+          if (result.data!.version!.major! < requiredMajorVersion) {
+            showDialog(
+              context: context,
+              builder: (final context) => AlertDialog(
+                title: Text(AppLocalizations.of(context).errorUnsupportedNextcloudVersion(requiredMajorVersion)),
+                actions: [
+                  ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      primary: Colors.red,
+                    ),
+                    onPressed: () {
+                      Navigator.of(context).pop();
+                    },
+                    child: Text(AppLocalizations.of(context).close),
+                  ),
+                ],
+              ),
+            );
+          }
+        }
       }
     });
     _appsBloc = AppsBloc(
@@ -410,15 +434,15 @@ class _HomePageState extends State<HomePage> with tray.TrayListener, WindowListe
                                         children: [
                                           if (capabilitiesData != null) ...[
                                             Text(
-                                              capabilitiesData.theming!.name!,
+                                              capabilitiesData.capabilities!.theming!.name!,
                                               style: DefaultTextStyle.of(context).style.copyWith(
                                                     color: Theme.of(context).colorScheme.onPrimary,
                                                   ),
                                             ),
-                                            if (capabilitiesData.theming!.logo != null) ...[
+                                            if (capabilitiesData.capabilities!.theming!.logo != null) ...[
                                               Flexible(
                                                 child: CachedURLImage(
-                                                  url: capabilitiesData.theming!.logo!,
+                                                  url: capabilitiesData.capabilities!.theming!.logo!,
                                                   requestManager: _requestManager,
                                                   client: widget.account.client,
                                                 ),
