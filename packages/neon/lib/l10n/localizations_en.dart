@@ -8,9 +8,6 @@ class AppLocalizationsEn extends AppLocalizations {
   String get appName => 'Nextcloud Neon';
 
   @override
-  String get loginAccountAlreadyExists => 'The account you are trying to add already exists';
-
-  @override
   String get loginAgain => 'Login again';
 
   @override
@@ -21,6 +18,9 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get loginWorksWith => 'works with';
+
+  @override
+  String get errorAccountAlreadyExists => 'The account you are trying to add already exists';
 
   @override
   String get errorCredentialsForAccountNoLongerMatch => 'The credentials for this account no longer match';
@@ -62,10 +62,10 @@ class AppLocalizationsEn extends AppLocalizations {
   }
 
   @override
-  String get validatorEmptyField => 'This field can not be empty';
+  String get errorEmptyField => 'This field can not be empty';
 
   @override
-  String get validatorInvalidURL => 'Invalid URL provided';
+  String get errorInvalidURL => 'Invalid URL provided';
 
   @override
   String get delete => 'Delete';

@@ -55,7 +55,7 @@ class _LoginPageState extends State<LoginPage> {
         } else {
           for (final a in accountsBloc.accounts.value) {
             if (a.id == account.id) {
-              ExceptionWidget.showSnackbar(context, AppLocalizations.of(context).loginAccountAlreadyExists);
+              ExceptionWidget.showSnackbar(context, AppLocalizations.of(context).errorAccountAlreadyExists);
               _loginBloc.setServerURL(result.server!);
               return;
             }

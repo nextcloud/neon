@@ -95,12 +95,6 @@ abstract class AppLocalizations {
   /// **'Nextcloud Neon'**
   String get appName;
 
-  /// No description provided for @loginAccountAlreadyExists.
-  ///
-  /// In en, this message translates to:
-  /// **'The account you are trying to add already exists'**
-  String get loginAccountAlreadyExists;
-
   /// No description provided for @loginAgain.
   ///
   /// In en, this message translates to:
@@ -124,6 +118,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'works with'**
   String get loginWorksWith;
+
+  /// No description provided for @errorAccountAlreadyExists.
+  ///
+  /// In en, this message translates to:
+  /// **'The account you are trying to add already exists'**
+  String get errorAccountAlreadyExists;
 
   /// No description provided for @errorCredentialsForAccountNoLongerMatch.
   ///
@@ -185,17 +185,17 @@ abstract class AppLocalizations {
   /// **'Sorry this Nextcloud instance version is not supported. You need at least version {version} of Nextcloud.'**
   String errorUnsupportedNextcloudVersion(int version);
 
-  /// No description provided for @validatorEmptyField.
+  /// No description provided for @errorEmptyField.
   ///
   /// In en, this message translates to:
   /// **'This field can not be empty'**
-  String get validatorEmptyField;
+  String get errorEmptyField;
 
-  /// No description provided for @validatorInvalidURL.
+  /// No description provided for @errorInvalidURL.
   ///
   /// In en, this message translates to:
   /// **'Invalid URL provided'**
-  String get validatorInvalidURL;
+  String get errorInvalidURL;
 
   /// No description provided for @delete.
   ///

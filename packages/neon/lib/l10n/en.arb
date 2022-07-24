@@ -1,11 +1,11 @@
 {
   "@@locale": "en",
   "appName": "Nextcloud Neon",
-  "loginAccountAlreadyExists": "The account you are trying to add already exists",
   "loginAgain": "Login again",
   "loginOpenAgain": "Open again",
   "loginSwitchToBrowserWindow": "Please switch to the browser window that just opened and proceed there",
   "loginWorksWith": "works with",
+  "errorAccountAlreadyExists": "The account you are trying to add already exists",
   "errorCredentialsForAccountNoLongerMatch": "The credentials for this account no longer match",
   "errorServerHadAProblemProcessingYourRequest": "The server had a problem while processing your request. You might want to try again",
   "errorSomethingWentWrongTryAgainLater": "Something went wrong. Please try again later",
@@ -37,8 +37,8 @@
       }
     }
   },
-  "validatorEmptyField": "This field can not be empty",
-  "validatorInvalidURL": "Invalid URL provided",
+  "errorEmptyField": "This field can not be empty",
+  "errorInvalidURL": "Invalid URL provided",
   "delete": "Delete",
   "remove": "Remove",
   "rename": "Rename",
