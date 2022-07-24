@@ -20,13 +20,12 @@ abstract class $CapabilitiesBloc extends RxBlocBase
   final _compositeSubscription = CompositeSubscription();
 
   /// The state of [capabilities] implemented in [_mapToCapabilitiesState]
-  late final BehaviorSubject<Result<CoreServerCapabilitiesOcsDataCapabilities>> _capabilitiesState =
-      _mapToCapabilitiesState();
+  late final BehaviorSubject<Result<CoreServerCapabilitiesOcsData>> _capabilitiesState = _mapToCapabilitiesState();
 
   @override
-  BehaviorSubject<Result<CoreServerCapabilitiesOcsDataCapabilities>> get capabilities => _capabilitiesState;
+  BehaviorSubject<Result<CoreServerCapabilitiesOcsData>> get capabilities => _capabilitiesState;
 
-  BehaviorSubject<Result<CoreServerCapabilitiesOcsDataCapabilities>> _mapToCapabilitiesState();
+  BehaviorSubject<Result<CoreServerCapabilitiesOcsData>> _mapToCapabilitiesState();
 
   @override
   CapabilitiesBlocEvents get events => this;

@@ -57,6 +57,11 @@ class AppLocalizationsEn extends AppLocalizations {
   }
 
   @override
+  String errorUnsupportedNextcloudVersion(int version) {
+    return 'Sorry this Nextcloud instance version is not supported. You need at least version $version of Nextcloud.';
+  }
+
+  @override
   String get validatorEmptyField => 'This field can not be empty';
 
   @override

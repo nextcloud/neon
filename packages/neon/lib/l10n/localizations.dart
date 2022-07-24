@@ -179,6 +179,12 @@ abstract class AppLocalizations {
   /// **'Permission for {name} is missing'**
   String errorMissingPermission(String name);
 
+  /// No description provided for @errorUnsupportedNextcloudVersion.
+  ///
+  /// In en, this message translates to:
+  /// **'Sorry this Nextcloud instance version is not supported. You need at least version {version} of Nextcloud.'**
+  String errorUnsupportedNextcloudVersion(int version);
+
   /// No description provided for @validatorEmptyField.
   ///
   /// In en, this message translates to:
