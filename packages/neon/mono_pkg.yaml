@@ -3,5 +3,5 @@ sdk:
 
 stages:
   - analyze:
-      - analyze
+      - analyze: --fatal-infos .
       - format: --output=none --set-exit-if-changed --line-length 120 .

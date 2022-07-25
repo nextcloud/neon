@@ -245,7 +245,7 @@ jobs:
     needs:
       - job_001
   job_009:
-    name: "analyze; PKG: packages/file_icons; `flutter analyze`"
+    name: "analyze; PKG: packages/file_icons; `flutter analyze --fatal-infos .`"
     runs-on: ubuntu-latest
     steps:
       - name: Cache Pub hosted dependencies
@@ -268,14 +268,14 @@ jobs:
         if: "always() && steps.checkout.conclusion == 'success'"
         working-directory: packages/file_icons
         run: flutter pub pub upgrade
-      - name: packages/file_icons; flutter analyze
+      - name: "packages/file_icons; flutter analyze --fatal-infos ."
         if: "always() && steps.packages_file_icons_pub_upgrade.conclusion == 'success'"
         working-directory: packages/file_icons
-        run: flutter analyze
+        run: flutter analyze --fatal-infos .
     needs:
       - job_001
   job_010:
-    name: "analyze; PKG: packages/neon; `flutter analyze`"
+    name: "analyze; PKG: packages/neon; `flutter analyze --fatal-infos .`"
     runs-on: ubuntu-latest
     steps:
       - name: Cache Pub hosted dependencies
@@ -298,14 +298,14 @@ jobs:
         if: "always() && steps.checkout.conclusion == 'success'"
         working-directory: packages/neon
         run: flutter pub pub upgrade
-      - name: packages/neon; flutter analyze
+      - name: "packages/neon; flutter analyze --fatal-infos ."
         if: "always() && steps.packages_neon_pub_upgrade.conclusion == 'success'"
         working-directory: packages/neon
-        run: flutter analyze
+        run: flutter analyze --fatal-infos .
     needs:
       - job_001
   job_011:
-    name: "analyze; PKG: packages/settings; `flutter analyze`"
+    name: "analyze; PKG: packages/settings; `flutter analyze --fatal-infos .`"
     runs-on: ubuntu-latest
     steps:
       - name: Cache Pub hosted dependencies
@@ -328,14 +328,14 @@ jobs:
         if: "always() && steps.checkout.conclusion == 'success'"
         working-directory: packages/settings
         run: flutter pub pub upgrade
-      - name: packages/settings; flutter analyze
+      - name: "packages/settings; flutter analyze --fatal-infos ."
         if: "always() && steps.packages_settings_pub_upgrade.conclusion == 'success'"
         working-directory: packages/settings
-        run: flutter analyze
+        run: flutter analyze --fatal-infos .
     needs:
       - job_001
   job_012:
-    name: "analyze; PKG: packages/nextcloud; `dart analyze`"
+    name: "analyze; PKG: packages/nextcloud; `dart analyze --fatal-infos .`"
     runs-on: ubuntu-latest
     steps:
       - name: Cache Pub hosted dependencies
@@ -358,14 +358,14 @@ jobs:
         if: "always() && steps.checkout.conclusion == 'success'"
         working-directory: packages/nextcloud
         run: dart pub upgrade
-      - name: packages/nextcloud; dart analyze
+      - name: "packages/nextcloud; dart analyze --fatal-infos ."
         if: "always() && steps.packages_nextcloud_pub_upgrade.conclusion == 'success'"
         working-directory: packages/nextcloud
-        run: dart analyze
+        run: dart analyze --fatal-infos .
     needs:
       - job_001
   job_013:
-    name: "analyze; PKG: packages/nextcloud_push_proxy; `dart analyze`"
+    name: "analyze; PKG: packages/nextcloud_push_proxy; `dart analyze --fatal-infos .`"
     runs-on: ubuntu-latest
     steps:
       - name: Cache Pub hosted dependencies
@@ -388,14 +388,14 @@ jobs:
         if: "always() && steps.checkout.conclusion == 'success'"
         working-directory: packages/nextcloud_push_proxy
         run: dart pub upgrade
-      - name: packages/nextcloud_push_proxy; dart analyze
+      - name: "packages/nextcloud_push_proxy; dart analyze --fatal-infos ."
         if: "always() && steps.packages_nextcloud_push_proxy_pub_upgrade.conclusion == 'success'"
         working-directory: packages/nextcloud_push_proxy
-        run: dart analyze
+        run: dart analyze --fatal-infos .
     needs:
       - job_001
   job_014:
-    name: "analyze; PKG: packages/sort_box; `dart analyze`"
+    name: "analyze; PKG: packages/sort_box; `dart analyze --fatal-infos .`"
     runs-on: ubuntu-latest
     steps:
       - name: Cache Pub hosted dependencies
@@ -418,14 +418,14 @@ jobs:
         if: "always() && steps.checkout.conclusion == 'success'"
         working-directory: packages/sort_box
         run: dart pub upgrade
-      - name: packages/sort_box; dart analyze
+      - name: "packages/sort_box; dart analyze --fatal-infos ."
         if: "always() && steps.packages_sort_box_pub_upgrade.conclusion == 'success'"
         working-directory: packages/sort_box
-        run: dart analyze
+        run: dart analyze --fatal-infos .
     needs:
       - job_001
   job_015:
-    name: "analyze; PKG: packages/spec_templates; `dart analyze`"
+    name: "analyze; PKG: packages/spec_templates; `dart analyze --fatal-infos .`"
     runs-on: ubuntu-latest
     steps:
       - name: Cache Pub hosted dependencies
@@ -448,10 +448,10 @@ jobs:
         if: "always() && steps.checkout.conclusion == 'success'"
         working-directory: packages/spec_templates
         run: dart pub upgrade
-      - name: packages/spec_templates; dart analyze
+      - name: "packages/spec_templates; dart analyze --fatal-infos ."
         if: "always() && steps.packages_spec_templates_pub_upgrade.conclusion == 'success'"
         working-directory: packages/spec_templates
-        run: dart analyze
+        run: dart analyze --fatal-infos .
     needs:
       - job_001
   job_016:
