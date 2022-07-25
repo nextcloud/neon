@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:io';
 
 import 'package:nextcloud/nextcloud.dart';
 import 'package:nextcloud_push_proxy/nextcloud_push_proxy.dart';
@@ -135,10 +136,25 @@ Future main() async {
 
     test('Register device and receive notification', () async {
       const pushToken = '789';
-      final port = randomPort();
       final keypair = generateKeypair();
 
       final pushProxy = NextcloudPushProxy();
+
+      late int port;
+      while (true) {
+        port = randomPort();
+        try {
+          await pushProxy.create(
+            logging: false,
+            port: port,
+          );
+          break;
+        } on SocketException catch (e) {
+          if (e.osError?.errorCode != 98) {
+            rethrow;
+          }
+        }
+      }
 
       final subscription = (await client.notifications.registerDeviceAtServer(
         pushToken,
@@ -155,10 +171,6 @@ Future main() async {
       final deviceCompleter = Completer();
       final notificationCompleter = Completer();
 
-      await pushProxy.create(
-        logging: false,
-        port: port,
-      );
       pushProxy.onNewDevice.listen((final device) async {
         expect(device.pushToken, pushToken);
         expect(device.deviceIdentifier, isNotEmpty);
