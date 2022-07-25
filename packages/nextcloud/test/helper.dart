@@ -143,21 +143,28 @@ class TestHelper {
     // ignore: prefer_asserts_with_message
     assert(!useAppPassword || (username != null && password != null));
 
-    final port = randomPort();
-
-    final result = await runExecutableArguments(
-      'docker',
-      [
-        'run',
-        '--rm',
-        '-d',
-        '-p',
-        '$port:80',
-        '--add-host',
-        'host.docker.internal:host-gateway',
-        dockerImageName,
-      ],
-    );
+    late ProcessResult result;
+    late int port;
+    while (true) {
+      port = randomPort();
+      result = await runExecutableArguments(
+        'docker',
+        [
+          'run',
+          '--rm',
+          '-d',
+          '-p',
+          '$port:80',
+          '--add-host',
+          'host.docker.internal:host-gateway',
+          dockerImageName,
+        ],
+      );
+      // 125 means the docker run command itself has failed which indicated the port is already used
+      if (result.exitCode != 125) {
+        break;
+      }
+    }
 
     if (result.exitCode != 0) {
       throw Exception('Failed to run docker container: ${result.stderr}');
