@@ -249,7 +249,7 @@ class _SettingsPageState extends State<SettingsPage> {
                                   withoutText: true,
                                 ),
                                 applicationLegalese: await rootBundle.loadString('assets/LEGALESE.txt'),
-                                applicationVersion: (await PackageInfo.fromPlatform()).version,
+                                applicationVersion: Provider.of<PackageInfo>(context, listen: false).version,
                               );
                             },
                           ),

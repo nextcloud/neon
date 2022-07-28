@@ -6,6 +6,7 @@ import 'package:neon/app.dart';
 import 'package:neon/src/blocs/accounts.dart';
 import 'package:neon/src/blocs/push_notifications.dart';
 import 'package:neon/src/neon.dart';
+import 'package:package_info_plus/package_info_plus.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -25,16 +26,17 @@ Future main() async {
 
   FlutterNativeSplash.preserve(widgetsBinding: WidgetsBinding.instance);
 
-  await Global.init();
-
   final sharedPreferences = await SharedPreferences.getInstance();
 
   final platform = await getNeonPlatform();
   final requestManager = await getRequestManager(platform);
   final allAppImplementations = getAppImplementations(sharedPreferences, requestManager, platform);
 
+  final packageInfo = await PackageInfo.fromPlatform();
+
   final globalOptions = GlobalOptions(
     Storage('global', sharedPreferences),
+    packageInfo,
   );
 
   final accountsBloc = AccountsBloc(
@@ -42,6 +44,7 @@ Future main() async {
     Storage('accounts', sharedPreferences),
     sharedPreferences,
     globalOptions,
+    packageInfo,
   );
   final pushNotificationsBloc = PushNotificationsBloc(
     accountsBloc,
@@ -77,6 +80,9 @@ Future main() async {
         ),
         Provider<List<AppImplementation>>(
           create: (final _) => allAppImplementations,
+        ),
+        Provider<PackageInfo>(
+          create: (final _) => packageInfo,
         ),
       ],
       child: NeonApp(

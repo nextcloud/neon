@@ -1,7 +1,10 @@
 part of '../neon.dart';
 
 class GlobalOptions {
-  GlobalOptions(this._storage) {
+  GlobalOptions(
+    this._storage,
+    this._packageInfo,
+  ) {
     themeMode.stream.listen((final value) {
       _themeOLEDAsDarkEnabledSubject.add(value != ThemeMode.light);
     });
@@ -29,13 +32,14 @@ class GlobalOptions {
   }
 
   final Storage _storage;
+  final PackageInfo _packageInfo;
   final _accountsIDsSubject = BehaviorSubject<Map<String?, LabelBuilder>>();
   final _themeOLEDAsDarkEnabledSubject = BehaviorSubject<bool>();
   final _pushNotificationsEnabledSubject = BehaviorSubject<bool>();
   final _pushNotificationsDistributorsSubject = BehaviorSubject<Map<String?, LabelBuilder>>();
 
-  final _distributorsMap = <String, String Function(BuildContext)>{
-    Global.packageInfo.packageName: (final context) =>
+  late final _distributorsMap = <String, String Function(BuildContext)>{
+    _packageInfo.packageName: (final context) =>
         AppLocalizations.of(context).globalOptionsPushNotificationsDistributorFirebaseEmbedded,
     'com.github.gotify.up': (final context) =>
         AppLocalizations.of(context).globalOptionsPushNotificationsDistributorGotifyUP,
