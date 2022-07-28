@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/foundation.dart';
 import 'package:neon/src/models/account.dart';
 import 'package:nextcloud/nextcloud.dart';
+import 'package:package_info_plus/package_info_plus.dart';
 import 'package:rx_bloc/rx_bloc.dart';
 import 'package:rxdart/rxdart.dart';
 
@@ -24,7 +25,7 @@ abstract class LoginBlocStates {
 
 @RxBloc()
 class LoginBloc extends $LoginBloc {
-  LoginBloc() {
+  LoginBloc(this._packageInfo) {
     _$setServerURLEvent.listen((final url) async {
       _serverURLSubject.add(url);
       _loginFlowInitSubject.add(null);
@@ -35,7 +36,7 @@ class LoginBloc extends $LoginBloc {
         try {
           final client = NextcloudClient(
             url,
-            userAgentOverride: userAgentOverride(),
+            userAgentOverride: userAgent(_packageInfo),
           );
 
           final status = (await client.core.getStatus())!;
@@ -73,6 +74,8 @@ class LoginBloc extends $LoginBloc {
       _pollTimer = null;
     }
   }
+
+  final PackageInfo _packageInfo;
 
   final _serverURLSubject = BehaviorSubject<String?>.seeded(null);
   final _serverConnectionStateSubject = BehaviorSubject<ServerConnectionState?>.seeded(null);

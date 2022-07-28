@@ -16,11 +16,15 @@ class _LoginPageState extends State<LoginPage> {
   WebViewController? _webViewController;
   final _formKey = GlobalKey<FormState>();
   final _focusNode = FocusNode();
-  final _loginBloc = LoginBloc();
+  late final PackageInfo _packageInfo;
+  late final LoginBloc _loginBloc;
 
   @override
   void initState() {
     super.initState();
+
+    _packageInfo = Provider.of<PackageInfo>(context, listen: false);
+    _loginBloc = LoginBloc(_packageInfo);
 
     if (widget.serverURL != null) {
       _loginBloc.setServerURL(widget.serverURL!);
@@ -73,7 +77,7 @@ class _LoginPageState extends State<LoginPage> {
     final Env? env,
   ) =>
       {
-        HttpHeaders.userAgentHeader: userAgentOverride(),
+        HttpHeaders.userAgentHeader: userAgent(_packageInfo),
         if (env != null) ...{
           HttpHeaders.authorizationHeader:
               'Basic ${base64.encode(utf8.encode('${env.testUsername}:${env.testPassword}'))}',
@@ -137,7 +141,7 @@ class _LoginPageState extends State<LoginPage> {
                       ? WebView(
                           javascriptMode: JavascriptMode.unrestricted,
                           zoomEnabled: false,
-                          userAgent: userAgentOverride(),
+                          userAgent: userAgent(_packageInfo),
                           onWebViewCreated: (final controller) async {
                             _webViewController = controller;
                             final url =

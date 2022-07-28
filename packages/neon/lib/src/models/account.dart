@@ -5,12 +5,13 @@ import 'package:json_annotation/json_annotation.dart';
 import 'package:neon/l10n/localizations.dart';
 import 'package:neon/src/neon.dart';
 import 'package:nextcloud/nextcloud.dart';
+import 'package:package_info_plus/package_info_plus.dart';
 import 'package:rxdart/rxdart.dart';
 import 'package:settings/settings.dart';
 
 part 'account.g.dart';
 
-String userAgentOverride() => 'Neon ${Global.packageInfo.version}+${Global.packageInfo.buildNumber}';
+String userAgent(PackageInfo packageInfo) => 'Neon ${packageInfo.version}+${packageInfo.buildNumber}';
 
 @JsonSerializable()
 class Account {
@@ -49,12 +50,22 @@ class Account {
 
   NextcloudClient? _client;
 
-  NextcloudClient get client => _client ??= NextcloudClient(
-        serverURL,
-        username: username,
-        password: password ?? appPassword,
-        userAgentOverride: userAgentOverride(),
-      );
+  void setupClient(PackageInfo packageInfo) {
+    _client ??= NextcloudClient(
+      serverURL,
+      username: username,
+      password: password ?? appPassword,
+      userAgentOverride: userAgent(packageInfo),
+    );
+  }
+
+  NextcloudClient get client {
+    if (_client == null) {
+      throw Exception('You need to call setupClient() first');
+    }
+
+    return _client!;
+  }
 }
 
 Map<String, String> _idCache = {};

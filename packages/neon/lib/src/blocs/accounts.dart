@@ -4,6 +4,7 @@ import 'package:neon/src/blocs/user_details.dart';
 import 'package:neon/src/blocs/user_status.dart';
 import 'package:neon/src/models/account.dart';
 import 'package:neon/src/neon.dart';
+import 'package:package_info_plus/package_info_plus.dart';
 import 'package:rx_bloc/rx_bloc.dart';
 import 'package:rxdart/rxdart.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -29,6 +30,7 @@ class AccountsBloc extends $AccountsBloc {
     this._storage,
     this._sharedPreferences,
     this._globalOptions,
+    this._packageInfo,
   ) {
     _accountsSubject.listen((final accounts) async {
       _globalOptions.updateAccounts(accounts);
@@ -53,6 +55,7 @@ class AccountsBloc extends $AccountsBloc {
     });
 
     _$addAccountEvent.listen((final account) async {
+      account.setupClient(_packageInfo);
       if (_activeAccountSubject.valueOrNull == null) {
         setActiveAccount(account);
       }
@@ -71,6 +74,7 @@ class AccountsBloc extends $AccountsBloc {
     });
 
     _$updateAccountEvent.listen((final account) async {
+      account.setupClient(_packageInfo);
       final accounts = _accountsSubject.value;
       final index = accounts.indexWhere((final a) => a.id == account.id);
       if (index == -1) {
@@ -92,7 +96,7 @@ class AccountsBloc extends $AccountsBloc {
       _accountsSubject.add(
         _storage
             .getStringList(_keyAccounts)!
-            .map((final a) => Account.fromJson(json.decode(a) as Map<String, dynamic>))
+            .map((final a) => (Account.fromJson(json.decode(a) as Map<String, dynamic>))..setupClient(_packageInfo))
             .toList(),
       );
     }
@@ -126,13 +130,14 @@ class AccountsBloc extends $AccountsBloc {
     return null;
   }
 
+  final RequestManager _requestManager;
   final Storage _storage;
   final SharedPreferences _sharedPreferences;
   final GlobalOptions _globalOptions;
+  final PackageInfo _packageInfo;
   final _keyAccounts = 'accounts';
   final _keyLastUsedAccount = 'last-used-account';
 
-  final RequestManager _requestManager;
   final _accountsOptions = <String, AccountSpecificOptions>{};
   late final _activeAccountSubject = BehaviorSubject<Account?>.seeded(null);
   late final _accountsSubject = BehaviorSubject<List<Account>>.seeded([]);
