@@ -319,11 +319,11 @@ class _FilesBrowserViewState extends State<FilesBrowserView> {
           ),
         ),
         trailing: uploadProgress == null && downloadProgress == null && widget.enableFileActions
-            ? PopupMenuButton<_FileAction>(
+            ? PopupMenuButton<FilesFileAction>(
                 itemBuilder: (final context) => [
                   if (details.isFavorite != null) ...[
                     PopupMenuItem(
-                      value: _FileAction.toggleFavorite,
+                      value: FilesFileAction.toggleFavorite,
                       child: Text(
                         details.isFavorite!
                             ? AppLocalizations.of(context).filesRemoveFromFavorites
@@ -332,43 +332,43 @@ class _FilesBrowserViewState extends State<FilesBrowserView> {
                     ),
                   ],
                   PopupMenuItem(
-                    value: _FileAction.details,
+                    value: FilesFileAction.details,
                     child: Text(AppLocalizations.of(context).filesDetails),
                   ),
                   PopupMenuItem(
-                    value: _FileAction.rename,
+                    value: FilesFileAction.rename,
                     child: Text(AppLocalizations.of(context).rename),
                   ),
                   PopupMenuItem(
-                    value: _FileAction.move,
+                    value: FilesFileAction.move,
                     child: Text(AppLocalizations.of(context).move),
                   ),
                   PopupMenuItem(
-                    value: _FileAction.copy,
+                    value: FilesFileAction.copy,
                     child: Text(AppLocalizations.of(context).copy),
                   ),
                   // TODO: https://github.com/jld3103/nextcloud-neon/issues/4
                   if (!details.isDirectory) ...[
                     PopupMenuItem(
-                      value: _FileAction.sync,
+                      value: FilesFileAction.sync,
                       child: Text(AppLocalizations.of(context).filesSync),
                     ),
                   ],
                   PopupMenuItem(
-                    value: _FileAction.delete,
+                    value: FilesFileAction.delete,
                     child: Text(AppLocalizations.of(context).delete),
                   ),
                 ],
                 onSelected: (final action) async {
                   switch (action) {
-                    case _FileAction.toggleFavorite:
+                    case FilesFileAction.toggleFavorite:
                       if (details.isFavorite ?? false) {
                         widget.filesBloc.removeFavorite(details.path);
                       } else {
                         widget.filesBloc.addFavorite(details.path);
                       }
                       break;
-                    case _FileAction.details:
+                    case FilesFileAction.details:
                       await Navigator.of(context).push(
                         MaterialPageRoute(
                           builder: (final context) => FilesDetailsPage(
@@ -378,7 +378,7 @@ class _FilesBrowserViewState extends State<FilesBrowserView> {
                         ),
                       );
                       break;
-                    case _FileAction.rename:
+                    case FilesFileAction.rename:
                       final result = await showRenameDialog(
                         context: context,
                         title: details.isDirectory
@@ -390,7 +390,7 @@ class _FilesBrowserViewState extends State<FilesBrowserView> {
                         widget.filesBloc.rename(details.path, result);
                       }
                       break;
-                    case _FileAction.move:
+                    case FilesFileAction.move:
                       final b = widget.filesBloc.getNewFilesBrowserBloc();
                       final originalPath = details.path.sublist(0, details.path.length - 1);
                       b.setPath(originalPath);
@@ -407,7 +407,7 @@ class _FilesBrowserViewState extends State<FilesBrowserView> {
                         widget.filesBloc.move(details.path, result..add(details.name));
                       }
                       break;
-                    case _FileAction.copy:
+                    case FilesFileAction.copy:
                       final b = widget.filesBloc.getNewFilesBrowserBloc();
                       final originalPath = details.path.sublist(0, details.path.length - 1);
                       b.setPath(originalPath);
@@ -424,7 +424,7 @@ class _FilesBrowserViewState extends State<FilesBrowserView> {
                         widget.filesBloc.copy(details.path, result..add(details.name));
                       }
                       break;
-                    case _FileAction.sync:
+                    case FilesFileAction.sync:
                       final sizeWarning = widget.bloc.options.downloadSizeWarning.value;
                       if (sizeWarning != null && details.size > sizeWarning) {
                         if (!(await showConfirmationDialog(
@@ -439,7 +439,7 @@ class _FilesBrowserViewState extends State<FilesBrowserView> {
                       }
                       widget.filesBloc.syncFile(details.path);
                       break;
-                    case _FileAction.delete:
+                    case FilesFileAction.delete:
                       if (await showConfirmationDialog(
                         context,
                         details.isDirectory
@@ -459,7 +459,7 @@ class _FilesBrowserViewState extends State<FilesBrowserView> {
       );
 }
 
-enum _FileAction {
+enum FilesFileAction {
   toggleFavorite,
   details,
   rename,

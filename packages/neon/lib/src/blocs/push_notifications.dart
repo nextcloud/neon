@@ -28,9 +28,18 @@ class PushNotificationsBloc extends $PushNotificationsBloc {
     this._platform,
   ) {
     if (_platform.canUsePushNotifications) {
-      // We just use a single RSA keypair for all accounts
-      _keypair = PushUtils.loadRSAKeypair(_storage);
-      _setupUnifiedPush();
+      UnifiedPush.getDistributors().then(_globalOptions.updateDistributors);
+
+      _globalOptions.pushNotificationsEnabled.stream.listen((final enabled) async {
+        if (enabled != _pushNotificationsEnabled) {
+          _pushNotificationsEnabled = enabled;
+          if (enabled) {
+            // We just use a single RSA keypair for all accounts
+            _keypair = PushUtils.loadRSAKeypair(_storage);
+            await _setupUnifiedPush();
+          }
+        }
+      });
     }
   }
 
@@ -81,7 +90,6 @@ class PushNotificationsBloc extends $PushNotificationsBloc {
       },
       onMessage: PushUtils.onMessage,
     );
-    await _globalOptions.updateDistributors(await UnifiedPush.getDistributors());
 
     _globalOptions.pushNotificationsDistributor.stream.listen((final distributor) async {
       final disabled = distributor == null;
@@ -109,7 +117,8 @@ class PushNotificationsBloc extends $PushNotificationsBloc {
   }
 
   Future _registerUnifiedPushInstances(final List<Account> accounts) async {
-    for (final account in accounts) {
+    // Notifications will only work on accounts with app password
+    for (final account in accounts.where((final a) => a.appPassword != null)) {
       await UnifiedPush.registerApp(account.client.id);
     }
   }
@@ -120,7 +129,8 @@ class PushNotificationsBloc extends $PushNotificationsBloc {
   late final _storage = Storage('notifications', _sharedPreferences);
   final GlobalOptions _globalOptions;
   final Env? _env;
-  late final RSAKeypair? _keypair;
+  RSAKeypair? _keypair;
+  bool? _pushNotificationsEnabled;
 
   String _keyLastEndpoint(final Account account) => 'last-endpoint-${account.id}';
 

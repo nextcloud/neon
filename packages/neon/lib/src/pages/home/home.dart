@@ -449,7 +449,15 @@ class _HomePageState extends State<HomePage> with tray.TrayListener, WindowListe
                                               ),
                                             ],
                                           ] else ...[
-                                            Container(),
+                                            ExceptionWidget(
+                                              capabilitiesError,
+                                              onRetry: () {
+                                                _capabilitiesBloc.refresh();
+                                              },
+                                            ),
+                                            CustomLinearProgressIndicator(
+                                              visible: capabilitiesLoading,
+                                            ),
                                           ],
                                           if (accountsSnapshot.data!.length != 1) ...[
                                             DropdownButtonHideUnderline(
@@ -499,6 +507,7 @@ class _HomePageState extends State<HomePage> with tray.TrayListener, WindowListe
                                 for (final appImplementation in appsData) ...[
                                   if (appsData.map((final a) => a.id).contains(appImplementation.id)) ...[
                                     ListTile(
+                                      key: Key('app-${appImplementation.id}'),
                                       title: Text(appImplementation.name(context)),
                                       leading: appImplementation.buildIcon(context),
                                       minLeadingWidth: 0,
@@ -515,6 +524,7 @@ class _HomePageState extends State<HomePage> with tray.TrayListener, WindowListe
                         ),
                       ),
                       ListTile(
+                        key: const Key('settings'),
                         title: Text(AppLocalizations.of(context).settings),
                         leading: const Icon(Icons.settings),
                         minLeadingWidth: 0,

@@ -5,7 +5,7 @@ USER www-data
 ARG username
 ARG password
 RUN ./occ maintenance:install --admin-user admin --admin-pass "$password" --admin-email admin@example.com
-RUN OC_PASS="$password" ./occ user:add --password-from-env "$username"
+RUN OC_PASS="$password" ./occ user:add --password-from-env --group admin "$username"
 RUN ./occ app:install news
 RUN ./occ app:install notes
 RUN ./occ config:system:set trusted_domains 1 --value=10.0.2.2

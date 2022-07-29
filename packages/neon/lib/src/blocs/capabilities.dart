@@ -9,7 +9,9 @@ part 'capabilities.rxb.g.dart';
 typedef Capabilities = CoreServerCapabilitiesOcsData;
 typedef NextcloudTheme = CoreServerCapabilitiesOcsDataCapabilitiesTheming;
 
-abstract class CapabilitiesBlocEvents {}
+abstract class CapabilitiesBlocEvents {
+  void refresh();
+}
 
 abstract class CapabilitiesBlocStates {
   BehaviorSubject<Result<Capabilities>> get capabilities;
@@ -21,6 +23,8 @@ class CapabilitiesBloc extends $CapabilitiesBloc {
     this._requestManager,
     this._client,
   ) {
+    _$refreshEvent.listen((final _) => _loadCapabilities());
+
     _loadCapabilities();
   }
 

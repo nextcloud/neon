@@ -140,30 +140,30 @@ class NewsFeedsView extends StatelessWidget {
                 ),
               ),
             ],
-            PopupMenuButton<_FeedAction>(
+            PopupMenuButton<NewsFeedAction>(
               itemBuilder: (final context) => [
                 PopupMenuItem(
-                  value: _FeedAction.showURL,
+                  value: NewsFeedAction.showURL,
                   child: Text(AppLocalizations.of(context).newsShowFeedURL),
                 ),
                 PopupMenuItem(
-                  value: _FeedAction.delete,
+                  value: NewsFeedAction.delete,
                   child: Text(AppLocalizations.of(context).delete),
                 ),
                 PopupMenuItem(
-                  value: _FeedAction.rename,
+                  value: NewsFeedAction.rename,
                   child: Text(AppLocalizations.of(context).rename),
                 ),
                 if (folders.isNotEmpty) ...[
                   PopupMenuItem(
-                    value: _FeedAction.move,
+                    value: NewsFeedAction.move,
                     child: Text(AppLocalizations.of(context).move),
                   ),
                 ],
               ],
               onSelected: (final action) async {
                 switch (action) {
-                  case _FeedAction.showURL:
+                  case NewsFeedAction.showURL:
                     await showDialog(
                       context: context,
                       builder: (final context) => NewsFeedShowURLDialog(
@@ -171,7 +171,7 @@ class NewsFeedsView extends StatelessWidget {
                       ),
                     );
                     break;
-                  case _FeedAction.delete:
+                  case NewsFeedAction.delete:
                     if (await showConfirmationDialog(
                       context,
                       AppLocalizations.of(context).newsRemoveFeedConfirm(feed.title!),
@@ -179,7 +179,7 @@ class NewsFeedsView extends StatelessWidget {
                       bloc.removeFeed(feed.id!);
                     }
                     break;
-                  case _FeedAction.rename:
+                  case NewsFeedAction.rename:
                     final result = await showRenameDialog(
                       context: context,
                       title: AppLocalizations.of(context).newsRenameFeed,
@@ -189,7 +189,7 @@ class NewsFeedsView extends StatelessWidget {
                       bloc.renameFeed(feed.id!, result);
                     }
                     break;
-                  case _FeedAction.move:
+                  case NewsFeedAction.move:
                     final result = await showDialog<List<int?>>(
                       context: context,
                       builder: (final context) => NewsMoveFeedDialog(
@@ -224,7 +224,7 @@ class NewsFeedsView extends StatelessWidget {
       );
 }
 
-enum _FeedAction {
+enum NewsFeedAction {
   showURL,
   delete,
   rename,

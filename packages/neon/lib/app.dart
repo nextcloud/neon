@@ -106,7 +106,6 @@ class _NeonAppState extends State<NeonApp> with WidgetsBindingObserver {
                 localizationsDelegates: AppLocalizations.localizationsDelegates,
                 supportedLocales: AppLocalizations.supportedLocales,
                 navigatorKey: _navigatorKey,
-                debugShowCheckedModeBanner: false,
                 theme: getThemeFromNextcloudTheme(
                   _userTheme,
                   themeModeSnapshot.data!,

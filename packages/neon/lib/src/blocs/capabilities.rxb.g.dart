@@ -19,8 +19,14 @@ abstract class $CapabilitiesBloc extends RxBlocBase
     implements CapabilitiesBlocEvents, CapabilitiesBlocStates, CapabilitiesBlocType {
   final _compositeSubscription = CompositeSubscription();
 
+  /// Тhe [Subject] where events sink to by calling [refresh]
+  final _$refreshEvent = PublishSubject<void>();
+
   /// The state of [capabilities] implemented in [_mapToCapabilitiesState]
   late final BehaviorSubject<Result<CoreServerCapabilitiesOcsData>> _capabilitiesState = _mapToCapabilitiesState();
+
+  @override
+  void refresh() => _$refreshEvent.add(null);
 
   @override
   BehaviorSubject<Result<CoreServerCapabilitiesOcsData>> get capabilities => _capabilitiesState;
@@ -35,6 +41,7 @@ abstract class $CapabilitiesBloc extends RxBlocBase
 
   @override
   void dispose() {
+    _$refreshEvent.close();
     _compositeSubscription.dispose();
     super.dispose();
   }

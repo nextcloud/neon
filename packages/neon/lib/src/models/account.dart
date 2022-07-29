@@ -54,7 +54,7 @@ class Account {
     _client ??= NextcloudClient(
       serverURL,
       username: username,
-      password: password ?? appPassword,
+      password: appPassword ?? password,
       userAgentOverride: userAgent(packageInfo),
     );
   }
