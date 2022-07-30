@@ -45,7 +45,7 @@ jobs:
       - name: Build
         run: |
           cd packages/neon
-          flutter build apk --build-number="$(date +"%s")" --build-name="${GITHUB_SHA::6}"
+          flutter build apk --build-number="$(date +"%s")"
           cp build/app/outputs/apk/release/app-release.apk app-debug.apk
 
       - name: Upload
