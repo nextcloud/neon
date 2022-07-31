@@ -12,7 +12,20 @@ class NextcloudAppSpecificSettingsPage extends StatelessWidget {
   Widget build(final BuildContext context) => Scaffold(
         resizeToAvoidBottomInset: false,
         appBar: AppBar(
-          title: Text(AppLocalizations.of(context).settingsForApp(appImplementation.name(context))),
+          title: Text(appImplementation.name(context)),
+          actions: [
+            IconButton(
+              onPressed: () async {
+                if (await showConfirmationDialog(
+                  context,
+                  AppLocalizations.of(context).settingsResetForConfirmation(appImplementation.name(context)),
+                )) {
+                  await appImplementation.options.reset();
+                }
+              },
+              icon: const Icon(MdiIcons.cogRefresh),
+            ),
+          ],
         ),
         body: SettingsList(
           categories: [

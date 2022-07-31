@@ -107,16 +107,6 @@ class AppLocalizationsEn extends AppLocalizations {
   String get settings => 'Settings';
 
   @override
-  String settingsForApp(String name) {
-    return 'Settings - $name';
-  }
-
-  @override
-  String settingsForAccount(String username, String host) {
-    return 'Settings - $username@$host';
-  }
-
-  @override
   String get settingsApps => 'Apps';
 
   @override
@@ -127,6 +117,14 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get settingsImportWrongFileExtension => 'Settings import has wrong file extension (has to be .json.base64)';
+
+  @override
+  String get settingsResetAllConfirmation => 'Do you want to reset all settings?';
+
+  @override
+  String settingsResetForConfirmation(String name) {
+    return 'Do you want to reset all settings for $name?';
+  }
 
   @override
   String get optionsCategoryGeneral => 'General';

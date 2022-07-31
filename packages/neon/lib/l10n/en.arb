@@ -52,29 +52,19 @@
   "exit": "Exit",
   "disabled": "Disabled",
   "settings": "Settings",
-  "settingsForApp": "Settings - {name}",
-  "@settingsForApp": {
+  "settingsApps": "Apps",
+  "settingsExport": "Export settings",
+  "settingsImport": "Import settings",
+  "settingsImportWrongFileExtension": "Settings import has wrong file extension (has to be .json.base64)",
+  "settingsResetAllConfirmation": "Do you want to reset all settings?",
+  "settingsResetForConfirmation": "Do you want to reset all settings for {name}?",
+  "@settingsResetForConfirmation": {
     "placeholders": {
       "name": {
         "type": "String"
       }
     }
   },
-  "settingsForAccount": "Settings - {username}@{host}",
-  "@settingsForAccount": {
-    "placeholders": {
-      "username": {
-        "type": "String"
-      },
-      "host": {
-        "type": "String"
-      }
-    }
-  },
-  "settingsApps": "Apps",
-  "settingsExport": "Export settings",
-  "settingsImport": "Import settings",
-  "settingsImportWrongFileExtension": "Settings import has wrong file extension (has to be .json.base64)",
   "optionsCategoryGeneral": "General",
   "optionsCategoryTheme": "Theme",
   "optionsCategoryPushNotifications": "Push notifications",

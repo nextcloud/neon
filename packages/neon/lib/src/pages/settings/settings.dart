@@ -19,6 +19,24 @@ class _SettingsPageState extends State<SettingsPage> {
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
         title: Text(AppLocalizations.of(context).settings),
+        actions: [
+          IconButton(
+            onPressed: () async {
+              if (await showConfirmationDialog(context, AppLocalizations.of(context).settingsResetAllConfirmation)) {
+                await globalOptions.reset();
+
+                for (final appImplementation in appImplementations) {
+                  await appImplementation.options.reset();
+                }
+
+                for (final account in accountsBloc.accounts.value) {
+                  await accountsBloc.getOptions(account)!.reset();
+                }
+              }
+            },
+            icon: const Icon(MdiIcons.cogRefresh),
+          ),
+        ],
       ),
       body: RxBlocBuilder<AccountsBloc, List<Account>>(
         bloc: accountsBloc,
