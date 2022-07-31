@@ -27,6 +27,20 @@ class _NewsAddFeedDialogState extends State<NewsAddFeedDialog> {
   }
 
   @override
+  void initState() {
+    super.initState();
+
+    Clipboard.getData(Clipboard.kTextPlain).then((final clipboardContent) {
+      if (clipboardContent != null && clipboardContent.text != null) {
+        final uri = Uri.tryParse(clipboardContent.text!);
+        if (uri != null && (uri.scheme == 'http' || uri.scheme == 'https')) {
+          controller.text = clipboardContent.text!;
+        }
+      }
+    });
+  }
+
+  @override
   Widget build(final BuildContext context) => StandardRxResultBuilder<NewsBloc, List<NewsFolder>>(
         bloc: widget.bloc,
         state: (final bloc) => bloc.folders,
