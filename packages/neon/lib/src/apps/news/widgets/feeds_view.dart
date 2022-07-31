@@ -117,6 +117,7 @@ class NewsFeedsView extends StatelessWidget {
             : Container(),
         leading: NewsFeedIcon(
           feed: feed,
+          borderRadius: const BorderRadius.all(Radius.circular(8)),
         ),
         trailing: Row(
           mainAxisSize: MainAxisSize.min,

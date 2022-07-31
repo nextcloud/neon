@@ -4,18 +4,23 @@ class NewsFeedIcon extends StatelessWidget {
   const NewsFeedIcon({
     required this.feed,
     this.size = 48,
+    this.borderRadius,
     super.key,
   });
 
   final NewsFeed feed;
   final double size;
+  final BorderRadius? borderRadius;
 
   @override
   Widget build(final BuildContext context) => SizedBox(
         width: size,
         height: size,
-        child: ColoredBox(
-          color: Colors.white,
+        child: DecoratedBox(
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: borderRadius,
+          ),
           child: Center(
             child: feed.faviconLink != null && feed.faviconLink != ''
                 ? CachedURLImage(
