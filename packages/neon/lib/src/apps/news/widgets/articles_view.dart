@@ -192,14 +192,6 @@ class _NewsArticlesViewState extends State<NewsArticlesView> {
         ),
         subtitle: Row(
           children: [
-            Text(
-              CustomTimeAgo.format(
-                DateTime.fromMillisecondsSinceEpoch(article.pubDate! * 1000),
-              ),
-            ),
-            const SizedBox(
-              width: 16,
-            ),
             Container(
               margin: const EdgeInsets.only(
                 top: 8,
@@ -211,6 +203,18 @@ class _NewsArticlesViewState extends State<NewsArticlesView> {
                 size: 16,
                 borderRadius: const BorderRadius.all(Radius.circular(2)),
               ),
+            ),
+            Text(
+              CustomTimeAgo.format(
+                DateTime.fromMillisecondsSinceEpoch(article.pubDate! * 1000),
+              ),
+              style: const TextStyle(
+                fontWeight: FontWeight.w300,
+                fontSize: 12,
+              ),
+            ),
+            const SizedBox(
+              width: 5,
             ),
             Flexible(
               child: Text(
