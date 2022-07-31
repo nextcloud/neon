@@ -34,6 +34,10 @@ abstract class Option<T> {
     return stream.value ?? defaultValue.value;
   }
 
+  Future reset() async {
+    await set(defaultValue.value);
+  }
+
   void dispose() {
     stream.close();
     enabled.close();
