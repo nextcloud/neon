@@ -7,6 +7,7 @@ class FilePreview extends StatelessWidget {
     this.width = 40,
     this.height = 40,
     this.color,
+    this.borderRadius,
     super.key,
   });
 
@@ -15,6 +16,7 @@ class FilePreview extends StatelessWidget {
   final int width;
   final int height;
   final Color? color;
+  final BorderRadius? borderRadius;
 
   @override
   Widget build(BuildContext context) {
@@ -59,7 +61,19 @@ class FilePreview extends StatelessWidget {
                     children: [
                       if (previewData != null) ...[
                         Center(
-                          child: Image.memory(previewData),
+                          child: SizedBox(
+                            width: width.toDouble(),
+                            height: height.toDouble(),
+                            child: DecoratedBox(
+                              decoration: BoxDecoration(
+                                borderRadius: borderRadius,
+                                image: DecorationImage(
+                                  image: MemoryImage(previewData),
+                                  fit: BoxFit.cover,
+                                ),
+                              ),
+                            ),
+                          ),
                         ),
                       ],
                       if (previewError != null) ...[

@@ -303,6 +303,7 @@ class _FilesBrowserViewState extends State<FilesBrowserView> {
                     : FilePreview(
                         bloc: widget.filesBloc,
                         details: details,
+                        borderRadius: const BorderRadius.all(Radius.circular(8)),
                       ),
               ),
               if (details.isFavorite ?? false) ...[
