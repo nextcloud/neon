@@ -11,6 +11,7 @@ class NewsAppSpecificOptions extends NextcloudAppSpecificOptions {
     super.options = [
       defaultCategoryOption,
       articleViewTypeOption,
+      articleDisableMarkAsReadTimeoutOption,
       defaultArticlesFilterOption,
       articlesSortPropertyOption,
       articlesSortBoxOrderOption,
@@ -70,6 +71,14 @@ class NewsAppSpecificOptions extends NextcloudAppSpecificOptions {
     label: (final context) => AppLocalizations.of(context).newsOptionsArticleViewType,
     defaultValue: BehaviorSubject.seeded(ArticleViewType.direct),
     values: _articleViewTypeValuesSubject,
+  );
+
+  late final articleDisableMarkAsReadTimeoutOption = ToggleOption(
+    storage: super.storage,
+    category: articlesCategory,
+    key: 'article-disable-mark-as-read-timeout',
+    label: (final context) => AppLocalizations.of(context).newsOptionsArticleDisableMarkAsReadTimeout,
+    defaultValue: BehaviorSubject.seeded(false),
   );
 
   late final defaultArticlesFilterOption = SelectOption<FilterType>(

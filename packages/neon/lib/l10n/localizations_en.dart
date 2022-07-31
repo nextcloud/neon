@@ -420,6 +420,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get newsOptionsArticleViewTypeExternalBrowser => 'Open in external browser';
 
   @override
+  String get newsOptionsArticleDisableMarkAsReadTimeout => 'Mark articles as read instantly';
+
+  @override
   String get newsOptionsDefaultArticlesFilter => 'Articles to show by default';
 
   @override
