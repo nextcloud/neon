@@ -231,6 +231,7 @@
   "newsOptionsArticleViewTypeDirect": "Show text directly",
   "newsOptionsArticleViewTypeInternalBrowser": "Open in internal browser",
   "newsOptionsArticleViewTypeExternalBrowser": "Open in external browser",
+  "newsOptionsArticleDisableMarkAsReadTimeout": "Mark articles as read instantly",
   "newsOptionsDefaultArticlesFilter": "Articles to show by default",
   "newsOptionsArticlesSortProperty": "How to sort articles",
   "newsOptionsArticlesSortPropertyPublishDate": "Publish date",

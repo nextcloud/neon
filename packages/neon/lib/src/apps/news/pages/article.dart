@@ -57,11 +57,15 @@ class _NewsArticlePageState extends State<NewsArticlePage> {
 
   void _startMarkAsReadTimer() {
     if (article.unread!) {
-      _markAsReadTimer = Timer(const Duration(seconds: 3), () {
-        if (article.unread!) {
-          widget.bloc.markArticleAsRead(article);
-        }
-      });
+      if (widget.bloc.newsBloc.options.articleDisableMarkAsReadTimeoutOption.value) {
+        widget.bloc.markArticleAsRead(article);
+      } else {
+        _markAsReadTimer = Timer(const Duration(seconds: 3), () {
+          if (article.unread!) {
+            widget.bloc.markArticleAsRead(article);
+          }
+        });
+      }
     }
   }
 

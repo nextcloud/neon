@@ -857,6 +857,12 @@ abstract class AppLocalizations {
   /// **'Open in external browser'**
   String get newsOptionsArticleViewTypeExternalBrowser;
 
+  /// No description provided for @newsOptionsArticleDisableMarkAsReadTimeout.
+  ///
+  /// In en, this message translates to:
+  /// **'Mark articles as read instantly'**
+  String get newsOptionsArticleDisableMarkAsReadTimeout;
+
   /// No description provided for @newsOptionsDefaultArticlesFilter.
   ///
   /// In en, this message translates to:
