@@ -64,6 +64,12 @@ class GlobalOptions {
     lastAccount,
   ];
 
+  Future reset() async {
+    for (final option in options) {
+      await option.reset();
+    }
+  }
+
   void dispose() {
     _accountsIDsSubject.close();
     _themeOLEDAsDarkEnabledSubject.close();

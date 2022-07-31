@@ -102,6 +102,12 @@ class AccountSpecificOptions {
     });
   }
 
+  Future reset() async {
+    for (final option in options) {
+      await option.reset();
+    }
+  }
+
   void dispose() {
     _appIDsSubject.close();
     for (final option in options) {

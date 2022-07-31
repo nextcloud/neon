@@ -11,17 +11,26 @@ class AccountSpecificSettingsPage extends StatelessWidget {
   final Account account;
 
   late final _options = bloc.getOptions(account)!;
+  late final _name = '${account.username}@${Uri.parse(account.serverURL).host}';
 
   @override
   Widget build(final BuildContext context) => Scaffold(
         resizeToAvoidBottomInset: false,
         appBar: AppBar(
-          title: Text(
-            AppLocalizations.of(context).settingsForAccount(
-              account.username,
-              Uri.parse(account.serverURL).host,
+          title: Text(_name),
+          actions: [
+            IconButton(
+              onPressed: () async {
+                if (await showConfirmationDialog(
+                  context,
+                  AppLocalizations.of(context).settingsResetForConfirmation(_name),
+                )) {
+                  await _options.reset();
+                }
+              },
+              icon: const Icon(MdiIcons.cogRefresh),
             ),
-          ),
+          ],
         ),
         body: SettingsList(
           categories: [

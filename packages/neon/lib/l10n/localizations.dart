@@ -275,18 +275,6 @@ abstract class AppLocalizations {
   /// **'Settings'**
   String get settings;
 
-  /// No description provided for @settingsForApp.
-  ///
-  /// In en, this message translates to:
-  /// **'Settings - {name}'**
-  String settingsForApp(String name);
-
-  /// No description provided for @settingsForAccount.
-  ///
-  /// In en, this message translates to:
-  /// **'Settings - {username}@{host}'**
-  String settingsForAccount(String username, String host);
-
   /// No description provided for @settingsApps.
   ///
   /// In en, this message translates to:
@@ -310,6 +298,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Settings import has wrong file extension (has to be .json.base64)'**
   String get settingsImportWrongFileExtension;
+
+  /// No description provided for @settingsResetAllConfirmation.
+  ///
+  /// In en, this message translates to:
+  /// **'Do you want to reset all settings?'**
+  String get settingsResetAllConfirmation;
+
+  /// No description provided for @settingsResetForConfirmation.
+  ///
+  /// In en, this message translates to:
+  /// **'Do you want to reset all settings for {name}?'**
+  String settingsResetForConfirmation(String name);
 
   /// No description provided for @optionsCategoryGeneral.
   ///
