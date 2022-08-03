@@ -8,8 +8,12 @@ class FilePreview extends StatelessWidget {
     this.height = 40,
     this.color,
     this.borderRadius,
+    this.withBackground = false,
     super.key,
-  });
+  }) : assert(
+          (borderRadius != null && withBackground) || borderRadius == null,
+          'withBackground needs to be true when borderRadius is set',
+        );
 
   final FilesBloc bloc;
   final FileDetails details;
@@ -17,6 +21,7 @@ class FilePreview extends StatelessWidget {
   final int height;
   final Color? color;
   final BorderRadius? borderRadius;
+  final bool withBackground;
 
   @override
   Widget build(BuildContext context) {
@@ -61,18 +66,23 @@ class FilePreview extends StatelessWidget {
                     children: [
                       if (previewData != null) ...[
                         Center(
-                          child: SizedBox(
-                            width: width.toDouble(),
-                            height: height.toDouble(),
-                            child: DecoratedBox(
-                              decoration: BoxDecoration(
-                                borderRadius: borderRadius,
-                                image: DecorationImage(
-                                  image: MemoryImage(previewData),
-                                  fit: BoxFit.cover,
-                                ),
-                              ),
-                            ),
+                          child: Builder(
+                            builder: (final context) {
+                              final child = Image.memory(
+                                previewData,
+                                fit: BoxFit.cover,
+                                width: width.toDouble(),
+                                height: height.toDouble(),
+                              );
+                              if (withBackground) {
+                                return ImageWrapper(
+                                  backgroundColor: Colors.white,
+                                  borderRadius: borderRadius,
+                                  child: child,
+                                );
+                              }
+                              return child;
+                            },
                           ),
                         ),
                       ],
