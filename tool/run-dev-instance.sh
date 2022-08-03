@@ -17,6 +17,8 @@ fi
 
 source tool/common.sh
 
+./tool/build-dev-container-image.sh
+
 echo "TEST_HOST=$ip
 TEST_USER=$username
 TEST_PASSWORD=$password" > packages/neon/assets/.env
