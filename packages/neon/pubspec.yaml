@@ -73,7 +73,7 @@ dev_dependencies:
     git:
       url: https://github.com/stack11/dart_nit_picking
       ref: f29382f
-  rx_bloc_generator: ^5.1.1
+  rx_bloc_generator: ^6.0.0
 
 dependency_overrides:
   analyzer: ^4.0.0 # https://github.com/dart-lang/language/issues/1855#issuecomment-1013212536
