@@ -2,7 +2,7 @@
   "openapi": "3.0.3",
   "info": {
     "title": "News",
-    "version": "18.1.0",
+    "version": "18.1.1",
     "description": "An RSS/Atom feed reader",
     "license": {
       "name": "agpl"
@@ -610,66 +610,17 @@
         }
       }
     },
-    "/api/v2/folders": {
-      "post": {
-        "operationId": "folder_api_v2-create-TODO",
-        "responses": {
-          "200": {
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "string"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/v2/folders/{folderId}": {
+    "/api/{apiVersion}/version": {
       "parameters": [
         {
-          "name": "folderId",
+          "name": "apiVersion",
           "in": "path",
           "required": true,
           "schema": {
-            "type": "integer"
+            "type": "TODO"
           }
         }
       ],
-      "delete": {
-        "operationId": "folder_api_v2-delete-TODO",
-        "responses": {
-          "200": {
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "string"
-                }
-              }
-            }
-          }
-        }
-      },
-      "patch": {
-        "operationId": "folder_api_v2-update-TODO",
-        "responses": {
-          "200": {
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "string"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/v1-3/version": {
       "get": {
         "operationId": "utility_api-version-TODO",
         "responses": {
@@ -686,7 +637,17 @@
         }
       }
     },
-    "/api/v1-3/status": {
+    "/api/{apiVersion}/status": {
+      "parameters": [
+        {
+          "name": "apiVersion",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "TODO"
+          }
+        }
+      ],
       "get": {
         "operationId": "utility_api-status-TODO",
         "responses": {
@@ -703,7 +664,17 @@
         }
       }
     },
-    "/api/v1-3/cleanup/before-update": {
+    "/api/{apiVersion}/cleanup/before-update": {
+      "parameters": [
+        {
+          "name": "apiVersion",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "TODO"
+          }
+        }
+      ],
       "get": {
         "operationId": "utility_api-before_update-TODO",
         "responses": {
@@ -720,7 +691,17 @@
         }
       }
     },
-    "/api/v1-3/cleanup/after-update": {
+    "/api/{apiVersion}/cleanup/after-update": {
+      "parameters": [
+        {
+          "name": "apiVersion",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "TODO"
+          }
+        }
+      ],
       "get": {
         "operationId": "utility_api-after_update-TODO",
         "responses": {
@@ -737,7 +718,17 @@
         }
       }
     },
-    "/api/v1-3/folders": {
+    "/api/{apiVersion}/folders": {
+      "parameters": [
+        {
+          "name": "apiVersion",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "TODO"
+          }
+        }
+      ],
       "get": {
         "operationId": "folder_api-index-TODO",
         "responses": {
@@ -769,8 +760,16 @@
         }
       }
     },
-    "/api/v1-3/folders/{folderId}": {
+    "/api/{apiVersion}/folders/{folderId}": {
       "parameters": [
+        {
+          "name": "apiVersion",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "TODO"
+          }
+        },
         {
           "name": "folderId",
           "in": "path",
@@ -811,8 +810,16 @@
         }
       }
     },
-    "/api/v1-3/folders/{folderId}/read": {
+    "/api/{apiVersion}/folders/{folderId}/read": {
       "parameters": [
+        {
+          "name": "apiVersion",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "TODO"
+          }
+        },
         {
           "name": "folderId",
           "in": "path",
@@ -825,564 +832,6 @@
       ],
       "post": {
         "operationId": "folder_api-read-TODO",
-        "responses": {
-          "200": {
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "string"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/v1-3/feeds": {
-      "get": {
-        "operationId": "feed_api-index-TODO",
-        "responses": {
-          "200": {
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "string"
-                }
-              }
-            }
-          }
-        }
-      },
-      "post": {
-        "operationId": "feed_api-create-TODO",
-        "responses": {
-          "200": {
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "string"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/v1-3/feeds/{feedId}": {
-      "parameters": [
-        {
-          "name": "feedId",
-          "in": "path",
-          "required": true,
-          "schema": {
-            "type": "integer"
-          }
-        }
-      ],
-      "put": {
-        "operationId": "feed_api-update-TODO",
-        "responses": {
-          "200": {
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "string"
-                }
-              }
-            }
-          }
-        }
-      },
-      "delete": {
-        "operationId": "feed_api-delete-TODO",
-        "responses": {
-          "200": {
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "string"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/v1-3/feeds/all": {
-      "get": {
-        "operationId": "feed_api-from_all_users-TODO",
-        "responses": {
-          "200": {
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "string"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/v1-3/feeds/{feedId}/move": {
-      "parameters": [
-        {
-          "name": "feedId",
-          "in": "path",
-          "required": true,
-          "schema": {
-            "type": "integer"
-          }
-        }
-      ],
-      "post": {
-        "operationId": "feed_api-move-TODO",
-        "responses": {
-          "200": {
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "string"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/v1-3/feeds/{feedId}/rename": {
-      "parameters": [
-        {
-          "name": "feedId",
-          "in": "path",
-          "required": true,
-          "schema": {
-            "type": "integer"
-          }
-        }
-      ],
-      "post": {
-        "operationId": "feed_api-rename-TODO",
-        "responses": {
-          "200": {
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "string"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/v1-3/feeds/{feedId}/read": {
-      "parameters": [
-        {
-          "name": "feedId",
-          "in": "path",
-          "required": true,
-          "schema": {
-            "type": "integer"
-          }
-        }
-      ],
-      "post": {
-        "operationId": "feed_api-read-TODO",
-        "responses": {
-          "200": {
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "string"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/v1-3/feeds/update": {
-      "get": {
-        "operationId": "feed_api-update-TODO",
-        "responses": {
-          "200": {
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "string"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/v1-3/items": {
-      "get": {
-        "operationId": "item_api-index-TODO",
-        "responses": {
-          "200": {
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "string"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/v1-3/items/updated": {
-      "get": {
-        "operationId": "item_api-updated-TODO",
-        "responses": {
-          "200": {
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "string"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/v1-3/items/{itemId}/read": {
-      "parameters": [
-        {
-          "name": "itemId",
-          "in": "path",
-          "required": true,
-          "schema": {
-            "type": "integer"
-          }
-        }
-      ],
-      "post": {
-        "operationId": "item_api-read-TODO",
-        "responses": {
-          "200": {
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "string"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/v1-3/items/{itemId}/unread": {
-      "parameters": [
-        {
-          "name": "itemId",
-          "in": "path",
-          "required": true,
-          "schema": {
-            "type": "integer"
-          }
-        }
-      ],
-      "post": {
-        "operationId": "item_api-unread-TODO",
-        "responses": {
-          "200": {
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "string"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/v1-3/items/read": {
-      "post": {
-        "operationId": "item_api-read_all-TODO",
-        "responses": {
-          "200": {
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "string"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/v1-3/items/read/multiple": {
-      "post": {
-        "operationId": "item_api-read_multiple_by_ids-TODO",
-        "responses": {
-          "200": {
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "string"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/v1-3/items/unread/multiple": {
-      "post": {
-        "operationId": "item_api-unread_multiple_by_ids-TODO",
-        "responses": {
-          "200": {
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "string"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/v1-3/items/{itemId}/star": {
-      "parameters": [
-        {
-          "name": "itemId",
-          "in": "path",
-          "required": true,
-          "schema": {
-            "type": "integer"
-          }
-        }
-      ],
-      "post": {
-        "operationId": "item_api-star_by_item_id-TODO",
-        "responses": {
-          "200": {
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "string"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/v1-3/items/{itemId}/unstar": {
-      "parameters": [
-        {
-          "name": "itemId",
-          "in": "path",
-          "required": true,
-          "schema": {
-            "type": "integer"
-          }
-        }
-      ],
-      "post": {
-        "operationId": "item_api-unstar_by_item_id-TODO",
-        "responses": {
-          "200": {
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "string"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/v1-3/items/star/multiple": {
-      "post": {
-        "operationId": "item_api-star_multiple_by_item_ids-TODO",
-        "responses": {
-          "200": {
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "string"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/v1-3/items/unstar/multiple": {
-      "post": {
-        "operationId": "item_api-unstar_multiple_by_item_ids-TODO",
-        "responses": {
-          "200": {
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "string"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/v1-2/version": {
-      "get": {
-        "operationId": "utility_api-version-TODO",
-        "responses": {
-          "200": {
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "string"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/v1-2/status": {
-      "get": {
-        "operationId": "utility_api-status-TODO",
-        "responses": {
-          "200": {
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "string"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/v1-2/cleanup/before-update": {
-      "get": {
-        "operationId": "utility_api-before_update-TODO",
-        "responses": {
-          "200": {
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "string"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/v1-2/cleanup/after-update": {
-      "get": {
-        "operationId": "utility_api-after_update-TODO",
-        "responses": {
-          "200": {
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "string"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/v1-2/folders": {
-      "get": {
-        "operationId": "folder_api-index-TODO",
-        "responses": {
-          "200": {
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "string"
-                }
-              }
-            }
-          }
-        }
-      },
-      "post": {
-        "operationId": "folder_api-create-TODO",
-        "responses": {
-          "200": {
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "string"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/v1-2/folders/{folderId}": {
-      "parameters": [
-        {
-          "name": "folderId",
-          "in": "path",
-          "required": true,
-          "schema": {
-            "type": "integer"
-          }
-        }
-      ],
-      "put": {
-        "operationId": "folder_api-update-TODO",
-        "responses": {
-          "200": {
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "string"
-                }
-              }
-            }
-          }
-        }
-      },
-      "delete": {
-        "operationId": "folder_api-delete-TODO",
         "responses": {
           "200": {
             "description": "",
@@ -1425,7 +874,17 @@
         }
       }
     },
-    "/api/v1-2/feeds": {
+    "/api/{apiVersion}/feeds": {
+      "parameters": [
+        {
+          "name": "apiVersion",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "TODO"
+          }
+        }
+      ],
       "get": {
         "operationId": "feed_api-index-TODO",
         "responses": {
@@ -1457,8 +916,16 @@
         }
       }
     },
-    "/api/v1-2/feeds/{feedId}": {
+    "/api/{apiVersion}/feeds/{feedId}": {
       "parameters": [
+        {
+          "name": "apiVersion",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "TODO"
+          }
+        },
         {
           "name": "feedId",
           "in": "path",
@@ -1499,9 +966,54 @@
         }
       }
     },
-    "/api/v1-2/feeds/all": {
+    "/api/{apiVersion}/feeds/all": {
+      "parameters": [
+        {
+          "name": "apiVersion",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "TODO"
+          }
+        }
+      ],
       "get": {
         "operationId": "feed_api-from_all_users-TODO",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/{apiVersion}/feeds/{feedId}/move": {
+      "parameters": [
+        {
+          "name": "apiVersion",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "TODO"
+          }
+        },
+        {
+          "name": "feedId",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "integer"
+          }
+        }
+      ],
+      "post": {
+        "operationId": "feed_api-move-TODO",
         "responses": {
           "200": {
             "description": "",
@@ -1543,6 +1055,41 @@
         }
       }
     },
+    "/api/{apiVersion}/feeds/{feedId}/rename": {
+      "parameters": [
+        {
+          "name": "apiVersion",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "TODO"
+          }
+        },
+        {
+          "name": "feedId",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "integer"
+          }
+        }
+      ],
+      "post": {
+        "operationId": "feed_api-rename-TODO",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/v1-2/feeds/{feedId}/rename": {
       "parameters": [
         {
@@ -1556,6 +1103,41 @@
       ],
       "put": {
         "operationId": "feed_api-rename-TODO",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/{apiVersion}/feeds/{feedId}/read": {
+      "parameters": [
+        {
+          "name": "apiVersion",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "TODO"
+          }
+        },
+        {
+          "name": "feedId",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "integer"
+          }
+        }
+      ],
+      "post": {
+        "operationId": "feed_api-read-TODO",
         "responses": {
           "200": {
             "description": "",
@@ -1597,7 +1179,17 @@
         }
       }
     },
-    "/api/v1-2/feeds/update": {
+    "/api/{apiVersion}/feeds/update": {
+      "parameters": [
+        {
+          "name": "apiVersion",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "TODO"
+          }
+        }
+      ],
       "get": {
         "operationId": "feed_api-update-TODO",
         "responses": {
@@ -1614,7 +1206,17 @@
         }
       }
     },
-    "/api/v1-2/items": {
+    "/api/{apiVersion}/items": {
+      "parameters": [
+        {
+          "name": "apiVersion",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "TODO"
+          }
+        }
+      ],
       "get": {
         "operationId": "item_api-index-TODO",
         "responses": {
@@ -1631,9 +1233,54 @@
         }
       }
     },
-    "/api/v1-2/items/updated": {
+    "/api/{apiVersion}/items/updated": {
+      "parameters": [
+        {
+          "name": "apiVersion",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "TODO"
+          }
+        }
+      ],
       "get": {
         "operationId": "item_api-updated-TODO",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/{apiVersion}/items/{itemId}/read": {
+      "parameters": [
+        {
+          "name": "apiVersion",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "TODO"
+          }
+        },
+        {
+          "name": "itemId",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "integer"
+          }
+        }
+      ],
+      "post": {
+        "operationId": "item_api-read-TODO",
         "responses": {
           "200": {
             "description": "",
@@ -1675,6 +1322,41 @@
         }
       }
     },
+    "/api/{apiVersion}/items/{itemId}/unread": {
+      "parameters": [
+        {
+          "name": "apiVersion",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "TODO"
+          }
+        },
+        {
+          "name": "itemId",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "integer"
+          }
+        }
+      ],
+      "post": {
+        "operationId": "item_api-unread-TODO",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/v1-2/items/{itemId}/unread": {
       "parameters": [
         {
@@ -1688,6 +1370,33 @@
       ],
       "put": {
         "operationId": "item_api-unread-TODO",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/{apiVersion}/items/read": {
+      "parameters": [
+        {
+          "name": "apiVersion",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "TODO"
+          }
+        }
+      ],
+      "post": {
+        "operationId": "item_api-read_all-TODO",
         "responses": {
           "200": {
             "description": "",
@@ -1719,6 +1428,33 @@
         }
       }
     },
+    "/api/{apiVersion}/items/read/multiple": {
+      "parameters": [
+        {
+          "name": "apiVersion",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "TODO"
+          }
+        }
+      ],
+      "post": {
+        "operationId": "item_api-read_multiple_by_ids-TODO",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/v1-2/items/read/multiple": {
       "put": {
         "operationId": "item_api-read_multiple-TODO",
@@ -1736,9 +1472,71 @@
         }
       }
     },
+    "/api/{apiVersion}/items/unread/multiple": {
+      "parameters": [
+        {
+          "name": "apiVersion",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "TODO"
+          }
+        }
+      ],
+      "post": {
+        "operationId": "item_api-unread_multiple_by_ids-TODO",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/v1-2/items/unread/multiple": {
       "put": {
         "operationId": "item_api-unread_multiple-TODO",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/{apiVersion}/items/{itemId}/star": {
+      "parameters": [
+        {
+          "name": "apiVersion",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "TODO"
+          }
+        },
+        {
+          "name": "itemId",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "integer"
+          }
+        }
+      ],
+      "post": {
+        "operationId": "item_api-star_by_item_id-TODO",
         "responses": {
           "200": {
             "description": "",
@@ -1788,6 +1586,41 @@
         }
       }
     },
+    "/api/{apiVersion}/items/{itemId}/unstar": {
+      "parameters": [
+        {
+          "name": "apiVersion",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "TODO"
+          }
+        },
+        {
+          "name": "itemId",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "integer"
+          }
+        }
+      ],
+      "post": {
+        "operationId": "item_api-unstar_by_item_id-TODO",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/v1-2/items/{feedId}/{guidHash}/unstar": {
       "parameters": [
         {
@@ -1823,6 +1656,33 @@
         }
       }
     },
+    "/api/{apiVersion}/items/star/multiple": {
+      "parameters": [
+        {
+          "name": "apiVersion",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "TODO"
+          }
+        }
+      ],
+      "post": {
+        "operationId": "item_api-star_multiple_by_item_ids-TODO",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/v1-2/items/star/multiple": {
       "put": {
         "operationId": "item_api-star_multiple-TODO",
@@ -1840,9 +1700,95 @@
         }
       }
     },
+    "/api/{apiVersion}/items/unstar/multiple": {
+      "parameters": [
+        {
+          "name": "apiVersion",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "TODO"
+          }
+        }
+      ],
+      "post": {
+        "operationId": "item_api-unstar_multiple_by_item_ids-TODO",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/v1-2/items/unstar/multiple": {
       "put": {
         "operationId": "item_api-unstar_multiple-TODO",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v2/folders": {
+      "post": {
+        "operationId": "folder_api_v2-create-TODO",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v2/folders/{folderId}": {
+      "parameters": [
+        {
+          "name": "folderId",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "integer"
+          }
+        }
+      ],
+      "delete": {
+        "operationId": "folder_api_v2-delete-TODO",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "operationId": "folder_api_v2-update-TODO",
         "responses": {
           "200": {
             "description": "",

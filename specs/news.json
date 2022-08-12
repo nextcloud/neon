@@ -2,7 +2,7 @@
   "openapi": "3.0.3",
   "info": {
     "title": "News",
-    "version": "18.1.0",
+    "version": "18.1.1",
     "description": "An RSS/Atom feed reader",
     "license": {
       "name": "agpl"
