@@ -12,7 +12,7 @@ extension NewsVersionSupported on NewsClient {
   /// Checks if the app on the server is supported by the client
   Future<bool> isSupported() async {
     final versions = await getSupportedApiVersions();
-    return versions.apiLevels!.contains('v1-2');
+    return versions.apiLevels!.contains('v1-3');
   }
 }
 

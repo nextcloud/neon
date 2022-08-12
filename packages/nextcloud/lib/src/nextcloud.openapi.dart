@@ -1702,7 +1702,7 @@ class NewsClient {
   }
 
   Future<NewsListFolders> listFolders() async {
-    var path = '/apps/news/api/v1-2/folders';
+    var path = '/apps/news/api/v1-3/folders';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{};
     Uint8List? body;
@@ -1719,7 +1719,7 @@ class NewsClient {
   }
 
   Future<NewsListFolders> createFolder({required String name}) async {
-    var path = '/apps/news/api/v1-2/folders';
+    var path = '/apps/news/api/v1-3/folders';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{};
     Uint8List? body;
@@ -1740,7 +1740,7 @@ class NewsClient {
     required int folderId,
     required String name,
   }) async {
-    var path = '/apps/news/api/v1-2/folders/{folderId}';
+    var path = '/apps/news/api/v1-3/folders/{folderId}';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{};
     Uint8List? body;
@@ -1759,7 +1759,7 @@ class NewsClient {
   }
 
   Future deleteFolder({required int folderId}) async {
-    var path = '/apps/news/api/v1-2/folders/{folderId}';
+    var path = '/apps/news/api/v1-3/folders/{folderId}';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{};
     Uint8List? body;
@@ -1780,14 +1780,14 @@ class NewsClient {
     required int folderId,
     required int newestItemId,
   }) async {
-    var path = '/apps/news/api/v1-2/folders/{folderId}/read';
+    var path = '/apps/news/api/v1-3/folders/{folderId}/read';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{};
     Uint8List? body;
     path = path.replaceAll('{folderId}', Uri.encodeQueryComponent(folderId.toString()));
     queryParameters['newestItemId'] = newestItemId.toString();
     final response = await rootClient.doRequest(
-      'put',
+      'post',
       Uri(path: path, queryParameters: queryParameters).toString(),
       headers,
       body,
@@ -1799,7 +1799,7 @@ class NewsClient {
   }
 
   Future<NewsListFeeds> listFeeds() async {
-    var path = '/apps/news/api/v1-2/feeds';
+    var path = '/apps/news/api/v1-3/feeds';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{};
     Uint8List? body;
@@ -1819,7 +1819,7 @@ class NewsClient {
     required String url,
     int? folderId,
   }) async {
-    var path = '/apps/news/api/v1-2/feeds';
+    var path = '/apps/news/api/v1-3/feeds';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{};
     Uint8List? body;
@@ -1840,7 +1840,7 @@ class NewsClient {
   }
 
   Future deleteFeed({required int feedId}) async {
-    var path = '/apps/news/api/v1-2/feeds/{feedId}';
+    var path = '/apps/news/api/v1-3/feeds/{feedId}';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{};
     Uint8List? body;
@@ -1861,7 +1861,7 @@ class NewsClient {
     required int feedId,
     int? folderId,
   }) async {
-    var path = '/apps/news/api/v1-2/feeds/{feedId}/move';
+    var path = '/apps/news/api/v1-3/feeds/{feedId}/move';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{};
     Uint8List? body;
@@ -1885,7 +1885,7 @@ class NewsClient {
     required int feedId,
     required String feedTitle,
   }) async {
-    var path = '/apps/news/api/v1-2/feeds/{feedId}/rename';
+    var path = '/apps/news/api/v1-3/feeds/{feedId}/rename';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{};
     Uint8List? body;
@@ -1907,14 +1907,14 @@ class NewsClient {
     required int feedId,
     required int newestItemId,
   }) async {
-    var path = '/apps/news/api/v1-2/feeds/{feedId}/read';
+    var path = '/apps/news/api/v1-3/feeds/{feedId}/read';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{};
     Uint8List? body;
     path = path.replaceAll('{feedId}', Uri.encodeQueryComponent(feedId.toString()));
     queryParameters['newestItemId'] = newestItemId.toString();
     final response = await rootClient.doRequest(
-      'put',
+      'post',
       Uri(path: path, queryParameters: queryParameters).toString(),
       headers,
       body,
@@ -1933,7 +1933,7 @@ class NewsClient {
     int offset = 0,
     int oldestFirst = 0,
   }) async {
-    var path = '/apps/news/api/v1-2/items';
+    var path = '/apps/news/api/v1-3/items';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{};
     Uint8List? body;
@@ -1960,7 +1960,7 @@ class NewsClient {
     int id = 0,
     int lastModified = 0,
   }) async {
-    var path = '/apps/news/api/v1-2/items/updated';
+    var path = '/apps/news/api/v1-3/items/updated';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{};
     Uint8List? body;
@@ -1980,13 +1980,13 @@ class NewsClient {
   }
 
   Future markArticleAsRead({required int itemId}) async {
-    var path = '/apps/news/api/v1-2/items/{itemId}/read';
+    var path = '/apps/news/api/v1-3/items/{itemId}/read';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{};
     Uint8List? body;
     path = path.replaceAll('{itemId}', Uri.encodeQueryComponent(itemId.toString()));
     final response = await rootClient.doRequest(
-      'put',
+      'post',
       Uri(path: path, queryParameters: queryParameters).toString(),
       headers,
       body,
@@ -1998,13 +1998,13 @@ class NewsClient {
   }
 
   Future markArticleAsUnread({required int itemId}) async {
-    var path = '/apps/news/api/v1-2/items/{itemId}/unread';
+    var path = '/apps/news/api/v1-3/items/{itemId}/unread';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{};
     Uint8List? body;
     path = path.replaceAll('{itemId}', Uri.encodeQueryComponent(itemId.toString()));
     final response = await rootClient.doRequest(
-      'put',
+      'post',
       Uri(path: path, queryParameters: queryParameters).toString(),
       headers,
       body,
@@ -2015,18 +2015,14 @@ class NewsClient {
     throw ApiException.fromResponse(response);
   }
 
-  Future starArticle({
-    required int feedId,
-    required String guidHash,
-  }) async {
-    var path = '/apps/news/api/v1-2/items/{feedId}/{guidHash}/star';
+  Future starArticle({required int itemId}) async {
+    var path = '/apps/news/api/v1-3/items/{itemId}/star';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{};
     Uint8List? body;
-    path = path.replaceAll('{feedId}', Uri.encodeQueryComponent(feedId.toString()));
-    path = path.replaceAll('{guidHash}', Uri.encodeQueryComponent(guidHash.toString()));
+    path = path.replaceAll('{itemId}', Uri.encodeQueryComponent(itemId.toString()));
     final response = await rootClient.doRequest(
-      'put',
+      'post',
       Uri(path: path, queryParameters: queryParameters).toString(),
       headers,
       body,
@@ -2037,18 +2033,14 @@ class NewsClient {
     throw ApiException.fromResponse(response);
   }
 
-  Future unstarArticle({
-    required int feedId,
-    required String guidHash,
-  }) async {
-    var path = '/apps/news/api/v1-2/items/{feedId}/{guidHash}/unstar';
+  Future unstarArticle({required int itemId}) async {
+    var path = '/apps/news/api/v1-3/items/{itemId}/unstar';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{};
     Uint8List? body;
-    path = path.replaceAll('{feedId}', Uri.encodeQueryComponent(feedId.toString()));
-    path = path.replaceAll('{guidHash}', Uri.encodeQueryComponent(guidHash.toString()));
+    path = path.replaceAll('{itemId}', Uri.encodeQueryComponent(itemId.toString()));
     final response = await rootClient.doRequest(
-      'put',
+      'post',
       Uri(path: path, queryParameters: queryParameters).toString(),
       headers,
       body,

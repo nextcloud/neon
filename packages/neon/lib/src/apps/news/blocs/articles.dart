@@ -87,8 +87,7 @@ class NewsArticlesBloc extends $NewsArticlesBloc {
     _$starArticleEvent.listen((final article) {
       _wrapArticleAction((final client) async {
         await client.news.starArticle(
-          feedId: article.feedId!,
-          guidHash: article.guidHash!,
+          itemId: article.id!,
         );
         // TODO
         //_articleUpdateController.add(article..starred = true);
@@ -98,8 +97,7 @@ class NewsArticlesBloc extends $NewsArticlesBloc {
     _$unstarArticleEvent.listen((final article) {
       _wrapArticleAction((final client) async {
         await client.news.unstarArticle(
-          feedId: article.feedId!,
-          guidHash: article.guidHash!,
+          itemId: article.id!,
         );
         // TODO
         //_articleUpdateController.add(article..starred = false);

@@ -264,7 +264,7 @@
         }
       }
     },
-    "/apps/news/api/v1-2/folders": {
+    "/apps/news/api/v1-3/folders": {
       "get": {
         "operationId": "list-folders",
         "tags": [
@@ -312,7 +312,7 @@
         }
       }
     },
-    "/apps/news/api/v1-2/folders/{folderId}": {
+    "/apps/news/api/v1-3/folders/{folderId}": {
       "parameters": [
         {
           "name": "folderId",
@@ -356,7 +356,7 @@
         }
       }
     },
-    "/apps/news/api/v1-2/folders/{folderId}/read": {
+    "/apps/news/api/v1-3/folders/{folderId}/read": {
       "parameters": [
         {
           "name": "folderId",
@@ -368,7 +368,7 @@
           }
         }
       ],
-      "put": {
+      "post": {
         "operationId": "mark-folder-as-read",
         "tags": [
           "news"
@@ -391,7 +391,7 @@
         }
       }
     },
-    "/apps/news/api/v1-2/feeds": {
+    "/apps/news/api/v1-3/feeds": {
       "get": {
         "operationId": "list-feeds",
         "tags": [
@@ -447,7 +447,7 @@
         }
       }
     },
-    "/apps/news/api/v1-2/feeds/{feedId}": {
+    "/apps/news/api/v1-3/feeds/{feedId}": {
       "parameters": [
         {
           "name": "feedId",
@@ -470,7 +470,7 @@
         }
       }
     },
-    "/apps/news/api/v1-2/feeds/{feedId}/move": {
+    "/apps/news/api/v1-3/feeds/{feedId}/move": {
       "parameters": [
         {
           "name": "feedId",
@@ -503,7 +503,7 @@
         }
       }
     },
-    "/apps/news/api/v1-2/feeds/{feedId}/rename": {
+    "/apps/news/api/v1-3/feeds/{feedId}/rename": {
       "parameters": [
         {
           "name": "feedId",
@@ -536,7 +536,7 @@
         }
       }
     },
-    "/apps/news/api/v1-2/feeds/{feedId}/read": {
+    "/apps/news/api/v1-3/feeds/{feedId}/read": {
       "parameters": [
         {
           "name": "feedId",
@@ -547,7 +547,7 @@
           }
         }
       ],
-      "put": {
+      "post": {
         "operationId": "mark-feed-as-read",
         "tags": [
           "news"
@@ -569,7 +569,7 @@
         }
       }
     },
-    "/apps/news/api/v1-2/items": {
+    "/apps/news/api/v1-3/items": {
       "get": {
         "operationId": "list-articles",
         "tags": [
@@ -645,7 +645,7 @@
         }
       }
     },
-    "/apps/news/api/v1-2/items/updated": {
+    "/apps/news/api/v1-3/items/updated": {
       "get": {
         "operationId": "list-updated-articles",
         "tags": [
@@ -694,7 +694,7 @@
         }
       }
     },
-    "/apps/news/api/v1-2/items/{itemId}/read": {
+    "/apps/news/api/v1-3/items/{itemId}/read": {
       "parameters": [
         {
           "name": "itemId",
@@ -705,7 +705,7 @@
           }
         }
       ],
-      "put": {
+      "post": {
         "operationId": "mark-article-as-read",
         "tags": [
           "news"
@@ -717,7 +717,7 @@
         }
       }
     },
-    "/apps/news/api/v1-2/items/{itemId}/unread": {
+    "/apps/news/api/v1-3/items/{itemId}/unread": {
       "parameters": [
         {
           "name": "itemId",
@@ -728,7 +728,7 @@
           }
         }
       ],
-      "put": {
+      "post": {
         "operationId": "mark-article-as-unread",
         "tags": [
           "news"
@@ -740,26 +740,18 @@
         }
       }
     },
-    "/apps/news/api/v1-2/items/{feedId}/{guidHash}/star": {
+    "/apps/news/api/v1-3/items/{itemId}/star": {
       "parameters": [
         {
-          "name": "feedId",
+          "name": "itemId",
           "in": "path",
           "required": true,
           "schema": {
             "type": "integer"
           }
-        },
-        {
-          "name": "guidHash",
-          "in": "path",
-          "required": true,
-          "schema": {
-            "type": "string"
-          }
         }
       ],
-      "put": {
+      "post": {
         "operationId": "star-article",
         "tags": [
           "news"
@@ -771,26 +763,18 @@
         }
       }
     },
-    "/apps/news/api/v1-2/items/{feedId}/{guidHash}/unstar": {
+    "/apps/news/api/v1-3/items/{itemId}/unstar": {
       "parameters": [
         {
-          "name": "feedId",
+          "name": "itemId",
           "in": "path",
           "required": true,
           "schema": {
             "type": "integer"
           }
-        },
-        {
-          "name": "guidHash",
-          "in": "path",
-          "required": true,
-          "schema": {
-            "type": "string"
-          }
         }
       ],
-      "put": {
+      "post": {
         "operationId": "unstar-article",
         "tags": [
           "news"
