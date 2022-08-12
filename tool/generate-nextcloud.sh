@@ -94,13 +94,41 @@ function spec_templates_generate() {
   fvm dart packages/spec_templates/bin/generate.dart "$appdir" "$is_core"
 }
 
+function update_core_appinfo() {
+  xmlstarlet \
+    edit \
+    --update "/info/version" \
+    --value "$(cd external/nextcloud-server && git describe --tags | sed "s/^v//")" \
+    specs/templates/appinfo_core.xml \
+    > /tmp/nextcloud-neon/appinfo_core1.xml
+  xmlstarlet \
+    format \
+    --indent-spaces 4 \
+    /tmp/nextcloud-neon/appinfo_core1.xml \
+    > /tmp/nextcloud-neon/appinfo_core2.xml
+  cp /tmp/nextcloud-neon/appinfo_core2.xml specs/templates/appinfo_core.xml
+}
+
+function update_spec_from_template() {
+  codename="$1"
+  jq \
+    -s \
+    '{openapi: .[0].openapi, info: .[0].info, servers: .[1].servers, security: .[0].security, components: {securitySchemes: .[0].components.securitySchemes, schemas: .[1].components.schemas}, paths: .[1].paths}' \
+    specs/templates/"$codename".json \
+    specs/"$codename".json \
+    > /tmp/nextcloud-neon/"codename".json
+  cp /tmp/nextcloud-neon/"codename".json specs/"$codename".json
+}
+
 (
   cd external/openapi-generator
-  ./mvnw package -DskipTests -Dmaven.test.skip=true
+  #./mvnw package -DskipTests -Dmaven.test.skip=true
 )
 
 rm -rf /tmp/nextcloud-neon
 mkdir -p /tmp/nextcloud-neon
+
+update_core_appinfo
 
 spec_templates_generate external/nextcloud-news false
 spec_templates_generate external/nextcloud-notes false
@@ -108,6 +136,13 @@ spec_templates_generate external/nextcloud-notifications false
 spec_templates_generate external/nextcloud-server/apps/provisioning_api false
 spec_templates_generate external/nextcloud-server/apps/user_status false
 spec_templates_generate external/nextcloud-server/core true
+
+update_spec_from_template "core"
+update_spec_from_template "news"
+update_spec_from_template "notes"
+update_spec_from_template "notifications"
+update_spec_from_template "provisioning_api"
+update_spec_from_template "user_status"
 
 openapi_generate "common" true
 openapi_generate "core" false
