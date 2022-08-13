@@ -14,6 +14,7 @@ import 'package:neon/l10n/localizations.dart';
 import 'package:neon/src/apps/news/blocs/articles.dart';
 import 'package:neon/src/apps/news/blocs/news.dart';
 import 'package:neon/src/blocs/accounts.dart';
+import 'package:neon/src/blocs/apps.dart';
 import 'package:neon/src/models/account.dart';
 import 'package:neon/src/neon.dart';
 import 'package:nextcloud/nextcloud.dart';
@@ -66,7 +67,10 @@ class NewsApp extends AppImplementation<NewsBloc, NewsAppSpecificOptions> {
       );
 
   @override
-  Widget buildPage(BuildContext context, NewsBloc bloc) => NewsMainPage(
-        bloc: bloc,
+  Widget buildPage(BuildContext context, AppsBloc appsBloc) => NewsMainPage(
+        bloc: appsBloc.getAppBloc(this),
       );
+
+  @override
+  BehaviorSubject<int>? getUnreadCounter(AppsBloc appsBloc) => appsBloc.getAppBloc<NewsBloc>(this).unreadCounter;
 }

@@ -34,9 +34,9 @@ abstract class AppImplementation<T extends RxBlocBase, R extends NextcloudAppSpe
 
   T buildBloc(final NextcloudClient client);
 
-  Widget buildPage(BuildContext context, T bloc);
-  Widget buildPageFromAppsBloc(final BuildContext context, final AppsBloc appsBloc) =>
-      buildPage(context, appsBloc.getAppBloc(this));
+  BehaviorSubject<int>? getUnreadCounter(AppsBloc appsBloc);
+
+  Widget buildPage(BuildContext context, AppsBloc appsBloc);
 
   Widget buildIcon(
     final BuildContext context, {

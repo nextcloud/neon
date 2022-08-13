@@ -18,6 +18,7 @@ import 'package:neon/l10n/localizations.dart';
 import 'package:neon/src/apps/files/blocs/browser.dart';
 import 'package:neon/src/apps/files/blocs/files.dart';
 import 'package:neon/src/blocs/accounts.dart';
+import 'package:neon/src/blocs/apps.dart';
 import 'package:neon/src/models/account.dart';
 import 'package:neon/src/neon.dart';
 import 'package:nextcloud/nextcloud.dart';
@@ -59,7 +60,10 @@ class FilesApp extends AppImplementation<FilesBloc, FilesAppSpecificOptions> {
       );
 
   @override
-  Widget buildPage(BuildContext context, FilesBloc bloc) => FilesMainPage(
-        bloc: bloc,
+  Widget buildPage(BuildContext context, AppsBloc appsBloc) => FilesMainPage(
+        bloc: appsBloc.getAppBloc(this),
       );
+
+  @override
+  BehaviorSubject<int>? getUnreadCounter(AppsBloc appsBloc) => null;
 }

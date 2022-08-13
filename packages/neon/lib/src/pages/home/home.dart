@@ -508,7 +508,26 @@ class _HomePageState extends State<HomePage> with tray.TrayListener, WindowListe
                                   if (appsData.map((final a) => a.id).contains(appImplementation.id)) ...[
                                     ListTile(
                                       key: Key('app-${appImplementation.id}'),
-                                      title: Text(appImplementation.name(context)),
+                                      title: StreamBuilder<int>(
+                                        stream: appImplementation.getUnreadCounter(_appsBloc) ??
+                                            BehaviorSubject<int>.seeded(0),
+                                        builder: (final context, final unreadCounterSnapshot) => Row(
+                                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            Text(appImplementation.name(context)),
+                                            if (unreadCounterSnapshot.hasData && unreadCounterSnapshot.data! > 0) ...[
+                                              Text(
+                                                unreadCounterSnapshot.data!.toString(),
+                                                style: TextStyle(
+                                                  color: Theme.of(context).colorScheme.primary,
+                                                  fontWeight: FontWeight.bold,
+                                                  fontSize: 14,
+                                                ),
+                                              ),
+                                            ],
+                                          ],
+                                        ),
+                                      ),
                                       leading: appImplementation.buildIcon(context),
                                       minLeadingWidth: 0,
                                       onTap: () {
@@ -565,7 +584,7 @@ class _HomePageState extends State<HomePage> with tray.TrayListener, WindowListe
                           Expanded(
                             child: appsData
                                 .singleWhere((final a) => a.id == activeAppIDSnapshot.data!)
-                                .buildPageFromAppsBloc(context, _appsBloc),
+                                .buildPage(context, _appsBloc),
                           ),
                         ],
                       ],
