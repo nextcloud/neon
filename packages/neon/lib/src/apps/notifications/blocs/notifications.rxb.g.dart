@@ -34,6 +34,9 @@ abstract class $NotificationsBloc extends RxBlocBase
   /// The state of [errors] implemented in [_mapToErrorsState]
   late final Stream<Exception> _errorsState = _mapToErrorsState();
 
+  /// The state of [unreadCounter] implemented in [_mapToUnreadCounterState]
+  late final BehaviorSubject<int> _unreadCounterState = _mapToUnreadCounterState();
+
   @override
   void refresh() => _$refreshEvent.add(null);
 
@@ -49,9 +52,14 @@ abstract class $NotificationsBloc extends RxBlocBase
   @override
   Stream<Exception> get errors => _errorsState;
 
+  @override
+  BehaviorSubject<int> get unreadCounter => _unreadCounterState;
+
   BehaviorSubject<Result<List<NotificationsNotification>>> _mapToNotificationsState();
 
   Stream<Exception> _mapToErrorsState();
+
+  BehaviorSubject<int> _mapToUnreadCounterState();
 
   @override
   NotificationsBlocEvents get events => this;

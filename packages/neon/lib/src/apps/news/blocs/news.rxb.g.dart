@@ -57,6 +57,9 @@ abstract class $NewsBloc extends RxBlocBase implements NewsBlocEvents, NewsBlocS
   /// The state of [errors] implemented in [_mapToErrorsState]
   late final Stream<Exception> _errorsState = _mapToErrorsState();
 
+  /// The state of [unreadCounter] implemented in [_mapToUnreadCounterState]
+  late final BehaviorSubject<int> _unreadCounterState = _mapToUnreadCounterState();
+
   @override
   void refresh({required bool mainArticlesToo}) => _$refreshEvent.add(mainArticlesToo);
 
@@ -96,11 +99,16 @@ abstract class $NewsBloc extends RxBlocBase implements NewsBlocEvents, NewsBlocS
   @override
   Stream<Exception> get errors => _errorsState;
 
+  @override
+  BehaviorSubject<int> get unreadCounter => _unreadCounterState;
+
   BehaviorSubject<Result<List<NewsFolder>>> _mapToFoldersState();
 
   BehaviorSubject<Result<List<NewsFeed>>> _mapToFeedsState();
 
   Stream<Exception> _mapToErrorsState();
+
+  BehaviorSubject<int> _mapToUnreadCounterState();
 
   @override
   NewsBlocEvents get events => this;

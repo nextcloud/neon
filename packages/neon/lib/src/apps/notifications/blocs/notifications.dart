@@ -21,6 +21,8 @@ abstract class NotificationsBlocStates {
   BehaviorSubject<Result<List<NotificationsNotification>>> get notifications;
 
   Stream<Exception> get errors;
+
+  BehaviorSubject<int> get unreadCounter;
 }
 
 @RxBloc()
@@ -35,8 +37,15 @@ class NotificationsBloc extends $NotificationsBloc {
     _$deleteNotificationEvent.listen((final notification) {
       _wrapAction(() async => client.notifications.deleteNotification(notification.notificationId!));
     });
+
     _$deleteAllNotificationsEvent.listen((final notification) {
       _wrapAction(() async => client.notifications.deleteAllNotifications());
+    });
+
+    _notificationsSubject.listen((final result) {
+      if (result.data != null) {
+        _unreadCounterSubject.add(result.data!.length);
+      }
     });
 
     _loadNotifications();
@@ -70,11 +79,13 @@ class NotificationsBloc extends $NotificationsBloc {
 
   final _notificationsSubject = BehaviorSubject<Result<List<NotificationsNotification>>>();
   final _errorsStreamController = StreamController<Exception>();
+  final _unreadCounterSubject = BehaviorSubject<int>();
 
   @override
   void dispose() {
     _notificationsSubject.close();
     _errorsStreamController.close();
+    _unreadCounterSubject.close();
     super.dispose();
   }
 
@@ -83,4 +94,7 @@ class NotificationsBloc extends $NotificationsBloc {
 
   @override
   Stream<Exception> _mapToErrorsState() => _errorsStreamController.stream.asBroadcastStream();
+
+  @override
+  BehaviorSubject<int> _mapToUnreadCounterState() => _unreadCounterSubject;
 }

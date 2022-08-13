@@ -9,13 +9,13 @@ import 'package:intersperse/intersperse.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:neon/l10n/localizations.dart';
 import 'package:neon/src/apps/notes/blocs/notes.dart';
+import 'package:neon/src/blocs/apps.dart';
 import 'package:neon/src/neon.dart';
 import 'package:neon/src/widgets/custom_auto_complete.dart';
 import 'package:nextcloud/nextcloud.dart';
 import 'package:provider/provider.dart';
 import 'package:rxdart/rxdart.dart';
 import 'package:settings/settings.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:sort_box/sort_box.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 import 'package:wakelock/wakelock.dart';
@@ -35,21 +35,29 @@ part 'widgets/category_select.dart';
 part 'widgets/notes_view.dart';
 
 class NotesApp extends AppImplementation<NotesBloc, NotesAppSpecificOptions> {
-  NotesApp(
-    final SharedPreferences sharedPreferences,
-    final RequestManager requestManager,
-  ) : super(
-          'notes',
-          (final localizations) => localizations.notesName,
-          sharedPreferences,
-          NotesAppSpecificOptions.new,
-          (final options, final client) => NotesBloc(
-            options,
-            requestManager,
-            client,
-          ),
-          (final context, final bloc) => NotesMainPage(
-            bloc: bloc,
-          ),
-        );
+  NotesApp(super.sharedPreferences, super.requestManager, super.platform);
+
+  @override
+  String id = 'notes';
+
+  @override
+  String nameFromLocalization(AppLocalizations localizations) => localizations.notesName;
+
+  @override
+  NotesAppSpecificOptions buildOptions(Storage storage) => NotesAppSpecificOptions(storage);
+
+  @override
+  NotesBloc buildBloc(NextcloudClient client) => NotesBloc(
+        options,
+        requestManager,
+        client,
+      );
+
+  @override
+  Widget buildPage(BuildContext context, AppsBloc appsBloc) => NotesMainPage(
+        bloc: appsBloc.getAppBloc(this),
+      );
+
+  @override
+  BehaviorSubject<int>? getUnreadCounter(AppsBloc appsBloc) => null;
 }

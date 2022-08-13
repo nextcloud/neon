@@ -38,6 +38,8 @@ abstract class NewsBlocStates {
   BehaviorSubject<Result<List<NewsFeed>>> get feeds;
 
   Stream<Exception> get errors;
+
+  BehaviorSubject<int> get unreadCounter;
 }
 
 @RxBloc()
@@ -146,6 +148,14 @@ class NewsBloc extends $NewsBloc {
       });
     });
 
+    mainArticlesBloc.articles.listen((final result) {
+      if (result.data != null) {
+        final type = mainArticlesBloc.filterType.valueOrNull;
+        _unreadCounterSubject
+            .add(result.data!.where((final a) => type == FilterType.starred ? a.starred! : a.unread!).length);
+      }
+    });
+
     _loadAll(false);
   }
 
@@ -223,12 +233,14 @@ class NewsBloc extends $NewsBloc {
   final _foldersSubject = BehaviorSubject<Result<List<NewsFolder>>>();
   final _feedsSubject = BehaviorSubject<Result<List<NewsFeed>>>();
   final _errorsStreamController = StreamController<Exception>();
+  final _unreadCounterSubject = BehaviorSubject<int>();
 
   @override
   void dispose() {
     _foldersSubject.close();
     _feedsSubject.close();
     _errorsStreamController.close();
+    _unreadCounterSubject.close();
     super.dispose();
   }
 
@@ -240,4 +252,7 @@ class NewsBloc extends $NewsBloc {
 
   @override
   Stream<Exception> _mapToErrorsState() => _errorsStreamController.stream.asBroadcastStream();
+
+  @override
+  BehaviorSubject<int> _mapToUnreadCounterState() => _unreadCounterSubject;
 }
