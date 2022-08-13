@@ -8,27 +8,31 @@ import 'package:neon/src/apps/notifications/blocs/notifications.dart';
 import 'package:neon/src/neon.dart';
 import 'package:nextcloud/nextcloud.dart';
 import 'package:provider/provider.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 part 'options.dart';
 part 'pages/main.dart';
 
 class NotificationsApp extends AppImplementation<NotificationsBloc, NotificationsAppSpecificOptions> {
-  NotificationsApp(
-    final SharedPreferences sharedPreferences,
-    final RequestManager requestManager,
-  ) : super(
-          'notifications',
-          (final localizations) => localizations.notificationsName,
-          sharedPreferences,
-          NotificationsAppSpecificOptions.new,
-          (final options, final client) => NotificationsBloc(
-            options,
-            requestManager,
-            client,
-          ),
-          (final context, final bloc) => NotificationsMainPage(
-            bloc: bloc,
-          ),
-        );
+  NotificationsApp(super.sharedPreferences, super.requestManager, super.platform);
+
+  @override
+  String id = 'notifications';
+
+  @override
+  String nameFromLocalization(AppLocalizations localizations) => localizations.notificationsName;
+
+  @override
+  NotificationsAppSpecificOptions buildOptions(Storage storage) => NotificationsAppSpecificOptions(storage);
+
+  @override
+  NotificationsBloc buildBloc(NextcloudClient client) => NotificationsBloc(
+        options,
+        requestManager,
+        client,
+      );
+
+  @override
+  Widget buildPage(BuildContext context, NotificationsBloc bloc) => NotificationsMainPage(
+        bloc: bloc,
+      );
 }

@@ -25,7 +25,6 @@ import 'package:path/path.dart' as p;
 import 'package:provider/provider.dart';
 import 'package:rxdart/rxdart.dart';
 import 'package:settings/settings.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 part 'dialogs/choose_create.dart';
 part 'dialogs/choose_folder.dart';
@@ -40,23 +39,27 @@ part 'widgets/browser_view.dart';
 part 'widgets/file_preview.dart';
 
 class FilesApp extends AppImplementation<FilesBloc, FilesAppSpecificOptions> {
-  FilesApp(
-    final SharedPreferences sharedPreferences,
-    final RequestManager requestManager,
-    final NeonPlatform platform,
-  ) : super(
-          'files',
-          (final localizations) => localizations.filesName,
-          sharedPreferences,
-          FilesAppSpecificOptions.new,
-          (final options, final client) => FilesBloc(
-            options,
-            requestManager,
-            client,
-            platform,
-          ),
-          (final context, final bloc) => FilesMainPage(
-            bloc: bloc,
-          ),
-        );
+  FilesApp(super.sharedPreferences, super.requestManager, super.platform);
+
+  @override
+  String id = 'files';
+
+  @override
+  String nameFromLocalization(AppLocalizations localizations) => localizations.filesName;
+
+  @override
+  FilesAppSpecificOptions buildOptions(Storage storage) => FilesAppSpecificOptions(storage);
+
+  @override
+  FilesBloc buildBloc(NextcloudClient client) => FilesBloc(
+        options,
+        requestManager,
+        client,
+        platform,
+      );
+
+  @override
+  Widget buildPage(BuildContext context, FilesBloc bloc) => FilesMainPage(
+        bloc: bloc,
+      );
 }

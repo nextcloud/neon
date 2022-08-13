@@ -21,7 +21,6 @@ import 'package:provider/provider.dart';
 import 'package:rxdart/rxdart.dart';
 import 'package:settings/settings.dart';
 import 'package:share_plus/share_plus.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:sort_box/sort_box.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 import 'package:wakelock/wakelock.dart';
@@ -48,22 +47,26 @@ part 'widgets/folder_view.dart';
 part 'widgets/folders_view.dart';
 
 class NewsApp extends AppImplementation<NewsBloc, NewsAppSpecificOptions> {
-  NewsApp(
-    final SharedPreferences sharedPreferences,
-    final RequestManager requestManager,
-    final NeonPlatform platform,
-  ) : super(
-          'news',
-          (final localizations) => localizations.newsName,
-          sharedPreferences,
-          (final storage) => NewsAppSpecificOptions(storage, platform),
-          (final options, final client) => NewsBloc(
-            options,
-            requestManager,
-            client,
-          ),
-          (final context, final bloc) => NewsMainPage(
-            bloc: bloc,
-          ),
-        );
+  NewsApp(super.sharedPreferences, super.requestManager, super.platform);
+
+  @override
+  String id = 'news';
+
+  @override
+  String nameFromLocalization(AppLocalizations localizations) => localizations.newsName;
+
+  @override
+  NewsAppSpecificOptions buildOptions(Storage storage) => NewsAppSpecificOptions(storage, platform);
+
+  @override
+  NewsBloc buildBloc(NextcloudClient client) => NewsBloc(
+        options,
+        requestManager,
+        client,
+      );
+
+  @override
+  Widget buildPage(BuildContext context, NewsBloc bloc) => NewsMainPage(
+        bloc: bloc,
+      );
 }

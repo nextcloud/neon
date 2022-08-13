@@ -8,34 +8,35 @@ List<AppImplementation> getAppImplementations(
     [
       FilesApp(sharedPreferences, requestManager, platform),
       NewsApp(sharedPreferences, requestManager, platform),
-      NotesApp(sharedPreferences, requestManager),
-      NotificationsApp(sharedPreferences, requestManager),
+      NotesApp(sharedPreferences, requestManager, platform),
+      NotificationsApp(sharedPreferences, requestManager, platform),
     ];
 
 abstract class AppImplementation<T extends RxBlocBase, R extends NextcloudAppSpecificOptions> {
   AppImplementation(
-    this.id,
-    this.nameFromLocalization,
     final SharedPreferences sharedPreferences,
-    final R Function(Storage) buildOptions,
-    this._buildBloc,
-    this._buildPage,
+    final this.requestManager,
+    final this.platform,
   ) {
     final storage = Storage('app-$id', sharedPreferences);
     options = buildOptions(storage);
   }
 
-  final String Function(AppLocalizations) nameFromLocalization;
+  String get id;
+  final RequestManager requestManager;
+  final NeonPlatform platform;
+
+  String nameFromLocalization(AppLocalizations localizations);
   String name(BuildContext context) => nameFromLocalization(AppLocalizations.of(context));
-  final String id;
+
   late final R options;
-  final T Function(R options, NextcloudClient client) _buildBloc;
-  final Widget Function(BuildContext context, T bloc) _buildPage;
+  R buildOptions(Storage storage);
 
-  T buildBloc(final NextcloudClient client) => _buildBloc(options, client);
+  T buildBloc(final NextcloudClient client);
 
-  Widget buildPage(final BuildContext context, final AppsBloc appsBloc) =>
-      _buildPage(context, appsBloc.getAppBloc(this));
+  Widget buildPage(BuildContext context, T bloc);
+  Widget buildPageFromAppsBloc(final BuildContext context, final AppsBloc appsBloc) =>
+      buildPage(context, appsBloc.getAppBloc(this));
 
   Widget buildIcon(
     final BuildContext context, {

@@ -15,7 +15,6 @@ import 'package:nextcloud/nextcloud.dart';
 import 'package:provider/provider.dart';
 import 'package:rxdart/rxdart.dart';
 import 'package:settings/settings.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:sort_box/sort_box.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 import 'package:wakelock/wakelock.dart';
@@ -35,21 +34,26 @@ part 'widgets/category_select.dart';
 part 'widgets/notes_view.dart';
 
 class NotesApp extends AppImplementation<NotesBloc, NotesAppSpecificOptions> {
-  NotesApp(
-    final SharedPreferences sharedPreferences,
-    final RequestManager requestManager,
-  ) : super(
-          'notes',
-          (final localizations) => localizations.notesName,
-          sharedPreferences,
-          NotesAppSpecificOptions.new,
-          (final options, final client) => NotesBloc(
-            options,
-            requestManager,
-            client,
-          ),
-          (final context, final bloc) => NotesMainPage(
-            bloc: bloc,
-          ),
-        );
+  NotesApp(super.sharedPreferences, super.requestManager, super.platform);
+
+  @override
+  String id = 'notes';
+
+  @override
+  String nameFromLocalization(AppLocalizations localizations) => localizations.notesName;
+
+  @override
+  NotesAppSpecificOptions buildOptions(Storage storage) => NotesAppSpecificOptions(storage);
+
+  @override
+  NotesBloc buildBloc(NextcloudClient client) => NotesBloc(
+        options,
+        requestManager,
+        client,
+      );
+
+  @override
+  Widget buildPage(BuildContext context, NotesBloc bloc) => NotesMainPage(
+        bloc: bloc,
+      );
 }
