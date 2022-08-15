@@ -79,7 +79,7 @@
   "globalOptionsThemeModeDark": "Dark",
   "globalOptionsThemeModeAutomatic": "Automatic",
   "globalOptionsThemeOLEDAsDark": "OLED theme as dark theme",
-  "globalOptionsPushNotificationsNotice": "External services are used for delivering push notifications. While the content is encrypted and can only be ready by this app, extracting metadata like the time and count of notifications is still possible.",
+  "globalOptionsPushNotificationsNotice": "External services are used for delivering push notifications. While the content is encrypted and can only be read by this app, extracting metadata like the time and count of notifications is still possible.",
   "globalOptionsPushNotificationsEnabled": "Enabled",
   "globalOptionsPushNotificationsEnabledDisabledNotice": "No UnifiedPush distributor could be found. Please go to https://unifiedpush.org/users/distributors and setup any of the listed distributors. Then re-open this app and you should be able to enable notifications",
   "globalOptionsPushNotificationsDistributor": "UnifiedPush Distributor",

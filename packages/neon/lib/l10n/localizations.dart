@@ -398,7 +398,7 @@ abstract class AppLocalizations {
   /// No description provided for @globalOptionsPushNotificationsNotice.
   ///
   /// In en, this message translates to:
-  /// **'External services are used for delivering push notifications. While the content is encrypted and can only be ready by this app, extracting metadata like the time and count of notifications is still possible.'**
+  /// **'External services are used for delivering push notifications. While the content is encrypted and can only be read by this app, extracting metadata like the time and count of notifications is still possible.'**
   String get globalOptionsPushNotificationsNotice;
 
   /// No description provided for @globalOptionsPushNotificationsEnabled.

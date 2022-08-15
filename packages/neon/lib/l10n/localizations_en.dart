@@ -170,7 +170,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get globalOptionsPushNotificationsNotice =>
-      'External services are used for delivering push notifications. While the content is encrypted and can only be ready by this app, extracting metadata like the time and count of notifications is still possible.';
+      'External services are used for delivering push notifications. While the content is encrypted and can only be read by this app, extracting metadata like the time and count of notifications is still possible.';
 
   @override
   String get globalOptionsPushNotificationsEnabled => 'Enabled';
