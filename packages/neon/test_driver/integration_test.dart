@@ -3,16 +3,14 @@ import 'dart:io';
 import 'package:integration_test/integration_test_driver_extended.dart';
 
 Future<void> main() async {
-  final screenshotsDir = Directory('screenshots');
-  if (screenshotsDir.existsSync()) {
-    screenshotsDir.deleteSync(recursive: true);
-  }
-  screenshotsDir.createSync();
-
+  Directory('screenshots').createSync();
   try {
     await integrationDriver(
       onScreenshot: (final screenshotName, final screenshotBytes) async {
-        File('screenshots/$screenshotName.png').writeAsBytesSync(screenshotBytes);
+        final file = File('screenshots/$screenshotName.png');
+        if (!file.existsSync()) {
+          file.writeAsBytesSync(screenshotBytes);
+        }
         return true;
       },
     );

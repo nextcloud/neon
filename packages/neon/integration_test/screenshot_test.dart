@@ -277,6 +277,7 @@ Future main() async {
     // Show Photos folder
     await tester.tap(find.text('Photos'));
     await tester.pumpAndSettle();
+    await tester.pump();
 
     await binding.takeScreenshot('files_photos');
 
