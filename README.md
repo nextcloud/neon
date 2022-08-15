@@ -22,22 +22,21 @@ There are separate rooms for the client and the app. If you don't know which cha
 There are a lot of planned features that still need help. Go [here](https://github.com/jld3103/nextcloud-neon/issues?q=is%3Aopen+is%3Aissue+label%3Afeature) and grab an issue to work on.  
 Even if a new feature is not listed yet, please open an issue.
 
-- :heavy_check_mark: Fully supported
-- :white_check_mark: Fully supported, but new features planned
-- :warning: Partially supported
+- :heavy_check_mark: Supported
 - :rocket: Planned
 
-| App           | Status                                                                                                                                             |
-|---------------|----------------------------------------------------------------------------------------------------------------------------------------------------|
-| Activity      | :rocket:                                                                                                                                           |
-| Calendar      | :rocket:                                                                                                                                           |
-| Contacts      | :rocket:                                                                                                                                           |
-| Cookbook      | :rocket:                                                                                                                                           |
-| Files         | :white_check_mark: [See here](https://github.com/jld3103/nextcloud-neon/issues?q=is%3Aopen+is%3Aissue+label%3A%22neon%3A+files%22+label%3Afeature) |
-| News          | :white_check_mark: [See here](https://github.com/jld3103/nextcloud-neon/issues?q=is%3Aopen+is%3Aissue+label%3Afeature+label%3A%22neon%3A+news%22)  |
-| Notes         | :heavy_check_mark:                                                                                                                                 |
-| Notifications | :heavy_check_mark:                                                                                                                                 |
-| Tasks         | :rocket:                                                                                                                                           |
+| App           | Status             |
+|---------------|--------------------|
+| Files         | :heavy_check_mark: |
+| News          | :heavy_check_mark: |
+| Notes         | :heavy_check_mark: |
+| Notifications | :heavy_check_mark: |
+| Activity      | :rocket:           |
+| Calendar      | :rocket:           |
+| Contacts      | :rocket:           |
+| Cookbook      | :rocket:           |
+| Photos        | :rocket:           |
+| Tasks         | :rocket:           |
 
 
 ## Platform support
