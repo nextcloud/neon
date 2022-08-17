@@ -36,6 +36,7 @@ Even if a new feature is not listed yet, please open an issue.
 | Contacts      | :rocket:           |
 | Cookbook      | :rocket:           |
 | Photos        | :rocket:           |
+| Talk          | :rocket:           |
 | Tasks         | :rocket:           |
 
 
