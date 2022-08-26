@@ -50,7 +50,11 @@ class _LoginPageState extends State<LoginPage> {
           serverURL: result.server!,
           username: result.loginName!,
           appPassword: result.appPassword!,
-        );
+        )..setupClient(await PackageInfo.fromPlatform());
+
+        if (!mounted) {
+          return;
+        }
 
         final accountsBloc = RxBlocProvider.of<AccountsBloc>(context);
         if (widget.serverURL != null) {
