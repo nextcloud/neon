@@ -70,13 +70,19 @@ class Account {
 
 Map<String, String> _idCache = {};
 
-extension NextcloudClientID on NextcloudClient {
+extension NextcloudClientHelpers on NextcloudClient {
   String get id {
     final key = '$username@$baseURL';
     if (_idCache[key] != null) {
       return _idCache[key]!;
     }
     return _idCache[key] = sha1.convert(utf8.encode(key)).toString();
+  }
+
+  String get humanReadableID {
+    final uri = Uri.parse(baseURL);
+    // Maybe also show path if it is not '/' ?
+    return '${username!}@${uri.port != 443 ? '${uri.host}:${uri.port}' : uri.host}';
   }
 }
 

@@ -327,53 +327,63 @@ class _HomePageState extends State<HomePage> with tray.TrayListener, WindowListe
                 _scaffoldKey.currentState!.openDrawer();
                 return false;
               },
-              child: Scaffold(
-                key: _scaffoldKey,
-                resizeToAvoidBottomInset: false,
-                appBar: AppBar(
-                  title: Row(
-                    children: [
-                      Expanded(
-                        child: Row(
+              child: Builder(
+                builder: (final context) {
+                  if (accountsSnapshot.hasData) {
+                    final accounts = accountsSnapshot.data!;
+                    final account = accounts.singleWhere((final account) => account.id == widget.account.id);
+                    return Scaffold(
+                      key: _scaffoldKey,
+                      resizeToAvoidBottomInset: false,
+                      appBar: AppBar(
+                        title: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            if (appsData != null && activeAppIDSnapshot.hasData) ...[
-                              Flexible(
-                                child: Text(
-                                  appsData.singleWhere((final a) => a.id == activeAppIDSnapshot.data!).name(context),
-                                ),
-                              ),
-                            ],
-                            if (appsError != null) ...[
-                              const SizedBox(
-                                width: 8,
-                              ),
-                              Icon(
-                                Icons.error_outline,
-                                size: 30,
-                                color: Theme.of(context).colorScheme.onPrimary,
-                              ),
-                            ],
-                            if (appsLoading) ...[
-                              const SizedBox(
-                                width: 8,
-                              ),
-                              SizedBox(
-                                height: 30,
-                                width: 30,
-                                child: CircularProgressIndicator(
-                                  color: Theme.of(context).colorScheme.onPrimary,
-                                  strokeWidth: 2,
-                                ),
-                              ),
-                            ],
-                            const SizedBox(
-                              width: 8,
+                            Row(
+                              children: [
+                                if (appsData != null && activeAppIDSnapshot.hasData) ...[
+                                  Flexible(
+                                    child: Text(
+                                      appsData
+                                          .singleWhere((final a) => a.id == activeAppIDSnapshot.data!)
+                                          .name(context),
+                                    ),
+                                  ),
+                                ],
+                                if (appsError != null) ...[
+                                  const SizedBox(
+                                    width: 8,
+                                  ),
+                                  Icon(
+                                    Icons.error_outline,
+                                    size: 30,
+                                    color: Theme.of(context).colorScheme.onPrimary,
+                                  ),
+                                ],
+                                if (appsLoading) ...[
+                                  const SizedBox(
+                                    width: 8,
+                                  ),
+                                  SizedBox(
+                                    height: 30,
+                                    width: 30,
+                                    child: CircularProgressIndicator(
+                                      color: Theme.of(context).colorScheme.onPrimary,
+                                      strokeWidth: 2,
+                                    ),
+                                  ),
+                                ],
+                              ],
                             ),
+                            if (accounts.length > 1) ...[
+                              Text(
+                                account.client.humanReadableID,
+                                style: Theme.of(context).textTheme.bodySmall,
+                              ),
+                            ],
                           ],
                         ),
-                      ),
-                      Row(
-                        children: [
+                        actions: [
                           if (appsData != null && activeAppIDSnapshot.hasData) ...[
                             IconButton(
                               icon: const Icon(Icons.settings),
@@ -388,209 +398,210 @@ class _HomePageState extends State<HomePage> with tray.TrayListener, WindowListe
                                 );
                               },
                             ),
-                            Builder(
-                              builder: (final context) {
-                                if (accountsSnapshot.hasData) {
-                                  final matches = accountsSnapshot.data!
-                                      .where(
-                                        (final account) => account.id == widget.account.id,
-                                      )
-                                      .toList();
-                                  if (matches.length == 1) {
-                                    return AccountAvatar(
-                                      account: matches[0],
-                                      requestManager: _requestManager,
-                                    );
-                                  }
-                                }
-                                return Container();
+                            IconButton(
+                              icon: AccountAvatar(
+                                account: account,
+                                requestManager: _requestManager,
+                              ),
+                              onPressed: () async {
+                                await Navigator.of(context).push(
+                                  MaterialPageRoute(
+                                    builder: (final context) => AccountSpecificSettingsPage(
+                                      bloc: accountsBloc,
+                                      account: account,
+                                    ),
+                                  ),
+                                );
                               },
                             ),
                           ],
                         ],
                       ),
-                    ],
-                  ),
-                ),
-                drawer: Drawer(
-                  child: Column(
-                    children: [
-                      Expanded(
-                        child: Scrollbar(
-                          child: ListView(
-                            // Needed for the drawer header to also render in the statusbar
-                            padding: EdgeInsets.zero,
-                            children: [
-                              Builder(
-                                builder: (final context) {
-                                  if (accountsSnapshot.hasData) {
-                                    return DrawerHeader(
-                                      decoration: BoxDecoration(
-                                        color: Theme.of(context).colorScheme.primary,
-                                      ),
-                                      child: Column(
-                                        crossAxisAlignment: CrossAxisAlignment.start,
-                                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                        children: [
-                                          if (capabilitiesData != null) ...[
-                                            Text(
-                                              capabilitiesData.capabilities!.theming!.name!,
-                                              style: DefaultTextStyle.of(context).style.copyWith(
-                                                    color: Theme.of(context).colorScheme.onPrimary,
-                                                  ),
+                      drawer: Drawer(
+                        child: Column(
+                          children: [
+                            Expanded(
+                              child: Scrollbar(
+                                child: ListView(
+                                  // Needed for the drawer header to also render in the statusbar
+                                  padding: EdgeInsets.zero,
+                                  children: [
+                                    Builder(
+                                      builder: (final context) {
+                                        if (accountsSnapshot.hasData) {
+                                          return DrawerHeader(
+                                            decoration: BoxDecoration(
+                                              color: Theme.of(context).colorScheme.primary,
                                             ),
-                                            if (capabilitiesData.capabilities!.theming!.logo != null) ...[
-                                              Flexible(
-                                                child: CachedURLImage(
-                                                  url: capabilitiesData.capabilities!.theming!.logo!,
-                                                  requestManager: _requestManager,
-                                                  client: widget.account.client,
-                                                ),
-                                              ),
-                                            ],
-                                          ] else ...[
-                                            ExceptionWidget(
-                                              capabilitiesError,
-                                              onRetry: () {
-                                                _capabilitiesBloc.refresh();
-                                              },
-                                            ),
-                                            CustomLinearProgressIndicator(
-                                              visible: capabilitiesLoading,
-                                            ),
-                                          ],
-                                          if (accountsSnapshot.data!.length != 1) ...[
-                                            DropdownButtonHideUnderline(
-                                              child: DropdownButton<String>(
-                                                isExpanded: true,
-                                                dropdownColor: Theme.of(context).colorScheme.primary,
-                                                iconEnabledColor: Theme.of(context).colorScheme.onPrimary,
-                                                value: widget.account.id,
-                                                items: accountsSnapshot.data!
-                                                    .map<DropdownMenuItem<String>>(
-                                                      (final account) => DropdownMenuItem<String>(
-                                                        value: account.id,
-                                                        child: AccountTile(
-                                                          account: account,
+                                            child: Column(
+                                              crossAxisAlignment: CrossAxisAlignment.start,
+                                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                              children: [
+                                                if (capabilitiesData != null) ...[
+                                                  Text(
+                                                    capabilitiesData.capabilities!.theming!.name!,
+                                                    style: DefaultTextStyle.of(context).style.copyWith(
+                                                          color: Theme.of(context).colorScheme.onPrimary,
                                                         ),
+                                                  ),
+                                                  if (capabilitiesData.capabilities!.theming!.logo != null) ...[
+                                                    Flexible(
+                                                      child: CachedURLImage(
+                                                        url: capabilitiesData.capabilities!.theming!.logo!,
+                                                        requestManager: _requestManager,
+                                                        client: widget.account.client,
                                                       ),
-                                                    )
-                                                    .toList(),
-                                                onChanged: (final id) {
-                                                  for (final account in accountsSnapshot.data!) {
-                                                    if (account.id == id) {
-                                                      accountsBloc.setActiveAccount(account);
-                                                      break;
-                                                    }
-                                                  }
-                                                },
-                                              ),
+                                                    ),
+                                                  ],
+                                                ] else ...[
+                                                  ExceptionWidget(
+                                                    capabilitiesError,
+                                                    onRetry: () {
+                                                      _capabilitiesBloc.refresh();
+                                                    },
+                                                  ),
+                                                  CustomLinearProgressIndicator(
+                                                    visible: capabilitiesLoading,
+                                                  ),
+                                                ],
+                                                if (accountsSnapshot.data!.length != 1) ...[
+                                                  DropdownButtonHideUnderline(
+                                                    child: DropdownButton<String>(
+                                                      isExpanded: true,
+                                                      dropdownColor: Theme.of(context).colorScheme.primary,
+                                                      iconEnabledColor: Theme.of(context).colorScheme.onPrimary,
+                                                      value: widget.account.id,
+                                                      items: accountsSnapshot.data!
+                                                          .map<DropdownMenuItem<String>>(
+                                                            (final account) => DropdownMenuItem<String>(
+                                                              value: account.id,
+                                                              child: AccountTile(
+                                                                account: account,
+                                                                dense: true,
+                                                              ),
+                                                            ),
+                                                          )
+                                                          .toList(),
+                                                      onChanged: (final id) {
+                                                        for (final account in accountsSnapshot.data!) {
+                                                          if (account.id == id) {
+                                                            accountsBloc.setActiveAccount(account);
+                                                            break;
+                                                          }
+                                                        }
+                                                      },
+                                                    ),
+                                                  ),
+                                                ],
+                                              ],
                                             ),
-                                          ],
-                                        ],
-                                      ),
-                                    );
-                                  }
-                                  return Container();
-                                },
-                              ),
-                              ExceptionWidget(
-                                appsError,
-                                onRetry: () {
-                                  _appsBloc.refresh();
-                                },
-                              ),
-                              CustomLinearProgressIndicator(
-                                visible: appsLoading,
-                              ),
-                              if (appsData != null) ...[
-                                for (final appImplementation in appsData) ...[
-                                  if (appsData.map((final a) => a.id).contains(appImplementation.id)) ...[
-                                    ListTile(
-                                      key: Key('app-${appImplementation.id}'),
-                                      title: StreamBuilder<int>(
-                                        stream: appImplementation.getUnreadCounter(_appsBloc) ??
-                                            BehaviorSubject<int>.seeded(0),
-                                        builder: (final context, final unreadCounterSnapshot) => Row(
-                                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                          children: [
-                                            Text(appImplementation.name(context)),
-                                            if (unreadCounterSnapshot.hasData && unreadCounterSnapshot.data! > 0) ...[
-                                              Text(
-                                                unreadCounterSnapshot.data!.toString(),
-                                                style: TextStyle(
-                                                  color: Theme.of(context).colorScheme.primary,
-                                                  fontWeight: FontWeight.bold,
-                                                  fontSize: 14,
-                                                ),
-                                              ),
-                                            ],
-                                          ],
-                                        ),
-                                      ),
-                                      leading: appImplementation.buildIcon(context),
-                                      minLeadingWidth: 0,
-                                      onTap: () {
-                                        _appsBloc.setActiveApp(appImplementation.id);
-                                        Navigator.of(context).pop();
+                                          );
+                                        }
+                                        return Container();
                                       },
                                     ),
+                                    ExceptionWidget(
+                                      appsError,
+                                      onRetry: () {
+                                        _appsBloc.refresh();
+                                      },
+                                    ),
+                                    CustomLinearProgressIndicator(
+                                      visible: appsLoading,
+                                    ),
+                                    if (appsData != null) ...[
+                                      for (final appImplementation in appsData) ...[
+                                        if (appsData.map((final a) => a.id).contains(appImplementation.id)) ...[
+                                          ListTile(
+                                            key: Key('app-${appImplementation.id}'),
+                                            title: StreamBuilder<int>(
+                                              stream: appImplementation.getUnreadCounter(_appsBloc) ??
+                                                  BehaviorSubject<int>.seeded(0),
+                                              builder: (final context, final unreadCounterSnapshot) => Row(
+                                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                children: [
+                                                  Text(appImplementation.name(context)),
+                                                  if (unreadCounterSnapshot.hasData &&
+                                                      unreadCounterSnapshot.data! > 0) ...[
+                                                    Text(
+                                                      unreadCounterSnapshot.data!.toString(),
+                                                      style: TextStyle(
+                                                        color: Theme.of(context).colorScheme.primary,
+                                                        fontWeight: FontWeight.bold,
+                                                        fontSize: 14,
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ],
+                                              ),
+                                            ),
+                                            leading: appImplementation.buildIcon(context),
+                                            minLeadingWidth: 0,
+                                            onTap: () {
+                                              _appsBloc.setActiveApp(appImplementation.id);
+                                              Navigator.of(context).pop();
+                                            },
+                                          ),
+                                        ],
+                                      ],
+                                    ],
                                   ],
-                                ],
+                                ),
+                              ),
+                            ),
+                            ListTile(
+                              key: const Key('settings'),
+                              title: Text(AppLocalizations.of(context).settings),
+                              leading: const Icon(Icons.settings),
+                              minLeadingWidth: 0,
+                              onTap: () async {
+                                await Navigator.of(context).push(
+                                  MaterialPageRoute(
+                                    builder: (final context) => const SettingsPage(),
+                                  ),
+                                );
+                              },
+                            ),
+                          ],
+                        ),
+                      ),
+                      body: Column(
+                        children: [
+                          ServerStatus(
+                            account: widget.account,
+                          ),
+                          ExceptionWidget(
+                            appsError,
+                            onRetry: () {
+                              _appsBloc.refresh();
+                            },
+                          ),
+                          if (appsData != null) ...[
+                            if (appsData.isEmpty) ...[
+                              Expanded(
+                                child: Center(
+                                  child: Text(
+                                    AppLocalizations.of(context).errorNoCompatibleNextcloudAppsFound,
+                                    textAlign: TextAlign.center,
+                                  ),
+                                ),
+                              ),
+                            ] else ...[
+                              if (activeAppIDSnapshot.hasData) ...[
+                                Expanded(
+                                  child: appsData
+                                      .singleWhere((final a) => a.id == activeAppIDSnapshot.data!)
+                                      .buildPage(context, _appsBloc),
+                                ),
                               ],
                             ],
-                          ),
-                        ),
-                      ),
-                      ListTile(
-                        key: const Key('settings'),
-                        title: Text(AppLocalizations.of(context).settings),
-                        leading: const Icon(Icons.settings),
-                        minLeadingWidth: 0,
-                        onTap: () async {
-                          await Navigator.of(context).push(
-                            MaterialPageRoute(
-                              builder: (final context) => const SettingsPage(),
-                            ),
-                          );
-                        },
-                      ),
-                    ],
-                  ),
-                ),
-                body: Column(
-                  children: [
-                    ServerStatus(
-                      account: widget.account,
-                    ),
-                    ExceptionWidget(
-                      appsError,
-                      onRetry: () {
-                        _appsBloc.refresh();
-                      },
-                    ),
-                    if (appsData != null) ...[
-                      if (appsData.isEmpty) ...[
-                        Expanded(
-                          child: Center(
-                            child: Text(
-                              AppLocalizations.of(context).errorNoCompatibleNextcloudAppsFound,
-                              textAlign: TextAlign.center,
-                            ),
-                          ),
-                        ),
-                      ] else ...[
-                        if (activeAppIDSnapshot.hasData) ...[
-                          Expanded(
-                            child: appsData
-                                .singleWhere((final a) => a.id == activeAppIDSnapshot.data!)
-                                .buildPage(context, _appsBloc),
-                          ),
+                          ],
                         ],
-                      ],
-                    ],
-                  ],
-                ),
+                      ),
+                    );
+                  }
+                  return Container();
+                },
               ),
             ),
           ),

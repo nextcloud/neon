@@ -4,6 +4,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:neon/src/apps/files/app.dart';
 import 'package:neon/src/apps/files/blocs/browser.dart';
+import 'package:neon/src/models/account.dart';
 import 'package:neon/src/neon.dart';
 import 'package:nextcloud/nextcloud.dart';
 import 'package:open_file/open_file.dart';
@@ -79,7 +80,7 @@ class FilesBloc extends $FilesBloc {
           final file = File(
             p.join(
               await _platform.getUserAccessibleAppDataPath(),
-              '${client.username!}@${Uri.parse(client.baseURL).host}',
+              client.humanReadableID,
               'files',
               path.join(Platform.pathSeparator),
             ),

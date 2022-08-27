@@ -11,7 +11,7 @@ class AccountSpecificSettingsPage extends StatelessWidget {
   final Account account;
 
   late final _options = bloc.getOptions(account)!;
-  late final _name = '${account.username}@${Uri.parse(account.serverURL).host}';
+  late final _name = account.client.humanReadableID;
 
   @override
   Widget build(final BuildContext context) => Scaffold(
@@ -19,6 +19,18 @@ class AccountSpecificSettingsPage extends StatelessWidget {
         appBar: AppBar(
           title: Text(_name),
           actions: [
+            IconButton(
+              onPressed: () async {
+                if (await showConfirmationDialog(
+                  context,
+                  AppLocalizations.of(context).accountOptionsRemoveConfirm(account.client.humanReadableID),
+                )) {
+                  bloc.removeAccount(account);
+                  Navigator.of(context).pop();
+                }
+              },
+              icon: const Icon(MdiIcons.delete),
+            ),
             IconButton(
               onPressed: () async {
                 if (await showConfirmationDialog(

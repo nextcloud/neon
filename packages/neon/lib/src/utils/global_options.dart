@@ -22,20 +22,26 @@ class GlobalOptions {
     });
 
     rememberLastUsedAccount.stream.listen((final remember) async {
+      _initialAccountEnabledSubject.add(!remember);
       if (remember) {
-        await lastAccount.set(null);
+        await initialAccount.set(null);
       } else {
-        await lastAccount.set((await lastAccount.values.first).keys.toList()[0]);
+        // Only override the initial account if there already has been a value,
+        // which means it's not the initial emit from rememberLastUsedAccount
+        if (initialAccount.hasValue) {
+          await initialAccount.set((await initialAccount.values.first).keys.toList()[0]);
+        }
       }
     });
   }
 
   final Storage _storage;
   final PackageInfo _packageInfo;
-  final _accountsIDsSubject = BehaviorSubject<Map<String?, LabelBuilder>>();
   final _themeOLEDAsDarkEnabledSubject = BehaviorSubject<bool>();
   final _pushNotificationsEnabledEnabledSubject = BehaviorSubject<bool>();
   final _pushNotificationsDistributorsSubject = BehaviorSubject<Map<String?, LabelBuilder>>();
+  final _accountsIDsSubject = BehaviorSubject<Map<String?, LabelBuilder>>();
+  final _initialAccountEnabledSubject = BehaviorSubject<bool>();
 
   late final _distributorsMap = <String, String Function(BuildContext)>{
     _packageInfo.packageName: (final context) =>
@@ -61,7 +67,7 @@ class GlobalOptions {
     systemTrayEnabled,
     systemTrayHideToTrayWhenMinimized,
     rememberLastUsedAccount,
-    lastAccount,
+    initialAccount,
   ];
 
   Future reset() async {
@@ -84,7 +90,7 @@ class GlobalOptions {
     }
     _accountsIDsSubject.add({
       for (final account in accounts) ...{
-        account.id: (final _) => '',
+        account.id: (final context) => account.client.humanReadableID,
       },
     });
   }
@@ -183,11 +189,12 @@ class GlobalOptions {
     defaultValue: BehaviorSubject.seeded(true),
   );
 
-  late final lastAccount = SelectOption<String?>(
+  late final initialAccount = SelectOption<String?>(
     storage: _storage,
-    key: 'last-account',
-    label: (final _) => '',
+    key: 'initial-account',
+    label: (final context) => AppLocalizations.of(context).globaloptionsaccountsInitialAccount,
     defaultValue: BehaviorSubject.seeded(null),
     values: _accountsIDsSubject,
+    enabled: _initialAccountEnabledSubject,
   );
 }

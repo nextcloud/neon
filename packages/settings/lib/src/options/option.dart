@@ -27,11 +27,19 @@ abstract class Option<T> {
 
   late BehaviorSubject<T> stream;
   T get value {
+    if (hasValue) {
+      return stream.value;
+    }
+
+    return defaultValue.value;
+  }
+
+  bool get hasValue {
     if (!enabled.value) {
       throw OptionDisableException();
     }
 
-    return stream.value ?? defaultValue.value;
+    return stream.hasValue;
   }
 
   Future reset() async {

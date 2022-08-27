@@ -216,12 +216,15 @@ class AppLocalizationsEn extends AppLocalizations {
   String get globalOptionsAccountsRememberLastUsedAccount => 'Remember last used account';
 
   @override
-  String globalOptionsAccountsRemoveConfirm(String name, String url) {
-    return 'Are you sure you want to remove the account $name from $url?';
-  }
+  String get globaloptionsaccountsInitialAccount => 'Initial account';
 
   @override
   String get globalOptionsAccountsAdd => 'Add account';
+
+  @override
+  String accountOptionsRemoveConfirm(String id) {
+    return 'Are you sure you want to remove the account $id?';
+  }
 
   @override
   String get accountOptionsInitialApp => 'App to show initially';
