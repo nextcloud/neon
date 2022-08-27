@@ -94,18 +94,16 @@
   "globalOptionsSystemTrayEnabled": "Enable system tray",
   "globalOptionsSystemTrayHideToTrayWhenMinimized": "Hide to system tray when minimized",
   "globalOptionsAccountsRememberLastUsedAccount": "Remember last used account",
-  "globalOptionsAccountsRemoveConfirm": "Are you sure you want to remove the account {name} from {url}?",
-  "@globalOptionsAccountsRemoveConfirm": {
+  "globaloptionsaccountsInitialAccount": "Initial account",
+  "globalOptionsAccountsAdd": "Add account",
+  "accountOptionsRemoveConfirm": "Are you sure you want to remove the account {id}?",
+  "@accountOptionsRemoveConfirm": {
     "placeholders": {
-      "name": {
-        "type": "String"
-      },
-      "url": {
+      "id": {
         "type": "String"
       }
     }
   },
-  "globalOptionsAccountsAdd": "Add account",
   "accountOptionsInitialApp": "App to show initially",
   "accountOptionsAutomatic": "Automatic",
   "licenses": "Licenses",

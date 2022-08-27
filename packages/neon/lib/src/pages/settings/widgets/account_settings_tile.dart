@@ -5,22 +5,20 @@ class AccountSettingsTile extends SettingsTile {
     required this.account,
     this.color,
     this.trailing,
+    this.onTap,
     super.key,
   });
 
   final Account account;
   final Color? color;
   final Widget? trailing;
+  final VoidCallback? onTap;
 
   @override
-  Widget build(final BuildContext context) => Container(
-        padding: const EdgeInsets.symmetric(
-          horizontal: 16,
-        ),
-        child: AccountTile(
-          account: account,
-          color: color,
-          trailing: trailing,
-        ),
+  Widget build(final BuildContext context) => AccountTile(
+        account: account,
+        color: color,
+        trailing: trailing,
+        onTap: onTap,
       );
 }

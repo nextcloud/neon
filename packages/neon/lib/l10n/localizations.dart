@@ -485,17 +485,23 @@ abstract class AppLocalizations {
   /// **'Remember last used account'**
   String get globalOptionsAccountsRememberLastUsedAccount;
 
-  /// No description provided for @globalOptionsAccountsRemoveConfirm.
+  /// No description provided for @globaloptionsaccountsInitialAccount.
   ///
   /// In en, this message translates to:
-  /// **'Are you sure you want to remove the account {name} from {url}?'**
-  String globalOptionsAccountsRemoveConfirm(String name, String url);
+  /// **'Initial account'**
+  String get globaloptionsaccountsInitialAccount;
 
   /// No description provided for @globalOptionsAccountsAdd.
   ///
   /// In en, this message translates to:
   /// **'Add account'**
   String get globalOptionsAccountsAdd;
+
+  /// No description provided for @accountOptionsRemoveConfirm.
+  ///
+  /// In en, this message translates to:
+  /// **'Are you sure you want to remove the account {id}?'**
+  String accountOptionsRemoveConfirm(String id);
 
   /// No description provided for @accountOptionsInitialApp.
   ///

@@ -106,7 +106,7 @@ class AccountsBloc extends $AccountsBloc {
       final lastUsedAccountID = _storage.getString(_keyLastUsedAccount);
       _activeAccountSubject.add(accounts.singleWhere((final account) => account.id == lastUsedAccountID));
     } else {
-      _globalOptions.lastAccount.stream.first.then((final lastAccount) {
+      _globalOptions.initialAccount.stream.first.then((final lastAccount) {
         final matches = accounts.where((final account) => account.id == lastAccount).toList();
         if (matches.isNotEmpty) {
           _activeAccountSubject.add(matches[0]);
