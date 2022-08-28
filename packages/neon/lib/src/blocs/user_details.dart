@@ -6,7 +6,9 @@ import 'package:rxdart/rxdart.dart';
 
 part 'user_details.rxb.g.dart';
 
-abstract class UserDetailsBlocEvents {}
+abstract class UserDetailsBlocEvents {
+  void refresh();
+}
 
 abstract class UserDetailsBlocStates {
   BehaviorSubject<Result<ProvisioningApiUserDetails>> get userDetails;
@@ -18,6 +20,8 @@ class UserDetailsBloc extends $UserDetailsBloc {
     this._requestManager,
     this._client,
   ) {
+    _$refreshEvent.listen((final _) => _loadUserDetails());
+
     _loadUserDetails();
   }
 

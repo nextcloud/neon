@@ -227,6 +227,14 @@ class AppLocalizationsEn extends AppLocalizations {
   }
 
   @override
+  String get accountOptionsCategoryStorageInfo => 'Storage info';
+
+  @override
+  String accountOptionsQuotaUsedOf(String used, String total, String relative) {
+    return '$used used of $total ($relative%)';
+  }
+
+  @override
   String get accountOptionsInitialApp => 'App to show initially';
 
   @override

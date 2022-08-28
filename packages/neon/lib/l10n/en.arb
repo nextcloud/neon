@@ -104,6 +104,21 @@
       }
     }
   },
+  "accountOptionsCategoryStorageInfo": "Storage info",
+  "accountOptionsQuotaUsedOf": "{used} used of {total} ({relative}%)",
+  "@accountOptionsQuotaUsedOf": {
+    "placeholders": {
+      "used": {
+        "type": "String"
+      },
+      "total": {
+        "type": "String"
+      },
+      "relative": {
+        "type": "String"
+      }
+    }
+  },
   "accountOptionsInitialApp": "App to show initially",
   "accountOptionsAutomatic": "Automatic",
   "licenses": "Licenses",
