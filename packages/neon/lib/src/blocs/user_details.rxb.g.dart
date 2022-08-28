@@ -19,8 +19,14 @@ abstract class $UserDetailsBloc extends RxBlocBase
     implements UserDetailsBlocEvents, UserDetailsBlocStates, UserDetailsBlocType {
   final _compositeSubscription = CompositeSubscription();
 
+  /// Тhe [Subject] where events sink to by calling [refresh]
+  final _$refreshEvent = PublishSubject<void>();
+
   /// The state of [userDetails] implemented in [_mapToUserDetailsState]
   late final BehaviorSubject<Result<ProvisioningApiUserDetails>> _userDetailsState = _mapToUserDetailsState();
+
+  @override
+  void refresh() => _$refreshEvent.add(null);
 
   @override
   BehaviorSubject<Result<ProvisioningApiUserDetails>> get userDetails => _userDetailsState;
@@ -35,6 +41,7 @@ abstract class $UserDetailsBloc extends RxBlocBase
 
   @override
   void dispose() {
+    _$refreshEvent.close();
     _compositeSubscription.dispose();
     super.dispose();
   }

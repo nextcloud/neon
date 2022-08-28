@@ -503,6 +503,18 @@ abstract class AppLocalizations {
   /// **'Are you sure you want to remove the account {id}?'**
   String accountOptionsRemoveConfirm(String id);
 
+  /// No description provided for @accountOptionsCategoryStorageInfo.
+  ///
+  /// In en, this message translates to:
+  /// **'Storage info'**
+  String get accountOptionsCategoryStorageInfo;
+
+  /// No description provided for @accountOptionsQuotaUsedOf.
+  ///
+  /// In en, this message translates to:
+  /// **'{used} used of {total} ({relative}%)'**
+  String accountOptionsQuotaUsedOf(String used, String total, String relative);
+
   /// No description provided for @accountOptionsInitialApp.
   ///
   /// In en, this message translates to:
