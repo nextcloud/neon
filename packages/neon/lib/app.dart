@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:neon/l10n/localizations.dart';
@@ -84,7 +86,7 @@ class _NeonAppState extends State<NeonApp> with WidgetsBindingObserver {
   @override
   void dispose() {
     WidgetsBinding.instance.removeObserver(this);
-    _platformBrightness.close();
+    unawaited(_platformBrightness.close());
 
     super.dispose();
   }

@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:convert';
 
 import 'package:crypto/crypto.dart';
@@ -11,7 +12,7 @@ import 'package:settings/settings.dart';
 
 part 'account.g.dart';
 
-String userAgent(PackageInfo packageInfo) => 'Neon ${packageInfo.version}+${packageInfo.buildNumber}';
+String userAgent(final PackageInfo packageInfo) => 'Neon ${packageInfo.version}+${packageInfo.buildNumber}';
 
 @JsonSerializable()
 class Account {
@@ -50,7 +51,7 @@ class Account {
 
   NextcloudClient? _client;
 
-  void setupClient(PackageInfo packageInfo) {
+  void setupClient(final PackageInfo packageInfo) {
     _client ??= NextcloudClient(
       serverURL,
       username: username,
@@ -115,7 +116,7 @@ class AccountSpecificOptions {
   }
 
   void dispose() {
-    _appIDsSubject.close();
+    unawaited(_appIDsSubject.close());
     for (final option in options) {
       option.dispose();
     }

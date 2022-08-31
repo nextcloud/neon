@@ -86,9 +86,9 @@ class FilesBrowserBloc extends $FilesBrowserBloc {
 
   @override
   void dispose() {
-    _filesSubject.close();
-    _pathSubject.close();
-    _errorsStreamController.close();
+    unawaited(_filesSubject.close());
+    unawaited(_pathSubject.close());
+    unawaited(_errorsStreamController.close());
     super.dispose();
   }
 

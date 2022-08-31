@@ -23,7 +23,8 @@ class _NotificationsMainPageState extends State<NotificationsMainPage> {
   }
 
   @override
-  Widget build(BuildContext context) => StandardRxResultBuilder<NotificationsBloc, List<NotificationsNotification>>(
+  Widget build(final BuildContext context) =>
+      StandardRxResultBuilder<NotificationsBloc, List<NotificationsNotification>>(
         bloc: widget.bloc,
         state: (final bloc) => bloc.notifications,
         builder: (
@@ -130,7 +131,7 @@ class _NotificationsMainPageState extends State<NotificationsMainPage> {
               actions: [
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                    primary: Colors.red,
+                    backgroundColor: Colors.red,
                   ),
                   onPressed: () {
                     Navigator.of(context).pop();

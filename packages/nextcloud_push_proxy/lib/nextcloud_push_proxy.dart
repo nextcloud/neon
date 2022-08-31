@@ -41,7 +41,7 @@ class NextcloudPushProxy {
     ..post('/notifications', _notificationsHandler)
     ..get('/health', (final _) async => Response.ok(''));
 
-  Future<Response> _devicesHandler(Request request) async {
+  Future<Response> _devicesHandler(final Request request) async {
     final data = Uri(query: await request.readAsString()).queryParameters;
     _onNewDeviceController.add(
       PushProxyDevice(
@@ -54,7 +54,7 @@ class NextcloudPushProxy {
     return Response.ok('');
   }
 
-  Future<Response> _notificationsHandler(Request request) async {
+  Future<Response> _notificationsHandler(final Request request) async {
     final data = Uri(query: await request.readAsString()).queryParameters;
     for (final notification in data.values) {
       final notificationData = json.decode(notification) as Map<String, dynamic>;
@@ -119,7 +119,7 @@ class PushProxyDevice {
     required this.userPublicKey,
   });
 
-  factory PushProxyDevice.fromJson(Map<String, dynamic> data) => PushProxyDevice(
+  factory PushProxyDevice.fromJson(final Map<String, dynamic> data) => PushProxyDevice(
         pushToken: data['pushToken'] as String,
         deviceIdentifier: data['deviceIdentifier'] as String,
         deviceIdentifierSignature: data['deviceIdentifierSignature'] as String,

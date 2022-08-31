@@ -72,9 +72,9 @@ class _NotesNotePageState extends State<NotesNotePage> {
       }
     });
 
-    WidgetsBinding.instance.addPostFrameCallback((final _) {
+    WidgetsBinding.instance.addPostFrameCallback((final _) async {
       if (Provider.of<NeonPlatform>(context, listen: false).canUseWakelock) {
-        Wakelock.enable();
+        await Wakelock.enable();
       }
       if (widget.bloc.options.defaultNoteViewTypeOption.value == DefaultNoteViewType.edit ||
           widget.note.content!.isEmpty) {
@@ -189,9 +189,9 @@ class _NotesNotePageState extends State<NotesNotePage> {
                   )
                 : MarkdownBody(
                     data: _contentController.text,
-                    onTapLink: (final text, final href, final title) {
+                    onTapLink: (final text, final href, final title) async {
                       if (href != null) {
-                        launchUrlString(
+                        await launchUrlString(
                           href,
                           mode: LaunchMode.externalApplication,
                         );

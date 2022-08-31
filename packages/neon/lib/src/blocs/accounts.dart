@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:convert';
 
 import 'package:neon/src/blocs/user_details.dart';
@@ -106,12 +107,14 @@ class AccountsBloc extends $AccountsBloc {
       final lastUsedAccountID = _storage.getString(_keyLastUsedAccount);
       _activeAccountSubject.add(accounts.singleWhere((final account) => account.id == lastUsedAccountID));
     } else {
-      _globalOptions.initialAccount.stream.first.then((final lastAccount) {
-        final matches = accounts.where((final account) => account.id == lastAccount).toList();
-        if (matches.isNotEmpty) {
-          _activeAccountSubject.add(matches[0]);
-        }
-      });
+      unawaited(
+        _globalOptions.initialAccount.stream.first.then((final lastAccount) {
+          final matches = accounts.where((final account) => account.id == lastAccount).toList();
+          if (matches.isNotEmpty) {
+            _activeAccountSubject.add(matches[0]);
+          }
+        }),
+      );
     }
   }
 
@@ -170,8 +173,8 @@ class AccountsBloc extends $AccountsBloc {
 
   @override
   void dispose() {
-    _activeAccountSubject.close();
-    _accountsSubject.close();
+    unawaited(_activeAccountSubject.close());
+    unawaited(_accountsSubject.close());
     for (final bloc in _userDetailsBlocs.values) {
       bloc.dispose();
     }

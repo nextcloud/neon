@@ -11,15 +11,17 @@ class SelectOption<T> extends Option<T> {
     super.enabled,
   }) {
     stream = BehaviorSubject();
-    values.first.then((final vs) async {
-      final valueStr = storage.getString(key);
-      T? initialValue;
+    unawaited(
+      values.first.then((final vs) async {
+        final valueStr = storage.getString(key);
+        T? initialValue;
 
-      if (valueStr != null) {
-        initialValue = _fromString(vs, valueStr);
-      }
-      stream.add(initialValue ?? await defaultValue.first);
-    });
+        if (valueStr != null) {
+          initialValue = _fromString(vs, valueStr);
+        }
+        stream.add(initialValue ?? await defaultValue.first);
+      }),
+    );
   }
 
   T? _fromString(final Map<T, LabelBuilder> vs, final String? valueStr) {

@@ -29,4 +29,4 @@ class NextcloudNotification {
 NotificationsPushNotificationDecryptedSubject _fromJsonSubject(final Map<String, dynamic> data) =>
     NotificationsPushNotificationDecryptedSubject.fromJson(data)!;
 
-Map<String, dynamic>? _toJsonSubject(NotificationsPushNotificationDecryptedSubject subject) => subject.toJson();
+Map<String, dynamic>? _toJsonSubject(final NotificationsPushNotificationDecryptedSubject subject) => subject.toJson();

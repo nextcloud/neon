@@ -1,7 +1,7 @@
 part of '../neon.dart';
 
 class PushUtils {
-  static RSAKeypair loadRSAKeypair(final Storage storage) {
+  static Future<RSAKeypair> loadRSAKeypair(final Storage storage) async {
     const keyDevicePrivateKey = 'device-private-key';
 
     late RSAKeypair keypair;
@@ -10,7 +10,7 @@ class PushUtils {
       // The key size has to be 2048, other sizes are not accepted by Nextcloud (at the moment at least)
       // ignore: avoid_redundant_argument_values
       keypair = RSAKeypair.fromRandom(keySize: 2048);
-      storage.setString(keyDevicePrivateKey, keypair.privateKey.toPEM());
+      await storage.setString(keyDevicePrivateKey, keypair.privateKey.toPEM());
     } else {
       keypair = RSAKeypair(RSAPrivateKey.fromPEM(storage.getString(keyDevicePrivateKey)!));
     }
@@ -47,7 +47,7 @@ class PushUtils {
     );
     final sharedPreferences = await SharedPreferences.getInstance();
 
-    final keypair = loadRSAKeypair(Storage('notifications', sharedPreferences));
+    final keypair = await loadRSAKeypair(Storage('notifications', sharedPreferences));
     final data = json.decode(utf8.decode(message)) as Map<String, dynamic>;
     final notification = NextcloudNotification(
       accountID: instance,
@@ -69,7 +69,8 @@ class PushUtils {
       return;
     }
 
-    final parts = (await findSystemLocale()).split('_').map((final a) => a.split('.')).reduce((a, b) => [...a, ...b]);
+    final parts =
+        (await findSystemLocale()).split('_').map((final a) => a.split('.')).reduce((final a, final b) => [...a, ...b]);
     final localizations = await AppLocalizations.delegate.load(Locale(parts[0], parts.length > 1 ? parts[1] : null));
 
     final platform = await getNeonPlatform();
@@ -121,5 +122,5 @@ class PushUtils {
     final String instance,
     final NextcloudNotification notification,
   ) =>
-      sha256.convert(utf8.encode('$instance${notification.subject.nid!}')).bytes.reduce((a, b) => a + b);
+      sha256.convert(utf8.encode('$instance${notification.subject.nid!}')).bytes.reduce((final a, final b) => a + b);
 }

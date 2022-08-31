@@ -14,7 +14,7 @@ class FilesChooseFolderDialog extends StatelessWidget {
   final List<String> originalPath;
 
   @override
-  Widget build(BuildContext context) => AlertDialog(
+  Widget build(final BuildContext context) => AlertDialog(
         title: Text(AppLocalizations.of(context).filesChooseFolder),
         contentPadding: EdgeInsets.zero,
         content: SizedBox(

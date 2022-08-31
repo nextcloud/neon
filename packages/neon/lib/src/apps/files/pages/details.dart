@@ -11,7 +11,7 @@ class FilesDetailsPage extends StatelessWidget {
   final FileDetails details;
 
   @override
-  Widget build(BuildContext context) => Scaffold(
+  Widget build(final BuildContext context) => Scaffold(
         resizeToAvoidBottomInset: false,
         appBar: AppBar(
           title: Text(details.name),

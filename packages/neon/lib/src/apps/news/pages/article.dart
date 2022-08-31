@@ -37,9 +37,9 @@ class _NewsArticlePageState extends State<NewsArticlePage> {
       }
     });
 
-    WidgetsBinding.instance.addPostFrameCallback((final _) {
+    WidgetsBinding.instance.addPostFrameCallback((final _) async {
       if (Provider.of<NeonPlatform>(context, listen: false).canUseWakelock) {
-        Wakelock.enable();
+        await Wakelock.enable();
       }
     });
 

@@ -77,8 +77,8 @@ class GlobalOptions {
   }
 
   void dispose() {
-    _accountsIDsSubject.close();
-    _themeOLEDAsDarkEnabledSubject.close();
+    unawaited(_accountsIDsSubject.close());
+    unawaited(_themeOLEDAsDarkEnabledSubject.close());
     for (final option in options) {
       option.dispose();
     }

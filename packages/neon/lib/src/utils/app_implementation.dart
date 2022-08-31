@@ -15,8 +15,8 @@ List<AppImplementation> getAppImplementations(
 abstract class AppImplementation<T extends RxBlocBase, R extends NextcloudAppSpecificOptions> {
   AppImplementation(
     final SharedPreferences sharedPreferences,
-    final this.requestManager,
-    final this.platform,
+    this.requestManager,
+    this.platform,
   ) {
     final storage = Storage('app-$id', sharedPreferences);
     options = buildOptions(storage);
@@ -26,17 +26,17 @@ abstract class AppImplementation<T extends RxBlocBase, R extends NextcloudAppSpe
   final RequestManager requestManager;
   final NeonPlatform platform;
 
-  String nameFromLocalization(AppLocalizations localizations);
-  String name(BuildContext context) => nameFromLocalization(AppLocalizations.of(context));
+  String nameFromLocalization(final AppLocalizations localizations);
+  String name(final BuildContext context) => nameFromLocalization(AppLocalizations.of(context));
 
   late final R options;
-  R buildOptions(Storage storage);
+  R buildOptions(final Storage storage);
 
   T buildBloc(final NextcloudClient client);
 
-  BehaviorSubject<int>? getUnreadCounter(AppsBloc appsBloc);
+  BehaviorSubject<int>? getUnreadCounter(final AppsBloc appsBloc);
 
-  Widget buildPage(BuildContext context, AppsBloc appsBloc);
+  Widget buildPage(final BuildContext context, final AppsBloc appsBloc);
 
   Widget buildIcon(
     final BuildContext context, {

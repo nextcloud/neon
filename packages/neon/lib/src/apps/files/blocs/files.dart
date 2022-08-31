@@ -226,9 +226,9 @@ class FilesBloc extends $FilesBloc {
   void dispose() {
     _uploadQueue.dispose();
     _downloadQueue.dispose();
-    _uploadTasksSubject.close();
-    _downloadTasksSubject.close();
-    _errorsStreamController.close();
+    unawaited(_uploadTasksSubject.close());
+    unawaited(_downloadTasksSubject.close());
+    unawaited(_errorsStreamController.close());
     super.dispose();
   }
 

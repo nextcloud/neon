@@ -1,5 +1,7 @@
 library settings;
 
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:intersperse/intersperse.dart';
 import 'package:rxdart/rxdart.dart';

@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:neon/src/models/account.dart';
 import 'package:neon/src/neon.dart';
 import 'package:nextcloud/nextcloud.dart';
@@ -48,7 +50,7 @@ class CapabilitiesBloc extends $CapabilitiesBloc {
 
   @override
   void dispose() {
-    _capabilitiesSubject.close();
+    unawaited(_capabilitiesSubject.close());
     super.dispose();
   }
 
