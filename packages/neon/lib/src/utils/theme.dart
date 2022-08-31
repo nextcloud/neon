@@ -118,8 +118,8 @@ ThemeData getThemeFromNextcloudTheme(
     ),
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
-        onPrimary: onPrimaryColor,
-        primary: primaryColor,
+        foregroundColor: onPrimaryColor,
+        backgroundColor: primaryColor,
       ).copyWith(
         elevation: ButtonStyleButton.allOrNull(0),
       ),

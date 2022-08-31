@@ -21,24 +21,24 @@ class NotificationsApp extends AppImplementation<NotificationsBloc, Notification
   String id = 'notifications';
 
   @override
-  String nameFromLocalization(AppLocalizations localizations) => localizations.notificationsName;
+  String nameFromLocalization(final AppLocalizations localizations) => localizations.notificationsName;
 
   @override
-  NotificationsAppSpecificOptions buildOptions(Storage storage) => NotificationsAppSpecificOptions(storage);
+  NotificationsAppSpecificOptions buildOptions(final Storage storage) => NotificationsAppSpecificOptions(storage);
 
   @override
-  NotificationsBloc buildBloc(NextcloudClient client) => NotificationsBloc(
+  NotificationsBloc buildBloc(final NextcloudClient client) => NotificationsBloc(
         options,
         requestManager,
         client,
       );
 
   @override
-  Widget buildPage(BuildContext context, AppsBloc appsBloc) => NotificationsMainPage(
+  Widget buildPage(final BuildContext context, final AppsBloc appsBloc) => NotificationsMainPage(
         bloc: appsBloc.getAppBloc(this),
       );
 
   @override
-  BehaviorSubject<int>? getUnreadCounter(AppsBloc appsBloc) =>
+  BehaviorSubject<int>? getUnreadCounter(final AppsBloc appsBloc) =>
       appsBloc.getAppBloc<NotificationsBloc>(this).unreadCounter;
 }

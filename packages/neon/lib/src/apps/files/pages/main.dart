@@ -23,7 +23,7 @@ class _FilesMainPageState extends State<FilesMainPage> {
   }
 
   @override
-  Widget build(BuildContext context) => FilesBrowserView(
+  Widget build(final BuildContext context) => FilesBrowserView(
         bloc: widget.bloc.browser,
         filesBloc: widget.bloc,
         onPickFile: (final details) async {

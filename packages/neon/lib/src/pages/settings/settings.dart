@@ -179,8 +179,8 @@ class _SettingsPageState extends State<SettingsPage> {
                         for (final account in accountsSnapshot.data!) ...[
                           AccountSettingsTile(
                             account: account,
-                            onTap: () {
-                              Navigator.of(context).push(
+                            onTap: () async {
+                              await Navigator.of(context).push(
                                 MaterialPageRoute(
                                   builder: (final context) => AccountSpecificSettingsPage(
                                     bloc: accountsBloc,

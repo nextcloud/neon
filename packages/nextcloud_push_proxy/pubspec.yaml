@@ -2,7 +2,7 @@ name: nextcloud_push_proxy
 version: 1.0.0
 
 environment:
-  sdk: '>=2.17.0 <3.0.0'
+  sdk: '>=2.18.0 <3.0.0'
 
 dependencies:
   shelf: ^1.3.1

@@ -237,10 +237,10 @@ class NewsBloc extends $NewsBloc {
 
   @override
   void dispose() {
-    _foldersSubject.close();
-    _feedsSubject.close();
-    _errorsStreamController.close();
-    _unreadCounterSubject.close();
+    unawaited(_foldersSubject.close());
+    unawaited(_feedsSubject.close());
+    unawaited(_errorsStreamController.close());
+    unawaited(_unreadCounterSubject.close());
     super.dispose();
   }
 

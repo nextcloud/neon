@@ -54,23 +54,23 @@ class NewsApp extends AppImplementation<NewsBloc, NewsAppSpecificOptions> {
   String id = 'news';
 
   @override
-  String nameFromLocalization(AppLocalizations localizations) => localizations.newsName;
+  String nameFromLocalization(final AppLocalizations localizations) => localizations.newsName;
 
   @override
-  NewsAppSpecificOptions buildOptions(Storage storage) => NewsAppSpecificOptions(storage, platform);
+  NewsAppSpecificOptions buildOptions(final Storage storage) => NewsAppSpecificOptions(storage, platform);
 
   @override
-  NewsBloc buildBloc(NextcloudClient client) => NewsBloc(
+  NewsBloc buildBloc(final NextcloudClient client) => NewsBloc(
         options,
         requestManager,
         client,
       );
 
   @override
-  Widget buildPage(BuildContext context, AppsBloc appsBloc) => NewsMainPage(
+  Widget buildPage(final BuildContext context, final AppsBloc appsBloc) => NewsMainPage(
         bloc: appsBloc.getAppBloc(this),
       );
 
   @override
-  BehaviorSubject<int>? getUnreadCounter(AppsBloc appsBloc) => appsBloc.getAppBloc<NewsBloc>(this).unreadCounter;
+  BehaviorSubject<int>? getUnreadCounter(final AppsBloc appsBloc) => appsBloc.getAppBloc<NewsBloc>(this).unreadCounter;
 }

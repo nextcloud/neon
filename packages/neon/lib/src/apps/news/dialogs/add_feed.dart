@@ -30,14 +30,16 @@ class _NewsAddFeedDialogState extends State<NewsAddFeedDialog> {
   void initState() {
     super.initState();
 
-    Clipboard.getData(Clipboard.kTextPlain).then((final clipboardContent) {
-      if (clipboardContent != null && clipboardContent.text != null) {
-        final uri = Uri.tryParse(clipboardContent.text!);
-        if (uri != null && (uri.scheme == 'http' || uri.scheme == 'https')) {
-          controller.text = clipboardContent.text!;
+    unawaited(
+      Clipboard.getData(Clipboard.kTextPlain).then((final clipboardContent) {
+        if (clipboardContent != null && clipboardContent.text != null) {
+          final uri = Uri.tryParse(clipboardContent.text!);
+          if (uri != null && (uri.scheme == 'http' || uri.scheme == 'https')) {
+            controller.text = clipboardContent.text!;
+          }
         }
-      }
-    });
+      }),
+    );
   }
 
   @override

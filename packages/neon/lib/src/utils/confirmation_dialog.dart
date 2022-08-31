@@ -9,7 +9,7 @@ Future<bool> showConfirmationDialog(final BuildContext context, final String tit
         actions: [
           ElevatedButton(
             style: ElevatedButton.styleFrom(
-              primary: Colors.red,
+              backgroundColor: Colors.red,
             ),
             onPressed: () {
               Navigator.of(context).pop(false);
@@ -18,7 +18,7 @@ Future<bool> showConfirmationDialog(final BuildContext context, final String tit
           ),
           ElevatedButton(
             style: ElevatedButton.styleFrom(
-              primary: Colors.green,
+              backgroundColor: Colors.green,
             ),
             onPressed: () {
               Navigator.of(context).pop(true);

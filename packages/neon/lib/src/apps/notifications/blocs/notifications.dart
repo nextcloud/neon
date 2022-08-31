@@ -83,9 +83,9 @@ class NotificationsBloc extends $NotificationsBloc {
 
   @override
   void dispose() {
-    _notificationsSubject.close();
-    _errorsStreamController.close();
-    _unreadCounterSubject.close();
+    unawaited(_notificationsSubject.close());
+    unawaited(_errorsStreamController.close());
+    unawaited(_unreadCounterSubject.close());
     super.dispose();
   }
 

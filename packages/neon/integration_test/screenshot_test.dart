@@ -34,7 +34,7 @@ class MemorySharedPreferences implements SharedPreferences {
   Future reload() async {}
 
   @override
-  Future<bool> remove(String key) async {
+  Future<bool> remove(final String key) async {
     _data.remove(key);
     return true;
   }
@@ -43,52 +43,52 @@ class MemorySharedPreferences implements SharedPreferences {
   Set<String> getKeys() => _data.keys.toSet();
 
   @override
-  bool containsKey(String key) => _data.keys.contains(key);
+  bool containsKey(final String key) => _data.keys.contains(key);
 
   @override
-  Object? get(String key) => _data[key];
+  Object? get(final String key) => _data[key];
 
   @override
-  bool? getBool(String key) => _data[key] as bool?;
+  bool? getBool(final String key) => _data[key] as bool?;
 
   @override
-  double? getDouble(String key) => _data[key] as double?;
+  double? getDouble(final String key) => _data[key] as double?;
 
   @override
-  int? getInt(String key) => _data[key] as int?;
+  int? getInt(final String key) => _data[key] as int?;
 
   @override
-  String? getString(String key) => _data[key] as String?;
+  String? getString(final String key) => _data[key] as String?;
 
   @override
-  List<String>? getStringList(String key) => (_data[key] as List).cast<String>();
+  List<String>? getStringList(final String key) => (_data[key] as List).cast<String>();
 
   @override
-  Future<bool> setBool(String key, bool value) async {
+  Future<bool> setBool(final String key, final bool value) async {
     _data[key] = value;
     return true;
   }
 
   @override
-  Future<bool> setDouble(String key, double value) async {
+  Future<bool> setDouble(final String key, final double value) async {
     _data[key] = value;
     return true;
   }
 
   @override
-  Future<bool> setInt(String key, int value) async {
+  Future<bool> setInt(final String key, final int value) async {
     _data[key] = value;
     return true;
   }
 
   @override
-  Future<bool> setString(String key, String value) async {
+  Future<bool> setString(final String key, final String value) async {
     _data[key] = value;
     return true;
   }
 
   @override
-  Future<bool> setStringList(String key, List<String> value) async {
+  Future<bool> setStringList(final String key, final List<String> value) async {
     _data[key] = value;
     return true;
   }

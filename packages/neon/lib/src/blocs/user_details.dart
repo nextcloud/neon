@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:neon/src/models/account.dart';
 import 'package:neon/src/neon.dart';
 import 'package:nextcloud/nextcloud.dart';
@@ -45,7 +47,7 @@ class UserDetailsBloc extends $UserDetailsBloc {
 
   @override
   void dispose() {
-    _userDetailsSubject.close();
+    unawaited(_userDetailsSubject.close());
     super.dispose();
   }
 

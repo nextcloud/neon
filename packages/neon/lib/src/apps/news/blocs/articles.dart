@@ -182,10 +182,10 @@ class NewsArticlesBloc extends $NewsArticlesBloc {
 
   @override
   void dispose() {
-    _articlesSubject.close();
-    _filterTypeSubject.close();
-    _articleUpdateController.close();
-    _errorsStreamController.close();
+    unawaited(_articlesSubject.close());
+    unawaited(_filterTypeSubject.close());
+    unawaited(_articleUpdateController.close());
+    unawaited(_errorsStreamController.close());
     super.dispose();
   }
 

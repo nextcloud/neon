@@ -48,7 +48,7 @@ class _HomePageState extends State<HomePage> with tray.TrayListener, WindowListe
       _requestManager,
       widget.account.client,
     );
-    _capabilitiesBloc.capabilities.listen((final result) {
+    _capabilitiesBloc.capabilities.listen((final result) async {
       if (result.data != null) {
         widget.onThemeChanged(result.data!.capabilities!.theming!);
 
@@ -56,14 +56,14 @@ class _HomePageState extends State<HomePage> with tray.TrayListener, WindowListe
         if (result is ResultSuccess) {
           const requiredMajorVersion = 24;
           if (result.data!.version!.major! < requiredMajorVersion) {
-            showDialog(
+            await showDialog(
               context: context,
               builder: (final context) => AlertDialog(
                 title: Text(AppLocalizations.of(context).errorUnsupportedNextcloudVersion(requiredMajorVersion)),
                 actions: [
                   ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                      primary: Colors.red,
+                      backgroundColor: Colors.red,
                     ),
                     onPressed: () {
                       Navigator.of(context).pop();
@@ -200,9 +200,9 @@ class _HomePageState extends State<HomePage> with tray.TrayListener, WindowListe
   }
 
   @override
-  void onTrayMenuItemClick(tray.MenuItem menuItem) {
+  void onTrayMenuItemClick(final tray.MenuItem menuItem) {
     if (menuItem.key != null) {
-      _handleShortcut(menuItem.key!);
+      unawaited(_handleShortcut(menuItem.key!));
     }
   }
 

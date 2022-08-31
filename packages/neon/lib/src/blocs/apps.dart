@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/foundation.dart';
 import 'package:neon/src/blocs/accounts.dart';
 import 'package:neon/src/models/account.dart';
@@ -65,20 +67,22 @@ class AppsBloc extends $AppsBloc {
           _accountsBloc.pushNotificationApp = null;
         } else {
           final options = _accountsBloc.getOptions(_account)!..updateApps(appImplementations);
-          options.initialApp.stream.first.then((var initialApp) {
-            if (initialApp == null) {
-              if (appImplementations.where((final a) => a.id == 'files').isNotEmpty) {
-                initialApp = 'files';
-              } else if (appImplementations.isNotEmpty) {
-                // This should never happen, because the files app is always installed and can not be removed, but just in
-                // case this changes at a later point.
-                initialApp = appImplementations[0].id;
+          unawaited(
+            options.initialApp.stream.first.then((var initialApp) {
+              if (initialApp == null) {
+                if (appImplementations.where((final a) => a.id == 'files').isNotEmpty) {
+                  initialApp = 'files';
+                } else if (appImplementations.isNotEmpty) {
+                  // This should never happen, because the files app is always installed and can not be removed, but just in
+                  // case this changes at a later point.
+                  initialApp = appImplementations[0].id;
+                }
               }
-            }
-            if (!_activeAppSubject.hasValue) {
-              setActiveApp(initialApp);
-            }
-          });
+              if (!_activeAppSubject.hasValue) {
+                setActiveApp(initialApp);
+              }
+            }),
+          );
         }
       }
     });
@@ -130,8 +134,8 @@ class AppsBloc extends $AppsBloc {
 
   @override
   void dispose() {
-    _appsSubject.close();
-    _activeAppSubject.close();
+    unawaited(_appsSubject.close());
+    unawaited(_activeAppSubject.close());
     for (final key in _blocs.keys) {
       _blocs[key]!.dispose();
     }

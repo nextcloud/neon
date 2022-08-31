@@ -41,23 +41,23 @@ class NotesApp extends AppImplementation<NotesBloc, NotesAppSpecificOptions> {
   String id = 'notes';
 
   @override
-  String nameFromLocalization(AppLocalizations localizations) => localizations.notesName;
+  String nameFromLocalization(final AppLocalizations localizations) => localizations.notesName;
 
   @override
-  NotesAppSpecificOptions buildOptions(Storage storage) => NotesAppSpecificOptions(storage);
+  NotesAppSpecificOptions buildOptions(final Storage storage) => NotesAppSpecificOptions(storage);
 
   @override
-  NotesBloc buildBloc(NextcloudClient client) => NotesBloc(
+  NotesBloc buildBloc(final NextcloudClient client) => NotesBloc(
         options,
         requestManager,
         client,
       );
 
   @override
-  Widget buildPage(BuildContext context, AppsBloc appsBloc) => NotesMainPage(
+  Widget buildPage(final BuildContext context, final AppsBloc appsBloc) => NotesMainPage(
         bloc: appsBloc.getAppBloc(this),
       );
 
   @override
-  BehaviorSubject<int>? getUnreadCounter(AppsBloc appsBloc) => null;
+  BehaviorSubject<int>? getUnreadCounter(final AppsBloc appsBloc) => null;
 }

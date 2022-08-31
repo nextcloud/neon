@@ -1,9 +1,5 @@
 include: package:nit_picking/flutter.yaml
 
-linter:
-  rules:
-    prefer_final_parameters: false # Disabled until super.X is no longer complained about in constructors
-
 analyzer:
   exclude:
     - lib/src/l10n/**

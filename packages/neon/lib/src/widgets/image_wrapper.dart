@@ -17,7 +17,7 @@ class ImageWrapper extends StatelessWidget {
   final BorderRadius? borderRadius;
 
   @override
-  Widget build(BuildContext context) => SizedBox(
+  Widget build(final BuildContext context) => SizedBox(
         width: width,
         height: height,
         child: DecoratedBox(

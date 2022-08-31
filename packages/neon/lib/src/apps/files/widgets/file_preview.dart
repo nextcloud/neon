@@ -24,7 +24,7 @@ class FilePreview extends StatelessWidget {
   final bool withBackground;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(final BuildContext context) {
     final color = this.color ?? Theme.of(context).colorScheme.primary;
     return SizedBox(
       width: width.toDouble(),

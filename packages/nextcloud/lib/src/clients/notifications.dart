@@ -26,7 +26,7 @@ class NextcloudNotificationsClient extends DefaultApi {
   @override
   @Deprecated('Use registerDeviceAtServer instead')
   Future<NotificationsPushServerRegistrationResponse?> registerDevice(
-    NotificationsPushServerDevice notificationsPushServerDevice,
+    final NotificationsPushServerDevice notificationsPushServerDevice,
   ) =>
       throw Exception('Use registerDeviceAtServer instead');
 

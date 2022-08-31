@@ -28,14 +28,14 @@ class PushNotificationsBloc extends $PushNotificationsBloc {
     this._platform,
   ) {
     if (_platform.canUsePushNotifications) {
-      UnifiedPush.getDistributors().then(_globalOptions.updateDistributors);
+      unawaited(UnifiedPush.getDistributors().then(_globalOptions.updateDistributors));
 
       _globalOptions.pushNotificationsEnabled.stream.listen((final enabled) async {
         if (enabled != _pushNotificationsEnabled) {
           _pushNotificationsEnabled = enabled;
           if (enabled) {
             // We just use a single RSA keypair for all accounts
-            _keypair = PushUtils.loadRSAKeypair(_storage);
+            _keypair = await PushUtils.loadRSAKeypair(_storage);
             await _setupUnifiedPush();
           }
         }
@@ -138,7 +138,7 @@ class PushNotificationsBloc extends $PushNotificationsBloc {
 
   @override
   void dispose() {
-    _notificationsController.close();
+    unawaited(_notificationsController.close());
     super.dispose();
   }
 

@@ -46,13 +46,13 @@ class FilesApp extends AppImplementation<FilesBloc, FilesAppSpecificOptions> {
   String id = 'files';
 
   @override
-  String nameFromLocalization(AppLocalizations localizations) => localizations.filesName;
+  String nameFromLocalization(final AppLocalizations localizations) => localizations.filesName;
 
   @override
-  FilesAppSpecificOptions buildOptions(Storage storage) => FilesAppSpecificOptions(storage);
+  FilesAppSpecificOptions buildOptions(final Storage storage) => FilesAppSpecificOptions(storage);
 
   @override
-  FilesBloc buildBloc(NextcloudClient client) => FilesBloc(
+  FilesBloc buildBloc(final NextcloudClient client) => FilesBloc(
         options,
         requestManager,
         client,
@@ -60,10 +60,10 @@ class FilesApp extends AppImplementation<FilesBloc, FilesAppSpecificOptions> {
       );
 
   @override
-  Widget buildPage(BuildContext context, AppsBloc appsBloc) => FilesMainPage(
+  Widget buildPage(final BuildContext context, final AppsBloc appsBloc) => FilesMainPage(
         bloc: appsBloc.getAppBloc(this),
       );
 
   @override
-  BehaviorSubject<int>? getUnreadCounter(AppsBloc appsBloc) => null;
+  BehaviorSubject<int>? getUnreadCounter(final AppsBloc appsBloc) => null;
 }

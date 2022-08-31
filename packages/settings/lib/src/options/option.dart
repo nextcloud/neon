@@ -47,8 +47,8 @@ abstract class Option<T> {
   }
 
   void dispose() {
-    stream.close();
-    enabled.close();
+    unawaited(stream.close());
+    unawaited(enabled.close());
   }
 
   Future set(final T value);
