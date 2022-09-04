@@ -29,7 +29,7 @@ Method | HTTP request | Description
 
 
 # **addFeed**
-> NewsListFeeds addFeed(newsAddFeed)
+> NewsListFeeds addFeed(url, folderId)
 
 
 
@@ -41,10 +41,11 @@ import 'package:openapi/api.dart';
 //defaultApiClient.getAuthentication<HttpBasicAuth>('basic_auth').password = 'YOUR_PASSWORD';
 
 final api_instance = DefaultApi();
-final newsAddFeed = NewsAddFeed(); // NewsAddFeed | 
+final url = url_example; // String | 
+final folderId = 56; // int | 
 
 try {
-    final result = api_instance.addFeed(newsAddFeed);
+    final result = api_instance.addFeed(url, folderId);
     print(result);
 } catch (e) {
     print('Exception when calling DefaultApi->addFeed: $e\n');
@@ -55,7 +56,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **newsAddFeed** | [**NewsAddFeed**](NewsAddFeed.md)|  | 
+ **url** | **String**|  | 
+ **folderId** | **int**|  | [optional] 
 
 ### Return type
 
@@ -67,13 +69,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **createFolder**
-> NewsListFolders createFolder(newsCreateFolder)
+> NewsListFolders createFolder(name)
 
 
 
@@ -85,10 +87,10 @@ import 'package:openapi/api.dart';
 //defaultApiClient.getAuthentication<HttpBasicAuth>('basic_auth').password = 'YOUR_PASSWORD';
 
 final api_instance = DefaultApi();
-final newsCreateFolder = NewsCreateFolder(); // NewsCreateFolder | 
+final name = name_example; // String | 
 
 try {
-    final result = api_instance.createFolder(newsCreateFolder);
+    final result = api_instance.createFolder(name);
     print(result);
 } catch (e) {
     print('Exception when calling DefaultApi->createFolder: $e\n');
@@ -99,7 +101,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **newsCreateFolder** | [**NewsCreateFolder**](NewsCreateFolder.md)|  | 
+ **name** | **String**|  | 
 
 ### Return type
 
@@ -111,7 +113,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -234,12 +236,12 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **type** | **int**|  | [optional] 
- **id** | **int**|  | [optional] 
- **getRead** | **bool**|  | [optional] 
- **batchSize** | **int**|  | [optional] 
- **offset** | **int**|  | [optional] 
- **oldestFirst** | **bool**|  | [optional] 
+ **type** | **int**|  | [optional] [default to 3]
+ **id** | **int**|  | [optional] [default to 0]
+ **getRead** | **bool**|  | [optional] [default to true]
+ **batchSize** | **int**|  | [optional] [default to -1]
+ **offset** | **int**|  | [optional] [default to 0]
+ **oldestFirst** | **bool**|  | [optional] [default to false]
 
 ### Return type
 
@@ -337,7 +339,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **listUpdatedArticles**
-> NewsListArticles listUpdatedArticles(lastModified, type, id)
+> NewsListArticles listUpdatedArticles(type, id, lastModified)
 
 
 
@@ -349,12 +351,12 @@ import 'package:openapi/api.dart';
 //defaultApiClient.getAuthentication<HttpBasicAuth>('basic_auth').password = 'YOUR_PASSWORD';
 
 final api_instance = DefaultApi();
-final lastModified = 56; // int | 
 final type = 56; // int | 
 final id = 56; // int | 
+final lastModified = 56; // int | 
 
 try {
-    final result = api_instance.listUpdatedArticles(lastModified, type, id);
+    final result = api_instance.listUpdatedArticles(type, id, lastModified);
     print(result);
 } catch (e) {
     print('Exception when calling DefaultApi->listUpdatedArticles: $e\n');
@@ -365,9 +367,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **lastModified** | **int**|  | [optional] 
- **type** | **int**|  | [optional] 
- **id** | **int**|  | [optional] 
+ **type** | **int**|  | [optional] [default to 3]
+ **id** | **int**|  | [optional] [default to 0]
+ **lastModified** | **int**|  | [optional] [default to 0]
 
 ### Return type
 
@@ -471,7 +473,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **markFeedAsRead**
-> markFeedAsRead(feedId, newsMarkAsRead)
+> markFeedAsRead(feedId, newestItemId)
 
 
 
@@ -484,10 +486,10 @@ import 'package:openapi/api.dart';
 
 final api_instance = DefaultApi();
 final feedId = 56; // int | 
-final newsMarkAsRead = NewsMarkAsRead(); // NewsMarkAsRead | 
+final newestItemId = 56; // int | 
 
 try {
-    api_instance.markFeedAsRead(feedId, newsMarkAsRead);
+    api_instance.markFeedAsRead(feedId, newestItemId);
 } catch (e) {
     print('Exception when calling DefaultApi->markFeedAsRead: $e\n');
 }
@@ -498,7 +500,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **feedId** | **int**|  | 
- **newsMarkAsRead** | [**NewsMarkAsRead**](NewsMarkAsRead.md)|  | 
+ **newestItemId** | **int**|  | 
 
 ### Return type
 
@@ -510,13 +512,13 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **markFolderAsRead**
-> markFolderAsRead(folderId, newsMarkAsRead)
+> markFolderAsRead(folderId, newestItemId)
 
 
 
@@ -528,11 +530,11 @@ import 'package:openapi/api.dart';
 //defaultApiClient.getAuthentication<HttpBasicAuth>('basic_auth').password = 'YOUR_PASSWORD';
 
 final api_instance = DefaultApi();
-final folderId = 56; // int | 
-final newsMarkAsRead = NewsMarkAsRead(); // NewsMarkAsRead | 
+final folderId = 56; // int | ID of the folder
+final newestItemId = 56; // int | The newest read item
 
 try {
-    api_instance.markFolderAsRead(folderId, newsMarkAsRead);
+    api_instance.markFolderAsRead(folderId, newestItemId);
 } catch (e) {
     print('Exception when calling DefaultApi->markFolderAsRead: $e\n');
 }
@@ -542,8 +544,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **folderId** | **int**|  | 
- **newsMarkAsRead** | [**NewsMarkAsRead**](NewsMarkAsRead.md)|  | 
+ **folderId** | **int**| ID of the folder | 
+ **newestItemId** | **int**| The newest read item | 
 
 ### Return type
 
@@ -555,13 +557,13 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **moveFeed**
-> moveFeed(feedId, newsMoveFeed)
+> moveFeed(feedId, folderId)
 
 
 
@@ -574,10 +576,10 @@ import 'package:openapi/api.dart';
 
 final api_instance = DefaultApi();
 final feedId = 56; // int | 
-final newsMoveFeed = NewsMoveFeed(); // NewsMoveFeed | 
+final folderId = 56; // int | 
 
 try {
-    api_instance.moveFeed(feedId, newsMoveFeed);
+    api_instance.moveFeed(feedId, folderId);
 } catch (e) {
     print('Exception when calling DefaultApi->moveFeed: $e\n');
 }
@@ -588,7 +590,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **feedId** | **int**|  | 
- **newsMoveFeed** | [**NewsMoveFeed**](NewsMoveFeed.md)|  | 
+ **folderId** | **int**|  | [optional] 
 
 ### Return type
 
@@ -600,13 +602,13 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **renameFeed**
-> renameFeed(feedId, newsRenameFeed)
+> renameFeed(feedId, feedTitle)
 
 
 
@@ -619,10 +621,10 @@ import 'package:openapi/api.dart';
 
 final api_instance = DefaultApi();
 final feedId = 56; // int | 
-final newsRenameFeed = NewsRenameFeed(); // NewsRenameFeed | 
+final feedTitle = feedTitle_example; // String | 
 
 try {
-    api_instance.renameFeed(feedId, newsRenameFeed);
+    api_instance.renameFeed(feedId, feedTitle);
 } catch (e) {
     print('Exception when calling DefaultApi->renameFeed: $e\n');
 }
@@ -633,7 +635,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **feedId** | **int**|  | 
- **newsRenameFeed** | [**NewsRenameFeed**](NewsRenameFeed.md)|  | 
+ **feedTitle** | **String**|  | 
 
 ### Return type
 
@@ -645,13 +647,13 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **renameFolder**
-> renameFolder(folderId, newsRenameFolder)
+> renameFolder(folderId, name)
 
 
 
@@ -664,10 +666,10 @@ import 'package:openapi/api.dart';
 
 final api_instance = DefaultApi();
 final folderId = 56; // int | 
-final newsRenameFolder = NewsRenameFolder(); // NewsRenameFolder | 
+final name = name_example; // String | 
 
 try {
-    api_instance.renameFolder(folderId, newsRenameFolder);
+    api_instance.renameFolder(folderId, name);
 } catch (e) {
     print('Exception when calling DefaultApi->renameFolder: $e\n');
 }
@@ -678,7 +680,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **folderId** | **int**|  | 
- **newsRenameFolder** | [**NewsRenameFolder**](NewsRenameFolder.md)|  | 
+ **name** | **String**|  | 
 
 ### Return type
 
@@ -690,7 +692,7 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

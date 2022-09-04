@@ -56,7 +56,7 @@ class UserStatusBloc extends $UserStatusBloc {
     // TODO: https://github.com/jld3103/nextcloud-neon/issues/10
     // ignore: dead_code
     try {
-      await _account.client.userStatus.heartbeat(UserStatusHeartbeat(status: UserStatusTypeEnum.online));
+      await _account.client.userStatus.heartbeat(UserStatusTypeEnum.online);
     } catch (e) {
       debugPrint(e.toString());
     }

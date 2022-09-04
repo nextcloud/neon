@@ -224,7 +224,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **heartbeat**
-> heartbeat(userStatusHeartbeat)
+> heartbeat(status)
 
 
 
@@ -236,10 +236,10 @@ import 'package:openapi/api.dart';
 //defaultApiClient.getAuthentication<HttpBasicAuth>('basic_auth').password = 'YOUR_PASSWORD';
 
 final api_instance = DefaultApi();
-final userStatusHeartbeat = UserStatusHeartbeat(); // UserStatusHeartbeat | 
+final status = ; // UserStatusTypeEnum | 
 
 try {
-    api_instance.heartbeat(userStatusHeartbeat);
+    api_instance.heartbeat(status);
 } catch (e) {
     print('Exception when calling DefaultApi->heartbeat: $e\n');
 }
@@ -249,7 +249,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userStatusHeartbeat** | [**UserStatusHeartbeat**](UserStatusHeartbeat.md)|  | 
+ **status** | [**UserStatusTypeEnum**](.md)|  | 
 
 ### Return type
 
@@ -261,13 +261,13 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **setCustomMessage**
-> UserStatusGetUserStatus setCustomMessage(userStatusSetCustomMessage)
+> UserStatusGetUserStatus setCustomMessage(statusIcon, message, clearAt)
 
 
 
@@ -279,10 +279,12 @@ import 'package:openapi/api.dart';
 //defaultApiClient.getAuthentication<HttpBasicAuth>('basic_auth').password = 'YOUR_PASSWORD';
 
 final api_instance = DefaultApi();
-final userStatusSetCustomMessage = UserStatusSetCustomMessage(); // UserStatusSetCustomMessage | 
+final statusIcon = statusIcon_example; // String | 
+final message = message_example; // String | 
+final clearAt = 56; // int | 
 
 try {
-    final result = api_instance.setCustomMessage(userStatusSetCustomMessage);
+    final result = api_instance.setCustomMessage(statusIcon, message, clearAt);
     print(result);
 } catch (e) {
     print('Exception when calling DefaultApi->setCustomMessage: $e\n');
@@ -293,7 +295,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userStatusSetCustomMessage** | [**UserStatusSetCustomMessage**](UserStatusSetCustomMessage.md)|  | 
+ **statusIcon** | **String**|  | [optional] 
+ **message** | **String**|  | [optional] 
+ **clearAt** | **int**|  | [optional] 
 
 ### Return type
 
@@ -305,13 +309,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **setPredefinedMessage**
-> UserStatusGetUserStatus setPredefinedMessage(userStatusSetPredefinedMessage)
+> UserStatusGetUserStatus setPredefinedMessage(messageId, clearAt)
 
 
 
@@ -323,10 +327,11 @@ import 'package:openapi/api.dart';
 //defaultApiClient.getAuthentication<HttpBasicAuth>('basic_auth').password = 'YOUR_PASSWORD';
 
 final api_instance = DefaultApi();
-final userStatusSetPredefinedMessage = UserStatusSetPredefinedMessage(); // UserStatusSetPredefinedMessage | 
+final messageId = messageId_example; // String | 
+final clearAt = 56; // int | 
 
 try {
-    final result = api_instance.setPredefinedMessage(userStatusSetPredefinedMessage);
+    final result = api_instance.setPredefinedMessage(messageId, clearAt);
     print(result);
 } catch (e) {
     print('Exception when calling DefaultApi->setPredefinedMessage: $e\n');
@@ -337,7 +342,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userStatusSetPredefinedMessage** | [**UserStatusSetPredefinedMessage**](UserStatusSetPredefinedMessage.md)|  | 
+ **messageId** | **String**|  | 
+ **clearAt** | **int**|  | [optional] 
 
 ### Return type
 
@@ -349,13 +355,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **setStatus**
-> UserStatusGetUserStatus setStatus(userStatusSetUserStatus)
+> UserStatusGetUserStatus setStatus(statusType)
 
 
 
@@ -367,10 +373,10 @@ import 'package:openapi/api.dart';
 //defaultApiClient.getAuthentication<HttpBasicAuth>('basic_auth').password = 'YOUR_PASSWORD';
 
 final api_instance = DefaultApi();
-final userStatusSetUserStatus = UserStatusSetUserStatus(); // UserStatusSetUserStatus | 
+final statusType = ; // UserStatusTypeEnum | 
 
 try {
-    final result = api_instance.setStatus(userStatusSetUserStatus);
+    final result = api_instance.setStatus(statusType);
     print(result);
 } catch (e) {
     print('Exception when calling DefaultApi->setStatus: $e\n');
@@ -381,7 +387,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userStatusSetUserStatus** | [**UserStatusSetUserStatus**](UserStatusSetUserStatus.md)|  | 
+ **statusType** | [**UserStatusTypeEnum**](.md)|  | 
 
 ### Return type
 
@@ -393,7 +399,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

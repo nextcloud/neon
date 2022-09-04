@@ -26,7 +26,6 @@ part 'api/default_api.dart';
 
 part 'model/core_login_flow_init.dart';
 part 'model/core_login_flow_init_poll.dart';
-part 'model/core_login_flow_query.dart';
 part 'model/core_login_flow_result.dart';
 part 'model/core_navigation_apps.dart';
 part 'model/core_navigation_apps_ocs.dart';

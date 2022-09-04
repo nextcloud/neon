@@ -88,7 +88,7 @@ class DefaultApi extends ApiInstance<ApiClient> {
   /// Parameters:
   ///
   /// * [int] id (required):
-  Future<NotificationsEmptyResponse?> deleteNotification(
+  Future<NotificationsEmpty?> deleteNotification(
     int id,
   ) async {
     final response = await deleteNotificationWithHttpInfo(
@@ -103,8 +103,8 @@ class DefaultApi extends ApiInstance<ApiClient> {
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await decodeBodyBytes(response),
-        'NotificationsEmptyResponse',
-      ) as NotificationsEmptyResponse;
+        'NotificationsEmpty',
+      ) as NotificationsEmpty;
     }
     return null;
   }
@@ -142,7 +142,7 @@ class DefaultApi extends ApiInstance<ApiClient> {
   /// Parameters:
   ///
   /// * [int] id (required):
-  Future<NotificationsGetNotificationResponse?> getNotification(
+  Future<NotificationsGetNotification?> getNotification(
     int id,
   ) async {
     final response = await getNotificationWithHttpInfo(
@@ -157,8 +157,8 @@ class DefaultApi extends ApiInstance<ApiClient> {
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await decodeBodyBytes(response),
-        'NotificationsGetNotificationResponse',
-      ) as NotificationsGetNotificationResponse;
+        'NotificationsGetNotification',
+      ) as NotificationsGetNotification;
     }
     return null;
   }
@@ -188,7 +188,7 @@ class DefaultApi extends ApiInstance<ApiClient> {
     );
   }
 
-  Future<NotificationsListNotificationsResponse?> listNotifications() async {
+  Future<NotificationsListNotifications?> listNotifications() async {
     final response = await listNotificationsWithHttpInfo();
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await decodeBodyBytes(response));
@@ -199,8 +199,8 @@ class DefaultApi extends ApiInstance<ApiClient> {
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await decodeBodyBytes(response),
-        'NotificationsListNotificationsResponse',
-      ) as NotificationsListNotificationsResponse;
+        'NotificationsListNotifications',
+      ) as NotificationsListNotifications;
     }
     return null;
   }
@@ -208,21 +208,31 @@ class DefaultApi extends ApiInstance<ApiClient> {
   /// Performs an HTTP 'POST /api/v2/push' operation and returns the [Response].
   /// Parameters:
   ///
-  /// * [NotificationsPushServerDevice] notificationsPushServerDevice (required):
+  /// * [String] pushTokenHash (required):
+  ///
+  /// * [String] devicePublicKey (required):
+  ///
+  /// * [String] proxyServer (required):
   Future<Response> registerDeviceWithHttpInfo(
-    NotificationsPushServerDevice notificationsPushServerDevice,
+    String pushTokenHash,
+    String devicePublicKey,
+    String proxyServer,
   ) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v2/push';
 
     // ignore: prefer_final_locals
-    Object? postBody = notificationsPushServerDevice;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-    const contentTypes = <String>['application/json'];
+    queryParams.addAll(buildQueryParams('', 'pushTokenHash', pushTokenHash));
+    queryParams.addAll(buildQueryParams('', 'devicePublicKey', devicePublicKey));
+    queryParams.addAll(buildQueryParams('', 'proxyServer', proxyServer));
+
+    const contentTypes = <String>[];
 
     return apiClient.invokeAPI(
       path,
@@ -237,12 +247,20 @@ class DefaultApi extends ApiInstance<ApiClient> {
 
   /// Parameters:
   ///
-  /// * [NotificationsPushServerDevice] notificationsPushServerDevice (required):
-  Future<NotificationsPushServerRegistrationResponse?> registerDevice(
-    NotificationsPushServerDevice notificationsPushServerDevice,
+  /// * [String] pushTokenHash (required):
+  ///
+  /// * [String] devicePublicKey (required):
+  ///
+  /// * [String] proxyServer (required):
+  Future<NotificationsPushServerRegistration?> registerDevice(
+    String pushTokenHash,
+    String devicePublicKey,
+    String proxyServer,
   ) async {
     final response = await registerDeviceWithHttpInfo(
-      notificationsPushServerDevice,
+      pushTokenHash,
+      devicePublicKey,
+      proxyServer,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await decodeBodyBytes(response));
@@ -253,8 +271,8 @@ class DefaultApi extends ApiInstance<ApiClient> {
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await decodeBodyBytes(response),
-        'NotificationsPushServerRegistrationResponse',
-      ) as NotificationsPushServerRegistrationResponse;
+        'NotificationsPushServerRegistration',
+      ) as NotificationsPushServerRegistration;
     }
     return null;
   }
@@ -306,22 +324,30 @@ class DefaultApi extends ApiInstance<ApiClient> {
   ///
   /// * [String] userId (required):
   ///
-  /// * [NotificationsAdminNotification] notificationsAdminNotification (required):
+  /// * [String] shortMessage (required):
+  ///
+  /// * [String] longMessage:
   Future<Response> sendAdminNotificationWithHttpInfo(
     String userId,
-    NotificationsAdminNotification notificationsAdminNotification,
-  ) async {
+    String shortMessage, {
+    String? longMessage,
+  }) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v2/admin_notifications/{userId}'.replaceAll('{userId}', userId);
 
     // ignore: prefer_final_locals
-    Object? postBody = notificationsAdminNotification;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-    const contentTypes = <String>['application/json'];
+    queryParams.addAll(buildQueryParams('', 'shortMessage', shortMessage));
+    if (longMessage != null) {
+      queryParams.addAll(buildQueryParams('', 'longMessage', longMessage));
+    }
+
+    const contentTypes = <String>[];
 
     return apiClient.invokeAPI(
       path,
@@ -338,14 +364,18 @@ class DefaultApi extends ApiInstance<ApiClient> {
   ///
   /// * [String] userId (required):
   ///
-  /// * [NotificationsAdminNotification] notificationsAdminNotification (required):
-  Future<NotificationsEmptyResponse?> sendAdminNotification(
+  /// * [String] shortMessage (required):
+  ///
+  /// * [String] longMessage:
+  Future<NotificationsEmpty?> sendAdminNotification(
     String userId,
-    NotificationsAdminNotification notificationsAdminNotification,
-  ) async {
+    String shortMessage, {
+    String? longMessage,
+  }) async {
     final response = await sendAdminNotificationWithHttpInfo(
       userId,
-      notificationsAdminNotification,
+      shortMessage,
+      longMessage: longMessage,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await decodeBodyBytes(response));
@@ -356,8 +386,8 @@ class DefaultApi extends ApiInstance<ApiClient> {
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await decodeBodyBytes(response),
-        'NotificationsEmptyResponse',
-      ) as NotificationsEmptyResponse;
+        'NotificationsEmpty',
+      ) as NotificationsEmpty;
     }
     return null;
   }

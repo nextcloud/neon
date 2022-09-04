@@ -17,12 +17,10 @@ Future main() async {
       final response = (await validateResponse<NotesNote, void>(
         client.notes,
         client.notes.createNoteWithHttpInfo(
-          NotesNote(
-            title: 'a',
-            content: 'b',
-            category: 'c',
-            favorite: true,
-          ),
+          title: 'a',
+          content: 'b',
+          category: 'c',
+          favorite: true,
         ),
       ))!;
       expect(response.id, isPositive);
@@ -38,11 +36,11 @@ Future main() async {
     test('List notes', () async {
       await validateResponse<NotesNote, void>(
         client.notes,
-        client.notes.createNoteWithHttpInfo(NotesNote(title: 'a')),
+        client.notes.createNoteWithHttpInfo(title: 'a'),
       );
       await validateResponse<NotesNote, void>(
         client.notes,
-        client.notes.createNoteWithHttpInfo(NotesNote(title: 'b')),
+        client.notes.createNoteWithHttpInfo(title: 'b'),
       );
       final response = (await validateResponse<List<NotesNote>, NotesNote>(
         client.notes,
@@ -56,7 +54,7 @@ Future main() async {
     test('Get note', () async {
       final id = (await validateResponse<NotesNote, void>(
         client.notes,
-        client.notes.createNoteWithHttpInfo(NotesNote(title: 'a')),
+        client.notes.createNoteWithHttpInfo(title: 'a'),
       ))!
           .id!;
       final response = (await validateResponse<NotesNote, void>(
@@ -69,17 +67,14 @@ Future main() async {
     test('Update note', () async {
       final id = (await validateResponse<NotesNote, void>(
         client.notes,
-        client.notes.createNoteWithHttpInfo(NotesNote(title: 'a')),
+        client.notes.createNoteWithHttpInfo(title: 'a'),
       ))!
           .id!;
       await validateResponse<NotesNote, void>(
         client.notes,
         client.notes.updateNoteWithHttpInfo(
           id,
-          NotesNote(
-            id: id,
-            title: 'b',
-          ),
+          title: 'b',
         ),
       );
 
@@ -93,17 +88,14 @@ Future main() async {
     test('Update note fail changed on server', () async {
       final response = (await validateResponse<NotesNote, void>(
         client.notes,
-        client.notes.createNoteWithHttpInfo(NotesNote(title: 'a')),
+        client.notes.createNoteWithHttpInfo(title: 'a'),
       ))!;
 
       await validateResponse<NotesNote, void>(
         client.notes,
         client.notes.updateNoteWithHttpInfo(
           response.id!,
-          NotesNote(
-            id: response.id!,
-            title: 'b',
-          ),
+          title: 'b',
           ifMatch: '"${response.etag}"',
         ),
       );
@@ -113,10 +105,7 @@ Future main() async {
           client.notes,
           client.notes.updateNoteWithHttpInfo(
             response.id!,
-            NotesNote(
-              id: response.id!,
-              title: 'c',
-            ),
+            title: 'c',
             ifMatch: '"${response.etag}"',
           ),
         ),
@@ -127,7 +116,7 @@ Future main() async {
     test('Delete note', () async {
       final id = (await validateResponse<NotesNote, void>(
         client.notes,
-        client.notes.createNoteWithHttpInfo(NotesNote(title: 'a')),
+        client.notes.createNoteWithHttpInfo(title: 'a'),
       ))!
           .id!;
 

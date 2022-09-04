@@ -119,21 +119,23 @@ class DefaultApi extends ApiInstance<ApiClient> {
   /// Performs an HTTP 'POST /login/v2/poll' operation and returns the [Response].
   /// Parameters:
   ///
-  /// * [CoreLoginFlowQuery] coreLoginFlowQuery (required):
+  /// * [String] token (required):
   Future<Response> getLoginFlowResultWithHttpInfo(
-    CoreLoginFlowQuery coreLoginFlowQuery,
+    String token,
   ) async {
     // ignore: prefer_const_declarations
     final path = r'/login/v2/poll';
 
     // ignore: prefer_final_locals
-    Object? postBody = coreLoginFlowQuery;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-    const contentTypes = <String>['application/json'];
+    queryParams.addAll(buildQueryParams('', 'token', token));
+
+    const contentTypes = <String>[];
 
     return apiClient.invokeAPI(
       path,
@@ -148,12 +150,12 @@ class DefaultApi extends ApiInstance<ApiClient> {
 
   /// Parameters:
   ///
-  /// * [CoreLoginFlowQuery] coreLoginFlowQuery (required):
+  /// * [String] token (required):
   Future<CoreLoginFlowResult?> getLoginFlowResult(
-    CoreLoginFlowQuery coreLoginFlowQuery,
+    String token,
   ) async {
     final response = await getLoginFlowResultWithHttpInfo(
-      coreLoginFlowQuery,
+      token,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await decodeBodyBytes(response));
@@ -221,18 +223,18 @@ class DefaultApi extends ApiInstance<ApiClient> {
   ///
   /// * [int] y:
   ///
-  /// * [String] mode:
+  /// * [bool] a:
   ///
   /// * [bool] forceIcon:
   ///
-  /// * [bool] a:
+  /// * [String] mode:
   Future<Response> getPreviewWithHttpInfo({
     String? file,
     int? x,
     int? y,
-    String? mode,
-    bool? forceIcon,
     bool? a,
+    bool? forceIcon,
+    String? mode,
   }) async {
     // ignore: prefer_const_declarations
     final path = r'/core/preview.png';
@@ -253,14 +255,14 @@ class DefaultApi extends ApiInstance<ApiClient> {
     if (y != null) {
       queryParams.addAll(buildQueryParams('', 'y', y));
     }
-    if (mode != null) {
-      queryParams.addAll(buildQueryParams('', 'mode', mode));
+    if (a != null) {
+      queryParams.addAll(buildQueryParams('', 'a', a));
     }
     if (forceIcon != null) {
       queryParams.addAll(buildQueryParams('', 'forceIcon', forceIcon));
     }
-    if (a != null) {
-      queryParams.addAll(buildQueryParams('', 'a', a));
+    if (mode != null) {
+      queryParams.addAll(buildQueryParams('', 'mode', mode));
     }
 
     const contentTypes = <String>[];
@@ -284,26 +286,26 @@ class DefaultApi extends ApiInstance<ApiClient> {
   ///
   /// * [int] y:
   ///
-  /// * [String] mode:
+  /// * [bool] a:
   ///
   /// * [bool] forceIcon:
   ///
-  /// * [bool] a:
+  /// * [String] mode:
   Future<String?> getPreview({
     String? file,
     int? x,
     int? y,
-    String? mode,
-    bool? forceIcon,
     bool? a,
+    bool? forceIcon,
+    String? mode,
   }) async {
     final response = await getPreviewWithHttpInfo(
       file: file,
       x: x,
       y: y,
-      mode: mode,
-      forceIcon: forceIcon,
       a: a,
+      forceIcon: forceIcon,
+      mode: mode,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await decodeBodyBytes(response));

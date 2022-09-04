@@ -21,14 +21,12 @@ Future main() async {
     tearDown(() => client.destroy());
 
     Future sendTestNotification() async {
-      await validateResponse<NotificationsEmptyResponse, void>(
+      await validateResponse<NotificationsEmpty, void>(
         client.notifications,
         client.notifications.sendAdminNotificationWithHttpInfo(
           'admin',
-          NotificationsAdminNotification(
-            shortMessage: '123',
-            longMessage: '456',
-          ),
+          '123',
+          longMessage: '456',
         ),
       );
     }
@@ -41,7 +39,7 @@ Future main() async {
       await sendTestNotification();
 
       final startTime = DateTime.now().toUtc();
-      final response = (await validateResponse<NotificationsListNotificationsResponse, void>(
+      final response = (await validateResponse<NotificationsListNotifications, void>(
         client.notifications,
         client.notifications.listNotificationsWithHttpInfo(),
       ))!;
@@ -67,7 +65,7 @@ Future main() async {
       await sendTestNotification();
 
       final startTime = DateTime.now().toUtc();
-      final response = (await validateResponse<NotificationsGetNotificationResponse, void>(
+      final response = (await validateResponse<NotificationsGetNotification, void>(
         client.notifications,
         client.notifications.getNotificationWithHttpInfo(1),
       ))!;
@@ -90,12 +88,12 @@ Future main() async {
 
     test('Delete notification', () async {
       await sendTestNotification();
-      await validateResponse<NotificationsEmptyResponse, void>(
+      await validateResponse<NotificationsEmpty, void>(
         client.notifications,
         client.notifications.deleteNotificationWithHttpInfo(1),
       );
 
-      final response = (await validateResponse<NotificationsListNotificationsResponse, void>(
+      final response = (await validateResponse<NotificationsListNotifications, void>(
         client.notifications,
         client.notifications.listNotificationsWithHttpInfo(),
       ))!;
@@ -105,12 +103,12 @@ Future main() async {
     test('Delete all notifications', () async {
       await sendTestNotification();
       await sendTestNotification();
-      await validateResponse<NotificationsEmptyResponse, void>(
+      await validateResponse<NotificationsEmpty, void>(
         client.notifications,
         client.notifications.deleteAllNotificationsWithHttpInfo(),
       );
 
-      final response = (await validateResponse<NotificationsListNotificationsResponse, void>(
+      final response = (await validateResponse<NotificationsListNotifications, void>(
         client.notifications,
         client.notifications.listNotificationsWithHttpInfo(),
       ))!;
@@ -204,10 +202,8 @@ Future main() async {
       );
       await client.notifications.sendAdminNotification(
         'admin',
-        NotificationsAdminNotification(
-          shortMessage: '123',
-          longMessage: '456',
-        ),
+        '123',
+        longMessage: '456',
       );
 
       await deviceCompleter.future;
@@ -222,7 +218,7 @@ Future main() async {
         'https://example.com/',
       );
 
-      await validateResponse<NotificationsEmptyResponse, void>(
+      await validateResponse<NotificationsEmpty, void>(
         client.notifications,
         client.notifications.removeDeviceWithHttpInfo(),
       );

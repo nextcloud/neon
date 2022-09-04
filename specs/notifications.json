@@ -38,18 +38,7 @@
         "deprecated": true,
         "description": "Stub"
       },
-      "NotificationsAdminNotification": {
-        "type": "object",
-        "properties": {
-          "shortMessage": {
-            "type": "string"
-          },
-          "longMessage": {
-            "type": "string"
-          }
-        }
-      },
-      "NotificationsEmptyResponse": {
+      "NotificationsEmpty": {
         "type": "object",
         "properties": {
           "ocs": {
@@ -146,7 +135,7 @@
           }
         }
       },
-      "NotificationsListNotificationsResponse": {
+      "NotificationsListNotifications": {
         "type": "object",
         "properties": {
           "ocs": {
@@ -165,7 +154,7 @@
           }
         }
       },
-      "NotificationsGetNotificationResponse": {
+      "NotificationsGetNotification": {
         "type": "object",
         "properties": {
           "ocs": {
@@ -178,20 +167,6 @@
                 "$ref": "#/components/schemas/NotificationsNotification"
               }
             }
-          }
-        }
-      },
-      "NotificationsPushServerDevice": {
-        "type": "object",
-        "properties": {
-          "pushTokenHash": {
-            "type": "string"
-          },
-          "devicePublicKey": {
-            "type": "string"
-          },
-          "proxyServer": {
-            "type": "string"
           }
         }
       },
@@ -209,7 +184,7 @@
           }
         }
       },
-      "NotificationsPushServerRegistrationResponse": {
+      "NotificationsPushServerRegistration": {
         "type": "object",
         "properties": {
           "ocs": {
@@ -263,7 +238,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/NotificationsListNotificationsResponse"
+                  "$ref": "#/components/schemas/NotificationsListNotifications"
                 }
               }
             }
@@ -305,7 +280,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/NotificationsGetNotificationResponse"
+                  "$ref": "#/components/schemas/NotificationsGetNotification"
                 }
               }
             }
@@ -320,7 +295,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/NotificationsEmptyResponse"
+                  "$ref": "#/components/schemas/NotificationsEmpty"
                 }
               }
             }
@@ -331,23 +306,39 @@
     "/api/v2/push": {
       "post": {
         "operationId": "register-device",
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/NotificationsPushServerDevice"
-              }
+        "parameters": [
+          {
+            "name": "pushTokenHash",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "devicePublicKey",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "proxyServer",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
             }
           }
-        },
+        ],
         "responses": {
           "200": {
             "description": "",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/NotificationsPushServerRegistrationResponse"
+                  "$ref": "#/components/schemas/NotificationsPushServerRegistration"
                 }
               }
             }
@@ -383,23 +374,32 @@
       ],
       "post": {
         "operationId": "send-admin-notification",
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/NotificationsAdminNotification"
-              }
+        "parameters": [
+          {
+            "name": "shortMessage",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "longMessage",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": ""
             }
           }
-        },
+        ],
         "responses": {
           "200": {
             "description": "",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/NotificationsEmptyResponse"
+                  "$ref": "#/components/schemas/NotificationsEmpty"
                 }
               }
             }

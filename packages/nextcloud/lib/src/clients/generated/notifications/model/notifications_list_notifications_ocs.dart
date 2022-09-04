@@ -10,9 +10,9 @@
 
 part of openapi.api;
 
-class NotificationsEmptyResponseOcs {
-  /// Returns a new [NotificationsEmptyResponseOcs] instance.
-  NotificationsEmptyResponseOcs({
+class NotificationsListNotificationsOcs {
+  /// Returns a new [NotificationsListNotificationsOcs] instance.
+  NotificationsListNotificationsOcs({
     this.meta,
     this.data = const [],
   });
@@ -20,11 +20,11 @@ class NotificationsEmptyResponseOcs {
   /// Stub
   Object? meta;
 
-  List<String> data;
+  List<NotificationsNotification> data;
 
   @override
   bool operator ==(Object other) =>
-      identical(this, other) || other is NotificationsEmptyResponseOcs && other.meta == meta && other.data == data;
+      identical(this, other) || other is NotificationsListNotificationsOcs && other.meta == meta && other.data == data;
 
   @override
   int get hashCode =>
@@ -32,7 +32,7 @@ class NotificationsEmptyResponseOcs {
       (meta == null ? 0 : meta!.hashCode) + (data.hashCode);
 
   @override
-  String toString() => 'NotificationsEmptyResponseOcs[meta=$meta, data=$data]';
+  String toString() => 'NotificationsListNotificationsOcs[meta=$meta, data=$data]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -45,10 +45,10 @@ class NotificationsEmptyResponseOcs {
     return _json;
   }
 
-  /// Returns a new [NotificationsEmptyResponseOcs] instance and imports its values from
+  /// Returns a new [NotificationsListNotificationsOcs] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static NotificationsEmptyResponseOcs? fromJson(dynamic value) {
+  static NotificationsListNotificationsOcs? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -57,28 +57,28 @@ class NotificationsEmptyResponseOcs {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "NotificationsEmptyResponseOcs[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "NotificationsEmptyResponseOcs[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "NotificationsListNotificationsOcs[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "NotificationsListNotificationsOcs[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return NotificationsEmptyResponseOcs(
+      return NotificationsListNotificationsOcs(
         meta: mapValueOfType<Object>(json, r'meta'),
-        data: json[r'data'] is List ? (json[r'data'] as List).cast<String>() : const [],
+        data: NotificationsNotification.listFromJson(json[r'data']) ?? const [],
       );
     }
     return null;
   }
 
-  static List<NotificationsEmptyResponseOcs>? listFromJson(
+  static List<NotificationsListNotificationsOcs>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <NotificationsEmptyResponseOcs>[];
+    final result = <NotificationsListNotificationsOcs>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = NotificationsEmptyResponseOcs.fromJson(row);
+        final value = NotificationsListNotificationsOcs.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -87,12 +87,12 @@ class NotificationsEmptyResponseOcs {
     return result.toList(growable: growable);
   }
 
-  static Map<String, NotificationsEmptyResponseOcs> mapFromJson(dynamic json) {
-    final map = <String, NotificationsEmptyResponseOcs>{};
+  static Map<String, NotificationsListNotificationsOcs> mapFromJson(dynamic json) {
+    final map = <String, NotificationsListNotificationsOcs>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = NotificationsEmptyResponseOcs.fromJson(entry.value);
+        final value = NotificationsListNotificationsOcs.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -101,16 +101,16 @@ class NotificationsEmptyResponseOcs {
     return map;
   }
 
-  // maps a json object with a list of NotificationsEmptyResponseOcs-objects as value to a dart map
-  static Map<String, List<NotificationsEmptyResponseOcs>> mapListFromJson(
+  // maps a json object with a list of NotificationsListNotificationsOcs-objects as value to a dart map
+  static Map<String, List<NotificationsListNotificationsOcs>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<NotificationsEmptyResponseOcs>>{};
+    final map = <String, List<NotificationsListNotificationsOcs>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = NotificationsEmptyResponseOcs.listFromJson(
+        final value = NotificationsListNotificationsOcs.listFromJson(
           entry.value,
           growable: growable,
         );

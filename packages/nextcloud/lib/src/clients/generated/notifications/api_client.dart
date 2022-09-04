@@ -222,32 +222,28 @@ class ApiClient extends BaseApiClient {
           return valueString == 'true' || valueString == '1';
         case 'DateTime':
           return value is DateTime ? value : DateTime.tryParse(value);
-        case 'NotificationsAdminNotification':
-          return NotificationsAdminNotification.fromJson(value);
-        case 'NotificationsEmptyResponse':
-          return NotificationsEmptyResponse.fromJson(value);
-        case 'NotificationsEmptyResponseOcs':
-          return NotificationsEmptyResponseOcs.fromJson(value);
-        case 'NotificationsGetNotificationResponse':
-          return NotificationsGetNotificationResponse.fromJson(value);
-        case 'NotificationsGetNotificationResponseOcs':
-          return NotificationsGetNotificationResponseOcs.fromJson(value);
-        case 'NotificationsListNotificationsResponse':
-          return NotificationsListNotificationsResponse.fromJson(value);
-        case 'NotificationsListNotificationsResponseOcs':
-          return NotificationsListNotificationsResponseOcs.fromJson(value);
+        case 'NotificationsEmpty':
+          return NotificationsEmpty.fromJson(value);
+        case 'NotificationsEmptyOcs':
+          return NotificationsEmptyOcs.fromJson(value);
+        case 'NotificationsGetNotification':
+          return NotificationsGetNotification.fromJson(value);
+        case 'NotificationsGetNotificationOcs':
+          return NotificationsGetNotificationOcs.fromJson(value);
+        case 'NotificationsListNotifications':
+          return NotificationsListNotifications.fromJson(value);
+        case 'NotificationsListNotificationsOcs':
+          return NotificationsListNotificationsOcs.fromJson(value);
         case 'NotificationsNotification':
           return NotificationsNotification.fromJson(value);
         case 'NotificationsNotificationAction':
           return NotificationsNotificationAction.fromJson(value);
         case 'NotificationsPushNotificationDecryptedSubject':
           return NotificationsPushNotificationDecryptedSubject.fromJson(value);
-        case 'NotificationsPushServerDevice':
-          return NotificationsPushServerDevice.fromJson(value);
-        case 'NotificationsPushServerRegistrationResponse':
-          return NotificationsPushServerRegistrationResponse.fromJson(value);
-        case 'NotificationsPushServerRegistrationResponseOcs':
-          return NotificationsPushServerRegistrationResponseOcs.fromJson(value);
+        case 'NotificationsPushServerRegistration':
+          return NotificationsPushServerRegistration.fromJson(value);
+        case 'NotificationsPushServerRegistrationOcs':
+          return NotificationsPushServerRegistrationOcs.fromJson(value);
         case 'NotificationsPushServerSubscription':
           return NotificationsPushServerSubscription.fromJson(value);
         default:

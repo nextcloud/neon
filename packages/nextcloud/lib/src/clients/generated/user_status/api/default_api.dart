@@ -228,21 +228,23 @@ class DefaultApi extends ApiInstance<ApiClient> {
   /// Performs an HTTP 'PUT /api/v1/heartbeat' operation and returns the [Response].
   /// Parameters:
   ///
-  /// * [UserStatusHeartbeat] userStatusHeartbeat (required):
+  /// * [UserStatusTypeEnum] status (required):
   Future<Response> heartbeatWithHttpInfo(
-    UserStatusHeartbeat userStatusHeartbeat,
+    UserStatusTypeEnum status,
   ) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v1/heartbeat';
 
     // ignore: prefer_final_locals
-    Object? postBody = userStatusHeartbeat;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-    const contentTypes = <String>['application/json'];
+    queryParams.addAll(buildQueryParams('', 'status', status));
+
+    const contentTypes = <String>[];
 
     return apiClient.invokeAPI(
       path,
@@ -257,12 +259,12 @@ class DefaultApi extends ApiInstance<ApiClient> {
 
   /// Parameters:
   ///
-  /// * [UserStatusHeartbeat] userStatusHeartbeat (required):
+  /// * [UserStatusTypeEnum] status (required):
   Future<void> heartbeat(
-    UserStatusHeartbeat userStatusHeartbeat,
+    UserStatusTypeEnum status,
   ) async {
     final response = await heartbeatWithHttpInfo(
-      userStatusHeartbeat,
+      status,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await decodeBodyBytes(response));
@@ -272,21 +274,37 @@ class DefaultApi extends ApiInstance<ApiClient> {
   /// Performs an HTTP 'PUT /api/v1/user_status/message/custom' operation and returns the [Response].
   /// Parameters:
   ///
-  /// * [UserStatusSetCustomMessage] userStatusSetCustomMessage (required):
-  Future<Response> setCustomMessageWithHttpInfo(
-    UserStatusSetCustomMessage userStatusSetCustomMessage,
-  ) async {
+  /// * [String] statusIcon:
+  ///
+  /// * [String] message:
+  ///
+  /// * [int] clearAt:
+  Future<Response> setCustomMessageWithHttpInfo({
+    String? statusIcon,
+    String? message,
+    int? clearAt,
+  }) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v1/user_status/message/custom';
 
     // ignore: prefer_final_locals
-    Object? postBody = userStatusSetCustomMessage;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-    const contentTypes = <String>['application/json'];
+    if (statusIcon != null) {
+      queryParams.addAll(buildQueryParams('', 'statusIcon', statusIcon));
+    }
+    if (message != null) {
+      queryParams.addAll(buildQueryParams('', 'message', message));
+    }
+    if (clearAt != null) {
+      queryParams.addAll(buildQueryParams('', 'clearAt', clearAt));
+    }
+
+    const contentTypes = <String>[];
 
     return apiClient.invokeAPI(
       path,
@@ -301,12 +319,20 @@ class DefaultApi extends ApiInstance<ApiClient> {
 
   /// Parameters:
   ///
-  /// * [UserStatusSetCustomMessage] userStatusSetCustomMessage (required):
-  Future<UserStatusGetUserStatus?> setCustomMessage(
-    UserStatusSetCustomMessage userStatusSetCustomMessage,
-  ) async {
+  /// * [String] statusIcon:
+  ///
+  /// * [String] message:
+  ///
+  /// * [int] clearAt:
+  Future<UserStatusGetUserStatus?> setCustomMessage({
+    String? statusIcon,
+    String? message,
+    int? clearAt,
+  }) async {
     final response = await setCustomMessageWithHttpInfo(
-      userStatusSetCustomMessage,
+      statusIcon: statusIcon,
+      message: message,
+      clearAt: clearAt,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await decodeBodyBytes(response));
@@ -326,21 +352,29 @@ class DefaultApi extends ApiInstance<ApiClient> {
   /// Performs an HTTP 'PUT /api/v1/user_status/message/predefined' operation and returns the [Response].
   /// Parameters:
   ///
-  /// * [UserStatusSetPredefinedMessage] userStatusSetPredefinedMessage (required):
+  /// * [String] messageId (required):
+  ///
+  /// * [int] clearAt:
   Future<Response> setPredefinedMessageWithHttpInfo(
-    UserStatusSetPredefinedMessage userStatusSetPredefinedMessage,
-  ) async {
+    String messageId, {
+    int? clearAt,
+  }) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v1/user_status/message/predefined';
 
     // ignore: prefer_final_locals
-    Object? postBody = userStatusSetPredefinedMessage;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-    const contentTypes = <String>['application/json'];
+    queryParams.addAll(buildQueryParams('', 'messageId', messageId));
+    if (clearAt != null) {
+      queryParams.addAll(buildQueryParams('', 'clearAt', clearAt));
+    }
+
+    const contentTypes = <String>[];
 
     return apiClient.invokeAPI(
       path,
@@ -355,12 +389,16 @@ class DefaultApi extends ApiInstance<ApiClient> {
 
   /// Parameters:
   ///
-  /// * [UserStatusSetPredefinedMessage] userStatusSetPredefinedMessage (required):
+  /// * [String] messageId (required):
+  ///
+  /// * [int] clearAt:
   Future<UserStatusGetUserStatus?> setPredefinedMessage(
-    UserStatusSetPredefinedMessage userStatusSetPredefinedMessage,
-  ) async {
+    String messageId, {
+    int? clearAt,
+  }) async {
     final response = await setPredefinedMessageWithHttpInfo(
-      userStatusSetPredefinedMessage,
+      messageId,
+      clearAt: clearAt,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await decodeBodyBytes(response));
@@ -380,21 +418,23 @@ class DefaultApi extends ApiInstance<ApiClient> {
   /// Performs an HTTP 'PUT /api/v1/user_status/status' operation and returns the [Response].
   /// Parameters:
   ///
-  /// * [UserStatusSetUserStatus] userStatusSetUserStatus (required):
+  /// * [UserStatusTypeEnum] statusType (required):
   Future<Response> setStatusWithHttpInfo(
-    UserStatusSetUserStatus userStatusSetUserStatus,
+    UserStatusTypeEnum statusType,
   ) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v1/user_status/status';
 
     // ignore: prefer_final_locals
-    Object? postBody = userStatusSetUserStatus;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-    const contentTypes = <String>['application/json'];
+    queryParams.addAll(buildQueryParams('', 'statusType', statusType));
+
+    const contentTypes = <String>[];
 
     return apiClient.invokeAPI(
       path,
@@ -409,12 +449,12 @@ class DefaultApi extends ApiInstance<ApiClient> {
 
   /// Parameters:
   ///
-  /// * [UserStatusSetUserStatus] userStatusSetUserStatus (required):
+  /// * [UserStatusTypeEnum] statusType (required):
   Future<UserStatusGetUserStatus?> setStatus(
-    UserStatusSetUserStatus userStatusSetUserStatus,
+    UserStatusTypeEnum statusType,
   ) async {
     final response = await setStatusWithHttpInfo(
-      userStatusSetUserStatus,
+      statusType,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await decodeBodyBytes(response));

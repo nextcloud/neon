@@ -61,8 +61,8 @@ class NotificationsBloc extends $NotificationsBloc {
 
   void _loadNotifications() {
     requestManager
-        .wrapNextcloud<List<NotificationsNotification>, NotificationsListNotificationsResponse,
-            NotificationsNotification, NextcloudNotificationsClient>(
+        .wrapNextcloud<List<NotificationsNotification>, NotificationsListNotifications, NotificationsNotification,
+            NextcloudNotificationsClient>(
           client.id,
           client.notifications,
           'notifications-notifications',

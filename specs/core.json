@@ -727,14 +727,6 @@
           }
         }
       },
-      "CoreLoginFlowQuery": {
-        "type": "object",
-        "properties": {
-          "token": {
-            "type": "string"
-          }
-        }
-      },
       "CoreLoginFlowResult": {
         "type": "object",
         "properties": {
@@ -823,16 +815,16 @@
     "/login/v2/poll": {
       "post": {
         "operationId": "get-login-flow-result",
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/CoreLoginFlowQuery"
-              }
+        "parameters": [
+          {
+            "name": "token",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
             }
           }
-        },
+        ],
         "responses": {
           "200": {
             "description": "Login flow result",
@@ -852,43 +844,55 @@
         {
           "name": "file",
           "in": "query",
+          "required": false,
           "schema": {
-            "type": "string"
+            "type": "string",
+            "default": ""
           }
         },
         {
           "name": "x",
           "in": "query",
+          "required": false,
           "schema": {
-            "type": "integer"
+            "type": "integer",
+            "default": 32
           }
         },
         {
           "name": "y",
           "in": "query",
+          "required": false,
           "schema": {
-            "type": "integer"
-          }
-        },
-        {
-          "name": "mode",
-          "in": "query",
-          "schema": {
-            "type": "string"
-          }
-        },
-        {
-          "name": "forceIcon",
-          "in": "query",
-          "schema": {
-            "type": "boolean"
+            "type": "integer",
+            "default": 32
           }
         },
         {
           "name": "a",
           "in": "query",
+          "required": false,
           "schema": {
-            "type": "boolean"
+            "type": "boolean",
+            "default": false
+          }
+        },
+        {
+          "name": "forceIcon",
+          "in": "query",
+          "required": false,
+          "schema": {
+            "type": "boolean",
+            "default": true
+          }
+        },
+        {
+          "name": "mode",
+          "in": "query",
+          "required": false,
+          "schema": {
+            "type": "string",
+            "default": "fill"
           }
         }
       ],

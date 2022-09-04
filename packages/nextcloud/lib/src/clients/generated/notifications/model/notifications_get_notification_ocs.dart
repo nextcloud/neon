@@ -10,11 +10,15 @@
 
 part of openapi.api;
 
-class NotificationsListNotificationsResponse {
-  /// Returns a new [NotificationsListNotificationsResponse] instance.
-  NotificationsListNotificationsResponse({
-    this.ocs,
+class NotificationsGetNotificationOcs {
+  /// Returns a new [NotificationsGetNotificationOcs] instance.
+  NotificationsGetNotificationOcs({
+    this.meta,
+    this.data,
   });
+
+  /// Stub
+  Object? meta;
 
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
@@ -22,34 +26,39 @@ class NotificationsListNotificationsResponse {
   /// source code must fall back to having a nullable type.
   /// Consider adding a "default:" property in the specification file to hide this note.
   ///
-  NotificationsListNotificationsResponseOcs? ocs;
+  NotificationsNotification? data;
 
   @override
   bool operator ==(Object other) =>
-      identical(this, other) || other is NotificationsListNotificationsResponse && other.ocs == ocs;
+      identical(this, other) || other is NotificationsGetNotificationOcs && other.meta == meta && other.data == data;
 
   @override
   int get hashCode =>
       // ignore: unnecessary_parenthesis
-      (ocs == null ? 0 : ocs!.hashCode);
+      (meta == null ? 0 : meta!.hashCode) + (data == null ? 0 : data!.hashCode);
 
   @override
-  String toString() => 'NotificationsListNotificationsResponse[ocs=$ocs]';
+  String toString() => 'NotificationsGetNotificationOcs[meta=$meta, data=$data]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
-    if (ocs != null) {
-      _json[r'ocs'] = ocs;
+    if (meta != null) {
+      _json[r'meta'] = meta;
     } else {
-      _json[r'ocs'] = null;
+      _json[r'meta'] = null;
+    }
+    if (data != null) {
+      _json[r'data'] = data;
+    } else {
+      _json[r'data'] = null;
     }
     return _json;
   }
 
-  /// Returns a new [NotificationsListNotificationsResponse] instance and imports its values from
+  /// Returns a new [NotificationsGetNotificationOcs] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static NotificationsListNotificationsResponse? fromJson(dynamic value) {
+  static NotificationsGetNotificationOcs? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -58,29 +67,28 @@ class NotificationsListNotificationsResponse {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key),
-              'Required key "NotificationsListNotificationsResponse[$key]" is missing from JSON.');
-          assert(json[key] != null,
-              'Required key "NotificationsListNotificationsResponse[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "NotificationsGetNotificationOcs[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "NotificationsGetNotificationOcs[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return NotificationsListNotificationsResponse(
-        ocs: NotificationsListNotificationsResponseOcs.fromJson(json[r'ocs']),
+      return NotificationsGetNotificationOcs(
+        meta: mapValueOfType<Object>(json, r'meta'),
+        data: NotificationsNotification.fromJson(json[r'data']),
       );
     }
     return null;
   }
 
-  static List<NotificationsListNotificationsResponse>? listFromJson(
+  static List<NotificationsGetNotificationOcs>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <NotificationsListNotificationsResponse>[];
+    final result = <NotificationsGetNotificationOcs>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = NotificationsListNotificationsResponse.fromJson(row);
+        final value = NotificationsGetNotificationOcs.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -89,12 +97,12 @@ class NotificationsListNotificationsResponse {
     return result.toList(growable: growable);
   }
 
-  static Map<String, NotificationsListNotificationsResponse> mapFromJson(dynamic json) {
-    final map = <String, NotificationsListNotificationsResponse>{};
+  static Map<String, NotificationsGetNotificationOcs> mapFromJson(dynamic json) {
+    final map = <String, NotificationsGetNotificationOcs>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = NotificationsListNotificationsResponse.fromJson(entry.value);
+        final value = NotificationsGetNotificationOcs.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -103,16 +111,16 @@ class NotificationsListNotificationsResponse {
     return map;
   }
 
-  // maps a json object with a list of NotificationsListNotificationsResponse-objects as value to a dart map
-  static Map<String, List<NotificationsListNotificationsResponse>> mapListFromJson(
+  // maps a json object with a list of NotificationsGetNotificationOcs-objects as value to a dart map
+  static Map<String, List<NotificationsGetNotificationOcs>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<NotificationsListNotificationsResponse>>{};
+    final map = <String, List<NotificationsGetNotificationOcs>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = NotificationsListNotificationsResponse.listFromJson(
+        final value = NotificationsGetNotificationOcs.listFromJson(
           entry.value,
           growable: growable,
         );

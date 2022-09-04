@@ -34,10 +34,8 @@ class NotesView extends StatelessWidget {
               );
               if (result != null) {
                 bloc.createNote(
-                  NotesNote(
-                    title: result[0] as String,
-                    category: result[1] as String?,
-                  ),
+                  title: result[0] as String,
+                  category: result[1] as String?,
                 );
               }
             },
@@ -132,11 +130,9 @@ class NotesView extends StatelessWidget {
           ),
           onPressed: () {
             bloc.updateNote(
-              NotesNote(
-                id: note.id!,
-                etag: note.etag!,
-                favorite: !note.favorite!,
-              ),
+              note.id!,
+              note.etag!,
+              favorite: !note.favorite!,
             );
           },
         ),
@@ -156,7 +152,7 @@ class NotesView extends StatelessWidget {
             AppLocalizations.of(context).notesDeleteNoteConfirm(note.title!),
           );
           if (result) {
-            bloc.deleteNote(note);
+            bloc.deleteNote(note.id!);
           }
         },
       );

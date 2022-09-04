@@ -10,30 +10,36 @@
 
 part of openapi.api;
 
-class NotificationsListNotificationsResponseOcs {
-  /// Returns a new [NotificationsListNotificationsResponseOcs] instance.
-  NotificationsListNotificationsResponseOcs({
+class NotificationsPushServerRegistrationOcs {
+  /// Returns a new [NotificationsPushServerRegistrationOcs] instance.
+  NotificationsPushServerRegistrationOcs({
     this.meta,
-    this.data = const [],
+    this.data,
   });
 
   /// Stub
   Object? meta;
 
-  List<NotificationsNotification> data;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  NotificationsPushServerSubscription? data;
 
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is NotificationsListNotificationsResponseOcs && other.meta == meta && other.data == data;
+      other is NotificationsPushServerRegistrationOcs && other.meta == meta && other.data == data;
 
   @override
   int get hashCode =>
       // ignore: unnecessary_parenthesis
-      (meta == null ? 0 : meta!.hashCode) + (data.hashCode);
+      (meta == null ? 0 : meta!.hashCode) + (data == null ? 0 : data!.hashCode);
 
   @override
-  String toString() => 'NotificationsListNotificationsResponseOcs[meta=$meta, data=$data]';
+  String toString() => 'NotificationsPushServerRegistrationOcs[meta=$meta, data=$data]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -42,14 +48,18 @@ class NotificationsListNotificationsResponseOcs {
     } else {
       _json[r'meta'] = null;
     }
-    _json[r'data'] = data;
+    if (data != null) {
+      _json[r'data'] = data;
+    } else {
+      _json[r'data'] = null;
+    }
     return _json;
   }
 
-  /// Returns a new [NotificationsListNotificationsResponseOcs] instance and imports its values from
+  /// Returns a new [NotificationsPushServerRegistrationOcs] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static NotificationsListNotificationsResponseOcs? fromJson(dynamic value) {
+  static NotificationsPushServerRegistrationOcs? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -59,29 +69,29 @@ class NotificationsListNotificationsResponseOcs {
       assert(() {
         requiredKeys.forEach((key) {
           assert(json.containsKey(key),
-              'Required key "NotificationsListNotificationsResponseOcs[$key]" is missing from JSON.');
+              'Required key "NotificationsPushServerRegistrationOcs[$key]" is missing from JSON.');
           assert(json[key] != null,
-              'Required key "NotificationsListNotificationsResponseOcs[$key]" has a null value in JSON.');
+              'Required key "NotificationsPushServerRegistrationOcs[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return NotificationsListNotificationsResponseOcs(
+      return NotificationsPushServerRegistrationOcs(
         meta: mapValueOfType<Object>(json, r'meta'),
-        data: NotificationsNotification.listFromJson(json[r'data']) ?? const [],
+        data: NotificationsPushServerSubscription.fromJson(json[r'data']),
       );
     }
     return null;
   }
 
-  static List<NotificationsListNotificationsResponseOcs>? listFromJson(
+  static List<NotificationsPushServerRegistrationOcs>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <NotificationsListNotificationsResponseOcs>[];
+    final result = <NotificationsPushServerRegistrationOcs>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = NotificationsListNotificationsResponseOcs.fromJson(row);
+        final value = NotificationsPushServerRegistrationOcs.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -90,12 +100,12 @@ class NotificationsListNotificationsResponseOcs {
     return result.toList(growable: growable);
   }
 
-  static Map<String, NotificationsListNotificationsResponseOcs> mapFromJson(dynamic json) {
-    final map = <String, NotificationsListNotificationsResponseOcs>{};
+  static Map<String, NotificationsPushServerRegistrationOcs> mapFromJson(dynamic json) {
+    final map = <String, NotificationsPushServerRegistrationOcs>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = NotificationsListNotificationsResponseOcs.fromJson(entry.value);
+        final value = NotificationsPushServerRegistrationOcs.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -104,16 +114,16 @@ class NotificationsListNotificationsResponseOcs {
     return map;
   }
 
-  // maps a json object with a list of NotificationsListNotificationsResponseOcs-objects as value to a dart map
-  static Map<String, List<NotificationsListNotificationsResponseOcs>> mapListFromJson(
+  // maps a json object with a list of NotificationsPushServerRegistrationOcs-objects as value to a dart map
+  static Map<String, List<NotificationsPushServerRegistrationOcs>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<NotificationsListNotificationsResponseOcs>>{};
+    final map = <String, List<NotificationsPushServerRegistrationOcs>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = NotificationsListNotificationsResponseOcs.listFromJson(
+        final value = NotificationsPushServerRegistrationOcs.listFromJson(
           entry.value,
           growable: growable,
         );

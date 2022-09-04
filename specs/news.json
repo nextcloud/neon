@@ -34,33 +34,6 @@
       }
     },
     "schemas": {
-      "NewsAddFeed": {
-        "type": "object",
-        "properties": {
-          "url": {
-            "type": "string"
-          },
-          "folderId": {
-            "type": "integer"
-          }
-        }
-      },
-      "NewsRenameFeed": {
-        "type": "object",
-        "properties": {
-          "feedTitle": {
-            "type": "string"
-          }
-        }
-      },
-      "NewsMoveFeed": {
-        "type": "object",
-        "properties": {
-          "folderId": {
-            "type": "integer"
-          }
-        }
-      },
       "NewsListFeeds": {
         "type": "object",
         "properties": {
@@ -201,22 +174,6 @@
           }
         }
       },
-      "NewsCreateFolder": {
-        "type": "object",
-        "properties": {
-          "name": {
-            "type": "string"
-          }
-        }
-      },
-      "NewsRenameFolder": {
-        "type": "object",
-        "properties": {
-          "name": {
-            "type": "string"
-          }
-        }
-      },
       "NewsListFolders": {
         "type": "object",
         "properties": {
@@ -249,14 +206,6 @@
             }
           }
         }
-      },
-      "NewsMarkAsRead": {
-        "type": "object",
-        "properties": {
-          "newestItemId": {
-            "type": "integer"
-          }
-        }
       }
     }
   },
@@ -279,16 +228,16 @@
       },
       "post": {
         "operationId": "create-folder",
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/NewsCreateFolder"
-              }
+        "parameters": [
+          {
+            "name": "name",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
             }
           }
-        },
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -316,16 +265,16 @@
       ],
       "put": {
         "operationId": "rename-folder",
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/NewsRenameFolder"
-              }
+        "parameters": [
+          {
+            "name": "name",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
             }
           }
-        },
+        ],
         "responses": {
           "200": {
             "description": ""
@@ -346,6 +295,7 @@
         {
           "name": "folderId",
           "in": "path",
+          "description": "ID of the folder",
           "required": true,
           "schema": {
             "type": "integer"
@@ -354,16 +304,17 @@
       ],
       "put": {
         "operationId": "mark-folder-as-read",
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/NewsMarkAsRead"
-              }
+        "parameters": [
+          {
+            "name": "newestItemId",
+            "in": "query",
+            "description": "The newest read item",
+            "required": true,
+            "schema": {
+              "type": "integer"
             }
           }
-        },
+        ],
         "responses": {
           "200": {
             "description": ""
@@ -389,16 +340,24 @@
       },
       "post": {
         "operationId": "add-feed",
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/NewsAddFeed"
-              }
+        "parameters": [
+          {
+            "name": "url",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "folderId",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer"
             }
           }
-        },
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -446,16 +405,16 @@
       ],
       "put": {
         "operationId": "move-feed",
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/NewsMoveFeed"
-              }
+        "parameters": [
+          {
+            "name": "folderId",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer"
             }
           }
-        },
+        ],
         "responses": {
           "200": {
             "description": ""
@@ -476,16 +435,16 @@
       ],
       "put": {
         "operationId": "rename-feed",
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/NewsRenameFeed"
-              }
+        "parameters": [
+          {
+            "name": "feedTitle",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
             }
           }
-        },
+        ],
         "responses": {
           "200": {
             "description": ""
@@ -506,16 +465,16 @@
       ],
       "put": {
         "operationId": "mark-feed-as-read",
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/NewsMarkAsRead"
-              }
+        "parameters": [
+          {
+            "name": "newestItemId",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "integer"
             }
           }
-        },
+        ],
         "responses": {
           "200": {
             "description": ""
@@ -524,52 +483,64 @@
       }
     },
     "/api/v1-2/items": {
-      "parameters": [
-        {
-          "name": "type",
-          "in": "query",
-          "schema": {
-            "type": "integer"
-          }
-        },
-        {
-          "name": "id",
-          "in": "query",
-          "schema": {
-            "type": "integer"
-          }
-        },
-        {
-          "name": "getRead",
-          "in": "query",
-          "schema": {
-            "type": "boolean"
-          }
-        },
-        {
-          "name": "batchSize",
-          "in": "query",
-          "schema": {
-            "type": "integer"
-          }
-        },
-        {
-          "name": "offset",
-          "in": "query",
-          "schema": {
-            "type": "integer"
-          }
-        },
-        {
-          "name": "oldestFirst",
-          "in": "query",
-          "schema": {
-            "type": "boolean"
-          }
-        }
-      ],
       "get": {
         "operationId": "list-articles",
+        "parameters": [
+          {
+            "name": "type",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 3
+            }
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 0
+            }
+          },
+          {
+            "name": "getRead",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "boolean",
+              "default": true
+            }
+          },
+          {
+            "name": "batchSize",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": -1
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 0
+            }
+          },
+          {
+            "name": "oldestFirst",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "boolean",
+              "default": false
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -585,31 +556,37 @@
       }
     },
     "/api/v1-2/items/updated": {
-      "parameters": [
-        {
-          "name": "lastModified",
-          "in": "query",
-          "schema": {
-            "type": "integer"
-          }
-        },
-        {
-          "name": "type",
-          "in": "query",
-          "schema": {
-            "type": "integer"
-          }
-        },
-        {
-          "name": "id",
-          "in": "query",
-          "schema": {
-            "type": "integer"
-          }
-        }
-      ],
       "get": {
         "operationId": "list-updated-articles",
+        "parameters": [
+          {
+            "name": "type",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 3
+            }
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 0
+            }
+          },
+          {
+            "name": "lastModified",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 0
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "",

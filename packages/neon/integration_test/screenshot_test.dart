@@ -12,7 +12,6 @@ import 'package:neon/src/blocs/capabilities.dart';
 import 'package:neon/src/blocs/push_notifications.dart';
 import 'package:neon/src/models/account.dart';
 import 'package:neon/src/neon.dart';
-import 'package:nextcloud/nextcloud.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:provider/provider.dart';
 import 'package:rxdart/rxdart.dart';
@@ -308,16 +307,10 @@ Future main() async {
     const wikipediaFeedURL = 'https://en.wikipedia.org/w/api.php?action=featuredfeed&feed=featured&feedformat=atom';
     const nasaFeedURL = 'https://www.nasa.gov/rss/dyn/breaking_news.rss';
 
-    final folder = await account.client.news.createFolder(
-      NewsCreateFolder(
-        name: 'test',
-      ),
-    );
+    final folder = await account.client.news.createFolder('test');
     await account.client.news.addFeed(
-      NewsAddFeed(
-        url: nasaFeedURL,
-        folderId: folder!.folders.single.id,
-      ),
+      nasaFeedURL,
+      folderId: folder!.folders.single.id,
     );
 
     await pumpAppPage(
@@ -390,10 +383,8 @@ Future main() async {
 
   testWidgets('notes', (final tester) async {
     await account.client.notes.createNote(
-      NotesNote(
-        title: 'Wishlist',
-        category: 'Financial',
-      ),
+      title: 'Wishlist',
+      category: 'Financial',
     );
 
     await pumpAppPage(
@@ -459,10 +450,8 @@ Future main() async {
   testWidgets('notifications', (final tester) async {
     await account.client.notifications.sendAdminNotification(
       account.username,
-      NotificationsAdminNotification(
-        shortMessage: 'Notifications demo',
-        longMessage: 'This is a notifications demo of the Neon app',
-      ),
+      'Notifications demo',
+      longMessage: 'This is a notifications demo of the Neon app',
     );
 
     await pumpAppPage(

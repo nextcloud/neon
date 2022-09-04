@@ -12,11 +12,21 @@ part 'notes.rxb.g.dart';
 abstract class NotesBlocEvents {
   void refresh();
 
-  void createNote(final NotesNote note);
+  void createNote({
+    final String? title,
+    final String? category,
+  });
 
-  void updateNote(final NotesNote note);
+  void updateNote(
+    final int id,
+    final String etag, {
+    final String? title,
+    final String? category,
+    final String? content,
+    final bool? favorite,
+  });
 
-  void deleteNote(final NotesNote note);
+  void deleteNote(final int id);
 }
 
 abstract class NotesBlocStates {
@@ -36,24 +46,32 @@ class NotesBloc extends $NotesBloc {
   ) {
     _$refreshEvent.listen((final _) => _loadNotes());
 
-    _$createNoteEvent.listen((final note) {
-      _wrapAction(() async => client.notes.createNote(note));
+    _$createNoteEvent.listen((final event) {
+      _wrapAction(
+        () async => client.notes.createNote(
+          title: event.title,
+          category: event.category,
+        ),
+      );
     });
 
-    _$updateNoteEvent.listen((final note) {
+    _$updateNoteEvent.listen((final event) {
       _wrapAction(
         () async => _noteUpdateController.add(
           (await client.notes.updateNote(
-            note.id!,
-            note,
-            ifMatch: '"${note.etag}"',
+            event.id,
+            title: event.title,
+            category: event.category,
+            content: event.content,
+            favorite: event.favorite,
+            ifMatch: '"${event.etag}"',
           ))!,
         ),
       );
     });
 
-    _$deleteNoteEvent.listen((final note) {
-      _wrapAction(() async => client.notes.deleteNote(note.id!));
+    _$deleteNoteEvent.listen((final id) {
+      _wrapAction(() async => client.notes.deleteNote(id));
     });
 
     _loadNotes();

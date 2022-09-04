@@ -53,7 +53,7 @@ class LoginBloc extends $LoginBloc {
           _cancelPollTimer();
           _pollTimer = Timer.periodic(const Duration(seconds: 2), (final _) async {
             try {
-              final result = await client.core.getLoginFlowResult(CoreLoginFlowQuery(token: init!.poll!.token!));
+              final result = await client.core.getLoginFlowResult(init!.poll!.token!);
               _cancelPollTimer();
               _loginFlowResultSubject.add(result);
             } catch (e) {

@@ -24,17 +24,15 @@ part 'api_client.dart';
 
 part 'api/default_api.dart';
 
-part 'model/notifications_admin_notification.dart';
-part 'model/notifications_empty_response.dart';
-part 'model/notifications_empty_response_ocs.dart';
-part 'model/notifications_get_notification_response.dart';
-part 'model/notifications_get_notification_response_ocs.dart';
-part 'model/notifications_list_notifications_response.dart';
-part 'model/notifications_list_notifications_response_ocs.dart';
+part 'model/notifications_empty.dart';
+part 'model/notifications_empty_ocs.dart';
+part 'model/notifications_get_notification.dart';
+part 'model/notifications_get_notification_ocs.dart';
+part 'model/notifications_list_notifications.dart';
+part 'model/notifications_list_notifications_ocs.dart';
 part 'model/notifications_notification.dart';
 part 'model/notifications_notification_action.dart';
 part 'model/notifications_push_notification_decrypted_subject.dart';
-part 'model/notifications_push_server_device.dart';
-part 'model/notifications_push_server_registration_response.dart';
-part 'model/notifications_push_server_registration_response_ocs.dart';
+part 'model/notifications_push_server_registration.dart';
+part 'model/notifications_push_server_registration_ocs.dart';
 part 'model/notifications_push_server_subscription.dart';

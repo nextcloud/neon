@@ -105,7 +105,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getLoginFlowResult**
-> CoreLoginFlowResult getLoginFlowResult(coreLoginFlowQuery)
+> CoreLoginFlowResult getLoginFlowResult(token)
 
 
 
@@ -117,10 +117,10 @@ import 'package:openapi/api.dart';
 //defaultApiClient.getAuthentication<HttpBasicAuth>('basic_auth').password = 'YOUR_PASSWORD';
 
 final api_instance = DefaultApi();
-final coreLoginFlowQuery = CoreLoginFlowQuery(); // CoreLoginFlowQuery | 
+final token = token_example; // String | 
 
 try {
-    final result = api_instance.getLoginFlowResult(coreLoginFlowQuery);
+    final result = api_instance.getLoginFlowResult(token);
     print(result);
 } catch (e) {
     print('Exception when calling DefaultApi->getLoginFlowResult: $e\n');
@@ -131,7 +131,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **coreLoginFlowQuery** | [**CoreLoginFlowQuery**](CoreLoginFlowQuery.md)|  | 
+ **token** | **String**|  | 
 
 ### Return type
 
@@ -143,7 +143,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -189,7 +189,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getPreview**
-> String getPreview(file, x, y, mode, forceIcon, a)
+> String getPreview(file, x, y, a, forceIcon, mode)
 
 
 
@@ -204,12 +204,12 @@ final api_instance = DefaultApi();
 final file = file_example; // String | 
 final x = 56; // int | 
 final y = 56; // int | 
-final mode = mode_example; // String | 
-final forceIcon = true; // bool | 
 final a = true; // bool | 
+final forceIcon = true; // bool | 
+final mode = mode_example; // String | 
 
 try {
-    final result = api_instance.getPreview(file, x, y, mode, forceIcon, a);
+    final result = api_instance.getPreview(file, x, y, a, forceIcon, mode);
     print(result);
 } catch (e) {
     print('Exception when calling DefaultApi->getPreview: $e\n');
@@ -220,12 +220,12 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **file** | **String**|  | [optional] 
- **x** | **int**|  | [optional] 
- **y** | **int**|  | [optional] 
- **mode** | **String**|  | [optional] 
- **forceIcon** | **bool**|  | [optional] 
- **a** | **bool**|  | [optional] 
+ **file** | **String**|  | [optional] [default to '']
+ **x** | **int**|  | [optional] [default to 32]
+ **y** | **int**|  | [optional] [default to 32]
+ **a** | **bool**|  | [optional] [default to false]
+ **forceIcon** | **bool**|  | [optional] [default to true]
+ **mode** | **String**|  | [optional] [default to 'fill']
 
 ### Return type
 
