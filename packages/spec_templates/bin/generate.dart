@@ -55,43 +55,8 @@ Future main(final List<String> args) async {
       'routes.php',
     );
   }
-  final routesPhpLines = File(routesPhpPath).readAsStringSync().split('\n');
 
-  final reg = RegExp('^(\t| )*\\/\\/', multiLine: true);
-  final routesPhpLinesResult = <String>[];
-  for (var i = 0; i < routesPhpLines.length; i++) {
-    final line = routesPhpLines[i];
-    if (!reg.hasMatch(line)) {
-      routesPhpLinesResult.add(line);
-    }
-  }
-
-  var routesPhp = routesPhpLinesResult.join('\n');
-  if (routesPhp.contains('registerRoutes')) {
-    routesPhp = RegExp(r'registerRoutes\(\$this, (\[[^;]*)\);').firstMatch(routesPhp)!.group(1)!;
-  } else if (routesPhp.contains('return [')) {
-    routesPhp = RegExp(r'return (\[[^;]*);').firstMatch(routesPhp)!.group(1)!;
-  } else {
-    throw Exception('Unsupported routes.php format');
-  }
-
-  final phpFile = File(p.join(tmpDirectory.path, '$id.php'));
-  final resultFile = File(p.join(tmpDirectory.path, '$id.json'));
-  phpFile.writeAsStringSync(
-    '''
-<?php
-\$fp = fopen('${resultFile.path}', 'w');
-fwrite(\$fp, str_replace("\\/","/",json_encode($routesPhp)));
-fclose(\$fp);
-?>
-''',
-  );
-  final result = await Process.run('php', [phpFile.path]);
-  if (result.exitCode != 0) {
-    throw Exception('Failed to run php: ${result.stderr}');
-  }
-
-  final routes = json.decode(resultFile.readAsStringSync()) as Map<String, dynamic>;
+  final routes = await _parseRoutesFile(tmpDirectory, routesPhpPath);
 
   final paths = <String, Path>{};
 
@@ -105,7 +70,7 @@ fclose(\$fp);
   final ocsBasePath = '/ocs/v1.php$routesBasePath';
 
   for (final k in routes.keys) {
-    for (final Map<String, dynamic> route in routes[k]) {
+    for (final route in routes[k]!) {
       final name = route['name'] as String;
       var url = route['url'] as String;
       // ignore: avoid_dynamic_calls
@@ -414,4 +379,74 @@ List<MethodParameter> _getMethodParameters(
   }
 
   return result;
+}
+
+Future<Map<String, List<Map<String, dynamic>>>> _parseRoutesFile(
+  final Directory tmpDirectory,
+  final String path,
+) async {
+  final content = File(path).readAsStringSync();
+
+  late String routes;
+  if (content.contains('registerRoutes')) {
+    routes = RegExp(r'registerRoutes\(\$this, (\[[^;]*)\);').firstMatch(content)!.group(1)!;
+  } else if (content.contains('return [')) {
+    routes = RegExp(r'return (\[[^;]*);').firstMatch(content)!.group(1)!;
+  } else if (content.contains('return array_merge_recursive(')) {
+    final includes = RegExp(r"include\(__DIR__ . '/([^']*)'\),")
+        .allMatches(RegExp(r'return array_merge_recursive\(\n(.*)\n\);', dotAll: true).firstMatch(content)!.group(1)!)
+        .map((final match) => match.group(1)!)
+        .toList();
+
+    final out = <String, List<Map<String, dynamic>>>{};
+    for (final include in includes) {
+      final routes = await _parseRoutesFile(tmpDirectory, p.join(File(path).parent.path, include));
+      for (final key in routes.keys) {
+        if (!out.containsKey(key)) {
+          out[key] = [];
+        }
+        out[key]!.addAll(routes[key]!);
+      }
+    }
+
+    return out;
+  } else {
+    throw Exception('Unsupported routes format');
+  }
+
+  final allowedVariables = [
+    'requirements',
+    'requirementsWithToken',
+    'requirementsWithMessageId',
+  ];
+  final variables = RegExp('^(\\\$(${allowedVariables.join('|')}) =[^;]*;)\$', multiLine: true)
+      .allMatches(content)
+      .map((final match) => match.group(1)!)
+      .toList();
+
+  final phpFile = File(p.join(tmpDirectory.path, p.basename(path)));
+  final jsonFile = File(p.join(tmpDirectory.path, p.basename(path).replaceAll('.php', '.json')));
+
+  phpFile.writeAsStringSync(
+    '''
+<?php
+${variables.join('\n')}
+
+\$fp = fopen('${jsonFile.path}', 'w');
+fwrite(\$fp, str_replace("\\/","/",json_encode($routes)));
+fclose(\$fp);
+?>
+''',
+  );
+  final result = await Process.run('php', [phpFile.path]);
+  if (result.exitCode != 0) {
+    throw Exception('Failed to run php: ${result.stderr}');
+  }
+
+  return (json.decode(jsonFile.readAsStringSync()) as Map<String, dynamic>).map(
+    (final key, final value) => MapEntry<String, List<Map<String, dynamic>>>(
+      key,
+      (value as List).map((final a) => a as Map<String, dynamic>).toList(),
+    ),
+  );
 }
