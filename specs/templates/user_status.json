@@ -38,6 +38,24 @@
     "/ocs/v1.php/apps/user_status/api/v1/statuses": {
       "get": {
         "operationId": "statuses-findall-TODO",
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -99,6 +117,16 @@
     "/ocs/v1.php/apps/user_status/api/v1/user_status/status": {
       "put": {
         "operationId": "userstatus-setstatus-TODO",
+        "parameters": [
+          {
+            "name": "statusType",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -116,6 +144,24 @@
     "/ocs/v1.php/apps/user_status/api/v1/user_status/message/predefined": {
       "put": {
         "operationId": "userstatus-setpredefinedmessage-TODO",
+        "parameters": [
+          {
+            "name": "messageId",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "clearAt",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -133,6 +179,32 @@
     "/ocs/v1.php/apps/user_status/api/v1/user_status/message/custom": {
       "put": {
         "operationId": "userstatus-setcustommessage-TODO",
+        "parameters": [
+          {
+            "name": "statusIcon",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "message",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "clearAt",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -184,6 +256,16 @@
     "/apps/user_status/heartbeat": {
       "put": {
         "operationId": "heartbeat-heartbeat-TODO",
+        "parameters": [
+          {
+            "name": "status",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "",

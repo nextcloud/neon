@@ -125,26 +125,133 @@ Future main(final List<String> args) async {
           RegExp('\\/\\*\\*((?:(?!\\/\\*\\*).)*?)\\*\\/(?:(?!\\*\\/).)*?public function $methodName\\(([^\\)]*)\\)');
       final match = reg.allMatches(controllerContent).single;
 
+      final docParameters = <String>[];
+      var current = '';
+      for (final docLine in match
+          .group(1)!
+          .split('*')
+          .map((final s) {
+            var r = s.trim();
+            while (r.contains('  ')) {
+              r = r.replaceAll('  ', ' ');
+            }
+            return r;
+          })
+          .where((final s) => s.isNotEmpty)
+          .toList()) {
+        if (docLine.startsWith('@')) {
+          if (current != '') {
+            docParameters.add(current);
+          }
+        }
+
+        if (docLine.startsWith('@return')) {
+          current = '';
+          break;
+        }
+
+        if (docLine.startsWith('@param')) {
+          current = docLine;
+        } else if (current != '') {
+          current += ' $docLine';
+        }
+      }
+      if (current != '') {
+        docParameters.add(current);
+      }
+
       final methodParameters = _getMethodParameters(
         controllerName,
         methodName,
         match.group(2)!.split(',').map((final s) => s.trim()).where((final s) => s.isNotEmpty).toList(),
-        match
-            .group(1)!
-            .split('*')
-            .map((final s) {
-              var r = s.trim();
-              while (r.contains('  ')) {
-                r = r.replaceAll('  ', ' ');
-              }
-              return r;
-            })
-            .where((final s) => s.isNotEmpty && s.startsWith('@param'))
-            .toList(),
+        docParameters,
       );
+
+      final parameterNames = RegExp('{[^}]*}').allMatches(url).map((final m) {
+        final t = m.group(0)!;
+        return t.substring(1, t.length - 1);
+      }).toList();
+
+      final parameters = <Parameter>[];
+      for (final parameterName in parameterNames) {
+        MethodParameter? parameter;
+        for (final methodParameter in methodParameters) {
+          if (methodParameter.name == parameterName) {
+            parameter = methodParameter;
+            break;
+          }
+        }
+        if (parameter == null && (requirements == null || requirements[parameterName] == null)) {
+          throw Exception('Could not find parameter for $parameterName in $name');
+        }
+        parameters.add(
+          Parameter(
+            name: parameterName,
+            in_: 'path',
+            required: true,
+            description: parameter?.description,
+            schema: {
+              'type': parameter?.openAPIType ?? 'TODO',
+              if (parameter?.defaultValue != null) ...{
+                'default': parameter?.defaultValue,
+              },
+            },
+          ),
+        );
+      }
+      final queryParameters = <MethodParameter>[];
+      for (final methodParameter in methodParameters) {
+        var found = false;
+        for (final parameter in parameters) {
+          if (parameter.name == methodParameter.name) {
+            found = true;
+            break;
+          }
+        }
+        if (!found) {
+          queryParameters.add(methodParameter);
+        }
+      }
+
+      if (paths[url] == null) {
+        paths[url] = Path(
+          parameters: parameters,
+        );
+      }
+      /*
+      for (final bodyParameter in queryParameters) ...{
+        bodyParameter.name: {
+          if (bodyParameter.description != null) ...{
+            'description': bodyParameter.description,
+          },
+          'type': bodyParameter.openAPIType ?? 'TODO',
+          if (bodyParameter.defaultValue != null) ...{
+            'default': bodyParameter.defaultValue,
+          },
+        }
+      },
+       */
 
       final operation = Operation(
         operationID: '${name.replaceAll('#', '-').toLowerCase()}-TODO',
+        parameters: queryParameters.isNotEmpty
+            ? queryParameters
+                .map<Parameter>(
+                  (final queryParameter) => Parameter(
+                    name: queryParameter.name,
+                    in_: 'query',
+                    description: queryParameter.description,
+                    required: !queryParameter.nullable && queryParameter.defaultValue == null,
+                    schema: {
+                      'type': queryParameter.openAPIType ?? 'TODO',
+                      if (queryParameter.defaultValue != null) ...{
+                        'default': queryParameter.defaultValue,
+                      },
+                    },
+                  ),
+                )
+                .toList()
+            : null,
         responses: {
           200: Response(
             description: '',
@@ -159,44 +266,6 @@ Future main(final List<String> args) async {
         },
       );
 
-      if (paths[url] == null) {
-        final parameterNames = RegExp('{[^}]*}').allMatches(url).map((final m) {
-          final t = m.group(0)!;
-          return t.substring(1, t.length - 1);
-        }).toList();
-
-        final parameters = <Parameter>[];
-        for (final parameterName in parameterNames) {
-          MethodParameter? parameter;
-          for (final methodParameter in methodParameters) {
-            if (methodParameter.name == parameterName) {
-              parameter = methodParameter;
-              break;
-            }
-          }
-          if (parameter == null && (requirements == null || requirements[parameterName] == null)) {
-            throw Exception('Could not find parameter for $parameterName in $name');
-          }
-          parameters.add(
-            Parameter(
-              name: parameterName,
-              in_: 'path',
-              required: true,
-              description: parameter?.description,
-              schema: {
-                'type': parameter?.openAPIType ?? 'TODO',
-                if (parameter?.defaultValue != null) ...{
-                  'default': parameter?.defaultValue,
-                },
-              },
-            ),
-          );
-        }
-
-        paths[url] = Path(
-          parameters: parameters,
-        );
-      }
       switch (verb) {
         case 'DELETE':
           paths[url]!.delete = operation;
@@ -355,8 +424,8 @@ List<MethodParameter> _getMethodParameters(
               type = 'string';
               continue;
             }
-            print(
-              'WARNING: Can not determine reliable type for "$docType" for parameter "$name" of method "$methodName" in controller "$controllerName"',
+            throw Exception(
+              'Can not determine reliable type for "$docType" for parameter "$name" of method "$methodName" in controller "$controllerName"',
             );
           } else {
             type = nonNullableParts.single;
