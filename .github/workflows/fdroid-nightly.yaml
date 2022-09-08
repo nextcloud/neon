@@ -8,7 +8,7 @@ on:
 jobs:
   nightly:
     name: Publish F-Droid nightly build
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     environment: nightly
     steps:
       - name: Checkout
