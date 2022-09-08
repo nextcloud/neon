@@ -2,7 +2,7 @@
   "openapi": "3.0.3",
   "info": {
     "title": "Notifications",
-    "version": "2.12.0",
+    "version": "2.12.1",
     "description": "This app provides a backend and frontend for the notification API available in Nextcloud.",
     "license": {
       "name": "agpl"
