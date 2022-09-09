@@ -74,7 +74,7 @@ ThemeData getThemeFromNextcloudTheme(
     ),
     appBarTheme: AppBarTheme(
       backgroundColor: primaryColor,
-      foregroundColor: onPrimaryColor,
+      foregroundColor: selectBrightness == Brightness.dark ? Colors.white : Colors.black,
     ),
     snackBarTheme: SnackBarThemeData(
       behavior: SnackBarBehavior.floating,
