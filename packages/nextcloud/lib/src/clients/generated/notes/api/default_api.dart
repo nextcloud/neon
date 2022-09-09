@@ -16,21 +16,49 @@ class DefaultApi extends ApiInstance<ApiClient> {
   /// Performs an HTTP 'POST /api/v1/notes' operation and returns the [Response].
   /// Parameters:
   ///
-  /// * [NotesNote] notesNote (required):
-  Future<Response> createNoteWithHttpInfo(
-    NotesNote notesNote,
-  ) async {
+  /// * [String] category:
+  ///
+  /// * [String] title:
+  ///
+  /// * [String] content:
+  ///
+  /// * [int] modified:
+  ///
+  /// * [bool] favorite:
+  Future<Response> createNoteWithHttpInfo({
+    String? category,
+    String? title,
+    String? content,
+    int? modified,
+    bool? favorite,
+  }) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v1/notes';
 
     // ignore: prefer_final_locals
-    Object? postBody = notesNote;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-    const contentTypes = <String>['application/json'];
+    if (category != null) {
+      queryParams.addAll(buildQueryParams('', 'category', category));
+    }
+    if (title != null) {
+      queryParams.addAll(buildQueryParams('', 'title', title));
+    }
+    if (content != null) {
+      queryParams.addAll(buildQueryParams('', 'content', content));
+    }
+    if (modified != null) {
+      queryParams.addAll(buildQueryParams('', 'modified', modified));
+    }
+    if (favorite != null) {
+      queryParams.addAll(buildQueryParams('', 'favorite', favorite));
+    }
+
+    const contentTypes = <String>[];
 
     return apiClient.invokeAPI(
       path,
@@ -45,12 +73,28 @@ class DefaultApi extends ApiInstance<ApiClient> {
 
   /// Parameters:
   ///
-  /// * [NotesNote] notesNote (required):
-  Future<NotesNote?> createNote(
-    NotesNote notesNote,
-  ) async {
+  /// * [String] category:
+  ///
+  /// * [String] title:
+  ///
+  /// * [String] content:
+  ///
+  /// * [int] modified:
+  ///
+  /// * [bool] favorite:
+  Future<NotesNote?> createNote({
+    String? category,
+    String? title,
+    String? content,
+    int? modified,
+    bool? favorite,
+  }) async {
     final response = await createNoteWithHttpInfo(
-      notesNote,
+      category: category,
+      title: title,
+      content: content,
+      modified: modified,
+      favorite: favorite,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await decodeBodyBytes(response));
@@ -71,12 +115,9 @@ class DefaultApi extends ApiInstance<ApiClient> {
   /// Parameters:
   ///
   /// * [int] id (required):
-  ///
-  /// * [String] ifNoneMatch:
   Future<Response> deleteNoteWithHttpInfo(
-    int id, {
-    String? ifNoneMatch,
-  }) async {
+    int id,
+  ) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v1/notes/{id}'.replaceAll('{id}', id.toString());
 
@@ -86,10 +127,6 @@ class DefaultApi extends ApiInstance<ApiClient> {
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
-
-    if (ifNoneMatch != null) {
-      headerParams[r'If-None-Match'] = parameterToString(ifNoneMatch);
-    }
 
     const contentTypes = <String>[];
 
@@ -107,15 +144,11 @@ class DefaultApi extends ApiInstance<ApiClient> {
   /// Parameters:
   ///
   /// * [int] id (required):
-  ///
-  /// * [String] ifNoneMatch:
   Future<String?> deleteNote(
-    int id, {
-    String? ifNoneMatch,
-  }) async {
+    int id,
+  ) async {
     final response = await deleteNoteWithHttpInfo(
       id,
-      ifNoneMatch: ifNoneMatch,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await decodeBodyBytes(response));
@@ -137,9 +170,12 @@ class DefaultApi extends ApiInstance<ApiClient> {
   ///
   /// * [int] id (required):
   ///
+  /// * [String] exclude:
+  ///
   /// * [String] ifNoneMatch:
   Future<Response> getNoteWithHttpInfo(
     int id, {
+    String? exclude,
     String? ifNoneMatch,
   }) async {
     // ignore: prefer_const_declarations
@@ -151,6 +187,10 @@ class DefaultApi extends ApiInstance<ApiClient> {
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
+
+    if (exclude != null) {
+      queryParams.addAll(buildQueryParams('', 'exclude', exclude));
+    }
 
     if (ifNoneMatch != null) {
       headerParams[r'If-None-Match'] = parameterToString(ifNoneMatch);
@@ -173,13 +213,17 @@ class DefaultApi extends ApiInstance<ApiClient> {
   ///
   /// * [int] id (required):
   ///
+  /// * [String] exclude:
+  ///
   /// * [String] ifNoneMatch:
   Future<NotesNote?> getNote(
     int id, {
+    String? exclude,
     String? ifNoneMatch,
   }) async {
     final response = await getNoteWithHttpInfo(
       id,
+      exclude: exclude,
       ifNoneMatch: ifNoneMatch,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
@@ -206,11 +250,17 @@ class DefaultApi extends ApiInstance<ApiClient> {
   ///
   /// * [int] pruneBefore:
   ///
+  /// * [int] chunkSize:
+  ///
+  /// * [String] chunkCursor:
+  ///
   /// * [String] ifNoneMatch:
   Future<Response> getNotesWithHttpInfo({
     String? category,
     String? exclude,
     int? pruneBefore,
+    int? chunkSize,
+    String? chunkCursor,
     String? ifNoneMatch,
   }) async {
     // ignore: prefer_const_declarations
@@ -231,6 +281,12 @@ class DefaultApi extends ApiInstance<ApiClient> {
     }
     if (pruneBefore != null) {
       queryParams.addAll(buildQueryParams('', 'pruneBefore', pruneBefore));
+    }
+    if (chunkSize != null) {
+      queryParams.addAll(buildQueryParams('', 'chunkSize', chunkSize));
+    }
+    if (chunkCursor != null) {
+      queryParams.addAll(buildQueryParams('', 'chunkCursor', chunkCursor));
     }
 
     if (ifNoneMatch != null) {
@@ -258,17 +314,25 @@ class DefaultApi extends ApiInstance<ApiClient> {
   ///
   /// * [int] pruneBefore:
   ///
+  /// * [int] chunkSize:
+  ///
+  /// * [String] chunkCursor:
+  ///
   /// * [String] ifNoneMatch:
   Future<List<NotesNote>?> getNotes({
     String? category,
     String? exclude,
     int? pruneBefore,
+    int? chunkSize,
+    String? chunkCursor,
     String? ifNoneMatch,
   }) async {
     final response = await getNotesWithHttpInfo(
       category: category,
       exclude: exclude,
       pruneBefore: pruneBefore,
+      chunkSize: chunkSize,
+      chunkCursor: chunkCursor,
       ifNoneMatch: ifNoneMatch,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
@@ -331,35 +395,57 @@ class DefaultApi extends ApiInstance<ApiClient> {
   ///
   /// * [int] id (required):
   ///
-  /// * [NotesNote] notesNote (required):
+  /// * [String] content:
   ///
-  /// * [String] ifNoneMatch:
+  /// * [int] modified:
+  ///
+  /// * [String] title:
+  ///
+  /// * [String] category:
+  ///
+  /// * [bool] favorite:
   ///
   /// * [String] ifMatch:
   Future<Response> updateNoteWithHttpInfo(
-    int id,
-    NotesNote notesNote, {
-    String? ifNoneMatch,
+    int id, {
+    String? content,
+    int? modified,
+    String? title,
+    String? category,
+    bool? favorite,
     String? ifMatch,
   }) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v1/notes/{id}'.replaceAll('{id}', id.toString());
 
     // ignore: prefer_final_locals
-    Object? postBody = notesNote;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-    if (ifNoneMatch != null) {
-      headerParams[r'If-None-Match'] = parameterToString(ifNoneMatch);
+    if (content != null) {
+      queryParams.addAll(buildQueryParams('', 'content', content));
     }
+    if (modified != null) {
+      queryParams.addAll(buildQueryParams('', 'modified', modified));
+    }
+    if (title != null) {
+      queryParams.addAll(buildQueryParams('', 'title', title));
+    }
+    if (category != null) {
+      queryParams.addAll(buildQueryParams('', 'category', category));
+    }
+    if (favorite != null) {
+      queryParams.addAll(buildQueryParams('', 'favorite', favorite));
+    }
+
     if (ifMatch != null) {
       headerParams[r'If-Match'] = parameterToString(ifMatch);
     }
 
-    const contentTypes = <String>['application/json'];
+    const contentTypes = <String>[];
 
     return apiClient.invokeAPI(
       path,
@@ -376,21 +462,33 @@ class DefaultApi extends ApiInstance<ApiClient> {
   ///
   /// * [int] id (required):
   ///
-  /// * [NotesNote] notesNote (required):
+  /// * [String] content:
   ///
-  /// * [String] ifNoneMatch:
+  /// * [int] modified:
+  ///
+  /// * [String] title:
+  ///
+  /// * [String] category:
+  ///
+  /// * [bool] favorite:
   ///
   /// * [String] ifMatch:
   Future<NotesNote?> updateNote(
-    int id,
-    NotesNote notesNote, {
-    String? ifNoneMatch,
+    int id, {
+    String? content,
+    int? modified,
+    String? title,
+    String? category,
+    bool? favorite,
     String? ifMatch,
   }) async {
     final response = await updateNoteWithHttpInfo(
       id,
-      notesNote,
-      ifNoneMatch: ifNoneMatch,
+      content: content,
+      modified: modified,
+      title: title,
+      category: category,
+      favorite: favorite,
       ifMatch: ifMatch,
     );
     if (response.statusCode >= HttpStatus.badRequest) {

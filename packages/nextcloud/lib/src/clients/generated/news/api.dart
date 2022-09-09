@@ -24,15 +24,9 @@ part 'api_client.dart';
 
 part 'api/default_api.dart';
 
-part 'model/news_add_feed.dart';
 part 'model/news_article.dart';
-part 'model/news_create_folder.dart';
 part 'model/news_feed.dart';
 part 'model/news_folder.dart';
 part 'model/news_list_articles.dart';
 part 'model/news_list_feeds.dart';
 part 'model/news_list_folders.dart';
-part 'model/news_mark_as_read.dart';
-part 'model/news_move_feed.dart';
-part 'model/news_rename_feed.dart';
-part 'model/news_rename_folder.dart';

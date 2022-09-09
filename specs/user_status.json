@@ -95,22 +95,6 @@
           "invisible"
         ]
       },
-      "UserStatusSetUserStatus": {
-        "type": "object",
-        "properties": {
-          "statusType": {
-            "$ref": "#/components/schemas/UserStatusTypeEnum"
-          }
-        }
-      },
-      "UserStatusHeartbeat": {
-        "type": "object",
-        "properties": {
-          "status": {
-            "$ref": "#/components/schemas/UserStatusTypeEnum"
-          }
-        }
-      },
       "UserStatusGetUserStatus": {
         "type": "object",
         "properties": {
@@ -210,31 +194,6 @@
             "$ref": "#/components/schemas/UserStatusTypeEnum"
           }
         }
-      },
-      "UserStatusSetPredefinedMessage": {
-        "type": "object",
-        "properties": {
-          "messageId": {
-            "type": "string"
-          },
-          "clearAt": {
-            "type": "integer"
-          }
-        }
-      },
-      "UserStatusSetCustomMessage": {
-        "type": "object",
-        "properties": {
-          "statusIcon": {
-            "type": "string"
-          },
-          "message": {
-            "type": "string"
-          },
-          "clearAt": {
-            "type": "integer"
-          }
-        }
       }
     }
   },
@@ -303,16 +262,16 @@
     "/api/v1/user_status/status": {
       "put": {
         "operationId": "set-status",
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/UserStatusSetUserStatus"
-              }
+        "parameters": [
+          {
+            "name": "statusType",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/UserStatusTypeEnum"
             }
           }
-        },
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -330,16 +289,24 @@
     "/api/v1/user_status/message/predefined": {
       "put": {
         "operationId": "set-predefined-message",
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/UserStatusSetPredefinedMessage"
-              }
+        "parameters": [
+          {
+            "name": "messageId",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "clearAt",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer"
             }
           }
-        },
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -357,16 +324,32 @@
     "/api/v1/user_status/message/custom": {
       "put": {
         "operationId": "set-custom-message",
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/UserStatusSetCustomMessage"
-              }
+        "parameters": [
+          {
+            "name": "statusIcon",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "message",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "clearAt",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer"
             }
           }
-        },
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -412,16 +395,16 @@
       "description": "Depends on https://github.com/nextcloud/server/pull/32646",
       "put": {
         "operationId": "heartbeat",
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/UserStatusHeartbeat"
-              }
+        "parameters": [
+          {
+            "name": "status",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/UserStatusTypeEnum"
             }
           }
-        },
+        ],
         "responses": {
           "200": {
             "description": ""

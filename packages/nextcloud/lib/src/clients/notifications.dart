@@ -25,24 +25,24 @@ class NextcloudNotificationsClient extends DefaultApi {
 
   @override
   @Deprecated('Use registerDeviceAtServer instead')
-  Future<NotificationsPushServerRegistrationResponse?> registerDevice(
-    final NotificationsPushServerDevice notificationsPushServerDevice,
+  Future<NotificationsPushServerRegistration?> registerDevice(
+    final String pushTokenHash,
+    final String devicePublicKey,
+    final String proxyServer,
   ) =>
       throw Exception('Use registerDeviceAtServer instead');
 
   /// Registers a device at the Nextcloud server
-  Future<NotificationsPushServerRegistrationResponse?> registerDeviceAtServer(
+  Future<NotificationsPushServerRegistration?> registerDeviceAtServer(
     final String pushToken,
     final RSAPublicKey devicePublicKey,
     final String proxyServer,
   ) {
     _validateProxyServerURL(proxyServer);
     return super.registerDevice(
-      NotificationsPushServerDevice(
-        pushTokenHash: generatePushTokenHash(pushToken),
-        devicePublicKey: devicePublicKey.toFormattedPEM(),
-        proxyServer: proxyServer,
-      ),
+      generatePushTokenHash(pushToken),
+      devicePublicKey.toFormattedPEM(),
+      proxyServer,
     );
   }
 

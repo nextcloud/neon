@@ -10,10 +10,10 @@
 
 part of openapi.api;
 
-class UserStatusSetUserStatus {
-  /// Returns a new [UserStatusSetUserStatus] instance.
-  UserStatusSetUserStatus({
-    this.statusType,
+class NotificationsPushServerRegistration {
+  /// Returns a new [NotificationsPushServerRegistration] instance.
+  NotificationsPushServerRegistration({
+    this.ocs,
   });
 
   ///
@@ -22,34 +22,34 @@ class UserStatusSetUserStatus {
   /// source code must fall back to having a nullable type.
   /// Consider adding a "default:" property in the specification file to hide this note.
   ///
-  UserStatusTypeEnum? statusType;
+  NotificationsPushServerRegistrationOcs? ocs;
 
   @override
   bool operator ==(Object other) =>
-      identical(this, other) || other is UserStatusSetUserStatus && other.statusType == statusType;
+      identical(this, other) || other is NotificationsPushServerRegistration && other.ocs == ocs;
 
   @override
   int get hashCode =>
       // ignore: unnecessary_parenthesis
-      (statusType == null ? 0 : statusType!.hashCode);
+      (ocs == null ? 0 : ocs!.hashCode);
 
   @override
-  String toString() => 'UserStatusSetUserStatus[statusType=$statusType]';
+  String toString() => 'NotificationsPushServerRegistration[ocs=$ocs]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
-    if (statusType != null) {
-      _json[r'statusType'] = statusType;
+    if (ocs != null) {
+      _json[r'ocs'] = ocs;
     } else {
-      _json[r'statusType'] = null;
+      _json[r'ocs'] = null;
     }
     return _json;
   }
 
-  /// Returns a new [UserStatusSetUserStatus] instance and imports its values from
+  /// Returns a new [NotificationsPushServerRegistration] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static UserStatusSetUserStatus? fromJson(dynamic value) {
+  static NotificationsPushServerRegistration? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -58,27 +58,29 @@ class UserStatusSetUserStatus {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "UserStatusSetUserStatus[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "UserStatusSetUserStatus[$key]" has a null value in JSON.');
+          assert(
+              json.containsKey(key), 'Required key "NotificationsPushServerRegistration[$key]" is missing from JSON.');
+          assert(
+              json[key] != null, 'Required key "NotificationsPushServerRegistration[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return UserStatusSetUserStatus(
-        statusType: UserStatusTypeEnum.fromJson(json[r'statusType']),
+      return NotificationsPushServerRegistration(
+        ocs: NotificationsPushServerRegistrationOcs.fromJson(json[r'ocs']),
       );
     }
     return null;
   }
 
-  static List<UserStatusSetUserStatus>? listFromJson(
+  static List<NotificationsPushServerRegistration>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <UserStatusSetUserStatus>[];
+    final result = <NotificationsPushServerRegistration>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = UserStatusSetUserStatus.fromJson(row);
+        final value = NotificationsPushServerRegistration.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -87,12 +89,12 @@ class UserStatusSetUserStatus {
     return result.toList(growable: growable);
   }
 
-  static Map<String, UserStatusSetUserStatus> mapFromJson(dynamic json) {
-    final map = <String, UserStatusSetUserStatus>{};
+  static Map<String, NotificationsPushServerRegistration> mapFromJson(dynamic json) {
+    final map = <String, NotificationsPushServerRegistration>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = UserStatusSetUserStatus.fromJson(entry.value);
+        final value = NotificationsPushServerRegistration.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -101,16 +103,16 @@ class UserStatusSetUserStatus {
     return map;
   }
 
-  // maps a json object with a list of UserStatusSetUserStatus-objects as value to a dart map
-  static Map<String, List<UserStatusSetUserStatus>> mapListFromJson(
+  // maps a json object with a list of NotificationsPushServerRegistration-objects as value to a dart map
+  static Map<String, List<NotificationsPushServerRegistration>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<UserStatusSetUserStatus>>{};
+    final map = <String, List<NotificationsPushServerRegistration>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = UserStatusSetUserStatus.listFromJson(
+        final value = NotificationsPushServerRegistration.listFromJson(
           entry.value,
           growable: growable,
         );

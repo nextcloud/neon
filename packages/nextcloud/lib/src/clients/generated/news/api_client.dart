@@ -222,12 +222,8 @@ class ApiClient extends BaseApiClient {
           return valueString == 'true' || valueString == '1';
         case 'DateTime':
           return value is DateTime ? value : DateTime.tryParse(value);
-        case 'NewsAddFeed':
-          return NewsAddFeed.fromJson(value);
         case 'NewsArticle':
           return NewsArticle.fromJson(value);
-        case 'NewsCreateFolder':
-          return NewsCreateFolder.fromJson(value);
         case 'NewsFeed':
           return NewsFeed.fromJson(value);
         case 'NewsFolder':
@@ -238,14 +234,6 @@ class ApiClient extends BaseApiClient {
           return NewsListFeeds.fromJson(value);
         case 'NewsListFolders':
           return NewsListFolders.fromJson(value);
-        case 'NewsMarkAsRead':
-          return NewsMarkAsRead.fromJson(value);
-        case 'NewsMoveFeed':
-          return NewsMoveFeed.fromJson(value);
-        case 'NewsRenameFeed':
-          return NewsRenameFeed.fromJson(value);
-        case 'NewsRenameFolder':
-          return NewsRenameFolder.fromJson(value);
         default:
           dynamic match;
           if (value is List && (match = apiRegList.firstMatch(targetType)?.group(1)) != null) {

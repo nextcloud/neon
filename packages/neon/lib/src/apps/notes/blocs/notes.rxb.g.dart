@@ -22,13 +22,13 @@ abstract class $NotesBloc extends RxBlocBase implements NotesBlocEvents, NotesBl
   final _$refreshEvent = PublishSubject<void>();
 
   /// Тhe [Subject] where events sink to by calling [createNote]
-  final _$createNoteEvent = PublishSubject<NotesNote>();
+  final _$createNoteEvent = PublishSubject<_CreateNoteEventArgs>();
 
   /// Тhe [Subject] where events sink to by calling [updateNote]
-  final _$updateNoteEvent = PublishSubject<NotesNote>();
+  final _$updateNoteEvent = PublishSubject<_UpdateNoteEventArgs>();
 
   /// Тhe [Subject] where events sink to by calling [deleteNote]
-  final _$deleteNoteEvent = PublishSubject<NotesNote>();
+  final _$deleteNoteEvent = PublishSubject<int>();
 
   /// The state of [notes] implemented in [_mapToNotesState]
   late final BehaviorSubject<Result<List<NotesNote>>> _notesState = _mapToNotesState();
@@ -43,13 +43,16 @@ abstract class $NotesBloc extends RxBlocBase implements NotesBlocEvents, NotesBl
   void refresh() => _$refreshEvent.add(null);
 
   @override
-  void createNote(NotesNote note) => _$createNoteEvent.add(note);
+  void createNote({String? title, String? category}) =>
+      _$createNoteEvent.add(_CreateNoteEventArgs(title: title, category: category));
 
   @override
-  void updateNote(NotesNote note) => _$updateNoteEvent.add(note);
+  void updateNote(int id, String etag, {String? title, String? category, String? content, bool? favorite}) =>
+      _$updateNoteEvent
+          .add(_UpdateNoteEventArgs(id, etag, title: title, category: category, content: content, favorite: favorite));
 
   @override
-  void deleteNote(NotesNote note) => _$deleteNoteEvent.add(note);
+  void deleteNote(int id) => _$deleteNoteEvent.add(id);
 
   @override
   BehaviorSubject<Result<List<NotesNote>>> get notes => _notesState;
@@ -81,4 +84,32 @@ abstract class $NotesBloc extends RxBlocBase implements NotesBlocEvents, NotesBl
     _compositeSubscription.dispose();
     super.dispose();
   }
+}
+
+/// Helps providing the arguments in the [Subject.add] for
+/// [NotesBlocEvents.createNote] event
+class _CreateNoteEventArgs {
+  const _CreateNoteEventArgs({this.title, this.category});
+
+  final String? title;
+
+  final String? category;
+}
+
+/// Helps providing the arguments in the [Subject.add] for
+/// [NotesBlocEvents.updateNote] event
+class _UpdateNoteEventArgs {
+  const _UpdateNoteEventArgs(this.id, this.etag, {this.title, this.category, this.content, this.favorite});
+
+  final int id;
+
+  final String etag;
+
+  final String? title;
+
+  final String? category;
+
+  final String? content;
+
+  final bool? favorite;
 }

@@ -19,19 +19,15 @@ Future main() async {
     Future<NewsListFeeds> addWikipediaFeed([final int? folderID]) async => (await validateResponse<NewsListFeeds, void>(
           client.news,
           client.news.addFeedWithHttpInfo(
-            NewsAddFeed(
-              url: wikipediaFeedURL,
-              folderId: folderID,
-            ),
+            wikipediaFeedURL,
+            folderId: folderID,
           ),
           cleanResponse: true,
         ))!;
 
     Future<NewsListFeeds> addNasaFeed() async => (await validateResponse<NewsListFeeds, void>(
           client.news,
-          client.news.addFeedWithHttpInfo(
-            NewsAddFeed(url: nasaFeedURL),
-          ),
+          client.news.addFeedWithHttpInfo(nasaFeedURL),
           cleanResponse: true,
         ))!;
 
@@ -72,9 +68,7 @@ Future main() async {
 
       await client.news.markFeedAsRead(
         feedsResponse.feeds[0].id!,
-        NewsMarkAsRead(
-          newestItemId: feedsResponse.newestItemId,
-        ),
+        feedsResponse.newestItemId!,
       );
 
       articlesResponse = (await validateResponse<NewsListArticles, void>(
@@ -234,7 +228,7 @@ Future main() async {
 
       response = (await validateResponse<NewsListFolders, void>(
         client.news,
-        client.news.createFolderWithHttpInfo(NewsCreateFolder(name: 'test')),
+        client.news.createFolderWithHttpInfo('test'),
       ))!;
       expect(response.folders, hasLength(1));
       expect(response.folders[0].id, 1);
@@ -260,8 +254,8 @@ Future main() async {
       ))!;
       expect(response.folders, hasLength(0));
 
-      await client.news.createFolder(NewsCreateFolder(name: 'test1'));
-      await client.news.createFolder(NewsCreateFolder(name: 'test2'));
+      await client.news.createFolder('test1');
+      await client.news.createFolder('test2');
 
       response = (await validateResponse<NewsListFolders, void>(
         client.news,
@@ -279,7 +273,7 @@ Future main() async {
     });
 
     test('Add feed to folder', () async {
-      await client.news.createFolder(NewsCreateFolder(name: 'test1'));
+      await client.news.createFolder('test1');
       final response = await addWikipediaFeed(1);
       expect(response.starredCount, null);
       expect(response.newestItemId, isNotNull);
@@ -291,7 +285,7 @@ Future main() async {
     test('Mark folder as read', () async {
       final foldersResponse = (await validateResponse<NewsListFolders, void>(
         client.news,
-        client.news.createFolderWithHttpInfo(NewsCreateFolder(name: 'test1')),
+        client.news.createFolderWithHttpInfo('test1'),
       ))!;
       final feedsResponse = await addWikipediaFeed(1);
 
@@ -303,9 +297,7 @@ Future main() async {
 
       await client.news.markFolderAsRead(
         foldersResponse.folders[0].id!,
-        NewsMarkAsRead(
-          newestItemId: feedsResponse.newestItemId,
-        ),
+        feedsResponse.newestItemId!,
       );
 
       articlesResponse = (await validateResponse<NewsListArticles, void>(

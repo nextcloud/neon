@@ -10,10 +10,10 @@
 
 part of openapi.api;
 
-class NewsCreateFolder {
-  /// Returns a new [NewsCreateFolder] instance.
-  NewsCreateFolder({
-    this.name,
+class NotificationsEmpty {
+  /// Returns a new [NotificationsEmpty] instance.
+  NotificationsEmpty({
+    this.ocs,
   });
 
   ///
@@ -22,33 +22,33 @@ class NewsCreateFolder {
   /// source code must fall back to having a nullable type.
   /// Consider adding a "default:" property in the specification file to hide this note.
   ///
-  String? name;
+  NotificationsEmptyOcs? ocs;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is NewsCreateFolder && other.name == name;
+  bool operator ==(Object other) => identical(this, other) || other is NotificationsEmpty && other.ocs == ocs;
 
   @override
   int get hashCode =>
       // ignore: unnecessary_parenthesis
-      (name == null ? 0 : name!.hashCode);
+      (ocs == null ? 0 : ocs!.hashCode);
 
   @override
-  String toString() => 'NewsCreateFolder[name=$name]';
+  String toString() => 'NotificationsEmpty[ocs=$ocs]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
-    if (name != null) {
-      _json[r'name'] = name;
+    if (ocs != null) {
+      _json[r'ocs'] = ocs;
     } else {
-      _json[r'name'] = null;
+      _json[r'ocs'] = null;
     }
     return _json;
   }
 
-  /// Returns a new [NewsCreateFolder] instance and imports its values from
+  /// Returns a new [NotificationsEmpty] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static NewsCreateFolder? fromJson(dynamic value) {
+  static NotificationsEmpty? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -57,27 +57,27 @@ class NewsCreateFolder {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "NewsCreateFolder[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "NewsCreateFolder[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "NotificationsEmpty[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "NotificationsEmpty[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return NewsCreateFolder(
-        name: mapValueOfType<String>(json, r'name'),
+      return NotificationsEmpty(
+        ocs: NotificationsEmptyOcs.fromJson(json[r'ocs']),
       );
     }
     return null;
   }
 
-  static List<NewsCreateFolder>? listFromJson(
+  static List<NotificationsEmpty>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <NewsCreateFolder>[];
+    final result = <NotificationsEmpty>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = NewsCreateFolder.fromJson(row);
+        final value = NotificationsEmpty.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -86,12 +86,12 @@ class NewsCreateFolder {
     return result.toList(growable: growable);
   }
 
-  static Map<String, NewsCreateFolder> mapFromJson(dynamic json) {
-    final map = <String, NewsCreateFolder>{};
+  static Map<String, NotificationsEmpty> mapFromJson(dynamic json) {
+    final map = <String, NotificationsEmpty>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = NewsCreateFolder.fromJson(entry.value);
+        final value = NotificationsEmpty.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -100,16 +100,16 @@ class NewsCreateFolder {
     return map;
   }
 
-  // maps a json object with a list of NewsCreateFolder-objects as value to a dart map
-  static Map<String, List<NewsCreateFolder>> mapListFromJson(
+  // maps a json object with a list of NotificationsEmpty-objects as value to a dart map
+  static Map<String, List<NotificationsEmpty>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<NewsCreateFolder>>{};
+    final map = <String, List<NotificationsEmpty>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = NewsCreateFolder.listFromJson(
+        final value = NotificationsEmpty.listFromJson(
           entry.value,
           growable: growable,
         );

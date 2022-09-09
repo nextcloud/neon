@@ -184,11 +184,17 @@ class Parameter {
 class Operation {
   Operation({
     required this.responses,
+    this.parameters,
     this.operationID,
   });
 
   Map<String, dynamic> toMap() => {
-        if (operationID != null) 'operationId': operationID,
+        if (operationID != null) ...{
+          'operationId': operationID,
+        },
+        if (parameters != null) ...{
+          'parameters': parameters!.map((final p) => p.toMap()).toList(),
+        },
         'responses': responses.map(
           (final key, final value) => MapEntry(
             key.toString(),
@@ -198,6 +204,7 @@ class Operation {
       };
 
   final Map<dynamic, Response> responses;
+  final List<Parameter>? parameters;
   final String? operationID;
 }
 

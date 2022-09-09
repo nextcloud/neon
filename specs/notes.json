@@ -92,10 +92,12 @@
   "paths": {
     "/api/v1/notes": {
       "get": {
+        "operationId": "get-notes",
         "parameters": [
           {
             "name": "category",
             "in": "query",
+            "required": false,
             "schema": {
               "type": "string"
             }
@@ -103,15 +105,36 @@
           {
             "name": "exclude",
             "in": "query",
+            "required": false,
             "schema": {
-              "type": "string"
+              "type": "string",
+              "default": ""
             }
           },
           {
             "name": "pruneBefore",
             "in": "query",
+            "required": false,
             "schema": {
-              "type": "integer"
+              "type": "integer",
+              "default": 0
+            }
+          },
+          {
+            "name": "chunkSize",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 0
+            }
+          },
+          {
+            "name": "chunkCursor",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
             }
           },
           {
@@ -122,7 +145,6 @@
             }
           }
         ],
-        "operationId": "get-notes",
         "responses": {
           "200": {
             "description": "",
@@ -141,16 +163,53 @@
       },
       "post": {
         "operationId": "create-note",
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/NotesNote"
-              }
+        "parameters": [
+          {
+            "name": "category",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": ""
+            }
+          },
+          {
+            "name": "title",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": ""
+            }
+          },
+          {
+            "name": "content",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": ""
+            }
+          },
+          {
+            "name": "modified",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 0
+            }
+          },
+          {
+            "name": "favorite",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "boolean",
+              "default": false
             }
           }
-        },
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -174,16 +233,27 @@
           "schema": {
             "type": "integer"
           }
-        },
-        {
-          "name": "If-None-Match",
-          "in": "header",
-          "schema": {
-            "type": "string"
-          }
         }
       ],
       "get": {
+        "parameters": [
+          {
+            "name": "exclude",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": ""
+            }
+          },
+          {
+            "name": "If-None-Match",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
         "operationId": "get-note",
         "responses": {
           "200": {
@@ -202,6 +272,46 @@
         "operationId": "update-note",
         "parameters": [
           {
+            "name": "content",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "modified",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "title",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "category",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "favorite",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
             "name": "If-Match",
             "in": "header",
             "schema": {
@@ -209,16 +319,6 @@
             }
           }
         ],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/NotesNote"
-              }
-            }
-          }
-        },
         "responses": {
           "200": {
             "description": "",

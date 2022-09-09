@@ -140,6 +140,32 @@
       ],
       "post": {
         "operationId": "push-registerdevice-TODO",
+        "parameters": [
+          {
+            "name": "pushTokenHash",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "devicePublicKey",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "proxyServer",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -190,6 +216,25 @@
       ],
       "post": {
         "operationId": "api-generatenotification-TODO",
+        "parameters": [
+          {
+            "name": "shortMessage",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "longMessage",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": ""
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -217,6 +262,32 @@
       ],
       "post": {
         "operationId": "settings-personal-TODO",
+        "parameters": [
+          {
+            "name": "batchSetting",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "soundNotification",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "soundTalk",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "",

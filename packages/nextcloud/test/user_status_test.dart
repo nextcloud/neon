@@ -54,7 +54,7 @@ Future main() async {
     test('Set status', () async {
       final response = (await validateResponse<UserStatusGetUserStatus, void>(
         client.userStatus,
-        client.userStatus.setStatusWithHttpInfo(UserStatusSetUserStatus(statusType: UserStatusTypeEnum.online)),
+        client.userStatus.setStatusWithHttpInfo(UserStatusTypeEnum.online),
       ))!;
 
       expect(response.ocs!.data!.userId, 'test');
@@ -73,7 +73,7 @@ Future main() async {
 
       await validateResponse<UserStatusGetUserStatus, void>(
         client.userStatus,
-        client.userStatus.setStatusWithHttpInfo(UserStatusSetUserStatus(statusType: UserStatusTypeEnum.online)),
+        client.userStatus.setStatusWithHttpInfo(UserStatusTypeEnum.online),
       );
       final response = (await validateResponse<UserStatusGetUserStatus, void>(
         client.userStatus,
@@ -99,7 +99,7 @@ Future main() async {
 
       await validateResponse<UserStatusGetUserStatus, void>(
         client.userStatus,
-        client.userStatus.setStatusWithHttpInfo(UserStatusSetUserStatus(statusType: UserStatusTypeEnum.online)),
+        client.userStatus.setStatusWithHttpInfo(UserStatusTypeEnum.online),
       );
 
       response = (await validateResponse<UserStatusFindAllStatuses, void>(
@@ -118,7 +118,7 @@ Future main() async {
       // Same as getting status
       await validateResponse<UserStatusGetUserStatus, void>(
         client.userStatus,
-        client.userStatus.setStatusWithHttpInfo(UserStatusSetUserStatus(statusType: UserStatusTypeEnum.online)),
+        client.userStatus.setStatusWithHttpInfo(UserStatusTypeEnum.online),
       );
 
       final response = (await validateResponse<UserStatusFindStatus, void>(
@@ -137,10 +137,8 @@ Future main() async {
       final response = (await validateResponse<UserStatusGetUserStatus, void>(
         client.userStatus,
         client.userStatus.setPredefinedMessageWithHttpInfo(
-          UserStatusSetPredefinedMessage(
-            messageId: 'meeting',
-            clearAt: clearAt,
-          ),
+          'meeting',
+          clearAt: clearAt,
         ),
       ))!;
 
@@ -159,11 +157,9 @@ Future main() async {
       final response = (await validateResponse<UserStatusGetUserStatus, void>(
         client.userStatus,
         client.userStatus.setCustomMessageWithHttpInfo(
-          UserStatusSetCustomMessage(
-            statusIcon: '😀',
-            message: 'bla',
-            clearAt: clearAt,
-          ),
+          statusIcon: '😀',
+          message: 'bla',
+          clearAt: clearAt,
         ),
       ))!;
 
@@ -182,11 +178,9 @@ Future main() async {
       await validateResponse<UserStatusGetUserStatus, void>(
         client.userStatus,
         client.userStatus.setCustomMessageWithHttpInfo(
-          UserStatusSetCustomMessage(
-            statusIcon: '😀',
-            message: 'bla',
-            clearAt: clearAt,
-          ),
+          statusIcon: '😀',
+          message: 'bla',
+          clearAt: clearAt,
         ),
       );
       await client.userStatus.clearMessage();
@@ -206,7 +200,7 @@ Future main() async {
     });
 
     test('Heartbeat', () async {
-      await client.userStatus.heartbeat(UserStatusHeartbeat(status: UserStatusTypeEnum.online));
+      await client.userStatus.heartbeat(UserStatusTypeEnum.online);
       final response = (await validateResponse<UserStatusGetUserStatus, void>(
         client.userStatus,
         client.userStatus.getStatusWithHttpInfo(),

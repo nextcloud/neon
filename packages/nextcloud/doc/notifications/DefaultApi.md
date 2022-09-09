@@ -59,7 +59,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **deleteNotification**
-> NotificationsEmptyResponse deleteNotification(id)
+> NotificationsEmpty deleteNotification(id)
 
 
 
@@ -89,7 +89,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**NotificationsEmptyResponse**](NotificationsEmptyResponse.md)
+[**NotificationsEmpty**](NotificationsEmpty.md)
 
 ### Authorization
 
@@ -103,7 +103,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getNotification**
-> NotificationsGetNotificationResponse getNotification(id)
+> NotificationsGetNotification getNotification(id)
 
 
 
@@ -133,7 +133,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**NotificationsGetNotificationResponse**](NotificationsGetNotificationResponse.md)
+[**NotificationsGetNotification**](NotificationsGetNotification.md)
 
 ### Authorization
 
@@ -147,7 +147,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **listNotifications**
-> NotificationsListNotificationsResponse listNotifications()
+> NotificationsListNotifications listNotifications()
 
 
 
@@ -173,7 +173,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**NotificationsListNotificationsResponse**](NotificationsListNotificationsResponse.md)
+[**NotificationsListNotifications**](NotificationsListNotifications.md)
 
 ### Authorization
 
@@ -187,7 +187,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **registerDevice**
-> NotificationsPushServerRegistrationResponse registerDevice(notificationsPushServerDevice)
+> NotificationsPushServerRegistration registerDevice(pushTokenHash, devicePublicKey, proxyServer)
 
 
 
@@ -199,10 +199,12 @@ import 'package:openapi/api.dart';
 //defaultApiClient.getAuthentication<HttpBasicAuth>('basic_auth').password = 'YOUR_PASSWORD';
 
 final api_instance = DefaultApi();
-final notificationsPushServerDevice = NotificationsPushServerDevice(); // NotificationsPushServerDevice | 
+final pushTokenHash = pushTokenHash_example; // String | 
+final devicePublicKey = devicePublicKey_example; // String | 
+final proxyServer = proxyServer_example; // String | 
 
 try {
-    final result = api_instance.registerDevice(notificationsPushServerDevice);
+    final result = api_instance.registerDevice(pushTokenHash, devicePublicKey, proxyServer);
     print(result);
 } catch (e) {
     print('Exception when calling DefaultApi->registerDevice: $e\n');
@@ -213,11 +215,13 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **notificationsPushServerDevice** | [**NotificationsPushServerDevice**](NotificationsPushServerDevice.md)|  | 
+ **pushTokenHash** | **String**|  | 
+ **devicePublicKey** | **String**|  | 
+ **proxyServer** | **String**|  | 
 
 ### Return type
 
-[**NotificationsPushServerRegistrationResponse**](NotificationsPushServerRegistrationResponse.md)
+[**NotificationsPushServerRegistration**](NotificationsPushServerRegistration.md)
 
 ### Authorization
 
@@ -225,7 +229,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -271,7 +275,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **sendAdminNotification**
-> NotificationsEmptyResponse sendAdminNotification(userId, notificationsAdminNotification)
+> NotificationsEmpty sendAdminNotification(userId, shortMessage, longMessage)
 
 
 
@@ -284,10 +288,11 @@ import 'package:openapi/api.dart';
 
 final api_instance = DefaultApi();
 final userId = userId_example; // String | 
-final notificationsAdminNotification = NotificationsAdminNotification(); // NotificationsAdminNotification | 
+final shortMessage = shortMessage_example; // String | 
+final longMessage = longMessage_example; // String | 
 
 try {
-    final result = api_instance.sendAdminNotification(userId, notificationsAdminNotification);
+    final result = api_instance.sendAdminNotification(userId, shortMessage, longMessage);
     print(result);
 } catch (e) {
     print('Exception when calling DefaultApi->sendAdminNotification: $e\n');
@@ -299,11 +304,12 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **String**|  | 
- **notificationsAdminNotification** | [**NotificationsAdminNotification**](NotificationsAdminNotification.md)|  | 
+ **shortMessage** | **String**|  | 
+ **longMessage** | **String**|  | [optional] [default to '']
 
 ### Return type
 
-[**NotificationsEmptyResponse**](NotificationsEmptyResponse.md)
+[**NotificationsEmpty**](NotificationsEmpty.md)
 
 ### Authorization
 
@@ -311,7 +317,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

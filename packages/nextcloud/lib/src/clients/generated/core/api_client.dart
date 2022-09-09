@@ -226,8 +226,6 @@ class ApiClient extends BaseApiClient {
           return CoreLoginFlowInit.fromJson(value);
         case 'CoreLoginFlowInitPoll':
           return CoreLoginFlowInitPoll.fromJson(value);
-        case 'CoreLoginFlowQuery':
-          return CoreLoginFlowQuery.fromJson(value);
         case 'CoreLoginFlowResult':
           return CoreLoginFlowResult.fromJson(value);
         case 'CoreNavigationApps':

@@ -54,10 +54,8 @@ class NewsBloc extends $NewsBloc {
     _$addFeedEvent.listen((final event) {
       _wrapFeedAction(
         (final client) async => client.news.addFeed(
-          NewsAddFeed(
-            url: event.url,
-            folderId: event.folderID,
-          ),
+          event.url,
+          folderId: event.folderID,
         ),
       );
     });
@@ -70,9 +68,7 @@ class NewsBloc extends $NewsBloc {
       _wrapFeedAction(
         (final client) async => client.news.renameFeed(
           event.feedID,
-          NewsRenameFeed(
-            feedTitle: event.name,
-          ),
+          event.name,
         ),
       );
     });
@@ -82,9 +78,7 @@ class NewsBloc extends $NewsBloc {
           .wrapWithoutCache(
             () async => client.news.moveFeed(
               event.feedID,
-              NewsMoveFeed(
-                folderId: event.folderID,
-              ),
+              folderId: event.folderID,
             ),
           )
           .asBroadcastStream();
@@ -100,9 +94,7 @@ class NewsBloc extends $NewsBloc {
           .wrapWithoutCache(
             () async => client.news.markFeedAsRead(
               feedID,
-              NewsMarkAsRead(
-                newestItemId: _newestItemId,
-              ),
+              _newestItemId,
             ),
           )
           .asBroadcastStream();
@@ -113,7 +105,7 @@ class NewsBloc extends $NewsBloc {
     });
 
     _$createFolderEvent.listen((final name) {
-      _wrapFolderAction((final client) async => client.news.createFolder(NewsCreateFolder(name: name)));
+      _wrapFolderAction((final client) async => client.news.createFolder(name));
     });
 
     _$deleteFolderEvent.listen((final folderID) {
@@ -124,9 +116,7 @@ class NewsBloc extends $NewsBloc {
       _wrapFolderAction(
         (final client) async => client.news.renameFolder(
           event.folderID,
-          NewsRenameFolder(
-            name: event.name,
-          ),
+          event.name,
         ),
       );
     });
@@ -136,9 +126,7 @@ class NewsBloc extends $NewsBloc {
           .wrapWithoutCache(
             () async => client.news.markFolderAsRead(
               folderID,
-              NewsMarkAsRead(
-                newestItemId: _newestItemId,
-              ),
+              _newestItemId,
             ),
           )
           .asBroadcastStream();
@@ -213,7 +201,9 @@ class NewsBloc extends $NewsBloc {
       () async => (await client.news.listFeeds())!,
       (final response) {
         // This is a bit ugly, but IDGAF right now
-        _newestItemId = response.newestItemId;
+        if (response.newestItemId != null) {
+          _newestItemId = response.newestItemId!;
+        }
         return response.feeds;
       },
       previousData: _feedsSubject.valueOrNull?.data,
@@ -228,7 +218,7 @@ class NewsBloc extends $NewsBloc {
     isMainArticlesBloc: true,
   );
 
-  int? _newestItemId;
+  late int _newestItemId;
 
   final _foldersSubject = BehaviorSubject<Result<List<NewsFolder>>>();
   final _feedsSubject = BehaviorSubject<Result<List<NewsFeed>>>();

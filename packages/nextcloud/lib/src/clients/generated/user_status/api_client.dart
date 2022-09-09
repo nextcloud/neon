@@ -238,8 +238,6 @@ class ApiClient extends BaseApiClient {
           return UserStatusGetUserStatus.fromJson(value);
         case 'UserStatusGetUserStatusOcs':
           return UserStatusGetUserStatusOcs.fromJson(value);
-        case 'UserStatusHeartbeat':
-          return UserStatusHeartbeat.fromJson(value);
         case 'UserStatusPredefinedStatus':
           return UserStatusPredefinedStatus.fromJson(value);
         case 'UserStatusPredefinedStatuses':
@@ -248,12 +246,6 @@ class ApiClient extends BaseApiClient {
           return UserStatusPredefinedStatusesOcs.fromJson(value);
         case 'UserStatusPublicUserStatus':
           return UserStatusPublicUserStatus.fromJson(value);
-        case 'UserStatusSetCustomMessage':
-          return UserStatusSetCustomMessage.fromJson(value);
-        case 'UserStatusSetPredefinedMessage':
-          return UserStatusSetPredefinedMessage.fromJson(value);
-        case 'UserStatusSetUserStatus':
-          return UserStatusSetUserStatus.fromJson(value);
         case 'UserStatusTypeEnum':
           return UserStatusTypeEnumTypeTransformer().decode(value);
         default:

@@ -10,45 +10,45 @@
 
 part of openapi.api;
 
-class NewsMoveFeed {
-  /// Returns a new [NewsMoveFeed] instance.
-  NewsMoveFeed({
-    this.folderId,
+class NotificationsEmptyOcs {
+  /// Returns a new [NotificationsEmptyOcs] instance.
+  NotificationsEmptyOcs({
+    this.meta,
+    this.data = const [],
   });
 
-  ///
-  /// Please note: This property should have been non-nullable! Since the specification file
-  /// does not include a default value (using the "default:" property), however, the generated
-  /// source code must fall back to having a nullable type.
-  /// Consider adding a "default:" property in the specification file to hide this note.
-  ///
-  int? folderId;
+  /// Stub
+  Object? meta;
+
+  List<String> data;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is NewsMoveFeed && other.folderId == folderId;
+  bool operator ==(Object other) =>
+      identical(this, other) || other is NotificationsEmptyOcs && other.meta == meta && other.data == data;
 
   @override
   int get hashCode =>
       // ignore: unnecessary_parenthesis
-      (folderId == null ? 0 : folderId!.hashCode);
+      (meta == null ? 0 : meta!.hashCode) + (data.hashCode);
 
   @override
-  String toString() => 'NewsMoveFeed[folderId=$folderId]';
+  String toString() => 'NotificationsEmptyOcs[meta=$meta, data=$data]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
-    if (folderId != null) {
-      _json[r'folderId'] = folderId;
+    if (meta != null) {
+      _json[r'meta'] = meta;
     } else {
-      _json[r'folderId'] = null;
+      _json[r'meta'] = null;
     }
+    _json[r'data'] = data;
     return _json;
   }
 
-  /// Returns a new [NewsMoveFeed] instance and imports its values from
+  /// Returns a new [NotificationsEmptyOcs] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static NewsMoveFeed? fromJson(dynamic value) {
+  static NotificationsEmptyOcs? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -57,27 +57,28 @@ class NewsMoveFeed {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "NewsMoveFeed[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "NewsMoveFeed[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "NotificationsEmptyOcs[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "NotificationsEmptyOcs[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return NewsMoveFeed(
-        folderId: mapValueOfType<int>(json, r'folderId'),
+      return NotificationsEmptyOcs(
+        meta: mapValueOfType<Object>(json, r'meta'),
+        data: json[r'data'] is List ? (json[r'data'] as List).cast<String>() : const [],
       );
     }
     return null;
   }
 
-  static List<NewsMoveFeed>? listFromJson(
+  static List<NotificationsEmptyOcs>? listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <NewsMoveFeed>[];
+    final result = <NotificationsEmptyOcs>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = NewsMoveFeed.fromJson(row);
+        final value = NotificationsEmptyOcs.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -86,12 +87,12 @@ class NewsMoveFeed {
     return result.toList(growable: growable);
   }
 
-  static Map<String, NewsMoveFeed> mapFromJson(dynamic json) {
-    final map = <String, NewsMoveFeed>{};
+  static Map<String, NotificationsEmptyOcs> mapFromJson(dynamic json) {
+    final map = <String, NotificationsEmptyOcs>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = NewsMoveFeed.fromJson(entry.value);
+        final value = NotificationsEmptyOcs.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -100,16 +101,16 @@ class NewsMoveFeed {
     return map;
   }
 
-  // maps a json object with a list of NewsMoveFeed-objects as value to a dart map
-  static Map<String, List<NewsMoveFeed>> mapListFromJson(
+  // maps a json object with a list of NotificationsEmptyOcs-objects as value to a dart map
+  static Map<String, List<NotificationsEmptyOcs>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<NewsMoveFeed>>{};
+    final map = <String, List<NotificationsEmptyOcs>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = NewsMoveFeed.listFromJson(
+        final value = NotificationsEmptyOcs.listFromJson(
           entry.value,
           growable: growable,
         );

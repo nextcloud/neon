@@ -19,7 +19,7 @@ Method | HTTP request | Description
 
 
 # **createNote**
-> NotesNote createNote(notesNote)
+> NotesNote createNote(category, title, content, modified, favorite)
 
 
 
@@ -31,10 +31,14 @@ import 'package:openapi/api.dart';
 //defaultApiClient.getAuthentication<HttpBasicAuth>('basic_auth').password = 'YOUR_PASSWORD';
 
 final api_instance = DefaultApi();
-final notesNote = NotesNote(); // NotesNote | 
+final category = category_example; // String | 
+final title = title_example; // String | 
+final content = content_example; // String | 
+final modified = 56; // int | 
+final favorite = true; // bool | 
 
 try {
-    final result = api_instance.createNote(notesNote);
+    final result = api_instance.createNote(category, title, content, modified, favorite);
     print(result);
 } catch (e) {
     print('Exception when calling DefaultApi->createNote: $e\n');
@@ -45,7 +49,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **notesNote** | [**NotesNote**](NotesNote.md)|  | 
+ **category** | **String**|  | [optional] [default to '']
+ **title** | **String**|  | [optional] [default to '']
+ **content** | **String**|  | [optional] [default to '']
+ **modified** | **int**|  | [optional] [default to 0]
+ **favorite** | **bool**|  | [optional] [default to false]
 
 ### Return type
 
@@ -57,13 +65,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **deleteNote**
-> String deleteNote(id, ifNoneMatch)
+> String deleteNote(id)
 
 
 
@@ -76,10 +84,9 @@ import 'package:openapi/api.dart';
 
 final api_instance = DefaultApi();
 final id = 56; // int | 
-final ifNoneMatch = ifNoneMatch_example; // String | 
 
 try {
-    final result = api_instance.deleteNote(id, ifNoneMatch);
+    final result = api_instance.deleteNote(id);
     print(result);
 } catch (e) {
     print('Exception when calling DefaultApi->deleteNote: $e\n');
@@ -91,7 +98,6 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**|  | 
- **ifNoneMatch** | **String**|  | [optional] 
 
 ### Return type
 
@@ -109,7 +115,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getNote**
-> NotesNote getNote(id, ifNoneMatch)
+> NotesNote getNote(id, exclude, ifNoneMatch)
 
 
 
@@ -122,10 +128,11 @@ import 'package:openapi/api.dart';
 
 final api_instance = DefaultApi();
 final id = 56; // int | 
+final exclude = exclude_example; // String | 
 final ifNoneMatch = ifNoneMatch_example; // String | 
 
 try {
-    final result = api_instance.getNote(id, ifNoneMatch);
+    final result = api_instance.getNote(id, exclude, ifNoneMatch);
     print(result);
 } catch (e) {
     print('Exception when calling DefaultApi->getNote: $e\n');
@@ -137,6 +144,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**|  | 
+ **exclude** | **String**|  | [optional] [default to '']
  **ifNoneMatch** | **String**|  | [optional] 
 
 ### Return type
@@ -155,7 +163,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getNotes**
-> List<NotesNote> getNotes(category, exclude, pruneBefore, ifNoneMatch)
+> List<NotesNote> getNotes(category, exclude, pruneBefore, chunkSize, chunkCursor, ifNoneMatch)
 
 
 
@@ -170,10 +178,12 @@ final api_instance = DefaultApi();
 final category = category_example; // String | 
 final exclude = exclude_example; // String | 
 final pruneBefore = 56; // int | 
+final chunkSize = 56; // int | 
+final chunkCursor = chunkCursor_example; // String | 
 final ifNoneMatch = ifNoneMatch_example; // String | 
 
 try {
-    final result = api_instance.getNotes(category, exclude, pruneBefore, ifNoneMatch);
+    final result = api_instance.getNotes(category, exclude, pruneBefore, chunkSize, chunkCursor, ifNoneMatch);
     print(result);
 } catch (e) {
     print('Exception when calling DefaultApi->getNotes: $e\n');
@@ -185,8 +195,10 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **category** | **String**|  | [optional] 
- **exclude** | **String**|  | [optional] 
- **pruneBefore** | **int**|  | [optional] 
+ **exclude** | **String**|  | [optional] [default to '']
+ **pruneBefore** | **int**|  | [optional] [default to 0]
+ **chunkSize** | **int**|  | [optional] [default to 0]
+ **chunkCursor** | **String**|  | [optional] 
  **ifNoneMatch** | **String**|  | [optional] 
 
 ### Return type
@@ -245,7 +257,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **updateNote**
-> NotesNote updateNote(id, notesNote, ifNoneMatch, ifMatch)
+> NotesNote updateNote(id, content, modified, title, category, favorite, ifMatch)
 
 
 
@@ -258,12 +270,15 @@ import 'package:openapi/api.dart';
 
 final api_instance = DefaultApi();
 final id = 56; // int | 
-final notesNote = NotesNote(); // NotesNote | 
-final ifNoneMatch = ifNoneMatch_example; // String | 
+final content = content_example; // String | 
+final modified = 56; // int | 
+final title = title_example; // String | 
+final category = category_example; // String | 
+final favorite = true; // bool | 
 final ifMatch = ifMatch_example; // String | 
 
 try {
-    final result = api_instance.updateNote(id, notesNote, ifNoneMatch, ifMatch);
+    final result = api_instance.updateNote(id, content, modified, title, category, favorite, ifMatch);
     print(result);
 } catch (e) {
     print('Exception when calling DefaultApi->updateNote: $e\n');
@@ -275,8 +290,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**|  | 
- **notesNote** | [**NotesNote**](NotesNote.md)|  | 
- **ifNoneMatch** | **String**|  | [optional] 
+ **content** | **String**|  | [optional] 
+ **modified** | **int**|  | [optional] 
+ **title** | **String**|  | [optional] 
+ **category** | **String**|  | [optional] 
+ **favorite** | **bool**|  | [optional] 
  **ifMatch** | **String**|  | [optional] 
 
 ### Return type
@@ -289,7 +307,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

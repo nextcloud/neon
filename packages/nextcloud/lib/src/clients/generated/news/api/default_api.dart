@@ -16,21 +16,29 @@ class DefaultApi extends ApiInstance<ApiClient> {
   /// Performs an HTTP 'POST /api/v1-2/feeds' operation and returns the [Response].
   /// Parameters:
   ///
-  /// * [NewsAddFeed] newsAddFeed (required):
+  /// * [String] url (required):
+  ///
+  /// * [int] folderId:
   Future<Response> addFeedWithHttpInfo(
-    NewsAddFeed newsAddFeed,
-  ) async {
+    String url, {
+    int? folderId,
+  }) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v1-2/feeds';
 
     // ignore: prefer_final_locals
-    Object? postBody = newsAddFeed;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-    const contentTypes = <String>['application/json'];
+    queryParams.addAll(buildQueryParams('', 'url', url));
+    if (folderId != null) {
+      queryParams.addAll(buildQueryParams('', 'folderId', folderId));
+    }
+
+    const contentTypes = <String>[];
 
     return apiClient.invokeAPI(
       path,
@@ -45,12 +53,16 @@ class DefaultApi extends ApiInstance<ApiClient> {
 
   /// Parameters:
   ///
-  /// * [NewsAddFeed] newsAddFeed (required):
+  /// * [String] url (required):
+  ///
+  /// * [int] folderId:
   Future<NewsListFeeds?> addFeed(
-    NewsAddFeed newsAddFeed,
-  ) async {
+    String url, {
+    int? folderId,
+  }) async {
     final response = await addFeedWithHttpInfo(
-      newsAddFeed,
+      url,
+      folderId: folderId,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await decodeBodyBytes(response));
@@ -70,21 +82,23 @@ class DefaultApi extends ApiInstance<ApiClient> {
   /// Performs an HTTP 'POST /api/v1-2/folders' operation and returns the [Response].
   /// Parameters:
   ///
-  /// * [NewsCreateFolder] newsCreateFolder (required):
+  /// * [String] name (required):
   Future<Response> createFolderWithHttpInfo(
-    NewsCreateFolder newsCreateFolder,
+    String name,
   ) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v1-2/folders';
 
     // ignore: prefer_final_locals
-    Object? postBody = newsCreateFolder;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-    const contentTypes = <String>['application/json'];
+    queryParams.addAll(buildQueryParams('', 'name', name));
+
+    const contentTypes = <String>[];
 
     return apiClient.invokeAPI(
       path,
@@ -99,12 +113,12 @@ class DefaultApi extends ApiInstance<ApiClient> {
 
   /// Parameters:
   ///
-  /// * [NewsCreateFolder] newsCreateFolder (required):
+  /// * [String] name (required):
   Future<NewsListFolders?> createFolder(
-    NewsCreateFolder newsCreateFolder,
+    String name,
   ) async {
     final response = await createFolderWithHttpInfo(
-      newsCreateFolder,
+      name,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await decodeBodyBytes(response));
@@ -404,15 +418,15 @@ class DefaultApi extends ApiInstance<ApiClient> {
   /// Performs an HTTP 'GET /api/v1-2/items/updated' operation and returns the [Response].
   /// Parameters:
   ///
-  /// * [int] lastModified:
-  ///
   /// * [int] type:
   ///
   /// * [int] id:
+  ///
+  /// * [int] lastModified:
   Future<Response> listUpdatedArticlesWithHttpInfo({
-    int? lastModified,
     int? type,
     int? id,
+    int? lastModified,
   }) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v1-2/items/updated';
@@ -424,14 +438,14 @@ class DefaultApi extends ApiInstance<ApiClient> {
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-    if (lastModified != null) {
-      queryParams.addAll(buildQueryParams('', 'lastModified', lastModified));
-    }
     if (type != null) {
       queryParams.addAll(buildQueryParams('', 'type', type));
     }
     if (id != null) {
       queryParams.addAll(buildQueryParams('', 'id', id));
+    }
+    if (lastModified != null) {
+      queryParams.addAll(buildQueryParams('', 'lastModified', lastModified));
     }
 
     const contentTypes = <String>[];
@@ -449,20 +463,20 @@ class DefaultApi extends ApiInstance<ApiClient> {
 
   /// Parameters:
   ///
-  /// * [int] lastModified:
-  ///
   /// * [int] type:
   ///
   /// * [int] id:
+  ///
+  /// * [int] lastModified:
   Future<NewsListArticles?> listUpdatedArticles({
-    int? lastModified,
     int? type,
     int? id,
+    int? lastModified,
   }) async {
     final response = await listUpdatedArticlesWithHttpInfo(
-      lastModified: lastModified,
       type: type,
       id: id,
+      lastModified: lastModified,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await decodeBodyBytes(response));
@@ -572,22 +586,24 @@ class DefaultApi extends ApiInstance<ApiClient> {
   ///
   /// * [int] feedId (required):
   ///
-  /// * [NewsMarkAsRead] newsMarkAsRead (required):
+  /// * [int] newestItemId (required):
   Future<Response> markFeedAsReadWithHttpInfo(
     int feedId,
-    NewsMarkAsRead newsMarkAsRead,
+    int newestItemId,
   ) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v1-2/feeds/{feedId}/read'.replaceAll('{feedId}', feedId.toString());
 
     // ignore: prefer_final_locals
-    Object? postBody = newsMarkAsRead;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-    const contentTypes = <String>['application/json'];
+    queryParams.addAll(buildQueryParams('', 'newestItemId', newestItemId));
+
+    const contentTypes = <String>[];
 
     return apiClient.invokeAPI(
       path,
@@ -604,14 +620,14 @@ class DefaultApi extends ApiInstance<ApiClient> {
   ///
   /// * [int] feedId (required):
   ///
-  /// * [NewsMarkAsRead] newsMarkAsRead (required):
+  /// * [int] newestItemId (required):
   Future<void> markFeedAsRead(
     int feedId,
-    NewsMarkAsRead newsMarkAsRead,
+    int newestItemId,
   ) async {
     final response = await markFeedAsReadWithHttpInfo(
       feedId,
-      newsMarkAsRead,
+      newestItemId,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await decodeBodyBytes(response));
@@ -622,23 +638,27 @@ class DefaultApi extends ApiInstance<ApiClient> {
   /// Parameters:
   ///
   /// * [int] folderId (required):
+  ///   ID of the folder
   ///
-  /// * [NewsMarkAsRead] newsMarkAsRead (required):
+  /// * [int] newestItemId (required):
+  ///   The newest read item
   Future<Response> markFolderAsReadWithHttpInfo(
     int folderId,
-    NewsMarkAsRead newsMarkAsRead,
+    int newestItemId,
   ) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v1-2/folders/{folderId}/read'.replaceAll('{folderId}', folderId.toString());
 
     // ignore: prefer_final_locals
-    Object? postBody = newsMarkAsRead;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-    const contentTypes = <String>['application/json'];
+    queryParams.addAll(buildQueryParams('', 'newestItemId', newestItemId));
+
+    const contentTypes = <String>[];
 
     return apiClient.invokeAPI(
       path,
@@ -654,15 +674,17 @@ class DefaultApi extends ApiInstance<ApiClient> {
   /// Parameters:
   ///
   /// * [int] folderId (required):
+  ///   ID of the folder
   ///
-  /// * [NewsMarkAsRead] newsMarkAsRead (required):
+  /// * [int] newestItemId (required):
+  ///   The newest read item
   Future<void> markFolderAsRead(
     int folderId,
-    NewsMarkAsRead newsMarkAsRead,
+    int newestItemId,
   ) async {
     final response = await markFolderAsReadWithHttpInfo(
       folderId,
-      newsMarkAsRead,
+      newestItemId,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await decodeBodyBytes(response));
@@ -674,22 +696,26 @@ class DefaultApi extends ApiInstance<ApiClient> {
   ///
   /// * [int] feedId (required):
   ///
-  /// * [NewsMoveFeed] newsMoveFeed (required):
+  /// * [int] folderId:
   Future<Response> moveFeedWithHttpInfo(
-    int feedId,
-    NewsMoveFeed newsMoveFeed,
-  ) async {
+    int feedId, {
+    int? folderId,
+  }) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v1-2/feeds/{feedId}/move'.replaceAll('{feedId}', feedId.toString());
 
     // ignore: prefer_final_locals
-    Object? postBody = newsMoveFeed;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-    const contentTypes = <String>['application/json'];
+    if (folderId != null) {
+      queryParams.addAll(buildQueryParams('', 'folderId', folderId));
+    }
+
+    const contentTypes = <String>[];
 
     return apiClient.invokeAPI(
       path,
@@ -706,14 +732,14 @@ class DefaultApi extends ApiInstance<ApiClient> {
   ///
   /// * [int] feedId (required):
   ///
-  /// * [NewsMoveFeed] newsMoveFeed (required):
+  /// * [int] folderId:
   Future<void> moveFeed(
-    int feedId,
-    NewsMoveFeed newsMoveFeed,
-  ) async {
+    int feedId, {
+    int? folderId,
+  }) async {
     final response = await moveFeedWithHttpInfo(
       feedId,
-      newsMoveFeed,
+      folderId: folderId,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await decodeBodyBytes(response));
@@ -725,22 +751,24 @@ class DefaultApi extends ApiInstance<ApiClient> {
   ///
   /// * [int] feedId (required):
   ///
-  /// * [NewsRenameFeed] newsRenameFeed (required):
+  /// * [String] feedTitle (required):
   Future<Response> renameFeedWithHttpInfo(
     int feedId,
-    NewsRenameFeed newsRenameFeed,
+    String feedTitle,
   ) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v1-2/feeds/{feedId}/rename'.replaceAll('{feedId}', feedId.toString());
 
     // ignore: prefer_final_locals
-    Object? postBody = newsRenameFeed;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-    const contentTypes = <String>['application/json'];
+    queryParams.addAll(buildQueryParams('', 'feedTitle', feedTitle));
+
+    const contentTypes = <String>[];
 
     return apiClient.invokeAPI(
       path,
@@ -757,14 +785,14 @@ class DefaultApi extends ApiInstance<ApiClient> {
   ///
   /// * [int] feedId (required):
   ///
-  /// * [NewsRenameFeed] newsRenameFeed (required):
+  /// * [String] feedTitle (required):
   Future<void> renameFeed(
     int feedId,
-    NewsRenameFeed newsRenameFeed,
+    String feedTitle,
   ) async {
     final response = await renameFeedWithHttpInfo(
       feedId,
-      newsRenameFeed,
+      feedTitle,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await decodeBodyBytes(response));
@@ -776,22 +804,24 @@ class DefaultApi extends ApiInstance<ApiClient> {
   ///
   /// * [int] folderId (required):
   ///
-  /// * [NewsRenameFolder] newsRenameFolder (required):
+  /// * [String] name (required):
   Future<Response> renameFolderWithHttpInfo(
     int folderId,
-    NewsRenameFolder newsRenameFolder,
+    String name,
   ) async {
     // ignore: prefer_const_declarations
     final path = r'/api/v1-2/folders/{folderId}'.replaceAll('{folderId}', folderId.toString());
 
     // ignore: prefer_final_locals
-    Object? postBody = newsRenameFolder;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-    const contentTypes = <String>['application/json'];
+    queryParams.addAll(buildQueryParams('', 'name', name));
+
+    const contentTypes = <String>[];
 
     return apiClient.invokeAPI(
       path,
@@ -808,14 +838,14 @@ class DefaultApi extends ApiInstance<ApiClient> {
   ///
   /// * [int] folderId (required):
   ///
-  /// * [NewsRenameFolder] newsRenameFolder (required):
+  /// * [String] name (required):
   Future<void> renameFolder(
     int folderId,
-    NewsRenameFolder newsRenameFolder,
+    String name,
   ) async {
     final response = await renameFolderWithHttpInfo(
       folderId,
-      newsRenameFolder,
+      name,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await decodeBodyBytes(response));

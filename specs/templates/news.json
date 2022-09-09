@@ -53,6 +53,24 @@
       },
       "post": {
         "operationId": "folder-create-TODO",
+        "parameters": [
+          {
+            "name": "folderName",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "parent",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -135,6 +153,17 @@
       ],
       "post": {
         "operationId": "folder-rename-TODO",
+        "parameters": [
+          {
+            "name": "folderName",
+            "in": "query",
+            "description": "The new name of the folder",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -162,6 +191,16 @@
       ],
       "post": {
         "operationId": "folder-read-TODO",
+        "parameters": [
+          {
+            "name": "maxItemId",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -189,6 +228,16 @@
       ],
       "post": {
         "operationId": "folder-open-TODO",
+        "parameters": [
+          {
+            "name": "open",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -221,6 +270,57 @@
       },
       "post": {
         "operationId": "feed-create-TODO",
+        "parameters": [
+          {
+            "name": "url",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "parentFolderId",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "title",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "user",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "password",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "fullDiscover",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "boolean",
+              "default": true
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -263,6 +363,57 @@
       },
       "patch": {
         "operationId": "feed-patch-TODO",
+        "parameters": [
+          {
+            "name": "pinned",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "fullTextEnabled",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "updateMode",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "ordering",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "folderId",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": -1
+            }
+          },
+          {
+            "name": "title",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -317,6 +468,16 @@
       ],
       "post": {
         "operationId": "feed-read-TODO",
+        "parameters": [
+          {
+            "name": "highestItemId",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -378,6 +539,16 @@
     "/feeds/import/articles": {
       "post": {
         "operationId": "feed-import-TODO",
+        "parameters": [
+          {
+            "name": "json",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "array"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -395,6 +566,69 @@
     "/items": {
       "get": {
         "operationId": "item-index-TODO",
+        "parameters": [
+          {
+            "name": "type",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 3
+            }
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 0
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 50
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 0
+            }
+          },
+          {
+            "name": "showAll",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "oldestFirst",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "search",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": ""
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -412,6 +646,33 @@
     "/items/new": {
       "get": {
         "operationId": "item-new_items-TODO",
+        "parameters": [
+          {
+            "name": "type",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "lastModified",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 0
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -429,6 +690,16 @@
     "/items/read": {
       "post": {
         "operationId": "item-readall-TODO",
+        "parameters": [
+          {
+            "name": "highestItemId",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -456,6 +727,17 @@
       ],
       "post": {
         "operationId": "item-read-TODO",
+        "parameters": [
+          {
+            "name": "isRead",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "boolean",
+              "default": true
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -473,6 +755,17 @@
     "/items/read/multiple": {
       "post": {
         "operationId": "item-read_multiple-TODO",
+        "parameters": [
+          {
+            "name": "itemIds",
+            "in": "query",
+            "description": "item ids",
+            "required": true,
+            "schema": {
+              "type": "array"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -508,6 +801,16 @@
       ],
       "post": {
         "operationId": "item-star-TODO",
+        "parameters": [
+          {
+            "name": "isStarred",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -746,6 +1049,16 @@
       },
       "post": {
         "operationId": "folder_api-create-TODO",
+        "parameters": [
+          {
+            "name": "name",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -781,6 +1094,16 @@
       ],
       "put": {
         "operationId": "folder_api-update-TODO",
+        "parameters": [
+          {
+            "name": "name",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -832,6 +1155,17 @@
       ],
       "post": {
         "operationId": "folder_api-read-TODO",
+        "parameters": [
+          {
+            "name": "newestItemId",
+            "in": "query",
+            "description": "The newest read item",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -860,6 +1194,17 @@
       ],
       "put": {
         "operationId": "folder_api-read-TODO",
+        "parameters": [
+          {
+            "name": "newestItemId",
+            "in": "query",
+            "description": "The newest read item",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -902,6 +1247,24 @@
       },
       "post": {
         "operationId": "feed_api-create-TODO",
+        "parameters": [
+          {
+            "name": "url",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "folderId",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -937,6 +1300,16 @@
       ],
       "put": {
         "operationId": "feed_api-update-TODO",
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -1014,6 +1387,16 @@
       ],
       "post": {
         "operationId": "feed_api-move-TODO",
+        "parameters": [
+          {
+            "name": "folderId",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -1041,6 +1424,16 @@
       ],
       "put": {
         "operationId": "feed_api-move-TODO",
+        "parameters": [
+          {
+            "name": "folderId",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -1076,6 +1469,16 @@
       ],
       "post": {
         "operationId": "feed_api-rename-TODO",
+        "parameters": [
+          {
+            "name": "feedTitle",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -1103,6 +1506,16 @@
       ],
       "put": {
         "operationId": "feed_api-rename-TODO",
+        "parameters": [
+          {
+            "name": "feedTitle",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -1138,6 +1551,16 @@
       ],
       "post": {
         "operationId": "feed_api-read-TODO",
+        "parameters": [
+          {
+            "name": "newestItemId",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -1165,6 +1588,16 @@
       ],
       "put": {
         "operationId": "feed_api-read-TODO",
+        "parameters": [
+          {
+            "name": "newestItemId",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -1192,6 +1625,24 @@
       ],
       "get": {
         "operationId": "feed_api-update-TODO",
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "feedId",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -1219,6 +1670,62 @@
       ],
       "get": {
         "operationId": "item_api-index-TODO",
+        "parameters": [
+          {
+            "name": "type",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 3
+            }
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 0
+            }
+          },
+          {
+            "name": "getRead",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "boolean",
+              "default": true
+            }
+          },
+          {
+            "name": "batchSize",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": -1
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 0
+            }
+          },
+          {
+            "name": "oldestFirst",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "boolean",
+              "default": false
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -1246,6 +1753,35 @@
       ],
       "get": {
         "operationId": "item_api-updated-TODO",
+        "parameters": [
+          {
+            "name": "type",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 3
+            }
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 0
+            }
+          },
+          {
+            "name": "lastModified",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 0
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -1397,6 +1933,16 @@
       ],
       "post": {
         "operationId": "item_api-read_all-TODO",
+        "parameters": [
+          {
+            "name": "newestItemId",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -1414,6 +1960,16 @@
     "/api/v1-2/items/read": {
       "put": {
         "operationId": "item_api-read_all-TODO",
+        "parameters": [
+          {
+            "name": "newestItemId",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -1441,6 +1997,17 @@
       ],
       "post": {
         "operationId": "item_api-read_multiple_by_ids-TODO",
+        "parameters": [
+          {
+            "name": "itemIds",
+            "in": "query",
+            "description": "item ids",
+            "required": true,
+            "schema": {
+              "type": "array"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -1458,6 +2025,17 @@
     "/api/v1-2/items/read/multiple": {
       "put": {
         "operationId": "item_api-read_multiple-TODO",
+        "parameters": [
+          {
+            "name": "items",
+            "in": "query",
+            "description": "item ids",
+            "required": true,
+            "schema": {
+              "type": "array"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -1485,6 +2063,17 @@
       ],
       "post": {
         "operationId": "item_api-unread_multiple_by_ids-TODO",
+        "parameters": [
+          {
+            "name": "itemIds",
+            "in": "query",
+            "description": "item ids",
+            "required": true,
+            "schema": {
+              "type": "array"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -1502,6 +2091,17 @@
     "/api/v1-2/items/unread/multiple": {
       "put": {
         "operationId": "item_api-unread_multiple-TODO",
+        "parameters": [
+          {
+            "name": "items",
+            "in": "query",
+            "description": "item ids",
+            "required": true,
+            "schema": {
+              "type": "array"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -1669,6 +2269,16 @@
       ],
       "post": {
         "operationId": "item_api-star_multiple_by_item_ids-TODO",
+        "parameters": [
+          {
+            "name": "itemIds",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "array"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -1686,6 +2296,17 @@
     "/api/v1-2/items/star/multiple": {
       "put": {
         "operationId": "item_api-star_multiple-TODO",
+        "parameters": [
+          {
+            "name": "items",
+            "in": "query",
+            "description": "items",
+            "required": true,
+            "schema": {
+              "type": "array"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -1713,6 +2334,16 @@
       ],
       "post": {
         "operationId": "item_api-unstar_multiple_by_item_ids-TODO",
+        "parameters": [
+          {
+            "name": "itemIds",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "array"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -1730,6 +2361,17 @@
     "/api/v1-2/items/unstar/multiple": {
       "put": {
         "operationId": "item_api-unstar_multiple-TODO",
+        "parameters": [
+          {
+            "name": "items",
+            "in": "query",
+            "description": "items",
+            "required": true,
+            "schema": {
+              "type": "array"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -1747,6 +2389,16 @@
     "/api/v2/folders": {
       "post": {
         "operationId": "folder_api_v2-create-TODO",
+        "parameters": [
+          {
+            "name": "name",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -1789,6 +2441,16 @@
       },
       "patch": {
         "operationId": "folder_api_v2-update-TODO",
+        "parameters": [
+          {
+            "name": "name",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "",
