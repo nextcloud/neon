@@ -9,7 +9,7 @@ import 'package:nextcloud/nextcloud.dart';
 import 'package:process_run/cmd_run.dart';
 import 'package:test/test.dart';
 
-const String nextcloudVersion = '24.0.4';
+const String nextcloudVersion = '24.0.5';
 const String defaultUsername = 'test';
 const String defaultPassword = 'supersafepasswordtocircumventpasswordpolicies';
 
