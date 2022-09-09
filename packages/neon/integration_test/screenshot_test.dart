@@ -551,11 +551,8 @@ Future main() async {
     await binding.takeScreenshot('settings_accounts');
 
     // Go to account settings
-    await tester.tap(find.byType(PopupMenuButton<SettingsAccountAction>));
+    await tester.tap(find.text('test@10.0.2.2:80'));
     await tester.pumpAndSettle();
-    await tester.tap(find.text('Settings').last);
-    await tester.pumpAndSettle();
-    await tester.pump(); // Needed for the drop down button to actually show up
     await tester.tap(find.text('Automatic'));
     await tester.pumpAndSettle();
 
