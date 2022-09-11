@@ -49,9 +49,10 @@ jobs:
           cp build/app/outputs/apk/release/app-release.apk app-debug.apk
 
       - name: Upload
-        run: |
-          sudo add-apt-repository ppa:fdroid/fdroidserver
-          sudo apt-get update
-          sudo apt-get install apksigner fdroidserver tree --no-install-recommends
-          export DEBUG_KEYSTORE=${{ secrets.DEBUG_KEYSTORE }}
-          fdroid nightly -v --archive-older 10 --file app-debug.apk
+        uses: wardvl/f-droid-nightly-action@v2.1
+        with:
+          debug_keystore: ${{ secrets.DEBUG_KEYSTORE }}
+          fdroid_nightly_args: -v --archive-older 10 --file app-debug.apk
+
+      - name: F-Droid repo permission clean-up # https://github.com/actions/cache/issues/753
+        run: sudo chown -R runner:docker fdroid
