@@ -378,9 +378,7 @@ class _HomePageState extends State<HomePage> with tray.TrayListener, WindowListe
                             if (accounts.length > 1) ...[
                               Text(
                                 account.client.humanReadableID,
-                                style: Theme.of(context).textTheme.bodySmall!.copyWith(
-                                      color: Theme.of(context).colorScheme.onPrimary,
-                                    ),
+                                style: Theme.of(context).textTheme.bodySmall!,
                               ),
                             ],
                           ],

@@ -50,11 +50,14 @@ class AccountTile extends StatelessWidget {
             Row(
           children: [
             if (userDetailsData != null) ...[
-              Text(
-                userDetailsData.getDisplayName()!,
-                style: Theme.of(context).textTheme.bodyLarge!.copyWith(
-                      color: textColor,
-                    ),
+              Flexible(
+                child: Text(
+                  userDetailsData.getDisplayName()!,
+                  style: Theme.of(context).textTheme.bodyLarge!.copyWith(
+                        color: textColor,
+                      ),
+                  overflow: TextOverflow.ellipsis,
+                ),
               ),
             ],
             if (userDetailsLoading) ...[
@@ -88,6 +91,7 @@ class AccountTile extends StatelessWidget {
         style: Theme.of(context).textTheme.bodySmall!.copyWith(
               color: textColor,
             ),
+        overflow: TextOverflow.ellipsis,
       ),
     );
   }

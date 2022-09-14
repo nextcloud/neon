@@ -25,31 +25,44 @@ class DropdownButtonSettingsTile<T> extends InputSettingsTile<SelectOption<T>> {
               final context,
               final valuesSnapshot,
             ) =>
-                ListTile(
-              title: Text(
-                option.label(context),
-                style: enabledSnapshot.data ?? false
-                    ? null
-                    : Theme.of(context).textTheme.subtitle1!.copyWith(color: Theme.of(context).disabledColor),
+                LayoutBuilder(
+              builder: (final context, final constraints) => ListTile(
+                title: Text(
+                  option.label(context),
+                  style: enabledSnapshot.data ?? false
+                      ? null
+                      : Theme.of(context).textTheme.subtitle1!.copyWith(color: Theme.of(context).disabledColor),
+                ),
+                trailing: valuesSnapshot.hasData
+                    ? Container(
+                        constraints: BoxConstraints(
+                          maxWidth: constraints.maxWidth * 0.5,
+                        ),
+                        child: IntrinsicWidth(
+                          child: DropdownButton<T>(
+                            isExpanded: true,
+                            value: value,
+                            items: valuesSnapshot.data!.keys
+                                .map(
+                                  (final k) => DropdownMenuItem(
+                                    value: k,
+                                    child: Text(
+                                      valuesSnapshot.data![k]!(context),
+                                      overflow: TextOverflow.ellipsis,
+                                    ),
+                                  ),
+                                )
+                                .toList(),
+                            onChanged: enabledSnapshot.data ?? false
+                                ? (final value) async {
+                                    await option.set(value as T);
+                                  }
+                                : null,
+                          ),
+                        ),
+                      )
+                    : null,
               ),
-              trailing: valuesSnapshot.hasData
-                  ? DropdownButton<T>(
-                      value: value,
-                      items: valuesSnapshot.data!.keys
-                          .map(
-                            (final k) => DropdownMenuItem(
-                              value: k,
-                              child: Text(valuesSnapshot.data![k]!(context)),
-                            ),
-                          )
-                          .toList(),
-                      onChanged: enabledSnapshot.data ?? false
-                          ? (final value) async {
-                              await option.set(value as T);
-                            }
-                          : null,
-                    )
-                  : null,
             ),
           ),
         ),
