@@ -106,43 +106,43 @@ class NotificationsPushNotificationDecryptedSubject {
       'NotificationsPushNotificationDecryptedSubject[nid=$nid, app=$app, subject=$subject, type=$type, id=$id, delete=$delete, deleteAll=$deleteAll]';
 
   Map<String, dynamic> toJson() {
-    final _json = <String, dynamic>{};
-    if (nid != null) {
-      _json[r'nid'] = nid;
+    final json = <String, dynamic>{};
+    if (this.nid != null) {
+      json[r'nid'] = this.nid;
     } else {
-      _json[r'nid'] = null;
+      json[r'nid'] = null;
     }
-    if (app != null) {
-      _json[r'app'] = app;
+    if (this.app != null) {
+      json[r'app'] = this.app;
     } else {
-      _json[r'app'] = null;
+      json[r'app'] = null;
     }
-    if (subject != null) {
-      _json[r'subject'] = subject;
+    if (this.subject != null) {
+      json[r'subject'] = this.subject;
     } else {
-      _json[r'subject'] = null;
+      json[r'subject'] = null;
     }
-    if (type != null) {
-      _json[r'type'] = type;
+    if (this.type != null) {
+      json[r'type'] = this.type;
     } else {
-      _json[r'type'] = null;
+      json[r'type'] = null;
     }
-    if (id != null) {
-      _json[r'id'] = id;
+    if (this.id != null) {
+      json[r'id'] = this.id;
     } else {
-      _json[r'id'] = null;
+      json[r'id'] = null;
     }
-    if (delete != null) {
-      _json[r'delete'] = delete;
+    if (this.delete != null) {
+      json[r'delete'] = this.delete;
     } else {
-      _json[r'delete'] = null;
+      json[r'delete'] = null;
     }
-    if (deleteAll != null) {
-      _json[r'delete-all'] = deleteAll;
+    if (this.deleteAll != null) {
+      json[r'delete-all'] = this.deleteAll;
     } else {
-      _json[r'delete-all'] = null;
+      json[r'delete-all'] = null;
     }
-    return _json;
+    return json;
   }
 
   /// Returns a new [NotificationsPushNotificationDecryptedSubject] instance and imports its values from

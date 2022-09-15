@@ -38,13 +38,13 @@ class CoreServerCapabilitiesOcsDataCapabilitiesOcmResourceTypesInnerProtocols {
   String toString() => 'CoreServerCapabilitiesOcsDataCapabilitiesOcmResourceTypesInnerProtocols[webdav=$webdav]';
 
   Map<String, dynamic> toJson() {
-    final _json = <String, dynamic>{};
-    if (webdav != null) {
-      _json[r'webdav'] = webdav;
+    final json = <String, dynamic>{};
+    if (this.webdav != null) {
+      json[r'webdav'] = this.webdav;
     } else {
-      _json[r'webdav'] = null;
+      json[r'webdav'] = null;
     }
-    return _json;
+    return json;
   }
 
   /// Returns a new [CoreServerCapabilitiesOcsDataCapabilitiesOcmResourceTypesInnerProtocols] instance and imports its values from

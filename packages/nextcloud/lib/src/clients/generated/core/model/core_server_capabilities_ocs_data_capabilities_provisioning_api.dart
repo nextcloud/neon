@@ -73,28 +73,28 @@ class CoreServerCapabilitiesOcsDataCapabilitiesProvisioningApi {
       'CoreServerCapabilitiesOcsDataCapabilitiesProvisioningApi[version=$version, accountPropertyScopesVersion=$accountPropertyScopesVersion, accountPropertyScopesFederatedEnabled=$accountPropertyScopesFederatedEnabled, accountPropertyScopesPublishedEnabled=$accountPropertyScopesPublishedEnabled]';
 
   Map<String, dynamic> toJson() {
-    final _json = <String, dynamic>{};
-    if (version != null) {
-      _json[r'version'] = version;
+    final json = <String, dynamic>{};
+    if (this.version != null) {
+      json[r'version'] = this.version;
     } else {
-      _json[r'version'] = null;
+      json[r'version'] = null;
     }
-    if (accountPropertyScopesVersion != null) {
-      _json[r'AccountPropertyScopesVersion'] = accountPropertyScopesVersion;
+    if (this.accountPropertyScopesVersion != null) {
+      json[r'AccountPropertyScopesVersion'] = this.accountPropertyScopesVersion;
     } else {
-      _json[r'AccountPropertyScopesVersion'] = null;
+      json[r'AccountPropertyScopesVersion'] = null;
     }
-    if (accountPropertyScopesFederatedEnabled != null) {
-      _json[r'AccountPropertyScopesFederatedEnabled'] = accountPropertyScopesFederatedEnabled;
+    if (this.accountPropertyScopesFederatedEnabled != null) {
+      json[r'AccountPropertyScopesFederatedEnabled'] = this.accountPropertyScopesFederatedEnabled;
     } else {
-      _json[r'AccountPropertyScopesFederatedEnabled'] = null;
+      json[r'AccountPropertyScopesFederatedEnabled'] = null;
     }
-    if (accountPropertyScopesPublishedEnabled != null) {
-      _json[r'AccountPropertyScopesPublishedEnabled'] = accountPropertyScopesPublishedEnabled;
+    if (this.accountPropertyScopesPublishedEnabled != null) {
+      json[r'AccountPropertyScopesPublishedEnabled'] = this.accountPropertyScopesPublishedEnabled;
     } else {
-      _json[r'AccountPropertyScopesPublishedEnabled'] = null;
+      json[r'AccountPropertyScopesPublishedEnabled'] = null;
     }
-    return _json;
+    return json;
   }
 
   /// Returns a new [CoreServerCapabilitiesOcsDataCapabilitiesProvisioningApi] instance and imports its values from

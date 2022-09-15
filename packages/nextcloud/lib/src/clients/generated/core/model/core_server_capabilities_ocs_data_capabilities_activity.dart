@@ -31,9 +31,9 @@ class CoreServerCapabilitiesOcsDataCapabilitiesActivity {
   String toString() => 'CoreServerCapabilitiesOcsDataCapabilitiesActivity[apiv2=$apiv2]';
 
   Map<String, dynamic> toJson() {
-    final _json = <String, dynamic>{};
-    _json[r'apiv2'] = apiv2;
-    return _json;
+    final json = <String, dynamic>{};
+    json[r'apiv2'] = this.apiv2;
+    return json;
   }
 
   /// Returns a new [CoreServerCapabilitiesOcsDataCapabilitiesActivity] instance and imports its values from

@@ -72,28 +72,28 @@ class NotificationsNotificationAction {
   String toString() => 'NotificationsNotificationAction[label=$label, link=$link, type=$type, primary=$primary]';
 
   Map<String, dynamic> toJson() {
-    final _json = <String, dynamic>{};
-    if (label != null) {
-      _json[r'label'] = label;
+    final json = <String, dynamic>{};
+    if (this.label != null) {
+      json[r'label'] = this.label;
     } else {
-      _json[r'label'] = null;
+      json[r'label'] = null;
     }
-    if (link != null) {
-      _json[r'link'] = link;
+    if (this.link != null) {
+      json[r'link'] = this.link;
     } else {
-      _json[r'link'] = null;
+      json[r'link'] = null;
     }
-    if (type != null) {
-      _json[r'type'] = type;
+    if (this.type != null) {
+      json[r'type'] = this.type;
     } else {
-      _json[r'type'] = null;
+      json[r'type'] = null;
     }
-    if (primary != null) {
-      _json[r'primary'] = primary;
+    if (this.primary != null) {
+      json[r'primary'] = this.primary;
     } else {
-      _json[r'primary'] = null;
+      json[r'primary'] = null;
     }
-    return _json;
+    return json;
   }
 
   /// Returns a new [NotificationsNotificationAction] instance and imports its values from

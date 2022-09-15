@@ -122,7 +122,7 @@ function update_spec_from_template() {
 
 (
   cd external/openapi-generator
-  #./mvnw package -DskipTests -Dmaven.test.skip=true
+  ./mvnw package -DskipTests -Dmaven.test.skip=true
 )
 
 rm -rf /tmp/nextcloud-neon

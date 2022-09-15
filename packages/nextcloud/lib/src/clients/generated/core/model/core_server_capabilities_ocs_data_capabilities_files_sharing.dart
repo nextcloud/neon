@@ -139,58 +139,58 @@ class CoreServerCapabilitiesOcsDataCapabilitiesFilesSharing {
       'CoreServerCapabilitiesOcsDataCapabilitiesFilesSharing[apiEnabled=$apiEnabled, public=$public, resharing=$resharing, user=$user, groupSharing=$groupSharing, group=$group, defaultPermissions=$defaultPermissions, federation=$federation, sharee=$sharee, sharebymail=$sharebymail]';
 
   Map<String, dynamic> toJson() {
-    final _json = <String, dynamic>{};
-    if (apiEnabled != null) {
-      _json[r'api_enabled'] = apiEnabled;
+    final json = <String, dynamic>{};
+    if (this.apiEnabled != null) {
+      json[r'api_enabled'] = this.apiEnabled;
     } else {
-      _json[r'api_enabled'] = null;
+      json[r'api_enabled'] = null;
     }
-    if (public != null) {
-      _json[r'public'] = public;
+    if (this.public != null) {
+      json[r'public'] = this.public;
     } else {
-      _json[r'public'] = null;
+      json[r'public'] = null;
     }
-    if (resharing != null) {
-      _json[r'resharing'] = resharing;
+    if (this.resharing != null) {
+      json[r'resharing'] = this.resharing;
     } else {
-      _json[r'resharing'] = null;
+      json[r'resharing'] = null;
     }
-    if (user != null) {
-      _json[r'user'] = user;
+    if (this.user != null) {
+      json[r'user'] = this.user;
     } else {
-      _json[r'user'] = null;
+      json[r'user'] = null;
     }
-    if (groupSharing != null) {
-      _json[r'group_sharing'] = groupSharing;
+    if (this.groupSharing != null) {
+      json[r'group_sharing'] = this.groupSharing;
     } else {
-      _json[r'group_sharing'] = null;
+      json[r'group_sharing'] = null;
     }
-    if (group != null) {
-      _json[r'group'] = group;
+    if (this.group != null) {
+      json[r'group'] = this.group;
     } else {
-      _json[r'group'] = null;
+      json[r'group'] = null;
     }
-    if (defaultPermissions != null) {
-      _json[r'default_permissions'] = defaultPermissions;
+    if (this.defaultPermissions != null) {
+      json[r'default_permissions'] = this.defaultPermissions;
     } else {
-      _json[r'default_permissions'] = null;
+      json[r'default_permissions'] = null;
     }
-    if (federation != null) {
-      _json[r'federation'] = federation;
+    if (this.federation != null) {
+      json[r'federation'] = this.federation;
     } else {
-      _json[r'federation'] = null;
+      json[r'federation'] = null;
     }
-    if (sharee != null) {
-      _json[r'sharee'] = sharee;
+    if (this.sharee != null) {
+      json[r'sharee'] = this.sharee;
     } else {
-      _json[r'sharee'] = null;
+      json[r'sharee'] = null;
     }
-    if (sharebymail != null) {
-      _json[r'sharebymail'] = sharebymail;
+    if (this.sharebymail != null) {
+      json[r'sharebymail'] = this.sharebymail;
     } else {
-      _json[r'sharebymail'] = null;
+      json[r'sharebymail'] = null;
     }
-    return _json;
+    return json;
   }
 
   /// Returns a new [CoreServerCapabilitiesOcsDataCapabilitiesFilesSharing] instance and imports its values from

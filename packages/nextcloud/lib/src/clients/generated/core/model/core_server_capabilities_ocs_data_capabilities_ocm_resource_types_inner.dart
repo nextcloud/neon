@@ -54,19 +54,19 @@ class CoreServerCapabilitiesOcsDataCapabilitiesOcmResourceTypesInner {
       'CoreServerCapabilitiesOcsDataCapabilitiesOcmResourceTypesInner[name=$name, shareTypes=$shareTypes, protocols=$protocols]';
 
   Map<String, dynamic> toJson() {
-    final _json = <String, dynamic>{};
-    if (name != null) {
-      _json[r'name'] = name;
+    final json = <String, dynamic>{};
+    if (this.name != null) {
+      json[r'name'] = this.name;
     } else {
-      _json[r'name'] = null;
+      json[r'name'] = null;
     }
-    _json[r'shareTypes'] = shareTypes;
-    if (protocols != null) {
-      _json[r'protocols'] = protocols;
+    json[r'shareTypes'] = this.shareTypes;
+    if (this.protocols != null) {
+      json[r'protocols'] = this.protocols;
     } else {
-      _json[r'protocols'] = null;
+      json[r'protocols'] = null;
     }
-    return _json;
+    return json;
   }
 
   /// Returns a new [CoreServerCapabilitiesOcsDataCapabilitiesOcmResourceTypesInner] instance and imports its values from

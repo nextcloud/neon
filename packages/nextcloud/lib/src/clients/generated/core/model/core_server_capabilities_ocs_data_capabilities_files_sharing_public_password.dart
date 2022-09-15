@@ -51,18 +51,18 @@ class CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingPublicPassword {
       'CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingPublicPassword[enforced=$enforced, askForOptionalPassword=$askForOptionalPassword]';
 
   Map<String, dynamic> toJson() {
-    final _json = <String, dynamic>{};
-    if (enforced != null) {
-      _json[r'enforced'] = enforced;
+    final json = <String, dynamic>{};
+    if (this.enforced != null) {
+      json[r'enforced'] = this.enforced;
     } else {
-      _json[r'enforced'] = null;
+      json[r'enforced'] = null;
     }
-    if (askForOptionalPassword != null) {
-      _json[r'askForOptionalPassword'] = askForOptionalPassword;
+    if (this.askForOptionalPassword != null) {
+      json[r'askForOptionalPassword'] = this.askForOptionalPassword;
     } else {
-      _json[r'askForOptionalPassword'] = null;
+      json[r'askForOptionalPassword'] = null;
     }
-    return _json;
+    return json;
   }
 
   /// Returns a new [CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingPublicPassword] instance and imports its values from

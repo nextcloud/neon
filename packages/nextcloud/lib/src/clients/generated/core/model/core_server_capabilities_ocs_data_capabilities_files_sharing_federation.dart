@@ -73,28 +73,28 @@ class CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingFederation {
       'CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingFederation[outgoing=$outgoing, incoming=$incoming, expireDate=$expireDate, expireDateSupported=$expireDateSupported]';
 
   Map<String, dynamic> toJson() {
-    final _json = <String, dynamic>{};
-    if (outgoing != null) {
-      _json[r'outgoing'] = outgoing;
+    final json = <String, dynamic>{};
+    if (this.outgoing != null) {
+      json[r'outgoing'] = this.outgoing;
     } else {
-      _json[r'outgoing'] = null;
+      json[r'outgoing'] = null;
     }
-    if (incoming != null) {
-      _json[r'incoming'] = incoming;
+    if (this.incoming != null) {
+      json[r'incoming'] = this.incoming;
     } else {
-      _json[r'incoming'] = null;
+      json[r'incoming'] = null;
     }
-    if (expireDate != null) {
-      _json[r'expire_date'] = expireDate;
+    if (this.expireDate != null) {
+      json[r'expire_date'] = this.expireDate;
     } else {
-      _json[r'expire_date'] = null;
+      json[r'expire_date'] = null;
     }
-    if (expireDateSupported != null) {
-      _json[r'expire_date_supported'] = expireDateSupported;
+    if (this.expireDateSupported != null) {
+      json[r'expire_date_supported'] = this.expireDateSupported;
     } else {
-      _json[r'expire_date_supported'] = null;
+      json[r'expire_date_supported'] = null;
     }
-    return _json;
+    return json;
   }
 
   /// Returns a new [CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingFederation] instance and imports its values from

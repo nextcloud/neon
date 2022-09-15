@@ -50,18 +50,18 @@ class CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingUser {
       'CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingUser[sendMail=$sendMail, expireDate=$expireDate]';
 
   Map<String, dynamic> toJson() {
-    final _json = <String, dynamic>{};
-    if (sendMail != null) {
-      _json[r'send_mail'] = sendMail;
+    final json = <String, dynamic>{};
+    if (this.sendMail != null) {
+      json[r'send_mail'] = this.sendMail;
     } else {
-      _json[r'send_mail'] = null;
+      json[r'send_mail'] = null;
     }
-    if (expireDate != null) {
-      _json[r'expire_date'] = expireDate;
+    if (this.expireDate != null) {
+      json[r'expire_date'] = this.expireDate;
     } else {
-      _json[r'expire_date'] = null;
+      json[r'expire_date'] = null;
     }
-    return _json;
+    return json;
   }
 
   /// Returns a new [CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingUser] instance and imports its values from

@@ -249,108 +249,108 @@ class NewsArticle {
       'NewsArticle[id=$id, guid=$guid, guidHash=$guidHash, url=$url, title=$title, author=$author, pubDate=$pubDate, updatedDate=$updatedDate, body=$body, enclosureMime=$enclosureMime, enclosureLink=$enclosureLink, mediaThumbnail=$mediaThumbnail, mediaDescription=$mediaDescription, feedId=$feedId, unread=$unread, starred=$starred, lastModified=$lastModified, rtl=$rtl, fingerprint=$fingerprint, contentHash=$contentHash]';
 
   Map<String, dynamic> toJson() {
-    final _json = <String, dynamic>{};
-    if (id != null) {
-      _json[r'id'] = id;
+    final json = <String, dynamic>{};
+    if (this.id != null) {
+      json[r'id'] = this.id;
     } else {
-      _json[r'id'] = null;
+      json[r'id'] = null;
     }
-    if (guid != null) {
-      _json[r'guid'] = guid;
+    if (this.guid != null) {
+      json[r'guid'] = this.guid;
     } else {
-      _json[r'guid'] = null;
+      json[r'guid'] = null;
     }
-    if (guidHash != null) {
-      _json[r'guidHash'] = guidHash;
+    if (this.guidHash != null) {
+      json[r'guidHash'] = this.guidHash;
     } else {
-      _json[r'guidHash'] = null;
+      json[r'guidHash'] = null;
     }
-    if (url != null) {
-      _json[r'url'] = url;
+    if (this.url != null) {
+      json[r'url'] = this.url;
     } else {
-      _json[r'url'] = null;
+      json[r'url'] = null;
     }
-    if (title != null) {
-      _json[r'title'] = title;
+    if (this.title != null) {
+      json[r'title'] = this.title;
     } else {
-      _json[r'title'] = null;
+      json[r'title'] = null;
     }
-    if (author != null) {
-      _json[r'author'] = author;
+    if (this.author != null) {
+      json[r'author'] = this.author;
     } else {
-      _json[r'author'] = null;
+      json[r'author'] = null;
     }
-    if (pubDate != null) {
-      _json[r'pubDate'] = pubDate;
+    if (this.pubDate != null) {
+      json[r'pubDate'] = this.pubDate;
     } else {
-      _json[r'pubDate'] = null;
+      json[r'pubDate'] = null;
     }
-    if (updatedDate != null) {
-      _json[r'updatedDate'] = updatedDate;
+    if (this.updatedDate != null) {
+      json[r'updatedDate'] = this.updatedDate;
     } else {
-      _json[r'updatedDate'] = null;
+      json[r'updatedDate'] = null;
     }
-    if (body != null) {
-      _json[r'body'] = body;
+    if (this.body != null) {
+      json[r'body'] = this.body;
     } else {
-      _json[r'body'] = null;
+      json[r'body'] = null;
     }
-    if (enclosureMime != null) {
-      _json[r'enclosureMime'] = enclosureMime;
+    if (this.enclosureMime != null) {
+      json[r'enclosureMime'] = this.enclosureMime;
     } else {
-      _json[r'enclosureMime'] = null;
+      json[r'enclosureMime'] = null;
     }
-    if (enclosureLink != null) {
-      _json[r'enclosureLink'] = enclosureLink;
+    if (this.enclosureLink != null) {
+      json[r'enclosureLink'] = this.enclosureLink;
     } else {
-      _json[r'enclosureLink'] = null;
+      json[r'enclosureLink'] = null;
     }
-    if (mediaThumbnail != null) {
-      _json[r'mediaThumbnail'] = mediaThumbnail;
+    if (this.mediaThumbnail != null) {
+      json[r'mediaThumbnail'] = this.mediaThumbnail;
     } else {
-      _json[r'mediaThumbnail'] = null;
+      json[r'mediaThumbnail'] = null;
     }
-    if (mediaDescription != null) {
-      _json[r'mediaDescription'] = mediaDescription;
+    if (this.mediaDescription != null) {
+      json[r'mediaDescription'] = this.mediaDescription;
     } else {
-      _json[r'mediaDescription'] = null;
+      json[r'mediaDescription'] = null;
     }
-    if (feedId != null) {
-      _json[r'feedId'] = feedId;
+    if (this.feedId != null) {
+      json[r'feedId'] = this.feedId;
     } else {
-      _json[r'feedId'] = null;
+      json[r'feedId'] = null;
     }
-    if (unread != null) {
-      _json[r'unread'] = unread;
+    if (this.unread != null) {
+      json[r'unread'] = this.unread;
     } else {
-      _json[r'unread'] = null;
+      json[r'unread'] = null;
     }
-    if (starred != null) {
-      _json[r'starred'] = starred;
+    if (this.starred != null) {
+      json[r'starred'] = this.starred;
     } else {
-      _json[r'starred'] = null;
+      json[r'starred'] = null;
     }
-    if (lastModified != null) {
-      _json[r'lastModified'] = lastModified;
+    if (this.lastModified != null) {
+      json[r'lastModified'] = this.lastModified;
     } else {
-      _json[r'lastModified'] = null;
+      json[r'lastModified'] = null;
     }
-    if (rtl != null) {
-      _json[r'rtl'] = rtl;
+    if (this.rtl != null) {
+      json[r'rtl'] = this.rtl;
     } else {
-      _json[r'rtl'] = null;
+      json[r'rtl'] = null;
     }
-    if (fingerprint != null) {
-      _json[r'fingerprint'] = fingerprint;
+    if (this.fingerprint != null) {
+      json[r'fingerprint'] = this.fingerprint;
     } else {
-      _json[r'fingerprint'] = null;
+      json[r'fingerprint'] = null;
     }
-    if (contentHash != null) {
-      _json[r'contentHash'] = contentHash;
+    if (this.contentHash != null) {
+      json[r'contentHash'] = this.contentHash;
     } else {
-      _json[r'contentHash'] = null;
+      json[r'contentHash'] = null;
     }
-    return _json;
+    return json;
   }
 
   /// Returns a new [NewsArticle] instance and imports its values from

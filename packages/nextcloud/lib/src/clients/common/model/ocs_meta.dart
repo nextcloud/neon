@@ -84,33 +84,33 @@ class OCSMeta {
       'OCSMeta[status=$status, statuscode=$statuscode, message=$message, totalitems=$totalitems, itemsperpage=$itemsperpage]';
 
   Map<String, dynamic> toJson() {
-    final _json = <String, dynamic>{};
-    if (status != null) {
-      _json[r'status'] = status;
+    final json = <String, dynamic>{};
+    if (this.status != null) {
+      json[r'status'] = this.status;
     } else {
-      _json[r'status'] = null;
+      json[r'status'] = null;
     }
-    if (statuscode != null) {
-      _json[r'statuscode'] = statuscode;
+    if (this.statuscode != null) {
+      json[r'statuscode'] = this.statuscode;
     } else {
-      _json[r'statuscode'] = null;
+      json[r'statuscode'] = null;
     }
-    if (message != null) {
-      _json[r'message'] = message;
+    if (this.message != null) {
+      json[r'message'] = this.message;
     } else {
-      _json[r'message'] = null;
+      json[r'message'] = null;
     }
-    if (totalitems != null) {
-      _json[r'totalitems'] = totalitems;
+    if (this.totalitems != null) {
+      json[r'totalitems'] = this.totalitems;
     } else {
-      _json[r'totalitems'] = null;
+      json[r'totalitems'] = null;
     }
-    if (itemsperpage != null) {
-      _json[r'itemsperpage'] = itemsperpage;
+    if (this.itemsperpage != null) {
+      json[r'itemsperpage'] = this.itemsperpage;
     } else {
-      _json[r'itemsperpage'] = null;
+      json[r'itemsperpage'] = null;
     }
-    return _json;
+    return json;
   }
 
   /// Returns a new [OCSMeta] instance and imports its values from

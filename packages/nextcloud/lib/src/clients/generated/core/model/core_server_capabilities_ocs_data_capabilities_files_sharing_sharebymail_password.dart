@@ -50,18 +50,18 @@ class CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingSharebymailPassword {
       'CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingSharebymailPassword[enabled=$enabled, enforced=$enforced]';
 
   Map<String, dynamic> toJson() {
-    final _json = <String, dynamic>{};
-    if (enabled != null) {
-      _json[r'enabled'] = enabled;
+    final json = <String, dynamic>{};
+    if (this.enabled != null) {
+      json[r'enabled'] = this.enabled;
     } else {
-      _json[r'enabled'] = null;
+      json[r'enabled'] = null;
     }
-    if (enforced != null) {
-      _json[r'enforced'] = enforced;
+    if (this.enforced != null) {
+      json[r'enforced'] = this.enforced;
     } else {
-      _json[r'enforced'] = null;
+      json[r'enforced'] = null;
     }
-    return _json;
+    return json;
   }
 
   /// Returns a new [CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingSharebymailPassword] instance and imports its values from

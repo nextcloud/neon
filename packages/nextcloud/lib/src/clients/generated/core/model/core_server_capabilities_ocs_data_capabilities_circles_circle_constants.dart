@@ -50,18 +50,18 @@ class CoreServerCapabilitiesOcsDataCapabilitiesCirclesCircleConstants {
       'CoreServerCapabilitiesOcsDataCapabilitiesCirclesCircleConstants[flags=$flags, source_=$source_]';
 
   Map<String, dynamic> toJson() {
-    final _json = <String, dynamic>{};
-    if (flags != null) {
-      _json[r'flags'] = flags;
+    final json = <String, dynamic>{};
+    if (this.flags != null) {
+      json[r'flags'] = this.flags;
     } else {
-      _json[r'flags'] = null;
+      json[r'flags'] = null;
     }
-    if (source_ != null) {
-      _json[r'source'] = source_;
+    if (this.source_ != null) {
+      json[r'source'] = this.source_;
     } else {
-      _json[r'source'] = null;
+      json[r'source'] = null;
     }
-    return _json;
+    return json;
   }
 
   /// Returns a new [CoreServerCapabilitiesOcsDataCapabilitiesCirclesCircleConstants] instance and imports its values from

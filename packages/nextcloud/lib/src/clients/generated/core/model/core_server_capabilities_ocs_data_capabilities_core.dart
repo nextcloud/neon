@@ -50,18 +50,18 @@ class CoreServerCapabilitiesOcsDataCapabilitiesCore {
       'CoreServerCapabilitiesOcsDataCapabilitiesCore[pollinterval=$pollinterval, webdavRoot=$webdavRoot]';
 
   Map<String, dynamic> toJson() {
-    final _json = <String, dynamic>{};
-    if (pollinterval != null) {
-      _json[r'pollinterval'] = pollinterval;
+    final json = <String, dynamic>{};
+    if (this.pollinterval != null) {
+      json[r'pollinterval'] = this.pollinterval;
     } else {
-      _json[r'pollinterval'] = null;
+      json[r'pollinterval'] = null;
     }
-    if (webdavRoot != null) {
-      _json[r'webdav-root'] = webdavRoot;
+    if (this.webdavRoot != null) {
+      json[r'webdav-root'] = this.webdavRoot;
     } else {
-      _json[r'webdav-root'] = null;
+      json[r'webdav-root'] = null;
     }
-    return _json;
+    return json;
   }
 
   /// Returns a new [CoreServerCapabilitiesOcsDataCapabilitiesCore] instance and imports its values from

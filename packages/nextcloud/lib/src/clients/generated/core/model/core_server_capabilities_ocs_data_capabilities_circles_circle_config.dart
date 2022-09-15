@@ -38,10 +38,10 @@ class CoreServerCapabilitiesOcsDataCapabilitiesCirclesCircleConfig {
       'CoreServerCapabilitiesOcsDataCapabilitiesCirclesCircleConfig[coreFlags=$coreFlags, systemFlags=$systemFlags]';
 
   Map<String, dynamic> toJson() {
-    final _json = <String, dynamic>{};
-    _json[r'coreFlags'] = coreFlags;
-    _json[r'systemFlags'] = systemFlags;
-    return _json;
+    final json = <String, dynamic>{};
+    json[r'coreFlags'] = this.coreFlags;
+    json[r'systemFlags'] = this.systemFlags;
+    return json;
   }
 
   /// Returns a new [CoreServerCapabilitiesOcsDataCapabilitiesCirclesCircleConfig] instance and imports its values from

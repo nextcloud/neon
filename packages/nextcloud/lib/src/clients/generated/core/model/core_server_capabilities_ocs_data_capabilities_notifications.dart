@@ -42,11 +42,11 @@ class CoreServerCapabilitiesOcsDataCapabilitiesNotifications {
       'CoreServerCapabilitiesOcsDataCapabilitiesNotifications[ocsEndpoints=$ocsEndpoints, push=$push, adminNotifications=$adminNotifications]';
 
   Map<String, dynamic> toJson() {
-    final _json = <String, dynamic>{};
-    _json[r'ocs-endpoints'] = ocsEndpoints;
-    _json[r'push'] = push;
-    _json[r'admin-notifications'] = adminNotifications;
-    return _json;
+    final json = <String, dynamic>{};
+    json[r'ocs-endpoints'] = this.ocsEndpoints;
+    json[r'push'] = this.push;
+    json[r'admin-notifications'] = this.adminNotifications;
+    return json;
   }
 
   /// Returns a new [CoreServerCapabilitiesOcsDataCapabilitiesNotifications] instance and imports its values from

@@ -47,18 +47,18 @@ class CoreServerCapabilitiesOcsData {
   String toString() => 'CoreServerCapabilitiesOcsData[version=$version, capabilities=$capabilities]';
 
   Map<String, dynamic> toJson() {
-    final _json = <String, dynamic>{};
-    if (version != null) {
-      _json[r'version'] = version;
+    final json = <String, dynamic>{};
+    if (this.version != null) {
+      json[r'version'] = this.version;
     } else {
-      _json[r'version'] = null;
+      json[r'version'] = null;
     }
-    if (capabilities != null) {
-      _json[r'capabilities'] = capabilities;
+    if (this.capabilities != null) {
+      json[r'capabilities'] = this.capabilities;
     } else {
-      _json[r'capabilities'] = null;
+      json[r'capabilities'] = null;
     }
-    return _json;
+    return json;
   }
 
   /// Returns a new [CoreServerCapabilitiesOcsData] instance and imports its values from

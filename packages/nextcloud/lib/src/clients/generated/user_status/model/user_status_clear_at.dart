@@ -46,18 +46,18 @@ class UserStatusClearAt {
   String toString() => 'UserStatusClearAt[type=$type, time=$time]';
 
   Map<String, dynamic> toJson() {
-    final _json = <String, dynamic>{};
-    if (type != null) {
-      _json[r'type'] = type;
+    final json = <String, dynamic>{};
+    if (this.type != null) {
+      json[r'type'] = this.type;
     } else {
-      _json[r'type'] = null;
+      json[r'type'] = null;
     }
-    if (time != null) {
-      _json[r'time'] = time;
+    if (this.time != null) {
+      json[r'time'] = this.time;
     } else {
-      _json[r'time'] = null;
+      json[r'time'] = null;
     }
-    return _json;
+    return json;
   }
 
   /// Returns a new [UserStatusClearAt] instance and imports its values from

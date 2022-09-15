@@ -95,38 +95,38 @@ class CoreServerCapabilitiesOcsDataCapabilitiesPasswordPolicy {
       'CoreServerCapabilitiesOcsDataCapabilitiesPasswordPolicy[minLength=$minLength, enforceNonCommonPassword=$enforceNonCommonPassword, enforceNumericCharacters=$enforceNumericCharacters, enforceSpecialCharacters=$enforceSpecialCharacters, enforceUpperLowerCase=$enforceUpperLowerCase, api=$api]';
 
   Map<String, dynamic> toJson() {
-    final _json = <String, dynamic>{};
-    if (minLength != null) {
-      _json[r'minLength'] = minLength;
+    final json = <String, dynamic>{};
+    if (this.minLength != null) {
+      json[r'minLength'] = this.minLength;
     } else {
-      _json[r'minLength'] = null;
+      json[r'minLength'] = null;
     }
-    if (enforceNonCommonPassword != null) {
-      _json[r'enforceNonCommonPassword'] = enforceNonCommonPassword;
+    if (this.enforceNonCommonPassword != null) {
+      json[r'enforceNonCommonPassword'] = this.enforceNonCommonPassword;
     } else {
-      _json[r'enforceNonCommonPassword'] = null;
+      json[r'enforceNonCommonPassword'] = null;
     }
-    if (enforceNumericCharacters != null) {
-      _json[r'enforceNumericCharacters'] = enforceNumericCharacters;
+    if (this.enforceNumericCharacters != null) {
+      json[r'enforceNumericCharacters'] = this.enforceNumericCharacters;
     } else {
-      _json[r'enforceNumericCharacters'] = null;
+      json[r'enforceNumericCharacters'] = null;
     }
-    if (enforceSpecialCharacters != null) {
-      _json[r'enforceSpecialCharacters'] = enforceSpecialCharacters;
+    if (this.enforceSpecialCharacters != null) {
+      json[r'enforceSpecialCharacters'] = this.enforceSpecialCharacters;
     } else {
-      _json[r'enforceSpecialCharacters'] = null;
+      json[r'enforceSpecialCharacters'] = null;
     }
-    if (enforceUpperLowerCase != null) {
-      _json[r'enforceUpperLowerCase'] = enforceUpperLowerCase;
+    if (this.enforceUpperLowerCase != null) {
+      json[r'enforceUpperLowerCase'] = this.enforceUpperLowerCase;
     } else {
-      _json[r'enforceUpperLowerCase'] = null;
+      json[r'enforceUpperLowerCase'] = null;
     }
-    if (api != null) {
-      _json[r'api'] = api;
+    if (this.api != null) {
+      json[r'api'] = this.api;
     } else {
-      _json[r'api'] = null;
+      json[r'api'] = null;
     }
-    return _json;
+    return json;
   }
 
   /// Returns a new [CoreServerCapabilitiesOcsDataCapabilitiesPasswordPolicy] instance and imports its values from

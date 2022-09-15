@@ -50,18 +50,18 @@ class CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingGroup {
       'CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingGroup[enabled=$enabled, expireDate=$expireDate]';
 
   Map<String, dynamic> toJson() {
-    final _json = <String, dynamic>{};
-    if (enabled != null) {
-      _json[r'enabled'] = enabled;
+    final json = <String, dynamic>{};
+    if (this.enabled != null) {
+      json[r'enabled'] = this.enabled;
     } else {
-      _json[r'enabled'] = null;
+      json[r'enabled'] = null;
     }
-    if (expireDate != null) {
-      _json[r'expire_date'] = expireDate;
+    if (this.expireDate != null) {
+      json[r'expire_date'] = this.expireDate;
     } else {
-      _json[r'expire_date'] = null;
+      json[r'expire_date'] = null;
     }
-    return _json;
+    return json;
   }
 
   /// Returns a new [CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingGroup] instance and imports its values from

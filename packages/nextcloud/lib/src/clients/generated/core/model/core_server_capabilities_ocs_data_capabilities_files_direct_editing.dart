@@ -47,18 +47,18 @@ class CoreServerCapabilitiesOcsDataCapabilitiesFilesDirectEditing {
   String toString() => 'CoreServerCapabilitiesOcsDataCapabilitiesFilesDirectEditing[url=$url, etag=$etag]';
 
   Map<String, dynamic> toJson() {
-    final _json = <String, dynamic>{};
-    if (url != null) {
-      _json[r'url'] = url;
+    final json = <String, dynamic>{};
+    if (this.url != null) {
+      json[r'url'] = this.url;
     } else {
-      _json[r'url'] = null;
+      json[r'url'] = null;
     }
-    if (etag != null) {
-      _json[r'etag'] = etag;
+    if (this.etag != null) {
+      json[r'etag'] = this.etag;
     } else {
-      _json[r'etag'] = null;
+      json[r'etag'] = null;
     }
-    return _json;
+    return json;
   }
 
   /// Returns a new [CoreServerCapabilitiesOcsDataCapabilitiesFilesDirectEditing] instance and imports its values from

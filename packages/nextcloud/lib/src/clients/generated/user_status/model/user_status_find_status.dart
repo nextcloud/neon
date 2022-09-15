@@ -36,13 +36,13 @@ class UserStatusFindStatus {
   String toString() => 'UserStatusFindStatus[ocs=$ocs]';
 
   Map<String, dynamic> toJson() {
-    final _json = <String, dynamic>{};
-    if (ocs != null) {
-      _json[r'ocs'] = ocs;
+    final json = <String, dynamic>{};
+    if (this.ocs != null) {
+      json[r'ocs'] = this.ocs;
     } else {
-      _json[r'ocs'] = null;
+      json[r'ocs'] = null;
     }
-    return _json;
+    return json;
   }
 
   /// Returns a new [UserStatusFindStatus] instance and imports its values from

@@ -38,13 +38,13 @@ class CoreServerCapabilitiesOcsDataCapabilitiesCirclesStatus {
   String toString() => 'CoreServerCapabilitiesOcsDataCapabilitiesCirclesStatus[globalScale=$globalScale]';
 
   Map<String, dynamic> toJson() {
-    final _json = <String, dynamic>{};
-    if (globalScale != null) {
-      _json[r'globalScale'] = globalScale;
+    final json = <String, dynamic>{};
+    if (this.globalScale != null) {
+      json[r'globalScale'] = this.globalScale;
     } else {
-      _json[r'globalScale'] = null;
+      json[r'globalScale'] = null;
     }
-    return _json;
+    return json;
   }
 
   /// Returns a new [CoreServerCapabilitiesOcsDataCapabilitiesCirclesStatus] instance and imports its values from

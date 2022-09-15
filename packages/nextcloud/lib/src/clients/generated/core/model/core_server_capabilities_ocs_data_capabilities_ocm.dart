@@ -67,24 +67,24 @@ class CoreServerCapabilitiesOcsDataCapabilitiesOcm {
       'CoreServerCapabilitiesOcsDataCapabilitiesOcm[enabled=$enabled, apiVersion=$apiVersion, endPoint=$endPoint, resourceTypes=$resourceTypes]';
 
   Map<String, dynamic> toJson() {
-    final _json = <String, dynamic>{};
-    if (enabled != null) {
-      _json[r'enabled'] = enabled;
+    final json = <String, dynamic>{};
+    if (this.enabled != null) {
+      json[r'enabled'] = this.enabled;
     } else {
-      _json[r'enabled'] = null;
+      json[r'enabled'] = null;
     }
-    if (apiVersion != null) {
-      _json[r'apiVersion'] = apiVersion;
+    if (this.apiVersion != null) {
+      json[r'apiVersion'] = this.apiVersion;
     } else {
-      _json[r'apiVersion'] = null;
+      json[r'apiVersion'] = null;
     }
-    if (endPoint != null) {
-      _json[r'endPoint'] = endPoint;
+    if (this.endPoint != null) {
+      json[r'endPoint'] = this.endPoint;
     } else {
-      _json[r'endPoint'] = null;
+      json[r'endPoint'] = null;
     }
-    _json[r'resourceTypes'] = resourceTypes;
-    return _json;
+    json[r'resourceTypes'] = this.resourceTypes;
+    return json;
   }
 
   /// Returns a new [CoreServerCapabilitiesOcsDataCapabilitiesOcm] instance and imports its values from

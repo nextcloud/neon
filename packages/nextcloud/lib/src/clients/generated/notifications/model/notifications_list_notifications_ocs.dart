@@ -35,14 +35,14 @@ class NotificationsListNotificationsOcs {
   String toString() => 'NotificationsListNotificationsOcs[meta=$meta, data=$data]';
 
   Map<String, dynamic> toJson() {
-    final _json = <String, dynamic>{};
-    if (meta != null) {
-      _json[r'meta'] = meta;
+    final json = <String, dynamic>{};
+    if (this.meta != null) {
+      json[r'meta'] = this.meta;
     } else {
-      _json[r'meta'] = null;
+      json[r'meta'] = null;
     }
-    _json[r'data'] = data;
-    return _json;
+    json[r'data'] = this.data;
+    return json;
   }
 
   /// Returns a new [NotificationsListNotificationsOcs] instance and imports its values from

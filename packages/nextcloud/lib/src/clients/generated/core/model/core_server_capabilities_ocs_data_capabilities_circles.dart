@@ -84,33 +84,33 @@ class CoreServerCapabilitiesOcsDataCapabilitiesCircles {
       'CoreServerCapabilitiesOcsDataCapabilitiesCircles[version=$version, status=$status, settings=$settings, circle=$circle, member=$member]';
 
   Map<String, dynamic> toJson() {
-    final _json = <String, dynamic>{};
-    if (version != null) {
-      _json[r'version'] = version;
+    final json = <String, dynamic>{};
+    if (this.version != null) {
+      json[r'version'] = this.version;
     } else {
-      _json[r'version'] = null;
+      json[r'version'] = null;
     }
-    if (status != null) {
-      _json[r'status'] = status;
+    if (this.status != null) {
+      json[r'status'] = this.status;
     } else {
-      _json[r'status'] = null;
+      json[r'status'] = null;
     }
-    if (settings != null) {
-      _json[r'settings'] = settings;
+    if (this.settings != null) {
+      json[r'settings'] = this.settings;
     } else {
-      _json[r'settings'] = null;
+      json[r'settings'] = null;
     }
-    if (circle != null) {
-      _json[r'circle'] = circle;
+    if (this.circle != null) {
+      json[r'circle'] = this.circle;
     } else {
-      _json[r'circle'] = null;
+      json[r'circle'] = null;
     }
-    if (member != null) {
-      _json[r'member'] = member;
+    if (this.member != null) {
+      json[r'member'] = this.member;
     } else {
-      _json[r'member'] = null;
+      json[r'member'] = null;
     }
-    return _json;
+    return json;
   }
 
   /// Returns a new [CoreServerCapabilitiesOcsDataCapabilitiesCircles] instance and imports its values from

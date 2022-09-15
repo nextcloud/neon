@@ -84,33 +84,33 @@ class UserStatusPublicUserStatus {
       'UserStatusPublicUserStatus[userId=$userId, message=$message, icon=$icon, clearAt=$clearAt, status=$status]';
 
   Map<String, dynamic> toJson() {
-    final _json = <String, dynamic>{};
-    if (userId != null) {
-      _json[r'userId'] = userId;
+    final json = <String, dynamic>{};
+    if (this.userId != null) {
+      json[r'userId'] = this.userId;
     } else {
-      _json[r'userId'] = null;
+      json[r'userId'] = null;
     }
-    if (message != null) {
-      _json[r'message'] = message;
+    if (this.message != null) {
+      json[r'message'] = this.message;
     } else {
-      _json[r'message'] = null;
+      json[r'message'] = null;
     }
-    if (icon != null) {
-      _json[r'icon'] = icon;
+    if (this.icon != null) {
+      json[r'icon'] = this.icon;
     } else {
-      _json[r'icon'] = null;
+      json[r'icon'] = null;
     }
-    if (clearAt != null) {
-      _json[r'clearAt'] = clearAt;
+    if (this.clearAt != null) {
+      json[r'clearAt'] = this.clearAt;
     } else {
-      _json[r'clearAt'] = null;
+      json[r'clearAt'] = null;
     }
-    if (status != null) {
-      _json[r'status'] = status;
+    if (this.status != null) {
+      json[r'status'] = this.status;
     } else {
-      _json[r'status'] = null;
+      json[r'status'] = null;
     }
-    return _json;
+    return json;
   }
 
   /// Returns a new [UserStatusPublicUserStatus] instance and imports its values from

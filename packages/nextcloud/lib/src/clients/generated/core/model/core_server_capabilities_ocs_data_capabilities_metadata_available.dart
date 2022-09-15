@@ -32,9 +32,9 @@ class CoreServerCapabilitiesOcsDataCapabilitiesMetadataAvailable {
   String toString() => 'CoreServerCapabilitiesOcsDataCapabilitiesMetadataAvailable[size=$size]';
 
   Map<String, dynamic> toJson() {
-    final _json = <String, dynamic>{};
-    _json[r'size'] = size;
-    return _json;
+    final json = <String, dynamic>{};
+    json[r'size'] = this.size;
+    return json;
   }
 
   /// Returns a new [CoreServerCapabilitiesOcsDataCapabilitiesMetadataAvailable] instance and imports its values from

@@ -84,33 +84,33 @@ class ProvisioningApiUserDetailsQuota {
       'ProvisioningApiUserDetailsQuota[free=$free, used=$used, total=$total, relative=$relative, quota=$quota]';
 
   Map<String, dynamic> toJson() {
-    final _json = <String, dynamic>{};
-    if (free != null) {
-      _json[r'free'] = free;
+    final json = <String, dynamic>{};
+    if (this.free != null) {
+      json[r'free'] = this.free;
     } else {
-      _json[r'free'] = null;
+      json[r'free'] = null;
     }
-    if (used != null) {
-      _json[r'used'] = used;
+    if (this.used != null) {
+      json[r'used'] = this.used;
     } else {
-      _json[r'used'] = null;
+      json[r'used'] = null;
     }
-    if (total != null) {
-      _json[r'total'] = total;
+    if (this.total != null) {
+      json[r'total'] = this.total;
     } else {
-      _json[r'total'] = null;
+      json[r'total'] = null;
     }
-    if (relative != null) {
-      _json[r'relative'] = relative;
+    if (this.relative != null) {
+      json[r'relative'] = this.relative;
     } else {
-      _json[r'relative'] = null;
+      json[r'relative'] = null;
     }
-    if (quota != null) {
-      _json[r'quota'] = quota;
+    if (this.quota != null) {
+      json[r'quota'] = this.quota;
     } else {
-      _json[r'quota'] = null;
+      json[r'quota'] = null;
     }
-    return _json;
+    return json;
   }
 
   /// Returns a new [ProvisioningApiUserDetailsQuota] instance and imports its values from

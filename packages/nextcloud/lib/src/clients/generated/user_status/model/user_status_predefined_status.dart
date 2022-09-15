@@ -72,28 +72,28 @@ class UserStatusPredefinedStatus {
   String toString() => 'UserStatusPredefinedStatus[id=$id, icon=$icon, message=$message, clearAt=$clearAt]';
 
   Map<String, dynamic> toJson() {
-    final _json = <String, dynamic>{};
-    if (id != null) {
-      _json[r'id'] = id;
+    final json = <String, dynamic>{};
+    if (this.id != null) {
+      json[r'id'] = this.id;
     } else {
-      _json[r'id'] = null;
+      json[r'id'] = null;
     }
-    if (icon != null) {
-      _json[r'icon'] = icon;
+    if (this.icon != null) {
+      json[r'icon'] = this.icon;
     } else {
-      _json[r'icon'] = null;
+      json[r'icon'] = null;
     }
-    if (message != null) {
-      _json[r'message'] = message;
+    if (this.message != null) {
+      json[r'message'] = this.message;
     } else {
-      _json[r'message'] = null;
+      json[r'message'] = null;
     }
-    if (clearAt != null) {
-      _json[r'clearAt'] = clearAt;
+    if (this.clearAt != null) {
+      json[r'clearAt'] = this.clearAt;
     } else {
-      _json[r'clearAt'] = null;
+      json[r'clearAt'] = null;
     }
-    return _json;
+    return json;
   }
 
   /// Returns a new [UserStatusPredefinedStatus] instance and imports its values from

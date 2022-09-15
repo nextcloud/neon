@@ -117,48 +117,48 @@ class CoreServerStatus {
       'CoreServerStatus[installed=$installed, maintenance=$maintenance, needsDbUpgrade=$needsDbUpgrade, version=$version, versionstring=$versionstring, edition=$edition, productname=$productname, extendedSupport=$extendedSupport]';
 
   Map<String, dynamic> toJson() {
-    final _json = <String, dynamic>{};
-    if (installed != null) {
-      _json[r'installed'] = installed;
+    final json = <String, dynamic>{};
+    if (this.installed != null) {
+      json[r'installed'] = this.installed;
     } else {
-      _json[r'installed'] = null;
+      json[r'installed'] = null;
     }
-    if (maintenance != null) {
-      _json[r'maintenance'] = maintenance;
+    if (this.maintenance != null) {
+      json[r'maintenance'] = this.maintenance;
     } else {
-      _json[r'maintenance'] = null;
+      json[r'maintenance'] = null;
     }
-    if (needsDbUpgrade != null) {
-      _json[r'needsDbUpgrade'] = needsDbUpgrade;
+    if (this.needsDbUpgrade != null) {
+      json[r'needsDbUpgrade'] = this.needsDbUpgrade;
     } else {
-      _json[r'needsDbUpgrade'] = null;
+      json[r'needsDbUpgrade'] = null;
     }
-    if (version != null) {
-      _json[r'version'] = version;
+    if (this.version != null) {
+      json[r'version'] = this.version;
     } else {
-      _json[r'version'] = null;
+      json[r'version'] = null;
     }
-    if (versionstring != null) {
-      _json[r'versionstring'] = versionstring;
+    if (this.versionstring != null) {
+      json[r'versionstring'] = this.versionstring;
     } else {
-      _json[r'versionstring'] = null;
+      json[r'versionstring'] = null;
     }
-    if (edition != null) {
-      _json[r'edition'] = edition;
+    if (this.edition != null) {
+      json[r'edition'] = this.edition;
     } else {
-      _json[r'edition'] = null;
+      json[r'edition'] = null;
     }
-    if (productname != null) {
-      _json[r'productname'] = productname;
+    if (this.productname != null) {
+      json[r'productname'] = this.productname;
     } else {
-      _json[r'productname'] = null;
+      json[r'productname'] = null;
     }
-    if (extendedSupport != null) {
-      _json[r'extendedSupport'] = extendedSupport;
+    if (this.extendedSupport != null) {
+      json[r'extendedSupport'] = this.extendedSupport;
     } else {
-      _json[r'extendedSupport'] = null;
+      json[r'extendedSupport'] = null;
     }
-    return _json;
+    return json;
   }
 
   /// Returns a new [CoreServerStatus] instance and imports its values from

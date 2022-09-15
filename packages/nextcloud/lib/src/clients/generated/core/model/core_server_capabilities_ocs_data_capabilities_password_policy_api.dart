@@ -50,18 +50,18 @@ class CoreServerCapabilitiesOcsDataCapabilitiesPasswordPolicyApi {
       'CoreServerCapabilitiesOcsDataCapabilitiesPasswordPolicyApi[generate=$generate, validate=$validate]';
 
   Map<String, dynamic> toJson() {
-    final _json = <String, dynamic>{};
-    if (generate != null) {
-      _json[r'generate'] = generate;
+    final json = <String, dynamic>{};
+    if (this.generate != null) {
+      json[r'generate'] = this.generate;
     } else {
-      _json[r'generate'] = null;
+      json[r'generate'] = null;
     }
-    if (validate != null) {
-      _json[r'validate'] = validate;
+    if (this.validate != null) {
+      json[r'validate'] = this.validate;
     } else {
-      _json[r'validate'] = null;
+      json[r'validate'] = null;
     }
-    return _json;
+    return json;
   }
 
   /// Returns a new [CoreServerCapabilitiesOcsDataCapabilitiesPasswordPolicyApi] instance and imports its values from

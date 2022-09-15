@@ -95,38 +95,38 @@ class CoreServerCapabilitiesOcsDataVersion {
       'CoreServerCapabilitiesOcsDataVersion[major=$major, minor=$minor, micro=$micro, string=$string, edition=$edition, extendedSupport=$extendedSupport]';
 
   Map<String, dynamic> toJson() {
-    final _json = <String, dynamic>{};
-    if (major != null) {
-      _json[r'major'] = major;
+    final json = <String, dynamic>{};
+    if (this.major != null) {
+      json[r'major'] = this.major;
     } else {
-      _json[r'major'] = null;
+      json[r'major'] = null;
     }
-    if (minor != null) {
-      _json[r'minor'] = minor;
+    if (this.minor != null) {
+      json[r'minor'] = this.minor;
     } else {
-      _json[r'minor'] = null;
+      json[r'minor'] = null;
     }
-    if (micro != null) {
-      _json[r'micro'] = micro;
+    if (this.micro != null) {
+      json[r'micro'] = this.micro;
     } else {
-      _json[r'micro'] = null;
+      json[r'micro'] = null;
     }
-    if (string != null) {
-      _json[r'string'] = string;
+    if (this.string != null) {
+      json[r'string'] = this.string;
     } else {
-      _json[r'string'] = null;
+      json[r'string'] = null;
     }
-    if (edition != null) {
-      _json[r'edition'] = edition;
+    if (this.edition != null) {
+      json[r'edition'] = this.edition;
     } else {
-      _json[r'edition'] = null;
+      json[r'edition'] = null;
     }
-    if (extendedSupport != null) {
-      _json[r'extendedSupport'] = extendedSupport;
+    if (this.extendedSupport != null) {
+      json[r'extendedSupport'] = this.extendedSupport;
     } else {
-      _json[r'extendedSupport'] = null;
+      json[r'extendedSupport'] = null;
     }
-    return _json;
+    return json;
   }
 
   /// Returns a new [CoreServerCapabilitiesOcsDataVersion] instance and imports its values from

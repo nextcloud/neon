@@ -412,177 +412,177 @@ class ProvisioningApiUserDetails {
       'ProvisioningApiUserDetails[storageLocation=$storageLocation, id=$id, lastLogin=$lastLogin, backend=$backend, subadmin=$subadmin, quota=$quota, avatarScope=$avatarScope, email=$email, emailScope=$emailScope, additionalMail=$additionalMail, additionalMailScope=$additionalMailScope, displayname=$displayname, displaynameScope=$displaynameScope, phone=$phone, phoneScope=$phoneScope, address=$address, addressScope=$addressScope, website=$website, websiteScope=$websiteScope, twitter=$twitter, twitterScope=$twitterScope, organisation=$organisation, organisationScope=$organisationScope, role=$role, roleScope=$roleScope, headline=$headline, headlineScope=$headlineScope, biography=$biography, biographyScope=$biographyScope, profileEnabled=$profileEnabled, profileEnabledScope=$profileEnabledScope, groups=$groups, language=$language, locale=$locale, notifyEmail=$notifyEmail, backendCapabilities=$backendCapabilities, displayName=$displayName]';
 
   Map<String, dynamic> toJson() {
-    final _json = <String, dynamic>{};
-    if (storageLocation != null) {
-      _json[r'storageLocation'] = storageLocation;
+    final json = <String, dynamic>{};
+    if (this.storageLocation != null) {
+      json[r'storageLocation'] = this.storageLocation;
     } else {
-      _json[r'storageLocation'] = null;
+      json[r'storageLocation'] = null;
     }
-    if (id != null) {
-      _json[r'id'] = id;
+    if (this.id != null) {
+      json[r'id'] = this.id;
     } else {
-      _json[r'id'] = null;
+      json[r'id'] = null;
     }
-    if (lastLogin != null) {
-      _json[r'lastLogin'] = lastLogin;
+    if (this.lastLogin != null) {
+      json[r'lastLogin'] = this.lastLogin;
     } else {
-      _json[r'lastLogin'] = null;
+      json[r'lastLogin'] = null;
     }
-    if (backend != null) {
-      _json[r'backend'] = backend;
+    if (this.backend != null) {
+      json[r'backend'] = this.backend;
     } else {
-      _json[r'backend'] = null;
+      json[r'backend'] = null;
     }
-    _json[r'subadmin'] = subadmin;
-    if (quota != null) {
-      _json[r'quota'] = quota;
+    json[r'subadmin'] = this.subadmin;
+    if (this.quota != null) {
+      json[r'quota'] = this.quota;
     } else {
-      _json[r'quota'] = null;
+      json[r'quota'] = null;
     }
-    if (avatarScope != null) {
-      _json[r'avatarScope'] = avatarScope;
+    if (this.avatarScope != null) {
+      json[r'avatarScope'] = this.avatarScope;
     } else {
-      _json[r'avatarScope'] = null;
+      json[r'avatarScope'] = null;
     }
-    if (email != null) {
-      _json[r'email'] = email;
+    if (this.email != null) {
+      json[r'email'] = this.email;
     } else {
-      _json[r'email'] = null;
+      json[r'email'] = null;
     }
-    if (emailScope != null) {
-      _json[r'emailScope'] = emailScope;
+    if (this.emailScope != null) {
+      json[r'emailScope'] = this.emailScope;
     } else {
-      _json[r'emailScope'] = null;
+      json[r'emailScope'] = null;
     }
-    _json[r'additional_mail'] = additionalMail;
-    _json[r'additional_mailScope'] = additionalMailScope;
-    if (displayname != null) {
-      _json[r'displayname'] = displayname;
+    json[r'additional_mail'] = this.additionalMail;
+    json[r'additional_mailScope'] = this.additionalMailScope;
+    if (this.displayname != null) {
+      json[r'displayname'] = this.displayname;
     } else {
-      _json[r'displayname'] = null;
+      json[r'displayname'] = null;
     }
-    if (displaynameScope != null) {
-      _json[r'displaynameScope'] = displaynameScope;
+    if (this.displaynameScope != null) {
+      json[r'displaynameScope'] = this.displaynameScope;
     } else {
-      _json[r'displaynameScope'] = null;
+      json[r'displaynameScope'] = null;
     }
-    if (phone != null) {
-      _json[r'phone'] = phone;
+    if (this.phone != null) {
+      json[r'phone'] = this.phone;
     } else {
-      _json[r'phone'] = null;
+      json[r'phone'] = null;
     }
-    if (phoneScope != null) {
-      _json[r'phoneScope'] = phoneScope;
+    if (this.phoneScope != null) {
+      json[r'phoneScope'] = this.phoneScope;
     } else {
-      _json[r'phoneScope'] = null;
+      json[r'phoneScope'] = null;
     }
-    if (address != null) {
-      _json[r'address'] = address;
+    if (this.address != null) {
+      json[r'address'] = this.address;
     } else {
-      _json[r'address'] = null;
+      json[r'address'] = null;
     }
-    if (addressScope != null) {
-      _json[r'addressScope'] = addressScope;
+    if (this.addressScope != null) {
+      json[r'addressScope'] = this.addressScope;
     } else {
-      _json[r'addressScope'] = null;
+      json[r'addressScope'] = null;
     }
-    if (website != null) {
-      _json[r'website'] = website;
+    if (this.website != null) {
+      json[r'website'] = this.website;
     } else {
-      _json[r'website'] = null;
+      json[r'website'] = null;
     }
-    if (websiteScope != null) {
-      _json[r'websiteScope'] = websiteScope;
+    if (this.websiteScope != null) {
+      json[r'websiteScope'] = this.websiteScope;
     } else {
-      _json[r'websiteScope'] = null;
+      json[r'websiteScope'] = null;
     }
-    if (twitter != null) {
-      _json[r'twitter'] = twitter;
+    if (this.twitter != null) {
+      json[r'twitter'] = this.twitter;
     } else {
-      _json[r'twitter'] = null;
+      json[r'twitter'] = null;
     }
-    if (twitterScope != null) {
-      _json[r'twitterScope'] = twitterScope;
+    if (this.twitterScope != null) {
+      json[r'twitterScope'] = this.twitterScope;
     } else {
-      _json[r'twitterScope'] = null;
+      json[r'twitterScope'] = null;
     }
-    if (organisation != null) {
-      _json[r'organisation'] = organisation;
+    if (this.organisation != null) {
+      json[r'organisation'] = this.organisation;
     } else {
-      _json[r'organisation'] = null;
+      json[r'organisation'] = null;
     }
-    if (organisationScope != null) {
-      _json[r'organisationScope'] = organisationScope;
+    if (this.organisationScope != null) {
+      json[r'organisationScope'] = this.organisationScope;
     } else {
-      _json[r'organisationScope'] = null;
+      json[r'organisationScope'] = null;
     }
-    if (role != null) {
-      _json[r'role'] = role;
+    if (this.role != null) {
+      json[r'role'] = this.role;
     } else {
-      _json[r'role'] = null;
+      json[r'role'] = null;
     }
-    if (roleScope != null) {
-      _json[r'roleScope'] = roleScope;
+    if (this.roleScope != null) {
+      json[r'roleScope'] = this.roleScope;
     } else {
-      _json[r'roleScope'] = null;
+      json[r'roleScope'] = null;
     }
-    if (headline != null) {
-      _json[r'headline'] = headline;
+    if (this.headline != null) {
+      json[r'headline'] = this.headline;
     } else {
-      _json[r'headline'] = null;
+      json[r'headline'] = null;
     }
-    if (headlineScope != null) {
-      _json[r'headlineScope'] = headlineScope;
+    if (this.headlineScope != null) {
+      json[r'headlineScope'] = this.headlineScope;
     } else {
-      _json[r'headlineScope'] = null;
+      json[r'headlineScope'] = null;
     }
-    if (biography != null) {
-      _json[r'biography'] = biography;
+    if (this.biography != null) {
+      json[r'biography'] = this.biography;
     } else {
-      _json[r'biography'] = null;
+      json[r'biography'] = null;
     }
-    if (biographyScope != null) {
-      _json[r'biographyScope'] = biographyScope;
+    if (this.biographyScope != null) {
+      json[r'biographyScope'] = this.biographyScope;
     } else {
-      _json[r'biographyScope'] = null;
+      json[r'biographyScope'] = null;
     }
-    if (profileEnabled != null) {
-      _json[r'profile_enabled'] = profileEnabled;
+    if (this.profileEnabled != null) {
+      json[r'profile_enabled'] = this.profileEnabled;
     } else {
-      _json[r'profile_enabled'] = null;
+      json[r'profile_enabled'] = null;
     }
-    if (profileEnabledScope != null) {
-      _json[r'profile_enabledScope'] = profileEnabledScope;
+    if (this.profileEnabledScope != null) {
+      json[r'profile_enabledScope'] = this.profileEnabledScope;
     } else {
-      _json[r'profile_enabledScope'] = null;
+      json[r'profile_enabledScope'] = null;
     }
-    _json[r'groups'] = groups;
-    if (language != null) {
-      _json[r'language'] = language;
+    json[r'groups'] = this.groups;
+    if (this.language != null) {
+      json[r'language'] = this.language;
     } else {
-      _json[r'language'] = null;
+      json[r'language'] = null;
     }
-    if (locale != null) {
-      _json[r'locale'] = locale;
+    if (this.locale != null) {
+      json[r'locale'] = this.locale;
     } else {
-      _json[r'locale'] = null;
+      json[r'locale'] = null;
     }
-    if (notifyEmail != null) {
-      _json[r'notify_email'] = notifyEmail;
+    if (this.notifyEmail != null) {
+      json[r'notify_email'] = this.notifyEmail;
     } else {
-      _json[r'notify_email'] = null;
+      json[r'notify_email'] = null;
     }
-    if (backendCapabilities != null) {
-      _json[r'backendCapabilities'] = backendCapabilities;
+    if (this.backendCapabilities != null) {
+      json[r'backendCapabilities'] = this.backendCapabilities;
     } else {
-      _json[r'backendCapabilities'] = null;
+      json[r'backendCapabilities'] = null;
     }
-    if (displayName != null) {
-      _json[r'display-name'] = displayName;
+    if (this.displayName != null) {
+      json[r'display-name'] = this.displayName;
     } else {
-      _json[r'display-name'] = null;
+      json[r'display-name'] = null;
     }
-    return _json;
+    return json;
   }
 
   /// Returns a new [ProvisioningApiUserDetails] instance and imports its values from

@@ -84,33 +84,33 @@ class CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingSharebymail {
       'CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingSharebymail[enabled=$enabled, sendPasswordByMail=$sendPasswordByMail, uploadFilesDrop=$uploadFilesDrop, password=$password, expireDate=$expireDate]';
 
   Map<String, dynamic> toJson() {
-    final _json = <String, dynamic>{};
-    if (enabled != null) {
-      _json[r'enabled'] = enabled;
+    final json = <String, dynamic>{};
+    if (this.enabled != null) {
+      json[r'enabled'] = this.enabled;
     } else {
-      _json[r'enabled'] = null;
+      json[r'enabled'] = null;
     }
-    if (sendPasswordByMail != null) {
-      _json[r'send_password_by_mail'] = sendPasswordByMail;
+    if (this.sendPasswordByMail != null) {
+      json[r'send_password_by_mail'] = this.sendPasswordByMail;
     } else {
-      _json[r'send_password_by_mail'] = null;
+      json[r'send_password_by_mail'] = null;
     }
-    if (uploadFilesDrop != null) {
-      _json[r'upload_files_drop'] = uploadFilesDrop;
+    if (this.uploadFilesDrop != null) {
+      json[r'upload_files_drop'] = this.uploadFilesDrop;
     } else {
-      _json[r'upload_files_drop'] = null;
+      json[r'upload_files_drop'] = null;
     }
-    if (password != null) {
-      _json[r'password'] = password;
+    if (this.password != null) {
+      json[r'password'] = this.password;
     } else {
-      _json[r'password'] = null;
+      json[r'password'] = null;
     }
-    if (expireDate != null) {
-      _json[r'expire_date'] = expireDate;
+    if (this.expireDate != null) {
+      json[r'expire_date'] = this.expireDate;
     } else {
-      _json[r'expire_date'] = null;
+      json[r'expire_date'] = null;
     }
-    return _json;
+    return json;
   }
 
   /// Returns a new [CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingSharebymail] instance and imports its values from

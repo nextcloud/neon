@@ -38,13 +38,13 @@ class CoreServerCapabilitiesOcsDataCapabilitiesCirclesMemberConstants {
   String toString() => 'CoreServerCapabilitiesOcsDataCapabilitiesCirclesMemberConstants[level=$level]';
 
   Map<String, dynamic> toJson() {
-    final _json = <String, dynamic>{};
-    if (level != null) {
-      _json[r'level'] = level;
+    final json = <String, dynamic>{};
+    if (this.level != null) {
+      json[r'level'] = this.level;
     } else {
-      _json[r'level'] = null;
+      json[r'level'] = null;
     }
-    return _json;
+    return json;
   }
 
   /// Returns a new [CoreServerCapabilitiesOcsDataCapabilitiesCirclesMemberConstants] instance and imports its values from

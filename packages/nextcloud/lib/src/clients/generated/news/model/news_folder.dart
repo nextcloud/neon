@@ -63,24 +63,24 @@ class NewsFolder {
   String toString() => 'NewsFolder[id=$id, name=$name, opened=$opened, feeds=$feeds]';
 
   Map<String, dynamic> toJson() {
-    final _json = <String, dynamic>{};
-    if (id != null) {
-      _json[r'id'] = id;
+    final json = <String, dynamic>{};
+    if (this.id != null) {
+      json[r'id'] = this.id;
     } else {
-      _json[r'id'] = null;
+      json[r'id'] = null;
     }
-    if (name != null) {
-      _json[r'name'] = name;
+    if (this.name != null) {
+      json[r'name'] = this.name;
     } else {
-      _json[r'name'] = null;
+      json[r'name'] = null;
     }
-    if (opened != null) {
-      _json[r'opened'] = opened;
+    if (this.opened != null) {
+      json[r'opened'] = this.opened;
     } else {
-      _json[r'opened'] = null;
+      json[r'opened'] = null;
     }
-    _json[r'feeds'] = feeds;
-    return _json;
+    json[r'feeds'] = this.feeds;
+    return json;
   }
 
   /// Returns a new [NewsFolder] instance and imports its values from

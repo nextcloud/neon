@@ -166,69 +166,69 @@ class NewsFeed {
       'NewsFeed[id=$id, url=$url, title=$title, faviconLink=$faviconLink, added=$added, folderId=$folderId, unreadCount=$unreadCount, ordering=$ordering, link=$link, pinned=$pinned, updateErrorCount=$updateErrorCount, lastUpdateError=$lastUpdateError, items=$items]';
 
   Map<String, dynamic> toJson() {
-    final _json = <String, dynamic>{};
-    if (id != null) {
-      _json[r'id'] = id;
+    final json = <String, dynamic>{};
+    if (this.id != null) {
+      json[r'id'] = this.id;
     } else {
-      _json[r'id'] = null;
+      json[r'id'] = null;
     }
-    if (url != null) {
-      _json[r'url'] = url;
+    if (this.url != null) {
+      json[r'url'] = this.url;
     } else {
-      _json[r'url'] = null;
+      json[r'url'] = null;
     }
-    if (title != null) {
-      _json[r'title'] = title;
+    if (this.title != null) {
+      json[r'title'] = this.title;
     } else {
-      _json[r'title'] = null;
+      json[r'title'] = null;
     }
-    if (faviconLink != null) {
-      _json[r'faviconLink'] = faviconLink;
+    if (this.faviconLink != null) {
+      json[r'faviconLink'] = this.faviconLink;
     } else {
-      _json[r'faviconLink'] = null;
+      json[r'faviconLink'] = null;
     }
-    if (added != null) {
-      _json[r'added'] = added;
+    if (this.added != null) {
+      json[r'added'] = this.added;
     } else {
-      _json[r'added'] = null;
+      json[r'added'] = null;
     }
-    if (folderId != null) {
-      _json[r'folderId'] = folderId;
+    if (this.folderId != null) {
+      json[r'folderId'] = this.folderId;
     } else {
-      _json[r'folderId'] = null;
+      json[r'folderId'] = null;
     }
-    if (unreadCount != null) {
-      _json[r'unreadCount'] = unreadCount;
+    if (this.unreadCount != null) {
+      json[r'unreadCount'] = this.unreadCount;
     } else {
-      _json[r'unreadCount'] = null;
+      json[r'unreadCount'] = null;
     }
-    if (ordering != null) {
-      _json[r'ordering'] = ordering;
+    if (this.ordering != null) {
+      json[r'ordering'] = this.ordering;
     } else {
-      _json[r'ordering'] = null;
+      json[r'ordering'] = null;
     }
-    if (link != null) {
-      _json[r'link'] = link;
+    if (this.link != null) {
+      json[r'link'] = this.link;
     } else {
-      _json[r'link'] = null;
+      json[r'link'] = null;
     }
-    if (pinned != null) {
-      _json[r'pinned'] = pinned;
+    if (this.pinned != null) {
+      json[r'pinned'] = this.pinned;
     } else {
-      _json[r'pinned'] = null;
+      json[r'pinned'] = null;
     }
-    if (updateErrorCount != null) {
-      _json[r'updateErrorCount'] = updateErrorCount;
+    if (this.updateErrorCount != null) {
+      json[r'updateErrorCount'] = this.updateErrorCount;
     } else {
-      _json[r'updateErrorCount'] = null;
+      json[r'updateErrorCount'] = null;
     }
-    if (lastUpdateError != null) {
-      _json[r'lastUpdateError'] = lastUpdateError;
+    if (this.lastUpdateError != null) {
+      json[r'lastUpdateError'] = this.lastUpdateError;
     } else {
-      _json[r'lastUpdateError'] = null;
+      json[r'lastUpdateError'] = null;
     }
-    _json[r'items'] = items;
-    return _json;
+    json[r'items'] = this.items;
+    return json;
   }
 
   /// Returns a new [NewsFeed] instance and imports its values from

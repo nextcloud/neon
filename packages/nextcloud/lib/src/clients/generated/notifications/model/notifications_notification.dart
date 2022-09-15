@@ -176,71 +176,71 @@ class NotificationsNotification {
       'NotificationsNotification[notificationId=$notificationId, app=$app, user=$user, datetime=$datetime, objectType=$objectType, objectId=$objectId, subject=$subject, message=$message, link=$link, subjectRich=$subjectRich, subjectRichParameters=$subjectRichParameters, messageRich=$messageRich, messageRichParameters=$messageRichParameters, icon=$icon, actions=$actions]';
 
   Map<String, dynamic> toJson() {
-    final _json = <String, dynamic>{};
-    if (notificationId != null) {
-      _json[r'notification_id'] = notificationId;
+    final json = <String, dynamic>{};
+    if (this.notificationId != null) {
+      json[r'notification_id'] = this.notificationId;
     } else {
-      _json[r'notification_id'] = null;
+      json[r'notification_id'] = null;
     }
-    if (app != null) {
-      _json[r'app'] = app;
+    if (this.app != null) {
+      json[r'app'] = this.app;
     } else {
-      _json[r'app'] = null;
+      json[r'app'] = null;
     }
-    if (user != null) {
-      _json[r'user'] = user;
+    if (this.user != null) {
+      json[r'user'] = this.user;
     } else {
-      _json[r'user'] = null;
+      json[r'user'] = null;
     }
-    if (datetime != null) {
-      _json[r'datetime'] = datetime;
+    if (this.datetime != null) {
+      json[r'datetime'] = this.datetime;
     } else {
-      _json[r'datetime'] = null;
+      json[r'datetime'] = null;
     }
-    if (objectType != null) {
-      _json[r'object_type'] = objectType;
+    if (this.objectType != null) {
+      json[r'object_type'] = this.objectType;
     } else {
-      _json[r'object_type'] = null;
+      json[r'object_type'] = null;
     }
-    if (objectId != null) {
-      _json[r'object_id'] = objectId;
+    if (this.objectId != null) {
+      json[r'object_id'] = this.objectId;
     } else {
-      _json[r'object_id'] = null;
+      json[r'object_id'] = null;
     }
-    if (subject != null) {
-      _json[r'subject'] = subject;
+    if (this.subject != null) {
+      json[r'subject'] = this.subject;
     } else {
-      _json[r'subject'] = null;
+      json[r'subject'] = null;
     }
-    if (message != null) {
-      _json[r'message'] = message;
+    if (this.message != null) {
+      json[r'message'] = this.message;
     } else {
-      _json[r'message'] = null;
+      json[r'message'] = null;
     }
-    if (link != null) {
-      _json[r'link'] = link;
+    if (this.link != null) {
+      json[r'link'] = this.link;
     } else {
-      _json[r'link'] = null;
+      json[r'link'] = null;
     }
-    if (subjectRich != null) {
-      _json[r'subjectRich'] = subjectRich;
+    if (this.subjectRich != null) {
+      json[r'subjectRich'] = this.subjectRich;
     } else {
-      _json[r'subjectRich'] = null;
+      json[r'subjectRich'] = null;
     }
-    _json[r'subjectRichParameters'] = subjectRichParameters;
-    if (messageRich != null) {
-      _json[r'messageRich'] = messageRich;
+    json[r'subjectRichParameters'] = this.subjectRichParameters;
+    if (this.messageRich != null) {
+      json[r'messageRich'] = this.messageRich;
     } else {
-      _json[r'messageRich'] = null;
+      json[r'messageRich'] = null;
     }
-    _json[r'messageRichParameters'] = messageRichParameters;
-    if (icon != null) {
-      _json[r'icon'] = icon;
+    json[r'messageRichParameters'] = this.messageRichParameters;
+    if (this.icon != null) {
+      json[r'icon'] = this.icon;
     } else {
-      _json[r'icon'] = null;
+      json[r'icon'] = null;
     }
-    _json[r'actions'] = actions;
-    return _json;
+    json[r'actions'] = this.actions;
+    return json;
   }
 
   /// Returns a new [NotificationsNotification] instance and imports its values from

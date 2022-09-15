@@ -50,18 +50,18 @@ class ProvisioningApiUserDetailsBackendCapabilities {
       'ProvisioningApiUserDetailsBackendCapabilities[setDisplayName=$setDisplayName, setPassword=$setPassword]';
 
   Map<String, dynamic> toJson() {
-    final _json = <String, dynamic>{};
-    if (setDisplayName != null) {
-      _json[r'setDisplayName'] = setDisplayName;
+    final json = <String, dynamic>{};
+    if (this.setDisplayName != null) {
+      json[r'setDisplayName'] = this.setDisplayName;
     } else {
-      _json[r'setDisplayName'] = null;
+      json[r'setDisplayName'] = null;
     }
-    if (setPassword != null) {
-      _json[r'setPassword'] = setPassword;
+    if (this.setPassword != null) {
+      json[r'setPassword'] = this.setPassword;
     } else {
-      _json[r'setPassword'] = null;
+      json[r'setPassword'] = null;
     }
-    return _json;
+    return json;
   }
 
   /// Returns a new [ProvisioningApiUserDetailsBackendCapabilities] instance and imports its values from

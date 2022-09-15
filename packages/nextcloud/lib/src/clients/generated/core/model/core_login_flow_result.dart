@@ -61,23 +61,23 @@ class CoreLoginFlowResult {
   String toString() => 'CoreLoginFlowResult[server=$server, loginName=$loginName, appPassword=$appPassword]';
 
   Map<String, dynamic> toJson() {
-    final _json = <String, dynamic>{};
-    if (server != null) {
-      _json[r'server'] = server;
+    final json = <String, dynamic>{};
+    if (this.server != null) {
+      json[r'server'] = this.server;
     } else {
-      _json[r'server'] = null;
+      json[r'server'] = null;
     }
-    if (loginName != null) {
-      _json[r'loginName'] = loginName;
+    if (this.loginName != null) {
+      json[r'loginName'] = this.loginName;
     } else {
-      _json[r'loginName'] = null;
+      json[r'loginName'] = null;
     }
-    if (appPassword != null) {
-      _json[r'appPassword'] = appPassword;
+    if (this.appPassword != null) {
+      json[r'appPassword'] = this.appPassword;
     } else {
-      _json[r'appPassword'] = null;
+      json[r'appPassword'] = null;
     }
-    return _json;
+    return json;
   }
 
   /// Returns a new [CoreLoginFlowResult] instance and imports its values from

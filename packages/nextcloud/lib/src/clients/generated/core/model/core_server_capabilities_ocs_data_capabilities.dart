@@ -205,88 +205,88 @@ class CoreServerCapabilitiesOcsDataCapabilities {
       'CoreServerCapabilitiesOcsDataCapabilities[core=$core, bruteforce=$bruteforce, metadataAvailable=$metadataAvailable, files=$files, activity=$activity, circles=$circles, ocm=$ocm, dav=$dav, filesSharing=$filesSharing, notes=$notes, notifications=$notifications, passwordPolicy=$passwordPolicy, provisioningApi=$provisioningApi, theming=$theming, userStatus=$userStatus, weatherStatus=$weatherStatus]';
 
   Map<String, dynamic> toJson() {
-    final _json = <String, dynamic>{};
-    if (core != null) {
-      _json[r'core'] = core;
+    final json = <String, dynamic>{};
+    if (this.core != null) {
+      json[r'core'] = this.core;
     } else {
-      _json[r'core'] = null;
+      json[r'core'] = null;
     }
-    if (bruteforce != null) {
-      _json[r'bruteforce'] = bruteforce;
+    if (this.bruteforce != null) {
+      json[r'bruteforce'] = this.bruteforce;
     } else {
-      _json[r'bruteforce'] = null;
+      json[r'bruteforce'] = null;
     }
-    if (metadataAvailable != null) {
-      _json[r'metadataAvailable'] = metadataAvailable;
+    if (this.metadataAvailable != null) {
+      json[r'metadataAvailable'] = this.metadataAvailable;
     } else {
-      _json[r'metadataAvailable'] = null;
+      json[r'metadataAvailable'] = null;
     }
-    if (files != null) {
-      _json[r'files'] = files;
+    if (this.files != null) {
+      json[r'files'] = this.files;
     } else {
-      _json[r'files'] = null;
+      json[r'files'] = null;
     }
-    if (activity != null) {
-      _json[r'activity'] = activity;
+    if (this.activity != null) {
+      json[r'activity'] = this.activity;
     } else {
-      _json[r'activity'] = null;
+      json[r'activity'] = null;
     }
-    if (circles != null) {
-      _json[r'circles'] = circles;
+    if (this.circles != null) {
+      json[r'circles'] = this.circles;
     } else {
-      _json[r'circles'] = null;
+      json[r'circles'] = null;
     }
-    if (ocm != null) {
-      _json[r'ocm'] = ocm;
+    if (this.ocm != null) {
+      json[r'ocm'] = this.ocm;
     } else {
-      _json[r'ocm'] = null;
+      json[r'ocm'] = null;
     }
-    if (dav != null) {
-      _json[r'dav'] = dav;
+    if (this.dav != null) {
+      json[r'dav'] = this.dav;
     } else {
-      _json[r'dav'] = null;
+      json[r'dav'] = null;
     }
-    if (filesSharing != null) {
-      _json[r'files_sharing'] = filesSharing;
+    if (this.filesSharing != null) {
+      json[r'files_sharing'] = this.filesSharing;
     } else {
-      _json[r'files_sharing'] = null;
+      json[r'files_sharing'] = null;
     }
-    if (notes != null) {
-      _json[r'notes'] = notes;
+    if (this.notes != null) {
+      json[r'notes'] = this.notes;
     } else {
-      _json[r'notes'] = null;
+      json[r'notes'] = null;
     }
-    if (notifications != null) {
-      _json[r'notifications'] = notifications;
+    if (this.notifications != null) {
+      json[r'notifications'] = this.notifications;
     } else {
-      _json[r'notifications'] = null;
+      json[r'notifications'] = null;
     }
-    if (passwordPolicy != null) {
-      _json[r'password_policy'] = passwordPolicy;
+    if (this.passwordPolicy != null) {
+      json[r'password_policy'] = this.passwordPolicy;
     } else {
-      _json[r'password_policy'] = null;
+      json[r'password_policy'] = null;
     }
-    if (provisioningApi != null) {
-      _json[r'provisioning_api'] = provisioningApi;
+    if (this.provisioningApi != null) {
+      json[r'provisioning_api'] = this.provisioningApi;
     } else {
-      _json[r'provisioning_api'] = null;
+      json[r'provisioning_api'] = null;
     }
-    if (theming != null) {
-      _json[r'theming'] = theming;
+    if (this.theming != null) {
+      json[r'theming'] = this.theming;
     } else {
-      _json[r'theming'] = null;
+      json[r'theming'] = null;
     }
-    if (userStatus != null) {
-      _json[r'user_status'] = userStatus;
+    if (this.userStatus != null) {
+      json[r'user_status'] = this.userStatus;
     } else {
-      _json[r'user_status'] = null;
+      json[r'user_status'] = null;
     }
-    if (weatherStatus != null) {
-      _json[r'weather_status'] = weatherStatus;
+    if (this.weatherStatus != null) {
+      json[r'weather_status'] = this.weatherStatus;
     } else {
-      _json[r'weather_status'] = null;
+      json[r'weather_status'] = null;
     }
-    return _json;
+    return json;
   }
 
   /// Returns a new [CoreServerCapabilitiesOcsDataCapabilities] instance and imports its values from

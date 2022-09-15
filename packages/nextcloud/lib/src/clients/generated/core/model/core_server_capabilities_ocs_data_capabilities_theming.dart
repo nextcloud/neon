@@ -183,78 +183,78 @@ class CoreServerCapabilitiesOcsDataCapabilitiesTheming {
       'CoreServerCapabilitiesOcsDataCapabilitiesTheming[name=$name, url=$url, slogan=$slogan, color=$color, colorText=$colorText, colorElement=$colorElement, colorElementBright=$colorElementBright, colorElementDark=$colorElementDark, logo=$logo, background=$background, backgroundPlain=$backgroundPlain, backgroundDefault=$backgroundDefault, logoheader=$logoheader, favicon=$favicon]';
 
   Map<String, dynamic> toJson() {
-    final _json = <String, dynamic>{};
-    if (name != null) {
-      _json[r'name'] = name;
+    final json = <String, dynamic>{};
+    if (this.name != null) {
+      json[r'name'] = this.name;
     } else {
-      _json[r'name'] = null;
+      json[r'name'] = null;
     }
-    if (url != null) {
-      _json[r'url'] = url;
+    if (this.url != null) {
+      json[r'url'] = this.url;
     } else {
-      _json[r'url'] = null;
+      json[r'url'] = null;
     }
-    if (slogan != null) {
-      _json[r'slogan'] = slogan;
+    if (this.slogan != null) {
+      json[r'slogan'] = this.slogan;
     } else {
-      _json[r'slogan'] = null;
+      json[r'slogan'] = null;
     }
-    if (color != null) {
-      _json[r'color'] = color;
+    if (this.color != null) {
+      json[r'color'] = this.color;
     } else {
-      _json[r'color'] = null;
+      json[r'color'] = null;
     }
-    if (colorText != null) {
-      _json[r'color-text'] = colorText;
+    if (this.colorText != null) {
+      json[r'color-text'] = this.colorText;
     } else {
-      _json[r'color-text'] = null;
+      json[r'color-text'] = null;
     }
-    if (colorElement != null) {
-      _json[r'color-element'] = colorElement;
+    if (this.colorElement != null) {
+      json[r'color-element'] = this.colorElement;
     } else {
-      _json[r'color-element'] = null;
+      json[r'color-element'] = null;
     }
-    if (colorElementBright != null) {
-      _json[r'color-element-bright'] = colorElementBright;
+    if (this.colorElementBright != null) {
+      json[r'color-element-bright'] = this.colorElementBright;
     } else {
-      _json[r'color-element-bright'] = null;
+      json[r'color-element-bright'] = null;
     }
-    if (colorElementDark != null) {
-      _json[r'color-element-dark'] = colorElementDark;
+    if (this.colorElementDark != null) {
+      json[r'color-element-dark'] = this.colorElementDark;
     } else {
-      _json[r'color-element-dark'] = null;
+      json[r'color-element-dark'] = null;
     }
-    if (logo != null) {
-      _json[r'logo'] = logo;
+    if (this.logo != null) {
+      json[r'logo'] = this.logo;
     } else {
-      _json[r'logo'] = null;
+      json[r'logo'] = null;
     }
-    if (background != null) {
-      _json[r'background'] = background;
+    if (this.background != null) {
+      json[r'background'] = this.background;
     } else {
-      _json[r'background'] = null;
+      json[r'background'] = null;
     }
-    if (backgroundPlain != null) {
-      _json[r'background-plain'] = backgroundPlain;
+    if (this.backgroundPlain != null) {
+      json[r'background-plain'] = this.backgroundPlain;
     } else {
-      _json[r'background-plain'] = null;
+      json[r'background-plain'] = null;
     }
-    if (backgroundDefault != null) {
-      _json[r'background-default'] = backgroundDefault;
+    if (this.backgroundDefault != null) {
+      json[r'background-default'] = this.backgroundDefault;
     } else {
-      _json[r'background-default'] = null;
+      json[r'background-default'] = null;
     }
-    if (logoheader != null) {
-      _json[r'logoheader'] = logoheader;
+    if (this.logoheader != null) {
+      json[r'logoheader'] = this.logoheader;
     } else {
-      _json[r'logoheader'] = null;
+      json[r'logoheader'] = null;
     }
-    if (favicon != null) {
-      _json[r'favicon'] = favicon;
+    if (this.favicon != null) {
+      json[r'favicon'] = this.favicon;
     } else {
-      _json[r'favicon'] = null;
+      json[r'favicon'] = null;
     }
-    return _json;
+    return json;
   }
 
   /// Returns a new [CoreServerCapabilitiesOcsDataCapabilitiesTheming] instance and imports its values from

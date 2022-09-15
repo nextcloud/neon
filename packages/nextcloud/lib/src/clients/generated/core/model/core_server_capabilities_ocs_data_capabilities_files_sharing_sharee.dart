@@ -51,18 +51,18 @@ class CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingSharee {
       'CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingSharee[queryLookupDefault=$queryLookupDefault, alwaysShowUnique=$alwaysShowUnique]';
 
   Map<String, dynamic> toJson() {
-    final _json = <String, dynamic>{};
-    if (queryLookupDefault != null) {
-      _json[r'query_lookup_default'] = queryLookupDefault;
+    final json = <String, dynamic>{};
+    if (this.queryLookupDefault != null) {
+      json[r'query_lookup_default'] = this.queryLookupDefault;
     } else {
-      _json[r'query_lookup_default'] = null;
+      json[r'query_lookup_default'] = null;
     }
-    if (alwaysShowUnique != null) {
-      _json[r'always_show_unique'] = alwaysShowUnique;
+    if (this.alwaysShowUnique != null) {
+      json[r'always_show_unique'] = this.alwaysShowUnique;
     } else {
-      _json[r'always_show_unique'] = null;
+      json[r'always_show_unique'] = null;
     }
-    return _json;
+    return json;
   }
 
   /// Returns a new [CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingSharee] instance and imports its values from

@@ -37,13 +37,13 @@ class CoreServerCapabilitiesOcsDataCapabilitiesDav {
   String toString() => 'CoreServerCapabilitiesOcsDataCapabilitiesDav[chunking=$chunking]';
 
   Map<String, dynamic> toJson() {
-    final _json = <String, dynamic>{};
-    if (chunking != null) {
-      _json[r'chunking'] = chunking;
+    final json = <String, dynamic>{};
+    if (this.chunking != null) {
+      json[r'chunking'] = this.chunking;
     } else {
-      _json[r'chunking'] = null;
+      json[r'chunking'] = null;
     }
-    return _json;
+    return json;
   }
 
   /// Returns a new [CoreServerCapabilitiesOcsDataCapabilitiesDav] instance and imports its values from

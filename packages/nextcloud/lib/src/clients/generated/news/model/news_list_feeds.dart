@@ -55,19 +55,19 @@ class NewsListFeeds {
   String toString() => 'NewsListFeeds[starredCount=$starredCount, newestItemId=$newestItemId, feeds=$feeds]';
 
   Map<String, dynamic> toJson() {
-    final _json = <String, dynamic>{};
-    if (starredCount != null) {
-      _json[r'starredCount'] = starredCount;
+    final json = <String, dynamic>{};
+    if (this.starredCount != null) {
+      json[r'starredCount'] = this.starredCount;
     } else {
-      _json[r'starredCount'] = null;
+      json[r'starredCount'] = null;
     }
-    if (newestItemId != null) {
-      _json[r'newestItemId'] = newestItemId;
+    if (this.newestItemId != null) {
+      json[r'newestItemId'] = this.newestItemId;
     } else {
-      _json[r'newestItemId'] = null;
+      json[r'newestItemId'] = null;
     }
-    _json[r'feeds'] = feeds;
-    return _json;
+    json[r'feeds'] = this.feeds;
+    return json;
   }
 
   /// Returns a new [NewsListFeeds] instance and imports its values from

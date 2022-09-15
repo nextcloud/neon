@@ -89,34 +89,34 @@ class CoreServerCapabilitiesOcsDataCapabilitiesFiles {
       'CoreServerCapabilitiesOcsDataCapabilitiesFiles[bigfilechunking=$bigfilechunking, blacklistedFiles=$blacklistedFiles, directEditing=$directEditing, comments=$comments, undelete=$undelete, versioning=$versioning]';
 
   Map<String, dynamic> toJson() {
-    final _json = <String, dynamic>{};
-    if (bigfilechunking != null) {
-      _json[r'bigfilechunking'] = bigfilechunking;
+    final json = <String, dynamic>{};
+    if (this.bigfilechunking != null) {
+      json[r'bigfilechunking'] = this.bigfilechunking;
     } else {
-      _json[r'bigfilechunking'] = null;
+      json[r'bigfilechunking'] = null;
     }
-    _json[r'blacklisted_files'] = blacklistedFiles;
-    if (directEditing != null) {
-      _json[r'directEditing'] = directEditing;
+    json[r'blacklisted_files'] = this.blacklistedFiles;
+    if (this.directEditing != null) {
+      json[r'directEditing'] = this.directEditing;
     } else {
-      _json[r'directEditing'] = null;
+      json[r'directEditing'] = null;
     }
-    if (comments != null) {
-      _json[r'comments'] = comments;
+    if (this.comments != null) {
+      json[r'comments'] = this.comments;
     } else {
-      _json[r'comments'] = null;
+      json[r'comments'] = null;
     }
-    if (undelete != null) {
-      _json[r'undelete'] = undelete;
+    if (this.undelete != null) {
+      json[r'undelete'] = this.undelete;
     } else {
-      _json[r'undelete'] = null;
+      json[r'undelete'] = null;
     }
-    if (versioning != null) {
-      _json[r'versioning'] = versioning;
+    if (this.versioning != null) {
+      json[r'versioning'] = this.versioning;
     } else {
-      _json[r'versioning'] = null;
+      json[r'versioning'] = null;
     }
-    return _json;
+    return json;
   }
 
   /// Returns a new [CoreServerCapabilitiesOcsDataCapabilitiesFiles] instance and imports its values from

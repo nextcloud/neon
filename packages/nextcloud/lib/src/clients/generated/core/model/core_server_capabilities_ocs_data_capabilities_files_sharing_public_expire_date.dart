@@ -38,13 +38,13 @@ class CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingPublicExpireDate {
   String toString() => 'CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingPublicExpireDate[enabled=$enabled]';
 
   Map<String, dynamic> toJson() {
-    final _json = <String, dynamic>{};
-    if (enabled != null) {
-      _json[r'enabled'] = enabled;
+    final json = <String, dynamic>{};
+    if (this.enabled != null) {
+      json[r'enabled'] = this.enabled;
     } else {
-      _json[r'enabled'] = null;
+      json[r'enabled'] = null;
     }
-    return _json;
+    return json;
   }
 
   /// Returns a new [CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingPublicExpireDate] instance and imports its values from

@@ -42,18 +42,18 @@ class NotificationsPushServerRegistrationOcs {
   String toString() => 'NotificationsPushServerRegistrationOcs[meta=$meta, data=$data]';
 
   Map<String, dynamic> toJson() {
-    final _json = <String, dynamic>{};
-    if (meta != null) {
-      _json[r'meta'] = meta;
+    final json = <String, dynamic>{};
+    if (this.meta != null) {
+      json[r'meta'] = this.meta;
     } else {
-      _json[r'meta'] = null;
+      json[r'meta'] = null;
     }
-    if (data != null) {
-      _json[r'data'] = data;
+    if (this.data != null) {
+      json[r'data'] = this.data;
     } else {
-      _json[r'data'] = null;
+      json[r'data'] = null;
     }
-    return _json;
+    return json;
   }
 
   /// Returns a new [NotificationsPushServerRegistrationOcs] instance and imports its values from

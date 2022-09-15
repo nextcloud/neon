@@ -73,28 +73,28 @@ class CoreServerCapabilitiesOcsDataCapabilitiesCirclesSettings {
       'CoreServerCapabilitiesOcsDataCapabilitiesCirclesSettings[frontendEnabled=$frontendEnabled, allowedCircles=$allowedCircles, allowedUserTypes=$allowedUserTypes, membersLimit=$membersLimit]';
 
   Map<String, dynamic> toJson() {
-    final _json = <String, dynamic>{};
-    if (frontendEnabled != null) {
-      _json[r'frontendEnabled'] = frontendEnabled;
+    final json = <String, dynamic>{};
+    if (this.frontendEnabled != null) {
+      json[r'frontendEnabled'] = this.frontendEnabled;
     } else {
-      _json[r'frontendEnabled'] = null;
+      json[r'frontendEnabled'] = null;
     }
-    if (allowedCircles != null) {
-      _json[r'allowedCircles'] = allowedCircles;
+    if (this.allowedCircles != null) {
+      json[r'allowedCircles'] = this.allowedCircles;
     } else {
-      _json[r'allowedCircles'] = null;
+      json[r'allowedCircles'] = null;
     }
-    if (allowedUserTypes != null) {
-      _json[r'allowedUserTypes'] = allowedUserTypes;
+    if (this.allowedUserTypes != null) {
+      json[r'allowedUserTypes'] = this.allowedUserTypes;
     } else {
-      _json[r'allowedUserTypes'] = null;
+      json[r'allowedUserTypes'] = null;
     }
-    if (membersLimit != null) {
-      _json[r'membersLimit'] = membersLimit;
+    if (this.membersLimit != null) {
+      json[r'membersLimit'] = this.membersLimit;
     } else {
-      _json[r'membersLimit'] = null;
+      json[r'membersLimit'] = null;
     }
-    return _json;
+    return json;
   }
 
   /// Returns a new [CoreServerCapabilitiesOcsDataCapabilitiesCirclesSettings] instance and imports its values from

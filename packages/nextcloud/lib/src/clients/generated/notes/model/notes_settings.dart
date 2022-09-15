@@ -55,23 +55,23 @@ class NotesSettings {
   String toString() => 'NotesSettings[notesPath=$notesPath, fileSuffix=$fileSuffix, noteMode=$noteMode]';
 
   Map<String, dynamic> toJson() {
-    final _json = <String, dynamic>{};
-    if (notesPath != null) {
-      _json[r'notesPath'] = notesPath;
+    final json = <String, dynamic>{};
+    if (this.notesPath != null) {
+      json[r'notesPath'] = this.notesPath;
     } else {
-      _json[r'notesPath'] = null;
+      json[r'notesPath'] = null;
     }
-    if (fileSuffix != null) {
-      _json[r'fileSuffix'] = fileSuffix;
+    if (this.fileSuffix != null) {
+      json[r'fileSuffix'] = this.fileSuffix;
     } else {
-      _json[r'fileSuffix'] = null;
+      json[r'fileSuffix'] = null;
     }
-    if (noteMode != null) {
-      _json[r'noteMode'] = noteMode;
+    if (this.noteMode != null) {
+      json[r'noteMode'] = this.noteMode;
     } else {
-      _json[r'noteMode'] = null;
+      json[r'noteMode'] = null;
     }
-    return _json;
+    return json;
   }
 
   /// Returns a new [NotesSettings] instance and imports its values from

@@ -129,53 +129,53 @@ class CoreNavigationAppsOcsDataInner {
       'CoreNavigationAppsOcsDataInner[id=$id, order=$order, href=$href, icon=$icon, type=$type, name=$name, active=$active, classes=$classes, unread=$unread]';
 
   Map<String, dynamic> toJson() {
-    final _json = <String, dynamic>{};
-    if (id != null) {
-      _json[r'id'] = id;
+    final json = <String, dynamic>{};
+    if (this.id != null) {
+      json[r'id'] = this.id;
     } else {
-      _json[r'id'] = null;
+      json[r'id'] = null;
     }
-    if (order != null) {
-      _json[r'order'] = order;
+    if (this.order != null) {
+      json[r'order'] = this.order;
     } else {
-      _json[r'order'] = null;
+      json[r'order'] = null;
     }
-    if (href != null) {
-      _json[r'href'] = href;
+    if (this.href != null) {
+      json[r'href'] = this.href;
     } else {
-      _json[r'href'] = null;
+      json[r'href'] = null;
     }
-    if (icon != null) {
-      _json[r'icon'] = icon;
+    if (this.icon != null) {
+      json[r'icon'] = this.icon;
     } else {
-      _json[r'icon'] = null;
+      json[r'icon'] = null;
     }
-    if (type != null) {
-      _json[r'type'] = type;
+    if (this.type != null) {
+      json[r'type'] = this.type;
     } else {
-      _json[r'type'] = null;
+      json[r'type'] = null;
     }
-    if (name != null) {
-      _json[r'name'] = name;
+    if (this.name != null) {
+      json[r'name'] = this.name;
     } else {
-      _json[r'name'] = null;
+      json[r'name'] = null;
     }
-    if (active != null) {
-      _json[r'active'] = active;
+    if (this.active != null) {
+      json[r'active'] = this.active;
     } else {
-      _json[r'active'] = null;
+      json[r'active'] = null;
     }
-    if (classes != null) {
-      _json[r'classes'] = classes;
+    if (this.classes != null) {
+      json[r'classes'] = this.classes;
     } else {
-      _json[r'classes'] = null;
+      json[r'classes'] = null;
     }
-    if (unread != null) {
-      _json[r'unread'] = unread;
+    if (this.unread != null) {
+      json[r'unread'] = this.unread;
     } else {
-      _json[r'unread'] = null;
+      json[r'unread'] = null;
     }
-    return _json;
+    return json;
   }
 
   /// Returns a new [CoreNavigationAppsOcsDataInner] instance and imports its values from

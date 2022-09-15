@@ -37,13 +37,13 @@ class CoreServerCapabilitiesOcsDataCapabilitiesBruteforce {
   String toString() => 'CoreServerCapabilitiesOcsDataCapabilitiesBruteforce[delay=$delay]';
 
   Map<String, dynamic> toJson() {
-    final _json = <String, dynamic>{};
-    if (delay != null) {
-      _json[r'delay'] = delay;
+    final json = <String, dynamic>{};
+    if (this.delay != null) {
+      json[r'delay'] = this.delay;
     } else {
-      _json[r'delay'] = null;
+      json[r'delay'] = null;
     }
-    return _json;
+    return json;
   }
 
   /// Returns a new [CoreServerCapabilitiesOcsDataCapabilitiesBruteforce] instance and imports its values from

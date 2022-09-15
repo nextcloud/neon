@@ -46,18 +46,18 @@ class CoreLoginFlowInit {
   String toString() => 'CoreLoginFlowInit[poll=$poll, login=$login]';
 
   Map<String, dynamic> toJson() {
-    final _json = <String, dynamic>{};
-    if (poll != null) {
-      _json[r'poll'] = poll;
+    final json = <String, dynamic>{};
+    if (this.poll != null) {
+      json[r'poll'] = this.poll;
     } else {
-      _json[r'poll'] = null;
+      json[r'poll'] = null;
     }
-    if (login != null) {
-      _json[r'login'] = login;
+    if (this.login != null) {
+      json[r'login'] = this.login;
     } else {
-      _json[r'login'] = null;
+      json[r'login'] = null;
     }
-    return _json;
+    return json;
   }
 
   /// Returns a new [CoreLoginFlowInit] instance and imports its values from

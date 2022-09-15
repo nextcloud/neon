@@ -50,18 +50,18 @@ class CoreServerCapabilitiesOcsDataCapabilitiesUserStatus {
       'CoreServerCapabilitiesOcsDataCapabilitiesUserStatus[enabled=$enabled, supportsEmoji=$supportsEmoji]';
 
   Map<String, dynamic> toJson() {
-    final _json = <String, dynamic>{};
-    if (enabled != null) {
-      _json[r'enabled'] = enabled;
+    final json = <String, dynamic>{};
+    if (this.enabled != null) {
+      json[r'enabled'] = this.enabled;
     } else {
-      _json[r'enabled'] = null;
+      json[r'enabled'] = null;
     }
-    if (supportsEmoji != null) {
-      _json[r'supports_emoji'] = supportsEmoji;
+    if (this.supportsEmoji != null) {
+      json[r'supports_emoji'] = this.supportsEmoji;
     } else {
-      _json[r'supports_emoji'] = null;
+      json[r'supports_emoji'] = null;
     }
-    return _json;
+    return json;
   }
 
   /// Returns a new [CoreServerCapabilitiesOcsDataCapabilitiesUserStatus] instance and imports its values from

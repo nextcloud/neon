@@ -128,53 +128,53 @@ class CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingPublic {
       'CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingPublic[enabled=$enabled, password=$password, expireDate=$expireDate, multipleLinks=$multipleLinks, expireDateInternal=$expireDateInternal, expireDateRemote=$expireDateRemote, sendMail=$sendMail, upload=$upload, uploadFilesDrop=$uploadFilesDrop]';
 
   Map<String, dynamic> toJson() {
-    final _json = <String, dynamic>{};
-    if (enabled != null) {
-      _json[r'enabled'] = enabled;
+    final json = <String, dynamic>{};
+    if (this.enabled != null) {
+      json[r'enabled'] = this.enabled;
     } else {
-      _json[r'enabled'] = null;
+      json[r'enabled'] = null;
     }
-    if (password != null) {
-      _json[r'password'] = password;
+    if (this.password != null) {
+      json[r'password'] = this.password;
     } else {
-      _json[r'password'] = null;
+      json[r'password'] = null;
     }
-    if (expireDate != null) {
-      _json[r'expire_date'] = expireDate;
+    if (this.expireDate != null) {
+      json[r'expire_date'] = this.expireDate;
     } else {
-      _json[r'expire_date'] = null;
+      json[r'expire_date'] = null;
     }
-    if (multipleLinks != null) {
-      _json[r'multiple_links'] = multipleLinks;
+    if (this.multipleLinks != null) {
+      json[r'multiple_links'] = this.multipleLinks;
     } else {
-      _json[r'multiple_links'] = null;
+      json[r'multiple_links'] = null;
     }
-    if (expireDateInternal != null) {
-      _json[r'expire_date_internal'] = expireDateInternal;
+    if (this.expireDateInternal != null) {
+      json[r'expire_date_internal'] = this.expireDateInternal;
     } else {
-      _json[r'expire_date_internal'] = null;
+      json[r'expire_date_internal'] = null;
     }
-    if (expireDateRemote != null) {
-      _json[r'expire_date_remote'] = expireDateRemote;
+    if (this.expireDateRemote != null) {
+      json[r'expire_date_remote'] = this.expireDateRemote;
     } else {
-      _json[r'expire_date_remote'] = null;
+      json[r'expire_date_remote'] = null;
     }
-    if (sendMail != null) {
-      _json[r'send_mail'] = sendMail;
+    if (this.sendMail != null) {
+      json[r'send_mail'] = this.sendMail;
     } else {
-      _json[r'send_mail'] = null;
+      json[r'send_mail'] = null;
     }
-    if (upload != null) {
-      _json[r'upload'] = upload;
+    if (this.upload != null) {
+      json[r'upload'] = this.upload;
     } else {
-      _json[r'upload'] = null;
+      json[r'upload'] = null;
     }
-    if (uploadFilesDrop != null) {
-      _json[r'upload_files_drop'] = uploadFilesDrop;
+    if (this.uploadFilesDrop != null) {
+      json[r'upload_files_drop'] = this.uploadFilesDrop;
     } else {
-      _json[r'upload_files_drop'] = null;
+      json[r'upload_files_drop'] = null;
     }
-    return _json;
+    return json;
   }
 
   /// Returns a new [CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingPublic] instance and imports its values from

@@ -62,23 +62,23 @@ class NotificationsPushServerSubscription {
       'NotificationsPushServerSubscription[publicKey=$publicKey, deviceIdentifier=$deviceIdentifier, signature=$signature]';
 
   Map<String, dynamic> toJson() {
-    final _json = <String, dynamic>{};
-    if (publicKey != null) {
-      _json[r'publicKey'] = publicKey;
+    final json = <String, dynamic>{};
+    if (this.publicKey != null) {
+      json[r'publicKey'] = this.publicKey;
     } else {
-      _json[r'publicKey'] = null;
+      json[r'publicKey'] = null;
     }
-    if (deviceIdentifier != null) {
-      _json[r'deviceIdentifier'] = deviceIdentifier;
+    if (this.deviceIdentifier != null) {
+      json[r'deviceIdentifier'] = this.deviceIdentifier;
     } else {
-      _json[r'deviceIdentifier'] = null;
+      json[r'deviceIdentifier'] = null;
     }
-    if (signature != null) {
-      _json[r'signature'] = signature;
+    if (this.signature != null) {
+      json[r'signature'] = this.signature;
     } else {
-      _json[r'signature'] = null;
+      json[r'signature'] = null;
     }
-    return _json;
+    return json;
   }
 
   /// Returns a new [NotificationsPushServerSubscription] instance and imports its values from

@@ -30,9 +30,9 @@ class NewsListFolders {
   String toString() => 'NewsListFolders[folders=$folders]';
 
   Map<String, dynamic> toJson() {
-    final _json = <String, dynamic>{};
-    _json[r'folders'] = folders;
-    return _json;
+    final json = <String, dynamic>{};
+    json[r'folders'] = this.folders;
+    return json;
   }
 
   /// Returns a new [NewsListFolders] instance and imports its values from

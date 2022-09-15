@@ -139,58 +139,58 @@ class NotesNote {
       'NotesNote[id=$id, etag=$etag, readonly=$readonly, content=$content, title=$title, category=$category, favorite=$favorite, modified=$modified, error=$error, errorType=$errorType]';
 
   Map<String, dynamic> toJson() {
-    final _json = <String, dynamic>{};
-    if (id != null) {
-      _json[r'id'] = id;
+    final json = <String, dynamic>{};
+    if (this.id != null) {
+      json[r'id'] = this.id;
     } else {
-      _json[r'id'] = null;
+      json[r'id'] = null;
     }
-    if (etag != null) {
-      _json[r'etag'] = etag;
+    if (this.etag != null) {
+      json[r'etag'] = this.etag;
     } else {
-      _json[r'etag'] = null;
+      json[r'etag'] = null;
     }
-    if (readonly != null) {
-      _json[r'readonly'] = readonly;
+    if (this.readonly != null) {
+      json[r'readonly'] = this.readonly;
     } else {
-      _json[r'readonly'] = null;
+      json[r'readonly'] = null;
     }
-    if (content != null) {
-      _json[r'content'] = content;
+    if (this.content != null) {
+      json[r'content'] = this.content;
     } else {
-      _json[r'content'] = null;
+      json[r'content'] = null;
     }
-    if (title != null) {
-      _json[r'title'] = title;
+    if (this.title != null) {
+      json[r'title'] = this.title;
     } else {
-      _json[r'title'] = null;
+      json[r'title'] = null;
     }
-    if (category != null) {
-      _json[r'category'] = category;
+    if (this.category != null) {
+      json[r'category'] = this.category;
     } else {
-      _json[r'category'] = null;
+      json[r'category'] = null;
     }
-    if (favorite != null) {
-      _json[r'favorite'] = favorite;
+    if (this.favorite != null) {
+      json[r'favorite'] = this.favorite;
     } else {
-      _json[r'favorite'] = null;
+      json[r'favorite'] = null;
     }
-    if (modified != null) {
-      _json[r'modified'] = modified;
+    if (this.modified != null) {
+      json[r'modified'] = this.modified;
     } else {
-      _json[r'modified'] = null;
+      json[r'modified'] = null;
     }
-    if (error != null) {
-      _json[r'error'] = error;
+    if (this.error != null) {
+      json[r'error'] = this.error;
     } else {
-      _json[r'error'] = null;
+      json[r'error'] = null;
     }
-    if (errorType != null) {
-      _json[r'errorType'] = errorType;
+    if (this.errorType != null) {
+      json[r'errorType'] = this.errorType;
     } else {
-      _json[r'errorType'] = null;
+      json[r'errorType'] = null;
     }
-    return _json;
+    return json;
   }
 
   /// Returns a new [NotesNote] instance and imports its values from
