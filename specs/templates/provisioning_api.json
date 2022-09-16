@@ -1,43 +1,26 @@
 {
-  "openapi": "3.0.3",
+  "openapi": "3.1.0",
   "info": {
     "title": "Provisioning API",
     "version": "1.14.0",
     "description": "This application enables a set of APIs that external systems can use to manage users, groups and apps.",
     "license": {
-      "name": "agpl"
+      "name": "agpl",
+      "identifier": " AGPL-3.0"
     }
   },
-  "servers": [
+  "tags": [
     {
-      "url": "https://{hostname}:{port}",
-      "variables": {
-        "hostname": {
-          "default": "localhost"
-        },
-        "port": {
-          "default": "8080"
-        }
-      }
+      "name": "provisioning_api"
     }
   ],
-  "security": [
-    {
-      "basic_auth": []
-    }
-  ],
-  "components": {
-    "securitySchemes": {
-      "basic_auth": {
-        "type": "http",
-        "scheme": "basic"
-      }
-    }
-  },
   "paths": {
     "/ocs/v1.php/apps/provisioning_api/apps": {
       "get": {
         "operationId": "apps-getapps-TODO",
+        "tags": [
+          "provisioning_api"
+        ],
         "parameters": [
           {
             "name": "filter",
@@ -75,6 +58,9 @@
       ],
       "get": {
         "operationId": "apps-getappinfo-TODO",
+        "tags": [
+          "provisioning_api"
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -90,6 +76,9 @@
       },
       "post": {
         "operationId": "apps-enable-TODO",
+        "tags": [
+          "provisioning_api"
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -105,6 +94,9 @@
       },
       "delete": {
         "operationId": "apps-disable-TODO",
+        "tags": [
+          "provisioning_api"
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -122,6 +114,9 @@
     "/ocs/v1.php/apps/provisioning_api/groups": {
       "get": {
         "operationId": "groups-getgroups-TODO",
+        "tags": [
+          "provisioning_api"
+        ],
         "parameters": [
           {
             "name": "search",
@@ -165,6 +160,9 @@
       },
       "post": {
         "operationId": "groups-addgroup-TODO",
+        "tags": [
+          "provisioning_api"
+        ],
         "parameters": [
           {
             "name": "groupid",
@@ -201,6 +199,9 @@
     "/ocs/v1.php/apps/provisioning_api/groups/details": {
       "get": {
         "operationId": "groups-getgroupsdetails-TODO",
+        "tags": [
+          "provisioning_api"
+        ],
         "parameters": [
           {
             "name": "search",
@@ -256,6 +257,9 @@
       ],
       "get": {
         "operationId": "groups-getgroupusers-TODO",
+        "tags": [
+          "provisioning_api"
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -283,6 +287,9 @@
       ],
       "get": {
         "operationId": "groups-getgroupusersdetails-TODO",
+        "tags": [
+          "provisioning_api"
+        ],
         "parameters": [
           {
             "name": "search",
@@ -338,6 +345,9 @@
       ],
       "get": {
         "operationId": "groups-getsubadminsofgroup-TODO",
+        "tags": [
+          "provisioning_api"
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -365,6 +375,9 @@
       ],
       "get": {
         "operationId": "groups-getgroup-TODO",
+        "tags": [
+          "provisioning_api"
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -380,6 +393,9 @@
       },
       "put": {
         "operationId": "groups-updategroup-TODO",
+        "tags": [
+          "provisioning_api"
+        ],
         "parameters": [
           {
             "name": "key",
@@ -413,6 +429,9 @@
       },
       "delete": {
         "operationId": "groups-deletegroup-TODO",
+        "tags": [
+          "provisioning_api"
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -430,6 +449,9 @@
     "/ocs/v1.php/apps/provisioning_api/users": {
       "get": {
         "operationId": "users-getusers-TODO",
+        "tags": [
+          "provisioning_api"
+        ],
         "parameters": [
           {
             "name": "search",
@@ -473,6 +495,9 @@
       },
       "post": {
         "operationId": "users-adduser-TODO",
+        "tags": [
+          "provisioning_api"
+        ],
         "parameters": [
           {
             "name": "userid",
@@ -561,6 +586,9 @@
     "/ocs/v1.php/apps/provisioning_api/users/details": {
       "get": {
         "operationId": "users-getusersdetails-TODO",
+        "tags": [
+          "provisioning_api"
+        ],
         "parameters": [
           {
             "name": "search",
@@ -606,6 +634,9 @@
     "/ocs/v1.php/apps/provisioning_api/users/search/by-phone": {
       "post": {
         "operationId": "users-searchbyphonenumbers-TODO",
+        "tags": [
+          "provisioning_api"
+        ],
         "parameters": [
           {
             "name": "location",
@@ -651,6 +682,9 @@
       ],
       "get": {
         "operationId": "users-getuser-TODO",
+        "tags": [
+          "provisioning_api"
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -666,6 +700,9 @@
       },
       "put": {
         "operationId": "users-edituser-TODO",
+        "tags": [
+          "provisioning_api"
+        ],
         "parameters": [
           {
             "name": "key",
@@ -699,6 +736,9 @@
       },
       "delete": {
         "operationId": "users-deleteuser-TODO",
+        "tags": [
+          "provisioning_api"
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -716,6 +756,9 @@
     "/ocs/v1.php/apps/provisioning_api/user": {
       "get": {
         "operationId": "users-getcurrentuser-TODO",
+        "tags": [
+          "provisioning_api"
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -733,6 +776,9 @@
     "/ocs/v1.php/apps/provisioning_api/user/fields": {
       "get": {
         "operationId": "users-geteditablefields-TODO",
+        "tags": [
+          "provisioning_api"
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -760,6 +806,9 @@
       ],
       "get": {
         "operationId": "users-geteditablefieldsforuser-TODO",
+        "tags": [
+          "provisioning_api"
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -795,6 +844,9 @@
       ],
       "put": {
         "operationId": "users-editusermultivalue-TODO",
+        "tags": [
+          "provisioning_api"
+        ],
         "parameters": [
           {
             "name": "key",
@@ -840,6 +892,9 @@
       ],
       "post": {
         "operationId": "users-wipeuserdevices-TODO",
+        "tags": [
+          "provisioning_api"
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -867,6 +922,9 @@
       ],
       "put": {
         "operationId": "users-enableuser-TODO",
+        "tags": [
+          "provisioning_api"
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -894,6 +952,9 @@
       ],
       "put": {
         "operationId": "users-disableuser-TODO",
+        "tags": [
+          "provisioning_api"
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -921,6 +982,9 @@
       ],
       "get": {
         "operationId": "users-getusersgroups-TODO",
+        "tags": [
+          "provisioning_api"
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -936,6 +1000,9 @@
       },
       "post": {
         "operationId": "users-addtogroup-TODO",
+        "tags": [
+          "provisioning_api"
+        ],
         "parameters": [
           {
             "name": "groupid",
@@ -962,6 +1029,9 @@
       },
       "delete": {
         "operationId": "users-removefromgroup-TODO",
+        "tags": [
+          "provisioning_api"
+        ],
         "parameters": [
           {
             "name": "groupid",
@@ -999,6 +1069,9 @@
       ],
       "get": {
         "operationId": "users-getusersubadmingroups-TODO",
+        "tags": [
+          "provisioning_api"
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -1014,6 +1087,9 @@
       },
       "post": {
         "operationId": "users-addsubadmin-TODO",
+        "tags": [
+          "provisioning_api"
+        ],
         "parameters": [
           {
             "name": "groupid",
@@ -1039,6 +1115,9 @@
       },
       "delete": {
         "operationId": "users-removesubadmin-TODO",
+        "tags": [
+          "provisioning_api"
+        ],
         "parameters": [
           {
             "name": "groupid",
@@ -1076,6 +1155,9 @@
       ],
       "post": {
         "operationId": "users-resendwelcomemessage-TODO",
+        "tags": [
+          "provisioning_api"
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -1093,6 +1175,9 @@
     "/ocs/v1.php/apps/provisioning_api/api/v1/config/apps": {
       "get": {
         "operationId": "appconfig-getapps-TODO",
+        "tags": [
+          "provisioning_api"
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -1120,6 +1205,9 @@
       ],
       "get": {
         "operationId": "appconfig-getkeys-TODO",
+        "tags": [
+          "provisioning_api"
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -1155,6 +1243,9 @@
       ],
       "get": {
         "operationId": "appconfig-getvalue-TODO",
+        "tags": [
+          "provisioning_api"
+        ],
         "parameters": [
           {
             "name": "defaultValue",
@@ -1181,6 +1272,9 @@
       },
       "post": {
         "operationId": "appconfig-setvalue-TODO",
+        "tags": [
+          "provisioning_api"
+        ],
         "parameters": [
           {
             "name": "value",
@@ -1206,6 +1300,9 @@
       },
       "delete": {
         "operationId": "appconfig-deletekey-TODO",
+        "tags": [
+          "provisioning_api"
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -1249,6 +1346,9 @@
       ],
       "get": {
         "operationId": "verification-showverifymail-TODO",
+        "tags": [
+          "provisioning_api"
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -1264,6 +1364,9 @@
       },
       "post": {
         "operationId": "verification-verifymail-TODO",
+        "tags": [
+          "provisioning_api"
+        ],
         "responses": {
           "200": {
             "description": "",

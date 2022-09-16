@@ -1,43 +1,26 @@
 {
-  "openapi": "3.0.3",
+  "openapi": "3.1.0",
   "info": {
     "title": "Notes",
     "version": "4.5.1",
     "description": "Distraction-free notes and writing",
     "license": {
-      "name": "agpl"
+      "name": "agpl",
+      "identifier": " AGPL-3.0"
     }
   },
-  "servers": [
+  "tags": [
     {
-      "url": "https://{hostname}:{port}/apps/notes",
-      "variables": {
-        "hostname": {
-          "default": "localhost"
-        },
-        "port": {
-          "default": "8080"
-        }
-      }
+      "name": "notes"
     }
   ],
-  "security": [
-    {
-      "basic_auth": []
-    }
-  ],
-  "components": {
-    "securitySchemes": {
-      "basic_auth": {
-        "type": "http",
-        "scheme": "basic"
-      }
-    }
-  },
   "paths": {
-    "/notes": {
+    "/apps/notes/notes": {
       "get": {
         "operationId": "notes-index-TODO",
+        "tags": [
+          "notes"
+        ],
         "parameters": [
           {
             "name": "pruneBefore",
@@ -64,6 +47,9 @@
       },
       "post": {
         "operationId": "notes-create-TODO",
+        "tags": [
+          "notes"
+        ],
         "parameters": [
           {
             "name": "category",
@@ -88,9 +74,12 @@
         }
       }
     },
-    "/notes/dashboard": {
+    "/apps/notes/notes/dashboard": {
       "get": {
         "operationId": "notes-dashboard-TODO",
+        "tags": [
+          "notes"
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -105,7 +94,7 @@
         }
       }
     },
-    "/notes/{id}": {
+    "/apps/notes/notes/{id}": {
       "parameters": [
         {
           "name": "id",
@@ -118,6 +107,9 @@
       ],
       "get": {
         "operationId": "notes-get-TODO",
+        "tags": [
+          "notes"
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -133,6 +125,9 @@
       },
       "put": {
         "operationId": "notes-update-TODO",
+        "tags": [
+          "notes"
+        ],
         "parameters": [
           {
             "name": "content",
@@ -158,6 +153,9 @@
       },
       "delete": {
         "operationId": "notes-destroy-TODO",
+        "tags": [
+          "notes"
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -172,9 +170,12 @@
         }
       }
     },
-    "/notes/undo": {
+    "/apps/notes/notes/undo": {
       "post": {
         "operationId": "notes-undo-TODO",
+        "tags": [
+          "notes"
+        ],
         "parameters": [
           {
             "name": "id",
@@ -221,7 +222,7 @@
             "in": "query",
             "required": true,
             "schema": {
-              "type": "boolean"
+              "type": "integer"
             }
           }
         ],
@@ -239,7 +240,7 @@
         }
       }
     },
-    "/notes/{id}/autotitle": {
+    "/apps/notes/notes/{id}/autotitle": {
       "parameters": [
         {
           "name": "id",
@@ -252,6 +253,9 @@
       ],
       "put": {
         "operationId": "notes-autotitle-TODO",
+        "tags": [
+          "notes"
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -266,7 +270,7 @@
         }
       }
     },
-    "/notes/{id}/{property}": {
+    "/apps/notes/notes/{id}/{property}": {
       "parameters": [
         {
           "name": "id",
@@ -287,6 +291,9 @@
       ],
       "put": {
         "operationId": "notes-updateproperty-TODO",
+        "tags": [
+          "notes"
+        ],
         "parameters": [
           {
             "name": "modified",
@@ -317,7 +324,7 @@
             "in": "query",
             "required": false,
             "schema": {
-              "type": "boolean"
+              "type": "integer"
             }
           }
         ],
@@ -335,7 +342,7 @@
         }
       }
     },
-    "/notes/{noteid}/attachment": {
+    "/apps/notes/notes/{noteid}/attachment": {
       "parameters": [
         {
           "name": "noteid",
@@ -348,6 +355,9 @@
       ],
       "get": {
         "operationId": "notes-getattachment-TODO",
+        "tags": [
+          "notes"
+        ],
         "parameters": [
           {
             "name": "path",
@@ -373,6 +383,9 @@
       },
       "post": {
         "operationId": "notes-uploadfile-TODO",
+        "tags": [
+          "notes"
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -387,9 +400,12 @@
         }
       }
     },
-    "/settings": {
+    "/apps/notes/settings": {
       "get": {
         "operationId": "settings-get-TODO",
+        "tags": [
+          "notes"
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -405,6 +421,9 @@
       },
       "put": {
         "operationId": "settings-set-TODO",
+        "tags": [
+          "notes"
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -419,7 +438,7 @@
         }
       }
     },
-    "/api/{apiVersion}/notes": {
+    "/apps/notes/api/{apiVersion}/notes": {
       "parameters": [
         {
           "name": "apiVersion",
@@ -432,6 +451,9 @@
       ],
       "get": {
         "operationId": "notes_api-index-TODO",
+        "tags": [
+          "notes"
+        ],
         "parameters": [
           {
             "name": "category",
@@ -492,6 +514,9 @@
       },
       "post": {
         "operationId": "notes_api-create-TODO",
+        "tags": [
+          "notes"
+        ],
         "parameters": [
           {
             "name": "category",
@@ -534,8 +559,8 @@
             "in": "query",
             "required": false,
             "schema": {
-              "type": "boolean",
-              "default": false
+              "type": "integer",
+              "default": 0
             }
           }
         ],
@@ -553,7 +578,7 @@
         }
       }
     },
-    "/api/{apiVersion}/notes/{id}": {
+    "/apps/notes/api/{apiVersion}/notes/{id}": {
       "parameters": [
         {
           "name": "apiVersion",
@@ -574,6 +599,9 @@
       ],
       "get": {
         "operationId": "notes_api-get-TODO",
+        "tags": [
+          "notes"
+        ],
         "parameters": [
           {
             "name": "exclude",
@@ -600,6 +628,9 @@
       },
       "put": {
         "operationId": "notes_api-update-TODO",
+        "tags": [
+          "notes"
+        ],
         "parameters": [
           {
             "name": "content",
@@ -638,7 +669,7 @@
             "in": "query",
             "required": false,
             "schema": {
-              "type": "boolean"
+              "type": "integer"
             }
           }
         ],
@@ -657,6 +688,9 @@
       },
       "delete": {
         "operationId": "notes_api-destroy-TODO",
+        "tags": [
+          "notes"
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -671,7 +705,7 @@
         }
       }
     },
-    "/api/{apiVersion}/settings": {
+    "/apps/notes/api/{apiVersion}/settings": {
       "parameters": [
         {
           "name": "apiVersion",
@@ -684,6 +718,9 @@
       ],
       "get": {
         "operationId": "notes_api-getsettings-TODO",
+        "tags": [
+          "notes"
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -699,6 +736,9 @@
       },
       "put": {
         "operationId": "notes_api-setsettings-TODO",
+        "tags": [
+          "notes"
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -713,7 +753,7 @@
         }
       }
     },
-    "/api/{catchAll}": {
+    "/apps/notes/api/{catchAll}": {
       "parameters": [
         {
           "name": "catchAll",
@@ -726,6 +766,9 @@
       ],
       "get": {
         "operationId": "notes_api-fail-TODO",
+        "tags": [
+          "notes"
+        ],
         "responses": {
           "200": {
             "description": "",

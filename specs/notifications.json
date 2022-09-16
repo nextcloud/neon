@@ -1,16 +1,17 @@
 {
-  "openapi": "3.0.3",
+  "openapi": "3.1.0",
   "info": {
     "title": "Notifications",
     "version": "2.12.1",
     "description": "This app provides a backend and frontend for the notification API available in Nextcloud.",
     "license": {
-      "name": "agpl"
+      "name": "agpl",
+      "identifier": " AGPL-3.0"
     }
   },
   "servers": [
     {
-      "url": "https://{hostname}:{port}/ocs/v1.php/apps/notifications",
+      "url": "https://{hostname}:{port}",
       "variables": {
         "hostname": {
           "default": "localhost"
@@ -26,17 +27,32 @@
       "basic_auth": []
     }
   ],
+  "tags": [
+    {
+      "name": "notifications"
+    }
+  ],
   "components": {
-    "securitySchemes": {
-      "basic_auth": {
-        "type": "http",
-        "scheme": "basic"
-      }
-    },
     "schemas": {
       "OCSMeta": {
-        "deprecated": true,
-        "description": "Stub"
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "statuscode": {
+            "type": "integer"
+          },
+          "message": {
+            "type": "string"
+          },
+          "totalitems": {
+            "type": "string"
+          },
+          "itemsperpage": {
+            "type": "string"
+          }
+        }
       },
       "NotificationsEmpty": {
         "type": "object",
@@ -181,6 +197,9 @@
           },
           "signature": {
             "type": "string"
+          },
+          "message": {
+            "type": "string"
           }
         }
       },
@@ -197,6 +216,23 @@
                 "$ref": "#/components/schemas/NotificationsPushServerSubscription"
               }
             }
+          }
+        }
+      },
+      "NotificationsPushNotification": {
+        "type": "object",
+        "properties": {
+          "accountID": {
+            "type": "string"
+          },
+          "priority": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          },
+          "subject": {
+            "$ref": "#/components/schemas/NotificationsPushNotificationDecryptedSubject"
           }
         }
       },
@@ -226,12 +262,21 @@
           }
         }
       }
+    },
+    "securitySchemes": {
+      "basic_auth": {
+        "type": "http",
+        "scheme": "basic"
+      }
     }
   },
   "paths": {
-    "/api/v2/notifications": {
+    "/ocs/v1.php/apps/notifications/api/v2/notifications": {
       "get": {
         "operationId": "list-notifications",
+        "tags": [
+          "notifications"
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -247,6 +292,9 @@
       },
       "delete": {
         "operationId": "delete-all-notifications",
+        "tags": [
+          "notifications"
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -261,7 +309,7 @@
         }
       }
     },
-    "/api/v2/notifications/{id}": {
+    "/ocs/v1.php/apps/notifications/api/v2/notifications/{id}": {
       "parameters": [
         {
           "name": "id",
@@ -274,6 +322,9 @@
       ],
       "get": {
         "operationId": "get-notification",
+        "tags": [
+          "notifications"
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -289,6 +340,9 @@
       },
       "delete": {
         "operationId": "delete-notification",
+        "tags": [
+          "notifications"
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -303,9 +357,12 @@
         }
       }
     },
-    "/api/v2/push": {
+    "/ocs/v1.php/apps/notifications/api/v2/push": {
       "post": {
         "operationId": "register-device",
+        "tags": [
+          "notifications"
+        ],
         "parameters": [
           {
             "name": "pushTokenHash",
@@ -329,7 +386,8 @@
             "required": true,
             "schema": {
               "type": "string"
-            }
+            },
+            "description": "This URL has to end with a / otherwise the device will not be able to register"
           }
         ],
         "responses": {
@@ -347,6 +405,9 @@
       },
       "delete": {
         "operationId": "remove-device",
+        "tags": [
+          "notifications"
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -361,7 +422,7 @@
         }
       }
     },
-    "/api/v2/admin_notifications/{userId}": {
+    "/ocs/v1.php/apps/notifications/api/v2/admin_notifications/{userId}": {
       "parameters": [
         {
           "name": "userId",
@@ -374,6 +435,9 @@
       ],
       "post": {
         "operationId": "send-admin-notification",
+        "tags": [
+          "notifications"
+        ],
         "parameters": [
           {
             "name": "shortMessage",

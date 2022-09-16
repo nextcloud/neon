@@ -1,16 +1,17 @@
 {
-  "openapi": "3.0.3",
+  "openapi": "3.1.0",
   "info": {
     "title": "User status",
     "version": "1.4.0",
     "description": "User status",
     "license": {
-      "name": "agpl"
+      "name": "agpl",
+      "identifier": " AGPL-3.0"
     }
   },
   "servers": [
     {
-      "url": "https://{hostname}:{port}/ocs/v1.php/apps/user_status",
+      "url": "https://{hostname}:{port}",
       "variables": {
         "hostname": {
           "default": "localhost"
@@ -26,17 +27,32 @@
       "basic_auth": []
     }
   ],
+  "tags": [
+    {
+      "name": "user_status"
+    }
+  ],
   "components": {
-    "securitySchemes": {
-      "basic_auth": {
-        "type": "http",
-        "scheme": "basic"
-      }
-    },
     "schemas": {
       "OCSMeta": {
-        "deprecated": true,
-        "description": "Stub"
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "statuscode": {
+            "type": "integer"
+          },
+          "message": {
+            "type": "string"
+          },
+          "totalitems": {
+            "type": "string"
+          },
+          "itemsperpage": {
+            "type": "string"
+          }
+        }
       },
       "UserStatusPredefinedStatuses": {
         "type": "object",
@@ -70,22 +86,49 @@
             "type": "string"
           },
           "clearAt": {
-            "type": "object"
+            "$ref": "#/components/schemas/UserStatusClearAtWrap"
           }
         }
+      },
+      "UserStatusClearAtWrap": {
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/UserStatusClearAt"
+          },
+          {
+            "type": "integer",
+            "description": "Time as unix timestamp"
+          }
+        ]
       },
       "UserStatusClearAt": {
         "type": "object",
         "properties": {
           "type": {
-            "type": "string"
+            "type": "string",
+            "enum": [
+              "period",
+              "end-of"
+            ]
           },
           "time": {
-            "type": "integer"
+            "oneOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "day",
+                  "week"
+                ]
+              },
+              {
+                "type": "integer",
+                "description": "Time offset in seconds"
+              }
+            ]
           }
         }
       },
-      "UserStatusTypeEnum": {
+      "UserStatusType": {
         "type": "string",
         "enum": [
           "online",
@@ -105,7 +148,15 @@
                 "$ref": "#/components/schemas/OCSMeta"
               },
               "data": {
-                "$ref": "#/components/schemas/UserStatus"
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/UserStatus"
+                  },
+                  {
+                    "type": "array",
+                    "description": "Only happens when the user has never set a status"
+                  }
+                ]
               }
             }
           }
@@ -165,10 +216,10 @@
             "type": "string"
           },
           "clearAt": {
-            "type": "object"
+            "$ref": "#/components/schemas/UserStatusClearAtWrap"
           },
           "status": {
-            "$ref": "#/components/schemas/UserStatusTypeEnum"
+            "$ref": "#/components/schemas/UserStatusType"
           },
           "statusIsUserDefined": {
             "type": "boolean"
@@ -188,19 +239,28 @@
             "type": "string"
           },
           "clearAt": {
-            "type": "object"
+            "$ref": "#/components/schemas/UserStatusClearAtWrap"
           },
           "status": {
-            "$ref": "#/components/schemas/UserStatusTypeEnum"
+            "$ref": "#/components/schemas/UserStatusType"
           }
         }
+      }
+    },
+    "securitySchemes": {
+      "basic_auth": {
+        "type": "http",
+        "scheme": "basic"
       }
     }
   },
   "paths": {
-    "/api/v1/statuses": {
+    "/ocs/v1.php/apps/user_status/api/v1/statuses": {
       "get": {
         "operationId": "find-all-statuses",
+        "tags": [
+          "user_status"
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -215,7 +275,7 @@
         }
       }
     },
-    "/api/v1/statuses/{userId}": {
+    "/ocs/v1.php/apps/user_status/api/v1/statuses/{userId}": {
       "parameters": [
         {
           "name": "userId",
@@ -228,6 +288,9 @@
       ],
       "get": {
         "operationId": "find-status",
+        "tags": [
+          "user_status"
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -242,9 +305,12 @@
         }
       }
     },
-    "/api/v1/user_status": {
+    "/ocs/v1.php/apps/user_status/api/v1/user_status": {
       "get": {
         "operationId": "get-status",
+        "tags": [
+          "user_status"
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -259,16 +325,19 @@
         }
       }
     },
-    "/api/v1/user_status/status": {
+    "/ocs/v1.php/apps/user_status/api/v1/user_status/status": {
       "put": {
         "operationId": "set-status",
+        "tags": [
+          "user_status"
+        ],
         "parameters": [
           {
             "name": "statusType",
             "in": "query",
             "required": true,
             "schema": {
-              "$ref": "#/components/schemas/UserStatusTypeEnum"
+              "$ref": "#/components/schemas/UserStatusType"
             }
           }
         ],
@@ -286,9 +355,12 @@
         }
       }
     },
-    "/api/v1/user_status/message/predefined": {
+    "/ocs/v1.php/apps/user_status/api/v1/user_status/message/predefined": {
       "put": {
         "operationId": "set-predefined-message",
+        "tags": [
+          "user_status"
+        ],
         "parameters": [
           {
             "name": "messageId",
@@ -321,9 +393,12 @@
         }
       }
     },
-    "/api/v1/user_status/message/custom": {
+    "/ocs/v1.php/apps/user_status/api/v1/user_status/message/custom": {
       "put": {
         "operationId": "set-custom-message",
+        "tags": [
+          "user_status"
+        ],
         "parameters": [
           {
             "name": "statusIcon",
@@ -364,9 +439,12 @@
         }
       }
     },
-    "/api/v1/user_status/message": {
+    "/ocs/v1.php/apps/user_status/api/v1/user_status/message": {
       "delete": {
         "operationId": "clear-message",
+        "tags": [
+          "user_status"
+        ],
         "responses": {
           "200": {
             "description": ""
@@ -374,9 +452,12 @@
         }
       }
     },
-    "/api/v1/predefined_statuses": {
+    "/ocs/v1.php/apps/user_status/api/v1/predefined_statuses": {
       "get": {
         "operationId": "find-all-predefined-statuses",
+        "tags": [
+          "user_status"
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -391,17 +472,20 @@
         }
       }
     },
-    "/api/v1/heartbeat": {
+    "/ocs/v1.php/apps/user_status/api/v1/heartbeat": {
       "description": "Depends on https://github.com/nextcloud/server/pull/32646",
       "put": {
         "operationId": "heartbeat",
+        "tags": [
+          "user_status"
+        ],
         "parameters": [
           {
             "name": "status",
             "in": "query",
             "required": true,
             "schema": {
-              "$ref": "#/components/schemas/UserStatusTypeEnum"
+              "$ref": "#/components/schemas/UserStatusType"
             }
           }
         ],

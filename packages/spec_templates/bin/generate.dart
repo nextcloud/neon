@@ -81,12 +81,10 @@ Future main(final List<String> args) async {
       if (url.endsWith('/')) {
         url = url.substring(0, url.length - 1);
       }
-      if (hasRoutes && hasOCS) {
-        if (k == 'routes') {
-          url = '$routesBasePath$url';
-        } else if (k == 'ocs') {
-          url = '$ocsBasePath$url';
-        }
+      if (k == 'routes') {
+        url = '$routesBasePath$url';
+      } else if (k == 'ocs') {
+        url = '$ocsBasePath$url';
       }
       final verb = route['verb'] as String? ?? 'GET';
 
@@ -218,22 +216,10 @@ Future main(final List<String> args) async {
           parameters: parameters,
         );
       }
-      /*
-      for (final bodyParameter in queryParameters) ...{
-        bodyParameter.name: {
-          if (bodyParameter.description != null) ...{
-            'description': bodyParameter.description,
-          },
-          'type': bodyParameter.openAPIType ?? 'TODO',
-          if (bodyParameter.defaultValue != null) ...{
-            'default': bodyParameter.defaultValue,
-          },
-        }
-      },
-       */
 
       final operation = Operation(
         operationID: '${name.replaceAll('#', '-').toLowerCase()}-TODO',
+        tags: [id],
         parameters: queryParameters.isNotEmpty
             ? queryParameters
                 .map<Parameter>(
@@ -242,12 +228,21 @@ Future main(final List<String> args) async {
                     in_: 'query',
                     description: queryParameter.description,
                     required: !queryParameter.nullable && queryParameter.defaultValue == null,
-                    schema: {
-                      'type': queryParameter.openAPIType ?? 'TODO',
-                      if (queryParameter.defaultValue != null) ...{
-                        'default': queryParameter.defaultValue,
-                      },
-                    },
+                    schema: queryParameter.openAPIType == 'boolean'
+                        ? {
+                            // This is a quirk in Nextcloud where sending literal booleans in query parameters doesn't work and only integers work.
+                            // See https://github.com/nextcloud/server/issues/34226
+                            'type': 'integer',
+                            if (queryParameter.defaultValue != null) ...{
+                              'default': queryParameter.defaultValue == 'true' ? 1 : 0,
+                            },
+                          }
+                        : {
+                            'type': queryParameter.openAPIType ?? 'TODO',
+                            if (queryParameter.defaultValue != null) ...{
+                              'default': queryParameter.defaultValue,
+                            },
+                          },
                   ),
                 )
                 .toList()
@@ -291,6 +286,15 @@ Future main(final List<String> args) async {
     }
   }
 
+  late String spdxIdentifier;
+  switch (license) {
+    case 'agpl':
+      spdxIdentifier = ' AGPL-3.0';
+      break;
+    default:
+      throw Exception('Can not convert license name "$license" to a SPDX identifier');
+  }
+
   File(
     p.join(
       'specs',
@@ -300,36 +304,17 @@ Future main(final List<String> args) async {
   ).writeAsStringSync(
     const JsonEncoder.withIndent('  ').convert(
       Spec(
-        version: '3.0.3',
+        version: '3.1.0',
         info: Info(
           title: name,
           version: version,
           description: summary,
           license: License(
             name: license,
+            identifier: spdxIdentifier,
           ),
         ),
-        servers: [
-          Server(
-            url:
-                'https://{hostname}:{port}${isCore || (hasRoutes && hasOCS) ? '' : hasOCS ? ocsBasePath : routesBasePath}',
-            variables: {
-              'hostname': ServerVariable(default_: 'localhost'),
-              'port': ServerVariable(default_: '8080'),
-            },
-          )
-        ],
-        security: [
-          {'basic_auth': []},
-        ],
-        components: Components(
-          securitySchemes: {
-            'basic_auth': SecurityScheme(
-              type: 'http',
-              scheme: 'basic',
-            ),
-          },
-        ),
+        tags: [id],
         paths: paths,
       ).toMap(),
     ),
