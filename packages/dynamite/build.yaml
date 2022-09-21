@@ -1,0 +1,22 @@
+targets:
+  $default:
+    builders:
+      json_serializable:
+        options:
+          disallow_unrecognized_keys: true
+          explicit_to_json: true
+          create_factory: true
+          create_to_json: true
+          include_if_null: false
+      dynamite:
+        enabled: true
+
+builders:
+  dynamite:
+    import: "package:dynamite/builder.dart"
+    builder_factories: ["openAPIBuilder"]
+    build_extensions: {'.openapi.json': ['openapi.dart']}
+    auto_apply: root_package
+    build_to: source
+    runs_before: ["json_serializable"]
+    applies_builders: ["json_serializable"]
