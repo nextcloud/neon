@@ -32,7 +32,6 @@ import 'package:neon/src/blocs/login.dart';
 import 'package:neon/src/blocs/user_details.dart';
 import 'package:neon/src/blocs/user_status.dart';
 import 'package:neon/src/models/account.dart';
-import 'package:neon/src/models/nextcloud_notification.dart';
 import 'package:nextcloud/nextcloud.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:path/path.dart' as p;

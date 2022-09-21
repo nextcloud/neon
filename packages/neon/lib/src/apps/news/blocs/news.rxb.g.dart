@@ -64,31 +64,31 @@ abstract class $NewsBloc extends RxBlocBase implements NewsBlocEvents, NewsBlocS
   void refresh({required bool mainArticlesToo}) => _$refreshEvent.add(mainArticlesToo);
 
   @override
-  void addFeed(String url, int? folderID) => _$addFeedEvent.add(_AddFeedEventArgs(url, folderID));
+  void addFeed(String url, int? folderId) => _$addFeedEvent.add(_AddFeedEventArgs(url, folderId));
 
   @override
-  void removeFeed(int feedID) => _$removeFeedEvent.add(feedID);
+  void removeFeed(int feedId) => _$removeFeedEvent.add(feedId);
 
   @override
-  void renameFeed(int feedID, String name) => _$renameFeedEvent.add(_RenameFeedEventArgs(feedID, name));
+  void renameFeed(int feedId, String feedTitle) => _$renameFeedEvent.add(_RenameFeedEventArgs(feedId, feedTitle));
 
   @override
-  void moveFeed(int feedID, int? folderID) => _$moveFeedEvent.add(_MoveFeedEventArgs(feedID, folderID));
+  void moveFeed(int feedId, int? folderId) => _$moveFeedEvent.add(_MoveFeedEventArgs(feedId, folderId));
 
   @override
-  void markFeedAsRead(int feedID) => _$markFeedAsReadEvent.add(feedID);
+  void markFeedAsRead(int feedId) => _$markFeedAsReadEvent.add(feedId);
 
   @override
   void createFolder(String name) => _$createFolderEvent.add(name);
 
   @override
-  void deleteFolder(int folderID) => _$deleteFolderEvent.add(folderID);
+  void deleteFolder(int folderId) => _$deleteFolderEvent.add(folderId);
 
   @override
-  void renameFolder(int folderID, String name) => _$renameFolderEvent.add(_RenameFolderEventArgs(folderID, name));
+  void renameFolder(int folderId, String name) => _$renameFolderEvent.add(_RenameFolderEventArgs(folderId, name));
 
   @override
-  void markFolderAsRead(int folderID) => _$markFolderAsReadEvent.add(folderID);
+  void markFolderAsRead(int folderId) => _$markFolderAsReadEvent.add(folderId);
 
   @override
   BehaviorSubject<Result<List<NewsFolder>>> get folders => _foldersState;
@@ -136,39 +136,39 @@ abstract class $NewsBloc extends RxBlocBase implements NewsBlocEvents, NewsBlocS
 /// Helps providing the arguments in the [Subject.add] for
 /// [NewsBlocEvents.addFeed] event
 class _AddFeedEventArgs {
-  const _AddFeedEventArgs(this.url, this.folderID);
+  const _AddFeedEventArgs(this.url, this.folderId);
 
   final String url;
 
-  final int? folderID;
+  final int? folderId;
 }
 
 /// Helps providing the arguments in the [Subject.add] for
 /// [NewsBlocEvents.renameFeed] event
 class _RenameFeedEventArgs {
-  const _RenameFeedEventArgs(this.feedID, this.name);
+  const _RenameFeedEventArgs(this.feedId, this.feedTitle);
 
-  final int feedID;
+  final int feedId;
 
-  final String name;
+  final String feedTitle;
 }
 
 /// Helps providing the arguments in the [Subject.add] for
 /// [NewsBlocEvents.moveFeed] event
 class _MoveFeedEventArgs {
-  const _MoveFeedEventArgs(this.feedID, this.folderID);
+  const _MoveFeedEventArgs(this.feedId, this.folderId);
 
-  final int feedID;
+  final int feedId;
 
-  final int? folderID;
+  final int? folderId;
 }
 
 /// Helps providing the arguments in the [Subject.add] for
 /// [NewsBlocEvents.renameFolder] event
 class _RenameFolderEventArgs {
-  const _RenameFolderEventArgs(this.folderID, this.name);
+  const _RenameFolderEventArgs(this.folderId, this.name);
 
-  final int folderID;
+  final int folderId;
 
   final String name;
 }

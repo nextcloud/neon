@@ -35,7 +35,7 @@ class NotesView extends StatelessWidget {
               if (result != null) {
                 bloc.createNote(
                   title: result[0] as String,
-                  category: result[1] as String?,
+                  category: result[1] as String? ?? '',
                 );
               }
             },

@@ -307,10 +307,10 @@ Future main() async {
     const wikipediaFeedURL = 'https://en.wikipedia.org/w/api.php?action=featuredfeed&feed=featured&feedformat=atom';
     const nasaFeedURL = 'https://www.nasa.gov/rss/dyn/breaking_news.rss';
 
-    final folder = await account.client.news.createFolder('test');
+    final folder = await account.client.news.createFolder(name: 'test');
     await account.client.news.addFeed(
-      nasaFeedURL,
-      folderId: folder!.folders.single.id,
+      url: nasaFeedURL,
+      folderId: folder.folders!.single.id,
     );
 
     await pumpAppPage(
@@ -449,8 +449,8 @@ Future main() async {
 
   testWidgets('notifications', (final tester) async {
     await account.client.notifications.sendAdminNotification(
-      account.username,
-      'Notifications demo',
+      userId: account.username,
+      shortMessage: 'Notifications demo',
       longMessage: 'This is a notifications demo of the Neon app',
     );
 

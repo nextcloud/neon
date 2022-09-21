@@ -46,11 +46,11 @@ class FilePreview extends StatelessWidget {
                 final stream = Provider.of<RequestManager>(context).wrapBytes(
                   account.client.id,
                   'files-preview-${details.etag}-$width-$height',
-                  () async => (await account.client.core.getPreviewBytes(
-                    details.path.join('/'),
-                    width: width,
-                    height: height,
-                  ))!,
+                  () async => account.client.core.getPreview(
+                    file: details.path.join('/'),
+                    x: width,
+                    y: height,
+                  ),
                   preferCache: true,
                 );
 

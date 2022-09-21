@@ -72,11 +72,11 @@ class PushNotificationsBloc extends $PushNotificationsBloc {
           proxyServerForClient = 'http://${_env!.testHost}:8080/';
         }
 
-        final subscription = (await account.client.notifications.registerDeviceAtServer(
-          endpoint,
-          _keypair!.publicKey,
-          proxyServerForNextcloud,
-        ))!;
+        final subscription = await account.client.notifications.registerDevice(
+          pushTokenHash: account.client.notifications.generatePushTokenHash(endpoint),
+          devicePublicKey: _keypair!.publicKey.toFormattedPEM(),
+          proxyServer: proxyServerForNextcloud,
+        );
 
         await account.client.notifications.registerDeviceAtPushProxy(
           endpoint,

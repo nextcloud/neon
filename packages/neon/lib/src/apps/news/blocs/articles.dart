@@ -70,29 +70,39 @@ class NewsArticlesBloc extends $NewsArticlesBloc {
 
     _$markArticleAsReadEvent.listen((final article) {
       _wrapArticleAction((final client) async {
-        await client.news.markArticleAsRead(article.id!);
-        _articleUpdateController.add(article..unread = false);
+        await client.news.markArticleAsRead(itemId: article.id!);
+        // TODO
+        //_articleUpdateController.add(article..unread = false);
       });
     });
 
     _$markArticleAsUnreadEvent.listen((final article) {
       _wrapArticleAction((final client) async {
-        await client.news.markArticleAsUnread(article.id!);
-        _articleUpdateController.add(article..unread = true);
+        await client.news.markArticleAsUnread(itemId: article.id!);
+        // TODO
+        //_articleUpdateController.add(article..unread = true);
       });
     });
 
     _$starArticleEvent.listen((final article) {
       _wrapArticleAction((final client) async {
-        await client.news.starArticle(article.feedId!, article.guidHash!);
-        _articleUpdateController.add(article..starred = true);
+        await client.news.starArticle(
+          feedId: article.feedId!,
+          guidHash: article.guidHash!,
+        );
+        // TODO
+        //_articleUpdateController.add(article..starred = true);
       });
     });
 
     _$unstarArticleEvent.listen((final article) {
       _wrapArticleAction((final client) async {
-        await client.news.unstarArticle(article.feedId!, article.guidHash!);
-        _articleUpdateController.add(article..starred = false);
+        await client.news.unstarArticle(
+          feedId: article.feedId!,
+          guidHash: article.guidHash!,
+        );
+        // TODO
+        //_articleUpdateController.add(article..starred = false);
       });
     });
 
@@ -149,16 +159,15 @@ class NewsArticlesBloc extends $NewsArticlesBloc {
     }
 
     newsBloc.requestManager
-        .wrapNextcloud<List<NewsArticle>, NewsListArticles, void, NextcloudNewsClient>(
+        .wrapNextcloud<List<NewsArticle>, NewsListArticles>(
           newsBloc.client.id,
-          newsBloc.client.news,
           'news-articles-$type-$id-$getRead',
-          () async => (await newsBloc.client.news.listArticles(
+          () async => newsBloc.client.news.listArticles(
             type: type,
-            id: id,
-            getRead: getRead,
-          ))!,
-          (final response) => response.items,
+            id: id ?? 0,
+            getRead: getRead ?? true ? 1 : 0,
+          ),
+          (final response) => response.items!,
           previousData: _articlesSubject.valueOrNull?.data,
         )
         .listen(_articlesSubject.add);

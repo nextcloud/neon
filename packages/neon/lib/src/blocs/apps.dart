@@ -10,7 +10,7 @@ import 'package:rxdart/rxdart.dart';
 
 part 'apps.rxb.g.dart';
 
-typedef NextcloudApp = CoreNavigationAppsOcsDataInner;
+typedef NextcloudApp = CoreNavigationAppsOcsData;
 
 abstract class AppsBlocEvents {
   void refresh();
@@ -99,12 +99,11 @@ class AppsBloc extends $AppsBloc {
 
   void _loadApps() {
     _requestManager
-        .wrapNextcloud<List<NextcloudApp>, CoreNavigationApps, void, NextcloudCoreClient>(
+        .wrapNextcloud<List<NextcloudApp>, CoreNavigationApps>(
           _account.client.id,
-          _account.client.core,
           'apps-apps',
-          () async => (await _account.client.core.getNavigationApps())!,
-          (final response) => response.ocs!.data,
+          () async => _account.client.core.getNavigationApps(),
+          (final response) => response.ocs!.data!,
           preloadCache: true,
         )
         .listen(_appsSubject.add);

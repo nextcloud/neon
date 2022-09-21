@@ -13,23 +13,23 @@ part 'news.rxb.g.dart';
 abstract class NewsBlocEvents {
   void refresh({required final bool mainArticlesToo});
 
-  void addFeed(final String url, final int? folderID);
+  void addFeed(final String url, final int? folderId);
 
-  void removeFeed(final int feedID);
+  void removeFeed(final int feedId);
 
-  void renameFeed(final int feedID, final String name);
+  void renameFeed(final int feedId, final String feedTitle);
 
-  void moveFeed(final int feedID, final int? folderID);
+  void moveFeed(final int feedId, final int? folderId);
 
-  void markFeedAsRead(final int feedID);
+  void markFeedAsRead(final int feedId);
 
   void createFolder(final String name);
 
-  void deleteFolder(final int folderID);
+  void deleteFolder(final int folderId);
 
-  void renameFolder(final int folderID, final String name);
+  void renameFolder(final int folderId, final String name);
 
-  void markFolderAsRead(final int folderID);
+  void markFolderAsRead(final int folderId);
 }
 
 abstract class NewsBlocStates {
@@ -54,21 +54,21 @@ class NewsBloc extends $NewsBloc {
     _$addFeedEvent.listen((final event) {
       _wrapFeedAction(
         (final client) async => client.news.addFeed(
-          event.url,
-          folderId: event.folderID,
+          url: event.url,
+          folderId: event.folderId,
         ),
       );
     });
 
-    _$removeFeedEvent.listen((final feedID) {
-      _wrapFeedAction((final client) async => client.news.deleteFeed(feedID));
+    _$removeFeedEvent.listen((final feedId) {
+      _wrapFeedAction((final client) async => client.news.deleteFeed(feedId: feedId));
     });
 
     _$renameFeedEvent.listen((final event) {
       _wrapFeedAction(
         (final client) async => client.news.renameFeed(
-          event.feedID,
-          event.name,
+          feedId: event.feedId,
+          feedTitle: event.feedTitle,
         ),
       );
     });
@@ -77,8 +77,8 @@ class NewsBloc extends $NewsBloc {
       final stream = requestManager
           .wrapWithoutCache(
             () async => client.news.moveFeed(
-              event.feedID,
-              folderId: event.folderID,
+              feedId: event.feedId,
+              folderId: event.folderId,
             ),
           )
           .asBroadcastStream();
@@ -89,12 +89,12 @@ class NewsBloc extends $NewsBloc {
       });
     });
 
-    _$markFeedAsReadEvent.listen((final feedID) {
+    _$markFeedAsReadEvent.listen((final feedId) {
       final stream = requestManager
           .wrapWithoutCache(
             () async => client.news.markFeedAsRead(
-              feedID,
-              _newestItemId,
+              feedId: feedId,
+              newestItemId: _newestItemId,
             ),
           )
           .asBroadcastStream();
@@ -105,28 +105,28 @@ class NewsBloc extends $NewsBloc {
     });
 
     _$createFolderEvent.listen((final name) {
-      _wrapFolderAction((final client) async => client.news.createFolder(name));
+      _wrapFolderAction((final client) async => client.news.createFolder(name: name));
     });
 
-    _$deleteFolderEvent.listen((final folderID) {
-      _wrapFolderAction((final client) async => client.news.deleteFolder(folderID));
+    _$deleteFolderEvent.listen((final folderId) {
+      _wrapFolderAction((final client) async => client.news.deleteFolder(folderId: folderId));
     });
 
     _$renameFolderEvent.listen((final event) {
       _wrapFolderAction(
         (final client) async => client.news.renameFolder(
-          event.folderID,
-          event.name,
+          folderId: event.folderId,
+          name: event.name,
         ),
       );
     });
 
-    _$markFolderAsReadEvent.listen((final folderID) {
+    _$markFolderAsReadEvent.listen((final folderId) {
       final stream = requestManager
           .wrapWithoutCache(
             () async => client.news.markFolderAsRead(
-              folderID,
-              _newestItemId,
+              folderId: folderId,
+              newestItemId: _newestItemId,
             ),
           )
           .asBroadcastStream();
@@ -182,29 +182,27 @@ class NewsBloc extends $NewsBloc {
 
   void _loadFolders() {
     requestManager
-        .wrapNextcloud<List<NewsFolder>, NewsListFolders, void, NextcloudNewsClient>(
+        .wrapNextcloud<List<NewsFolder>, NewsListFolders>(
           client.id,
-          client.news,
           'news-folders',
-          () async => (await client.news.listFolders())!,
-          (final response) => response.folders,
+          () async => client.news.listFolders(),
+          (final response) => response.folders!,
           previousData: _foldersSubject.valueOrNull?.data,
         )
         .listen(_foldersSubject.add);
   }
 
   void _loadFeeds() {
-    requestManager.wrapNextcloud<List<NewsFeed>, NewsListFeeds, void, NextcloudNewsClient>(
+    requestManager.wrapNextcloud<List<NewsFeed>, NewsListFeeds>(
       client.id,
-      client.news,
       'news-feeds',
-      () async => (await client.news.listFeeds())!,
+      () async => client.news.listFeeds(),
       (final response) {
         // This is a bit ugly, but IDGAF right now
         if (response.newestItemId != null) {
           _newestItemId = response.newestItemId!;
         }
-        return response.feeds;
+        return response.feeds!;
       },
       previousData: _feedsSubject.valueOrNull?.data,
     ).listen(_feedsSubject.add);

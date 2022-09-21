@@ -43,7 +43,7 @@ abstract class $NotesBloc extends RxBlocBase implements NotesBlocEvents, NotesBl
   void refresh() => _$refreshEvent.add(null);
 
   @override
-  void createNote({String? title, String? category}) =>
+  void createNote({String title = '', String category = ''}) =>
       _$createNoteEvent.add(_CreateNoteEventArgs(title: title, category: category));
 
   @override
@@ -89,11 +89,11 @@ abstract class $NotesBloc extends RxBlocBase implements NotesBlocEvents, NotesBl
 /// Helps providing the arguments in the [Subject.add] for
 /// [NotesBlocEvents.createNote] event
 class _CreateNoteEventArgs {
-  const _CreateNoteEventArgs({this.title, this.category});
+  const _CreateNoteEventArgs({this.title = '', this.category = ''});
 
-  final String? title;
+  final String title;
 
-  final String? category;
+  final String category;
 }
 
 /// Helps providing the arguments in the [Subject.add] for

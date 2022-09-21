@@ -38,13 +38,13 @@ class UserStatusBloc extends $UserStatusBloc {
   }
 
   void _loadUserStatus() {
+    // TODO: Fix for no user status
     _requestManager
-        .wrapNextcloud<UserStatus?, UserStatusGetUserStatus, void, NextcloudUserStatusClient>(
+        .wrapNextcloud<UserStatus?, UserStatusGetUserStatus>(
           _account.client.id,
-          _account.client.userStatus,
           'user-status',
-          () async => (await _account.client.userStatus.getStatus())!,
-          (final response) => response.ocs?.data,
+          () async => _account.client.userStatus.getStatus(),
+          (final response) => response.ocs?.data?.userStatus,
           preloadCache: true,
         )
         .listen(_userStatusSubject.add);
@@ -56,7 +56,7 @@ class UserStatusBloc extends $UserStatusBloc {
     // TODO: https://github.com/jld3103/nextcloud-neon/issues/10
     // ignore: dead_code
     try {
-      await _account.client.userStatus.heartbeat(UserStatusTypeEnum.online);
+      await _account.client.userStatus.heartbeat(status: UserStatusType.online);
     } catch (e) {
       debugPrint(e.toString());
     }

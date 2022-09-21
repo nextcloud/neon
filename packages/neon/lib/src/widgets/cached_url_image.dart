@@ -35,7 +35,7 @@ class CachedURLImage extends StatelessWidget {
               'image-${base64.encode(url.codeUnits)}',
               () async => (await http.get(
                 Uri.parse(url),
-                headers: client.commonHeaders,
+                headers: client.baseHeaders,
               ))
                   .bodyBytes,
               preferCache: true,
