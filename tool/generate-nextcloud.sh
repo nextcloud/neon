@@ -2,154 +2,146 @@
 set -euxo pipefail
 cd "$(dirname "$0")/.."
 
-openapi_generate() {
-  codename="$1"
-  is_common="$2" # Rewrites the package to use the common package
-  tmpdir="/tmp/nextcloud-neon/$codename"
-  spec="specs/$codename.json"
-
-  rm -rf "$tmpdir"
-
-  java -jar external/openapi-generator/modules/openapi-generator-cli/target/openapi-generator-cli.jar generate \
-  --input-spec "$spec" \
-  --output "$tmpdir" \
-  --generator-name dart
-
-  (
-    cd "$tmpdir"
-    if [[ "$is_common" == "true" ]]; then
-      (
-        cd lib
-        echo '// @dart=2.12
-
-part of openapi.api;
-
-abstract class BaseApiClient {
-    Future<String> serializeAsync(Object? value);
-
-    Future<dynamic> deserializeAsync(String json, String targetType, {bool growable = false,});
-
-    void addDefaultHeader(String key, String value);
-}
-' > api_client.dart
-        sed -i -z "s/ApiClient.*//g" api.dart
-        echo '
-
-abstract class ApiInstance<T extends BaseApiClient> {
-  ApiInstance(this.apiClient);
-
-  final T apiClient;
-}
-' >> api.dart
-      )
-    else
-      (
-        cd lib
-        rm -rf auth/ api_{exception,helper}.dart
-        sed -i -z "s/part 'auth\/[^;]*;\n//g" api.dart
-        sed -i -z "s/part 'api_helper.dart';\n//g" api.dart
-        sed -i -z "s/part 'api_exception.dart';\n//g" api.dart
-        sed -i -z "s/library openapi.api;/library openapi.api;\n\nimport 'package:nextcloud\/src\/clients\/common\/api.dart';/" api.dart
-        sed -i -z "s/const _.*//g" api.dart
-        sed -i -z "s/class ApiClient {/class ApiClient extends BaseApiClient {/" api_client.dart
-        # shellcheck disable=SC2044
-        for file in $(find ./api/ -name "*.dart"); do
-          sed -i "s/Api {/Api extends ApiInstance<ApiClient> {/g" "$file"
-          sed -i "s/(\[ApiClient? apiClient\]) : apiClient = apiClient ?? defaultApiClient;/(ApiClient apiClient) : super(apiClient);/g" "$file"
-          sed -i -z "s/  final ApiClient apiClient;\n\n//g" "$file"
-        done
-      )
-    fi
-
-    # shellcheck disable=SC2044
-    for file in $(find . -name "*.dart"); do
-      sed -i "s/_decodeBodyBytes/decodeBodyBytes/g" "$file"
-      sed -i "s/_queryParams/buildQueryParams/g" "$file"
-      sed -i "s/_delimiters/apiDelimiters/g" "$file"
-      sed -i "s/_dateEpochMarker/apiDateEpochMarker/g" "$file"
-      sed -i "s/_dateFormatter/apiDateFormatter/g" "$file"
-      sed -i "s/_regList/apiRegList/g" "$file"
-      sed -i "s/_regSet/apiRegSet/g" "$file"
-      sed -i "s/_regMap/apiRegMap/g" "$file"
-    done
-  )
-
-  outdir=""
-  if [[ "$is_common" == "true" ]]; then
-    outdir="packages/nextcloud/lib/src/clients/$codename"
-  else
-    outdir="packages/nextcloud/lib/src/clients/generated/$codename"
-  fi
-
-  rm -rf "$outdir"
-  cp -r "$tmpdir/lib" "$outdir"
-
-  rm -rf "packages/nextcloud/doc/$codename"
-  cp -r "$tmpdir/doc" "packages/nextcloud/doc/$codename"
-}
-
-function spec_templates_generate() {
-  appdir="$1"
-  is_core="$2"
-  fvm dart packages/spec_templates/bin/generate.dart "$appdir" "$is_core"
-}
-
-function update_core_appinfo() {
-  xmlstarlet \
-    edit \
-    --update "/info/version" \
-    --value "$(cd external/nextcloud-server && git describe --tags | sed "s/^v//")" \
-    specs/templates/appinfo_core.xml \
-    > /tmp/nextcloud-neon/appinfo_core1.xml
-  xmlstarlet \
-    format \
-    --indent-spaces 4 \
-    /tmp/nextcloud-neon/appinfo_core1.xml \
-    > /tmp/nextcloud-neon/appinfo_core2.xml
-  cp /tmp/nextcloud-neon/appinfo_core2.xml specs/templates/appinfo_core.xml
-}
-
-function update_spec_from_template() {
-  codename="$1"
-  jq \
-    -s \
-    '{openapi: .[0].openapi, info: .[0].info, servers: .[1].servers, security: .[0].security, components: {securitySchemes: .[0].components.securitySchemes, schemas: .[1].components.schemas}, paths: .[1].paths}' \
-    specs/templates/"$codename".json \
-    specs/"$codename".json \
-    > /tmp/nextcloud-neon/"codename".json
-  cp /tmp/nextcloud-neon/"codename".json specs/"$codename".json
-}
-
-(
-  cd external/openapi-generator
-  #./mvnw package -DskipTests -Dmaven.test.skip=true
-)
-
 rm -rf /tmp/nextcloud-neon
 mkdir -p /tmp/nextcloud-neon
 
-update_core_appinfo
+xmlstarlet \
+  edit \
+  --update "/info/version" \
+  --value "$(cd external/nextcloud-server && git describe --tags | sed "s/^v//")" \
+  specs/templates/appinfo_core.xml \
+  > /tmp/nextcloud-neon/appinfo_core1.xml
+xmlstarlet \
+  format \
+  --indent-spaces 4 \
+  /tmp/nextcloud-neon/appinfo_core1.xml \
+  > /tmp/nextcloud-neon/appinfo_core2.xml
+cp /tmp/nextcloud-neon/appinfo_core2.xml specs/templates/appinfo_core.xml
 
-spec_templates_generate external/nextcloud-news false
-spec_templates_generate external/nextcloud-notes false
-spec_templates_generate external/nextcloud-notifications false
-spec_templates_generate external/nextcloud-server/apps/provisioning_api false
-spec_templates_generate external/nextcloud-server/apps/user_status false
-spec_templates_generate external/nextcloud-server/core true
+function generate_spec_templates() {
+  fvm dart packages/spec_templates/bin/generate.dart "$1" "$2"
+}
 
-update_spec_from_template "core"
-update_spec_from_template "news"
-update_spec_from_template "notes"
-update_spec_from_template "notifications"
-update_spec_from_template "provisioning_api"
-update_spec_from_template "user_status"
+generate_spec_templates external/nextcloud-news false
+generate_spec_templates external/nextcloud-notes false
+generate_spec_templates external/nextcloud-notifications false
+generate_spec_templates external/nextcloud-server/apps/provisioning_api false
+generate_spec_templates external/nextcloud-server/apps/user_status false
+generate_spec_templates external/nextcloud-server/core true
 
-openapi_generate "common" true
-openapi_generate "core" false
-openapi_generate "news" false
-openapi_generate "notes" false
-openapi_generate "notifications" false
-openapi_generate "provisioning_api" false
-openapi_generate "user_status" false
+codenames=(core news notes notifications provisioning_api user_status)
+
+for codename in ${codenames[*]}; do
+  jq \
+      --arg codename "$codename" \
+      -s \
+      '{
+        openapi: .[0].openapi,
+        info: .[0].info,
+        servers: [
+          {
+            url: "https://{hostname}:{port}",
+            variables: {
+              hostname: {
+                default: "localhost"
+              },
+              port: {
+                default: "8080"
+              }
+            }
+          }
+        ],
+        security: [
+          {
+            basic_auth: []
+          }
+        ],
+        tags: .[1].tags,
+        components: {
+          schemas: .[1].components.schemas
+        },
+        paths: .[1].paths
+      } |
+      .components.securitySchemes = {
+        basic_auth: {
+          type: "http",
+          scheme: "basic",
+        },
+      } |
+      .components.schemas.OCSMeta =
+      {
+        type: "object",
+        properties: {
+          status: {
+            type: "string"
+          },
+          statuscode: {
+            type: "integer"
+          },
+          message: {
+            type: "string"
+          },
+          totalitems: {
+            type: "string"
+          },
+          itemsperpage: {
+            type: "string"
+          }
+        }
+      }
+      ' \
+      specs/templates/"$codename".json \
+      specs/"$codename".json \
+      > /tmp/nextcloud-neon/"$codename".json
+    cp /tmp/nextcloud-neon/"$codename".json specs/"$codename".json
+done
+
+base_spec=/tmp/nextcloud-neon/base.json
+merged_spec=/tmp/nextcloud-neon/merged.json
+for codename in ${codenames[*]}; do
+  if [ ! -f $base_spec ]; then
+    cp specs/"$codename".json $base_spec
+  else
+      jq \
+        -s \
+        '{
+          servers: .[0].servers,
+          security: .[0].security,
+          tags: (.[0].tags + .[1].tags),
+          components: (.[0].components * .[1].components),
+          paths: (.[0].paths * .[1].paths),
+        }' \
+        $base_spec \
+        specs/"$codename".json \
+        > $merged_spec
+      cp $merged_spec $base_spec
+  fi
+done
+
+jq \
+'
+{
+  openapi: "3.1.0",
+  info: {
+    title: "Nextcloud",
+    version: "latest",
+    license: {
+      name: "agpl",
+      identifier: "AGPL-3.0"
+    }
+  },
+  servers: .servers,
+  security: .security,
+  tags: .tags,
+  components: .components,
+  paths: .paths,
+}
+' $merged_spec > packages/nextcloud/lib/src/nextcloud.openapi.json
+
+(
+  cd packages/nextcloud
+  rm -rf .dart_tool/build
+  fvm dart pub run build_runner build --delete-conflicting-outputs
+)
 
 ./tool/format.sh

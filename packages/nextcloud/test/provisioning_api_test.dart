@@ -14,11 +14,7 @@ Future main() async {
     tearDown(() => client.destroy());
 
     test('Get current user', () async {
-      final user = (await validateResponse<ProvisioningApiUser, void>(
-        client.provisioningApi,
-        client.provisioningApi.getCurrentUserWithHttpInfo(),
-        cleanResponse: true,
-      ))!;
+      final user = await client.provisioningApi.getCurrentUser();
       expect(user.ocs!.data!.id, 'test');
       expect(user.ocs!.data!.getDisplayName(), 'Test');
       expect(user.ocs!.data!.displaynameScope, 'v2-federated');
@@ -26,11 +22,7 @@ Future main() async {
     });
 
     test('Get user by username', () async {
-      final user = (await validateResponse<ProvisioningApiUser, void>(
-        client.provisioningApi,
-        client.provisioningApi.getUserWithHttpInfo('test'),
-        cleanResponse: true,
-      ))!;
+      final user = await client.provisioningApi.getUser(userId: 'test');
       expect(user.ocs!.data!.id, 'test');
       expect(user.ocs!.data!.getDisplayName(), 'Test');
       expect(user.ocs!.data!.displaynameScope, 'v2-federated');
