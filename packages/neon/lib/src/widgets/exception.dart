@@ -89,43 +89,40 @@ class ExceptionWidget extends StatelessWidget {
     }
 
     if (exception is ApiException) {
-      if (exception.code == 401) {
+      if (exception.statusCode == 401) {
         return _ExceptionDetails(
           text: AppLocalizations.of(context).errorCredentialsForAccountNoLongerMatch,
           isUnauthorized: true,
         );
       }
 
-      if (exception.code >= 500 && exception.code <= 599) {
+      if (exception.statusCode >= 500 && exception.statusCode <= 599) {
         return _ExceptionDetails(
           text: AppLocalizations.of(context).errorServerHadAProblemProcessingYourRequest,
         );
       }
     }
 
-    final socketException = _getSpecificExceptionForException<SocketException>(exception);
-    if (socketException != null) {
+    if (exception is SocketException) {
       return _ExceptionDetails(
-        text: socketException.address != null
-            ? AppLocalizations.of(context).errorUnableToReachServerAt(socketException.address!.host)
+        text: exception.address != null
+            ? AppLocalizations.of(context).errorUnableToReachServerAt(exception.address!.host)
             : AppLocalizations.of(context).errorUnableToReachServer,
       );
     }
 
-    final clientException = _getSpecificExceptionForException<ClientException>(exception);
-    if (clientException != null) {
+    if (exception is ClientException) {
       return _ExceptionDetails(
-        text: clientException.uri != null
-            ? AppLocalizations.of(context).errorUnableToReachServerAt(clientException.uri!.host)
+        text: exception.uri != null
+            ? AppLocalizations.of(context).errorUnableToReachServerAt(exception.uri!.host)
             : AppLocalizations.of(context).errorUnableToReachServer,
       );
     }
 
-    final httpException = _getSpecificExceptionForException<HttpException>(exception);
-    if (httpException != null) {
+    if (exception is HttpException) {
       return _ExceptionDetails(
-        text: httpException.uri != null
-            ? AppLocalizations.of(context).errorUnableToReachServerAt(httpException.uri!.host)
+        text: exception.uri != null
+            ? AppLocalizations.of(context).errorUnableToReachServerAt(exception.uri!.host)
             : AppLocalizations.of(context).errorUnableToReachServer,
       );
     }
@@ -139,17 +136,6 @@ class ExceptionWidget extends StatelessWidget {
     return _ExceptionDetails(
       text: AppLocalizations.of(context).errorSomethingWentWrongTryAgainLater,
     );
-  }
-
-  static T? _getSpecificExceptionForException<T extends Exception>(final dynamic exception) {
-    if (exception is T) {
-      return exception;
-    }
-    if (exception is ApiException && exception.innerException != null && exception.innerException is T) {
-      return exception.innerException! as T;
-    }
-
-    return null;
   }
 
   static Future _openLoginPage(final BuildContext context) async {

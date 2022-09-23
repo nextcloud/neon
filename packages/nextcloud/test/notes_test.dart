@@ -13,16 +13,13 @@ Future main() async {
     });
     tearDown(() => client.destroy());
 
-    test('Create note', () async {
-      final response = (await validateResponse<NotesNote, void>(
-        client.notes,
-        client.notes.createNoteWithHttpInfo(
-          title: 'a',
-          content: 'b',
-          category: 'c',
-          favorite: true,
-        ),
-      ))!;
+    test('Create note favorite', () async {
+      final response = await client.notes.createNote(
+        title: 'a',
+        content: 'b',
+        category: 'c',
+        favorite: 1,
+      );
       expect(response.id, isPositive);
       expect(response.title, 'a');
       expect(response.content, 'b');
@@ -33,148 +30,102 @@ Future main() async {
       expect(response.modified, isNotNull);
     });
 
-    test('List notes', () async {
-      await validateResponse<NotesNote, void>(
-        client.notes,
-        client.notes.createNoteWithHttpInfo(title: 'a'),
+    test('Create note not favorite', () async {
+      final response = await client.notes.createNote(
+        title: 'a',
+        content: 'b',
+        category: 'c',
       );
-      await validateResponse<NotesNote, void>(
-        client.notes,
-        client.notes.createNoteWithHttpInfo(title: 'b'),
-      );
-      final response = (await validateResponse<List<NotesNote>, NotesNote>(
-        client.notes,
-        client.notes.getNotesWithHttpInfo(),
-      ))!;
+      expect(response.id, isPositive);
+      expect(response.title, 'a');
+      expect(response.content, 'b');
+      expect(response.category, 'c');
+      expect(response.favorite, false);
+      expect(response.readonly, false);
+      expect(response.etag, isNotNull);
+      expect(response.modified, isNotNull);
+    });
+
+    test('Get notes', () async {
+      await client.notes.createNote(title: 'a');
+      await client.notes.createNote(title: 'b');
+
+      final response = await client.notes.getNotes();
       expect(response, hasLength(2));
       expect(response[0].title, 'a');
       expect(response[1].title, 'b');
     });
 
     test('Get note', () async {
-      final id = (await validateResponse<NotesNote, void>(
-        client.notes,
-        client.notes.createNoteWithHttpInfo(title: 'a'),
-      ))!
-          .id!;
-      final response = (await validateResponse<NotesNote, void>(
-        client.notes,
-        client.notes.getNoteWithHttpInfo(id),
-      ))!;
+      final response = await client.notes.getNote(
+        id: (await client.notes.createNote(title: 'a')).id!,
+      );
       expect(response.title, 'a');
     });
 
     test('Update note', () async {
-      final id = (await validateResponse<NotesNote, void>(
-        client.notes,
-        client.notes.createNoteWithHttpInfo(title: 'a'),
-      ))!
-          .id!;
-      await validateResponse<NotesNote, void>(
-        client.notes,
-        client.notes.updateNoteWithHttpInfo(
-          id,
-          title: 'b',
-        ),
+      final id = (await client.notes.createNote(title: 'a')).id!;
+      await client.notes.updateNote(
+        id: id,
+        title: 'b',
       );
 
-      final response = (await validateResponse<NotesNote, void>(
-        client.notes,
-        client.notes.getNoteWithHttpInfo(id),
-      ))!;
+      final response = await client.notes.getNote(id: id);
       expect(response.title, 'b');
     });
 
     test('Update note fail changed on server', () async {
-      final response = (await validateResponse<NotesNote, void>(
-        client.notes,
-        client.notes.createNoteWithHttpInfo(title: 'a'),
-      ))!;
-
-      await validateResponse<NotesNote, void>(
-        client.notes,
-        client.notes.updateNoteWithHttpInfo(
-          response.id!,
-          title: 'b',
+      final response = await client.notes.createNote(title: 'a');
+      await client.notes.updateNote(
+        id: response.id!,
+        title: 'b',
+        ifMatch: '"${response.etag}"',
+      );
+      expect(
+        () => client.notes.updateNote(
+          id: response.id!,
+          title: 'c',
           ifMatch: '"${response.etag}"',
         ),
-      );
-
-      expect(
-        () => validateResponse<NotesNote, void>(
-          client.notes,
-          client.notes.updateNoteWithHttpInfo(
-            response.id!,
-            title: 'c',
-            ifMatch: '"${response.etag}"',
-          ),
-        ),
-        throwsA(predicate((final e) => (e! as ApiException).code == 412)),
+        throwsA(predicate((final e) => (e! as ApiException).statusCode == 412)),
       );
     });
 
     test('Delete note', () async {
-      final id = (await validateResponse<NotesNote, void>(
-        client.notes,
-        client.notes.createNoteWithHttpInfo(title: 'a'),
-      ))!
-          .id!;
+      final id = (await client.notes.createNote(title: 'a')).id!;
 
-      var response = (await validateResponse<List<NotesNote>, NotesNote>(
-        client.notes,
-        client.notes.getNotesWithHttpInfo(),
-      ))!;
+      var response = await client.notes.getNotes();
       expect(response, hasLength(1));
 
-      await validateResponse<List<NotesNote>, NotesNote>(
-        client.notes,
-        client.notes.deleteNoteWithHttpInfo(id),
-      );
+      await client.notes.deleteNote(id: id);
 
-      response = (await validateResponse<List<NotesNote>, NotesNote>(
-        client.notes,
-        client.notes.getNotesWithHttpInfo(),
-      ))!;
+      response = await client.notes.getNotes();
       expect(response, hasLength(0));
     });
 
     test('Get settings', () async {
-      final response = (await validateResponse<NotesSettings, void>(
-        client.notes,
-        client.notes.getSettingsWithHttpInfo(),
-      ))!;
+      final response = await client.notes.getSettings();
       expect(response.notesPath, 'Notes');
       expect(response.fileSuffix, '.txt');
-      expect(response.noteMode, NotesSettingsNoteModeEnum.edit);
+      expect(response.noteMode, NotesSettingsNoteMode.edit);
     });
 
-    test('Set settings', () async {
-      var response = (await validateResponse<NotesSettings, NotesSettings>(
-        client.notes,
-        client.notes.getSettingsWithHttpInfo(),
-      ))!;
-
-      response = (await validateResponse<NotesSettings, NotesSettings>(
-        client.notes,
-        client.notes.updateSettingsWithHttpInfo(
-          NotesSettings(
-            notesPath: 'Test Notes',
-            fileSuffix: '.md',
-            noteMode: NotesSettingsNoteModeEnum.preview,
-          ),
+    test('Update settings', () async {
+      var response = await client.notes.updateSettings(
+        notesSettings: NotesSettings(
+          notesPath: 'Test Notes',
+          fileSuffix: '.md',
+          noteMode: NotesSettingsNoteMode.preview,
         ),
-      ))!;
+      );
       expect(response.notesPath, 'Test Notes');
       expect(response.fileSuffix, '.md');
-      expect(response.noteMode, NotesSettingsNoteModeEnum.preview);
+      expect(response.noteMode, NotesSettingsNoteMode.preview);
 
-      response = (await validateResponse<NotesSettings, NotesSettings>(
-        client.notes,
-        client.notes.getSettingsWithHttpInfo(),
-      ))!;
+      response = await client.notes.getSettings();
       expect(response.notesPath, 'Test Notes');
       expect(response.fileSuffix, '.md');
-      expect(response.noteMode, NotesSettingsNoteModeEnum.preview);
+      expect(response.noteMode, NotesSettingsNoteMode.preview);
     });
   });
 }

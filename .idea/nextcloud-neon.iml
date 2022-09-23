@@ -9,36 +9,18 @@
   <component name="NewModuleRootManager" inherit-compiler-output="true">
     <exclude-output />
     <content url="file://$MODULE_DIR$">
-      <excludeFolder url="file://$MODULE_DIR$/external/openapi-generator/samples/openapi3/client/petstore/dart-dio/petstore_client_lib_fake_tests/build" />
-      <excludeFolder url="file://$MODULE_DIR$/external/openapi-generator/samples/openapi3/client/petstore/dart-dio/petstore_client_lib_fake_tests/.dart_tool" />
-      <excludeFolder url="file://$MODULE_DIR$/external/openapi-generator/samples/openapi3/client/petstore/dart-dio/petstore_client_lib_fake_tests/.pub" />
       <excludeFolder url="file://$MODULE_DIR$/packages/file_icons/build" />
       <excludeFolder url="file://$MODULE_DIR$/packages/file_icons/.dart_tool" />
       <excludeFolder url="file://$MODULE_DIR$/packages/file_icons/.pub" />
       <excludeFolder url="file://$MODULE_DIR$/packages/sort_box/.pub" />
       <excludeFolder url="file://$MODULE_DIR$/packages/sort_box/build" />
       <excludeFolder url="file://$MODULE_DIR$/packages/sort_box/.dart_tool" />
-      <excludeFolder url="file://$MODULE_DIR$/external/openapi-generator/samples/openapi3/client/petstore/dart2/petstore_client_lib_fake/build" />
-      <excludeFolder url="file://$MODULE_DIR$/external/openapi-generator/samples/openapi3/client/petstore/dart2/petstore_client_lib_fake/.dart_tool" />
-      <excludeFolder url="file://$MODULE_DIR$/external/openapi-generator/samples/openapi3/client/petstore/dart2/petstore_client_lib_fake/.pub" />
-      <excludeFolder url="file://$MODULE_DIR$/external/openapi-generator/samples/openapi3/client/petstore/dart-dio/petstore_client_lib_fake/build" />
-      <excludeFolder url="file://$MODULE_DIR$/external/openapi-generator/samples/openapi3/client/petstore/dart-dio/petstore_client_lib_fake/.dart_tool" />
-      <excludeFolder url="file://$MODULE_DIR$/external/openapi-generator/samples/openapi3/client/petstore/dart-dio/petstore_client_lib_fake/.pub" />
-      <excludeFolder url="file://$MODULE_DIR$/external/openapi-generator/samples/openapi3/client/petstore/dart-dio/petstore_client_lib_fake-json_serializable/.pub" />
-      <excludeFolder url="file://$MODULE_DIR$/external/openapi-generator/samples/openapi3/client/petstore/dart-dio/petstore_client_lib_fake-json_serializable/.dart_tool" />
-      <excludeFolder url="file://$MODULE_DIR$/external/openapi-generator/samples/openapi3/client/petstore/dart-dio/petstore_client_lib_fake-json_serializable/build" />
       <excludeFolder url="file://$MODULE_DIR$/packages/spec_templates/.dart_tool" />
       <excludeFolder url="file://$MODULE_DIR$/packages/spec_templates/.pub" />
       <excludeFolder url="file://$MODULE_DIR$/packages/spec_templates/build" />
-      <excludeFolder url="file://$MODULE_DIR$/external/openapi-generator/samples/openapi3/client/petstore/dart2/petstore_client_lib/build" />
-      <excludeFolder url="file://$MODULE_DIR$/external/openapi-generator/samples/openapi3/client/petstore/dart2/petstore_client_lib/.pub" />
-      <excludeFolder url="file://$MODULE_DIR$/external/openapi-generator/samples/openapi3/client/petstore/dart2/petstore_client_lib/.dart_tool" />
       <excludeFolder url="file://$MODULE_DIR$/packages/settings/build" />
       <excludeFolder url="file://$MODULE_DIR$/packages/settings/.dart_tool" />
       <excludeFolder url="file://$MODULE_DIR$/packages/settings/.pub" />
-      <excludeFolder url="file://$MODULE_DIR$/external/openapi-generator/bin/utils/dart-keywords/.pub" />
-      <excludeFolder url="file://$MODULE_DIR$/external/openapi-generator/bin/utils/dart-keywords/.dart_tool" />
-      <excludeFolder url="file://$MODULE_DIR$/external/openapi-generator/bin/utils/dart-keywords/build" />
       <excludeFolder url="file://$MODULE_DIR$/packages/nextcloud/.dart_tool" />
       <excludeFolder url="file://$MODULE_DIR$/packages/nextcloud/.pub" />
       <excludeFolder url="file://$MODULE_DIR$/packages/nextcloud/build" />
@@ -61,6 +43,9 @@
       <excludeFolder url="file://$MODULE_DIR$/packages/neon/.dart_tool" />
       <excludeFolder url="file://$MODULE_DIR$/packages/neon/build" />
       <excludeFolder url="file://$MODULE_DIR$/packages/neon/android/.gradle" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/dynamite/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/dynamite/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/dynamite/build" />
     </content>
     <orderEntry type="jdk" jdkName="Android API 32 Platform" jdkType="Android SDK" />
     <orderEntry type="sourceFolder" forTests="false" />

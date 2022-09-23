@@ -32,11 +32,10 @@ class CapabilitiesBloc extends $CapabilitiesBloc {
 
   void _loadCapabilities() {
     _requestManager
-        .wrapNextcloud<CoreServerCapabilitiesOcsData, CoreServerCapabilities, void, NextcloudCoreClient>(
+        .wrapNextcloud<CoreServerCapabilitiesOcsData, CoreServerCapabilities>(
           _client.id,
-          _client.core,
           'capabilities',
-          () async => (await _client.core.getCapabilities())!,
+          () async => _client.core.getCapabilities(),
           (final response) => response.ocs!.data!,
           preloadCache: true,
         )

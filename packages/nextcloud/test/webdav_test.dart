@@ -101,7 +101,7 @@ Future main() async {
 
       expect(
         () => client.webdav.copy('1.txt', '2.txt'),
-        throwsA(predicate((final e) => (e! as ApiException).code == 412)),
+        throwsA(predicate((final e) => (e! as ApiException).statusCode == 412)),
       );
     });
 
@@ -134,7 +134,7 @@ Future main() async {
 
       expect(
         () => client.webdav.move('1.txt', '2.txt'),
-        throwsA(predicate((final e) => (e! as ApiException).code == 412)),
+        throwsA(predicate((final e) => (e! as ApiException).statusCode == 412)),
       );
     });
 

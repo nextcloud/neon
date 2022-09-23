@@ -20,10 +20,10 @@ class AccountAvatar extends StatelessWidget {
             stream: requestManager.wrapBytes(
               account.client.id,
               'accounts-avatar-${account.id}',
-              () async => (await account.client.core.getAvatarBytes(
-                account.username,
-                (kAvatarSize * MediaQuery.of(context).devicePixelRatio).toInt(),
-              ))!,
+              () async => account.client.core.getAvatar(
+                userId: account.username,
+                size: (kAvatarSize * MediaQuery.of(context).devicePixelRatio).toInt(),
+              ),
               preferCache: true,
             ),
             builder: (
@@ -78,8 +78,8 @@ class AccountAvatar extends StatelessWidget {
                       : BoxDecoration(
                           shape: BoxShape.circle,
                           color: _userStatusToColor(userStatusData),
-                          border: userStatusData.status != UserStatusTypeEnum.offline &&
-                                  userStatusData.status != UserStatusTypeEnum.invisible
+                          border: userStatusData.status != UserStatusType.offline &&
+                                  userStatusData.status != UserStatusType.invisible
                               ? Border.all(
                                   color: Theme.of(context).colorScheme.onPrimary,
                                 )
@@ -90,7 +90,8 @@ class AccountAvatar extends StatelessWidget {
                           strokeWidth: 1.5,
                           color: Theme.of(context).colorScheme.onPrimary,
                         )
-                      : userStatusError != null && (userStatusError is! ApiException || userStatusError.code != 404)
+                      : userStatusError != null &&
+                              (userStatusError is! ApiException || userStatusError.statusCode != 404)
                           ? const Icon(
                               Icons.error_outline,
                               size: kAvatarSize / 3,
@@ -106,17 +107,14 @@ class AccountAvatar extends StatelessWidget {
 
   Color _userStatusToColor(final UserStatus userStatus) {
     switch (userStatus.status) {
-      case UserStatusTypeEnum.online:
+      case UserStatusType.online:
         return const Color(0xFF49B382);
-      case UserStatusTypeEnum.away:
+      case UserStatusType.away:
         return const Color(0xFFF4A331);
-      case UserStatusTypeEnum.dnd:
+      case UserStatusType.dnd:
         return const Color(0xFFED484C);
-      case UserStatusTypeEnum.invisible:
-      case UserStatusTypeEnum.offline:
+      default:
         return Colors.transparent;
     }
-
-    return Colors.transparent;
   }
 }

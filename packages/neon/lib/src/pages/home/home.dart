@@ -165,13 +165,13 @@ class _HomePageState extends State<HomePage> with tray.TrayListener, WindowListe
         };
         Global.onPushNotificationClicked = (final payload) async {
           if (payload != null) {
-            final notification = NextcloudNotification.fromJson(json.decode(payload) as Map<String, dynamic>);
+            final notification = NotificationsPushNotification.fromJson(json.decode(payload) as Map<String, dynamic>);
             debugPrint('onNotificationClicked: ${notification.subject}');
 
             final allAppImplementations = Provider.of<List<AppImplementation>>(context, listen: false);
 
             final matchingAppImplementations =
-                allAppImplementations.where((final a) => a.id == notification.subject.app);
+                allAppImplementations.where((final a) => a.id == notification.subject!.app);
 
             late AppImplementation appImplementation;
             if (matchingAppImplementations.isNotEmpty) {
@@ -181,11 +181,7 @@ class _HomePageState extends State<HomePage> with tray.TrayListener, WindowListe
             }
 
             if (appImplementation.id != 'notifications') {
-              _appsBloc.getAppBloc<NotificationsBloc>(appImplementation).deleteNotification(
-                    NotificationsNotification(
-                      notificationId: notification.subject.nid,
-                    ),
-                  );
+              _appsBloc.getAppBloc<NotificationsBloc>(appImplementation).deleteNotification(notification.subject!.nid!);
             }
             await _openAppFromExternal(appImplementation.id);
           }

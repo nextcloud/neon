@@ -144,7 +144,7 @@ class _NotificationsMainPageState extends State<NotificationsMainPage> {
         }
       },
       onLongPress: () {
-        widget.bloc.deleteNotification(notification);
+        widget.bloc.deleteNotification(notification.notificationId!);
       },
     );
   }

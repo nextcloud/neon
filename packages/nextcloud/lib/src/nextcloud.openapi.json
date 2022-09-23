@@ -1,0 +1,3166 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Nextcloud",
+    "version": "latest",
+    "license": {
+      "name": "agpl",
+      "identifier": "AGPL-3.0"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://{hostname}:{port}",
+      "variables": {
+        "hostname": {
+          "default": "localhost"
+        },
+        "port": {
+          "default": "8080"
+        }
+      }
+    }
+  ],
+  "security": [
+    {
+      "basic_auth": []
+    }
+  ],
+  "tags": [
+    {
+      "name": "core"
+    },
+    {
+      "name": "news"
+    },
+    {
+      "name": "notes"
+    },
+    {
+      "name": "notifications"
+    },
+    {
+      "name": "provisioning_api"
+    },
+    {
+      "name": "user_status"
+    }
+  ],
+  "components": {
+    "schemas": {
+      "OCSMeta": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "statuscode": {
+            "type": "integer"
+          },
+          "message": {
+            "type": "string"
+          },
+          "totalitems": {
+            "type": "string"
+          },
+          "itemsperpage": {
+            "type": "string"
+          }
+        }
+      },
+      "CoreServerStatus": {
+        "type": "object",
+        "properties": {
+          "installed": {
+            "type": "boolean"
+          },
+          "maintenance": {
+            "type": "boolean"
+          },
+          "needsDbUpgrade": {
+            "type": "boolean"
+          },
+          "version": {
+            "type": "string"
+          },
+          "versionstring": {
+            "type": "string"
+          },
+          "edition": {
+            "type": "string"
+          },
+          "productname": {
+            "type": "string"
+          },
+          "extendedSupport": {
+            "type": "boolean"
+          }
+        }
+      },
+      "CoreServerCapabilities": {
+        "type": "object",
+        "properties": {
+          "ocs": {
+            "type": "object",
+            "properties": {
+              "meta": {
+                "$ref": "#/components/schemas/OCSMeta"
+              },
+              "data": {
+                "type": "object",
+                "properties": {
+                  "version": {
+                    "type": "object",
+                    "properties": {
+                      "major": {
+                        "type": "integer"
+                      },
+                      "minor": {
+                        "type": "integer"
+                      },
+                      "micro": {
+                        "type": "integer"
+                      },
+                      "string": {
+                        "type": "string"
+                      },
+                      "edition": {
+                        "type": "string"
+                      },
+                      "extendedSupport": {
+                        "type": "boolean"
+                      }
+                    }
+                  },
+                  "capabilities": {
+                    "type": "object",
+                    "properties": {
+                      "core": {
+                        "type": "object",
+                        "properties": {
+                          "pollinterval": {
+                            "type": "integer"
+                          },
+                          "webdav-root": {
+                            "type": "string"
+                          }
+                        }
+                      },
+                      "bruteforce": {
+                        "type": "object",
+                        "properties": {
+                          "delay": {
+                            "type": "integer"
+                          }
+                        }
+                      },
+                      "metadataAvailable": {
+                        "type": "object",
+                        "properties": {
+                          "size": {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            }
+                          }
+                        }
+                      },
+                      "files": {
+                        "type": "object",
+                        "properties": {
+                          "bigfilechunking": {
+                            "type": "boolean"
+                          },
+                          "blacklisted_files": {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            }
+                          },
+                          "directEditing": {
+                            "type": "object",
+                            "properties": {
+                              "url": {
+                                "type": "string"
+                              },
+                              "etag": {
+                                "type": "string"
+                              }
+                            }
+                          },
+                          "comments": {
+                            "type": "boolean"
+                          },
+                          "undelete": {
+                            "type": "boolean"
+                          },
+                          "versioning": {
+                            "type": "boolean"
+                          }
+                        }
+                      },
+                      "activity": {
+                        "type": "object",
+                        "properties": {
+                          "apiv2": {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            }
+                          }
+                        }
+                      },
+                      "circles": {
+                        "type": "object",
+                        "properties": {
+                          "version": {
+                            "type": "string"
+                          },
+                          "status": {
+                            "type": "object",
+                            "properties": {
+                              "globalScale": {
+                                "type": "boolean"
+                              }
+                            }
+                          },
+                          "settings": {
+                            "type": "object",
+                            "properties": {
+                              "frontendEnabled": {
+                                "type": "boolean"
+                              },
+                              "allowedCircles": {
+                                "type": "integer"
+                              },
+                              "allowedUserTypes": {
+                                "type": "integer"
+                              },
+                              "membersLimit": {
+                                "type": "integer"
+                              }
+                            }
+                          },
+                          "circle": {
+                            "type": "object",
+                            "properties": {
+                              "constants": {
+                                "type": "object",
+                                "properties": {
+                                  "flags": {
+                                    "type": "object"
+                                  },
+                                  "source": {
+                                    "type": "object",
+                                    "properties": {
+                                      "core": {
+                                        "type": "object"
+                                      },
+                                      "extra": {
+                                        "type": "object"
+                                      }
+                                    }
+                                  }
+                                }
+                              },
+                              "config": {
+                                "type": "object",
+                                "properties": {
+                                  "coreFlags": {
+                                    "type": "array",
+                                    "items": {
+                                      "type": "integer"
+                                    }
+                                  },
+                                  "systemFlags": {
+                                    "type": "array",
+                                    "items": {
+                                      "type": "integer"
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          "member": {
+                            "type": "object",
+                            "properties": {
+                              "constants": {
+                                "type": "object",
+                                "properties": {
+                                  "level": {
+                                    "type": "object"
+                                  }
+                                }
+                              },
+                              "type": {
+                                "type": "object"
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "ocm": {
+                        "type": "object",
+                        "properties": {
+                          "enabled": {
+                            "type": "boolean"
+                          },
+                          "apiVersion": {
+                            "type": "string"
+                          },
+                          "endPoint": {
+                            "type": "string"
+                          },
+                          "resourceTypes": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "name": {
+                                  "type": "string"
+                                },
+                                "shareTypes": {
+                                  "type": "array",
+                                  "items": {
+                                    "type": "string"
+                                  }
+                                },
+                                "protocols": {
+                                  "type": "object",
+                                  "properties": {
+                                    "webdav": {
+                                      "type": "string"
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "dav": {
+                        "type": "object",
+                        "properties": {
+                          "chunking": {
+                            "type": "string"
+                          }
+                        }
+                      },
+                      "files_sharing": {
+                        "type": "object",
+                        "properties": {
+                          "api_enabled": {
+                            "type": "boolean"
+                          },
+                          "public": {
+                            "type": "object",
+                            "properties": {
+                              "enabled": {
+                                "type": "boolean"
+                              },
+                              "password": {
+                                "type": "object",
+                                "properties": {
+                                  "enforced": {
+                                    "type": "boolean"
+                                  },
+                                  "askForOptionalPassword": {
+                                    "type": "boolean"
+                                  }
+                                }
+                              },
+                              "expire_date": {
+                                "type": "object",
+                                "properties": {
+                                  "enabled": {
+                                    "type": "boolean"
+                                  }
+                                }
+                              },
+                              "multiple_links": {
+                                "type": "boolean"
+                              },
+                              "expire_date_internal": {
+                                "type": "object",
+                                "properties": {
+                                  "enabled": {
+                                    "type": "boolean"
+                                  }
+                                }
+                              },
+                              "expire_date_remote": {
+                                "type": "object",
+                                "properties": {
+                                  "enabled": {
+                                    "type": "boolean"
+                                  }
+                                }
+                              },
+                              "send_mail": {
+                                "type": "boolean"
+                              },
+                              "upload": {
+                                "type": "boolean"
+                              },
+                              "upload_files_drop": {
+                                "type": "boolean"
+                              }
+                            }
+                          },
+                          "resharing": {
+                            "type": "boolean"
+                          },
+                          "user": {
+                            "type": "object",
+                            "properties": {
+                              "send_mail": {
+                                "type": "boolean"
+                              },
+                              "expire_date": {
+                                "type": "object",
+                                "properties": {
+                                  "enabled": {
+                                    "type": "boolean"
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          "group_sharing": {
+                            "type": "boolean"
+                          },
+                          "group": {
+                            "type": "object",
+                            "properties": {
+                              "enabled": {
+                                "type": "boolean"
+                              },
+                              "expire_date": {
+                                "type": "object",
+                                "properties": {
+                                  "enabled": {
+                                    "type": "boolean"
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          "default_permissions": {
+                            "type": "integer"
+                          },
+                          "federation": {
+                            "type": "object",
+                            "properties": {
+                              "outgoing": {
+                                "type": "boolean"
+                              },
+                              "incoming": {
+                                "type": "boolean"
+                              },
+                              "expire_date": {
+                                "type": "object",
+                                "properties": {
+                                  "enabled": {
+                                    "type": "boolean"
+                                  }
+                                }
+                              },
+                              "expire_date_supported": {
+                                "type": "object",
+                                "properties": {
+                                  "enabled": {
+                                    "type": "boolean"
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          "sharee": {
+                            "type": "object",
+                            "properties": {
+                              "query_lookup_default": {
+                                "type": "boolean"
+                              },
+                              "always_show_unique": {
+                                "type": "boolean"
+                              }
+                            }
+                          },
+                          "sharebymail": {
+                            "type": "object",
+                            "properties": {
+                              "enabled": {
+                                "type": "boolean"
+                              },
+                              "send_password_by_mail": {
+                                "type": "boolean"
+                              },
+                              "upload_files_drop": {
+                                "type": "object",
+                                "properties": {
+                                  "enabled": {
+                                    "type": "boolean"
+                                  }
+                                }
+                              },
+                              "password": {
+                                "type": "object",
+                                "properties": {
+                                  "enabled": {
+                                    "type": "boolean"
+                                  },
+                                  "enforced": {
+                                    "type": "boolean"
+                                  }
+                                }
+                              },
+                              "expire_date": {
+                                "type": "object",
+                                "properties": {
+                                  "enabled": {
+                                    "type": "boolean"
+                                  },
+                                  "enforced": {
+                                    "type": "boolean"
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "notes": {
+                        "type": "object",
+                        "properties": {
+                          "api_version": {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            }
+                          },
+                          "version": {
+                            "type": "string"
+                          }
+                        }
+                      },
+                      "notifications": {
+                        "type": "object",
+                        "properties": {
+                          "ocs-endpoints": {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            }
+                          },
+                          "push": {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            }
+                          },
+                          "admin-notifications": {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            }
+                          }
+                        }
+                      },
+                      "password_policy": {
+                        "type": "object",
+                        "properties": {
+                          "minLength": {
+                            "type": "integer"
+                          },
+                          "enforceNonCommonPassword": {
+                            "type": "boolean"
+                          },
+                          "enforceNumericCharacters": {
+                            "type": "boolean"
+                          },
+                          "enforceSpecialCharacters": {
+                            "type": "boolean"
+                          },
+                          "enforceUpperLowerCase": {
+                            "type": "boolean"
+                          },
+                          "api": {
+                            "type": "object",
+                            "properties": {
+                              "generate": {
+                                "type": "string"
+                              },
+                              "validate": {
+                                "type": "string"
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "provisioning_api": {
+                        "type": "object",
+                        "properties": {
+                          "version": {
+                            "type": "string"
+                          },
+                          "AccountPropertyScopesVersion": {
+                            "type": "integer"
+                          },
+                          "AccountPropertyScopesFederatedEnabled": {
+                            "type": "boolean"
+                          },
+                          "AccountPropertyScopesPublishedEnabled": {
+                            "type": "boolean"
+                          }
+                        }
+                      },
+                      "theming": {
+                        "type": "object",
+                        "properties": {
+                          "name": {
+                            "type": "string"
+                          },
+                          "url": {
+                            "type": "string"
+                          },
+                          "slogan": {
+                            "type": "string"
+                          },
+                          "color": {
+                            "type": "string"
+                          },
+                          "color-text": {
+                            "type": "string"
+                          },
+                          "color-element": {
+                            "type": "string"
+                          },
+                          "color-element-bright": {
+                            "type": "string"
+                          },
+                          "color-element-dark": {
+                            "type": "string"
+                          },
+                          "logo": {
+                            "type": "string"
+                          },
+                          "background": {
+                            "type": "string"
+                          },
+                          "background-plain": {
+                            "type": "boolean"
+                          },
+                          "background-default": {
+                            "type": "boolean"
+                          },
+                          "logoheader": {
+                            "type": "string"
+                          },
+                          "favicon": {
+                            "type": "string"
+                          }
+                        }
+                      },
+                      "user_status": {
+                        "type": "object",
+                        "properties": {
+                          "enabled": {
+                            "type": "boolean"
+                          },
+                          "supports_emoji": {
+                            "type": "boolean"
+                          }
+                        }
+                      },
+                      "weather_status": {
+                        "type": "object",
+                        "properties": {
+                          "enabled": {
+                            "type": "boolean"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "CoreNavigationApps": {
+        "type": "object",
+        "properties": {
+          "ocs": {
+            "type": "object",
+            "properties": {
+              "meta": {
+                "$ref": "#/components/schemas/OCSMeta"
+              },
+              "data": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "order": {
+                      "description": "Should always be an integer, but there is a bug. See https://github.com/nextcloud/server/issues/32828",
+                      "oneOf": [
+                        {
+                          "type": "integer"
+                        },
+                        {
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "href": {
+                      "type": "string"
+                    },
+                    "icon": {
+                      "type": "string"
+                    },
+                    "type": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "active": {
+                      "type": "boolean"
+                    },
+                    "classes": {
+                      "type": "string"
+                    },
+                    "unread": {
+                      "type": "integer"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "CoreLoginFlowInit": {
+        "type": "object",
+        "properties": {
+          "poll": {
+            "type": "object",
+            "properties": {
+              "token": {
+                "type": "string"
+              },
+              "endpoint": {
+                "type": "string"
+              }
+            }
+          },
+          "login": {
+            "type": "string"
+          }
+        }
+      },
+      "CoreLoginFlowResult": {
+        "type": "object",
+        "properties": {
+          "server": {
+            "type": "string"
+          },
+          "loginName": {
+            "type": "string"
+          },
+          "appPassword": {
+            "type": "string"
+          }
+        }
+      },
+      "NewsListFeeds": {
+        "type": "object",
+        "properties": {
+          "starredCount": {
+            "type": "integer"
+          },
+          "newestItemId": {
+            "type": "integer"
+          },
+          "feeds": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/NewsFeed"
+            }
+          }
+        }
+      },
+      "NewsFeed": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "url": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "faviconLink": {
+            "type": "string"
+          },
+          "added": {
+            "type": "integer"
+          },
+          "folderId": {
+            "type": "integer"
+          },
+          "unreadCount": {
+            "type": "integer"
+          },
+          "ordering": {
+            "type": "integer"
+          },
+          "link": {
+            "type": "string"
+          },
+          "pinned": {
+            "type": "boolean"
+          },
+          "updateErrorCount": {
+            "type": "integer"
+          },
+          "lastUpdateError": {
+            "type": "string"
+          },
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/NewsArticle"
+            }
+          }
+        }
+      },
+      "NewsArticle": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "guid": {
+            "type": "string"
+          },
+          "guidHash": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "author": {
+            "type": "string"
+          },
+          "pubDate": {
+            "type": "integer"
+          },
+          "updatedDate": {
+            "type": "integer"
+          },
+          "body": {
+            "type": "string"
+          },
+          "enclosureMime": {
+            "type": "string"
+          },
+          "enclosureLink": {
+            "type": "string"
+          },
+          "mediaThumbnail": {
+            "type": "string"
+          },
+          "mediaDescription": {
+            "type": "string"
+          },
+          "feedId": {
+            "type": "integer"
+          },
+          "unread": {
+            "type": "boolean"
+          },
+          "starred": {
+            "type": "boolean"
+          },
+          "lastModified": {
+            "type": "integer"
+          },
+          "rtl": {
+            "type": "boolean"
+          },
+          "fingerprint": {
+            "type": "string"
+          },
+          "contentHash": {
+            "type": "string"
+          }
+        }
+      },
+      "NewsListArticles": {
+        "type": "object",
+        "properties": {
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/NewsArticle"
+            }
+          }
+        }
+      },
+      "NewsListFolders": {
+        "type": "object",
+        "properties": {
+          "folders": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/NewsFolder"
+            }
+          }
+        }
+      },
+      "NewsFolder": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "name": {
+            "type": "string"
+          },
+          "opened": {
+            "type": "boolean"
+          },
+          "feeds": {
+            "description": "This seems to be broken. In testing it is always empty",
+            "deprecated": true,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/NewsFeed"
+            }
+          }
+        }
+      },
+      "NotesNote": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "etag": {
+            "type": "string"
+          },
+          "readonly": {
+            "type": "boolean"
+          },
+          "content": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "category": {
+            "type": "string"
+          },
+          "favorite": {
+            "type": "boolean"
+          },
+          "modified": {
+            "type": "integer"
+          },
+          "error": {
+            "type": "boolean"
+          },
+          "errorType": {
+            "type": "string"
+          }
+        }
+      },
+      "NotesSettings": {
+        "type": "object",
+        "properties": {
+          "notesPath": {
+            "type": "string"
+          },
+          "fileSuffix": {
+            "type": "string"
+          },
+          "noteMode": {
+            "type": "string",
+            "enum": [
+              "edit",
+              "preview"
+            ]
+          }
+        }
+      },
+      "NotificationsEmpty": {
+        "type": "object",
+        "properties": {
+          "ocs": {
+            "type": "object",
+            "properties": {
+              "meta": {
+                "$ref": "#/components/schemas/OCSMeta"
+              },
+              "data": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      },
+      "NotificationsNotification": {
+        "type": "object",
+        "properties": {
+          "notification_id": {
+            "type": "integer"
+          },
+          "app": {
+            "type": "string"
+          },
+          "user": {
+            "type": "string"
+          },
+          "datetime": {
+            "type": "string"
+          },
+          "object_type": {
+            "type": "string"
+          },
+          "object_id": {
+            "type": "string"
+          },
+          "subject": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          },
+          "link": {
+            "type": "string"
+          },
+          "subjectRich": {
+            "type": "string"
+          },
+          "subjectRichParameters": {
+            "type": "array",
+            "items": {
+              "description": "TODO",
+              "type": "string"
+            }
+          },
+          "messageRich": {
+            "type": "string"
+          },
+          "messageRichParameters": {
+            "type": "array",
+            "items": {
+              "description": "TODO",
+              "type": "string"
+            }
+          },
+          "icon": {
+            "type": "string"
+          },
+          "actions": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/NotificationsNotificationAction"
+            }
+          }
+        }
+      },
+      "NotificationsNotificationAction": {
+        "type": "object",
+        "properties": {
+          "label": {
+            "type": "string"
+          },
+          "link": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          },
+          "primary": {
+            "type": "boolean"
+          }
+        }
+      },
+      "NotificationsListNotifications": {
+        "type": "object",
+        "properties": {
+          "ocs": {
+            "type": "object",
+            "properties": {
+              "meta": {
+                "$ref": "#/components/schemas/OCSMeta"
+              },
+              "data": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/NotificationsNotification"
+                }
+              }
+            }
+          }
+        }
+      },
+      "NotificationsGetNotification": {
+        "type": "object",
+        "properties": {
+          "ocs": {
+            "type": "object",
+            "properties": {
+              "meta": {
+                "$ref": "#/components/schemas/OCSMeta"
+              },
+              "data": {
+                "$ref": "#/components/schemas/NotificationsNotification"
+              }
+            }
+          }
+        }
+      },
+      "NotificationsPushServerSubscription": {
+        "type": "object",
+        "properties": {
+          "publicKey": {
+            "type": "string"
+          },
+          "deviceIdentifier": {
+            "type": "string"
+          },
+          "signature": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      },
+      "NotificationsPushServerRegistration": {
+        "type": "object",
+        "properties": {
+          "ocs": {
+            "type": "object",
+            "properties": {
+              "meta": {
+                "$ref": "#/components/schemas/OCSMeta"
+              },
+              "data": {
+                "$ref": "#/components/schemas/NotificationsPushServerSubscription"
+              }
+            }
+          }
+        }
+      },
+      "NotificationsPushNotification": {
+        "type": "object",
+        "properties": {
+          "accountID": {
+            "type": "string"
+          },
+          "priority": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          },
+          "subject": {
+            "$ref": "#/components/schemas/NotificationsPushNotificationDecryptedSubject"
+          }
+        }
+      },
+      "NotificationsPushNotificationDecryptedSubject": {
+        "type": "object",
+        "properties": {
+          "nid": {
+            "type": "integer"
+          },
+          "app": {
+            "type": "string"
+          },
+          "subject": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          },
+          "delete": {
+            "type": "boolean"
+          },
+          "delete-all": {
+            "type": "boolean"
+          }
+        }
+      },
+      "ProvisioningApiUser": {
+        "type": "object",
+        "properties": {
+          "ocs": {
+            "type": "object",
+            "properties": {
+              "meta": {
+                "$ref": "#/components/schemas/OCSMeta"
+              },
+              "data": {
+                "$ref": "#/components/schemas/ProvisioningApiUserDetails"
+              }
+            }
+          }
+        }
+      },
+      "ProvisioningApiUserDetails": {
+        "type": "object",
+        "properties": {
+          "enabled": {
+            "type": "boolean"
+          },
+          "storageLocation": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          },
+          "lastLogin": {
+            "type": "integer"
+          },
+          "backend": {
+            "type": "string"
+          },
+          "subadmin": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "quota": {
+            "type": "object",
+            "properties": {
+              "free": {
+                "type": "integer"
+              },
+              "used": {
+                "type": "integer"
+              },
+              "total": {
+                "type": "integer"
+              },
+              "relative": {
+                "type": "number"
+              },
+              "quota": {
+                "type": "integer"
+              }
+            }
+          },
+          "avatarScope": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "emailScope": {
+            "type": "string"
+          },
+          "additional_mail": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "additional_mailScope": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "displayname": {
+            "type": "string"
+          },
+          "displaynameScope": {
+            "type": "string"
+          },
+          "phone": {
+            "type": "string"
+          },
+          "phoneScope": {
+            "type": "string"
+          },
+          "address": {
+            "type": "string"
+          },
+          "addressScope": {
+            "type": "string"
+          },
+          "website": {
+            "type": "string"
+          },
+          "websiteScope": {
+            "type": "string"
+          },
+          "twitter": {
+            "type": "string"
+          },
+          "twitterScope": {
+            "type": "string"
+          },
+          "organisation": {
+            "type": "string"
+          },
+          "organisationScope": {
+            "type": "string"
+          },
+          "role": {
+            "type": "string"
+          },
+          "roleScope": {
+            "type": "string"
+          },
+          "headline": {
+            "type": "string"
+          },
+          "headlineScope": {
+            "type": "string"
+          },
+          "biography": {
+            "type": "string"
+          },
+          "biographyScope": {
+            "type": "string"
+          },
+          "profile_enabled": {
+            "type": "string"
+          },
+          "profile_enabledScope": {
+            "type": "string"
+          },
+          "groups": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "language": {
+            "type": "string"
+          },
+          "locale": {
+            "type": "string"
+          },
+          "notify_email": {
+            "type": "string"
+          },
+          "backendCapabilities": {
+            "type": "object",
+            "properties": {
+              "setDisplayName": {
+                "type": "boolean"
+              },
+              "setPassword": {
+                "type": "boolean"
+              }
+            }
+          },
+          "display-name": {
+            "type": "string"
+          }
+        }
+      },
+      "UserStatusPredefinedStatuses": {
+        "type": "object",
+        "properties": {
+          "ocs": {
+            "type": "object",
+            "properties": {
+              "meta": {
+                "$ref": "#/components/schemas/OCSMeta"
+              },
+              "data": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/UserStatusPredefinedStatus"
+                }
+              }
+            }
+          }
+        }
+      },
+      "UserStatusPredefinedStatus": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "icon": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          },
+          "clearAt": {
+            "$ref": "#/components/schemas/UserStatusClearAtWrap"
+          }
+        }
+      },
+      "UserStatusClearAtWrap": {
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/UserStatusClearAt"
+          },
+          {
+            "type": "integer",
+            "description": "Time as unix timestamp"
+          }
+        ]
+      },
+      "UserStatusClearAt": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": [
+              "period",
+              "end-of"
+            ]
+          },
+          "time": {
+            "oneOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "day",
+                  "week"
+                ]
+              },
+              {
+                "type": "integer",
+                "description": "Time offset in seconds"
+              }
+            ]
+          }
+        }
+      },
+      "UserStatusType": {
+        "type": "string",
+        "enum": [
+          "online",
+          "offline",
+          "dnd",
+          "away",
+          "invisible"
+        ]
+      },
+      "UserStatusGetUserStatus": {
+        "type": "object",
+        "properties": {
+          "ocs": {
+            "type": "object",
+            "properties": {
+              "meta": {
+                "$ref": "#/components/schemas/OCSMeta"
+              },
+              "data": {
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/UserStatus"
+                  },
+                  {
+                    "type": "array",
+                    "description": "Only happens when the user has never set a status"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      },
+      "UserStatusFindAllStatuses": {
+        "type": "object",
+        "properties": {
+          "ocs": {
+            "type": "object",
+            "properties": {
+              "meta": {
+                "$ref": "#/components/schemas/OCSMeta"
+              },
+              "data": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/UserStatusPublicUserStatus"
+                }
+              }
+            }
+          }
+        }
+      },
+      "UserStatusFindStatus": {
+        "type": "object",
+        "properties": {
+          "ocs": {
+            "type": "object",
+            "properties": {
+              "meta": {
+                "$ref": "#/components/schemas/OCSMeta"
+              },
+              "data": {
+                "$ref": "#/components/schemas/UserStatusPublicUserStatus"
+              }
+            }
+          }
+        }
+      },
+      "UserStatus": {
+        "type": "object",
+        "properties": {
+          "userId": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          },
+          "messageId": {
+            "type": "string"
+          },
+          "messageIsPredefined": {
+            "type": "boolean"
+          },
+          "icon": {
+            "type": "string"
+          },
+          "clearAt": {
+            "$ref": "#/components/schemas/UserStatusClearAtWrap"
+          },
+          "status": {
+            "$ref": "#/components/schemas/UserStatusType"
+          },
+          "statusIsUserDefined": {
+            "type": "boolean"
+          }
+        }
+      },
+      "UserStatusPublicUserStatus": {
+        "type": "object",
+        "properties": {
+          "userId": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          },
+          "icon": {
+            "type": "string"
+          },
+          "clearAt": {
+            "$ref": "#/components/schemas/UserStatusClearAtWrap"
+          },
+          "status": {
+            "$ref": "#/components/schemas/UserStatusType"
+          }
+        }
+      }
+    },
+    "securitySchemes": {
+      "basic_auth": {
+        "type": "http",
+        "scheme": "basic"
+      }
+    }
+  },
+  "paths": {
+    "/status.php": {
+      "get": {
+        "operationId": "get-status",
+        "tags": [
+          "core"
+        ],
+        "responses": {
+          "200": {
+            "description": "Status of the Nextcloud instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CoreServerStatus"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ocs/v1.php/cloud/capabilities": {
+      "get": {
+        "operationId": "get-capabilities",
+        "tags": [
+          "core"
+        ],
+        "responses": {
+          "200": {
+            "description": "Capabilities of the Nextcloud instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CoreServerCapabilities"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ocs/v1.php/core/navigation/apps": {
+      "get": {
+        "operationId": "get-navigation-apps",
+        "tags": [
+          "core"
+        ],
+        "responses": {
+          "200": {
+            "description": "Navigation apps of the Nextcloud instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CoreNavigationApps"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/login/v2": {
+      "post": {
+        "operationId": "init-login-flow",
+        "tags": [
+          "core"
+        ],
+        "responses": {
+          "200": {
+            "description": "Login flow init",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CoreLoginFlowInit"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/login/v2/poll": {
+      "post": {
+        "operationId": "get-login-flow-result",
+        "tags": [
+          "core"
+        ],
+        "parameters": [
+          {
+            "name": "token",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Login flow result",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CoreLoginFlowResult"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/core/preview.png": {
+      "parameters": [
+        {
+          "name": "file",
+          "in": "query",
+          "required": false,
+          "schema": {
+            "type": "string",
+            "default": ""
+          }
+        },
+        {
+          "name": "x",
+          "in": "query",
+          "required": false,
+          "schema": {
+            "type": "integer",
+            "default": 32
+          }
+        },
+        {
+          "name": "y",
+          "in": "query",
+          "required": false,
+          "schema": {
+            "type": "integer",
+            "default": 32
+          }
+        },
+        {
+          "name": "a",
+          "in": "query",
+          "required": false,
+          "schema": {
+            "type": "integer",
+            "default": 0
+          }
+        },
+        {
+          "name": "forceIcon",
+          "in": "query",
+          "required": false,
+          "schema": {
+            "type": "integer",
+            "default": 1
+          }
+        },
+        {
+          "name": "mode",
+          "in": "query",
+          "required": false,
+          "schema": {
+            "type": "string",
+            "default": "fill"
+          }
+        }
+      ],
+      "get": {
+        "operationId": "get-preview",
+        "tags": [
+          "core"
+        ],
+        "responses": {
+          "200": {
+            "description": "Preview image of a file",
+            "content": {
+              "image/png": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/avatar/{userId}/{size}": {
+      "parameters": [
+        {
+          "name": "userId",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "size",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "integer"
+          }
+        }
+      ],
+      "get": {
+        "operationId": "get-avatar",
+        "tags": [
+          "core"
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "image/png": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/apps/news/api/v1-2/folders": {
+      "get": {
+        "operationId": "list-folders",
+        "tags": [
+          "news"
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NewsListFolders"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "operationId": "create-folder",
+        "tags": [
+          "news"
+        ],
+        "parameters": [
+          {
+            "name": "name",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NewsListFolders"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/apps/news/api/v1-2/folders/{folderId}": {
+      "parameters": [
+        {
+          "name": "folderId",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "integer"
+          }
+        }
+      ],
+      "put": {
+        "operationId": "rename-folder",
+        "tags": [
+          "news"
+        ],
+        "parameters": [
+          {
+            "name": "name",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      },
+      "delete": {
+        "operationId": "delete-folder",
+        "tags": [
+          "news"
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/apps/news/api/v1-2/folders/{folderId}/read": {
+      "parameters": [
+        {
+          "name": "folderId",
+          "in": "path",
+          "description": "ID of the folder",
+          "required": true,
+          "schema": {
+            "type": "integer"
+          }
+        }
+      ],
+      "put": {
+        "operationId": "mark-folder-as-read",
+        "tags": [
+          "news"
+        ],
+        "parameters": [
+          {
+            "name": "newestItemId",
+            "in": "query",
+            "description": "The newest read item",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/apps/news/api/v1-2/feeds": {
+      "get": {
+        "operationId": "list-feeds",
+        "tags": [
+          "news"
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NewsListFeeds"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "operationId": "add-feed",
+        "tags": [
+          "news"
+        ],
+        "parameters": [
+          {
+            "name": "url",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "folderId",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NewsListFeeds"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/apps/news/api/v1-2/feeds/{feedId}": {
+      "parameters": [
+        {
+          "name": "feedId",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "integer"
+          }
+        }
+      ],
+      "delete": {
+        "operationId": "delete-feed",
+        "tags": [
+          "news"
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/apps/news/api/v1-2/feeds/{feedId}/move": {
+      "parameters": [
+        {
+          "name": "feedId",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "integer"
+          }
+        }
+      ],
+      "put": {
+        "operationId": "move-feed",
+        "tags": [
+          "news"
+        ],
+        "parameters": [
+          {
+            "name": "folderId",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/apps/news/api/v1-2/feeds/{feedId}/rename": {
+      "parameters": [
+        {
+          "name": "feedId",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "integer"
+          }
+        }
+      ],
+      "put": {
+        "operationId": "rename-feed",
+        "tags": [
+          "news"
+        ],
+        "parameters": [
+          {
+            "name": "feedTitle",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/apps/news/api/v1-2/feeds/{feedId}/read": {
+      "parameters": [
+        {
+          "name": "feedId",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "integer"
+          }
+        }
+      ],
+      "put": {
+        "operationId": "mark-feed-as-read",
+        "tags": [
+          "news"
+        ],
+        "parameters": [
+          {
+            "name": "newestItemId",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/apps/news/api/v1-2/items": {
+      "get": {
+        "operationId": "list-articles",
+        "tags": [
+          "news"
+        ],
+        "parameters": [
+          {
+            "name": "type",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 3
+            }
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 0
+            }
+          },
+          {
+            "name": "getRead",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 1
+            }
+          },
+          {
+            "name": "batchSize",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": -1
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 0
+            }
+          },
+          {
+            "name": "oldestFirst",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 0
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NewsListArticles"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/apps/news/api/v1-2/items/updated": {
+      "get": {
+        "operationId": "list-updated-articles",
+        "tags": [
+          "news"
+        ],
+        "parameters": [
+          {
+            "name": "type",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 3
+            }
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 0
+            }
+          },
+          {
+            "name": "lastModified",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 0
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NewsListArticles"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/apps/news/api/v1-2/items/{itemId}/read": {
+      "parameters": [
+        {
+          "name": "itemId",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "integer"
+          }
+        }
+      ],
+      "put": {
+        "operationId": "mark-article-as-read",
+        "tags": [
+          "news"
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/apps/news/api/v1-2/items/{itemId}/unread": {
+      "parameters": [
+        {
+          "name": "itemId",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "integer"
+          }
+        }
+      ],
+      "put": {
+        "operationId": "mark-article-as-unread",
+        "tags": [
+          "news"
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/apps/news/api/v1-2/items/{feedId}/{guidHash}/star": {
+      "parameters": [
+        {
+          "name": "feedId",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "integer"
+          }
+        },
+        {
+          "name": "guidHash",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "put": {
+        "operationId": "star-article",
+        "tags": [
+          "news"
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/apps/news/api/v1-2/items/{feedId}/{guidHash}/unstar": {
+      "parameters": [
+        {
+          "name": "feedId",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "integer"
+          }
+        },
+        {
+          "name": "guidHash",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "put": {
+        "operationId": "unstar-article",
+        "tags": [
+          "news"
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/apps/notes/api/v1/notes": {
+      "get": {
+        "operationId": "get-notes",
+        "tags": [
+          "notes"
+        ],
+        "parameters": [
+          {
+            "name": "category",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "exclude",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": ""
+            }
+          },
+          {
+            "name": "pruneBefore",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 0
+            }
+          },
+          {
+            "name": "chunkSize",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 0
+            }
+          },
+          {
+            "name": "chunkCursor",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "If-None-Match",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/NotesNote"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "operationId": "create-note",
+        "tags": [
+          "notes"
+        ],
+        "parameters": [
+          {
+            "name": "category",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": ""
+            }
+          },
+          {
+            "name": "title",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": ""
+            }
+          },
+          {
+            "name": "content",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": ""
+            }
+          },
+          {
+            "name": "modified",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 0
+            }
+          },
+          {
+            "name": "favorite",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 0
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NotesNote"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/apps/notes/api/v1/notes/{id}": {
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "integer"
+          }
+        }
+      ],
+      "get": {
+        "operationId": "get-note",
+        "tags": [
+          "notes"
+        ],
+        "parameters": [
+          {
+            "name": "exclude",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": ""
+            }
+          },
+          {
+            "name": "If-None-Match",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NotesNote"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "operationId": "update-note",
+        "tags": [
+          "notes"
+        ],
+        "parameters": [
+          {
+            "name": "content",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "modified",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "title",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "category",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "favorite",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 0
+            }
+          },
+          {
+            "name": "If-Match",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NotesNote"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "operationId": "delete-note",
+        "tags": [
+          "notes"
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/apps/notes/api/v1/settings": {
+      "get": {
+        "operationId": "get-settings",
+        "tags": [
+          "notes"
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NotesSettings"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "operationId": "update-settings",
+        "tags": [
+          "notes"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NotesSettings"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NotesSettings"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ocs/v1.php/apps/notifications/api/v2/notifications": {
+      "get": {
+        "operationId": "list-notifications",
+        "tags": [
+          "notifications"
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NotificationsListNotifications"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "operationId": "delete-all-notifications",
+        "tags": [
+          "notifications"
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ocs/v1.php/apps/notifications/api/v2/notifications/{id}": {
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "integer"
+          }
+        }
+      ],
+      "get": {
+        "operationId": "get-notification",
+        "tags": [
+          "notifications"
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NotificationsGetNotification"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "operationId": "delete-notification",
+        "tags": [
+          "notifications"
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NotificationsEmpty"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ocs/v1.php/apps/notifications/api/v2/push": {
+      "post": {
+        "operationId": "register-device",
+        "tags": [
+          "notifications"
+        ],
+        "parameters": [
+          {
+            "name": "pushTokenHash",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "devicePublicKey",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "proxyServer",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "This URL has to end with a / otherwise the device will not be able to register"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NotificationsPushServerRegistration"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "operationId": "remove-device",
+        "tags": [
+          "notifications"
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ocs/v1.php/apps/notifications/api/v2/admin_notifications/{userId}": {
+      "parameters": [
+        {
+          "name": "userId",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "post": {
+        "operationId": "send-admin-notification",
+        "tags": [
+          "notifications"
+        ],
+        "parameters": [
+          {
+            "name": "shortMessage",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "longMessage",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": ""
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NotificationsEmpty"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ocs/v1.php/cloud/user": {
+      "get": {
+        "operationId": "get-current-user",
+        "tags": [
+          "provisioning_api"
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProvisioningApiUser"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ocs/v1.php/cloud/users/{userId}": {
+      "parameters": [
+        {
+          "name": "userId",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "get": {
+        "operationId": "get-user",
+        "tags": [
+          "provisioning_api"
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProvisioningApiUser"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ocs/v1.php/apps/user_status/api/v1/statuses": {
+      "get": {
+        "operationId": "find-all-statuses",
+        "tags": [
+          "user_status"
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserStatusFindAllStatuses"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ocs/v1.php/apps/user_status/api/v1/statuses/{userId}": {
+      "parameters": [
+        {
+          "name": "userId",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "get": {
+        "operationId": "find-status",
+        "tags": [
+          "user_status"
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserStatusFindStatus"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ocs/v1.php/apps/user_status/api/v1/user_status": {
+      "get": {
+        "operationId": "get-status",
+        "tags": [
+          "user_status"
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserStatusGetUserStatus"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ocs/v1.php/apps/user_status/api/v1/user_status/status": {
+      "put": {
+        "operationId": "set-status",
+        "tags": [
+          "user_status"
+        ],
+        "parameters": [
+          {
+            "name": "statusType",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/UserStatusType"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserStatusGetUserStatus"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ocs/v1.php/apps/user_status/api/v1/user_status/message/predefined": {
+      "put": {
+        "operationId": "set-predefined-message",
+        "tags": [
+          "user_status"
+        ],
+        "parameters": [
+          {
+            "name": "messageId",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "clearAt",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserStatusGetUserStatus"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ocs/v1.php/apps/user_status/api/v1/user_status/message/custom": {
+      "put": {
+        "operationId": "set-custom-message",
+        "tags": [
+          "user_status"
+        ],
+        "parameters": [
+          {
+            "name": "statusIcon",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "message",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "clearAt",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserStatusGetUserStatus"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ocs/v1.php/apps/user_status/api/v1/user_status/message": {
+      "delete": {
+        "operationId": "clear-message",
+        "tags": [
+          "user_status"
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/ocs/v1.php/apps/user_status/api/v1/predefined_statuses": {
+      "get": {
+        "operationId": "find-all-predefined-statuses",
+        "tags": [
+          "user_status"
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserStatusPredefinedStatuses"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ocs/v1.php/apps/user_status/api/v1/heartbeat": {
+      "description": "Depends on https://github.com/nextcloud/server/pull/32646",
+      "put": {
+        "operationId": "heartbeat",
+        "tags": [
+          "user_status"
+        ],
+        "parameters": [
+          {
+            "name": "status",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/UserStatusType"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    }
+  }
+}

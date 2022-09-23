@@ -23,7 +23,7 @@ abstract class $NotificationsBloc extends RxBlocBase
   final _$refreshEvent = PublishSubject<void>();
 
   /// Тhe [Subject] where events sink to by calling [deleteNotification]
-  final _$deleteNotificationEvent = PublishSubject<NotificationsNotification>();
+  final _$deleteNotificationEvent = PublishSubject<int>();
 
   /// Тhe [Subject] where events sink to by calling [deleteAllNotifications]
   final _$deleteAllNotificationsEvent = PublishSubject<void>();
@@ -41,7 +41,7 @@ abstract class $NotificationsBloc extends RxBlocBase
   void refresh() => _$refreshEvent.add(null);
 
   @override
-  void deleteNotification(NotificationsNotification notification) => _$deleteNotificationEvent.add(notification);
+  void deleteNotification(int id) => _$deleteNotificationEvent.add(id);
 
   @override
   void deleteAllNotifications() => _$deleteAllNotificationsEvent.add(null);

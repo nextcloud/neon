@@ -1,4 +1,3 @@
-import 'package:nextcloud/nextcloud.dart';
 import 'package:test/test.dart';
 
 import 'helper.dart';
@@ -19,10 +18,7 @@ Future main() async {
     tearDown(() => client.destroy());
 
     test('Get status', () async {
-      final status = (await validateResponse<CoreServerStatus, void>(
-        client.core,
-        client.core.getStatusWithHttpInfo(),
-      ))!;
+      final status = await client.core.getStatus();
       expect(status.installed, true);
       expect(status.maintenance, false);
       expect(status.needsDbUpgrade, false);
@@ -34,10 +30,7 @@ Future main() async {
     });
 
     test('Get capabilities', () async {
-      final capabilities = (await validateResponse<CoreServerCapabilities, void>(
-        client.core,
-        client.core.getCapabilitiesWithHttpInfo(),
-      ))!;
+      final capabilities = await client.core.getCapabilities();
       expect(capabilities.ocs!.data!.version!.major.toString(), nextcloudVersion.split('.')[0]);
       expect(capabilities.ocs!.data!.version!.string, nextcloudVersion);
       expect(capabilities.ocs!.data!.capabilities!.theming!.name, 'Nextcloud');
@@ -54,17 +47,14 @@ Future main() async {
     });
 
     test('Get navigation apps', () async {
-      final navigationApps = (await validateResponse<CoreNavigationApps, void>(
-        client.core,
-        client.core.getNavigationAppsWithHttpInfo(),
-      ))!;
+      final navigationApps = await client.core.getNavigationApps();
       expect(navigationApps.ocs!.data, hasLength(6));
-      expect(navigationApps.ocs!.data[0].id, 'dashboard');
-      expect(navigationApps.ocs!.data[1].id, 'files');
-      expect(navigationApps.ocs!.data[2].id, 'photos');
-      expect(navigationApps.ocs!.data[3].id, 'activity');
-      expect(navigationApps.ocs!.data[4].id, 'notes');
-      expect(navigationApps.ocs!.data[5].id, 'news');
+      expect(navigationApps.ocs!.data![0].id, 'dashboard');
+      expect(navigationApps.ocs!.data![1].id, 'files');
+      expect(navigationApps.ocs!.data![2].id, 'photos');
+      expect(navigationApps.ocs!.data![3].id, 'activity');
+      expect(navigationApps.ocs!.data![4].id, 'notes');
+      expect(navigationApps.ocs!.data![5].id, 'news');
     });
   });
 }

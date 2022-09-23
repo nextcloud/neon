@@ -4,7 +4,7 @@ const themePrimaryColor = Color(0xFFF37736);
 const themeOnPrimaryColor = Color(0xFFFFFFFF);
 
 ThemeData getThemeFromNextcloudTheme(
-  final NextcloudTheme? nextcloudTheme,
+  final CoreServerCapabilitiesOcsDataCapabilitiesTheming? nextcloudTheme,
   final ThemeMode themeMode,
   final Brightness platformBrightness, {
   required final bool oledAsDark,

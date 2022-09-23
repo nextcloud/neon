@@ -13,8 +13,8 @@ abstract class NotesBlocEvents {
   void refresh();
 
   void createNote({
-    final String? title,
-    final String? category,
+    final String title = '',
+    final String category = '',
   });
 
   void updateNote(
@@ -58,20 +58,20 @@ class NotesBloc extends $NotesBloc {
     _$updateNoteEvent.listen((final event) {
       _wrapAction(
         () async => _noteUpdateController.add(
-          (await client.notes.updateNote(
-            event.id,
+          await client.notes.updateNote(
+            id: event.id,
             title: event.title,
             category: event.category,
             content: event.content,
-            favorite: event.favorite,
+            favorite: event.favorite ?? false ? 1 : 0,
             ifMatch: '"${event.etag}"',
-          ))!,
+          ),
         ),
       );
     });
 
     _$deleteNoteEvent.listen((final id) {
-      _wrapAction(() async => client.notes.deleteNote(id));
+      _wrapAction(() async => client.notes.deleteNote(id: id));
     });
 
     _loadNotes();
@@ -87,11 +87,10 @@ class NotesBloc extends $NotesBloc {
 
   void _loadNotes() {
     requestManager
-        .wrapNextcloud<List<NotesNote>, List<NotesNote>, NotesNote, NextcloudNotesClient>(
+        .wrapNextcloud<List<NotesNote>, List<NotesNote>>(
           client.id,
-          client.notes,
           'notes-notes',
-          () async => (await client.notes.getNotes())!,
+          () async => client.notes.getNotes(),
           (final response) => response,
           previousData: _notesSubject.valueOrNull?.data,
         )

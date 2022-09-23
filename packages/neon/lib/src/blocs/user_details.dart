@@ -29,11 +29,10 @@ class UserDetailsBloc extends $UserDetailsBloc {
 
   void _loadUserDetails() {
     _requestManager
-        .wrapNextcloud<ProvisioningApiUserDetails, ProvisioningApiUser, void, NextcloudProvisioningApiClient>(
+        .wrapNextcloud<ProvisioningApiUserDetails, ProvisioningApiUser>(
           _client.id,
-          _client.provisioningApi,
           'user-details',
-          () async => (await _client.provisioningApi.getCurrentUser())!,
+          () async => _client.provisioningApi.getCurrentUser(),
           (final response) => response.ocs!.data!,
           preloadCache: true,
         )

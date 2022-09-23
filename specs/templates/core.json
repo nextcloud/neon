@@ -1,43 +1,26 @@
 {
-  "openapi": "3.0.3",
+  "openapi": "3.1.0",
   "info": {
     "title": "Core",
     "version": "24.0.5",
     "description": "Core functionality of Nextcloud",
     "license": {
-      "name": "agpl"
+      "name": "agpl",
+      "identifier": " AGPL-3.0"
     }
   },
-  "servers": [
+  "tags": [
     {
-      "url": "https://{hostname}:{port}",
-      "variables": {
-        "hostname": {
-          "default": "localhost"
-        },
-        "port": {
-          "default": "8080"
-        }
-      }
+      "name": "core"
     }
   ],
-  "security": [
-    {
-      "basic_auth": []
-    }
-  ],
-  "components": {
-    "securitySchemes": {
-      "basic_auth": {
-        "type": "http",
-        "scheme": "basic"
-      }
-    }
-  },
   "paths": {
     "/core/lostpassword/email": {
       "post": {
         "operationId": "lost-email-TODO",
+        "tags": [
+          "core"
+        ],
         "parameters": [
           {
             "name": "user",
@@ -83,6 +66,9 @@
       ],
       "get": {
         "operationId": "lost-resetform-TODO",
+        "tags": [
+          "core"
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -118,6 +104,9 @@
       ],
       "post": {
         "operationId": "lost-setpassword-TODO",
+        "tags": [
+          "core"
+        ],
         "parameters": [
           {
             "name": "password",
@@ -132,7 +121,7 @@
             "in": "query",
             "required": true,
             "schema": {
-              "type": "boolean"
+              "type": "integer"
             }
           }
         ],
@@ -163,6 +152,9 @@
       ],
       "get": {
         "operationId": "profilepage-index-TODO",
+        "tags": [
+          "core"
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -180,6 +172,9 @@
     "/core/displaynames": {
       "post": {
         "operationId": "user-getdisplaynames-TODO",
+        "tags": [
+          "core"
+        ],
         "parameters": [
           {
             "name": "users",
@@ -225,6 +220,9 @@
       ],
       "get": {
         "operationId": "avatar-getavatar-TODO",
+        "tags": [
+          "core"
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -242,6 +240,9 @@
     "/core/avatar": {
       "post": {
         "operationId": "avatar-postavatar-TODO",
+        "tags": [
+          "core"
+        ],
         "parameters": [
           {
             "name": "path",
@@ -267,6 +268,9 @@
       },
       "delete": {
         "operationId": "avatar-deleteavatar-TODO",
+        "tags": [
+          "core"
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -284,6 +288,9 @@
     "/core/avatar/cropped": {
       "post": {
         "operationId": "avatar-postcroppedavatar-TODO",
+        "tags": [
+          "core"
+        ],
         "parameters": [
           {
             "name": "crop",
@@ -311,6 +318,9 @@
     "/core/avatar/tmp": {
       "get": {
         "operationId": "avatar-gettmpavatar-TODO",
+        "tags": [
+          "core"
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -348,6 +358,9 @@
       ],
       "get": {
         "operationId": "guestavatar-getavatar-TODO",
+        "tags": [
+          "core"
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -365,6 +378,9 @@
     "/core/csrftoken": {
       "get": {
         "operationId": "csrftoken-index-TODO",
+        "tags": [
+          "core"
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -382,6 +398,9 @@
     "/core/login": {
       "get": {
         "operationId": "login-showloginform-TODO",
+        "tags": [
+          "core"
+        ],
         "parameters": [
           {
             "name": "user",
@@ -415,6 +434,9 @@
       },
       "post": {
         "operationId": "login-trylogin-TODO",
+        "tags": [
+          "core"
+        ],
         "parameters": [
           {
             "name": "user",
@@ -476,6 +498,9 @@
     "/core/login/confirm": {
       "post": {
         "operationId": "login-confirmpassword-TODO",
+        "tags": [
+          "core"
+        ],
         "parameters": [
           {
             "name": "password",
@@ -503,6 +528,9 @@
     "/core/logout": {
       "get": {
         "operationId": "login-logout-TODO",
+        "tags": [
+          "core"
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -520,6 +548,9 @@
     "/core/login/flow": {
       "get": {
         "operationId": "clientflowlogin-showauthpickerpage-TODO",
+        "tags": [
+          "core"
+        ],
         "parameters": [
           {
             "name": "clientIdentifier",
@@ -564,6 +595,9 @@
       },
       "post": {
         "operationId": "clientflowlogin-generateapppassword-TODO",
+        "tags": [
+          "core"
+        ],
         "parameters": [
           {
             "name": "stateToken",
@@ -600,6 +634,9 @@
     "/core/login/flow/grant": {
       "get": {
         "operationId": "clientflowlogin-grantpage-TODO",
+        "tags": [
+          "core"
+        ],
         "parameters": [
           {
             "name": "stateToken",
@@ -646,6 +683,9 @@
     "/core/login/flow/apptoken": {
       "post": {
         "operationId": "clientflowlogin-apptokenredirect-TODO",
+        "tags": [
+          "core"
+        ],
         "parameters": [
           {
             "name": "stateToken",
@@ -689,6 +729,9 @@
     "/core/login/v2/poll": {
       "post": {
         "operationId": "clientflowloginv2-poll-TODO",
+        "tags": [
+          "core"
+        ],
         "parameters": [
           {
             "name": "token",
@@ -716,6 +759,9 @@
     "/core/login/v2/flow": {
       "get": {
         "operationId": "clientflowloginv2-showauthpickerpage-TODO",
+        "tags": [
+          "core"
+        ],
         "parameters": [
           {
             "name": "user",
@@ -754,6 +800,9 @@
       ],
       "get": {
         "operationId": "clientflowloginv2-landing-TODO",
+        "tags": [
+          "core"
+        ],
         "parameters": [
           {
             "name": "user",
@@ -782,6 +831,9 @@
     "/core/login/v2/grant": {
       "get": {
         "operationId": "clientflowloginv2-grantpage-TODO",
+        "tags": [
+          "core"
+        ],
         "parameters": [
           {
             "name": "stateToken",
@@ -807,6 +859,9 @@
       },
       "post": {
         "operationId": "clientflowloginv2-generateapppassword-TODO",
+        "tags": [
+          "core"
+        ],
         "parameters": [
           {
             "name": "stateToken",
@@ -834,6 +889,9 @@
     "/core/login/v2": {
       "post": {
         "operationId": "clientflowloginv2-init-TODO",
+        "tags": [
+          "core"
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -851,6 +909,9 @@
     "/core/login/v2/apptoken": {
       "post": {
         "operationId": "clientflowloginv2-apptokenredirect-TODO",
+        "tags": [
+          "core"
+        ],
         "parameters": [
           {
             "name": "stateToken",
@@ -894,6 +955,9 @@
     "/core/login/selectchallenge": {
       "get": {
         "operationId": "twofactorchallenge-selectchallenge-TODO",
+        "tags": [
+          "core"
+        ],
         "parameters": [
           {
             "name": "redirect_url",
@@ -931,6 +995,9 @@
       ],
       "get": {
         "operationId": "twofactorchallenge-showchallenge-TODO",
+        "tags": [
+          "core"
+        ],
         "parameters": [
           {
             "name": "redirect_url",
@@ -956,6 +1023,9 @@
       },
       "post": {
         "operationId": "twofactorchallenge-solvechallenge-TODO",
+        "tags": [
+          "core"
+        ],
         "parameters": [
           {
             "name": "challenge",
@@ -991,6 +1061,9 @@
     "/core/login/setupchallenge": {
       "get": {
         "operationId": "twofactorchallenge-setupproviders-TODO",
+        "tags": [
+          "core"
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -1018,6 +1091,9 @@
       ],
       "get": {
         "operationId": "twofactorchallenge-setupprovider-TODO",
+        "tags": [
+          "core"
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -1033,6 +1109,9 @@
       },
       "post": {
         "operationId": "twofactorchallenge-confirmprovidersetup-TODO",
+        "tags": [
+          "core"
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -1050,6 +1129,9 @@
     "/core/core/js/oc.js": {
       "get": {
         "operationId": "ocjs-getconfig-TODO",
+        "tags": [
+          "core"
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -1067,6 +1149,9 @@
     "/core/core/preview": {
       "get": {
         "operationId": "preview-getpreviewbyfileid-TODO",
+        "tags": [
+          "core"
+        ],
         "parameters": [
           {
             "name": "fileId",
@@ -1100,8 +1185,8 @@
             "in": "query",
             "required": false,
             "schema": {
-              "type": "boolean",
-              "default": false
+              "type": "integer",
+              "default": 0
             }
           },
           {
@@ -1109,8 +1194,8 @@
             "in": "query",
             "required": false,
             "schema": {
-              "type": "boolean",
-              "default": true
+              "type": "integer",
+              "default": 0
             }
           },
           {
@@ -1140,6 +1225,9 @@
     "/core/core/preview.png": {
       "get": {
         "operationId": "preview-getpreview-TODO",
+        "tags": [
+          "core"
+        ],
         "parameters": [
           {
             "name": "file",
@@ -1173,8 +1261,8 @@
             "in": "query",
             "required": false,
             "schema": {
-              "type": "boolean",
-              "default": false
+              "type": "integer",
+              "default": 0
             }
           },
           {
@@ -1182,8 +1270,8 @@
             "in": "query",
             "required": false,
             "schema": {
-              "type": "boolean",
-              "default": true
+              "type": "integer",
+              "default": 0
             }
           },
           {
@@ -1213,6 +1301,9 @@
     "/core/core/apps/recommended": {
       "get": {
         "operationId": "recommendedapps-index-TODO",
+        "tags": [
+          "core"
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -1248,6 +1339,9 @@
       ],
       "get": {
         "operationId": "svg-getsvgfromcore-TODO",
+        "tags": [
+          "core"
+        ],
         "parameters": [
           {
             "name": "color",
@@ -1294,6 +1388,9 @@
       ],
       "get": {
         "operationId": "svg-getsvgfromapp-TODO",
+        "tags": [
+          "core"
+        ],
         "parameters": [
           {
             "name": "color",
@@ -1342,6 +1439,9 @@
       ],
       "get": {
         "operationId": "css-getcss-TODO",
+        "tags": [
+          "core"
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -1379,6 +1479,9 @@
       ],
       "get": {
         "operationId": "js-getjs-TODO",
+        "tags": [
+          "core"
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -1396,6 +1499,9 @@
     "/core/contactsmenu/contacts": {
       "post": {
         "operationId": "contactsmenu-index-TODO",
+        "tags": [
+          "core"
+        ],
         "parameters": [
           {
             "name": "filter",
@@ -1423,6 +1529,9 @@
     "/core/contactsmenu/findOne": {
       "post": {
         "operationId": "contactsmenu-findone-TODO",
+        "tags": [
+          "core"
+        ],
         "parameters": [
           {
             "name": "shareType",
@@ -1458,6 +1567,9 @@
     "/core/204": {
       "get": {
         "operationId": "walledgarden-get-TODO",
+        "tags": [
+          "core"
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -1475,6 +1587,9 @@
     "/core/core/search": {
       "get": {
         "operationId": "search-search-TODO",
+        "tags": [
+          "core"
+        ],
         "parameters": [
           {
             "name": "query",
@@ -1528,6 +1643,9 @@
     "/core/core/wipe/check": {
       "post": {
         "operationId": "wipe-checkwipe-TODO",
+        "tags": [
+          "core"
+        ],
         "parameters": [
           {
             "name": "token",
@@ -1555,6 +1673,9 @@
     "/core/core/wipe/success": {
       "post": {
         "operationId": "wipe-wipedone-TODO",
+        "tags": [
+          "core"
+        ],
         "parameters": [
           {
             "name": "token",
@@ -1582,6 +1703,9 @@
     "/core/login/webauthn/start": {
       "post": {
         "operationId": "webauthn-startauthentication-TODO",
+        "tags": [
+          "core"
+        ],
         "parameters": [
           {
             "name": "loginName",
@@ -1609,6 +1733,9 @@
     "/core/login/webauthn/finish": {
       "post": {
         "operationId": "webauthn-finishauthentication-TODO",
+        "tags": [
+          "core"
+        ],
         "parameters": [
           {
             "name": "data",
@@ -1646,6 +1773,9 @@
       ],
       "get": {
         "operationId": "wellknown-handle-TODO",
+        "tags": [
+          "core"
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -1663,6 +1793,9 @@
     "/ocs/v1.php/core/capabilities": {
       "get": {
         "operationId": "ocs-getcapabilities-TODO",
+        "tags": [
+          "core"
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -1680,6 +1813,9 @@
     "/ocs/v1.php/core/config": {
       "get": {
         "operationId": "ocs-getconfig-TODO",
+        "tags": [
+          "core"
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -1697,6 +1833,9 @@
     "/ocs/v1.php/core/check": {
       "post": {
         "operationId": "ocs-personcheck-TODO",
+        "tags": [
+          "core"
+        ],
         "parameters": [
           {
             "name": "login",
@@ -1744,6 +1883,9 @@
       ],
       "get": {
         "operationId": "ocs-getidentityproof-TODO",
+        "tags": [
+          "core"
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -1761,14 +1903,17 @@
     "/ocs/v1.php/core/navigation/apps": {
       "get": {
         "operationId": "navigation-getappsnavigation-TODO",
+        "tags": [
+          "core"
+        ],
         "parameters": [
           {
             "name": "absolute",
             "in": "query",
             "required": false,
             "schema": {
-              "type": "boolean",
-              "default": false
+              "type": "integer",
+              "default": 0
             }
           }
         ],
@@ -1789,14 +1934,17 @@
     "/ocs/v1.php/core/navigation/settings": {
       "get": {
         "operationId": "navigation-getsettingsnavigation-TODO",
+        "tags": [
+          "core"
+        ],
         "parameters": [
           {
             "name": "absolute",
             "in": "query",
             "required": false,
             "schema": {
-              "type": "boolean",
-              "default": false
+              "type": "integer",
+              "default": 0
             }
           }
         ],
@@ -1817,6 +1965,9 @@
     "/ocs/v1.php/core/autocomplete/get": {
       "get": {
         "operationId": "autocomplete-get-TODO",
+        "tags": [
+          "core"
+        ],
         "parameters": [
           {
             "name": "search",
@@ -1886,6 +2037,9 @@
     "/ocs/v1.php/core/whatsnew": {
       "get": {
         "operationId": "whatsnew-get-TODO",
+        "tags": [
+          "core"
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -1901,6 +2055,9 @@
       },
       "post": {
         "operationId": "whatsnew-dismiss-TODO",
+        "tags": [
+          "core"
+        ],
         "parameters": [
           {
             "name": "version",
@@ -1928,6 +2085,9 @@
     "/ocs/v1.php/core/getapppassword": {
       "get": {
         "operationId": "apppassword-getapppassword-TODO",
+        "tags": [
+          "core"
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -1945,6 +2105,9 @@
     "/ocs/v1.php/core/apppassword/rotate": {
       "post": {
         "operationId": "apppassword-rotateapppassword-TODO",
+        "tags": [
+          "core"
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -1962,6 +2125,9 @@
     "/ocs/v1.php/core/apppassword": {
       "delete": {
         "operationId": "apppassword-deleteapppassword-TODO",
+        "tags": [
+          "core"
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -1989,6 +2155,9 @@
       ],
       "get": {
         "operationId": "hovercard-getuser-TODO",
+        "tags": [
+          "core"
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -2016,6 +2185,9 @@
       ],
       "get": {
         "operationId": "collaborationresources-searchcollections-TODO",
+        "tags": [
+          "core"
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -2043,6 +2215,9 @@
       ],
       "get": {
         "operationId": "collaborationresources-listcollection-TODO",
+        "tags": [
+          "core"
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -2058,6 +2233,9 @@
       },
       "put": {
         "operationId": "collaborationresources-renamecollection-TODO",
+        "tags": [
+          "core"
+        ],
         "parameters": [
           {
             "name": "collectionName",
@@ -2083,6 +2261,9 @@
       },
       "post": {
         "operationId": "collaborationresources-addresource-TODO",
+        "tags": [
+          "core"
+        ],
         "parameters": [
           {
             "name": "resourceType",
@@ -2116,6 +2297,9 @@
       },
       "delete": {
         "operationId": "collaborationresources-removeresource-TODO",
+        "tags": [
+          "core"
+        ],
         "parameters": [
           {
             "name": "resourceType",
@@ -2169,6 +2353,9 @@
       ],
       "get": {
         "operationId": "collaborationresources-getcollectionsbyresource-TODO",
+        "tags": [
+          "core"
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -2204,6 +2391,9 @@
       ],
       "post": {
         "operationId": "collaborationresources-createcollectiononresource-TODO",
+        "tags": [
+          "core"
+        ],
         "parameters": [
           {
             "name": "name",
@@ -2241,6 +2431,9 @@
       ],
       "put": {
         "operationId": "profileapi-setvisibility-TODO",
+        "tags": [
+          "core"
+        ],
         "parameters": [
           {
             "name": "paramId",
@@ -2276,6 +2469,9 @@
     "/ocs/v1.php/core/providers": {
       "get": {
         "operationId": "unifiedsearch-getproviders-TODO",
+        "tags": [
+          "core"
+        ],
         "parameters": [
           {
             "name": "from",
@@ -2315,6 +2511,9 @@
       ],
       "get": {
         "operationId": "unifiedsearch-search-TODO",
+        "tags": [
+          "core"
+        ],
         "parameters": [
           {
             "name": "term",

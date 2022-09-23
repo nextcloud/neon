@@ -25,7 +25,7 @@ abstract class $AppsBloc extends RxBlocBase implements AppsBlocEvents, AppsBlocS
   final _$setActiveAppEvent = PublishSubject<String?>();
 
   /// The state of [apps] implemented in [_mapToAppsState]
-  late final BehaviorSubject<Result<List<CoreNavigationAppsOcsDataInner>>> _appsState = _mapToAppsState();
+  late final BehaviorSubject<Result<List<CoreNavigationAppsOcsData>>> _appsState = _mapToAppsState();
 
   /// The state of [appImplementations] implemented in
   /// [_mapToAppImplementationsState]
@@ -42,7 +42,7 @@ abstract class $AppsBloc extends RxBlocBase implements AppsBlocEvents, AppsBlocS
   void setActiveApp(String? appID) => _$setActiveAppEvent.add(appID);
 
   @override
-  BehaviorSubject<Result<List<CoreNavigationAppsOcsDataInner>>> get apps => _appsState;
+  BehaviorSubject<Result<List<CoreNavigationAppsOcsData>>> get apps => _appsState;
 
   @override
   BehaviorSubject<Result<List<AppImplementation<RxBlocBase, NextcloudAppSpecificOptions>>>> get appImplementations =>
@@ -51,7 +51,7 @@ abstract class $AppsBloc extends RxBlocBase implements AppsBlocEvents, AppsBlocS
   @override
   BehaviorSubject<String?> get activeAppID => _activeAppIDState;
 
-  BehaviorSubject<Result<List<CoreNavigationAppsOcsDataInner>>> _mapToAppsState();
+  BehaviorSubject<Result<List<CoreNavigationAppsOcsData>>> _mapToAppsState();
 
   BehaviorSubject<Result<List<AppImplementation<RxBlocBase, NextcloudAppSpecificOptions>>>>
       _mapToAppImplementationsState();

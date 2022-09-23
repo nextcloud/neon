@@ -1,43 +1,26 @@
 {
-  "openapi": "3.0.3",
+  "openapi": "3.1.0",
   "info": {
     "title": "News",
     "version": "18.1.1",
     "description": "An RSS/Atom feed reader",
     "license": {
-      "name": "agpl"
+      "name": "agpl",
+      "identifier": " AGPL-3.0"
     }
   },
-  "servers": [
+  "tags": [
     {
-      "url": "https://{hostname}:{port}/apps/news",
-      "variables": {
-        "hostname": {
-          "default": "localhost"
-        },
-        "port": {
-          "default": "8080"
-        }
-      }
+      "name": "news"
     }
   ],
-  "security": [
-    {
-      "basic_auth": []
-    }
-  ],
-  "components": {
-    "securitySchemes": {
-      "basic_auth": {
-        "type": "http",
-        "scheme": "basic"
-      }
-    }
-  },
   "paths": {
-    "/folders": {
+    "/apps/news/folders": {
       "get": {
         "operationId": "folder-index-TODO",
+        "tags": [
+          "news"
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -53,6 +36,9 @@
       },
       "post": {
         "operationId": "folder-create-TODO",
+        "tags": [
+          "news"
+        ],
         "parameters": [
           {
             "name": "folderName",
@@ -85,7 +71,7 @@
         }
       }
     },
-    "/folders/{folderId}": {
+    "/apps/news/folders/{folderId}": {
       "parameters": [
         {
           "name": "folderId",
@@ -98,6 +84,9 @@
       ],
       "delete": {
         "operationId": "folder-delete-TODO",
+        "tags": [
+          "news"
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -112,7 +101,7 @@
         }
       }
     },
-    "/folders/{folderId}/restore": {
+    "/apps/news/folders/{folderId}/restore": {
       "parameters": [
         {
           "name": "folderId",
@@ -125,6 +114,9 @@
       ],
       "post": {
         "operationId": "folder-restore-TODO",
+        "tags": [
+          "news"
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -139,7 +131,7 @@
         }
       }
     },
-    "/folders/{folderId}/rename": {
+    "/apps/news/folders/{folderId}/rename": {
       "parameters": [
         {
           "name": "folderId",
@@ -153,6 +145,9 @@
       ],
       "post": {
         "operationId": "folder-rename-TODO",
+        "tags": [
+          "news"
+        ],
         "parameters": [
           {
             "name": "folderName",
@@ -178,7 +173,7 @@
         }
       }
     },
-    "/folders/{folderId}/read": {
+    "/apps/news/folders/{folderId}/read": {
       "parameters": [
         {
           "name": "folderId",
@@ -191,6 +186,9 @@
       ],
       "post": {
         "operationId": "folder-read-TODO",
+        "tags": [
+          "news"
+        ],
         "parameters": [
           {
             "name": "maxItemId",
@@ -215,7 +213,7 @@
         }
       }
     },
-    "/folders/{folderId}/open": {
+    "/apps/news/folders/{folderId}/open": {
       "parameters": [
         {
           "name": "folderId",
@@ -228,13 +226,16 @@
       ],
       "post": {
         "operationId": "folder-open-TODO",
+        "tags": [
+          "news"
+        ],
         "parameters": [
           {
             "name": "open",
             "in": "query",
             "required": true,
             "schema": {
-              "type": "boolean"
+              "type": "integer"
             }
           }
         ],
@@ -252,9 +253,12 @@
         }
       }
     },
-    "/feeds": {
+    "/apps/news/feeds": {
       "get": {
         "operationId": "feed-index-TODO",
+        "tags": [
+          "news"
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -270,6 +274,9 @@
       },
       "post": {
         "operationId": "feed-create-TODO",
+        "tags": [
+          "news"
+        ],
         "parameters": [
           {
             "name": "url",
@@ -316,8 +323,8 @@
             "in": "query",
             "required": false,
             "schema": {
-              "type": "boolean",
-              "default": true
+              "type": "integer",
+              "default": 0
             }
           }
         ],
@@ -335,7 +342,7 @@
         }
       }
     },
-    "/feeds/{feedId}": {
+    "/apps/news/feeds/{feedId}": {
       "parameters": [
         {
           "name": "feedId",
@@ -348,6 +355,9 @@
       ],
       "delete": {
         "operationId": "feed-delete-TODO",
+        "tags": [
+          "news"
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -363,13 +373,16 @@
       },
       "patch": {
         "operationId": "feed-patch-TODO",
+        "tags": [
+          "news"
+        ],
         "parameters": [
           {
             "name": "pinned",
             "in": "query",
             "required": false,
             "schema": {
-              "type": "boolean"
+              "type": "integer"
             }
           },
           {
@@ -377,7 +390,7 @@
             "in": "query",
             "required": false,
             "schema": {
-              "type": "boolean"
+              "type": "integer"
             }
           },
           {
@@ -428,7 +441,7 @@
         }
       }
     },
-    "/feeds/{feedId}/restore": {
+    "/apps/news/feeds/{feedId}/restore": {
       "parameters": [
         {
           "name": "feedId",
@@ -441,6 +454,9 @@
       ],
       "post": {
         "operationId": "feed-restore-TODO",
+        "tags": [
+          "news"
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -455,7 +471,7 @@
         }
       }
     },
-    "/feeds/{feedId}/read": {
+    "/apps/news/feeds/{feedId}/read": {
       "parameters": [
         {
           "name": "feedId",
@@ -468,6 +484,9 @@
       ],
       "post": {
         "operationId": "feed-read-TODO",
+        "tags": [
+          "news"
+        ],
         "parameters": [
           {
             "name": "highestItemId",
@@ -492,7 +511,7 @@
         }
       }
     },
-    "/feeds/{feedId}/update": {
+    "/apps/news/feeds/{feedId}/update": {
       "parameters": [
         {
           "name": "feedId",
@@ -505,6 +524,9 @@
       ],
       "post": {
         "operationId": "feed-update-TODO",
+        "tags": [
+          "news"
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -519,9 +541,12 @@
         }
       }
     },
-    "/feeds/active": {
+    "/apps/news/feeds/active": {
       "get": {
         "operationId": "feed-active-TODO",
+        "tags": [
+          "news"
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -536,9 +561,12 @@
         }
       }
     },
-    "/feeds/import/articles": {
+    "/apps/news/feeds/import/articles": {
       "post": {
         "operationId": "feed-import-TODO",
+        "tags": [
+          "news"
+        ],
         "parameters": [
           {
             "name": "json",
@@ -563,9 +591,12 @@
         }
       }
     },
-    "/items": {
+    "/apps/news/items": {
       "get": {
         "operationId": "item-index-TODO",
+        "tags": [
+          "news"
+        ],
         "parameters": [
           {
             "name": "type",
@@ -608,7 +639,7 @@
             "in": "query",
             "required": false,
             "schema": {
-              "type": "boolean"
+              "type": "integer"
             }
           },
           {
@@ -616,7 +647,7 @@
             "in": "query",
             "required": false,
             "schema": {
-              "type": "boolean"
+              "type": "integer"
             }
           },
           {
@@ -643,9 +674,12 @@
         }
       }
     },
-    "/items/new": {
+    "/apps/news/items/new": {
       "get": {
         "operationId": "item-new_items-TODO",
+        "tags": [
+          "news"
+        ],
         "parameters": [
           {
             "name": "type",
@@ -687,9 +721,12 @@
         }
       }
     },
-    "/items/read": {
+    "/apps/news/items/read": {
       "post": {
         "operationId": "item-readall-TODO",
+        "tags": [
+          "news"
+        ],
         "parameters": [
           {
             "name": "highestItemId",
@@ -714,7 +751,7 @@
         }
       }
     },
-    "/items/{itemId}/read": {
+    "/apps/news/items/{itemId}/read": {
       "parameters": [
         {
           "name": "itemId",
@@ -727,14 +764,17 @@
       ],
       "post": {
         "operationId": "item-read-TODO",
+        "tags": [
+          "news"
+        ],
         "parameters": [
           {
             "name": "isRead",
             "in": "query",
             "required": false,
             "schema": {
-              "type": "boolean",
-              "default": true
+              "type": "integer",
+              "default": 0
             }
           }
         ],
@@ -752,9 +792,12 @@
         }
       }
     },
-    "/items/read/multiple": {
+    "/apps/news/items/read/multiple": {
       "post": {
         "operationId": "item-read_multiple-TODO",
+        "tags": [
+          "news"
+        ],
         "parameters": [
           {
             "name": "itemIds",
@@ -780,7 +823,7 @@
         }
       }
     },
-    "/items/{feedId}/{guidHash}/star": {
+    "/apps/news/items/{feedId}/{guidHash}/star": {
       "parameters": [
         {
           "name": "feedId",
@@ -801,13 +844,16 @@
       ],
       "post": {
         "operationId": "item-star-TODO",
+        "tags": [
+          "news"
+        ],
         "parameters": [
           {
             "name": "isStarred",
             "in": "query",
             "required": true,
             "schema": {
-              "type": "boolean"
+              "type": "integer"
             }
           }
         ],
@@ -825,7 +871,7 @@
         }
       }
     },
-    "/items/{itemId}/share/{shareRecipientId}": {
+    "/apps/news/items/{itemId}/share/{shareRecipientId}": {
       "parameters": [
         {
           "name": "itemId",
@@ -848,6 +894,9 @@
       ],
       "post": {
         "operationId": "item-share-TODO",
+        "tags": [
+          "news"
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -862,9 +911,12 @@
         }
       }
     },
-    "/export/opml": {
+    "/apps/news/export/opml": {
       "get": {
         "operationId": "export-opml-TODO",
+        "tags": [
+          "news"
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -879,9 +931,12 @@
         }
       }
     },
-    "/export/articles": {
+    "/apps/news/export/articles": {
       "get": {
         "operationId": "export-articles-TODO",
+        "tags": [
+          "news"
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -896,9 +951,12 @@
         }
       }
     },
-    "/api": {
+    "/apps/news/api": {
       "get": {
         "operationId": "api-index-TODO",
+        "tags": [
+          "news"
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -913,7 +971,7 @@
         }
       }
     },
-    "/api/{apiVersion}/version": {
+    "/apps/news/api/{apiVersion}/version": {
       "parameters": [
         {
           "name": "apiVersion",
@@ -926,6 +984,9 @@
       ],
       "get": {
         "operationId": "utility_api-version-TODO",
+        "tags": [
+          "news"
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -940,7 +1001,7 @@
         }
       }
     },
-    "/api/{apiVersion}/status": {
+    "/apps/news/api/{apiVersion}/status": {
       "parameters": [
         {
           "name": "apiVersion",
@@ -953,6 +1014,9 @@
       ],
       "get": {
         "operationId": "utility_api-status-TODO",
+        "tags": [
+          "news"
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -967,7 +1031,7 @@
         }
       }
     },
-    "/api/{apiVersion}/cleanup/before-update": {
+    "/apps/news/api/{apiVersion}/cleanup/before-update": {
       "parameters": [
         {
           "name": "apiVersion",
@@ -980,6 +1044,9 @@
       ],
       "get": {
         "operationId": "utility_api-before_update-TODO",
+        "tags": [
+          "news"
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -994,7 +1061,7 @@
         }
       }
     },
-    "/api/{apiVersion}/cleanup/after-update": {
+    "/apps/news/api/{apiVersion}/cleanup/after-update": {
       "parameters": [
         {
           "name": "apiVersion",
@@ -1007,6 +1074,9 @@
       ],
       "get": {
         "operationId": "utility_api-after_update-TODO",
+        "tags": [
+          "news"
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -1021,7 +1091,7 @@
         }
       }
     },
-    "/api/{apiVersion}/folders": {
+    "/apps/news/api/{apiVersion}/folders": {
       "parameters": [
         {
           "name": "apiVersion",
@@ -1034,6 +1104,9 @@
       ],
       "get": {
         "operationId": "folder_api-index-TODO",
+        "tags": [
+          "news"
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -1049,6 +1122,9 @@
       },
       "post": {
         "operationId": "folder_api-create-TODO",
+        "tags": [
+          "news"
+        ],
         "parameters": [
           {
             "name": "name",
@@ -1073,7 +1149,7 @@
         }
       }
     },
-    "/api/{apiVersion}/folders/{folderId}": {
+    "/apps/news/api/{apiVersion}/folders/{folderId}": {
       "parameters": [
         {
           "name": "apiVersion",
@@ -1094,6 +1170,9 @@
       ],
       "put": {
         "operationId": "folder_api-update-TODO",
+        "tags": [
+          "news"
+        ],
         "parameters": [
           {
             "name": "name",
@@ -1119,6 +1198,9 @@
       },
       "delete": {
         "operationId": "folder_api-delete-TODO",
+        "tags": [
+          "news"
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -1133,7 +1215,7 @@
         }
       }
     },
-    "/api/{apiVersion}/folders/{folderId}/read": {
+    "/apps/news/api/{apiVersion}/folders/{folderId}/read": {
       "parameters": [
         {
           "name": "apiVersion",
@@ -1155,6 +1237,9 @@
       ],
       "post": {
         "operationId": "folder_api-read-TODO",
+        "tags": [
+          "news"
+        ],
         "parameters": [
           {
             "name": "newestItemId",
@@ -1180,7 +1265,7 @@
         }
       }
     },
-    "/api/v1-2/folders/{folderId}/read": {
+    "/apps/news/api/v1-2/folders/{folderId}/read": {
       "parameters": [
         {
           "name": "folderId",
@@ -1194,6 +1279,9 @@
       ],
       "put": {
         "operationId": "folder_api-read-TODO",
+        "tags": [
+          "news"
+        ],
         "parameters": [
           {
             "name": "newestItemId",
@@ -1219,7 +1307,7 @@
         }
       }
     },
-    "/api/{apiVersion}/feeds": {
+    "/apps/news/api/{apiVersion}/feeds": {
       "parameters": [
         {
           "name": "apiVersion",
@@ -1232,6 +1320,9 @@
       ],
       "get": {
         "operationId": "feed_api-index-TODO",
+        "tags": [
+          "news"
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -1247,6 +1338,9 @@
       },
       "post": {
         "operationId": "feed_api-create-TODO",
+        "tags": [
+          "news"
+        ],
         "parameters": [
           {
             "name": "url",
@@ -1279,7 +1373,7 @@
         }
       }
     },
-    "/api/{apiVersion}/feeds/{feedId}": {
+    "/apps/news/api/{apiVersion}/feeds/{feedId}": {
       "parameters": [
         {
           "name": "apiVersion",
@@ -1300,6 +1394,9 @@
       ],
       "put": {
         "operationId": "feed_api-update-TODO",
+        "tags": [
+          "news"
+        ],
         "parameters": [
           {
             "name": "userId",
@@ -1325,6 +1422,9 @@
       },
       "delete": {
         "operationId": "feed_api-delete-TODO",
+        "tags": [
+          "news"
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -1339,7 +1439,7 @@
         }
       }
     },
-    "/api/{apiVersion}/feeds/all": {
+    "/apps/news/api/{apiVersion}/feeds/all": {
       "parameters": [
         {
           "name": "apiVersion",
@@ -1352,6 +1452,9 @@
       ],
       "get": {
         "operationId": "feed_api-from_all_users-TODO",
+        "tags": [
+          "news"
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -1366,7 +1469,7 @@
         }
       }
     },
-    "/api/{apiVersion}/feeds/{feedId}/move": {
+    "/apps/news/api/{apiVersion}/feeds/{feedId}/move": {
       "parameters": [
         {
           "name": "apiVersion",
@@ -1387,6 +1490,9 @@
       ],
       "post": {
         "operationId": "feed_api-move-TODO",
+        "tags": [
+          "news"
+        ],
         "parameters": [
           {
             "name": "folderId",
@@ -1411,7 +1517,7 @@
         }
       }
     },
-    "/api/v1-2/feeds/{feedId}/move": {
+    "/apps/news/api/v1-2/feeds/{feedId}/move": {
       "parameters": [
         {
           "name": "feedId",
@@ -1424,6 +1530,9 @@
       ],
       "put": {
         "operationId": "feed_api-move-TODO",
+        "tags": [
+          "news"
+        ],
         "parameters": [
           {
             "name": "folderId",
@@ -1448,7 +1557,7 @@
         }
       }
     },
-    "/api/{apiVersion}/feeds/{feedId}/rename": {
+    "/apps/news/api/{apiVersion}/feeds/{feedId}/rename": {
       "parameters": [
         {
           "name": "apiVersion",
@@ -1469,6 +1578,9 @@
       ],
       "post": {
         "operationId": "feed_api-rename-TODO",
+        "tags": [
+          "news"
+        ],
         "parameters": [
           {
             "name": "feedTitle",
@@ -1493,7 +1605,7 @@
         }
       }
     },
-    "/api/v1-2/feeds/{feedId}/rename": {
+    "/apps/news/api/v1-2/feeds/{feedId}/rename": {
       "parameters": [
         {
           "name": "feedId",
@@ -1506,6 +1618,9 @@
       ],
       "put": {
         "operationId": "feed_api-rename-TODO",
+        "tags": [
+          "news"
+        ],
         "parameters": [
           {
             "name": "feedTitle",
@@ -1530,7 +1645,7 @@
         }
       }
     },
-    "/api/{apiVersion}/feeds/{feedId}/read": {
+    "/apps/news/api/{apiVersion}/feeds/{feedId}/read": {
       "parameters": [
         {
           "name": "apiVersion",
@@ -1551,6 +1666,9 @@
       ],
       "post": {
         "operationId": "feed_api-read-TODO",
+        "tags": [
+          "news"
+        ],
         "parameters": [
           {
             "name": "newestItemId",
@@ -1575,7 +1693,7 @@
         }
       }
     },
-    "/api/v1-2/feeds/{feedId}/read": {
+    "/apps/news/api/v1-2/feeds/{feedId}/read": {
       "parameters": [
         {
           "name": "feedId",
@@ -1588,6 +1706,9 @@
       ],
       "put": {
         "operationId": "feed_api-read-TODO",
+        "tags": [
+          "news"
+        ],
         "parameters": [
           {
             "name": "newestItemId",
@@ -1612,7 +1733,7 @@
         }
       }
     },
-    "/api/{apiVersion}/feeds/update": {
+    "/apps/news/api/{apiVersion}/feeds/update": {
       "parameters": [
         {
           "name": "apiVersion",
@@ -1625,6 +1746,9 @@
       ],
       "get": {
         "operationId": "feed_api-update-TODO",
+        "tags": [
+          "news"
+        ],
         "parameters": [
           {
             "name": "userId",
@@ -1657,7 +1781,7 @@
         }
       }
     },
-    "/api/{apiVersion}/items": {
+    "/apps/news/api/{apiVersion}/items": {
       "parameters": [
         {
           "name": "apiVersion",
@@ -1670,6 +1794,9 @@
       ],
       "get": {
         "operationId": "item_api-index-TODO",
+        "tags": [
+          "news"
+        ],
         "parameters": [
           {
             "name": "type",
@@ -1694,8 +1821,8 @@
             "in": "query",
             "required": false,
             "schema": {
-              "type": "boolean",
-              "default": true
+              "type": "integer",
+              "default": 0
             }
           },
           {
@@ -1721,8 +1848,8 @@
             "in": "query",
             "required": false,
             "schema": {
-              "type": "boolean",
-              "default": false
+              "type": "integer",
+              "default": 0
             }
           }
         ],
@@ -1740,7 +1867,7 @@
         }
       }
     },
-    "/api/{apiVersion}/items/updated": {
+    "/apps/news/api/{apiVersion}/items/updated": {
       "parameters": [
         {
           "name": "apiVersion",
@@ -1753,6 +1880,9 @@
       ],
       "get": {
         "operationId": "item_api-updated-TODO",
+        "tags": [
+          "news"
+        ],
         "parameters": [
           {
             "name": "type",
@@ -1796,7 +1926,7 @@
         }
       }
     },
-    "/api/{apiVersion}/items/{itemId}/read": {
+    "/apps/news/api/{apiVersion}/items/{itemId}/read": {
       "parameters": [
         {
           "name": "apiVersion",
@@ -1817,6 +1947,9 @@
       ],
       "post": {
         "operationId": "item_api-read-TODO",
+        "tags": [
+          "news"
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -1831,7 +1964,7 @@
         }
       }
     },
-    "/api/v1-2/items/{itemId}/read": {
+    "/apps/news/api/v1-2/items/{itemId}/read": {
       "parameters": [
         {
           "name": "itemId",
@@ -1844,6 +1977,9 @@
       ],
       "put": {
         "operationId": "item_api-read-TODO",
+        "tags": [
+          "news"
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -1858,7 +1994,7 @@
         }
       }
     },
-    "/api/{apiVersion}/items/{itemId}/unread": {
+    "/apps/news/api/{apiVersion}/items/{itemId}/unread": {
       "parameters": [
         {
           "name": "apiVersion",
@@ -1879,6 +2015,9 @@
       ],
       "post": {
         "operationId": "item_api-unread-TODO",
+        "tags": [
+          "news"
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -1893,7 +2032,7 @@
         }
       }
     },
-    "/api/v1-2/items/{itemId}/unread": {
+    "/apps/news/api/v1-2/items/{itemId}/unread": {
       "parameters": [
         {
           "name": "itemId",
@@ -1906,6 +2045,9 @@
       ],
       "put": {
         "operationId": "item_api-unread-TODO",
+        "tags": [
+          "news"
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -1920,7 +2062,7 @@
         }
       }
     },
-    "/api/{apiVersion}/items/read": {
+    "/apps/news/api/{apiVersion}/items/read": {
       "parameters": [
         {
           "name": "apiVersion",
@@ -1933,6 +2075,9 @@
       ],
       "post": {
         "operationId": "item_api-read_all-TODO",
+        "tags": [
+          "news"
+        ],
         "parameters": [
           {
             "name": "newestItemId",
@@ -1957,9 +2102,12 @@
         }
       }
     },
-    "/api/v1-2/items/read": {
+    "/apps/news/api/v1-2/items/read": {
       "put": {
         "operationId": "item_api-read_all-TODO",
+        "tags": [
+          "news"
+        ],
         "parameters": [
           {
             "name": "newestItemId",
@@ -1984,7 +2132,7 @@
         }
       }
     },
-    "/api/{apiVersion}/items/read/multiple": {
+    "/apps/news/api/{apiVersion}/items/read/multiple": {
       "parameters": [
         {
           "name": "apiVersion",
@@ -1997,6 +2145,9 @@
       ],
       "post": {
         "operationId": "item_api-read_multiple_by_ids-TODO",
+        "tags": [
+          "news"
+        ],
         "parameters": [
           {
             "name": "itemIds",
@@ -2022,9 +2173,12 @@
         }
       }
     },
-    "/api/v1-2/items/read/multiple": {
+    "/apps/news/api/v1-2/items/read/multiple": {
       "put": {
         "operationId": "item_api-read_multiple-TODO",
+        "tags": [
+          "news"
+        ],
         "parameters": [
           {
             "name": "items",
@@ -2050,7 +2204,7 @@
         }
       }
     },
-    "/api/{apiVersion}/items/unread/multiple": {
+    "/apps/news/api/{apiVersion}/items/unread/multiple": {
       "parameters": [
         {
           "name": "apiVersion",
@@ -2063,6 +2217,9 @@
       ],
       "post": {
         "operationId": "item_api-unread_multiple_by_ids-TODO",
+        "tags": [
+          "news"
+        ],
         "parameters": [
           {
             "name": "itemIds",
@@ -2088,9 +2245,12 @@
         }
       }
     },
-    "/api/v1-2/items/unread/multiple": {
+    "/apps/news/api/v1-2/items/unread/multiple": {
       "put": {
         "operationId": "item_api-unread_multiple-TODO",
+        "tags": [
+          "news"
+        ],
         "parameters": [
           {
             "name": "items",
@@ -2116,7 +2276,7 @@
         }
       }
     },
-    "/api/{apiVersion}/items/{itemId}/star": {
+    "/apps/news/api/{apiVersion}/items/{itemId}/star": {
       "parameters": [
         {
           "name": "apiVersion",
@@ -2137,6 +2297,9 @@
       ],
       "post": {
         "operationId": "item_api-star_by_item_id-TODO",
+        "tags": [
+          "news"
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -2151,7 +2314,7 @@
         }
       }
     },
-    "/api/v1-2/items/{feedId}/{guidHash}/star": {
+    "/apps/news/api/v1-2/items/{feedId}/{guidHash}/star": {
       "parameters": [
         {
           "name": "feedId",
@@ -2172,6 +2335,9 @@
       ],
       "put": {
         "operationId": "item_api-star-TODO",
+        "tags": [
+          "news"
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -2186,7 +2352,7 @@
         }
       }
     },
-    "/api/{apiVersion}/items/{itemId}/unstar": {
+    "/apps/news/api/{apiVersion}/items/{itemId}/unstar": {
       "parameters": [
         {
           "name": "apiVersion",
@@ -2207,6 +2373,9 @@
       ],
       "post": {
         "operationId": "item_api-unstar_by_item_id-TODO",
+        "tags": [
+          "news"
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -2221,7 +2390,7 @@
         }
       }
     },
-    "/api/v1-2/items/{feedId}/{guidHash}/unstar": {
+    "/apps/news/api/v1-2/items/{feedId}/{guidHash}/unstar": {
       "parameters": [
         {
           "name": "feedId",
@@ -2242,6 +2411,9 @@
       ],
       "put": {
         "operationId": "item_api-unstar-TODO",
+        "tags": [
+          "news"
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -2256,7 +2428,7 @@
         }
       }
     },
-    "/api/{apiVersion}/items/star/multiple": {
+    "/apps/news/api/{apiVersion}/items/star/multiple": {
       "parameters": [
         {
           "name": "apiVersion",
@@ -2269,6 +2441,9 @@
       ],
       "post": {
         "operationId": "item_api-star_multiple_by_item_ids-TODO",
+        "tags": [
+          "news"
+        ],
         "parameters": [
           {
             "name": "itemIds",
@@ -2293,9 +2468,12 @@
         }
       }
     },
-    "/api/v1-2/items/star/multiple": {
+    "/apps/news/api/v1-2/items/star/multiple": {
       "put": {
         "operationId": "item_api-star_multiple-TODO",
+        "tags": [
+          "news"
+        ],
         "parameters": [
           {
             "name": "items",
@@ -2321,7 +2499,7 @@
         }
       }
     },
-    "/api/{apiVersion}/items/unstar/multiple": {
+    "/apps/news/api/{apiVersion}/items/unstar/multiple": {
       "parameters": [
         {
           "name": "apiVersion",
@@ -2334,6 +2512,9 @@
       ],
       "post": {
         "operationId": "item_api-unstar_multiple_by_item_ids-TODO",
+        "tags": [
+          "news"
+        ],
         "parameters": [
           {
             "name": "itemIds",
@@ -2358,9 +2539,12 @@
         }
       }
     },
-    "/api/v1-2/items/unstar/multiple": {
+    "/apps/news/api/v1-2/items/unstar/multiple": {
       "put": {
         "operationId": "item_api-unstar_multiple-TODO",
+        "tags": [
+          "news"
+        ],
         "parameters": [
           {
             "name": "items",
@@ -2386,9 +2570,12 @@
         }
       }
     },
-    "/api/v2/folders": {
+    "/apps/news/api/v2/folders": {
       "post": {
         "operationId": "folder_api_v2-create-TODO",
+        "tags": [
+          "news"
+        ],
         "parameters": [
           {
             "name": "name",
@@ -2413,7 +2600,7 @@
         }
       }
     },
-    "/api/v2/folders/{folderId}": {
+    "/apps/news/api/v2/folders/{folderId}": {
       "parameters": [
         {
           "name": "folderId",
@@ -2426,6 +2613,9 @@
       ],
       "delete": {
         "operationId": "folder_api_v2-delete-TODO",
+        "tags": [
+          "news"
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -2441,6 +2631,9 @@
       },
       "patch": {
         "operationId": "folder_api_v2-update-TODO",
+        "tags": [
+          "news"
+        ],
         "parameters": [
           {
             "name": "name",

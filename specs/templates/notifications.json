@@ -1,41 +1,21 @@
 {
-  "openapi": "3.0.3",
+  "openapi": "3.1.0",
   "info": {
     "title": "Notifications",
     "version": "2.12.1",
     "description": "This app provides a backend and frontend for the notification API available in Nextcloud.",
     "license": {
-      "name": "agpl"
+      "name": "agpl",
+      "identifier": " AGPL-3.0"
     }
   },
-  "servers": [
+  "tags": [
     {
-      "url": "https://{hostname}:{port}/ocs/v1.php/apps/notifications",
-      "variables": {
-        "hostname": {
-          "default": "localhost"
-        },
-        "port": {
-          "default": "8080"
-        }
-      }
+      "name": "notifications"
     }
   ],
-  "security": [
-    {
-      "basic_auth": []
-    }
-  ],
-  "components": {
-    "securitySchemes": {
-      "basic_auth": {
-        "type": "http",
-        "scheme": "basic"
-      }
-    }
-  },
   "paths": {
-    "/api/{apiVersion}/notifications": {
+    "/ocs/v1.php/apps/notifications/api/{apiVersion}/notifications": {
       "parameters": [
         {
           "name": "apiVersion",
@@ -48,6 +28,9 @@
       ],
       "get": {
         "operationId": "endpoint-listnotifications-TODO",
+        "tags": [
+          "notifications"
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -63,6 +46,9 @@
       },
       "delete": {
         "operationId": "endpoint-deleteallnotifications-TODO",
+        "tags": [
+          "notifications"
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -77,7 +63,7 @@
         }
       }
     },
-    "/api/{apiVersion}/notifications/{id}": {
+    "/ocs/v1.php/apps/notifications/api/{apiVersion}/notifications/{id}": {
       "parameters": [
         {
           "name": "apiVersion",
@@ -98,6 +84,9 @@
       ],
       "get": {
         "operationId": "endpoint-getnotification-TODO",
+        "tags": [
+          "notifications"
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -113,6 +102,9 @@
       },
       "delete": {
         "operationId": "endpoint-deletenotification-TODO",
+        "tags": [
+          "notifications"
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -127,7 +119,7 @@
         }
       }
     },
-    "/api/{apiVersion}/push": {
+    "/ocs/v1.php/apps/notifications/api/{apiVersion}/push": {
       "parameters": [
         {
           "name": "apiVersion",
@@ -140,6 +132,9 @@
       ],
       "post": {
         "operationId": "push-registerdevice-TODO",
+        "tags": [
+          "notifications"
+        ],
         "parameters": [
           {
             "name": "pushTokenHash",
@@ -181,6 +176,9 @@
       },
       "delete": {
         "operationId": "push-removedevice-TODO",
+        "tags": [
+          "notifications"
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -195,7 +193,7 @@
         }
       }
     },
-    "/api/{apiVersion}/admin_notifications/{userId}": {
+    "/ocs/v1.php/apps/notifications/api/{apiVersion}/admin_notifications/{userId}": {
       "parameters": [
         {
           "name": "apiVersion",
@@ -216,6 +214,9 @@
       ],
       "post": {
         "operationId": "api-generatenotification-TODO",
+        "tags": [
+          "notifications"
+        ],
         "parameters": [
           {
             "name": "shortMessage",
@@ -249,7 +250,7 @@
         }
       }
     },
-    "/api/{apiVersion}/settings": {
+    "/ocs/v1.php/apps/notifications/api/{apiVersion}/settings": {
       "parameters": [
         {
           "name": "apiVersion",
@@ -262,6 +263,9 @@
       ],
       "post": {
         "operationId": "settings-personal-TODO",
+        "tags": [
+          "notifications"
+        ],
         "parameters": [
           {
             "name": "batchSetting",

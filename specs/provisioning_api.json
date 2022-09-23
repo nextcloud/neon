@@ -1,16 +1,17 @@
 {
-  "openapi": "3.0.3",
+  "openapi": "3.1.0",
   "info": {
     "title": "Provisioning API",
     "version": "1.14.0",
     "description": "This application enables a set of APIs that external systems can use to manage users, groups and apps.",
     "license": {
-      "name": "agpl"
+      "name": "agpl",
+      "identifier": " AGPL-3.0"
     }
   },
   "servers": [
     {
-      "url": "https://{hostname}:{port}/ocs/v1.php/cloud",
+      "url": "https://{hostname}:{port}",
       "variables": {
         "hostname": {
           "default": "localhost"
@@ -26,17 +27,32 @@
       "basic_auth": []
     }
   ],
+  "tags": [
+    {
+      "name": "provisioning_api"
+    }
+  ],
   "components": {
-    "securitySchemes": {
-      "basic_auth": {
-        "type": "http",
-        "scheme": "basic"
-      }
-    },
     "schemas": {
       "OCSMeta": {
-        "deprecated": true,
-        "description": "Stub"
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "statuscode": {
+            "type": "integer"
+          },
+          "message": {
+            "type": "string"
+          },
+          "totalitems": {
+            "type": "string"
+          },
+          "itemsperpage": {
+            "type": "string"
+          }
+        }
       },
       "ProvisioningApiUser": {
         "type": "object",
@@ -57,6 +73,9 @@
       "ProvisioningApiUserDetails": {
         "type": "object",
         "properties": {
+          "enabled": {
+            "type": "boolean"
+          },
           "storageLocation": {
             "type": "string"
           },
@@ -207,12 +226,21 @@
           }
         }
       }
+    },
+    "securitySchemes": {
+      "basic_auth": {
+        "type": "http",
+        "scheme": "basic"
+      }
     }
   },
   "paths": {
-    "/user": {
+    "/ocs/v1.php/cloud/user": {
       "get": {
         "operationId": "get-current-user",
+        "tags": [
+          "provisioning_api"
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -227,7 +255,7 @@
         }
       }
     },
-    "/users/{userId}": {
+    "/ocs/v1.php/cloud/users/{userId}": {
       "parameters": [
         {
           "name": "userId",
@@ -240,6 +268,9 @@
       ],
       "get": {
         "operationId": "get-user",
+        "tags": [
+          "provisioning_api"
+        ],
         "responses": {
           "200": {
             "description": "",

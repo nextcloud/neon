@@ -12,7 +12,7 @@ part 'notifications.rxb.g.dart';
 abstract class NotificationsBlocEvents {
   void refresh();
 
-  void deleteNotification(final NotificationsNotification notification);
+  void deleteNotification(final int id);
 
   void deleteAllNotifications();
 }
@@ -34,8 +34,8 @@ class NotificationsBloc extends $NotificationsBloc {
   ) {
     _$refreshEvent.listen((final _) => _loadNotifications());
 
-    _$deleteNotificationEvent.listen((final notification) {
-      _wrapAction(() async => client.notifications.deleteNotification(notification.notificationId!));
+    _$deleteNotificationEvent.listen((final id) {
+      _wrapAction(() async => client.notifications.deleteNotification(id: id));
     });
 
     _$deleteAllNotificationsEvent.listen((final notification) {
@@ -61,13 +61,11 @@ class NotificationsBloc extends $NotificationsBloc {
 
   void _loadNotifications() {
     requestManager
-        .wrapNextcloud<List<NotificationsNotification>, NotificationsListNotifications, NotificationsNotification,
-            NextcloudNotificationsClient>(
+        .wrapNextcloud<List<NotificationsNotification>, NotificationsListNotifications>(
           client.id,
-          client.notifications,
           'notifications-notifications',
-          () async => (await client.notifications.listNotifications())!,
-          (final response) => response.ocs!.data,
+          () async => client.notifications.listNotifications(),
+          (final response) => response.ocs!.data!,
           previousData: _notificationsSubject.valueOrNull?.data,
         )
         .listen(_notificationsSubject.add);

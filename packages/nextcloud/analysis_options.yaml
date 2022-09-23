@@ -2,5 +2,4 @@ include: package:nit_picking/dart.yaml
 
 analyzer:
   exclude:
-    - 'lib/src/clients/common'
-    - 'lib/src/clients/generated'
+    - 'lib/src/**.openapi.**'

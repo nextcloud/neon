@@ -19,7 +19,7 @@ class _ServerStatusState extends State<ServerStatus> {
 
     WidgetsBinding.instance.addPostFrameCallback((final _) async {
       try {
-        final status = (await widget.account.client.core.getStatus())!;
+        final status = await widget.account.client.core.getStatus();
         if (status.maintenance! && mounted) {
           ExceptionWidget.showSnackbar(context, AppLocalizations.of(context).errorServerInMaintenanceMode);
         }

@@ -1,1 +1,2 @@
 *.g.dart -diff
+*.openapi.dart -diff

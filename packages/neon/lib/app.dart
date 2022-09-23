@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:neon/l10n/localizations.dart';
 import 'package:neon/src/blocs/accounts.dart';
-import 'package:neon/src/blocs/capabilities.dart';
 import 'package:neon/src/neon.dart';
+import 'package:nextcloud/nextcloud.dart';
 import 'package:rxdart/rxdart.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -32,7 +32,7 @@ class NeonApp extends StatefulWidget {
 // ignore: prefer_mixin
 class _NeonAppState extends State<NeonApp> with WidgetsBindingObserver {
   final _navigatorKey = GlobalKey<NavigatorState>();
-  NextcloudTheme? _userTheme;
+  CoreServerCapabilitiesOcsDataCapabilitiesTheming? _userTheme;
   final _platformBrightness = BehaviorSubject<Brightness>.seeded(
     WidgetsBinding.instance.window.platformBrightness,
   );

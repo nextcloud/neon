@@ -1,3 +1,5 @@
+part of '../nextcloud.dart';
+
 /// Different app types to register for
 enum AppType {
   /// Will only receive Talk notifications

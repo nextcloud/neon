@@ -1,11 +1,12 @@
 {
-  "openapi": "3.0.3",
+  "openapi": "3.1.0",
   "info": {
     "title": "Core",
     "version": "24.0.5",
     "description": "Core functionality of Nextcloud",
     "license": {
-      "name": "agpl"
+      "name": "agpl",
+      "identifier": " AGPL-3.0"
     }
   },
   "servers": [
@@ -26,17 +27,32 @@
       "basic_auth": []
     }
   ],
+  "tags": [
+    {
+      "name": "core"
+    }
+  ],
   "components": {
-    "securitySchemes": {
-      "basic_auth": {
-        "type": "http",
-        "scheme": "basic"
-      }
-    },
     "schemas": {
       "OCSMeta": {
-        "deprecated": true,
-        "description": "Stub"
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "statuscode": {
+            "type": "integer"
+          },
+          "message": {
+            "type": "string"
+          },
+          "totalitems": {
+            "type": "string"
+          },
+          "itemsperpage": {
+            "type": "string"
+          }
+        }
       },
       "CoreServerStatus": {
         "type": "object",
@@ -677,8 +693,15 @@
                       "type": "string"
                     },
                     "order": {
-                      "type": "object",
-                      "description": "Can either be a string or integer, see bug report https://github.com/nextcloud/server/issues/32828"
+                      "description": "Should always be an integer, but there is a bug. See https://github.com/nextcloud/server/issues/32828",
+                      "oneOf": [
+                        {
+                          "type": "integer"
+                        },
+                        {
+                          "type": "string"
+                        }
+                      ]
                     },
                     "href": {
                       "type": "string"
@@ -741,12 +764,21 @@
           }
         }
       }
+    },
+    "securitySchemes": {
+      "basic_auth": {
+        "type": "http",
+        "scheme": "basic"
+      }
     }
   },
   "paths": {
     "/status.php": {
       "get": {
         "operationId": "get-status",
+        "tags": [
+          "core"
+        ],
         "responses": {
           "200": {
             "description": "Status of the Nextcloud instance",
@@ -764,6 +796,9 @@
     "/ocs/v1.php/cloud/capabilities": {
       "get": {
         "operationId": "get-capabilities",
+        "tags": [
+          "core"
+        ],
         "responses": {
           "200": {
             "description": "Capabilities of the Nextcloud instance",
@@ -781,6 +816,9 @@
     "/ocs/v1.php/core/navigation/apps": {
       "get": {
         "operationId": "get-navigation-apps",
+        "tags": [
+          "core"
+        ],
         "responses": {
           "200": {
             "description": "Navigation apps of the Nextcloud instance",
@@ -798,6 +836,9 @@
     "/login/v2": {
       "post": {
         "operationId": "init-login-flow",
+        "tags": [
+          "core"
+        ],
         "responses": {
           "200": {
             "description": "Login flow init",
@@ -815,6 +856,9 @@
     "/login/v2/poll": {
       "post": {
         "operationId": "get-login-flow-result",
+        "tags": [
+          "core"
+        ],
         "parameters": [
           {
             "name": "token",
@@ -873,8 +917,8 @@
           "in": "query",
           "required": false,
           "schema": {
-            "type": "boolean",
-            "default": false
+            "type": "integer",
+            "default": 0
           }
         },
         {
@@ -882,8 +926,8 @@
           "in": "query",
           "required": false,
           "schema": {
-            "type": "boolean",
-            "default": true
+            "type": "integer",
+            "default": 1
           }
         },
         {
@@ -898,13 +942,17 @@
       ],
       "get": {
         "operationId": "get-preview",
+        "tags": [
+          "core"
+        ],
         "responses": {
           "200": {
             "description": "Preview image of a file",
             "content": {
               "image/png": {
                 "schema": {
-                  "type": "string"
+                  "type": "string",
+                  "format": "binary"
                 }
               }
             }
@@ -933,13 +981,17 @@
       ],
       "get": {
         "operationId": "get-avatar",
+        "tags": [
+          "core"
+        ],
         "responses": {
           "200": {
             "description": "",
             "content": {
-              "application/json": {
+              "image/png": {
                 "schema": {
-                  "type": "string"
+                  "type": "string",
+                  "format": "binary"
                 }
               }
             }

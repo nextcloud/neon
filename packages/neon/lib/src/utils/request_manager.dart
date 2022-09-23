@@ -28,9 +28,8 @@ class RequestManager {
     }
   }
 
-  Stream<Result<T>> wrapNextcloud<T, R, U, S extends ApiInstance>(
+  Stream<Result<T>> wrapNextcloud<T, R>(
     final String clientID,
-    final S apiInstance,
     final String k,
     final Future<R> Function() call,
     final T Function(R) unwrap, {
@@ -39,30 +38,11 @@ class RequestManager {
     final bool disableTimeout = false,
     final T? previousData,
   }) async* {
-    if (R.toString().endsWith('?')) {
-      final e = Exception('You can not request a nullable type ${R.toString()}');
-      debugPrint(e.toString());
-      yield Result.error(e);
-      return;
-    }
-    if (R is List && R != List<U>) {
-      final e = Exception('$R is not List<$U> as expected');
-      debugPrint(e.toString());
-      yield Result.error(e);
-      return;
-    }
-
     yield* _wrap<T, R>(
       clientID,
       k,
-      apiInstance.apiClient.serializeAsync,
-      (final d) async {
-        var a = await apiInstance.apiClient.deserializeAsync(d, R.toString());
-        if (a is List) {
-          a = a.map((final b) => b as U).toList();
-        }
-        return a as R;
-      },
+      (final s) => json.encode(serialize<R>(s)),
+      (final d) => deserialize<R>(json.decode(d)),
       call,
       unwrap: unwrap,
       preloadCache: preloadCache,
@@ -84,8 +64,8 @@ class RequestManager {
       _wrap<Uint8List, Uint8List>(
         clientID,
         k,
-        (final s) async => base64.encode(s),
-        (final d) async => base64.decode(d),
+        (final s) => base64.encode(s),
+        (final d) => base64.decode(d),
         call,
         preloadCache: preloadCache,
         preferCache: preferCache,
@@ -105,20 +85,19 @@ class RequestManager {
       _wrap<String, String>(
         clientID,
         k,
-        (final s) async => s,
-        (final d) async => d,
+        (final s) => s,
+        (final d) => d,
         call,
         preloadCache: preloadCache,
         preferCache: preferCache,
         previousData: previousData,
         disableTimeout: disableTimeout,
       );
-
   Stream<Result<T>> _wrap<T, R>(
     final String clientID,
     final String k,
-    final Future<String> Function(R) serialize,
-    final Future<R> Function(String) deserialize,
+    final String Function(R) serialize,
+    final R Function(String) deserialize,
     final Future<R> Function() call, {
     final bool preloadCache = false,
     final bool preferCache = false,
@@ -140,7 +119,7 @@ class RequestManager {
 
     if ((preferCache || preloadCache) && cache != null && await cache!.has(key)) {
       _print('[Cache]: $k');
-      final s = unwrap(await deserialize((await cache!.get(key))!));
+      final s = unwrap(deserialize((await cache!.get(key))!));
       if (preloadCache) {
         yield ResultCached(s, loading: true);
       } else {
@@ -152,7 +131,7 @@ class RequestManager {
     try {
       final response = await _timeout(disableTimeout, call);
 
-      final s = await serialize(response);
+      final s = serialize(response);
       _print('[Response]: $k');
       await cache?.set(key, s);
 
@@ -161,7 +140,7 @@ class RequestManager {
       if (cache != null && await cache!.has(key)) {
         _print('[Cache]: $k');
         debugPrint(e.toString());
-        yield ResultCached(unwrap(await deserialize((await cache!.get(key))!)), error: e);
+        yield ResultCached(unwrap(deserialize((await cache!.get(key))!)), error: e);
         return;
       }
       _print('[Failure]: $k');
@@ -281,8 +260,4 @@ extension ResultDataError<T> on Result<T> {
 
     return null;
   }
-}
-
-extension ListAs<T, V> on List<T> {
-  List as<U extends List<V>>() => map((final e) => e as V).toList();
 }

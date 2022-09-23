@@ -4,27 +4,21 @@ class Spec {
   Spec({
     required this.version,
     required this.info,
+    required this.tags,
     required this.paths,
-    this.servers,
-    this.security,
-    this.components,
   });
 
   Map<String, dynamic> toMap() => {
         'openapi': version,
         'info': info.toMap(),
-        if (servers != null) 'servers': servers!.map((final s) => s.toMap()).toList(),
-        if (security != null) 'security': security!,
-        if (components != null) 'components': components!.toMap(),
+        'tags': tags.map((final tag) => <String, String>{'name': tag}).toList(),
         'paths': paths.map((final key, final value) => MapEntry(key, value.toMap())),
       };
 
   final String version;
   final Info info;
+  final List<String> tags;
   final Map<String, Path> paths;
-  final List<Server>? servers;
-  final Components? components;
-  final List<Map<String, List>>? security;
 }
 
 class Info {
@@ -51,15 +45,21 @@ class Info {
 class License {
   License({
     required this.name,
+    this.identifier,
     this.url,
-  });
+  }) : assert(
+          (identifier == null) != (url == null),
+          'Specify either identifier or url',
+        );
 
   Map<String, dynamic> toMap() => {
         'name': name,
+        if (identifier != null) 'identifier': identifier,
         if (url != null) 'url': url,
       };
 
   final String name;
+  final String? identifier;
   final String? url;
 }
 
@@ -183,29 +183,36 @@ class Parameter {
 
 class Operation {
   Operation({
-    required this.responses,
-    this.parameters,
     this.operationID,
+    this.tags,
+    this.parameters,
+    this.responses,
   });
 
   Map<String, dynamic> toMap() => {
         if (operationID != null) ...{
           'operationId': operationID,
         },
+        if (tags != null) ...{
+          'tags': tags,
+        },
         if (parameters != null) ...{
           'parameters': parameters!.map((final p) => p.toMap()).toList(),
         },
-        'responses': responses.map(
-          (final key, final value) => MapEntry(
-            key.toString(),
-            value.toMap(),
+        if (responses != null) ...{
+          'responses': responses!.map(
+            (final key, final value) => MapEntry(
+              key.toString(),
+              value.toMap(),
+            ),
           ),
-        ),
+        },
       };
 
-  final Map<dynamic, Response> responses;
-  final List<Parameter>? parameters;
   final String? operationID;
+  final List<String>? tags;
+  final List<Parameter>? parameters;
+  final Map<dynamic, Response>? responses;
 }
 
 class Response {
@@ -239,35 +246,4 @@ class MediaType {
       };
 
   final Map<String, dynamic>? schema;
-}
-
-class Components {
-  Components({
-    this.securitySchemes,
-  });
-
-  Map<String, dynamic> toMap() => {
-        if (securitySchemes != null)
-          'securitySchemes': securitySchemes!.map((final key, final value) => MapEntry(key, value.toMap()))
-      };
-
-  final Map<String, SecurityScheme>? securitySchemes;
-}
-
-class SecurityScheme {
-  SecurityScheme({
-    required this.type,
-    required this.scheme,
-    this.description,
-  });
-
-  Map<String, dynamic> toMap() => {
-        'type': type,
-        'scheme': scheme,
-        if (description != null) 'description': description,
-      };
-
-  final String type;
-  final String scheme;
-  final String? description;
 }

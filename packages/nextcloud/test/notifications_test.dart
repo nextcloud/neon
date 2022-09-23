@@ -21,13 +21,10 @@ Future main() async {
     tearDown(() => client.destroy());
 
     Future sendTestNotification() async {
-      await validateResponse<NotificationsEmpty, void>(
-        client.notifications,
-        client.notifications.sendAdminNotificationWithHttpInfo(
-          'admin',
-          '123',
-          longMessage: '456',
-        ),
+      await client.notifications.sendAdminNotification(
+        userId: 'admin',
+        shortMessage: '123',
+        longMessage: '456',
       );
     }
 
@@ -39,36 +36,30 @@ Future main() async {
       await sendTestNotification();
 
       final startTime = DateTime.now().toUtc();
-      final response = (await validateResponse<NotificationsListNotifications, void>(
-        client.notifications,
-        client.notifications.listNotificationsWithHttpInfo(),
-      ))!;
+      final response = await client.notifications.listNotifications();
       expect(response.ocs!.data, hasLength(1));
-      expect(response.ocs!.data[0].notificationId, 1);
-      expect(response.ocs!.data[0].app, 'admin_notifications');
-      expect(response.ocs!.data[0].user, 'admin');
-      expectDateInReasonableTimeRange(DateTime.parse(response.ocs!.data[0].datetime!), startTime);
-      expect(response.ocs!.data[0].objectType, 'admin_notifications');
-      expect(response.ocs!.data[0].objectId, isNotNull);
-      expect(response.ocs!.data[0].subject, '123');
-      expect(response.ocs!.data[0].message, '456');
-      expect(response.ocs!.data[0].link, '');
-      expect(response.ocs!.data[0].subjectRich, '');
-      expect(response.ocs!.data[0].subjectRichParameters, hasLength(0));
-      expect(response.ocs!.data[0].messageRich, '');
-      expect(response.ocs!.data[0].messageRichParameters, hasLength(0));
-      expect(response.ocs!.data[0].icon, isNotEmpty);
-      expect(response.ocs!.data[0].actions, hasLength(0));
+      expect(response.ocs!.data![0].notificationId, 1);
+      expect(response.ocs!.data![0].app, 'admin_notifications');
+      expect(response.ocs!.data![0].user, 'admin');
+      expectDateInReasonableTimeRange(DateTime.parse(response.ocs!.data![0].datetime!), startTime);
+      expect(response.ocs!.data![0].objectType, 'admin_notifications');
+      expect(response.ocs!.data![0].objectId, isNotNull);
+      expect(response.ocs!.data![0].subject, '123');
+      expect(response.ocs!.data![0].message, '456');
+      expect(response.ocs!.data![0].link, '');
+      expect(response.ocs!.data![0].subjectRich, '');
+      expect(response.ocs!.data![0].subjectRichParameters, hasLength(0));
+      expect(response.ocs!.data![0].messageRich, '');
+      expect(response.ocs!.data![0].messageRichParameters, hasLength(0));
+      expect(response.ocs!.data![0].icon, isNotEmpty);
+      expect(response.ocs!.data![0].actions, hasLength(0));
     });
 
     test('Get notification', () async {
       await sendTestNotification();
 
       final startTime = DateTime.now().toUtc();
-      final response = (await validateResponse<NotificationsGetNotification, void>(
-        client.notifications,
-        client.notifications.getNotificationWithHttpInfo(1),
-      ))!;
+      final response = await client.notifications.getNotification(id: 1);
       expect(response.ocs!.data!.notificationId, 1);
       expect(response.ocs!.data!.app, 'admin_notifications');
       expect(response.ocs!.data!.user, 'admin');
@@ -88,30 +79,18 @@ Future main() async {
 
     test('Delete notification', () async {
       await sendTestNotification();
-      await validateResponse<NotificationsEmpty, void>(
-        client.notifications,
-        client.notifications.deleteNotificationWithHttpInfo(1),
-      );
+      await client.notifications.deleteNotification(id: 1);
 
-      final response = (await validateResponse<NotificationsListNotifications, void>(
-        client.notifications,
-        client.notifications.listNotificationsWithHttpInfo(),
-      ))!;
+      final response = await client.notifications.listNotifications();
       expect(response.ocs!.data, hasLength(0));
     });
 
     test('Delete all notifications', () async {
       await sendTestNotification();
       await sendTestNotification();
-      await validateResponse<NotificationsEmpty, void>(
-        client.notifications,
-        client.notifications.deleteAllNotificationsWithHttpInfo(),
-      );
+      await client.notifications.deleteAllNotifications();
 
-      final response = (await validateResponse<NotificationsListNotifications, void>(
-        client.notifications,
-        client.notifications.listNotificationsWithHttpInfo(),
-      ))!;
+      final response = await client.notifications.listNotifications();
       expect(response.ocs!.data, hasLength(0));
     });
   });
@@ -154,11 +133,11 @@ Future main() async {
         }
       }
 
-      final subscription = (await client.notifications.registerDeviceAtServer(
-        pushToken,
-        keypair.publicKey,
-        'http://host.docker.internal:$port/',
-      ))!
+      final subscription = (await client.notifications.registerDevice(
+        pushTokenHash: client.notifications.generatePushTokenHash(pushToken),
+        devicePublicKey: keypair.publicKey.toFormattedPEM(),
+        proxyServer: 'http://host.docker.internal:$port/',
+      ))
           .ocs!
           .data!;
       expect(subscription.publicKey, hasLength(451));
@@ -179,13 +158,16 @@ Future main() async {
       });
       pushProxy.onNewNotification.listen((final notification) async {
         expect(notification.deviceIdentifier, subscription.deviceIdentifier);
-        expect(notification.pushTokenHash, generatePushTokenHash(pushToken));
+        expect(notification.pushTokenHash, client.notifications.generatePushTokenHash(pushToken));
         expect(notification.subject, isNotEmpty);
         expect(notification.signature, isNotEmpty);
         expect(notification.priority, 'normal');
         expect(notification.type, 'alert');
 
-        final decryptedSubject = decryptPushNotificationSubject(keypair.privateKey, notification.subject);
+        final decryptedSubject = decryptPushNotificationSubject(
+          keypair.privateKey,
+          notification.subject,
+        );
         expect(decryptedSubject.nid, isNotNull);
         expect(decryptedSubject.app, 'admin_notifications');
         expect(decryptedSubject.subject, '123');
@@ -201,8 +183,8 @@ Future main() async {
         'http://localhost:$port/',
       );
       await client.notifications.sendAdminNotification(
-        'admin',
-        '123',
+        userId: 'admin',
+        shortMessage: '123',
         longMessage: '456',
       );
 
@@ -212,16 +194,13 @@ Future main() async {
     });
 
     test('Remove push device', () async {
-      await client.notifications.registerDeviceAtServer(
-        '789',
-        generateKeypair().publicKey,
-        'https://example.com/',
+      await client.notifications.registerDevice(
+        pushTokenHash: '789',
+        devicePublicKey: generateKeypair().publicKey.toFormattedPEM(),
+        proxyServer: 'https://example.com/',
       );
 
-      await validateResponse<NotificationsEmpty, void>(
-        client.notifications,
-        client.notifications.removeDeviceWithHttpInfo(),
-      );
+      await client.notifications.removeDevice();
     });
   });
 }

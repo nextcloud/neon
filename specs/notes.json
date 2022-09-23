@@ -1,16 +1,17 @@
 {
-  "openapi": "3.0.3",
+  "openapi": "3.1.0",
   "info": {
     "title": "Notes",
     "version": "4.5.1",
     "description": "Distraction-free notes and writing",
     "license": {
-      "name": "agpl"
+      "name": "agpl",
+      "identifier": " AGPL-3.0"
     }
   },
   "servers": [
     {
-      "url": "https://{hostname}:{port}/apps/notes",
+      "url": "https://{hostname}:{port}",
       "variables": {
         "hostname": {
           "default": "localhost"
@@ -26,13 +27,12 @@
       "basic_auth": []
     }
   ],
+  "tags": [
+    {
+      "name": "notes"
+    }
+  ],
   "components": {
-    "securitySchemes": {
-      "basic_auth": {
-        "type": "http",
-        "scheme": "basic"
-      }
-    },
     "schemas": {
       "NotesNote": {
         "type": "object",
@@ -86,13 +86,42 @@
             ]
           }
         }
+      },
+      "OCSMeta": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "statuscode": {
+            "type": "integer"
+          },
+          "message": {
+            "type": "string"
+          },
+          "totalitems": {
+            "type": "string"
+          },
+          "itemsperpage": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "securitySchemes": {
+      "basic_auth": {
+        "type": "http",
+        "scheme": "basic"
       }
     }
   },
   "paths": {
-    "/api/v1/notes": {
+    "/apps/notes/api/v1/notes": {
       "get": {
         "operationId": "get-notes",
+        "tags": [
+          "notes"
+        ],
         "parameters": [
           {
             "name": "category",
@@ -163,6 +192,9 @@
       },
       "post": {
         "operationId": "create-note",
+        "tags": [
+          "notes"
+        ],
         "parameters": [
           {
             "name": "category",
@@ -205,8 +237,8 @@
             "in": "query",
             "required": false,
             "schema": {
-              "type": "boolean",
-              "default": false
+              "type": "integer",
+              "default": 0
             }
           }
         ],
@@ -224,7 +256,7 @@
         }
       }
     },
-    "/api/v1/notes/{id}": {
+    "/apps/notes/api/v1/notes/{id}": {
       "parameters": [
         {
           "name": "id",
@@ -236,6 +268,10 @@
         }
       ],
       "get": {
+        "operationId": "get-note",
+        "tags": [
+          "notes"
+        ],
         "parameters": [
           {
             "name": "exclude",
@@ -254,7 +290,6 @@
             }
           }
         ],
-        "operationId": "get-note",
         "responses": {
           "200": {
             "description": "",
@@ -270,6 +305,9 @@
       },
       "put": {
         "operationId": "update-note",
+        "tags": [
+          "notes"
+        ],
         "parameters": [
           {
             "name": "content",
@@ -308,7 +346,8 @@
             "in": "query",
             "required": false,
             "schema": {
-              "type": "boolean"
+              "type": "integer",
+              "default": 0
             }
           },
           {
@@ -334,6 +373,9 @@
       },
       "delete": {
         "operationId": "delete-note",
+        "tags": [
+          "notes"
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -348,9 +390,12 @@
         }
       }
     },
-    "/api/v1/settings": {
+    "/apps/notes/api/v1/settings": {
       "get": {
         "operationId": "get-settings",
+        "tags": [
+          "notes"
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -366,6 +411,9 @@
       },
       "put": {
         "operationId": "update-settings",
+        "tags": [
+          "notes"
+        ],
         "requestBody": {
           "required": true,
           "content": {
