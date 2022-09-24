@@ -88,7 +88,7 @@ class Client {
   NotificationsClient get notifications => NotificationsClient(this);
   ProvisioningApiClient get provisioningApi => ProvisioningApiClient(this);
   UserStatusClient get userStatus => UserStatusClient(this);
-  Future<Response> _doRequest(
+  Future<Response> doRequest(
     String method,
     String path,
     Map<String, String> headers,
@@ -1342,16 +1342,16 @@ class CoreLoginFlowResult {
 }
 
 class CoreClient {
-  CoreClient(this._client);
+  CoreClient(this.rootClient);
 
-  final Client _client;
+  final Client rootClient;
 
   Future<CoreServerStatus> getStatus() async {
     var path = '/status.php';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{};
     Uint8List? body;
-    final response = await _client._doRequest(
+    final response = await rootClient.doRequest(
       'get',
       Uri(path: path, queryParameters: queryParameters).toString(),
       headers,
@@ -1368,7 +1368,7 @@ class CoreClient {
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{};
     Uint8List? body;
-    final response = await _client._doRequest(
+    final response = await rootClient.doRequest(
       'get',
       Uri(path: path, queryParameters: queryParameters).toString(),
       headers,
@@ -1385,7 +1385,7 @@ class CoreClient {
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{};
     Uint8List? body;
-    final response = await _client._doRequest(
+    final response = await rootClient.doRequest(
       'get',
       Uri(path: path, queryParameters: queryParameters).toString(),
       headers,
@@ -1402,7 +1402,7 @@ class CoreClient {
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{};
     Uint8List? body;
-    final response = await _client._doRequest(
+    final response = await rootClient.doRequest(
       'post',
       Uri(path: path, queryParameters: queryParameters).toString(),
       headers,
@@ -1420,7 +1420,7 @@ class CoreClient {
     final headers = <String, String>{};
     Uint8List? body;
     queryParameters['token'] = token.toString();
-    final response = await _client._doRequest(
+    final response = await rootClient.doRequest(
       'post',
       Uri(path: path, queryParameters: queryParameters).toString(),
       headers,
@@ -1450,7 +1450,7 @@ class CoreClient {
     queryParameters['a'] = a.toString();
     queryParameters['forceIcon'] = forceIcon.toString();
     queryParameters['mode'] = mode.toString();
-    final response = await _client._doRequest(
+    final response = await rootClient.doRequest(
       'get',
       Uri(path: path, queryParameters: queryParameters).toString(),
       headers,
@@ -1472,7 +1472,7 @@ class CoreClient {
     Uint8List? body;
     path = path.replaceAll('{userId}', Uri.encodeQueryComponent(userId.toString()));
     path = path.replaceAll('{size}', Uri.encodeQueryComponent(size.toString()));
-    final response = await _client._doRequest(
+    final response = await rootClient.doRequest(
       'get',
       Uri(path: path, queryParameters: queryParameters).toString(),
       headers,
@@ -1669,16 +1669,16 @@ class NewsListArticles {
 }
 
 class NewsClient {
-  NewsClient(this._client);
+  NewsClient(this.rootClient);
 
-  final Client _client;
+  final Client rootClient;
 
   Future<NewsListFolders> listFolders() async {
     var path = '/apps/news/api/v1-2/folders';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{};
     Uint8List? body;
-    final response = await _client._doRequest(
+    final response = await rootClient.doRequest(
       'get',
       Uri(path: path, queryParameters: queryParameters).toString(),
       headers,
@@ -1696,7 +1696,7 @@ class NewsClient {
     final headers = <String, String>{};
     Uint8List? body;
     queryParameters['name'] = name.toString();
-    final response = await _client._doRequest(
+    final response = await rootClient.doRequest(
       'post',
       Uri(path: path, queryParameters: queryParameters).toString(),
       headers,
@@ -1718,7 +1718,7 @@ class NewsClient {
     Uint8List? body;
     path = path.replaceAll('{folderId}', Uri.encodeQueryComponent(folderId.toString()));
     queryParameters['name'] = name.toString();
-    final response = await _client._doRequest(
+    final response = await rootClient.doRequest(
       'put',
       Uri(path: path, queryParameters: queryParameters).toString(),
       headers,
@@ -1736,7 +1736,7 @@ class NewsClient {
     final headers = <String, String>{};
     Uint8List? body;
     path = path.replaceAll('{folderId}', Uri.encodeQueryComponent(folderId.toString()));
-    final response = await _client._doRequest(
+    final response = await rootClient.doRequest(
       'delete',
       Uri(path: path, queryParameters: queryParameters).toString(),
       headers,
@@ -1758,7 +1758,7 @@ class NewsClient {
     Uint8List? body;
     path = path.replaceAll('{folderId}', Uri.encodeQueryComponent(folderId.toString()));
     queryParameters['newestItemId'] = newestItemId.toString();
-    final response = await _client._doRequest(
+    final response = await rootClient.doRequest(
       'put',
       Uri(path: path, queryParameters: queryParameters).toString(),
       headers,
@@ -1775,7 +1775,7 @@ class NewsClient {
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{};
     Uint8List? body;
-    final response = await _client._doRequest(
+    final response = await rootClient.doRequest(
       'get',
       Uri(path: path, queryParameters: queryParameters).toString(),
       headers,
@@ -1799,7 +1799,7 @@ class NewsClient {
     if (folderId != null) {
       queryParameters['folderId'] = folderId.toString();
     }
-    final response = await _client._doRequest(
+    final response = await rootClient.doRequest(
       'post',
       Uri(path: path, queryParameters: queryParameters).toString(),
       headers,
@@ -1817,7 +1817,7 @@ class NewsClient {
     final headers = <String, String>{};
     Uint8List? body;
     path = path.replaceAll('{feedId}', Uri.encodeQueryComponent(feedId.toString()));
-    final response = await _client._doRequest(
+    final response = await rootClient.doRequest(
       'delete',
       Uri(path: path, queryParameters: queryParameters).toString(),
       headers,
@@ -1841,7 +1841,7 @@ class NewsClient {
     if (folderId != null) {
       queryParameters['folderId'] = folderId.toString();
     }
-    final response = await _client._doRequest(
+    final response = await rootClient.doRequest(
       'put',
       Uri(path: path, queryParameters: queryParameters).toString(),
       headers,
@@ -1863,7 +1863,7 @@ class NewsClient {
     Uint8List? body;
     path = path.replaceAll('{feedId}', Uri.encodeQueryComponent(feedId.toString()));
     queryParameters['feedTitle'] = feedTitle.toString();
-    final response = await _client._doRequest(
+    final response = await rootClient.doRequest(
       'put',
       Uri(path: path, queryParameters: queryParameters).toString(),
       headers,
@@ -1885,7 +1885,7 @@ class NewsClient {
     Uint8List? body;
     path = path.replaceAll('{feedId}', Uri.encodeQueryComponent(feedId.toString()));
     queryParameters['newestItemId'] = newestItemId.toString();
-    final response = await _client._doRequest(
+    final response = await rootClient.doRequest(
       'put',
       Uri(path: path, queryParameters: queryParameters).toString(),
       headers,
@@ -1915,7 +1915,7 @@ class NewsClient {
     queryParameters['batchSize'] = batchSize.toString();
     queryParameters['offset'] = offset.toString();
     queryParameters['oldestFirst'] = oldestFirst.toString();
-    final response = await _client._doRequest(
+    final response = await rootClient.doRequest(
       'get',
       Uri(path: path, queryParameters: queryParameters).toString(),
       headers,
@@ -1939,7 +1939,7 @@ class NewsClient {
     queryParameters['type'] = type.toString();
     queryParameters['id'] = id.toString();
     queryParameters['lastModified'] = lastModified.toString();
-    final response = await _client._doRequest(
+    final response = await rootClient.doRequest(
       'get',
       Uri(path: path, queryParameters: queryParameters).toString(),
       headers,
@@ -1957,7 +1957,7 @@ class NewsClient {
     final headers = <String, String>{};
     Uint8List? body;
     path = path.replaceAll('{itemId}', Uri.encodeQueryComponent(itemId.toString()));
-    final response = await _client._doRequest(
+    final response = await rootClient.doRequest(
       'put',
       Uri(path: path, queryParameters: queryParameters).toString(),
       headers,
@@ -1975,7 +1975,7 @@ class NewsClient {
     final headers = <String, String>{};
     Uint8List? body;
     path = path.replaceAll('{itemId}', Uri.encodeQueryComponent(itemId.toString()));
-    final response = await _client._doRequest(
+    final response = await rootClient.doRequest(
       'put',
       Uri(path: path, queryParameters: queryParameters).toString(),
       headers,
@@ -1997,7 +1997,7 @@ class NewsClient {
     Uint8List? body;
     path = path.replaceAll('{feedId}', Uri.encodeQueryComponent(feedId.toString()));
     path = path.replaceAll('{guidHash}', Uri.encodeQueryComponent(guidHash.toString()));
-    final response = await _client._doRequest(
+    final response = await rootClient.doRequest(
       'put',
       Uri(path: path, queryParameters: queryParameters).toString(),
       headers,
@@ -2019,7 +2019,7 @@ class NewsClient {
     Uint8List? body;
     path = path.replaceAll('{feedId}', Uri.encodeQueryComponent(feedId.toString()));
     path = path.replaceAll('{guidHash}', Uri.encodeQueryComponent(guidHash.toString()));
-    final response = await _client._doRequest(
+    final response = await rootClient.doRequest(
       'put',
       Uri(path: path, queryParameters: queryParameters).toString(),
       headers,
@@ -2112,9 +2112,9 @@ class NotesSettings {
 }
 
 class NotesClient {
-  NotesClient(this._client);
+  NotesClient(this.rootClient);
 
-  final Client _client;
+  final Client rootClient;
 
   Future<List<NotesNote>> getNotes({
     String? category,
@@ -2140,7 +2140,7 @@ class NotesClient {
     if (ifNoneMatch != null) {
       headers['If-None-Match'] = ifNoneMatch.toString();
     }
-    final response = await _client._doRequest(
+    final response = await rootClient.doRequest(
       'get',
       Uri(path: path, queryParameters: queryParameters).toString(),
       headers,
@@ -2170,7 +2170,7 @@ class NotesClient {
     queryParameters['content'] = content.toString();
     queryParameters['modified'] = modified.toString();
     queryParameters['favorite'] = favorite.toString();
-    final response = await _client._doRequest(
+    final response = await rootClient.doRequest(
       'post',
       Uri(path: path, queryParameters: queryParameters).toString(),
       headers,
@@ -2196,7 +2196,7 @@ class NotesClient {
     if (ifNoneMatch != null) {
       headers['If-None-Match'] = ifNoneMatch.toString();
     }
-    final response = await _client._doRequest(
+    final response = await rootClient.doRequest(
       'get',
       Uri(path: path, queryParameters: queryParameters).toString(),
       headers,
@@ -2238,7 +2238,7 @@ class NotesClient {
     if (ifMatch != null) {
       headers['If-Match'] = ifMatch.toString();
     }
-    final response = await _client._doRequest(
+    final response = await rootClient.doRequest(
       'put',
       Uri(path: path, queryParameters: queryParameters).toString(),
       headers,
@@ -2256,7 +2256,7 @@ class NotesClient {
     final headers = <String, String>{};
     Uint8List? body;
     path = path.replaceAll('{id}', Uri.encodeQueryComponent(id.toString()));
-    final response = await _client._doRequest(
+    final response = await rootClient.doRequest(
       'delete',
       Uri(path: path, queryParameters: queryParameters).toString(),
       headers,
@@ -2273,7 +2273,7 @@ class NotesClient {
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{};
     Uint8List? body;
-    final response = await _client._doRequest(
+    final response = await rootClient.doRequest(
       'get',
       Uri(path: path, queryParameters: queryParameters).toString(),
       headers,
@@ -2292,7 +2292,7 @@ class NotesClient {
     Uint8List? body;
     headers['Content-Type'] = 'application/json';
     body = Uint8List.fromList(utf8.encode(json.encode((notesSettings as NotesSettings).toJson())));
-    final response = await _client._doRequest(
+    final response = await rootClient.doRequest(
       'put',
       Uri(path: path, queryParameters: queryParameters).toString(),
       headers,
@@ -2524,16 +2524,16 @@ class NotificationsPushServerRegistration {
 }
 
 class NotificationsClient {
-  NotificationsClient(this._client);
+  NotificationsClient(this.rootClient);
 
-  final Client _client;
+  final Client rootClient;
 
   Future<NotificationsListNotifications> listNotifications() async {
     var path = '/ocs/v1.php/apps/notifications/api/v2/notifications';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{};
     Uint8List? body;
-    final response = await _client._doRequest(
+    final response = await rootClient.doRequest(
       'get',
       Uri(path: path, queryParameters: queryParameters).toString(),
       headers,
@@ -2550,7 +2550,7 @@ class NotificationsClient {
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{};
     Uint8List? body;
-    final response = await _client._doRequest(
+    final response = await rootClient.doRequest(
       'delete',
       Uri(path: path, queryParameters: queryParameters).toString(),
       headers,
@@ -2568,7 +2568,7 @@ class NotificationsClient {
     final headers = <String, String>{};
     Uint8List? body;
     path = path.replaceAll('{id}', Uri.encodeQueryComponent(id.toString()));
-    final response = await _client._doRequest(
+    final response = await rootClient.doRequest(
       'get',
       Uri(path: path, queryParameters: queryParameters).toString(),
       headers,
@@ -2586,7 +2586,7 @@ class NotificationsClient {
     final headers = <String, String>{};
     Uint8List? body;
     path = path.replaceAll('{id}', Uri.encodeQueryComponent(id.toString()));
-    final response = await _client._doRequest(
+    final response = await rootClient.doRequest(
       'delete',
       Uri(path: path, queryParameters: queryParameters).toString(),
       headers,
@@ -2610,7 +2610,7 @@ class NotificationsClient {
     queryParameters['pushTokenHash'] = pushTokenHash.toString();
     queryParameters['devicePublicKey'] = devicePublicKey.toString();
     queryParameters['proxyServer'] = proxyServer.toString();
-    final response = await _client._doRequest(
+    final response = await rootClient.doRequest(
       'post',
       Uri(path: path, queryParameters: queryParameters).toString(),
       headers,
@@ -2628,7 +2628,7 @@ class NotificationsClient {
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{};
     Uint8List? body;
-    final response = await _client._doRequest(
+    final response = await rootClient.doRequest(
       'delete',
       Uri(path: path, queryParameters: queryParameters).toString(),
       headers,
@@ -2652,7 +2652,7 @@ class NotificationsClient {
     path = path.replaceAll('{userId}', Uri.encodeQueryComponent(userId.toString()));
     queryParameters['shortMessage'] = shortMessage.toString();
     queryParameters['longMessage'] = longMessage.toString();
-    final response = await _client._doRequest(
+    final response = await rootClient.doRequest(
       'post',
       Uri(path: path, queryParameters: queryParameters).toString(),
       headers,
@@ -2866,16 +2866,16 @@ class ProvisioningApiUser {
 }
 
 class ProvisioningApiClient {
-  ProvisioningApiClient(this._client);
+  ProvisioningApiClient(this.rootClient);
 
-  final Client _client;
+  final Client rootClient;
 
   Future<ProvisioningApiUser> getCurrentUser() async {
     var path = '/ocs/v1.php/cloud/user';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{};
     Uint8List? body;
-    final response = await _client._doRequest(
+    final response = await rootClient.doRequest(
       'get',
       Uri(path: path, queryParameters: queryParameters).toString(),
       headers,
@@ -2893,7 +2893,7 @@ class ProvisioningApiClient {
     final headers = <String, String>{};
     Uint8List? body;
     path = path.replaceAll('{userId}', Uri.encodeQueryComponent(userId.toString()));
-    final response = await _client._doRequest(
+    final response = await rootClient.doRequest(
       'get',
       Uri(path: path, queryParameters: queryParameters).toString(),
       headers,
@@ -3321,16 +3321,16 @@ class UserStatusPredefinedStatuses {
 }
 
 class UserStatusClient {
-  UserStatusClient(this._client);
+  UserStatusClient(this.rootClient);
 
-  final Client _client;
+  final Client rootClient;
 
   Future<UserStatusFindAllStatuses> findAllStatuses() async {
     var path = '/ocs/v1.php/apps/user_status/api/v1/statuses';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{};
     Uint8List? body;
-    final response = await _client._doRequest(
+    final response = await rootClient.doRequest(
       'get',
       Uri(path: path, queryParameters: queryParameters).toString(),
       headers,
@@ -3348,7 +3348,7 @@ class UserStatusClient {
     final headers = <String, String>{};
     Uint8List? body;
     path = path.replaceAll('{userId}', Uri.encodeQueryComponent(userId.toString()));
-    final response = await _client._doRequest(
+    final response = await rootClient.doRequest(
       'get',
       Uri(path: path, queryParameters: queryParameters).toString(),
       headers,
@@ -3365,7 +3365,7 @@ class UserStatusClient {
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{};
     Uint8List? body;
-    final response = await _client._doRequest(
+    final response = await rootClient.doRequest(
       'get',
       Uri(path: path, queryParameters: queryParameters).toString(),
       headers,
@@ -3383,7 +3383,7 @@ class UserStatusClient {
     final headers = <String, String>{};
     Uint8List? body;
     queryParameters['statusType'] = statusType.value.toString();
-    final response = await _client._doRequest(
+    final response = await rootClient.doRequest(
       'put',
       Uri(path: path, queryParameters: queryParameters).toString(),
       headers,
@@ -3407,7 +3407,7 @@ class UserStatusClient {
     if (clearAt != null) {
       queryParameters['clearAt'] = clearAt.toString();
     }
-    final response = await _client._doRequest(
+    final response = await rootClient.doRequest(
       'put',
       Uri(path: path, queryParameters: queryParameters).toString(),
       headers,
@@ -3437,7 +3437,7 @@ class UserStatusClient {
     if (clearAt != null) {
       queryParameters['clearAt'] = clearAt.toString();
     }
-    final response = await _client._doRequest(
+    final response = await rootClient.doRequest(
       'put',
       Uri(path: path, queryParameters: queryParameters).toString(),
       headers,
@@ -3454,7 +3454,7 @@ class UserStatusClient {
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{};
     Uint8List? body;
-    final response = await _client._doRequest(
+    final response = await rootClient.doRequest(
       'delete',
       Uri(path: path, queryParameters: queryParameters).toString(),
       headers,
@@ -3471,7 +3471,7 @@ class UserStatusClient {
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{};
     Uint8List? body;
-    final response = await _client._doRequest(
+    final response = await rootClient.doRequest(
       'get',
       Uri(path: path, queryParameters: queryParameters).toString(),
       headers,
@@ -3489,7 +3489,7 @@ class UserStatusClient {
     final headers = <String, String>{};
     Uint8List? body;
     queryParameters['status'] = status.value.toString();
-    final response = await _client._doRequest(
+    final response = await rootClient.doRequest(
       'put',
       Uri(path: path, queryParameters: queryParameters).toString(),
       headers,

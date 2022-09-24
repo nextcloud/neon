@@ -41,9 +41,8 @@ class NextcloudClient extends Client {
     }
 
     return _webdav = WebDavClient(
-      super.baseURL,
-      basePath: '/remote.php/dav/files/${(super.authentication! as HttpBasicAuthentication).username}',
-      baseHeaders: super.baseHeaders,
+      this,
+      '/remote.php/dav/files/${(super.authentication! as HttpBasicAuthentication).username}',
     );
   }
 }
