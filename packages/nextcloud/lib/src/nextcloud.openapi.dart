@@ -1486,6 +1486,17 @@ class CoreClient {
 }
 
 @JsonSerializable()
+class GetSupportedApiVersions {
+  GetSupportedApiVersions({this.apiLevels});
+
+  factory GetSupportedApiVersions.fromJson(Map<String, dynamic> json) => _$GetSupportedApiVersionsFromJson(json);
+
+  final List<String>? apiLevels;
+
+  Map<String, dynamic> toJson() => _$GetSupportedApiVersionsToJson(this);
+}
+
+@JsonSerializable()
 class NewsArticle {
   NewsArticle({
     this.id,
@@ -1672,6 +1683,23 @@ class NewsClient {
   NewsClient(this.rootClient);
 
   final Client rootClient;
+
+  Future<GetSupportedApiVersions> getSupportedApiVersions() async {
+    var path = '/apps/news/api';
+    final queryParameters = <String, dynamic>{};
+    final headers = <String, String>{};
+    Uint8List? body;
+    final response = await rootClient.doRequest(
+      'get',
+      Uri(path: path, queryParameters: queryParameters).toString(),
+      headers,
+      body,
+    );
+    if (response.statusCode == 200) {
+      return GetSupportedApiVersions.fromJson(json.decode(utf8.decode(response.body)) as Map<String, dynamic>);
+    }
+    throw ApiException.fromResponse(response);
+  }
 
   Future<NewsListFolders> listFolders() async {
     var path = '/apps/news/api/v1-2/folders';
@@ -3894,6 +3922,10 @@ final _deserializers = <Type, dynamic Function(dynamic)>{
   List<CoreLoginFlowResult>: (final data) => (data as List)
       .map<CoreLoginFlowResult>((final e) => CoreLoginFlowResult.fromJson(e as Map<String, dynamic>))
       .toList(),
+  GetSupportedApiVersions: (final data) => GetSupportedApiVersions.fromJson(data as Map<String, dynamic>),
+  List<GetSupportedApiVersions>: (final data) => (data as List)
+      .map<GetSupportedApiVersions>((final e) => GetSupportedApiVersions.fromJson(e as Map<String, dynamic>))
+      .toList(),
   NewsListFolders: (final data) => NewsListFolders.fromJson(data as Map<String, dynamic>),
   List<NewsListFolders>: (final data) =>
       (data as List).map<NewsListFolders>((final e) => NewsListFolders.fromJson(e as Map<String, dynamic>)).toList(),
@@ -4376,6 +4408,9 @@ final _serializers = <Type, dynamic Function(dynamic)>{
   CoreLoginFlowResult: (final data) => (data as CoreLoginFlowResult).toJson(),
   List<CoreLoginFlowResult>: (final data) =>
       (data as List<CoreLoginFlowResult>).map((final e) => (e as CoreLoginFlowResult).toJson()).toList(),
+  GetSupportedApiVersions: (final data) => (data as GetSupportedApiVersions).toJson(),
+  List<GetSupportedApiVersions>: (final data) =>
+      (data as List<GetSupportedApiVersions>).map((final e) => (e as GetSupportedApiVersions).toJson()).toList(),
   NewsListFolders: (final data) => (data as NewsListFolders).toJson(),
   List<NewsListFolders>: (final data) =>
       (data as List<NewsListFolders>).map((final e) => (e as NewsListFolders).toJson()).toList(),

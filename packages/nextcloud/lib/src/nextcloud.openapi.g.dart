@@ -1036,6 +1036,14 @@ Map<String, dynamic> _$CoreLoginFlowResultToJson(CoreLoginFlowResult instance) =
       'appPassword': instance.appPassword,
     };
 
+GetSupportedApiVersions _$GetSupportedApiVersionsFromJson(Map<String, dynamic> json) => GetSupportedApiVersions(
+      apiLevels: (json['apiLevels'] as List<dynamic>?)?.map((e) => e as String).toList(),
+    );
+
+Map<String, dynamic> _$GetSupportedApiVersionsToJson(GetSupportedApiVersions instance) => <String, dynamic>{
+      'apiLevels': instance.apiLevels,
+    };
+
 NewsArticle _$NewsArticleFromJson(Map<String, dynamic> json) => NewsArticle(
       id: json['id'] as int?,
       guid: json['guid'] as String?,

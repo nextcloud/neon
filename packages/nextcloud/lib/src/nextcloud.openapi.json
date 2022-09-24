@@ -1819,6 +1819,34 @@
         }
       }
     },
+    "/apps/news/api": {
+      "get": {
+        "operationId": "get-supported-api-versions",
+        "tags": [
+          "news"
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "apiLevels": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/apps/news/api/v1-2/folders": {
       "get": {
         "operationId": "list-folders",
