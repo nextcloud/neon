@@ -93,11 +93,11 @@ Future main() async {
       await client.userStatus.setStatus(statusType: UserStatusType.online);
 
       final response = await client.userStatus.findStatus(userId: 'test');
-      expect(response.ocs!.data!.userId, 'test');
-      expect(response.ocs!.data!.message, null);
-      expect(response.ocs!.data!.icon, null);
-      expect(response.ocs!.data!.clearAt, null);
-      expect(response.ocs!.data!.status, UserStatusType.online);
+      expect(response.ocs!.data!.userStatusPublicUserStatus!.userId, 'test');
+      expect(response.ocs!.data!.userStatusPublicUserStatus!.message, null);
+      expect(response.ocs!.data!.userStatusPublicUserStatus!.icon, null);
+      expect(response.ocs!.data!.userStatusPublicUserStatus!.clearAt, null);
+      expect(response.ocs!.data!.userStatusPublicUserStatus!.status, UserStatusType.online);
     });
 
     test('Set predefined message', () async {

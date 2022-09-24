@@ -3113,6 +3113,40 @@ class UserStatusFindAllStatuses {
   Map<String, dynamic> toJson() => _$UserStatusFindAllStatusesToJson(this);
 }
 
+class UserStatusFindStatusOcsData {
+  UserStatusFindStatusOcsData(
+    this._data, {
+    this.userStatusPublicUserStatus,
+    this.list,
+  });
+
+  factory UserStatusFindStatusOcsData.fromJson(dynamic data) {
+    UserStatusPublicUserStatus? userStatusPublicUserStatus;
+    try {
+      userStatusPublicUserStatus = UserStatusPublicUserStatus.fromJson(data as Map<String, dynamic>);
+    } catch (_) {}
+    List? list;
+    try {
+      list = data as List;
+    } catch (_) {}
+    assert([userStatusPublicUserStatus, list].where((final x) => x != null).length == 1, 'Need oneOf');
+    return UserStatusFindStatusOcsData(
+      data,
+      userStatusPublicUserStatus: userStatusPublicUserStatus,
+      list: list,
+    );
+  }
+
+  final dynamic _data;
+
+  final UserStatusPublicUserStatus? userStatusPublicUserStatus;
+
+  /// Only happens when the user has never set a status
+  final List? list;
+
+  dynamic toJson() => _data;
+}
+
 @JsonSerializable()
 class UserStatusFindStatusOcs {
   UserStatusFindStatusOcs({
@@ -3124,7 +3158,7 @@ class UserStatusFindStatusOcs {
 
   final OCSMeta? meta;
 
-  final UserStatusPublicUserStatus? data;
+  final UserStatusFindStatusOcsData? data;
 
   Map<String, dynamic> toJson() => _$UserStatusFindStatusOcsToJson(this);
 }

@@ -1558,7 +1558,7 @@ Map<String, dynamic> _$UserStatusFindAllStatusesToJson(UserStatusFindAllStatuses
 
 UserStatusFindStatusOcs _$UserStatusFindStatusOcsFromJson(Map<String, dynamic> json) => UserStatusFindStatusOcs(
       meta: json['meta'] == null ? null : OCSMeta.fromJson(json['meta'] as Map<String, dynamic>),
-      data: json['data'] == null ? null : UserStatusPublicUserStatus.fromJson(json['data'] as Map<String, dynamic>),
+      data: json['data'] == null ? null : UserStatusFindStatusOcsData.fromJson(json['data']),
     );
 
 Map<String, dynamic> _$UserStatusFindStatusOcsToJson(UserStatusFindStatusOcs instance) => <String, dynamic>{

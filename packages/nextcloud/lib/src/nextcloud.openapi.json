@@ -1521,7 +1521,15 @@
                 "$ref": "#/components/schemas/OCSMeta"
               },
               "data": {
-                "$ref": "#/components/schemas/UserStatusPublicUserStatus"
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/UserStatusPublicUserStatus"
+                  },
+                  {
+                    "type": "array",
+                    "description": "Only happens when the user has never set a status"
+                  }
+                ]
               }
             }
           }
