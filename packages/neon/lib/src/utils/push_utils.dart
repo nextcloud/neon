@@ -19,7 +19,7 @@ class PushUtils {
   }
 
   static Future<FlutterLocalNotificationsPlugin> initLocalNotifications({
-    final SelectNotificationCallback? onSelectNotification,
+    final DidReceiveNotificationResponseCallback? onDidReceiveNotificationResponse,
   }) async {
     final localNotificationsPlugin = FlutterLocalNotificationsPlugin();
     await localNotificationsPlugin.initialize(
@@ -30,7 +30,7 @@ class PushUtils {
           defaultIcon: AssetsLinuxIcon('assets/logo_harbour.svg'),
         ),
       ),
-      onSelectNotification: onSelectNotification,
+      onDidReceiveNotificationResponse: onDidReceiveNotificationResponse,
     );
     return localNotificationsPlugin;
   }
@@ -39,9 +39,9 @@ class PushUtils {
     WidgetsFlutterBinding.ensureInitialized();
 
     final localNotificationsPlugin = await initLocalNotifications(
-      onSelectNotification: (final payload) async {
+      onDidReceiveNotificationResponse: (final notification) async {
         if (Global.onPushNotificationClicked != null) {
-          await Global.onPushNotificationClicked!(payload);
+          await Global.onPushNotificationClicked!(notification.payload);
         }
       },
     );
@@ -101,7 +101,7 @@ class PushUtils {
           groupKey: 'app_${app.id}',
           icon: '@mipmap/app_${app.id}',
           color: themePrimaryColor,
-          category: notification.type == 'voip' ? 'CATEGORY_CALL' : null,
+          category: notification.type == 'voip' ? AndroidNotificationCategory.call : null,
           importance: Importance.max,
           priority: notification.priority == 'high'
               ? (notification.type == 'voip' ? Priority.max : Priority.high)

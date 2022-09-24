@@ -43,13 +43,32 @@ abstract class $NotesBloc extends RxBlocBase implements NotesBlocEvents, NotesBl
   void refresh() => _$refreshEvent.add(null);
 
   @override
-  void createNote({String title = '', String category = ''}) =>
-      _$createNoteEvent.add(_CreateNoteEventArgs(title: title, category: category));
+  void createNote({
+    String title = '',
+    String category = '',
+  }) =>
+      _$createNoteEvent.add(_CreateNoteEventArgs(
+        title: title,
+        category: category,
+      ));
 
   @override
-  void updateNote(int id, String etag, {String? title, String? category, String? content, bool? favorite}) =>
-      _$updateNoteEvent
-          .add(_UpdateNoteEventArgs(id, etag, title: title, category: category, content: content, favorite: favorite));
+  void updateNote(
+    int id,
+    String etag, {
+    String? title,
+    String? category,
+    String? content,
+    bool? favorite,
+  }) =>
+      _$updateNoteEvent.add(_UpdateNoteEventArgs(
+        id,
+        etag,
+        title: title,
+        category: category,
+        content: content,
+        favorite: favorite,
+      ));
 
   @override
   void deleteNote(int id) => _$deleteNoteEvent.add(id);
@@ -89,7 +108,10 @@ abstract class $NotesBloc extends RxBlocBase implements NotesBlocEvents, NotesBl
 /// Helps providing the arguments in the [Subject.add] for
 /// [NotesBlocEvents.createNote] event
 class _CreateNoteEventArgs {
-  const _CreateNoteEventArgs({this.title = '', this.category = ''});
+  const _CreateNoteEventArgs({
+    this.title = '',
+    this.category = '',
+  });
 
   final String title;
 
@@ -99,7 +121,14 @@ class _CreateNoteEventArgs {
 /// Helps providing the arguments in the [Subject.add] for
 /// [NotesBlocEvents.updateNote] event
 class _UpdateNoteEventArgs {
-  const _UpdateNoteEventArgs(this.id, this.etag, {this.title, this.category, this.content, this.favorite});
+  const _UpdateNoteEventArgs(
+    this.id,
+    this.etag, {
+    this.title,
+    this.category,
+    this.content,
+    this.favorite,
+  });
 
   final int id;
 

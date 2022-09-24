@@ -189,7 +189,7 @@ class _HomePageState extends State<HomePage> with tray.TrayListener, WindowListe
 
         final details = await localNotificationsPlugin.getNotificationAppLaunchDetails();
         if (details != null && details.didNotificationLaunchApp) {
-          await Global.onPushNotificationClicked!(details.payload);
+          await Global.onPushNotificationClicked!(details.notificationResponse?.payload);
         }
       }
     });

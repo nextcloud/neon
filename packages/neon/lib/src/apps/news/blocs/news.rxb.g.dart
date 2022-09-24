@@ -64,16 +64,37 @@ abstract class $NewsBloc extends RxBlocBase implements NewsBlocEvents, NewsBlocS
   void refresh({required bool mainArticlesToo}) => _$refreshEvent.add(mainArticlesToo);
 
   @override
-  void addFeed(String url, int? folderId) => _$addFeedEvent.add(_AddFeedEventArgs(url, folderId));
+  void addFeed(
+    String url,
+    int? folderId,
+  ) =>
+      _$addFeedEvent.add(_AddFeedEventArgs(
+        url,
+        folderId,
+      ));
 
   @override
   void removeFeed(int feedId) => _$removeFeedEvent.add(feedId);
 
   @override
-  void renameFeed(int feedId, String feedTitle) => _$renameFeedEvent.add(_RenameFeedEventArgs(feedId, feedTitle));
+  void renameFeed(
+    int feedId,
+    String feedTitle,
+  ) =>
+      _$renameFeedEvent.add(_RenameFeedEventArgs(
+        feedId,
+        feedTitle,
+      ));
 
   @override
-  void moveFeed(int feedId, int? folderId) => _$moveFeedEvent.add(_MoveFeedEventArgs(feedId, folderId));
+  void moveFeed(
+    int feedId,
+    int? folderId,
+  ) =>
+      _$moveFeedEvent.add(_MoveFeedEventArgs(
+        feedId,
+        folderId,
+      ));
 
   @override
   void markFeedAsRead(int feedId) => _$markFeedAsReadEvent.add(feedId);
@@ -85,7 +106,14 @@ abstract class $NewsBloc extends RxBlocBase implements NewsBlocEvents, NewsBlocS
   void deleteFolder(int folderId) => _$deleteFolderEvent.add(folderId);
 
   @override
-  void renameFolder(int folderId, String name) => _$renameFolderEvent.add(_RenameFolderEventArgs(folderId, name));
+  void renameFolder(
+    int folderId,
+    String name,
+  ) =>
+      _$renameFolderEvent.add(_RenameFolderEventArgs(
+        folderId,
+        name,
+      ));
 
   @override
   void markFolderAsRead(int folderId) => _$markFolderAsReadEvent.add(folderId);
@@ -136,7 +164,10 @@ abstract class $NewsBloc extends RxBlocBase implements NewsBlocEvents, NewsBlocS
 /// Helps providing the arguments in the [Subject.add] for
 /// [NewsBlocEvents.addFeed] event
 class _AddFeedEventArgs {
-  const _AddFeedEventArgs(this.url, this.folderId);
+  const _AddFeedEventArgs(
+    this.url,
+    this.folderId,
+  );
 
   final String url;
 
@@ -146,7 +177,10 @@ class _AddFeedEventArgs {
 /// Helps providing the arguments in the [Subject.add] for
 /// [NewsBlocEvents.renameFeed] event
 class _RenameFeedEventArgs {
-  const _RenameFeedEventArgs(this.feedId, this.feedTitle);
+  const _RenameFeedEventArgs(
+    this.feedId,
+    this.feedTitle,
+  );
 
   final int feedId;
 
@@ -156,7 +190,10 @@ class _RenameFeedEventArgs {
 /// Helps providing the arguments in the [Subject.add] for
 /// [NewsBlocEvents.moveFeed] event
 class _MoveFeedEventArgs {
-  const _MoveFeedEventArgs(this.feedId, this.folderId);
+  const _MoveFeedEventArgs(
+    this.feedId,
+    this.folderId,
+  );
 
   final int feedId;
 
@@ -166,7 +203,10 @@ class _MoveFeedEventArgs {
 /// Helps providing the arguments in the [Subject.add] for
 /// [NewsBlocEvents.renameFolder] event
 class _RenameFolderEventArgs {
-  const _RenameFolderEventArgs(this.folderId, this.name);
+  const _RenameFolderEventArgs(
+    this.folderId,
+    this.name,
+  );
 
   final int folderId;
 

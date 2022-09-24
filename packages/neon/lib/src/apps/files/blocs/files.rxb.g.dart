@@ -61,26 +61,62 @@ abstract class $FilesBloc extends RxBlocBase implements FilesBlocEvents, FilesBl
   void refresh() => _$refreshEvent.add(null);
 
   @override
-  void uploadFile(List<String> path, String localPath) => _$uploadFileEvent.add(_UploadFileEventArgs(path, localPath));
+  void uploadFile(
+    List<String> path,
+    String localPath,
+  ) =>
+      _$uploadFileEvent.add(_UploadFileEventArgs(
+        path,
+        localPath,
+      ));
 
   @override
   void syncFile(List<String> path) => _$syncFileEvent.add(path);
 
   @override
-  void openFile(List<String> path, String etag, String? mimeType) =>
-      _$openFileEvent.add(_OpenFileEventArgs(path, etag, mimeType));
+  void openFile(
+    List<String> path,
+    String etag,
+    String? mimeType,
+  ) =>
+      _$openFileEvent.add(_OpenFileEventArgs(
+        path,
+        etag,
+        mimeType,
+      ));
 
   @override
   void delete(List<String> path) => _$deleteEvent.add(path);
 
   @override
-  void rename(List<String> path, String name) => _$renameEvent.add(_RenameEventArgs(path, name));
+  void rename(
+    List<String> path,
+    String name,
+  ) =>
+      _$renameEvent.add(_RenameEventArgs(
+        path,
+        name,
+      ));
 
   @override
-  void move(List<String> path, List<String> destination) => _$moveEvent.add(_MoveEventArgs(path, destination));
+  void move(
+    List<String> path,
+    List<String> destination,
+  ) =>
+      _$moveEvent.add(_MoveEventArgs(
+        path,
+        destination,
+      ));
 
   @override
-  void copy(List<String> path, List<String> destination) => _$copyEvent.add(_CopyEventArgs(path, destination));
+  void copy(
+    List<String> path,
+    List<String> destination,
+  ) =>
+      _$copyEvent.add(_CopyEventArgs(
+        path,
+        destination,
+      ));
 
   @override
   void addFavorite(List<String> path) => _$addFavoriteEvent.add(path);
@@ -129,7 +165,10 @@ abstract class $FilesBloc extends RxBlocBase implements FilesBlocEvents, FilesBl
 /// Helps providing the arguments in the [Subject.add] for
 /// [FilesBlocEvents.uploadFile] event
 class _UploadFileEventArgs {
-  const _UploadFileEventArgs(this.path, this.localPath);
+  const _UploadFileEventArgs(
+    this.path,
+    this.localPath,
+  );
 
   final List<String> path;
 
@@ -139,7 +178,11 @@ class _UploadFileEventArgs {
 /// Helps providing the arguments in the [Subject.add] for
 /// [FilesBlocEvents.openFile] event
 class _OpenFileEventArgs {
-  const _OpenFileEventArgs(this.path, this.etag, this.mimeType);
+  const _OpenFileEventArgs(
+    this.path,
+    this.etag,
+    this.mimeType,
+  );
 
   final List<String> path;
 
@@ -151,7 +194,10 @@ class _OpenFileEventArgs {
 /// Helps providing the arguments in the [Subject.add] for
 /// [FilesBlocEvents.rename] event
 class _RenameEventArgs {
-  const _RenameEventArgs(this.path, this.name);
+  const _RenameEventArgs(
+    this.path,
+    this.name,
+  );
 
   final List<String> path;
 
@@ -161,7 +207,10 @@ class _RenameEventArgs {
 /// Helps providing the arguments in the [Subject.add] for
 /// [FilesBlocEvents.move] event
 class _MoveEventArgs {
-  const _MoveEventArgs(this.path, this.destination);
+  const _MoveEventArgs(
+    this.path,
+    this.destination,
+  );
 
   final List<String> path;
 
@@ -171,7 +220,10 @@ class _MoveEventArgs {
 /// Helps providing the arguments in the [Subject.add] for
 /// [FilesBlocEvents.copy] event
 class _CopyEventArgs {
-  const _CopyEventArgs(this.path, this.destination);
+  const _CopyEventArgs(
+    this.path,
+    this.destination,
+  );
 
   final List<String> path;
 
