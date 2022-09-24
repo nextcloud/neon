@@ -29,11 +29,11 @@
       }
     }
   },
-  "errorUnsupportedNextcloudVersion": "Sorry this Nextcloud instance version is not supported. You need at least version {version} of Nextcloud.",
-  "@errorUnsupportedNextcloudVersion" : {
+  "errorUnsupportedVersion": "Sorry, this Nextcloud {name} version is not supported.",
+  "@errorUnsupportedVersion" : {
     "placeholders": {
-      "version": {
-        "type": "int"
+      "name": {
+        "type": "String"
       }
     }
   },
@@ -122,6 +122,7 @@
   "accountOptionsInitialApp": "App to show initially",
   "accountOptionsAutomatic": "Automatic",
   "licenses": "Licenses",
+  "coreName": "Server",
   "filesName": "Files",
   "filesUploadFiles": "Upload files",
   "filesUploadImages": "Upload images",

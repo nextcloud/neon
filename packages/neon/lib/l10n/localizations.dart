@@ -179,11 +179,11 @@ abstract class AppLocalizations {
   /// **'Permission for {name} is missing'**
   String errorMissingPermission(String name);
 
-  /// No description provided for @errorUnsupportedNextcloudVersion.
+  /// No description provided for @errorUnsupportedVersion.
   ///
   /// In en, this message translates to:
-  /// **'Sorry this Nextcloud instance version is not supported. You need at least version {version} of Nextcloud.'**
-  String errorUnsupportedNextcloudVersion(int version);
+  /// **'Sorry, this Nextcloud {name} version is not supported.'**
+  String errorUnsupportedVersion(String name);
 
   /// No description provided for @errorEmptyField.
   ///
@@ -532,6 +532,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Licenses'**
   String get licenses;
+
+  /// No description provided for @coreName.
+  ///
+  /// In en, this message translates to:
+  /// **'Server'**
+  String get coreName;
 
   /// No description provided for @filesName.
   ///
