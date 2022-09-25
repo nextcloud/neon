@@ -57,8 +57,8 @@ class AppLocalizationsEn extends AppLocalizations {
   }
 
   @override
-  String errorUnsupportedNextcloudVersion(int version) {
-    return 'Sorry this Nextcloud instance version is not supported. You need at least version $version of Nextcloud.';
+  String errorUnsupportedVersion(String name) {
+    return 'Sorry, this Nextcloud $name version is not supported.';
   }
 
   @override
@@ -242,6 +242,9 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get licenses => 'Licenses';
+
+  @override
+  String get coreName => 'Server';
 
   @override
   String get filesName => 'Files';

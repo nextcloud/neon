@@ -13,6 +13,11 @@ Future main() async {
     });
     tearDown(() => client.destroy());
 
+    test('Is supported', () async {
+      final response = await client.notes.isSupported();
+      expect(response, isTrue);
+    });
+
     test('Create note favorite', () async {
       final response = await client.notes.createNote(
         title: 'a',

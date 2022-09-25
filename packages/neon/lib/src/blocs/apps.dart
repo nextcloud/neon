@@ -54,7 +54,7 @@ class AppsBloc extends $AppsBloc {
         );
       } else if (result is ResultCached && result.data != null) {
         _appImplementationsSubject.add(
-          Result.success(_filteredAppImplementations((result as ResultCached<List<NextcloudApp>>).data)),
+          ResultCached(_filteredAppImplementations((result as ResultCached<List<NextcloudApp>>).data)),
         );
       }
 

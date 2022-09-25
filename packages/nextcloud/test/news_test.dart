@@ -25,6 +25,11 @@ Future main() async {
           url: nasaFeedURL,
         );
 
+    test('Is supported', () async {
+      final response = await client.news.isSupported();
+      expect(response, isTrue);
+    });
+
     test('Add feed', () async {
       var response = await client.news.listFeeds();
       expect(response.starredCount, 0);

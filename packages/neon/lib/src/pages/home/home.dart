@@ -54,26 +54,43 @@ class _HomePageState extends State<HomePage> with tray.TrayListener, WindowListe
 
         // ignore cached version and prevent duplicate dialogs
         if (result is ResultSuccess) {
-          const requiredMajorVersion = 24;
-          if (result.data!.version!.major! < requiredMajorVersion) {
-            await showDialog(
-              context: context,
-              builder: (final context) => AlertDialog(
-                title: Text(AppLocalizations.of(context).errorUnsupportedNextcloudVersion(requiredMajorVersion)),
-                actions: [
-                  ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.red,
-                    ),
-                    onPressed: () {
-                      Navigator.of(context).pop();
-                    },
-                    child: Text(AppLocalizations.of(context).close),
-                  ),
-                ],
-              ),
-            );
-          }
+          _appsBloc.appImplementations.listen((final appsResult) async {
+            // ignore cached version and prevent duplicate dialogs
+            if (appsResult is ResultSuccess) {
+              for (final id in [
+                'core',
+                ...appsResult.data!.map((final a) => a.id),
+              ]) {
+                try {
+                  bool? supported;
+                  switch (id) {
+                    case 'core':
+                      supported = await widget.account.client.core.isSupported(result.data!);
+                      break;
+                    case 'news':
+                      supported = await widget.account.client.news.isSupported();
+                      break;
+                    case 'notes':
+                      supported = await widget.account.client.notes.isSupported(result.data!);
+                      break;
+                  }
+                  if (!(supported ?? true)) {
+                    if (!mounted) {
+                      return;
+                    }
+                    await _showUnsupportedVersion(
+                      id == 'core'
+                          ? AppLocalizations.of(context).coreName
+                          : appsResult.data!.singleWhere((final a) => a.id == id).name(context),
+                    );
+                  }
+                } catch (e, s) {
+                  debugPrint(e.toString());
+                  debugPrint(s.toString());
+                }
+              }
+            }
+          });
         }
       }
     });
@@ -257,6 +274,26 @@ class _HomePageState extends State<HomePage> with tray.TrayListener, WindowListe
     if (_lastBounds != null && !wasVisible) {
       await windowManager.setBounds(_lastBounds);
     }
+  }
+
+  Future _showUnsupportedVersion(final String appName) async {
+    await showDialog(
+      context: context,
+      builder: (final context) => AlertDialog(
+        title: Text(AppLocalizations.of(context).errorUnsupportedVersion(appName)),
+        actions: [
+          ElevatedButton(
+            style: ElevatedButton.styleFrom(
+              backgroundColor: Colors.red,
+            ),
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+            child: Text(AppLocalizations.of(context).close),
+          ),
+        ],
+      ),
+    );
   }
 
   @override

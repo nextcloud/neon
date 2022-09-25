@@ -1,3 +1,4 @@
+import 'package:nextcloud/nextcloud.dart';
 import 'package:test/test.dart';
 
 import 'helper.dart';
@@ -16,6 +17,11 @@ Future main() async {
       client = await TestHelper.getPreparedClient(dockerImageName);
     });
     tearDown(() => client.destroy());
+
+    test('Is supported', () async {
+      final response = await client.core.isSupported();
+      expect(response, isTrue);
+    });
 
     test('Get status', () async {
       final status = await client.core.getStatus();

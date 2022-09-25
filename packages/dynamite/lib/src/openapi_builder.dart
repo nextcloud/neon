@@ -732,7 +732,7 @@ class OpenAPIBuilder implements Builder {
                     ],
                     Method(
                       (final b) => b
-                        ..name = '_doRequest'
+                        ..name = 'doRequest'
                         ..returns = refer('Future<Response>')
                         ..modifier = MethodModifier.async
                         ..requiredParameters.addAll([
@@ -779,7 +779,7 @@ class OpenAPIBuilder implements Builder {
                   ..fields.add(
                     Field(
                       (final b) => b
-                        ..name = '_client'
+                        ..name = 'rootClient'
                         ..type = refer('Client')
                         ..modifier = FieldModifier.final$,
                     ),
@@ -789,7 +789,7 @@ class OpenAPIBuilder implements Builder {
                       (final b) => b.requiredParameters.add(
                         Parameter(
                           (final b) => b
-                            ..name = '_client'
+                            ..name = 'rootClient'
                             ..toThis = true,
                         ),
                       ),
@@ -940,7 +940,7 @@ class OpenAPIBuilder implements Builder {
 
                             code.write(
                               '''
-                            final response = await ${isRootClient ? '' : '_client.'}_doRequest(
+                            final response = await ${isRootClient ? '' : 'rootClient.'}doRequest(
                               '$httpMethod',
                               Uri(path: path, queryParameters: queryParameters).toString(),
                               headers,

@@ -4,19 +4,15 @@ part of '../../nextcloud.dart';
 class WebDavClient {
   // ignore: public_member_api_docs
   WebDavClient(
-    this.baseUrl, {
-    this.basePath = '',
-    this.baseHeaders,
-  });
+    this.rootClient,
+    this.basePath,
+  );
 
-  /// Base URL of the server
-  final String baseUrl;
+  // ignore: public_member_api_docs
+  final Client rootClient;
 
   /// Base path used on the server
   final String basePath;
-
-  /// Headers added to each request. Useful for authentication
-  final Map<String, String>? baseHeaders;
 
   /// XML namespaces supported by this client.
   ///
@@ -45,7 +41,7 @@ class WebDavClient {
       ..persistentConnection = true;
     for (final header in {
       HttpHeaders.contentTypeHeader: 'application/xml',
-      if (baseHeaders != null) ...baseHeaders!,
+      ...rootClient.baseHeaders,
       if (headers != null) ...headers,
     }.entries) {
       request.headers.add(header.key, header.value);
@@ -75,7 +71,7 @@ class WebDavClient {
       namespaces.putIfAbsent(namespaceUri, () => prefix);
 
   String _constructPath([final String? path]) => [
-        baseUrl,
+        rootClient.baseURL,
         basePath,
         if (path != null) ...[
           path,
