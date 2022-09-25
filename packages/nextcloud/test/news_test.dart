@@ -140,8 +140,7 @@ Future main() async {
 
       response = await client.news.listArticles();
       await client.news.starArticle(
-        feedId: response.items![0].feedId!,
-        guidHash: response.items![0].guidHash!,
+        itemId: response.items![0].id!,
       );
       response = await client.news.listArticles(type: 2);
       expect(response.items, hasLength(1));
@@ -154,15 +153,13 @@ Future main() async {
       final item = response.items![0];
 
       await client.news.starArticle(
-        feedId: item.feedId!,
-        guidHash: item.guidHash!,
+        itemId: item.id!,
       );
       response = await client.news.listArticles(type: 2);
       expect(response.items, hasLength(1));
 
       await client.news.unstarArticle(
-        feedId: item.feedId!,
-        guidHash: item.guidHash!,
+        itemId: item.id!,
       );
       response = await client.news.listArticles(type: 2);
       expect(response.items, hasLength(0));
