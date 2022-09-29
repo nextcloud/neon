@@ -119,6 +119,7 @@ Future pumpAppPage(
     sharedPreferences,
     globalOptions,
     packageInfo,
+    allAppImplementations,
   );
   if (account != null) {
     accountsBloc.addAccount(account..setupClient(packageInfo));

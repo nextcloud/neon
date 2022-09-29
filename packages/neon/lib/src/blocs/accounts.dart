@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:convert';
 
+import 'package:neon/src/blocs/apps.dart';
 import 'package:neon/src/blocs/user_details.dart';
 import 'package:neon/src/blocs/user_status.dart';
 import 'package:neon/src/models/account.dart';
@@ -32,6 +33,7 @@ class AccountsBloc extends $AccountsBloc {
     this._sharedPreferences,
     this._globalOptions,
     this._packageInfo,
+    this._allAppImplementations,
   ) {
     _accountsSubject.listen((final accounts) async {
       _globalOptions.updateAccounts(accounts);
@@ -118,30 +120,34 @@ class AccountsBloc extends $AccountsBloc {
     }
   }
 
-  AccountSpecificOptions? getOptions([Account? account]) {
-    account ??= _activeAccountSubject.valueOrNull;
-    if (account != null) {
-      final accountID = account.id;
-      if (_accountsOptions[accountID] != null) {
-        return _accountsOptions[accountID];
-      }
+  AccountSpecificOptions getOptions(final Account account) => _accountsOptions[account.id] ??= AccountSpecificOptions(
+        Storage('accounts-${account.id}', _sharedPreferences),
+        getAppsBloc(account),
+      );
 
-      return _accountsOptions[accountID] =
-          AccountSpecificOptions(Storage('accounts-${account.id}', _sharedPreferences));
+  AppsBloc getAppsBloc(final Account account) {
+    if (_accountsAppsBlocs[account.id] != null) {
+      return _accountsAppsBlocs[account.id]!;
     }
-
-    return null;
+    return AppsBloc(
+      _requestManager,
+      this,
+      account,
+      _allAppImplementations,
+    );
   }
 
   final RequestManager _requestManager;
   final Storage _storage;
   final SharedPreferences _sharedPreferences;
   final GlobalOptions _globalOptions;
+  final List<AppImplementation> _allAppImplementations;
   final PackageInfo _packageInfo;
   final _keyAccounts = 'accounts';
   final _keyLastUsedAccount = 'last-used-account';
 
   final _accountsOptions = <String, AccountSpecificOptions>{};
+  final _accountsAppsBlocs = <String, AppsBloc>{};
   late final _activeAccountSubject = BehaviorSubject<Account?>.seeded(null);
   late final _accountsSubject = BehaviorSubject<List<Account>>.seeded([]);
   String? pushNotificationApp;

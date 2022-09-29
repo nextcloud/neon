@@ -10,7 +10,7 @@ class AccountSpecificSettingsPage extends StatelessWidget {
   final AccountsBloc bloc;
   final Account account;
 
-  late final _options = bloc.getOptions(account)!;
+  late final _options = bloc.getOptions(account);
   late final _userDetailsBloc = bloc.getUserDetailsBloc(account);
   late final _name = account.client.humanReadableID;
 

@@ -35,6 +35,7 @@ class _HomePageState extends State<HomePage> with tray.TrayListener, WindowListe
     _platform = Provider.of<NeonPlatform>(context, listen: false);
     _globalOptions = Provider.of<GlobalOptions>(context, listen: false);
     final accountsBloc = RxBlocProvider.of<AccountsBloc>(context);
+    _appsBloc = accountsBloc.getAppsBloc(widget.account);
 
     if (_platform.canUseSystemTray) {
       tray.trayManager.addListener(this);
@@ -94,12 +95,6 @@ class _HomePageState extends State<HomePage> with tray.TrayListener, WindowListe
         }
       }
     });
-    _appsBloc = AppsBloc(
-      _requestManager,
-      accountsBloc,
-      widget.account,
-      Provider.of<List<AppImplementation>>(context, listen: false),
-    );
 
     WidgetsBinding.instance.addPostFrameCallback((final _) async {
       final appImplementations = Provider.of<List<AppImplementation>>(context, listen: false);
