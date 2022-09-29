@@ -66,7 +66,7 @@ class AppsBloc extends $AppsBloc {
           setActiveApp(_accountsBloc.pushNotificationApp);
           _accountsBloc.pushNotificationApp = null;
         } else {
-          final options = _accountsBloc.getOptions(_account)!..updateApps(appImplementations);
+          final options = _accountsBloc.getOptions(_account);
           unawaited(
             options.initialApp.stream.first.then((var initialApp) {
               if (initialApp == null) {

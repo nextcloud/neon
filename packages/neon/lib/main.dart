@@ -47,6 +47,7 @@ Future main() async {
     sharedPreferences,
     globalOptions,
     packageInfo,
+    allAppImplementations,
   );
   final pushNotificationsBloc = PushNotificationsBloc(
     accountsBloc,

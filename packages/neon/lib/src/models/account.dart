@@ -4,6 +4,7 @@ import 'dart:convert';
 import 'package:crypto/crypto.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:neon/l10n/localizations.dart';
+import 'package:neon/src/blocs/apps.dart';
 import 'package:neon/src/neon.dart';
 import 'package:nextcloud/nextcloud.dart';
 import 'package:package_info_plus/package_info_plus.dart';
@@ -88,26 +89,29 @@ extension NextcloudClientHelpers on NextcloudClient {
 }
 
 class AccountSpecificOptions {
-  AccountSpecificOptions(this._storage);
+  AccountSpecificOptions(
+    this._storage,
+    this._appsBloc,
+  ) {
+    _appsBloc.appImplementations.listen((final result) {
+      if (result.data != null) {
+        _appIDsSubject.add({
+          null: (final context) => AppLocalizations.of(context).accountOptionsAutomatic,
+          for (final app in result.data!) ...{
+            app.id: app.name,
+          },
+        });
+      }
+    });
+  }
 
   final Storage _storage;
+  final AppsBloc _appsBloc;
   final _appIDsSubject = BehaviorSubject<Map<String?, LabelBuilder>>();
 
   late final List<Option> options = [
     initialApp,
   ];
-
-  void updateApps(final List<AppImplementation> apps) {
-    if (apps.isEmpty) {
-      return;
-    }
-    _appIDsSubject.add({
-      null: (final context) => AppLocalizations.of(context).accountOptionsAutomatic,
-      for (final app in apps) ...{
-        app.id: app.name,
-      },
-    });
-  }
 
   Future reset() async {
     for (final option in options) {
