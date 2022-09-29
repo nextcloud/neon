@@ -64,6 +64,7 @@ part 'platform/abstract.dart';
 part 'platform/android.dart';
 part 'platform/linux.dart';
 part 'platform/platform.dart';
+part 'utils/account_options.dart';
 part 'utils/app_implementation.dart';
 part 'utils/confirmation_dialog.dart';
 part 'utils/custom_timeago.dart';
