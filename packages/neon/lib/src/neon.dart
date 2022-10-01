@@ -96,5 +96,6 @@ part 'widgets/exception.dart';
 part 'widgets/image_wrapper.dart';
 part 'widgets/neon_logo.dart';
 part 'widgets/nextcloud_logo.dart';
+part 'widgets/no_animation_page_route.dart';
 part 'widgets/result_stream_builder.dart';
 part 'widgets/standard_rx_result_builder.dart';

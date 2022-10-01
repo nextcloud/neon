@@ -68,6 +68,7 @@ class GlobalOptions {
     systemTrayHideToTrayWhenMinimized,
     rememberLastUsedAccount,
     initialAccount,
+    navigationMode,
   ];
 
   Future reset() async {
@@ -192,9 +193,32 @@ class GlobalOptions {
   late final initialAccount = SelectOption<String?>(
     storage: _storage,
     key: 'initial-account',
-    label: (final context) => AppLocalizations.of(context).globaloptionsaccountsInitialAccount,
+    label: (final context) => AppLocalizations.of(context).globalOptionsAccountsInitialAccount,
     defaultValue: BehaviorSubject.seeded(null),
     values: _accountsIDsSubject,
     enabled: _initialAccountEnabledSubject,
   );
+
+  late final navigationMode = SelectOption<NavigationMode>(
+    storage: _storage,
+    key: 'navigation-mode',
+    label: (final context) => AppLocalizations.of(context).globalOptionsNavigationMode,
+    defaultValue: BehaviorSubject.seeded(
+      Platform.isAndroid || Platform.isIOS ? NavigationMode.drawer : NavigationMode.drawerAlwaysVisible,
+    ),
+    values: BehaviorSubject.seeded({
+      NavigationMode.drawer: (final context) => AppLocalizations.of(context).globalOptionsNavigationModeDrawer,
+      if (!Platform.isAndroid && !Platform.isIOS) ...{
+        NavigationMode.drawerAlwaysVisible: (final context) =>
+            AppLocalizations.of(context).globalOptionsNavigationModeDrawerAlwaysVisible,
+      },
+      NavigationMode.quickBar: (final context) => AppLocalizations.of(context).globalOptionsNavigationModeQuickBar,
+    }),
+  );
+}
+
+enum NavigationMode {
+  drawer,
+  drawerAlwaysVisible,
+  quickBar,
 }

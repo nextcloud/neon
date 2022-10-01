@@ -5,19 +5,18 @@ const kAvatarSize = 40.0;
 class AccountAvatar extends StatelessWidget {
   const AccountAvatar({
     required this.account,
-    required this.requestManager,
     super.key,
   });
 
   final Account account;
-  final RequestManager requestManager;
 
   @override
   Widget build(final BuildContext context) => Stack(
+        alignment: Alignment.center,
         children: [
           ResultStreamBuilder<Uint8List>(
             // TODO: See TODO in cached_url_image.dart
-            stream: requestManager.wrapBytes(
+            stream: Provider.of<RequestManager>(context, listen: false).wrapBytes(
               account.client.id,
               'accounts-avatar-${account.id}',
               () async => account.client.core.getAvatar(
@@ -48,9 +47,7 @@ class AccountAvatar extends StatelessWidget {
                   ),
                 ],
                 if (avatarLoading) ...[
-                  const CircularProgressIndicator(
-                    strokeWidth: 2,
-                  ),
+                  const CustomLinearProgressIndicator(),
                 ],
               ],
             ),

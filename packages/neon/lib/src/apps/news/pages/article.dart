@@ -140,6 +140,7 @@ class _NewsArticlePageState extends State<NewsArticlePage> {
           ),
           body: widget.useWebView
               ? Stack(
+                  alignment: Alignment.center,
                   children: [
                     WebView(
                       javascriptMode: JavascriptMode.unrestricted,
@@ -160,11 +161,16 @@ class _NewsArticlePageState extends State<NewsArticlePage> {
                       },
                     ),
                     if (_webviewLoading) ...[
-                      ColoredBox(
-                        color: Theme.of(context).colorScheme.background,
-                        child: const Center(
-                          child: CircularProgressIndicator(
-                            strokeWidth: 3,
+                      Expanded(
+                        child: ColoredBox(
+                          color: Theme.of(context).colorScheme.background,
+                          child: Center(
+                            child: LayoutBuilder(
+                              builder: (final context, final constraints) => SizedBox(
+                                width: constraints.maxWidth / 2,
+                                child: const CustomLinearProgressIndicator(),
+                              ),
+                            ),
                           ),
                         ),
                       ),

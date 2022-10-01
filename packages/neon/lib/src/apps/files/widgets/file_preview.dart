@@ -96,11 +96,8 @@ class FilePreview extends StatelessWidget {
                         ),
                       ],
                       if (previewLoading) ...[
-                        Center(
-                          child: CircularProgressIndicator(
-                            strokeWidth: 2,
-                            color: color,
-                          ),
+                        const Center(
+                          child: CustomLinearProgressIndicator(),
                         ),
                       ],
                     ],

@@ -53,20 +53,27 @@ class _NeonAppState extends State<NeonApp> with WidgetsBindingObserver {
             (final _) => false,
           );
         } else {
-          await _navigatorKey.currentState!.pushAndRemoveUntil(
-            MaterialPageRoute(
-              settings: const RouteSettings(
-                name: 'home',
-              ),
-              builder: (final context) => HomePage(
+          const settings = RouteSettings(
+            name: 'home',
+          );
+          Widget builder(final context) => HomePage(
                 account: activeAccount,
                 onThemeChanged: (final theme) {
                   setState(() {
                     _userTheme = theme;
                   });
                 },
-              ),
-            ),
+              );
+          await _navigatorKey.currentState!.pushAndRemoveUntil(
+            widget.globalOptions.navigationMode.value == NavigationMode.drawer
+                ? MaterialPageRoute(
+                    settings: settings,
+                    builder: builder,
+                  )
+                : NoAnimationPageRoute(
+                    settings: settings,
+                    builder: builder,
+                  ),
             (final _) => false,
           );
         }

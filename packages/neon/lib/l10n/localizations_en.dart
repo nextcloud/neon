@@ -148,6 +148,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get optionsCategorySystemTray => 'System tray';
 
   @override
+  String get optionsCategoryNavigation => 'Navigation';
+
+  @override
   String get optionsSortOrderAscending => 'Ascending';
 
   @override
@@ -216,10 +219,22 @@ class AppLocalizationsEn extends AppLocalizations {
   String get globalOptionsAccountsRememberLastUsedAccount => 'Remember last used account';
 
   @override
-  String get globaloptionsaccountsInitialAccount => 'Initial account';
+  String get globalOptionsAccountsInitialAccount => 'Initial account';
 
   @override
   String get globalOptionsAccountsAdd => 'Add account';
+
+  @override
+  String get globalOptionsNavigationMode => 'Navigation mode';
+
+  @override
+  String get globalOptionsNavigationModeDrawer => 'Drawer';
+
+  @override
+  String get globalOptionsNavigationModeDrawerAlwaysVisible => 'Drawer always visible';
+
+  @override
+  String get globalOptionsNavigationModeQuickBar => 'Quick bar';
 
   @override
   String accountOptionsRemoveConfirm(String id) {

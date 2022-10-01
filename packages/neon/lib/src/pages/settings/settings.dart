@@ -107,6 +107,14 @@ class _SettingsPageState extends State<SettingsPage> {
                       ),
                     ],
                   ),
+                  SettingsCategory(
+                    title: Text(AppLocalizations.of(context).optionsCategoryNavigation),
+                    tiles: [
+                      DropdownButtonSettingsTile(
+                        option: globalOptions.navigationMode,
+                      ),
+                    ],
+                  ),
                   if (platform.canUsePushNotifications) ...[
                     SettingsCategory(
                       title: Text(AppLocalizations.of(context).optionsCategoryPushNotifications),

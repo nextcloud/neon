@@ -33,9 +33,10 @@ class AccountTile extends StatelessWidget {
               vertical: -4,
             )
           : null,
-      leading: AccountAvatar(
-        account: account,
-        requestManager: Provider.of<RequestManager>(context),
+      leading: IntrinsicWidth(
+        child: AccountAvatar(
+          account: account,
+        ),
       ),
       title: StandardRxResultBuilder<UserDetailsBloc, ProvisioningApiUserDetails>(
         bloc: userDetailsBloc,
@@ -64,12 +65,9 @@ class AccountTile extends StatelessWidget {
               const SizedBox(
                 width: 5,
               ),
-              SizedBox(
-                height: 10,
-                width: 10,
-                child: CircularProgressIndicator(
-                  strokeWidth: 1,
-                  color: color,
+              Expanded(
+                child: CustomLinearProgressIndicator(
+                  color: textColor,
                 ),
               ),
             ],
@@ -77,10 +75,12 @@ class AccountTile extends StatelessWidget {
               const SizedBox(
                 width: 5,
               ),
-              Icon(
-                Icons.error_outline,
-                size: 20,
-                color: color,
+              ExceptionWidget(
+                userDetailsError,
+                onlyIcon: true,
+                onRetry: () {
+                  userDetailsBloc.refresh();
+                },
               ),
             ],
           ],

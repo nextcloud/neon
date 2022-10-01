@@ -81,11 +81,9 @@ class CachedURLImage extends StatelessWidget {
                   ),
                 ],
                 if (loading) ...[
-                  Container(
-                    margin: const EdgeInsets.all(3),
-                    child: const CircularProgressIndicator(
-                      strokeWidth: 2,
-                    ),
+                  SizedBox(
+                    width: width,
+                    child: const CustomLinearProgressIndicator(),
                   ),
                 ],
               ],
