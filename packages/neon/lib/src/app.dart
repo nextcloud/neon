@@ -1,13 +1,4 @@
-import 'dart:async';
-
-import 'package:flutter/material.dart';
-import 'package:flutter_native_splash/flutter_native_splash.dart';
-import 'package:neon/l10n/localizations.dart';
-import 'package:neon/src/blocs/accounts.dart';
-import 'package:neon/src/neon.dart';
-import 'package:nextcloud/nextcloud.dart';
-import 'package:rxdart/rxdart.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+part of 'neon.dart';
 
 class NeonApp extends StatefulWidget {
   const NeonApp({

@@ -2,7 +2,6 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
-import 'package:neon/app.dart';
 import 'package:neon/src/blocs/accounts.dart';
 import 'package:neon/src/blocs/push_notifications.dart';
 import 'package:neon/src/neon.dart';

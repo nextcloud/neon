@@ -13,6 +13,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_file_dialog/flutter_file_dialog.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:flutter_rx_bloc/flutter_rx_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:http/http.dart';
@@ -52,6 +53,7 @@ import 'package:webview_flutter/webview_flutter.dart';
 import 'package:window_manager/window_manager.dart';
 import 'package:xdg_directories/xdg_directories.dart' as xdg;
 
+part 'app.dart';
 part 'pages/home/home.dart';
 part 'pages/home/widgets/server_status.dart';
 part 'pages/login/login.dart';
