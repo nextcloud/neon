@@ -2,6 +2,6 @@ sdk:
   - stable
 
 stages:
-  - analyze:
+  - all:
       - analyze: --fatal-infos .
       - format: --output=none --set-exit-if-changed --line-length 120 .
