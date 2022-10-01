@@ -42,13 +42,14 @@ abstract class AppImplementation<T extends RxBlocBase, R extends NextcloudAppSpe
     final BuildContext context, {
     final double height = 32,
     final double width = 32,
+    final Color? color,
   }) =>
       SizedBox(
         height: height,
         width: width,
         child: SvgPicture.asset(
           'assets/apps/$id.svg',
-          color: Theme.of(context).colorScheme.primary,
+          color: color ?? Theme.of(context).colorScheme.primary,
         ),
       );
 

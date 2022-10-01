@@ -4,11 +4,13 @@ class ExceptionWidget extends StatelessWidget {
   const ExceptionWidget(
     this.exception, {
     required this.onRetry,
+    this.onlyIcon = false,
     super.key,
   });
 
   final dynamic exception;
   final Function() onRetry;
+  final bool onlyIcon;
 
   static void showSnackbar(final BuildContext context, final dynamic exception) {
     final details = _getExceptionDetails(context, exception);
@@ -35,16 +37,31 @@ class ExceptionWidget extends StatelessWidget {
             builder: (final context) {
               final details = _getExceptionDetails(context, exception);
 
+              const errorIcon = Icon(
+                Icons.error_outline,
+                size: 30,
+                color: Colors.red,
+              );
+
+              if (onlyIcon) {
+                return IconButton(
+                  onPressed: () async {
+                    if (details.isUnauthorized) {
+                      await _openLoginPage(context);
+                    } else {
+                      onRetry();
+                    }
+                  },
+                  icon: errorIcon,
+                );
+              }
+
               return Column(
                 children: [
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      const Icon(
-                        Icons.error_outline,
-                        size: 30,
-                        color: Colors.red,
-                      ),
+                      errorIcon,
                       const SizedBox(
                         width: 10,
                       ),
@@ -65,7 +82,7 @@ class ExceptionWidget extends StatelessWidget {
                     ),
                   ] else ...[
                     ElevatedButton(
-                      onPressed: () async => onRetry(),
+                      onPressed: onRetry,
                       child: Text(AppLocalizations.of(context).retry),
                     ),
                   ],

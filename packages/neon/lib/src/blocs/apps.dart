@@ -36,8 +36,10 @@ class AppsBloc extends $AppsBloc {
     _$refreshEvent.listen((final _) => _loadApps);
     _$setActiveAppEvent.listen((final appId) async {
       final data = (await _appImplementationsSubject.firstWhere((final result) => result.data != null)).data!;
-      if (data.where((final app) => app.id == appId).isNotEmpty && _activeAppSubject.valueOrNull != appId) {
-        _activeAppSubject.add(appId);
+      if (data.where((final app) => app.id == appId).isNotEmpty) {
+        if (_activeAppSubject.valueOrNull != appId) {
+          _activeAppSubject.add(appId);
+        }
       } else {
         debugPrint('App $appId not found');
       }

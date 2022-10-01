@@ -353,6 +353,12 @@ abstract class AppLocalizations {
   /// **'System tray'**
   String get optionsCategorySystemTray;
 
+  /// No description provided for @optionsCategoryNavigation.
+  ///
+  /// In en, this message translates to:
+  /// **'Navigation'**
+  String get optionsCategoryNavigation;
+
   /// No description provided for @optionsSortOrderAscending.
   ///
   /// In en, this message translates to:
@@ -485,17 +491,41 @@ abstract class AppLocalizations {
   /// **'Remember last used account'**
   String get globalOptionsAccountsRememberLastUsedAccount;
 
-  /// No description provided for @globaloptionsaccountsInitialAccount.
+  /// No description provided for @globalOptionsAccountsInitialAccount.
   ///
   /// In en, this message translates to:
   /// **'Initial account'**
-  String get globaloptionsaccountsInitialAccount;
+  String get globalOptionsAccountsInitialAccount;
 
   /// No description provided for @globalOptionsAccountsAdd.
   ///
   /// In en, this message translates to:
   /// **'Add account'**
   String get globalOptionsAccountsAdd;
+
+  /// No description provided for @globalOptionsNavigationMode.
+  ///
+  /// In en, this message translates to:
+  /// **'Navigation mode'**
+  String get globalOptionsNavigationMode;
+
+  /// No description provided for @globalOptionsNavigationModeDrawer.
+  ///
+  /// In en, this message translates to:
+  /// **'Drawer'**
+  String get globalOptionsNavigationModeDrawer;
+
+  /// No description provided for @globalOptionsNavigationModeDrawerAlwaysVisible.
+  ///
+  /// In en, this message translates to:
+  /// **'Drawer always visible'**
+  String get globalOptionsNavigationModeDrawerAlwaysVisible;
+
+  /// No description provided for @globalOptionsNavigationModeQuickBar.
+  ///
+  /// In en, this message translates to:
+  /// **'Quick bar'**
+  String get globalOptionsNavigationModeQuickBar;
 
   /// No description provided for @accountOptionsRemoveConfirm.
   ///

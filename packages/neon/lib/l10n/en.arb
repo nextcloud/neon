@@ -72,6 +72,7 @@
   "optionsCategoryAccounts": "Accounts",
   "optionsCategoryStartup": "Startup",
   "optionsCategorySystemTray": "System tray",
+  "optionsCategoryNavigation": "Navigation",
   "optionsSortOrderAscending": "Ascending",
   "optionsSortOrderDescending": "Descending",
   "globalOptionsThemeMode": "Theme mode",
@@ -94,8 +95,12 @@
   "globalOptionsSystemTrayEnabled": "Enable system tray",
   "globalOptionsSystemTrayHideToTrayWhenMinimized": "Hide to system tray when minimized",
   "globalOptionsAccountsRememberLastUsedAccount": "Remember last used account",
-  "globaloptionsaccountsInitialAccount": "Initial account",
+  "globalOptionsAccountsInitialAccount": "Initial account",
   "globalOptionsAccountsAdd": "Add account",
+  "globalOptionsNavigationMode": "Navigation mode",
+  "globalOptionsNavigationModeDrawer": "Drawer",
+  "globalOptionsNavigationModeDrawerAlwaysVisible": "Drawer always visible",
+  "globalOptionsNavigationModeQuickBar": "Quick bar",
   "accountOptionsRemoveConfirm": "Are you sure you want to remove the account {id}?",
   "@accountOptionsRemoveConfirm": {
     "placeholders": {
