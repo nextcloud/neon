@@ -78,6 +78,7 @@ class AccountTile extends StatelessWidget {
               ExceptionWidget(
                 userDetailsError,
                 onlyIcon: true,
+                iconSize: 24,
                 onRetry: () {
                   userDetailsBloc.refresh();
                 },
