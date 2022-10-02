@@ -21,8 +21,7 @@ class NewsFeedIcon extends StatelessWidget {
         child: feed.faviconLink != null && feed.faviconLink != ''
             ? CachedURLImage(
                 url: feed.faviconLink!,
-                requestManager: Provider.of<RequestManager>(context),
-                client: RxBlocProvider.of<AccountsBloc>(context).activeAccount.value!.client,
+                account: RxBlocProvider.of<AccountsBloc>(context).activeAccount.value!,
                 height: size,
                 width: size,
               )

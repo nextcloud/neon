@@ -181,8 +181,7 @@ class _NewsArticlesViewState extends State<NewsArticlesView> {
             if (article.mediaThumbnail != null) ...[
               CachedURLImage(
                 url: article.mediaThumbnail!,
-                requestManager: Provider.of<RequestManager>(context),
-                client: RxBlocProvider.of<AccountsBloc>(context).activeAccount.value!.client,
+                account: RxBlocProvider.of<AccountsBloc>(context).activeAccount.value!,
                 width: 100,
                 height: 50,
                 fit: BoxFit.cover,
