@@ -106,7 +106,7 @@ class AppsBloc extends $AppsBloc {
           'apps-apps',
           () async => _account.client.core.getNavigationApps(),
           (final response) => response.ocs!.data!,
-          preloadCache: true,
+          previousData: _appsSubject.valueOrNull?.data,
         )
         .listen(_appsSubject.add);
   }

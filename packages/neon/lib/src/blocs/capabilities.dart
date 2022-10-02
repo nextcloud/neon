@@ -37,7 +37,7 @@ class CapabilitiesBloc extends $CapabilitiesBloc {
           'capabilities',
           () async => _client.core.getCapabilities(),
           (final response) => response.ocs!.data!,
-          preloadCache: true,
+          previousData: _capabilitiesSubject.valueOrNull?.data,
         )
         .listen(_capabilitiesSubject.add);
   }

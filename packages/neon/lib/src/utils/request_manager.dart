@@ -33,10 +33,8 @@ class RequestManager {
     final String k,
     final Future<R> Function() call,
     final T Function(R) unwrap, {
-    final bool preloadCache = false,
-    final bool preferCache = false,
+    required final T? previousData,
     final bool disableTimeout = false,
-    final T? previousData,
   }) async* {
     yield* _wrap<T, R>(
       clientID,
@@ -45,8 +43,6 @@ class RequestManager {
       (final d) => deserialize<R>(json.decode(d)),
       call,
       unwrap: unwrap,
-      preloadCache: preloadCache,
-      preferCache: preferCache,
       previousData: previousData,
       disableTimeout: disableTimeout,
     );
@@ -56,7 +52,6 @@ class RequestManager {
     final String clientID,
     final String k,
     final Future<Uint8List> Function() call, {
-    final bool preloadCache = false,
     final bool preferCache = false,
     final bool disableTimeout = false,
     final Uint8List? previousData,
@@ -67,7 +62,6 @@ class RequestManager {
         (final s) => base64.encode(s),
         (final d) => base64.decode(d),
         call,
-        preloadCache: preloadCache,
         preferCache: preferCache,
         previousData: previousData,
         disableTimeout: disableTimeout,
@@ -77,7 +71,6 @@ class RequestManager {
     final String clientID,
     final String k,
     final Future<String> Function() call, {
-    final bool preloadCache = false,
     final bool preferCache = false,
     final bool disableTimeout = false,
     final String? previousData,
@@ -88,7 +81,6 @@ class RequestManager {
         (final s) => s,
         (final d) => d,
         call,
-        preloadCache: preloadCache,
         preferCache: preferCache,
         previousData: previousData,
         disableTimeout: disableTimeout,
@@ -99,7 +91,6 @@ class RequestManager {
     final String Function(R) serialize,
     final R Function(String) deserialize,
     final Future<R> Function() call, {
-    final bool preloadCache = false,
     final bool preferCache = false,
     final bool disableTimeout = false,
     T Function(R)? unwrap,
@@ -117,14 +108,14 @@ class RequestManager {
 
     _print('[Request]: $k');
 
-    if ((preferCache || preloadCache) && cache != null && await cache!.has(key)) {
+    if (cache != null && await cache!.has(key)) {
       _print('[Cache]: $k');
       final s = unwrap(deserialize((await cache!.get(key))!));
-      if (preloadCache) {
-        yield ResultCached(s, loading: true);
-      } else {
+      if (preferCache) {
         yield Result.success(s);
         return;
+      } else {
+        yield ResultCached(s, loading: true);
       }
     }
 
