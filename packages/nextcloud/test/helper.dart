@@ -246,21 +246,21 @@ class TestDockerHelper {
       'RUN chown -R www-data:www-data .',
       'USER www-data',
       'RUN ./occ maintenance:install --admin-user admin --admin-pass $defaultPassword --admin-email admin@example.com',
+      // Required to workaround restrictions for localhost and http only push proxies
+      'RUN ./occ config:system:set allow_local_remote_servers --value=true',
+      'RUN sed -i "s/localhost/host.docker.internal/" /usr/src/nextcloud/apps/notifications/lib/Controller/PushController.php',
+      'ADD overlay /usr/src/nextcloud/',
       generateCreateTestUserInstruction(),
-      if (users != null) ...[
-        for (final user in users) ...[
-          generateCreateUserInstruction(user),
-        ],
-      ],
       if (apps != null) ...[
         for (final app in apps) ...[
           generateInstallAppInstruction(app),
         ],
       ],
-      // Required to workaround restrictions for localhost and http only push proxies
-      'RUN ./occ config:system:set allow_local_remote_servers --value=true',
-      'RUN sed -i "s/localhost/host.docker.internal/" /usr/src/nextcloud/apps/notifications/lib/Controller/PushController.php',
-      'ADD overlay /usr/src/nextcloud/',
+      if (users != null) ...[
+        for (final user in users) ...[
+          generateCreateUserInstruction(user),
+        ],
+      ],
       '',
     ];
 
