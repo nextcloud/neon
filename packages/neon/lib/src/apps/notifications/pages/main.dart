@@ -115,8 +115,7 @@ class _NotificationsMainPageState extends State<NotificationsMainPage> {
               height: 40,
               child: CachedURLImage(
                 url: notification.icon!,
-                requestManager: widget.bloc.requestManager,
-                client: widget.bloc.client,
+                account: RxBlocProvider.of<AccountsBloc>(context).activeAccount.value!,
                 width: 40,
                 height: 40,
                 color: Theme.of(context).colorScheme.primary,

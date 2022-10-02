@@ -15,6 +15,7 @@ dependencies:
   filesize: ^2.0.1
   flutter:
     sdk: flutter
+  flutter_cache_manager: ^3.3.0
   flutter_dotenv: ^5.0.2
   flutter_file_dialog: ^2.3.0
   flutter_html: ^3.0.0-alpha.3

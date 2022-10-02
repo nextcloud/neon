@@ -29,17 +29,17 @@ abstract class NotificationsBlocStates {
 class NotificationsBloc extends $NotificationsBloc {
   NotificationsBloc(
     this.options,
-    this.requestManager,
-    this.client,
+    this._requestManager,
+    this._client,
   ) {
     _$refreshEvent.listen((final _) => _loadNotifications());
 
     _$deleteNotificationEvent.listen((final id) {
-      _wrapAction(() async => client.notifications.deleteNotification(id: id));
+      _wrapAction(() async => _client.notifications.deleteNotification(id: id));
     });
 
     _$deleteAllNotificationsEvent.listen((final notification) {
-      _wrapAction(() async => client.notifications.deleteAllNotifications());
+      _wrapAction(() async => _client.notifications.deleteAllNotifications());
     });
 
     _notificationsSubject.listen((final result) {
@@ -52,7 +52,7 @@ class NotificationsBloc extends $NotificationsBloc {
   }
 
   void _wrapAction(final Future Function() call) {
-    final stream = requestManager.wrapWithoutCache(call).asBroadcastStream();
+    final stream = _requestManager.wrapWithoutCache(call).asBroadcastStream();
     stream.whereError().listen(_errorsStreamController.add);
     stream.whereSuccess().listen((final _) async {
       _loadNotifications();
@@ -60,11 +60,11 @@ class NotificationsBloc extends $NotificationsBloc {
   }
 
   void _loadNotifications() {
-    requestManager
+    _requestManager
         .wrapNextcloud<List<NotificationsNotification>, NotificationsListNotifications>(
-          client.id,
+          _client.id,
           'notifications-notifications',
-          () async => client.notifications.listNotifications(),
+          () async => _client.notifications.listNotifications(),
           (final response) => response.ocs!.data!,
           previousData: _notificationsSubject.valueOrNull?.data,
         )
@@ -72,8 +72,8 @@ class NotificationsBloc extends $NotificationsBloc {
   }
 
   final NotificationsAppSpecificOptions options;
-  final RequestManager requestManager;
-  final NextcloudClient client;
+  final RequestManager _requestManager;
+  final NextcloudClient _client;
 
   final _notificationsSubject = BehaviorSubject<Result<List<NotificationsNotification>>>();
   final _errorsStreamController = StreamController<Exception>();

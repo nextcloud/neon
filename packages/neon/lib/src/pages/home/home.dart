@@ -24,7 +24,6 @@ class _HomePageState extends State<HomePage> with tray.TrayListener, WindowListe
 
   late NeonPlatform _platform;
   late GlobalOptions _globalOptions;
-  late RequestManager _requestManager;
   late CapabilitiesBloc _capabilitiesBloc;
   late AppsBloc _appsBloc;
 
@@ -46,9 +45,8 @@ class _HomePageState extends State<HomePage> with tray.TrayListener, WindowListe
       windowManager.addListener(this);
     }
 
-    _requestManager = Provider.of<RequestManager>(context, listen: false);
     _capabilitiesBloc = CapabilitiesBloc(
-      _requestManager,
+      Provider.of<RequestManager>(context, listen: false),
       widget.account.client,
     );
     _capabilitiesBloc.capabilities.listen((final result) async {
@@ -446,8 +444,7 @@ class _HomePageState extends State<HomePage> with tray.TrayListener, WindowListe
                                                       Flexible(
                                                         child: CachedURLImage(
                                                           url: capabilitiesData.capabilities!.theming!.logo!,
-                                                          requestManager: _requestManager,
-                                                          client: widget.account.client,
+                                                          account: widget.account,
                                                         ),
                                                       ),
                                                     ],
@@ -633,8 +630,7 @@ class _HomePageState extends State<HomePage> with tray.TrayListener, WindowListe
                                           child: capabilitiesData?.capabilities?.theming?.logo != null
                                               ? CachedURLImage(
                                                   url: capabilitiesData!.capabilities!.theming!.logo!,
-                                                  requestManager: _requestManager,
-                                                  client: widget.account.client,
+                                                  account: widget.account,
                                                 )
                                               : null,
                                         )
