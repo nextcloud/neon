@@ -12,12 +12,13 @@ Future main() async {
 
   group('notifications', () {
     late TestNextcloudClient client;
-    setUp(() async {
-      client = await TestHelper.getPreparedClient(
+    setUp(
+      () async => client = await TestHelper.getPreparedClient(
         dockerImageName,
         username: 'admin',
-      );
-    });
+        password: 'admin',
+      ),
+    );
     tearDown(() => client.destroy());
 
     Future sendTestNotification() async {

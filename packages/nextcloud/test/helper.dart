@@ -9,8 +9,8 @@ import 'package:process_run/cmd_run.dart';
 import 'package:test/test.dart';
 
 const String nextcloudVersion = '24.0.5';
-const String defaultUsername = 'test';
-const String defaultPassword = 'supersafepasswordtocircumventpasswordpolicies';
+const String defaultUsername = 'user1';
+const String defaultPassword = 'user1';
 
 class TestNextcloudClient extends NextcloudClient {
   TestNextcloudClient(
@@ -223,11 +223,13 @@ class TestHelper {
 
 class TestNextcloudUser {
   TestNextcloudUser(
-    this.username, {
+    this.username,
+    this.password, {
     this.displayName,
   });
 
   final String username;
+  final String password;
   final String? displayName;
 }
 
@@ -245,8 +247,8 @@ class TestDockerHelper {
       'WORKDIR /usr/src/nextcloud',
       'RUN chown -R www-data:www-data .',
       'USER www-data',
-      'RUN ./occ maintenance:install --admin-user admin --admin-pass $defaultPassword --admin-email admin@example.com',
-      // Required to workaround restrictions for localhost and http only push proxies
+      'RUN ./occ maintenance:install --admin-pass admin --admin-email admin@example.com',
+      'RUN ./occ app:disable password_policy',
       'RUN ./occ config:system:set allow_local_remote_servers --value=true',
       'RUN sed -i "s/localhost/host.docker.internal/" /usr/src/nextcloud/apps/notifications/lib/Controller/PushController.php',
       'ADD overlay /usr/src/nextcloud/',
@@ -275,12 +277,13 @@ class TestDockerHelper {
   static String generateCreateTestUserInstruction() => generateCreateUserInstruction(
         TestNextcloudUser(
           defaultUsername,
-          displayName: 'Test',
+          defaultPassword,
+          displayName: 'User One',
         ),
       );
 
   static String generateCreateUserInstruction(final TestNextcloudUser user) =>
-      'RUN OC_PASS="$defaultPassword" ./occ user:add --password-from-env ${user.displayName != null ? '--display-name="${user.displayName}"' : ''} ${user.username}';
+      'RUN OC_PASS="${user.password}" ./occ user:add --password-from-env ${user.displayName != null ? '--display-name="${user.displayName}"' : ''} ${user.username}';
 
   static String generateInstallAppInstruction(
     final String appName,

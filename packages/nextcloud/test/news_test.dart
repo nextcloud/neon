@@ -11,9 +11,7 @@ Future main() async {
 
   group('news', () {
     late TestNextcloudClient client;
-    setUp(() async {
-      client = await TestHelper.getPreparedClient(dockerImageName);
-    });
+    setUp(() async => client = await TestHelper.getPreparedClient(dockerImageName));
     tearDown(() => client.destroy());
 
     Future<NewsListFeeds> addWikipediaFeed([final int? folderID]) => client.news.addFeed(

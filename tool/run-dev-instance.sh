@@ -15,13 +15,11 @@ else
   exit 1
 fi
 
-source tool/common.sh
-
 ./tool/build-dev-container-image.sh
 
 echo "TEST_HOST=$ip
-TEST_USER=$username
-TEST_PASSWORD=$password" > packages/neon/assets/.env
+TEST_USER=user1
+TEST_PASSWORD=user1" > packages/neon/assets/.env
 (
   cd packages/nextcloud_push_proxy
   fvm dart run bin/unified_push.dart ./tmp/devices.json
@@ -31,5 +29,4 @@ function cleanup() {
   rm packages/neon/assets/.env
 }
 trap cleanup EXIT
-# The multiple ports are used to let the app think we are talking to two different servers when in fact it's only one
-docker run --rm -v nextcloud-neon-dev:/usr/src/nextcloud -p "80:80" -p "81:80" --add-host host.docker.internal:host-gateway nextcloud-neon-dev
+docker run --rm -v nextcloud-neon-dev:/usr/src/nextcloud -p "80:80" --add-host host.docker.internal:host-gateway nextcloud-neon-dev
