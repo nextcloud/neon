@@ -3,7 +3,7 @@ part of '../neon.dart';
 class ImageWrapper extends StatelessWidget {
   const ImageWrapper({
     required this.child,
-    required this.backgroundColor,
+    required this.color,
     this.width,
     this.height,
     this.borderRadius,
@@ -11,7 +11,7 @@ class ImageWrapper extends StatelessWidget {
   });
 
   final Widget child;
-  final Color backgroundColor;
+  final Color color;
   final double? width;
   final double? height;
   final BorderRadius? borderRadius;
@@ -20,14 +20,11 @@ class ImageWrapper extends StatelessWidget {
   Widget build(final BuildContext context) => SizedBox(
         width: width,
         height: height,
-        child: DecoratedBox(
-          decoration: BoxDecoration(
-            color: backgroundColor,
-            borderRadius: borderRadius?.add(const BorderRadius.all(Radius.circular(1))),
-          ),
-          child: Center(
-            child: ClipRRect(
-              borderRadius: borderRadius ?? BorderRadius.zero,
+        child: ClipRRect(
+          borderRadius: borderRadius ?? BorderRadius.zero,
+          child: ColoredBox(
+            color: color,
+            child: Center(
               child: child,
             ),
           ),

@@ -115,10 +115,9 @@ class _NotificationsMainPageState extends State<NotificationsMainPage> {
               height: 40,
               child: CachedURLImage(
                 url: notification.icon!,
-                account: RxBlocProvider.of<AccountsBloc>(context).activeAccount.value!,
                 width: 40,
                 height: 40,
-                color: Theme.of(context).colorScheme.primary,
+                svgColor: Theme.of(context).colorScheme.primary,
               ),
             ),
       onTap: () async {

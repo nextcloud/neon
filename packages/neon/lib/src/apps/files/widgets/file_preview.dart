@@ -76,7 +76,7 @@ class FilePreview extends StatelessWidget {
                               );
                               if (withBackground) {
                                 return ImageWrapper(
-                                  backgroundColor: Colors.white,
+                                  color: Colors.white,
                                   borderRadius: borderRadius,
                                   child: child,
                                 );
@@ -96,8 +96,10 @@ class FilePreview extends StatelessWidget {
                         ),
                       ],
                       if (previewLoading) ...[
-                        const Center(
-                          child: CustomLinearProgressIndicator(),
+                        Center(
+                          child: CustomLinearProgressIndicator(
+                            color: color,
+                          ),
                         ),
                       ],
                     ],
