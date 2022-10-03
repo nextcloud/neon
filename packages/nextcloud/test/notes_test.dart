@@ -8,9 +8,7 @@ Future main() async {
 
   group('notes', () {
     late TestNextcloudClient client;
-    setUp(() async {
-      client = await TestHelper.getPreparedClient(dockerImageName);
-    });
+    setUp(() async => client = await TestHelper.getPreparedClient(dockerImageName));
     tearDown(() => client.destroy());
 
     test('Is supported', () async {

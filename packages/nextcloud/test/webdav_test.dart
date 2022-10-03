@@ -12,9 +12,7 @@ Future main() async {
 
   group('webdav', () {
     late TestNextcloudClient client;
-    setUp(() async {
-      client = await TestHelper.getPreparedClient(dockerImageName);
-    });
+    setUp(() async => client = await TestHelper.getPreparedClient(dockerImageName));
     tearDown(() => client.destroy());
 
     test('Fail without username', () async {

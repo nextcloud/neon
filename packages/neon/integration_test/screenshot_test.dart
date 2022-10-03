@@ -218,8 +218,8 @@ Future main() async {
 
   final account = Account(
     serverURL: 'http://10.0.2.2',
-    username: 'test',
-    password: 'supersafepasswordtocircumventpasswordpolicies',
+    username: 'user1',
+    password: 'user1',
   );
 
   setUpAll(() async {
@@ -541,7 +541,7 @@ Future main() async {
     await binding.takeScreenshot('settings_accounts');
 
     // Go to account settings
-    await tester.tap(find.text('test@10.0.2.2:80'));
+    await tester.tap(find.text('user1@10.0.2.2:80'));
     await tester.pumpAndSettle();
     await tester.tap(find.text('Automatic'));
     await tester.pumpAndSettle();

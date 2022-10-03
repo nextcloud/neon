@@ -8,9 +8,7 @@ Future main() async {
 
   group('user_status', () {
     late TestNextcloudClient client;
-    setUp(() async {
-      client = await TestHelper.getPreparedClient(dockerImageName);
-    });
+    setUp(() async => client = await TestHelper.getPreparedClient(dockerImageName));
     tearDown(() => client.destroy());
 
     test('Find all predefined statuses', () async {
@@ -47,7 +45,7 @@ Future main() async {
     test('Set status', () async {
       final response = await client.userStatus.setStatus(statusType: UserStatusType.online);
 
-      expect(response.ocs!.data!.userStatus!.userId, 'test');
+      expect(response.ocs!.data!.userStatus!.userId, 'user1');
       expect(response.ocs!.data!.userStatus!.message, null);
       expect(response.ocs!.data!.userStatus!.messageId, null);
       expect(response.ocs!.data!.userStatus!.messageIsPredefined, false);
@@ -63,7 +61,7 @@ Future main() async {
       await client.userStatus.setStatus(statusType: UserStatusType.online);
 
       final response = await client.userStatus.getStatus();
-      expect(response.ocs!.data!.userStatus!.userId, 'test');
+      expect(response.ocs!.data!.userStatus!.userId, 'user1');
       expect(response.ocs!.data!.userStatus!.message, null);
       expect(response.ocs!.data!.userStatus!.messageId, null);
       expect(response.ocs!.data!.userStatus!.messageIsPredefined, false);
@@ -81,7 +79,7 @@ Future main() async {
 
       response = await client.userStatus.findAllStatuses();
       expect(response.ocs!.data, hasLength(1));
-      expect(response.ocs!.data![0].userId, 'test');
+      expect(response.ocs!.data![0].userId, 'user1');
       expect(response.ocs!.data![0].message, null);
       expect(response.ocs!.data![0].icon, null);
       expect(response.ocs!.data![0].clearAt, null);
@@ -92,8 +90,8 @@ Future main() async {
       // Same as getting status
       await client.userStatus.setStatus(statusType: UserStatusType.online);
 
-      final response = await client.userStatus.findStatus(userId: 'test');
-      expect(response.ocs!.data!.userStatusPublicUserStatus!.userId, 'test');
+      final response = await client.userStatus.findStatus(userId: 'user1');
+      expect(response.ocs!.data!.userStatusPublicUserStatus!.userId, 'user1');
       expect(response.ocs!.data!.userStatusPublicUserStatus!.message, null);
       expect(response.ocs!.data!.userStatusPublicUserStatus!.icon, null);
       expect(response.ocs!.data!.userStatusPublicUserStatus!.clearAt, null);
@@ -106,7 +104,7 @@ Future main() async {
         messageId: 'meeting',
         clearAt: clearAt,
       );
-      expect(response.ocs!.data!.userStatus!.userId, 'test');
+      expect(response.ocs!.data!.userStatus!.userId, 'user1');
       expect(response.ocs!.data!.userStatus!.message, null);
       expect(response.ocs!.data!.userStatus!.messageId, 'meeting');
       expect(response.ocs!.data!.userStatus!.messageIsPredefined, true);
@@ -123,7 +121,7 @@ Future main() async {
         message: 'bla',
         clearAt: clearAt,
       );
-      expect(response.ocs!.data!.userStatus!.userId, 'test');
+      expect(response.ocs!.data!.userStatus!.userId, 'user1');
       expect(response.ocs!.data!.userStatus!.message, 'bla');
       expect(response.ocs!.data!.userStatus!.messageId, null);
       expect(response.ocs!.data!.userStatus!.messageIsPredefined, false);
@@ -143,7 +141,7 @@ Future main() async {
       await client.userStatus.clearMessage();
 
       final response = await client.userStatus.getStatus();
-      expect(response.ocs!.data!.userStatus!.userId, 'test');
+      expect(response.ocs!.data!.userStatus!.userId, 'user1');
       expect(response.ocs!.data!.userStatus!.message, null);
       expect(response.ocs!.data!.userStatus!.messageId, null);
       expect(response.ocs!.data!.userStatus!.messageIsPredefined, false);
@@ -157,7 +155,7 @@ Future main() async {
       await client.userStatus.heartbeat(status: UserStatusType.online);
 
       final response = await client.userStatus.getStatus();
-      expect(response.ocs!.data!.userStatus!.userId, 'test');
+      expect(response.ocs!.data!.userStatus!.userId, 'user1');
       expect(response.ocs!.data!.userStatus!.message, null);
       expect(response.ocs!.data!.userStatus!.messageId, null);
       expect(response.ocs!.data!.userStatus!.messageIsPredefined, false);
