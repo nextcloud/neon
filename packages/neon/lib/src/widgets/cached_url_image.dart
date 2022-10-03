@@ -5,32 +5,28 @@ final _cacheManager = DefaultCacheManager();
 class CachedURLImage extends StatelessWidget {
   const CachedURLImage({
     required this.url,
-    required this.account,
     this.height,
     this.width,
     this.fit,
-    this.color,
+    this.svgColor,
+    this.iconColor,
     super.key,
   });
 
   final String url;
-  final Account account;
 
   final double? height;
   final double? width;
   final BoxFit? fit;
 
-  /// Only works for SVGs
-  final Color? color;
+  final Color? svgColor;
+  final Color? iconColor;
 
   @override
   Widget build(final BuildContext context) => FutureBuilder<File>(
         // Really weird false positive
         // ignore: discarded_futures
-        future: _cacheManager.getSingleFile(
-          url,
-          headers: account.client.baseHeaders,
-        ),
+        future: _cacheManager.getSingleFile(url),
         builder: (final context, final fileSnapshot) {
           if (fileSnapshot.hasData) {
             final content = fileSnapshot.data!.readAsBytesSync();
@@ -56,7 +52,7 @@ class CachedURLImage extends StatelessWidget {
                 height: height,
                 width: width,
                 fit: fit ?? BoxFit.contain,
-                color: color,
+                color: svgColor,
               );
             }
 
@@ -65,17 +61,21 @@ class CachedURLImage extends StatelessWidget {
               height: height,
               width: width,
               fit: fit,
+              gaplessPlayback: true,
             );
           }
           if (fileSnapshot.hasError) {
             return Icon(
               Icons.error_outline,
               size: height != null && width != null ? min(height!, width!) : height ?? width,
+              color: iconColor,
             );
           }
           return SizedBox(
             width: width,
-            child: const CustomLinearProgressIndicator(),
+            child: CustomLinearProgressIndicator(
+              color: iconColor,
+            ),
           );
         },
       );

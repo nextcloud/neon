@@ -14,16 +14,16 @@ class NewsFeedIcon extends StatelessWidget {
 
   @override
   Widget build(final BuildContext context) => ImageWrapper(
-        backgroundColor: Colors.white,
+        color: Colors.white,
         width: size,
         height: size,
         borderRadius: borderRadius,
         child: feed.faviconLink != null && feed.faviconLink != ''
             ? CachedURLImage(
                 url: feed.faviconLink!,
-                account: RxBlocProvider.of<AccountsBloc>(context).activeAccount.value!,
                 height: size,
                 width: size,
+                iconColor: Theme.of(context).colorScheme.primary,
               )
             : Icon(
                 Icons.rss_feed,

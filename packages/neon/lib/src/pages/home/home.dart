@@ -444,7 +444,6 @@ class _HomePageState extends State<HomePage> with tray.TrayListener, WindowListe
                                                       Flexible(
                                                         child: CachedURLImage(
                                                           url: capabilitiesData.capabilities!.theming!.logo!,
-                                                          account: widget.account,
                                                         ),
                                                       ),
                                                     ],
@@ -630,7 +629,6 @@ class _HomePageState extends State<HomePage> with tray.TrayListener, WindowListe
                                           child: capabilitiesData?.capabilities?.theming?.logo != null
                                               ? CachedURLImage(
                                                   url: capabilitiesData!.capabilities!.theming!.logo!,
-                                                  account: widget.account,
                                                 )
                                               : null,
                                         )
