@@ -32,81 +32,26 @@ class FilePreview extends StatelessWidget {
       child: StreamBuilder<bool?>(
         stream: bloc.options.showPreviewsOption.stream,
         builder: (final context, final showPreviewsSnapshot) {
-          if (!showPreviewsSnapshot.hasData) {
-            return Container();
-          }
-          if (showPreviewsSnapshot.data! && (details.hasPreview ?? false) && details.etag != null) {
-            return Builder(
-              builder: (final context) {
-                final account = RxBlocProvider.of<AccountsBloc>(context).activeAccount.value;
-                if (account == null) {
-                  return Container();
-                }
-
-                final stream = Provider.of<RequestManager>(context).wrapBytes(
-                  account.client.id,
-                  'files-preview-${details.etag}-$width-$height',
-                  () async => account.client.core.getPreview(
-                    file: details.path.join('/'),
-                    x: width,
-                    y: height,
-                  ),
-                  preferCache: true,
-                );
-
-                return ResultStreamBuilder<Uint8List>(
-                  stream: stream,
-                  builder: (
-                    final context,
-                    final previewData,
-                    final previewError,
-                    final previewLoading,
-                  ) =>
-                      Stack(
-                    children: [
-                      if (previewData != null) ...[
-                        Center(
-                          child: Builder(
-                            builder: (final context) {
-                              final child = Image.memory(
-                                previewData,
-                                fit: BoxFit.cover,
-                                width: width.toDouble(),
-                                height: height.toDouble(),
-                              );
-                              if (withBackground) {
-                                return ImageWrapper(
-                                  color: Colors.white,
-                                  borderRadius: borderRadius,
-                                  child: child,
-                                );
-                              }
-                              return child;
-                            },
-                          ),
-                        ),
-                      ],
-                      if (previewError != null) ...[
-                        Center(
-                          child: Icon(
-                            Icons.error_outline,
-                            size: min(width.toDouble(), height.toDouble()),
-                            color: color,
-                          ),
-                        ),
-                      ],
-                      if (previewLoading) ...[
-                        Center(
-                          child: CustomLinearProgressIndicator(
-                            color: color,
-                          ),
-                        ),
-                      ],
-                    ],
-                  ),
-                );
-              },
+          if ((showPreviewsSnapshot.data ?? false) && (details.hasPreview ?? false)) {
+            final account = RxBlocProvider.of<AccountsBloc>(context).activeAccount.value!;
+            final child = CachedAPIImage(
+              account: account,
+              cacheKey: 'preview-${details.path.join('/')}-$width-$height',
+              etag: details.etag,
+              download: () async => account.client.core.getPreview(
+                file: details.path.join('/'),
+                x: width,
+                y: height,
+              ),
             );
+            if (withBackground) {
+              return ImageWrapper(
+                color: Colors.white,
+                borderRadius: borderRadius,
+                child: child,
+              );
+            }
+            return child;
           }
 
           if (details.isDirectory) {

@@ -19,7 +19,6 @@ import 'package:neon/src/apps/files/blocs/browser.dart';
 import 'package:neon/src/apps/files/blocs/files.dart';
 import 'package:neon/src/blocs/accounts.dart';
 import 'package:neon/src/blocs/apps.dart';
-import 'package:neon/src/models/account.dart';
 import 'package:neon/src/neon.dart';
 import 'package:nextcloud/nextcloud.dart';
 import 'package:path/path.dart' as p;

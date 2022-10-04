@@ -88,6 +88,8 @@ part 'utils/theme.dart';
 part 'utils/validators.dart';
 part 'widgets/account_avatar.dart';
 part 'widgets/account_tile.dart';
+part 'widgets/cached_api_image.dart';
+part 'widgets/cached_image.dart';
 part 'widgets/cached_url_image.dart';
 part 'widgets/custom_dialog.dart';
 part 'widgets/custom_linear_progress_indicator.dart';
