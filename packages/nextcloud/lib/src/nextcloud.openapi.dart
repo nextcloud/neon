@@ -141,7 +141,9 @@ class CoreServerStatus {
 
   final bool? extendedSupport;
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreServerStatusToJson(this);
+  // coverage:ignore-end
 }
 
 @JsonSerializable()
@@ -166,7 +168,9 @@ class OCSMeta {
 
   final String? itemsperpage;
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _$OCSMetaToJson(this);
+  // coverage:ignore-end
 }
 
 @JsonSerializable()
@@ -195,7 +199,9 @@ class CoreServerCapabilitiesOcsDataVersion {
 
   final bool? extendedSupport;
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreServerCapabilitiesOcsDataVersionToJson(this);
+  // coverage:ignore-end
 }
 
 @JsonSerializable()
@@ -213,7 +219,9 @@ class CoreServerCapabilitiesOcsDataCapabilitiesCore {
   @JsonKey(name: 'webdav-root')
   final String? webdavRoot;
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreServerCapabilitiesOcsDataCapabilitiesCoreToJson(this);
+  // coverage:ignore-end
 }
 
 @JsonSerializable()
@@ -225,7 +233,9 @@ class CoreServerCapabilitiesOcsDataCapabilitiesBruteforce {
 
   final int? delay;
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreServerCapabilitiesOcsDataCapabilitiesBruteforceToJson(this);
+  // coverage:ignore-end
 }
 
 @JsonSerializable()
@@ -237,7 +247,9 @@ class CoreServerCapabilitiesOcsDataCapabilitiesMetadataAvailable {
 
   final List<String>? size;
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreServerCapabilitiesOcsDataCapabilitiesMetadataAvailableToJson(this);
+  // coverage:ignore-end
 }
 
 @JsonSerializable()
@@ -254,7 +266,9 @@ class CoreServerCapabilitiesOcsDataCapabilitiesFilesDirectEditing {
 
   final String? etag;
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreServerCapabilitiesOcsDataCapabilitiesFilesDirectEditingToJson(this);
+  // coverage:ignore-end
 }
 
 @JsonSerializable()
@@ -284,7 +298,9 @@ class CoreServerCapabilitiesOcsDataCapabilitiesFiles {
 
   final bool? versioning;
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreServerCapabilitiesOcsDataCapabilitiesFilesToJson(this);
+  // coverage:ignore-end
 }
 
 @JsonSerializable()
@@ -296,7 +312,9 @@ class CoreServerCapabilitiesOcsDataCapabilitiesActivity {
 
   final List<String>? apiv2;
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreServerCapabilitiesOcsDataCapabilitiesActivityToJson(this);
+  // coverage:ignore-end
 }
 
 @JsonSerializable()
@@ -308,7 +326,9 @@ class CoreServerCapabilitiesOcsDataCapabilitiesCirclesStatus {
 
   final bool? globalScale;
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreServerCapabilitiesOcsDataCapabilitiesCirclesStatusToJson(this);
+  // coverage:ignore-end
 }
 
 @JsonSerializable()
@@ -331,7 +351,9 @@ class CoreServerCapabilitiesOcsDataCapabilitiesCirclesSettings {
 
   final int? membersLimit;
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreServerCapabilitiesOcsDataCapabilitiesCirclesSettingsToJson(this);
+  // coverage:ignore-end
 }
 
 @JsonSerializable()
@@ -348,7 +370,9 @@ class CoreServerCapabilitiesOcsDataCapabilitiesCirclesCircleConstantsSource {
 
   final dynamic? extra;
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreServerCapabilitiesOcsDataCapabilitiesCirclesCircleConstantsSourceToJson(this);
+  // coverage:ignore-end
 }
 
 @JsonSerializable()
@@ -365,7 +389,9 @@ class CoreServerCapabilitiesOcsDataCapabilitiesCirclesCircleConstants {
 
   final CoreServerCapabilitiesOcsDataCapabilitiesCirclesCircleConstantsSource? source;
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreServerCapabilitiesOcsDataCapabilitiesCirclesCircleConstantsToJson(this);
+  // coverage:ignore-end
 }
 
 @JsonSerializable()
@@ -382,7 +408,9 @@ class CoreServerCapabilitiesOcsDataCapabilitiesCirclesCircleConfig {
 
   final List<int>? systemFlags;
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreServerCapabilitiesOcsDataCapabilitiesCirclesCircleConfigToJson(this);
+  // coverage:ignore-end
 }
 
 @JsonSerializable()
@@ -399,7 +427,9 @@ class CoreServerCapabilitiesOcsDataCapabilitiesCirclesCircle {
 
   final CoreServerCapabilitiesOcsDataCapabilitiesCirclesCircleConfig? config;
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreServerCapabilitiesOcsDataCapabilitiesCirclesCircleToJson(this);
+  // coverage:ignore-end
 }
 
 @JsonSerializable()
@@ -411,7 +441,9 @@ class CoreServerCapabilitiesOcsDataCapabilitiesCirclesMemberConstants {
 
   final dynamic? level;
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreServerCapabilitiesOcsDataCapabilitiesCirclesMemberConstantsToJson(this);
+  // coverage:ignore-end
 }
 
 @JsonSerializable()
@@ -428,7 +460,9 @@ class CoreServerCapabilitiesOcsDataCapabilitiesCirclesMember {
 
   final dynamic? type;
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreServerCapabilitiesOcsDataCapabilitiesCirclesMemberToJson(this);
+  // coverage:ignore-end
 }
 
 @JsonSerializable()
@@ -454,7 +488,9 @@ class CoreServerCapabilitiesOcsDataCapabilitiesCircles {
 
   final CoreServerCapabilitiesOcsDataCapabilitiesCirclesMember? member;
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreServerCapabilitiesOcsDataCapabilitiesCirclesToJson(this);
+  // coverage:ignore-end
 }
 
 @JsonSerializable()
@@ -466,7 +502,9 @@ class CoreServerCapabilitiesOcsDataCapabilitiesOcmResourceTypesProtocols {
 
   final String? webdav;
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreServerCapabilitiesOcsDataCapabilitiesOcmResourceTypesProtocolsToJson(this);
+  // coverage:ignore-end
 }
 
 @JsonSerializable()
@@ -486,7 +524,9 @@ class CoreServerCapabilitiesOcsDataCapabilitiesOcmResourceTypes {
 
   final CoreServerCapabilitiesOcsDataCapabilitiesOcmResourceTypesProtocols? protocols;
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreServerCapabilitiesOcsDataCapabilitiesOcmResourceTypesToJson(this);
+  // coverage:ignore-end
 }
 
 @JsonSerializable()
@@ -509,7 +549,9 @@ class CoreServerCapabilitiesOcsDataCapabilitiesOcm {
 
   final List<CoreServerCapabilitiesOcsDataCapabilitiesOcmResourceTypes>? resourceTypes;
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreServerCapabilitiesOcsDataCapabilitiesOcmToJson(this);
+  // coverage:ignore-end
 }
 
 @JsonSerializable()
@@ -521,7 +563,9 @@ class CoreServerCapabilitiesOcsDataCapabilitiesDav {
 
   final String? chunking;
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreServerCapabilitiesOcsDataCapabilitiesDavToJson(this);
+  // coverage:ignore-end
 }
 
 @JsonSerializable()
@@ -538,7 +582,9 @@ class CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingPublicPassword {
 
   final bool? askForOptionalPassword;
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingPublicPasswordToJson(this);
+  // coverage:ignore-end
 }
 
 @JsonSerializable()
@@ -550,7 +596,9 @@ class CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingPublicExpireDate {
 
   final bool? enabled;
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingPublicExpireDateToJson(this);
+  // coverage:ignore-end
 }
 
 @JsonSerializable()
@@ -563,8 +611,10 @@ class CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingPublicExpireDateInter
 
   final bool? enabled;
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() =>
       _$CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingPublicExpireDateInternalToJson(this);
+  // coverage:ignore-end
 }
 
 @JsonSerializable()
@@ -577,8 +627,10 @@ class CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingPublicExpireDateRemot
 
   final bool? enabled;
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() =>
       _$CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingPublicExpireDateRemoteToJson(this);
+  // coverage:ignore-end
 }
 
 @JsonSerializable()
@@ -622,7 +674,9 @@ class CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingPublic {
   @JsonKey(name: 'upload_files_drop')
   final bool? uploadFilesDrop;
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingPublicToJson(this);
+  // coverage:ignore-end
 }
 
 @JsonSerializable()
@@ -634,7 +688,9 @@ class CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingUserExpireDate {
 
   final bool? enabled;
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingUserExpireDateToJson(this);
+  // coverage:ignore-end
 }
 
 @JsonSerializable()
@@ -653,7 +709,9 @@ class CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingUser {
   @JsonKey(name: 'expire_date')
   final CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingUserExpireDate? expireDate;
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingUserToJson(this);
+  // coverage:ignore-end
 }
 
 @JsonSerializable()
@@ -665,7 +723,9 @@ class CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingGroupExpireDate {
 
   final bool? enabled;
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingGroupExpireDateToJson(this);
+  // coverage:ignore-end
 }
 
 @JsonSerializable()
@@ -683,7 +743,9 @@ class CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingGroup {
   @JsonKey(name: 'expire_date')
   final CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingGroupExpireDate? expireDate;
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingGroupToJson(this);
+  // coverage:ignore-end
 }
 
 @JsonSerializable()
@@ -696,8 +758,10 @@ class CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingFederationExpireDate 
 
   final bool? enabled;
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() =>
       _$CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingFederationExpireDateToJson(this);
+  // coverage:ignore-end
 }
 
 @JsonSerializable()
@@ -710,8 +774,10 @@ class CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingFederationExpireDateS
 
   final bool? enabled;
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() =>
       _$CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingFederationExpireDateSupportedToJson(this);
+  // coverage:ignore-end
 }
 
 @JsonSerializable()
@@ -736,7 +802,9 @@ class CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingFederation {
   @JsonKey(name: 'expire_date_supported')
   final CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingFederationExpireDateSupported? expireDateSupported;
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingFederationToJson(this);
+  // coverage:ignore-end
 }
 
 @JsonSerializable()
@@ -755,7 +823,9 @@ class CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingSharee {
   @JsonKey(name: 'always_show_unique')
   final bool? alwaysShowUnique;
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingShareeToJson(this);
+  // coverage:ignore-end
 }
 
 @JsonSerializable()
@@ -768,8 +838,10 @@ class CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingSharebymailUploadFile
 
   final bool? enabled;
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() =>
       _$CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingSharebymailUploadFilesDropToJson(this);
+  // coverage:ignore-end
 }
 
 @JsonSerializable()
@@ -787,8 +859,10 @@ class CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingSharebymailPassword {
 
   final bool? enforced;
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() =>
       _$CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingSharebymailPasswordToJson(this);
+  // coverage:ignore-end
 }
 
 @JsonSerializable()
@@ -806,8 +880,10 @@ class CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingSharebymailExpireDate
 
   final bool? enforced;
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() =>
       _$CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingSharebymailExpireDateToJson(this);
+  // coverage:ignore-end
 }
 
 @JsonSerializable()
@@ -836,7 +912,9 @@ class CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingSharebymail {
   @JsonKey(name: 'expire_date')
   final CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingSharebymailExpireDate? expireDate;
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingSharebymailToJson(this);
+  // coverage:ignore-end
 }
 
 @JsonSerializable()
@@ -880,7 +958,9 @@ class CoreServerCapabilitiesOcsDataCapabilitiesFilesSharing {
 
   final CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingSharebymail? sharebymail;
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingToJson(this);
+  // coverage:ignore-end
 }
 
 @JsonSerializable()
@@ -898,7 +978,9 @@ class CoreServerCapabilitiesOcsDataCapabilitiesNotes {
 
   final String? version;
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreServerCapabilitiesOcsDataCapabilitiesNotesToJson(this);
+  // coverage:ignore-end
 }
 
 @JsonSerializable()
@@ -920,7 +1002,9 @@ class CoreServerCapabilitiesOcsDataCapabilitiesNotifications {
   @JsonKey(name: 'admin-notifications')
   final List<String>? adminNotifications;
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreServerCapabilitiesOcsDataCapabilitiesNotificationsToJson(this);
+  // coverage:ignore-end
 }
 
 @JsonSerializable()
@@ -937,7 +1021,9 @@ class CoreServerCapabilitiesOcsDataCapabilitiesPasswordPolicyApi {
 
   final String? validate;
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreServerCapabilitiesOcsDataCapabilitiesPasswordPolicyApiToJson(this);
+  // coverage:ignore-end
 }
 
 @JsonSerializable()
@@ -966,7 +1052,9 @@ class CoreServerCapabilitiesOcsDataCapabilitiesPasswordPolicy {
 
   final CoreServerCapabilitiesOcsDataCapabilitiesPasswordPolicyApi? api;
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreServerCapabilitiesOcsDataCapabilitiesPasswordPolicyToJson(this);
+  // coverage:ignore-end
 }
 
 @JsonSerializable()
@@ -992,7 +1080,9 @@ class CoreServerCapabilitiesOcsDataCapabilitiesProvisioningApi {
   @JsonKey(name: 'AccountPropertyScopesPublishedEnabled')
   final bool? accountPropertyScopesPublishedEnabled;
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreServerCapabilitiesOcsDataCapabilitiesProvisioningApiToJson(this);
+  // coverage:ignore-end
 }
 
 @JsonSerializable()
@@ -1051,7 +1141,9 @@ class CoreServerCapabilitiesOcsDataCapabilitiesTheming {
 
   final String? favicon;
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreServerCapabilitiesOcsDataCapabilitiesThemingToJson(this);
+  // coverage:ignore-end
 }
 
 @JsonSerializable()
@@ -1069,7 +1161,9 @@ class CoreServerCapabilitiesOcsDataCapabilitiesUserStatus {
   @JsonKey(name: 'supports_emoji')
   final bool? supportsEmoji;
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreServerCapabilitiesOcsDataCapabilitiesUserStatusToJson(this);
+  // coverage:ignore-end
 }
 
 @JsonSerializable()
@@ -1081,7 +1175,9 @@ class CoreServerCapabilitiesOcsDataCapabilitiesWeatherStatus {
 
   final bool? enabled;
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreServerCapabilitiesOcsDataCapabilitiesWeatherStatusToJson(this);
+  // coverage:ignore-end
 }
 
 @JsonSerializable()
@@ -1145,7 +1241,9 @@ class CoreServerCapabilitiesOcsDataCapabilities {
   @JsonKey(name: 'weather_status')
   final CoreServerCapabilitiesOcsDataCapabilitiesWeatherStatus? weatherStatus;
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreServerCapabilitiesOcsDataCapabilitiesToJson(this);
+  // coverage:ignore-end
 }
 
 @JsonSerializable()
@@ -1162,7 +1260,9 @@ class CoreServerCapabilitiesOcsData {
 
   final CoreServerCapabilitiesOcsDataCapabilities? capabilities;
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreServerCapabilitiesOcsDataToJson(this);
+  // coverage:ignore-end
 }
 
 @JsonSerializable()
@@ -1178,7 +1278,9 @@ class CoreServerCapabilitiesOcs {
 
   final CoreServerCapabilitiesOcsData? data;
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreServerCapabilitiesOcsToJson(this);
+  // coverage:ignore-end
 }
 
 @JsonSerializable()
@@ -1189,7 +1291,9 @@ class CoreServerCapabilities {
 
   final CoreServerCapabilitiesOcs? ocs;
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreServerCapabilitiesToJson(this);
+  // coverage:ignore-end
 }
 
 class CoreNavigationAppsOcsDataOrder {
@@ -1222,7 +1326,9 @@ class CoreNavigationAppsOcsDataOrder {
 
   final String? string;
 
+  // coverage:ignore-start
   dynamic toJson() => _data;
+  // coverage:ignore-end
 }
 
 @JsonSerializable()
@@ -1260,7 +1366,9 @@ class CoreNavigationAppsOcsData {
 
   final int? unread;
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreNavigationAppsOcsDataToJson(this);
+  // coverage:ignore-end
 }
 
 @JsonSerializable()
@@ -1276,7 +1384,9 @@ class CoreNavigationAppsOcs {
 
   final List<CoreNavigationAppsOcsData>? data;
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreNavigationAppsOcsToJson(this);
+  // coverage:ignore-end
 }
 
 @JsonSerializable()
@@ -1287,7 +1397,9 @@ class CoreNavigationApps {
 
   final CoreNavigationAppsOcs? ocs;
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreNavigationAppsToJson(this);
+  // coverage:ignore-end
 }
 
 @JsonSerializable()
@@ -1303,7 +1415,9 @@ class CoreLoginFlowInitPoll {
 
   final String? endpoint;
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreLoginFlowInitPollToJson(this);
+  // coverage:ignore-end
 }
 
 @JsonSerializable()
@@ -1319,7 +1433,9 @@ class CoreLoginFlowInit {
 
   final String? login;
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreLoginFlowInitToJson(this);
+  // coverage:ignore-end
 }
 
 @JsonSerializable()
@@ -1338,7 +1454,9 @@ class CoreLoginFlowResult {
 
   final String? appPassword;
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreLoginFlowResultToJson(this);
+  // coverage:ignore-end
 }
 
 class CoreClient {
@@ -1360,7 +1478,7 @@ class CoreClient {
     if (response.statusCode == 200) {
       return CoreServerStatus.fromJson(json.decode(utf8.decode(response.body)) as Map<String, dynamic>);
     }
-    throw ApiException.fromResponse(response);
+    throw ApiException.fromResponse(response); // coverage:ignore-line
   }
 
   Future<CoreServerCapabilities> getCapabilities() async {
@@ -1377,7 +1495,7 @@ class CoreClient {
     if (response.statusCode == 200) {
       return CoreServerCapabilities.fromJson(json.decode(utf8.decode(response.body)) as Map<String, dynamic>);
     }
-    throw ApiException.fromResponse(response);
+    throw ApiException.fromResponse(response); // coverage:ignore-line
   }
 
   Future<CoreNavigationApps> getNavigationApps() async {
@@ -1394,7 +1512,7 @@ class CoreClient {
     if (response.statusCode == 200) {
       return CoreNavigationApps.fromJson(json.decode(utf8.decode(response.body)) as Map<String, dynamic>);
     }
-    throw ApiException.fromResponse(response);
+    throw ApiException.fromResponse(response); // coverage:ignore-line
   }
 
   Future<CoreLoginFlowInit> initLoginFlow() async {
@@ -1411,7 +1529,7 @@ class CoreClient {
     if (response.statusCode == 200) {
       return CoreLoginFlowInit.fromJson(json.decode(utf8.decode(response.body)) as Map<String, dynamic>);
     }
-    throw ApiException.fromResponse(response);
+    throw ApiException.fromResponse(response); // coverage:ignore-line
   }
 
   Future<CoreLoginFlowResult> getLoginFlowResult({required String token}) async {
@@ -1429,7 +1547,7 @@ class CoreClient {
     if (response.statusCode == 200) {
       return CoreLoginFlowResult.fromJson(json.decode(utf8.decode(response.body)) as Map<String, dynamic>);
     }
-    throw ApiException.fromResponse(response);
+    throw ApiException.fromResponse(response); // coverage:ignore-line
   }
 
   Future<Uint8List> getPreview({
@@ -1459,7 +1577,7 @@ class CoreClient {
     if (response.statusCode == 200) {
       return response.body;
     }
-    throw ApiException.fromResponse(response);
+    throw ApiException.fromResponse(response); // coverage:ignore-line
   }
 
   Future<Uint8List> getAvatar({
@@ -1481,7 +1599,7 @@ class CoreClient {
     if (response.statusCode == 200) {
       return response.body;
     }
-    throw ApiException.fromResponse(response);
+    throw ApiException.fromResponse(response); // coverage:ignore-line
   }
 }
 
@@ -1493,7 +1611,9 @@ class GetSupportedApiVersions {
 
   final List<String>? apiLevels;
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _$GetSupportedApiVersionsToJson(this);
+  // coverage:ignore-end
 }
 
 @JsonSerializable()
@@ -1563,7 +1683,9 @@ class NewsArticle {
 
   final String? contentHash;
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _$NewsArticleToJson(this);
+  // coverage:ignore-end
 }
 
 @JsonSerializable()
@@ -1612,7 +1734,9 @@ class NewsFeed {
 
   final List<NewsArticle>? items;
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _$NewsFeedToJson(this);
+  // coverage:ignore-end
 }
 
 @JsonSerializable()
@@ -1635,7 +1759,9 @@ class NewsFolder {
   /// This seems to be broken. In testing it is always empty
   final List<NewsFeed>? feeds;
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _$NewsFolderToJson(this);
+  // coverage:ignore-end
 }
 
 @JsonSerializable()
@@ -1646,7 +1772,9 @@ class NewsListFolders {
 
   final List<NewsFolder>? folders;
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _$NewsListFoldersToJson(this);
+  // coverage:ignore-end
 }
 
 @JsonSerializable()
@@ -1665,7 +1793,9 @@ class NewsListFeeds {
 
   final List<NewsFeed>? feeds;
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _$NewsListFeedsToJson(this);
+  // coverage:ignore-end
 }
 
 @JsonSerializable()
@@ -1676,7 +1806,9 @@ class NewsListArticles {
 
   final List<NewsArticle>? items;
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _$NewsListArticlesToJson(this);
+  // coverage:ignore-end
 }
 
 class NewsClient {
@@ -1698,7 +1830,7 @@ class NewsClient {
     if (response.statusCode == 200) {
       return GetSupportedApiVersions.fromJson(json.decode(utf8.decode(response.body)) as Map<String, dynamic>);
     }
-    throw ApiException.fromResponse(response);
+    throw ApiException.fromResponse(response); // coverage:ignore-line
   }
 
   Future<NewsListFolders> listFolders() async {
@@ -1715,7 +1847,7 @@ class NewsClient {
     if (response.statusCode == 200) {
       return NewsListFolders.fromJson(json.decode(utf8.decode(response.body)) as Map<String, dynamic>);
     }
-    throw ApiException.fromResponse(response);
+    throw ApiException.fromResponse(response); // coverage:ignore-line
   }
 
   Future<NewsListFolders> createFolder({required String name}) async {
@@ -1733,7 +1865,7 @@ class NewsClient {
     if (response.statusCode == 200) {
       return NewsListFolders.fromJson(json.decode(utf8.decode(response.body)) as Map<String, dynamic>);
     }
-    throw ApiException.fromResponse(response);
+    throw ApiException.fromResponse(response); // coverage:ignore-line
   }
 
   Future renameFolder({
@@ -1755,7 +1887,7 @@ class NewsClient {
     if (response.statusCode == 200) {
       return;
     }
-    throw ApiException.fromResponse(response);
+    throw ApiException.fromResponse(response); // coverage:ignore-line
   }
 
   Future deleteFolder({required int folderId}) async {
@@ -1773,7 +1905,7 @@ class NewsClient {
     if (response.statusCode == 200) {
       return;
     }
-    throw ApiException.fromResponse(response);
+    throw ApiException.fromResponse(response); // coverage:ignore-line
   }
 
   Future markFolderAsRead({
@@ -1795,7 +1927,7 @@ class NewsClient {
     if (response.statusCode == 200) {
       return;
     }
-    throw ApiException.fromResponse(response);
+    throw ApiException.fromResponse(response); // coverage:ignore-line
   }
 
   Future<NewsListFeeds> listFeeds() async {
@@ -1812,7 +1944,7 @@ class NewsClient {
     if (response.statusCode == 200) {
       return NewsListFeeds.fromJson(json.decode(utf8.decode(response.body)) as Map<String, dynamic>);
     }
-    throw ApiException.fromResponse(response);
+    throw ApiException.fromResponse(response); // coverage:ignore-line
   }
 
   Future<NewsListFeeds> addFeed({
@@ -1836,7 +1968,7 @@ class NewsClient {
     if (response.statusCode == 200) {
       return NewsListFeeds.fromJson(json.decode(utf8.decode(response.body)) as Map<String, dynamic>);
     }
-    throw ApiException.fromResponse(response);
+    throw ApiException.fromResponse(response); // coverage:ignore-line
   }
 
   Future deleteFeed({required int feedId}) async {
@@ -1854,7 +1986,7 @@ class NewsClient {
     if (response.statusCode == 200) {
       return;
     }
-    throw ApiException.fromResponse(response);
+    throw ApiException.fromResponse(response); // coverage:ignore-line
   }
 
   Future moveFeed({
@@ -1878,7 +2010,7 @@ class NewsClient {
     if (response.statusCode == 200) {
       return;
     }
-    throw ApiException.fromResponse(response);
+    throw ApiException.fromResponse(response); // coverage:ignore-line
   }
 
   Future renameFeed({
@@ -1900,7 +2032,7 @@ class NewsClient {
     if (response.statusCode == 200) {
       return;
     }
-    throw ApiException.fromResponse(response);
+    throw ApiException.fromResponse(response); // coverage:ignore-line
   }
 
   Future markFeedAsRead({
@@ -1922,7 +2054,7 @@ class NewsClient {
     if (response.statusCode == 200) {
       return;
     }
-    throw ApiException.fromResponse(response);
+    throw ApiException.fromResponse(response); // coverage:ignore-line
   }
 
   Future<NewsListArticles> listArticles({
@@ -1952,7 +2084,7 @@ class NewsClient {
     if (response.statusCode == 200) {
       return NewsListArticles.fromJson(json.decode(utf8.decode(response.body)) as Map<String, dynamic>);
     }
-    throw ApiException.fromResponse(response);
+    throw ApiException.fromResponse(response); // coverage:ignore-line
   }
 
   Future<NewsListArticles> listUpdatedArticles({
@@ -1976,7 +2108,7 @@ class NewsClient {
     if (response.statusCode == 200) {
       return NewsListArticles.fromJson(json.decode(utf8.decode(response.body)) as Map<String, dynamic>);
     }
-    throw ApiException.fromResponse(response);
+    throw ApiException.fromResponse(response); // coverage:ignore-line
   }
 
   Future markArticleAsRead({required int itemId}) async {
@@ -1994,7 +2126,7 @@ class NewsClient {
     if (response.statusCode == 200) {
       return;
     }
-    throw ApiException.fromResponse(response);
+    throw ApiException.fromResponse(response); // coverage:ignore-line
   }
 
   Future markArticleAsUnread({required int itemId}) async {
@@ -2012,7 +2144,7 @@ class NewsClient {
     if (response.statusCode == 200) {
       return;
     }
-    throw ApiException.fromResponse(response);
+    throw ApiException.fromResponse(response); // coverage:ignore-line
   }
 
   Future starArticle({required int itemId}) async {
@@ -2030,7 +2162,7 @@ class NewsClient {
     if (response.statusCode == 200) {
       return;
     }
-    throw ApiException.fromResponse(response);
+    throw ApiException.fromResponse(response); // coverage:ignore-line
   }
 
   Future unstarArticle({required int itemId}) async {
@@ -2048,7 +2180,7 @@ class NewsClient {
     if (response.statusCode == 200) {
       return;
     }
-    throw ApiException.fromResponse(response);
+    throw ApiException.fromResponse(response); // coverage:ignore-line
   }
 }
 
@@ -2089,7 +2221,9 @@ class NotesNote {
 
   final String? errorType;
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _$NotesNoteToJson(this);
+  // coverage:ignore-end
 }
 
 enum NotesSettingsNoteMode {
@@ -2128,7 +2262,9 @@ class NotesSettings {
 
   final NotesSettingsNoteMode? noteMode;
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _$NotesSettingsToJson(this);
+  // coverage:ignore-end
 }
 
 class NotesClient {
@@ -2171,7 +2307,7 @@ class NotesClient {
           .map<NotesNote>((final e) => NotesNote.fromJson(e as Map<String, dynamic>))
           .toList();
     }
-    throw ApiException.fromResponse(response);
+    throw ApiException.fromResponse(response); // coverage:ignore-line
   }
 
   Future<NotesNote> createNote({
@@ -2199,7 +2335,7 @@ class NotesClient {
     if (response.statusCode == 200) {
       return NotesNote.fromJson(json.decode(utf8.decode(response.body)) as Map<String, dynamic>);
     }
-    throw ApiException.fromResponse(response);
+    throw ApiException.fromResponse(response); // coverage:ignore-line
   }
 
   Future<NotesNote> getNote({
@@ -2225,7 +2361,7 @@ class NotesClient {
     if (response.statusCode == 200) {
       return NotesNote.fromJson(json.decode(utf8.decode(response.body)) as Map<String, dynamic>);
     }
-    throw ApiException.fromResponse(response);
+    throw ApiException.fromResponse(response); // coverage:ignore-line
   }
 
   Future<NotesNote> updateNote({
@@ -2267,7 +2403,7 @@ class NotesClient {
     if (response.statusCode == 200) {
       return NotesNote.fromJson(json.decode(utf8.decode(response.body)) as Map<String, dynamic>);
     }
-    throw ApiException.fromResponse(response);
+    throw ApiException.fromResponse(response); // coverage:ignore-line
   }
 
   Future<String> deleteNote({required int id}) async {
@@ -2285,7 +2421,7 @@ class NotesClient {
     if (response.statusCode == 200) {
       return utf8.decode(response.body) as String;
     }
-    throw ApiException.fromResponse(response);
+    throw ApiException.fromResponse(response); // coverage:ignore-line
   }
 
   Future<NotesSettings> getSettings() async {
@@ -2302,7 +2438,7 @@ class NotesClient {
     if (response.statusCode == 200) {
       return NotesSettings.fromJson(json.decode(utf8.decode(response.body)) as Map<String, dynamic>);
     }
-    throw ApiException.fromResponse(response);
+    throw ApiException.fromResponse(response); // coverage:ignore-line
   }
 
   Future<NotesSettings> updateSettings({required NotesSettings notesSettings}) async {
@@ -2321,7 +2457,7 @@ class NotesClient {
     if (response.statusCode == 200) {
       return NotesSettings.fromJson(json.decode(utf8.decode(response.body)) as Map<String, dynamic>);
     }
-    throw ApiException.fromResponse(response);
+    throw ApiException.fromResponse(response); // coverage:ignore-line
   }
 }
 
@@ -2345,7 +2481,9 @@ class NotificationsNotificationAction {
 
   final bool? primary;
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _$NotificationsNotificationActionToJson(this);
+  // coverage:ignore-end
 }
 
 @JsonSerializable()
@@ -2403,7 +2541,9 @@ class NotificationsNotification {
 
   final List<NotificationsNotificationAction>? actions;
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _$NotificationsNotificationToJson(this);
+  // coverage:ignore-end
 }
 
 @JsonSerializable()
@@ -2420,7 +2560,9 @@ class NotificationsListNotificationsOcs {
 
   final List<NotificationsNotification>? data;
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _$NotificationsListNotificationsOcsToJson(this);
+  // coverage:ignore-end
 }
 
 @JsonSerializable()
@@ -2432,7 +2574,9 @@ class NotificationsListNotifications {
 
   final NotificationsListNotificationsOcs? ocs;
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _$NotificationsListNotificationsToJson(this);
+  // coverage:ignore-end
 }
 
 @JsonSerializable()
@@ -2449,7 +2593,9 @@ class NotificationsGetNotificationOcs {
 
   final NotificationsNotification? data;
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _$NotificationsGetNotificationOcsToJson(this);
+  // coverage:ignore-end
 }
 
 @JsonSerializable()
@@ -2461,7 +2607,9 @@ class NotificationsGetNotification {
 
   final NotificationsGetNotificationOcs? ocs;
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _$NotificationsGetNotificationToJson(this);
+  // coverage:ignore-end
 }
 
 @JsonSerializable()
@@ -2477,7 +2625,9 @@ class NotificationsEmptyOcs {
 
   final List<String>? data;
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _$NotificationsEmptyOcsToJson(this);
+  // coverage:ignore-end
 }
 
 @JsonSerializable()
@@ -2488,7 +2638,9 @@ class NotificationsEmpty {
 
   final NotificationsEmptyOcs? ocs;
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _$NotificationsEmptyToJson(this);
+  // coverage:ignore-end
 }
 
 @JsonSerializable()
@@ -2511,7 +2663,9 @@ class NotificationsPushServerSubscription {
 
   final String? message;
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _$NotificationsPushServerSubscriptionToJson(this);
+  // coverage:ignore-end
 }
 
 @JsonSerializable()
@@ -2528,7 +2682,9 @@ class NotificationsPushServerRegistrationOcs {
 
   final NotificationsPushServerSubscription? data;
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _$NotificationsPushServerRegistrationOcsToJson(this);
+  // coverage:ignore-end
 }
 
 @JsonSerializable()
@@ -2540,7 +2696,9 @@ class NotificationsPushServerRegistration {
 
   final NotificationsPushServerRegistrationOcs? ocs;
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _$NotificationsPushServerRegistrationToJson(this);
+  // coverage:ignore-end
 }
 
 class NotificationsClient {
@@ -2562,7 +2720,7 @@ class NotificationsClient {
     if (response.statusCode == 200) {
       return NotificationsListNotifications.fromJson(json.decode(utf8.decode(response.body)) as Map<String, dynamic>);
     }
-    throw ApiException.fromResponse(response);
+    throw ApiException.fromResponse(response); // coverage:ignore-line
   }
 
   Future<String> deleteAllNotifications() async {
@@ -2579,7 +2737,7 @@ class NotificationsClient {
     if (response.statusCode == 200) {
       return utf8.decode(response.body) as String;
     }
-    throw ApiException.fromResponse(response);
+    throw ApiException.fromResponse(response); // coverage:ignore-line
   }
 
   Future<NotificationsGetNotification> getNotification({required int id}) async {
@@ -2597,7 +2755,7 @@ class NotificationsClient {
     if (response.statusCode == 200) {
       return NotificationsGetNotification.fromJson(json.decode(utf8.decode(response.body)) as Map<String, dynamic>);
     }
-    throw ApiException.fromResponse(response);
+    throw ApiException.fromResponse(response); // coverage:ignore-line
   }
 
   Future<NotificationsEmpty> deleteNotification({required int id}) async {
@@ -2615,7 +2773,7 @@ class NotificationsClient {
     if (response.statusCode == 200) {
       return NotificationsEmpty.fromJson(json.decode(utf8.decode(response.body)) as Map<String, dynamic>);
     }
-    throw ApiException.fromResponse(response);
+    throw ApiException.fromResponse(response); // coverage:ignore-line
   }
 
   Future<NotificationsPushServerRegistration> registerDevice({
@@ -2640,7 +2798,7 @@ class NotificationsClient {
       return NotificationsPushServerRegistration.fromJson(
           json.decode(utf8.decode(response.body)) as Map<String, dynamic>);
     }
-    throw ApiException.fromResponse(response);
+    throw ApiException.fromResponse(response); // coverage:ignore-line
   }
 
   Future<String> removeDevice() async {
@@ -2657,7 +2815,7 @@ class NotificationsClient {
     if (response.statusCode == 200) {
       return utf8.decode(response.body) as String;
     }
-    throw ApiException.fromResponse(response);
+    throw ApiException.fromResponse(response); // coverage:ignore-line
   }
 
   Future<NotificationsEmpty> sendAdminNotification({
@@ -2681,7 +2839,7 @@ class NotificationsClient {
     if (response.statusCode == 200) {
       return NotificationsEmpty.fromJson(json.decode(utf8.decode(response.body)) as Map<String, dynamic>);
     }
-    throw ApiException.fromResponse(response);
+    throw ApiException.fromResponse(response); // coverage:ignore-line
   }
 }
 
@@ -2708,7 +2866,9 @@ class ProvisioningApiUserDetailsQuota {
 
   final int? quota;
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _$ProvisioningApiUserDetailsQuotaToJson(this);
+  // coverage:ignore-end
 }
 
 @JsonSerializable()
@@ -2725,7 +2885,9 @@ class ProvisioningApiUserDetailsBackendCapabilities {
 
   final bool? setPassword;
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _$ProvisioningApiUserDetailsBackendCapabilitiesToJson(this);
+  // coverage:ignore-end
 }
 
 @JsonSerializable()
@@ -2855,7 +3017,9 @@ class ProvisioningApiUserDetails {
   @JsonKey(name: 'display-name')
   final String? displayName;
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _$ProvisioningApiUserDetailsToJson(this);
+  // coverage:ignore-end
 }
 
 @JsonSerializable()
@@ -2871,7 +3035,9 @@ class ProvisioningApiUserOcs {
 
   final ProvisioningApiUserDetails? data;
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _$ProvisioningApiUserOcsToJson(this);
+  // coverage:ignore-end
 }
 
 @JsonSerializable()
@@ -2882,7 +3048,9 @@ class ProvisioningApiUser {
 
   final ProvisioningApiUserOcs? ocs;
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _$ProvisioningApiUserToJson(this);
+  // coverage:ignore-end
 }
 
 class ProvisioningApiClient {
@@ -2904,7 +3072,7 @@ class ProvisioningApiClient {
     if (response.statusCode == 200) {
       return ProvisioningApiUser.fromJson(json.decode(utf8.decode(response.body)) as Map<String, dynamic>);
     }
-    throw ApiException.fromResponse(response);
+    throw ApiException.fromResponse(response); // coverage:ignore-line
   }
 
   Future<ProvisioningApiUser> getUser({required String userId}) async {
@@ -2922,7 +3090,7 @@ class ProvisioningApiClient {
     if (response.statusCode == 200) {
       return ProvisioningApiUser.fromJson(json.decode(utf8.decode(response.body)) as Map<String, dynamic>);
     }
-    throw ApiException.fromResponse(response);
+    throw ApiException.fromResponse(response); // coverage:ignore-line
   }
 }
 
@@ -2998,7 +3166,9 @@ class UserStatusClearAtTime {
   /// Time offset in seconds
   final int? int_;
 
+  // coverage:ignore-start
   dynamic toJson() => _data;
+  // coverage:ignore-end
 }
 
 @JsonSerializable()
@@ -3014,7 +3184,9 @@ class UserStatusClearAt {
 
   final UserStatusClearAtTime? time;
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _$UserStatusClearAtToJson(this);
+  // coverage:ignore-end
 }
 
 class UserStatusClearAtWrap {
@@ -3048,7 +3220,9 @@ class UserStatusClearAtWrap {
   /// Time as unix timestamp
   final int? int_;
 
+  // coverage:ignore-start
   dynamic toJson() => _data;
+  // coverage:ignore-end
 }
 
 enum UserStatusType {
@@ -3102,7 +3276,9 @@ class UserStatusPublicUserStatus {
 
   final UserStatusType? status;
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _$UserStatusPublicUserStatusToJson(this);
+  // coverage:ignore-end
 }
 
 @JsonSerializable()
@@ -3119,7 +3295,9 @@ class UserStatusFindAllStatusesOcs {
 
   final List<UserStatusPublicUserStatus>? data;
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _$UserStatusFindAllStatusesOcsToJson(this);
+  // coverage:ignore-end
 }
 
 @JsonSerializable()
@@ -3130,7 +3308,9 @@ class UserStatusFindAllStatuses {
 
   final UserStatusFindAllStatusesOcs? ocs;
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _$UserStatusFindAllStatusesToJson(this);
+  // coverage:ignore-end
 }
 
 class UserStatusFindStatusOcsData {
@@ -3164,7 +3344,9 @@ class UserStatusFindStatusOcsData {
   /// Only happens when the user has never set a status
   final List? list;
 
+  // coverage:ignore-start
   dynamic toJson() => _data;
+  // coverage:ignore-end
 }
 
 @JsonSerializable()
@@ -3180,7 +3362,9 @@ class UserStatusFindStatusOcs {
 
   final UserStatusFindStatusOcsData? data;
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _$UserStatusFindStatusOcsToJson(this);
+  // coverage:ignore-end
 }
 
 @JsonSerializable()
@@ -3191,7 +3375,9 @@ class UserStatusFindStatus {
 
   final UserStatusFindStatusOcs? ocs;
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _$UserStatusFindStatusToJson(this);
+  // coverage:ignore-end
 }
 
 @JsonSerializable()
@@ -3225,7 +3411,9 @@ class UserStatus {
 
   final bool? statusIsUserDefined;
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _$UserStatusToJson(this);
+  // coverage:ignore-end
 }
 
 class UserStatusGetUserStatusOcsData {
@@ -3259,7 +3447,9 @@ class UserStatusGetUserStatusOcsData {
   /// Only happens when the user has never set a status
   final List? list;
 
+  // coverage:ignore-start
   dynamic toJson() => _data;
+  // coverage:ignore-end
 }
 
 @JsonSerializable()
@@ -3275,7 +3465,9 @@ class UserStatusGetUserStatusOcs {
 
   final UserStatusGetUserStatusOcsData? data;
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _$UserStatusGetUserStatusOcsToJson(this);
+  // coverage:ignore-end
 }
 
 @JsonSerializable()
@@ -3286,7 +3478,9 @@ class UserStatusGetUserStatus {
 
   final UserStatusGetUserStatusOcs? ocs;
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _$UserStatusGetUserStatusToJson(this);
+  // coverage:ignore-end
 }
 
 @JsonSerializable()
@@ -3308,7 +3502,9 @@ class UserStatusPredefinedStatus {
 
   final UserStatusClearAtWrap? clearAt;
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _$UserStatusPredefinedStatusToJson(this);
+  // coverage:ignore-end
 }
 
 @JsonSerializable()
@@ -3325,7 +3521,9 @@ class UserStatusPredefinedStatusesOcs {
 
   final List<UserStatusPredefinedStatus>? data;
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _$UserStatusPredefinedStatusesOcsToJson(this);
+  // coverage:ignore-end
 }
 
 @JsonSerializable()
@@ -3337,7 +3535,9 @@ class UserStatusPredefinedStatuses {
 
   final UserStatusPredefinedStatusesOcs? ocs;
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _$UserStatusPredefinedStatusesToJson(this);
+  // coverage:ignore-end
 }
 
 class UserStatusClient {
@@ -3359,7 +3559,7 @@ class UserStatusClient {
     if (response.statusCode == 200) {
       return UserStatusFindAllStatuses.fromJson(json.decode(utf8.decode(response.body)) as Map<String, dynamic>);
     }
-    throw ApiException.fromResponse(response);
+    throw ApiException.fromResponse(response); // coverage:ignore-line
   }
 
   Future<UserStatusFindStatus> findStatus({required String userId}) async {
@@ -3377,7 +3577,7 @@ class UserStatusClient {
     if (response.statusCode == 200) {
       return UserStatusFindStatus.fromJson(json.decode(utf8.decode(response.body)) as Map<String, dynamic>);
     }
-    throw ApiException.fromResponse(response);
+    throw ApiException.fromResponse(response); // coverage:ignore-line
   }
 
   Future<UserStatusGetUserStatus> getStatus() async {
@@ -3394,7 +3594,7 @@ class UserStatusClient {
     if (response.statusCode == 200) {
       return UserStatusGetUserStatus.fromJson(json.decode(utf8.decode(response.body)) as Map<String, dynamic>);
     }
-    throw ApiException.fromResponse(response);
+    throw ApiException.fromResponse(response); // coverage:ignore-line
   }
 
   Future<UserStatusGetUserStatus> setStatus({required UserStatusType statusType}) async {
@@ -3412,7 +3612,7 @@ class UserStatusClient {
     if (response.statusCode == 200) {
       return UserStatusGetUserStatus.fromJson(json.decode(utf8.decode(response.body)) as Map<String, dynamic>);
     }
-    throw ApiException.fromResponse(response);
+    throw ApiException.fromResponse(response); // coverage:ignore-line
   }
 
   Future<UserStatusGetUserStatus> setPredefinedMessage({
@@ -3436,7 +3636,7 @@ class UserStatusClient {
     if (response.statusCode == 200) {
       return UserStatusGetUserStatus.fromJson(json.decode(utf8.decode(response.body)) as Map<String, dynamic>);
     }
-    throw ApiException.fromResponse(response);
+    throw ApiException.fromResponse(response); // coverage:ignore-line
   }
 
   Future<UserStatusGetUserStatus> setCustomMessage({
@@ -3466,7 +3666,7 @@ class UserStatusClient {
     if (response.statusCode == 200) {
       return UserStatusGetUserStatus.fromJson(json.decode(utf8.decode(response.body)) as Map<String, dynamic>);
     }
-    throw ApiException.fromResponse(response);
+    throw ApiException.fromResponse(response); // coverage:ignore-line
   }
 
   Future clearMessage() async {
@@ -3483,7 +3683,7 @@ class UserStatusClient {
     if (response.statusCode == 200) {
       return;
     }
-    throw ApiException.fromResponse(response);
+    throw ApiException.fromResponse(response); // coverage:ignore-line
   }
 
   Future<UserStatusPredefinedStatuses> findAllPredefinedStatuses() async {
@@ -3500,7 +3700,7 @@ class UserStatusClient {
     if (response.statusCode == 200) {
       return UserStatusPredefinedStatuses.fromJson(json.decode(utf8.decode(response.body)) as Map<String, dynamic>);
     }
-    throw ApiException.fromResponse(response);
+    throw ApiException.fromResponse(response); // coverage:ignore-line
   }
 
   Future heartbeat({required UserStatusType status}) async {
@@ -3518,7 +3718,7 @@ class UserStatusClient {
     if (response.statusCode == 200) {
       return;
     }
-    throw ApiException.fromResponse(response);
+    throw ApiException.fromResponse(response); // coverage:ignore-line
   }
 }
 
@@ -3552,7 +3752,9 @@ class NotificationsPushNotificationDecryptedSubject {
   @JsonKey(name: 'delete-all')
   final bool? deleteAll;
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _$NotificationsPushNotificationDecryptedSubjectToJson(this);
+  // coverage:ignore-end
 }
 
 @JsonSerializable()
@@ -3575,9 +3777,12 @@ class NotificationsPushNotification {
 
   final NotificationsPushNotificationDecryptedSubject? subject;
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _$NotificationsPushNotificationToJson(this);
+  // coverage:ignore-end
 }
 
+// coverage:ignore-start
 final _deserializers = <Type, dynamic Function(dynamic)>{
   CoreServerStatus: (final data) => CoreServerStatus.fromJson(data as Map<String, dynamic>),
   List<CoreServerStatus>: (final data) =>
@@ -4536,3 +4741,4 @@ final _serializers = <Type, dynamic Function(dynamic)>{
 T deserialize<T>(final dynamic data) => _deserializers[T]!(data) as T;
 
 dynamic serialize<T>(final T data) => _serializers[T]!(data);
+// coverage:ignore-end

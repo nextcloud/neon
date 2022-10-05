@@ -149,10 +149,12 @@ class WebDavFile {
   /// Returns if the file is a directory
   bool get isDirectory => path.endsWith('/') || (isCollection ?? false);
 
+  // coverage:ignore-start
   @override
   String toString() =>
       // ignore: lines_longer_than_80_chars
       'WebDavFile{name: $name, id: $id, isDirectory: $isDirectory, path: $path, mimeType: $mimeType, size: $size, modificationTime: $lastModified, shareTypes: $shareTypes}';
+  // coverage:ignore-end
 }
 
 /// Converts a single d:response to a [WebDavFile]

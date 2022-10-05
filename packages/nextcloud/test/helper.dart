@@ -263,6 +263,7 @@ class TestDockerHelper {
           generateCreateUserInstruction(user),
         ],
       ],
+      'RUN ./occ app:enable password_policy',
       '',
     ];
 
