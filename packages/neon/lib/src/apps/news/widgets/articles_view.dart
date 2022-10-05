@@ -132,23 +132,8 @@ class _NewsArticlesViewState extends State<NewsArticlesView> {
     final NewsArticlesBloc bloc,
     final NewsArticle article,
     final NewsFeed feed,
-  ) {
-    final clientID = RxBlocProvider.of<AccountsBloc>(context).activeAccount.value!.client.id;
-
-    return ResultStreamBuilder<String>(
-      stream: Provider.of<RequestManager>(context).wrapString(
-        clientID,
-        'news-articles-body-${article.id}',
-        () async => _fixArticleBody(article.body!),
-        preferCache: true,
-      ),
-      builder: (
-        final context,
-        final bodyData,
-        final bodyError,
-        final bodyLoading,
-      ) =>
-          ListTile(
+  ) =>
+      ListTile(
         title: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -225,62 +210,61 @@ class _NewsArticlesViewState extends State<NewsArticlesView> {
             bloc.markArticleAsUnread(article);
           }
         },
-        onTap: bodyData != null
-            ? () async {
-                final viewType = bloc.newsBloc.options.articleViewTypeOption.value;
-                if (viewType == ArticleViewType.direct) {
-                  await Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (final context) => NewsArticlePage(
-                        bloc: bloc,
-                        article: article,
-                        useWebView: false,
-                        bodyData: bodyData,
-                      ),
-                    ),
-                  );
-                } else if (Provider.of<NeonPlatform>(context, listen: false).canUseWebView &&
-                    viewType == ArticleViewType.internalBrowser) {
-                  await Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (final context) => NewsArticlePage(
-                        bloc: bloc,
-                        article: article,
-                        useWebView: true,
-                      ),
-                    ),
-                  );
-                } else {
-                  if (article.unread!) {
-                    bloc.markArticleAsRead(article);
-                  }
-                  await launchUrlString(
-                    article.url!,
-                    mode: LaunchMode.externalApplication,
-                  );
-                }
-              }
-            : null,
-      ),
-    );
-  }
+        onTap: () async {
+          final viewType = bloc.newsBloc.options.articleViewTypeOption.value;
+          String? bodyData;
+          try {
+            bodyData = _fixArticleBody(article.body!);
+          } catch (e, s) {
+            debugPrint(e.toString());
+            debugPrint(s.toString());
+          }
 
-  String _fixArticleBody(final String b) => _fixTree(html_parser.parse(b).documentElement!).outerHtml;
+          if (viewType == ArticleViewType.direct && bodyData != null) {
+            await Navigator.of(context).push(
+              MaterialPageRoute(
+                builder: (final context) => NewsArticlePage(
+                  bloc: bloc,
+                  article: article,
+                  useWebView: false,
+                  bodyData: bodyData,
+                ),
+              ),
+            );
+          } else if (Provider.of<NeonPlatform>(context, listen: false).canUseWebView &&
+              viewType == ArticleViewType.internalBrowser) {
+            await Navigator.of(context).push(
+              MaterialPageRoute(
+                builder: (final context) => NewsArticlePage(
+                  bloc: bloc,
+                  article: article,
+                  useWebView: true,
+                ),
+              ),
+            );
+          } else {
+            if (article.unread!) {
+              bloc.markArticleAsRead(article);
+            }
+            await launchUrlString(
+              article.url!,
+              mode: LaunchMode.externalApplication,
+            );
+          }
+        },
+      );
 
-  html_dom.Element _fixTree(final html_dom.Element element) {
-    _fixElement(element);
-    element.children.forEach(_fixTree);
+  String _fixArticleBody(final String b) => _fixArticleBodyElement(html_parser.parse(b).documentElement!).outerHtml;
 
-    return element;
-  }
-
-  html_dom.Element _fixElement(final html_dom.Element element) {
+  html_dom.Element _fixArticleBodyElement(final html_dom.Element element) {
     for (final attributeName in ['src', 'href']) {
       final attributeValue = element.attributes[attributeName];
       if (attributeValue != null && attributeValue.startsWith('//')) {
         element.attributes[attributeName] = 'https:$attributeValue';
       }
     }
+
+    element.children.forEach(_fixArticleBodyElement);
 
     return element;
   }
