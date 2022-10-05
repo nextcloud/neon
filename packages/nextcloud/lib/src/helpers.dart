@@ -1,23 +1,20 @@
+// ignore_for_file: public_member_api_docs
+
 part of '../nextcloud.dart';
 
-// ignore: public_member_api_docs
 extension HttpClientResponseBody on HttpClientResponse {
-  // ignore: public_member_api_docs
   Future<Uint8List> get bodyBytes async =>
       Uint8List.fromList((await toList()).reduce((final value, final element) => [...value, ...element]));
 
-  // ignore: public_member_api_docs
   Future<String> get body async => utf8.decode(await bodyBytes);
 }
 
-// ignore: public_member_api_docs
 extension UserDetailsDisplayName on ProvisioningApiUserDetails {
   /// This is used to work around an API change that wasn't made for every endpoint
   /// See https://github.com/nextcloud/server/commit/5086335643b6181284ee50f57b95525002842992
   String? getDisplayName() => displayname ?? displayName;
 }
 
-// ignore: public_member_api_docs
 extension NextcloudNotificationsPushProxy on NotificationsClient {
   /// Registers a device at the push proxy server
   Future registerDeviceAtPushProxy(
@@ -67,3 +64,18 @@ NotificationsPushNotificationDecryptedSubject decryptPushNotificationSubject(
     NotificationsPushNotificationDecryptedSubject.fromJson(
       json.decode(privateKey.decrypt(subject)) as Map<String, dynamic>,
     );
+
+/// See https://github.com/nextcloud/news/blob/4a107b3d53c4fe651ac704251b99e04a53cd587f/lib/Db/ListType.php
+enum NewsListType {
+  feed(0),
+  folder(1),
+  starred(2),
+  allItems(3),
+  shared(4),
+  explore(5),
+  unread(6);
+
+  const NewsListType(this.code);
+
+  final int code;
+}

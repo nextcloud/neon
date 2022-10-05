@@ -50,7 +50,7 @@ Future main() async {
     test('Mark feed as read', () async {
       final feedsResponse = await addWikipediaFeed();
 
-      var articlesResponse = await client.news.listArticles(type: 6);
+      var articlesResponse = await client.news.listArticles(type: NewsListType.unread.code);
       expect(articlesResponse.items!.length, greaterThan(0));
 
       await client.news.markFeedAsRead(
@@ -58,7 +58,7 @@ Future main() async {
         newestItemId: feedsResponse.newestItemId!,
       );
 
-      articlesResponse = await client.news.listArticles(type: 6);
+      articlesResponse = await client.news.listArticles(type: NewsListType.unread.code);
       expect(articlesResponse.items, hasLength(0));
     });
 
@@ -103,36 +103,36 @@ Future main() async {
     test('Mark article as read', () async {
       await addWikipediaFeed();
 
-      var response = await client.news.listArticles(type: 6);
+      var response = await client.news.listArticles(type: NewsListType.unread.code);
       final unreadArticles = response.items!.length;
       expect(unreadArticles, greaterThan(0));
 
       await client.news.markArticleAsRead(
         itemId: response.items![0].id!,
       );
-      response = await client.news.listArticles(type: 6);
+      response = await client.news.listArticles(type: NewsListType.unread.code);
       expect(response.items, hasLength(unreadArticles - 1));
     });
 
     test('Mark article as unread', () async {
       await addWikipediaFeed();
 
-      var response = await client.news.listArticles(type: 6);
+      var response = await client.news.listArticles(type: NewsListType.unread.code);
       final readArticle = response.items![0];
       await client.news.markArticleAsRead(itemId: readArticle.id!);
-      response = await client.news.listArticles(type: 6);
+      response = await client.news.listArticles(type: NewsListType.unread.code);
       final unreadArticles = response.items!.length;
       expect(unreadArticles, greaterThan(0));
 
       await client.news.markArticleAsUnread(itemId: readArticle.id!);
-      response = await client.news.listArticles(type: 6);
+      response = await client.news.listArticles(type: NewsListType.unread.code);
       expect(response.items, hasLength(unreadArticles + 1));
     });
 
     test('Star article', () async {
       await addWikipediaFeed();
 
-      var response = await client.news.listArticles(type: 2);
+      var response = await client.news.listArticles(type: NewsListType.starred.code);
       final starredArticles = response.items!.length;
       expect(starredArticles, 0);
 
@@ -140,7 +140,7 @@ Future main() async {
       await client.news.starArticle(
         itemId: response.items![0].id!,
       );
-      response = await client.news.listArticles(type: 2);
+      response = await client.news.listArticles(type: NewsListType.starred.code);
       expect(response.items, hasLength(1));
     });
 
@@ -153,13 +153,13 @@ Future main() async {
       await client.news.starArticle(
         itemId: item.id!,
       );
-      response = await client.news.listArticles(type: 2);
+      response = await client.news.listArticles(type: NewsListType.starred.code);
       expect(response.items, hasLength(1));
 
       await client.news.unstarArticle(
         itemId: item.id!,
       );
-      response = await client.news.listArticles(type: 2);
+      response = await client.news.listArticles(type: NewsListType.starred.code);
       expect(response.items, hasLength(0));
     });
 
@@ -167,17 +167,17 @@ Future main() async {
       var response = await client.news.listFolders();
       expect(response.folders, hasLength(0));
 
-      response = await client.news.createFolder(name: 'test');
+      response = await client.news.createFolder(name: 'test1');
       expect(response.folders, hasLength(1));
       expect(response.folders![0].id, 1);
-      expect(response.folders![0].name, 'test');
+      expect(response.folders![0].name, 'test1');
       expect(response.folders![0].opened, true);
       expect(response.folders![0].feeds, hasLength(0));
 
       response = await client.news.listFolders();
       expect(response.folders, hasLength(1));
       expect(response.folders![0].id, 1);
-      expect(response.folders![0].name, 'test');
+      expect(response.folders![0].name, 'test1');
       expect(response.folders![0].opened, true);
       expect(response.folders![0].feeds, hasLength(0));
     });
@@ -215,7 +215,7 @@ Future main() async {
       final foldersResponse = await client.news.createFolder(name: 'test1');
       final feedsResponse = await addWikipediaFeed(1);
 
-      var articlesResponse = await client.news.listArticles(type: 6);
+      var articlesResponse = await client.news.listArticles(type: NewsListType.unread.code);
       expect(articlesResponse.items!.length, greaterThan(0));
 
       await client.news.markFolderAsRead(
@@ -223,7 +223,7 @@ Future main() async {
         newestItemId: feedsResponse.newestItemId!,
       );
 
-      articlesResponse = await client.news.listArticles(type: 6);
+      articlesResponse = await client.news.listArticles(type: NewsListType.unread.code);
       expect(articlesResponse.items, hasLength(0));
     });
   });
