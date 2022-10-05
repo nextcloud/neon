@@ -121,7 +121,7 @@ class NewsArticlesBloc extends $NewsArticlesBloc {
     // https://github.com/nextcloud/news/blob/master/docs/api/api-v1-2.md#get-items
 
     // https://github.com/nextcloud/news/blob/48ee5ce4d135da20079961a62ae37958d6a6b628/lib/Db/ListType.php#L21
-    late final int type;
+    late final NewsListType type;
     bool? getRead;
     if (listType != null) {
       switch (_filterTypeSubject.value) {
@@ -136,21 +136,21 @@ class NewsArticlesBloc extends $NewsArticlesBloc {
     }
     switch (listType) {
       case ListType.feed:
-        type = 0;
+        type = NewsListType.feed;
         break;
       case ListType.folder:
-        type = 1;
+        type = NewsListType.folder;
         break;
       case null:
         switch (_filterTypeSubject.value) {
           case FilterType.starred:
-            type = 2;
+            type = NewsListType.starred;
             break;
           case FilterType.all:
-            type = 3;
+            type = NewsListType.allItems;
             break;
           case FilterType.unread:
-            type = 6;
+            type = NewsListType.unread;
             break;
         }
         break;
@@ -159,9 +159,9 @@ class NewsArticlesBloc extends $NewsArticlesBloc {
     newsBloc.requestManager
         .wrapNextcloud<List<NewsArticle>, NewsListArticles>(
           newsBloc.client.id,
-          'news-articles-$type-$id-$getRead',
+          'news-articles-${type.code}-$id-$getRead',
           () async => newsBloc.client.news.listArticles(
-            type: type,
+            type: type.code,
             id: id ?? 0,
             getRead: getRead ?? true ? 1 : 0,
           ),
