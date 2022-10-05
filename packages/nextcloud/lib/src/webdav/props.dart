@@ -159,6 +159,8 @@ enum WebDavProps {
   /// Name of the prop
   final String name;
 
+  // coverage:ignore-start
   @override
   String toString() => name;
+  // coverage:ignore-end
 }

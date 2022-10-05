@@ -44,11 +44,13 @@ extension NextcloudNotificationsPushProxy on NotificationsClient {
     final response = await request.close();
 
     if (response.statusCode != 200) {
+      // coverage:ignore-start
       throw ApiException(
         response.statusCode,
         {}, // TODO
         await response.bodyBytes,
       );
+      // coverage:ignore-end
     }
   }
 
