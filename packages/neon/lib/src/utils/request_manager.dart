@@ -7,14 +7,6 @@ class RequestManager {
 
   final Cache? cache;
 
-  final bool _enablePrinting = false;
-
-  void _print(final String input) {
-    if (_enablePrinting) {
-      debugPrint(input);
-    }
-  }
-
   Stream<Result<T>> wrapWithoutCache<T>(
     final Future<T> Function() call, {
     final bool disableTimeout = false,
@@ -36,68 +28,6 @@ class RequestManager {
     required final T? previousData,
     final bool disableTimeout = false,
   }) async* {
-    yield* _wrap<T, R>(
-      clientID,
-      k,
-      (final s) => json.encode(serialize<R>(s)),
-      (final d) => deserialize<R>(json.decode(d)),
-      call,
-      unwrap: unwrap,
-      previousData: previousData,
-      disableTimeout: disableTimeout,
-    );
-  }
-
-  Stream<Result<Uint8List>> wrapBytes(
-    final String clientID,
-    final String k,
-    final Future<Uint8List> Function() call, {
-    final bool preferCache = false,
-    final bool disableTimeout = false,
-    final Uint8List? previousData,
-  }) =>
-      _wrap<Uint8List, Uint8List>(
-        clientID,
-        k,
-        (final s) => base64.encode(s),
-        (final d) => base64.decode(d),
-        call,
-        preferCache: preferCache,
-        previousData: previousData,
-        disableTimeout: disableTimeout,
-      );
-
-  Stream<Result<String>> wrapString(
-    final String clientID,
-    final String k,
-    final Future<String> Function() call, {
-    final bool preferCache = false,
-    final bool disableTimeout = false,
-    final String? previousData,
-  }) =>
-      _wrap<String, String>(
-        clientID,
-        k,
-        (final s) => s,
-        (final d) => d,
-        call,
-        preferCache: preferCache,
-        previousData: previousData,
-        disableTimeout: disableTimeout,
-      );
-  Stream<Result<T>> _wrap<T, R>(
-    final String clientID,
-    final String k,
-    final String Function(R) serialize,
-    final R Function(String) deserialize,
-    final Future<R> Function() call, {
-    final bool preferCache = false,
-    final bool disableTimeout = false,
-    T Function(R)? unwrap,
-    final T? previousData,
-  }) async* {
-    unwrap ??= (final a) => a as T;
-
     if (previousData != null) {
       yield ResultCached(previousData, loading: true);
     } else {
@@ -106,35 +36,20 @@ class RequestManager {
 
     final key = '$clientID-$k';
 
-    _print('[Request]: $k');
-
     if (cache != null && await cache!.has(key)) {
-      _print('[Cache]: $k');
-      final s = unwrap(deserialize((await cache!.get(key))!));
-      if (preferCache) {
-        yield Result.success(s);
-        return;
-      } else {
-        yield ResultCached(s, loading: true);
-      }
+      yield ResultCached(unwrap(deserialize<R>(json.decode((await cache!.get(key))!))), loading: true);
     }
 
     try {
       final response = await _timeout(disableTimeout, call);
-
-      final s = serialize(response);
-      _print('[Response]: $k');
-      await cache?.set(key, s);
-
+      await cache?.set(key, json.encode(serialize<R>(response)));
       yield Result.success(unwrap(response));
     } on Exception catch (e) {
       if (cache != null && await cache!.has(key)) {
-        _print('[Cache]: $k');
         debugPrint(e.toString());
-        yield ResultCached(unwrap(deserialize((await cache!.get(key))!)), error: e);
+        yield ResultCached(unwrap(deserialize<R>(json.decode((await cache!.get(key))!))), error: e);
         return;
       }
-      _print('[Failure]: $k');
       debugPrint(e.toString());
       yield Result.error(e);
     }
