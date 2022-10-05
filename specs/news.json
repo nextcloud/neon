@@ -481,7 +481,7 @@
           }
         }
       ],
-      "put": {
+      "post": {
         "operationId": "move-feed",
         "tags": [
           "news"
@@ -514,7 +514,7 @@
           }
         }
       ],
-      "put": {
+      "post": {
         "operationId": "rename-feed",
         "tags": [
           "news"

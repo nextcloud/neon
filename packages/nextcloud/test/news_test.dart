@@ -47,6 +47,35 @@ Future main() async {
       expect(response.feeds![0].url, wikipediaFeedURL);
     });
 
+    test('Rename feed', () async {
+      var response = await addWikipediaFeed();
+      expect(response.feeds![0].title, 'Wikipedia featured articles feed');
+
+      await client.news.renameFeed(
+        feedId: 1,
+        feedTitle: 'test1',
+      );
+
+      response = await client.news.listFeeds();
+      expect(response.feeds![0].title, 'test1');
+    });
+
+    test('Move feed to folder', () async {
+      await client.news.createFolder(name: 'test1');
+      await addWikipediaFeed();
+      await client.news.moveFeed(
+        feedId: 1,
+        folderId: 1,
+      );
+
+      final response = await client.news.listFolders();
+      expect(response.folders, hasLength(1));
+      expect(response.folders![0].id, 1);
+      expect(response.folders![0].name, 'test1');
+      expect(response.folders![0].opened, true);
+      expect(response.folders![0].feeds, hasLength(0));
+    });
+
     test('Mark feed as read', () async {
       final feedsResponse = await addWikipediaFeed();
 

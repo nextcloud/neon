@@ -1870,7 +1870,7 @@ class NewsClient {
       queryParameters['folderId'] = folderId.toString();
     }
     final response = await rootClient.doRequest(
-      'put',
+      'post',
       Uri(path: path, queryParameters: queryParameters).toString(),
       headers,
       body,
@@ -1892,7 +1892,7 @@ class NewsClient {
     path = path.replaceAll('{feedId}', Uri.encodeQueryComponent(feedId.toString()));
     queryParameters['feedTitle'] = feedTitle.toString();
     final response = await rootClient.doRequest(
-      'put',
+      'post',
       Uri(path: path, queryParameters: queryParameters).toString(),
       headers,
       body,
