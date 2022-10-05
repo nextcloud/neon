@@ -12,9 +12,7 @@ import 'package:material_design_icons_flutter/material_design_icons_flutter.dart
 import 'package:neon/l10n/localizations.dart';
 import 'package:neon/src/apps/news/blocs/articles.dart';
 import 'package:neon/src/apps/news/blocs/news.dart';
-import 'package:neon/src/blocs/accounts.dart';
 import 'package:neon/src/blocs/apps.dart';
-import 'package:neon/src/models/account.dart';
 import 'package:neon/src/neon.dart';
 import 'package:nextcloud/nextcloud.dart';
 import 'package:provider/provider.dart';
