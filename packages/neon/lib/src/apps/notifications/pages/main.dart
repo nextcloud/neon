@@ -42,39 +42,19 @@ class _NotificationsMainPageState extends State<NotificationsMainPage> {
             },
             child: const Icon(MdiIcons.checkAll),
           ),
-          body: RefreshIndicator(
+          body: CustomListView<NotificationsNotification>(
+            scrollKey: 'notifications-notifications',
+            withFloatingActionButton: true,
+            items: notificationsData,
+            isLoading: notificationsLoading,
+            error: notificationsError,
+            onRetry: () {
+              widget.bloc.refresh();
+            },
             onRefresh: () async {
               widget.bloc.refresh();
             },
-            child: Column(
-              children: [
-                ExceptionWidget(
-                  notificationsError,
-                  onRetry: () {
-                    widget.bloc.refresh();
-                  },
-                ),
-                CustomLinearProgressIndicator(
-                  visible: notificationsLoading,
-                ),
-                if (notificationsData != null) ...[
-                  Expanded(
-                    child: CustomListView<NotificationsNotification>(
-                      scrollKey: 'notifications-notifications',
-                      withFloatingActionButton: true,
-                      items: notificationsData,
-                      builder: _buildNotification,
-                    ),
-                  ),
-                ],
-              ]
-                  .intersperse(
-                    const SizedBox(
-                      height: 10,
-                    ),
-                  )
-                  .toList(),
-            ),
+            builder: _buildNotification,
           ),
         ),
       );

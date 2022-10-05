@@ -43,55 +43,37 @@ class NewsFoldersView extends StatelessWidget {
               final feedsLoading,
               final _,
             ) =>
-                RefreshIndicator(
-              onRefresh: () async {
-                bloc.refresh(
-                  mainArticlesToo: true,
-                );
-              },
-              child: Column(
-                children: <Widget>[
-                  ExceptionWidget(
-                    feedsError ?? foldersError,
-                    onRetry: () {
-                      bloc.refresh(
-                        mainArticlesToo: false,
-                      );
-                    },
-                  ),
-                  CustomLinearProgressIndicator(
-                    visible: feedsLoading || foldersLoading,
-                  ),
-                  if (feedsData != null && foldersData != null) ...[
-                    Expanded(
-                      child: SortBoxBuilder<FoldersSortProperty, FolderFeedsWrapper>(
-                        sortBox: foldersSortBox,
-                        sortPropertyOption: bloc.options.foldersSortPropertyOption,
-                        sortBoxOrderOption: bloc.options.foldersSortBoxOrderOption,
-                        input: foldersData
-                            .map(
-                              (final folder) => FolderFeedsWrapper(
-                                folder,
-                                feedsData.where((final feed) => feed.folderId == folder.id).toList(),
-                              ),
-                            )
-                            .toList(),
-                        builder: (final context, final sorted) => CustomListView<FolderFeedsWrapper>(
-                          scrollKey: 'news-folders',
-                          withFloatingActionButton: true,
-                          items: sorted,
-                          builder: _buildFolder,
+                SortBoxBuilder<FoldersSortProperty, FolderFeedsWrapper>(
+              sortBox: foldersSortBox,
+              sortPropertyOption: bloc.options.foldersSortPropertyOption,
+              sortBoxOrderOption: bloc.options.foldersSortBoxOrderOption,
+              input: feedsData == null
+                  ? null
+                  : foldersData
+                      ?.map(
+                        (final folder) => FolderFeedsWrapper(
+                          folder,
+                          feedsData.where((final feed) => feed.folderId == folder.id).toList(),
                         ),
-                      ),
-                    ),
-                  ],
-                ]
-                    .intersperse(
-                      const SizedBox(
-                        height: 10,
-                      ),
-                    )
-                    .toList(),
+                      )
+                      .toList(),
+              builder: (final context, final sorted) => CustomListView<FolderFeedsWrapper>(
+                scrollKey: 'news-folders',
+                withFloatingActionButton: true,
+                items: sorted,
+                isLoading: feedsLoading || foldersLoading,
+                error: feedsError ?? foldersError,
+                onRetry: () {
+                  bloc.refresh(
+                    mainArticlesToo: false,
+                  );
+                },
+                onRefresh: () async {
+                  bloc.refresh(
+                    mainArticlesToo: true,
+                  );
+                },
+                builder: _buildFolder,
               ),
             ),
           ),

@@ -19,52 +19,32 @@ class NotesCategoriesView extends StatelessWidget {
           final notesLoading,
           final _,
         ) =>
-            RefreshIndicator(
-          onRefresh: () async {
-            bloc.refresh();
-          },
-          child: Column(
-            children: [
-              ExceptionWidget(
-                notesError,
-                onRetry: () {
-                  bloc.refresh();
-                },
-              ),
-              CustomLinearProgressIndicator(
-                visible: notesLoading,
-              ),
-              if (notesData != null) ...[
-                Expanded(
-                  child: SortBoxBuilder<CategoriesSortProperty, NoteCategory>(
-                    sortBox: categoriesSortBox,
-                    sortPropertyOption: bloc.options.categoriesSortPropertyOption,
-                    sortBoxOrderOption: bloc.options.categoriesSortBoxOrderOption,
-                    input: notesData
-                        .map((final note) => note.category!)
-                        .toSet()
-                        .map(
-                          (final category) => NoteCategory(
-                            category,
-                            notesData.where((final note) => note.category == category).length,
-                          ),
-                        )
-                        .toList(),
-                    builder: (final context, final sorted) => CustomListView<NoteCategory>(
-                      scrollKey: 'notes-categories',
-                      items: sorted,
-                      builder: _buildCategory,
-                    ),
-                  ),
+            SortBoxBuilder<CategoriesSortProperty, NoteCategory>(
+          sortBox: categoriesSortBox,
+          sortPropertyOption: bloc.options.categoriesSortPropertyOption,
+          sortBoxOrderOption: bloc.options.categoriesSortBoxOrderOption,
+          input: notesData
+              ?.map((final note) => note.category!)
+              .toSet()
+              .map(
+                (final category) => NoteCategory(
+                  category,
+                  notesData.where((final note) => note.category == category).length,
                 ),
-              ],
-            ]
-                .intersperse(
-                  const SizedBox(
-                    height: 10,
-                  ),
-                )
-                .toList(),
+              )
+              .toList(),
+          builder: (final context, final sorted) => CustomListView<NoteCategory>(
+            scrollKey: 'notes-categories',
+            items: sorted,
+            isLoading: notesLoading,
+            error: notesError,
+            onRetry: () {
+              bloc.refresh();
+            },
+            onRefresh: () async {
+              bloc.refresh();
+            },
+            builder: _buildCategory,
           ),
         ),
       );

@@ -45,26 +45,34 @@ class _NewsArticlesViewState extends State<NewsArticlesView> {
           ) =>
               Scaffold(
             resizeToAvoidBottomInset: false,
-            body: RefreshIndicator(
-              onRefresh: () async {
-                widget.bloc.refresh();
-              },
-              child: Column(
-                children: <Widget>[
-                  ExceptionWidget(
-                    articlesError ?? feedsError,
-                    onRetry: () {
-                      if (articlesError != null) {
-                        widget.bloc.refresh();
-                      }
-                      if (feedsError != null) {
-                        widget.bloc.refreshNewsBloc();
-                      }
-                    },
-                  ),
-                  CustomLinearProgressIndicator(
-                    visible: articlesLoading || feedsLoading,
-                  ),
+            body: SortBoxBuilder<ArticlesSortProperty, NewsArticle>(
+              sortBox: articlesSortBox,
+              sortPropertyOption: widget.bloc.newsBloc.options.articlesSortPropertyOption,
+              sortBoxOrderOption: widget.bloc.newsBloc.options.articlesSortBoxOrderOption,
+              input: articlesData,
+              builder: (final context, final sorted) => CustomListView<NewsArticle>(
+                scrollKey: 'news-articles',
+                items: feedsData == null ? null : sorted,
+                isLoading: articlesLoading || feedsLoading,
+                error: articlesError ?? feedsError,
+                onRetry: () {
+                  if (articlesError != null) {
+                    widget.bloc.refresh();
+                  }
+                  if (feedsError != null) {
+                    widget.bloc.refreshNewsBloc();
+                  }
+                },
+                onRefresh: () async {
+                  widget.bloc.refresh();
+                },
+                builder: (final context, final article) => _buildArticle(
+                  context,
+                  widget.bloc,
+                  article,
+                  feedsData!.singleWhere((final feed) => feed.id == article.feedId),
+                ),
+                topFixedChildren: [
                   RxBlocBuilder<NewsArticlesBloc, FilterType>(
                     bloc: widget.bloc,
                     state: (final bloc) => bloc.filterType,
@@ -112,33 +120,7 @@ class _NewsArticlesViewState extends State<NewsArticlesView> {
                       ),
                     ),
                   ),
-                  if (articlesData != null && feedsData != null) ...[
-                    Expanded(
-                      child: SortBoxBuilder<ArticlesSortProperty, NewsArticle>(
-                        sortBox: articlesSortBox,
-                        sortPropertyOption: widget.bloc.newsBloc.options.articlesSortPropertyOption,
-                        sortBoxOrderOption: widget.bloc.newsBloc.options.articlesSortBoxOrderOption,
-                        input: articlesData,
-                        builder: (final context, final sorted) => CustomListView<NewsArticle>(
-                          scrollKey: 'news-articles',
-                          items: sorted,
-                          builder: (final context, final article) => _buildArticle(
-                            context,
-                            widget.bloc,
-                            article,
-                            feedsData.singleWhere((final feed) => feed.id == article.feedId),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
-                ]
-                    .intersperse(
-                      const SizedBox(
-                        height: 10,
-                      ),
-                    )
-                    .toList(),
+                ],
               ),
             ),
           ),

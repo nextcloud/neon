@@ -48,52 +48,34 @@ class NewsFeedsView extends StatelessWidget {
               },
               child: const Icon(Icons.add),
             ),
-            body: RefreshIndicator(
-              onRefresh: () async {
-                bloc.refresh(
-                  mainArticlesToo: true,
-                );
-              },
-              child: Column(
-                children: <Widget>[
-                  ExceptionWidget(
-                    feedsError ?? foldersError,
-                    onRetry: () {
-                      bloc.refresh(
-                        mainArticlesToo: false,
-                      );
-                    },
-                  ),
-                  CustomLinearProgressIndicator(
-                    visible: feedsLoading || foldersLoading,
-                  ),
-                  if (feedsData != null && foldersData != null) ...[
-                    Expanded(
-                      child: SortBoxBuilder<FeedsSortProperty, NewsFeed>(
-                        sortBox: feedsSortBox,
-                        sortPropertyOption: bloc.options.feedsSortPropertyOption,
-                        sortBoxOrderOption: bloc.options.feedsSortBoxOrderOption,
-                        input: feedsData.where((final f) => folderID == null || f.folderId == folderID).toList(),
-                        builder: (final context, final sorted) => CustomListView<NewsFeed>(
-                          scrollKey: 'news-feeds',
-                          withFloatingActionButton: true,
-                          items: sorted,
-                          builder: (final context, final feed) => _buildFeed(
-                            context,
-                            feed,
-                            foldersData,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
-                ]
-                    .intersperse(
-                      const SizedBox(
-                        height: 10,
-                      ),
-                    )
-                    .toList(),
+            body: SortBoxBuilder<FeedsSortProperty, NewsFeed>(
+              sortBox: feedsSortBox,
+              sortPropertyOption: bloc.options.feedsSortPropertyOption,
+              sortBoxOrderOption: bloc.options.feedsSortBoxOrderOption,
+              input: foldersData == null
+                  ? null
+                  : feedsData?.where((final f) => folderID == null || f.folderId == folderID).toList(),
+              builder: (final context, final sorted) => CustomListView<NewsFeed>(
+                scrollKey: 'news-feeds',
+                withFloatingActionButton: true,
+                items: sorted,
+                isLoading: feedsLoading || foldersLoading,
+                error: feedsError ?? foldersError,
+                onRetry: () {
+                  bloc.refresh(
+                    mainArticlesToo: false,
+                  );
+                },
+                onRefresh: () async {
+                  bloc.refresh(
+                    mainArticlesToo: true,
+                  );
+                },
+                builder: (final context, final feed) => _buildFeed(
+                  context,
+                  feed,
+                  foldersData!,
+                ),
               ),
             ),
           ),
