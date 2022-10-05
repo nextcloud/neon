@@ -163,7 +163,7 @@ class GlobalOptions {
     storage: _storage,
     key: 'startup-minimize-instead-of-exit',
     label: (final context) => AppLocalizations.of(context).globalOptionsStartupMinimizeInsteadOfExit,
-    defaultValue: BehaviorSubject.seeded(true),
+    defaultValue: BehaviorSubject.seeded(false),
   );
 
   // TODO: Autostart option
@@ -172,7 +172,7 @@ class GlobalOptions {
     storage: _storage,
     key: 'systemtray-enabled',
     label: (final context) => AppLocalizations.of(context).globalOptionsSystemTrayEnabled,
-    defaultValue: BehaviorSubject.seeded(true),
+    defaultValue: BehaviorSubject.seeded(false),
   );
 
   late final systemTrayHideToTrayWhenMinimized = ToggleOption(
