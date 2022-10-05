@@ -41,54 +41,41 @@ class NotesView extends StatelessWidget {
             },
             child: const Icon(Icons.add),
           ),
-          body: RefreshIndicator(
-            onRefresh: () async {
-              bloc.refresh();
-            },
-            child: Column(
-              children: [
-                ExceptionWidget(
-                  notesError,
-                  onRetry: () {
-                    bloc.refresh();
-                  },
-                ),
-                CustomLinearProgressIndicator(
-                  visible: notesLoading,
-                ),
-                if (notesData != null) ...[
-                  Expanded(
-                    child: SortBoxBuilder<NotesSortProperty, NotesNote>(
-                      sortBox: notesSortBox,
-                      sortPropertyOption: bloc.options.notesSortPropertyOption,
-                      sortBoxOrderOption: bloc.options.notesSortBoxOrderOption,
-                      input: category != null
-                          ? notesData.where((final note) => note.favorite! && note.category == category).toList()
-                          : notesData.where((final note) => note.favorite!).toList(),
-                      builder: (final context, final sortedFavorites) => SortBoxBuilder<NotesSortProperty, NotesNote>(
-                        sortBox: notesSortBox,
-                        sortPropertyOption: bloc.options.notesSortPropertyOption,
-                        sortBoxOrderOption: bloc.options.notesSortBoxOrderOption,
-                        input: category != null
-                            ? notesData.where((final note) => !note.favorite! && note.category == category).toList()
-                            : notesData.where((final note) => !note.favorite!).toList(),
-                        builder: (final context, final sortedNonFavorites) => CustomListView<NotesNote>(
-                          scrollKey: 'notes-notes',
-                          withFloatingActionButton: true,
-                          items: [...sortedFavorites, ...sortedNonFavorites],
-                          builder: _buildNote,
-                        ),
-                      ),
-                    ),
-                  ),
+          body: SortBoxBuilder<NotesSortProperty, NotesNote>(
+            sortBox: notesSortBox,
+            sortPropertyOption: bloc.options.notesSortPropertyOption,
+            sortBoxOrderOption: bloc.options.notesSortBoxOrderOption,
+            input: category != null
+                ? notesData?.where((final note) => note.favorite! && note.category == category).toList()
+                : notesData?.where((final note) => note.favorite!).toList(),
+            builder: (final context, final sortedFavorites) => SortBoxBuilder<NotesSortProperty, NotesNote>(
+              sortBox: notesSortBox,
+              sortPropertyOption: bloc.options.notesSortPropertyOption,
+              sortBoxOrderOption: bloc.options.notesSortBoxOrderOption,
+              input: category != null
+                  ? notesData?.where((final note) => !note.favorite! && note.category == category).toList()
+                  : notesData?.where((final note) => !note.favorite!).toList(),
+              builder: (final context, final sortedNonFavorites) => CustomListView<NotesNote>(
+                scrollKey: 'notes-notes',
+                withFloatingActionButton: true,
+                items: [
+                  if (sortedFavorites != null) ...[
+                    ...sortedFavorites,
+                  ],
+                  if (sortedNonFavorites != null) ...[
+                    ...sortedNonFavorites,
+                  ],
                 ],
-              ]
-                  .intersperse(
-                    const SizedBox(
-                      height: 10,
-                    ),
-                  )
-                  .toList(),
+                isLoading: notesLoading,
+                error: notesError,
+                onRetry: () {
+                  bloc.refresh();
+                },
+                onRefresh: () async {
+                  bloc.refresh();
+                },
+                builder: _buildNote,
+              ),
             ),
           ),
         ),

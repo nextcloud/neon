@@ -13,8 +13,8 @@ class SortBoxBuilder<T extends Enum, R> extends StatelessWidget {
   final SortBox<T, R> sortBox;
   final SelectOption<T> sortPropertyOption;
   final SelectOption<SortBoxOrder> sortBoxOrderOption;
-  final List<R> input;
-  final Widget Function(BuildContext, List<R>) builder;
+  final List<R>? input;
+  final Widget Function(BuildContext, List<R>?) builder;
 
   @override
   Widget build(final BuildContext context) => OptionBuilder<T>(
@@ -25,7 +25,7 @@ class SortBoxBuilder<T extends Enum, R> extends StatelessWidget {
               ? Container()
               : builder(
                   context,
-                  sortBox.sort(input, Box(property, order)),
+                  input == null ? null : sortBox.sort(input!, Box(property, order)),
                 ),
         ),
       );

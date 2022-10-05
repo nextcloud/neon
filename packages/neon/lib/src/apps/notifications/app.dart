@@ -1,7 +1,6 @@
 library notifications;
 
 import 'package:flutter/material.dart';
-import 'package:intersperse/intersperse.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:neon/l10n/localizations.dart';
 import 'package:neon/src/apps/notifications/blocs/notifications.dart';
