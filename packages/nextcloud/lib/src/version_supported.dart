@@ -4,7 +4,7 @@ part of '../nextcloud.dart';
 extension CoreVersionSupported on CoreClient {
   /// Checks if the app on the server is supported by the client
   Future<bool> isSupported([final CoreServerCapabilitiesOcsData? capabilities]) async =>
-      (capabilities ?? (await rootClient.core.getCapabilities()).ocs!.data!).version!.major! == 24;
+      (capabilities ?? (await getCapabilities()).ocs!.data!).version!.major! == 24;
 }
 
 // ignore: public_member_api_docs
