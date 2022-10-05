@@ -678,38 +678,23 @@ class _HomePageState extends State<HomePage> with tray.TrayListener, WindowListe
                                     ],
                                   ),
                                   actions: [
-                                    if (appsData != null && activeAppIDSnapshot.hasData) ...[
-                                      IconButton(
-                                        icon: const Icon(Icons.settings),
-                                        onPressed: () async {
-                                          await Navigator.of(context).push(
-                                            MaterialPageRoute(
-                                              builder: (final context) => NextcloudAppSpecificSettingsPage(
-                                                appImplementation: appsData
-                                                    .singleWhere((final a) => a.id == activeAppIDSnapshot.data!),
-                                              ),
-                                            ),
-                                          );
-                                        },
-                                      ),
-                                      IconButton(
-                                        icon: IntrinsicWidth(
-                                          child: AccountAvatar(
-                                            account: account,
-                                          ),
+                                    IconButton(
+                                      icon: IntrinsicWidth(
+                                        child: AccountAvatar(
+                                          account: account,
                                         ),
-                                        onPressed: () async {
-                                          await Navigator.of(context).push(
-                                            MaterialPageRoute(
-                                              builder: (final context) => AccountSpecificSettingsPage(
-                                                bloc: accountsBloc,
-                                                account: account,
-                                              ),
-                                            ),
-                                          );
-                                        },
                                       ),
-                                    ],
+                                      onPressed: () async {
+                                        await Navigator.of(context).push(
+                                          MaterialPageRoute(
+                                            builder: (final context) => AccountSpecificSettingsPage(
+                                              bloc: accountsBloc,
+                                              account: account,
+                                            ),
+                                          ),
+                                        );
+                                      },
+                                    ),
                                   ],
                                 ),
                                 body: Row(
