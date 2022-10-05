@@ -991,7 +991,7 @@ class OpenAPIBuilder implements Builder {
                                 }
                                 code.write('}');
                               }
-                              code.write('throw ApiException.fromResponse(response);');
+                              code.write('throw ApiException.fromResponse(response); // coverage:ignore-line\n');
                             } else {
                               b.returns = refer('Future');
                             }
@@ -1028,6 +1028,7 @@ class OpenAPIBuilder implements Builder {
 
       if (registeredJsonObjects.isNotEmpty) {
         output.addAll([
+          '// coverage:ignore-start',
           'final _deserializers = <Type, dynamic Function(dynamic)>{',
           for (final name in registeredJsonObjects) ...[
             '$name: (final data) => ${_deserializeFunctionForType(
@@ -1077,6 +1078,7 @@ class OpenAPIBuilder implements Builder {
           'T deserialize<T>(final dynamic data) => _deserializers[T]!(data) as T;',
           '',
           'dynamic serialize<T>(final T data) => _serializers[T]!(data);',
+          '// coverage:ignore-end',
         ]);
       }
 
@@ -1085,7 +1087,22 @@ class OpenAPIBuilder implements Builder {
       );
       await buildStep.writeAsString(
         outputId,
-        formatter.format(output.join('\n')),
+        formatter.format(
+          output
+              .join('\n')
+              .replaceAll(
+                'Map<String, dynamic> toJson()',
+                '  // coverage:ignore-start\nMap<String, dynamic> toJson()',
+              )
+              .replaceAll(
+                'ToJson(this);',
+                'ToJson(this);\n  // coverage:ignore-end\n',
+              )
+              .replaceAll(
+                'dynamic toJson() => _data;',
+                '  // coverage:ignore-start\ndynamic toJson() => _data;\n  // coverage:ignore-end\n',
+              ),
+        ),
       );
     } catch (e, s) {
       print(s);
