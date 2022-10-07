@@ -16,7 +16,7 @@ jobs:
 
       - uses: subosito/flutter-action@v2
         with:
-          flutter-version: '3.3.3'
+          flutter-version: '3.3.4'
           channel: 'stable'
           cache: true
       - name: Set up JDK 11
