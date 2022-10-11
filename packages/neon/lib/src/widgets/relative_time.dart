@@ -1,9 +1,18 @@
 part of '../neon.dart';
 
-class CustomTimeAgo {
+class RelativeTime extends StatelessWidget {
+  const RelativeTime({
+    required this.date,
+    this.style,
+    super.key,
+  });
+
+  final DateTime date;
+  final TextStyle? style;
+
   static String format(final DateTime date) {
     final now = DateTime.now();
-    var diff = now.difference(date);
+    var diff = now.difference(date.toLocal());
     final text = StringBuffer();
 
     // Sometimes something can be messed up...
@@ -28,4 +37,13 @@ class CustomTimeAgo {
 
     return text.toString();
   }
+
+  @override
+  Widget build(final BuildContext context) => StreamBuilder(
+        stream: Stream.periodic(const Duration(minutes: 1)),
+        builder: (final context, final _) => Text(
+          format(date),
+          style: style,
+        ),
+      );
 }

@@ -244,7 +244,9 @@ class _FilesBrowserViewState extends State<FilesBrowserView> {
         ),
         subtitle: Row(
           children: [
-            Text(CustomTimeAgo.format(details.lastModified)),
+            RelativeTime(
+              date: details.lastModified,
+            ),
             if (details.size > 0) ...[
               const SizedBox(
                 width: 10,
