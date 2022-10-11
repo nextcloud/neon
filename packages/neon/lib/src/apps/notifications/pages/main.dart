@@ -81,7 +81,9 @@ class _NotificationsMainPageState extends State<NotificationsMainPage> {
               height: 5,
             ),
           ],
-          Text(CustomTimeAgo.format(DateTime.parse(notification.datetime!))),
+          RelativeTime(
+            date: DateTime.parse(notification.datetime!),
+          ),
         ],
       ),
       leading: matchingAppImplementations.isNotEmpty

@@ -89,10 +89,8 @@ class NotesView extends StatelessWidget {
         title: Text(note.title!),
         subtitle: Row(
           children: [
-            Text(
-              CustomTimeAgo.format(
-                DateTime.fromMillisecondsSinceEpoch(note.modified! * 1000),
-              ),
+            RelativeTime(
+              date: DateTime.fromMillisecondsSinceEpoch(note.modified! * 1000),
             ),
             if (note.category! != '') ...[
               const SizedBox(

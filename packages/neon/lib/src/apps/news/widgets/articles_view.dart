@@ -169,10 +169,8 @@ class _NewsArticlesViewState extends State<NewsArticlesView> {
                 borderRadius: const BorderRadius.all(Radius.circular(2)),
               ),
             ),
-            Text(
-              CustomTimeAgo.format(
-                DateTime.fromMillisecondsSinceEpoch(article.pubDate! * 1000),
-              ),
+            RelativeTime(
+              date: DateTime.fromMillisecondsSinceEpoch(article.pubDate! * 1000),
               style: const TextStyle(
                 fontWeight: FontWeight.w300,
                 fontSize: 12,
