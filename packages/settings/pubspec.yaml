@@ -15,4 +15,4 @@ dev_dependencies:
   nit_picking:
     git:
       url: https://github.com/stack11/dart_nit_picking
-      ref: f29382f
+      ref: 9f625eb
