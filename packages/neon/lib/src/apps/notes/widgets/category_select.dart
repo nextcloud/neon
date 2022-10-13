@@ -21,7 +21,7 @@ class NotesCategorySelect extends StatelessWidget {
   late final _categories = categories..sort((final a, final b) => a.compareTo(b));
 
   @override
-  Widget build(final BuildContext context) => CustomAutocomplete<String>(
+  Widget build(final BuildContext context) => Autocomplete<String>(
         initialValue: initialValue != null
             ? TextEditingValue(
                 text: initialValue!,
@@ -59,19 +59,38 @@ class NotesCategorySelect extends StatelessWidget {
           },
           onChanged: onChanged,
         ),
-        displayWidgetForOption: (final category) => Row(
-          children: [
-            Icon(
-              MdiIcons.tag,
-              color: category != '' ? NotesCategoryColor.compute(category) : null,
+        optionsViewBuilder: (final context, final onSelected, final options) => Align(
+          alignment: Alignment.topLeft,
+          child: Material(
+            elevation: 4,
+            child: ConstrainedBox(
+              constraints: const BoxConstraints(maxHeight: 200),
+              child: ListView.builder(
+                padding: EdgeInsets.zero,
+                shrinkWrap: true,
+                itemCount: options.length,
+                itemBuilder: (final context, final index) {
+                  final option = options.elementAt(index);
+                  return InkWell(
+                    onTap: () {
+                      onSelected(option);
+                    },
+                    child: Builder(
+                      builder: (final context) => ListTile(
+                        leading: Icon(
+                          MdiIcons.tag,
+                          color: option != '' ? NotesCategoryColor.compute(option) : null,
+                        ),
+                        title: Text(
+                          option != '' ? option : AppLocalizations.of(context).notesUncategorized,
+                        ),
+                      ),
+                    ),
+                  );
+                },
+              ),
             ),
-            const SizedBox(
-              width: 10,
-            ),
-            Text(
-              category != '' ? category : AppLocalizations.of(context).notesUncategorized,
-            ),
-          ],
+          ),
         ),
         onSelected: (final value) {
           if (categories.contains(value)) {

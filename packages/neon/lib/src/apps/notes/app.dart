@@ -10,7 +10,6 @@ import 'package:neon/l10n/localizations.dart';
 import 'package:neon/src/apps/notes/blocs/notes.dart';
 import 'package:neon/src/blocs/apps.dart';
 import 'package:neon/src/neon.dart';
-import 'package:neon/src/widgets/custom_auto_complete.dart';
 import 'package:nextcloud/nextcloud.dart';
 import 'package:provider/provider.dart';
 import 'package:rxdart/rxdart.dart';
