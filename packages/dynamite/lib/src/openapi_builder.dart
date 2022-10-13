@@ -403,6 +403,14 @@ class OpenAPIBuilder implements Builder {
                 result = TypeResolveResult('dynamic');
                 break;
               }
+              if (schema.properties!.isEmpty) {
+                result = TypeResolveResult(
+                  'Map<String, dynamic>',
+                  isBaseType: false,
+                  isMap: true,
+                );
+                break;
+              }
 
               if (!resolvedTypes.contains(identifier)) {
                 resolvedTypes.add(identifier);
@@ -1218,6 +1226,7 @@ class TypeResolveResult {
     this.typeName, {
     this.isBaseType = true,
     this.isList = false,
+    this.isMap = false,
     this.isEnum = false,
     this.subType,
   });
@@ -1225,6 +1234,7 @@ class TypeResolveResult {
   final String typeName;
   final bool isBaseType;
   final bool isList;
+  final bool isMap;
   final bool isEnum;
   final TypeResolveResult? subType;
 }
@@ -1232,6 +1242,8 @@ class TypeResolveResult {
 String _serializeFunctionForType(final String object, final TypeResolveResult result) {
   if (result.isList) {
     return '($object as ${result.typeName}).map((final e) => ${_serializeFunctionForType('e', result.subType!)}).toList()';
+  } else if (result.isMap) {
+    return '($object as ${result.typeName})';
   } else if (result.isBaseType) {
     return '$object.toString()';
   } else if (result.isEnum) {
@@ -1247,6 +1259,8 @@ String _deserializeFunctionForType(final String object, final TypeResolveResult 
       return '$object as List';
     }
     return '($object as List).map<${result.subType!.typeName}>((final e) => ${_deserializeFunctionForType('e', result.subType!)}).toList()';
+  } else if (result.isMap) {
+    return '$object as Map<String, dynamic>';
   } else if (result.isBaseType) {
     return '$object as ${result.typeName}';
   } else if (result.isEnum) {

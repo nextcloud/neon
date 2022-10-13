@@ -49,9 +49,9 @@ Future main() async {
       expect(response.ocs!.data![0].message, '456');
       expect(response.ocs!.data![0].link, '');
       expect(response.ocs!.data![0].subjectRich, '');
-      expect(response.ocs!.data![0].subjectRichParameters, hasLength(0));
+      expect(response.ocs!.data![0].subjectRichParameters!.mapStringDynamic, null);
       expect(response.ocs!.data![0].messageRich, '');
-      expect(response.ocs!.data![0].messageRichParameters, hasLength(0));
+      expect(response.ocs!.data![0].messageRichParameters!.mapStringDynamic, null);
       expect(response.ocs!.data![0].icon, isNotEmpty);
       expect(response.ocs!.data![0].actions, hasLength(0));
     });
@@ -71,9 +71,9 @@ Future main() async {
       expect(response.ocs!.data!.message, '456');
       expect(response.ocs!.data!.link, '');
       expect(response.ocs!.data!.subjectRich, '');
-      expect(response.ocs!.data!.subjectRichParameters, hasLength(0));
+      expect(response.ocs!.data!.subjectRichParameters!.mapStringDynamic, null);
       expect(response.ocs!.data!.messageRich, '');
-      expect(response.ocs!.data!.messageRichParameters, hasLength(0));
+      expect(response.ocs!.data!.messageRichParameters!.mapStringDynamic, null);
       expect(response.ocs!.data!.icon, isNotEmpty);
       expect(response.ocs!.data!.actions, hasLength(0));
     });

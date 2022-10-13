@@ -1057,21 +1057,23 @@
             "type": "string"
           },
           "subjectRichParameters": {
-            "type": "array",
-            "items": {
-              "description": "TODO",
-              "type": "string"
-            }
+            "anyOf": [
+              {
+                "type": "object",
+                "properties": {}
+              }
+            ]
           },
           "messageRich": {
             "type": "string"
           },
           "messageRichParameters": {
-            "type": "array",
-            "items": {
-              "description": "TODO",
-              "type": "string"
-            }
+            "anyOf": [
+              {
+                "type": "object",
+                "properties": {}
+              }
+            ]
           },
           "icon": {
             "type": "string"
@@ -1478,13 +1480,9 @@
                 "$ref": "#/components/schemas/OCSMeta"
               },
               "data": {
-                "oneOf": [
+                "anyOf": [
                   {
                     "$ref": "#/components/schemas/UserStatus"
-                  },
-                  {
-                    "type": "array",
-                    "description": "Only happens when the user has never set a status"
                   }
                 ]
               }
@@ -1521,13 +1519,9 @@
                 "$ref": "#/components/schemas/OCSMeta"
               },
               "data": {
-                "oneOf": [
+                "anyOf": [
                   {
                     "$ref": "#/components/schemas/UserStatusPublicUserStatus"
-                  },
-                  {
-                    "type": "array",
-                    "description": "Only happens when the user has never set a status"
                   }
                 ]
               }

@@ -107,21 +107,23 @@
             "type": "string"
           },
           "subjectRichParameters": {
-            "type": "array",
-            "items": {
-              "description": "TODO",
-              "type": "string"
-            }
+            "anyOf": [
+              {
+                "type": "object",
+                "properties": {}
+              }
+            ]
           },
           "messageRich": {
             "type": "string"
           },
           "messageRichParameters": {
-            "type": "array",
-            "items": {
-              "description": "TODO",
-              "type": "string"
-            }
+            "anyOf": [
+              {
+                "type": "object",
+                "properties": {}
+              }
+            ]
           },
           "icon": {
             "type": "string"

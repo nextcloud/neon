@@ -1234,9 +1234,13 @@ NotificationsNotification _$NotificationsNotificationFromJson(Map<String, dynami
       message: json['message'] as String?,
       link: json['link'] as String?,
       subjectRich: json['subjectRich'] as String?,
-      subjectRichParameters: (json['subjectRichParameters'] as List<dynamic>?)?.map((e) => e as String).toList(),
+      subjectRichParameters: json['subjectRichParameters'] == null
+          ? null
+          : NotificationsNotificationSubjectRichParameters.fromJson(json['subjectRichParameters']),
       messageRich: json['messageRich'] as String?,
-      messageRichParameters: (json['messageRichParameters'] as List<dynamic>?)?.map((e) => e as String).toList(),
+      messageRichParameters: json['messageRichParameters'] == null
+          ? null
+          : NotificationsNotificationMessageRichParameters.fromJson(json['messageRichParameters']),
       icon: json['icon'] as String?,
       actions: (json['actions'] as List<dynamic>?)
           ?.map((e) => NotificationsNotificationAction.fromJson(e as Map<String, dynamic>))
@@ -1254,9 +1258,9 @@ Map<String, dynamic> _$NotificationsNotificationToJson(NotificationsNotification
       'message': instance.message,
       'link': instance.link,
       'subjectRich': instance.subjectRich,
-      'subjectRichParameters': instance.subjectRichParameters,
+      'subjectRichParameters': instance.subjectRichParameters?.toJson(),
       'messageRich': instance.messageRich,
-      'messageRichParameters': instance.messageRichParameters,
+      'messageRichParameters': instance.messageRichParameters?.toJson(),
       'icon': instance.icon,
       'actions': instance.actions?.map((e) => e.toJson()).toList(),
     };

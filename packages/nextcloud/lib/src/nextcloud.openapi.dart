@@ -2461,6 +2461,58 @@ class NotesClient {
   }
 }
 
+class NotificationsNotificationSubjectRichParameters {
+  NotificationsNotificationSubjectRichParameters(
+    this._data, {
+    this.mapStringDynamic,
+  });
+
+  factory NotificationsNotificationSubjectRichParameters.fromJson(dynamic data) {
+    Map<String, dynamic>? mapStringDynamic;
+    try {
+      mapStringDynamic = data as Map<String, dynamic>;
+    } catch (_) {}
+    return NotificationsNotificationSubjectRichParameters(
+      data,
+      mapStringDynamic: mapStringDynamic,
+    );
+  }
+
+  final dynamic _data;
+
+  final Map<String, dynamic>? mapStringDynamic;
+
+  // coverage:ignore-start
+  dynamic toJson() => _data;
+  // coverage:ignore-end
+}
+
+class NotificationsNotificationMessageRichParameters {
+  NotificationsNotificationMessageRichParameters(
+    this._data, {
+    this.mapStringDynamic,
+  });
+
+  factory NotificationsNotificationMessageRichParameters.fromJson(dynamic data) {
+    Map<String, dynamic>? mapStringDynamic;
+    try {
+      mapStringDynamic = data as Map<String, dynamic>;
+    } catch (_) {}
+    return NotificationsNotificationMessageRichParameters(
+      data,
+      mapStringDynamic: mapStringDynamic,
+    );
+  }
+
+  final dynamic _data;
+
+  final Map<String, dynamic>? mapStringDynamic;
+
+  // coverage:ignore-start
+  dynamic toJson() => _data;
+  // coverage:ignore-end
+}
+
 @JsonSerializable()
 class NotificationsNotificationAction {
   NotificationsNotificationAction({
@@ -2531,11 +2583,11 @@ class NotificationsNotification {
 
   final String? subjectRich;
 
-  final List<String>? subjectRichParameters;
+  final NotificationsNotificationSubjectRichParameters? subjectRichParameters;
 
   final String? messageRich;
 
-  final List<String>? messageRichParameters;
+  final NotificationsNotificationMessageRichParameters? messageRichParameters;
 
   final String? icon;
 
@@ -3317,7 +3369,6 @@ class UserStatusFindStatusOcsData {
   UserStatusFindStatusOcsData(
     this._data, {
     this.userStatusPublicUserStatus,
-    this.list,
   });
 
   factory UserStatusFindStatusOcsData.fromJson(dynamic data) {
@@ -3325,24 +3376,15 @@ class UserStatusFindStatusOcsData {
     try {
       userStatusPublicUserStatus = UserStatusPublicUserStatus.fromJson(data as Map<String, dynamic>);
     } catch (_) {}
-    List? list;
-    try {
-      list = data as List;
-    } catch (_) {}
-    assert([userStatusPublicUserStatus, list].where((final x) => x != null).length == 1, 'Need oneOf');
     return UserStatusFindStatusOcsData(
       data,
       userStatusPublicUserStatus: userStatusPublicUserStatus,
-      list: list,
     );
   }
 
   final dynamic _data;
 
   final UserStatusPublicUserStatus? userStatusPublicUserStatus;
-
-  /// Only happens when the user has never set a status
-  final List? list;
 
   // coverage:ignore-start
   dynamic toJson() => _data;
@@ -3420,7 +3462,6 @@ class UserStatusGetUserStatusOcsData {
   UserStatusGetUserStatusOcsData(
     this._data, {
     this.userStatus,
-    this.list,
   });
 
   factory UserStatusGetUserStatusOcsData.fromJson(dynamic data) {
@@ -3428,24 +3469,15 @@ class UserStatusGetUserStatusOcsData {
     try {
       userStatus = UserStatus.fromJson(data as Map<String, dynamic>);
     } catch (_) {}
-    List? list;
-    try {
-      list = data as List;
-    } catch (_) {}
-    assert([userStatus, list].where((final x) => x != null).length == 1, 'Need oneOf');
     return UserStatusGetUserStatusOcsData(
       data,
       userStatus: userStatus,
-      list: list,
     );
   }
 
   final dynamic _data;
 
   final UserStatus? userStatus;
-
-  /// Only happens when the user has never set a status
-  final List? list;
 
   // coverage:ignore-start
   dynamic toJson() => _data;
