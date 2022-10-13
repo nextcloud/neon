@@ -1507,10 +1507,16 @@ Map<String, dynamic> _$ProvisioningApiUserToJson(ProvisioningApiUser instance) =
       'ocs': instance.ocs?.toJson(),
     };
 
-UserStatusClearAt _$UserStatusClearAtFromJson(Map<String, dynamic> json) => UserStatusClearAt(
-      type: $enumDecodeNullable(_$UserStatusClearAtTypeEnumMap, json['type']),
-      time: json['time'] == null ? null : UserStatusClearAtTime.fromJson(json['time']),
-    );
+UserStatusClearAt _$UserStatusClearAtFromJson(Map<String, dynamic> json) {
+  $checkKeys(
+    json,
+    allowedKeys: const ['type', 'time'],
+  );
+  return UserStatusClearAt(
+    type: $enumDecodeNullable(_$UserStatusClearAtTypeEnumMap, json['type']),
+    time: json['time'] == null ? null : UserStatusClearAtTime.fromJson(json['time']),
+  );
+}
 
 Map<String, dynamic> _$UserStatusClearAtToJson(UserStatusClearAt instance) => <String, dynamic>{
       'type': _$UserStatusClearAtTypeEnumMap[instance.type],
@@ -1586,16 +1592,31 @@ Map<String, dynamic> _$UserStatusFindStatusToJson(UserStatusFindStatus instance)
       'ocs': instance.ocs?.toJson(),
     };
 
-UserStatus _$UserStatusFromJson(Map<String, dynamic> json) => UserStatus(
-      userId: json['userId'] as String?,
-      message: json['message'] as String?,
-      messageId: json['messageId'] as String?,
-      messageIsPredefined: json['messageIsPredefined'] as bool?,
-      icon: json['icon'] as String?,
-      clearAt: json['clearAt'] == null ? null : UserStatusClearAtWrap.fromJson(json['clearAt']),
-      status: $enumDecodeNullable(_$UserStatusTypeEnumMap, json['status']),
-      statusIsUserDefined: json['statusIsUserDefined'] as bool?,
-    );
+UserStatus _$UserStatusFromJson(Map<String, dynamic> json) {
+  $checkKeys(
+    json,
+    allowedKeys: const [
+      'userId',
+      'message',
+      'messageId',
+      'messageIsPredefined',
+      'icon',
+      'clearAt',
+      'status',
+      'statusIsUserDefined'
+    ],
+  );
+  return UserStatus(
+    userId: json['userId'] as String?,
+    message: json['message'] as String?,
+    messageId: json['messageId'] as String?,
+    messageIsPredefined: json['messageIsPredefined'] as bool?,
+    icon: json['icon'] as String?,
+    clearAt: json['clearAt'] == null ? null : UserStatusClearAtWrap.fromJson(json['clearAt']),
+    status: $enumDecodeNullable(_$UserStatusTypeEnumMap, json['status']),
+    statusIsUserDefined: json['statusIsUserDefined'] as bool?,
+  );
+}
 
 Map<String, dynamic> _$UserStatusToJson(UserStatus instance) => <String, dynamic>{
       'userId': instance.userId,
