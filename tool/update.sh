@@ -2,16 +2,6 @@
 set -euxo pipefail
 cd "$(dirname "$0")/.."
 
-function update_app() {
-    name="$1"
-    (
-      cd "external/nextcloud-$name"
-      git fetch --tags
-      latest_tag="$(git tag --sort=v:refname | grep -vi "rc" | grep -vi "alpha" | grep -vi "beta" | tail -n 1)"
-      git reset --hard "$latest_tag"
-    )
-}
-
 if [[ "$1" == "flutter" ]]; then
   flutter_channel="stable"
   flutter_version="$(curl https://raw.githubusercontent.com/fluttertools/fvm/main/releases_linux.json | jq -r "[.releases[] | select(.channel==\"$flutter_channel\")][0].version")"
@@ -29,7 +19,12 @@ elif [[ "$1" == "dependencies" ]]; then
     fvm exec mono_repo pub upgrade --major-versions
     fvm exec mono_repo pub upgrade
 elif [ -d "external/nextcloud-$1" ]; then
-    update_app "$1"
+    (
+      cd "external/nextcloud-$1"
+      git fetch --tags
+      latest_tag="$(git tag --sort=v:refname | grep -vi "rc" | grep -vi "alpha" | grep -vi "beta" | tail -n 1)"
+      git reset --hard "$latest_tag"
+    )
 else
   echo "$1 not found"
   exit 1
