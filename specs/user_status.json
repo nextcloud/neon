@@ -148,13 +148,9 @@
                 "$ref": "#/components/schemas/OCSMeta"
               },
               "data": {
-                "oneOf": [
+                "anyOf": [
                   {
                     "$ref": "#/components/schemas/UserStatus"
-                  },
-                  {
-                    "type": "array",
-                    "description": "Only happens when the user has never set a status"
                   }
                 ]
               }
@@ -191,13 +187,9 @@
                 "$ref": "#/components/schemas/OCSMeta"
               },
               "data": {
-                "oneOf": [
+                "anyOf": [
                   {
                     "$ref": "#/components/schemas/UserStatusPublicUserStatus"
-                  },
-                  {
-                    "type": "array",
-                    "description": "Only happens when the user has never set a status"
                   }
                 ]
               }
