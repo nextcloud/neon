@@ -3223,7 +3223,7 @@ class UserStatusClearAtTime {
   // coverage:ignore-end
 }
 
-@JsonSerializable()
+@JsonSerializable(disallowUnrecognizedKeys: true)
 class UserStatusClearAt {
   UserStatusClearAt({
     this.type,
@@ -3422,7 +3422,7 @@ class UserStatusFindStatus {
   // coverage:ignore-end
 }
 
-@JsonSerializable()
+@JsonSerializable(disallowUnrecognizedKeys: true)
 class UserStatus {
   UserStatus({
     this.userId,

@@ -225,6 +225,7 @@ class OpenAPIBuilder implements Builder {
         final String identifier,
         final Schema schema, {
         final bool ignoreEnum = false,
+        final Map<String, String>? extraJsonSerializableValues,
       }) {
         TypeResolveResult? result;
         if (schema.ref != null) {
@@ -232,13 +233,26 @@ class OpenAPIBuilder implements Builder {
           result = resolveType(
             name,
             spec.components!.schemas![name]!,
+            extraJsonSerializableValues: extraJsonSerializableValues,
           );
         } else if (schema.ofs != null) {
           if (!resolvedTypes.contains(identifier)) {
             resolvedTypes.add(identifier);
 
-            final results =
-                schema.ofs!.map((final s) => resolveType('$identifier${schema.ofs!.indexOf(s)}', s)).toList();
+            final results = schema.ofs!
+                .map(
+                  (final s) => resolveType(
+                    '$identifier${schema.ofs!.indexOf(s)}',
+                    s,
+                    extraJsonSerializableValues: {
+                      'disallowUnrecognizedKeys': 'true',
+                      if (extraJsonSerializableValues != null) ...{
+                        ...extraJsonSerializableValues,
+                      },
+                    },
+                  ),
+                )
+                .toList();
 
             output.add(
               Class(
@@ -383,6 +397,7 @@ class OpenAPIBuilder implements Builder {
                 final subResult = resolveType(
                   identifier,
                   schema.items!,
+                  extraJsonSerializableValues: extraJsonSerializableValues,
                 );
                 result = TypeResolveResult(
                   'List<${subResult.typeName}>',
@@ -425,7 +440,18 @@ class OpenAPIBuilder implements Builder {
                             '/// ${schema.description!}',
                           ],
                         ])
-                        ..annotations.add(refer('JsonSerializable').call([]))
+                        ..annotations.add(
+                          refer('JsonSerializable').call(
+                            [],
+                            {
+                              if (extraJsonSerializableValues != null) ...{
+                                for (final key in extraJsonSerializableValues.keys) ...{
+                                  key: refer(extraJsonSerializableValues[key]!),
+                                },
+                              },
+                            },
+                          ),
+                        )
                         ..constructors.addAll(
                           [
                             Constructor(
@@ -476,6 +502,7 @@ class OpenAPIBuilder implements Builder {
                                     uppercaseFirstCharacter: true,
                                   ),
                                   schema.properties![propertyName]!,
+                                  extraJsonSerializableValues: extraJsonSerializableValues,
                                 );
 
                                 final propertySchema = schema.properties![propertyName]!;
@@ -554,6 +581,7 @@ class OpenAPIBuilder implements Builder {
                               '$identifier${_toDartName(value.toString(), uppercaseFirstCharacter: true)}',
                               schema,
                               ignoreEnum: true,
+                              extraJsonSerializableValues: extraJsonSerializableValues,
                             );
                             b
                               ..name = _toDartName(value.toString())
