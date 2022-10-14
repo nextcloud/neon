@@ -18,9 +18,9 @@ class NewsFeedIcon extends StatelessWidget {
         width: size,
         height: size,
         borderRadius: borderRadius,
-        child: feed.faviconLink != null && feed.faviconLink != ''
+        child: feed.faviconLink != ''
             ? CachedURLImage(
-                url: feed.faviconLink!,
+                url: feed.faviconLink,
                 height: size,
                 width: size,
                 iconColor: Theme.of(context).colorScheme.primary,

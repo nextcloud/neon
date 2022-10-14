@@ -34,7 +34,7 @@ class _LoginPageState extends State<LoginPage> {
       if (init != null && !Provider.of<NeonPlatform>(context, listen: false).canUseWebView) {
         WidgetsBinding.instance.addPostFrameCallback((final _) async {
           await launchUrlString(
-            init.login!,
+            init.login,
             mode: LaunchMode.externalApplication,
             webViewConfiguration: WebViewConfiguration(
               headers: _buildHeaders(context, Provider.of<Env?>(context, listen: false)),
@@ -47,9 +47,9 @@ class _LoginPageState extends State<LoginPage> {
     _loginBloc.loginFlowResult.listen((final result) async {
       if (result != null) {
         final account = Account(
-          serverURL: result.server!,
-          username: result.loginName!,
-          appPassword: result.appPassword!,
+          serverURL: result.server,
+          username: result.loginName,
+          appPassword: result.appPassword,
         )..setupClient(await PackageInfo.fromPlatform());
 
         if (!mounted) {
@@ -64,7 +64,7 @@ class _LoginPageState extends State<LoginPage> {
           for (final a in accountsBloc.accounts.value) {
             if (a.id == account.id) {
               ExceptionWidget.showSnackbar(context, AppLocalizations.of(context).errorAccountAlreadyExists);
-              _loginBloc.setServerURL(result.server!);
+              _loginBloc.setServerURL(result.server);
               return;
             }
           }
@@ -155,7 +155,7 @@ class _LoginPageState extends State<LoginPage> {
                           onWebViewCreated: (final controller) async {
                             _webViewController = controller;
                             final url =
-                                (await _loginBloc.loginFlowInit.firstWhere((final init) => init != null))!.login!;
+                                (await _loginBloc.loginFlowInit.firstWhere((final init) => init != null))!.login;
                             if (mounted) {
                               await _webViewController!.loadUrl(
                                 url,

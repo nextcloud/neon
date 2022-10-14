@@ -15,13 +15,13 @@ class NewsFeedShowURLDialog extends StatefulWidget {
 class _NewsFeedShowURLDialogState extends State<NewsFeedShowURLDialog> {
   @override
   Widget build(final BuildContext context) => AlertDialog(
-        title: Text(widget.feed.url!),
+        title: Text(widget.feed.url),
         actions: [
           ElevatedButton(
             onPressed: () async {
               await Clipboard.setData(
                 ClipboardData(
-                  text: widget.feed.url!,
+                  text: widget.feed.url,
                 ),
               );
               if (mounted) {

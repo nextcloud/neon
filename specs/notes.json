@@ -34,8 +34,46 @@
   ],
   "components": {
     "schemas": {
+      "OCSMeta": {
+        "type": "object",
+        "required": [
+          "status",
+          "statuscode",
+          "totalitems",
+          "itemsperpage"
+        ],
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "statuscode": {
+            "type": "integer"
+          },
+          "message": {
+            "type": "string"
+          },
+          "totalitems": {
+            "type": "string"
+          },
+          "itemsperpage": {
+            "type": "string"
+          }
+        }
+      },
       "NotesNote": {
         "type": "object",
+        "required": [
+          "id",
+          "etag",
+          "readonly",
+          "content",
+          "title",
+          "category",
+          "favorite",
+          "modified",
+          "error",
+          "errorType"
+        ],
         "properties": {
           "id": {
             "type": "integer"
@@ -71,6 +109,11 @@
       },
       "NotesSettings": {
         "type": "object",
+        "required": [
+          "notesPath",
+          "fileSuffix",
+          "noteMode"
+        ],
         "properties": {
           "notesPath": {
             "type": "string"
@@ -84,26 +127,6 @@
               "edit",
               "preview"
             ]
-          }
-        }
-      },
-      "OCSMeta": {
-        "type": "object",
-        "properties": {
-          "status": {
-            "type": "string"
-          },
-          "statuscode": {
-            "type": "integer"
-          },
-          "message": {
-            "type": "string"
-          },
-          "totalitems": {
-            "type": "string"
-          },
-          "itemsperpage": {
-            "type": "string"
           }
         }
       }

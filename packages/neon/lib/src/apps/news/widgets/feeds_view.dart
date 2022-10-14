@@ -89,7 +89,7 @@ class NewsFeedsView extends StatelessWidget {
   ) =>
       ListTile(
         title: Text(
-          feed.title!,
+          feed.title,
           style: feed.unreadCount! == 0
               ? Theme.of(context).textTheme.subtitle1!.copyWith(color: Theme.of(context).disabledColor)
               : null,
@@ -104,7 +104,7 @@ class NewsFeedsView extends StatelessWidget {
         trailing: Row(
           mainAxisSize: MainAxisSize.min,
           children: [
-            if (feed.updateErrorCount! > 0) ...[
+            if (feed.updateErrorCount > 0) ...[
               IconButton(
                 iconSize: 30,
                 onPressed: () async {
@@ -116,7 +116,7 @@ class NewsFeedsView extends StatelessWidget {
                   );
                 },
                 icon: Text(
-                  feed.updateErrorCount!.toString(),
+                  feed.updateErrorCount.toString(),
                   style: const TextStyle(
                     color: Colors.red,
                   ),
@@ -157,19 +157,19 @@ class NewsFeedsView extends StatelessWidget {
                   case NewsFeedAction.delete:
                     if (await showConfirmationDialog(
                       context,
-                      AppLocalizations.of(context).newsRemoveFeedConfirm(feed.title!),
+                      AppLocalizations.of(context).newsRemoveFeedConfirm(feed.title),
                     )) {
-                      bloc.removeFeed(feed.id!);
+                      bloc.removeFeed(feed.id);
                     }
                     break;
                   case NewsFeedAction.rename:
                     final result = await showRenameDialog(
                       context: context,
                       title: AppLocalizations.of(context).newsRenameFeed,
-                      value: feed.title!,
+                      value: feed.title,
                     );
                     if (result != null) {
-                      bloc.renameFeed(feed.id!, result);
+                      bloc.renameFeed(feed.id, result);
                     }
                     break;
                   case NewsFeedAction.move:
@@ -181,7 +181,7 @@ class NewsFeedsView extends StatelessWidget {
                       ),
                     );
                     if (result != null) {
-                      bloc.moveFeed(feed.id!, result[0]);
+                      bloc.moveFeed(feed.id, result[0]);
                     }
                     break;
                 }
@@ -191,7 +191,7 @@ class NewsFeedsView extends StatelessWidget {
         ),
         onLongPress: () {
           if (feed.unreadCount! > 0) {
-            bloc.markFeedAsRead(feed.id!);
+            bloc.markFeedAsRead(feed.id);
           }
         },
         onTap: () async {

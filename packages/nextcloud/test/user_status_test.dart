@@ -14,45 +14,47 @@ Future main() async {
     test('Find all predefined statuses', () async {
       final expectedStatusIDs = ['meeting', 'commuting', 'remote-work', 'sick-leave', 'vacationing'];
       final response = await client.userStatus.findAllPredefinedStatuses();
-      expect(response.ocs!.data, hasLength(5));
-      final responseIDs = response.ocs!.data!.map((final status) => status.id!);
+      expect(response.ocs.data, hasLength(5));
+      final responseIDs = response.ocs.data.map((final status) => status.id);
       expect(expectedStatusIDs.map(responseIDs.contains).contains(false), false);
-      for (final status in response.ocs!.data!) {
+      for (final status in response.ocs.data) {
         expect(status.icon, isNotNull);
         expect(status.message, isNotNull);
       }
 
-      final meeting = response.ocs!.data!.singleWhere((final s) => s.id == 'meeting').clearAt!.userStatusClearAt!;
-      expect(meeting.type, UserStatusClearAtType.period);
-      expect(meeting.time!.int_, 3600);
+      final meeting = response.ocs.data.singleWhere((final s) => s.id == 'meeting').clearAt.userStatusClearAt!;
+      expect(meeting.type, UserStatusClearAt_Type.period);
+      expect(meeting.time.int_, 3600);
 
-      final commuting = response.ocs!.data!.singleWhere((final s) => s.id == 'commuting').clearAt!.userStatusClearAt!;
-      expect(commuting.type, UserStatusClearAtType.period);
-      expect(commuting.time!.int_, 1800);
+      final commuting = response.ocs.data.singleWhere((final s) => s.id == 'commuting').clearAt.userStatusClearAt!;
+      expect(commuting.type, UserStatusClearAt_Type.period);
+      expect(commuting.time.int_, 1800);
 
-      final remoteWork =
-          response.ocs!.data!.singleWhere((final s) => s.id == 'remote-work').clearAt!.userStatusClearAt!;
-      expect(remoteWork.type, UserStatusClearAtType.endOf);
-      expect(remoteWork.time!.userStatusClearAtTime0, UserStatusClearAtTime0.day);
+      final remoteWork = response.ocs.data.singleWhere((final s) => s.id == 'remote-work').clearAt.userStatusClearAt!;
+      expect(remoteWork.type, UserStatusClearAt_Type.endOf);
+      expect(remoteWork.time.userStatusClearAtTime0, UserStatusClearAt_Time0.day);
 
-      final sickLeave = response.ocs!.data!.singleWhere((final s) => s.id == 'sick-leave').clearAt!.userStatusClearAt!;
-      expect(sickLeave.type, UserStatusClearAtType.endOf);
-      expect(sickLeave.time!.userStatusClearAtTime0, UserStatusClearAtTime0.day);
+      final sickLeave = response.ocs.data.singleWhere((final s) => s.id == 'sick-leave').clearAt.userStatusClearAt!;
+      expect(sickLeave.type, UserStatusClearAt_Type.endOf);
+      expect(sickLeave.time.userStatusClearAtTime0, UserStatusClearAt_Time0.day);
 
-      expect(response.ocs!.data!.singleWhere((final s) => s.id == 'vacationing').clearAt, null);
+      final vacationing = response.ocs.data.singleWhere((final s) => s.id == 'vacationing').clearAt;
+      expect(vacationing.userStatusClearAt, null);
+      expect(vacationing.int_, null);
     });
 
     test('Set status', () async {
       final response = await client.userStatus.setStatus(statusType: UserStatusType.online);
 
-      expect(response.ocs!.data!.userStatus!.userId, 'user1');
-      expect(response.ocs!.data!.userStatus!.message, null);
-      expect(response.ocs!.data!.userStatus!.messageId, null);
-      expect(response.ocs!.data!.userStatus!.messageIsPredefined, false);
-      expect(response.ocs!.data!.userStatus!.icon, null);
-      expect(response.ocs!.data!.userStatus!.clearAt, null);
-      expect(response.ocs!.data!.userStatus!.status, UserStatusType.online);
-      expect(response.ocs!.data!.userStatus!.statusIsUserDefined, true);
+      expect(response.ocs.data.userStatus!.userId, 'user1');
+      expect(response.ocs.data.userStatus!.message, null);
+      expect(response.ocs.data.userStatus!.messageId, null);
+      expect(response.ocs.data.userStatus!.messageIsPredefined, false);
+      expect(response.ocs.data.userStatus!.icon, null);
+      expect(response.ocs.data.userStatus!.clearAt.userStatusClearAt, null);
+      expect(response.ocs.data.userStatus!.clearAt.int_, null);
+      expect(response.ocs.data.userStatus!.status, UserStatusType.online);
+      expect(response.ocs.data.userStatus!.statusIsUserDefined, true);
     });
 
     test('Get status', () async {
@@ -61,29 +63,31 @@ Future main() async {
       await client.userStatus.setStatus(statusType: UserStatusType.online);
 
       final response = await client.userStatus.getStatus();
-      expect(response.ocs!.data!.userStatus!.userId, 'user1');
-      expect(response.ocs!.data!.userStatus!.message, null);
-      expect(response.ocs!.data!.userStatus!.messageId, null);
-      expect(response.ocs!.data!.userStatus!.messageIsPredefined, false);
-      expect(response.ocs!.data!.userStatus!.icon, null);
-      expect(response.ocs!.data!.userStatus!.clearAt, null);
-      expect(response.ocs!.data!.userStatus!.status, UserStatusType.online);
-      expect(response.ocs!.data!.userStatus!.statusIsUserDefined, true);
+      expect(response.ocs.data.userStatus!.userId, 'user1');
+      expect(response.ocs.data.userStatus!.message, null);
+      expect(response.ocs.data.userStatus!.messageId, null);
+      expect(response.ocs.data.userStatus!.messageIsPredefined, false);
+      expect(response.ocs.data.userStatus!.icon, null);
+      expect(response.ocs.data.userStatus!.clearAt.userStatusClearAt, null);
+      expect(response.ocs.data.userStatus!.clearAt.int_, null);
+      expect(response.ocs.data.userStatus!.status, UserStatusType.online);
+      expect(response.ocs.data.userStatus!.statusIsUserDefined, true);
     });
 
     test('Find all statuses', () async {
       var response = await client.userStatus.findAllStatuses();
-      expect(response.ocs!.data, hasLength(0));
+      expect(response.ocs.data, hasLength(0));
 
       await client.userStatus.setStatus(statusType: UserStatusType.online);
 
       response = await client.userStatus.findAllStatuses();
-      expect(response.ocs!.data, hasLength(1));
-      expect(response.ocs!.data![0].userId, 'user1');
-      expect(response.ocs!.data![0].message, null);
-      expect(response.ocs!.data![0].icon, null);
-      expect(response.ocs!.data![0].clearAt, null);
-      expect(response.ocs!.data![0].status, UserStatusType.online);
+      expect(response.ocs.data, hasLength(1));
+      expect(response.ocs.data[0].userId, 'user1');
+      expect(response.ocs.data[0].message, null);
+      expect(response.ocs.data[0].icon, null);
+      expect(response.ocs.data[0].clearAt.userStatusClearAt, null);
+      expect(response.ocs.data[0].clearAt.int_, null);
+      expect(response.ocs.data[0].status, UserStatusType.online);
     });
 
     test('Find status', () async {
@@ -91,11 +95,12 @@ Future main() async {
       await client.userStatus.setStatus(statusType: UserStatusType.online);
 
       final response = await client.userStatus.findStatus(userId: 'user1');
-      expect(response.ocs!.data!.userStatusPublicUserStatus!.userId, 'user1');
-      expect(response.ocs!.data!.userStatusPublicUserStatus!.message, null);
-      expect(response.ocs!.data!.userStatusPublicUserStatus!.icon, null);
-      expect(response.ocs!.data!.userStatusPublicUserStatus!.clearAt, null);
-      expect(response.ocs!.data!.userStatusPublicUserStatus!.status, UserStatusType.online);
+      expect(response.ocs.data.userStatusPublicUserStatus!.userId, 'user1');
+      expect(response.ocs.data.userStatusPublicUserStatus!.message, null);
+      expect(response.ocs.data.userStatusPublicUserStatus!.icon, null);
+      expect(response.ocs.data.userStatusPublicUserStatus!.clearAt.userStatusClearAt, null);
+      expect(response.ocs.data.userStatusPublicUserStatus!.clearAt.int_, null);
+      expect(response.ocs.data.userStatusPublicUserStatus!.status, UserStatusType.online);
     });
 
     test('Set predefined message', () async {
@@ -104,14 +109,14 @@ Future main() async {
         messageId: 'meeting',
         clearAt: clearAt,
       );
-      expect(response.ocs!.data!.userStatus!.userId, 'user1');
-      expect(response.ocs!.data!.userStatus!.message, null);
-      expect(response.ocs!.data!.userStatus!.messageId, 'meeting');
-      expect(response.ocs!.data!.userStatus!.messageIsPredefined, true);
-      expect(response.ocs!.data!.userStatus!.icon, null);
-      expect(response.ocs!.data!.userStatus!.clearAt!.int_, clearAt);
-      expect(response.ocs!.data!.userStatus!.status, UserStatusType.offline);
-      expect(response.ocs!.data!.userStatus!.statusIsUserDefined, false);
+      expect(response.ocs.data.userStatus!.userId, 'user1');
+      expect(response.ocs.data.userStatus!.message, null);
+      expect(response.ocs.data.userStatus!.messageId, 'meeting');
+      expect(response.ocs.data.userStatus!.messageIsPredefined, true);
+      expect(response.ocs.data.userStatus!.icon, null);
+      expect(response.ocs.data.userStatus!.clearAt.int_, clearAt);
+      expect(response.ocs.data.userStatus!.status, UserStatusType.offline);
+      expect(response.ocs.data.userStatus!.statusIsUserDefined, false);
     });
 
     test('Set custom message', () async {
@@ -121,14 +126,14 @@ Future main() async {
         message: 'bla',
         clearAt: clearAt,
       );
-      expect(response.ocs!.data!.userStatus!.userId, 'user1');
-      expect(response.ocs!.data!.userStatus!.message, 'bla');
-      expect(response.ocs!.data!.userStatus!.messageId, null);
-      expect(response.ocs!.data!.userStatus!.messageIsPredefined, false);
-      expect(response.ocs!.data!.userStatus!.icon, '😀');
-      expect(response.ocs!.data!.userStatus!.clearAt!.int_, clearAt);
-      expect(response.ocs!.data!.userStatus!.status, UserStatusType.offline);
-      expect(response.ocs!.data!.userStatus!.statusIsUserDefined, false);
+      expect(response.ocs.data.userStatus!.userId, 'user1');
+      expect(response.ocs.data.userStatus!.message, 'bla');
+      expect(response.ocs.data.userStatus!.messageId, null);
+      expect(response.ocs.data.userStatus!.messageIsPredefined, false);
+      expect(response.ocs.data.userStatus!.icon, '😀');
+      expect(response.ocs.data.userStatus!.clearAt.int_, clearAt);
+      expect(response.ocs.data.userStatus!.status, UserStatusType.offline);
+      expect(response.ocs.data.userStatus!.statusIsUserDefined, false);
     });
 
     test('Clear message', () async {
@@ -141,28 +146,30 @@ Future main() async {
       await client.userStatus.clearMessage();
 
       final response = await client.userStatus.getStatus();
-      expect(response.ocs!.data!.userStatus!.userId, 'user1');
-      expect(response.ocs!.data!.userStatus!.message, null);
-      expect(response.ocs!.data!.userStatus!.messageId, null);
-      expect(response.ocs!.data!.userStatus!.messageIsPredefined, false);
-      expect(response.ocs!.data!.userStatus!.icon, null);
-      expect(response.ocs!.data!.userStatus!.clearAt, null);
-      expect(response.ocs!.data!.userStatus!.status, UserStatusType.offline);
-      expect(response.ocs!.data!.userStatus!.statusIsUserDefined, false);
+      expect(response.ocs.data.userStatus!.userId, 'user1');
+      expect(response.ocs.data.userStatus!.message, null);
+      expect(response.ocs.data.userStatus!.messageId, null);
+      expect(response.ocs.data.userStatus!.messageIsPredefined, false);
+      expect(response.ocs.data.userStatus!.icon, null);
+      expect(response.ocs.data.userStatus!.clearAt.userStatusClearAt, null);
+      expect(response.ocs.data.userStatus!.clearAt.int_, null);
+      expect(response.ocs.data.userStatus!.status, UserStatusType.offline);
+      expect(response.ocs.data.userStatus!.statusIsUserDefined, false);
     });
 
     test('Heartbeat', () async {
       await client.userStatus.heartbeat(status: UserStatusType.online);
 
       final response = await client.userStatus.getStatus();
-      expect(response.ocs!.data!.userStatus!.userId, 'user1');
-      expect(response.ocs!.data!.userStatus!.message, null);
-      expect(response.ocs!.data!.userStatus!.messageId, null);
-      expect(response.ocs!.data!.userStatus!.messageIsPredefined, false);
-      expect(response.ocs!.data!.userStatus!.icon, null);
-      expect(response.ocs!.data!.userStatus!.clearAt, null);
-      expect(response.ocs!.data!.userStatus!.status, UserStatusType.online);
-      expect(response.ocs!.data!.userStatus!.statusIsUserDefined, false);
+      expect(response.ocs.data.userStatus!.userId, 'user1');
+      expect(response.ocs.data.userStatus!.message, null);
+      expect(response.ocs.data.userStatus!.messageId, null);
+      expect(response.ocs.data.userStatus!.messageIsPredefined, false);
+      expect(response.ocs.data.userStatus!.icon, null);
+      expect(response.ocs.data.userStatus!.clearAt.userStatusClearAt, null);
+      expect(response.ocs.data.userStatus!.clearAt.int_, null);
+      expect(response.ocs.data.userStatus!.status, UserStatusType.online);
+      expect(response.ocs.data.userStatus!.statusIsUserDefined, false);
     });
   });
 }

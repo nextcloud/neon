@@ -16,6 +16,7 @@ class Schema {
     required this.default_,
     required this.enum_,
     required this.properties,
+    required this.required,
     required this.items,
   });
 
@@ -48,6 +49,8 @@ class Schema {
   final List<dynamic>? enum_;
 
   final Map<String, Schema>? properties;
+
+  final List<String>? required;
 
   final Schema? items;
 }

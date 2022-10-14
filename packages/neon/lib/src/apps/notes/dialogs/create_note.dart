@@ -71,7 +71,7 @@ class _NotesCreateNoteDialogState extends State<NotesCreateNoteDialog> {
                     ),
                     if (notesData != null) ...[
                       NotesCategorySelect(
-                        categories: notesData.map((final note) => note.category!).toSet().toList(),
+                        categories: notesData.map((final note) => note.category).toSet().toList(),
                         onChanged: (final category) {
                           selectedCategory = category;
                         },

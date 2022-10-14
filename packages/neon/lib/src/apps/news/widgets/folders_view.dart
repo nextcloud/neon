@@ -87,7 +87,7 @@ class NewsFoldersView extends StatelessWidget {
     final unreadCount = feedsUnreadCountSum(folderFeedsWrapper.feeds);
     return ListTile(
       title: Text(
-        folderFeedsWrapper.folder.name!,
+        folderFeedsWrapper.folder.name,
         style: unreadCount == 0
             ? Theme.of(context).textTheme.subtitle1!.copyWith(color: Theme.of(context).disabledColor)
             : null,
@@ -129,19 +129,19 @@ class NewsFoldersView extends StatelessWidget {
             case NewsFolderAction.delete:
               if (await showConfirmationDialog(
                 context,
-                AppLocalizations.of(context).newsDeleteFolderConfirm(folderFeedsWrapper.folder.name!),
+                AppLocalizations.of(context).newsDeleteFolderConfirm(folderFeedsWrapper.folder.name),
               )) {
-                bloc.deleteFolder(folderFeedsWrapper.folder.id!);
+                bloc.deleteFolder(folderFeedsWrapper.folder.id);
               }
               break;
             case NewsFolderAction.rename:
               final result = await showRenameDialog(
                 context: context,
                 title: AppLocalizations.of(context).newsRenameFolder,
-                value: folderFeedsWrapper.folder.name!,
+                value: folderFeedsWrapper.folder.name,
               );
               if (result != null) {
-                bloc.renameFolder(folderFeedsWrapper.folder.id!, result);
+                bloc.renameFolder(folderFeedsWrapper.folder.id, result);
               }
               break;
           }
@@ -149,7 +149,7 @@ class NewsFoldersView extends StatelessWidget {
       ),
       onLongPress: () {
         if (unreadCount > 0) {
-          bloc.markFolderAsRead(folderFeedsWrapper.folder.id!);
+          bloc.markFolderAsRead(folderFeedsWrapper.folder.id);
         }
       },
       onTap: () async {

@@ -2,7 +2,7 @@ part of '../app.dart';
 
 final foldersSortBox = SortBox<FoldersSortProperty, FolderFeedsWrapper>(
   {
-    FoldersSortProperty.alphabetical: (final folderFeedsWrapper) => folderFeedsWrapper.folder.name!.toLowerCase(),
+    FoldersSortProperty.alphabetical: (final folderFeedsWrapper) => folderFeedsWrapper.folder.name.toLowerCase(),
     FoldersSortProperty.unreadCount: (final folderFeedsWrapper) => feedsUnreadCountSum(folderFeedsWrapper.feeds),
   },
   {

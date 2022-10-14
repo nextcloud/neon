@@ -80,7 +80,7 @@ class PushNotificationsBloc extends $PushNotificationsBloc {
 
         await account.client.notifications.registerDeviceAtPushProxy(
           endpoint,
-          subscription.ocs!.data!,
+          subscription.ocs.data,
           proxyServerForClient,
         );
 

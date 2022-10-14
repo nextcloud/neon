@@ -44,7 +44,7 @@ class UserStatusBloc extends $UserStatusBloc {
           _account.client.id,
           'user-status',
           () async => _account.client.userStatus.getStatus(),
-          (final response) => response.ocs?.data?.userStatus,
+          (final response) => response.ocs.data.userStatus,
           previousData: _userStatusSubject.valueOrNull?.data,
         )
         .listen(_userStatusSubject.add);

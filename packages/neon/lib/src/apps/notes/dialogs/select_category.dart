@@ -59,7 +59,7 @@ class _NotesSelectCategoryDialogState extends State<NotesSelectCategoryDialog> {
                   ),
                   if (notesData != null) ...[
                     NotesCategorySelect(
-                      categories: notesData.map((final note) => note.category!).toSet().toList(),
+                      categories: notesData.map((final note) => note.category).toSet().toList(),
                       initialValue: widget.note.category,
                       onChanged: (final category) {
                         selectedCategory = category;

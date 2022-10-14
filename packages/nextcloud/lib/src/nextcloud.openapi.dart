@@ -113,33 +113,33 @@ class Client {
 @JsonSerializable()
 class CoreServerStatus {
   CoreServerStatus({
-    this.installed,
-    this.maintenance,
-    this.needsDbUpgrade,
-    this.version,
-    this.versionstring,
-    this.edition,
-    this.productname,
-    this.extendedSupport,
+    required this.installed,
+    required this.maintenance,
+    required this.needsDbUpgrade,
+    required this.version,
+    required this.versionstring,
+    required this.edition,
+    required this.productname,
+    required this.extendedSupport,
   });
 
   factory CoreServerStatus.fromJson(Map<String, dynamic> json) => _$CoreServerStatusFromJson(json);
 
-  final bool? installed;
+  final bool installed;
 
-  final bool? maintenance;
+  final bool maintenance;
 
-  final bool? needsDbUpgrade;
+  final bool needsDbUpgrade;
 
-  final String? version;
+  final String version;
 
-  final String? versionstring;
+  final String versionstring;
 
-  final String? edition;
+  final String edition;
 
-  final String? productname;
+  final String productname;
 
-  final bool? extendedSupport;
+  final bool extendedSupport;
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreServerStatusToJson(this);
@@ -149,24 +149,24 @@ class CoreServerStatus {
 @JsonSerializable()
 class OCSMeta {
   OCSMeta({
-    this.status,
-    this.statuscode,
+    required this.status,
+    required this.statuscode,
     this.message,
-    this.totalitems,
-    this.itemsperpage,
+    required this.totalitems,
+    required this.itemsperpage,
   });
 
   factory OCSMeta.fromJson(Map<String, dynamic> json) => _$OCSMetaFromJson(json);
 
-  final String? status;
+  final String status;
 
-  final int? statuscode;
+  final int statuscode;
 
   final String? message;
 
-  final String? totalitems;
+  final String totalitems;
 
-  final String? itemsperpage;
+  final String itemsperpage;
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$OCSMetaToJson(this);
@@ -174,1023 +174,1035 @@ class OCSMeta {
 }
 
 @JsonSerializable()
-class CoreServerCapabilitiesOcsDataVersion {
-  CoreServerCapabilitiesOcsDataVersion({
-    this.major,
-    this.minor,
-    this.micro,
-    this.string,
-    this.edition,
-    this.extendedSupport,
+class CoreServerCapabilities_Ocs_Data_Version {
+  CoreServerCapabilities_Ocs_Data_Version({
+    required this.major,
+    required this.minor,
+    required this.micro,
+    required this.string,
+    required this.edition,
+    required this.extendedSupport,
   });
 
-  factory CoreServerCapabilitiesOcsDataVersion.fromJson(Map<String, dynamic> json) =>
-      _$CoreServerCapabilitiesOcsDataVersionFromJson(json);
+  factory CoreServerCapabilities_Ocs_Data_Version.fromJson(Map<String, dynamic> json) =>
+      _$CoreServerCapabilities_Ocs_Data_VersionFromJson(json);
 
-  final int? major;
+  final int major;
 
-  final int? minor;
+  final int minor;
 
-  final int? micro;
+  final int micro;
 
-  final String? string;
+  final String string;
 
-  final String? edition;
+  final String edition;
 
-  final bool? extendedSupport;
+  final bool extendedSupport;
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$CoreServerCapabilitiesOcsDataVersionToJson(this);
+  Map<String, dynamic> toJson() => _$CoreServerCapabilities_Ocs_Data_VersionToJson(this);
   // coverage:ignore-end
 }
 
 @JsonSerializable()
-class CoreServerCapabilitiesOcsDataCapabilitiesCore {
-  CoreServerCapabilitiesOcsDataCapabilitiesCore({
-    this.pollinterval,
-    this.webdavRoot,
+class CoreServerCapabilities_Ocs_Data_Capabilities_Core {
+  CoreServerCapabilities_Ocs_Data_Capabilities_Core({
+    required this.pollinterval,
+    required this.webdavRoot,
   });
 
-  factory CoreServerCapabilitiesOcsDataCapabilitiesCore.fromJson(Map<String, dynamic> json) =>
-      _$CoreServerCapabilitiesOcsDataCapabilitiesCoreFromJson(json);
+  factory CoreServerCapabilities_Ocs_Data_Capabilities_Core.fromJson(Map<String, dynamic> json) =>
+      _$CoreServerCapabilities_Ocs_Data_Capabilities_CoreFromJson(json);
 
-  final int? pollinterval;
+  final int pollinterval;
 
   @JsonKey(name: 'webdav-root')
-  final String? webdavRoot;
+  final String webdavRoot;
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$CoreServerCapabilitiesOcsDataCapabilitiesCoreToJson(this);
+  Map<String, dynamic> toJson() => _$CoreServerCapabilities_Ocs_Data_Capabilities_CoreToJson(this);
   // coverage:ignore-end
 }
 
 @JsonSerializable()
-class CoreServerCapabilitiesOcsDataCapabilitiesBruteforce {
-  CoreServerCapabilitiesOcsDataCapabilitiesBruteforce({this.delay});
+class CoreServerCapabilities_Ocs_Data_Capabilities_Bruteforce {
+  CoreServerCapabilities_Ocs_Data_Capabilities_Bruteforce({required this.delay});
 
-  factory CoreServerCapabilitiesOcsDataCapabilitiesBruteforce.fromJson(Map<String, dynamic> json) =>
-      _$CoreServerCapabilitiesOcsDataCapabilitiesBruteforceFromJson(json);
+  factory CoreServerCapabilities_Ocs_Data_Capabilities_Bruteforce.fromJson(Map<String, dynamic> json) =>
+      _$CoreServerCapabilities_Ocs_Data_Capabilities_BruteforceFromJson(json);
 
-  final int? delay;
+  final int delay;
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$CoreServerCapabilitiesOcsDataCapabilitiesBruteforceToJson(this);
+  Map<String, dynamic> toJson() => _$CoreServerCapabilities_Ocs_Data_Capabilities_BruteforceToJson(this);
   // coverage:ignore-end
 }
 
 @JsonSerializable()
-class CoreServerCapabilitiesOcsDataCapabilitiesMetadataAvailable {
-  CoreServerCapabilitiesOcsDataCapabilitiesMetadataAvailable({this.size});
+class CoreServerCapabilities_Ocs_Data_Capabilities_MetadataAvailable {
+  CoreServerCapabilities_Ocs_Data_Capabilities_MetadataAvailable({required this.size});
 
-  factory CoreServerCapabilitiesOcsDataCapabilitiesMetadataAvailable.fromJson(Map<String, dynamic> json) =>
-      _$CoreServerCapabilitiesOcsDataCapabilitiesMetadataAvailableFromJson(json);
+  factory CoreServerCapabilities_Ocs_Data_Capabilities_MetadataAvailable.fromJson(Map<String, dynamic> json) =>
+      _$CoreServerCapabilities_Ocs_Data_Capabilities_MetadataAvailableFromJson(json);
 
-  final List<String>? size;
+  final List<String> size;
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$CoreServerCapabilitiesOcsDataCapabilitiesMetadataAvailableToJson(this);
+  Map<String, dynamic> toJson() => _$CoreServerCapabilities_Ocs_Data_Capabilities_MetadataAvailableToJson(this);
   // coverage:ignore-end
 }
 
 @JsonSerializable()
-class CoreServerCapabilitiesOcsDataCapabilitiesFilesDirectEditing {
-  CoreServerCapabilitiesOcsDataCapabilitiesFilesDirectEditing({
-    this.url,
-    this.etag,
+class CoreServerCapabilities_Ocs_Data_Capabilities_Files_DirectEditing {
+  CoreServerCapabilities_Ocs_Data_Capabilities_Files_DirectEditing({
+    required this.url,
+    required this.etag,
   });
 
-  factory CoreServerCapabilitiesOcsDataCapabilitiesFilesDirectEditing.fromJson(Map<String, dynamic> json) =>
-      _$CoreServerCapabilitiesOcsDataCapabilitiesFilesDirectEditingFromJson(json);
+  factory CoreServerCapabilities_Ocs_Data_Capabilities_Files_DirectEditing.fromJson(Map<String, dynamic> json) =>
+      _$CoreServerCapabilities_Ocs_Data_Capabilities_Files_DirectEditingFromJson(json);
 
-  final String? url;
+  final String url;
 
-  final String? etag;
+  final String etag;
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$CoreServerCapabilitiesOcsDataCapabilitiesFilesDirectEditingToJson(this);
+  Map<String, dynamic> toJson() => _$CoreServerCapabilities_Ocs_Data_Capabilities_Files_DirectEditingToJson(this);
   // coverage:ignore-end
 }
 
 @JsonSerializable()
-class CoreServerCapabilitiesOcsDataCapabilitiesFiles {
-  CoreServerCapabilitiesOcsDataCapabilitiesFiles({
-    this.bigfilechunking,
-    this.blacklistedFiles,
-    this.directEditing,
-    this.comments,
-    this.undelete,
-    this.versioning,
+class CoreServerCapabilities_Ocs_Data_Capabilities_Files {
+  CoreServerCapabilities_Ocs_Data_Capabilities_Files({
+    required this.bigfilechunking,
+    required this.blacklistedFiles,
+    required this.directEditing,
+    required this.comments,
+    required this.undelete,
+    required this.versioning,
   });
 
-  factory CoreServerCapabilitiesOcsDataCapabilitiesFiles.fromJson(Map<String, dynamic> json) =>
-      _$CoreServerCapabilitiesOcsDataCapabilitiesFilesFromJson(json);
+  factory CoreServerCapabilities_Ocs_Data_Capabilities_Files.fromJson(Map<String, dynamic> json) =>
+      _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesFromJson(json);
 
-  final bool? bigfilechunking;
+  final bool bigfilechunking;
 
   @JsonKey(name: 'blacklisted_files')
-  final List<String>? blacklistedFiles;
+  final List<String> blacklistedFiles;
 
-  final CoreServerCapabilitiesOcsDataCapabilitiesFilesDirectEditing? directEditing;
+  final CoreServerCapabilities_Ocs_Data_Capabilities_Files_DirectEditing directEditing;
 
-  final bool? comments;
+  final bool comments;
 
-  final bool? undelete;
+  final bool undelete;
 
-  final bool? versioning;
+  final bool versioning;
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$CoreServerCapabilitiesOcsDataCapabilitiesFilesToJson(this);
+  Map<String, dynamic> toJson() => _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesToJson(this);
   // coverage:ignore-end
 }
 
 @JsonSerializable()
-class CoreServerCapabilitiesOcsDataCapabilitiesActivity {
-  CoreServerCapabilitiesOcsDataCapabilitiesActivity({this.apiv2});
+class CoreServerCapabilities_Ocs_Data_Capabilities_Activity {
+  CoreServerCapabilities_Ocs_Data_Capabilities_Activity({required this.apiv2});
 
-  factory CoreServerCapabilitiesOcsDataCapabilitiesActivity.fromJson(Map<String, dynamic> json) =>
-      _$CoreServerCapabilitiesOcsDataCapabilitiesActivityFromJson(json);
+  factory CoreServerCapabilities_Ocs_Data_Capabilities_Activity.fromJson(Map<String, dynamic> json) =>
+      _$CoreServerCapabilities_Ocs_Data_Capabilities_ActivityFromJson(json);
 
-  final List<String>? apiv2;
+  final List<String> apiv2;
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$CoreServerCapabilitiesOcsDataCapabilitiesActivityToJson(this);
+  Map<String, dynamic> toJson() => _$CoreServerCapabilities_Ocs_Data_Capabilities_ActivityToJson(this);
   // coverage:ignore-end
 }
 
 @JsonSerializable()
-class CoreServerCapabilitiesOcsDataCapabilitiesCirclesStatus {
-  CoreServerCapabilitiesOcsDataCapabilitiesCirclesStatus({this.globalScale});
+class CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Status {
+  CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Status({required this.globalScale});
 
-  factory CoreServerCapabilitiesOcsDataCapabilitiesCirclesStatus.fromJson(Map<String, dynamic> json) =>
-      _$CoreServerCapabilitiesOcsDataCapabilitiesCirclesStatusFromJson(json);
+  factory CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Status.fromJson(Map<String, dynamic> json) =>
+      _$CoreServerCapabilities_Ocs_Data_Capabilities_Circles_StatusFromJson(json);
 
-  final bool? globalScale;
+  final bool globalScale;
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$CoreServerCapabilitiesOcsDataCapabilitiesCirclesStatusToJson(this);
+  Map<String, dynamic> toJson() => _$CoreServerCapabilities_Ocs_Data_Capabilities_Circles_StatusToJson(this);
   // coverage:ignore-end
 }
 
 @JsonSerializable()
-class CoreServerCapabilitiesOcsDataCapabilitiesCirclesSettings {
-  CoreServerCapabilitiesOcsDataCapabilitiesCirclesSettings({
-    this.frontendEnabled,
-    this.allowedCircles,
-    this.allowedUserTypes,
-    this.membersLimit,
+class CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Settings {
+  CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Settings({
+    required this.frontendEnabled,
+    required this.allowedCircles,
+    required this.allowedUserTypes,
+    required this.membersLimit,
   });
 
-  factory CoreServerCapabilitiesOcsDataCapabilitiesCirclesSettings.fromJson(Map<String, dynamic> json) =>
-      _$CoreServerCapabilitiesOcsDataCapabilitiesCirclesSettingsFromJson(json);
+  factory CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Settings.fromJson(Map<String, dynamic> json) =>
+      _$CoreServerCapabilities_Ocs_Data_Capabilities_Circles_SettingsFromJson(json);
 
-  final bool? frontendEnabled;
+  final bool frontendEnabled;
 
-  final int? allowedCircles;
+  final int allowedCircles;
 
-  final int? allowedUserTypes;
+  final int allowedUserTypes;
 
-  final int? membersLimit;
+  final int membersLimit;
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$CoreServerCapabilitiesOcsDataCapabilitiesCirclesSettingsToJson(this);
+  Map<String, dynamic> toJson() => _$CoreServerCapabilities_Ocs_Data_Capabilities_Circles_SettingsToJson(this);
   // coverage:ignore-end
 }
 
 @JsonSerializable()
-class CoreServerCapabilitiesOcsDataCapabilitiesCirclesCircleConstantsSource {
-  CoreServerCapabilitiesOcsDataCapabilitiesCirclesCircleConstantsSource({
-    this.core,
-    this.extra,
+class CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants_Source {
+  CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants_Source({
+    required this.core,
+    required this.extra,
   });
 
-  factory CoreServerCapabilitiesOcsDataCapabilitiesCirclesCircleConstantsSource.fromJson(Map<String, dynamic> json) =>
-      _$CoreServerCapabilitiesOcsDataCapabilitiesCirclesCircleConstantsSourceFromJson(json);
-
-  final dynamic? core;
-
-  final dynamic? extra;
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$CoreServerCapabilitiesOcsDataCapabilitiesCirclesCircleConstantsSourceToJson(this);
-  // coverage:ignore-end
-}
-
-@JsonSerializable()
-class CoreServerCapabilitiesOcsDataCapabilitiesCirclesCircleConstants {
-  CoreServerCapabilitiesOcsDataCapabilitiesCirclesCircleConstants({
-    this.flags,
-    this.source,
-  });
-
-  factory CoreServerCapabilitiesOcsDataCapabilitiesCirclesCircleConstants.fromJson(Map<String, dynamic> json) =>
-      _$CoreServerCapabilitiesOcsDataCapabilitiesCirclesCircleConstantsFromJson(json);
-
-  final dynamic? flags;
-
-  final CoreServerCapabilitiesOcsDataCapabilitiesCirclesCircleConstantsSource? source;
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$CoreServerCapabilitiesOcsDataCapabilitiesCirclesCircleConstantsToJson(this);
-  // coverage:ignore-end
-}
-
-@JsonSerializable()
-class CoreServerCapabilitiesOcsDataCapabilitiesCirclesCircleConfig {
-  CoreServerCapabilitiesOcsDataCapabilitiesCirclesCircleConfig({
-    this.coreFlags,
-    this.systemFlags,
-  });
-
-  factory CoreServerCapabilitiesOcsDataCapabilitiesCirclesCircleConfig.fromJson(Map<String, dynamic> json) =>
-      _$CoreServerCapabilitiesOcsDataCapabilitiesCirclesCircleConfigFromJson(json);
-
-  final List<int>? coreFlags;
-
-  final List<int>? systemFlags;
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$CoreServerCapabilitiesOcsDataCapabilitiesCirclesCircleConfigToJson(this);
-  // coverage:ignore-end
-}
-
-@JsonSerializable()
-class CoreServerCapabilitiesOcsDataCapabilitiesCirclesCircle {
-  CoreServerCapabilitiesOcsDataCapabilitiesCirclesCircle({
-    this.constants,
-    this.config,
-  });
-
-  factory CoreServerCapabilitiesOcsDataCapabilitiesCirclesCircle.fromJson(Map<String, dynamic> json) =>
-      _$CoreServerCapabilitiesOcsDataCapabilitiesCirclesCircleFromJson(json);
-
-  final CoreServerCapabilitiesOcsDataCapabilitiesCirclesCircleConstants? constants;
-
-  final CoreServerCapabilitiesOcsDataCapabilitiesCirclesCircleConfig? config;
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$CoreServerCapabilitiesOcsDataCapabilitiesCirclesCircleToJson(this);
-  // coverage:ignore-end
-}
-
-@JsonSerializable()
-class CoreServerCapabilitiesOcsDataCapabilitiesCirclesMemberConstants {
-  CoreServerCapabilitiesOcsDataCapabilitiesCirclesMemberConstants({this.level});
-
-  factory CoreServerCapabilitiesOcsDataCapabilitiesCirclesMemberConstants.fromJson(Map<String, dynamic> json) =>
-      _$CoreServerCapabilitiesOcsDataCapabilitiesCirclesMemberConstantsFromJson(json);
-
-  final dynamic? level;
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$CoreServerCapabilitiesOcsDataCapabilitiesCirclesMemberConstantsToJson(this);
-  // coverage:ignore-end
-}
-
-@JsonSerializable()
-class CoreServerCapabilitiesOcsDataCapabilitiesCirclesMember {
-  CoreServerCapabilitiesOcsDataCapabilitiesCirclesMember({
-    this.constants,
-    this.type,
-  });
-
-  factory CoreServerCapabilitiesOcsDataCapabilitiesCirclesMember.fromJson(Map<String, dynamic> json) =>
-      _$CoreServerCapabilitiesOcsDataCapabilitiesCirclesMemberFromJson(json);
-
-  final CoreServerCapabilitiesOcsDataCapabilitiesCirclesMemberConstants? constants;
-
-  final dynamic? type;
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$CoreServerCapabilitiesOcsDataCapabilitiesCirclesMemberToJson(this);
-  // coverage:ignore-end
-}
-
-@JsonSerializable()
-class CoreServerCapabilitiesOcsDataCapabilitiesCircles {
-  CoreServerCapabilitiesOcsDataCapabilitiesCircles({
-    this.version,
-    this.status,
-    this.settings,
-    this.circle,
-    this.member,
-  });
-
-  factory CoreServerCapabilitiesOcsDataCapabilitiesCircles.fromJson(Map<String, dynamic> json) =>
-      _$CoreServerCapabilitiesOcsDataCapabilitiesCirclesFromJson(json);
-
-  final String? version;
-
-  final CoreServerCapabilitiesOcsDataCapabilitiesCirclesStatus? status;
-
-  final CoreServerCapabilitiesOcsDataCapabilitiesCirclesSettings? settings;
-
-  final CoreServerCapabilitiesOcsDataCapabilitiesCirclesCircle? circle;
-
-  final CoreServerCapabilitiesOcsDataCapabilitiesCirclesMember? member;
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$CoreServerCapabilitiesOcsDataCapabilitiesCirclesToJson(this);
-  // coverage:ignore-end
-}
-
-@JsonSerializable()
-class CoreServerCapabilitiesOcsDataCapabilitiesOcmResourceTypesProtocols {
-  CoreServerCapabilitiesOcsDataCapabilitiesOcmResourceTypesProtocols({this.webdav});
-
-  factory CoreServerCapabilitiesOcsDataCapabilitiesOcmResourceTypesProtocols.fromJson(Map<String, dynamic> json) =>
-      _$CoreServerCapabilitiesOcsDataCapabilitiesOcmResourceTypesProtocolsFromJson(json);
-
-  final String? webdav;
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$CoreServerCapabilitiesOcsDataCapabilitiesOcmResourceTypesProtocolsToJson(this);
-  // coverage:ignore-end
-}
-
-@JsonSerializable()
-class CoreServerCapabilitiesOcsDataCapabilitiesOcmResourceTypes {
-  CoreServerCapabilitiesOcsDataCapabilitiesOcmResourceTypes({
-    this.name,
-    this.shareTypes,
-    this.protocols,
-  });
-
-  factory CoreServerCapabilitiesOcsDataCapabilitiesOcmResourceTypes.fromJson(Map<String, dynamic> json) =>
-      _$CoreServerCapabilitiesOcsDataCapabilitiesOcmResourceTypesFromJson(json);
-
-  final String? name;
-
-  final List<String>? shareTypes;
-
-  final CoreServerCapabilitiesOcsDataCapabilitiesOcmResourceTypesProtocols? protocols;
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$CoreServerCapabilitiesOcsDataCapabilitiesOcmResourceTypesToJson(this);
-  // coverage:ignore-end
-}
-
-@JsonSerializable()
-class CoreServerCapabilitiesOcsDataCapabilitiesOcm {
-  CoreServerCapabilitiesOcsDataCapabilitiesOcm({
-    this.enabled,
-    this.apiVersion,
-    this.endPoint,
-    this.resourceTypes,
-  });
-
-  factory CoreServerCapabilitiesOcsDataCapabilitiesOcm.fromJson(Map<String, dynamic> json) =>
-      _$CoreServerCapabilitiesOcsDataCapabilitiesOcmFromJson(json);
-
-  final bool? enabled;
-
-  final String? apiVersion;
-
-  final String? endPoint;
-
-  final List<CoreServerCapabilitiesOcsDataCapabilitiesOcmResourceTypes>? resourceTypes;
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$CoreServerCapabilitiesOcsDataCapabilitiesOcmToJson(this);
-  // coverage:ignore-end
-}
-
-@JsonSerializable()
-class CoreServerCapabilitiesOcsDataCapabilitiesDav {
-  CoreServerCapabilitiesOcsDataCapabilitiesDav({this.chunking});
-
-  factory CoreServerCapabilitiesOcsDataCapabilitiesDav.fromJson(Map<String, dynamic> json) =>
-      _$CoreServerCapabilitiesOcsDataCapabilitiesDavFromJson(json);
-
-  final String? chunking;
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$CoreServerCapabilitiesOcsDataCapabilitiesDavToJson(this);
-  // coverage:ignore-end
-}
-
-@JsonSerializable()
-class CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingPublicPassword {
-  CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingPublicPassword({
-    this.enforced,
-    this.askForOptionalPassword,
-  });
-
-  factory CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingPublicPassword.fromJson(Map<String, dynamic> json) =>
-      _$CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingPublicPasswordFromJson(json);
-
-  final bool? enforced;
-
-  final bool? askForOptionalPassword;
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingPublicPasswordToJson(this);
-  // coverage:ignore-end
-}
-
-@JsonSerializable()
-class CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingPublicExpireDate {
-  CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingPublicExpireDate({this.enabled});
-
-  factory CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingPublicExpireDate.fromJson(Map<String, dynamic> json) =>
-      _$CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingPublicExpireDateFromJson(json);
-
-  final bool? enabled;
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingPublicExpireDateToJson(this);
-  // coverage:ignore-end
-}
-
-@JsonSerializable()
-class CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingPublicExpireDateInternal {
-  CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingPublicExpireDateInternal({this.enabled});
-
-  factory CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingPublicExpireDateInternal.fromJson(
+  factory CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants_Source.fromJson(
           Map<String, dynamic> json) =>
-      _$CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingPublicExpireDateInternalFromJson(json);
+      _$CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants_SourceFromJson(json);
 
-  final bool? enabled;
+  final dynamic core;
+
+  final dynamic extra;
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() =>
-      _$CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingPublicExpireDateInternalToJson(this);
+      _$CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants_SourceToJson(this);
   // coverage:ignore-end
 }
 
 @JsonSerializable()
-class CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingPublicExpireDateRemote {
-  CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingPublicExpireDateRemote({this.enabled});
+class CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants {
+  CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants({
+    required this.flags,
+    required this.source,
+  });
 
-  factory CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingPublicExpireDateRemote.fromJson(
+  factory CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants.fromJson(Map<String, dynamic> json) =>
+      _$CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_ConstantsFromJson(json);
+
+  final dynamic flags;
+
+  final CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants_Source source;
+
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_ConstantsToJson(this);
+  // coverage:ignore-end
+}
+
+@JsonSerializable()
+class CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Config {
+  CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Config({
+    required this.coreFlags,
+    required this.systemFlags,
+  });
+
+  factory CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Config.fromJson(Map<String, dynamic> json) =>
+      _$CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_ConfigFromJson(json);
+
+  final List<int> coreFlags;
+
+  final List<int> systemFlags;
+
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_ConfigToJson(this);
+  // coverage:ignore-end
+}
+
+@JsonSerializable()
+class CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle {
+  CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle({
+    required this.constants,
+    required this.config,
+  });
+
+  factory CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle.fromJson(Map<String, dynamic> json) =>
+      _$CoreServerCapabilities_Ocs_Data_Capabilities_Circles_CircleFromJson(json);
+
+  final CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants constants;
+
+  final CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Config config;
+
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$CoreServerCapabilities_Ocs_Data_Capabilities_Circles_CircleToJson(this);
+  // coverage:ignore-end
+}
+
+@JsonSerializable()
+class CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member_Constants {
+  CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member_Constants({required this.level});
+
+  factory CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member_Constants.fromJson(Map<String, dynamic> json) =>
+      _$CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member_ConstantsFromJson(json);
+
+  final dynamic level;
+
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member_ConstantsToJson(this);
+  // coverage:ignore-end
+}
+
+@JsonSerializable()
+class CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member {
+  CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member({
+    required this.constants,
+    required this.type,
+  });
+
+  factory CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member.fromJson(Map<String, dynamic> json) =>
+      _$CoreServerCapabilities_Ocs_Data_Capabilities_Circles_MemberFromJson(json);
+
+  final CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member_Constants constants;
+
+  final dynamic type;
+
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$CoreServerCapabilities_Ocs_Data_Capabilities_Circles_MemberToJson(this);
+  // coverage:ignore-end
+}
+
+@JsonSerializable()
+class CoreServerCapabilities_Ocs_Data_Capabilities_Circles {
+  CoreServerCapabilities_Ocs_Data_Capabilities_Circles({
+    required this.version,
+    required this.status,
+    required this.settings,
+    required this.circle,
+    required this.member,
+  });
+
+  factory CoreServerCapabilities_Ocs_Data_Capabilities_Circles.fromJson(Map<String, dynamic> json) =>
+      _$CoreServerCapabilities_Ocs_Data_Capabilities_CirclesFromJson(json);
+
+  final String version;
+
+  final CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Status status;
+
+  final CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Settings settings;
+
+  final CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle circle;
+
+  final CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member member;
+
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$CoreServerCapabilities_Ocs_Data_Capabilities_CirclesToJson(this);
+  // coverage:ignore-end
+}
+
+@JsonSerializable()
+class CoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes_Protocols {
+  CoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes_Protocols({required this.webdav});
+
+  factory CoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes_Protocols.fromJson(
           Map<String, dynamic> json) =>
-      _$CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingPublicExpireDateRemoteFromJson(json);
+      _$CoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes_ProtocolsFromJson(json);
 
-  final bool? enabled;
+  final String webdav;
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() =>
-      _$CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingPublicExpireDateRemoteToJson(this);
+      _$CoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes_ProtocolsToJson(this);
   // coverage:ignore-end
 }
 
 @JsonSerializable()
-class CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingPublic {
-  CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingPublic({
-    this.enabled,
-    this.password,
-    this.expireDate,
-    this.multipleLinks,
-    this.expireDateInternal,
-    this.expireDateRemote,
-    this.sendMail,
-    this.upload,
-    this.uploadFilesDrop,
+class CoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes {
+  CoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes({
+    required this.name,
+    required this.shareTypes,
+    required this.protocols,
   });
 
-  factory CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingPublic.fromJson(Map<String, dynamic> json) =>
-      _$CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingPublicFromJson(json);
+  factory CoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes.fromJson(Map<String, dynamic> json) =>
+      _$CoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypesFromJson(json);
 
-  final bool? enabled;
+  final String name;
 
-  final CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingPublicPassword? password;
+  final List<String> shareTypes;
+
+  final CoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes_Protocols protocols;
+
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$CoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypesToJson(this);
+  // coverage:ignore-end
+}
+
+@JsonSerializable()
+class CoreServerCapabilities_Ocs_Data_Capabilities_Ocm {
+  CoreServerCapabilities_Ocs_Data_Capabilities_Ocm({
+    required this.enabled,
+    required this.apiVersion,
+    required this.endPoint,
+    required this.resourceTypes,
+  });
+
+  factory CoreServerCapabilities_Ocs_Data_Capabilities_Ocm.fromJson(Map<String, dynamic> json) =>
+      _$CoreServerCapabilities_Ocs_Data_Capabilities_OcmFromJson(json);
+
+  final bool enabled;
+
+  final String apiVersion;
+
+  final String endPoint;
+
+  final List<CoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes> resourceTypes;
+
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$CoreServerCapabilities_Ocs_Data_Capabilities_OcmToJson(this);
+  // coverage:ignore-end
+}
+
+@JsonSerializable()
+class CoreServerCapabilities_Ocs_Data_Capabilities_Dav {
+  CoreServerCapabilities_Ocs_Data_Capabilities_Dav({required this.chunking});
+
+  factory CoreServerCapabilities_Ocs_Data_Capabilities_Dav.fromJson(Map<String, dynamic> json) =>
+      _$CoreServerCapabilities_Ocs_Data_Capabilities_DavFromJson(json);
+
+  final String chunking;
+
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$CoreServerCapabilities_Ocs_Data_Capabilities_DavToJson(this);
+  // coverage:ignore-end
+}
+
+@JsonSerializable()
+class CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_Password {
+  CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_Password({
+    required this.enforced,
+    required this.askForOptionalPassword,
+  });
+
+  factory CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_Password.fromJson(
+          Map<String, dynamic> json) =>
+      _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_PasswordFromJson(json);
+
+  final bool enforced;
+
+  final bool askForOptionalPassword;
+
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() =>
+      _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_PasswordToJson(this);
+  // coverage:ignore-end
+}
+
+@JsonSerializable()
+class CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDate {
+  CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDate({required this.enabled});
+
+  factory CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDate.fromJson(
+          Map<String, dynamic> json) =>
+      _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateFromJson(json);
+
+  final bool enabled;
+
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() =>
+      _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateToJson(this);
+  // coverage:ignore-end
+}
+
+@JsonSerializable()
+class CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternal {
+  CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternal({required this.enabled});
+
+  factory CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternal.fromJson(
+          Map<String, dynamic> json) =>
+      _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternalFromJson(json);
+
+  final bool enabled;
+
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() =>
+      _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternalToJson(this);
+  // coverage:ignore-end
+}
+
+@JsonSerializable()
+class CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemote {
+  CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemote({required this.enabled});
+
+  factory CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemote.fromJson(
+          Map<String, dynamic> json) =>
+      _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemoteFromJson(json);
+
+  final bool enabled;
+
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() =>
+      _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemoteToJson(this);
+  // coverage:ignore-end
+}
+
+@JsonSerializable()
+class CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public {
+  CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public({
+    required this.enabled,
+    required this.password,
+    required this.expireDate,
+    required this.multipleLinks,
+    required this.expireDateInternal,
+    required this.expireDateRemote,
+    required this.sendMail,
+    required this.upload,
+    required this.uploadFilesDrop,
+  });
+
+  factory CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public.fromJson(Map<String, dynamic> json) =>
+      _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_PublicFromJson(json);
+
+  final bool enabled;
+
+  final CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_Password password;
 
   @JsonKey(name: 'expire_date')
-  final CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingPublicExpireDate? expireDate;
+  final CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDate expireDate;
 
   @JsonKey(name: 'multiple_links')
-  final bool? multipleLinks;
+  final bool multipleLinks;
 
   @JsonKey(name: 'expire_date_internal')
-  final CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingPublicExpireDateInternal? expireDateInternal;
+  final CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternal expireDateInternal;
 
   @JsonKey(name: 'expire_date_remote')
-  final CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingPublicExpireDateRemote? expireDateRemote;
+  final CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemote expireDateRemote;
 
   @JsonKey(name: 'send_mail')
-  final bool? sendMail;
+  final bool sendMail;
 
-  final bool? upload;
+  final bool upload;
 
   @JsonKey(name: 'upload_files_drop')
-  final bool? uploadFilesDrop;
+  final bool uploadFilesDrop;
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingPublicToJson(this);
+  Map<String, dynamic> toJson() => _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_PublicToJson(this);
   // coverage:ignore-end
 }
 
 @JsonSerializable()
-class CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingUserExpireDate {
-  CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingUserExpireDate({this.enabled});
+class CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User_ExpireDate {
+  CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User_ExpireDate({required this.enabled});
 
-  factory CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingUserExpireDate.fromJson(Map<String, dynamic> json) =>
-      _$CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingUserExpireDateFromJson(json);
+  factory CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User_ExpireDate.fromJson(
+          Map<String, dynamic> json) =>
+      _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User_ExpireDateFromJson(json);
 
-  final bool? enabled;
+  final bool enabled;
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingUserExpireDateToJson(this);
+  Map<String, dynamic> toJson() =>
+      _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User_ExpireDateToJson(this);
   // coverage:ignore-end
 }
 
 @JsonSerializable()
-class CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingUser {
-  CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingUser({
-    this.sendMail,
-    this.expireDate,
+class CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User {
+  CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User({
+    required this.sendMail,
+    required this.expireDate,
   });
 
-  factory CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingUser.fromJson(Map<String, dynamic> json) =>
-      _$CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingUserFromJson(json);
+  factory CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User.fromJson(Map<String, dynamic> json) =>
+      _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_UserFromJson(json);
 
   @JsonKey(name: 'send_mail')
-  final bool? sendMail;
+  final bool sendMail;
 
   @JsonKey(name: 'expire_date')
-  final CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingUserExpireDate? expireDate;
+  final CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User_ExpireDate expireDate;
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingUserToJson(this);
+  Map<String, dynamic> toJson() => _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_UserToJson(this);
   // coverage:ignore-end
 }
 
 @JsonSerializable()
-class CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingGroupExpireDate {
-  CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingGroupExpireDate({this.enabled});
+class CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDate {
+  CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDate({required this.enabled});
 
-  factory CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingGroupExpireDate.fromJson(Map<String, dynamic> json) =>
-      _$CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingGroupExpireDateFromJson(json);
-
-  final bool? enabled;
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingGroupExpireDateToJson(this);
-  // coverage:ignore-end
-}
-
-@JsonSerializable()
-class CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingGroup {
-  CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingGroup({
-    this.enabled,
-    this.expireDate,
-  });
-
-  factory CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingGroup.fromJson(Map<String, dynamic> json) =>
-      _$CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingGroupFromJson(json);
-
-  final bool? enabled;
-
-  @JsonKey(name: 'expire_date')
-  final CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingGroupExpireDate? expireDate;
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingGroupToJson(this);
-  // coverage:ignore-end
-}
-
-@JsonSerializable()
-class CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingFederationExpireDate {
-  CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingFederationExpireDate({this.enabled});
-
-  factory CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingFederationExpireDate.fromJson(
+  factory CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDate.fromJson(
           Map<String, dynamic> json) =>
-      _$CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingFederationExpireDateFromJson(json);
+      _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDateFromJson(json);
 
-  final bool? enabled;
+  final bool enabled;
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() =>
-      _$CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingFederationExpireDateToJson(this);
+      _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDateToJson(this);
   // coverage:ignore-end
 }
 
 @JsonSerializable()
-class CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingFederationExpireDateSupported {
-  CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingFederationExpireDateSupported({this.enabled});
+class CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group {
+  CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group({
+    required this.enabled,
+    required this.expireDate,
+  });
 
-  factory CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingFederationExpireDateSupported.fromJson(
+  factory CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group.fromJson(Map<String, dynamic> json) =>
+      _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_GroupFromJson(json);
+
+  final bool enabled;
+
+  @JsonKey(name: 'expire_date')
+  final CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDate expireDate;
+
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_GroupToJson(this);
+  // coverage:ignore-end
+}
+
+@JsonSerializable()
+class CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDate {
+  CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDate({required this.enabled});
+
+  factory CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDate.fromJson(
           Map<String, dynamic> json) =>
-      _$CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingFederationExpireDateSupportedFromJson(json);
+      _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateFromJson(json);
 
-  final bool? enabled;
+  final bool enabled;
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() =>
-      _$CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingFederationExpireDateSupportedToJson(this);
+      _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateToJson(this);
   // coverage:ignore-end
 }
 
 @JsonSerializable()
-class CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingFederation {
-  CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingFederation({
-    this.outgoing,
-    this.incoming,
-    this.expireDate,
-    this.expireDateSupported,
+class CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupported {
+  CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupported({required this.enabled});
+
+  factory CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupported.fromJson(
+          Map<String, dynamic> json) =>
+      _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupportedFromJson(json);
+
+  final bool enabled;
+
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() =>
+      _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupportedToJson(this);
+  // coverage:ignore-end
+}
+
+@JsonSerializable()
+class CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation {
+  CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation({
+    required this.outgoing,
+    required this.incoming,
+    required this.expireDate,
+    required this.expireDateSupported,
   });
 
-  factory CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingFederation.fromJson(Map<String, dynamic> json) =>
-      _$CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingFederationFromJson(json);
+  factory CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation.fromJson(Map<String, dynamic> json) =>
+      _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_FederationFromJson(json);
 
-  final bool? outgoing;
+  final bool outgoing;
 
-  final bool? incoming;
+  final bool incoming;
 
   @JsonKey(name: 'expire_date')
-  final CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingFederationExpireDate? expireDate;
+  final CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDate expireDate;
 
   @JsonKey(name: 'expire_date_supported')
-  final CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingFederationExpireDateSupported? expireDateSupported;
+  final CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupported expireDateSupported;
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingFederationToJson(this);
+  Map<String, dynamic> toJson() => _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_FederationToJson(this);
   // coverage:ignore-end
 }
 
 @JsonSerializable()
-class CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingSharee {
-  CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingSharee({
-    this.queryLookupDefault,
-    this.alwaysShowUnique,
+class CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharee {
+  CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharee({
+    required this.queryLookupDefault,
+    required this.alwaysShowUnique,
   });
 
-  factory CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingSharee.fromJson(Map<String, dynamic> json) =>
-      _$CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingShareeFromJson(json);
+  factory CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharee.fromJson(Map<String, dynamic> json) =>
+      _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_ShareeFromJson(json);
 
   @JsonKey(name: 'query_lookup_default')
-  final bool? queryLookupDefault;
+  final bool queryLookupDefault;
 
   @JsonKey(name: 'always_show_unique')
-  final bool? alwaysShowUnique;
+  final bool alwaysShowUnique;
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingShareeToJson(this);
+  Map<String, dynamic> toJson() => _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_ShareeToJson(this);
   // coverage:ignore-end
 }
 
 @JsonSerializable()
-class CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingSharebymailUploadFilesDrop {
-  CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingSharebymailUploadFilesDrop({this.enabled});
+class CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_UploadFilesDrop {
+  CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_UploadFilesDrop({required this.enabled});
 
-  factory CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingSharebymailUploadFilesDrop.fromJson(
+  factory CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_UploadFilesDrop.fromJson(
           Map<String, dynamic> json) =>
-      _$CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingSharebymailUploadFilesDropFromJson(json);
+      _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_UploadFilesDropFromJson(json);
 
-  final bool? enabled;
+  final bool enabled;
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() =>
-      _$CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingSharebymailUploadFilesDropToJson(this);
+      _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_UploadFilesDropToJson(this);
   // coverage:ignore-end
 }
 
 @JsonSerializable()
-class CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingSharebymailPassword {
-  CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingSharebymailPassword({
-    this.enabled,
-    this.enforced,
+class CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_Password {
+  CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_Password({
+    required this.enabled,
+    required this.enforced,
   });
 
-  factory CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingSharebymailPassword.fromJson(
+  factory CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_Password.fromJson(
           Map<String, dynamic> json) =>
-      _$CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingSharebymailPasswordFromJson(json);
+      _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_PasswordFromJson(json);
 
-  final bool? enabled;
+  final bool enabled;
 
-  final bool? enforced;
+  final bool enforced;
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() =>
-      _$CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingSharebymailPasswordToJson(this);
+      _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_PasswordToJson(this);
   // coverage:ignore-end
 }
 
 @JsonSerializable()
-class CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingSharebymailExpireDate {
-  CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingSharebymailExpireDate({
-    this.enabled,
-    this.enforced,
+class CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_ExpireDate {
+  CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_ExpireDate({
+    required this.enabled,
+    required this.enforced,
   });
 
-  factory CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingSharebymailExpireDate.fromJson(
+  factory CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_ExpireDate.fromJson(
           Map<String, dynamic> json) =>
-      _$CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingSharebymailExpireDateFromJson(json);
+      _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_ExpireDateFromJson(json);
 
-  final bool? enabled;
+  final bool enabled;
 
-  final bool? enforced;
+  final bool enforced;
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() =>
-      _$CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingSharebymailExpireDateToJson(this);
+      _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_ExpireDateToJson(this);
   // coverage:ignore-end
 }
 
 @JsonSerializable()
-class CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingSharebymail {
-  CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingSharebymail({
-    this.enabled,
-    this.sendPasswordByMail,
-    this.uploadFilesDrop,
-    this.password,
-    this.expireDate,
+class CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail {
+  CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail({
+    required this.enabled,
+    required this.sendPasswordByMail,
+    required this.uploadFilesDrop,
+    required this.password,
+    required this.expireDate,
   });
 
-  factory CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingSharebymail.fromJson(Map<String, dynamic> json) =>
-      _$CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingSharebymailFromJson(json);
+  factory CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail.fromJson(Map<String, dynamic> json) =>
+      _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_SharebymailFromJson(json);
 
-  final bool? enabled;
+  final bool enabled;
 
   @JsonKey(name: 'send_password_by_mail')
-  final bool? sendPasswordByMail;
+  final bool sendPasswordByMail;
 
   @JsonKey(name: 'upload_files_drop')
-  final CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingSharebymailUploadFilesDrop? uploadFilesDrop;
+  final CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_UploadFilesDrop uploadFilesDrop;
 
-  final CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingSharebymailPassword? password;
+  final CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_Password password;
 
   @JsonKey(name: 'expire_date')
-  final CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingSharebymailExpireDate? expireDate;
+  final CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_ExpireDate expireDate;
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingSharebymailToJson(this);
+  Map<String, dynamic> toJson() => _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_SharebymailToJson(this);
   // coverage:ignore-end
 }
 
 @JsonSerializable()
-class CoreServerCapabilitiesOcsDataCapabilitiesFilesSharing {
-  CoreServerCapabilitiesOcsDataCapabilitiesFilesSharing({
-    this.apiEnabled,
-    this.public,
-    this.resharing,
-    this.user,
-    this.groupSharing,
-    this.group,
-    this.defaultPermissions,
-    this.federation,
-    this.sharee,
-    this.sharebymail,
+class CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing {
+  CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing({
+    required this.apiEnabled,
+    required this.public,
+    required this.resharing,
+    required this.user,
+    required this.groupSharing,
+    required this.group,
+    required this.defaultPermissions,
+    required this.federation,
+    required this.sharee,
+    required this.sharebymail,
   });
 
-  factory CoreServerCapabilitiesOcsDataCapabilitiesFilesSharing.fromJson(Map<String, dynamic> json) =>
-      _$CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingFromJson(json);
+  factory CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing.fromJson(Map<String, dynamic> json) =>
+      _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharingFromJson(json);
 
   @JsonKey(name: 'api_enabled')
-  final bool? apiEnabled;
+  final bool apiEnabled;
 
-  final CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingPublic? public;
+  final CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public public;
 
-  final bool? resharing;
+  final bool resharing;
 
-  final CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingUser? user;
+  final CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User user;
 
   @JsonKey(name: 'group_sharing')
-  final bool? groupSharing;
+  final bool groupSharing;
 
-  final CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingGroup? group;
+  final CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group group;
 
   @JsonKey(name: 'default_permissions')
-  final int? defaultPermissions;
+  final int defaultPermissions;
 
-  final CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingFederation? federation;
+  final CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation federation;
 
-  final CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingSharee? sharee;
+  final CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharee sharee;
 
-  final CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingSharebymail? sharebymail;
+  final CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail sharebymail;
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingToJson(this);
+  Map<String, dynamic> toJson() => _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharingToJson(this);
   // coverage:ignore-end
 }
 
 @JsonSerializable()
-class CoreServerCapabilitiesOcsDataCapabilitiesNotes {
-  CoreServerCapabilitiesOcsDataCapabilitiesNotes({
-    this.apiVersion,
-    this.version,
+class CoreServerCapabilities_Ocs_Data_Capabilities_Notes {
+  CoreServerCapabilities_Ocs_Data_Capabilities_Notes({
+    required this.apiVersion,
+    required this.version,
   });
 
-  factory CoreServerCapabilitiesOcsDataCapabilitiesNotes.fromJson(Map<String, dynamic> json) =>
-      _$CoreServerCapabilitiesOcsDataCapabilitiesNotesFromJson(json);
+  factory CoreServerCapabilities_Ocs_Data_Capabilities_Notes.fromJson(Map<String, dynamic> json) =>
+      _$CoreServerCapabilities_Ocs_Data_Capabilities_NotesFromJson(json);
 
   @JsonKey(name: 'api_version')
-  final List<String>? apiVersion;
+  final List<String> apiVersion;
 
-  final String? version;
+  final String version;
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$CoreServerCapabilitiesOcsDataCapabilitiesNotesToJson(this);
+  Map<String, dynamic> toJson() => _$CoreServerCapabilities_Ocs_Data_Capabilities_NotesToJson(this);
   // coverage:ignore-end
 }
 
 @JsonSerializable()
-class CoreServerCapabilitiesOcsDataCapabilitiesNotifications {
-  CoreServerCapabilitiesOcsDataCapabilitiesNotifications({
-    this.ocsEndpoints,
-    this.push,
-    this.adminNotifications,
+class CoreServerCapabilities_Ocs_Data_Capabilities_Notifications {
+  CoreServerCapabilities_Ocs_Data_Capabilities_Notifications({
+    required this.ocsEndpoints,
+    required this.push,
+    required this.adminNotifications,
   });
 
-  factory CoreServerCapabilitiesOcsDataCapabilitiesNotifications.fromJson(Map<String, dynamic> json) =>
-      _$CoreServerCapabilitiesOcsDataCapabilitiesNotificationsFromJson(json);
+  factory CoreServerCapabilities_Ocs_Data_Capabilities_Notifications.fromJson(Map<String, dynamic> json) =>
+      _$CoreServerCapabilities_Ocs_Data_Capabilities_NotificationsFromJson(json);
 
   @JsonKey(name: 'ocs-endpoints')
-  final List<String>? ocsEndpoints;
+  final List<String> ocsEndpoints;
 
-  final List<String>? push;
+  final List<String> push;
 
   @JsonKey(name: 'admin-notifications')
-  final List<String>? adminNotifications;
+  final List<String> adminNotifications;
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$CoreServerCapabilitiesOcsDataCapabilitiesNotificationsToJson(this);
+  Map<String, dynamic> toJson() => _$CoreServerCapabilities_Ocs_Data_Capabilities_NotificationsToJson(this);
   // coverage:ignore-end
 }
 
 @JsonSerializable()
-class CoreServerCapabilitiesOcsDataCapabilitiesPasswordPolicyApi {
-  CoreServerCapabilitiesOcsDataCapabilitiesPasswordPolicyApi({
-    this.generate,
-    this.validate,
+class CoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy_Api {
+  CoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy_Api({
+    required this.generate,
+    required this.validate,
   });
 
-  factory CoreServerCapabilitiesOcsDataCapabilitiesPasswordPolicyApi.fromJson(Map<String, dynamic> json) =>
-      _$CoreServerCapabilitiesOcsDataCapabilitiesPasswordPolicyApiFromJson(json);
+  factory CoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy_Api.fromJson(Map<String, dynamic> json) =>
+      _$CoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy_ApiFromJson(json);
 
-  final String? generate;
+  final String generate;
 
-  final String? validate;
+  final String validate;
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$CoreServerCapabilitiesOcsDataCapabilitiesPasswordPolicyApiToJson(this);
+  Map<String, dynamic> toJson() => _$CoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy_ApiToJson(this);
   // coverage:ignore-end
 }
 
 @JsonSerializable()
-class CoreServerCapabilitiesOcsDataCapabilitiesPasswordPolicy {
-  CoreServerCapabilitiesOcsDataCapabilitiesPasswordPolicy({
-    this.minLength,
-    this.enforceNonCommonPassword,
-    this.enforceNumericCharacters,
-    this.enforceSpecialCharacters,
-    this.enforceUpperLowerCase,
-    this.api,
+class CoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy {
+  CoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy({
+    required this.minLength,
+    required this.enforceNonCommonPassword,
+    required this.enforceNumericCharacters,
+    required this.enforceSpecialCharacters,
+    required this.enforceUpperLowerCase,
+    required this.api,
   });
 
-  factory CoreServerCapabilitiesOcsDataCapabilitiesPasswordPolicy.fromJson(Map<String, dynamic> json) =>
-      _$CoreServerCapabilitiesOcsDataCapabilitiesPasswordPolicyFromJson(json);
+  factory CoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy.fromJson(Map<String, dynamic> json) =>
+      _$CoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicyFromJson(json);
 
-  final int? minLength;
+  final int minLength;
 
-  final bool? enforceNonCommonPassword;
+  final bool enforceNonCommonPassword;
 
-  final bool? enforceNumericCharacters;
+  final bool enforceNumericCharacters;
 
-  final bool? enforceSpecialCharacters;
+  final bool enforceSpecialCharacters;
 
-  final bool? enforceUpperLowerCase;
+  final bool enforceUpperLowerCase;
 
-  final CoreServerCapabilitiesOcsDataCapabilitiesPasswordPolicyApi? api;
+  final CoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy_Api api;
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$CoreServerCapabilitiesOcsDataCapabilitiesPasswordPolicyToJson(this);
+  Map<String, dynamic> toJson() => _$CoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicyToJson(this);
   // coverage:ignore-end
 }
 
 @JsonSerializable()
-class CoreServerCapabilitiesOcsDataCapabilitiesProvisioningApi {
-  CoreServerCapabilitiesOcsDataCapabilitiesProvisioningApi({
-    this.version,
-    this.accountPropertyScopesVersion,
-    this.accountPropertyScopesFederatedEnabled,
-    this.accountPropertyScopesPublishedEnabled,
+class CoreServerCapabilities_Ocs_Data_Capabilities_ProvisioningApi {
+  CoreServerCapabilities_Ocs_Data_Capabilities_ProvisioningApi({
+    required this.version,
+    required this.accountPropertyScopesVersion,
+    required this.accountPropertyScopesFederatedEnabled,
+    required this.accountPropertyScopesPublishedEnabled,
   });
 
-  factory CoreServerCapabilitiesOcsDataCapabilitiesProvisioningApi.fromJson(Map<String, dynamic> json) =>
-      _$CoreServerCapabilitiesOcsDataCapabilitiesProvisioningApiFromJson(json);
+  factory CoreServerCapabilities_Ocs_Data_Capabilities_ProvisioningApi.fromJson(Map<String, dynamic> json) =>
+      _$CoreServerCapabilities_Ocs_Data_Capabilities_ProvisioningApiFromJson(json);
 
-  final String? version;
+  final String version;
 
   @JsonKey(name: 'AccountPropertyScopesVersion')
-  final int? accountPropertyScopesVersion;
+  final int accountPropertyScopesVersion;
 
   @JsonKey(name: 'AccountPropertyScopesFederatedEnabled')
-  final bool? accountPropertyScopesFederatedEnabled;
+  final bool accountPropertyScopesFederatedEnabled;
 
   @JsonKey(name: 'AccountPropertyScopesPublishedEnabled')
-  final bool? accountPropertyScopesPublishedEnabled;
+  final bool accountPropertyScopesPublishedEnabled;
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$CoreServerCapabilitiesOcsDataCapabilitiesProvisioningApiToJson(this);
+  Map<String, dynamic> toJson() => _$CoreServerCapabilities_Ocs_Data_Capabilities_ProvisioningApiToJson(this);
   // coverage:ignore-end
 }
 
 @JsonSerializable()
-class CoreServerCapabilitiesOcsDataCapabilitiesTheming {
-  CoreServerCapabilitiesOcsDataCapabilitiesTheming({
-    this.name,
-    this.url,
-    this.slogan,
-    this.color,
-    this.colorText,
-    this.colorElement,
-    this.colorElementBright,
-    this.colorElementDark,
-    this.logo,
-    this.background,
-    this.backgroundPlain,
-    this.backgroundDefault,
-    this.logoheader,
-    this.favicon,
+class CoreServerCapabilities_Ocs_Data_Capabilities_Theming {
+  CoreServerCapabilities_Ocs_Data_Capabilities_Theming({
+    required this.name,
+    required this.url,
+    required this.slogan,
+    required this.color,
+    required this.colorText,
+    required this.colorElement,
+    required this.colorElementBright,
+    required this.colorElementDark,
+    required this.logo,
+    required this.background,
+    required this.backgroundPlain,
+    required this.backgroundDefault,
+    required this.logoheader,
+    required this.favicon,
   });
 
-  factory CoreServerCapabilitiesOcsDataCapabilitiesTheming.fromJson(Map<String, dynamic> json) =>
-      _$CoreServerCapabilitiesOcsDataCapabilitiesThemingFromJson(json);
+  factory CoreServerCapabilities_Ocs_Data_Capabilities_Theming.fromJson(Map<String, dynamic> json) =>
+      _$CoreServerCapabilities_Ocs_Data_Capabilities_ThemingFromJson(json);
 
-  final String? name;
+  final String name;
 
-  final String? url;
+  final String url;
 
-  final String? slogan;
+  final String slogan;
 
-  final String? color;
+  final String color;
 
   @JsonKey(name: 'color-text')
-  final String? colorText;
+  final String colorText;
 
   @JsonKey(name: 'color-element')
-  final String? colorElement;
+  final String colorElement;
 
   @JsonKey(name: 'color-element-bright')
-  final String? colorElementBright;
+  final String colorElementBright;
 
   @JsonKey(name: 'color-element-dark')
-  final String? colorElementDark;
+  final String colorElementDark;
 
-  final String? logo;
+  final String logo;
 
-  final String? background;
+  final String background;
 
   @JsonKey(name: 'background-plain')
-  final bool? backgroundPlain;
+  final bool backgroundPlain;
 
   @JsonKey(name: 'background-default')
-  final bool? backgroundDefault;
+  final bool backgroundDefault;
 
-  final String? logoheader;
+  final String logoheader;
 
-  final String? favicon;
+  final String favicon;
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$CoreServerCapabilitiesOcsDataCapabilitiesThemingToJson(this);
+  Map<String, dynamic> toJson() => _$CoreServerCapabilities_Ocs_Data_Capabilities_ThemingToJson(this);
   // coverage:ignore-end
 }
 
 @JsonSerializable()
-class CoreServerCapabilitiesOcsDataCapabilitiesUserStatus {
-  CoreServerCapabilitiesOcsDataCapabilitiesUserStatus({
-    this.enabled,
-    this.supportsEmoji,
+class CoreServerCapabilities_Ocs_Data_Capabilities_UserStatus {
+  CoreServerCapabilities_Ocs_Data_Capabilities_UserStatus({
+    required this.enabled,
+    required this.supportsEmoji,
   });
 
-  factory CoreServerCapabilitiesOcsDataCapabilitiesUserStatus.fromJson(Map<String, dynamic> json) =>
-      _$CoreServerCapabilitiesOcsDataCapabilitiesUserStatusFromJson(json);
+  factory CoreServerCapabilities_Ocs_Data_Capabilities_UserStatus.fromJson(Map<String, dynamic> json) =>
+      _$CoreServerCapabilities_Ocs_Data_Capabilities_UserStatusFromJson(json);
 
-  final bool? enabled;
+  final bool enabled;
 
   @JsonKey(name: 'supports_emoji')
-  final bool? supportsEmoji;
+  final bool supportsEmoji;
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$CoreServerCapabilitiesOcsDataCapabilitiesUserStatusToJson(this);
+  Map<String, dynamic> toJson() => _$CoreServerCapabilities_Ocs_Data_Capabilities_UserStatusToJson(this);
   // coverage:ignore-end
 }
 
 @JsonSerializable()
-class CoreServerCapabilitiesOcsDataCapabilitiesWeatherStatus {
-  CoreServerCapabilitiesOcsDataCapabilitiesWeatherStatus({this.enabled});
+class CoreServerCapabilities_Ocs_Data_Capabilities_WeatherStatus {
+  CoreServerCapabilities_Ocs_Data_Capabilities_WeatherStatus({required this.enabled});
 
-  factory CoreServerCapabilitiesOcsDataCapabilitiesWeatherStatus.fromJson(Map<String, dynamic> json) =>
-      _$CoreServerCapabilitiesOcsDataCapabilitiesWeatherStatusFromJson(json);
+  factory CoreServerCapabilities_Ocs_Data_Capabilities_WeatherStatus.fromJson(Map<String, dynamic> json) =>
+      _$CoreServerCapabilities_Ocs_Data_Capabilities_WeatherStatusFromJson(json);
 
-  final bool? enabled;
+  final bool enabled;
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$CoreServerCapabilitiesOcsDataCapabilitiesWeatherStatusToJson(this);
+  Map<String, dynamic> toJson() => _$CoreServerCapabilities_Ocs_Data_Capabilities_WeatherStatusToJson(this);
   // coverage:ignore-end
 }
 
 @JsonSerializable()
-class CoreServerCapabilitiesOcsDataCapabilities {
-  CoreServerCapabilitiesOcsDataCapabilities({
-    this.core,
-    this.bruteforce,
-    this.metadataAvailable,
-    this.files,
+class CoreServerCapabilities_Ocs_Data_Capabilities {
+  CoreServerCapabilities_Ocs_Data_Capabilities({
+    required this.core,
+    required this.bruteforce,
+    required this.metadataAvailable,
+    required this.files,
     this.activity,
     this.circles,
-    this.ocm,
-    this.dav,
+    required this.ocm,
+    required this.dav,
     this.filesSharing,
     this.notes,
     this.notifications,
@@ -1201,109 +1213,109 @@ class CoreServerCapabilitiesOcsDataCapabilities {
     this.weatherStatus,
   });
 
-  factory CoreServerCapabilitiesOcsDataCapabilities.fromJson(Map<String, dynamic> json) =>
-      _$CoreServerCapabilitiesOcsDataCapabilitiesFromJson(json);
+  factory CoreServerCapabilities_Ocs_Data_Capabilities.fromJson(Map<String, dynamic> json) =>
+      _$CoreServerCapabilities_Ocs_Data_CapabilitiesFromJson(json);
 
-  final CoreServerCapabilitiesOcsDataCapabilitiesCore? core;
+  final CoreServerCapabilities_Ocs_Data_Capabilities_Core core;
 
-  final CoreServerCapabilitiesOcsDataCapabilitiesBruteforce? bruteforce;
+  final CoreServerCapabilities_Ocs_Data_Capabilities_Bruteforce bruteforce;
 
-  final CoreServerCapabilitiesOcsDataCapabilitiesMetadataAvailable? metadataAvailable;
+  final CoreServerCapabilities_Ocs_Data_Capabilities_MetadataAvailable metadataAvailable;
 
-  final CoreServerCapabilitiesOcsDataCapabilitiesFiles? files;
+  final CoreServerCapabilities_Ocs_Data_Capabilities_Files files;
 
-  final CoreServerCapabilitiesOcsDataCapabilitiesActivity? activity;
+  final CoreServerCapabilities_Ocs_Data_Capabilities_Activity? activity;
 
-  final CoreServerCapabilitiesOcsDataCapabilitiesCircles? circles;
+  final CoreServerCapabilities_Ocs_Data_Capabilities_Circles? circles;
 
-  final CoreServerCapabilitiesOcsDataCapabilitiesOcm? ocm;
+  final CoreServerCapabilities_Ocs_Data_Capabilities_Ocm ocm;
 
-  final CoreServerCapabilitiesOcsDataCapabilitiesDav? dav;
+  final CoreServerCapabilities_Ocs_Data_Capabilities_Dav dav;
 
   @JsonKey(name: 'files_sharing')
-  final CoreServerCapabilitiesOcsDataCapabilitiesFilesSharing? filesSharing;
+  final CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing? filesSharing;
 
-  final CoreServerCapabilitiesOcsDataCapabilitiesNotes? notes;
+  final CoreServerCapabilities_Ocs_Data_Capabilities_Notes? notes;
 
-  final CoreServerCapabilitiesOcsDataCapabilitiesNotifications? notifications;
+  final CoreServerCapabilities_Ocs_Data_Capabilities_Notifications? notifications;
 
   @JsonKey(name: 'password_policy')
-  final CoreServerCapabilitiesOcsDataCapabilitiesPasswordPolicy? passwordPolicy;
+  final CoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy? passwordPolicy;
 
   @JsonKey(name: 'provisioning_api')
-  final CoreServerCapabilitiesOcsDataCapabilitiesProvisioningApi? provisioningApi;
+  final CoreServerCapabilities_Ocs_Data_Capabilities_ProvisioningApi? provisioningApi;
 
-  final CoreServerCapabilitiesOcsDataCapabilitiesTheming? theming;
+  final CoreServerCapabilities_Ocs_Data_Capabilities_Theming? theming;
 
   @JsonKey(name: 'user_status')
-  final CoreServerCapabilitiesOcsDataCapabilitiesUserStatus? userStatus;
+  final CoreServerCapabilities_Ocs_Data_Capabilities_UserStatus? userStatus;
 
   @JsonKey(name: 'weather_status')
-  final CoreServerCapabilitiesOcsDataCapabilitiesWeatherStatus? weatherStatus;
+  final CoreServerCapabilities_Ocs_Data_Capabilities_WeatherStatus? weatherStatus;
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$CoreServerCapabilitiesOcsDataCapabilitiesToJson(this);
+  Map<String, dynamic> toJson() => _$CoreServerCapabilities_Ocs_Data_CapabilitiesToJson(this);
   // coverage:ignore-end
 }
 
 @JsonSerializable()
-class CoreServerCapabilitiesOcsData {
-  CoreServerCapabilitiesOcsData({
-    this.version,
-    this.capabilities,
+class CoreServerCapabilities_Ocs_Data {
+  CoreServerCapabilities_Ocs_Data({
+    required this.version,
+    required this.capabilities,
   });
 
-  factory CoreServerCapabilitiesOcsData.fromJson(Map<String, dynamic> json) =>
-      _$CoreServerCapabilitiesOcsDataFromJson(json);
+  factory CoreServerCapabilities_Ocs_Data.fromJson(Map<String, dynamic> json) =>
+      _$CoreServerCapabilities_Ocs_DataFromJson(json);
 
-  final CoreServerCapabilitiesOcsDataVersion? version;
+  final CoreServerCapabilities_Ocs_Data_Version version;
 
-  final CoreServerCapabilitiesOcsDataCapabilities? capabilities;
+  final CoreServerCapabilities_Ocs_Data_Capabilities capabilities;
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$CoreServerCapabilitiesOcsDataToJson(this);
+  Map<String, dynamic> toJson() => _$CoreServerCapabilities_Ocs_DataToJson(this);
   // coverage:ignore-end
 }
 
 @JsonSerializable()
-class CoreServerCapabilitiesOcs {
-  CoreServerCapabilitiesOcs({
-    this.meta,
-    this.data,
+class CoreServerCapabilities_Ocs {
+  CoreServerCapabilities_Ocs({
+    required this.meta,
+    required this.data,
   });
 
-  factory CoreServerCapabilitiesOcs.fromJson(Map<String, dynamic> json) => _$CoreServerCapabilitiesOcsFromJson(json);
+  factory CoreServerCapabilities_Ocs.fromJson(Map<String, dynamic> json) => _$CoreServerCapabilities_OcsFromJson(json);
 
-  final OCSMeta? meta;
+  final OCSMeta meta;
 
-  final CoreServerCapabilitiesOcsData? data;
+  final CoreServerCapabilities_Ocs_Data data;
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$CoreServerCapabilitiesOcsToJson(this);
+  Map<String, dynamic> toJson() => _$CoreServerCapabilities_OcsToJson(this);
   // coverage:ignore-end
 }
 
 @JsonSerializable()
 class CoreServerCapabilities {
-  CoreServerCapabilities({this.ocs});
+  CoreServerCapabilities({required this.ocs});
 
   factory CoreServerCapabilities.fromJson(Map<String, dynamic> json) => _$CoreServerCapabilitiesFromJson(json);
 
-  final CoreServerCapabilitiesOcs? ocs;
+  final CoreServerCapabilities_Ocs ocs;
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreServerCapabilitiesToJson(this);
   // coverage:ignore-end
 }
 
-class CoreNavigationAppsOcsDataOrder {
-  CoreNavigationAppsOcsDataOrder(
+class CoreNavigationApps_Ocs_Data_Order {
+  CoreNavigationApps_Ocs_Data_Order(
     this._data, {
     this.int_,
     this.string,
   });
 
-  factory CoreNavigationAppsOcsDataOrder.fromJson(dynamic data) {
+  factory CoreNavigationApps_Ocs_Data_Order.fromJson(dynamic data) {
     int? int_;
     try {
       int_ = data as int;
@@ -1313,7 +1325,7 @@ class CoreNavigationAppsOcsDataOrder {
       string = data as String;
     } catch (_) {}
     assert([int_, string].where((final x) => x != null).length == 1, 'Need oneOf');
-    return CoreNavigationAppsOcsDataOrder(
+    return CoreNavigationApps_Ocs_Data_Order(
       data,
       int_: int_,
       string: string,
@@ -1332,70 +1344,71 @@ class CoreNavigationAppsOcsDataOrder {
 }
 
 @JsonSerializable()
-class CoreNavigationAppsOcsData {
-  CoreNavigationAppsOcsData({
-    this.id,
-    this.order,
-    this.href,
-    this.icon,
-    this.type,
-    this.name,
-    this.active,
-    this.classes,
-    this.unread,
+class CoreNavigationApps_Ocs_Data {
+  CoreNavigationApps_Ocs_Data({
+    required this.id,
+    required this.order,
+    required this.href,
+    required this.icon,
+    required this.type,
+    required this.name,
+    required this.active,
+    required this.classes,
+    required this.unread,
   });
 
-  factory CoreNavigationAppsOcsData.fromJson(Map<String, dynamic> json) => _$CoreNavigationAppsOcsDataFromJson(json);
+  factory CoreNavigationApps_Ocs_Data.fromJson(Map<String, dynamic> json) =>
+      _$CoreNavigationApps_Ocs_DataFromJson(json);
 
-  final String? id;
+  final String id;
 
   /// Should always be an integer, but there is a bug. See https://github.com/nextcloud/server/issues/32828
-  final CoreNavigationAppsOcsDataOrder? order;
+  final CoreNavigationApps_Ocs_Data_Order order;
 
-  final String? href;
+  final String href;
 
-  final String? icon;
+  final String icon;
 
-  final String? type;
+  final String type;
 
-  final String? name;
+  final String name;
 
-  final bool? active;
+  final bool active;
 
-  final String? classes;
+  final String classes;
 
-  final int? unread;
+  final int unread;
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$CoreNavigationAppsOcsDataToJson(this);
+  Map<String, dynamic> toJson() => _$CoreNavigationApps_Ocs_DataToJson(this);
   // coverage:ignore-end
 }
 
 @JsonSerializable()
-class CoreNavigationAppsOcs {
-  CoreNavigationAppsOcs({
-    this.meta,
-    this.data,
+class CoreNavigationApps_Ocs {
+  CoreNavigationApps_Ocs({
+    required this.meta,
+    required this.data,
   });
 
-  factory CoreNavigationAppsOcs.fromJson(Map<String, dynamic> json) => _$CoreNavigationAppsOcsFromJson(json);
+  factory CoreNavigationApps_Ocs.fromJson(Map<String, dynamic> json) => _$CoreNavigationApps_OcsFromJson(json);
 
-  final OCSMeta? meta;
+  final OCSMeta meta;
 
-  final List<CoreNavigationAppsOcsData>? data;
+  final List<CoreNavigationApps_Ocs_Data> data;
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$CoreNavigationAppsOcsToJson(this);
+  Map<String, dynamic> toJson() => _$CoreNavigationApps_OcsToJson(this);
   // coverage:ignore-end
 }
 
 @JsonSerializable()
 class CoreNavigationApps {
-  CoreNavigationApps({this.ocs});
+  CoreNavigationApps({required this.ocs});
 
   factory CoreNavigationApps.fromJson(Map<String, dynamic> json) => _$CoreNavigationAppsFromJson(json);
 
-  final CoreNavigationAppsOcs? ocs;
+  final CoreNavigationApps_Ocs ocs;
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreNavigationAppsToJson(this);
@@ -1403,35 +1416,35 @@ class CoreNavigationApps {
 }
 
 @JsonSerializable()
-class CoreLoginFlowInitPoll {
-  CoreLoginFlowInitPoll({
-    this.token,
-    this.endpoint,
+class CoreLoginFlowInit_Poll {
+  CoreLoginFlowInit_Poll({
+    required this.token,
+    required this.endpoint,
   });
 
-  factory CoreLoginFlowInitPoll.fromJson(Map<String, dynamic> json) => _$CoreLoginFlowInitPollFromJson(json);
+  factory CoreLoginFlowInit_Poll.fromJson(Map<String, dynamic> json) => _$CoreLoginFlowInit_PollFromJson(json);
 
-  final String? token;
+  final String token;
 
-  final String? endpoint;
+  final String endpoint;
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$CoreLoginFlowInitPollToJson(this);
+  Map<String, dynamic> toJson() => _$CoreLoginFlowInit_PollToJson(this);
   // coverage:ignore-end
 }
 
 @JsonSerializable()
 class CoreLoginFlowInit {
   CoreLoginFlowInit({
-    this.poll,
-    this.login,
+    required this.poll,
+    required this.login,
   });
 
   factory CoreLoginFlowInit.fromJson(Map<String, dynamic> json) => _$CoreLoginFlowInitFromJson(json);
 
-  final CoreLoginFlowInitPoll? poll;
+  final CoreLoginFlowInit_Poll poll;
 
-  final String? login;
+  final String login;
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreLoginFlowInitToJson(this);
@@ -1441,18 +1454,18 @@ class CoreLoginFlowInit {
 @JsonSerializable()
 class CoreLoginFlowResult {
   CoreLoginFlowResult({
-    this.server,
-    this.loginName,
-    this.appPassword,
+    required this.server,
+    required this.loginName,
+    required this.appPassword,
   });
 
   factory CoreLoginFlowResult.fromJson(Map<String, dynamic> json) => _$CoreLoginFlowResultFromJson(json);
 
-  final String? server;
+  final String server;
 
-  final String? loginName;
+  final String loginName;
 
-  final String? appPassword;
+  final String appPassword;
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreLoginFlowResultToJson(this);
@@ -1619,47 +1632,47 @@ class GetSupportedApiVersions {
 @JsonSerializable()
 class NewsArticle {
   NewsArticle({
-    this.id,
-    this.guid,
-    this.guidHash,
-    this.url,
-    this.title,
+    required this.id,
+    required this.guid,
+    required this.guidHash,
+    required this.url,
+    required this.title,
     this.author,
-    this.pubDate,
+    required this.pubDate,
     this.updatedDate,
-    this.body,
+    required this.body,
     this.enclosureMime,
     this.enclosureLink,
     this.mediaThumbnail,
     this.mediaDescription,
-    this.feedId,
-    this.unread,
-    this.starred,
-    this.lastModified,
-    this.rtl,
-    this.fingerprint,
-    this.contentHash,
+    required this.feedId,
+    required this.unread,
+    required this.starred,
+    required this.lastModified,
+    required this.rtl,
+    required this.fingerprint,
+    required this.contentHash,
   });
 
   factory NewsArticle.fromJson(Map<String, dynamic> json) => _$NewsArticleFromJson(json);
 
-  final int? id;
+  final int id;
 
-  final String? guid;
+  final String guid;
 
-  final String? guidHash;
+  final String guidHash;
 
-  final String? url;
+  final String url;
 
-  final String? title;
+  final String title;
 
   final String? author;
 
-  final int? pubDate;
+  final int pubDate;
 
   final int? updatedDate;
 
-  final String? body;
+  final String body;
 
   final String? enclosureMime;
 
@@ -1669,19 +1682,19 @@ class NewsArticle {
 
   final String? mediaDescription;
 
-  final int? feedId;
+  final int feedId;
 
-  final bool? unread;
+  final bool unread;
 
-  final bool? starred;
+  final bool starred;
 
-  final int? lastModified;
+  final int lastModified;
 
-  final bool? rtl;
+  final bool rtl;
 
-  final String? fingerprint;
+  final String fingerprint;
 
-  final String? contentHash;
+  final String contentHash;
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$NewsArticleToJson(this);
@@ -1691,48 +1704,48 @@ class NewsArticle {
 @JsonSerializable()
 class NewsFeed {
   NewsFeed({
-    this.id,
-    this.url,
-    this.title,
-    this.faviconLink,
-    this.added,
+    required this.id,
+    required this.url,
+    required this.title,
+    required this.faviconLink,
+    required this.added,
     this.folderId,
     this.unreadCount,
-    this.ordering,
+    required this.ordering,
     this.link,
-    this.pinned,
-    this.updateErrorCount,
+    required this.pinned,
+    required this.updateErrorCount,
     this.lastUpdateError,
-    this.items,
+    required this.items,
   });
 
   factory NewsFeed.fromJson(Map<String, dynamic> json) => _$NewsFeedFromJson(json);
 
-  final int? id;
+  final int id;
 
-  final String? url;
+  final String url;
 
-  final String? title;
+  final String title;
 
-  final String? faviconLink;
+  final String faviconLink;
 
-  final int? added;
+  final int added;
 
   final int? folderId;
 
   final int? unreadCount;
 
-  final int? ordering;
+  final int ordering;
 
   final String? link;
 
-  final bool? pinned;
+  final bool pinned;
 
-  final int? updateErrorCount;
+  final int updateErrorCount;
 
   final String? lastUpdateError;
 
-  final List<NewsArticle>? items;
+  final List<NewsArticle> items;
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$NewsFeedToJson(this);
@@ -1742,22 +1755,22 @@ class NewsFeed {
 @JsonSerializable()
 class NewsFolder {
   NewsFolder({
-    this.id,
-    this.name,
-    this.opened,
-    this.feeds,
+    required this.id,
+    required this.name,
+    required this.opened,
+    required this.feeds,
   });
 
   factory NewsFolder.fromJson(Map<String, dynamic> json) => _$NewsFolderFromJson(json);
 
-  final int? id;
+  final int id;
 
-  final String? name;
+  final String name;
 
-  final bool? opened;
+  final bool opened;
 
   /// This seems to be broken. In testing it is always empty
-  final List<NewsFeed>? feeds;
+  final List<NewsFeed> feeds;
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$NewsFolderToJson(this);
@@ -1766,11 +1779,11 @@ class NewsFolder {
 
 @JsonSerializable()
 class NewsListFolders {
-  NewsListFolders({this.folders});
+  NewsListFolders({required this.folders});
 
   factory NewsListFolders.fromJson(Map<String, dynamic> json) => _$NewsListFoldersFromJson(json);
 
-  final List<NewsFolder>? folders;
+  final List<NewsFolder> folders;
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$NewsListFoldersToJson(this);
@@ -1782,7 +1795,7 @@ class NewsListFeeds {
   NewsListFeeds({
     this.starredCount,
     this.newestItemId,
-    this.feeds,
+    required this.feeds,
   });
 
   factory NewsListFeeds.fromJson(Map<String, dynamic> json) => _$NewsListFeedsFromJson(json);
@@ -1791,7 +1804,7 @@ class NewsListFeeds {
 
   final int? newestItemId;
 
-  final List<NewsFeed>? feeds;
+  final List<NewsFeed> feeds;
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$NewsListFeedsToJson(this);
@@ -1800,11 +1813,11 @@ class NewsListFeeds {
 
 @JsonSerializable()
 class NewsListArticles {
-  NewsListArticles({this.items});
+  NewsListArticles({required this.items});
 
   factory NewsListArticles.fromJson(Map<String, dynamic> json) => _$NewsListArticlesFromJson(json);
 
-  final List<NewsArticle>? items;
+  final List<NewsArticle> items;
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$NewsListArticlesToJson(this);
@@ -2187,59 +2200,59 @@ class NewsClient {
 @JsonSerializable()
 class NotesNote {
   NotesNote({
-    this.id,
-    this.etag,
-    this.readonly,
-    this.content,
-    this.title,
-    this.category,
-    this.favorite,
-    this.modified,
-    this.error,
-    this.errorType,
+    required this.id,
+    required this.etag,
+    required this.readonly,
+    required this.content,
+    required this.title,
+    required this.category,
+    required this.favorite,
+    required this.modified,
+    required this.error,
+    required this.errorType,
   });
 
   factory NotesNote.fromJson(Map<String, dynamic> json) => _$NotesNoteFromJson(json);
 
-  final int? id;
+  final int id;
 
-  final String? etag;
+  final String etag;
 
-  final bool? readonly;
+  final bool readonly;
 
-  final String? content;
+  final String content;
 
-  final String? title;
+  final String title;
 
-  final String? category;
+  final String category;
 
-  final bool? favorite;
+  final bool favorite;
 
-  final int? modified;
+  final int modified;
 
-  final bool? error;
+  final bool error;
 
-  final String? errorType;
+  final String errorType;
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$NotesNoteToJson(this);
   // coverage:ignore-end
 }
 
-enum NotesSettingsNoteMode {
+enum NotesSettings_NoteMode {
   edit('edit'),
   preview('preview');
 
-  const NotesSettingsNoteMode(this.value);
+  const NotesSettings_NoteMode(this.value);
 
   final String value;
 
-  static NotesSettingsNoteMode fromValue(String value) {
+  static NotesSettings_NoteMode fromValue(String value) {
     switch (value) {
       case 'edit':
-        return NotesSettingsNoteMode.edit;
+        return NotesSettings_NoteMode.edit;
       case 'preview':
-        return NotesSettingsNoteMode.preview;
+        return NotesSettings_NoteMode.preview;
       default:
         throw Exception('Can not parse UserStatusClearAtTime0 from "$value"');
     }
@@ -2249,18 +2262,18 @@ enum NotesSettingsNoteMode {
 @JsonSerializable()
 class NotesSettings {
   NotesSettings({
-    this.notesPath,
-    this.fileSuffix,
-    this.noteMode,
+    required this.notesPath,
+    required this.fileSuffix,
+    required this.noteMode,
   });
 
   factory NotesSettings.fromJson(Map<String, dynamic> json) => _$NotesSettingsFromJson(json);
 
-  final String? notesPath;
+  final String notesPath;
 
-  final String? fileSuffix;
+  final String fileSuffix;
 
-  final NotesSettingsNoteMode? noteMode;
+  final NotesSettings_NoteMode noteMode;
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$NotesSettingsToJson(this);
@@ -2461,18 +2474,18 @@ class NotesClient {
   }
 }
 
-class NotificationsNotificationSubjectRichParameters {
-  NotificationsNotificationSubjectRichParameters(
+class NotificationsNotification_SubjectRichParameters {
+  NotificationsNotification_SubjectRichParameters(
     this._data, {
     this.mapStringDynamic,
   });
 
-  factory NotificationsNotificationSubjectRichParameters.fromJson(dynamic data) {
+  factory NotificationsNotification_SubjectRichParameters.fromJson(dynamic data) {
     Map<String, dynamic>? mapStringDynamic;
     try {
       mapStringDynamic = data as Map<String, dynamic>;
     } catch (_) {}
-    return NotificationsNotificationSubjectRichParameters(
+    return NotificationsNotification_SubjectRichParameters(
       data,
       mapStringDynamic: mapStringDynamic,
     );
@@ -2487,18 +2500,18 @@ class NotificationsNotificationSubjectRichParameters {
   // coverage:ignore-end
 }
 
-class NotificationsNotificationMessageRichParameters {
-  NotificationsNotificationMessageRichParameters(
+class NotificationsNotification_MessageRichParameters {
+  NotificationsNotification_MessageRichParameters(
     this._data, {
     this.mapStringDynamic,
   });
 
-  factory NotificationsNotificationMessageRichParameters.fromJson(dynamic data) {
+  factory NotificationsNotification_MessageRichParameters.fromJson(dynamic data) {
     Map<String, dynamic>? mapStringDynamic;
     try {
       mapStringDynamic = data as Map<String, dynamic>;
     } catch (_) {}
-    return NotificationsNotificationMessageRichParameters(
+    return NotificationsNotification_MessageRichParameters(
       data,
       mapStringDynamic: mapStringDynamic,
     );
@@ -2516,20 +2529,20 @@ class NotificationsNotificationMessageRichParameters {
 @JsonSerializable()
 class NotificationsNotificationAction {
   NotificationsNotificationAction({
-    this.label,
-    this.link,
-    this.type,
+    required this.label,
+    required this.link,
+    required this.type,
     this.primary,
   });
 
   factory NotificationsNotificationAction.fromJson(Map<String, dynamic> json) =>
       _$NotificationsNotificationActionFromJson(json);
 
-  final String? label;
+  final String label;
 
-  final String? link;
+  final String link;
 
-  final String? type;
+  final String type;
 
   final bool? primary;
 
@@ -2541,57 +2554,57 @@ class NotificationsNotificationAction {
 @JsonSerializable()
 class NotificationsNotification {
   NotificationsNotification({
-    this.notificationId,
-    this.app,
-    this.user,
-    this.datetime,
-    this.objectType,
-    this.objectId,
-    this.subject,
-    this.message,
-    this.link,
-    this.subjectRich,
-    this.subjectRichParameters,
-    this.messageRich,
-    this.messageRichParameters,
-    this.icon,
-    this.actions,
+    required this.notificationId,
+    required this.app,
+    required this.user,
+    required this.datetime,
+    required this.objectType,
+    required this.objectId,
+    required this.subject,
+    required this.message,
+    required this.link,
+    required this.subjectRich,
+    required this.subjectRichParameters,
+    required this.messageRich,
+    required this.messageRichParameters,
+    required this.icon,
+    required this.actions,
   });
 
   factory NotificationsNotification.fromJson(Map<String, dynamic> json) => _$NotificationsNotificationFromJson(json);
 
   @JsonKey(name: 'notification_id')
-  final int? notificationId;
+  final int notificationId;
 
-  final String? app;
+  final String app;
 
-  final String? user;
+  final String user;
 
-  final String? datetime;
+  final String datetime;
 
   @JsonKey(name: 'object_type')
-  final String? objectType;
+  final String objectType;
 
   @JsonKey(name: 'object_id')
-  final String? objectId;
+  final String objectId;
 
-  final String? subject;
+  final String subject;
 
-  final String? message;
+  final String message;
 
-  final String? link;
+  final String link;
 
-  final String? subjectRich;
+  final String subjectRich;
 
-  final NotificationsNotificationSubjectRichParameters? subjectRichParameters;
+  final NotificationsNotification_SubjectRichParameters subjectRichParameters;
 
-  final String? messageRich;
+  final String messageRich;
 
-  final NotificationsNotificationMessageRichParameters? messageRichParameters;
+  final NotificationsNotification_MessageRichParameters messageRichParameters;
 
-  final String? icon;
+  final String icon;
 
-  final List<NotificationsNotificationAction>? actions;
+  final List<NotificationsNotificationAction> actions;
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$NotificationsNotificationToJson(this);
@@ -2599,32 +2612,32 @@ class NotificationsNotification {
 }
 
 @JsonSerializable()
-class NotificationsListNotificationsOcs {
-  NotificationsListNotificationsOcs({
-    this.meta,
-    this.data,
+class NotificationsListNotifications_Ocs {
+  NotificationsListNotifications_Ocs({
+    required this.meta,
+    required this.data,
   });
 
-  factory NotificationsListNotificationsOcs.fromJson(Map<String, dynamic> json) =>
-      _$NotificationsListNotificationsOcsFromJson(json);
+  factory NotificationsListNotifications_Ocs.fromJson(Map<String, dynamic> json) =>
+      _$NotificationsListNotifications_OcsFromJson(json);
 
-  final OCSMeta? meta;
+  final OCSMeta meta;
 
-  final List<NotificationsNotification>? data;
+  final List<NotificationsNotification> data;
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$NotificationsListNotificationsOcsToJson(this);
+  Map<String, dynamic> toJson() => _$NotificationsListNotifications_OcsToJson(this);
   // coverage:ignore-end
 }
 
 @JsonSerializable()
 class NotificationsListNotifications {
-  NotificationsListNotifications({this.ocs});
+  NotificationsListNotifications({required this.ocs});
 
   factory NotificationsListNotifications.fromJson(Map<String, dynamic> json) =>
       _$NotificationsListNotificationsFromJson(json);
 
-  final NotificationsListNotificationsOcs? ocs;
+  final NotificationsListNotifications_Ocs ocs;
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$NotificationsListNotificationsToJson(this);
@@ -2632,32 +2645,32 @@ class NotificationsListNotifications {
 }
 
 @JsonSerializable()
-class NotificationsGetNotificationOcs {
-  NotificationsGetNotificationOcs({
-    this.meta,
-    this.data,
+class NotificationsGetNotification_Ocs {
+  NotificationsGetNotification_Ocs({
+    required this.meta,
+    required this.data,
   });
 
-  factory NotificationsGetNotificationOcs.fromJson(Map<String, dynamic> json) =>
-      _$NotificationsGetNotificationOcsFromJson(json);
+  factory NotificationsGetNotification_Ocs.fromJson(Map<String, dynamic> json) =>
+      _$NotificationsGetNotification_OcsFromJson(json);
 
-  final OCSMeta? meta;
+  final OCSMeta meta;
 
-  final NotificationsNotification? data;
+  final NotificationsNotification data;
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$NotificationsGetNotificationOcsToJson(this);
+  Map<String, dynamic> toJson() => _$NotificationsGetNotification_OcsToJson(this);
   // coverage:ignore-end
 }
 
 @JsonSerializable()
 class NotificationsGetNotification {
-  NotificationsGetNotification({this.ocs});
+  NotificationsGetNotification({required this.ocs});
 
   factory NotificationsGetNotification.fromJson(Map<String, dynamic> json) =>
       _$NotificationsGetNotificationFromJson(json);
 
-  final NotificationsGetNotificationOcs? ocs;
+  final NotificationsGetNotification_Ocs ocs;
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$NotificationsGetNotificationToJson(this);
@@ -2665,30 +2678,30 @@ class NotificationsGetNotification {
 }
 
 @JsonSerializable()
-class NotificationsEmptyOcs {
-  NotificationsEmptyOcs({
-    this.meta,
-    this.data,
+class NotificationsEmpty_Ocs {
+  NotificationsEmpty_Ocs({
+    required this.meta,
+    required this.data,
   });
 
-  factory NotificationsEmptyOcs.fromJson(Map<String, dynamic> json) => _$NotificationsEmptyOcsFromJson(json);
+  factory NotificationsEmpty_Ocs.fromJson(Map<String, dynamic> json) => _$NotificationsEmpty_OcsFromJson(json);
 
-  final OCSMeta? meta;
+  final OCSMeta meta;
 
-  final List<String>? data;
+  final List<String> data;
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$NotificationsEmptyOcsToJson(this);
+  Map<String, dynamic> toJson() => _$NotificationsEmpty_OcsToJson(this);
   // coverage:ignore-end
 }
 
 @JsonSerializable()
 class NotificationsEmpty {
-  NotificationsEmpty({this.ocs});
+  NotificationsEmpty({required this.ocs});
 
   factory NotificationsEmpty.fromJson(Map<String, dynamic> json) => _$NotificationsEmptyFromJson(json);
 
-  final NotificationsEmptyOcs? ocs;
+  final NotificationsEmpty_Ocs ocs;
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$NotificationsEmptyToJson(this);
@@ -2698,20 +2711,20 @@ class NotificationsEmpty {
 @JsonSerializable()
 class NotificationsPushServerSubscription {
   NotificationsPushServerSubscription({
-    this.publicKey,
-    this.deviceIdentifier,
-    this.signature,
+    required this.publicKey,
+    required this.deviceIdentifier,
+    required this.signature,
     this.message,
   });
 
   factory NotificationsPushServerSubscription.fromJson(Map<String, dynamic> json) =>
       _$NotificationsPushServerSubscriptionFromJson(json);
 
-  final String? publicKey;
+  final String publicKey;
 
-  final String? deviceIdentifier;
+  final String deviceIdentifier;
 
-  final String? signature;
+  final String signature;
 
   final String? message;
 
@@ -2721,32 +2734,32 @@ class NotificationsPushServerSubscription {
 }
 
 @JsonSerializable()
-class NotificationsPushServerRegistrationOcs {
-  NotificationsPushServerRegistrationOcs({
-    this.meta,
-    this.data,
+class NotificationsPushServerRegistration_Ocs {
+  NotificationsPushServerRegistration_Ocs({
+    required this.meta,
+    required this.data,
   });
 
-  factory NotificationsPushServerRegistrationOcs.fromJson(Map<String, dynamic> json) =>
-      _$NotificationsPushServerRegistrationOcsFromJson(json);
+  factory NotificationsPushServerRegistration_Ocs.fromJson(Map<String, dynamic> json) =>
+      _$NotificationsPushServerRegistration_OcsFromJson(json);
 
-  final OCSMeta? meta;
+  final OCSMeta meta;
 
-  final NotificationsPushServerSubscription? data;
+  final NotificationsPushServerSubscription data;
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$NotificationsPushServerRegistrationOcsToJson(this);
+  Map<String, dynamic> toJson() => _$NotificationsPushServerRegistration_OcsToJson(this);
   // coverage:ignore-end
 }
 
 @JsonSerializable()
 class NotificationsPushServerRegistration {
-  NotificationsPushServerRegistration({this.ocs});
+  NotificationsPushServerRegistration({required this.ocs});
 
   factory NotificationsPushServerRegistration.fromJson(Map<String, dynamic> json) =>
       _$NotificationsPushServerRegistrationFromJson(json);
 
-  final NotificationsPushServerRegistrationOcs? ocs;
+  final NotificationsPushServerRegistration_Ocs ocs;
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$NotificationsPushServerRegistrationToJson(this);
@@ -2896,49 +2909,49 @@ class NotificationsClient {
 }
 
 @JsonSerializable()
-class ProvisioningApiUserDetailsQuota {
-  ProvisioningApiUserDetailsQuota({
-    this.free,
-    this.used,
-    this.total,
-    this.relative,
-    this.quota,
+class ProvisioningApiUserDetails_Quota {
+  ProvisioningApiUserDetails_Quota({
+    required this.free,
+    required this.used,
+    required this.total,
+    required this.relative,
+    required this.quota,
   });
 
-  factory ProvisioningApiUserDetailsQuota.fromJson(Map<String, dynamic> json) =>
-      _$ProvisioningApiUserDetailsQuotaFromJson(json);
+  factory ProvisioningApiUserDetails_Quota.fromJson(Map<String, dynamic> json) =>
+      _$ProvisioningApiUserDetails_QuotaFromJson(json);
 
-  final int? free;
+  final int free;
 
-  final int? used;
+  final int used;
 
-  final int? total;
+  final int total;
 
-  final num? relative;
+  final num relative;
 
-  final int? quota;
+  final int quota;
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$ProvisioningApiUserDetailsQuotaToJson(this);
+  Map<String, dynamic> toJson() => _$ProvisioningApiUserDetails_QuotaToJson(this);
   // coverage:ignore-end
 }
 
 @JsonSerializable()
-class ProvisioningApiUserDetailsBackendCapabilities {
-  ProvisioningApiUserDetailsBackendCapabilities({
-    this.setDisplayName,
-    this.setPassword,
+class ProvisioningApiUserDetails_BackendCapabilities {
+  ProvisioningApiUserDetails_BackendCapabilities({
+    required this.setDisplayName,
+    required this.setPassword,
   });
 
-  factory ProvisioningApiUserDetailsBackendCapabilities.fromJson(Map<String, dynamic> json) =>
-      _$ProvisioningApiUserDetailsBackendCapabilitiesFromJson(json);
+  factory ProvisioningApiUserDetails_BackendCapabilities.fromJson(Map<String, dynamic> json) =>
+      _$ProvisioningApiUserDetails_BackendCapabilitiesFromJson(json);
 
-  final bool? setDisplayName;
+  final bool setDisplayName;
 
-  final bool? setPassword;
+  final bool setPassword;
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$ProvisioningApiUserDetailsBackendCapabilitiesToJson(this);
+  Map<String, dynamic> toJson() => _$ProvisioningApiUserDetails_BackendCapabilitiesToJson(this);
   // coverage:ignore-end
 }
 
@@ -2946,42 +2959,42 @@ class ProvisioningApiUserDetailsBackendCapabilities {
 class ProvisioningApiUserDetails {
   ProvisioningApiUserDetails({
     this.enabled,
-    this.storageLocation,
-    this.id,
-    this.lastLogin,
-    this.backend,
-    this.subadmin,
-    this.quota,
-    this.avatarScope,
+    required this.storageLocation,
+    required this.id,
+    required this.lastLogin,
+    required this.backend,
+    required this.subadmin,
+    required this.quota,
+    required this.avatarScope,
     this.email,
-    this.emailScope,
-    this.additionalMail,
-    this.additionalMailScope,
+    required this.emailScope,
+    required this.additionalMail,
+    required this.additionalMailScope,
     this.displayname,
-    this.displaynameScope,
-    this.phone,
-    this.phoneScope,
-    this.address,
-    this.addressScope,
-    this.website,
-    this.websiteScope,
-    this.twitter,
-    this.twitterScope,
-    this.organisation,
-    this.organisationScope,
-    this.role,
-    this.roleScope,
-    this.headline,
-    this.headlineScope,
-    this.biography,
-    this.biographyScope,
-    this.profileEnabled,
-    this.profileEnabledScope,
-    this.groups,
-    this.language,
-    this.locale,
+    required this.displaynameScope,
+    required this.phone,
+    required this.phoneScope,
+    required this.address,
+    required this.addressScope,
+    required this.website,
+    required this.websiteScope,
+    required this.twitter,
+    required this.twitterScope,
+    required this.organisation,
+    required this.organisationScope,
+    required this.role,
+    required this.roleScope,
+    required this.headline,
+    required this.headlineScope,
+    required this.biography,
+    required this.biographyScope,
+    required this.profileEnabled,
+    required this.profileEnabledScope,
+    required this.groups,
+    required this.language,
+    required this.locale,
     this.notifyEmail,
-    this.backendCapabilities,
+    required this.backendCapabilities,
     this.displayName,
   });
 
@@ -2989,82 +3002,82 @@ class ProvisioningApiUserDetails {
 
   final bool? enabled;
 
-  final String? storageLocation;
+  final String storageLocation;
 
-  final String? id;
+  final String id;
 
-  final int? lastLogin;
+  final int lastLogin;
 
-  final String? backend;
+  final String backend;
 
-  final List<String>? subadmin;
+  final List<String> subadmin;
 
-  final ProvisioningApiUserDetailsQuota? quota;
+  final ProvisioningApiUserDetails_Quota quota;
 
-  final String? avatarScope;
+  final String avatarScope;
 
   final String? email;
 
-  final String? emailScope;
+  final String emailScope;
 
   @JsonKey(name: 'additional_mail')
-  final List<String>? additionalMail;
+  final List<String> additionalMail;
 
   @JsonKey(name: 'additional_mailScope')
-  final List<String>? additionalMailScope;
+  final List<String> additionalMailScope;
 
   final String? displayname;
 
-  final String? displaynameScope;
+  final String displaynameScope;
 
-  final String? phone;
+  final String phone;
 
-  final String? phoneScope;
+  final String phoneScope;
 
-  final String? address;
+  final String address;
 
-  final String? addressScope;
+  final String addressScope;
 
-  final String? website;
+  final String website;
 
-  final String? websiteScope;
+  final String websiteScope;
 
-  final String? twitter;
+  final String twitter;
 
-  final String? twitterScope;
+  final String twitterScope;
 
-  final String? organisation;
+  final String organisation;
 
-  final String? organisationScope;
+  final String organisationScope;
 
-  final String? role;
+  final String role;
 
-  final String? roleScope;
+  final String roleScope;
 
-  final String? headline;
+  final String headline;
 
-  final String? headlineScope;
+  final String headlineScope;
 
-  final String? biography;
+  final String biography;
 
-  final String? biographyScope;
+  final String biographyScope;
 
   @JsonKey(name: 'profile_enabled')
-  final String? profileEnabled;
+  final String profileEnabled;
 
   @JsonKey(name: 'profile_enabledScope')
-  final String? profileEnabledScope;
+  final String profileEnabledScope;
 
-  final List<String>? groups;
+  final List<String> groups;
 
-  final String? language;
+  final String language;
 
-  final String? locale;
+  final String locale;
 
   @JsonKey(name: 'notify_email')
   final String? notifyEmail;
 
-  final ProvisioningApiUserDetailsBackendCapabilities? backendCapabilities;
+  final ProvisioningApiUserDetails_BackendCapabilities backendCapabilities;
 
   @JsonKey(name: 'display-name')
   final String? displayName;
@@ -3075,30 +3088,30 @@ class ProvisioningApiUserDetails {
 }
 
 @JsonSerializable()
-class ProvisioningApiUserOcs {
-  ProvisioningApiUserOcs({
-    this.meta,
-    this.data,
+class ProvisioningApiUser_Ocs {
+  ProvisioningApiUser_Ocs({
+    required this.meta,
+    required this.data,
   });
 
-  factory ProvisioningApiUserOcs.fromJson(Map<String, dynamic> json) => _$ProvisioningApiUserOcsFromJson(json);
+  factory ProvisioningApiUser_Ocs.fromJson(Map<String, dynamic> json) => _$ProvisioningApiUser_OcsFromJson(json);
 
-  final OCSMeta? meta;
+  final OCSMeta meta;
 
-  final ProvisioningApiUserDetails? data;
+  final ProvisioningApiUserDetails data;
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$ProvisioningApiUserOcsToJson(this);
+  Map<String, dynamic> toJson() => _$ProvisioningApiUser_OcsToJson(this);
   // coverage:ignore-end
 }
 
 @JsonSerializable()
 class ProvisioningApiUser {
-  ProvisioningApiUser({this.ocs});
+  ProvisioningApiUser({required this.ocs});
 
   factory ProvisioningApiUser.fromJson(Map<String, dynamic> json) => _$ProvisioningApiUserFromJson(json);
 
-  final ProvisioningApiUserOcs? ocs;
+  final ProvisioningApiUser_Ocs ocs;
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$ProvisioningApiUserToJson(this);
@@ -3146,65 +3159,65 @@ class ProvisioningApiClient {
   }
 }
 
-enum UserStatusClearAtType {
+enum UserStatusClearAt_Type {
   period('period'),
   @JsonValue('end-of')
   endOf('end-of');
 
-  const UserStatusClearAtType(this.value);
+  const UserStatusClearAt_Type(this.value);
 
   final String value;
 
-  static UserStatusClearAtType fromValue(String value) {
+  static UserStatusClearAt_Type fromValue(String value) {
     switch (value) {
       case 'period':
-        return UserStatusClearAtType.period;
+        return UserStatusClearAt_Type.period;
       case 'end-of':
-        return UserStatusClearAtType.endOf;
+        return UserStatusClearAt_Type.endOf;
       default:
         throw Exception('Can not parse UserStatusClearAtTime0 from "$value"');
     }
   }
 }
 
-enum UserStatusClearAtTime0 {
+enum UserStatusClearAt_Time0 {
   day('day'),
   week('week');
 
-  const UserStatusClearAtTime0(this.value);
+  const UserStatusClearAt_Time0(this.value);
 
   final String value;
 
-  static UserStatusClearAtTime0 fromValue(String value) {
+  static UserStatusClearAt_Time0 fromValue(String value) {
     switch (value) {
       case 'day':
-        return UserStatusClearAtTime0.day;
+        return UserStatusClearAt_Time0.day;
       case 'week':
-        return UserStatusClearAtTime0.week;
+        return UserStatusClearAt_Time0.week;
       default:
         throw Exception('Can not parse UserStatusClearAtTime0 from "$value"');
     }
   }
 }
 
-class UserStatusClearAtTime {
-  UserStatusClearAtTime(
+class UserStatusClearAt_Time {
+  UserStatusClearAt_Time(
     this._data, {
     this.userStatusClearAtTime0,
     this.int_,
   });
 
-  factory UserStatusClearAtTime.fromJson(dynamic data) {
-    UserStatusClearAtTime0? userStatusClearAtTime0;
+  factory UserStatusClearAt_Time.fromJson(dynamic data) {
+    UserStatusClearAt_Time0? userStatusClearAtTime0;
     try {
-      userStatusClearAtTime0 = UserStatusClearAtTime0.fromValue(data as String);
+      userStatusClearAtTime0 = UserStatusClearAt_Time0.fromValue(data as String);
     } catch (_) {}
     int? int_;
     try {
       int_ = data as int;
     } catch (_) {}
     assert([userStatusClearAtTime0, int_].where((final x) => x != null).length == 1, 'Need oneOf');
-    return UserStatusClearAtTime(
+    return UserStatusClearAt_Time(
       data,
       userStatusClearAtTime0: userStatusClearAtTime0,
       int_: int_,
@@ -3213,7 +3226,7 @@ class UserStatusClearAtTime {
 
   final dynamic _data;
 
-  final UserStatusClearAtTime0? userStatusClearAtTime0;
+  final UserStatusClearAt_Time0? userStatusClearAtTime0;
 
   /// Time offset in seconds
   final int? int_;
@@ -3226,29 +3239,29 @@ class UserStatusClearAtTime {
 @JsonSerializable(disallowUnrecognizedKeys: true)
 class UserStatusClearAt {
   UserStatusClearAt({
-    this.type,
-    this.time,
+    required this.type,
+    required this.time,
   });
 
   factory UserStatusClearAt.fromJson(Map<String, dynamic> json) => _$UserStatusClearAtFromJson(json);
 
-  final UserStatusClearAtType? type;
+  final UserStatusClearAt_Type type;
 
-  final UserStatusClearAtTime? time;
+  final UserStatusClearAt_Time time;
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$UserStatusClearAtToJson(this);
   // coverage:ignore-end
 }
 
-class UserStatusClearAtWrap {
-  UserStatusClearAtWrap(
+class UserStatusPublicUserStatus_ClearAt {
+  UserStatusPublicUserStatus_ClearAt(
     this._data, {
     this.userStatusClearAt,
     this.int_,
   });
 
-  factory UserStatusClearAtWrap.fromJson(dynamic data) {
+  factory UserStatusPublicUserStatus_ClearAt.fromJson(dynamic data) {
     UserStatusClearAt? userStatusClearAt;
     try {
       userStatusClearAt = UserStatusClearAt.fromJson(data as Map<String, dynamic>);
@@ -3257,8 +3270,7 @@ class UserStatusClearAtWrap {
     try {
       int_ = data as int;
     } catch (_) {}
-    assert([userStatusClearAt, int_].where((final x) => x != null).length == 1, 'Need oneOf');
-    return UserStatusClearAtWrap(
+    return UserStatusPublicUserStatus_ClearAt(
       data,
       userStatusClearAt: userStatusClearAt,
       int_: int_,
@@ -3309,24 +3321,24 @@ enum UserStatusType {
 @JsonSerializable()
 class UserStatusPublicUserStatus {
   UserStatusPublicUserStatus({
-    this.userId,
+    required this.userId,
     this.message,
     this.icon,
-    this.clearAt,
-    this.status,
+    required this.clearAt,
+    required this.status,
   });
 
   factory UserStatusPublicUserStatus.fromJson(Map<String, dynamic> json) => _$UserStatusPublicUserStatusFromJson(json);
 
-  final String? userId;
+  final String userId;
 
   final String? message;
 
   final String? icon;
 
-  final UserStatusClearAtWrap? clearAt;
+  final UserStatusPublicUserStatus_ClearAt clearAt;
 
-  final UserStatusType? status;
+  final UserStatusType status;
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$UserStatusPublicUserStatusToJson(this);
@@ -3334,49 +3346,49 @@ class UserStatusPublicUserStatus {
 }
 
 @JsonSerializable()
-class UserStatusFindAllStatusesOcs {
-  UserStatusFindAllStatusesOcs({
-    this.meta,
-    this.data,
+class UserStatusFindAllStatuses_Ocs {
+  UserStatusFindAllStatuses_Ocs({
+    required this.meta,
+    required this.data,
   });
 
-  factory UserStatusFindAllStatusesOcs.fromJson(Map<String, dynamic> json) =>
-      _$UserStatusFindAllStatusesOcsFromJson(json);
+  factory UserStatusFindAllStatuses_Ocs.fromJson(Map<String, dynamic> json) =>
+      _$UserStatusFindAllStatuses_OcsFromJson(json);
 
-  final OCSMeta? meta;
+  final OCSMeta meta;
 
-  final List<UserStatusPublicUserStatus>? data;
+  final List<UserStatusPublicUserStatus> data;
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$UserStatusFindAllStatusesOcsToJson(this);
+  Map<String, dynamic> toJson() => _$UserStatusFindAllStatuses_OcsToJson(this);
   // coverage:ignore-end
 }
 
 @JsonSerializable()
 class UserStatusFindAllStatuses {
-  UserStatusFindAllStatuses({this.ocs});
+  UserStatusFindAllStatuses({required this.ocs});
 
   factory UserStatusFindAllStatuses.fromJson(Map<String, dynamic> json) => _$UserStatusFindAllStatusesFromJson(json);
 
-  final UserStatusFindAllStatusesOcs? ocs;
+  final UserStatusFindAllStatuses_Ocs ocs;
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$UserStatusFindAllStatusesToJson(this);
   // coverage:ignore-end
 }
 
-class UserStatusFindStatusOcsData {
-  UserStatusFindStatusOcsData(
+class UserStatusFindStatus_Ocs_Data {
+  UserStatusFindStatus_Ocs_Data(
     this._data, {
     this.userStatusPublicUserStatus,
   });
 
-  factory UserStatusFindStatusOcsData.fromJson(dynamic data) {
+  factory UserStatusFindStatus_Ocs_Data.fromJson(dynamic data) {
     UserStatusPublicUserStatus? userStatusPublicUserStatus;
     try {
       userStatusPublicUserStatus = UserStatusPublicUserStatus.fromJson(data as Map<String, dynamic>);
     } catch (_) {}
-    return UserStatusFindStatusOcsData(
+    return UserStatusFindStatus_Ocs_Data(
       data,
       userStatusPublicUserStatus: userStatusPublicUserStatus,
     );
@@ -3392,84 +3404,119 @@ class UserStatusFindStatusOcsData {
 }
 
 @JsonSerializable()
-class UserStatusFindStatusOcs {
-  UserStatusFindStatusOcs({
-    this.meta,
-    this.data,
+class UserStatusFindStatus_Ocs {
+  UserStatusFindStatus_Ocs({
+    required this.meta,
+    required this.data,
   });
 
-  factory UserStatusFindStatusOcs.fromJson(Map<String, dynamic> json) => _$UserStatusFindStatusOcsFromJson(json);
+  factory UserStatusFindStatus_Ocs.fromJson(Map<String, dynamic> json) => _$UserStatusFindStatus_OcsFromJson(json);
 
-  final OCSMeta? meta;
+  final OCSMeta meta;
 
-  final UserStatusFindStatusOcsData? data;
+  final UserStatusFindStatus_Ocs_Data data;
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$UserStatusFindStatusOcsToJson(this);
+  Map<String, dynamic> toJson() => _$UserStatusFindStatus_OcsToJson(this);
   // coverage:ignore-end
 }
 
 @JsonSerializable()
 class UserStatusFindStatus {
-  UserStatusFindStatus({this.ocs});
+  UserStatusFindStatus({required this.ocs});
 
   factory UserStatusFindStatus.fromJson(Map<String, dynamic> json) => _$UserStatusFindStatusFromJson(json);
 
-  final UserStatusFindStatusOcs? ocs;
+  final UserStatusFindStatus_Ocs ocs;
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$UserStatusFindStatusToJson(this);
   // coverage:ignore-end
 }
 
+class UserStatus_ClearAt {
+  UserStatus_ClearAt(
+    this._data, {
+    this.userStatusClearAt,
+    this.int_,
+  });
+
+  factory UserStatus_ClearAt.fromJson(dynamic data) {
+    UserStatusClearAt? userStatusClearAt;
+    try {
+      userStatusClearAt = UserStatusClearAt.fromJson(data as Map<String, dynamic>);
+    } catch (_) {}
+    int? int_;
+    try {
+      int_ = data as int;
+    } catch (_) {}
+    return UserStatus_ClearAt(
+      data,
+      userStatusClearAt: userStatusClearAt,
+      int_: int_,
+    );
+  }
+
+  final dynamic _data;
+
+  final UserStatusClearAt? userStatusClearAt;
+
+  /// Time as unix timestamp
+  final int? int_;
+
+  // coverage:ignore-start
+  dynamic toJson() => _data;
+  // coverage:ignore-end
+}
+
 @JsonSerializable(disallowUnrecognizedKeys: true)
 class UserStatus {
   UserStatus({
-    this.userId,
+    required this.userId,
     this.message,
     this.messageId,
-    this.messageIsPredefined,
+    required this.messageIsPredefined,
     this.icon,
-    this.clearAt,
-    this.status,
-    this.statusIsUserDefined,
+    required this.clearAt,
+    required this.status,
+    required this.statusIsUserDefined,
   });
 
   factory UserStatus.fromJson(Map<String, dynamic> json) => _$UserStatusFromJson(json);
 
-  final String? userId;
+  final String userId;
 
   final String? message;
 
   final String? messageId;
 
-  final bool? messageIsPredefined;
+  final bool messageIsPredefined;
 
   final String? icon;
 
-  final UserStatusClearAtWrap? clearAt;
+  final UserStatus_ClearAt clearAt;
 
-  final UserStatusType? status;
+  final UserStatusType status;
 
-  final bool? statusIsUserDefined;
+  final bool statusIsUserDefined;
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$UserStatusToJson(this);
   // coverage:ignore-end
 }
 
-class UserStatusGetUserStatusOcsData {
-  UserStatusGetUserStatusOcsData(
+class UserStatusGetUserStatus_Ocs_Data {
+  UserStatusGetUserStatus_Ocs_Data(
     this._data, {
     this.userStatus,
   });
 
-  factory UserStatusGetUserStatusOcsData.fromJson(dynamic data) {
+  factory UserStatusGetUserStatus_Ocs_Data.fromJson(dynamic data) {
     UserStatus? userStatus;
     try {
       userStatus = UserStatus.fromJson(data as Map<String, dynamic>);
     } catch (_) {}
-    return UserStatusGetUserStatusOcsData(
+    return UserStatusGetUserStatus_Ocs_Data(
       data,
       userStatus: userStatus,
     );
@@ -3485,54 +3532,90 @@ class UserStatusGetUserStatusOcsData {
 }
 
 @JsonSerializable()
-class UserStatusGetUserStatusOcs {
-  UserStatusGetUserStatusOcs({
-    this.meta,
-    this.data,
+class UserStatusGetUserStatus_Ocs {
+  UserStatusGetUserStatus_Ocs({
+    required this.meta,
+    required this.data,
   });
 
-  factory UserStatusGetUserStatusOcs.fromJson(Map<String, dynamic> json) => _$UserStatusGetUserStatusOcsFromJson(json);
+  factory UserStatusGetUserStatus_Ocs.fromJson(Map<String, dynamic> json) =>
+      _$UserStatusGetUserStatus_OcsFromJson(json);
 
-  final OCSMeta? meta;
+  final OCSMeta meta;
 
-  final UserStatusGetUserStatusOcsData? data;
+  final UserStatusGetUserStatus_Ocs_Data data;
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$UserStatusGetUserStatusOcsToJson(this);
+  Map<String, dynamic> toJson() => _$UserStatusGetUserStatus_OcsToJson(this);
   // coverage:ignore-end
 }
 
 @JsonSerializable()
 class UserStatusGetUserStatus {
-  UserStatusGetUserStatus({this.ocs});
+  UserStatusGetUserStatus({required this.ocs});
 
   factory UserStatusGetUserStatus.fromJson(Map<String, dynamic> json) => _$UserStatusGetUserStatusFromJson(json);
 
-  final UserStatusGetUserStatusOcs? ocs;
+  final UserStatusGetUserStatus_Ocs ocs;
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$UserStatusGetUserStatusToJson(this);
   // coverage:ignore-end
 }
 
+class UserStatusPredefinedStatus_ClearAt {
+  UserStatusPredefinedStatus_ClearAt(
+    this._data, {
+    this.userStatusClearAt,
+    this.int_,
+  });
+
+  factory UserStatusPredefinedStatus_ClearAt.fromJson(dynamic data) {
+    UserStatusClearAt? userStatusClearAt;
+    try {
+      userStatusClearAt = UserStatusClearAt.fromJson(data as Map<String, dynamic>);
+    } catch (_) {}
+    int? int_;
+    try {
+      int_ = data as int;
+    } catch (_) {}
+    return UserStatusPredefinedStatus_ClearAt(
+      data,
+      userStatusClearAt: userStatusClearAt,
+      int_: int_,
+    );
+  }
+
+  final dynamic _data;
+
+  final UserStatusClearAt? userStatusClearAt;
+
+  /// Time as unix timestamp
+  final int? int_;
+
+  // coverage:ignore-start
+  dynamic toJson() => _data;
+  // coverage:ignore-end
+}
+
 @JsonSerializable()
 class UserStatusPredefinedStatus {
   UserStatusPredefinedStatus({
-    this.id,
-    this.icon,
-    this.message,
-    this.clearAt,
+    required this.id,
+    required this.icon,
+    required this.message,
+    required this.clearAt,
   });
 
   factory UserStatusPredefinedStatus.fromJson(Map<String, dynamic> json) => _$UserStatusPredefinedStatusFromJson(json);
 
-  final String? id;
+  final String id;
 
-  final String? icon;
+  final String icon;
 
-  final String? message;
+  final String message;
 
-  final UserStatusClearAtWrap? clearAt;
+  final UserStatusPredefinedStatus_ClearAt clearAt;
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$UserStatusPredefinedStatusToJson(this);
@@ -3540,32 +3623,32 @@ class UserStatusPredefinedStatus {
 }
 
 @JsonSerializable()
-class UserStatusPredefinedStatusesOcs {
-  UserStatusPredefinedStatusesOcs({
-    this.meta,
-    this.data,
+class UserStatusPredefinedStatuses_Ocs {
+  UserStatusPredefinedStatuses_Ocs({
+    required this.meta,
+    required this.data,
   });
 
-  factory UserStatusPredefinedStatusesOcs.fromJson(Map<String, dynamic> json) =>
-      _$UserStatusPredefinedStatusesOcsFromJson(json);
+  factory UserStatusPredefinedStatuses_Ocs.fromJson(Map<String, dynamic> json) =>
+      _$UserStatusPredefinedStatuses_OcsFromJson(json);
 
-  final OCSMeta? meta;
+  final OCSMeta meta;
 
-  final List<UserStatusPredefinedStatus>? data;
+  final List<UserStatusPredefinedStatus> data;
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$UserStatusPredefinedStatusesOcsToJson(this);
+  Map<String, dynamic> toJson() => _$UserStatusPredefinedStatuses_OcsToJson(this);
   // coverage:ignore-end
 }
 
 @JsonSerializable()
 class UserStatusPredefinedStatuses {
-  UserStatusPredefinedStatuses({this.ocs});
+  UserStatusPredefinedStatuses({required this.ocs});
 
   factory UserStatusPredefinedStatuses.fromJson(Map<String, dynamic> json) =>
       _$UserStatusPredefinedStatusesFromJson(json);
 
-  final UserStatusPredefinedStatusesOcs? ocs;
+  final UserStatusPredefinedStatuses_Ocs ocs;
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$UserStatusPredefinedStatusesToJson(this);
@@ -3757,11 +3840,11 @@ class UserStatusClient {
 @JsonSerializable()
 class NotificationsPushNotificationDecryptedSubject {
   NotificationsPushNotificationDecryptedSubject({
-    this.nid,
-    this.app,
-    this.subject,
-    this.type,
-    this.id,
+    required this.nid,
+    required this.app,
+    required this.subject,
+    required this.type,
+    required this.id,
     this.delete,
     this.deleteAll,
   });
@@ -3769,15 +3852,15 @@ class NotificationsPushNotificationDecryptedSubject {
   factory NotificationsPushNotificationDecryptedSubject.fromJson(Map<String, dynamic> json) =>
       _$NotificationsPushNotificationDecryptedSubjectFromJson(json);
 
-  final int? nid;
+  final int nid;
 
-  final String? app;
+  final String app;
 
-  final String? subject;
+  final String subject;
 
-  final String? type;
+  final String type;
 
-  final String? id;
+  final String id;
 
   final bool? delete;
 
@@ -3792,22 +3875,22 @@ class NotificationsPushNotificationDecryptedSubject {
 @JsonSerializable()
 class NotificationsPushNotification {
   NotificationsPushNotification({
-    this.accountID,
-    this.priority,
-    this.type,
-    this.subject,
+    required this.accountID,
+    required this.priority,
+    required this.type,
+    required this.subject,
   });
 
   factory NotificationsPushNotification.fromJson(Map<String, dynamic> json) =>
       _$NotificationsPushNotificationFromJson(json);
 
-  final String? accountID;
+  final String accountID;
 
-  final String? priority;
+  final String priority;
 
-  final String? type;
+  final String type;
 
-  final NotificationsPushNotificationDecryptedSubject? subject;
+  final NotificationsPushNotificationDecryptedSubject subject;
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$NotificationsPushNotificationToJson(this);
@@ -3823,329 +3906,343 @@ final _deserializers = <Type, dynamic Function(dynamic)>{
   List<CoreServerCapabilities>: (final data) => (data as List)
       .map<CoreServerCapabilities>((final e) => CoreServerCapabilities.fromJson(e as Map<String, dynamic>))
       .toList(),
-  CoreServerCapabilitiesOcs: (final data) => CoreServerCapabilitiesOcs.fromJson(data as Map<String, dynamic>),
-  List<CoreServerCapabilitiesOcs>: (final data) => (data as List)
-      .map<CoreServerCapabilitiesOcs>((final e) => CoreServerCapabilitiesOcs.fromJson(e as Map<String, dynamic>))
+  CoreServerCapabilities_Ocs: (final data) => CoreServerCapabilities_Ocs.fromJson(data as Map<String, dynamic>),
+  List<CoreServerCapabilities_Ocs>: (final data) => (data as List)
+      .map<CoreServerCapabilities_Ocs>((final e) => CoreServerCapabilities_Ocs.fromJson(e as Map<String, dynamic>))
       .toList(),
   OCSMeta: (final data) => OCSMeta.fromJson(data as Map<String, dynamic>),
   List<OCSMeta>: (final data) =>
       (data as List).map<OCSMeta>((final e) => OCSMeta.fromJson(e as Map<String, dynamic>)).toList(),
-  CoreServerCapabilitiesOcsData: (final data) => CoreServerCapabilitiesOcsData.fromJson(data as Map<String, dynamic>),
-  List<CoreServerCapabilitiesOcsData>: (final data) => (data as List)
-      .map<CoreServerCapabilitiesOcsData>(
-          (final e) => CoreServerCapabilitiesOcsData.fromJson(e as Map<String, dynamic>))
+  CoreServerCapabilities_Ocs_Data: (final data) =>
+      CoreServerCapabilities_Ocs_Data.fromJson(data as Map<String, dynamic>),
+  List<CoreServerCapabilities_Ocs_Data>: (final data) => (data as List)
+      .map<CoreServerCapabilities_Ocs_Data>(
+          (final e) => CoreServerCapabilities_Ocs_Data.fromJson(e as Map<String, dynamic>))
       .toList(),
-  CoreServerCapabilitiesOcsDataVersion: (final data) =>
-      CoreServerCapabilitiesOcsDataVersion.fromJson(data as Map<String, dynamic>),
-  List<CoreServerCapabilitiesOcsDataVersion>: (final data) => (data as List)
-      .map<CoreServerCapabilitiesOcsDataVersion>(
-          (final e) => CoreServerCapabilitiesOcsDataVersion.fromJson(e as Map<String, dynamic>))
+  CoreServerCapabilities_Ocs_Data_Version: (final data) =>
+      CoreServerCapabilities_Ocs_Data_Version.fromJson(data as Map<String, dynamic>),
+  List<CoreServerCapabilities_Ocs_Data_Version>: (final data) => (data as List)
+      .map<CoreServerCapabilities_Ocs_Data_Version>(
+          (final e) => CoreServerCapabilities_Ocs_Data_Version.fromJson(e as Map<String, dynamic>))
       .toList(),
-  CoreServerCapabilitiesOcsDataCapabilities: (final data) =>
-      CoreServerCapabilitiesOcsDataCapabilities.fromJson(data as Map<String, dynamic>),
-  List<CoreServerCapabilitiesOcsDataCapabilities>: (final data) => (data as List)
-      .map<CoreServerCapabilitiesOcsDataCapabilities>(
-          (final e) => CoreServerCapabilitiesOcsDataCapabilities.fromJson(e as Map<String, dynamic>))
+  CoreServerCapabilities_Ocs_Data_Capabilities: (final data) =>
+      CoreServerCapabilities_Ocs_Data_Capabilities.fromJson(data as Map<String, dynamic>),
+  List<CoreServerCapabilities_Ocs_Data_Capabilities>: (final data) => (data as List)
+      .map<CoreServerCapabilities_Ocs_Data_Capabilities>(
+          (final e) => CoreServerCapabilities_Ocs_Data_Capabilities.fromJson(e as Map<String, dynamic>))
       .toList(),
-  CoreServerCapabilitiesOcsDataCapabilitiesCore: (final data) =>
-      CoreServerCapabilitiesOcsDataCapabilitiesCore.fromJson(data as Map<String, dynamic>),
-  List<CoreServerCapabilitiesOcsDataCapabilitiesCore>: (final data) => (data as List)
-      .map<CoreServerCapabilitiesOcsDataCapabilitiesCore>(
-          (final e) => CoreServerCapabilitiesOcsDataCapabilitiesCore.fromJson(e as Map<String, dynamic>))
+  CoreServerCapabilities_Ocs_Data_Capabilities_Core: (final data) =>
+      CoreServerCapabilities_Ocs_Data_Capabilities_Core.fromJson(data as Map<String, dynamic>),
+  List<CoreServerCapabilities_Ocs_Data_Capabilities_Core>: (final data) => (data as List)
+      .map<CoreServerCapabilities_Ocs_Data_Capabilities_Core>(
+          (final e) => CoreServerCapabilities_Ocs_Data_Capabilities_Core.fromJson(e as Map<String, dynamic>))
       .toList(),
-  CoreServerCapabilitiesOcsDataCapabilitiesBruteforce: (final data) =>
-      CoreServerCapabilitiesOcsDataCapabilitiesBruteforce.fromJson(data as Map<String, dynamic>),
-  List<CoreServerCapabilitiesOcsDataCapabilitiesBruteforce>: (final data) => (data as List)
-      .map<CoreServerCapabilitiesOcsDataCapabilitiesBruteforce>(
-          (final e) => CoreServerCapabilitiesOcsDataCapabilitiesBruteforce.fromJson(e as Map<String, dynamic>))
+  CoreServerCapabilities_Ocs_Data_Capabilities_Bruteforce: (final data) =>
+      CoreServerCapabilities_Ocs_Data_Capabilities_Bruteforce.fromJson(data as Map<String, dynamic>),
+  List<CoreServerCapabilities_Ocs_Data_Capabilities_Bruteforce>: (final data) => (data as List)
+      .map<CoreServerCapabilities_Ocs_Data_Capabilities_Bruteforce>(
+          (final e) => CoreServerCapabilities_Ocs_Data_Capabilities_Bruteforce.fromJson(e as Map<String, dynamic>))
       .toList(),
-  CoreServerCapabilitiesOcsDataCapabilitiesMetadataAvailable: (final data) =>
-      CoreServerCapabilitiesOcsDataCapabilitiesMetadataAvailable.fromJson(data as Map<String, dynamic>),
-  List<CoreServerCapabilitiesOcsDataCapabilitiesMetadataAvailable>: (final data) => (data as List)
-      .map<CoreServerCapabilitiesOcsDataCapabilitiesMetadataAvailable>(
-          (final e) => CoreServerCapabilitiesOcsDataCapabilitiesMetadataAvailable.fromJson(e as Map<String, dynamic>))
+  CoreServerCapabilities_Ocs_Data_Capabilities_MetadataAvailable: (final data) =>
+      CoreServerCapabilities_Ocs_Data_Capabilities_MetadataAvailable.fromJson(data as Map<String, dynamic>),
+  List<CoreServerCapabilities_Ocs_Data_Capabilities_MetadataAvailable>: (final data) => (data as List)
+      .map<CoreServerCapabilities_Ocs_Data_Capabilities_MetadataAvailable>((final e) =>
+          CoreServerCapabilities_Ocs_Data_Capabilities_MetadataAvailable.fromJson(e as Map<String, dynamic>))
       .toList(),
-  CoreServerCapabilitiesOcsDataCapabilitiesFiles: (final data) =>
-      CoreServerCapabilitiesOcsDataCapabilitiesFiles.fromJson(data as Map<String, dynamic>),
-  List<CoreServerCapabilitiesOcsDataCapabilitiesFiles>: (final data) => (data as List)
-      .map<CoreServerCapabilitiesOcsDataCapabilitiesFiles>(
-          (final e) => CoreServerCapabilitiesOcsDataCapabilitiesFiles.fromJson(e as Map<String, dynamic>))
+  CoreServerCapabilities_Ocs_Data_Capabilities_Files: (final data) =>
+      CoreServerCapabilities_Ocs_Data_Capabilities_Files.fromJson(data as Map<String, dynamic>),
+  List<CoreServerCapabilities_Ocs_Data_Capabilities_Files>: (final data) => (data as List)
+      .map<CoreServerCapabilities_Ocs_Data_Capabilities_Files>(
+          (final e) => CoreServerCapabilities_Ocs_Data_Capabilities_Files.fromJson(e as Map<String, dynamic>))
       .toList(),
-  CoreServerCapabilitiesOcsDataCapabilitiesFilesDirectEditing: (final data) =>
-      CoreServerCapabilitiesOcsDataCapabilitiesFilesDirectEditing.fromJson(data as Map<String, dynamic>),
-  List<CoreServerCapabilitiesOcsDataCapabilitiesFilesDirectEditing>: (final data) => (data as List)
-      .map<CoreServerCapabilitiesOcsDataCapabilitiesFilesDirectEditing>(
-          (final e) => CoreServerCapabilitiesOcsDataCapabilitiesFilesDirectEditing.fromJson(e as Map<String, dynamic>))
+  CoreServerCapabilities_Ocs_Data_Capabilities_Files_DirectEditing: (final data) =>
+      CoreServerCapabilities_Ocs_Data_Capabilities_Files_DirectEditing.fromJson(data as Map<String, dynamic>),
+  List<CoreServerCapabilities_Ocs_Data_Capabilities_Files_DirectEditing>: (final data) => (data as List)
+      .map<CoreServerCapabilities_Ocs_Data_Capabilities_Files_DirectEditing>((final e) =>
+          CoreServerCapabilities_Ocs_Data_Capabilities_Files_DirectEditing.fromJson(e as Map<String, dynamic>))
       .toList(),
-  CoreServerCapabilitiesOcsDataCapabilitiesActivity: (final data) =>
-      CoreServerCapabilitiesOcsDataCapabilitiesActivity.fromJson(data as Map<String, dynamic>),
-  List<CoreServerCapabilitiesOcsDataCapabilitiesActivity>: (final data) => (data as List)
-      .map<CoreServerCapabilitiesOcsDataCapabilitiesActivity>(
-          (final e) => CoreServerCapabilitiesOcsDataCapabilitiesActivity.fromJson(e as Map<String, dynamic>))
+  CoreServerCapabilities_Ocs_Data_Capabilities_Activity: (final data) =>
+      CoreServerCapabilities_Ocs_Data_Capabilities_Activity.fromJson(data as Map<String, dynamic>),
+  List<CoreServerCapabilities_Ocs_Data_Capabilities_Activity>: (final data) => (data as List)
+      .map<CoreServerCapabilities_Ocs_Data_Capabilities_Activity>(
+          (final e) => CoreServerCapabilities_Ocs_Data_Capabilities_Activity.fromJson(e as Map<String, dynamic>))
       .toList(),
-  CoreServerCapabilitiesOcsDataCapabilitiesCircles: (final data) =>
-      CoreServerCapabilitiesOcsDataCapabilitiesCircles.fromJson(data as Map<String, dynamic>),
-  List<CoreServerCapabilitiesOcsDataCapabilitiesCircles>: (final data) => (data as List)
-      .map<CoreServerCapabilitiesOcsDataCapabilitiesCircles>(
-          (final e) => CoreServerCapabilitiesOcsDataCapabilitiesCircles.fromJson(e as Map<String, dynamic>))
+  CoreServerCapabilities_Ocs_Data_Capabilities_Circles: (final data) =>
+      CoreServerCapabilities_Ocs_Data_Capabilities_Circles.fromJson(data as Map<String, dynamic>),
+  List<CoreServerCapabilities_Ocs_Data_Capabilities_Circles>: (final data) => (data as List)
+      .map<CoreServerCapabilities_Ocs_Data_Capabilities_Circles>(
+          (final e) => CoreServerCapabilities_Ocs_Data_Capabilities_Circles.fromJson(e as Map<String, dynamic>))
       .toList(),
-  CoreServerCapabilitiesOcsDataCapabilitiesCirclesStatus: (final data) =>
-      CoreServerCapabilitiesOcsDataCapabilitiesCirclesStatus.fromJson(data as Map<String, dynamic>),
-  List<CoreServerCapabilitiesOcsDataCapabilitiesCirclesStatus>: (final data) => (data as List)
-      .map<CoreServerCapabilitiesOcsDataCapabilitiesCirclesStatus>(
-          (final e) => CoreServerCapabilitiesOcsDataCapabilitiesCirclesStatus.fromJson(e as Map<String, dynamic>))
+  CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Status: (final data) =>
+      CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Status.fromJson(data as Map<String, dynamic>),
+  List<CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Status>: (final data) => (data as List)
+      .map<CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Status>(
+          (final e) => CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Status.fromJson(e as Map<String, dynamic>))
       .toList(),
-  CoreServerCapabilitiesOcsDataCapabilitiesCirclesSettings: (final data) =>
-      CoreServerCapabilitiesOcsDataCapabilitiesCirclesSettings.fromJson(data as Map<String, dynamic>),
-  List<CoreServerCapabilitiesOcsDataCapabilitiesCirclesSettings>: (final data) => (data as List)
-      .map<CoreServerCapabilitiesOcsDataCapabilitiesCirclesSettings>(
-          (final e) => CoreServerCapabilitiesOcsDataCapabilitiesCirclesSettings.fromJson(e as Map<String, dynamic>))
+  CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Settings: (final data) =>
+      CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Settings.fromJson(data as Map<String, dynamic>),
+  List<CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Settings>: (final data) => (data as List)
+      .map<CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Settings>((final e) =>
+          CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Settings.fromJson(e as Map<String, dynamic>))
       .toList(),
-  CoreServerCapabilitiesOcsDataCapabilitiesCirclesCircle: (final data) =>
-      CoreServerCapabilitiesOcsDataCapabilitiesCirclesCircle.fromJson(data as Map<String, dynamic>),
-  List<CoreServerCapabilitiesOcsDataCapabilitiesCirclesCircle>: (final data) => (data as List)
-      .map<CoreServerCapabilitiesOcsDataCapabilitiesCirclesCircle>(
-          (final e) => CoreServerCapabilitiesOcsDataCapabilitiesCirclesCircle.fromJson(e as Map<String, dynamic>))
+  CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle: (final data) =>
+      CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle.fromJson(data as Map<String, dynamic>),
+  List<CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle>: (final data) => (data as List)
+      .map<CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle>(
+          (final e) => CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle.fromJson(e as Map<String, dynamic>))
       .toList(),
-  CoreServerCapabilitiesOcsDataCapabilitiesCirclesCircleConstants: (final data) =>
-      CoreServerCapabilitiesOcsDataCapabilitiesCirclesCircleConstants.fromJson(data as Map<String, dynamic>),
-  List<CoreServerCapabilitiesOcsDataCapabilitiesCirclesCircleConstants>: (final data) => (data as List)
-      .map<CoreServerCapabilitiesOcsDataCapabilitiesCirclesCircleConstants>((final e) =>
-          CoreServerCapabilitiesOcsDataCapabilitiesCirclesCircleConstants.fromJson(e as Map<String, dynamic>))
+  CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants: (final data) =>
+      CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants.fromJson(data as Map<String, dynamic>),
+  List<CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants>: (final data) => (data as List)
+      .map<CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants>((final e) =>
+          CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants.fromJson(e as Map<String, dynamic>))
       .toList(),
-  CoreServerCapabilitiesOcsDataCapabilitiesCirclesCircleConstantsSource: (final data) =>
-      CoreServerCapabilitiesOcsDataCapabilitiesCirclesCircleConstantsSource.fromJson(data as Map<String, dynamic>),
-  List<CoreServerCapabilitiesOcsDataCapabilitiesCirclesCircleConstantsSource>: (final data) => (data as List)
-      .map<CoreServerCapabilitiesOcsDataCapabilitiesCirclesCircleConstantsSource>((final e) =>
-          CoreServerCapabilitiesOcsDataCapabilitiesCirclesCircleConstantsSource.fromJson(e as Map<String, dynamic>))
-      .toList(),
-  CoreServerCapabilitiesOcsDataCapabilitiesCirclesCircleConfig: (final data) =>
-      CoreServerCapabilitiesOcsDataCapabilitiesCirclesCircleConfig.fromJson(data as Map<String, dynamic>),
-  List<CoreServerCapabilitiesOcsDataCapabilitiesCirclesCircleConfig>: (final data) => (data as List)
-      .map<CoreServerCapabilitiesOcsDataCapabilitiesCirclesCircleConfig>(
-          (final e) => CoreServerCapabilitiesOcsDataCapabilitiesCirclesCircleConfig.fromJson(e as Map<String, dynamic>))
-      .toList(),
-  CoreServerCapabilitiesOcsDataCapabilitiesCirclesMember: (final data) =>
-      CoreServerCapabilitiesOcsDataCapabilitiesCirclesMember.fromJson(data as Map<String, dynamic>),
-  List<CoreServerCapabilitiesOcsDataCapabilitiesCirclesMember>: (final data) => (data as List)
-      .map<CoreServerCapabilitiesOcsDataCapabilitiesCirclesMember>(
-          (final e) => CoreServerCapabilitiesOcsDataCapabilitiesCirclesMember.fromJson(e as Map<String, dynamic>))
-      .toList(),
-  CoreServerCapabilitiesOcsDataCapabilitiesCirclesMemberConstants: (final data) =>
-      CoreServerCapabilitiesOcsDataCapabilitiesCirclesMemberConstants.fromJson(data as Map<String, dynamic>),
-  List<CoreServerCapabilitiesOcsDataCapabilitiesCirclesMemberConstants>: (final data) => (data as List)
-      .map<CoreServerCapabilitiesOcsDataCapabilitiesCirclesMemberConstants>((final e) =>
-          CoreServerCapabilitiesOcsDataCapabilitiesCirclesMemberConstants.fromJson(e as Map<String, dynamic>))
-      .toList(),
-  CoreServerCapabilitiesOcsDataCapabilitiesOcm: (final data) =>
-      CoreServerCapabilitiesOcsDataCapabilitiesOcm.fromJson(data as Map<String, dynamic>),
-  List<CoreServerCapabilitiesOcsDataCapabilitiesOcm>: (final data) => (data as List)
-      .map<CoreServerCapabilitiesOcsDataCapabilitiesOcm>(
-          (final e) => CoreServerCapabilitiesOcsDataCapabilitiesOcm.fromJson(e as Map<String, dynamic>))
-      .toList(),
-  CoreServerCapabilitiesOcsDataCapabilitiesOcmResourceTypes: (final data) =>
-      CoreServerCapabilitiesOcsDataCapabilitiesOcmResourceTypes.fromJson(data as Map<String, dynamic>),
-  List<CoreServerCapabilitiesOcsDataCapabilitiesOcmResourceTypes>: (final data) => (data as List)
-      .map<CoreServerCapabilitiesOcsDataCapabilitiesOcmResourceTypes>(
-          (final e) => CoreServerCapabilitiesOcsDataCapabilitiesOcmResourceTypes.fromJson(e as Map<String, dynamic>))
-      .toList(),
-  CoreServerCapabilitiesOcsDataCapabilitiesOcmResourceTypesProtocols: (final data) =>
-      CoreServerCapabilitiesOcsDataCapabilitiesOcmResourceTypesProtocols.fromJson(data as Map<String, dynamic>),
-  List<CoreServerCapabilitiesOcsDataCapabilitiesOcmResourceTypesProtocols>: (final data) => (data as List)
-      .map<CoreServerCapabilitiesOcsDataCapabilitiesOcmResourceTypesProtocols>((final e) =>
-          CoreServerCapabilitiesOcsDataCapabilitiesOcmResourceTypesProtocols.fromJson(e as Map<String, dynamic>))
-      .toList(),
-  CoreServerCapabilitiesOcsDataCapabilitiesDav: (final data) =>
-      CoreServerCapabilitiesOcsDataCapabilitiesDav.fromJson(data as Map<String, dynamic>),
-  List<CoreServerCapabilitiesOcsDataCapabilitiesDav>: (final data) => (data as List)
-      .map<CoreServerCapabilitiesOcsDataCapabilitiesDav>(
-          (final e) => CoreServerCapabilitiesOcsDataCapabilitiesDav.fromJson(e as Map<String, dynamic>))
-      .toList(),
-  CoreServerCapabilitiesOcsDataCapabilitiesFilesSharing: (final data) =>
-      CoreServerCapabilitiesOcsDataCapabilitiesFilesSharing.fromJson(data as Map<String, dynamic>),
-  List<CoreServerCapabilitiesOcsDataCapabilitiesFilesSharing>: (final data) => (data as List)
-      .map<CoreServerCapabilitiesOcsDataCapabilitiesFilesSharing>(
-          (final e) => CoreServerCapabilitiesOcsDataCapabilitiesFilesSharing.fromJson(e as Map<String, dynamic>))
-      .toList(),
-  CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingPublic: (final data) =>
-      CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingPublic.fromJson(data as Map<String, dynamic>),
-  List<CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingPublic>: (final data) => (data as List)
-      .map<CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingPublic>(
-          (final e) => CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingPublic.fromJson(e as Map<String, dynamic>))
-      .toList(),
-  CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingPublicPassword: (final data) =>
-      CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingPublicPassword.fromJson(data as Map<String, dynamic>),
-  List<CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingPublicPassword>: (final data) => (data as List)
-      .map<CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingPublicPassword>((final e) =>
-          CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingPublicPassword.fromJson(e as Map<String, dynamic>))
-      .toList(),
-  CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingPublicExpireDate: (final data) =>
-      CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingPublicExpireDate.fromJson(data as Map<String, dynamic>),
-  List<CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingPublicExpireDate>: (final data) => (data as List)
-      .map<CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingPublicExpireDate>((final e) =>
-          CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingPublicExpireDate.fromJson(e as Map<String, dynamic>))
-      .toList(),
-  CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingPublicExpireDateInternal: (final data) =>
-      CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingPublicExpireDateInternal.fromJson(
+  CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants_Source: (final data) =>
+      CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants_Source.fromJson(
           data as Map<String, dynamic>),
-  List<CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingPublicExpireDateInternal>: (final data) => (data as List)
-      .map<CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingPublicExpireDateInternal>((final e) =>
-          CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingPublicExpireDateInternal.fromJson(
+  List<CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants_Source>: (final data) => (data as List)
+      .map<CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants_Source>((final e) =>
+          CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants_Source.fromJson(
               e as Map<String, dynamic>))
       .toList(),
-  CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingPublicExpireDateRemote: (final data) =>
-      CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingPublicExpireDateRemote.fromJson(
+  CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Config: (final data) =>
+      CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Config.fromJson(data as Map<String, dynamic>),
+  List<CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Config>: (final data) => (data as List)
+      .map<CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Config>((final e) =>
+          CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Config.fromJson(e as Map<String, dynamic>))
+      .toList(),
+  CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member: (final data) =>
+      CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member.fromJson(data as Map<String, dynamic>),
+  List<CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member>: (final data) => (data as List)
+      .map<CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member>(
+          (final e) => CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member.fromJson(e as Map<String, dynamic>))
+      .toList(),
+  CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member_Constants: (final data) =>
+      CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member_Constants.fromJson(data as Map<String, dynamic>),
+  List<CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member_Constants>: (final data) => (data as List)
+      .map<CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member_Constants>((final e) =>
+          CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member_Constants.fromJson(e as Map<String, dynamic>))
+      .toList(),
+  CoreServerCapabilities_Ocs_Data_Capabilities_Ocm: (final data) =>
+      CoreServerCapabilities_Ocs_Data_Capabilities_Ocm.fromJson(data as Map<String, dynamic>),
+  List<CoreServerCapabilities_Ocs_Data_Capabilities_Ocm>: (final data) => (data as List)
+      .map<CoreServerCapabilities_Ocs_Data_Capabilities_Ocm>(
+          (final e) => CoreServerCapabilities_Ocs_Data_Capabilities_Ocm.fromJson(e as Map<String, dynamic>))
+      .toList(),
+  CoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes: (final data) =>
+      CoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes.fromJson(data as Map<String, dynamic>),
+  List<CoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes>: (final data) => (data as List)
+      .map<CoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes>((final e) =>
+          CoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes.fromJson(e as Map<String, dynamic>))
+      .toList(),
+  CoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes_Protocols: (final data) =>
+      CoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes_Protocols.fromJson(data as Map<String, dynamic>),
+  List<CoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes_Protocols>: (final data) => (data as List)
+      .map<CoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes_Protocols>((final e) =>
+          CoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes_Protocols.fromJson(e as Map<String, dynamic>))
+      .toList(),
+  CoreServerCapabilities_Ocs_Data_Capabilities_Dav: (final data) =>
+      CoreServerCapabilities_Ocs_Data_Capabilities_Dav.fromJson(data as Map<String, dynamic>),
+  List<CoreServerCapabilities_Ocs_Data_Capabilities_Dav>: (final data) => (data as List)
+      .map<CoreServerCapabilities_Ocs_Data_Capabilities_Dav>(
+          (final e) => CoreServerCapabilities_Ocs_Data_Capabilities_Dav.fromJson(e as Map<String, dynamic>))
+      .toList(),
+  CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing: (final data) =>
+      CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing.fromJson(data as Map<String, dynamic>),
+  List<CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing>: (final data) => (data as List)
+      .map<CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing>(
+          (final e) => CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing.fromJson(e as Map<String, dynamic>))
+      .toList(),
+  CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public: (final data) =>
+      CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public.fromJson(data as Map<String, dynamic>),
+  List<CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public>: (final data) => (data as List)
+      .map<CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public>((final e) =>
+          CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public.fromJson(e as Map<String, dynamic>))
+      .toList(),
+  CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_Password: (final data) =>
+      CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_Password.fromJson(data as Map<String, dynamic>),
+  List<CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_Password>: (final data) => (data as List)
+      .map<CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_Password>((final e) =>
+          CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_Password.fromJson(e as Map<String, dynamic>))
+      .toList(),
+  CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDate: (final data) =>
+      CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDate.fromJson(
           data as Map<String, dynamic>),
-  List<CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingPublicExpireDateRemote>: (final data) => (data as List)
-      .map<CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingPublicExpireDateRemote>((final e) =>
-          CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingPublicExpireDateRemote.fromJson(
+  List<CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDate>: (final data) => (data as List)
+      .map<CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDate>((final e) =>
+          CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDate.fromJson(
               e as Map<String, dynamic>))
       .toList(),
-  CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingUser: (final data) =>
-      CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingUser.fromJson(data as Map<String, dynamic>),
-  List<CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingUser>: (final data) => (data as List)
-      .map<CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingUser>(
-          (final e) => CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingUser.fromJson(e as Map<String, dynamic>))
-      .toList(),
-  CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingUserExpireDate: (final data) =>
-      CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingUserExpireDate.fromJson(data as Map<String, dynamic>),
-  List<CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingUserExpireDate>: (final data) => (data as List)
-      .map<CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingUserExpireDate>((final e) =>
-          CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingUserExpireDate.fromJson(e as Map<String, dynamic>))
-      .toList(),
-  CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingGroup: (final data) =>
-      CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingGroup.fromJson(data as Map<String, dynamic>),
-  List<CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingGroup>: (final data) => (data as List)
-      .map<CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingGroup>(
-          (final e) => CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingGroup.fromJson(e as Map<String, dynamic>))
-      .toList(),
-  CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingGroupExpireDate: (final data) =>
-      CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingGroupExpireDate.fromJson(data as Map<String, dynamic>),
-  List<CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingGroupExpireDate>: (final data) => (data as List)
-      .map<CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingGroupExpireDate>((final e) =>
-          CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingGroupExpireDate.fromJson(e as Map<String, dynamic>))
-      .toList(),
-  CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingFederation: (final data) =>
-      CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingFederation.fromJson(data as Map<String, dynamic>),
-  List<CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingFederation>: (final data) => (data as List)
-      .map<CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingFederation>((final e) =>
-          CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingFederation.fromJson(e as Map<String, dynamic>))
-      .toList(),
-  CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingFederationExpireDate: (final data) =>
-      CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingFederationExpireDate.fromJson(data as Map<String, dynamic>),
-  List<CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingFederationExpireDate>: (final data) => (data as List)
-      .map<CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingFederationExpireDate>((final e) =>
-          CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingFederationExpireDate.fromJson(e as Map<String, dynamic>))
-      .toList(),
-  CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingFederationExpireDateSupported: (final data) =>
-      CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingFederationExpireDateSupported.fromJson(
+  CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternal: (final data) =>
+      CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternal.fromJson(
           data as Map<String, dynamic>),
-  List<CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingFederationExpireDateSupported>: (final data) =>
+  List<CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternal>: (final data) =>
       (data as List)
-          .map<CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingFederationExpireDateSupported>((final e) =>
-              CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingFederationExpireDateSupported.fromJson(
+          .map<CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternal>((final e) =>
+              CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternal.fromJson(
                   e as Map<String, dynamic>))
           .toList(),
-  CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingSharee: (final data) =>
-      CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingSharee.fromJson(data as Map<String, dynamic>),
-  List<CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingSharee>: (final data) => (data as List)
-      .map<CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingSharee>(
-          (final e) => CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingSharee.fromJson(e as Map<String, dynamic>))
-      .toList(),
-  CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingSharebymail: (final data) =>
-      CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingSharebymail.fromJson(data as Map<String, dynamic>),
-  List<CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingSharebymail>: (final data) => (data as List)
-      .map<CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingSharebymail>((final e) =>
-          CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingSharebymail.fromJson(e as Map<String, dynamic>))
-      .toList(),
-  CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingSharebymailUploadFilesDrop: (final data) =>
-      CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingSharebymailUploadFilesDrop.fromJson(
+  CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemote: (final data) =>
+      CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemote.fromJson(
           data as Map<String, dynamic>),
-  List<CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingSharebymailUploadFilesDrop>: (final data) => (data as List)
-      .map<CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingSharebymailUploadFilesDrop>((final e) =>
-          CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingSharebymailUploadFilesDrop.fromJson(
+  List<CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemote>: (final data) =>
+      (data as List)
+          .map<CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemote>((final e) =>
+              CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemote.fromJson(
+                  e as Map<String, dynamic>))
+          .toList(),
+  CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User: (final data) =>
+      CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User.fromJson(data as Map<String, dynamic>),
+  List<CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User>: (final data) => (data as List)
+      .map<CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User>((final e) =>
+          CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User.fromJson(e as Map<String, dynamic>))
+      .toList(),
+  CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User_ExpireDate: (final data) =>
+      CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User_ExpireDate.fromJson(data as Map<String, dynamic>),
+  List<CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User_ExpireDate>: (final data) => (data as List)
+      .map<CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User_ExpireDate>((final e) =>
+          CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User_ExpireDate.fromJson(e as Map<String, dynamic>))
+      .toList(),
+  CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group: (final data) =>
+      CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group.fromJson(data as Map<String, dynamic>),
+  List<CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group>: (final data) => (data as List)
+      .map<CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group>((final e) =>
+          CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group.fromJson(e as Map<String, dynamic>))
+      .toList(),
+  CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDate: (final data) =>
+      CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDate.fromJson(data as Map<String, dynamic>),
+  List<CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDate>: (final data) => (data as List)
+      .map<CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDate>((final e) =>
+          CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDate.fromJson(
               e as Map<String, dynamic>))
       .toList(),
-  CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingSharebymailPassword: (final data) =>
-      CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingSharebymailPassword.fromJson(data as Map<String, dynamic>),
-  List<CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingSharebymailPassword>: (final data) => (data as List)
-      .map<CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingSharebymailPassword>((final e) =>
-          CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingSharebymailPassword.fromJson(e as Map<String, dynamic>))
+  CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation: (final data) =>
+      CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation.fromJson(data as Map<String, dynamic>),
+  List<CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation>: (final data) => (data as List)
+      .map<CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation>((final e) =>
+          CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation.fromJson(e as Map<String, dynamic>))
       .toList(),
-  CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingSharebymailExpireDate: (final data) =>
-      CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingSharebymailExpireDate.fromJson(data as Map<String, dynamic>),
-  List<CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingSharebymailExpireDate>: (final data) => (data as List)
-      .map<CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingSharebymailExpireDate>((final e) =>
-          CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingSharebymailExpireDate.fromJson(
+  CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDate: (final data) =>
+      CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDate.fromJson(
+          data as Map<String, dynamic>),
+  List<CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDate>: (final data) => (data as List)
+      .map<CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDate>((final e) =>
+          CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDate.fromJson(
               e as Map<String, dynamic>))
       .toList(),
-  CoreServerCapabilitiesOcsDataCapabilitiesNotes: (final data) =>
-      CoreServerCapabilitiesOcsDataCapabilitiesNotes.fromJson(data as Map<String, dynamic>),
-  List<CoreServerCapabilitiesOcsDataCapabilitiesNotes>: (final data) => (data as List)
-      .map<CoreServerCapabilitiesOcsDataCapabilitiesNotes>(
-          (final e) => CoreServerCapabilitiesOcsDataCapabilitiesNotes.fromJson(e as Map<String, dynamic>))
+  CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupported: (final data) =>
+      CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupported.fromJson(
+          data as Map<String, dynamic>),
+  List<CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupported>: (final data) =>
+      (data as List)
+          .map<CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupported>((final e) =>
+              CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupported.fromJson(
+                  e as Map<String, dynamic>))
+          .toList(),
+  CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharee: (final data) =>
+      CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharee.fromJson(data as Map<String, dynamic>),
+  List<CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharee>: (final data) => (data as List)
+      .map<CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharee>((final e) =>
+          CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharee.fromJson(e as Map<String, dynamic>))
       .toList(),
-  CoreServerCapabilitiesOcsDataCapabilitiesNotifications: (final data) =>
-      CoreServerCapabilitiesOcsDataCapabilitiesNotifications.fromJson(data as Map<String, dynamic>),
-  List<CoreServerCapabilitiesOcsDataCapabilitiesNotifications>: (final data) => (data as List)
-      .map<CoreServerCapabilitiesOcsDataCapabilitiesNotifications>(
-          (final e) => CoreServerCapabilitiesOcsDataCapabilitiesNotifications.fromJson(e as Map<String, dynamic>))
+  CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail: (final data) =>
+      CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail.fromJson(data as Map<String, dynamic>),
+  List<CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail>: (final data) => (data as List)
+      .map<CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail>((final e) =>
+          CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail.fromJson(e as Map<String, dynamic>))
       .toList(),
-  CoreServerCapabilitiesOcsDataCapabilitiesPasswordPolicy: (final data) =>
-      CoreServerCapabilitiesOcsDataCapabilitiesPasswordPolicy.fromJson(data as Map<String, dynamic>),
-  List<CoreServerCapabilitiesOcsDataCapabilitiesPasswordPolicy>: (final data) => (data as List)
-      .map<CoreServerCapabilitiesOcsDataCapabilitiesPasswordPolicy>(
-          (final e) => CoreServerCapabilitiesOcsDataCapabilitiesPasswordPolicy.fromJson(e as Map<String, dynamic>))
+  CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_UploadFilesDrop: (final data) =>
+      CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_UploadFilesDrop.fromJson(
+          data as Map<String, dynamic>),
+  List<CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_UploadFilesDrop>: (final data) =>
+      (data as List)
+          .map<CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_UploadFilesDrop>((final e) =>
+              CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_UploadFilesDrop.fromJson(
+                  e as Map<String, dynamic>))
+          .toList(),
+  CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_Password: (final data) =>
+      CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_Password.fromJson(
+          data as Map<String, dynamic>),
+  List<CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_Password>: (final data) => (data as List)
+      .map<CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_Password>((final e) =>
+          CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_Password.fromJson(
+              e as Map<String, dynamic>))
       .toList(),
-  CoreServerCapabilitiesOcsDataCapabilitiesPasswordPolicyApi: (final data) =>
-      CoreServerCapabilitiesOcsDataCapabilitiesPasswordPolicyApi.fromJson(data as Map<String, dynamic>),
-  List<CoreServerCapabilitiesOcsDataCapabilitiesPasswordPolicyApi>: (final data) => (data as List)
-      .map<CoreServerCapabilitiesOcsDataCapabilitiesPasswordPolicyApi>(
-          (final e) => CoreServerCapabilitiesOcsDataCapabilitiesPasswordPolicyApi.fromJson(e as Map<String, dynamic>))
+  CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_ExpireDate: (final data) =>
+      CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_ExpireDate.fromJson(
+          data as Map<String, dynamic>),
+  List<CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_ExpireDate>: (final data) => (data as List)
+      .map<CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_ExpireDate>((final e) =>
+          CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_ExpireDate.fromJson(
+              e as Map<String, dynamic>))
       .toList(),
-  CoreServerCapabilitiesOcsDataCapabilitiesProvisioningApi: (final data) =>
-      CoreServerCapabilitiesOcsDataCapabilitiesProvisioningApi.fromJson(data as Map<String, dynamic>),
-  List<CoreServerCapabilitiesOcsDataCapabilitiesProvisioningApi>: (final data) => (data as List)
-      .map<CoreServerCapabilitiesOcsDataCapabilitiesProvisioningApi>(
-          (final e) => CoreServerCapabilitiesOcsDataCapabilitiesProvisioningApi.fromJson(e as Map<String, dynamic>))
+  CoreServerCapabilities_Ocs_Data_Capabilities_Notes: (final data) =>
+      CoreServerCapabilities_Ocs_Data_Capabilities_Notes.fromJson(data as Map<String, dynamic>),
+  List<CoreServerCapabilities_Ocs_Data_Capabilities_Notes>: (final data) => (data as List)
+      .map<CoreServerCapabilities_Ocs_Data_Capabilities_Notes>(
+          (final e) => CoreServerCapabilities_Ocs_Data_Capabilities_Notes.fromJson(e as Map<String, dynamic>))
       .toList(),
-  CoreServerCapabilitiesOcsDataCapabilitiesTheming: (final data) =>
-      CoreServerCapabilitiesOcsDataCapabilitiesTheming.fromJson(data as Map<String, dynamic>),
-  List<CoreServerCapabilitiesOcsDataCapabilitiesTheming>: (final data) => (data as List)
-      .map<CoreServerCapabilitiesOcsDataCapabilitiesTheming>(
-          (final e) => CoreServerCapabilitiesOcsDataCapabilitiesTheming.fromJson(e as Map<String, dynamic>))
+  CoreServerCapabilities_Ocs_Data_Capabilities_Notifications: (final data) =>
+      CoreServerCapabilities_Ocs_Data_Capabilities_Notifications.fromJson(data as Map<String, dynamic>),
+  List<CoreServerCapabilities_Ocs_Data_Capabilities_Notifications>: (final data) => (data as List)
+      .map<CoreServerCapabilities_Ocs_Data_Capabilities_Notifications>(
+          (final e) => CoreServerCapabilities_Ocs_Data_Capabilities_Notifications.fromJson(e as Map<String, dynamic>))
       .toList(),
-  CoreServerCapabilitiesOcsDataCapabilitiesUserStatus: (final data) =>
-      CoreServerCapabilitiesOcsDataCapabilitiesUserStatus.fromJson(data as Map<String, dynamic>),
-  List<CoreServerCapabilitiesOcsDataCapabilitiesUserStatus>: (final data) => (data as List)
-      .map<CoreServerCapabilitiesOcsDataCapabilitiesUserStatus>(
-          (final e) => CoreServerCapabilitiesOcsDataCapabilitiesUserStatus.fromJson(e as Map<String, dynamic>))
+  CoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy: (final data) =>
+      CoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy.fromJson(data as Map<String, dynamic>),
+  List<CoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy>: (final data) => (data as List)
+      .map<CoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy>(
+          (final e) => CoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy.fromJson(e as Map<String, dynamic>))
       .toList(),
-  CoreServerCapabilitiesOcsDataCapabilitiesWeatherStatus: (final data) =>
-      CoreServerCapabilitiesOcsDataCapabilitiesWeatherStatus.fromJson(data as Map<String, dynamic>),
-  List<CoreServerCapabilitiesOcsDataCapabilitiesWeatherStatus>: (final data) => (data as List)
-      .map<CoreServerCapabilitiesOcsDataCapabilitiesWeatherStatus>(
-          (final e) => CoreServerCapabilitiesOcsDataCapabilitiesWeatherStatus.fromJson(e as Map<String, dynamic>))
+  CoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy_Api: (final data) =>
+      CoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy_Api.fromJson(data as Map<String, dynamic>),
+  List<CoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy_Api>: (final data) => (data as List)
+      .map<CoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy_Api>((final e) =>
+          CoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy_Api.fromJson(e as Map<String, dynamic>))
+      .toList(),
+  CoreServerCapabilities_Ocs_Data_Capabilities_ProvisioningApi: (final data) =>
+      CoreServerCapabilities_Ocs_Data_Capabilities_ProvisioningApi.fromJson(data as Map<String, dynamic>),
+  List<CoreServerCapabilities_Ocs_Data_Capabilities_ProvisioningApi>: (final data) => (data as List)
+      .map<CoreServerCapabilities_Ocs_Data_Capabilities_ProvisioningApi>(
+          (final e) => CoreServerCapabilities_Ocs_Data_Capabilities_ProvisioningApi.fromJson(e as Map<String, dynamic>))
+      .toList(),
+  CoreServerCapabilities_Ocs_Data_Capabilities_Theming: (final data) =>
+      CoreServerCapabilities_Ocs_Data_Capabilities_Theming.fromJson(data as Map<String, dynamic>),
+  List<CoreServerCapabilities_Ocs_Data_Capabilities_Theming>: (final data) => (data as List)
+      .map<CoreServerCapabilities_Ocs_Data_Capabilities_Theming>(
+          (final e) => CoreServerCapabilities_Ocs_Data_Capabilities_Theming.fromJson(e as Map<String, dynamic>))
+      .toList(),
+  CoreServerCapabilities_Ocs_Data_Capabilities_UserStatus: (final data) =>
+      CoreServerCapabilities_Ocs_Data_Capabilities_UserStatus.fromJson(data as Map<String, dynamic>),
+  List<CoreServerCapabilities_Ocs_Data_Capabilities_UserStatus>: (final data) => (data as List)
+      .map<CoreServerCapabilities_Ocs_Data_Capabilities_UserStatus>(
+          (final e) => CoreServerCapabilities_Ocs_Data_Capabilities_UserStatus.fromJson(e as Map<String, dynamic>))
+      .toList(),
+  CoreServerCapabilities_Ocs_Data_Capabilities_WeatherStatus: (final data) =>
+      CoreServerCapabilities_Ocs_Data_Capabilities_WeatherStatus.fromJson(data as Map<String, dynamic>),
+  List<CoreServerCapabilities_Ocs_Data_Capabilities_WeatherStatus>: (final data) => (data as List)
+      .map<CoreServerCapabilities_Ocs_Data_Capabilities_WeatherStatus>(
+          (final e) => CoreServerCapabilities_Ocs_Data_Capabilities_WeatherStatus.fromJson(e as Map<String, dynamic>))
       .toList(),
   CoreNavigationApps: (final data) => CoreNavigationApps.fromJson(data as Map<String, dynamic>),
   List<CoreNavigationApps>: (final data) => (data as List)
       .map<CoreNavigationApps>((final e) => CoreNavigationApps.fromJson(e as Map<String, dynamic>))
       .toList(),
-  CoreNavigationAppsOcs: (final data) => CoreNavigationAppsOcs.fromJson(data as Map<String, dynamic>),
-  List<CoreNavigationAppsOcs>: (final data) => (data as List)
-      .map<CoreNavigationAppsOcs>((final e) => CoreNavigationAppsOcs.fromJson(e as Map<String, dynamic>))
+  CoreNavigationApps_Ocs: (final data) => CoreNavigationApps_Ocs.fromJson(data as Map<String, dynamic>),
+  List<CoreNavigationApps_Ocs>: (final data) => (data as List)
+      .map<CoreNavigationApps_Ocs>((final e) => CoreNavigationApps_Ocs.fromJson(e as Map<String, dynamic>))
       .toList(),
-  CoreNavigationAppsOcsData: (final data) => CoreNavigationAppsOcsData.fromJson(data as Map<String, dynamic>),
-  List<CoreNavigationAppsOcsData>: (final data) => (data as List)
-      .map<CoreNavigationAppsOcsData>((final e) => CoreNavigationAppsOcsData.fromJson(e as Map<String, dynamic>))
+  CoreNavigationApps_Ocs_Data: (final data) => CoreNavigationApps_Ocs_Data.fromJson(data as Map<String, dynamic>),
+  List<CoreNavigationApps_Ocs_Data>: (final data) => (data as List)
+      .map<CoreNavigationApps_Ocs_Data>((final e) => CoreNavigationApps_Ocs_Data.fromJson(e as Map<String, dynamic>))
       .toList(),
   CoreLoginFlowInit: (final data) => CoreLoginFlowInit.fromJson(data as Map<String, dynamic>),
   List<CoreLoginFlowInit>: (final data) => (data as List)
       .map<CoreLoginFlowInit>((final e) => CoreLoginFlowInit.fromJson(e as Map<String, dynamic>))
       .toList(),
-  CoreLoginFlowInitPoll: (final data) => CoreLoginFlowInitPoll.fromJson(data as Map<String, dynamic>),
-  List<CoreLoginFlowInitPoll>: (final data) => (data as List)
-      .map<CoreLoginFlowInitPoll>((final e) => CoreLoginFlowInitPoll.fromJson(e as Map<String, dynamic>))
+  CoreLoginFlowInit_Poll: (final data) => CoreLoginFlowInit_Poll.fromJson(data as Map<String, dynamic>),
+  List<CoreLoginFlowInit_Poll>: (final data) => (data as List)
+      .map<CoreLoginFlowInit_Poll>((final e) => CoreLoginFlowInit_Poll.fromJson(e as Map<String, dynamic>))
       .toList(),
   CoreLoginFlowResult: (final data) => CoreLoginFlowResult.fromJson(data as Map<String, dynamic>),
   List<CoreLoginFlowResult>: (final data) => (data as List)
@@ -4184,11 +4281,11 @@ final _deserializers = <Type, dynamic Function(dynamic)>{
       .map<NotificationsListNotifications>(
           (final e) => NotificationsListNotifications.fromJson(e as Map<String, dynamic>))
       .toList(),
-  NotificationsListNotificationsOcs: (final data) =>
-      NotificationsListNotificationsOcs.fromJson(data as Map<String, dynamic>),
-  List<NotificationsListNotificationsOcs>: (final data) => (data as List)
-      .map<NotificationsListNotificationsOcs>(
-          (final e) => NotificationsListNotificationsOcs.fromJson(e as Map<String, dynamic>))
+  NotificationsListNotifications_Ocs: (final data) =>
+      NotificationsListNotifications_Ocs.fromJson(data as Map<String, dynamic>),
+  List<NotificationsListNotifications_Ocs>: (final data) => (data as List)
+      .map<NotificationsListNotifications_Ocs>(
+          (final e) => NotificationsListNotifications_Ocs.fromJson(e as Map<String, dynamic>))
       .toList(),
   NotificationsNotification: (final data) => NotificationsNotification.fromJson(data as Map<String, dynamic>),
   List<NotificationsNotification>: (final data) => (data as List)
@@ -4204,19 +4301,19 @@ final _deserializers = <Type, dynamic Function(dynamic)>{
   List<NotificationsGetNotification>: (final data) => (data as List)
       .map<NotificationsGetNotification>((final e) => NotificationsGetNotification.fromJson(e as Map<String, dynamic>))
       .toList(),
-  NotificationsGetNotificationOcs: (final data) =>
-      NotificationsGetNotificationOcs.fromJson(data as Map<String, dynamic>),
-  List<NotificationsGetNotificationOcs>: (final data) => (data as List)
-      .map<NotificationsGetNotificationOcs>(
-          (final e) => NotificationsGetNotificationOcs.fromJson(e as Map<String, dynamic>))
+  NotificationsGetNotification_Ocs: (final data) =>
+      NotificationsGetNotification_Ocs.fromJson(data as Map<String, dynamic>),
+  List<NotificationsGetNotification_Ocs>: (final data) => (data as List)
+      .map<NotificationsGetNotification_Ocs>(
+          (final e) => NotificationsGetNotification_Ocs.fromJson(e as Map<String, dynamic>))
       .toList(),
   NotificationsEmpty: (final data) => NotificationsEmpty.fromJson(data as Map<String, dynamic>),
   List<NotificationsEmpty>: (final data) => (data as List)
       .map<NotificationsEmpty>((final e) => NotificationsEmpty.fromJson(e as Map<String, dynamic>))
       .toList(),
-  NotificationsEmptyOcs: (final data) => NotificationsEmptyOcs.fromJson(data as Map<String, dynamic>),
-  List<NotificationsEmptyOcs>: (final data) => (data as List)
-      .map<NotificationsEmptyOcs>((final e) => NotificationsEmptyOcs.fromJson(e as Map<String, dynamic>))
+  NotificationsEmpty_Ocs: (final data) => NotificationsEmpty_Ocs.fromJson(data as Map<String, dynamic>),
+  List<NotificationsEmpty_Ocs>: (final data) => (data as List)
+      .map<NotificationsEmpty_Ocs>((final e) => NotificationsEmpty_Ocs.fromJson(e as Map<String, dynamic>))
       .toList(),
   NotificationsPushServerRegistration: (final data) =>
       NotificationsPushServerRegistration.fromJson(data as Map<String, dynamic>),
@@ -4224,11 +4321,11 @@ final _deserializers = <Type, dynamic Function(dynamic)>{
       .map<NotificationsPushServerRegistration>(
           (final e) => NotificationsPushServerRegistration.fromJson(e as Map<String, dynamic>))
       .toList(),
-  NotificationsPushServerRegistrationOcs: (final data) =>
-      NotificationsPushServerRegistrationOcs.fromJson(data as Map<String, dynamic>),
-  List<NotificationsPushServerRegistrationOcs>: (final data) => (data as List)
-      .map<NotificationsPushServerRegistrationOcs>(
-          (final e) => NotificationsPushServerRegistrationOcs.fromJson(e as Map<String, dynamic>))
+  NotificationsPushServerRegistration_Ocs: (final data) =>
+      NotificationsPushServerRegistration_Ocs.fromJson(data as Map<String, dynamic>),
+  List<NotificationsPushServerRegistration_Ocs>: (final data) => (data as List)
+      .map<NotificationsPushServerRegistration_Ocs>(
+          (final e) => NotificationsPushServerRegistration_Ocs.fromJson(e as Map<String, dynamic>))
       .toList(),
   NotificationsPushServerSubscription: (final data) =>
       NotificationsPushServerSubscription.fromJson(data as Map<String, dynamic>),
@@ -4240,33 +4337,34 @@ final _deserializers = <Type, dynamic Function(dynamic)>{
   List<ProvisioningApiUser>: (final data) => (data as List)
       .map<ProvisioningApiUser>((final e) => ProvisioningApiUser.fromJson(e as Map<String, dynamic>))
       .toList(),
-  ProvisioningApiUserOcs: (final data) => ProvisioningApiUserOcs.fromJson(data as Map<String, dynamic>),
-  List<ProvisioningApiUserOcs>: (final data) => (data as List)
-      .map<ProvisioningApiUserOcs>((final e) => ProvisioningApiUserOcs.fromJson(e as Map<String, dynamic>))
+  ProvisioningApiUser_Ocs: (final data) => ProvisioningApiUser_Ocs.fromJson(data as Map<String, dynamic>),
+  List<ProvisioningApiUser_Ocs>: (final data) => (data as List)
+      .map<ProvisioningApiUser_Ocs>((final e) => ProvisioningApiUser_Ocs.fromJson(e as Map<String, dynamic>))
       .toList(),
   ProvisioningApiUserDetails: (final data) => ProvisioningApiUserDetails.fromJson(data as Map<String, dynamic>),
   List<ProvisioningApiUserDetails>: (final data) => (data as List)
       .map<ProvisioningApiUserDetails>((final e) => ProvisioningApiUserDetails.fromJson(e as Map<String, dynamic>))
       .toList(),
-  ProvisioningApiUserDetailsQuota: (final data) =>
-      ProvisioningApiUserDetailsQuota.fromJson(data as Map<String, dynamic>),
-  List<ProvisioningApiUserDetailsQuota>: (final data) => (data as List)
-      .map<ProvisioningApiUserDetailsQuota>(
-          (final e) => ProvisioningApiUserDetailsQuota.fromJson(e as Map<String, dynamic>))
+  ProvisioningApiUserDetails_Quota: (final data) =>
+      ProvisioningApiUserDetails_Quota.fromJson(data as Map<String, dynamic>),
+  List<ProvisioningApiUserDetails_Quota>: (final data) => (data as List)
+      .map<ProvisioningApiUserDetails_Quota>(
+          (final e) => ProvisioningApiUserDetails_Quota.fromJson(e as Map<String, dynamic>))
       .toList(),
-  ProvisioningApiUserDetailsBackendCapabilities: (final data) =>
-      ProvisioningApiUserDetailsBackendCapabilities.fromJson(data as Map<String, dynamic>),
-  List<ProvisioningApiUserDetailsBackendCapabilities>: (final data) => (data as List)
-      .map<ProvisioningApiUserDetailsBackendCapabilities>(
-          (final e) => ProvisioningApiUserDetailsBackendCapabilities.fromJson(e as Map<String, dynamic>))
+  ProvisioningApiUserDetails_BackendCapabilities: (final data) =>
+      ProvisioningApiUserDetails_BackendCapabilities.fromJson(data as Map<String, dynamic>),
+  List<ProvisioningApiUserDetails_BackendCapabilities>: (final data) => (data as List)
+      .map<ProvisioningApiUserDetails_BackendCapabilities>(
+          (final e) => ProvisioningApiUserDetails_BackendCapabilities.fromJson(e as Map<String, dynamic>))
       .toList(),
   UserStatusFindAllStatuses: (final data) => UserStatusFindAllStatuses.fromJson(data as Map<String, dynamic>),
   List<UserStatusFindAllStatuses>: (final data) => (data as List)
       .map<UserStatusFindAllStatuses>((final e) => UserStatusFindAllStatuses.fromJson(e as Map<String, dynamic>))
       .toList(),
-  UserStatusFindAllStatusesOcs: (final data) => UserStatusFindAllStatusesOcs.fromJson(data as Map<String, dynamic>),
-  List<UserStatusFindAllStatusesOcs>: (final data) => (data as List)
-      .map<UserStatusFindAllStatusesOcs>((final e) => UserStatusFindAllStatusesOcs.fromJson(e as Map<String, dynamic>))
+  UserStatusFindAllStatuses_Ocs: (final data) => UserStatusFindAllStatuses_Ocs.fromJson(data as Map<String, dynamic>),
+  List<UserStatusFindAllStatuses_Ocs>: (final data) => (data as List)
+      .map<UserStatusFindAllStatuses_Ocs>(
+          (final e) => UserStatusFindAllStatuses_Ocs.fromJson(e as Map<String, dynamic>))
       .toList(),
   UserStatusPublicUserStatus: (final data) => UserStatusPublicUserStatus.fromJson(data as Map<String, dynamic>),
   List<UserStatusPublicUserStatus>: (final data) => (data as List)
@@ -4280,17 +4378,17 @@ final _deserializers = <Type, dynamic Function(dynamic)>{
   List<UserStatusFindStatus>: (final data) => (data as List)
       .map<UserStatusFindStatus>((final e) => UserStatusFindStatus.fromJson(e as Map<String, dynamic>))
       .toList(),
-  UserStatusFindStatusOcs: (final data) => UserStatusFindStatusOcs.fromJson(data as Map<String, dynamic>),
-  List<UserStatusFindStatusOcs>: (final data) => (data as List)
-      .map<UserStatusFindStatusOcs>((final e) => UserStatusFindStatusOcs.fromJson(e as Map<String, dynamic>))
+  UserStatusFindStatus_Ocs: (final data) => UserStatusFindStatus_Ocs.fromJson(data as Map<String, dynamic>),
+  List<UserStatusFindStatus_Ocs>: (final data) => (data as List)
+      .map<UserStatusFindStatus_Ocs>((final e) => UserStatusFindStatus_Ocs.fromJson(e as Map<String, dynamic>))
       .toList(),
   UserStatusGetUserStatus: (final data) => UserStatusGetUserStatus.fromJson(data as Map<String, dynamic>),
   List<UserStatusGetUserStatus>: (final data) => (data as List)
       .map<UserStatusGetUserStatus>((final e) => UserStatusGetUserStatus.fromJson(e as Map<String, dynamic>))
       .toList(),
-  UserStatusGetUserStatusOcs: (final data) => UserStatusGetUserStatusOcs.fromJson(data as Map<String, dynamic>),
-  List<UserStatusGetUserStatusOcs>: (final data) => (data as List)
-      .map<UserStatusGetUserStatusOcs>((final e) => UserStatusGetUserStatusOcs.fromJson(e as Map<String, dynamic>))
+  UserStatusGetUserStatus_Ocs: (final data) => UserStatusGetUserStatus_Ocs.fromJson(data as Map<String, dynamic>),
+  List<UserStatusGetUserStatus_Ocs>: (final data) => (data as List)
+      .map<UserStatusGetUserStatus_Ocs>((final e) => UserStatusGetUserStatus_Ocs.fromJson(e as Map<String, dynamic>))
       .toList(),
   UserStatus: (final data) => UserStatus.fromJson(data as Map<String, dynamic>),
   List<UserStatus>: (final data) =>
@@ -4299,11 +4397,11 @@ final _deserializers = <Type, dynamic Function(dynamic)>{
   List<UserStatusPredefinedStatuses>: (final data) => (data as List)
       .map<UserStatusPredefinedStatuses>((final e) => UserStatusPredefinedStatuses.fromJson(e as Map<String, dynamic>))
       .toList(),
-  UserStatusPredefinedStatusesOcs: (final data) =>
-      UserStatusPredefinedStatusesOcs.fromJson(data as Map<String, dynamic>),
-  List<UserStatusPredefinedStatusesOcs>: (final data) => (data as List)
-      .map<UserStatusPredefinedStatusesOcs>(
-          (final e) => UserStatusPredefinedStatusesOcs.fromJson(e as Map<String, dynamic>))
+  UserStatusPredefinedStatuses_Ocs: (final data) =>
+      UserStatusPredefinedStatuses_Ocs.fromJson(data as Map<String, dynamic>),
+  List<UserStatusPredefinedStatuses_Ocs>: (final data) => (data as List)
+      .map<UserStatusPredefinedStatuses_Ocs>(
+          (final e) => UserStatusPredefinedStatuses_Ocs.fromJson(e as Map<String, dynamic>))
       .toList(),
   UserStatusPredefinedStatus: (final data) => UserStatusPredefinedStatus.fromJson(data as Map<String, dynamic>),
   List<UserStatusPredefinedStatus>: (final data) => (data as List)
@@ -4329,311 +4427,316 @@ final _serializers = <Type, dynamic Function(dynamic)>{
   CoreServerCapabilities: (final data) => (data as CoreServerCapabilities).toJson(),
   List<CoreServerCapabilities>: (final data) =>
       (data as List<CoreServerCapabilities>).map((final e) => (e as CoreServerCapabilities).toJson()).toList(),
-  CoreServerCapabilitiesOcs: (final data) => (data as CoreServerCapabilitiesOcs).toJson(),
-  List<CoreServerCapabilitiesOcs>: (final data) =>
-      (data as List<CoreServerCapabilitiesOcs>).map((final e) => (e as CoreServerCapabilitiesOcs).toJson()).toList(),
+  CoreServerCapabilities_Ocs: (final data) => (data as CoreServerCapabilities_Ocs).toJson(),
+  List<CoreServerCapabilities_Ocs>: (final data) =>
+      (data as List<CoreServerCapabilities_Ocs>).map((final e) => (e as CoreServerCapabilities_Ocs).toJson()).toList(),
   OCSMeta: (final data) => (data as OCSMeta).toJson(),
   List<OCSMeta>: (final data) => (data as List<OCSMeta>).map((final e) => (e as OCSMeta).toJson()).toList(),
-  CoreServerCapabilitiesOcsData: (final data) => (data as CoreServerCapabilitiesOcsData).toJson(),
-  List<CoreServerCapabilitiesOcsData>: (final data) => (data as List<CoreServerCapabilitiesOcsData>)
-      .map((final e) => (e as CoreServerCapabilitiesOcsData).toJson())
+  CoreServerCapabilities_Ocs_Data: (final data) => (data as CoreServerCapabilities_Ocs_Data).toJson(),
+  List<CoreServerCapabilities_Ocs_Data>: (final data) => (data as List<CoreServerCapabilities_Ocs_Data>)
+      .map((final e) => (e as CoreServerCapabilities_Ocs_Data).toJson())
       .toList(),
-  CoreServerCapabilitiesOcsDataVersion: (final data) => (data as CoreServerCapabilitiesOcsDataVersion).toJson(),
-  List<CoreServerCapabilitiesOcsDataVersion>: (final data) => (data as List<CoreServerCapabilitiesOcsDataVersion>)
-      .map((final e) => (e as CoreServerCapabilitiesOcsDataVersion).toJson())
+  CoreServerCapabilities_Ocs_Data_Version: (final data) => (data as CoreServerCapabilities_Ocs_Data_Version).toJson(),
+  List<CoreServerCapabilities_Ocs_Data_Version>: (final data) => (data as List<CoreServerCapabilities_Ocs_Data_Version>)
+      .map((final e) => (e as CoreServerCapabilities_Ocs_Data_Version).toJson())
       .toList(),
-  CoreServerCapabilitiesOcsDataCapabilities: (final data) =>
-      (data as CoreServerCapabilitiesOcsDataCapabilities).toJson(),
-  List<CoreServerCapabilitiesOcsDataCapabilities>: (final data) =>
-      (data as List<CoreServerCapabilitiesOcsDataCapabilities>)
-          .map((final e) => (e as CoreServerCapabilitiesOcsDataCapabilities).toJson())
+  CoreServerCapabilities_Ocs_Data_Capabilities: (final data) =>
+      (data as CoreServerCapabilities_Ocs_Data_Capabilities).toJson(),
+  List<CoreServerCapabilities_Ocs_Data_Capabilities>: (final data) =>
+      (data as List<CoreServerCapabilities_Ocs_Data_Capabilities>)
+          .map((final e) => (e as CoreServerCapabilities_Ocs_Data_Capabilities).toJson())
           .toList(),
-  CoreServerCapabilitiesOcsDataCapabilitiesCore: (final data) =>
-      (data as CoreServerCapabilitiesOcsDataCapabilitiesCore).toJson(),
-  List<CoreServerCapabilitiesOcsDataCapabilitiesCore>: (final data) =>
-      (data as List<CoreServerCapabilitiesOcsDataCapabilitiesCore>)
-          .map((final e) => (e as CoreServerCapabilitiesOcsDataCapabilitiesCore).toJson())
+  CoreServerCapabilities_Ocs_Data_Capabilities_Core: (final data) =>
+      (data as CoreServerCapabilities_Ocs_Data_Capabilities_Core).toJson(),
+  List<CoreServerCapabilities_Ocs_Data_Capabilities_Core>: (final data) =>
+      (data as List<CoreServerCapabilities_Ocs_Data_Capabilities_Core>)
+          .map((final e) => (e as CoreServerCapabilities_Ocs_Data_Capabilities_Core).toJson())
           .toList(),
-  CoreServerCapabilitiesOcsDataCapabilitiesBruteforce: (final data) =>
-      (data as CoreServerCapabilitiesOcsDataCapabilitiesBruteforce).toJson(),
-  List<CoreServerCapabilitiesOcsDataCapabilitiesBruteforce>: (final data) =>
-      (data as List<CoreServerCapabilitiesOcsDataCapabilitiesBruteforce>)
-          .map((final e) => (e as CoreServerCapabilitiesOcsDataCapabilitiesBruteforce).toJson())
+  CoreServerCapabilities_Ocs_Data_Capabilities_Bruteforce: (final data) =>
+      (data as CoreServerCapabilities_Ocs_Data_Capabilities_Bruteforce).toJson(),
+  List<CoreServerCapabilities_Ocs_Data_Capabilities_Bruteforce>: (final data) =>
+      (data as List<CoreServerCapabilities_Ocs_Data_Capabilities_Bruteforce>)
+          .map((final e) => (e as CoreServerCapabilities_Ocs_Data_Capabilities_Bruteforce).toJson())
           .toList(),
-  CoreServerCapabilitiesOcsDataCapabilitiesMetadataAvailable: (final data) =>
-      (data as CoreServerCapabilitiesOcsDataCapabilitiesMetadataAvailable).toJson(),
-  List<CoreServerCapabilitiesOcsDataCapabilitiesMetadataAvailable>: (final data) =>
-      (data as List<CoreServerCapabilitiesOcsDataCapabilitiesMetadataAvailable>)
-          .map((final e) => (e as CoreServerCapabilitiesOcsDataCapabilitiesMetadataAvailable).toJson())
+  CoreServerCapabilities_Ocs_Data_Capabilities_MetadataAvailable: (final data) =>
+      (data as CoreServerCapabilities_Ocs_Data_Capabilities_MetadataAvailable).toJson(),
+  List<CoreServerCapabilities_Ocs_Data_Capabilities_MetadataAvailable>: (final data) =>
+      (data as List<CoreServerCapabilities_Ocs_Data_Capabilities_MetadataAvailable>)
+          .map((final e) => (e as CoreServerCapabilities_Ocs_Data_Capabilities_MetadataAvailable).toJson())
           .toList(),
-  CoreServerCapabilitiesOcsDataCapabilitiesFiles: (final data) =>
-      (data as CoreServerCapabilitiesOcsDataCapabilitiesFiles).toJson(),
-  List<CoreServerCapabilitiesOcsDataCapabilitiesFiles>: (final data) =>
-      (data as List<CoreServerCapabilitiesOcsDataCapabilitiesFiles>)
-          .map((final e) => (e as CoreServerCapabilitiesOcsDataCapabilitiesFiles).toJson())
+  CoreServerCapabilities_Ocs_Data_Capabilities_Files: (final data) =>
+      (data as CoreServerCapabilities_Ocs_Data_Capabilities_Files).toJson(),
+  List<CoreServerCapabilities_Ocs_Data_Capabilities_Files>: (final data) =>
+      (data as List<CoreServerCapabilities_Ocs_Data_Capabilities_Files>)
+          .map((final e) => (e as CoreServerCapabilities_Ocs_Data_Capabilities_Files).toJson())
           .toList(),
-  CoreServerCapabilitiesOcsDataCapabilitiesFilesDirectEditing: (final data) =>
-      (data as CoreServerCapabilitiesOcsDataCapabilitiesFilesDirectEditing).toJson(),
-  List<CoreServerCapabilitiesOcsDataCapabilitiesFilesDirectEditing>: (final data) =>
-      (data as List<CoreServerCapabilitiesOcsDataCapabilitiesFilesDirectEditing>)
-          .map((final e) => (e as CoreServerCapabilitiesOcsDataCapabilitiesFilesDirectEditing).toJson())
+  CoreServerCapabilities_Ocs_Data_Capabilities_Files_DirectEditing: (final data) =>
+      (data as CoreServerCapabilities_Ocs_Data_Capabilities_Files_DirectEditing).toJson(),
+  List<CoreServerCapabilities_Ocs_Data_Capabilities_Files_DirectEditing>: (final data) =>
+      (data as List<CoreServerCapabilities_Ocs_Data_Capabilities_Files_DirectEditing>)
+          .map((final e) => (e as CoreServerCapabilities_Ocs_Data_Capabilities_Files_DirectEditing).toJson())
           .toList(),
-  CoreServerCapabilitiesOcsDataCapabilitiesActivity: (final data) =>
-      (data as CoreServerCapabilitiesOcsDataCapabilitiesActivity).toJson(),
-  List<CoreServerCapabilitiesOcsDataCapabilitiesActivity>: (final data) =>
-      (data as List<CoreServerCapabilitiesOcsDataCapabilitiesActivity>)
-          .map((final e) => (e as CoreServerCapabilitiesOcsDataCapabilitiesActivity).toJson())
+  CoreServerCapabilities_Ocs_Data_Capabilities_Activity: (final data) =>
+      (data as CoreServerCapabilities_Ocs_Data_Capabilities_Activity).toJson(),
+  List<CoreServerCapabilities_Ocs_Data_Capabilities_Activity>: (final data) =>
+      (data as List<CoreServerCapabilities_Ocs_Data_Capabilities_Activity>)
+          .map((final e) => (e as CoreServerCapabilities_Ocs_Data_Capabilities_Activity).toJson())
           .toList(),
-  CoreServerCapabilitiesOcsDataCapabilitiesCircles: (final data) =>
-      (data as CoreServerCapabilitiesOcsDataCapabilitiesCircles).toJson(),
-  List<CoreServerCapabilitiesOcsDataCapabilitiesCircles>: (final data) =>
-      (data as List<CoreServerCapabilitiesOcsDataCapabilitiesCircles>)
-          .map((final e) => (e as CoreServerCapabilitiesOcsDataCapabilitiesCircles).toJson())
+  CoreServerCapabilities_Ocs_Data_Capabilities_Circles: (final data) =>
+      (data as CoreServerCapabilities_Ocs_Data_Capabilities_Circles).toJson(),
+  List<CoreServerCapabilities_Ocs_Data_Capabilities_Circles>: (final data) =>
+      (data as List<CoreServerCapabilities_Ocs_Data_Capabilities_Circles>)
+          .map((final e) => (e as CoreServerCapabilities_Ocs_Data_Capabilities_Circles).toJson())
           .toList(),
-  CoreServerCapabilitiesOcsDataCapabilitiesCirclesStatus: (final data) =>
-      (data as CoreServerCapabilitiesOcsDataCapabilitiesCirclesStatus).toJson(),
-  List<CoreServerCapabilitiesOcsDataCapabilitiesCirclesStatus>: (final data) =>
-      (data as List<CoreServerCapabilitiesOcsDataCapabilitiesCirclesStatus>)
-          .map((final e) => (e as CoreServerCapabilitiesOcsDataCapabilitiesCirclesStatus).toJson())
+  CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Status: (final data) =>
+      (data as CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Status).toJson(),
+  List<CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Status>: (final data) =>
+      (data as List<CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Status>)
+          .map((final e) => (e as CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Status).toJson())
           .toList(),
-  CoreServerCapabilitiesOcsDataCapabilitiesCirclesSettings: (final data) =>
-      (data as CoreServerCapabilitiesOcsDataCapabilitiesCirclesSettings).toJson(),
-  List<CoreServerCapabilitiesOcsDataCapabilitiesCirclesSettings>: (final data) =>
-      (data as List<CoreServerCapabilitiesOcsDataCapabilitiesCirclesSettings>)
-          .map((final e) => (e as CoreServerCapabilitiesOcsDataCapabilitiesCirclesSettings).toJson())
+  CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Settings: (final data) =>
+      (data as CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Settings).toJson(),
+  List<CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Settings>: (final data) =>
+      (data as List<CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Settings>)
+          .map((final e) => (e as CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Settings).toJson())
           .toList(),
-  CoreServerCapabilitiesOcsDataCapabilitiesCirclesCircle: (final data) =>
-      (data as CoreServerCapabilitiesOcsDataCapabilitiesCirclesCircle).toJson(),
-  List<CoreServerCapabilitiesOcsDataCapabilitiesCirclesCircle>: (final data) =>
-      (data as List<CoreServerCapabilitiesOcsDataCapabilitiesCirclesCircle>)
-          .map((final e) => (e as CoreServerCapabilitiesOcsDataCapabilitiesCirclesCircle).toJson())
+  CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle: (final data) =>
+      (data as CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle).toJson(),
+  List<CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle>: (final data) =>
+      (data as List<CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle>)
+          .map((final e) => (e as CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle).toJson())
           .toList(),
-  CoreServerCapabilitiesOcsDataCapabilitiesCirclesCircleConstants: (final data) =>
-      (data as CoreServerCapabilitiesOcsDataCapabilitiesCirclesCircleConstants).toJson(),
-  List<CoreServerCapabilitiesOcsDataCapabilitiesCirclesCircleConstants>: (final data) =>
-      (data as List<CoreServerCapabilitiesOcsDataCapabilitiesCirclesCircleConstants>)
-          .map((final e) => (e as CoreServerCapabilitiesOcsDataCapabilitiesCirclesCircleConstants).toJson())
+  CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants: (final data) =>
+      (data as CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants).toJson(),
+  List<CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants>: (final data) =>
+      (data as List<CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants>)
+          .map((final e) => (e as CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants).toJson())
           .toList(),
-  CoreServerCapabilitiesOcsDataCapabilitiesCirclesCircleConstantsSource: (final data) =>
-      (data as CoreServerCapabilitiesOcsDataCapabilitiesCirclesCircleConstantsSource).toJson(),
-  List<CoreServerCapabilitiesOcsDataCapabilitiesCirclesCircleConstantsSource>: (final data) =>
-      (data as List<CoreServerCapabilitiesOcsDataCapabilitiesCirclesCircleConstantsSource>)
-          .map((final e) => (e as CoreServerCapabilitiesOcsDataCapabilitiesCirclesCircleConstantsSource).toJson())
-          .toList(),
-  CoreServerCapabilitiesOcsDataCapabilitiesCirclesCircleConfig: (final data) =>
-      (data as CoreServerCapabilitiesOcsDataCapabilitiesCirclesCircleConfig).toJson(),
-  List<CoreServerCapabilitiesOcsDataCapabilitiesCirclesCircleConfig>: (final data) =>
-      (data as List<CoreServerCapabilitiesOcsDataCapabilitiesCirclesCircleConfig>)
-          .map((final e) => (e as CoreServerCapabilitiesOcsDataCapabilitiesCirclesCircleConfig).toJson())
-          .toList(),
-  CoreServerCapabilitiesOcsDataCapabilitiesCirclesMember: (final data) =>
-      (data as CoreServerCapabilitiesOcsDataCapabilitiesCirclesMember).toJson(),
-  List<CoreServerCapabilitiesOcsDataCapabilitiesCirclesMember>: (final data) =>
-      (data as List<CoreServerCapabilitiesOcsDataCapabilitiesCirclesMember>)
-          .map((final e) => (e as CoreServerCapabilitiesOcsDataCapabilitiesCirclesMember).toJson())
-          .toList(),
-  CoreServerCapabilitiesOcsDataCapabilitiesCirclesMemberConstants: (final data) =>
-      (data as CoreServerCapabilitiesOcsDataCapabilitiesCirclesMemberConstants).toJson(),
-  List<CoreServerCapabilitiesOcsDataCapabilitiesCirclesMemberConstants>: (final data) =>
-      (data as List<CoreServerCapabilitiesOcsDataCapabilitiesCirclesMemberConstants>)
-          .map((final e) => (e as CoreServerCapabilitiesOcsDataCapabilitiesCirclesMemberConstants).toJson())
-          .toList(),
-  CoreServerCapabilitiesOcsDataCapabilitiesOcm: (final data) =>
-      (data as CoreServerCapabilitiesOcsDataCapabilitiesOcm).toJson(),
-  List<CoreServerCapabilitiesOcsDataCapabilitiesOcm>: (final data) =>
-      (data as List<CoreServerCapabilitiesOcsDataCapabilitiesOcm>)
-          .map((final e) => (e as CoreServerCapabilitiesOcsDataCapabilitiesOcm).toJson())
-          .toList(),
-  CoreServerCapabilitiesOcsDataCapabilitiesOcmResourceTypes: (final data) =>
-      (data as CoreServerCapabilitiesOcsDataCapabilitiesOcmResourceTypes).toJson(),
-  List<CoreServerCapabilitiesOcsDataCapabilitiesOcmResourceTypes>: (final data) =>
-      (data as List<CoreServerCapabilitiesOcsDataCapabilitiesOcmResourceTypes>)
-          .map((final e) => (e as CoreServerCapabilitiesOcsDataCapabilitiesOcmResourceTypes).toJson())
-          .toList(),
-  CoreServerCapabilitiesOcsDataCapabilitiesOcmResourceTypesProtocols: (final data) =>
-      (data as CoreServerCapabilitiesOcsDataCapabilitiesOcmResourceTypesProtocols).toJson(),
-  List<CoreServerCapabilitiesOcsDataCapabilitiesOcmResourceTypesProtocols>: (final data) =>
-      (data as List<CoreServerCapabilitiesOcsDataCapabilitiesOcmResourceTypesProtocols>)
-          .map((final e) => (e as CoreServerCapabilitiesOcsDataCapabilitiesOcmResourceTypesProtocols).toJson())
-          .toList(),
-  CoreServerCapabilitiesOcsDataCapabilitiesDav: (final data) =>
-      (data as CoreServerCapabilitiesOcsDataCapabilitiesDav).toJson(),
-  List<CoreServerCapabilitiesOcsDataCapabilitiesDav>: (final data) =>
-      (data as List<CoreServerCapabilitiesOcsDataCapabilitiesDav>)
-          .map((final e) => (e as CoreServerCapabilitiesOcsDataCapabilitiesDav).toJson())
-          .toList(),
-  CoreServerCapabilitiesOcsDataCapabilitiesFilesSharing: (final data) =>
-      (data as CoreServerCapabilitiesOcsDataCapabilitiesFilesSharing).toJson(),
-  List<CoreServerCapabilitiesOcsDataCapabilitiesFilesSharing>: (final data) =>
-      (data as List<CoreServerCapabilitiesOcsDataCapabilitiesFilesSharing>)
-          .map((final e) => (e as CoreServerCapabilitiesOcsDataCapabilitiesFilesSharing).toJson())
-          .toList(),
-  CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingPublic: (final data) =>
-      (data as CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingPublic).toJson(),
-  List<CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingPublic>: (final data) =>
-      (data as List<CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingPublic>)
-          .map((final e) => (e as CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingPublic).toJson())
-          .toList(),
-  CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingPublicPassword: (final data) =>
-      (data as CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingPublicPassword).toJson(),
-  List<CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingPublicPassword>: (final data) =>
-      (data as List<CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingPublicPassword>)
-          .map((final e) => (e as CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingPublicPassword).toJson())
-          .toList(),
-  CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingPublicExpireDate: (final data) =>
-      (data as CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingPublicExpireDate).toJson(),
-  List<CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingPublicExpireDate>: (final data) =>
-      (data as List<CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingPublicExpireDate>)
-          .map((final e) => (e as CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingPublicExpireDate).toJson())
-          .toList(),
-  CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingPublicExpireDateInternal: (final data) =>
-      (data as CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingPublicExpireDateInternal).toJson(),
-  List<CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingPublicExpireDateInternal>: (final data) => (data
-          as List<CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingPublicExpireDateInternal>)
-      .map((final e) => (e as CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingPublicExpireDateInternal).toJson())
+  CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants_Source: (final data) =>
+      (data as CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants_Source).toJson(),
+  List<CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants_Source>: (final data) => (data
+          as List<CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants_Source>)
+      .map((final e) => (e as CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants_Source).toJson())
       .toList(),
-  CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingPublicExpireDateRemote: (final data) =>
-      (data as CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingPublicExpireDateRemote).toJson(),
-  List<CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingPublicExpireDateRemote>: (final data) =>
-      (data as List<CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingPublicExpireDateRemote>)
-          .map((final e) => (e as CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingPublicExpireDateRemote).toJson())
+  CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Config: (final data) =>
+      (data as CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Config).toJson(),
+  List<CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Config>: (final data) =>
+      (data as List<CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Config>)
+          .map((final e) => (e as CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Config).toJson())
           .toList(),
-  CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingUser: (final data) =>
-      (data as CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingUser).toJson(),
-  List<CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingUser>: (final data) =>
-      (data as List<CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingUser>)
-          .map((final e) => (e as CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingUser).toJson())
+  CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member: (final data) =>
+      (data as CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member).toJson(),
+  List<CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member>: (final data) =>
+      (data as List<CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member>)
+          .map((final e) => (e as CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member).toJson())
           .toList(),
-  CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingUserExpireDate: (final data) =>
-      (data as CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingUserExpireDate).toJson(),
-  List<CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingUserExpireDate>: (final data) =>
-      (data as List<CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingUserExpireDate>)
-          .map((final e) => (e as CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingUserExpireDate).toJson())
+  CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member_Constants: (final data) =>
+      (data as CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member_Constants).toJson(),
+  List<CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member_Constants>: (final data) =>
+      (data as List<CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member_Constants>)
+          .map((final e) => (e as CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member_Constants).toJson())
           .toList(),
-  CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingGroup: (final data) =>
-      (data as CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingGroup).toJson(),
-  List<CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingGroup>: (final data) =>
-      (data as List<CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingGroup>)
-          .map((final e) => (e as CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingGroup).toJson())
+  CoreServerCapabilities_Ocs_Data_Capabilities_Ocm: (final data) =>
+      (data as CoreServerCapabilities_Ocs_Data_Capabilities_Ocm).toJson(),
+  List<CoreServerCapabilities_Ocs_Data_Capabilities_Ocm>: (final data) =>
+      (data as List<CoreServerCapabilities_Ocs_Data_Capabilities_Ocm>)
+          .map((final e) => (e as CoreServerCapabilities_Ocs_Data_Capabilities_Ocm).toJson())
           .toList(),
-  CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingGroupExpireDate: (final data) =>
-      (data as CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingGroupExpireDate).toJson(),
-  List<CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingGroupExpireDate>: (final data) =>
-      (data as List<CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingGroupExpireDate>)
-          .map((final e) => (e as CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingGroupExpireDate).toJson())
+  CoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes: (final data) =>
+      (data as CoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes).toJson(),
+  List<CoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes>: (final data) =>
+      (data as List<CoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes>)
+          .map((final e) => (e as CoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes).toJson())
           .toList(),
-  CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingFederation: (final data) =>
-      (data as CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingFederation).toJson(),
-  List<CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingFederation>: (final data) =>
-      (data as List<CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingFederation>)
-          .map((final e) => (e as CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingFederation).toJson())
+  CoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes_Protocols: (final data) =>
+      (data as CoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes_Protocols).toJson(),
+  List<CoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes_Protocols>: (final data) =>
+      (data as List<CoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes_Protocols>)
+          .map((final e) => (e as CoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes_Protocols).toJson())
           .toList(),
-  CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingFederationExpireDate: (final data) =>
-      (data as CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingFederationExpireDate).toJson(),
-  List<CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingFederationExpireDate>: (final data) =>
-      (data as List<CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingFederationExpireDate>)
-          .map((final e) => (e as CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingFederationExpireDate).toJson())
+  CoreServerCapabilities_Ocs_Data_Capabilities_Dav: (final data) =>
+      (data as CoreServerCapabilities_Ocs_Data_Capabilities_Dav).toJson(),
+  List<CoreServerCapabilities_Ocs_Data_Capabilities_Dav>: (final data) =>
+      (data as List<CoreServerCapabilities_Ocs_Data_Capabilities_Dav>)
+          .map((final e) => (e as CoreServerCapabilities_Ocs_Data_Capabilities_Dav).toJson())
           .toList(),
-  CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingFederationExpireDateSupported: (final data) =>
-      (data as CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingFederationExpireDateSupported).toJson(),
-  List<CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingFederationExpireDateSupported>: (final data) =>
-      (data as List<CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingFederationExpireDateSupported>)
+  CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing: (final data) =>
+      (data as CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing).toJson(),
+  List<CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing>: (final data) =>
+      (data as List<CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing>)
+          .map((final e) => (e as CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing).toJson())
+          .toList(),
+  CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public: (final data) =>
+      (data as CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public).toJson(),
+  List<CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public>: (final data) =>
+      (data as List<CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public>)
+          .map((final e) => (e as CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public).toJson())
+          .toList(),
+  CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_Password: (final data) =>
+      (data as CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_Password).toJson(),
+  List<CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_Password>: (final data) =>
+      (data as List<CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_Password>)
+          .map((final e) => (e as CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_Password).toJson())
+          .toList(),
+  CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDate: (final data) =>
+      (data as CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDate).toJson(),
+  List<CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDate>: (final data) =>
+      (data as List<CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDate>)
+          .map((final e) => (e as CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDate).toJson())
+          .toList(),
+  CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternal: (final data) =>
+      (data as CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternal).toJson(),
+  List<CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternal>: (final data) =>
+      (data as List<CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternal>)
           .map((final e) =>
-              (e as CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingFederationExpireDateSupported).toJson())
+              (e as CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternal).toJson())
           .toList(),
-  CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingSharee: (final data) =>
-      (data as CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingSharee).toJson(),
-  List<CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingSharee>: (final data) =>
-      (data as List<CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingSharee>)
-          .map((final e) => (e as CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingSharee).toJson())
+  CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemote: (final data) =>
+      (data as CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemote).toJson(),
+  List<CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemote>: (final data) =>
+      (data as List<CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemote>)
+          .map((final e) =>
+              (e as CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemote).toJson())
           .toList(),
-  CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingSharebymail: (final data) =>
-      (data as CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingSharebymail).toJson(),
-  List<CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingSharebymail>: (final data) =>
-      (data as List<CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingSharebymail>)
-          .map((final e) => (e as CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingSharebymail).toJson())
+  CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User: (final data) =>
+      (data as CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User).toJson(),
+  List<CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User>: (final data) =>
+      (data as List<CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User>)
+          .map((final e) => (e as CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User).toJson())
           .toList(),
-  CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingSharebymailUploadFilesDrop: (final data) =>
-      (data as CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingSharebymailUploadFilesDrop).toJson(),
-  List<CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingSharebymailUploadFilesDrop>: (final data) => (data
-          as List<CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingSharebymailUploadFilesDrop>)
-      .map((final e) => (e as CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingSharebymailUploadFilesDrop).toJson())
+  CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User_ExpireDate: (final data) =>
+      (data as CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User_ExpireDate).toJson(),
+  List<CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User_ExpireDate>: (final data) =>
+      (data as List<CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User_ExpireDate>)
+          .map((final e) => (e as CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User_ExpireDate).toJson())
+          .toList(),
+  CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group: (final data) =>
+      (data as CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group).toJson(),
+  List<CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group>: (final data) =>
+      (data as List<CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group>)
+          .map((final e) => (e as CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group).toJson())
+          .toList(),
+  CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDate: (final data) =>
+      (data as CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDate).toJson(),
+  List<CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDate>: (final data) =>
+      (data as List<CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDate>)
+          .map((final e) => (e as CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDate).toJson())
+          .toList(),
+  CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation: (final data) =>
+      (data as CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation).toJson(),
+  List<CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation>: (final data) =>
+      (data as List<CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation>)
+          .map((final e) => (e as CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation).toJson())
+          .toList(),
+  CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDate: (final data) =>
+      (data as CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDate).toJson(),
+  List<CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDate>: (final data) => (data
+          as List<CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDate>)
+      .map((final e) => (e as CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDate).toJson())
       .toList(),
-  CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingSharebymailPassword: (final data) =>
-      (data as CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingSharebymailPassword).toJson(),
-  List<CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingSharebymailPassword>: (final data) =>
-      (data as List<CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingSharebymailPassword>)
-          .map((final e) => (e as CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingSharebymailPassword).toJson())
+  CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupported: (final data) =>
+      (data as CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupported).toJson(),
+  List<CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupported>: (final data) =>
+      (data as List<CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupported>)
+          .map((final e) =>
+              (e as CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupported).toJson())
           .toList(),
-  CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingSharebymailExpireDate: (final data) =>
-      (data as CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingSharebymailExpireDate).toJson(),
-  List<CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingSharebymailExpireDate>: (final data) =>
-      (data as List<CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingSharebymailExpireDate>)
-          .map((final e) => (e as CoreServerCapabilitiesOcsDataCapabilitiesFilesSharingSharebymailExpireDate).toJson())
+  CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharee: (final data) =>
+      (data as CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharee).toJson(),
+  List<CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharee>: (final data) =>
+      (data as List<CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharee>)
+          .map((final e) => (e as CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharee).toJson())
           .toList(),
-  CoreServerCapabilitiesOcsDataCapabilitiesNotes: (final data) =>
-      (data as CoreServerCapabilitiesOcsDataCapabilitiesNotes).toJson(),
-  List<CoreServerCapabilitiesOcsDataCapabilitiesNotes>: (final data) =>
-      (data as List<CoreServerCapabilitiesOcsDataCapabilitiesNotes>)
-          .map((final e) => (e as CoreServerCapabilitiesOcsDataCapabilitiesNotes).toJson())
+  CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail: (final data) =>
+      (data as CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail).toJson(),
+  List<CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail>: (final data) =>
+      (data as List<CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail>)
+          .map((final e) => (e as CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail).toJson())
           .toList(),
-  CoreServerCapabilitiesOcsDataCapabilitiesNotifications: (final data) =>
-      (data as CoreServerCapabilitiesOcsDataCapabilitiesNotifications).toJson(),
-  List<CoreServerCapabilitiesOcsDataCapabilitiesNotifications>: (final data) =>
-      (data as List<CoreServerCapabilitiesOcsDataCapabilitiesNotifications>)
-          .map((final e) => (e as CoreServerCapabilitiesOcsDataCapabilitiesNotifications).toJson())
+  CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_UploadFilesDrop: (final data) =>
+      (data as CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_UploadFilesDrop).toJson(),
+  List<CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_UploadFilesDrop>: (final data) =>
+      (data as List<CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_UploadFilesDrop>)
+          .map((final e) =>
+              (e as CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_UploadFilesDrop).toJson())
           .toList(),
-  CoreServerCapabilitiesOcsDataCapabilitiesPasswordPolicy: (final data) =>
-      (data as CoreServerCapabilitiesOcsDataCapabilitiesPasswordPolicy).toJson(),
-  List<CoreServerCapabilitiesOcsDataCapabilitiesPasswordPolicy>: (final data) =>
-      (data as List<CoreServerCapabilitiesOcsDataCapabilitiesPasswordPolicy>)
-          .map((final e) => (e as CoreServerCapabilitiesOcsDataCapabilitiesPasswordPolicy).toJson())
+  CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_Password: (final data) =>
+      (data as CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_Password).toJson(),
+  List<CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_Password>: (final data) => (data
+          as List<CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_Password>)
+      .map((final e) => (e as CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_Password).toJson())
+      .toList(),
+  CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_ExpireDate: (final data) =>
+      (data as CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_ExpireDate).toJson(),
+  List<CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_ExpireDate>: (final data) => (data
+          as List<CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_ExpireDate>)
+      .map(
+          (final e) => (e as CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_ExpireDate).toJson())
+      .toList(),
+  CoreServerCapabilities_Ocs_Data_Capabilities_Notes: (final data) =>
+      (data as CoreServerCapabilities_Ocs_Data_Capabilities_Notes).toJson(),
+  List<CoreServerCapabilities_Ocs_Data_Capabilities_Notes>: (final data) =>
+      (data as List<CoreServerCapabilities_Ocs_Data_Capabilities_Notes>)
+          .map((final e) => (e as CoreServerCapabilities_Ocs_Data_Capabilities_Notes).toJson())
           .toList(),
-  CoreServerCapabilitiesOcsDataCapabilitiesPasswordPolicyApi: (final data) =>
-      (data as CoreServerCapabilitiesOcsDataCapabilitiesPasswordPolicyApi).toJson(),
-  List<CoreServerCapabilitiesOcsDataCapabilitiesPasswordPolicyApi>: (final data) =>
-      (data as List<CoreServerCapabilitiesOcsDataCapabilitiesPasswordPolicyApi>)
-          .map((final e) => (e as CoreServerCapabilitiesOcsDataCapabilitiesPasswordPolicyApi).toJson())
+  CoreServerCapabilities_Ocs_Data_Capabilities_Notifications: (final data) =>
+      (data as CoreServerCapabilities_Ocs_Data_Capabilities_Notifications).toJson(),
+  List<CoreServerCapabilities_Ocs_Data_Capabilities_Notifications>: (final data) =>
+      (data as List<CoreServerCapabilities_Ocs_Data_Capabilities_Notifications>)
+          .map((final e) => (e as CoreServerCapabilities_Ocs_Data_Capabilities_Notifications).toJson())
           .toList(),
-  CoreServerCapabilitiesOcsDataCapabilitiesProvisioningApi: (final data) =>
-      (data as CoreServerCapabilitiesOcsDataCapabilitiesProvisioningApi).toJson(),
-  List<CoreServerCapabilitiesOcsDataCapabilitiesProvisioningApi>: (final data) =>
-      (data as List<CoreServerCapabilitiesOcsDataCapabilitiesProvisioningApi>)
-          .map((final e) => (e as CoreServerCapabilitiesOcsDataCapabilitiesProvisioningApi).toJson())
+  CoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy: (final data) =>
+      (data as CoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy).toJson(),
+  List<CoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy>: (final data) =>
+      (data as List<CoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy>)
+          .map((final e) => (e as CoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy).toJson())
           .toList(),
-  CoreServerCapabilitiesOcsDataCapabilitiesTheming: (final data) =>
-      (data as CoreServerCapabilitiesOcsDataCapabilitiesTheming).toJson(),
-  List<CoreServerCapabilitiesOcsDataCapabilitiesTheming>: (final data) =>
-      (data as List<CoreServerCapabilitiesOcsDataCapabilitiesTheming>)
-          .map((final e) => (e as CoreServerCapabilitiesOcsDataCapabilitiesTheming).toJson())
+  CoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy_Api: (final data) =>
+      (data as CoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy_Api).toJson(),
+  List<CoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy_Api>: (final data) =>
+      (data as List<CoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy_Api>)
+          .map((final e) => (e as CoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy_Api).toJson())
           .toList(),
-  CoreServerCapabilitiesOcsDataCapabilitiesUserStatus: (final data) =>
-      (data as CoreServerCapabilitiesOcsDataCapabilitiesUserStatus).toJson(),
-  List<CoreServerCapabilitiesOcsDataCapabilitiesUserStatus>: (final data) =>
-      (data as List<CoreServerCapabilitiesOcsDataCapabilitiesUserStatus>)
-          .map((final e) => (e as CoreServerCapabilitiesOcsDataCapabilitiesUserStatus).toJson())
+  CoreServerCapabilities_Ocs_Data_Capabilities_ProvisioningApi: (final data) =>
+      (data as CoreServerCapabilities_Ocs_Data_Capabilities_ProvisioningApi).toJson(),
+  List<CoreServerCapabilities_Ocs_Data_Capabilities_ProvisioningApi>: (final data) =>
+      (data as List<CoreServerCapabilities_Ocs_Data_Capabilities_ProvisioningApi>)
+          .map((final e) => (e as CoreServerCapabilities_Ocs_Data_Capabilities_ProvisioningApi).toJson())
           .toList(),
-  CoreServerCapabilitiesOcsDataCapabilitiesWeatherStatus: (final data) =>
-      (data as CoreServerCapabilitiesOcsDataCapabilitiesWeatherStatus).toJson(),
-  List<CoreServerCapabilitiesOcsDataCapabilitiesWeatherStatus>: (final data) =>
-      (data as List<CoreServerCapabilitiesOcsDataCapabilitiesWeatherStatus>)
-          .map((final e) => (e as CoreServerCapabilitiesOcsDataCapabilitiesWeatherStatus).toJson())
+  CoreServerCapabilities_Ocs_Data_Capabilities_Theming: (final data) =>
+      (data as CoreServerCapabilities_Ocs_Data_Capabilities_Theming).toJson(),
+  List<CoreServerCapabilities_Ocs_Data_Capabilities_Theming>: (final data) =>
+      (data as List<CoreServerCapabilities_Ocs_Data_Capabilities_Theming>)
+          .map((final e) => (e as CoreServerCapabilities_Ocs_Data_Capabilities_Theming).toJson())
+          .toList(),
+  CoreServerCapabilities_Ocs_Data_Capabilities_UserStatus: (final data) =>
+      (data as CoreServerCapabilities_Ocs_Data_Capabilities_UserStatus).toJson(),
+  List<CoreServerCapabilities_Ocs_Data_Capabilities_UserStatus>: (final data) =>
+      (data as List<CoreServerCapabilities_Ocs_Data_Capabilities_UserStatus>)
+          .map((final e) => (e as CoreServerCapabilities_Ocs_Data_Capabilities_UserStatus).toJson())
+          .toList(),
+  CoreServerCapabilities_Ocs_Data_Capabilities_WeatherStatus: (final data) =>
+      (data as CoreServerCapabilities_Ocs_Data_Capabilities_WeatherStatus).toJson(),
+  List<CoreServerCapabilities_Ocs_Data_Capabilities_WeatherStatus>: (final data) =>
+      (data as List<CoreServerCapabilities_Ocs_Data_Capabilities_WeatherStatus>)
+          .map((final e) => (e as CoreServerCapabilities_Ocs_Data_Capabilities_WeatherStatus).toJson())
           .toList(),
   CoreNavigationApps: (final data) => (data as CoreNavigationApps).toJson(),
   List<CoreNavigationApps>: (final data) =>
       (data as List<CoreNavigationApps>).map((final e) => (e as CoreNavigationApps).toJson()).toList(),
-  CoreNavigationAppsOcs: (final data) => (data as CoreNavigationAppsOcs).toJson(),
-  List<CoreNavigationAppsOcs>: (final data) =>
-      (data as List<CoreNavigationAppsOcs>).map((final e) => (e as CoreNavigationAppsOcs).toJson()).toList(),
-  CoreNavigationAppsOcsData: (final data) => (data as CoreNavigationAppsOcsData).toJson(),
-  List<CoreNavigationAppsOcsData>: (final data) =>
-      (data as List<CoreNavigationAppsOcsData>).map((final e) => (e as CoreNavigationAppsOcsData).toJson()).toList(),
+  CoreNavigationApps_Ocs: (final data) => (data as CoreNavigationApps_Ocs).toJson(),
+  List<CoreNavigationApps_Ocs>: (final data) =>
+      (data as List<CoreNavigationApps_Ocs>).map((final e) => (e as CoreNavigationApps_Ocs).toJson()).toList(),
+  CoreNavigationApps_Ocs_Data: (final data) => (data as CoreNavigationApps_Ocs_Data).toJson(),
+  List<CoreNavigationApps_Ocs_Data>: (final data) => (data as List<CoreNavigationApps_Ocs_Data>)
+      .map((final e) => (e as CoreNavigationApps_Ocs_Data).toJson())
+      .toList(),
   CoreLoginFlowInit: (final data) => (data as CoreLoginFlowInit).toJson(),
   List<CoreLoginFlowInit>: (final data) =>
       (data as List<CoreLoginFlowInit>).map((final e) => (e as CoreLoginFlowInit).toJson()).toList(),
-  CoreLoginFlowInitPoll: (final data) => (data as CoreLoginFlowInitPoll).toJson(),
-  List<CoreLoginFlowInitPoll>: (final data) =>
-      (data as List<CoreLoginFlowInitPoll>).map((final e) => (e as CoreLoginFlowInitPoll).toJson()).toList(),
+  CoreLoginFlowInit_Poll: (final data) => (data as CoreLoginFlowInit_Poll).toJson(),
+  List<CoreLoginFlowInit_Poll>: (final data) =>
+      (data as List<CoreLoginFlowInit_Poll>).map((final e) => (e as CoreLoginFlowInit_Poll).toJson()).toList(),
   CoreLoginFlowResult: (final data) => (data as CoreLoginFlowResult).toJson(),
   List<CoreLoginFlowResult>: (final data) =>
       (data as List<CoreLoginFlowResult>).map((final e) => (e as CoreLoginFlowResult).toJson()).toList(),
@@ -4664,9 +4767,9 @@ final _serializers = <Type, dynamic Function(dynamic)>{
   List<NotificationsListNotifications>: (final data) => (data as List<NotificationsListNotifications>)
       .map((final e) => (e as NotificationsListNotifications).toJson())
       .toList(),
-  NotificationsListNotificationsOcs: (final data) => (data as NotificationsListNotificationsOcs).toJson(),
-  List<NotificationsListNotificationsOcs>: (final data) => (data as List<NotificationsListNotificationsOcs>)
-      .map((final e) => (e as NotificationsListNotificationsOcs).toJson())
+  NotificationsListNotifications_Ocs: (final data) => (data as NotificationsListNotifications_Ocs).toJson(),
+  List<NotificationsListNotifications_Ocs>: (final data) => (data as List<NotificationsListNotifications_Ocs>)
+      .map((final e) => (e as NotificationsListNotifications_Ocs).toJson())
       .toList(),
   NotificationsNotification: (final data) => (data as NotificationsNotification).toJson(),
   List<NotificationsNotification>: (final data) =>
@@ -4679,23 +4782,23 @@ final _serializers = <Type, dynamic Function(dynamic)>{
   List<NotificationsGetNotification>: (final data) => (data as List<NotificationsGetNotification>)
       .map((final e) => (e as NotificationsGetNotification).toJson())
       .toList(),
-  NotificationsGetNotificationOcs: (final data) => (data as NotificationsGetNotificationOcs).toJson(),
-  List<NotificationsGetNotificationOcs>: (final data) => (data as List<NotificationsGetNotificationOcs>)
-      .map((final e) => (e as NotificationsGetNotificationOcs).toJson())
+  NotificationsGetNotification_Ocs: (final data) => (data as NotificationsGetNotification_Ocs).toJson(),
+  List<NotificationsGetNotification_Ocs>: (final data) => (data as List<NotificationsGetNotification_Ocs>)
+      .map((final e) => (e as NotificationsGetNotification_Ocs).toJson())
       .toList(),
   NotificationsEmpty: (final data) => (data as NotificationsEmpty).toJson(),
   List<NotificationsEmpty>: (final data) =>
       (data as List<NotificationsEmpty>).map((final e) => (e as NotificationsEmpty).toJson()).toList(),
-  NotificationsEmptyOcs: (final data) => (data as NotificationsEmptyOcs).toJson(),
-  List<NotificationsEmptyOcs>: (final data) =>
-      (data as List<NotificationsEmptyOcs>).map((final e) => (e as NotificationsEmptyOcs).toJson()).toList(),
+  NotificationsEmpty_Ocs: (final data) => (data as NotificationsEmpty_Ocs).toJson(),
+  List<NotificationsEmpty_Ocs>: (final data) =>
+      (data as List<NotificationsEmpty_Ocs>).map((final e) => (e as NotificationsEmpty_Ocs).toJson()).toList(),
   NotificationsPushServerRegistration: (final data) => (data as NotificationsPushServerRegistration).toJson(),
   List<NotificationsPushServerRegistration>: (final data) => (data as List<NotificationsPushServerRegistration>)
       .map((final e) => (e as NotificationsPushServerRegistration).toJson())
       .toList(),
-  NotificationsPushServerRegistrationOcs: (final data) => (data as NotificationsPushServerRegistrationOcs).toJson(),
-  List<NotificationsPushServerRegistrationOcs>: (final data) => (data as List<NotificationsPushServerRegistrationOcs>)
-      .map((final e) => (e as NotificationsPushServerRegistrationOcs).toJson())
+  NotificationsPushServerRegistration_Ocs: (final data) => (data as NotificationsPushServerRegistration_Ocs).toJson(),
+  List<NotificationsPushServerRegistration_Ocs>: (final data) => (data as List<NotificationsPushServerRegistration_Ocs>)
+      .map((final e) => (e as NotificationsPushServerRegistration_Ocs).toJson())
       .toList(),
   NotificationsPushServerSubscription: (final data) => (data as NotificationsPushServerSubscription).toJson(),
   List<NotificationsPushServerSubscription>: (final data) => (data as List<NotificationsPushServerSubscription>)
@@ -4704,28 +4807,28 @@ final _serializers = <Type, dynamic Function(dynamic)>{
   ProvisioningApiUser: (final data) => (data as ProvisioningApiUser).toJson(),
   List<ProvisioningApiUser>: (final data) =>
       (data as List<ProvisioningApiUser>).map((final e) => (e as ProvisioningApiUser).toJson()).toList(),
-  ProvisioningApiUserOcs: (final data) => (data as ProvisioningApiUserOcs).toJson(),
-  List<ProvisioningApiUserOcs>: (final data) =>
-      (data as List<ProvisioningApiUserOcs>).map((final e) => (e as ProvisioningApiUserOcs).toJson()).toList(),
+  ProvisioningApiUser_Ocs: (final data) => (data as ProvisioningApiUser_Ocs).toJson(),
+  List<ProvisioningApiUser_Ocs>: (final data) =>
+      (data as List<ProvisioningApiUser_Ocs>).map((final e) => (e as ProvisioningApiUser_Ocs).toJson()).toList(),
   ProvisioningApiUserDetails: (final data) => (data as ProvisioningApiUserDetails).toJson(),
   List<ProvisioningApiUserDetails>: (final data) =>
       (data as List<ProvisioningApiUserDetails>).map((final e) => (e as ProvisioningApiUserDetails).toJson()).toList(),
-  ProvisioningApiUserDetailsQuota: (final data) => (data as ProvisioningApiUserDetailsQuota).toJson(),
-  List<ProvisioningApiUserDetailsQuota>: (final data) => (data as List<ProvisioningApiUserDetailsQuota>)
-      .map((final e) => (e as ProvisioningApiUserDetailsQuota).toJson())
+  ProvisioningApiUserDetails_Quota: (final data) => (data as ProvisioningApiUserDetails_Quota).toJson(),
+  List<ProvisioningApiUserDetails_Quota>: (final data) => (data as List<ProvisioningApiUserDetails_Quota>)
+      .map((final e) => (e as ProvisioningApiUserDetails_Quota).toJson())
       .toList(),
-  ProvisioningApiUserDetailsBackendCapabilities: (final data) =>
-      (data as ProvisioningApiUserDetailsBackendCapabilities).toJson(),
-  List<ProvisioningApiUserDetailsBackendCapabilities>: (final data) =>
-      (data as List<ProvisioningApiUserDetailsBackendCapabilities>)
-          .map((final e) => (e as ProvisioningApiUserDetailsBackendCapabilities).toJson())
+  ProvisioningApiUserDetails_BackendCapabilities: (final data) =>
+      (data as ProvisioningApiUserDetails_BackendCapabilities).toJson(),
+  List<ProvisioningApiUserDetails_BackendCapabilities>: (final data) =>
+      (data as List<ProvisioningApiUserDetails_BackendCapabilities>)
+          .map((final e) => (e as ProvisioningApiUserDetails_BackendCapabilities).toJson())
           .toList(),
   UserStatusFindAllStatuses: (final data) => (data as UserStatusFindAllStatuses).toJson(),
   List<UserStatusFindAllStatuses>: (final data) =>
       (data as List<UserStatusFindAllStatuses>).map((final e) => (e as UserStatusFindAllStatuses).toJson()).toList(),
-  UserStatusFindAllStatusesOcs: (final data) => (data as UserStatusFindAllStatusesOcs).toJson(),
-  List<UserStatusFindAllStatusesOcs>: (final data) => (data as List<UserStatusFindAllStatusesOcs>)
-      .map((final e) => (e as UserStatusFindAllStatusesOcs).toJson())
+  UserStatusFindAllStatuses_Ocs: (final data) => (data as UserStatusFindAllStatuses_Ocs).toJson(),
+  List<UserStatusFindAllStatuses_Ocs>: (final data) => (data as List<UserStatusFindAllStatuses_Ocs>)
+      .map((final e) => (e as UserStatusFindAllStatuses_Ocs).toJson())
       .toList(),
   UserStatusPublicUserStatus: (final data) => (data as UserStatusPublicUserStatus).toJson(),
   List<UserStatusPublicUserStatus>: (final data) =>
@@ -4736,24 +4839,25 @@ final _serializers = <Type, dynamic Function(dynamic)>{
   UserStatusFindStatus: (final data) => (data as UserStatusFindStatus).toJson(),
   List<UserStatusFindStatus>: (final data) =>
       (data as List<UserStatusFindStatus>).map((final e) => (e as UserStatusFindStatus).toJson()).toList(),
-  UserStatusFindStatusOcs: (final data) => (data as UserStatusFindStatusOcs).toJson(),
-  List<UserStatusFindStatusOcs>: (final data) =>
-      (data as List<UserStatusFindStatusOcs>).map((final e) => (e as UserStatusFindStatusOcs).toJson()).toList(),
+  UserStatusFindStatus_Ocs: (final data) => (data as UserStatusFindStatus_Ocs).toJson(),
+  List<UserStatusFindStatus_Ocs>: (final data) =>
+      (data as List<UserStatusFindStatus_Ocs>).map((final e) => (e as UserStatusFindStatus_Ocs).toJson()).toList(),
   UserStatusGetUserStatus: (final data) => (data as UserStatusGetUserStatus).toJson(),
   List<UserStatusGetUserStatus>: (final data) =>
       (data as List<UserStatusGetUserStatus>).map((final e) => (e as UserStatusGetUserStatus).toJson()).toList(),
-  UserStatusGetUserStatusOcs: (final data) => (data as UserStatusGetUserStatusOcs).toJson(),
-  List<UserStatusGetUserStatusOcs>: (final data) =>
-      (data as List<UserStatusGetUserStatusOcs>).map((final e) => (e as UserStatusGetUserStatusOcs).toJson()).toList(),
+  UserStatusGetUserStatus_Ocs: (final data) => (data as UserStatusGetUserStatus_Ocs).toJson(),
+  List<UserStatusGetUserStatus_Ocs>: (final data) => (data as List<UserStatusGetUserStatus_Ocs>)
+      .map((final e) => (e as UserStatusGetUserStatus_Ocs).toJson())
+      .toList(),
   UserStatus: (final data) => (data as UserStatus).toJson(),
   List<UserStatus>: (final data) => (data as List<UserStatus>).map((final e) => (e as UserStatus).toJson()).toList(),
   UserStatusPredefinedStatuses: (final data) => (data as UserStatusPredefinedStatuses).toJson(),
   List<UserStatusPredefinedStatuses>: (final data) => (data as List<UserStatusPredefinedStatuses>)
       .map((final e) => (e as UserStatusPredefinedStatuses).toJson())
       .toList(),
-  UserStatusPredefinedStatusesOcs: (final data) => (data as UserStatusPredefinedStatusesOcs).toJson(),
-  List<UserStatusPredefinedStatusesOcs>: (final data) => (data as List<UserStatusPredefinedStatusesOcs>)
-      .map((final e) => (e as UserStatusPredefinedStatusesOcs).toJson())
+  UserStatusPredefinedStatuses_Ocs: (final data) => (data as UserStatusPredefinedStatuses_Ocs).toJson(),
+  List<UserStatusPredefinedStatuses_Ocs>: (final data) => (data as List<UserStatusPredefinedStatuses_Ocs>)
+      .map((final e) => (e as UserStatusPredefinedStatuses_Ocs).toJson())
       .toList(),
   UserStatusPredefinedStatus: (final data) => (data as UserStatusPredefinedStatus).toJson(),
   List<UserStatusPredefinedStatus>: (final data) =>

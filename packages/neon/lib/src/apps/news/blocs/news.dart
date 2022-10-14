@@ -140,7 +140,7 @@ class NewsBloc extends $NewsBloc {
       if (result.data != null) {
         final type = mainArticlesBloc.filterType.valueOrNull;
         _unreadCounterSubject
-            .add(result.data!.where((final a) => type == FilterType.starred ? a.starred! : a.unread!).length);
+            .add(result.data!.where((final a) => type == FilterType.starred ? a.starred : a.unread).length);
       }
     });
 
@@ -186,7 +186,7 @@ class NewsBloc extends $NewsBloc {
           client.id,
           'news-folders',
           () async => client.news.listFolders(),
-          (final response) => response.folders!,
+          (final response) => response.folders,
           previousData: _foldersSubject.valueOrNull?.data,
         )
         .listen(_foldersSubject.add);
@@ -202,7 +202,7 @@ class NewsBloc extends $NewsBloc {
         if (response.newestItemId != null) {
           _newestItemId = response.newestItemId!;
         }
-        return response.feeds!;
+        return response.feeds;
       },
       previousData: _feedsSubject.valueOrNull?.data,
     ).listen(_feedsSubject.add);

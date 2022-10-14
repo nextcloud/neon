@@ -35,30 +35,30 @@ Future main() async {
 
     test('Get capabilities', () async {
       final capabilities = await client.core.getCapabilities();
-      expect(capabilities.ocs!.data!.version!.major.toString(), nextcloudVersion.split('.')[0]);
-      expect(capabilities.ocs!.data!.version!.string, nextcloudVersion);
-      expect(capabilities.ocs!.data!.capabilities!.theming!.name, 'Nextcloud');
-      expect(capabilities.ocs!.data!.capabilities!.theming!.url, 'https://nextcloud.com');
-      expect(capabilities.ocs!.data!.capabilities!.theming!.slogan, 'a safe home for all your data');
-      expect(capabilities.ocs!.data!.capabilities!.theming!.color, '#0082c9');
-      expect(capabilities.ocs!.data!.capabilities!.theming!.colorText, '#ffffff');
-      expect(capabilities.ocs!.data!.capabilities!.theming!.logo, isNotEmpty);
-      expect(capabilities.ocs!.data!.capabilities!.theming!.background, isNotEmpty);
-      expect(capabilities.ocs!.data!.capabilities!.theming!.backgroundPlain, false);
-      expect(capabilities.ocs!.data!.capabilities!.theming!.backgroundDefault, true);
-      expect(capabilities.ocs!.data!.capabilities!.theming!.logoheader, isNotEmpty);
-      expect(capabilities.ocs!.data!.capabilities!.theming!.favicon, isNotEmpty);
+      expect(capabilities.ocs.data.version.major.toString(), nextcloudVersion.split('.')[0]);
+      expect(capabilities.ocs.data.version.string, nextcloudVersion);
+      expect(capabilities.ocs.data.capabilities.theming!.name, 'Nextcloud');
+      expect(capabilities.ocs.data.capabilities.theming!.url, 'https://nextcloud.com');
+      expect(capabilities.ocs.data.capabilities.theming!.slogan, 'a safe home for all your data');
+      expect(capabilities.ocs.data.capabilities.theming!.color, '#0082c9');
+      expect(capabilities.ocs.data.capabilities.theming!.colorText, '#ffffff');
+      expect(capabilities.ocs.data.capabilities.theming!.logo, isNotEmpty);
+      expect(capabilities.ocs.data.capabilities.theming!.background, isNotEmpty);
+      expect(capabilities.ocs.data.capabilities.theming!.backgroundPlain, false);
+      expect(capabilities.ocs.data.capabilities.theming!.backgroundDefault, true);
+      expect(capabilities.ocs.data.capabilities.theming!.logoheader, isNotEmpty);
+      expect(capabilities.ocs.data.capabilities.theming!.favicon, isNotEmpty);
     });
 
     test('Get navigation apps', () async {
       final navigationApps = await client.core.getNavigationApps();
-      expect(navigationApps.ocs!.data, hasLength(6));
-      expect(navigationApps.ocs!.data![0].id, 'dashboard');
-      expect(navigationApps.ocs!.data![1].id, 'files');
-      expect(navigationApps.ocs!.data![2].id, 'photos');
-      expect(navigationApps.ocs!.data![3].id, 'activity');
-      expect(navigationApps.ocs!.data![4].id, 'notes');
-      expect(navigationApps.ocs!.data![5].id, 'news');
+      expect(navigationApps.ocs.data, hasLength(6));
+      expect(navigationApps.ocs.data[0].id, 'dashboard');
+      expect(navigationApps.ocs.data[1].id, 'files');
+      expect(navigationApps.ocs.data[2].id, 'photos');
+      expect(navigationApps.ocs.data[3].id, 'activity');
+      expect(navigationApps.ocs.data[4].id, 'notes');
+      expect(navigationApps.ocs.data[5].id, 'news');
     });
   });
 }

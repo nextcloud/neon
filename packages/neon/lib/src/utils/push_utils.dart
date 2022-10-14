@@ -56,11 +56,11 @@ class PushUtils {
       subject: decryptPushNotificationSubject(keypair.privateKey, data['subject']! as String),
     );
 
-    if (notification.subject!.delete ?? false) {
+    if (notification.subject.delete ?? false) {
       await localNotificationsPlugin.cancel(_getNotificationID(instance, notification));
       return;
     }
-    if (notification.subject!.deleteAll ?? false) {
+    if (notification.subject.deleteAll ?? false) {
       await localNotificationsPlugin.cancelAll();
       return;
     }
@@ -80,7 +80,7 @@ class PushUtils {
     final allAppImplementations = getAppImplementations(sharedPreferences, requestManager, platform);
 
     final matchingAppImplementations =
-        allAppImplementations.where((final a) => a.id == notification.subject!.app!).toList();
+        allAppImplementations.where((final a) => a.id == notification.subject.app).toList();
     late AppImplementation app;
     if (matchingAppImplementations.isNotEmpty) {
       app = matchingAppImplementations.single;
@@ -93,7 +93,7 @@ class PushUtils {
     await localNotificationsPlugin.show(
       _getNotificationID(instance, notification),
       appName,
-      notification.subject!.subject!,
+      notification.subject.subject,
       NotificationDetails(
         android: AndroidNotificationDetails(
           app.id,
@@ -122,5 +122,5 @@ class PushUtils {
     final String instance,
     final NotificationsPushNotification notification,
   ) =>
-      sha256.convert(utf8.encode('$instance${notification.subject!.nid!}')).bytes.reduce((final a, final b) => a + b);
+      sha256.convert(utf8.encode('$instance${notification.subject.nid}')).bytes.reduce((final a, final b) => a + b);
 }

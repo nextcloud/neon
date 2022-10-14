@@ -36,8 +36,8 @@ class _NotesNotePageState extends State<NotesNotePage> {
 
     if (updatedTitle != null || updatedCategory != null || updatedContent != null) {
       widget.bloc.updateNote(
-        _note.id!,
-        _note.etag!,
+        _note.id,
+        _note.etag,
         title: updatedTitle,
         category: updatedCategory,
         content: updatedContent,
@@ -75,7 +75,7 @@ class _NotesNotePageState extends State<NotesNotePage> {
         await Wakelock.enable();
       }
       if (widget.bloc.options.defaultNoteViewTypeOption.value == DefaultNoteViewType.edit ||
-          widget.note.content!.isEmpty) {
+          widget.note.content.isEmpty) {
         setState(() {
           _showEditor = true;
         });
@@ -157,7 +157,7 @@ class _NotesNotePageState extends State<NotesNotePage> {
               },
               icon: Icon(
                 MdiIcons.tag,
-                color: _note.category!.isNotEmpty ? NotesCategoryColor.compute(_note.category!) : null,
+                color: _note.category.isNotEmpty ? NotesCategoryColor.compute(_note.category) : null,
               ),
             ),
           ],

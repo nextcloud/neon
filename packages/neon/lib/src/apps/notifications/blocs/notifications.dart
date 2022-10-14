@@ -65,7 +65,7 @@ class NotificationsBloc extends $NotificationsBloc {
           _client.id,
           'notifications-notifications',
           () async => _client.notifications.listNotifications(),
-          (final response) => response.ocs!.data!,
+          (final response) => response.ocs.data,
           previousData: _notificationsSubject.valueOrNull?.data,
         )
         .listen(_notificationsSubject.add);

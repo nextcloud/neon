@@ -14,7 +14,7 @@ class NewsFeedPage extends StatelessWidget {
   Widget build(final BuildContext context) => Scaffold(
         resizeToAvoidBottomInset: false,
         appBar: AppBar(
-          title: Text(feed.title!),
+          title: Text(feed.title),
         ),
         body: NewsArticlesView(
           bloc: NewsArticlesBloc(

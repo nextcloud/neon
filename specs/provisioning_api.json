@@ -36,6 +36,12 @@
     "schemas": {
       "OCSMeta": {
         "type": "object",
+        "required": [
+          "status",
+          "statuscode",
+          "totalitems",
+          "itemsperpage"
+        ],
         "properties": {
           "status": {
             "type": "string"
@@ -56,9 +62,16 @@
       },
       "ProvisioningApiUser": {
         "type": "object",
+        "required": [
+          "ocs"
+        ],
         "properties": {
           "ocs": {
             "type": "object",
+            "required": [
+              "meta",
+              "data"
+            ],
             "properties": {
               "meta": {
                 "$ref": "#/components/schemas/OCSMeta"
@@ -72,6 +85,41 @@
       },
       "ProvisioningApiUserDetails": {
         "type": "object",
+        "required": [
+          "storageLocation",
+          "id",
+          "lastLogin",
+          "backend",
+          "subadmin",
+          "quota",
+          "avatarScope",
+          "emailScope",
+          "additional_mail",
+          "additional_mailScope",
+          "displaynameScope",
+          "phone",
+          "phoneScope",
+          "address",
+          "addressScope",
+          "website",
+          "websiteScope",
+          "twitter",
+          "twitterScope",
+          "organisation",
+          "organisationScope",
+          "role",
+          "roleScope",
+          "headline",
+          "headlineScope",
+          "biography",
+          "biographyScope",
+          "profile_enabled",
+          "profile_enabledScope",
+          "groups",
+          "language",
+          "locale",
+          "backendCapabilities"
+        ],
         "properties": {
           "enabled": {
             "type": "boolean"
@@ -96,6 +144,13 @@
           },
           "quota": {
             "type": "object",
+            "required": [
+              "free",
+              "used",
+              "total",
+              "relative",
+              "quota"
+            ],
             "properties": {
               "free": {
                 "type": "integer"
@@ -212,6 +267,10 @@
           },
           "backendCapabilities": {
             "type": "object",
+            "required": [
+              "setDisplayName",
+              "setPassword"
+            ],
             "properties": {
               "setDisplayName": {
                 "type": "boolean"

@@ -311,7 +311,7 @@ Future main() async {
     final folder = await account.client.news.createFolder(name: 'test');
     await account.client.news.addFeed(
       url: nasaFeedURL,
-      folderId: folder.folders!.single.id,
+      folderId: folder.folders.single.id,
     );
 
     await pumpAppPage(

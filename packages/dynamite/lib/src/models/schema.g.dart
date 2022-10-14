@@ -21,6 +21,7 @@ Schema _$SchemaFromJson(Map<String, dynamic> json) {
       'default',
       'enum',
       'properties',
+      'required',
       'items'
     ],
   );
@@ -38,6 +39,7 @@ Schema _$SchemaFromJson(Map<String, dynamic> json) {
     properties: (json['properties'] as Map<String, dynamic>?)?.map(
       (k, e) => MapEntry(k, Schema.fromJson(e as Map<String, dynamic>)),
     ),
+    required: (json['required'] as List<dynamic>?)?.map((e) => e as String).toList(),
     items: json['items'] == null ? null : Schema.fromJson(json['items'] as Map<String, dynamic>),
   );
 }
@@ -62,6 +64,7 @@ Map<String, dynamic> _$SchemaToJson(Schema instance) {
   writeNotNull('default', instance.default_);
   writeNotNull('enum', instance.enum_);
   writeNotNull('properties', instance.properties?.map((k, e) => MapEntry(k, e.toJson())));
+  writeNotNull('required', instance.required);
   writeNotNull('items', instance.items?.toJson());
   return val;
 }

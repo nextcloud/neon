@@ -14,7 +14,7 @@ class NewsFolderPage extends StatelessWidget {
   Widget build(final BuildContext context) => Scaffold(
         resizeToAvoidBottomInset: false,
         appBar: AppBar(
-          title: Text(folder.name!),
+          title: Text(folder.name),
         ),
         body: NewsFolderView(
           bloc: bloc,

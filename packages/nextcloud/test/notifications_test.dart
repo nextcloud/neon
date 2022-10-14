@@ -38,22 +38,22 @@ Future main() async {
 
       final startTime = DateTime.now().toUtc();
       final response = await client.notifications.listNotifications();
-      expect(response.ocs!.data, hasLength(1));
-      expect(response.ocs!.data![0].notificationId, 1);
-      expect(response.ocs!.data![0].app, 'admin_notifications');
-      expect(response.ocs!.data![0].user, 'admin');
-      expectDateInReasonableTimeRange(DateTime.parse(response.ocs!.data![0].datetime!), startTime);
-      expect(response.ocs!.data![0].objectType, 'admin_notifications');
-      expect(response.ocs!.data![0].objectId, isNotNull);
-      expect(response.ocs!.data![0].subject, '123');
-      expect(response.ocs!.data![0].message, '456');
-      expect(response.ocs!.data![0].link, '');
-      expect(response.ocs!.data![0].subjectRich, '');
-      expect(response.ocs!.data![0].subjectRichParameters!.mapStringDynamic, null);
-      expect(response.ocs!.data![0].messageRich, '');
-      expect(response.ocs!.data![0].messageRichParameters!.mapStringDynamic, null);
-      expect(response.ocs!.data![0].icon, isNotEmpty);
-      expect(response.ocs!.data![0].actions, hasLength(0));
+      expect(response.ocs.data, hasLength(1));
+      expect(response.ocs.data[0].notificationId, 1);
+      expect(response.ocs.data[0].app, 'admin_notifications');
+      expect(response.ocs.data[0].user, 'admin');
+      expectDateInReasonableTimeRange(DateTime.parse(response.ocs.data[0].datetime), startTime);
+      expect(response.ocs.data[0].objectType, 'admin_notifications');
+      expect(response.ocs.data[0].objectId, isNotNull);
+      expect(response.ocs.data[0].subject, '123');
+      expect(response.ocs.data[0].message, '456');
+      expect(response.ocs.data[0].link, '');
+      expect(response.ocs.data[0].subjectRich, '');
+      expect(response.ocs.data[0].subjectRichParameters.mapStringDynamic, null);
+      expect(response.ocs.data[0].messageRich, '');
+      expect(response.ocs.data[0].messageRichParameters.mapStringDynamic, null);
+      expect(response.ocs.data[0].icon, isNotEmpty);
+      expect(response.ocs.data[0].actions, hasLength(0));
     });
 
     test('Get notification', () async {
@@ -61,21 +61,21 @@ Future main() async {
 
       final startTime = DateTime.now().toUtc();
       final response = await client.notifications.getNotification(id: 1);
-      expect(response.ocs!.data!.notificationId, 1);
-      expect(response.ocs!.data!.app, 'admin_notifications');
-      expect(response.ocs!.data!.user, 'admin');
-      expectDateInReasonableTimeRange(DateTime.parse(response.ocs!.data!.datetime!), startTime);
-      expect(response.ocs!.data!.objectType, 'admin_notifications');
-      expect(response.ocs!.data!.objectId, isNotNull);
-      expect(response.ocs!.data!.subject, '123');
-      expect(response.ocs!.data!.message, '456');
-      expect(response.ocs!.data!.link, '');
-      expect(response.ocs!.data!.subjectRich, '');
-      expect(response.ocs!.data!.subjectRichParameters!.mapStringDynamic, null);
-      expect(response.ocs!.data!.messageRich, '');
-      expect(response.ocs!.data!.messageRichParameters!.mapStringDynamic, null);
-      expect(response.ocs!.data!.icon, isNotEmpty);
-      expect(response.ocs!.data!.actions, hasLength(0));
+      expect(response.ocs.data.notificationId, 1);
+      expect(response.ocs.data.app, 'admin_notifications');
+      expect(response.ocs.data.user, 'admin');
+      expectDateInReasonableTimeRange(DateTime.parse(response.ocs.data.datetime), startTime);
+      expect(response.ocs.data.objectType, 'admin_notifications');
+      expect(response.ocs.data.objectId, isNotNull);
+      expect(response.ocs.data.subject, '123');
+      expect(response.ocs.data.message, '456');
+      expect(response.ocs.data.link, '');
+      expect(response.ocs.data.subjectRich, '');
+      expect(response.ocs.data.subjectRichParameters.mapStringDynamic, null);
+      expect(response.ocs.data.messageRich, '');
+      expect(response.ocs.data.messageRichParameters.mapStringDynamic, null);
+      expect(response.ocs.data.icon, isNotEmpty);
+      expect(response.ocs.data.actions, hasLength(0));
     });
 
     test('Delete notification', () async {
@@ -83,7 +83,7 @@ Future main() async {
       await client.notifications.deleteNotification(id: 1);
 
       final response = await client.notifications.listNotifications();
-      expect(response.ocs!.data, hasLength(0));
+      expect(response.ocs.data, hasLength(0));
     });
 
     test('Delete all notifications', () async {
@@ -92,7 +92,7 @@ Future main() async {
       await client.notifications.deleteAllNotifications();
 
       final response = await client.notifications.listNotifications();
-      expect(response.ocs!.data, hasLength(0));
+      expect(response.ocs.data, hasLength(0));
     });
   });
 
@@ -139,12 +139,13 @@ Future main() async {
         devicePublicKey: keypair.publicKey.toFormattedPEM(),
         proxyServer: 'http://host.docker.internal:$port/',
       ))
-          .ocs!
-          .data!;
+          .ocs
+          .data;
       expect(subscription.publicKey, hasLength(451));
-      RSAPublicKey.fromPEM(subscription.publicKey!);
+      RSAPublicKey.fromPEM(subscription.publicKey);
       expect(subscription.deviceIdentifier, isNotEmpty);
       expect(subscription.signature, isNotEmpty);
+      expect(subscription.message, isNull);
 
       final deviceCompleter = Completer();
       final notificationCompleter = Completer();
@@ -195,11 +196,21 @@ Future main() async {
     });
 
     test('Remove push device', () async {
-      await client.notifications.registerDevice(
-        pushTokenHash: '789',
-        devicePublicKey: generateKeypair().publicKey.toFormattedPEM(),
+      const pushToken = '789';
+      final keypair = generateKeypair();
+
+      final subscription = (await client.notifications.registerDevice(
+        pushTokenHash: client.notifications.generatePushTokenHash(pushToken),
+        devicePublicKey: keypair.publicKey.toFormattedPEM(),
         proxyServer: 'https://example.com/',
-      );
+      ))
+          .ocs
+          .data;
+      expect(subscription.publicKey, hasLength(451));
+      RSAPublicKey.fromPEM(subscription.publicKey);
+      expect(subscription.deviceIdentifier, isNotEmpty);
+      expect(subscription.signature, isNotEmpty);
+      expect(subscription.message, isNull);
 
       await client.notifications.removeDevice();
     });
