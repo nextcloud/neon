@@ -462,7 +462,8 @@ class OpenAPIBuilder implements Builder {
                                       (final b) => b
                                         ..name = _toDartName(propertyName)
                                         ..toThis = true
-                                        ..named = true,
+                                        ..named = true
+                                        ..required = (schema.required ?? []).contains(propertyName),
                                     ),
                                   ),
                                 ),
@@ -497,10 +498,7 @@ class OpenAPIBuilder implements Builder {
                             Field(
                               (final b) {
                                 final result = resolveType(
-                                  _toDartName(
-                                    '$identifier${_toDartName(propertyName, uppercaseFirstCharacter: true)}',
-                                    uppercaseFirstCharacter: true,
-                                  ),
+                                  '${identifier}_${_toDartName(propertyName, uppercaseFirstCharacter: true)}',
                                   schema.properties![propertyName]!,
                                   extraJsonSerializableValues: extraJsonSerializableValues,
                                 );
@@ -509,7 +507,12 @@ class OpenAPIBuilder implements Builder {
 
                                 b
                                   ..name = _toDartName(propertyName)
-                                  ..type = refer(_makeNullable(result.typeName, true))
+                                  ..type = refer(
+                                    _makeNullable(
+                                      result.typeName,
+                                      !(schema.required ?? []).contains(propertyName),
+                                    ),
+                                  )
                                   ..modifier = FieldModifier.final$
                                   ..docs.addAll([
                                     if (propertySchema.description != null &&
