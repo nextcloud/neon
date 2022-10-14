@@ -36,6 +36,12 @@
     "schemas": {
       "OCSMeta": {
         "type": "object",
+        "required": [
+          "status",
+          "statuscode",
+          "totalitems",
+          "itemsperpage"
+        ],
         "properties": {
           "status": {
             "type": "string"
@@ -56,6 +62,16 @@
       },
       "CoreServerStatus": {
         "type": "object",
+        "required": [
+          "installed",
+          "maintenance",
+          "needsDbUpgrade",
+          "version",
+          "versionstring",
+          "edition",
+          "productname",
+          "extendedSupport"
+        ],
         "properties": {
           "installed": {
             "type": "boolean"
@@ -85,18 +101,37 @@
       },
       "CoreServerCapabilities": {
         "type": "object",
+        "required": [
+          "ocs"
+        ],
         "properties": {
           "ocs": {
             "type": "object",
+            "required": [
+              "meta",
+              "data"
+            ],
             "properties": {
               "meta": {
                 "$ref": "#/components/schemas/OCSMeta"
               },
               "data": {
                 "type": "object",
+                "required": [
+                  "version",
+                  "capabilities"
+                ],
                 "properties": {
                   "version": {
                     "type": "object",
+                    "required": [
+                      "major",
+                      "minor",
+                      "micro",
+                      "string",
+                      "edition",
+                      "extendedSupport"
+                    ],
                     "properties": {
                       "major": {
                         "type": "integer"
@@ -120,9 +155,21 @@
                   },
                   "capabilities": {
                     "type": "object",
+                    "required": [
+                      "core",
+                      "bruteforce",
+                      "metadataAvailable",
+                      "files",
+                      "ocm",
+                      "dav"
+                    ],
                     "properties": {
                       "core": {
                         "type": "object",
+                        "required": [
+                          "pollinterval",
+                          "webdav-root"
+                        ],
                         "properties": {
                           "pollinterval": {
                             "type": "integer"
@@ -134,6 +181,9 @@
                       },
                       "bruteforce": {
                         "type": "object",
+                        "required": [
+                          "delay"
+                        ],
                         "properties": {
                           "delay": {
                             "type": "integer"
@@ -142,6 +192,9 @@
                       },
                       "metadataAvailable": {
                         "type": "object",
+                        "required": [
+                          "size"
+                        ],
                         "properties": {
                           "size": {
                             "type": "array",
@@ -153,6 +206,14 @@
                       },
                       "files": {
                         "type": "object",
+                        "required": [
+                          "bigfilechunking",
+                          "blacklisted_files",
+                          "directEditing",
+                          "comments",
+                          "undelete",
+                          "versioning"
+                        ],
                         "properties": {
                           "bigfilechunking": {
                             "type": "boolean"
@@ -165,6 +226,10 @@
                           },
                           "directEditing": {
                             "type": "object",
+                            "required": [
+                              "url",
+                              "etag"
+                            ],
                             "properties": {
                               "url": {
                                 "type": "string"
@@ -187,6 +252,9 @@
                       },
                       "activity": {
                         "type": "object",
+                        "required": [
+                          "apiv2"
+                        ],
                         "properties": {
                           "apiv2": {
                             "type": "array",
@@ -198,12 +266,22 @@
                       },
                       "circles": {
                         "type": "object",
+                        "required": [
+                          "version",
+                          "status",
+                          "settings",
+                          "circle",
+                          "member"
+                        ],
                         "properties": {
                           "version": {
                             "type": "string"
                           },
                           "status": {
                             "type": "object",
+                            "required": [
+                              "globalScale"
+                            ],
                             "properties": {
                               "globalScale": {
                                 "type": "boolean"
@@ -212,6 +290,12 @@
                           },
                           "settings": {
                             "type": "object",
+                            "required": [
+                              "frontendEnabled",
+                              "allowedCircles",
+                              "allowedUserTypes",
+                              "membersLimit"
+                            ],
                             "properties": {
                               "frontendEnabled": {
                                 "type": "boolean"
@@ -229,15 +313,27 @@
                           },
                           "circle": {
                             "type": "object",
+                            "required": [
+                              "constants",
+                              "config"
+                            ],
                             "properties": {
                               "constants": {
                                 "type": "object",
+                                "required": [
+                                  "flags",
+                                  "source"
+                                ],
                                 "properties": {
                                   "flags": {
                                     "type": "object"
                                   },
                                   "source": {
                                     "type": "object",
+                                    "required": [
+                                      "core",
+                                      "extra"
+                                    ],
                                     "properties": {
                                       "core": {
                                         "type": "object"
@@ -251,6 +347,10 @@
                               },
                               "config": {
                                 "type": "object",
+                                "required": [
+                                  "coreFlags",
+                                  "systemFlags"
+                                ],
                                 "properties": {
                                   "coreFlags": {
                                     "type": "array",
@@ -270,9 +370,16 @@
                           },
                           "member": {
                             "type": "object",
+                            "required": [
+                              "constants",
+                              "type"
+                            ],
                             "properties": {
                               "constants": {
                                 "type": "object",
+                                "required": [
+                                  "level"
+                                ],
                                 "properties": {
                                   "level": {
                                     "type": "object"
@@ -288,6 +395,12 @@
                       },
                       "ocm": {
                         "type": "object",
+                        "required": [
+                          "enabled",
+                          "apiVersion",
+                          "endPoint",
+                          "resourceTypes"
+                        ],
                         "properties": {
                           "enabled": {
                             "type": "boolean"
@@ -302,6 +415,11 @@
                             "type": "array",
                             "items": {
                               "type": "object",
+                              "required": [
+                                "name",
+                                "shareTypes",
+                                "protocols"
+                              ],
                               "properties": {
                                 "name": {
                                   "type": "string"
@@ -314,6 +432,9 @@
                                 },
                                 "protocols": {
                                   "type": "object",
+                                  "required": [
+                                    "webdav"
+                                  ],
                                   "properties": {
                                     "webdav": {
                                       "type": "string"
@@ -327,6 +448,9 @@
                       },
                       "dav": {
                         "type": "object",
+                        "required": [
+                          "chunking"
+                        ],
                         "properties": {
                           "chunking": {
                             "type": "string"
@@ -335,18 +459,45 @@
                       },
                       "files_sharing": {
                         "type": "object",
+                        "required": [
+                          "api_enabled",
+                          "public",
+                          "resharing",
+                          "user",
+                          "group_sharing",
+                          "group",
+                          "default_permissions",
+                          "federation",
+                          "sharee",
+                          "sharebymail"
+                        ],
                         "properties": {
                           "api_enabled": {
                             "type": "boolean"
                           },
                           "public": {
                             "type": "object",
+                            "required": [
+                              "enabled",
+                              "password",
+                              "expire_date",
+                              "multiple_links",
+                              "expire_date_internal",
+                              "expire_date_remote",
+                              "send_mail",
+                              "upload",
+                              "upload_files_drop"
+                            ],
                             "properties": {
                               "enabled": {
                                 "type": "boolean"
                               },
                               "password": {
                                 "type": "object",
+                                "required": [
+                                  "enforced",
+                                  "askForOptionalPassword"
+                                ],
                                 "properties": {
                                   "enforced": {
                                     "type": "boolean"
@@ -358,6 +509,9 @@
                               },
                               "expire_date": {
                                 "type": "object",
+                                "required": [
+                                  "enabled"
+                                ],
                                 "properties": {
                                   "enabled": {
                                     "type": "boolean"
@@ -369,6 +523,9 @@
                               },
                               "expire_date_internal": {
                                 "type": "object",
+                                "required": [
+                                  "enabled"
+                                ],
                                 "properties": {
                                   "enabled": {
                                     "type": "boolean"
@@ -377,6 +534,9 @@
                               },
                               "expire_date_remote": {
                                 "type": "object",
+                                "required": [
+                                  "enabled"
+                                ],
                                 "properties": {
                                   "enabled": {
                                     "type": "boolean"
@@ -399,12 +559,19 @@
                           },
                           "user": {
                             "type": "object",
+                            "required": [
+                              "send_mail",
+                              "expire_date"
+                            ],
                             "properties": {
                               "send_mail": {
                                 "type": "boolean"
                               },
                               "expire_date": {
                                 "type": "object",
+                                "required": [
+                                  "enabled"
+                                ],
                                 "properties": {
                                   "enabled": {
                                     "type": "boolean"
@@ -418,12 +585,19 @@
                           },
                           "group": {
                             "type": "object",
+                            "required": [
+                              "enabled",
+                              "expire_date"
+                            ],
                             "properties": {
                               "enabled": {
                                 "type": "boolean"
                               },
                               "expire_date": {
                                 "type": "object",
+                                "required": [
+                                  "enabled"
+                                ],
                                 "properties": {
                                   "enabled": {
                                     "type": "boolean"
@@ -437,6 +611,12 @@
                           },
                           "federation": {
                             "type": "object",
+                            "required": [
+                              "outgoing",
+                              "incoming",
+                              "expire_date",
+                              "expire_date_supported"
+                            ],
                             "properties": {
                               "outgoing": {
                                 "type": "boolean"
@@ -446,6 +626,9 @@
                               },
                               "expire_date": {
                                 "type": "object",
+                                "required": [
+                                  "enabled"
+                                ],
                                 "properties": {
                                   "enabled": {
                                     "type": "boolean"
@@ -454,6 +637,9 @@
                               },
                               "expire_date_supported": {
                                 "type": "object",
+                                "required": [
+                                  "enabled"
+                                ],
                                 "properties": {
                                   "enabled": {
                                     "type": "boolean"
@@ -464,6 +650,10 @@
                           },
                           "sharee": {
                             "type": "object",
+                            "required": [
+                              "query_lookup_default",
+                              "always_show_unique"
+                            ],
                             "properties": {
                               "query_lookup_default": {
                                 "type": "boolean"
@@ -475,6 +665,13 @@
                           },
                           "sharebymail": {
                             "type": "object",
+                            "required": [
+                              "enabled",
+                              "send_password_by_mail",
+                              "upload_files_drop",
+                              "password",
+                              "expire_date"
+                            ],
                             "properties": {
                               "enabled": {
                                 "type": "boolean"
@@ -484,6 +681,9 @@
                               },
                               "upload_files_drop": {
                                 "type": "object",
+                                "required": [
+                                  "enabled"
+                                ],
                                 "properties": {
                                   "enabled": {
                                     "type": "boolean"
@@ -492,6 +692,10 @@
                               },
                               "password": {
                                 "type": "object",
+                                "required": [
+                                  "enabled",
+                                  "enforced"
+                                ],
                                 "properties": {
                                   "enabled": {
                                     "type": "boolean"
@@ -503,6 +707,10 @@
                               },
                               "expire_date": {
                                 "type": "object",
+                                "required": [
+                                  "enabled",
+                                  "enforced"
+                                ],
                                 "properties": {
                                   "enabled": {
                                     "type": "boolean"
@@ -518,6 +726,10 @@
                       },
                       "notes": {
                         "type": "object",
+                        "required": [
+                          "api_version",
+                          "version"
+                        ],
                         "properties": {
                           "api_version": {
                             "type": "array",
@@ -532,6 +744,11 @@
                       },
                       "notifications": {
                         "type": "object",
+                        "required": [
+                          "ocs-endpoints",
+                          "push",
+                          "admin-notifications"
+                        ],
                         "properties": {
                           "ocs-endpoints": {
                             "type": "array",
@@ -555,6 +772,14 @@
                       },
                       "password_policy": {
                         "type": "object",
+                        "required": [
+                          "minLength",
+                          "enforceNonCommonPassword",
+                          "enforceNumericCharacters",
+                          "enforceSpecialCharacters",
+                          "enforceUpperLowerCase",
+                          "api"
+                        ],
                         "properties": {
                           "minLength": {
                             "type": "integer"
@@ -573,6 +798,10 @@
                           },
                           "api": {
                             "type": "object",
+                            "required": [
+                              "generate",
+                              "validate"
+                            ],
                             "properties": {
                               "generate": {
                                 "type": "string"
@@ -586,6 +815,12 @@
                       },
                       "provisioning_api": {
                         "type": "object",
+                        "required": [
+                          "version",
+                          "AccountPropertyScopesVersion",
+                          "AccountPropertyScopesFederatedEnabled",
+                          "AccountPropertyScopesPublishedEnabled"
+                        ],
                         "properties": {
                           "version": {
                             "type": "string"
@@ -603,6 +838,22 @@
                       },
                       "theming": {
                         "type": "object",
+                        "required": [
+                          "name",
+                          "url",
+                          "slogan",
+                          "color",
+                          "color-text",
+                          "color-element",
+                          "color-element-bright",
+                          "color-element-dark",
+                          "logo",
+                          "background",
+                          "background-plain",
+                          "background-default",
+                          "logoheader",
+                          "favicon"
+                        ],
                         "properties": {
                           "name": {
                             "type": "string"
@@ -650,6 +901,10 @@
                       },
                       "user_status": {
                         "type": "object",
+                        "required": [
+                          "enabled",
+                          "supports_emoji"
+                        ],
                         "properties": {
                           "enabled": {
                             "type": "boolean"
@@ -661,6 +916,9 @@
                       },
                       "weather_status": {
                         "type": "object",
+                        "required": [
+                          "enabled"
+                        ],
                         "properties": {
                           "enabled": {
                             "type": "boolean"
@@ -677,9 +935,16 @@
       },
       "CoreNavigationApps": {
         "type": "object",
+        "required": [
+          "ocs"
+        ],
         "properties": {
           "ocs": {
             "type": "object",
+            "required": [
+              "meta",
+              "data"
+            ],
             "properties": {
               "meta": {
                 "$ref": "#/components/schemas/OCSMeta"
@@ -688,6 +953,17 @@
                 "type": "array",
                 "items": {
                   "type": "object",
+                  "required": [
+                    "id",
+                    "order",
+                    "href",
+                    "icon",
+                    "type",
+                    "name",
+                    "active",
+                    "classes",
+                    "unread"
+                  ],
                   "properties": {
                     "id": {
                       "type": "string"
@@ -733,9 +1009,17 @@
       },
       "CoreLoginFlowInit": {
         "type": "object",
+        "required": [
+          "poll",
+          "login"
+        ],
         "properties": {
           "poll": {
             "type": "object",
+            "required": [
+              "token",
+              "endpoint"
+            ],
             "properties": {
               "token": {
                 "type": "string"
@@ -752,6 +1036,11 @@
       },
       "CoreLoginFlowResult": {
         "type": "object",
+        "required": [
+          "server",
+          "loginName",
+          "appPassword"
+        ],
         "properties": {
           "server": {
             "type": "string"

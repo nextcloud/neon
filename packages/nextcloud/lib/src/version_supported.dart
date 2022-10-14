@@ -3,8 +3,8 @@ part of '../nextcloud.dart';
 // ignore: public_member_api_docs
 extension CoreVersionSupported on CoreClient {
   /// Checks if the app on the server is supported by the client
-  Future<bool> isSupported([final CoreServerCapabilitiesOcsData? capabilities]) async =>
-      (capabilities ?? (await getCapabilities()).ocs!.data!).version!.major! == 24;
+  Future<bool> isSupported([final CoreServerCapabilities_Ocs_Data? capabilities]) async =>
+      (capabilities ?? (await getCapabilities()).ocs.data).version.major == 24;
 }
 
 // ignore: public_member_api_docs
@@ -19,11 +19,11 @@ extension NewsVersionSupported on NewsClient {
 // ignore: public_member_api_docs
 extension NotesVersionSupported on NotesClient {
   /// Checks if the app on the server is supported by the client
-  Future<bool> isSupported([final CoreServerCapabilitiesOcsData? capabilities]) async =>
-      (capabilities ?? (await rootClient.core.getCapabilities()).ocs!.data!)
-          .capabilities!
+  Future<bool> isSupported([final CoreServerCapabilities_Ocs_Data? capabilities]) async =>
+      (capabilities ?? (await rootClient.core.getCapabilities()).ocs.data)
+          .capabilities
           .notes!
-          .apiVersion!
+          .apiVersion
           .map(Version.parse)
           .where((final version) => version.major == 1)
           .isNotEmpty;

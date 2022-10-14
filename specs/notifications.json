@@ -36,6 +36,12 @@
     "schemas": {
       "OCSMeta": {
         "type": "object",
+        "required": [
+          "status",
+          "statuscode",
+          "totalitems",
+          "itemsperpage"
+        ],
         "properties": {
           "status": {
             "type": "string"
@@ -56,9 +62,16 @@
       },
       "NotificationsEmpty": {
         "type": "object",
+        "required": [
+          "ocs"
+        ],
         "properties": {
           "ocs": {
             "type": "object",
+            "required": [
+              "meta",
+              "data"
+            ],
             "properties": {
               "meta": {
                 "$ref": "#/components/schemas/OCSMeta"
@@ -75,6 +88,23 @@
       },
       "NotificationsNotification": {
         "type": "object",
+        "required": [
+          "notification_id",
+          "app",
+          "user",
+          "datetime",
+          "object_type",
+          "object_id",
+          "subject",
+          "message",
+          "link",
+          "subjectRich",
+          "subjectRichParameters",
+          "messageRich",
+          "messageRichParameters",
+          "icon",
+          "actions"
+        ],
         "properties": {
           "notification_id": {
             "type": "integer"
@@ -138,6 +168,11 @@
       },
       "NotificationsNotificationAction": {
         "type": "object",
+        "required": [
+          "label",
+          "link",
+          "type"
+        ],
         "properties": {
           "label": {
             "type": "string"
@@ -155,9 +190,16 @@
       },
       "NotificationsListNotifications": {
         "type": "object",
+        "required": [
+          "ocs"
+        ],
         "properties": {
           "ocs": {
             "type": "object",
+            "required": [
+              "meta",
+              "data"
+            ],
             "properties": {
               "meta": {
                 "$ref": "#/components/schemas/OCSMeta"
@@ -174,9 +216,16 @@
       },
       "NotificationsGetNotification": {
         "type": "object",
+        "required": [
+          "ocs"
+        ],
         "properties": {
           "ocs": {
             "type": "object",
+            "required": [
+              "meta",
+              "data"
+            ],
             "properties": {
               "meta": {
                 "$ref": "#/components/schemas/OCSMeta"
@@ -190,6 +239,11 @@
       },
       "NotificationsPushServerSubscription": {
         "type": "object",
+        "required": [
+          "publicKey",
+          "deviceIdentifier",
+          "signature"
+        ],
         "properties": {
           "publicKey": {
             "type": "string"
@@ -207,9 +261,16 @@
       },
       "NotificationsPushServerRegistration": {
         "type": "object",
+        "required": [
+          "ocs"
+        ],
         "properties": {
           "ocs": {
             "type": "object",
+            "required": [
+              "meta",
+              "data"
+            ],
             "properties": {
               "meta": {
                 "$ref": "#/components/schemas/OCSMeta"
@@ -223,6 +284,12 @@
       },
       "NotificationsPushNotification": {
         "type": "object",
+        "required": [
+          "accountID",
+          "priority",
+          "type",
+          "subject"
+        ],
         "properties": {
           "accountID": {
             "type": "string"
@@ -240,6 +307,13 @@
       },
       "NotificationsPushNotificationDecryptedSubject": {
         "type": "object",
+        "required": [
+          "nid",
+          "app",
+          "subject",
+          "type",
+          "id"
+        ],
         "properties": {
           "nid": {
             "type": "integer"

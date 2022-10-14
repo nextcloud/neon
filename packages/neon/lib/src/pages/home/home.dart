@@ -51,7 +51,7 @@ class _HomePageState extends State<HomePage> with tray.TrayListener, WindowListe
     );
     _capabilitiesBloc.capabilities.listen((final result) async {
       if (result.data != null) {
-        widget.onThemeChanged(result.data!.capabilities!.theming!);
+        widget.onThemeChanged(result.data!.capabilities.theming!);
 
         // ignore cached version and prevent duplicate dialogs
         if (result is ResultSuccess) {
@@ -161,7 +161,7 @@ class _HomePageState extends State<HomePage> with tray.TrayListener, WindowListe
         final allAppImplementations = Provider.of<List<AppImplementation>>(context, listen: false);
         final matchingAppImplementations = allAppImplementations.where((final a) => a.id == notification.app);
         if (matchingAppImplementations.isNotEmpty) {
-          _appsBloc.setActiveApp(notification.app!);
+          _appsBloc.setActiveApp(notification.app);
           return true;
         }
 
@@ -183,7 +183,7 @@ class _HomePageState extends State<HomePage> with tray.TrayListener, WindowListe
             final allAppImplementations = Provider.of<List<AppImplementation>>(context, listen: false);
 
             final matchingAppImplementations =
-                allAppImplementations.where((final a) => a.id == notification.subject!.app);
+                allAppImplementations.where((final a) => a.id == notification.subject.app);
 
             late AppImplementation appImplementation;
             if (matchingAppImplementations.isNotEmpty) {
@@ -193,7 +193,7 @@ class _HomePageState extends State<HomePage> with tray.TrayListener, WindowListe
             }
 
             if (appImplementation.id != 'notifications') {
-              _appsBloc.getAppBloc<NotificationsBloc>(appImplementation).deleteNotification(notification.subject!.nid!);
+              _appsBloc.getAppBloc<NotificationsBloc>(appImplementation).deleteNotification(notification.subject.nid);
             }
             await _openAppFromExternal(appImplementation.id);
           }
@@ -435,18 +435,16 @@ class _HomePageState extends State<HomePage> with tray.TrayListener, WindowListe
                                                 children: [
                                                   if (capabilitiesData != null) ...[
                                                     Text(
-                                                      capabilitiesData.capabilities!.theming!.name!,
+                                                      capabilitiesData.capabilities.theming!.name,
                                                       style: DefaultTextStyle.of(context).style.copyWith(
                                                             color: Theme.of(context).appBarTheme.foregroundColor,
                                                           ),
                                                     ),
-                                                    if (capabilitiesData.capabilities!.theming!.logo != null) ...[
-                                                      Flexible(
-                                                        child: CachedURLImage(
-                                                          url: capabilitiesData.capabilities!.theming!.logo!,
-                                                        ),
+                                                    Flexible(
+                                                      child: CachedURLImage(
+                                                        url: capabilitiesData.capabilities.theming!.logo,
                                                       ),
-                                                    ],
+                                                    ),
                                                   ] else ...[
                                                     ExceptionWidget(
                                                       capabilitiesError,
@@ -626,9 +624,9 @@ class _HomePageState extends State<HomePage> with tray.TrayListener, WindowListe
                                   leading: isQuickBar
                                       ? Container(
                                           padding: const EdgeInsets.all(5),
-                                          child: capabilitiesData?.capabilities?.theming?.logo != null
+                                          child: capabilitiesData?.capabilities.theming?.logo != null
                                               ? CachedURLImage(
-                                                  url: capabilitiesData!.capabilities!.theming!.logo!,
+                                                  url: capabilitiesData!.capabilities.theming!.logo,
                                                 )
                                               : null,
                                         )

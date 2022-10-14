@@ -24,7 +24,7 @@ class NotesCategoriesView extends StatelessWidget {
           sortPropertyOption: bloc.options.categoriesSortPropertyOption,
           sortBoxOrderOption: bloc.options.categoriesSortBoxOrderOption,
           input: notesData
-              ?.map((final note) => note.category!)
+              ?.map((final note) => note.category)
               .toSet()
               .map(
                 (final category) => NoteCategory(

@@ -61,13 +61,13 @@ Future main() async {
 
     test('Get note', () async {
       final response = await client.notes.getNote(
-        id: (await client.notes.createNote(title: 'a')).id!,
+        id: (await client.notes.createNote(title: 'a')).id,
       );
       expect(response.title, 'a');
     });
 
     test('Update note', () async {
-      final id = (await client.notes.createNote(title: 'a')).id!;
+      final id = (await client.notes.createNote(title: 'a')).id;
       await client.notes.updateNote(
         id: id,
         title: 'b',
@@ -80,13 +80,13 @@ Future main() async {
     test('Update note fail changed on server', () async {
       final response = await client.notes.createNote(title: 'a');
       await client.notes.updateNote(
-        id: response.id!,
+        id: response.id,
         title: 'b',
         ifMatch: '"${response.etag}"',
       );
       expect(
         () => client.notes.updateNote(
-          id: response.id!,
+          id: response.id,
           title: 'c',
           ifMatch: '"${response.etag}"',
         ),
@@ -95,7 +95,7 @@ Future main() async {
     });
 
     test('Delete note', () async {
-      final id = (await client.notes.createNote(title: 'a')).id!;
+      final id = (await client.notes.createNote(title: 'a')).id;
 
       var response = await client.notes.getNotes();
       expect(response, hasLength(1));
@@ -110,7 +110,7 @@ Future main() async {
       final response = await client.notes.getSettings();
       expect(response.notesPath, 'Notes');
       expect(response.fileSuffix, '.txt');
-      expect(response.noteMode, NotesSettingsNoteMode.edit);
+      expect(response.noteMode, NotesSettings_NoteMode.edit);
     });
 
     test('Update settings', () async {
@@ -118,17 +118,17 @@ Future main() async {
         notesSettings: NotesSettings(
           notesPath: 'Test Notes',
           fileSuffix: '.md',
-          noteMode: NotesSettingsNoteMode.preview,
+          noteMode: NotesSettings_NoteMode.preview,
         ),
       );
       expect(response.notesPath, 'Test Notes');
       expect(response.fileSuffix, '.md');
-      expect(response.noteMode, NotesSettingsNoteMode.preview);
+      expect(response.noteMode, NotesSettings_NoteMode.preview);
 
       response = await client.notes.getSettings();
       expect(response.notesPath, 'Test Notes');
       expect(response.fileSuffix, '.md');
-      expect(response.noteMode, NotesSettingsNoteMode.preview);
+      expect(response.noteMode, NotesSettings_NoteMode.preview);
     });
   });
 }

@@ -8,8 +8,8 @@ import 'package:rxdart/rxdart.dart';
 
 part 'capabilities.rxb.g.dart';
 
-typedef Capabilities = CoreServerCapabilitiesOcsData;
-typedef NextcloudTheme = CoreServerCapabilitiesOcsDataCapabilitiesTheming;
+typedef Capabilities = CoreServerCapabilities_Ocs_Data;
+typedef NextcloudTheme = CoreServerCapabilities_Ocs_Data_Capabilities_Theming;
 
 abstract class CapabilitiesBlocEvents {
   void refresh();
@@ -32,11 +32,11 @@ class CapabilitiesBloc extends $CapabilitiesBloc {
 
   void _loadCapabilities() {
     _requestManager
-        .wrapNextcloud<CoreServerCapabilitiesOcsData, CoreServerCapabilities>(
+        .wrapNextcloud<CoreServerCapabilities_Ocs_Data, CoreServerCapabilities>(
           _client.id,
           'capabilities',
           () async => _client.core.getCapabilities(),
-          (final response) => response.ocs!.data!,
+          (final response) => response.ocs.data,
           previousData: _capabilitiesSubject.valueOrNull?.data,
         )
         .listen(_capabilitiesSubject.add);

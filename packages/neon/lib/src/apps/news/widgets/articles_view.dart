@@ -139,8 +139,8 @@ class _NewsArticlesViewState extends State<NewsArticlesView> {
           children: [
             Flexible(
               child: Text(
-                article.title!,
-                style: article.unread!
+                article.title,
+                style: article.unread
                     ? null
                     : Theme.of(context).textTheme.subtitle1!.copyWith(color: Theme.of(context).disabledColor),
               ),
@@ -170,7 +170,7 @@ class _NewsArticlesViewState extends State<NewsArticlesView> {
               ),
             ),
             RelativeTime(
-              date: DateTime.fromMillisecondsSinceEpoch(article.pubDate! * 1000),
+              date: DateTime.fromMillisecondsSinceEpoch(article.pubDate * 1000),
               style: const TextStyle(
                 fontWeight: FontWeight.w300,
                 fontSize: 12,
@@ -181,7 +181,7 @@ class _NewsArticlesViewState extends State<NewsArticlesView> {
             ),
             Flexible(
               child: Text(
-                feed.title!,
+                feed.title,
                 maxLines: 1,
                 overflow: TextOverflow.ellipsis,
               ),
@@ -190,11 +190,11 @@ class _NewsArticlesViewState extends State<NewsArticlesView> {
         ),
         trailing: IconButton(
           icon: Icon(
-            article.starred! ? Icons.star : Icons.star_outline,
+            article.starred ? Icons.star : Icons.star_outline,
             color: Theme.of(context).colorScheme.primary,
           ),
           onPressed: () {
-            if (article.starred!) {
+            if (article.starred) {
               bloc.unstarArticle(article);
             } else {
               bloc.starArticle(article);
@@ -202,7 +202,7 @@ class _NewsArticlesViewState extends State<NewsArticlesView> {
           },
         ),
         onLongPress: () {
-          if (article.unread!) {
+          if (article.unread) {
             bloc.markArticleAsRead(article);
           } else {
             bloc.markArticleAsUnread(article);
@@ -212,7 +212,7 @@ class _NewsArticlesViewState extends State<NewsArticlesView> {
           final viewType = bloc.newsBloc.options.articleViewTypeOption.value;
           String? bodyData;
           try {
-            bodyData = _fixArticleBody(article.body!);
+            bodyData = _fixArticleBody(article.body);
           } catch (e, s) {
             debugPrint(e.toString());
             debugPrint(s.toString());
@@ -241,11 +241,11 @@ class _NewsArticlesViewState extends State<NewsArticlesView> {
               ),
             );
           } else {
-            if (article.unread!) {
+            if (article.unread) {
               bloc.markArticleAsRead(article);
             }
             await launchUrlString(
-              article.url!,
+              article.url,
               mode: LaunchMode.externalApplication,
             );
           }

@@ -23,15 +23,15 @@ abstract class $CapabilitiesBloc extends RxBlocBase
   final _$refreshEvent = PublishSubject<void>();
 
   /// The state of [capabilities] implemented in [_mapToCapabilitiesState]
-  late final BehaviorSubject<Result<CoreServerCapabilitiesOcsData>> _capabilitiesState = _mapToCapabilitiesState();
+  late final BehaviorSubject<Result<CoreServerCapabilities_Ocs_Data>> _capabilitiesState = _mapToCapabilitiesState();
 
   @override
   void refresh() => _$refreshEvent.add(null);
 
   @override
-  BehaviorSubject<Result<CoreServerCapabilitiesOcsData>> get capabilities => _capabilitiesState;
+  BehaviorSubject<Result<CoreServerCapabilities_Ocs_Data>> get capabilities => _capabilitiesState;
 
-  BehaviorSubject<Result<CoreServerCapabilitiesOcsData>> _mapToCapabilitiesState();
+  BehaviorSubject<Result<CoreServerCapabilities_Ocs_Data>> _mapToCapabilitiesState();
 
   @override
   CapabilitiesBlocEvents get events => this;

@@ -23,7 +23,7 @@ class NeonApp extends StatefulWidget {
 // ignore: prefer_mixin
 class _NeonAppState extends State<NeonApp> with WidgetsBindingObserver {
   final _navigatorKey = GlobalKey<NavigatorState>();
-  CoreServerCapabilitiesOcsDataCapabilitiesTheming? _userTheme;
+  CoreServerCapabilities_Ocs_Data_Capabilities_Theming? _userTheme;
   final _platformBrightness = BehaviorSubject<Brightness>.seeded(
     WidgetsBinding.instance.window.platformBrightness,
   );

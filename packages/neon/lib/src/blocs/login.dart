@@ -40,7 +40,7 @@ class LoginBloc extends $LoginBloc {
           );
 
           final status = await client.core.getStatus();
-          if (status.maintenance!) {
+          if (status.maintenance) {
             _serverConnectionStateSubject.add(ServerConnectionState.maintenanceMode);
             return;
           }
@@ -53,7 +53,7 @@ class LoginBloc extends $LoginBloc {
           _cancelPollTimer();
           _pollTimer = Timer.periodic(const Duration(seconds: 2), (final _) async {
             try {
-              final result = await client.core.getLoginFlowResult(token: init.poll!.token!);
+              final result = await client.core.getLoginFlowResult(token: init.poll.token);
               _cancelPollTimer();
               _loginFlowResultSubject.add(result);
             } catch (e) {

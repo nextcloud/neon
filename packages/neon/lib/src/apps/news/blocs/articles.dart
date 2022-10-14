@@ -70,7 +70,7 @@ class NewsArticlesBloc extends $NewsArticlesBloc {
 
     _$markArticleAsReadEvent.listen((final article) {
       _wrapArticleAction((final client) async {
-        await client.news.markArticleAsRead(itemId: article.id!);
+        await client.news.markArticleAsRead(itemId: article.id);
         // TODO
         //_articleUpdateController.add(article..unread = false);
       });
@@ -78,7 +78,7 @@ class NewsArticlesBloc extends $NewsArticlesBloc {
 
     _$markArticleAsUnreadEvent.listen((final article) {
       _wrapArticleAction((final client) async {
-        await client.news.markArticleAsUnread(itemId: article.id!);
+        await client.news.markArticleAsUnread(itemId: article.id);
         // TODO
         //_articleUpdateController.add(article..unread = true);
       });
@@ -87,7 +87,7 @@ class NewsArticlesBloc extends $NewsArticlesBloc {
     _$starArticleEvent.listen((final article) {
       _wrapArticleAction((final client) async {
         await client.news.starArticle(
-          itemId: article.id!,
+          itemId: article.id,
         );
         // TODO
         //_articleUpdateController.add(article..starred = true);
@@ -97,7 +97,7 @@ class NewsArticlesBloc extends $NewsArticlesBloc {
     _$unstarArticleEvent.listen((final article) {
       _wrapArticleAction((final client) async {
         await client.news.unstarArticle(
-          itemId: article.id!,
+          itemId: article.id,
         );
         // TODO
         //_articleUpdateController.add(article..starred = false);
@@ -165,7 +165,7 @@ class NewsArticlesBloc extends $NewsArticlesBloc {
             id: id ?? 0,
             getRead: getRead ?? true ? 1 : 0,
           ),
-          (final response) => response.items!,
+          (final response) => response.items,
           previousData: _articlesSubject.valueOrNull?.data,
         )
         .listen(_articlesSubject.add);

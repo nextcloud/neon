@@ -68,13 +68,13 @@ class _NotificationsMainPageState extends State<NotificationsMainPage> {
         .toList();
 
     return ListTile(
-      title: Text(notification.subject!),
+      title: Text(notification.subject),
       subtitle: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          if (notification.message!.isNotEmpty) ...[
+          if (notification.message.isNotEmpty) ...[
             Text(
-              notification.message!,
+              notification.message,
               overflow: TextOverflow.ellipsis,
             ),
             const SizedBox(
@@ -82,7 +82,7 @@ class _NotificationsMainPageState extends State<NotificationsMainPage> {
             ),
           ],
           RelativeTime(
-            date: DateTime.parse(notification.datetime!),
+            date: DateTime.parse(notification.datetime),
           ),
         ],
       ),
@@ -96,7 +96,7 @@ class _NotificationsMainPageState extends State<NotificationsMainPage> {
               width: 40,
               height: 40,
               child: CachedURLImage(
-                url: notification.icon!,
+                url: notification.icon,
                 width: 40,
                 height: 40,
                 svgColor: Theme.of(context).colorScheme.primary,
@@ -124,7 +124,7 @@ class _NotificationsMainPageState extends State<NotificationsMainPage> {
         }
       },
       onLongPress: () {
-        widget.bloc.deleteNotification(notification.notificationId!);
+        widget.bloc.deleteNotification(notification.notificationId);
       },
     );
   }

@@ -71,6 +71,12 @@ for codename in ${codenames[*]}; do
       .components.schemas.OCSMeta =
       {
         type: "object",
+        required: [
+          "status",
+          "statuscode",
+          "totalitems",
+          "itemsperpage"
+        ],
         properties: {
           status: {
             type: "string"

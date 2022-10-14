@@ -33,9 +33,9 @@ extension NextcloudNotificationsPushProxy on NotificationsClient {
         Uri(
           queryParameters: {
             'pushToken': pushToken,
-            'deviceIdentifier': subscription.deviceIdentifier!,
-            'deviceIdentifierSignature': subscription.signature!,
-            'userPublicKey': subscription.publicKey!,
+            'deviceIdentifier': subscription.deviceIdentifier,
+            'deviceIdentifierSignature': subscription.signature,
+            'userPublicKey': subscription.publicKey,
           },
         ).query,
       ),

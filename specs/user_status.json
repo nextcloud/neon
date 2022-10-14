@@ -36,6 +36,12 @@
     "schemas": {
       "OCSMeta": {
         "type": "object",
+        "required": [
+          "status",
+          "statuscode",
+          "totalitems",
+          "itemsperpage"
+        ],
         "properties": {
           "status": {
             "type": "string"
@@ -56,9 +62,16 @@
       },
       "UserStatusPredefinedStatuses": {
         "type": "object",
+        "required": [
+          "ocs"
+        ],
         "properties": {
           "ocs": {
             "type": "object",
+            "required": [
+              "meta",
+              "data"
+            ],
             "properties": {
               "meta": {
                 "$ref": "#/components/schemas/OCSMeta"
@@ -75,6 +88,12 @@
       },
       "UserStatusPredefinedStatus": {
         "type": "object",
+        "required": [
+          "id",
+          "icon",
+          "message",
+          "clearAt"
+        ],
         "properties": {
           "id": {
             "type": "string"
@@ -86,23 +105,24 @@
             "type": "string"
           },
           "clearAt": {
-            "$ref": "#/components/schemas/UserStatusClearAtWrap"
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/UserStatusClearAt"
+              },
+              {
+                "type": "integer",
+                "description": "Time as unix timestamp"
+              }
+            ]
           }
         }
       },
-      "UserStatusClearAtWrap": {
-        "oneOf": [
-          {
-            "$ref": "#/components/schemas/UserStatusClearAt"
-          },
-          {
-            "type": "integer",
-            "description": "Time as unix timestamp"
-          }
-        ]
-      },
       "UserStatusClearAt": {
         "type": "object",
+        "required": [
+          "type",
+          "time"
+        ],
         "properties": {
           "type": {
             "type": "string",
@@ -140,9 +160,16 @@
       },
       "UserStatusGetUserStatus": {
         "type": "object",
+        "required": [
+          "ocs"
+        ],
         "properties": {
           "ocs": {
             "type": "object",
+            "required": [
+              "meta",
+              "data"
+            ],
             "properties": {
               "meta": {
                 "$ref": "#/components/schemas/OCSMeta"
@@ -160,9 +187,16 @@
       },
       "UserStatusFindAllStatuses": {
         "type": "object",
+        "required": [
+          "ocs"
+        ],
         "properties": {
           "ocs": {
             "type": "object",
+            "required": [
+              "meta",
+              "data"
+            ],
             "properties": {
               "meta": {
                 "$ref": "#/components/schemas/OCSMeta"
@@ -179,9 +213,16 @@
       },
       "UserStatusFindStatus": {
         "type": "object",
+        "required": [
+          "ocs"
+        ],
         "properties": {
           "ocs": {
             "type": "object",
+            "required": [
+              "meta",
+              "data"
+            ],
             "properties": {
               "meta": {
                 "$ref": "#/components/schemas/OCSMeta"
@@ -199,6 +240,13 @@
       },
       "UserStatus": {
         "type": "object",
+        "required": [
+          "userId",
+          "messageIsPredefined",
+          "clearAt",
+          "status",
+          "statusIsUserDefined"
+        ],
         "properties": {
           "userId": {
             "type": "string"
@@ -216,7 +264,15 @@
             "type": "string"
           },
           "clearAt": {
-            "$ref": "#/components/schemas/UserStatusClearAtWrap"
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/UserStatusClearAt"
+              },
+              {
+                "type": "integer",
+                "description": "Time as unix timestamp"
+              }
+            ]
           },
           "status": {
             "$ref": "#/components/schemas/UserStatusType"
@@ -228,6 +284,11 @@
       },
       "UserStatusPublicUserStatus": {
         "type": "object",
+        "required": [
+          "userId",
+          "clearAt",
+          "status"
+        ],
         "properties": {
           "userId": {
             "type": "string"
@@ -239,7 +300,15 @@
             "type": "string"
           },
           "clearAt": {
-            "$ref": "#/components/schemas/UserStatusClearAtWrap"
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/UserStatusClearAt"
+              },
+              {
+                "type": "integer",
+                "description": "Time as unix timestamp"
+              }
+            ]
           },
           "status": {
             "$ref": "#/components/schemas/UserStatusType"

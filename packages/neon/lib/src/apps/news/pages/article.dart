@@ -56,12 +56,12 @@ class _NewsArticlePageState extends State<NewsArticlePage> {
   }
 
   void _startMarkAsReadTimer() {
-    if (article.unread!) {
+    if (article.unread) {
       if (widget.bloc.newsBloc.options.articleDisableMarkAsReadTimeoutOption.value) {
         widget.bloc.markArticleAsRead(article);
       } else {
         _markAsReadTimer = Timer(const Duration(seconds: 3), () {
-          if (article.unread!) {
+          if (article.unread) {
             widget.bloc.markArticleAsRead(article);
           }
         });
@@ -81,7 +81,7 @@ class _NewsArticlePageState extends State<NewsArticlePage> {
       return (await _webviewController!.currentUrl())!;
     }
 
-    return article.url!;
+    return article.url;
   }
 
   @override
@@ -103,23 +103,23 @@ class _NewsArticlePageState extends State<NewsArticlePage> {
             actions: [
               IconButton(
                 onPressed: () async {
-                  if (article.starred!) {
+                  if (article.starred) {
                     widget.bloc.unstarArticle(article);
                   } else {
                     widget.bloc.starArticle(article);
                   }
                 },
-                icon: Icon(article.starred! ? Icons.star : Icons.star_outline),
+                icon: Icon(article.starred ? Icons.star : Icons.star_outline),
               ),
               IconButton(
                 onPressed: () async {
-                  if (article.unread!) {
+                  if (article.unread) {
                     widget.bloc.markArticleAsRead(article);
                   } else {
                     widget.bloc.markArticleAsUnread(article);
                   }
                 },
-                icon: Icon(article.unread! ? MdiIcons.email : MdiIcons.emailMarkAsUnread),
+                icon: Icon(article.unread ? MdiIcons.email : MdiIcons.emailMarkAsUnread),
               ),
               IconButton(
                 onPressed: () async {
@@ -147,7 +147,7 @@ class _NewsArticlePageState extends State<NewsArticlePage> {
                       javascriptMode: JavascriptMode.unrestricted,
                       onWebViewCreated: (final controller) async {
                         _webviewController = controller;
-                        await controller.loadUrl(article.url!);
+                        await controller.loadUrl(article.url);
                       },
                       onPageStarted: (final _) {
                         setState(() {

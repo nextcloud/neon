@@ -4,7 +4,7 @@ const themePrimaryColor = Color(0xFFF37736);
 const themeOnPrimaryColor = Color(0xFFFFFFFF);
 
 ThemeData getThemeFromNextcloudTheme(
-  final CoreServerCapabilitiesOcsDataCapabilitiesTheming? nextcloudTheme,
+  final CoreServerCapabilities_Ocs_Data_Capabilities_Theming? nextcloudTheme,
   final ThemeMode themeMode,
   final Brightness platformBrightness, {
   required final bool oledAsDark,
@@ -12,8 +12,8 @@ ThemeData getThemeFromNextcloudTheme(
   var primaryColor = themePrimaryColor;
   var onPrimaryColor = themeOnPrimaryColor;
   if (nextcloudTheme != null) {
-    primaryColor = HexColor(nextcloudTheme.color!);
-    onPrimaryColor = HexColor(nextcloudTheme.colorText!);
+    primaryColor = HexColor(nextcloudTheme.color);
+    onPrimaryColor = HexColor(nextcloudTheme.colorText);
   }
 
   late final Brightness selectBrightness;

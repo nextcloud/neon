@@ -33,7 +33,7 @@ class UserDetailsBloc extends $UserDetailsBloc {
           _client.id,
           'user-details',
           () async => _client.provisioningApi.getCurrentUser(),
-          (final response) => response.ocs!.data!,
+          (final response) => response.ocs.data,
           previousData: _userDetailsSubject.valueOrNull?.data,
         )
         .listen(_userDetailsSubject.add);
