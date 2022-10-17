@@ -105,6 +105,9 @@ class _SettingsPageState extends State<SettingsPage> {
                       CheckBoxSettingsTile(
                         option: globalOptions.themeOLEDAsDark,
                       ),
+                      CheckBoxSettingsTile(
+                        option: globalOptions.themeKeepOriginalAccentColor,
+                      ),
                     ],
                   ),
                   SettingsCategory(

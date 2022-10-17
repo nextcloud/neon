@@ -112,6 +112,7 @@ class _NotificationsMainPageState extends State<NotificationsMainPage> {
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.red,
+                    foregroundColor: Theme.of(context).colorScheme.onPrimary,
                   ),
                   onPressed: () {
                     Navigator.of(context).pop();

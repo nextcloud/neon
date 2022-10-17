@@ -15,6 +15,7 @@ import 'package:neon/src/neon.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:provider/provider.dart';
 import 'package:rxdart/rxdart.dart';
+import 'package:settings/settings.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class MemorySharedPreferences implements SharedPreferences {
@@ -169,21 +170,25 @@ Future pumpAppPage(
       ],
       child: StreamBuilder<NextcloudTheme>(
         stream: userThemeStream,
-        builder: (final context, final themeSnapshot) => StreamBuilder<ThemeMode>(
-          stream: globalOptions.themeMode.stream,
-          builder: (final context, final themeModeSnapshot) => StreamBuilder<bool>(
-            stream: globalOptions.themeOLEDAsDark.stream,
-            builder: (final context, final themeOLEDAsDarkSnapshot) => MaterialApp(
-              debugShowCheckedModeBanner: false,
-              localizationsDelegates: AppLocalizations.localizationsDelegates,
-              supportedLocales: AppLocalizations.supportedLocales,
-              theme: getThemeFromNextcloudTheme(
-                themeSnapshot.data,
-                themeModeSnapshot.data ?? ThemeMode.system,
-                Brightness.light,
-                oledAsDark: themeOLEDAsDarkSnapshot.data ?? false,
+        builder: (final context, final themeSnapshot) => OptionBuilder(
+          option: globalOptions.themeMode,
+          builder: (final context, final themeMode) => OptionBuilder(
+            option: globalOptions.themeOLEDAsDark,
+            builder: (final context, final themeOLEDAsDark) => OptionBuilder(
+              option: globalOptions.themeKeepOriginalAccentColor,
+              builder: (final context, final themeKeepOriginalAccentColor) => MaterialApp(
+                debugShowCheckedModeBanner: false,
+                localizationsDelegates: AppLocalizations.localizationsDelegates,
+                supportedLocales: AppLocalizations.supportedLocales,
+                theme: getThemeFromNextcloudTheme(
+                  themeSnapshot.data,
+                  themeMode ?? ThemeMode.system,
+                  Brightness.light,
+                  oledAsDark: themeOLEDAsDark ?? false,
+                  keepOriginalAccentColor: themeKeepOriginalAccentColor ?? true,
+                ),
+                home: builder(context, userThemeStream.add),
               ),
-              home: builder(context, userThemeStream.add),
             ),
           ),
         ),

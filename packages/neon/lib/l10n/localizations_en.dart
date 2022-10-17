@@ -172,6 +172,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get globalOptionsThemeOLEDAsDark => 'OLED theme as dark theme';
 
   @override
+  String get globalOptionsThemeKeepOriginalAccentColor => 'Keep the original accent color';
+
+  @override
   String get globalOptionsPushNotificationsNotice =>
       'External services are used for delivering push notifications. While the content is encrypted and can only be read by this app, extracting metadata like the time and count of notifications is still possible.';
 

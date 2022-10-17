@@ -92,29 +92,34 @@ class _NeonAppState extends State<NeonApp> with WidgetsBindingObserver {
   @override
   Widget build(final BuildContext context) => StreamBuilder<Brightness>(
         stream: _platformBrightness,
-        builder: (final context, final platformBrightnessSnapshot) => StreamBuilder<ThemeMode>(
-          stream: widget.globalOptions.themeMode.stream,
-          builder: (final context, final themeModeSnapshot) => StreamBuilder<bool>(
-            stream: widget.globalOptions.themeOLEDAsDark.stream,
-            builder: (final context, final themeOLEDAsDarkSnapshot) {
-              if (!platformBrightnessSnapshot.hasData ||
-                  !themeOLEDAsDarkSnapshot.hasData ||
-                  !themeModeSnapshot.hasData) {
-                return Container();
-              }
-              return MaterialApp(
-                localizationsDelegates: AppLocalizations.localizationsDelegates,
-                supportedLocales: AppLocalizations.supportedLocales,
-                navigatorKey: _navigatorKey,
-                theme: getThemeFromNextcloudTheme(
-                  _userTheme,
-                  themeModeSnapshot.data!,
-                  platformBrightnessSnapshot.data!,
-                  oledAsDark: themeOLEDAsDarkSnapshot.data!,
-                ),
-                home: Container(),
-              );
-            },
+        builder: (final context, final platformBrightnessSnapshot) => OptionBuilder(
+          option: widget.globalOptions.themeMode,
+          builder: (final context, final themeMode) => OptionBuilder(
+            option: widget.globalOptions.themeOLEDAsDark,
+            builder: (final context, final themeOLEDAsDark) => OptionBuilder(
+              option: widget.globalOptions.themeKeepOriginalAccentColor,
+              builder: (final context, final themeKeepOriginalAccentColor) {
+                if (!platformBrightnessSnapshot.hasData ||
+                    themeMode == null ||
+                    themeOLEDAsDark == null ||
+                    themeKeepOriginalAccentColor == null) {
+                  return Container();
+                }
+                return MaterialApp(
+                  localizationsDelegates: AppLocalizations.localizationsDelegates,
+                  supportedLocales: AppLocalizations.supportedLocales,
+                  navigatorKey: _navigatorKey,
+                  theme: getThemeFromNextcloudTheme(
+                    _userTheme,
+                    themeMode,
+                    platformBrightnessSnapshot.data!,
+                    oledAsDark: themeOLEDAsDark,
+                    keepOriginalAccentColor: themeKeepOriginalAccentColor,
+                  ),
+                  home: Container(),
+                );
+              },
+            ),
           ),
         ),
       );
