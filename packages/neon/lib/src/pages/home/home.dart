@@ -280,6 +280,7 @@ class _HomePageState extends State<HomePage> with tray.TrayListener, WindowListe
           ElevatedButton(
             style: ElevatedButton.styleFrom(
               backgroundColor: Colors.red,
+              foregroundColor: Theme.of(context).colorScheme.onPrimary,
             ),
             onPressed: () {
               Navigator.of(context).pop();
@@ -427,7 +428,7 @@ class _HomePageState extends State<HomePage> with tray.TrayListener, WindowListe
                                             }
                                             return DrawerHeader(
                                               decoration: BoxDecoration(
-                                                color: Theme.of(context).appBarTheme.backgroundColor,
+                                                color: Theme.of(context).colorScheme.primary,
                                               ),
                                               child: Column(
                                                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -461,7 +462,7 @@ class _HomePageState extends State<HomePage> with tray.TrayListener, WindowListe
                                                       child: DropdownButton<String>(
                                                         isExpanded: true,
                                                         dropdownColor: Theme.of(context).colorScheme.primary,
-                                                        iconEnabledColor: Theme.of(context).appBarTheme.foregroundColor,
+                                                        iconEnabledColor: Theme.of(context).colorScheme.onBackground,
                                                         value: widget.account.id,
                                                         items: accounts
                                                             .map<DropdownMenuItem<String>>(
@@ -607,6 +608,7 @@ class _HomePageState extends State<HomePage> with tray.TrayListener, WindowListe
                       );
 
                       return Scaffold(
+                        resizeToAvoidBottomInset: false,
                         body: Row(
                           children: [
                             if (navigationMode == NavigationMode.drawerAlwaysVisible) ...[

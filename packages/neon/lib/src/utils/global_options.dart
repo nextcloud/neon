@@ -60,6 +60,7 @@ class GlobalOptions {
   late final List<Option> options = [
     themeMode,
     themeOLEDAsDark,
+    themeKeepOriginalAccentColor,
     pushNotificationsEnabled,
     pushNotificationsDistributor,
     startupMinimized,
@@ -133,6 +134,13 @@ class GlobalOptions {
     label: (final context) => AppLocalizations.of(context).globalOptionsThemeOLEDAsDark,
     defaultValue: BehaviorSubject.seeded(false),
     enabled: _themeOLEDAsDarkEnabledSubject,
+  );
+
+  late final themeKeepOriginalAccentColor = ToggleOption(
+    storage: _storage,
+    key: 'theme-keep-original-accent-color',
+    label: (final context) => AppLocalizations.of(context).globalOptionsThemeKeepOriginalAccentColor,
+    defaultValue: BehaviorSubject.seeded(false),
   );
 
   late final pushNotificationsEnabled = ToggleOption(

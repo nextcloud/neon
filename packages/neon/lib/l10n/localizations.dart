@@ -401,6 +401,12 @@ abstract class AppLocalizations {
   /// **'OLED theme as dark theme'**
   String get globalOptionsThemeOLEDAsDark;
 
+  /// No description provided for @globalOptionsThemeKeepOriginalAccentColor.
+  ///
+  /// In en, this message translates to:
+  /// **'Keep the original accent color'**
+  String get globalOptionsThemeKeepOriginalAccentColor;
+
   /// No description provided for @globalOptionsPushNotificationsNotice.
   ///
   /// In en, this message translates to:
