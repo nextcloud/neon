@@ -24,6 +24,7 @@ elif [ -d "external/nextcloud-$1" ]; then
       git fetch --tags
       latest_tag="$(git tag --sort=v:refname | grep -vi "rc" | grep -vi "alpha" | grep -vi "beta" | tail -n 1)"
       git reset --hard "$latest_tag"
+      git submodule update
     )
 else
   echo "$1 not found"

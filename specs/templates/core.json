@@ -2,7 +2,7 @@
   "openapi": "3.1.0",
   "info": {
     "title": "Core",
-    "version": "24.0.6",
+    "version": "25.0.0",
     "description": "Core functionality of Nextcloud",
     "license": {
       "name": "agpl",
@@ -199,6 +199,44 @@
         }
       }
     },
+    "/core/avatar/{userId}/{size}/dark": {
+      "parameters": [
+        {
+          "name": "userId",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "size",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "integer"
+          }
+        }
+      ],
+      "get": {
+        "operationId": "avatar-getavatardark-TODO",
+        "tags": [
+          "core"
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/core/avatar/{userId}/{size}": {
       "parameters": [
         {
@@ -247,7 +285,7 @@
           {
             "name": "path",
             "in": "query",
-            "required": true,
+            "required": false,
             "schema": {
               "type": "string"
             }
@@ -295,7 +333,7 @@
           {
             "name": "crop",
             "in": "query",
-            "required": true,
+            "required": false,
             "schema": {
               "type": "array"
             }
@@ -318,6 +356,44 @@
     "/core/avatar/tmp": {
       "get": {
         "operationId": "avatar-gettmpavatar-TODO",
+        "tags": [
+          "core"
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/core/avatar/guest/{guestName}/{size}/dark": {
+      "parameters": [
+        {
+          "name": "guestName",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "size",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "get": {
+        "operationId": "guestavatar-getavatardark-TODO",
         "tags": [
           "core"
         ],
@@ -360,6 +436,17 @@
         "operationId": "guestavatar-getavatar-TODO",
         "tags": [
           "core"
+        ],
+        "parameters": [
+          {
+            "name": "darkTheme",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 0
+            }
+          }
         ],
         "responses": {
           "200": {
@@ -1318,18 +1405,10 @@
         }
       }
     },
-    "/core/svg/core/{folder}/{fileName}": {
+    "/core/core/references/preview/{referenceId}": {
       "parameters": [
         {
-          "name": "folder",
-          "in": "path",
-          "required": true,
-          "schema": {
-            "type": "string"
-          }
-        },
-        {
-          "name": "fileName",
+          "name": "referenceId",
           "in": "path",
           "required": true,
           "schema": {
@@ -1338,69 +1417,9 @@
         }
       ],
       "get": {
-        "operationId": "svg-getsvgfromcore-TODO",
+        "operationId": "reference-preview-TODO",
         "tags": [
           "core"
-        ],
-        "parameters": [
-          {
-            "name": "color",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "string",
-              "default": "ffffff"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "string"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/core/svg/{app}/{fileName}": {
-      "parameters": [
-        {
-          "name": "app",
-          "in": "path",
-          "required": true,
-          "schema": {
-            "type": "string"
-          }
-        },
-        {
-          "name": "fileName",
-          "in": "path",
-          "required": true,
-          "schema": {
-            "type": "string"
-          }
-        }
-      ],
-      "get": {
-        "operationId": "svg-getsvgfromapp-TODO",
-        "tags": [
-          "core"
-        ],
-        "parameters": [
-          {
-            "name": "color",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "string",
-              "default": "ffffff"
-            }
-          }
         ],
         "responses": {
           "200": {
@@ -1980,7 +1999,7 @@
           {
             "name": "itemType",
             "in": "query",
-            "required": true,
+            "required": false,
             "schema": {
               "type": "string"
             }
@@ -1988,7 +2007,7 @@
           {
             "name": "itemId",
             "in": "query",
-            "required": true,
+            "required": false,
             "schema": {
               "type": "string"
             }
@@ -2401,6 +2420,121 @@
             "required": true,
             "schema": {
               "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ocs/v1.php/core/resolve": {
+      "get": {
+        "operationId": "referenceapi-resolveone-TODO",
+        "tags": [
+          "core"
+        ],
+        "parameters": [
+          {
+            "name": "reference",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "operationId": "referenceapi-resolve-TODO",
+        "tags": [
+          "core"
+        ],
+        "parameters": [
+          {
+            "name": "references",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "array"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 1
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ocs/v1.php/core/extract": {
+      "post": {
+        "operationId": "referenceapi-extract-TODO",
+        "tags": [
+          "core"
+        ],
+        "parameters": [
+          {
+            "name": "text",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "resolve",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 0
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 1
             }
           }
         ],

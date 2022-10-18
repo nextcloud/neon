@@ -2,7 +2,7 @@
   "openapi": "3.1.0",
   "info": {
     "title": "Provisioning API",
-    "version": "1.14.0",
+    "version": "1.15.0",
     "description": "This application enables a set of APIs that external systems can use to manage users, groups and apps.",
     "license": {
       "name": "agpl",
@@ -1302,6 +1302,140 @@
         "operationId": "appconfig-deletekey-TODO",
         "tags": [
           "provisioning_api"
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ocs/v1.php/apps/provisioning_api/api/v1/config/users/{appId}/{configKey}": {
+      "parameters": [
+        {
+          "name": "appId",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "configKey",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "post": {
+        "operationId": "preferences-setpreference-TODO",
+        "tags": [
+          "provisioning_api"
+        ],
+        "parameters": [
+          {
+            "name": "configValue",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "operationId": "preferences-deletepreference-TODO",
+        "tags": [
+          "provisioning_api"
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ocs/v1.php/apps/provisioning_api/api/v1/config/users/{appId}": {
+      "parameters": [
+        {
+          "name": "appId",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "post": {
+        "operationId": "preferences-setmultiplepreferences-TODO",
+        "tags": [
+          "provisioning_api"
+        ],
+        "parameters": [
+          {
+            "name": "configs",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "array"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "operationId": "preferences-deletemultiplepreference-TODO",
+        "tags": [
+          "provisioning_api"
+        ],
+        "parameters": [
+          {
+            "name": "configKeys",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "array"
+            }
+          }
         ],
         "responses": {
           "200": {

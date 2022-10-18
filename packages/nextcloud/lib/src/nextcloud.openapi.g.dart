@@ -70,6 +70,8 @@ CoreServerCapabilities_Ocs_Data_Capabilities_Core _$CoreServerCapabilities_Ocs_D
     CoreServerCapabilities_Ocs_Data_Capabilities_Core(
       pollinterval: json['pollinterval'] as int,
       webdavRoot: json['webdav-root'] as String,
+      referenceApi: json['reference-api'] as bool,
+      referenceRegex: json['reference-regex'] as String,
     );
 
 Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_CoreToJson(
@@ -77,6 +79,8 @@ Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_CoreToJson(
     <String, dynamic>{
       'pollinterval': instance.pollinterval,
       'webdav-root': instance.webdavRoot,
+      'reference-api': instance.referenceApi,
+      'reference-regex': instance.referenceRegex,
     };
 
 CoreServerCapabilities_Ocs_Data_Capabilities_Bruteforce
@@ -345,12 +349,14 @@ Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_OcmToJson(
 CoreServerCapabilities_Ocs_Data_Capabilities_Dav _$CoreServerCapabilities_Ocs_Data_Capabilities_DavFromJson(
         Map<String, dynamic> json) =>
     CoreServerCapabilities_Ocs_Data_Capabilities_Dav(
+      bulkupload: json['bulkupload'] as String?,
       chunking: json['chunking'] as String,
     );
 
 Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_DavToJson(
         CoreServerCapabilities_Ocs_Data_Capabilities_Dav instance) =>
     <String, dynamic>{
+      'bulkupload': instance.bulkupload,
       'chunking': instance.chunking,
     };
 

@@ -182,13 +182,21 @@
                         "type": "object",
                         "required": [
                           "pollinterval",
-                          "webdav-root"
+                          "webdav-root",
+                          "reference-api",
+                          "reference-regex"
                         ],
                         "properties": {
                           "pollinterval": {
                             "type": "integer"
                           },
                           "webdav-root": {
+                            "type": "string"
+                          },
+                          "reference-api": {
+                            "type": "boolean"
+                          },
+                          "reference-regex": {
                             "type": "string"
                           }
                         }
@@ -466,6 +474,9 @@
                           "chunking"
                         ],
                         "properties": {
+                          "bulkupload": {
+                            "type": "string"
+                          },
                           "chunking": {
                             "type": "string"
                           }
@@ -3678,7 +3689,6 @@
       }
     },
     "/ocs/v1.php/apps/user_status/api/v1/heartbeat": {
-      "description": "Depends on https://github.com/nextcloud/server/pull/32646",
       "put": {
         "operationId": "heartbeat",
         "tags": [

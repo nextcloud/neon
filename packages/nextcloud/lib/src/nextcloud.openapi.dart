@@ -209,6 +209,8 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_Core {
   CoreServerCapabilities_Ocs_Data_Capabilities_Core({
     required this.pollinterval,
     required this.webdavRoot,
+    required this.referenceApi,
+    required this.referenceRegex,
   });
 
   factory CoreServerCapabilities_Ocs_Data_Capabilities_Core.fromJson(Map<String, dynamic> json) =>
@@ -218,6 +220,12 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_Core {
 
   @JsonKey(name: 'webdav-root')
   final String webdavRoot;
+
+  @JsonKey(name: 'reference-api')
+  final bool referenceApi;
+
+  @JsonKey(name: 'reference-regex')
+  final String referenceRegex;
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreServerCapabilities_Ocs_Data_Capabilities_CoreToJson(this);
@@ -560,10 +568,15 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_Ocm {
 
 @JsonSerializable()
 class CoreServerCapabilities_Ocs_Data_Capabilities_Dav {
-  CoreServerCapabilities_Ocs_Data_Capabilities_Dav({required this.chunking});
+  CoreServerCapabilities_Ocs_Data_Capabilities_Dav({
+    this.bulkupload,
+    required this.chunking,
+  });
 
   factory CoreServerCapabilities_Ocs_Data_Capabilities_Dav.fromJson(Map<String, dynamic> json) =>
       _$CoreServerCapabilities_Ocs_Data_Capabilities_DavFromJson(json);
+
+  final String? bulkupload;
 
   final String chunking;
 
