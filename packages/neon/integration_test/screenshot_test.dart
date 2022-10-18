@@ -96,7 +96,8 @@ class MemorySharedPreferences implements SharedPreferences {
 
 Future pumpAppPage(
   final WidgetTester tester,
-  final IntegrationTestWidgetsFlutterBinding binding, {
+  final IntegrationTestWidgetsFlutterBinding binding,
+  final PackageInfo packageInfo, {
   required final Widget Function(BuildContext, Function(NextcloudTheme)) builder,
   final Account? account,
 }) async {
@@ -105,8 +106,6 @@ Future pumpAppPage(
   final platform = await getNeonPlatform();
   final requestManager = RequestManager();
   final allAppImplementations = getAppImplementations(sharedPreferences, requestManager, platform);
-
-  final packageInfo = await PackageInfo.fromPlatform();
 
   final globalOptions = GlobalOptions(
     Storage('global', sharedPreferences),
@@ -123,7 +122,7 @@ Future pumpAppPage(
     allAppImplementations,
   );
   if (account != null) {
-    accountsBloc.addAccount(account..setupClient(packageInfo));
+    accountsBloc.addAccount(account);
   }
 
   final pushNotificationsBloc = PushNotificationsBloc(
@@ -220,14 +219,17 @@ Future main() async {
   assert(Platform.isAndroid, 'Screenshots need to be taken on Android');
 
   final binding = IntegrationTestWidgetsFlutterBinding.ensureInitialized();
-
-  final account = Account(
-    serverURL: 'http://10.0.2.2',
-    username: 'user1',
-    password: 'user1',
-  );
+  late PackageInfo packageInfo;
+  late Account account;
 
   setUpAll(() async {
+    packageInfo = await PackageInfo.fromPlatform();
+    account = Account(
+      serverURL: 'http://10.0.2.2',
+      username: 'user1',
+      password: 'user1',
+    )..setupClient(packageInfo);
+
     await SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual, overlays: []);
   });
 
@@ -235,6 +237,7 @@ Future main() async {
     await pumpAppPage(
       tester,
       binding,
+      packageInfo,
       builder: (final context, final _) => const LoginPage(),
     );
     await prepareScreenshot(tester, binding);
@@ -253,6 +256,7 @@ Future main() async {
     await pumpAppPage(
       tester,
       binding,
+      packageInfo,
       account: account,
       builder: (final context, final onThemeChanged) => HomePage(
         account: account,
@@ -270,6 +274,7 @@ Future main() async {
     await pumpAppPage(
       tester,
       binding,
+      packageInfo,
       account: account,
       builder: (final context, final onThemeChanged) => HomePage(
         account: account,
@@ -322,6 +327,7 @@ Future main() async {
     await pumpAppPage(
       tester,
       binding,
+      packageInfo,
       account: account,
       builder: (final context, final onThemeChanged) => HomePage(
         account: account,
@@ -396,6 +402,7 @@ Future main() async {
     await pumpAppPage(
       tester,
       binding,
+      packageInfo,
       account: account,
       builder: (final context, final onThemeChanged) => HomePage(
         account: account,
@@ -454,15 +461,23 @@ Future main() async {
   });
 
   testWidgets('notifications', (final tester) async {
-    await account.client.notifications.sendAdminNotification(
-      userId: account.username,
-      shortMessage: 'Notifications demo',
-      longMessage: 'This is a notifications demo of the Neon app',
-    );
+    await (Account(
+      serverURL: 'http://10.0.2.2',
+      username: 'admin',
+      password: 'admin',
+    )..setupClient(packageInfo))
+        .client
+        .notifications
+        .sendAdminNotification(
+          userId: account.username,
+          shortMessage: 'Notifications demo',
+          longMessage: 'This is a notifications demo of the Neon app',
+        );
 
     await pumpAppPage(
       tester,
       binding,
+      packageInfo,
       account: account,
       builder: (final context, final onThemeChanged) => HomePage(
         account: account,
@@ -482,6 +497,7 @@ Future main() async {
     await pumpAppPage(
       tester,
       binding,
+      packageInfo,
       account: account,
       builder: (final context, final onThemeChanged) => HomePage(
         account: account,
