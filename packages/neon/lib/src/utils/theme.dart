@@ -25,13 +25,15 @@ ThemeData getThemeFromNextcloudTheme(
   }
 
   final oledBackgroundOverride = selectBrightness == Brightness.dark && oledAsDark ? Colors.black : null;
+  final keepOriginalAccentColorOverride = keepOriginalAccentColor ? primaryColor : null;
   final colorScheme = ColorScheme.fromSeed(
     seedColor: primaryColor,
     brightness: selectBrightness,
   ).copyWith(
     background: oledBackgroundOverride,
     surface: oledBackgroundOverride,
-    primary: keepOriginalAccentColor ? primaryColor : null,
+    primary: keepOriginalAccentColorOverride,
+    secondary: keepOriginalAccentColorOverride,
   );
 
   return ThemeData(
