@@ -57,7 +57,6 @@ import 'package:xdg_directories/xdg_directories.dart' as xdg;
 
 part 'app.dart';
 part 'pages/home/home.dart';
-part 'pages/home/widgets/server_status.dart';
 part 'pages/login/login.dart';
 part 'pages/settings/account_specific_settings.dart';
 part 'pages/settings/nextcloud_app_specific_settings.dart';
