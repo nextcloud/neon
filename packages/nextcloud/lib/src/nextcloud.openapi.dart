@@ -3840,11 +3840,11 @@ class UserStatusClient {
 @JsonSerializable()
 class NotificationsPushNotificationDecryptedSubject {
   NotificationsPushNotificationDecryptedSubject({
-    required this.nid,
-    required this.app,
-    required this.subject,
-    required this.type,
-    required this.id,
+    this.nid,
+    this.app,
+    this.subject,
+    this.type,
+    this.id,
     this.delete,
     this.deleteAll,
   });
@@ -3852,15 +3852,15 @@ class NotificationsPushNotificationDecryptedSubject {
   factory NotificationsPushNotificationDecryptedSubject.fromJson(Map<String, dynamic> json) =>
       _$NotificationsPushNotificationDecryptedSubjectFromJson(json);
 
-  final int nid;
+  final int? nid;
 
-  final String app;
+  final String? app;
 
-  final String subject;
+  final String? subject;
 
-  final String type;
+  final String? type;
 
-  final String id;
+  final String? id;
 
   final bool? delete;
 

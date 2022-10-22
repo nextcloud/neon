@@ -1627,11 +1627,11 @@ Map<String, dynamic> _$UserStatusPredefinedStatusesToJson(UserStatusPredefinedSt
 NotificationsPushNotificationDecryptedSubject _$NotificationsPushNotificationDecryptedSubjectFromJson(
         Map<String, dynamic> json) =>
     NotificationsPushNotificationDecryptedSubject(
-      nid: json['nid'] as int,
-      app: json['app'] as String,
-      subject: json['subject'] as String,
-      type: json['type'] as String,
-      id: json['id'] as String,
+      nid: json['nid'] as int?,
+      app: json['app'] as String?,
+      subject: json['subject'] as String?,
+      type: json['type'] as String?,
+      id: json['id'] as String?,
       delete: json['delete'] as bool?,
       deleteAll: json['delete-all'] as bool?,
     );

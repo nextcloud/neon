@@ -1599,13 +1599,6 @@
       },
       "NotificationsPushNotificationDecryptedSubject": {
         "type": "object",
-        "required": [
-          "nid",
-          "app",
-          "subject",
-          "type",
-          "id"
-        ],
         "properties": {
           "nid": {
             "type": "integer"
