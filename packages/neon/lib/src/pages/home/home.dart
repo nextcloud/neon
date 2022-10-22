@@ -65,10 +65,12 @@ class _HomePageState extends State<HomePage> {
                     if (!mounted) {
                       return;
                     }
-                    await _showUnsupportedVersion(
-                      id == 'core'
-                          ? AppLocalizations.of(context).coreName
-                          : appsResult.data!.singleWhere((final a) => a.id == id).name(context),
+                    await _showProblem(
+                      AppLocalizations.of(context).errorUnsupportedVersion(
+                        id == 'core'
+                            ? AppLocalizations.of(context).coreName
+                            : appsResult.data!.singleWhere((final a) => a.id == id).name(context),
+                      ),
                     );
                   }
                 } catch (e, s) {
@@ -81,13 +83,32 @@ class _HomePageState extends State<HomePage> {
         }
       }
     });
+
+    unawaited(_checkMaintenanceMode());
   }
 
-  Future _showUnsupportedVersion(final String appName) async {
+  Future _checkMaintenanceMode() async {
+    try {
+      final status = await widget.account.client.core.getStatus();
+      if (status.maintenance) {
+        if (!mounted) {
+          return;
+        }
+        await _showProblem(
+          AppLocalizations.of(context).errorServerInMaintenanceMode,
+        );
+      }
+    } catch (e) {
+      debugPrint(e.toString());
+      ExceptionWidget.showSnackbar(context, e);
+    }
+  }
+
+  Future _showProblem(final String title) async {
     await showDialog(
       context: context,
       builder: (final context) => AlertDialog(
-        title: Text(AppLocalizations.of(context).errorUnsupportedVersion(appName)),
+        title: Text(title),
         actions: [
           ElevatedButton(
             style: ElevatedButton.styleFrom(
@@ -508,9 +529,6 @@ class _HomePageState extends State<HomePage> {
                                     Expanded(
                                       child: Column(
                                         children: [
-                                          ServerStatus(
-                                            account: widget.account,
-                                          ),
                                           ExceptionWidget(
                                             appsError,
                                             onRetry: () {
