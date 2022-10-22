@@ -17,33 +17,19 @@ class HomePage extends StatefulWidget {
 }
 
 // ignore: prefer_mixin
-class _HomePageState extends State<HomePage> with tray.TrayListener, WindowListener {
-  final _appRegex = RegExp(r'^app_([a-z]+)$', multiLine: true);
-
+class _HomePageState extends State<HomePage> {
   final _scaffoldKey = GlobalKey<ScaffoldState>();
 
-  late NeonPlatform _platform;
   late GlobalOptions _globalOptions;
   late CapabilitiesBloc _capabilitiesBloc;
   late AppsBloc _appsBloc;
-
-  Rect? _lastBounds;
 
   @override
   void initState() {
     super.initState();
 
-    _platform = Provider.of<NeonPlatform>(context, listen: false);
     _globalOptions = Provider.of<GlobalOptions>(context, listen: false);
-    final accountsBloc = RxBlocProvider.of<AccountsBloc>(context);
-    _appsBloc = accountsBloc.getAppsBloc(widget.account);
-
-    if (_platform.canUseSystemTray) {
-      tray.trayManager.addListener(this);
-    }
-    if (_platform.canUseWindowManager) {
-      windowManager.addListener(this);
-    }
+    _appsBloc = RxBlocProvider.of<AccountsBloc>(context).getAppsBloc(widget.account);
 
     _capabilitiesBloc = CapabilitiesBloc(
       Provider.of<RequestManager>(context, listen: false),
@@ -95,180 +81,6 @@ class _HomePageState extends State<HomePage> with tray.TrayListener, WindowListe
         }
       }
     });
-
-    WidgetsBinding.instance.addPostFrameCallback((final _) async {
-      final appImplementations = Provider.of<List<AppImplementation>>(context, listen: false);
-      if (_platform.canUseQuickActions) {
-        const quickActions = QuickActions();
-        await quickActions.setShortcutItems(
-          appImplementations
-              .map(
-                (final app) => ShortcutItem(
-                  type: 'app_${app.id}',
-                  localizedTitle: app.name(context),
-                  icon: 'app_${app.id}',
-                ),
-              )
-              .toList(),
-        );
-        await quickActions.initialize(_handleShortcut);
-      }
-
-      if (_platform.canUseWindowManager) {
-        await windowManager.setPreventClose(true);
-
-        if (_globalOptions.startupMinimized.value) {
-          await _saveAndMinimizeWindow();
-        }
-      }
-
-      if (_platform.canUseSystemTray) {
-        _globalOptions.systemTrayEnabled.stream.listen((final enabled) async {
-          if (enabled) {
-            // TODO: This works on Linux, but maybe not on macOS or Windows
-            await tray.trayManager.setIcon('assets/logo_neon.svg');
-            if (mounted) {
-              await tray.trayManager.setContextMenu(
-                tray.Menu(
-                  items: [
-                    for (final app in appImplementations) ...[
-                      tray.MenuItem(
-                        key: 'app_${app.id}',
-                        label: app.name(context),
-                        // TODO: Add icons which should work on macOS and Windows
-                      ),
-                    ],
-                    tray.MenuItem.separator(),
-                    tray.MenuItem(
-                      key: 'show_hide',
-                      label: AppLocalizations.of(context).showSlashHide,
-                    ),
-                    tray.MenuItem(
-                      key: 'exit',
-                      label: AppLocalizations.of(context).exit,
-                    ),
-                  ],
-                ),
-              );
-            }
-          } else {
-            await tray.trayManager.destroy();
-          }
-        });
-      }
-
-      Global.handleNotificationOpening = (final notification) async {
-        final allAppImplementations = Provider.of<List<AppImplementation>>(context, listen: false);
-        final matchingAppImplementations = allAppImplementations.where((final a) => a.id == notification.app);
-        if (matchingAppImplementations.isNotEmpty) {
-          _appsBloc.setActiveApp(notification.app);
-          return true;
-        }
-
-        return false;
-      };
-
-      if (_platform.canUsePushNotifications) {
-        final localNotificationsPlugin = await PushUtils.initLocalNotifications();
-        Global.onPushNotificationReceived = () async {
-          final appImplementation = Provider.of<List<AppImplementation>>(context, listen: false)
-              .singleWhere((final a) => a.id == 'notifications');
-          _appsBloc.getAppBloc<NotificationsBloc>(appImplementation).refresh();
-        };
-        Global.onPushNotificationClicked = (final payload) async {
-          if (payload != null) {
-            final notification = NotificationsPushNotification.fromJson(json.decode(payload) as Map<String, dynamic>);
-            debugPrint('onNotificationClicked: ${notification.subject}');
-
-            final allAppImplementations = Provider.of<List<AppImplementation>>(context, listen: false);
-
-            final matchingAppImplementations =
-                allAppImplementations.where((final a) => a.id == notification.subject.app);
-
-            late AppImplementation appImplementation;
-            if (matchingAppImplementations.isNotEmpty) {
-              appImplementation = matchingAppImplementations.single;
-            } else {
-              appImplementation = allAppImplementations.singleWhere((final a) => a.id == 'notifications');
-            }
-
-            if (appImplementation.id != 'notifications') {
-              _appsBloc.getAppBloc<NotificationsBloc>(appImplementation).deleteNotification(notification.subject.nid);
-            }
-            await _openAppFromExternal(appImplementation.id);
-          }
-        };
-
-        final details = await localNotificationsPlugin.getNotificationAppLaunchDetails();
-        if (details != null && details.didNotificationLaunchApp) {
-          await Global.onPushNotificationClicked!(details.notificationResponse?.payload);
-        }
-      }
-    });
-  }
-
-  @override
-  void onTrayMenuItemClick(final tray.MenuItem menuItem) {
-    if (menuItem.key != null) {
-      unawaited(_handleShortcut(menuItem.key!));
-    }
-  }
-
-  @override
-  Future onWindowClose() async {
-    if (_globalOptions.startupMinimizeInsteadOfExit.value) {
-      await _saveAndMinimizeWindow();
-    } else {
-      await windowManager.destroy();
-    }
-  }
-
-  Future _handleShortcut(final String shortcutType) async {
-    if (shortcutType == 'show_hide') {
-      if (_platform.canUseWindowManager) {
-        if (await windowManager.isVisible()) {
-          await _saveAndMinimizeWindow();
-        } else {
-          await _showAndRestoreWindow();
-        }
-      }
-      return;
-    }
-    if (shortcutType == 'exit') {
-      exit(0);
-    }
-
-    final matches = _appRegex.allMatches(shortcutType).toList();
-    if (matches.isNotEmpty) {
-      await _openAppFromExternal(matches[0].group(1)!);
-      return;
-    }
-  }
-
-  Future _openAppFromExternal(final String id) async {
-    _appsBloc.setActiveApp(id);
-    Navigator.of(context).popUntil((final route) => route.settings.name == 'home');
-    if (_platform.canUseWindowManager) {
-      await _showAndRestoreWindow();
-    }
-  }
-
-  Future _saveAndMinimizeWindow() async {
-    _lastBounds = await windowManager.getBounds();
-    if (_globalOptions.systemTrayEnabled.value && _globalOptions.systemTrayHideToTrayWhenMinimized.value) {
-      await windowManager.hide();
-    } else {
-      await windowManager.minimize();
-    }
-  }
-
-  Future _showAndRestoreWindow() async {
-    final wasVisible = await windowManager.isVisible();
-    await windowManager.show();
-    await windowManager.focus();
-    if (_lastBounds != null && !wasVisible) {
-      await windowManager.setBounds(_lastBounds);
-    }
   }
 
   Future _showUnsupportedVersion(final String appName) async {
@@ -303,15 +115,6 @@ class _HomePageState extends State<HomePage> with tray.TrayListener, WindowListe
   @override
   void dispose() {
     _capabilitiesBloc.dispose();
-    _appsBloc.dispose();
-
-    if (_platform.canUseSystemTray) {
-      tray.trayManager.removeListener(this);
-    }
-    if (_platform.canUseWindowManager) {
-      windowManager.removeListener(this);
-    }
-
     super.dispose();
   }
 

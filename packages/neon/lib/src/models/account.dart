@@ -81,3 +81,15 @@ extension NextcloudClientHelpers on NextcloudClient {
     return '${username!}@${uri.port != 443 ? '${uri.host}:${uri.port}' : uri.host}';
   }
 }
+
+extension AccountFind on List<Account> {
+  Account? find(final String accountID) {
+    for (final account in this) {
+      if (account.id == accountID) {
+        return account;
+      }
+    }
+
+    return null;
+  }
+}
