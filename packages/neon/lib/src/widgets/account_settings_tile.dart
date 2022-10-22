@@ -1,4 +1,4 @@
-part of '../../../neon.dart';
+part of '../neon.dart';
 
 class AccountSettingsTile extends SettingsTile {
   const AccountSettingsTile({

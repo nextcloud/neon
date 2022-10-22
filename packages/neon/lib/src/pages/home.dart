@@ -1,4 +1,4 @@
-part of '../../neon.dart';
+part of '../neon.dart';
 
 const kQuickBarWidth = kAvatarSize + 20;
 
@@ -511,7 +511,7 @@ class _HomePageState extends State<HomePage> {
                                       onPressed: () async {
                                         await Navigator.of(context).push(
                                           MaterialPageRoute(
-                                            builder: (final context) => AccountSpecificSettingsPage(
+                                            builder: (final context) => AccountSettingsPage(
                                               bloc: accountsBloc,
                                               account: account,
                                             ),

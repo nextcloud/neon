@@ -1,7 +1,7 @@
-part of '../../neon.dart';
+part of '../neon.dart';
 
-class NextcloudAppSpecificSettingsPage extends StatelessWidget {
-  const NextcloudAppSpecificSettingsPage({
+class NextcloudAppSettingsPage extends StatelessWidget {
+  const NextcloudAppSettingsPage({
     required this.appImplementation,
     super.key,
   });

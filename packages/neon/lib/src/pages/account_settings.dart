@@ -1,7 +1,7 @@
-part of '../../neon.dart';
+part of '../neon.dart';
 
-class AccountSpecificSettingsPage extends StatelessWidget {
-  AccountSpecificSettingsPage({
+class AccountSettingsPage extends StatelessWidget {
+  AccountSettingsPage({
     required this.bloc,
     required this.account,
     super.key,
