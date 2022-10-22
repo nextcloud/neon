@@ -40,8 +40,12 @@ class PushUtils {
 
     final localNotificationsPlugin = await initLocalNotifications(
       onDidReceiveNotificationResponse: (final notification) async {
-        if (Global.onPushNotificationClicked != null) {
-          await Global.onPushNotificationClicked!(notification.payload);
+        if (Global.onPushNotificationClicked != null && notification.payload != null) {
+          await Global.onPushNotificationClicked!(
+            PushNotificationWithAccountID.fromJson(
+              json.decode(notification.payload!) as Map<String, dynamic>,
+            ),
+          );
         }
       },
     );
@@ -69,9 +73,7 @@ class PushUtils {
       return;
     }
 
-    final parts =
-        (await findSystemLocale()).split('_').map((final a) => a.split('.')).reduce((final a, final b) => [...a, ...b]);
-    final localizations = await AppLocalizations.delegate.load(Locale(parts[0], parts.length > 1 ? parts[1] : null));
+    final localizations = await appLocalizationsFromSystem();
 
     final platform = await getNeonPlatform();
     final cache = Cache(platform);
@@ -112,10 +114,15 @@ class PushUtils {
           urgency: notification.type == 'voip' ? LinuxNotificationUrgency.critical : LinuxNotificationUrgency.normal,
         ),
       ),
-      payload: json.encode(notification.toJson()),
+      payload: json.encode(
+        PushNotificationWithAccountID(
+          notification: notification,
+          accountID: instance,
+        ).toJson(),
+      ),
     );
 
-    Global.onPushNotificationReceived?.call();
+    Global.onPushNotificationReceived?.call(instance);
   }
 
   static int _getNotificationID(

@@ -64,28 +64,23 @@ class AppsBloc extends $AppsBloc {
           result.data != null ? _filteredAppImplementations(result.data!) : <AppImplementation>[];
 
       if (result.data != null) {
-        if (_accountsBloc.pushNotificationApp != null) {
-          setActiveApp(_accountsBloc.pushNotificationApp);
-          _accountsBloc.pushNotificationApp = null;
-        } else {
-          final options = _accountsBloc.getOptions(_account);
-          unawaited(
-            options.initialApp.stream.first.then((var initialApp) {
-              if (initialApp == null) {
-                if (appImplementations.where((final a) => a.id == 'files').isNotEmpty) {
-                  initialApp = 'files';
-                } else if (appImplementations.isNotEmpty) {
-                  // This should never happen, because the files app is always installed and can not be removed, but just in
-                  // case this changes at a later point.
-                  initialApp = appImplementations[0].id;
-                }
+        final options = _accountsBloc.getOptions(_account);
+        unawaited(
+          options.initialApp.stream.first.then((var initialApp) async {
+            if (initialApp == null) {
+              if (appImplementations.where((final a) => a.id == 'files').isNotEmpty) {
+                initialApp = 'files';
+              } else if (appImplementations.isNotEmpty) {
+                // This should never happen, because the files app is always installed and can not be removed, but just in
+                // case this changes at a later point.
+                initialApp = appImplementations[0].id;
               }
-              if (!_activeAppSubject.hasValue) {
-                setActiveApp(initialApp);
-              }
-            }),
-          );
-        }
+            }
+            if (!_activeAppSubject.hasValue) {
+              setActiveApp(initialApp);
+            }
+          }),
+        );
       }
     });
 
@@ -120,17 +115,14 @@ class AppsBloc extends $AppsBloc {
   final _appImplementationsSubject = BehaviorSubject<Result<List<AppImplementation>>>();
   late final _activeAppSubject = BehaviorSubject<String?>();
 
-  final Map<AppImplementation, RxBlocBase> _blocs = {};
+  final Map<String, RxBlocBase> _blocs = {};
 
   T getAppBloc<T extends RxBlocBase>(final AppImplementation appImplementation) {
-    if (_blocs[appImplementation] != null) {
-      return _blocs[appImplementation]! as T;
+    if (_blocs[appImplementation.id] != null) {
+      return _blocs[appImplementation.id]! as T;
     }
 
-    final bloc = appImplementation.buildBloc(_account.client);
-    _blocs[appImplementation] = bloc;
-
-    return bloc as T;
+    return _blocs[appImplementation.id] = appImplementation.buildBloc(_account.client) as T;
   }
 
   @override

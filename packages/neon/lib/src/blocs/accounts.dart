@@ -129,11 +129,35 @@ class AccountsBloc extends $AccountsBloc {
     if (_accountsAppsBlocs[account.id] != null) {
       return _accountsAppsBlocs[account.id]!;
     }
-    return AppsBloc(
+
+    return _accountsAppsBlocs[account.id] = AppsBloc(
       _requestManager,
       this,
       account,
       _allAppImplementations,
+    );
+  }
+
+  UserDetailsBloc getUserDetailsBloc(final Account account) {
+    if (_userDetailsBlocs[account] != null) {
+      return _userDetailsBlocs[account]!;
+    }
+
+    return _userDetailsBlocs[account.id] = UserDetailsBloc(
+      _requestManager,
+      account.client,
+    );
+  }
+
+  UserStatusBloc getUserStatusBloc(final Account account) {
+    if (_userStatusBlocs[account] != null) {
+      return _userStatusBlocs[account]!;
+    }
+
+    return _userStatusBlocs[account.id] = UserStatusBloc(
+      _requestManager,
+      account,
+      _activeAccountSubject,
     );
   }
 
@@ -147,35 +171,12 @@ class AccountsBloc extends $AccountsBloc {
   final _keyLastUsedAccount = 'last-used-account';
 
   final _accountsOptions = <String, AccountSpecificOptions>{};
-  final _accountsAppsBlocs = <String, AppsBloc>{};
   late final _activeAccountSubject = BehaviorSubject<Account?>.seeded(null);
   late final _accountsSubject = BehaviorSubject<List<Account>>.seeded([]);
-  String? pushNotificationApp;
 
-  final Map<Account, UserDetailsBloc> _userDetailsBlocs = {};
-  final Map<Account, UserStatusBloc> _userStatusBlocs = {};
-
-  UserDetailsBloc getUserDetailsBloc(final Account account) {
-    if (_userDetailsBlocs[account] != null) {
-      return _userDetailsBlocs[account]!;
-    }
-
-    final bloc = UserDetailsBloc(_requestManager, account.client);
-    _userDetailsBlocs[account] = bloc;
-
-    return bloc;
-  }
-
-  UserStatusBloc getUserStatusBloc(final Account account) {
-    if (_userStatusBlocs[account] != null) {
-      return _userStatusBlocs[account]!;
-    }
-
-    final bloc = UserStatusBloc(_requestManager, account, _activeAccountSubject);
-    _userStatusBlocs[account] = bloc;
-
-    return bloc;
-  }
+  final _accountsAppsBlocs = <String, AppsBloc>{};
+  final _userDetailsBlocs = <String, UserDetailsBloc>{};
+  final _userStatusBlocs = <String, UserStatusBloc>{};
 
   @override
   void dispose() {

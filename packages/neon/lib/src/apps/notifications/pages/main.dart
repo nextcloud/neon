@@ -103,7 +103,12 @@ class _NotificationsMainPageState extends State<NotificationsMainPage> {
               ),
             ),
       onTap: () async {
-        if (!(await Global.handleNotificationOpening!(notification))) {
+        final allAppImplementations = Provider.of<List<AppImplementation>>(context, listen: false);
+        final matchingAppImplementations = allAppImplementations.where((final a) => a.id == notification.app);
+        if (matchingAppImplementations.isNotEmpty) {
+          final accountsBloc = RxBlocProvider.of<AccountsBloc>(context);
+          accountsBloc.getAppsBloc(accountsBloc.activeAccount.value!).setActiveApp(notification.app);
+        } else {
           await showDialog(
             context: context,
             builder: (final context) => AlertDialog(
