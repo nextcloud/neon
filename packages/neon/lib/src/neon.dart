@@ -56,11 +56,11 @@ import 'package:window_manager/window_manager.dart';
 import 'package:xdg_directories/xdg_directories.dart' as xdg;
 
 part 'app.dart';
-part 'pages/home/home.dart';
-part 'pages/login/login.dart';
-part 'pages/settings/account_specific_settings.dart';
-part 'pages/settings/nextcloud_app_specific_settings.dart';
-part 'pages/settings/settings.dart';
+part 'pages/home.dart';
+part 'pages/login.dart';
+part 'pages/account_settings.dart';
+part 'pages/nextcloud_app_settings.dart';
+part 'pages/settings.dart';
 part 'platform/abstract.dart';
 part 'platform/android.dart';
 part 'platform/linux.dart';

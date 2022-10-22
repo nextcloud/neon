@@ -1,4 +1,4 @@
-part of '../../neon.dart';
+part of '../neon.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({

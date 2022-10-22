@@ -1,3 +1,6 @@
+// ignore_for_file: use_late_for_private_fields_and_variables
+// ^ This is a really strange false positive, it goes of at a very random place without any meaning. Hopefully fixed soon?
+
 part of '../neon.dart';
 
 class TextSettingsTile extends SettingsTile {

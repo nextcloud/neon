@@ -1,4 +1,4 @@
-part of '../../neon.dart';
+part of '../neon.dart';
 
 class SettingsPage extends StatefulWidget {
   const SettingsPage({
@@ -85,7 +85,7 @@ class _SettingsPageState extends State<SettingsPage> {
                             onTap: () async {
                               await Navigator.of(context).push(
                                 MaterialPageRoute(
-                                  builder: (final context) => NextcloudAppSpecificSettingsPage(
+                                  builder: (final context) => NextcloudAppSettingsPage(
                                     appImplementation: appImplementation,
                                   ),
                                 ),
@@ -193,7 +193,7 @@ class _SettingsPageState extends State<SettingsPage> {
                             onTap: () async {
                               await Navigator.of(context).push(
                                 MaterialPageRoute(
-                                  builder: (final context) => AccountSpecificSettingsPage(
+                                  builder: (final context) => AccountSettingsPage(
                                     bloc: accountsBloc,
                                     account: account,
                                   ),
