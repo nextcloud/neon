@@ -3831,7 +3831,7 @@ class UserStatusClient {
     throw ApiException.fromResponse(response); // coverage:ignore-line
   }
 
-  Future heartbeat({required UserStatusType status}) async {
+  Future<UserStatus> heartbeat({required UserStatusType status}) async {
     var path = '/ocs/v1.php/apps/user_status/api/v1/heartbeat';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{};
@@ -3844,7 +3844,7 @@ class UserStatusClient {
       body,
     );
     if (response.statusCode == 200) {
-      return;
+      return UserStatus.fromJson(json.decode(utf8.decode(response.body)) as Map<String, dynamic>);
     }
     throw ApiException.fromResponse(response); // coverage:ignore-line
   }
