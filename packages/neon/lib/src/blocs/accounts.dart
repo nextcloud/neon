@@ -139,8 +139,8 @@ class AccountsBloc extends $AccountsBloc {
   }
 
   UserDetailsBloc getUserDetailsBloc(final Account account) {
-    if (_userDetailsBlocs[account] != null) {
-      return _userDetailsBlocs[account]!;
+    if (_userDetailsBlocs[account.id] != null) {
+      return _userDetailsBlocs[account.id]!;
     }
 
     return _userDetailsBlocs[account.id] = UserDetailsBloc(
@@ -150,8 +150,8 @@ class AccountsBloc extends $AccountsBloc {
   }
 
   UserStatusBloc getUserStatusBloc(final Account account) {
-    if (_userStatusBlocs[account] != null) {
-      return _userStatusBlocs[account]!;
+    if (_userStatusBlocs[account.id] != null) {
+      return _userStatusBlocs[account.id]!;
     }
 
     return _userStatusBlocs[account.id] = UserStatusBloc(
