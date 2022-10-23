@@ -115,6 +115,7 @@ Future pumpAppPage(
 
   final accountsBloc = AccountsBloc(
     requestManager,
+    platform,
     Storage('accounts', sharedPreferences),
     sharedPreferences,
     globalOptions,

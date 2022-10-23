@@ -1,11 +1,11 @@
 import 'dart:async';
 
-import 'package:flutter/foundation.dart';
 import 'package:neon/src/models/account.dart';
 import 'package:neon/src/neon.dart';
 import 'package:nextcloud/nextcloud.dart';
 import 'package:rx_bloc/rx_bloc.dart';
 import 'package:rxdart/rxdart.dart';
+import 'package:window_manager/window_manager.dart';
 
 part 'user_status.rxb.g.dart';
 
@@ -19,67 +19,47 @@ abstract class UserStatusBlocStates {
 class UserStatusBloc extends $UserStatusBloc {
   UserStatusBloc(
     this._requestManager,
+    this._platform,
     this._account,
-    this._activeAccountStream,
   ) {
-    _activeAccountStreamSubscription = _activeAccountStream.listen((final activeAccount) {
-      _cancelTimer();
-      final thisAccountActive = activeAccount == _account;
-      _timer = instantPeriodicTimer(
-        const Duration(minutes: 5),
-        (final _) async {
-          if (thisAccountActive) {
-            await _heartbeat();
-          }
-          _loadUserStatus();
-        },
-      );
-    });
-  }
-
-  void _loadUserStatus() {
-    // TODO: Fix for no user status
-    _requestManager
-        .wrapNextcloud<UserStatus?, UserStatusGetUserStatus>(
-          _account.client.id,
-          'user-status',
-          () async => _account.client.userStatus.getStatus(),
-          (final response) => response.ocs.data.userStatus,
-          previousData: _userStatusSubject.valueOrNull?.data,
-        )
-        .listen(_userStatusSubject.add);
+    _timer = instantPeriodicTimer(
+      const Duration(minutes: 5),
+      (final _) async {
+        await _heartbeat();
+      },
+    );
   }
 
   Future _heartbeat() async {
-    return;
-
-    // TODO: https://github.com/jld3103/nextcloud-neon/issues/10
-    // ignore: dead_code
-    try {
-      await _account.client.userStatus.heartbeat(status: UserStatusType.online);
-    } catch (e) {
-      debugPrint(e.toString());
-    }
-  }
-
-  void _cancelTimer() {
-    if (_timer != null) {
-      _timer!.cancel();
-      _timer = null;
-    }
+    final isAway =
+        _platform.canUseWindowManager && (!(await windowManager.isFocused()) || !(await windowManager.isVisible()));
+    _requestManager.wrapWithoutCache(
+      () async {
+        try {
+          return await _account.client.userStatus.heartbeat(
+            status: isAway ? UserStatusType.away : UserStatusType.online,
+          );
+        } on ApiException catch (e) {
+          if (e.statusCode == 204) {
+            return null;
+          }
+          rethrow;
+        }
+      },
+    ).listen(_userStatusSubject.add);
   }
 
   final RequestManager _requestManager;
+  final NeonPlatform _platform;
   final Account _account;
-  final BehaviorSubject<Account?> _activeAccountStream;
   late final StreamSubscription<Account?> _activeAccountStreamSubscription;
-  Timer? _timer;
+  late Timer _timer;
 
   final _userStatusSubject = BehaviorSubject<Result<UserStatus?>>();
 
   @override
   void dispose() {
-    _cancelTimer();
+    _timer.cancel();
     unawaited(_activeAccountStreamSubscription.cancel());
     unawaited(_userStatusSubject.close());
     super.dispose();
