@@ -225,6 +225,11 @@ class _NeonAppState extends State<NeonApp> with WidgetsBindingObserver, tray.Tra
     }
   }
 
+  @override
+  Future onWindowMinimize() async {
+    await _saveAndMinimizeWindow();
+  }
+
   Future _handleShortcut(final String shortcutType) async {
     if (shortcutType == 'show_hide') {
       if (_platform.canUseWindowManager) {
