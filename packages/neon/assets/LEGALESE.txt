@@ -1,2 +1,2 @@
 Copyright © 2022, jld3103
-Under BSD-3 license
+Under GPLv3 license
