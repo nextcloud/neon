@@ -8,7 +8,7 @@ import 'package:nextcloud/nextcloud.dart';
 import 'package:process_run/cmd_run.dart';
 import 'package:test/test.dart';
 
-const String nextcloudVersion = '24.0.6';
+const String nextcloudVersion = '25.0.0';
 const String defaultUsername = 'user1';
 const String defaultPassword = 'user1';
 
@@ -250,8 +250,6 @@ class TestDockerHelper {
       'RUN ./occ maintenance:install --admin-pass admin --admin-email admin@example.com',
       'RUN ./occ app:disable password_policy',
       'RUN ./occ config:system:set allow_local_remote_servers --value=true',
-      'RUN sed -i "s/localhost/host.docker.internal/" /usr/src/nextcloud/apps/notifications/lib/Controller/PushController.php',
-      'ADD overlay /usr/src/nextcloud/',
       generateCreateTestUserInstruction(),
       if (apps != null) ...[
         for (final app in apps) ...[

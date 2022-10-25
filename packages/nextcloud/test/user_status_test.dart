@@ -158,18 +158,16 @@ Future main() async {
     });
 
     test('Heartbeat', () async {
-      await client.userStatus.heartbeat(status: UserStatusType.online);
-
-      final response = await client.userStatus.getStatus();
-      expect(response.ocs.data.userStatus!.userId, 'user1');
-      expect(response.ocs.data.userStatus!.message, null);
-      expect(response.ocs.data.userStatus!.messageId, null);
-      expect(response.ocs.data.userStatus!.messageIsPredefined, false);
-      expect(response.ocs.data.userStatus!.icon, null);
-      expect(response.ocs.data.userStatus!.clearAt.userStatusClearAt, null);
-      expect(response.ocs.data.userStatus!.clearAt.int_, null);
-      expect(response.ocs.data.userStatus!.status, UserStatusType.online);
-      expect(response.ocs.data.userStatus!.statusIsUserDefined, false);
+      final response = await client.userStatus.heartbeat(status: UserStatusType.online);
+      expect(response.userId, 'user1');
+      expect(response.message, null);
+      expect(response.messageId, null);
+      expect(response.messageIsPredefined, false);
+      expect(response.icon, null);
+      expect(response.clearAt.userStatusClearAt, null);
+      expect(response.clearAt.int_, null);
+      expect(response.status, UserStatusType.online);
+      expect(response.statusIsUserDefined, false);
     });
   });
 }

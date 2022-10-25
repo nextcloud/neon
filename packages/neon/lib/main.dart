@@ -42,6 +42,7 @@ Future main() async {
 
   final accountsBloc = AccountsBloc(
     requestManager,
+    platform,
     Storage('accounts', sharedPreferences),
     sharedPreferences,
     globalOptions,

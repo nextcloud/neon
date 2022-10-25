@@ -209,6 +209,8 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_Core {
   CoreServerCapabilities_Ocs_Data_Capabilities_Core({
     required this.pollinterval,
     required this.webdavRoot,
+    required this.referenceApi,
+    required this.referenceRegex,
   });
 
   factory CoreServerCapabilities_Ocs_Data_Capabilities_Core.fromJson(Map<String, dynamic> json) =>
@@ -218,6 +220,12 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_Core {
 
   @JsonKey(name: 'webdav-root')
   final String webdavRoot;
+
+  @JsonKey(name: 'reference-api')
+  final bool referenceApi;
+
+  @JsonKey(name: 'reference-regex')
+  final String referenceRegex;
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreServerCapabilities_Ocs_Data_Capabilities_CoreToJson(this);
@@ -560,10 +568,15 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_Ocm {
 
 @JsonSerializable()
 class CoreServerCapabilities_Ocs_Data_Capabilities_Dav {
-  CoreServerCapabilities_Ocs_Data_Capabilities_Dav({required this.chunking});
+  CoreServerCapabilities_Ocs_Data_Capabilities_Dav({
+    this.bulkupload,
+    required this.chunking,
+  });
 
   factory CoreServerCapabilities_Ocs_Data_Capabilities_Dav.fromJson(Map<String, dynamic> json) =>
       _$CoreServerCapabilities_Ocs_Data_Capabilities_DavFromJson(json);
+
+  final String? bulkupload;
 
   final String chunking;
 
@@ -1581,6 +1594,28 @@ class CoreClient {
     queryParameters['a'] = a.toString();
     queryParameters['forceIcon'] = forceIcon.toString();
     queryParameters['mode'] = mode.toString();
+    final response = await rootClient.doRequest(
+      'get',
+      Uri(path: path, queryParameters: queryParameters).toString(),
+      headers,
+      body,
+    );
+    if (response.statusCode == 200) {
+      return response.body;
+    }
+    throw ApiException.fromResponse(response); // coverage:ignore-line
+  }
+
+  Future<Uint8List> getDarkAvatar({
+    required String userId,
+    required int size,
+  }) async {
+    var path = '/avatar/{userId}/{size}/dark';
+    final queryParameters = <String, dynamic>{};
+    final headers = <String, String>{};
+    Uint8List? body;
+    path = path.replaceAll('{userId}', Uri.encodeQueryComponent(userId.toString()));
+    path = path.replaceAll('{size}', Uri.encodeQueryComponent(size.toString()));
     final response = await rootClient.doRequest(
       'get',
       Uri(path: path, queryParameters: queryParameters).toString(),
@@ -3818,7 +3853,7 @@ class UserStatusClient {
     throw ApiException.fromResponse(response); // coverage:ignore-line
   }
 
-  Future heartbeat({required UserStatusType status}) async {
+  Future<UserStatus> heartbeat({required UserStatusType status}) async {
     var path = '/ocs/v1.php/apps/user_status/api/v1/heartbeat';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{};
@@ -3831,7 +3866,7 @@ class UserStatusClient {
       body,
     );
     if (response.statusCode == 200) {
-      return;
+      return UserStatus.fromJson(json.decode(utf8.decode(response.body)) as Map<String, dynamic>);
     }
     throw ApiException.fromResponse(response); // coverage:ignore-line
   }

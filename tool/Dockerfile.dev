@@ -1,4 +1,4 @@
-FROM nextcloud:24.0.6
+FROM nextcloud:25.0.0
 WORKDIR /usr/src/nextcloud
 RUN chown -R www-data:www-data .
 USER www-data
@@ -7,9 +7,6 @@ RUN ./occ maintenance:install --admin-pass admin --admin-email admin@example.com
 RUN ./occ app:disable password_policy
 RUN ./occ config:system:set allow_local_remote_servers --value=true
 RUN ./occ config:system:set trusted_domains 1 --value=10.0.2.2
-
-RUN sed -i "s/localhost/host.docker.internal/" /usr/src/nextcloud/apps/notifications/lib/Controller/PushController.php
-ADD overlay /usr/src/nextcloud/
 
 RUN OC_PASS="user1" ./occ user:add --password-from-env --display-name "User One" user1
 RUN OC_PASS="user2" ./occ user:add --password-from-env --display-name "User Two" user2

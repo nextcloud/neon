@@ -2,7 +2,7 @@
   "openapi": "3.1.0",
   "info": {
     "title": "Core",
-    "version": "24.0.6",
+    "version": "25.0.0",
     "description": "Core functionality of Nextcloud",
     "license": {
       "name": "agpl",
@@ -168,13 +168,21 @@
                         "type": "object",
                         "required": [
                           "pollinterval",
-                          "webdav-root"
+                          "webdav-root",
+                          "reference-api",
+                          "reference-regex"
                         ],
                         "properties": {
                           "pollinterval": {
                             "type": "integer"
                           },
                           "webdav-root": {
+                            "type": "string"
+                          },
+                          "reference-api": {
+                            "type": "boolean"
+                          },
+                          "reference-regex": {
                             "type": "string"
                           }
                         }
@@ -452,6 +460,9 @@
                           "chunking"
                         ],
                         "properties": {
+                          "bulkupload": {
+                            "type": "string"
+                          },
                           "chunking": {
                             "type": "string"
                           }
@@ -1237,6 +1248,45 @@
         "responses": {
           "200": {
             "description": "Preview image of a file",
+            "content": {
+              "image/png": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/avatar/{userId}/{size}/dark": {
+      "parameters": [
+        {
+          "name": "userId",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "size",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "integer"
+          }
+        }
+      ],
+      "get": {
+        "operationId": "get-dark-avatar",
+        "tags": [
+          "core"
+        ],
+        "responses": {
+          "200": {
+            "description": "",
             "content": {
               "image/png": {
                 "schema": {

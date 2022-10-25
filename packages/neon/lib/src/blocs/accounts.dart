@@ -29,6 +29,7 @@ abstract class AccountsBlocStates {
 class AccountsBloc extends $AccountsBloc {
   AccountsBloc(
     this._requestManager,
+    this._platform,
     this._storage,
     this._sharedPreferences,
     this._globalOptions,
@@ -156,12 +157,13 @@ class AccountsBloc extends $AccountsBloc {
 
     return _userStatusBlocs[account.id] = UserStatusBloc(
       _requestManager,
+      _platform,
       account,
-      _activeAccountSubject,
     );
   }
 
   final RequestManager _requestManager;
+  final NeonPlatform _platform;
   final Storage _storage;
   final SharedPreferences _sharedPreferences;
   final GlobalOptions _globalOptions;
