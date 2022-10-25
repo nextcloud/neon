@@ -1606,6 +1606,28 @@ class CoreClient {
     throw ApiException.fromResponse(response); // coverage:ignore-line
   }
 
+  Future<Uint8List> getDarkAvatar({
+    required String userId,
+    required int size,
+  }) async {
+    var path = '/avatar/{userId}/{size}/dark';
+    final queryParameters = <String, dynamic>{};
+    final headers = <String, String>{};
+    Uint8List? body;
+    path = path.replaceAll('{userId}', Uri.encodeQueryComponent(userId.toString()));
+    path = path.replaceAll('{size}', Uri.encodeQueryComponent(size.toString()));
+    final response = await rootClient.doRequest(
+      'get',
+      Uri(path: path, queryParameters: queryParameters).toString(),
+      headers,
+      body,
+    );
+    if (response.statusCode == 200) {
+      return response.body;
+    }
+    throw ApiException.fromResponse(response); // coverage:ignore-line
+  }
+
   Future<Uint8List> getAvatar({
     required String userId,
     required int size,

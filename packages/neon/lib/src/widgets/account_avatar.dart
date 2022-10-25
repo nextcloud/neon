@@ -12,6 +12,7 @@ class AccountAvatar extends StatelessWidget {
 
   @override
   Widget build(final BuildContext context) {
+    final isDark = Theme.of(context).brightness == Brightness.dark;
     final size = (kAvatarSize * MediaQuery.of(context).devicePixelRatio).toInt();
     return Stack(
       alignment: Alignment.center,
@@ -21,11 +22,20 @@ class AccountAvatar extends StatelessWidget {
           child: ClipOval(
             child: CachedAPIImage(
               account: account,
-              cacheKey: 'avatar-${account.id}-$size',
-              download: () async => account.client.core.getAvatar(
-                userId: account.username,
-                size: size,
-              ),
+              cacheKey: 'avatar-${account.id}-${isDark ? 'dark' : 'light'}$size',
+              download: () async {
+                if (isDark) {
+                  return account.client.core.getDarkAvatar(
+                    userId: account.username,
+                    size: size,
+                  );
+                } else {
+                  return account.client.core.getAvatar(
+                    userId: account.username,
+                    size: size,
+                  );
+                }
+              },
             ),
           ),
         ),

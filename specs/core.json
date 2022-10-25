@@ -1260,6 +1260,45 @@
         }
       }
     },
+    "/avatar/{userId}/{size}/dark": {
+      "parameters": [
+        {
+          "name": "userId",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "size",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "integer"
+          }
+        }
+      ],
+      "get": {
+        "operationId": "get-dark-avatar",
+        "tags": [
+          "core"
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "image/png": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/avatar/{userId}/{size}": {
       "parameters": [
         {
