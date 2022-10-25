@@ -29,4 +29,4 @@ function cleanup() {
   rm packages/neon/assets/.env
 }
 trap cleanup EXIT
-docker run --rm -v nextcloud-neon-dev:/usr/src/nextcloud -p "80:80" --add-host host.docker.internal:host-gateway nextcloud-neon-dev
+docker run --rm -v nextcloud-neon-dev:/usr/src/nextcloud -v nextcloud-neon-dev:/var/www/html -p "80:80" --add-host host.docker.internal:host-gateway nextcloud-neon-dev
