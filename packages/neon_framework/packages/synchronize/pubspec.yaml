@@ -1,0 +1,19 @@
+name: synchronize
+version: 1.0.0
+resolution: workspace
+
+environment:
+  sdk: ^3.5.0
+
+dependencies:
+  collection: ^1.0.0
+  json_annotation: ^4.9.0
+  meta: ^1.0.0
+
+dev_dependencies:
+  build_runner: ^2.4.13
+  crypto: ^3.0.0
+  json_serializable: ^6.8.0
+  neon_lints:
+    path: ../../../neon_lints
+  test: ^1.25.15
