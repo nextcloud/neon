@@ -43,9 +43,6 @@ abstract class $NewsArticlesBloc extends RxBlocBase
   /// The state of [filterType] implemented in [_mapToFilterTypeState]
   late final BehaviorSubject<FilterType> _filterTypeState = _mapToFilterTypeState();
 
-  /// The state of [articleUpdate] implemented in [_mapToArticleUpdateState]
-  late final Stream<NewsArticle> _articleUpdateState = _mapToArticleUpdateState();
-
   /// The state of [errors] implemented in [_mapToErrorsState]
   late final Stream<Exception> _errorsState = _mapToErrorsState();
 
@@ -74,16 +71,11 @@ abstract class $NewsArticlesBloc extends RxBlocBase
   BehaviorSubject<FilterType> get filterType => _filterTypeState;
 
   @override
-  Stream<NewsArticle> get articleUpdate => _articleUpdateState;
-
-  @override
   Stream<Exception> get errors => _errorsState;
 
   BehaviorSubject<Result<List<NewsArticle>>> _mapToArticlesState();
 
   BehaviorSubject<FilterType> _mapToFilterTypeState();
-
-  Stream<NewsArticle> _mapToArticleUpdateState();
 
   Stream<Exception> _mapToErrorsState();
 

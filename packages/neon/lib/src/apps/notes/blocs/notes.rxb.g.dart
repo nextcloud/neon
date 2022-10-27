@@ -33,9 +33,6 @@ abstract class $NotesBloc extends RxBlocBase implements NotesBlocEvents, NotesBl
   /// The state of [notes] implemented in [_mapToNotesState]
   late final BehaviorSubject<Result<List<NotesNote>>> _notesState = _mapToNotesState();
 
-  /// The state of [noteUpdate] implemented in [_mapToNoteUpdateState]
-  late final Stream<NotesNote> _noteUpdateState = _mapToNoteUpdateState();
-
   /// The state of [errors] implemented in [_mapToErrorsState]
   late final Stream<Exception> _errorsState = _mapToErrorsState();
 
@@ -77,14 +74,9 @@ abstract class $NotesBloc extends RxBlocBase implements NotesBlocEvents, NotesBl
   BehaviorSubject<Result<List<NotesNote>>> get notes => _notesState;
 
   @override
-  Stream<NotesNote> get noteUpdate => _noteUpdateState;
-
-  @override
   Stream<Exception> get errors => _errorsState;
 
   BehaviorSubject<Result<List<NotesNote>>> _mapToNotesState();
-
-  Stream<NotesNote> _mapToNoteUpdateState();
 
   Stream<Exception> _mapToErrorsState();
 

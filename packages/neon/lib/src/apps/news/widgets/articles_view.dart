@@ -222,8 +222,13 @@ class _NewsArticlesViewState extends State<NewsArticlesView> {
             await Navigator.of(context).push(
               MaterialPageRoute(
                 builder: (final context) => NewsArticlePage(
-                  bloc: bloc,
-                  article: article,
+                  bloc: NewsArticleBloc(
+                    Provider.of<RequestManager>(context, listen: false),
+                    RxBlocProvider.of<AccountsBloc>(context).activeAccount.value!.client,
+                    widget.bloc,
+                    article,
+                  ),
+                  articlesBloc: widget.bloc,
                   useWebView: false,
                   bodyData: bodyData,
                 ),
@@ -234,8 +239,13 @@ class _NewsArticlesViewState extends State<NewsArticlesView> {
             await Navigator.of(context).push(
               MaterialPageRoute(
                 builder: (final context) => NewsArticlePage(
-                  bloc: bloc,
-                  article: article,
+                  bloc: NewsArticleBloc(
+                    Provider.of<RequestManager>(context, listen: false),
+                    RxBlocProvider.of<AccountsBloc>(context).activeAccount.value!.client,
+                    widget.bloc,
+                    article,
+                  ),
+                  articlesBloc: widget.bloc,
                   useWebView: true,
                 ),
               ),

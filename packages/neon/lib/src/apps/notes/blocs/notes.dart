@@ -32,8 +32,6 @@ abstract class NotesBlocEvents {
 abstract class NotesBlocStates {
   BehaviorSubject<Result<List<NotesNote>>> get notes;
 
-  Stream<NotesNote> get noteUpdate;
-
   Stream<Exception> get errors;
 }
 
@@ -57,15 +55,13 @@ class NotesBloc extends $NotesBloc {
 
     _$updateNoteEvent.listen((final event) {
       _wrapAction(
-        () async => _noteUpdateController.add(
-          await client.notes.updateNote(
-            id: event.id,
-            title: event.title,
-            category: event.category,
-            content: event.content,
-            favorite: event.favorite ?? false ? 1 : 0,
-            ifMatch: '"${event.etag}"',
-          ),
+        () async => client.notes.updateNote(
+          id: event.id,
+          title: event.title,
+          category: event.category,
+          content: event.content,
+          favorite: event.favorite ?? false ? 1 : 0,
+          ifMatch: '"${event.etag}"',
         ),
       );
     });
@@ -102,7 +98,6 @@ class NotesBloc extends $NotesBloc {
   final NextcloudClient client;
 
   final _notesSubject = BehaviorSubject<Result<List<NotesNote>>>();
-  final _noteUpdateController = StreamController<NotesNote>();
   final _errorsStreamController = StreamController<Exception>();
 
   @override
@@ -114,9 +109,6 @@ class NotesBloc extends $NotesBloc {
 
   @override
   BehaviorSubject<Result<List<NotesNote>>> _mapToNotesState() => _notesSubject;
-
-  @override
-  Stream<NotesNote> _mapToNoteUpdateState() => _noteUpdateController.stream.asBroadcastStream();
 
   @override
   Stream<Exception> _mapToErrorsState() => _errorsStreamController.stream.asBroadcastStream();

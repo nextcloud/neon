@@ -3,14 +3,14 @@ part of '../app.dart';
 class NewsArticlePage extends StatefulWidget {
   const NewsArticlePage({
     required this.bloc,
-    required this.article,
+    required this.articlesBloc,
     required this.useWebView,
     this.bodyData,
     super.key,
   }) : assert(useWebView || bodyData != null, 'bodyData has to be set when not using a WebView');
 
-  final NewsArticlesBloc bloc;
-  final NewsArticle article;
+  final NewsArticleBloc bloc;
+  final NewsArticlesBloc articlesBloc;
   final bool useWebView;
   final String? bodyData;
 
@@ -19,8 +19,6 @@ class NewsArticlePage extends StatefulWidget {
 }
 
 class _NewsArticlePageState extends State<NewsArticlePage> {
-  late NewsArticle article = widget.article;
-
   bool _webviewLoading = true;
   WebViewController? _webviewController;
   Timer? _markAsReadTimer;
@@ -29,12 +27,8 @@ class _NewsArticlePageState extends State<NewsArticlePage> {
   void initState() {
     super.initState();
 
-    widget.bloc.articleUpdate.listen((final a) {
-      if (mounted && a.id == article.id) {
-        setState(() {
-          article = a;
-        });
-      }
+    widget.bloc.errors.listen((final error) {
+      ExceptionWidget.showSnackbar(context, error);
     });
 
     WidgetsBinding.instance.addPostFrameCallback((final _) async {
@@ -44,7 +38,7 @@ class _NewsArticlePageState extends State<NewsArticlePage> {
     });
 
     if (!widget.useWebView) {
-      _startMarkAsReadTimer();
+      unawaited(_startMarkAsReadTimer());
     }
   }
 
@@ -55,14 +49,14 @@ class _NewsArticlePageState extends State<NewsArticlePage> {
     super.dispose();
   }
 
-  void _startMarkAsReadTimer() {
-    if (article.unread) {
-      if (widget.bloc.newsBloc.options.articleDisableMarkAsReadTimeoutOption.value) {
-        widget.bloc.markArticleAsRead(article);
+  Future _startMarkAsReadTimer() async {
+    if (await widget.bloc.unread.first) {
+      if (widget.articlesBloc.newsBloc.options.articleDisableMarkAsReadTimeoutOption.value) {
+        widget.bloc.markArticleAsRead();
       } else {
-        _markAsReadTimer = Timer(const Duration(seconds: 3), () {
-          if (article.unread) {
-            widget.bloc.markArticleAsRead(article);
+        _markAsReadTimer = Timer(const Duration(seconds: 3), () async {
+          if (await widget.bloc.unread.first) {
+            widget.bloc.markArticleAsRead();
           }
         });
       }
@@ -81,7 +75,7 @@ class _NewsArticlePageState extends State<NewsArticlePage> {
       return (await _webviewController!.currentUrl())!;
     }
 
-    return article.url;
+    return widget.bloc.url;
   }
 
   @override
@@ -101,25 +95,39 @@ class _NewsArticlePageState extends State<NewsArticlePage> {
           resizeToAvoidBottomInset: false,
           appBar: AppBar(
             actions: [
-              IconButton(
-                onPressed: () async {
-                  if (article.starred) {
-                    widget.bloc.unstarArticle(article);
-                  } else {
-                    widget.bloc.starArticle(article);
-                  }
+              RxBlocBuilder(
+                bloc: widget.bloc,
+                state: (final bloc) => bloc.starred,
+                builder: (final context, final starredSnapshot, final _) {
+                  final starred = starredSnapshot.data ?? false;
+                  return IconButton(
+                    onPressed: () async {
+                      if (starred) {
+                        widget.bloc.unstarArticle();
+                      } else {
+                        widget.bloc.starArticle();
+                      }
+                    },
+                    icon: Icon(starred ? Icons.star : Icons.star_outline),
+                  );
                 },
-                icon: Icon(article.starred ? Icons.star : Icons.star_outline),
               ),
-              IconButton(
-                onPressed: () async {
-                  if (article.unread) {
-                    widget.bloc.markArticleAsRead(article);
-                  } else {
-                    widget.bloc.markArticleAsUnread(article);
-                  }
+              RxBlocBuilder(
+                bloc: widget.bloc,
+                state: (final bloc) => bloc.unread,
+                builder: (final context, final unreadSnapshot, final _) {
+                  final unread = unreadSnapshot.data ?? false;
+                  return IconButton(
+                    onPressed: () async {
+                      if (unread) {
+                        widget.bloc.markArticleAsRead();
+                      } else {
+                        widget.bloc.markArticleAsUnread();
+                      }
+                    },
+                    icon: Icon(unread ? MdiIcons.email : MdiIcons.emailMarkAsUnread),
+                  );
                 },
-                icon: Icon(article.unread ? MdiIcons.email : MdiIcons.emailMarkAsUnread),
               ),
               IconButton(
                 onPressed: () async {
@@ -147,15 +155,15 @@ class _NewsArticlePageState extends State<NewsArticlePage> {
                       javascriptMode: JavascriptMode.unrestricted,
                       onWebViewCreated: (final controller) async {
                         _webviewController = controller;
-                        await controller.loadUrl(article.url);
+                        await controller.loadUrl(widget.bloc.url);
                       },
                       onPageStarted: (final _) {
                         setState(() {
                           _webviewLoading = true;
                         });
                       },
-                      onPageFinished: (final _) {
-                        _startMarkAsReadTimer();
+                      onPageFinished: (final _) async {
+                        await _startMarkAsReadTimer();
                         setState(() {
                           _webviewLoading = false;
                         });

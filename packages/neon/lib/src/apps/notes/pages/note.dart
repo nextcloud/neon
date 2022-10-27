@@ -3,41 +3,41 @@ part of '../app.dart';
 class NotesNotePage extends StatefulWidget {
   const NotesNotePage({
     required this.bloc,
-    required this.note,
+    required this.notesBloc,
     super.key,
   });
 
-  final NotesBloc bloc;
-  final NotesNote note;
+  final NotesNoteBloc bloc;
+  final NotesBloc notesBloc;
 
   @override
   State<NotesNotePage> createState() => _NotesNotePageState();
 }
 
 class _NotesNotePageState extends State<NotesNotePage> {
-  late final _contentController = TextEditingController(text: widget.note.content);
-  late final _titleController = TextEditingController(text: widget.note.title);
+  late final _contentController = TextEditingController();
+  late final _titleController = TextEditingController();
   final _contentFocusNode = FocusNode();
   final _titleFocusNode = FocusNode();
-
-  late NotesNote _note = widget.note;
+  final _updateController = StreamController();
   bool _showEditor = false;
-  bool _synced = true;
 
   void _focusEditor() {
     _contentFocusNode.requestFocus();
     _contentController.selection = TextSelection.collapsed(offset: _contentController.text.length);
   }
 
-  void _update([final String? selectedCategory]) {
-    final updatedTitle = _note.title != _titleController.text ? _titleController.text : null;
-    final updatedCategory = selectedCategory != null && _note.category != selectedCategory ? selectedCategory : null;
-    final updatedContent = _note.content != _contentController.text ? _contentController.text : null;
+  Future _update({
+    final String? category,
+  }) async {
+    final updatedTitle = await widget.bloc.title.first != _titleController.text ? _titleController.text : null;
+    final updatedCategory = category != null && await widget.bloc.category.first != category ? category : null;
+    final updatedContent = await widget.bloc.content.first != _contentController.text ? _contentController.text : null;
 
     if (updatedTitle != null || updatedCategory != null || updatedContent != null) {
       widget.bloc.updateNote(
-        _note.id,
-        _note.etag,
+        widget.bloc.id,
+        await widget.bloc.etag.first,
         title: updatedTitle,
         category: updatedCategory,
         content: updatedContent,
@@ -49,33 +49,28 @@ class _NotesNotePageState extends State<NotesNotePage> {
   void initState() {
     super.initState();
 
-    void updateSynced() {
-      _synced = _note.content == _contentController.text;
-    }
-
-    _contentController.addListener(() => setState(updateSynced));
-
-    widget.bloc.noteUpdate.listen((final n) {
-      if (mounted && n.id == _note.id) {
-        setState(() {
-          _note = n;
-          updateSynced();
-        });
-      }
+    widget.bloc.errors.listen((final error) {
+      handleNotesException(context, error);
     });
 
-    _titleFocusNode.addListener(() {
-      if (!_titleFocusNode.hasFocus) {
-        _update();
-      }
+    widget.bloc.content.listen((final content) {
+      _contentController.text = content;
     });
+
+    widget.bloc.title.listen((final title) {
+      _titleController.text = title;
+    });
+
+    _contentController.addListener(() => _updateController.add(null));
+    _titleController.addListener(() => _updateController.add(null));
+    _updateController.stream.debounceTime(const Duration(seconds: 1)).listen((final _) async => _update());
 
     WidgetsBinding.instance.addPostFrameCallback((final _) async {
       if (Provider.of<NeonPlatform>(context, listen: false).canUseWakelock) {
         await Wakelock.enable();
       }
       if (widget.bloc.options.defaultNoteViewTypeOption.value == DefaultNoteViewType.edit ||
-          widget.note.content.isEmpty) {
+          (await widget.bloc.content.first).isEmpty) {
         setState(() {
           _showEditor = true;
         });
@@ -85,10 +80,19 @@ class _NotesNotePageState extends State<NotesNotePage> {
   }
 
   @override
+  void dispose() {
+    unawaited(_updateController.close());
+    super.dispose();
+  }
+
+  @override
   Widget build(final BuildContext context) => WillPopScope(
         onWillPop: () async {
-          _update();
+          await _update();
 
+          if (!mounted) {
+            return true;
+          }
           if (Provider.of<NeonPlatform>(context, listen: false).canUseWakelock) {
             await Wakelock.disable();
           }
@@ -114,12 +118,6 @@ class _NotesNotePageState extends State<NotesNotePage> {
             actions: [
               IconButton(
                 icon: Icon(
-                  _synced ? Icons.check : Icons.sync,
-                ),
-                onPressed: _update,
-              ),
-              IconButton(
-                icon: Icon(
                   _showEditor ? Icons.visibility : Icons.edit,
                 ),
                 onPressed: () {
@@ -135,23 +133,33 @@ class _NotesNotePageState extends State<NotesNotePage> {
                   }
                 },
               ),
-              IconButton(
-                onPressed: () async {
-                  final result = await showDialog<String>(
-                    context: context,
-                    builder: (final context) => NotesSelectCategoryDialog(
-                      bloc: widget.bloc,
-                      note: _note,
+              RxBlocBuilder(
+                bloc: widget.bloc,
+                state: (final bloc) => bloc.category,
+                builder: (final context, final categorySnapshot, final _) {
+                  final category = categorySnapshot.data ?? '';
+
+                  return IconButton(
+                    onPressed: () async {
+                      final result = await showDialog<String>(
+                        context: context,
+                        builder: (final context) => NotesSelectCategoryDialog(
+                          bloc: widget.notesBloc,
+                          initialCategory: category,
+                        ),
+                      );
+                      if (result != null) {
+                        await _update(
+                          category: result,
+                        );
+                      }
+                    },
+                    icon: Icon(
+                      MdiIcons.tag,
+                      color: category.isNotEmpty ? NotesCategoryColor.compute(category) : null,
                     ),
                   );
-                  if (result != null) {
-                    _update(result);
-                  }
                 },
-                icon: Icon(
-                  MdiIcons.tag,
-                  color: _note.category.isNotEmpty ? NotesCategoryColor.compute(_note.category) : null,
-                ),
               ),
             ],
           ),
@@ -178,15 +186,22 @@ class _NotesNotePageState extends State<NotesNotePage> {
                         border: InputBorder.none,
                       ),
                     )
-                  : MarkdownBody(
-                      data: _contentController.text,
-                      onTapLink: (final text, final href, final title) async {
-                        if (href != null) {
-                          await launchUrlString(
-                            href,
-                            mode: LaunchMode.externalApplication,
-                          );
-                        }
+                  : RxBlocBuilder(
+                      bloc: widget.bloc,
+                      state: (final bloc) => bloc.content,
+                      builder: (final context, final contentSnapshot, final _) {
+                        final content = contentSnapshot.data ?? '';
+                        return MarkdownBody(
+                          data: content,
+                          onTapLink: (final text, final href, final title) async {
+                            if (href != null) {
+                              await launchUrlString(
+                                href,
+                                mode: LaunchMode.externalApplication,
+                              );
+                            }
+                          },
+                        );
                       },
                     ),
             ),
