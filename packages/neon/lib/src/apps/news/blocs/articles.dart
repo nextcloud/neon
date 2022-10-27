@@ -39,8 +39,6 @@ abstract class NewsArticlesBlocStates {
 
   BehaviorSubject<FilterType> get filterType;
 
-  Stream<NewsArticle> get articleUpdate;
-
   Stream<Exception> get errors;
 }
 
@@ -71,36 +69,24 @@ class NewsArticlesBloc extends $NewsArticlesBloc {
     _$markArticleAsReadEvent.listen((final article) {
       _wrapArticleAction((final client) async {
         await client.news.markArticleAsRead(itemId: article.id);
-        // TODO
-        //_articleUpdateController.add(article..unread = false);
       });
     });
 
     _$markArticleAsUnreadEvent.listen((final article) {
       _wrapArticleAction((final client) async {
         await client.news.markArticleAsUnread(itemId: article.id);
-        // TODO
-        //_articleUpdateController.add(article..unread = true);
       });
     });
 
     _$starArticleEvent.listen((final article) {
       _wrapArticleAction((final client) async {
-        await client.news.starArticle(
-          itemId: article.id,
-        );
-        // TODO
-        //_articleUpdateController.add(article..starred = true);
+        await client.news.starArticle(itemId: article.id);
       });
     });
 
     _$unstarArticleEvent.listen((final article) {
       _wrapArticleAction((final client) async {
-        await client.news.unstarArticle(
-          itemId: article.id,
-        );
-        // TODO
-        //_articleUpdateController.add(article..starred = false);
+        await client.news.unstarArticle(itemId: article.id);
       });
     });
 
@@ -184,14 +170,12 @@ class NewsArticlesBloc extends $NewsArticlesBloc {
 
   final _articlesSubject = BehaviorSubject<Result<List<NewsArticle>>>();
   late final BehaviorSubject<FilterType> _filterTypeSubject;
-  final _articleUpdateController = StreamController<NewsArticle>();
   final _errorsStreamController = StreamController<Exception>();
 
   @override
   void dispose() {
     unawaited(_articlesSubject.close());
     unawaited(_filterTypeSubject.close());
-    unawaited(_articleUpdateController.close());
     unawaited(_errorsStreamController.close());
     super.dispose();
   }
@@ -201,9 +185,6 @@ class NewsArticlesBloc extends $NewsArticlesBloc {
 
   @override
   BehaviorSubject<FilterType> _mapToFilterTypeState() => _filterTypeSubject;
-
-  @override
-  Stream<NewsArticle> _mapToArticleUpdateState() => _articleUpdateController.stream.asBroadcastStream();
 
   @override
   Stream<Exception> _mapToErrorsState() => _errorsStreamController.stream.asBroadcastStream();
