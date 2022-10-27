@@ -3,12 +3,12 @@ part of '../app.dart';
 class NotesSelectCategoryDialog extends StatefulWidget {
   const NotesSelectCategoryDialog({
     required this.bloc,
-    required this.note,
+    this.initialCategory,
     super.key,
   });
 
   final NotesBloc bloc;
-  final NotesNote note;
+  final String? initialCategory;
 
   @override
   State<NotesSelectCategoryDialog> createState() => _NotesSelectCategoryDialogState();
@@ -21,7 +21,7 @@ class _NotesSelectCategoryDialogState extends State<NotesSelectCategoryDialog> {
 
   void submit() {
     if (formKey.currentState!.validate()) {
-      Navigator.of(context).pop(selectedCategory ?? widget.note.category);
+      Navigator.of(context).pop(selectedCategory);
     }
   }
 
@@ -60,7 +60,7 @@ class _NotesSelectCategoryDialogState extends State<NotesSelectCategoryDialog> {
                   if (notesData != null) ...[
                     NotesCategorySelect(
                       categories: notesData.map((final note) => note.category).toSet().toList(),
-                      initialValue: widget.note.category,
+                      initialValue: widget.initialCategory,
                       onChanged: (final category) {
                         selectedCategory = category;
                       },

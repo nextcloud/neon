@@ -125,8 +125,14 @@ class NotesView extends StatelessWidget {
           await Navigator.of(context).push(
             MaterialPageRoute(
               builder: (final context) => NotesNotePage(
-                bloc: bloc,
-                note: note,
+                bloc: NotesNoteBloc(
+                  bloc.options,
+                  Provider.of<RequestManager>(context, listen: false),
+                  RxBlocProvider.of<AccountsBloc>(context).activeAccount.value!.client,
+                  bloc,
+                  note,
+                ),
+                notesBloc: bloc,
               ),
             ),
           );
