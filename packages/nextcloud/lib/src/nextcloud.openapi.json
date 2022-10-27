@@ -2183,7 +2183,7 @@
         }
       }
     },
-    "/login/v2": {
+    "/index.php/login/v2": {
       "post": {
         "operationId": "init-login-flow",
         "tags": [
@@ -2203,7 +2203,7 @@
         }
       }
     },
-    "/login/v2/poll": {
+    "/index.php/login/v2/poll": {
       "post": {
         "operationId": "get-login-flow-result",
         "tags": [
@@ -2233,7 +2233,7 @@
         }
       }
     },
-    "/core/preview.png": {
+    "/index.php/core/preview.png": {
       "parameters": [
         {
           "name": "file",
@@ -2310,7 +2310,7 @@
         }
       }
     },
-    "/avatar/{userId}/{size}/dark": {
+    "/index.php/avatar/{userId}/{size}/dark": {
       "parameters": [
         {
           "name": "userId",
@@ -2349,7 +2349,7 @@
         }
       }
     },
-    "/avatar/{userId}/{size}": {
+    "/index.php/avatar/{userId}/{size}": {
       "parameters": [
         {
           "name": "userId",
@@ -2388,7 +2388,7 @@
         }
       }
     },
-    "/apps/news/api": {
+    "/index.php/apps/news/api": {
       "get": {
         "operationId": "get-supported-api-versions",
         "tags": [
@@ -2416,7 +2416,7 @@
         }
       }
     },
-    "/apps/news/api/v1-3/folders": {
+    "/index.php/apps/news/api/v1-3/folders": {
       "get": {
         "operationId": "list-folders",
         "tags": [
@@ -2464,7 +2464,7 @@
         }
       }
     },
-    "/apps/news/api/v1-3/folders/{folderId}": {
+    "/index.php/apps/news/api/v1-3/folders/{folderId}": {
       "parameters": [
         {
           "name": "folderId",
@@ -2508,7 +2508,7 @@
         }
       }
     },
-    "/apps/news/api/v1-3/folders/{folderId}/read": {
+    "/index.php/apps/news/api/v1-3/folders/{folderId}/read": {
       "parameters": [
         {
           "name": "folderId",
@@ -2543,7 +2543,7 @@
         }
       }
     },
-    "/apps/news/api/v1-3/feeds": {
+    "/index.php/apps/news/api/v1-3/feeds": {
       "get": {
         "operationId": "list-feeds",
         "tags": [
@@ -2599,7 +2599,7 @@
         }
       }
     },
-    "/apps/news/api/v1-3/feeds/{feedId}": {
+    "/index.php/apps/news/api/v1-3/feeds/{feedId}": {
       "parameters": [
         {
           "name": "feedId",
@@ -2622,7 +2622,7 @@
         }
       }
     },
-    "/apps/news/api/v1-3/feeds/{feedId}/move": {
+    "/index.php/apps/news/api/v1-3/feeds/{feedId}/move": {
       "parameters": [
         {
           "name": "feedId",
@@ -2655,7 +2655,7 @@
         }
       }
     },
-    "/apps/news/api/v1-3/feeds/{feedId}/rename": {
+    "/index.php/apps/news/api/v1-3/feeds/{feedId}/rename": {
       "parameters": [
         {
           "name": "feedId",
@@ -2688,7 +2688,7 @@
         }
       }
     },
-    "/apps/news/api/v1-3/feeds/{feedId}/read": {
+    "/index.php/apps/news/api/v1-3/feeds/{feedId}/read": {
       "parameters": [
         {
           "name": "feedId",
@@ -2721,7 +2721,7 @@
         }
       }
     },
-    "/apps/news/api/v1-3/items": {
+    "/index.php/apps/news/api/v1-3/items": {
       "get": {
         "operationId": "list-articles",
         "tags": [
@@ -2797,7 +2797,7 @@
         }
       }
     },
-    "/apps/news/api/v1-3/items/updated": {
+    "/index.php/apps/news/api/v1-3/items/updated": {
       "get": {
         "operationId": "list-updated-articles",
         "tags": [
@@ -2846,7 +2846,7 @@
         }
       }
     },
-    "/apps/news/api/v1-3/items/{itemId}/read": {
+    "/index.php/apps/news/api/v1-3/items/{itemId}/read": {
       "parameters": [
         {
           "name": "itemId",
@@ -2869,7 +2869,7 @@
         }
       }
     },
-    "/apps/news/api/v1-3/items/{itemId}/unread": {
+    "/index.php/apps/news/api/v1-3/items/{itemId}/unread": {
       "parameters": [
         {
           "name": "itemId",
@@ -2892,7 +2892,7 @@
         }
       }
     },
-    "/apps/news/api/v1-3/items/{itemId}/star": {
+    "/index.php/apps/news/api/v1-3/items/{itemId}/star": {
       "parameters": [
         {
           "name": "itemId",
@@ -2915,7 +2915,7 @@
         }
       }
     },
-    "/apps/news/api/v1-3/items/{itemId}/unstar": {
+    "/index.php/apps/news/api/v1-3/items/{itemId}/unstar": {
       "parameters": [
         {
           "name": "itemId",
@@ -2938,7 +2938,7 @@
         }
       }
     },
-    "/apps/notes/api/v1/notes": {
+    "/index.php/apps/notes/api/v1/notes": {
       "get": {
         "operationId": "get-notes",
         "tags": [
@@ -3078,7 +3078,7 @@
         }
       }
     },
-    "/apps/notes/api/v1/notes/{id}": {
+    "/index.php/apps/notes/api/v1/notes/{id}": {
       "parameters": [
         {
           "name": "id",
@@ -3212,7 +3212,7 @@
         }
       }
     },
-    "/apps/notes/api/v1/settings": {
+    "/index.php/apps/notes/api/v1/settings": {
       "get": {
         "operationId": "get-settings",
         "tags": [

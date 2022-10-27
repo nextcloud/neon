@@ -1542,7 +1542,7 @@ class CoreClient {
   }
 
   Future<CoreLoginFlowInit> initLoginFlow() async {
-    var path = '/login/v2';
+    var path = '/index.php/login/v2';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{};
     Uint8List? body;
@@ -1559,7 +1559,7 @@ class CoreClient {
   }
 
   Future<CoreLoginFlowResult> getLoginFlowResult({required String token}) async {
-    var path = '/login/v2/poll';
+    var path = '/index.php/login/v2/poll';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{};
     Uint8List? body;
@@ -1584,7 +1584,7 @@ class CoreClient {
     int forceIcon = 1,
     String mode = 'fill',
   }) async {
-    var path = '/core/preview.png';
+    var path = '/index.php/core/preview.png';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{};
     Uint8List? body;
@@ -1610,7 +1610,7 @@ class CoreClient {
     required String userId,
     required int size,
   }) async {
-    var path = '/avatar/{userId}/{size}/dark';
+    var path = '/index.php/avatar/{userId}/{size}/dark';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{};
     Uint8List? body;
@@ -1632,7 +1632,7 @@ class CoreClient {
     required String userId,
     required int size,
   }) async {
-    var path = '/avatar/{userId}/{size}';
+    var path = '/index.php/avatar/{userId}/{size}';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{};
     Uint8List? body;
@@ -1865,7 +1865,7 @@ class NewsClient {
   final Client rootClient;
 
   Future<GetSupportedApiVersions> getSupportedApiVersions() async {
-    var path = '/apps/news/api';
+    var path = '/index.php/apps/news/api';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{};
     Uint8List? body;
@@ -1882,7 +1882,7 @@ class NewsClient {
   }
 
   Future<NewsListFolders> listFolders() async {
-    var path = '/apps/news/api/v1-3/folders';
+    var path = '/index.php/apps/news/api/v1-3/folders';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{};
     Uint8List? body;
@@ -1899,7 +1899,7 @@ class NewsClient {
   }
 
   Future<NewsListFolders> createFolder({required String name}) async {
-    var path = '/apps/news/api/v1-3/folders';
+    var path = '/index.php/apps/news/api/v1-3/folders';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{};
     Uint8List? body;
@@ -1920,7 +1920,7 @@ class NewsClient {
     required int folderId,
     required String name,
   }) async {
-    var path = '/apps/news/api/v1-3/folders/{folderId}';
+    var path = '/index.php/apps/news/api/v1-3/folders/{folderId}';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{};
     Uint8List? body;
@@ -1939,7 +1939,7 @@ class NewsClient {
   }
 
   Future deleteFolder({required int folderId}) async {
-    var path = '/apps/news/api/v1-3/folders/{folderId}';
+    var path = '/index.php/apps/news/api/v1-3/folders/{folderId}';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{};
     Uint8List? body;
@@ -1960,7 +1960,7 @@ class NewsClient {
     required int folderId,
     required int newestItemId,
   }) async {
-    var path = '/apps/news/api/v1-3/folders/{folderId}/read';
+    var path = '/index.php/apps/news/api/v1-3/folders/{folderId}/read';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{};
     Uint8List? body;
@@ -1979,7 +1979,7 @@ class NewsClient {
   }
 
   Future<NewsListFeeds> listFeeds() async {
-    var path = '/apps/news/api/v1-3/feeds';
+    var path = '/index.php/apps/news/api/v1-3/feeds';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{};
     Uint8List? body;
@@ -1999,7 +1999,7 @@ class NewsClient {
     required String url,
     int? folderId,
   }) async {
-    var path = '/apps/news/api/v1-3/feeds';
+    var path = '/index.php/apps/news/api/v1-3/feeds';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{};
     Uint8List? body;
@@ -2020,7 +2020,7 @@ class NewsClient {
   }
 
   Future deleteFeed({required int feedId}) async {
-    var path = '/apps/news/api/v1-3/feeds/{feedId}';
+    var path = '/index.php/apps/news/api/v1-3/feeds/{feedId}';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{};
     Uint8List? body;
@@ -2041,7 +2041,7 @@ class NewsClient {
     required int feedId,
     int? folderId,
   }) async {
-    var path = '/apps/news/api/v1-3/feeds/{feedId}/move';
+    var path = '/index.php/apps/news/api/v1-3/feeds/{feedId}/move';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{};
     Uint8List? body;
@@ -2065,7 +2065,7 @@ class NewsClient {
     required int feedId,
     required String feedTitle,
   }) async {
-    var path = '/apps/news/api/v1-3/feeds/{feedId}/rename';
+    var path = '/index.php/apps/news/api/v1-3/feeds/{feedId}/rename';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{};
     Uint8List? body;
@@ -2087,7 +2087,7 @@ class NewsClient {
     required int feedId,
     required int newestItemId,
   }) async {
-    var path = '/apps/news/api/v1-3/feeds/{feedId}/read';
+    var path = '/index.php/apps/news/api/v1-3/feeds/{feedId}/read';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{};
     Uint8List? body;
@@ -2113,7 +2113,7 @@ class NewsClient {
     int offset = 0,
     int oldestFirst = 0,
   }) async {
-    var path = '/apps/news/api/v1-3/items';
+    var path = '/index.php/apps/news/api/v1-3/items';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{};
     Uint8List? body;
@@ -2140,7 +2140,7 @@ class NewsClient {
     int id = 0,
     int lastModified = 0,
   }) async {
-    var path = '/apps/news/api/v1-3/items/updated';
+    var path = '/index.php/apps/news/api/v1-3/items/updated';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{};
     Uint8List? body;
@@ -2160,7 +2160,7 @@ class NewsClient {
   }
 
   Future markArticleAsRead({required int itemId}) async {
-    var path = '/apps/news/api/v1-3/items/{itemId}/read';
+    var path = '/index.php/apps/news/api/v1-3/items/{itemId}/read';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{};
     Uint8List? body;
@@ -2178,7 +2178,7 @@ class NewsClient {
   }
 
   Future markArticleAsUnread({required int itemId}) async {
-    var path = '/apps/news/api/v1-3/items/{itemId}/unread';
+    var path = '/index.php/apps/news/api/v1-3/items/{itemId}/unread';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{};
     Uint8List? body;
@@ -2196,7 +2196,7 @@ class NewsClient {
   }
 
   Future starArticle({required int itemId}) async {
-    var path = '/apps/news/api/v1-3/items/{itemId}/star';
+    var path = '/index.php/apps/news/api/v1-3/items/{itemId}/star';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{};
     Uint8List? body;
@@ -2214,7 +2214,7 @@ class NewsClient {
   }
 
   Future unstarArticle({required int itemId}) async {
-    var path = '/apps/news/api/v1-3/items/{itemId}/unstar';
+    var path = '/index.php/apps/news/api/v1-3/items/{itemId}/unstar';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{};
     Uint8List? body;
@@ -2328,7 +2328,7 @@ class NotesClient {
     String? chunkCursor,
     String? ifNoneMatch,
   }) async {
-    var path = '/apps/notes/api/v1/notes';
+    var path = '/index.php/apps/notes/api/v1/notes';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{};
     Uint8List? body;
@@ -2365,7 +2365,7 @@ class NotesClient {
     int modified = 0,
     int favorite = 0,
   }) async {
-    var path = '/apps/notes/api/v1/notes';
+    var path = '/index.php/apps/notes/api/v1/notes';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{};
     Uint8List? body;
@@ -2391,7 +2391,7 @@ class NotesClient {
     String exclude = '',
     String? ifNoneMatch,
   }) async {
-    var path = '/apps/notes/api/v1/notes/{id}';
+    var path = '/index.php/apps/notes/api/v1/notes/{id}';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{};
     Uint8List? body;
@@ -2421,7 +2421,7 @@ class NotesClient {
     int favorite = 0,
     String? ifMatch,
   }) async {
-    var path = '/apps/notes/api/v1/notes/{id}';
+    var path = '/index.php/apps/notes/api/v1/notes/{id}';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{};
     Uint8List? body;
@@ -2455,7 +2455,7 @@ class NotesClient {
   }
 
   Future<String> deleteNote({required int id}) async {
-    var path = '/apps/notes/api/v1/notes/{id}';
+    var path = '/index.php/apps/notes/api/v1/notes/{id}';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{};
     Uint8List? body;
@@ -2473,7 +2473,7 @@ class NotesClient {
   }
 
   Future<NotesSettings> getSettings() async {
-    var path = '/apps/notes/api/v1/settings';
+    var path = '/index.php/apps/notes/api/v1/settings';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{};
     Uint8List? body;
@@ -2490,7 +2490,7 @@ class NotesClient {
   }
 
   Future<NotesSettings> updateSettings({required NotesSettings notesSettings}) async {
-    var path = '/apps/notes/api/v1/settings';
+    var path = '/index.php/apps/notes/api/v1/settings';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{};
     Uint8List? body;
