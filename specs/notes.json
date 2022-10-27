@@ -139,7 +139,7 @@
     }
   },
   "paths": {
-    "/apps/notes/api/v1/notes": {
+    "/index.php/apps/notes/api/v1/notes": {
       "get": {
         "operationId": "get-notes",
         "tags": [
@@ -279,7 +279,7 @@
         }
       }
     },
-    "/apps/notes/api/v1/notes/{id}": {
+    "/index.php/apps/notes/api/v1/notes/{id}": {
       "parameters": [
         {
           "name": "id",
@@ -413,7 +413,7 @@
         }
       }
     },
-    "/apps/notes/api/v1/settings": {
+    "/index.php/apps/notes/api/v1/settings": {
       "get": {
         "operationId": "get-settings",
         "tags": [

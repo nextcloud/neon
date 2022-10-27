@@ -1133,7 +1133,7 @@
         }
       }
     },
-    "/login/v2": {
+    "/index.php/login/v2": {
       "post": {
         "operationId": "init-login-flow",
         "tags": [
@@ -1153,7 +1153,7 @@
         }
       }
     },
-    "/login/v2/poll": {
+    "/index.php/login/v2/poll": {
       "post": {
         "operationId": "get-login-flow-result",
         "tags": [
@@ -1183,7 +1183,7 @@
         }
       }
     },
-    "/core/preview.png": {
+    "/index.php/core/preview.png": {
       "parameters": [
         {
           "name": "file",
@@ -1260,7 +1260,7 @@
         }
       }
     },
-    "/avatar/{userId}/{size}/dark": {
+    "/index.php/avatar/{userId}/{size}/dark": {
       "parameters": [
         {
           "name": "userId",
@@ -1299,7 +1299,7 @@
         }
       }
     },
-    "/avatar/{userId}/{size}": {
+    "/index.php/avatar/{userId}/{size}": {
       "parameters": [
         {
           "name": "userId",
