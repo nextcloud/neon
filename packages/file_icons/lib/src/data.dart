@@ -2918,6 +2918,14 @@ const iconSetMap = {
     ),
     _blue,
   ),
+  'webpack.config.ts': SetiMeta(
+    IconData(
+      _webpack,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _blue,
+  ),
   'webpack.config.build.js': SetiMeta(
     IconData(
       _webpack,
@@ -2927,6 +2935,14 @@ const iconSetMap = {
     _blue,
   ),
   'webpack.config.build.cjs': SetiMeta(
+    IconData(
+      _webpack,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _blue,
+  ),
+  'webpack.config.build.ts': SetiMeta(
     IconData(
       _webpack,
       fontFamily: _fontFamily,
@@ -2950,6 +2966,14 @@ const iconSetMap = {
     ),
     _blue,
   ),
+  'webpack.common.ts': SetiMeta(
+    IconData(
+      _webpack,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _blue,
+  ),
   'webpack.dev.js': SetiMeta(
     IconData(
       _webpack,
@@ -2966,6 +2990,14 @@ const iconSetMap = {
     ),
     _blue,
   ),
+  'webpack.dev.ts': SetiMeta(
+    IconData(
+      _webpack,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _blue,
+  ),
   'webpack.prod.js': SetiMeta(
     IconData(
       _webpack,
@@ -2975,6 +3007,14 @@ const iconSetMap = {
     _blue,
   ),
   'webpack.prod.cjs': SetiMeta(
+    IconData(
+      _webpack,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _blue,
+  ),
+  'webpack.prod.ts': SetiMeta(
     IconData(
       _webpack,
       fontFamily: _fontFamily,
