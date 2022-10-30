@@ -201,7 +201,6 @@ class _HomePageState extends State<HomePage> {
                         width: isQuickBar ? kQuickBarWidth : null,
                         child: Container(
                           padding: isQuickBar ? const EdgeInsets.all(5) : null,
-                          color: isQuickBar ? Theme.of(context).appBarTheme.backgroundColor : null,
                           child: Column(
                             children: [
                               Expanded(

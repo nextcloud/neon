@@ -31,7 +31,6 @@ ThemeData getThemeFromNextcloudTheme(
     brightness: selectBrightness,
   ).copyWith(
     background: oledBackgroundOverride,
-    surface: oledBackgroundOverride,
     primary: keepOriginalAccentColorOverride,
     secondary: keepOriginalAccentColorOverride,
   );
@@ -40,7 +39,7 @@ ThemeData getThemeFromNextcloudTheme(
     useMaterial3: true,
     colorScheme: colorScheme,
     scaffoldBackgroundColor: colorScheme.background,
-    canvasColor: colorScheme.background, // For Drawer
+    canvasColor: colorScheme.surface, // For Drawer
     cardColor: colorScheme.background, // For LicensePage
     snackBarTheme: const SnackBarThemeData(
       behavior: SnackBarBehavior.floating,
