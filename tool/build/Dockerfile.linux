@@ -1,0 +1,19 @@
+FROM debian:stable-slim
+
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends \
+    # dependencies to install flutter
+    git curl unzip ca-certificates \
+    # dependencies to build for linux
+    clang cmake ninja-build pkg-config libgtk-3-dev \
+    # dependencies for the app
+    libayatana-appindicator3-dev
+
+ARG FLUTTER_VERSION
+RUN git clone -b $FLUTTER_VERSION https://github.com/flutter/flutter /flutter
+ENV PATH=$PATH:/flutter/bin
+RUN flutter doctor -v
+RUN flutter precache --linux
+
+ADD linux.sh /build.sh
+CMD /build.sh
