@@ -1670,7 +1670,7 @@ class NewsArticle {
     required this.id,
     required this.guid,
     required this.guidHash,
-    required this.url,
+    this.url,
     required this.title,
     this.author,
     required this.pubDate,
@@ -1697,7 +1697,7 @@ class NewsArticle {
 
   final String guidHash;
 
-  final String url;
+  final String? url;
 
   final String title;
 

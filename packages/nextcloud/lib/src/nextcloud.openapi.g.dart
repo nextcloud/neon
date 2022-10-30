@@ -1002,7 +1002,7 @@ NewsArticle _$NewsArticleFromJson(Map<String, dynamic> json) => NewsArticle(
       id: json['id'] as int,
       guid: json['guid'] as String,
       guidHash: json['guidHash'] as String,
-      url: json['url'] as String,
+      url: json['url'] as String?,
       title: json['title'] as String,
       author: json['author'] as String?,
       pubDate: json['pubDate'] as int,
