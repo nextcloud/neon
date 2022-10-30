@@ -64,7 +64,6 @@ class NewsArticleBloc extends $NewsArticleBloc {
 
     _unreadSubject.add(article.unread);
     _starredSubject.add(article.starred);
-    url = article.url;
   }
 
   void _wrapArticleAction(final Future Function() call) {
@@ -79,7 +78,6 @@ class NewsArticleBloc extends $NewsArticleBloc {
   final NextcloudClient _client;
   final NewsArticlesBloc _newsArticlesBloc;
 
-  late final String url;
   final _unreadSubject = BehaviorSubject<bool>();
   final _starredSubject = BehaviorSubject<bool>();
   final _errorsStreamController = StreamController<Exception>();

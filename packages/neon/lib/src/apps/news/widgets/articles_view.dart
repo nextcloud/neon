@@ -218,7 +218,7 @@ class _NewsArticlesViewState extends State<NewsArticlesView> {
             debugPrint(s.toString());
           }
 
-          if (viewType == ArticleViewType.direct && bodyData != null) {
+          if ((viewType == ArticleViewType.direct || article.url == null) && bodyData != null) {
             await Navigator.of(context).push(
               MaterialPageRoute(
                 builder: (final context) => NewsArticlePage(
@@ -231,11 +231,13 @@ class _NewsArticlesViewState extends State<NewsArticlesView> {
                   articlesBloc: widget.bloc,
                   useWebView: false,
                   bodyData: bodyData,
+                  url: article.url,
                 ),
               ),
             );
-          } else if (Provider.of<NeonPlatform>(context, listen: false).canUseWebView &&
-              viewType == ArticleViewType.internalBrowser) {
+          } else if (viewType == ArticleViewType.internalBrowser &&
+              article.url != null &&
+              Provider.of<NeonPlatform>(context, listen: false).canUseWebView) {
             await Navigator.of(context).push(
               MaterialPageRoute(
                 builder: (final context) => NewsArticlePage(
@@ -247,6 +249,7 @@ class _NewsArticlesViewState extends State<NewsArticlesView> {
                   ),
                   articlesBloc: widget.bloc,
                   useWebView: true,
+                  url: article.url,
                 ),
               ),
             );
@@ -254,10 +257,12 @@ class _NewsArticlesViewState extends State<NewsArticlesView> {
             if (article.unread) {
               bloc.markArticleAsRead(article);
             }
-            await launchUrlString(
-              article.url,
-              mode: LaunchMode.externalApplication,
-            );
+            if (article.url != null) {
+              await launchUrlString(
+                article.url!,
+                mode: LaunchMode.externalApplication,
+              );
+            }
           }
         },
       );

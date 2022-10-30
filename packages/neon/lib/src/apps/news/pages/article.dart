@@ -6,13 +6,16 @@ class NewsArticlePage extends StatefulWidget {
     required this.articlesBloc,
     required this.useWebView,
     this.bodyData,
+    this.url,
     super.key,
-  }) : assert(useWebView || bodyData != null, 'bodyData has to be set when not using a WebView');
+  })  : assert(useWebView || bodyData != null, 'bodyData has to be set when not using a WebView'),
+        assert(!useWebView || url != null, 'url has to be set when using a WebView');
 
   final NewsArticleBloc bloc;
   final NewsArticlesBloc articlesBloc;
   final bool useWebView;
   final String? bodyData;
+  final String? url;
 
   @override
   State<NewsArticlePage> createState() => _NewsArticlePageState();
@@ -75,7 +78,7 @@ class _NewsArticlePageState extends State<NewsArticlePage> {
       return (await _webviewController!.currentUrl())!;
     }
 
-    return widget.bloc.url;
+    return widget.url!;
   }
 
   @override
@@ -129,21 +132,23 @@ class _NewsArticlePageState extends State<NewsArticlePage> {
                   );
                 },
               ),
-              IconButton(
-                onPressed: () async {
-                  await launchUrlString(
-                    await _getURL(),
-                    mode: LaunchMode.externalApplication,
-                  );
-                },
-                icon: const Icon(Icons.open_in_new),
-              ),
-              IconButton(
-                onPressed: () async {
-                  await Share.share(await _getURL());
-                },
-                icon: const Icon(Icons.share),
-              ),
+              if (widget.url != null) ...[
+                IconButton(
+                  onPressed: () async {
+                    await launchUrlString(
+                      await _getURL(),
+                      mode: LaunchMode.externalApplication,
+                    );
+                  },
+                  icon: const Icon(Icons.open_in_new),
+                ),
+                IconButton(
+                  onPressed: () async {
+                    await Share.share(await _getURL());
+                  },
+                  icon: const Icon(Icons.share),
+                ),
+              ],
             ],
           ),
           body: widget.useWebView
@@ -155,7 +160,7 @@ class _NewsArticlePageState extends State<NewsArticlePage> {
                       javascriptMode: JavascriptMode.unrestricted,
                       onWebViewCreated: (final controller) async {
                         _webviewController = controller;
-                        await controller.loadUrl(widget.bloc.url);
+                        await controller.loadUrl(widget.url!);
                       },
                       onPageStarted: (final _) {
                         setState(() {
