@@ -37,7 +37,11 @@ class RequestManager {
     final key = '$clientID-$k';
 
     if (cache != null && await cache!.has(key)) {
-      yield ResultCached(unwrap(deserialize<R>(json.decode((await cache!.get(key))!))), loading: true);
+      try {
+        yield ResultCached(unwrap(deserialize<R>(json.decode((await cache!.get(key))!))), loading: true);
+      } catch (e) {
+        debugPrint(e.toString());
+      }
     }
 
     try {
@@ -47,8 +51,12 @@ class RequestManager {
     } on Exception catch (e) {
       if (cache != null && await cache!.has(key)) {
         debugPrint(e.toString());
-        yield ResultCached(unwrap(deserialize<R>(json.decode((await cache!.get(key))!))), error: e);
-        return;
+        try {
+          yield ResultCached(unwrap(deserialize<R>(json.decode((await cache!.get(key))!))), loading: true);
+          return;
+        } catch (e) {
+          debugPrint(e.toString());
+        }
       }
       debugPrint(e.toString());
       yield Result.error(e);
