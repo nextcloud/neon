@@ -144,7 +144,6 @@
           "id",
           "guid",
           "guidHash",
-          "url",
           "title",
           "pubDate",
           "body",
