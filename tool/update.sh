@@ -10,8 +10,6 @@ if [[ "$1" == "flutter" ]]; then
   dart_version_major="$(echo "$dart_version" | cut -d "." -f 1)"
   dart_version_minor="$(echo "$dart_version" | cut -d "." -f 2)"
   dart_version_next_major=$(( dart_version_major + 1 ))
-  sed -i "s/flutter-version: '.*'/flutter-version: '$flutter_version'/" .github/workflows/fdroid-nightly.yaml
-  sed -i "s/channel: '.*'/channel: '$flutter_channel'/" .github/workflows/fdroid-nightly.yaml
   find ./packages -name "pubspec.yaml" -exec sed -i "s/flutter: '>=.*'/flutter: '>=$flutter_version'/" {} \;
   find ./packages -name "pubspec.yaml" -exec sed -i "s/sdk: '>=.* <.*'/sdk: '>=$dart_version_major.$dart_version_minor.0 <$dart_version_next_major.0.0'/" {} \;
   fvm exec mono_repo pub get
