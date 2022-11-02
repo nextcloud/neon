@@ -2,7 +2,7 @@ kind: Config
 apiVersion: skaffold/v2beta27
 build:
   artifacts:
-    - image: jld3103/nextcloud-push-proxy
+    - image: provokateurin/nextcloud-push-proxy
       context: packages/nextcloud_push_proxy
   local:
     useBuildkit: true
@@ -19,5 +19,5 @@ deploy:
         valuesFiles:
           - helm/nextcloud-neon/values.yaml
         artifactOverrides:
-          imageNextcloudPushProxy: jld3103/nextcloud-push-proxy
+          imageNextcloudPushProxy: provokateurin/nextcloud-push-proxy
   statusCheckDeadlineSeconds: 300

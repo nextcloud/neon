@@ -5,7 +5,7 @@ A beautiful convergent cross-platform client for Nextcloud written in Flutter.
 See [here](packages/neon/README.md) for screenshots and other material regarding the app.
 
 This repository not only contains the Neon app, but also a Nextcloud client written in Dart.  
-The client will replace https://github.com/jld3103/dart-nextcloud which is an older unmaintained client I wrote some time ago.  
+The client will replace https://github.com/provokateurin/dart-nextcloud which is an older unmaintained client I wrote some time ago.  
 
 The development of this app and client just started, there will be a lot of changes and new features coming soon.
 
@@ -19,7 +19,7 @@ There are separate rooms for the client and the app. If you don't know which cha
 
 ## Features
 
-There are a lot of planned features that still need help. Go [here](https://github.com/jld3103/nextcloud-neon/issues?q=is%3Aopen+is%3Aissue+label%3Afeature) and grab an issue to work on.  
+There are a lot of planned features that still need help. Go [here](https://github.com/provokateurin/nextcloud-neon/issues?q=is%3Aopen+is%3Aissue+label%3Afeature) and grab an issue to work on.  
 Even if a new feature is not listed yet, please open an issue.
 
 - :heavy_check_mark: Supported

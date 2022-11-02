@@ -2,7 +2,7 @@
 
 A Nextcloud client written in Dart.  
 
-This client will become the replacement for https://github.com/jld3103/dart-nextcloud at some point ([See](https://github.com/jld3103/nextcloud-neon/issues/1)).
+This client will become the replacement for https://github.com/provokateurin/dart-nextcloud at some point ([See](https://github.com/provokateurin/nextcloud-neon/issues/1)).
 
 
 ## Installing
@@ -12,7 +12,7 @@ In the future this code will be available at https://pub.dev/packages/nextcloud,
 dependencies:
   nextcloud:
     git:
-      url: https://github.com/jld3103/nextcloud-neon
+      url: https://github.com/provokateurin/nextcloud-neon
       path: packages/nextcloud
       ref: $COMMIT
 ```
