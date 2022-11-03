@@ -2,7 +2,7 @@
   "openapi": "3.1.0",
   "info": {
     "title": "Core",
-    "version": "25.0.0",
+    "version": "25.0.1",
     "description": "Core functionality of Nextcloud",
     "license": {
       "name": "agpl",
