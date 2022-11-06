@@ -163,20 +163,6 @@ class _LoginPageState extends State<LoginPage> {
                               );
                             }
                           },
-                          onPageFinished: (final url) async {
-                            if (Provider.of<Env?>(context, listen: false) != null) {
-                              // There seems to be a bug where the first try with provided authentication header
-                              // always fails, but all the following ones work. This just restarts the flow if it sees
-                              // an error.
-                              // To be clear: This doesn't happen without pre-provided authentication,
-                              // so it's not a concern while still being a bug somewhere.
-                              final result = await _webViewController!
-                                  .runJavascriptReturningResult('document.getElementsByClassName("error").length');
-                              if (result == '1') {
-                                _loginBloc.setServerURL(serverURLSnapshot.data);
-                              }
-                            }
-                          },
                         )
                       : Center(
                           child: Column(
