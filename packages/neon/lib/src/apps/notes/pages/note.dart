@@ -54,14 +54,21 @@ class _NotesNotePageState extends State<NotesNotePage> {
     });
 
     widget.bloc.content.listen((final content) {
-      final selection = _contentController.selection;
-      _contentController
-        ..text = content
-        ..selection = selection;
+      if (_contentController.text != content) {
+        final selection = _contentController.selection;
+        _contentController
+          ..text = content
+          ..selection = selection;
+      }
     });
 
     widget.bloc.title.listen((final title) {
-      _titleController.text = title;
+      if (_titleController.text != title) {
+        final selection = _titleController.selection;
+        _titleController
+          ..text = title
+          ..selection = selection;
+      }
     });
 
     _contentController.addListener(() => _updateController.add(null));
