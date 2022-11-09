@@ -38,9 +38,7 @@
         "type": "object",
         "required": [
           "status",
-          "statuscode",
-          "totalitems",
-          "itemsperpage"
+          "statuscode"
         ],
         "properties": {
           "status": {
@@ -294,7 +292,7 @@
     }
   },
   "paths": {
-    "/ocs/v1.php/cloud/user": {
+    "/ocs/v2.php/cloud/user": {
       "get": {
         "operationId": "get-current-user",
         "tags": [
@@ -314,7 +312,7 @@
         }
       }
     },
-    "/ocs/v1.php/cloud/users/{userId}": {
+    "/ocs/v2.php/cloud/users/{userId}": {
       "parameters": [
         {
           "name": "userId",

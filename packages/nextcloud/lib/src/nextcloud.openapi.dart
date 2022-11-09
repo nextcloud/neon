@@ -152,8 +152,8 @@ class OCSMeta {
     required this.status,
     required this.statuscode,
     this.message,
-    required this.totalitems,
-    required this.itemsperpage,
+    this.totalitems,
+    this.itemsperpage,
   });
 
   factory OCSMeta.fromJson(Map<String, dynamic> json) => _$OCSMetaFromJson(json);
@@ -164,9 +164,9 @@ class OCSMeta {
 
   final String? message;
 
-  final String totalitems;
+  final String? totalitems;
 
-  final String itemsperpage;
+  final String? itemsperpage;
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$OCSMetaToJson(this);
@@ -1508,7 +1508,7 @@ class CoreClient {
   }
 
   Future<CoreServerCapabilities> getCapabilities() async {
-    var path = '/ocs/v1.php/cloud/capabilities';
+    var path = '/ocs/v2.php/cloud/capabilities';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{};
     Uint8List? body;
@@ -1525,7 +1525,7 @@ class CoreClient {
   }
 
   Future<CoreNavigationApps> getNavigationApps() async {
-    var path = '/ocs/v1.php/core/navigation/apps';
+    var path = '/ocs/v2.php/core/navigation/apps';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{};
     Uint8List? body;
@@ -2807,7 +2807,7 @@ class NotificationsClient {
   final Client rootClient;
 
   Future<NotificationsListNotifications> listNotifications() async {
-    var path = '/ocs/v1.php/apps/notifications/api/v2/notifications';
+    var path = '/ocs/v2.php/apps/notifications/api/v2/notifications';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{};
     Uint8List? body;
@@ -2824,7 +2824,7 @@ class NotificationsClient {
   }
 
   Future<String> deleteAllNotifications() async {
-    var path = '/ocs/v1.php/apps/notifications/api/v2/notifications';
+    var path = '/ocs/v2.php/apps/notifications/api/v2/notifications';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{};
     Uint8List? body;
@@ -2841,7 +2841,7 @@ class NotificationsClient {
   }
 
   Future<NotificationsGetNotification> getNotification({required int id}) async {
-    var path = '/ocs/v1.php/apps/notifications/api/v2/notifications/{id}';
+    var path = '/ocs/v2.php/apps/notifications/api/v2/notifications/{id}';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{};
     Uint8List? body;
@@ -2859,7 +2859,7 @@ class NotificationsClient {
   }
 
   Future<NotificationsEmpty> deleteNotification({required int id}) async {
-    var path = '/ocs/v1.php/apps/notifications/api/v2/notifications/{id}';
+    var path = '/ocs/v2.php/apps/notifications/api/v2/notifications/{id}';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{};
     Uint8List? body;
@@ -2881,7 +2881,7 @@ class NotificationsClient {
     required String devicePublicKey,
     required String proxyServer,
   }) async {
-    var path = '/ocs/v1.php/apps/notifications/api/v2/push';
+    var path = '/ocs/v2.php/apps/notifications/api/v2/push';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{};
     Uint8List? body;
@@ -2894,7 +2894,7 @@ class NotificationsClient {
       headers,
       body,
     );
-    if (response.statusCode == 200) {
+    if (response.statusCode == 201) {
       return NotificationsPushServerRegistration.fromJson(
           json.decode(utf8.decode(response.body)) as Map<String, dynamic>);
     }
@@ -2902,7 +2902,7 @@ class NotificationsClient {
   }
 
   Future<String> removeDevice() async {
-    var path = '/ocs/v1.php/apps/notifications/api/v2/push';
+    var path = '/ocs/v2.php/apps/notifications/api/v2/push';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{};
     Uint8List? body;
@@ -2912,7 +2912,7 @@ class NotificationsClient {
       headers,
       body,
     );
-    if (response.statusCode == 200) {
+    if (response.statusCode == 202) {
       return utf8.decode(response.body) as String;
     }
     throw ApiException.fromResponse(response); // coverage:ignore-line
@@ -2923,7 +2923,7 @@ class NotificationsClient {
     required String shortMessage,
     String longMessage = '',
   }) async {
-    var path = '/ocs/v1.php/apps/notifications/api/v2/admin_notifications/{userId}';
+    var path = '/ocs/v2.php/apps/notifications/api/v2/admin_notifications/{userId}';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{};
     Uint8List? body;
@@ -3159,7 +3159,7 @@ class ProvisioningApiClient {
   final Client rootClient;
 
   Future<ProvisioningApiUser> getCurrentUser() async {
-    var path = '/ocs/v1.php/cloud/user';
+    var path = '/ocs/v2.php/cloud/user';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{};
     Uint8List? body;
@@ -3176,7 +3176,7 @@ class ProvisioningApiClient {
   }
 
   Future<ProvisioningApiUser> getUser({required String userId}) async {
-    var path = '/ocs/v1.php/cloud/users/{userId}';
+    var path = '/ocs/v2.php/cloud/users/{userId}';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{};
     Uint8List? body;
@@ -3696,7 +3696,7 @@ class UserStatusClient {
   final Client rootClient;
 
   Future<UserStatusFindAllStatuses> findAllStatuses() async {
-    var path = '/ocs/v1.php/apps/user_status/api/v1/statuses';
+    var path = '/ocs/v2.php/apps/user_status/api/v1/statuses';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{};
     Uint8List? body;
@@ -3713,7 +3713,7 @@ class UserStatusClient {
   }
 
   Future<UserStatusFindStatus> findStatus({required String userId}) async {
-    var path = '/ocs/v1.php/apps/user_status/api/v1/statuses/{userId}';
+    var path = '/ocs/v2.php/apps/user_status/api/v1/statuses/{userId}';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{};
     Uint8List? body;
@@ -3731,7 +3731,7 @@ class UserStatusClient {
   }
 
   Future<UserStatusGetUserStatus> getStatus() async {
-    var path = '/ocs/v1.php/apps/user_status/api/v1/user_status';
+    var path = '/ocs/v2.php/apps/user_status/api/v1/user_status';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{};
     Uint8List? body;
@@ -3748,7 +3748,7 @@ class UserStatusClient {
   }
 
   Future<UserStatusGetUserStatus> setStatus({required UserStatusType statusType}) async {
-    var path = '/ocs/v1.php/apps/user_status/api/v1/user_status/status';
+    var path = '/ocs/v2.php/apps/user_status/api/v1/user_status/status';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{};
     Uint8List? body;
@@ -3769,7 +3769,7 @@ class UserStatusClient {
     required String messageId,
     int? clearAt,
   }) async {
-    var path = '/ocs/v1.php/apps/user_status/api/v1/user_status/message/predefined';
+    var path = '/ocs/v2.php/apps/user_status/api/v1/user_status/message/predefined';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{};
     Uint8List? body;
@@ -3794,7 +3794,7 @@ class UserStatusClient {
     String? message,
     int? clearAt,
   }) async {
-    var path = '/ocs/v1.php/apps/user_status/api/v1/user_status/message/custom';
+    var path = '/ocs/v2.php/apps/user_status/api/v1/user_status/message/custom';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{};
     Uint8List? body;
@@ -3820,7 +3820,7 @@ class UserStatusClient {
   }
 
   Future clearMessage() async {
-    var path = '/ocs/v1.php/apps/user_status/api/v1/user_status/message';
+    var path = '/ocs/v2.php/apps/user_status/api/v1/user_status/message';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{};
     Uint8List? body;
@@ -3837,7 +3837,7 @@ class UserStatusClient {
   }
 
   Future<UserStatusPredefinedStatuses> findAllPredefinedStatuses() async {
-    var path = '/ocs/v1.php/apps/user_status/api/v1/predefined_statuses';
+    var path = '/ocs/v2.php/apps/user_status/api/v1/predefined_statuses';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{};
     Uint8List? body;
@@ -3854,7 +3854,7 @@ class UserStatusClient {
   }
 
   Future<UserStatus> heartbeat({required UserStatusType status}) async {
-    var path = '/ocs/v1.php/apps/user_status/api/v1/heartbeat';
+    var path = '/ocs/v2.php/apps/user_status/api/v1/heartbeat';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{};
     Uint8List? body;

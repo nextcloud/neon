@@ -38,9 +38,7 @@
         "type": "object",
         "required": [
           "status",
-          "statuscode",
-          "totalitems",
-          "itemsperpage"
+          "statuscode"
         ],
         "properties": {
           "status": {

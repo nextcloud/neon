@@ -1810,7 +1810,7 @@
         }
       }
     },
-    "/ocs/v1.php/core/capabilities": {
+    "/ocs/v2.php/core/capabilities": {
       "get": {
         "operationId": "ocs-getcapabilities-TODO",
         "tags": [
@@ -1830,7 +1830,7 @@
         }
       }
     },
-    "/ocs/v1.php/core/config": {
+    "/ocs/v2.php/core/config": {
       "get": {
         "operationId": "ocs-getconfig-TODO",
         "tags": [
@@ -1850,7 +1850,7 @@
         }
       }
     },
-    "/ocs/v1.php/core/check": {
+    "/ocs/v2.php/core/check": {
       "post": {
         "operationId": "ocs-personcheck-TODO",
         "tags": [
@@ -1890,7 +1890,7 @@
         }
       }
     },
-    "/ocs/v1.php/core/key/{cloudId}": {
+    "/ocs/v2.php/core/key/{cloudId}": {
       "parameters": [
         {
           "name": "cloudId",
@@ -1920,7 +1920,7 @@
         }
       }
     },
-    "/ocs/v1.php/core/navigation/apps": {
+    "/ocs/v2.php/core/navigation/apps": {
       "get": {
         "operationId": "navigation-getappsnavigation-TODO",
         "tags": [
@@ -1951,7 +1951,7 @@
         }
       }
     },
-    "/ocs/v1.php/core/navigation/settings": {
+    "/ocs/v2.php/core/navigation/settings": {
       "get": {
         "operationId": "navigation-getsettingsnavigation-TODO",
         "tags": [
@@ -1982,7 +1982,7 @@
         }
       }
     },
-    "/ocs/v1.php/core/autocomplete/get": {
+    "/ocs/v2.php/core/autocomplete/get": {
       "get": {
         "operationId": "autocomplete-get-TODO",
         "tags": [
@@ -2054,7 +2054,7 @@
         }
       }
     },
-    "/ocs/v1.php/core/whatsnew": {
+    "/ocs/v2.php/core/whatsnew": {
       "get": {
         "operationId": "whatsnew-get-TODO",
         "tags": [
@@ -2102,7 +2102,7 @@
         }
       }
     },
-    "/ocs/v1.php/core/getapppassword": {
+    "/ocs/v2.php/core/getapppassword": {
       "get": {
         "operationId": "apppassword-getapppassword-TODO",
         "tags": [
@@ -2122,7 +2122,7 @@
         }
       }
     },
-    "/ocs/v1.php/core/apppassword/rotate": {
+    "/ocs/v2.php/core/apppassword/rotate": {
       "post": {
         "operationId": "apppassword-rotateapppassword-TODO",
         "tags": [
@@ -2142,7 +2142,7 @@
         }
       }
     },
-    "/ocs/v1.php/core/apppassword": {
+    "/ocs/v2.php/core/apppassword": {
       "delete": {
         "operationId": "apppassword-deleteapppassword-TODO",
         "tags": [
@@ -2162,7 +2162,7 @@
         }
       }
     },
-    "/ocs/v1.php/core/v1/{userId}": {
+    "/ocs/v2.php/core/v1/{userId}": {
       "parameters": [
         {
           "name": "userId",
@@ -2192,7 +2192,7 @@
         }
       }
     },
-    "/ocs/v1.php/core/resources/collections/search/{filter}": {
+    "/ocs/v2.php/core/resources/collections/search/{filter}": {
       "parameters": [
         {
           "name": "filter",
@@ -2222,7 +2222,7 @@
         }
       }
     },
-    "/ocs/v1.php/core/resources/collections/{collectionId}": {
+    "/ocs/v2.php/core/resources/collections/{collectionId}": {
       "parameters": [
         {
           "name": "collectionId",
@@ -2352,7 +2352,7 @@
         }
       }
     },
-    "/ocs/v1.php/core/resources/{resourceType}/{resourceId}": {
+    "/ocs/v2.php/core/resources/{resourceType}/{resourceId}": {
       "parameters": [
         {
           "name": "resourceType",
@@ -2390,7 +2390,7 @@
         }
       }
     },
-    "/ocs/v1.php/core/resources/{baseResourceType}/{baseResourceId}": {
+    "/ocs/v2.php/core/resources/{baseResourceType}/{baseResourceId}": {
       "parameters": [
         {
           "name": "baseResourceType",
@@ -2438,7 +2438,7 @@
         }
       }
     },
-    "/ocs/v1.php/core/resolve": {
+    "/ocs/v2.php/core/resolve": {
       "get": {
         "operationId": "referenceapi-resolveone-TODO",
         "tags": [
@@ -2505,7 +2505,7 @@
         }
       }
     },
-    "/ocs/v1.php/core/extract": {
+    "/ocs/v2.php/core/extract": {
       "post": {
         "operationId": "referenceapi-extract-TODO",
         "tags": [
@@ -2553,7 +2553,7 @@
         }
       }
     },
-    "/ocs/v1.php/core/{targetUserId}": {
+    "/ocs/v2.php/core/{targetUserId}": {
       "parameters": [
         {
           "name": "targetUserId",
@@ -2601,7 +2601,7 @@
         }
       }
     },
-    "/ocs/v1.php/core/providers": {
+    "/ocs/v2.php/core/providers": {
       "get": {
         "operationId": "unifiedsearch-getproviders-TODO",
         "tags": [
@@ -2633,7 +2633,7 @@
         }
       }
     },
-    "/ocs/v1.php/core/providers/{providerId}/search": {
+    "/ocs/v2.php/core/providers/{providerId}/search": {
       "parameters": [
         {
           "name": "providerId",

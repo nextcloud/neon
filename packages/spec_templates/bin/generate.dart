@@ -67,7 +67,7 @@ Future main(final List<String> args) async {
   }
 
   final routesBasePath = '${isCore ? '' : '/apps'}/$id';
-  final ocsBasePath = '/ocs/v1.php$routesBasePath';
+  final ocsBasePath = '/ocs/v2.php$routesBasePath';
 
   for (final k in routes.keys) {
     for (final route in routes[k]!) {

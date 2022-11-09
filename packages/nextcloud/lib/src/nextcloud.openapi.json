@@ -52,9 +52,7 @@
         "type": "object",
         "required": [
           "status",
-          "statuscode",
-          "totalitems",
-          "itemsperpage"
+          "statuscode"
         ],
         "properties": {
           "status": {
@@ -2142,7 +2140,7 @@
         }
       }
     },
-    "/ocs/v1.php/cloud/capabilities": {
+    "/ocs/v2.php/cloud/capabilities": {
       "get": {
         "operationId": "get-capabilities",
         "tags": [
@@ -2162,7 +2160,7 @@
         }
       }
     },
-    "/ocs/v1.php/core/navigation/apps": {
+    "/ocs/v2.php/core/navigation/apps": {
       "get": {
         "operationId": "get-navigation-apps",
         "tags": [
@@ -3259,7 +3257,7 @@
         }
       }
     },
-    "/ocs/v1.php/apps/notifications/api/v2/notifications": {
+    "/ocs/v2.php/apps/notifications/api/v2/notifications": {
       "get": {
         "operationId": "list-notifications",
         "tags": [
@@ -3297,7 +3295,7 @@
         }
       }
     },
-    "/ocs/v1.php/apps/notifications/api/v2/notifications/{id}": {
+    "/ocs/v2.php/apps/notifications/api/v2/notifications/{id}": {
       "parameters": [
         {
           "name": "id",
@@ -3345,7 +3343,7 @@
         }
       }
     },
-    "/ocs/v1.php/apps/notifications/api/v2/push": {
+    "/ocs/v2.php/apps/notifications/api/v2/push": {
       "post": {
         "operationId": "register-device",
         "tags": [
@@ -3379,7 +3377,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "201": {
             "description": "",
             "content": {
               "application/json": {
@@ -3397,7 +3395,7 @@
           "notifications"
         ],
         "responses": {
-          "200": {
+          "202": {
             "description": "",
             "content": {
               "application/json": {
@@ -3410,7 +3408,7 @@
         }
       }
     },
-    "/ocs/v1.php/apps/notifications/api/v2/admin_notifications/{userId}": {
+    "/ocs/v2.php/apps/notifications/api/v2/admin_notifications/{userId}": {
       "parameters": [
         {
           "name": "userId",
@@ -3459,7 +3457,7 @@
         }
       }
     },
-    "/ocs/v1.php/cloud/user": {
+    "/ocs/v2.php/cloud/user": {
       "get": {
         "operationId": "get-current-user",
         "tags": [
@@ -3479,7 +3477,7 @@
         }
       }
     },
-    "/ocs/v1.php/cloud/users/{userId}": {
+    "/ocs/v2.php/cloud/users/{userId}": {
       "parameters": [
         {
           "name": "userId",
@@ -3509,7 +3507,7 @@
         }
       }
     },
-    "/ocs/v1.php/apps/user_status/api/v1/statuses": {
+    "/ocs/v2.php/apps/user_status/api/v1/statuses": {
       "get": {
         "operationId": "find-all-statuses",
         "tags": [
@@ -3529,7 +3527,7 @@
         }
       }
     },
-    "/ocs/v1.php/apps/user_status/api/v1/statuses/{userId}": {
+    "/ocs/v2.php/apps/user_status/api/v1/statuses/{userId}": {
       "parameters": [
         {
           "name": "userId",
@@ -3559,7 +3557,7 @@
         }
       }
     },
-    "/ocs/v1.php/apps/user_status/api/v1/user_status": {
+    "/ocs/v2.php/apps/user_status/api/v1/user_status": {
       "get": {
         "operationId": "get-status",
         "tags": [
@@ -3579,7 +3577,7 @@
         }
       }
     },
-    "/ocs/v1.php/apps/user_status/api/v1/user_status/status": {
+    "/ocs/v2.php/apps/user_status/api/v1/user_status/status": {
       "put": {
         "operationId": "set-status",
         "tags": [
@@ -3609,7 +3607,7 @@
         }
       }
     },
-    "/ocs/v1.php/apps/user_status/api/v1/user_status/message/predefined": {
+    "/ocs/v2.php/apps/user_status/api/v1/user_status/message/predefined": {
       "put": {
         "operationId": "set-predefined-message",
         "tags": [
@@ -3647,7 +3645,7 @@
         }
       }
     },
-    "/ocs/v1.php/apps/user_status/api/v1/user_status/message/custom": {
+    "/ocs/v2.php/apps/user_status/api/v1/user_status/message/custom": {
       "put": {
         "operationId": "set-custom-message",
         "tags": [
@@ -3693,7 +3691,7 @@
         }
       }
     },
-    "/ocs/v1.php/apps/user_status/api/v1/user_status/message": {
+    "/ocs/v2.php/apps/user_status/api/v1/user_status/message": {
       "delete": {
         "operationId": "clear-message",
         "tags": [
@@ -3706,7 +3704,7 @@
         }
       }
     },
-    "/ocs/v1.php/apps/user_status/api/v1/predefined_statuses": {
+    "/ocs/v2.php/apps/user_status/api/v1/predefined_statuses": {
       "get": {
         "operationId": "find-all-predefined-statuses",
         "tags": [
@@ -3726,7 +3724,7 @@
         }
       }
     },
-    "/ocs/v1.php/apps/user_status/api/v1/heartbeat": {
+    "/ocs/v2.php/apps/user_status/api/v1/heartbeat": {
       "put": {
         "operationId": "heartbeat",
         "tags": [

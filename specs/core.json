@@ -38,9 +38,7 @@
         "type": "object",
         "required": [
           "status",
-          "statuscode",
-          "totalitems",
-          "itemsperpage"
+          "statuscode"
         ],
         "properties": {
           "status": {
@@ -1093,7 +1091,7 @@
         }
       }
     },
-    "/ocs/v1.php/cloud/capabilities": {
+    "/ocs/v2.php/cloud/capabilities": {
       "get": {
         "operationId": "get-capabilities",
         "tags": [
@@ -1113,7 +1111,7 @@
         }
       }
     },
-    "/ocs/v1.php/core/navigation/apps": {
+    "/ocs/v2.php/core/navigation/apps": {
       "get": {
         "operationId": "get-navigation-apps",
         "tags": [
