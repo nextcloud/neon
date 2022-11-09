@@ -15,7 +15,7 @@
     }
   ],
   "paths": {
-    "/ocs/v1.php/apps/provisioning_api/apps": {
+    "/ocs/v2.php/apps/provisioning_api/apps": {
       "get": {
         "operationId": "apps-getapps-TODO",
         "tags": [
@@ -45,7 +45,7 @@
         }
       }
     },
-    "/ocs/v1.php/apps/provisioning_api/apps/{app}": {
+    "/ocs/v2.php/apps/provisioning_api/apps/{app}": {
       "parameters": [
         {
           "name": "app",
@@ -111,7 +111,7 @@
         }
       }
     },
-    "/ocs/v1.php/apps/provisioning_api/groups": {
+    "/ocs/v2.php/apps/provisioning_api/groups": {
       "get": {
         "operationId": "groups-getgroups-TODO",
         "tags": [
@@ -196,7 +196,7 @@
         }
       }
     },
-    "/ocs/v1.php/apps/provisioning_api/groups/details": {
+    "/ocs/v2.php/apps/provisioning_api/groups/details": {
       "get": {
         "operationId": "groups-getgroupsdetails-TODO",
         "tags": [
@@ -244,7 +244,7 @@
         }
       }
     },
-    "/ocs/v1.php/apps/provisioning_api/groups/{groupId}/users": {
+    "/ocs/v2.php/apps/provisioning_api/groups/{groupId}/users": {
       "parameters": [
         {
           "name": "groupId",
@@ -274,7 +274,7 @@
         }
       }
     },
-    "/ocs/v1.php/apps/provisioning_api/groups/{groupId}/users/details": {
+    "/ocs/v2.php/apps/provisioning_api/groups/{groupId}/users/details": {
       "parameters": [
         {
           "name": "groupId",
@@ -332,7 +332,7 @@
         }
       }
     },
-    "/ocs/v1.php/apps/provisioning_api/groups/{groupId}/subadmins": {
+    "/ocs/v2.php/apps/provisioning_api/groups/{groupId}/subadmins": {
       "parameters": [
         {
           "name": "groupId",
@@ -362,7 +362,7 @@
         }
       }
     },
-    "/ocs/v1.php/apps/provisioning_api/groups/{groupId}": {
+    "/ocs/v2.php/apps/provisioning_api/groups/{groupId}": {
       "parameters": [
         {
           "name": "groupId",
@@ -446,7 +446,7 @@
         }
       }
     },
-    "/ocs/v1.php/apps/provisioning_api/users": {
+    "/ocs/v2.php/apps/provisioning_api/users": {
       "get": {
         "operationId": "users-getusers-TODO",
         "tags": [
@@ -583,7 +583,7 @@
         }
       }
     },
-    "/ocs/v1.php/apps/provisioning_api/users/details": {
+    "/ocs/v2.php/apps/provisioning_api/users/details": {
       "get": {
         "operationId": "users-getusersdetails-TODO",
         "tags": [
@@ -631,7 +631,7 @@
         }
       }
     },
-    "/ocs/v1.php/apps/provisioning_api/users/search/by-phone": {
+    "/ocs/v2.php/apps/provisioning_api/users/search/by-phone": {
       "post": {
         "operationId": "users-searchbyphonenumbers-TODO",
         "tags": [
@@ -669,7 +669,7 @@
         }
       }
     },
-    "/ocs/v1.php/apps/provisioning_api/users/{userId}": {
+    "/ocs/v2.php/apps/provisioning_api/users/{userId}": {
       "parameters": [
         {
           "name": "userId",
@@ -753,7 +753,7 @@
         }
       }
     },
-    "/ocs/v1.php/apps/provisioning_api/user": {
+    "/ocs/v2.php/apps/provisioning_api/user": {
       "get": {
         "operationId": "users-getcurrentuser-TODO",
         "tags": [
@@ -773,7 +773,7 @@
         }
       }
     },
-    "/ocs/v1.php/apps/provisioning_api/user/fields": {
+    "/ocs/v2.php/apps/provisioning_api/user/fields": {
       "get": {
         "operationId": "users-geteditablefields-TODO",
         "tags": [
@@ -793,7 +793,7 @@
         }
       }
     },
-    "/ocs/v1.php/apps/provisioning_api/user/fields/{userId}": {
+    "/ocs/v2.php/apps/provisioning_api/user/fields/{userId}": {
       "parameters": [
         {
           "name": "userId",
@@ -823,7 +823,7 @@
         }
       }
     },
-    "/ocs/v1.php/apps/provisioning_api/users/{userId}/{collectionName}": {
+    "/ocs/v2.php/apps/provisioning_api/users/{userId}/{collectionName}": {
       "parameters": [
         {
           "name": "userId",
@@ -879,7 +879,7 @@
         }
       }
     },
-    "/ocs/v1.php/apps/provisioning_api/users/{userId}/wipe": {
+    "/ocs/v2.php/apps/provisioning_api/users/{userId}/wipe": {
       "parameters": [
         {
           "name": "userId",
@@ -909,7 +909,7 @@
         }
       }
     },
-    "/ocs/v1.php/apps/provisioning_api/users/{userId}/enable": {
+    "/ocs/v2.php/apps/provisioning_api/users/{userId}/enable": {
       "parameters": [
         {
           "name": "userId",
@@ -939,7 +939,7 @@
         }
       }
     },
-    "/ocs/v1.php/apps/provisioning_api/users/{userId}/disable": {
+    "/ocs/v2.php/apps/provisioning_api/users/{userId}/disable": {
       "parameters": [
         {
           "name": "userId",
@@ -969,7 +969,7 @@
         }
       }
     },
-    "/ocs/v1.php/apps/provisioning_api/users/{userId}/groups": {
+    "/ocs/v2.php/apps/provisioning_api/users/{userId}/groups": {
       "parameters": [
         {
           "name": "userId",
@@ -1056,7 +1056,7 @@
         }
       }
     },
-    "/ocs/v1.php/apps/provisioning_api/users/{userId}/subadmins": {
+    "/ocs/v2.php/apps/provisioning_api/users/{userId}/subadmins": {
       "parameters": [
         {
           "name": "userId",
@@ -1142,7 +1142,7 @@
         }
       }
     },
-    "/ocs/v1.php/apps/provisioning_api/users/{userId}/welcome": {
+    "/ocs/v2.php/apps/provisioning_api/users/{userId}/welcome": {
       "parameters": [
         {
           "name": "userId",
@@ -1172,7 +1172,7 @@
         }
       }
     },
-    "/ocs/v1.php/apps/provisioning_api/api/v1/config/apps": {
+    "/ocs/v2.php/apps/provisioning_api/api/v1/config/apps": {
       "get": {
         "operationId": "appconfig-getapps-TODO",
         "tags": [
@@ -1192,7 +1192,7 @@
         }
       }
     },
-    "/ocs/v1.php/apps/provisioning_api/api/v1/config/apps/{app}": {
+    "/ocs/v2.php/apps/provisioning_api/api/v1/config/apps/{app}": {
       "parameters": [
         {
           "name": "app",
@@ -1222,7 +1222,7 @@
         }
       }
     },
-    "/ocs/v1.php/apps/provisioning_api/api/v1/config/apps/{app}/{key}": {
+    "/ocs/v2.php/apps/provisioning_api/api/v1/config/apps/{app}/{key}": {
       "parameters": [
         {
           "name": "app",
@@ -1317,7 +1317,7 @@
         }
       }
     },
-    "/ocs/v1.php/apps/provisioning_api/api/v1/config/users/{appId}/{configKey}": {
+    "/ocs/v2.php/apps/provisioning_api/api/v1/config/users/{appId}/{configKey}": {
       "parameters": [
         {
           "name": "appId",
@@ -1383,7 +1383,7 @@
         }
       }
     },
-    "/ocs/v1.php/apps/provisioning_api/api/v1/config/users/{appId}": {
+    "/ocs/v2.php/apps/provisioning_api/api/v1/config/users/{appId}": {
       "parameters": [
         {
           "name": "appId",

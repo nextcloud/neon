@@ -32,8 +32,8 @@ OCSMeta _$OCSMetaFromJson(Map<String, dynamic> json) => OCSMeta(
       status: json['status'] as String,
       statuscode: json['statuscode'] as int,
       message: json['message'] as String?,
-      totalitems: json['totalitems'] as String,
-      itemsperpage: json['itemsperpage'] as String,
+      totalitems: json['totalitems'] as String?,
+      itemsperpage: json['itemsperpage'] as String?,
     );
 
 Map<String, dynamic> _$OCSMetaToJson(OCSMeta instance) => <String, dynamic>{

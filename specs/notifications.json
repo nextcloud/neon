@@ -38,9 +38,7 @@
         "type": "object",
         "required": [
           "status",
-          "statuscode",
-          "totalitems",
-          "itemsperpage"
+          "statuscode"
         ],
         "properties": {
           "status": {
@@ -340,7 +338,7 @@
     }
   },
   "paths": {
-    "/ocs/v1.php/apps/notifications/api/v2/notifications": {
+    "/ocs/v2.php/apps/notifications/api/v2/notifications": {
       "get": {
         "operationId": "list-notifications",
         "tags": [
@@ -378,7 +376,7 @@
         }
       }
     },
-    "/ocs/v1.php/apps/notifications/api/v2/notifications/{id}": {
+    "/ocs/v2.php/apps/notifications/api/v2/notifications/{id}": {
       "parameters": [
         {
           "name": "id",
@@ -426,7 +424,7 @@
         }
       }
     },
-    "/ocs/v1.php/apps/notifications/api/v2/push": {
+    "/ocs/v2.php/apps/notifications/api/v2/push": {
       "post": {
         "operationId": "register-device",
         "tags": [
@@ -460,7 +458,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "201": {
             "description": "",
             "content": {
               "application/json": {
@@ -478,7 +476,7 @@
           "notifications"
         ],
         "responses": {
-          "200": {
+          "202": {
             "description": "",
             "content": {
               "application/json": {
@@ -491,7 +489,7 @@
         }
       }
     },
-    "/ocs/v1.php/apps/notifications/api/v2/admin_notifications/{userId}": {
+    "/ocs/v2.php/apps/notifications/api/v2/admin_notifications/{userId}": {
       "parameters": [
         {
           "name": "userId",

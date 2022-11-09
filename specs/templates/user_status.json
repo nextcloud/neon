@@ -15,7 +15,7 @@
     }
   ],
   "paths": {
-    "/ocs/v1.php/apps/user_status/api/v1/statuses": {
+    "/ocs/v2.php/apps/user_status/api/v1/statuses": {
       "get": {
         "operationId": "statuses-findall-TODO",
         "tags": [
@@ -53,7 +53,7 @@
         }
       }
     },
-    "/ocs/v1.php/apps/user_status/api/v1/statuses/{userId}": {
+    "/ocs/v2.php/apps/user_status/api/v1/statuses/{userId}": {
       "parameters": [
         {
           "name": "userId",
@@ -83,7 +83,7 @@
         }
       }
     },
-    "/ocs/v1.php/apps/user_status/api/v1/user_status": {
+    "/ocs/v2.php/apps/user_status/api/v1/user_status": {
       "get": {
         "operationId": "userstatus-getstatus-TODO",
         "tags": [
@@ -103,7 +103,7 @@
         }
       }
     },
-    "/ocs/v1.php/apps/user_status/api/v1/user_status/status": {
+    "/ocs/v2.php/apps/user_status/api/v1/user_status/status": {
       "put": {
         "operationId": "userstatus-setstatus-TODO",
         "tags": [
@@ -133,7 +133,7 @@
         }
       }
     },
-    "/ocs/v1.php/apps/user_status/api/v1/user_status/message/predefined": {
+    "/ocs/v2.php/apps/user_status/api/v1/user_status/message/predefined": {
       "put": {
         "operationId": "userstatus-setpredefinedmessage-TODO",
         "tags": [
@@ -171,7 +171,7 @@
         }
       }
     },
-    "/ocs/v1.php/apps/user_status/api/v1/user_status/message/custom": {
+    "/ocs/v2.php/apps/user_status/api/v1/user_status/message/custom": {
       "put": {
         "operationId": "userstatus-setcustommessage-TODO",
         "tags": [
@@ -217,7 +217,7 @@
         }
       }
     },
-    "/ocs/v1.php/apps/user_status/api/v1/user_status/message": {
+    "/ocs/v2.php/apps/user_status/api/v1/user_status/message": {
       "delete": {
         "operationId": "userstatus-clearmessage-TODO",
         "tags": [
@@ -237,7 +237,7 @@
         }
       }
     },
-    "/ocs/v1.php/apps/user_status/api/v1/predefined_statuses": {
+    "/ocs/v2.php/apps/user_status/api/v1/predefined_statuses": {
       "get": {
         "operationId": "predefinedstatus-findall-TODO",
         "tags": [
@@ -257,7 +257,7 @@
         }
       }
     },
-    "/ocs/v1.php/apps/user_status/api/v1/heartbeat": {
+    "/ocs/v2.php/apps/user_status/api/v1/heartbeat": {
       "put": {
         "operationId": "heartbeat-heartbeat-TODO",
         "tags": [

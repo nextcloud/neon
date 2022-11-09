@@ -15,7 +15,7 @@
     }
   ],
   "paths": {
-    "/ocs/v1.php/apps/notifications/api/{apiVersion}/notifications": {
+    "/ocs/v2.php/apps/notifications/api/{apiVersion}/notifications": {
       "parameters": [
         {
           "name": "apiVersion",
@@ -63,7 +63,7 @@
         }
       }
     },
-    "/ocs/v1.php/apps/notifications/api/{apiVersion}/notifications/{id}": {
+    "/ocs/v2.php/apps/notifications/api/{apiVersion}/notifications/{id}": {
       "parameters": [
         {
           "name": "apiVersion",
@@ -119,7 +119,7 @@
         }
       }
     },
-    "/ocs/v1.php/apps/notifications/api/{apiVersion}/push": {
+    "/ocs/v2.php/apps/notifications/api/{apiVersion}/push": {
       "parameters": [
         {
           "name": "apiVersion",
@@ -193,7 +193,7 @@
         }
       }
     },
-    "/ocs/v1.php/apps/notifications/api/{apiVersion}/admin_notifications/{userId}": {
+    "/ocs/v2.php/apps/notifications/api/{apiVersion}/admin_notifications/{userId}": {
       "parameters": [
         {
           "name": "apiVersion",
@@ -250,7 +250,7 @@
         }
       }
     },
-    "/ocs/v1.php/apps/notifications/api/{apiVersion}/settings": {
+    "/ocs/v2.php/apps/notifications/api/{apiVersion}/settings": {
       "parameters": [
         {
           "name": "apiVersion",

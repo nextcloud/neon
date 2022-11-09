@@ -73,9 +73,7 @@ for codename in ${codenames[*]}; do
         type: "object",
         required: [
           "status",
-          "statuscode",
-          "totalitems",
-          "itemsperpage"
+          "statuscode"
         ],
         properties: {
           status: {

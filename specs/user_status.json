@@ -38,9 +38,7 @@
         "type": "object",
         "required": [
           "status",
-          "statuscode",
-          "totalitems",
-          "itemsperpage"
+          "statuscode"
         ],
         "properties": {
           "status": {
@@ -324,7 +322,7 @@
     }
   },
   "paths": {
-    "/ocs/v1.php/apps/user_status/api/v1/statuses": {
+    "/ocs/v2.php/apps/user_status/api/v1/statuses": {
       "get": {
         "operationId": "find-all-statuses",
         "tags": [
@@ -344,7 +342,7 @@
         }
       }
     },
-    "/ocs/v1.php/apps/user_status/api/v1/statuses/{userId}": {
+    "/ocs/v2.php/apps/user_status/api/v1/statuses/{userId}": {
       "parameters": [
         {
           "name": "userId",
@@ -374,7 +372,7 @@
         }
       }
     },
-    "/ocs/v1.php/apps/user_status/api/v1/user_status": {
+    "/ocs/v2.php/apps/user_status/api/v1/user_status": {
       "get": {
         "operationId": "get-status",
         "tags": [
@@ -394,7 +392,7 @@
         }
       }
     },
-    "/ocs/v1.php/apps/user_status/api/v1/user_status/status": {
+    "/ocs/v2.php/apps/user_status/api/v1/user_status/status": {
       "put": {
         "operationId": "set-status",
         "tags": [
@@ -424,7 +422,7 @@
         }
       }
     },
-    "/ocs/v1.php/apps/user_status/api/v1/user_status/message/predefined": {
+    "/ocs/v2.php/apps/user_status/api/v1/user_status/message/predefined": {
       "put": {
         "operationId": "set-predefined-message",
         "tags": [
@@ -462,7 +460,7 @@
         }
       }
     },
-    "/ocs/v1.php/apps/user_status/api/v1/user_status/message/custom": {
+    "/ocs/v2.php/apps/user_status/api/v1/user_status/message/custom": {
       "put": {
         "operationId": "set-custom-message",
         "tags": [
@@ -508,7 +506,7 @@
         }
       }
     },
-    "/ocs/v1.php/apps/user_status/api/v1/user_status/message": {
+    "/ocs/v2.php/apps/user_status/api/v1/user_status/message": {
       "delete": {
         "operationId": "clear-message",
         "tags": [
@@ -521,7 +519,7 @@
         }
       }
     },
-    "/ocs/v1.php/apps/user_status/api/v1/predefined_statuses": {
+    "/ocs/v2.php/apps/user_status/api/v1/predefined_statuses": {
       "get": {
         "operationId": "find-all-predefined-statuses",
         "tags": [
@@ -541,7 +539,7 @@
         }
       }
     },
-    "/ocs/v1.php/apps/user_status/api/v1/heartbeat": {
+    "/ocs/v2.php/apps/user_status/api/v1/heartbeat": {
       "put": {
         "operationId": "heartbeat",
         "tags": [
