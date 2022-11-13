@@ -28,11 +28,11 @@ Future main() async {
 
       final meeting = response.ocs.data.singleWhere((final s) => s.id == 'meeting').clearAt.userStatusClearAt!;
       expect(meeting.type, UserStatusClearAt_Type.period);
-      expect(meeting.time.int_, 3600);
+      expect(meeting.time.$int, 3600);
 
       final commuting = response.ocs.data.singleWhere((final s) => s.id == 'commuting').clearAt.userStatusClearAt!;
       expect(commuting.type, UserStatusClearAt_Type.period);
-      expect(commuting.time.int_, 1800);
+      expect(commuting.time.$int, 1800);
 
       final remoteWork = response.ocs.data.singleWhere((final s) => s.id == 'remote-work').clearAt.userStatusClearAt!;
       expect(remoteWork.type, UserStatusClearAt_Type.endOf);
@@ -44,7 +44,7 @@ Future main() async {
 
       final vacationing = response.ocs.data.singleWhere((final s) => s.id == 'vacationing').clearAt;
       expect(vacationing.userStatusClearAt, null);
-      expect(vacationing.int_, null);
+      expect(vacationing.$int, null);
     });
 
     test('Set status', () async {
@@ -56,7 +56,7 @@ Future main() async {
       expect(response.ocs.data.userStatus!.messageIsPredefined, false);
       expect(response.ocs.data.userStatus!.icon, null);
       expect(response.ocs.data.userStatus!.clearAt.userStatusClearAt, null);
-      expect(response.ocs.data.userStatus!.clearAt.int_, null);
+      expect(response.ocs.data.userStatus!.clearAt.$int, null);
       expect(response.ocs.data.userStatus!.status, UserStatusType.online);
       expect(response.ocs.data.userStatus!.statusIsUserDefined, true);
     });
@@ -73,7 +73,7 @@ Future main() async {
       expect(response.ocs.data.userStatus!.messageIsPredefined, false);
       expect(response.ocs.data.userStatus!.icon, null);
       expect(response.ocs.data.userStatus!.clearAt.userStatusClearAt, null);
-      expect(response.ocs.data.userStatus!.clearAt.int_, null);
+      expect(response.ocs.data.userStatus!.clearAt.$int, null);
       expect(response.ocs.data.userStatus!.status, UserStatusType.online);
       expect(response.ocs.data.userStatus!.statusIsUserDefined, true);
     });
@@ -90,7 +90,7 @@ Future main() async {
       expect(response.ocs.data[0].message, null);
       expect(response.ocs.data[0].icon, null);
       expect(response.ocs.data[0].clearAt.userStatusClearAt, null);
-      expect(response.ocs.data[0].clearAt.int_, null);
+      expect(response.ocs.data[0].clearAt.$int, null);
       expect(response.ocs.data[0].status, UserStatusType.online);
     });
 
@@ -103,7 +103,7 @@ Future main() async {
       expect(response.ocs.data.userStatusPublicUserStatus!.message, null);
       expect(response.ocs.data.userStatusPublicUserStatus!.icon, null);
       expect(response.ocs.data.userStatusPublicUserStatus!.clearAt.userStatusClearAt, null);
-      expect(response.ocs.data.userStatusPublicUserStatus!.clearAt.int_, null);
+      expect(response.ocs.data.userStatusPublicUserStatus!.clearAt.$int, null);
       expect(response.ocs.data.userStatusPublicUserStatus!.status, UserStatusType.online);
     });
 
@@ -118,7 +118,7 @@ Future main() async {
       expect(response.ocs.data.userStatus!.messageId, 'meeting');
       expect(response.ocs.data.userStatus!.messageIsPredefined, true);
       expect(response.ocs.data.userStatus!.icon, null);
-      expect(response.ocs.data.userStatus!.clearAt.int_, clearAt);
+      expect(response.ocs.data.userStatus!.clearAt.$int, clearAt);
       expect(response.ocs.data.userStatus!.status, UserStatusType.offline);
       expect(response.ocs.data.userStatus!.statusIsUserDefined, false);
     });
@@ -135,7 +135,7 @@ Future main() async {
       expect(response.ocs.data.userStatus!.messageId, null);
       expect(response.ocs.data.userStatus!.messageIsPredefined, false);
       expect(response.ocs.data.userStatus!.icon, '😀');
-      expect(response.ocs.data.userStatus!.clearAt.int_, clearAt);
+      expect(response.ocs.data.userStatus!.clearAt.$int, clearAt);
       expect(response.ocs.data.userStatus!.status, UserStatusType.offline);
       expect(response.ocs.data.userStatus!.statusIsUserDefined, false);
     });
@@ -156,7 +156,7 @@ Future main() async {
       expect(response.ocs.data.userStatus!.messageIsPredefined, false);
       expect(response.ocs.data.userStatus!.icon, null);
       expect(response.ocs.data.userStatus!.clearAt.userStatusClearAt, null);
-      expect(response.ocs.data.userStatus!.clearAt.int_, null);
+      expect(response.ocs.data.userStatus!.clearAt.$int, null);
       expect(response.ocs.data.userStatus!.status, UserStatusType.offline);
       expect(response.ocs.data.userStatus!.statusIsUserDefined, false);
     });
@@ -169,7 +169,7 @@ Future main() async {
       expect(response.messageIsPredefined, false);
       expect(response.icon, null);
       expect(response.clearAt.userStatusClearAt, null);
-      expect(response.clearAt.int_, null);
+      expect(response.clearAt.$int, null);
       expect(response.status, UserStatusType.online);
       expect(response.statusIsUserDefined, false);
     });
