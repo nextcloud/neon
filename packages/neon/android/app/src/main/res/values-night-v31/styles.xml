@@ -6,6 +6,7 @@
         <item name="android:windowFullscreen">false</item>
         <item name="android:windowLayoutInDisplayCutoutMode">shortEdges</item>
         <item name="android:windowSplashScreenBackground">#202020</item>
+        <item name="android:windowSplashScreenAnimatedIcon">@drawable/android12splash</item>
         <item name="android:windowSplashScreenIconBackgroundColor">#202020</item>
     </style>
     <!-- Theme applied to the Android Window as soon as the process has started.
