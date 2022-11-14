@@ -15,8 +15,8 @@ class NotesNotePage extends StatefulWidget {
 }
 
 class _NotesNotePageState extends State<NotesNotePage> {
-  late final _contentController = TextEditingController();
-  late final _titleController = TextEditingController();
+  late final _contentController = TextEditingController()..text = widget.bloc.initialContent;
+  late final _titleController = TextEditingController()..text = widget.bloc.initialTitle;
   final _contentFocusNode = FocusNode();
   final _titleFocusNode = FocusNode();
   bool _showEditor = false;
@@ -34,41 +34,15 @@ class _NotesNotePageState extends State<NotesNotePage> {
       handleNotesException(context, error);
     });
 
-    widget.bloc.content.listen((final content) {
-      if (_contentController.text != content) {
-        final selection = _contentController.selection;
-        _contentController
-          ..text = content
-          ..selection = selection;
-      }
-    });
-
-    widget.bloc.title.listen((final title) {
-      if (_titleController.text != title) {
-        final selection = _titleController.selection;
-        _titleController
-          ..text = title
-          ..selection = selection;
-      }
-    });
-
-    _contentController.addListener(() async {
-      if (await widget.bloc.content.first != _contentController.text) {
-        widget.bloc.updateContent(_contentController.text);
-      }
-    });
-    _titleController.addListener(() async {
-      if (await widget.bloc.title.first != _titleController.text) {
-        widget.bloc.updateTitle(_titleController.text);
-      }
-    });
+    _contentController.addListener(() => widget.bloc.updateContent(_contentController.text));
+    _titleController.addListener(() => widget.bloc.updateTitle(_titleController.text));
 
     WidgetsBinding.instance.addPostFrameCallback((final _) async {
       if (Provider.of<NeonPlatform>(context, listen: false).canUseWakelock) {
         await Wakelock.enable();
       }
       if (widget.bloc.options.defaultNoteViewTypeOption.value == DefaultNoteViewType.edit ||
-          (await widget.bloc.content.first).isEmpty) {
+          widget.bloc.initialContent.isEmpty) {
         setState(() {
           _showEditor = true;
         });
@@ -171,22 +145,15 @@ class _NotesNotePageState extends State<NotesNotePage> {
                         border: InputBorder.none,
                       ),
                     )
-                  : RxBlocBuilder(
-                      bloc: widget.bloc,
-                      state: (final bloc) => bloc.content,
-                      builder: (final context, final contentSnapshot, final _) {
-                        final content = contentSnapshot.data ?? '';
-                        return MarkdownBody(
-                          data: content,
-                          onTapLink: (final text, final href, final title) async {
-                            if (href != null) {
-                              await launchUrlString(
-                                href,
-                                mode: LaunchMode.externalApplication,
-                              );
-                            }
-                          },
-                        );
+                  : MarkdownBody(
+                      data: _contentController.text,
+                      onTapLink: (final text, final href, final title) async {
+                        if (href != null) {
+                          await launchUrlString(
+                            href,
+                            mode: LaunchMode.externalApplication,
+                          );
+                        }
                       },
                     ),
             ),

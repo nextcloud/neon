@@ -19,10 +19,6 @@ abstract class NotesNoteBlocEvents {
 }
 
 abstract class NotesNoteBlocStates {
-  BehaviorSubject<String> get content;
-
-  BehaviorSubject<String> get title;
-
   BehaviorSubject<String> get category;
 
   Stream<Exception> get errors;
@@ -67,10 +63,10 @@ class NotesNoteBloc extends $NotesNoteBloc {
       );
     });
 
-    _contentSubject.add(note.content);
-    _titleSubject.add(note.title);
     _emitNote(note);
     id = note.id;
+    initialContent = note.content;
+    initialTitle = note.title;
   }
 
   void _emitNote(final NotesNote note) {
@@ -96,30 +92,22 @@ class NotesNoteBloc extends $NotesNoteBloc {
   final _updateQueue = Queue();
 
   late final int id;
+  late final String initialContent;
+  late final String initialTitle;
   late String _etag;
-  final _contentSubject = BehaviorSubject<String>();
-  final _titleSubject = BehaviorSubject<String>();
   final _categorySubject = BehaviorSubject<String>();
   final _errorsStreamController = StreamController<Exception>();
 
   @override
   void dispose() {
-    unawaited(_contentSubject.close());
-    unawaited(_titleSubject.close());
     unawaited(_categorySubject.close());
     unawaited(_errorsStreamController.close());
     super.dispose();
   }
 
   @override
-  Stream<Exception> _mapToErrorsState() => _errorsStreamController.stream.asBroadcastStream();
-
-  @override
-  BehaviorSubject<String> _mapToContentState() => _contentSubject;
-
-  @override
-  BehaviorSubject<String> _mapToTitleState() => _titleSubject;
-
-  @override
   BehaviorSubject<String> _mapToCategoryState() => _categorySubject;
+
+  @override
+  Stream<Exception> _mapToErrorsState() => _errorsStreamController.stream.asBroadcastStream();
 }

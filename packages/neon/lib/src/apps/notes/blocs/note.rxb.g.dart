@@ -28,12 +28,6 @@ abstract class $NotesNoteBloc extends RxBlocBase
   /// Тhe [Subject] where events sink to by calling [updateCategory]
   final _$updateCategoryEvent = PublishSubject<String>();
 
-  /// The state of [content] implemented in [_mapToContentState]
-  late final BehaviorSubject<String> _contentState = _mapToContentState();
-
-  /// The state of [title] implemented in [_mapToTitleState]
-  late final BehaviorSubject<String> _titleState = _mapToTitleState();
-
   /// The state of [category] implemented in [_mapToCategoryState]
   late final BehaviorSubject<String> _categoryState = _mapToCategoryState();
 
@@ -50,20 +44,10 @@ abstract class $NotesNoteBloc extends RxBlocBase
   void updateCategory(String category) => _$updateCategoryEvent.add(category);
 
   @override
-  BehaviorSubject<String> get content => _contentState;
-
-  @override
-  BehaviorSubject<String> get title => _titleState;
-
-  @override
   BehaviorSubject<String> get category => _categoryState;
 
   @override
   Stream<Exception> get errors => _errorsState;
-
-  BehaviorSubject<String> _mapToContentState();
-
-  BehaviorSubject<String> _mapToTitleState();
 
   BehaviorSubject<String> _mapToCategoryState();
 
