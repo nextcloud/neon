@@ -19,30 +19,11 @@ class _NotesNotePageState extends State<NotesNotePage> {
   late final _titleController = TextEditingController();
   final _contentFocusNode = FocusNode();
   final _titleFocusNode = FocusNode();
-  final _updateController = StreamController();
   bool _showEditor = false;
 
   void _focusEditor() {
     _contentFocusNode.requestFocus();
     _contentController.selection = TextSelection.collapsed(offset: _contentController.text.length);
-  }
-
-  Future _update({
-    final String? category,
-  }) async {
-    final updatedTitle = await widget.bloc.title.first != _titleController.text ? _titleController.text : null;
-    final updatedCategory = category != null && await widget.bloc.category.first != category ? category : null;
-    final updatedContent = await widget.bloc.content.first != _contentController.text ? _contentController.text : null;
-
-    if (updatedTitle != null || updatedCategory != null || updatedContent != null) {
-      widget.bloc.updateNote(
-        widget.bloc.id,
-        await widget.bloc.etag.first,
-        title: updatedTitle,
-        category: updatedCategory,
-        content: updatedContent,
-      );
-    }
   }
 
   @override
@@ -71,9 +52,16 @@ class _NotesNotePageState extends State<NotesNotePage> {
       }
     });
 
-    _contentController.addListener(() => _updateController.add(null));
-    _titleController.addListener(() => _updateController.add(null));
-    _updateController.stream.debounceTime(const Duration(seconds: 1)).listen((final _) async => _update());
+    _contentController.addListener(() async {
+      if (await widget.bloc.content.first != _contentController.text) {
+        widget.bloc.updateContent(_contentController.text);
+      }
+    });
+    _titleController.addListener(() async {
+      if (await widget.bloc.title.first != _titleController.text) {
+        widget.bloc.updateTitle(_titleController.text);
+      }
+    });
 
     WidgetsBinding.instance.addPostFrameCallback((final _) async {
       if (Provider.of<NeonPlatform>(context, listen: false).canUseWakelock) {
@@ -90,26 +78,15 @@ class _NotesNotePageState extends State<NotesNotePage> {
   }
 
   @override
-  void dispose() {
-    unawaited(_updateController.close());
-    super.dispose();
-  }
-
-  @override
   Widget build(final BuildContext context) => WillPopScope(
         onWillPop: () async {
-          await _update();
-
-          if (!mounted) {
-            return true;
-          }
           if (Provider.of<NeonPlatform>(context, listen: false).canUseWakelock) {
             await Wakelock.disable();
           }
           return true;
         },
         child: Scaffold(
-          resizeToAvoidBottomInset: false,
+          resizeToAvoidBottomInset: true,
           appBar: AppBar(
             titleSpacing: 0,
             title: TextField(
@@ -159,9 +136,7 @@ class _NotesNotePageState extends State<NotesNotePage> {
                         ),
                       );
                       if (result != null) {
-                        await _update(
-                          category: result,
-                        );
+                        widget.bloc.updateCategory(result);
                       }
                     },
                     icon: Icon(

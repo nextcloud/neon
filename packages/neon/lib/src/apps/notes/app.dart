@@ -1,6 +1,5 @@
 library notes;
 
-import 'dart:async';
 import 'dart:convert';
 
 import 'package:crypto/crypto.dart';

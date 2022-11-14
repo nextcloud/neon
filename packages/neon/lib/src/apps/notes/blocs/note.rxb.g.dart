@@ -19,8 +19,14 @@ abstract class $NotesNoteBloc extends RxBlocBase
     implements NotesNoteBlocEvents, NotesNoteBlocStates, NotesNoteBlocType {
   final _compositeSubscription = CompositeSubscription();
 
-  /// Тhe [Subject] where events sink to by calling [updateNote]
-  final _$updateNoteEvent = PublishSubject<_UpdateNoteEventArgs>();
+  /// Тhe [Subject] where events sink to by calling [updateContent]
+  final _$updateContentEvent = PublishSubject<String>();
+
+  /// Тhe [Subject] where events sink to by calling [updateTitle]
+  final _$updateTitleEvent = PublishSubject<String>();
+
+  /// Тhe [Subject] where events sink to by calling [updateCategory]
+  final _$updateCategoryEvent = PublishSubject<String>();
 
   /// The state of [content] implemented in [_mapToContentState]
   late final BehaviorSubject<String> _contentState = _mapToContentState();
@@ -31,29 +37,17 @@ abstract class $NotesNoteBloc extends RxBlocBase
   /// The state of [category] implemented in [_mapToCategoryState]
   late final BehaviorSubject<String> _categoryState = _mapToCategoryState();
 
-  /// The state of [etag] implemented in [_mapToEtagState]
-  late final BehaviorSubject<String> _etagState = _mapToEtagState();
-
   /// The state of [errors] implemented in [_mapToErrorsState]
   late final Stream<Exception> _errorsState = _mapToErrorsState();
 
   @override
-  void updateNote(
-    int id,
-    String etag, {
-    String? title,
-    String? category,
-    String? content,
-    bool? favorite,
-  }) =>
-      _$updateNoteEvent.add(_UpdateNoteEventArgs(
-        id,
-        etag,
-        title: title,
-        category: category,
-        content: content,
-        favorite: favorite,
-      ));
+  void updateContent(String content) => _$updateContentEvent.add(content);
+
+  @override
+  void updateTitle(String title) => _$updateTitleEvent.add(title);
+
+  @override
+  void updateCategory(String category) => _$updateCategoryEvent.add(category);
 
   @override
   BehaviorSubject<String> get content => _contentState;
@@ -65,9 +59,6 @@ abstract class $NotesNoteBloc extends RxBlocBase
   BehaviorSubject<String> get category => _categoryState;
 
   @override
-  BehaviorSubject<String> get etag => _etagState;
-
-  @override
   Stream<Exception> get errors => _errorsState;
 
   BehaviorSubject<String> _mapToContentState();
@@ -75,8 +66,6 @@ abstract class $NotesNoteBloc extends RxBlocBase
   BehaviorSubject<String> _mapToTitleState();
 
   BehaviorSubject<String> _mapToCategoryState();
-
-  BehaviorSubject<String> _mapToEtagState();
 
   Stream<Exception> _mapToErrorsState();
 
@@ -88,33 +77,10 @@ abstract class $NotesNoteBloc extends RxBlocBase
 
   @override
   void dispose() {
-    _$updateNoteEvent.close();
+    _$updateContentEvent.close();
+    _$updateTitleEvent.close();
+    _$updateCategoryEvent.close();
     _compositeSubscription.dispose();
     super.dispose();
   }
-}
-
-/// Helps providing the arguments in the [Subject.add] for
-/// [NotesNoteBlocEvents.updateNote] event
-class _UpdateNoteEventArgs {
-  const _UpdateNoteEventArgs(
-    this.id,
-    this.etag, {
-    this.title,
-    this.category,
-    this.content,
-    this.favorite,
-  });
-
-  final int id;
-
-  final String etag;
-
-  final String? title;
-
-  final String? category;
-
-  final String? content;
-
-  final bool? favorite;
 }
