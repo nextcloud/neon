@@ -4,20 +4,18 @@ import 'package:neon/src/apps/notes/app.dart';
 import 'package:neon/src/apps/notes/blocs/notes.dart';
 import 'package:neon/src/neon.dart';
 import 'package:nextcloud/nextcloud.dart';
+import 'package:queue/queue.dart';
 import 'package:rx_bloc/rx_bloc.dart';
 import 'package:rxdart/rxdart.dart';
 
 part 'note.rxb.g.dart';
 
 abstract class NotesNoteBlocEvents {
-  void updateNote(
-    final int id,
-    final String etag, {
-    final String? title,
-    final String? category,
-    final String? content,
-    final bool? favorite,
-  });
+  void updateContent(final String content);
+
+  void updateTitle(final String title);
+
+  void updateCategory(final String category);
 }
 
 abstract class NotesNoteBlocStates {
@@ -26,8 +24,6 @@ abstract class NotesNoteBlocStates {
   BehaviorSubject<String> get title;
 
   BehaviorSubject<String> get category;
-
-  BehaviorSubject<String> get etag;
 
   Stream<Exception> get errors;
 }
@@ -41,52 +37,69 @@ class NotesNoteBloc extends $NotesNoteBloc {
     this._notesBloc,
     final NotesNote note,
   ) {
-    _$updateNoteEvent.listen((final event) {
+    _$updateContentEvent.debounceTime(const Duration(seconds: 1)).listen((final content) {
       _wrapAction(
-        () async {
-          _emitNote(
-            await _client.notes.updateNote(
-              id: event.id,
-              title: event.title,
-              category: event.category,
-              content: event.content,
-              favorite: event.favorite ?? false ? 1 : 0,
-              ifMatch: '"${event.etag}"',
-            ),
-          );
-        },
+        (final etag) async => _client.notes.updateNote(
+          id: id,
+          content: content,
+          ifMatch: '"$etag"',
+        ),
       );
     });
 
+    _$updateTitleEvent.debounceTime(const Duration(seconds: 1)).listen((final title) {
+      _wrapAction(
+        (final etag) async => _client.notes.updateNote(
+          id: id,
+          title: title,
+          ifMatch: '"$etag"',
+        ),
+      );
+    });
+
+    _$updateCategoryEvent.listen((final category) {
+      _wrapAction(
+        (final etag) async => _client.notes.updateNote(
+          id: id,
+          category: category,
+          ifMatch: '"$etag"',
+        ),
+      );
+    });
+
+    _contentSubject.add(note.content);
+    _titleSubject.add(note.title);
     _emitNote(note);
     id = note.id;
   }
 
   void _emitNote(final NotesNote note) {
-    _contentSubject.add(note.content);
-    _titleSubject.add(note.title);
     _categorySubject.add(note.category);
-    _etagSubject.add(note.etag);
+    _etag = note.etag;
   }
 
-  void _wrapAction(final Future Function() call) {
-    final stream = _requestManager.wrapWithoutCache(call).asBroadcastStream();
-    stream.whereError().listen(_errorsStreamController.add);
-    stream.whereSuccess().listen((final _) async {
-      _notesBloc.refresh();
-    });
+  void _wrapAction(final Future<NotesNote> Function(String etag) call) {
+    unawaited(
+      _updateQueue.add(() async {
+        final stream = _requestManager.wrapWithoutCache(() async => _emitNote(await call(_etag))).asBroadcastStream();
+        stream.whereError().listen(_errorsStreamController.add);
+        stream.whereSuccess().listen((final _) => _notesBloc.refresh());
+        await stream.last;
+      }),
+    );
   }
 
   final NotesAppSpecificOptions options;
   final RequestManager _requestManager;
   final NextcloudClient _client;
   final NotesBloc _notesBloc;
+  final _updateQueue = Queue();
 
   late final int id;
+  late String _etag;
   final _contentSubject = BehaviorSubject<String>();
   final _titleSubject = BehaviorSubject<String>();
   final _categorySubject = BehaviorSubject<String>();
-  final _etagSubject = BehaviorSubject<String>();
   final _errorsStreamController = StreamController<Exception>();
 
   @override
@@ -94,7 +107,6 @@ class NotesNoteBloc extends $NotesNoteBloc {
     unawaited(_contentSubject.close());
     unawaited(_titleSubject.close());
     unawaited(_categorySubject.close());
-    unawaited(_etagSubject.close());
     unawaited(_errorsStreamController.close());
     super.dispose();
   }
@@ -110,7 +122,4 @@ class NotesNoteBloc extends $NotesNoteBloc {
 
   @override
   BehaviorSubject<String> _mapToCategoryState() => _categorySubject;
-
-  @override
-  BehaviorSubject<String> _mapToEtagState() => _etagSubject;
 }
