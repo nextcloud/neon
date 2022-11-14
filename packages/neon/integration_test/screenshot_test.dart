@@ -486,7 +486,8 @@ Future main() async {
       ),
     );
     await prepareScreenshot(tester, binding);
-    await switchPage(tester, 'app-notifications');
+    await tester.tap(find.byKey(const Key('app-notifications')));
+    await tester.pumpAndSettle();
 
     await tester.pumpAndSettle();
     await tester.pump();

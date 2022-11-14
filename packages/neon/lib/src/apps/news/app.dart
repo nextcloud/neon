@@ -71,5 +71,5 @@ class NewsApp extends AppImplementation<NewsBloc, NewsAppSpecificOptions> {
       );
 
   @override
-  BehaviorSubject<int>? getUnreadCounter(final AppsBloc appsBloc) => appsBloc.getAppBloc<NewsBloc>(this).unreadCounter;
+  BehaviorSubject<int> getUnreadCounter(final AppsBloc appsBloc) => appsBloc.getAppBloc<NewsBloc>(this).unreadCounter;
 }

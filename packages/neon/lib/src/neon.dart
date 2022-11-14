@@ -56,9 +56,9 @@ import 'package:window_manager/window_manager.dart';
 import 'package:xdg_directories/xdg_directories.dart' as xdg;
 
 part 'app.dart';
+part 'pages/account_settings.dart';
 part 'pages/home.dart';
 part 'pages/login.dart';
-part 'pages/account_settings.dart';
 part 'pages/nextcloud_app_settings.dart';
 part 'pages/settings.dart';
 part 'platform/abstract.dart';
@@ -88,6 +88,7 @@ part 'utils/validators.dart';
 part 'widgets/account_avatar.dart';
 part 'widgets/account_settings_tile.dart';
 part 'widgets/account_tile.dart';
+part 'widgets/app_implementation_icon.dart';
 part 'widgets/cached_api_image.dart';
 part 'widgets/cached_image.dart';
 part 'widgets/cached_url_image.dart';
