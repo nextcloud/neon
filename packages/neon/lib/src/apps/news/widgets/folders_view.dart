@@ -108,7 +108,12 @@ class NewsFoldersView extends StatelessWidget {
               color: Theme.of(context).colorScheme.primary,
             ),
             Center(
-              child: Text(folderFeedsWrapper.feeds.length.toString()),
+              child: Text(
+                folderFeedsWrapper.feeds.length.toString(),
+                style: TextStyle(
+                  color: Theme.of(context).colorScheme.onPrimary,
+                ),
+              ),
             ),
           ],
         ),
