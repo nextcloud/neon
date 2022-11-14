@@ -40,6 +40,6 @@ class NotificationsApp extends AppImplementation<NotificationsBloc, Notification
       );
 
   @override
-  BehaviorSubject<int>? getUnreadCounter(final AppsBloc appsBloc) =>
+  BehaviorSubject<int> getUnreadCounter(final AppsBloc appsBloc) =>
       appsBloc.getAppBloc<NotificationsBloc>(this).unreadCounter;
 }

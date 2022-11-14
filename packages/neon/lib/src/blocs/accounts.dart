@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:convert';
 
 import 'package:neon/src/blocs/apps.dart';
+import 'package:neon/src/blocs/capabilities.dart';
 import 'package:neon/src/blocs/user_details.dart';
 import 'package:neon/src/blocs/user_status.dart';
 import 'package:neon/src/models/account.dart';
@@ -127,15 +128,27 @@ class AccountsBloc extends $AccountsBloc {
       );
 
   AppsBloc getAppsBloc(final Account account) {
-    if (_accountsAppsBlocs[account.id] != null) {
-      return _accountsAppsBlocs[account.id]!;
+    if (_appsBlocs[account.id] != null) {
+      return _appsBlocs[account.id]!;
     }
 
-    return _accountsAppsBlocs[account.id] = AppsBloc(
+    return _appsBlocs[account.id] = AppsBloc(
       _requestManager,
+      getCapabilitiesBloc(account),
       this,
       account,
       _allAppImplementations,
+    );
+  }
+
+  CapabilitiesBloc getCapabilitiesBloc(final Account account) {
+    if (_capabilitiesBlocs[account.id] != null) {
+      return _capabilitiesBlocs[account.id]!;
+    }
+
+    return _capabilitiesBlocs[account.id] = CapabilitiesBloc(
+      _requestManager,
+      account.client,
     );
   }
 
@@ -176,7 +189,8 @@ class AccountsBloc extends $AccountsBloc {
   late final _activeAccountSubject = BehaviorSubject<Account?>.seeded(null);
   late final _accountsSubject = BehaviorSubject<List<Account>>.seeded([]);
 
-  final _accountsAppsBlocs = <String, AppsBloc>{};
+  final _appsBlocs = <String, AppsBloc>{};
+  final _capabilitiesBlocs = <String, CapabilitiesBloc>{};
   final _userDetailsBlocs = <String, UserDetailsBloc>{};
   final _userStatusBlocs = <String, UserStatusBloc>{};
 

@@ -32,6 +32,11 @@ abstract class $AppsBloc extends RxBlocBase implements AppsBlocEvents, AppsBlocS
   late final BehaviorSubject<Result<List<AppImplementation<RxBlocBase, NextcloudAppSpecificOptions>>>>
       _appImplementationsState = _mapToAppImplementationsState();
 
+  /// The state of [notificationsAppImplementation] implemented in
+  /// [_mapToNotificationsAppImplementationState]
+  late final BehaviorSubject<Result<NotificationsApp?>> _notificationsAppImplementationState =
+      _mapToNotificationsAppImplementationState();
+
   /// The state of [activeAppID] implemented in [_mapToActiveAppIDState]
   late final BehaviorSubject<String?> _activeAppIDState = _mapToActiveAppIDState();
 
@@ -49,12 +54,17 @@ abstract class $AppsBloc extends RxBlocBase implements AppsBlocEvents, AppsBlocS
       _appImplementationsState;
 
   @override
+  BehaviorSubject<Result<NotificationsApp?>> get notificationsAppImplementation => _notificationsAppImplementationState;
+
+  @override
   BehaviorSubject<String?> get activeAppID => _activeAppIDState;
 
   BehaviorSubject<Result<List<CoreNavigationApps_Ocs_Data>>> _mapToAppsState();
 
   BehaviorSubject<Result<List<AppImplementation<RxBlocBase, NextcloudAppSpecificOptions>>>>
       _mapToAppImplementationsState();
+
+  BehaviorSubject<Result<NotificationsApp?>> _mapToNotificationsAppImplementationState();
 
   BehaviorSubject<String?> _mapToActiveAppIDState();
 
