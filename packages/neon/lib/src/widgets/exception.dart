@@ -59,6 +59,7 @@ class ExceptionWidget extends StatelessWidget {
               }
 
               return Column(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
