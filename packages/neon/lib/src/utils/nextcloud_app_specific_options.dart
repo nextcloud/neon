@@ -3,7 +3,7 @@ part of '../neon.dart';
 abstract class NextcloudAppSpecificOptions {
   NextcloudAppSpecificOptions(this.storage);
 
-  final Storage storage;
+  final AppStorage storage;
   late final List<OptionsCategory> categories;
   late final List<Option> options;
 

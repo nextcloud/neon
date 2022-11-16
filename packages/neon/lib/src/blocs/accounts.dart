@@ -123,7 +123,7 @@ class AccountsBloc extends $AccountsBloc {
   }
 
   AccountSpecificOptions getOptions(final Account account) => _accountsOptions[account.id] ??= AccountSpecificOptions(
-        Storage('accounts-${account.id}', _sharedPreferences),
+        AppStorage('accounts-${account.id}', _sharedPreferences),
         getAppsBloc(account),
       );
 
@@ -177,7 +177,7 @@ class AccountsBloc extends $AccountsBloc {
 
   final RequestManager _requestManager;
   final NeonPlatform _platform;
-  final Storage _storage;
+  final AppStorage _storage;
   final SharedPreferences _sharedPreferences;
   final GlobalOptions _globalOptions;
   final List<AppImplementation> _allAppImplementations;

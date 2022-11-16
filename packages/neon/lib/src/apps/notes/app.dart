@@ -45,7 +45,7 @@ class NotesApp extends AppImplementation<NotesBloc, NotesAppSpecificOptions> {
   String nameFromLocalization(final AppLocalizations localizations) => localizations.notesName;
 
   @override
-  NotesAppSpecificOptions buildOptions(final Storage storage) => NotesAppSpecificOptions(storage);
+  NotesAppSpecificOptions buildOptions(final AppStorage storage) => NotesAppSpecificOptions(storage);
 
   @override
   NotesBloc buildBloc(final NextcloudClient client) => NotesBloc(

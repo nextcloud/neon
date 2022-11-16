@@ -1,7 +1,7 @@
 part of '../neon.dart';
 
 class PushUtils {
-  static Future<RSAKeypair> loadRSAKeypair(final Storage storage) async {
+  static Future<RSAKeypair> loadRSAKeypair(final AppStorage storage) async {
     const keyDevicePrivateKey = 'device-private-key';
 
     late RSAKeypair keypair;
@@ -51,7 +51,7 @@ class PushUtils {
     );
     final sharedPreferences = await SharedPreferences.getInstance();
 
-    final keypair = await loadRSAKeypair(Storage('notifications', sharedPreferences));
+    final keypair = await loadRSAKeypair(AppStorage('notifications', sharedPreferences));
     final data = json.decode(utf8.decode(message)) as Map<String, dynamic>;
     final notification = NotificationsPushNotification(
       accountID: instance,

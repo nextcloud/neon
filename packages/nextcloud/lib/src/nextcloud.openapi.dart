@@ -1,10 +1,19 @@
 import 'dart:convert';
+import 'dart:io';
 import 'dart:typed_data';
 
-import 'package:http/http.dart' as http;
+import 'package:cookie_jar/cookie_jar.dart';
 import 'package:json_annotation/json_annotation.dart';
 
+export 'package:cookie_jar/cookie_jar.dart';
+
 part 'nextcloud.openapi.g.dart';
+
+extension HttpClientResponseBody on HttpClientResponse {
+  Future<Uint8List> get bodyBytes async =>
+      Uint8List.fromList((await toList()).reduce((final value, final element) => [...value, ...element]));
+  Future<String> get body async => utf8.decode(await bodyBytes);
+}
 
 class Response {
   Response(
@@ -64,6 +73,8 @@ class Client {
   Client(
     this.baseURL, {
     Map<String, String>? baseHeaders,
+    HttpClient? httpClient,
+    this.cookieJar,
     this.authentication,
   }) {
     this.baseHeaders = {
@@ -74,11 +85,16 @@ class Client {
         ...authentication!.headers,
       },
     };
+    this.httpClient = httpClient ?? HttpClient();
   }
 
   final String baseURL;
 
   late final Map<String, String> baseHeaders;
+
+  late final HttpClient httpClient;
+
+  final CookieJar? cookieJar;
 
   final Authentication? authentication;
 
@@ -94,18 +110,30 @@ class Client {
     Map<String, String> headers,
     Uint8List? body,
   ) async {
-    final request = http.Request(method, Uri.parse('$baseURL$path'));
-    request.headers.addAll(baseHeaders);
-    request.headers.addAll(headers);
+    final uri = Uri.parse('$baseURL$path');
+    final request = await httpClient.openUrl(method, uri);
+    for (final header in {...baseHeaders, ...headers}.entries) {
+      request.headers.add(header.key, header.value);
+    }
     if (body != null) {
-      request.bodyBytes = body.toList();
+      request.add(body.toList());
+    }
+    if (cookieJar != null) {
+      request.cookies.addAll(await cookieJar!.loadForRequest(uri));
     }
 
-    final response = await http.Response.fromStream(await request.send());
+    final response = await request.close();
+    if (cookieJar != null) {
+      await cookieJar!.saveFromResponse(uri, response.cookies);
+    }
+    final responseHeaders = <String, String>{};
+    response.headers.forEach((final name, final values) {
+      responseHeaders[name] = values.last;
+    });
     return Response(
       response.statusCode,
-      response.headers,
-      response.bodyBytes,
+      responseHeaders,
+      await response.bodyBytes,
     );
   }
 }
