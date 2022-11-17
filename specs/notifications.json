@@ -58,7 +58,7 @@
           }
         }
       },
-      "NotificationsEmpty": {
+      "EmptyOCS": {
         "type": "object",
         "required": [
           "ocs"
@@ -75,10 +75,7 @@
                 "$ref": "#/components/schemas/OCSMeta"
               },
               "data": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
+                "type": "array"
               }
             }
           }
@@ -416,7 +413,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/NotificationsEmpty"
+                  "$ref": "#/components/schemas/EmptyOCS"
                 }
               }
             }
@@ -530,7 +527,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/NotificationsEmpty"
+                  "$ref": "#/components/schemas/EmptyOCS"
                 }
               }
             }

@@ -1260,21 +1260,21 @@ Map<String, dynamic> _$NotificationsGetNotificationToJson(NotificationsGetNotifi
       'ocs': instance.ocs.toJson(),
     };
 
-NotificationsEmpty_Ocs _$NotificationsEmpty_OcsFromJson(Map<String, dynamic> json) => NotificationsEmpty_Ocs(
+EmptyOCS_Ocs _$EmptyOCS_OcsFromJson(Map<String, dynamic> json) => EmptyOCS_Ocs(
       meta: OCSMeta.fromJson(json['meta'] as Map<String, dynamic>),
-      data: (json['data'] as List<dynamic>).map((e) => e as String).toList(),
+      data: json['data'] as List<dynamic>,
     );
 
-Map<String, dynamic> _$NotificationsEmpty_OcsToJson(NotificationsEmpty_Ocs instance) => <String, dynamic>{
+Map<String, dynamic> _$EmptyOCS_OcsToJson(EmptyOCS_Ocs instance) => <String, dynamic>{
       'meta': instance.meta.toJson(),
       'data': instance.data,
     };
 
-NotificationsEmpty _$NotificationsEmptyFromJson(Map<String, dynamic> json) => NotificationsEmpty(
-      ocs: NotificationsEmpty_Ocs.fromJson(json['ocs'] as Map<String, dynamic>),
+EmptyOCS _$EmptyOCSFromJson(Map<String, dynamic> json) => EmptyOCS(
+      ocs: EmptyOCS_Ocs.fromJson(json['ocs'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$NotificationsEmptyToJson(NotificationsEmpty instance) => <String, dynamic>{
+Map<String, dynamic> _$EmptyOCSToJson(EmptyOCS instance) => <String, dynamic>{
       'ocs': instance.ocs.toJson(),
     };
 
