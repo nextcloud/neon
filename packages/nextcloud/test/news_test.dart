@@ -7,12 +7,16 @@ const wikipediaFeedURL = 'https://en.wikipedia.org/w/api.php?action=featuredfeed
 const nasaFeedURL = 'https://www.nasa.gov/rss/dyn/breaking_news.rss';
 
 Future main() async {
-  final dockerImageName = await TestHelper.prepareDockerImage(apps: ['news']);
+  final image = await getDockerImage(apps: ['news']);
 
   group('news', () {
+    late DockerContainer container;
     late TestNextcloudClient client;
-    setUp(() async => client = await TestHelper.getPreparedClient(dockerImageName));
-    tearDown(() => client.destroy());
+    setUp(() async {
+      container = await getDockerContainer(image);
+      client = await getTestClient(container);
+    });
+    tearDown(() => container.destroy());
 
     Future<NewsListFeeds> addWikipediaFeed([final int? folderID]) => client.news.addFeed(
           url: wikipediaFeedURL,
