@@ -144,7 +144,7 @@ class Client {
     response.headers.forEach((final name, final values) {
       responseHeaders[name] = values.last;
     });
-    return Response(
+    return _Response(
       response.statusCode,
       responseHeaders,
       await response.bodyBytes,
