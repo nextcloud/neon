@@ -36,14 +36,14 @@ Future main() async {
   final packageInfo = await PackageInfo.fromPlatform();
 
   final globalOptions = GlobalOptions(
-    Storage('global', sharedPreferences),
+    AppStorage('global', sharedPreferences),
     packageInfo,
   );
 
   final accountsBloc = AccountsBloc(
     requestManager,
     platform,
-    Storage('accounts', sharedPreferences),
+    AppStorage('accounts', sharedPreferences),
     sharedPreferences,
     globalOptions,
     packageInfo,

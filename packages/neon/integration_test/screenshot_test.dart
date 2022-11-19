@@ -108,7 +108,7 @@ Future pumpAppPage(
   final allAppImplementations = getAppImplementations(sharedPreferences, requestManager, platform);
 
   final globalOptions = GlobalOptions(
-    Storage('global', sharedPreferences),
+    AppStorage('global', sharedPreferences),
     packageInfo,
   );
   await globalOptions.pushNotificationsEnabled.set(false);
@@ -116,7 +116,7 @@ Future pumpAppPage(
   final accountsBloc = AccountsBloc(
     requestManager,
     platform,
-    Storage('accounts', sharedPreferences),
+    AppStorage('accounts', sharedPreferences),
     sharedPreferences,
     globalOptions,
     packageInfo,

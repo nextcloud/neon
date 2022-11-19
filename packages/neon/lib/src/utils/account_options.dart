@@ -17,7 +17,7 @@ class AccountSpecificOptions {
     });
   }
 
-  final Storage _storage;
+  final AppStorage _storage;
   final AppsBloc _appsBloc;
   final _appIDsSubject = BehaviorSubject<Map<String?, LabelBuilder>>();
 

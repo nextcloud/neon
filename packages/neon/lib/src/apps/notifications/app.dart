@@ -25,7 +25,7 @@ class NotificationsApp extends AppImplementation<NotificationsBloc, Notification
   String nameFromLocalization(final AppLocalizations localizations) => localizations.notificationsName;
 
   @override
-  NotificationsAppSpecificOptions buildOptions(final Storage storage) => NotificationsAppSpecificOptions(storage);
+  NotificationsAppSpecificOptions buildOptions(final AppStorage storage) => NotificationsAppSpecificOptions(storage);
 
   @override
   NotificationsBloc buildBloc(final NextcloudClient client) => NotificationsBloc(

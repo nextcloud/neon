@@ -18,7 +18,7 @@ abstract class AppImplementation<T extends RxBlocBase, R extends NextcloudAppSpe
     this.requestManager,
     this.platform,
   ) {
-    final storage = Storage('app-$id', sharedPreferences);
+    final storage = AppStorage('app-$id', sharedPreferences);
     options = buildOptions(storage);
   }
 
@@ -30,7 +30,7 @@ abstract class AppImplementation<T extends RxBlocBase, R extends NextcloudAppSpe
   String name(final BuildContext context) => nameFromLocalization(AppLocalizations.of(context));
 
   late final R options;
-  R buildOptions(final Storage storage);
+  R buildOptions(final AppStorage storage);
 
   T buildBloc(final NextcloudClient client);
 

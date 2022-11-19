@@ -126,7 +126,7 @@ class PushNotificationsBloc extends $PushNotificationsBloc {
   final AccountsBloc _accountsBloc;
   final NeonPlatform _platform;
   final SharedPreferences _sharedPreferences;
-  late final _storage = Storage('notifications', _sharedPreferences);
+  late final _storage = AppStorage('notifications', _sharedPreferences);
   final GlobalOptions _globalOptions;
   final Env? _env;
   RSAKeypair? _keypair;

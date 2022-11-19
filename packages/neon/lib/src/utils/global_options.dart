@@ -35,7 +35,7 @@ class GlobalOptions {
     });
   }
 
-  final Storage _storage;
+  final AppStorage _storage;
   final PackageInfo _packageInfo;
   final _themeOLEDAsDarkEnabledSubject = BehaviorSubject<bool>();
   final _pushNotificationsEnabledEnabledSubject = BehaviorSubject<bool>();

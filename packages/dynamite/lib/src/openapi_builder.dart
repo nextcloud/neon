@@ -34,13 +34,45 @@ class OpenAPIBuilder implements Builder {
       final registeredJsonObjects = <String>[];
       final output = <String>[
         "import 'dart:convert';",
+        "import 'dart:io';",
         "import 'dart:typed_data';",
         '',
-        "import 'package:http/http.dart' as http;",
+        "import 'package:cookie_jar/cookie_jar.dart';",
         "import 'package:json_annotation/json_annotation.dart';",
+        '',
+        "export 'package:cookie_jar/cookie_jar.dart';",
         '',
         "part '${p.basename(outputId.changeExtension('.g.dart').path)}';",
         '',
+        Extension(
+          (final b) => b
+            ..name = 'HttpClientResponseBody'
+            ..on = refer('HttpClientResponse')
+            ..methods.addAll([
+              Method(
+                (final b) => b
+                  ..name = 'bodyBytes'
+                  ..returns = refer('Future<Uint8List>')
+                  ..type = MethodType.getter
+                  ..modifier = MethodModifier.async
+                  ..lambda = true
+                  ..body = const Code(
+                    'Uint8List.fromList((await toList()).reduce((final value, final element) => [...value, ...element]))',
+                  ),
+              ),
+              Method(
+                (final b) => b
+                  ..name = 'body'
+                  ..returns = refer('Future<String>')
+                  ..type = MethodType.getter
+                  ..modifier = MethodModifier.async
+                  ..lambda = true
+                  ..body = const Code(
+                    'utf8.decode(await bodyBytes)',
+                  ),
+              ),
+            ]),
+        ).accept(emitter).toString(),
         Class(
           (final b) => b
             ..name = 'Response'
@@ -707,6 +739,19 @@ class OpenAPIBuilder implements Builder {
                         ..modifier = FieldModifier.final$
                         ..late = true,
                     ),
+                    Field(
+                      (final b) => b
+                        ..name = 'httpClient'
+                        ..type = refer('HttpClient')
+                        ..modifier = FieldModifier.final$
+                        ..late = true,
+                    ),
+                    Field(
+                      (final b) => b
+                        ..name = 'cookieJar'
+                        ..type = refer('CookieJar?')
+                        ..modifier = FieldModifier.final$,
+                    ),
                     if (hasAnySecurity) ...[
                       Field(
                         (final b) => b
@@ -733,6 +778,18 @@ class OpenAPIBuilder implements Builder {
                               ..type = refer('Map<String, String>?')
                               ..named = true,
                           ),
+                          Parameter(
+                            (final b) => b
+                              ..name = 'httpClient'
+                              ..type = refer('HttpClient?')
+                              ..named = true,
+                          ),
+                          Parameter(
+                            (final b) => b
+                              ..name = 'cookieJar'
+                              ..toThis = true
+                              ..named = true,
+                          ),
                           if (hasAnySecurity) ...[
                             Parameter(
                               (final b) => b
@@ -753,6 +810,7 @@ class OpenAPIBuilder implements Builder {
                           },
                         ''' : ''}
                         };
+                        this.httpClient = httpClient ?? HttpClient();
                       '''),
                     ),
                   )
@@ -797,18 +855,30 @@ class OpenAPIBuilder implements Builder {
                           ),
                         ])
                         ..body = const Code(r'''
-                        final request = http.Request(method, Uri.parse('$baseURL$path'));
-                        request.headers.addAll(baseHeaders);
-                        request.headers.addAll(headers);
-                        if (body != null) {
-                          request.bodyBytes = body.toList();
+                        final uri = Uri.parse('$baseURL$path');
+                        final request = await httpClient.openUrl(method, uri);
+                        for (final header in {...baseHeaders, ...headers}.entries) {
+                          request.headers.add(header.key, header.value);
                         }
-                        
-                        final response = await http.Response.fromStream(await request.send());
+                        if (body != null) {
+                          request.add(body.toList());
+                        }
+                        if (cookieJar != null) {
+                          request.cookies.addAll(await cookieJar!.loadForRequest(uri));
+                        }
+
+                        final response = await request.close();
+                        if (cookieJar != null) {
+                          await cookieJar!.saveFromResponse(uri, response.cookies);
+                        }
+                        final responseHeaders = <String, String>{};
+                        response.headers.forEach((final name, final values) {
+                          responseHeaders[name] = values.last;
+                        });
                         return Response(
                           response.statusCode,
-                          response.headers,
-                          response.bodyBytes,
+                          responseHeaders,
+                          await response.bodyBytes,
                         );
                       '''),
                     ),

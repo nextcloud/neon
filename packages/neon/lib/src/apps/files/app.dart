@@ -48,7 +48,7 @@ class FilesApp extends AppImplementation<FilesBloc, FilesAppSpecificOptions> {
   String nameFromLocalization(final AppLocalizations localizations) => localizations.filesName;
 
   @override
-  FilesAppSpecificOptions buildOptions(final Storage storage) => FilesAppSpecificOptions(storage);
+  FilesAppSpecificOptions buildOptions(final AppStorage storage) => FilesAppSpecificOptions(storage);
 
   @override
   FilesBloc buildBloc(final NextcloudClient client) => FilesBloc(

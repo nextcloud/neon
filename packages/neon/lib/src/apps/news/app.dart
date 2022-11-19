@@ -56,7 +56,7 @@ class NewsApp extends AppImplementation<NewsBloc, NewsAppSpecificOptions> {
   String nameFromLocalization(final AppLocalizations localizations) => localizations.newsName;
 
   @override
-  NewsAppSpecificOptions buildOptions(final Storage storage) => NewsAppSpecificOptions(storage, platform);
+  NewsAppSpecificOptions buildOptions(final AppStorage storage) => NewsAppSpecificOptions(storage, platform);
 
   @override
   NewsBloc buildBloc(final NextcloudClient client) => NewsBloc(
