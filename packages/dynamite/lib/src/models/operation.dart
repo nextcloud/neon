@@ -9,11 +9,11 @@ part 'operation.g.dart';
 @JsonSerializable()
 class Operation {
   Operation({
-    required this.operationId,
-    required this.tags,
-    required this.parameters,
-    required this.requestBody,
-    required this.responses,
+    this.operationId,
+    this.tags,
+    this.parameters,
+    this.requestBody,
+    this.responses,
   });
 
   factory Operation.fromJson(final Map<String, dynamic> json) => _$OperationFromJson(json);

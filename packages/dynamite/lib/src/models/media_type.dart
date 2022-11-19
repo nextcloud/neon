@@ -6,7 +6,7 @@ part 'media_type.g.dart';
 @JsonSerializable()
 class MediaType {
   MediaType({
-    required this.schema,
+    this.schema,
   });
 
   factory MediaType.fromJson(final Map<String, dynamic> json) => _$MediaTypeFromJson(json);

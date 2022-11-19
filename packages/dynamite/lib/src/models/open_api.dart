@@ -14,11 +14,11 @@ class OpenAPI {
   OpenAPI({
     required this.version,
     required this.info,
-    required this.servers,
-    required this.security,
-    required this.tags,
-    required this.components,
-    required this.paths,
+    this.servers,
+    this.security,
+    this.tags,
+    this.components,
+    this.paths,
   });
 
   factory OpenAPI.fromJson(final Map<String, dynamic> json) => _$OpenAPIFromJson(json);

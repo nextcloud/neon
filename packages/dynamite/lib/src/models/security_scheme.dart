@@ -6,8 +6,8 @@ part 'security_scheme.g.dart';
 class SecurityScheme {
   SecurityScheme({
     required this.type,
-    required this.description,
-    required this.scheme,
+    this.description,
+    this.scheme,
   });
 
   factory SecurityScheme.fromJson(final Map<String, dynamic> json) => _$SecuritySchemeFromJson(json);
