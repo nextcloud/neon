@@ -8,8 +8,8 @@ class Info {
   Info({
     required this.title,
     required this.version,
-    required this.description,
     required this.license,
+    this.description,
   });
 
   factory Info.fromJson(final Map<String, dynamic> json) => _$InfoFromJson(json);
@@ -19,7 +19,7 @@ class Info {
 
   final String version;
 
-  final String? description;
-
   final License license;
+
+  final String? description;
 }

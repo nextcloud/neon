@@ -7,7 +7,7 @@ part 'server.g.dart';
 class Server {
   Server({
     required this.url,
-    required this.variables,
+    this.variables,
   });
 
   factory Server.fromJson(final Map<String, dynamic> json) => _$ServerFromJson(json);

@@ -6,9 +6,9 @@ part 'request_body.g.dart';
 @JsonSerializable()
 class RequestBody {
   RequestBody({
-    required this.description,
-    required this.content,
-    required this.required,
+    this.description,
+    this.content,
+    this.required,
   });
 
   factory RequestBody.fromJson(final Map<String, dynamic> json) => _$RequestBodyFromJson(json);

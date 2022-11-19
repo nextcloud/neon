@@ -7,8 +7,8 @@ part 'components.g.dart';
 @JsonSerializable()
 class Components {
   Components({
-    required this.securitySchemes,
-    required this.schemas,
+    this.securitySchemes,
+    this.schemas,
   });
 
   factory Components.fromJson(final Map<String, dynamic> json) => _$ComponentsFromJson(json);

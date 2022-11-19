@@ -5,19 +5,19 @@ part 'schema.g.dart';
 @JsonSerializable()
 class Schema {
   Schema({
-    required this.ref,
-    required this.oneOf,
-    required this.anyOf,
-    required this.allOf,
-    required this.description,
-    required this.deprecated,
-    required this.type,
-    required this.format,
-    required this.default_,
-    required this.enum_,
-    required this.properties,
-    required this.required,
-    required this.items,
+    this.ref,
+    this.oneOf,
+    this.anyOf,
+    this.allOf,
+    this.description,
+    this.deprecated,
+    this.type,
+    this.format,
+    this.default_,
+    this.enum_,
+    this.properties,
+    this.required,
+    this.items,
   });
 
   factory Schema.fromJson(final Map<String, dynamic> json) => _$SchemaFromJson(json);

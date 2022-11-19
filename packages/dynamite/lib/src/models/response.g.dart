@@ -9,12 +9,15 @@ part of 'response.dart';
 Response _$ResponseFromJson(Map<String, dynamic> json) {
   $checkKeys(
     json,
-    allowedKeys: const ['description', 'content'],
+    allowedKeys: const ['description', 'content', 'headers'],
   );
   return Response(
     description: json['description'] as String,
     content: (json['content'] as Map<String, dynamic>?)?.map(
       (k, e) => MapEntry(k, MediaType.fromJson(e as Map<String, dynamic>)),
+    ),
+    headers: (json['headers'] as Map<String, dynamic>?)?.map(
+      (k, e) => MapEntry(k, Header.fromJson(e as Map<String, dynamic>)),
     ),
   );
 }
@@ -31,5 +34,6 @@ Map<String, dynamic> _$ResponseToJson(Response instance) {
   }
 
   writeNotNull('content', instance.content?.map((k, e) => MapEntry(k, e.toJson())));
+  writeNotNull('headers', instance.headers?.map((k, e) => MapEntry(k, e.toJson())));
   return val;
 }

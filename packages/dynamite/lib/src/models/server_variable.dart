@@ -6,8 +6,8 @@ part 'server_variable.g.dart';
 class ServerVariable {
   ServerVariable({
     required this.default_,
-    required this.enum_,
-    required this.description,
+    this.enum_,
+    this.description,
   });
 
   factory ServerVariable.fromJson(final Map<String, dynamic> json) => _$ServerVariableFromJson(json);

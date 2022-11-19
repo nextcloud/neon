@@ -6,8 +6,8 @@ part 'license.g.dart';
 class License {
   License({
     required this.name,
-    required this.identifier,
-    required this.url,
+    this.identifier,
+    this.url,
   });
 
   factory License.fromJson(final Map<String, dynamic> json) => _$LicenseFromJson(json);

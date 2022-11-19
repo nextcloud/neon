@@ -8,9 +8,9 @@ class Parameter {
   Parameter({
     required this.name,
     required this.in_,
-    required this.description,
-    required this.required,
-    required this.schema,
+    this.description,
+    this.required,
+    this.schema,
   });
 
   factory Parameter.fromJson(final Map<String, dynamic> json) => _$ParameterFromJson(json);
