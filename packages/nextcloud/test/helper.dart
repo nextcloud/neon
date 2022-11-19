@@ -12,25 +12,30 @@ const String nextcloudVersion = '25.0.1';
 const String defaultUsername = 'user1';
 const String defaultPassword = 'user1';
 
-class TestNextcloudClient extends NextcloudClient {
-  TestNextcloudClient(
-    super.baseURL,
-    this.containerID, {
-    super.username,
-    super.password,
-    super.language,
-    super.appType,
-    super.userAgentOverride,
+class DockerImage {
+  DockerImage({
+    required this.name,
   });
 
-  final String containerID;
+  final String name;
+}
+
+class DockerContainer {
+  DockerContainer({
+    required this.id,
+    required this.port,
+  });
+
+  final String id;
+
+  final int port;
 
   Future runOccCommand(final List<String> args) async {
     final result = await runExecutableArguments(
       'docker',
       [
         'exec',
-        containerID,
+        id,
         'php',
         '-f',
         'occ',
@@ -48,7 +53,7 @@ class TestNextcloudClient extends NextcloudClient {
         'docker',
         [
           'kill',
-          containerID,
+          id,
         ],
       );
 
@@ -57,7 +62,7 @@ class TestNextcloudClient extends NextcloudClient {
       'docker',
       [
         'logs',
-        containerID,
+        id,
       ],
       stdoutEncoding: utf8,
     ))
@@ -66,7 +71,7 @@ class TestNextcloudClient extends NextcloudClient {
       'docker',
       [
         'exec',
-        containerID,
+        id,
         'cat',
         'data/nextcloud.log',
       ],
@@ -78,147 +83,162 @@ class TestNextcloudClient extends NextcloudClient {
   }
 }
 
-class TestHelper {
-  static Future<String> prepareDockerImage({
-    final List<TestNextcloudUser>? users,
-    final List<String>? apps,
-  }) async {
-    final hash = sha1
-        .convert(
-          utf8.encode(
-            <String>[
-              if (users != null)
-                for (final user in users) user.toString(),
-              if (apps != null) ...apps,
-            ].join(),
-          ),
-        )
-        .toString();
+class TestNextcloudClient extends NextcloudClient {
+  TestNextcloudClient(
+    super.baseURL, {
+    super.username,
+    super.password,
+    super.language,
+    super.appType,
+    super.userAgentOverride,
+  });
+}
 
-    final dockerImageName = 'nextcloud-neon-$hash';
+Future<TestNextcloudClient> getTestClient(
+  final DockerContainer container, {
+  final String? username = defaultUsername,
+  final String? password = defaultPassword,
+  final bool useAppPassword = false,
+  final AppType appType = AppType.unknown,
+  final String? userAgentOverride,
+}) async {
+  // ignore: prefer_asserts_with_message
+  assert(!useAppPassword || (username != null && password != null));
 
+  var clientPassword = password;
+  if (useAppPassword) {
     final inputStream = StreamController<List<int>>();
     final process = runExecutableArguments(
       'docker',
       [
-        'build',
-        '-t',
-        dockerImageName,
+        'exec',
+        '-i',
+        container.id,
+        'php',
         '-f',
-        '-',
-        './test',
+        'occ',
+        'user:add-app-password',
+        username!,
       ],
-      stdout: stdout,
-      stderr: stderr,
       stdin: inputStream.stream,
     );
-    inputStream.add(
-      utf8.encode(
-        TestDockerHelper.generateInstructions(
-          nextcloudVersion,
-          users: users,
-          apps: apps,
-        ),
-      ),
-    );
+    inputStream.add(utf8.encode(password!));
     await inputStream.close();
 
     final result = await process;
     if (result.exitCode != 0) {
-      throw Exception('Failed to build docker image');
+      throw Exception('Failed to run generate app password command\n${result.stderr}\n${result.stdout}');
     }
-
-    return dockerImageName;
+    clientPassword = (result.stdout as String).split('\n')[1];
   }
 
-  static Future<TestNextcloudClient> getPreparedClient(
-    final String dockerImageName, {
-    final String? username = defaultUsername,
-    final String? password = defaultPassword,
-    final bool useAppPassword = false,
-    final AppType appType = AppType.unknown,
-    final String? userAgentOverride,
-  }) async {
-    // ignore: prefer_asserts_with_message
-    assert(!useAppPassword || (username != null && password != null));
+  final client = TestNextcloudClient(
+    'http://localhost:${container.port}',
+    username: username,
+    password: clientPassword,
+    appType: appType,
+    userAgentOverride: userAgentOverride,
+  );
 
-    late ProcessResult result;
-    late int port;
-    while (true) {
-      port = randomPort();
-      result = await runExecutableArguments(
-        'docker',
-        [
-          'run',
-          '--rm',
-          '-d',
-          '-p',
-          '$port:80',
-          '--add-host',
-          'host.docker.internal:host-gateway',
-          dockerImageName,
-        ],
-      );
-      // 125 means the docker run command itself has failed which indicated the port is already used
-      if (result.exitCode != 125) {
-        break;
-      }
+  while (true) {
+    // Test will timeout after 30s
+    try {
+      await client.core.getStatus();
+      break;
+    } catch (_) {
+      await Future.delayed(const Duration(milliseconds: 100));
     }
+  }
 
-    if (result.exitCode != 0) {
-      throw Exception('Failed to run docker container: ${result.stderr}');
-    }
+  return client;
+}
 
-    final containerID = result.stdout.toString().replaceAll('\n', '');
-
-    var clientPassword = password;
-    if (useAppPassword) {
-      final inputStream = StreamController<List<int>>();
-      final process = runExecutableArguments(
-        'docker',
-        [
-          'exec',
-          '-i',
-          containerID,
-          'php',
-          '-f',
-          'occ',
-          'user:add-app-password',
-          username!,
-        ],
-        stdin: inputStream.stream,
-      );
-      inputStream.add(utf8.encode(password!));
-      await inputStream.close();
-
-      final result = await process;
-      if (result.exitCode != 0) {
-        throw Exception('Failed to run generate app password command\n${result.stderr}\n${result.stdout}');
-      }
-      clientPassword = (result.stdout as String).split('\n')[1];
-    }
-
-    final client = TestNextcloudClient(
-      'http://localhost:$port',
-      containerID,
-      username: username,
-      password: clientPassword,
-      appType: appType,
-      userAgentOverride: userAgentOverride,
+Future<DockerContainer> getDockerContainer(final DockerImage image) async {
+  late ProcessResult result;
+  late int port;
+  while (true) {
+    port = randomPort();
+    result = await runExecutableArguments(
+      'docker',
+      [
+        'run',
+        '--rm',
+        '-d',
+        '-p',
+        '$port:80',
+        '--add-host',
+        'host.docker.internal:host-gateway',
+        image.name,
+      ],
     );
-
-    while (true) {
-      // Test will timeout after 30s
-      try {
-        await client.core.getStatus();
-        break;
-      } catch (_) {
-        await Future.delayed(const Duration(milliseconds: 100));
-      }
+    // 125 means the docker run command itself has failed which indicated the port is already used
+    if (result.exitCode != 125) {
+      break;
     }
-
-    return client;
   }
+
+  if (result.exitCode != 0) {
+    throw Exception('Failed to run docker container: ${result.stderr}');
+  }
+
+  return DockerContainer(
+    id: result.stdout.toString().replaceAll('\n', ''),
+    port: port,
+  );
+}
+
+Future<DockerImage> getDockerImage({
+  final List<TestNextcloudUser>? users,
+  final List<String>? apps,
+}) async {
+  final hash = sha1
+      .convert(
+        utf8.encode(
+          <String>[
+            if (users != null)
+              for (final user in users) user.toString(),
+            if (apps != null) ...apps,
+          ].join(),
+        ),
+      )
+      .toString();
+
+  final dockerImageName = 'nextcloud-neon-$hash';
+
+  final inputStream = StreamController<List<int>>();
+  final process = runExecutableArguments(
+    'docker',
+    [
+      'build',
+      '-t',
+      dockerImageName,
+      '-f',
+      '-',
+      './test',
+    ],
+    stdout: stdout,
+    stderr: stderr,
+    stdin: inputStream.stream,
+  );
+  inputStream.add(
+    utf8.encode(
+      TestDockerHelper.generateInstructions(
+        nextcloudVersion,
+        users: users,
+        apps: apps,
+      ),
+    ),
+  );
+  await inputStream.close();
+
+  final result = await process;
+  if (result.exitCode != 0) {
+    throw Exception('Failed to build docker image');
+  }
+
+  return DockerImage(
+    name: dockerImageName,
+  );
 }
 
 class TestNextcloudUser {

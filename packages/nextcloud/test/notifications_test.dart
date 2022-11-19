@@ -8,18 +8,20 @@ import 'package:test/test.dart';
 import 'helper.dart';
 
 Future main() async {
-  final dockerImageName = await TestHelper.prepareDockerImage();
+  final image = await getDockerImage();
 
   group('notifications', () {
+    late DockerContainer container;
     late TestNextcloudClient client;
-    setUp(
-      () async => client = await TestHelper.getPreparedClient(
-        dockerImageName,
+    setUp(() async {
+      container = await getDockerContainer(image);
+      client = await getTestClient(
+        container,
         username: 'admin',
         password: 'admin',
-      ),
-    );
-    tearDown(() => client.destroy());
+      );
+    });
+    tearDown(() => container.destroy());
 
     Future sendTestNotification() async {
       await client.notifications.sendAdminNotification(
@@ -97,16 +99,18 @@ Future main() async {
   });
 
   group('push notifications', () {
+    late DockerContainer container;
     late TestNextcloudClient client;
     setUp(() async {
-      client = await TestHelper.getPreparedClient(
-        dockerImageName,
+      container = await getDockerContainer(image);
+      client = await getTestClient(
+        container,
         username: 'admin',
         // We need to use app passwords in order to register push devices
         useAppPassword: true,
       );
     });
-    tearDown(() => client.destroy());
+    tearDown(() => container.destroy());
 
     // The key size has to be 2048, other sizes are not accepted by Nextcloud (at the moment at least)
     // ignore: avoid_redundant_argument_values

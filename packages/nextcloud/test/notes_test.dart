@@ -4,12 +4,16 @@ import 'package:test/test.dart';
 import 'helper.dart';
 
 Future main() async {
-  final dockerImageName = await TestHelper.prepareDockerImage(apps: ['notes']);
+  final image = await getDockerImage(apps: ['notes']);
 
   group('notes', () {
+    late DockerContainer container;
     late TestNextcloudClient client;
-    setUp(() async => client = await TestHelper.getPreparedClient(dockerImageName));
-    tearDown(() => client.destroy());
+    setUp(() async {
+      container = await getDockerContainer(image);
+      client = await getTestClient(container);
+    });
+    tearDown(() => container.destroy());
 
     test('Is supported', () async {
       final response = await client.notes.isSupported();

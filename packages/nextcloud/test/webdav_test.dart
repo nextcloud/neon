@@ -8,16 +8,22 @@ import 'package:test/test.dart';
 import 'helper.dart';
 
 Future main() async {
-  final dockerImageName = await TestHelper.prepareDockerImage();
+  final image = await getDockerImage();
 
   group('webdav', () {
+    late DockerContainer container;
     late TestNextcloudClient client;
-    setUp(() async => client = await TestHelper.getPreparedClient(dockerImageName));
-    tearDown(() => client.destroy());
+    setUp(() async {
+      container = await getDockerContainer(image);
+      client = await getTestClient(container);
+    });
+    tearDown(() => container.destroy());
 
     test('Fail without username', () async {
-      await client.destroy();
-      client = await TestHelper.getPreparedClient(dockerImageName, username: null);
+      client = await getTestClient(
+        container,
+        username: null,
+      );
       expect(() => client.webdav, throwsException);
     });
 
