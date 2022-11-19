@@ -910,7 +910,6 @@ class OpenAPIBuilder implements Builder {
                         for (final header in {...baseHeaders, ...headers}.entries) {
                           request.headers.add(header.key, header.value);
                         }
-<<<<<<< Updated upstream
                         if (body != null) {
                           request.add(body.toList());
                         }
@@ -927,11 +926,6 @@ class OpenAPIBuilder implements Builder {
                           responseHeaders[name] = values.last;
                         });
                         return Response(
-=======
-                        
-                        final response = await http.Response.fromStream(await request.send());
-                        return _Response(
->>>>>>> Stashed changes
                           response.statusCode,
                           responseHeaders,
                           await response.bodyBytes,

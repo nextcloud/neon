@@ -15,8 +15,22 @@ extension HttpClientResponseBody on HttpClientResponse {
   Future<String> get body async => utf8.decode(await bodyBytes);
 }
 
-class Response {
+class Response<T, U> {
   Response(
+    this.data,
+    this.headers,
+  );
+
+  final T data;
+
+  final U headers;
+
+  @override
+  String toString() => 'Response(data: $data, headers: $headers)';
+}
+
+class _Response {
+  _Response(
     this.statusCode,
     this.headers,
     this.body,
@@ -29,17 +43,17 @@ class Response {
   final Uint8List body;
 
   @override
-  String toString() => 'Response(statusCode: $statusCode, headers: $headers, body: ${utf8.decode(body)})';
+  String toString() => '_Response(statusCode: $statusCode, headers: $headers, body: ${utf8.decode(body)})';
 }
 
-class ApiException extends Response implements Exception {
+class ApiException extends _Response implements Exception {
   ApiException(
     super.statusCode,
     super.headers,
     super.body,
   );
 
-  factory ApiException.fromResponse(Response response) => ApiException(
+  factory ApiException.fromResponse(_Response response) => ApiException(
         response.statusCode,
         response.headers,
         response.body,
@@ -104,7 +118,7 @@ class Client {
   NotificationsClient get notifications => NotificationsClient(this);
   ProvisioningApiClient get provisioningApi => ProvisioningApiClient(this);
   UserStatusClient get userStatus => UserStatusClient(this);
-  Future<Response> doRequest(
+  Future<_Response> doRequest(
     String method,
     String path,
     Map<String, String> headers,
