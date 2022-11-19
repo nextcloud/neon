@@ -10,6 +10,7 @@ class NextcloudClient extends Client {
     final String? language,
     final AppType appType = AppType.unknown,
     final String? userAgentOverride,
+    super.cookieJar,
   }) : super(
           baseHeaders: (<String, String?>{
             'OCS-APIRequest': 'true',

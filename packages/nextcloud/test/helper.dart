@@ -91,6 +91,7 @@ class TestNextcloudClient extends NextcloudClient {
     super.language,
     super.appType,
     super.userAgentOverride,
+    super.cookieJar,
   });
 }
 
@@ -138,6 +139,7 @@ Future<TestNextcloudClient> getTestClient(
     password: clientPassword,
     appType: appType,
     userAgentOverride: userAgentOverride,
+    cookieJar: CookieJar(),
   );
 
   while (true) {
