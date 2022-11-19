@@ -76,6 +76,54 @@ class OpenAPIBuilder implements Builder {
         Class(
           (final b) => b
             ..name = 'Response'
+            ..types.addAll([
+              refer('T'),
+              refer('U'),
+            ])
+            ..fields.addAll([
+              Field(
+                (final b) => b
+                  ..name = 'data'
+                  ..type = refer('T')
+                  ..modifier = FieldModifier.final$,
+              ),
+              Field(
+                (final b) => b
+                  ..name = 'headers'
+                  ..type = refer('U')
+                  ..modifier = FieldModifier.final$,
+              ),
+            ])
+            ..constructors.add(
+              Constructor(
+                (final b) => b
+                  ..requiredParameters.addAll(
+                    ['data', 'headers'].map(
+                      (final name) => Parameter(
+                        (final b) => b
+                          ..name = name
+                          ..toThis = true,
+                      ),
+                    ),
+                  ),
+              ),
+            )
+            ..methods.add(
+              Method(
+                (final b) => b
+                  ..name = 'toString'
+                  ..returns = refer('String')
+                  ..annotations.add(refer('override'))
+                  ..lambda = true
+                  ..body = const Code(
+                    r"'Response(data: $data, headers: $headers)'",
+                  ),
+              ),
+            ),
+        ).accept(emitter).toString(),
+        Class(
+          (final b) => b
+            ..name = '_Response'
             ..fields.addAll([
               Field(
                 (final b) => b
@@ -117,15 +165,16 @@ class OpenAPIBuilder implements Builder {
                   ..returns = refer('String')
                   ..annotations.add(refer('override'))
                   ..lambda = true
-                  ..body =
-                      const Code(r"'Response(statusCode: $statusCode, headers: $headers, body: ${utf8.decode(body)})'"),
+                  ..body = const Code(
+                    r"'_Response(statusCode: $statusCode, headers: $headers, body: ${utf8.decode(body)})'",
+                  ),
               ),
             ),
         ).accept(emitter).toString(),
         Class(
           (final b) => b
             ..name = 'ApiException'
-            ..extend = refer('Response')
+            ..extend = refer('_Response')
             ..implements.add(refer('Exception'))
             ..constructors.addAll(
               [
@@ -150,7 +199,7 @@ class OpenAPIBuilder implements Builder {
                       Parameter(
                         (final b) => b
                           ..name = 'response'
-                          ..type = refer('Response'),
+                          ..type = refer('_Response'),
                       ),
                     )
                     ..body = const Code('ApiException(response.statusCode, response.headers, response.body,)'),
@@ -258,6 +307,7 @@ class OpenAPIBuilder implements Builder {
         final Schema schema, {
         final bool ignoreEnum = false,
         final Map<String, String>? extraJsonSerializableValues,
+        final Map<String, Map<String, String>>? extraJsonKeyValues,
       }) {
         TypeResolveResult? result;
         if (schema.ref != null) {
@@ -557,6 +607,15 @@ class OpenAPIBuilder implements Builder {
                                       [],
                                       {
                                         'name': refer("'$propertyName'"),
+                                        if (extraJsonKeyValues != null) ...{
+                                          for (final p in extraJsonKeyValues.keys) ...{
+                                            if (p == propertyName) ...{
+                                              for (final key in extraJsonKeyValues[p]!.keys) ...{
+                                                key: refer(extraJsonKeyValues[p]![key]!),
+                                              },
+                                            },
+                                          },
+                                        },
                                       },
                                     ),
                                   );
@@ -699,14 +758,6 @@ class OpenAPIBuilder implements Builder {
                   paths[path] = PathItem(
                     description: pathItem.description,
                     parameters: pathItem.parameters,
-                    get: null,
-                    put: null,
-                    post: null,
-                    delete: null,
-                    options: null,
-                    head: null,
-                    patch: null,
-                    trace: null,
                   );
                 }
                 paths[path] = paths[path]!.copyWithOperations({method: operation});
@@ -829,7 +880,7 @@ class OpenAPIBuilder implements Builder {
                     Method(
                       (final b) => b
                         ..name = 'doRequest'
-                        ..returns = refer('Future<Response>')
+                        ..returns = refer('Future<_Response>')
                         ..modifier = MethodModifier.async
                         ..requiredParameters.addAll([
                           Parameter(
@@ -859,6 +910,7 @@ class OpenAPIBuilder implements Builder {
                         for (final header in {...baseHeaders, ...headers}.entries) {
                           request.headers.add(header.key, header.value);
                         }
+<<<<<<< Updated upstream
                         if (body != null) {
                           request.add(body.toList());
                         }
@@ -875,6 +927,11 @@ class OpenAPIBuilder implements Builder {
                           responseHeaders[name] = values.last;
                         });
                         return Response(
+=======
+                        
+                        final response = await http.Response.fromStream(await request.send());
+                        return _Response(
+>>>>>>> Stashed changes
                           response.statusCode,
                           responseHeaders,
                           await response.bodyBytes,
@@ -913,6 +970,7 @@ class OpenAPIBuilder implements Builder {
                         Method(
                           (final b) {
                             final operation = paths[path]!.operations[httpMethod]!;
+                            final operationId = operation.operationId ?? _toDartName('$httpMethod-$path');
                             final pathParameters = <spec_parameter.Parameter>[
                               if (paths[path]!.parameters != null) ...paths[path]!.parameters!,
                             ];
@@ -920,7 +978,7 @@ class OpenAPIBuilder implements Builder {
                               ...pathParameters,
                               if (operation.parameters != null) ...operation.parameters!,
                             ];
-                            final methodName = _toDartName(operation.operationId ?? _toDartName('$httpMethod-$path'));
+                            final methodName = _toDartName(operationId);
                             b
                               ..name = methodName
                               ..modifier = MethodModifier.async;
@@ -986,7 +1044,7 @@ class OpenAPIBuilder implements Builder {
                                   break;
                                 case 'query':
                                   code.write(
-                                    "queryParameters['${parameter.name}'] = ${_toDartName(parameter.name)}$enumValueGetter.toString();",
+                                    "queryParameters['${parameter.name}${result.isList ? '[]' : ''}'] = ${_toDartName(parameter.name)}$enumValueGetter${result.isList ? '.map((final x) => x.toString()).toList()' : '.toString()'};",
                                   );
                                   break;
                                 case 'header':
@@ -1064,6 +1122,51 @@ class OpenAPIBuilder implements Builder {
                               for (final statusCode in operation.responses!.keys) {
                                 final response = operation.responses![statusCode]!;
                                 code.write('if (response.statusCode == $statusCode) {');
+
+                                String? headersType;
+                                String? headersValue;
+                                if (response.headers != null) {
+                                  final identifier =
+                                      '${tag != null ? _toDartName(tag.name, uppercaseFirstCharacter: true) : null}${_toDartName(operationId, uppercaseFirstCharacter: true)}Headers';
+                                  final headerParseFunctions = <String, String>{};
+                                  for (final headerName in response.headers!.keys) {
+                                    final functionIdentifier = '_${_toDartName('${identifier}Parse$headerName')}';
+                                    headerParseFunctions[headerName] = functionIdentifier;
+                                    final result = resolveType(
+                                      identifier,
+                                      response.headers![headerName]!.schema!,
+                                    );
+                                    output.add(
+                                      '${result.typeName} $functionIdentifier(final Map data, final String key) => ${_parseFromStringFunctionForType('data[key]', result)};',
+                                    );
+                                  }
+                                  final result = resolveType(
+                                    identifier,
+                                    Schema(
+                                      type: 'object',
+                                      properties: {
+                                        for (final headerName in response.headers!.keys) ...{
+                                          headerName.toLowerCase(): response.headers![headerName]!.schema!,
+                                        },
+                                      },
+                                    ),
+                                    extraJsonSerializableValues: {
+                                      'disallowUnrecognizedKeys': 'false',
+                                    },
+                                    extraJsonKeyValues: {
+                                      for (final headerName in response.headers!.keys) ...{
+                                        headerName.toLowerCase(): {
+                                          'readValue': headerParseFunctions[headerName]!,
+                                        },
+                                      },
+                                    },
+                                  );
+                                  headersType = result.typeName;
+                                  headersValue = _deserializeFunctionForType('response.headers', result);
+                                }
+
+                                String? dataType;
+                                String? dataValue;
                                 if (response.content != null) {
                                   if (response.content!.length > 1) {
                                     throw Exception('Can not work with multiple mime types right now');
@@ -1077,26 +1180,38 @@ class OpenAPIBuilder implements Builder {
                                     );
                                     switch (mimeType) {
                                       case 'application/json':
-                                        b.returns = refer('Future<${result.typeName}>');
-                                        code.write('return ${_deserializeFunctionForType(
+                                        dataType = result.typeName;
+                                        dataValue = _deserializeFunctionForType(
                                           result.isBaseType
                                               ? 'utf8.decode(response.body)'
                                               : 'json.decode(utf8.decode(response.body))',
                                           result,
-                                        )};');
+                                        );
                                         break;
                                       case 'image/png':
-                                        b.returns = refer('Future<Uint8List>');
-                                        code.write('return response.body;');
+                                        dataType = 'Uint8List';
+                                        dataValue = 'response.body';
                                         break;
                                       default:
                                         throw Exception('Can not parse mime type "$mimeType"');
                                     }
                                   }
-                                } else {
-                                  code.write('return;');
-                                  b.returns = refer('Future');
                                 }
+
+                                if (headersType != null && dataType != null) {
+                                  b.returns = refer('Future<Response<$dataType, $headersType>>');
+                                  code.write('return Response<$dataType, $headersType>($dataValue, $headersValue,);');
+                                } else if (headersType != null) {
+                                  b.returns = refer('Future<$headersType>');
+                                  code.write('return $headersValue;');
+                                } else if (dataType != null) {
+                                  b.returns = refer('Future<$dataType>');
+                                  code.write('return $dataValue;');
+                                } else {
+                                  b.returns = refer('Future');
+                                  code.write('return;');
+                                }
+
                                 code.write('}');
                               }
                               code.write('throw ApiException.fromResponse(response); // coverage:ignore-line\n');
@@ -1370,6 +1485,24 @@ String _deserializeFunctionForType(final String object, final TypeResolveResult 
     return '${result.typeName}.fromValue($object as ${result.subType!.typeName})';
   } else {
     return '${result.typeName}.fromJson($object as Map<String, dynamic>)';
+  }
+}
+
+String _parseFromStringFunctionForType(final String object, final TypeResolveResult result) {
+  final o = '$object as String';
+  if (result.isBaseType) {
+    switch (result.typeName) {
+      case 'String':
+        return o;
+      case 'int':
+        return 'int.parse($o)';
+      default:
+        throw Exception('Can not parse "${result.typeName}" from String');
+    }
+  } else if (result.isEnum) {
+    return _parseFromStringFunctionForType(o, result.subType!);
+  } else {
+    return 'json.decode($o)';
   }
 }
 
