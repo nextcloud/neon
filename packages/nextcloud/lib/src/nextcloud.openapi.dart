@@ -2713,33 +2713,33 @@ class NotificationsGetNotification {
 }
 
 @JsonSerializable()
-class NotificationsEmpty_Ocs {
-  NotificationsEmpty_Ocs({
+class EmptyOCS_Ocs {
+  EmptyOCS_Ocs({
     required this.meta,
     required this.data,
   });
 
-  factory NotificationsEmpty_Ocs.fromJson(Map<String, dynamic> json) => _$NotificationsEmpty_OcsFromJson(json);
+  factory EmptyOCS_Ocs.fromJson(Map<String, dynamic> json) => _$EmptyOCS_OcsFromJson(json);
 
   final OCSMeta meta;
 
-  final List<String> data;
+  final List data;
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$NotificationsEmpty_OcsToJson(this);
+  Map<String, dynamic> toJson() => _$EmptyOCS_OcsToJson(this);
   // coverage:ignore-end
 }
 
 @JsonSerializable()
-class NotificationsEmpty {
-  NotificationsEmpty({required this.ocs});
+class EmptyOCS {
+  EmptyOCS({required this.ocs});
 
-  factory NotificationsEmpty.fromJson(Map<String, dynamic> json) => _$NotificationsEmptyFromJson(json);
+  factory EmptyOCS.fromJson(Map<String, dynamic> json) => _$EmptyOCSFromJson(json);
 
-  final NotificationsEmpty_Ocs ocs;
+  final EmptyOCS_Ocs ocs;
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$NotificationsEmptyToJson(this);
+  Map<String, dynamic> toJson() => _$EmptyOCSToJson(this);
   // coverage:ignore-end
 }
 
@@ -2858,7 +2858,7 @@ class NotificationsClient {
     throw ApiException.fromResponse(response); // coverage:ignore-line
   }
 
-  Future<NotificationsEmpty> deleteNotification({required int id}) async {
+  Future<EmptyOCS> deleteNotification({required int id}) async {
     var path = '/ocs/v2.php/apps/notifications/api/v2/notifications/{id}';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{};
@@ -2871,7 +2871,7 @@ class NotificationsClient {
       body,
     );
     if (response.statusCode == 200) {
-      return NotificationsEmpty.fromJson(json.decode(utf8.decode(response.body)) as Map<String, dynamic>);
+      return EmptyOCS.fromJson(json.decode(utf8.decode(response.body)) as Map<String, dynamic>);
     }
     throw ApiException.fromResponse(response); // coverage:ignore-line
   }
@@ -2918,7 +2918,7 @@ class NotificationsClient {
     throw ApiException.fromResponse(response); // coverage:ignore-line
   }
 
-  Future<NotificationsEmpty> sendAdminNotification({
+  Future<EmptyOCS> sendAdminNotification({
     required String userId,
     required String shortMessage,
     String longMessage = '',
@@ -2937,7 +2937,7 @@ class NotificationsClient {
       body,
     );
     if (response.statusCode == 200) {
-      return NotificationsEmpty.fromJson(json.decode(utf8.decode(response.body)) as Map<String, dynamic>);
+      return EmptyOCS.fromJson(json.decode(utf8.decode(response.body)) as Map<String, dynamic>);
     }
     throw ApiException.fromResponse(response); // coverage:ignore-line
   }
@@ -4342,14 +4342,12 @@ final _deserializers = <Type, dynamic Function(dynamic)>{
       .map<NotificationsGetNotification_Ocs>(
           (final e) => NotificationsGetNotification_Ocs.fromJson(e as Map<String, dynamic>))
       .toList(),
-  NotificationsEmpty: (final data) => NotificationsEmpty.fromJson(data as Map<String, dynamic>),
-  List<NotificationsEmpty>: (final data) => (data as List)
-      .map<NotificationsEmpty>((final e) => NotificationsEmpty.fromJson(e as Map<String, dynamic>))
-      .toList(),
-  NotificationsEmpty_Ocs: (final data) => NotificationsEmpty_Ocs.fromJson(data as Map<String, dynamic>),
-  List<NotificationsEmpty_Ocs>: (final data) => (data as List)
-      .map<NotificationsEmpty_Ocs>((final e) => NotificationsEmpty_Ocs.fromJson(e as Map<String, dynamic>))
-      .toList(),
+  EmptyOCS: (final data) => EmptyOCS.fromJson(data as Map<String, dynamic>),
+  List<EmptyOCS>: (final data) =>
+      (data as List).map<EmptyOCS>((final e) => EmptyOCS.fromJson(e as Map<String, dynamic>)).toList(),
+  EmptyOCS_Ocs: (final data) => EmptyOCS_Ocs.fromJson(data as Map<String, dynamic>),
+  List<EmptyOCS_Ocs>: (final data) =>
+      (data as List).map<EmptyOCS_Ocs>((final e) => EmptyOCS_Ocs.fromJson(e as Map<String, dynamic>)).toList(),
   NotificationsPushServerRegistration: (final data) =>
       NotificationsPushServerRegistration.fromJson(data as Map<String, dynamic>),
   List<NotificationsPushServerRegistration>: (final data) => (data as List)
@@ -4821,12 +4819,11 @@ final _serializers = <Type, dynamic Function(dynamic)>{
   List<NotificationsGetNotification_Ocs>: (final data) => (data as List<NotificationsGetNotification_Ocs>)
       .map((final e) => (e as NotificationsGetNotification_Ocs).toJson())
       .toList(),
-  NotificationsEmpty: (final data) => (data as NotificationsEmpty).toJson(),
-  List<NotificationsEmpty>: (final data) =>
-      (data as List<NotificationsEmpty>).map((final e) => (e as NotificationsEmpty).toJson()).toList(),
-  NotificationsEmpty_Ocs: (final data) => (data as NotificationsEmpty_Ocs).toJson(),
-  List<NotificationsEmpty_Ocs>: (final data) =>
-      (data as List<NotificationsEmpty_Ocs>).map((final e) => (e as NotificationsEmpty_Ocs).toJson()).toList(),
+  EmptyOCS: (final data) => (data as EmptyOCS).toJson(),
+  List<EmptyOCS>: (final data) => (data as List<EmptyOCS>).map((final e) => (e as EmptyOCS).toJson()).toList(),
+  EmptyOCS_Ocs: (final data) => (data as EmptyOCS_Ocs).toJson(),
+  List<EmptyOCS_Ocs>: (final data) =>
+      (data as List<EmptyOCS_Ocs>).map((final e) => (e as EmptyOCS_Ocs).toJson()).toList(),
   NotificationsPushServerRegistration: (final data) => (data as NotificationsPushServerRegistration).toJson(),
   List<NotificationsPushServerRegistration>: (final data) => (data as List<NotificationsPushServerRegistration>)
       .map((final e) => (e as NotificationsPushServerRegistration).toJson())

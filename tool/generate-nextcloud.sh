@@ -92,6 +92,30 @@ for codename in ${codenames[*]}; do
             type: "string"
           }
         }
+      } |
+      .components.schemas.EmptyOCS =
+      {
+        type: "object",
+        required: [
+          "ocs"
+        ],
+        properties: {
+          ocs: {
+            type: "object",
+            required: [
+              "meta",
+              "data"
+            ],
+            properties: {
+              meta: {
+                "$ref": "#/components/schemas/OCSMeta"
+              },
+              data: {
+                type: "array"
+              }
+            }
+          }
+        }
       }
       ' \
       specs/templates/"$codename".json \

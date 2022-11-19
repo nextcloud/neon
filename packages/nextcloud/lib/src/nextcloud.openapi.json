@@ -72,6 +72,29 @@
           }
         }
       },
+      "EmptyOCS": {
+        "type": "object",
+        "required": [
+          "ocs"
+        ],
+        "properties": {
+          "ocs": {
+            "type": "object",
+            "required": [
+              "meta",
+              "data"
+            ],
+            "properties": {
+              "meta": {
+                "$ref": "#/components/schemas/OCSMeta"
+              },
+              "data": {
+                "type": "array"
+              }
+            }
+          }
+        }
+      },
       "CoreServerStatus": {
         "type": "object",
         "required": [
@@ -1357,32 +1380,6 @@
               "edit",
               "preview"
             ]
-          }
-        }
-      },
-      "NotificationsEmpty": {
-        "type": "object",
-        "required": [
-          "ocs"
-        ],
-        "properties": {
-          "ocs": {
-            "type": "object",
-            "required": [
-              "meta",
-              "data"
-            ],
-            "properties": {
-              "meta": {
-                "$ref": "#/components/schemas/OCSMeta"
-              },
-              "data": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              }
-            }
           }
         }
       },
@@ -3335,7 +3332,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/NotificationsEmpty"
+                  "$ref": "#/components/schemas/EmptyOCS"
                 }
               }
             }
@@ -3449,7 +3446,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/NotificationsEmpty"
+                  "$ref": "#/components/schemas/EmptyOCS"
                 }
               }
             }
