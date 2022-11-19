@@ -1352,30 +1352,30 @@ class CoreServerCapabilities {
 class CoreNavigationApps_Ocs_Data_Order {
   CoreNavigationApps_Ocs_Data_Order(
     this._data, {
-    this.int_,
+    this.$int,
     this.string,
   });
 
   factory CoreNavigationApps_Ocs_Data_Order.fromJson(dynamic data) {
-    int? int_;
+    int? $int;
     try {
-      int_ = data as int;
+      $int = data as int;
     } catch (_) {}
     String? string;
     try {
       string = data as String;
     } catch (_) {}
-    assert([int_, string].where((final x) => x != null).length == 1, 'Need oneOf');
+    assert([$int, string].where((final x) => x != null).length == 1, 'Need oneOf');
     return CoreNavigationApps_Ocs_Data_Order(
       data,
-      int_: int_,
+      $int: $int,
       string: string,
     );
   }
 
   final dynamic _data;
 
-  final int? int_;
+  final int? $int;
 
   final String? string;
 
@@ -3267,7 +3267,7 @@ class UserStatusClearAt_Time {
   UserStatusClearAt_Time(
     this._data, {
     this.userStatusClearAtTime0,
-    this.int_,
+    this.$int,
   });
 
   factory UserStatusClearAt_Time.fromJson(dynamic data) {
@@ -3275,15 +3275,15 @@ class UserStatusClearAt_Time {
     try {
       userStatusClearAtTime0 = UserStatusClearAt_Time0.fromValue(data as String);
     } catch (_) {}
-    int? int_;
+    int? $int;
     try {
-      int_ = data as int;
+      $int = data as int;
     } catch (_) {}
-    assert([userStatusClearAtTime0, int_].where((final x) => x != null).length == 1, 'Need oneOf');
+    assert([userStatusClearAtTime0, $int].where((final x) => x != null).length == 1, 'Need oneOf');
     return UserStatusClearAt_Time(
       data,
       userStatusClearAtTime0: userStatusClearAtTime0,
-      int_: int_,
+      $int: $int,
     );
   }
 
@@ -3292,7 +3292,7 @@ class UserStatusClearAt_Time {
   final UserStatusClearAt_Time0? userStatusClearAtTime0;
 
   /// Time offset in seconds
-  final int? int_;
+  final int? $int;
 
   // coverage:ignore-start
   dynamic toJson() => _data;
@@ -3321,7 +3321,7 @@ class UserStatusPublicUserStatus_ClearAt {
   UserStatusPublicUserStatus_ClearAt(
     this._data, {
     this.userStatusClearAt,
-    this.int_,
+    this.$int,
   });
 
   factory UserStatusPublicUserStatus_ClearAt.fromJson(dynamic data) {
@@ -3329,14 +3329,14 @@ class UserStatusPublicUserStatus_ClearAt {
     try {
       userStatusClearAt = UserStatusClearAt.fromJson(data as Map<String, dynamic>);
     } catch (_) {}
-    int? int_;
+    int? $int;
     try {
-      int_ = data as int;
+      $int = data as int;
     } catch (_) {}
     return UserStatusPublicUserStatus_ClearAt(
       data,
       userStatusClearAt: userStatusClearAt,
-      int_: int_,
+      $int: $int,
     );
   }
 
@@ -3345,7 +3345,7 @@ class UserStatusPublicUserStatus_ClearAt {
   final UserStatusClearAt? userStatusClearAt;
 
   /// Time as unix timestamp
-  final int? int_;
+  final int? $int;
 
   // coverage:ignore-start
   dynamic toJson() => _data;
@@ -3501,7 +3501,7 @@ class UserStatus_ClearAt {
   UserStatus_ClearAt(
     this._data, {
     this.userStatusClearAt,
-    this.int_,
+    this.$int,
   });
 
   factory UserStatus_ClearAt.fromJson(dynamic data) {
@@ -3509,14 +3509,14 @@ class UserStatus_ClearAt {
     try {
       userStatusClearAt = UserStatusClearAt.fromJson(data as Map<String, dynamic>);
     } catch (_) {}
-    int? int_;
+    int? $int;
     try {
-      int_ = data as int;
+      $int = data as int;
     } catch (_) {}
     return UserStatus_ClearAt(
       data,
       userStatusClearAt: userStatusClearAt,
-      int_: int_,
+      $int: $int,
     );
   }
 
@@ -3525,7 +3525,7 @@ class UserStatus_ClearAt {
   final UserStatusClearAt? userStatusClearAt;
 
   /// Time as unix timestamp
-  final int? int_;
+  final int? $int;
 
   // coverage:ignore-start
   dynamic toJson() => _data;
@@ -3630,7 +3630,7 @@ class UserStatusPredefinedStatus_ClearAt {
   UserStatusPredefinedStatus_ClearAt(
     this._data, {
     this.userStatusClearAt,
-    this.int_,
+    this.$int,
   });
 
   factory UserStatusPredefinedStatus_ClearAt.fromJson(dynamic data) {
@@ -3638,14 +3638,14 @@ class UserStatusPredefinedStatus_ClearAt {
     try {
       userStatusClearAt = UserStatusClearAt.fromJson(data as Map<String, dynamic>);
     } catch (_) {}
-    int? int_;
+    int? $int;
     try {
-      int_ = data as int;
+      $int = data as int;
     } catch (_) {}
     return UserStatusPredefinedStatus_ClearAt(
       data,
       userStatusClearAt: userStatusClearAt,
-      int_: int_,
+      $int: $int,
     );
   }
 
@@ -3654,7 +3654,7 @@ class UserStatusPredefinedStatus_ClearAt {
   final UserStatusClearAt? userStatusClearAt;
 
   /// Time as unix timestamp
-  final int? int_;
+  final int? $int;
 
   // coverage:ignore-start
   dynamic toJson() => _data;

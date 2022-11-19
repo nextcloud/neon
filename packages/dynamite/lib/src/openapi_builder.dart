@@ -292,8 +292,7 @@ class OpenAPIBuilder implements Builder {
                   final fields = <String, String>{};
                   for (final result in results) {
                     final dartName = _toDartName(result.typeName);
-                    final fieldName = dartName == result.typeName ? '${dartName}_' : dartName;
-                    fields[result.typeName] = fieldName;
+                    fields[result.typeName] = _toFieldName(dartName, result.typeName);
                   }
 
                   b
@@ -1249,11 +1248,12 @@ String _toDartName(
     result.write(char);
   }
 
-  if (_dartKeywords.contains(result.toString())) {
-    return '${result.toString()}_';
+  final out = result.toString();
+  if (_dartKeywords.contains(out) || RegExp(r'^[0-9]+$', multiLine: true).hasMatch(out)) {
+    return '\$$out';
   }
 
-  return result.toString();
+  return out;
 }
 
 final _dartKeywords = [
@@ -1320,7 +1320,9 @@ final _dartKeywords = [
 
 bool _isNonAlphaNumericString(final String input) => !RegExp(r'^[a-zA-Z0-9]$').hasMatch(input);
 
-String _makeNullable(final String type, final bool nullable) => nullable ? '$type?' : type;
+String _makeNullable(final String type, final bool nullable) => nullable && type != 'dynamic' ? '$type?' : type;
+
+String _toFieldName(final String dartName, final String type) => dartName == type ? '\$$dartName' : dartName;
 
 class TypeResolveResult {
   TypeResolveResult(
