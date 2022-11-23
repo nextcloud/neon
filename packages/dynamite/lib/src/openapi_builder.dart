@@ -302,14 +302,14 @@ class OpenAPIBuilder implements Builder {
         }
       }
 
-      TypeResolveResult resolveType(
+      TypeResult resolveType(
         final String identifier,
         final Schema schema, {
         final bool ignoreEnum = false,
         final Map<String, String>? extraJsonSerializableValues,
         final Map<String, Map<String, String>>? extraJsonKeyValues,
       }) {
-        TypeResolveResult? result;
+        TypeResult? result;
         if (schema.ref != null) {
           final name = schema.ref!.split('/').last;
           result = resolveType(
@@ -341,8 +341,8 @@ class OpenAPIBuilder implements Builder {
                 (final b) {
                   final fields = <String, String>{};
                   for (final result in results) {
-                    final dartName = _toDartName(result.typeName);
-                    fields[result.typeName] = _toFieldName(dartName, result.typeName);
+                    final dartName = _toDartName(result.name);
+                    fields[result.name] = _toFieldName(dartName, result.name);
                   }
 
                   b
@@ -361,8 +361,8 @@ class OpenAPIBuilder implements Builder {
                           (final b) {
                             final s = schema.ofs![results.indexOf(result)];
                             b
-                              ..name = fields[result.typeName]!
-                              ..type = refer(_makeNullable(result.typeName, true))
+                              ..name = fields[result.name]!
+                              ..type = refer(_makeNullable(result.name, true))
                               ..modifier = FieldModifier.final$
                               ..docs.addAll([
                                 if (s.description != null && s.description!.isNotEmpty) ...[
@@ -387,7 +387,7 @@ class OpenAPIBuilder implements Builder {
                             for (final result in results) ...[
                               Parameter(
                                 (final b) => b
-                                  ..name = fields[result.typeName]!
+                                  ..name = fields[result.name]!
                                   ..toThis = true
                                   ..named = true,
                               ),
@@ -409,9 +409,9 @@ class OpenAPIBuilder implements Builder {
                             ..body = Code(
                               <String>[
                                 for (final result in results) ...[
-                                  '${result.typeName}? ${fields[result.typeName]!};',
+                                  '${result.name}? ${fields[result.name]!};',
                                   'try {',
-                                  '${fields[result.typeName]!} = ${_deserializeFunctionForType('data', result)};',
+                                  '${fields[result.name]!} = ${result.deserialize('data')};',
                                   '} catch (_) {',
                                   '}',
                                 ],
@@ -424,7 +424,7 @@ class OpenAPIBuilder implements Builder {
                                 'return $identifier(',
                                 'data,',
                                 for (final result in results) ...[
-                                  '${fields[result.typeName]!}: ${fields[result.typeName]!},',
+                                  '${fields[result.name]!}: ${fields[result.name]!},',
                                 ],
                                 ');',
                               ].join(),
@@ -446,28 +446,25 @@ class OpenAPIBuilder implements Builder {
             );
           }
 
-          result = TypeResolveResult(
-            identifier,
-            isBaseType: false,
-          );
+          result = TypeResultObject(identifier);
         } else {
           switch (schema.type) {
             case 'boolean':
-              result = TypeResolveResult('bool');
+              result = TypeResultBase('bool');
               break;
             case 'integer':
-              result = TypeResolveResult('int');
+              result = TypeResultBase('int');
               break;
             case 'number':
-              result = TypeResolveResult('num');
+              result = TypeResultBase('num');
               break;
             case 'string':
               switch (schema.format) {
                 case 'binary':
-                  result = TypeResolveResult('Uint8List');
+                  result = TypeResultBase('Uint8List');
                   break;
                 case null:
-                  result = TypeResolveResult(
+                  result = TypeResultBase(
                     'String',
                   );
                   break;
@@ -480,30 +477,26 @@ class OpenAPIBuilder implements Builder {
                   schema.items!,
                   extraJsonSerializableValues: extraJsonSerializableValues,
                 );
-                result = TypeResolveResult(
-                  'List<${subResult.typeName}>',
-                  isBaseType: false,
-                  isList: true,
-                  subType: subResult,
+                result = TypeResultList(
+                  'List<${subResult.name}>',
+                  subResult,
                 );
               } else {
-                result = TypeResolveResult(
+                result = TypeResultList(
                   'List',
-                  isBaseType: false,
-                  isList: true,
+                  TypeResultBase('dynamic'),
                 );
               }
               break;
             case 'object':
               if (schema.properties == null) {
-                result = TypeResolveResult('dynamic');
+                result = TypeResultBase('dynamic');
                 break;
               }
               if (schema.properties!.isEmpty) {
-                result = TypeResolveResult(
+                result = TypeResultMap(
                   'Map<String, dynamic>',
-                  isBaseType: false,
-                  isMap: true,
+                  TypeResultBase('dynamic'),
                 );
                 break;
               }
@@ -590,7 +583,7 @@ class OpenAPIBuilder implements Builder {
                                   ..name = _toDartName(propertyName)
                                   ..type = refer(
                                     _makeNullable(
-                                      result.typeName,
+                                      result.name,
                                       !(schema.required ?? []).contains(propertyName),
                                     ),
                                   )
@@ -628,10 +621,7 @@ class OpenAPIBuilder implements Builder {
                   ).accept(emitter).toString(),
                 );
               }
-              result = TypeResolveResult(
-                identifier,
-                isBaseType: false,
-              );
+              result = TypeResultObject(identifier);
               break;
           }
         }
@@ -662,7 +652,7 @@ class OpenAPIBuilder implements Builder {
                       Field(
                         (final b) => b
                           ..name = 'value'
-                          ..type = refer(result!.typeName)
+                          ..type = refer(result!.name)
                           ..modifier = FieldModifier.final$,
                       ),
                     )
@@ -679,10 +669,10 @@ class OpenAPIBuilder implements Builder {
                             b
                               ..name = _toDartName(value.toString())
                               ..arguments.add(
-                                refer(_valueToEscapedValue(result.typeName, value)),
+                                refer(_valueToEscapedValue(result.name, value)),
                               );
                             if (_toDartName(value.toString()) != value.toString()) {
-                              if (result.typeName != 'String' && result.typeName != 'int') {
+                              if (result.name != 'String' && result.name != 'int') {
                                 throw Exception(
                                   'Sorry enum values are a bit broken. '
                                   'See https://github.com/google/json_serializable.dart/issues/616. '
@@ -691,7 +681,7 @@ class OpenAPIBuilder implements Builder {
                               }
                               b.annotations.add(
                                 refer('JsonValue').call([
-                                  refer(_valueToEscapedValue(result.typeName, value.toString())),
+                                  refer(_valueToEscapedValue(result.name, value.toString())),
                                 ]),
                               );
                             }
@@ -709,14 +699,14 @@ class OpenAPIBuilder implements Builder {
                             Parameter(
                               (final b) => b
                                 ..name = 'value'
-                                ..type = refer(result!.typeName),
+                                ..type = refer(result!.name),
                             ),
                           )
                           ..body = Code(
                             [
                               'switch (value) {',
                               for (final value in schema.enum_!) ...[
-                                'case ${_valueToEscapedValue(result!.typeName, value)}:',
+                                'case ${_valueToEscapedValue(result!.name, value)}:',
                                 'return $identifier.${_toDartName(value.toString())};',
                               ],
                               'default:',
@@ -729,12 +719,7 @@ class OpenAPIBuilder implements Builder {
                 ).accept(emitter).toString(),
               );
             }
-            result = TypeResolveResult(
-              identifier,
-              isBaseType: false,
-              isEnum: true,
-              subType: result,
-            );
+            result = TypeResultEnum(identifier, result);
           }
 
           return result;
@@ -1012,12 +997,12 @@ class OpenAPIBuilder implements Builder {
                                           parameter.schema!.type!,
                                           parameter.schema!,
                                         );
-                                        b.defaultTo = Code(_valueToEscapedValue(result.typeName, value));
+                                        b.defaultTo = Code(_valueToEscapedValue(result.name, value));
                                       }
 
                                       b.type = refer(
                                         _makeNullable(
-                                          result.typeName,
+                                          result.name,
                                           nullable,
                                         ),
                                       );
@@ -1029,21 +1014,21 @@ class OpenAPIBuilder implements Builder {
                               if (nullable) {
                                 code.write('if (${_toDartName(parameter.name)} != null) {');
                               }
-                              final enumValueGetter = result.isEnum ? '.value' : '';
+                              final value = result.encode(result.serialize(_toDartName(parameter.name)));
                               switch (parameter.in_) {
                                 case 'path':
                                   code.write(
-                                    "path = path.replaceAll('{${parameter.name}}', Uri.encodeQueryComponent(${_toDartName(parameter.name)}$enumValueGetter.toString()));",
+                                    "path = path.replaceAll('{${parameter.name}}', Uri.encodeQueryComponent($value));",
                                   );
                                   break;
                                 case 'query':
                                   code.write(
-                                    "queryParameters['${parameter.name}${result.isList ? '[]' : ''}'] = ${_toDartName(parameter.name)}$enumValueGetter${result.isList ? '.map((final x) => x.toString()).toList()' : '.toString()'};",
+                                    "queryParameters['${parameter.name}${result is TypeResultList ? '[]' : ''}'] = $value;",
                                   );
                                   break;
                                 case 'header':
                                   code.write(
-                                    "headers['${parameter.name}'] = ${_toDartName(parameter.name)}$enumValueGetter.toString();",
+                                    "headers['${parameter.name}'] = $value;",
                                   );
                                   break;
                                 default:
@@ -1072,8 +1057,8 @@ class OpenAPIBuilder implements Builder {
                                     b.optionalParameters.add(
                                       Parameter(
                                         (final b) => b
-                                          ..name = _toDartName(result.typeName)
-                                          ..type = refer(result.typeName)
+                                          ..name = _toDartName(result.name)
+                                          ..type = refer(result.name)
                                           ..named = true
                                           ..required = operation.requestBody!.required ?? false,
                                       ),
@@ -1083,10 +1068,10 @@ class OpenAPIBuilder implements Builder {
                                       mediaType.schema?.default_,
                                     );
                                     if (nullable) {
-                                      code.write('if (${_toDartName(result.typeName)} != null) {');
+                                      code.write('if (${_toDartName(result.name)} != null) {');
                                     }
                                     code.write(
-                                      'body = Uint8List.fromList(utf8.encode(${result.isBaseType ? '' : 'json.encode('}${_serializeFunctionForType(_toDartName(result.typeName), result)}${result.isBaseType ? '' : ')'}));',
+                                      'body = Uint8List.fromList(utf8.encode(${result.encode(result.serialize(_toDartName(result.name)))}));',
                                     );
                                     if (nullable) {
                                       code.write('}');
@@ -1131,7 +1116,7 @@ class OpenAPIBuilder implements Builder {
                                       response.headers![headerName]!.schema!,
                                     );
                                     output.add(
-                                      '${result.typeName} $functionIdentifier(final Map data, final String key) => ${_parseFromStringFunctionForType('data[key]', result)};',
+                                      '${result.name} $functionIdentifier(final Map data, final String key) => ${result.deserialize(result.decode('data[key]'))};',
                                     );
                                   }
                                   final result = resolveType(
@@ -1155,8 +1140,8 @@ class OpenAPIBuilder implements Builder {
                                       },
                                     },
                                   );
-                                  headersType = result.typeName;
-                                  headersValue = _deserializeFunctionForType('response.headers', result);
+                                  headersType = result.name;
+                                  headersValue = result.deserialize('response.headers');
                                 }
 
                                 String? dataType;
@@ -1174,13 +1159,8 @@ class OpenAPIBuilder implements Builder {
                                     );
                                     switch (mimeType) {
                                       case 'application/json':
-                                        dataType = result.typeName;
-                                        dataValue = _deserializeFunctionForType(
-                                          result.isBaseType
-                                              ? 'utf8.decode(response.body)'
-                                              : 'json.decode(utf8.decode(response.body))',
-                                          result,
-                                        );
+                                        dataType = result.name;
+                                        dataValue = result.deserialize(result.decode('utf8.decode(response.body)'));
                                         break;
                                       case 'image/png':
                                         dataType = 'Uint8List';
@@ -1236,8 +1216,8 @@ class OpenAPIBuilder implements Builder {
               identifier,
               schema,
             );
-            if (result.isBaseType) {
-              output.add('typedef $identifier = ${result.typeName};');
+            if (result is TypeResultBase) {
+              output.add('typedef $identifier = ${result.name};');
             }
           }
         }
@@ -1248,47 +1228,15 @@ class OpenAPIBuilder implements Builder {
           '// coverage:ignore-start',
           'final _deserializers = <Type, dynamic Function(dynamic)>{',
           for (final name in registeredJsonObjects) ...[
-            '$name: (final data) => ${_deserializeFunctionForType(
-              'data',
-              TypeResolveResult(
-                name,
-                isBaseType: false,
-              ),
-            )},',
-            'List<$name>: (final data) => ${_deserializeFunctionForType(
-              'data',
-              TypeResolveResult(
-                'List<$name>',
-                isList: true,
-                subType: TypeResolveResult(
-                  name,
-                  isBaseType: false,
-                ),
-              ),
-            )},',
+            '$name: (final data) => ${TypeResultObject(name).deserialize('data')},',
+            'List<$name>: (final data) => ${TypeResultList('List<$name>', TypeResultObject(name)).deserialize('data')},',
           ],
           '};',
           '',
           'final _serializers = <Type, dynamic Function(dynamic)>{',
           for (final name in registeredJsonObjects) ...[
-            '$name: (final data) => ${_serializeFunctionForType(
-              'data',
-              TypeResolveResult(
-                name,
-                isBaseType: false,
-              ),
-            )},',
-            'List<$name>: (final data) => ${_serializeFunctionForType(
-              'data',
-              TypeResolveResult(
-                'List<$name>',
-                isList: true,
-                subType: TypeResolveResult(
-                  name,
-                  isBaseType: false,
-                ),
-              ),
-            )},',
+            '$name: (final data) => ${TypeResultObject(name).serialize('data')},',
+            'List<$name>: (final data) => ${TypeResultList('List<$name>', TypeResultObject(name)).serialize('data')},',
           ],
           '};',
           '',
@@ -1432,73 +1380,6 @@ bool _isNonAlphaNumericString(final String input) => !RegExp(r'^[a-zA-Z0-9]$').h
 String _makeNullable(final String type, final bool nullable) => nullable && type != 'dynamic' ? '$type?' : type;
 
 String _toFieldName(final String dartName, final String type) => dartName == type ? '\$$dartName' : dartName;
-
-class TypeResolveResult {
-  TypeResolveResult(
-    this.typeName, {
-    this.isBaseType = true,
-    this.isList = false,
-    this.isMap = false,
-    this.isEnum = false,
-    this.subType,
-  });
-
-  final String typeName;
-  final bool isBaseType;
-  final bool isList;
-  final bool isMap;
-  final bool isEnum;
-  final TypeResolveResult? subType;
-}
-
-String _serializeFunctionForType(final String object, final TypeResolveResult result) {
-  if (result.isList) {
-    return '($object as ${result.typeName}).map((final e) => ${_serializeFunctionForType('e', result.subType!)}).toList()';
-  } else if (result.isMap) {
-    return '($object as ${result.typeName})';
-  } else if (result.isBaseType) {
-    return '$object.toString()';
-  } else if (result.isEnum) {
-    return '($object as ${result.typeName}).value';
-  } else {
-    return '($object as ${result.typeName}).toJson()';
-  }
-}
-
-String _deserializeFunctionForType(final String object, final TypeResolveResult result) {
-  if (result.isList) {
-    if (result.subType == null) {
-      return '$object as List';
-    }
-    return '($object as List).map<${result.subType!.typeName}>((final e) => ${_deserializeFunctionForType('e', result.subType!)}).toList()';
-  } else if (result.isMap) {
-    return '$object as Map<String, dynamic>';
-  } else if (result.isBaseType) {
-    return '$object as ${result.typeName}';
-  } else if (result.isEnum) {
-    return '${result.typeName}.fromValue($object as ${result.subType!.typeName})';
-  } else {
-    return '${result.typeName}.fromJson($object as Map<String, dynamic>)';
-  }
-}
-
-String _parseFromStringFunctionForType(final String object, final TypeResolveResult result) {
-  final o = '$object as String';
-  if (result.isBaseType) {
-    switch (result.typeName) {
-      case 'String':
-        return o;
-      case 'int':
-        return 'int.parse($o)';
-      default:
-        throw Exception('Can not parse "${result.typeName}" from String');
-    }
-  } else if (result.isEnum) {
-    return _parseFromStringFunctionForType(o, result.subType!);
-  } else {
-    return 'json.decode($o)';
-  }
-}
 
 bool _isParameterNullable(final bool? required, final dynamic default_) => !(required ?? false) && default_ == null;
 

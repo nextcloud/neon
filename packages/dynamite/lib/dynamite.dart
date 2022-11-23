@@ -13,3 +13,9 @@ import 'package:dynamite/src/models/tag.dart';
 import 'package:path/path.dart' as p;
 
 part 'src/openapi_builder.dart';
+part 'src/type_result/base.dart';
+part 'src/type_result/enum.dart';
+part 'src/type_result/list.dart';
+part 'src/type_result/map.dart';
+part 'src/type_result/object.dart';
+part 'src/type_result/type_result.dart';
