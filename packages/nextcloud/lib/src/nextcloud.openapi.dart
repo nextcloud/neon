@@ -1373,11 +1373,11 @@ class CoreNavigationApps_Ocs_Data_Order {
   factory CoreNavigationApps_Ocs_Data_Order.fromJson(dynamic data) {
     int? $int;
     try {
-      $int = data as int;
+      $int = (data as int);
     } catch (_) {}
     String? string;
     try {
-      string = data as String;
+      string = (data as String);
     } catch (_) {}
     assert([$int, string].where((final x) => x != null).length == 1, 'Need oneOf');
     return CoreNavigationApps_Ocs_Data_Order(
@@ -1544,7 +1544,7 @@ class CoreClient {
       body,
     );
     if (response.statusCode == 200) {
-      return CoreServerStatus.fromJson(json.decode(utf8.decode(response.body)) as Map<String, dynamic>);
+      return CoreServerStatus.fromJson(json.decode(utf8.decode(response.body) as String) as Map<String, dynamic>);
     }
     throw ApiException.fromResponse(response); // coverage:ignore-line
   }
@@ -1561,7 +1561,7 @@ class CoreClient {
       body,
     );
     if (response.statusCode == 200) {
-      return CoreServerCapabilities.fromJson(json.decode(utf8.decode(response.body)) as Map<String, dynamic>);
+      return CoreServerCapabilities.fromJson(json.decode(utf8.decode(response.body) as String) as Map<String, dynamic>);
     }
     throw ApiException.fromResponse(response); // coverage:ignore-line
   }
@@ -1578,7 +1578,7 @@ class CoreClient {
       body,
     );
     if (response.statusCode == 200) {
-      return CoreNavigationApps.fromJson(json.decode(utf8.decode(response.body)) as Map<String, dynamic>);
+      return CoreNavigationApps.fromJson(json.decode(utf8.decode(response.body) as String) as Map<String, dynamic>);
     }
     throw ApiException.fromResponse(response); // coverage:ignore-line
   }
@@ -1595,7 +1595,7 @@ class CoreClient {
       body,
     );
     if (response.statusCode == 200) {
-      return CoreLoginFlowInit.fromJson(json.decode(utf8.decode(response.body)) as Map<String, dynamic>);
+      return CoreLoginFlowInit.fromJson(json.decode(utf8.decode(response.body) as String) as Map<String, dynamic>);
     }
     throw ApiException.fromResponse(response); // coverage:ignore-line
   }
@@ -1613,7 +1613,7 @@ class CoreClient {
       body,
     );
     if (response.statusCode == 200) {
-      return CoreLoginFlowResult.fromJson(json.decode(utf8.decode(response.body)) as Map<String, dynamic>);
+      return CoreLoginFlowResult.fromJson(json.decode(utf8.decode(response.body) as String) as Map<String, dynamic>);
     }
     throw ApiException.fromResponse(response); // coverage:ignore-line
   }
@@ -1918,7 +1918,8 @@ class NewsClient {
       body,
     );
     if (response.statusCode == 200) {
-      return GetSupportedApiVersions.fromJson(json.decode(utf8.decode(response.body)) as Map<String, dynamic>);
+      return GetSupportedApiVersions.fromJson(
+          json.decode(utf8.decode(response.body) as String) as Map<String, dynamic>);
     }
     throw ApiException.fromResponse(response); // coverage:ignore-line
   }
@@ -1935,7 +1936,7 @@ class NewsClient {
       body,
     );
     if (response.statusCode == 200) {
-      return NewsListFolders.fromJson(json.decode(utf8.decode(response.body)) as Map<String, dynamic>);
+      return NewsListFolders.fromJson(json.decode(utf8.decode(response.body) as String) as Map<String, dynamic>);
     }
     throw ApiException.fromResponse(response); // coverage:ignore-line
   }
@@ -1953,7 +1954,7 @@ class NewsClient {
       body,
     );
     if (response.statusCode == 200) {
-      return NewsListFolders.fromJson(json.decode(utf8.decode(response.body)) as Map<String, dynamic>);
+      return NewsListFolders.fromJson(json.decode(utf8.decode(response.body) as String) as Map<String, dynamic>);
     }
     throw ApiException.fromResponse(response); // coverage:ignore-line
   }
@@ -2032,7 +2033,7 @@ class NewsClient {
       body,
     );
     if (response.statusCode == 200) {
-      return NewsListFeeds.fromJson(json.decode(utf8.decode(response.body)) as Map<String, dynamic>);
+      return NewsListFeeds.fromJson(json.decode(utf8.decode(response.body) as String) as Map<String, dynamic>);
     }
     throw ApiException.fromResponse(response); // coverage:ignore-line
   }
@@ -2056,7 +2057,7 @@ class NewsClient {
       body,
     );
     if (response.statusCode == 200) {
-      return NewsListFeeds.fromJson(json.decode(utf8.decode(response.body)) as Map<String, dynamic>);
+      return NewsListFeeds.fromJson(json.decode(utf8.decode(response.body) as String) as Map<String, dynamic>);
     }
     throw ApiException.fromResponse(response); // coverage:ignore-line
   }
@@ -2172,7 +2173,7 @@ class NewsClient {
       body,
     );
     if (response.statusCode == 200) {
-      return NewsListArticles.fromJson(json.decode(utf8.decode(response.body)) as Map<String, dynamic>);
+      return NewsListArticles.fromJson(json.decode(utf8.decode(response.body) as String) as Map<String, dynamic>);
     }
     throw ApiException.fromResponse(response); // coverage:ignore-line
   }
@@ -2196,7 +2197,7 @@ class NewsClient {
       body,
     );
     if (response.statusCode == 200) {
-      return NewsListArticles.fromJson(json.decode(utf8.decode(response.body)) as Map<String, dynamic>);
+      return NewsListArticles.fromJson(json.decode(utf8.decode(response.body) as String) as Map<String, dynamic>);
     }
     throw ApiException.fromResponse(response); // coverage:ignore-line
   }
@@ -2393,8 +2394,8 @@ class NotesClient {
       body,
     );
     if (response.statusCode == 200) {
-      return (json.decode(utf8.decode(response.body)) as List)
-          .map<NotesNote>((final e) => NotesNote.fromJson(e as Map<String, dynamic>))
+      return (json.decode(utf8.decode(response.body) as String) as List)
+          .map((final e) => NotesNote.fromJson(e as Map<String, dynamic>))
           .toList();
     }
     throw ApiException.fromResponse(response); // coverage:ignore-line
@@ -2423,7 +2424,7 @@ class NotesClient {
       body,
     );
     if (response.statusCode == 200) {
-      return NotesNote.fromJson(json.decode(utf8.decode(response.body)) as Map<String, dynamic>);
+      return NotesNote.fromJson(json.decode(utf8.decode(response.body) as String) as Map<String, dynamic>);
     }
     throw ApiException.fromResponse(response); // coverage:ignore-line
   }
@@ -2449,7 +2450,7 @@ class NotesClient {
       body,
     );
     if (response.statusCode == 200) {
-      return NotesNote.fromJson(json.decode(utf8.decode(response.body)) as Map<String, dynamic>);
+      return NotesNote.fromJson(json.decode(utf8.decode(response.body) as String) as Map<String, dynamic>);
     }
     throw ApiException.fromResponse(response); // coverage:ignore-line
   }
@@ -2491,7 +2492,7 @@ class NotesClient {
       body,
     );
     if (response.statusCode == 200) {
-      return NotesNote.fromJson(json.decode(utf8.decode(response.body)) as Map<String, dynamic>);
+      return NotesNote.fromJson(json.decode(utf8.decode(response.body) as String) as Map<String, dynamic>);
     }
     throw ApiException.fromResponse(response); // coverage:ignore-line
   }
@@ -2509,7 +2510,7 @@ class NotesClient {
       body,
     );
     if (response.statusCode == 200) {
-      return utf8.decode(response.body) as String;
+      return ((utf8.decode(response.body) as String) as String);
     }
     throw ApiException.fromResponse(response); // coverage:ignore-line
   }
@@ -2526,7 +2527,7 @@ class NotesClient {
       body,
     );
     if (response.statusCode == 200) {
-      return NotesSettings.fromJson(json.decode(utf8.decode(response.body)) as Map<String, dynamic>);
+      return NotesSettings.fromJson(json.decode(utf8.decode(response.body) as String) as Map<String, dynamic>);
     }
     throw ApiException.fromResponse(response); // coverage:ignore-line
   }
@@ -2537,7 +2538,7 @@ class NotesClient {
     final headers = <String, String>{};
     Uint8List? body;
     headers['Content-Type'] = 'application/json';
-    body = Uint8List.fromList(utf8.encode(json.encode((notesSettings as NotesSettings).toJson())));
+    body = Uint8List.fromList(utf8.encode(json.encode(notesSettings.toJson())));
     final response = await rootClient.doRequest(
       'put',
       Uri(path: path, queryParameters: queryParameters).toString(),
@@ -2545,7 +2546,7 @@ class NotesClient {
       body,
     );
     if (response.statusCode == 200) {
-      return NotesSettings.fromJson(json.decode(utf8.decode(response.body)) as Map<String, dynamic>);
+      return NotesSettings.fromJson(json.decode(utf8.decode(response.body) as String) as Map<String, dynamic>);
     }
     throw ApiException.fromResponse(response); // coverage:ignore-line
   }
@@ -2560,7 +2561,7 @@ class NotificationsNotification_SubjectRichParameters {
   factory NotificationsNotification_SubjectRichParameters.fromJson(dynamic data) {
     Map<String, dynamic>? mapStringDynamic;
     try {
-      mapStringDynamic = data as Map<String, dynamic>;
+      mapStringDynamic = (data as Map<String, dynamic>);
     } catch (_) {}
     return NotificationsNotification_SubjectRichParameters(
       data,
@@ -2586,7 +2587,7 @@ class NotificationsNotification_MessageRichParameters {
   factory NotificationsNotification_MessageRichParameters.fromJson(dynamic data) {
     Map<String, dynamic>? mapStringDynamic;
     try {
-      mapStringDynamic = data as Map<String, dynamic>;
+      mapStringDynamic = (data as Map<String, dynamic>);
     } catch (_) {}
     return NotificationsNotification_MessageRichParameters(
       data,
@@ -2860,7 +2861,8 @@ class NotificationsClient {
       body,
     );
     if (response.statusCode == 200) {
-      return NotificationsListNotifications.fromJson(json.decode(utf8.decode(response.body)) as Map<String, dynamic>);
+      return NotificationsListNotifications.fromJson(
+          json.decode(utf8.decode(response.body) as String) as Map<String, dynamic>);
     }
     throw ApiException.fromResponse(response); // coverage:ignore-line
   }
@@ -2877,7 +2879,7 @@ class NotificationsClient {
       body,
     );
     if (response.statusCode == 200) {
-      return utf8.decode(response.body) as String;
+      return ((utf8.decode(response.body) as String) as String);
     }
     throw ApiException.fromResponse(response); // coverage:ignore-line
   }
@@ -2895,7 +2897,8 @@ class NotificationsClient {
       body,
     );
     if (response.statusCode == 200) {
-      return NotificationsGetNotification.fromJson(json.decode(utf8.decode(response.body)) as Map<String, dynamic>);
+      return NotificationsGetNotification.fromJson(
+          json.decode(utf8.decode(response.body) as String) as Map<String, dynamic>);
     }
     throw ApiException.fromResponse(response); // coverage:ignore-line
   }
@@ -2913,7 +2916,7 @@ class NotificationsClient {
       body,
     );
     if (response.statusCode == 200) {
-      return EmptyOCS.fromJson(json.decode(utf8.decode(response.body)) as Map<String, dynamic>);
+      return EmptyOCS.fromJson(json.decode(utf8.decode(response.body) as String) as Map<String, dynamic>);
     }
     throw ApiException.fromResponse(response); // coverage:ignore-line
   }
@@ -2938,7 +2941,7 @@ class NotificationsClient {
     );
     if (response.statusCode == 201) {
       return NotificationsPushServerRegistration.fromJson(
-          json.decode(utf8.decode(response.body)) as Map<String, dynamic>);
+          json.decode(utf8.decode(response.body) as String) as Map<String, dynamic>);
     }
     throw ApiException.fromResponse(response); // coverage:ignore-line
   }
@@ -2955,7 +2958,7 @@ class NotificationsClient {
       body,
     );
     if (response.statusCode == 202) {
-      return utf8.decode(response.body) as String;
+      return ((utf8.decode(response.body) as String) as String);
     }
     throw ApiException.fromResponse(response); // coverage:ignore-line
   }
@@ -2979,7 +2982,7 @@ class NotificationsClient {
       body,
     );
     if (response.statusCode == 200) {
-      return EmptyOCS.fromJson(json.decode(utf8.decode(response.body)) as Map<String, dynamic>);
+      return EmptyOCS.fromJson(json.decode(utf8.decode(response.body) as String) as Map<String, dynamic>);
     }
     throw ApiException.fromResponse(response); // coverage:ignore-line
   }
@@ -3212,7 +3215,7 @@ class ProvisioningApiClient {
       body,
     );
     if (response.statusCode == 200) {
-      return ProvisioningApiUser.fromJson(json.decode(utf8.decode(response.body)) as Map<String, dynamic>);
+      return ProvisioningApiUser.fromJson(json.decode(utf8.decode(response.body) as String) as Map<String, dynamic>);
     }
     throw ApiException.fromResponse(response); // coverage:ignore-line
   }
@@ -3230,7 +3233,7 @@ class ProvisioningApiClient {
       body,
     );
     if (response.statusCode == 200) {
-      return ProvisioningApiUser.fromJson(json.decode(utf8.decode(response.body)) as Map<String, dynamic>);
+      return ProvisioningApiUser.fromJson(json.decode(utf8.decode(response.body) as String) as Map<String, dynamic>);
     }
     throw ApiException.fromResponse(response); // coverage:ignore-line
   }
@@ -3291,7 +3294,7 @@ class UserStatusClearAt_Time {
     } catch (_) {}
     int? $int;
     try {
-      $int = data as int;
+      $int = (data as int);
     } catch (_) {}
     assert([userStatusClearAtTime0, $int].where((final x) => x != null).length == 1, 'Need oneOf');
     return UserStatusClearAt_Time(
@@ -3345,7 +3348,7 @@ class UserStatusPublicUserStatus_ClearAt {
     } catch (_) {}
     int? $int;
     try {
-      $int = data as int;
+      $int = (data as int);
     } catch (_) {}
     return UserStatusPublicUserStatus_ClearAt(
       data,
@@ -3525,7 +3528,7 @@ class UserStatus_ClearAt {
     } catch (_) {}
     int? $int;
     try {
-      $int = data as int;
+      $int = (data as int);
     } catch (_) {}
     return UserStatus_ClearAt(
       data,
@@ -3654,7 +3657,7 @@ class UserStatusPredefinedStatus_ClearAt {
     } catch (_) {}
     int? $int;
     try {
-      $int = data as int;
+      $int = (data as int);
     } catch (_) {}
     return UserStatusPredefinedStatus_ClearAt(
       data,
@@ -3749,7 +3752,8 @@ class UserStatusClient {
       body,
     );
     if (response.statusCode == 200) {
-      return UserStatusFindAllStatuses.fromJson(json.decode(utf8.decode(response.body)) as Map<String, dynamic>);
+      return UserStatusFindAllStatuses.fromJson(
+          json.decode(utf8.decode(response.body) as String) as Map<String, dynamic>);
     }
     throw ApiException.fromResponse(response); // coverage:ignore-line
   }
@@ -3767,7 +3771,7 @@ class UserStatusClient {
       body,
     );
     if (response.statusCode == 200) {
-      return UserStatusFindStatus.fromJson(json.decode(utf8.decode(response.body)) as Map<String, dynamic>);
+      return UserStatusFindStatus.fromJson(json.decode(utf8.decode(response.body) as String) as Map<String, dynamic>);
     }
     throw ApiException.fromResponse(response); // coverage:ignore-line
   }
@@ -3784,7 +3788,8 @@ class UserStatusClient {
       body,
     );
     if (response.statusCode == 200) {
-      return UserStatusGetUserStatus.fromJson(json.decode(utf8.decode(response.body)) as Map<String, dynamic>);
+      return UserStatusGetUserStatus.fromJson(
+          json.decode(utf8.decode(response.body) as String) as Map<String, dynamic>);
     }
     throw ApiException.fromResponse(response); // coverage:ignore-line
   }
@@ -3802,7 +3807,8 @@ class UserStatusClient {
       body,
     );
     if (response.statusCode == 200) {
-      return UserStatusGetUserStatus.fromJson(json.decode(utf8.decode(response.body)) as Map<String, dynamic>);
+      return UserStatusGetUserStatus.fromJson(
+          json.decode(utf8.decode(response.body) as String) as Map<String, dynamic>);
     }
     throw ApiException.fromResponse(response); // coverage:ignore-line
   }
@@ -3826,7 +3832,8 @@ class UserStatusClient {
       body,
     );
     if (response.statusCode == 200) {
-      return UserStatusGetUserStatus.fromJson(json.decode(utf8.decode(response.body)) as Map<String, dynamic>);
+      return UserStatusGetUserStatus.fromJson(
+          json.decode(utf8.decode(response.body) as String) as Map<String, dynamic>);
     }
     throw ApiException.fromResponse(response); // coverage:ignore-line
   }
@@ -3856,7 +3863,8 @@ class UserStatusClient {
       body,
     );
     if (response.statusCode == 200) {
-      return UserStatusGetUserStatus.fromJson(json.decode(utf8.decode(response.body)) as Map<String, dynamic>);
+      return UserStatusGetUserStatus.fromJson(
+          json.decode(utf8.decode(response.body) as String) as Map<String, dynamic>);
     }
     throw ApiException.fromResponse(response); // coverage:ignore-line
   }
@@ -3890,7 +3898,8 @@ class UserStatusClient {
       body,
     );
     if (response.statusCode == 200) {
-      return UserStatusPredefinedStatuses.fromJson(json.decode(utf8.decode(response.body)) as Map<String, dynamic>);
+      return UserStatusPredefinedStatuses.fromJson(
+          json.decode(utf8.decode(response.body) as String) as Map<String, dynamic>);
     }
     throw ApiException.fromResponse(response); // coverage:ignore-line
   }
@@ -3908,7 +3917,7 @@ class UserStatusClient {
       body,
     );
     if (response.statusCode == 200) {
-      return UserStatus.fromJson(json.decode(utf8.decode(response.body)) as Map<String, dynamic>);
+      return UserStatus.fromJson(json.decode(utf8.decode(response.body) as String) as Map<String, dynamic>);
     }
     throw ApiException.fromResponse(response); // coverage:ignore-line
   }
@@ -3978,974 +3987,682 @@ class NotificationsPushNotification {
 final _deserializers = <Type, dynamic Function(dynamic)>{
   CoreServerStatus: (final data) => CoreServerStatus.fromJson(data as Map<String, dynamic>),
   List<CoreServerStatus>: (final data) =>
-      (data as List).map<CoreServerStatus>((final e) => CoreServerStatus.fromJson(e as Map<String, dynamic>)).toList(),
+      (data as List).map((final e) => CoreServerStatus.fromJson(e as Map<String, dynamic>)).toList(),
   CoreServerCapabilities: (final data) => CoreServerCapabilities.fromJson(data as Map<String, dynamic>),
-  List<CoreServerCapabilities>: (final data) => (data as List)
-      .map<CoreServerCapabilities>((final e) => CoreServerCapabilities.fromJson(e as Map<String, dynamic>))
-      .toList(),
+  List<CoreServerCapabilities>: (final data) =>
+      (data as List).map((final e) => CoreServerCapabilities.fromJson(e as Map<String, dynamic>)).toList(),
   CoreServerCapabilities_Ocs: (final data) => CoreServerCapabilities_Ocs.fromJson(data as Map<String, dynamic>),
-  List<CoreServerCapabilities_Ocs>: (final data) => (data as List)
-      .map<CoreServerCapabilities_Ocs>((final e) => CoreServerCapabilities_Ocs.fromJson(e as Map<String, dynamic>))
-      .toList(),
+  List<CoreServerCapabilities_Ocs>: (final data) =>
+      (data as List).map((final e) => CoreServerCapabilities_Ocs.fromJson(e as Map<String, dynamic>)).toList(),
   OCSMeta: (final data) => OCSMeta.fromJson(data as Map<String, dynamic>),
-  List<OCSMeta>: (final data) =>
-      (data as List).map<OCSMeta>((final e) => OCSMeta.fromJson(e as Map<String, dynamic>)).toList(),
+  List<OCSMeta>: (final data) => (data as List).map((final e) => OCSMeta.fromJson(e as Map<String, dynamic>)).toList(),
   CoreServerCapabilities_Ocs_Data: (final data) =>
       CoreServerCapabilities_Ocs_Data.fromJson(data as Map<String, dynamic>),
-  List<CoreServerCapabilities_Ocs_Data>: (final data) => (data as List)
-      .map<CoreServerCapabilities_Ocs_Data>(
-          (final e) => CoreServerCapabilities_Ocs_Data.fromJson(e as Map<String, dynamic>))
-      .toList(),
+  List<CoreServerCapabilities_Ocs_Data>: (final data) =>
+      (data as List).map((final e) => CoreServerCapabilities_Ocs_Data.fromJson(e as Map<String, dynamic>)).toList(),
   CoreServerCapabilities_Ocs_Data_Version: (final data) =>
       CoreServerCapabilities_Ocs_Data_Version.fromJson(data as Map<String, dynamic>),
   List<CoreServerCapabilities_Ocs_Data_Version>: (final data) => (data as List)
-      .map<CoreServerCapabilities_Ocs_Data_Version>(
-          (final e) => CoreServerCapabilities_Ocs_Data_Version.fromJson(e as Map<String, dynamic>))
+      .map((final e) => CoreServerCapabilities_Ocs_Data_Version.fromJson(e as Map<String, dynamic>))
       .toList(),
   CoreServerCapabilities_Ocs_Data_Capabilities: (final data) =>
       CoreServerCapabilities_Ocs_Data_Capabilities.fromJson(data as Map<String, dynamic>),
   List<CoreServerCapabilities_Ocs_Data_Capabilities>: (final data) => (data as List)
-      .map<CoreServerCapabilities_Ocs_Data_Capabilities>(
-          (final e) => CoreServerCapabilities_Ocs_Data_Capabilities.fromJson(e as Map<String, dynamic>))
+      .map((final e) => CoreServerCapabilities_Ocs_Data_Capabilities.fromJson(e as Map<String, dynamic>))
       .toList(),
   CoreServerCapabilities_Ocs_Data_Capabilities_Core: (final data) =>
       CoreServerCapabilities_Ocs_Data_Capabilities_Core.fromJson(data as Map<String, dynamic>),
   List<CoreServerCapabilities_Ocs_Data_Capabilities_Core>: (final data) => (data as List)
-      .map<CoreServerCapabilities_Ocs_Data_Capabilities_Core>(
-          (final e) => CoreServerCapabilities_Ocs_Data_Capabilities_Core.fromJson(e as Map<String, dynamic>))
+      .map((final e) => CoreServerCapabilities_Ocs_Data_Capabilities_Core.fromJson(e as Map<String, dynamic>))
       .toList(),
   CoreServerCapabilities_Ocs_Data_Capabilities_Bruteforce: (final data) =>
       CoreServerCapabilities_Ocs_Data_Capabilities_Bruteforce.fromJson(data as Map<String, dynamic>),
   List<CoreServerCapabilities_Ocs_Data_Capabilities_Bruteforce>: (final data) => (data as List)
-      .map<CoreServerCapabilities_Ocs_Data_Capabilities_Bruteforce>(
-          (final e) => CoreServerCapabilities_Ocs_Data_Capabilities_Bruteforce.fromJson(e as Map<String, dynamic>))
+      .map((final e) => CoreServerCapabilities_Ocs_Data_Capabilities_Bruteforce.fromJson(e as Map<String, dynamic>))
       .toList(),
   CoreServerCapabilities_Ocs_Data_Capabilities_MetadataAvailable: (final data) =>
       CoreServerCapabilities_Ocs_Data_Capabilities_MetadataAvailable.fromJson(data as Map<String, dynamic>),
   List<CoreServerCapabilities_Ocs_Data_Capabilities_MetadataAvailable>: (final data) => (data as List)
-      .map<CoreServerCapabilities_Ocs_Data_Capabilities_MetadataAvailable>((final e) =>
+      .map((final e) =>
           CoreServerCapabilities_Ocs_Data_Capabilities_MetadataAvailable.fromJson(e as Map<String, dynamic>))
       .toList(),
   CoreServerCapabilities_Ocs_Data_Capabilities_Files: (final data) =>
       CoreServerCapabilities_Ocs_Data_Capabilities_Files.fromJson(data as Map<String, dynamic>),
   List<CoreServerCapabilities_Ocs_Data_Capabilities_Files>: (final data) => (data as List)
-      .map<CoreServerCapabilities_Ocs_Data_Capabilities_Files>(
-          (final e) => CoreServerCapabilities_Ocs_Data_Capabilities_Files.fromJson(e as Map<String, dynamic>))
+      .map((final e) => CoreServerCapabilities_Ocs_Data_Capabilities_Files.fromJson(e as Map<String, dynamic>))
       .toList(),
   CoreServerCapabilities_Ocs_Data_Capabilities_Files_DirectEditing: (final data) =>
       CoreServerCapabilities_Ocs_Data_Capabilities_Files_DirectEditing.fromJson(data as Map<String, dynamic>),
   List<CoreServerCapabilities_Ocs_Data_Capabilities_Files_DirectEditing>: (final data) => (data as List)
-      .map<CoreServerCapabilities_Ocs_Data_Capabilities_Files_DirectEditing>((final e) =>
+      .map((final e) =>
           CoreServerCapabilities_Ocs_Data_Capabilities_Files_DirectEditing.fromJson(e as Map<String, dynamic>))
       .toList(),
   CoreServerCapabilities_Ocs_Data_Capabilities_Activity: (final data) =>
       CoreServerCapabilities_Ocs_Data_Capabilities_Activity.fromJson(data as Map<String, dynamic>),
   List<CoreServerCapabilities_Ocs_Data_Capabilities_Activity>: (final data) => (data as List)
-      .map<CoreServerCapabilities_Ocs_Data_Capabilities_Activity>(
-          (final e) => CoreServerCapabilities_Ocs_Data_Capabilities_Activity.fromJson(e as Map<String, dynamic>))
+      .map((final e) => CoreServerCapabilities_Ocs_Data_Capabilities_Activity.fromJson(e as Map<String, dynamic>))
       .toList(),
   CoreServerCapabilities_Ocs_Data_Capabilities_Circles: (final data) =>
       CoreServerCapabilities_Ocs_Data_Capabilities_Circles.fromJson(data as Map<String, dynamic>),
   List<CoreServerCapabilities_Ocs_Data_Capabilities_Circles>: (final data) => (data as List)
-      .map<CoreServerCapabilities_Ocs_Data_Capabilities_Circles>(
-          (final e) => CoreServerCapabilities_Ocs_Data_Capabilities_Circles.fromJson(e as Map<String, dynamic>))
+      .map((final e) => CoreServerCapabilities_Ocs_Data_Capabilities_Circles.fromJson(e as Map<String, dynamic>))
       .toList(),
   CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Status: (final data) =>
       CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Status.fromJson(data as Map<String, dynamic>),
   List<CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Status>: (final data) => (data as List)
-      .map<CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Status>(
-          (final e) => CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Status.fromJson(e as Map<String, dynamic>))
+      .map((final e) => CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Status.fromJson(e as Map<String, dynamic>))
       .toList(),
   CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Settings: (final data) =>
       CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Settings.fromJson(data as Map<String, dynamic>),
   List<CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Settings>: (final data) => (data as List)
-      .map<CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Settings>((final e) =>
+      .map((final e) =>
           CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Settings.fromJson(e as Map<String, dynamic>))
       .toList(),
   CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle: (final data) =>
       CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle.fromJson(data as Map<String, dynamic>),
   List<CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle>: (final data) => (data as List)
-      .map<CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle>(
-          (final e) => CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle.fromJson(e as Map<String, dynamic>))
+      .map((final e) => CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle.fromJson(e as Map<String, dynamic>))
       .toList(),
   CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants: (final data) =>
       CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants.fromJson(data as Map<String, dynamic>),
   List<CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants>: (final data) => (data as List)
-      .map<CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants>((final e) =>
+      .map((final e) =>
           CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants.fromJson(e as Map<String, dynamic>))
       .toList(),
   CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants_Source: (final data) =>
       CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants_Source.fromJson(
           data as Map<String, dynamic>),
   List<CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants_Source>: (final data) => (data as List)
-      .map<CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants_Source>((final e) =>
-          CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants_Source.fromJson(
-              e as Map<String, dynamic>))
+      .map((final e) => CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants_Source.fromJson(
+          e as Map<String, dynamic>))
       .toList(),
   CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Config: (final data) =>
       CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Config.fromJson(data as Map<String, dynamic>),
   List<CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Config>: (final data) => (data as List)
-      .map<CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Config>((final e) =>
+      .map((final e) =>
           CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Config.fromJson(e as Map<String, dynamic>))
       .toList(),
   CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member: (final data) =>
       CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member.fromJson(data as Map<String, dynamic>),
   List<CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member>: (final data) => (data as List)
-      .map<CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member>(
-          (final e) => CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member.fromJson(e as Map<String, dynamic>))
+      .map((final e) => CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member.fromJson(e as Map<String, dynamic>))
       .toList(),
   CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member_Constants: (final data) =>
       CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member_Constants.fromJson(data as Map<String, dynamic>),
   List<CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member_Constants>: (final data) => (data as List)
-      .map<CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member_Constants>((final e) =>
+      .map((final e) =>
           CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member_Constants.fromJson(e as Map<String, dynamic>))
       .toList(),
   CoreServerCapabilities_Ocs_Data_Capabilities_Ocm: (final data) =>
       CoreServerCapabilities_Ocs_Data_Capabilities_Ocm.fromJson(data as Map<String, dynamic>),
   List<CoreServerCapabilities_Ocs_Data_Capabilities_Ocm>: (final data) => (data as List)
-      .map<CoreServerCapabilities_Ocs_Data_Capabilities_Ocm>(
-          (final e) => CoreServerCapabilities_Ocs_Data_Capabilities_Ocm.fromJson(e as Map<String, dynamic>))
+      .map((final e) => CoreServerCapabilities_Ocs_Data_Capabilities_Ocm.fromJson(e as Map<String, dynamic>))
       .toList(),
   CoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes: (final data) =>
       CoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes.fromJson(data as Map<String, dynamic>),
   List<CoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes>: (final data) => (data as List)
-      .map<CoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes>((final e) =>
+      .map((final e) =>
           CoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes.fromJson(e as Map<String, dynamic>))
       .toList(),
   CoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes_Protocols: (final data) =>
       CoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes_Protocols.fromJson(data as Map<String, dynamic>),
   List<CoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes_Protocols>: (final data) => (data as List)
-      .map<CoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes_Protocols>((final e) =>
+      .map((final e) =>
           CoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes_Protocols.fromJson(e as Map<String, dynamic>))
       .toList(),
   CoreServerCapabilities_Ocs_Data_Capabilities_Dav: (final data) =>
       CoreServerCapabilities_Ocs_Data_Capabilities_Dav.fromJson(data as Map<String, dynamic>),
   List<CoreServerCapabilities_Ocs_Data_Capabilities_Dav>: (final data) => (data as List)
-      .map<CoreServerCapabilities_Ocs_Data_Capabilities_Dav>(
-          (final e) => CoreServerCapabilities_Ocs_Data_Capabilities_Dav.fromJson(e as Map<String, dynamic>))
+      .map((final e) => CoreServerCapabilities_Ocs_Data_Capabilities_Dav.fromJson(e as Map<String, dynamic>))
       .toList(),
   CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing: (final data) =>
       CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing.fromJson(data as Map<String, dynamic>),
   List<CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing>: (final data) => (data as List)
-      .map<CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing>(
-          (final e) => CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing.fromJson(e as Map<String, dynamic>))
+      .map((final e) => CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing.fromJson(e as Map<String, dynamic>))
       .toList(),
   CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public: (final data) =>
       CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public.fromJson(data as Map<String, dynamic>),
   List<CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public>: (final data) => (data as List)
-      .map<CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public>((final e) =>
+      .map((final e) =>
           CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public.fromJson(e as Map<String, dynamic>))
       .toList(),
   CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_Password: (final data) =>
       CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_Password.fromJson(data as Map<String, dynamic>),
   List<CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_Password>: (final data) => (data as List)
-      .map<CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_Password>((final e) =>
+      .map((final e) =>
           CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_Password.fromJson(e as Map<String, dynamic>))
       .toList(),
   CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDate: (final data) =>
       CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDate.fromJson(
           data as Map<String, dynamic>),
   List<CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDate>: (final data) => (data as List)
-      .map<CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDate>((final e) =>
-          CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDate.fromJson(
-              e as Map<String, dynamic>))
+      .map((final e) => CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDate.fromJson(
+          e as Map<String, dynamic>))
       .toList(),
   CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternal: (final data) =>
       CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternal.fromJson(
           data as Map<String, dynamic>),
-  List<CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternal>: (final data) =>
-      (data as List)
-          .map<CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternal>((final e) =>
-              CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternal.fromJson(
-                  e as Map<String, dynamic>))
-          .toList(),
+  List<CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternal>: (final data) => (data
+          as List)
+      .map((final e) => CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternal.fromJson(
+          e as Map<String, dynamic>))
+      .toList(),
   CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemote: (final data) =>
       CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemote.fromJson(
           data as Map<String, dynamic>),
   List<CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemote>: (final data) =>
       (data as List)
-          .map<CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemote>((final e) =>
-              CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemote.fromJson(
-                  e as Map<String, dynamic>))
+          .map((final e) => CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemote.fromJson(
+              e as Map<String, dynamic>))
           .toList(),
   CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User: (final data) =>
       CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User.fromJson(data as Map<String, dynamic>),
   List<CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User>: (final data) => (data as List)
-      .map<CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User>((final e) =>
+      .map((final e) =>
           CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User.fromJson(e as Map<String, dynamic>))
       .toList(),
   CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User_ExpireDate: (final data) =>
       CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User_ExpireDate.fromJson(data as Map<String, dynamic>),
   List<CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User_ExpireDate>: (final data) => (data as List)
-      .map<CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User_ExpireDate>((final e) =>
+      .map((final e) =>
           CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User_ExpireDate.fromJson(e as Map<String, dynamic>))
       .toList(),
   CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group: (final data) =>
       CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group.fromJson(data as Map<String, dynamic>),
   List<CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group>: (final data) => (data as List)
-      .map<CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group>((final e) =>
+      .map((final e) =>
           CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group.fromJson(e as Map<String, dynamic>))
       .toList(),
   CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDate: (final data) =>
       CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDate.fromJson(data as Map<String, dynamic>),
   List<CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDate>: (final data) => (data as List)
-      .map<CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDate>((final e) =>
-          CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDate.fromJson(
-              e as Map<String, dynamic>))
+      .map((final e) => CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDate.fromJson(
+          e as Map<String, dynamic>))
       .toList(),
   CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation: (final data) =>
       CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation.fromJson(data as Map<String, dynamic>),
   List<CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation>: (final data) => (data as List)
-      .map<CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation>((final e) =>
+      .map((final e) =>
           CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation.fromJson(e as Map<String, dynamic>))
       .toList(),
   CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDate: (final data) =>
       CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDate.fromJson(
           data as Map<String, dynamic>),
   List<CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDate>: (final data) => (data as List)
-      .map<CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDate>((final e) =>
-          CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDate.fromJson(
-              e as Map<String, dynamic>))
+      .map((final e) => CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDate.fromJson(
+          e as Map<String, dynamic>))
       .toList(),
   CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupported: (final data) =>
       CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupported.fromJson(
           data as Map<String, dynamic>),
   List<CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupported>: (final data) =>
       (data as List)
-          .map<CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupported>((final e) =>
+          .map((final e) =>
               CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupported.fromJson(
                   e as Map<String, dynamic>))
           .toList(),
   CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharee: (final data) =>
       CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharee.fromJson(data as Map<String, dynamic>),
   List<CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharee>: (final data) => (data as List)
-      .map<CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharee>((final e) =>
+      .map((final e) =>
           CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharee.fromJson(e as Map<String, dynamic>))
       .toList(),
   CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail: (final data) =>
       CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail.fromJson(data as Map<String, dynamic>),
   List<CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail>: (final data) => (data as List)
-      .map<CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail>((final e) =>
+      .map((final e) =>
           CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail.fromJson(e as Map<String, dynamic>))
       .toList(),
   CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_UploadFilesDrop: (final data) =>
       CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_UploadFilesDrop.fromJson(
           data as Map<String, dynamic>),
-  List<CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_UploadFilesDrop>: (final data) =>
-      (data as List)
-          .map<CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_UploadFilesDrop>((final e) =>
-              CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_UploadFilesDrop.fromJson(
-                  e as Map<String, dynamic>))
-          .toList(),
+  List<CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_UploadFilesDrop>: (final data) => (data
+          as List)
+      .map((final e) => CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_UploadFilesDrop.fromJson(
+          e as Map<String, dynamic>))
+      .toList(),
   CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_Password: (final data) =>
       CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_Password.fromJson(
           data as Map<String, dynamic>),
   List<CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_Password>: (final data) => (data as List)
-      .map<CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_Password>((final e) =>
-          CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_Password.fromJson(
-              e as Map<String, dynamic>))
+      .map((final e) => CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_Password.fromJson(
+          e as Map<String, dynamic>))
       .toList(),
   CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_ExpireDate: (final data) =>
       CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_ExpireDate.fromJson(
           data as Map<String, dynamic>),
   List<CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_ExpireDate>: (final data) => (data as List)
-      .map<CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_ExpireDate>((final e) =>
-          CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_ExpireDate.fromJson(
-              e as Map<String, dynamic>))
+      .map((final e) => CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_ExpireDate.fromJson(
+          e as Map<String, dynamic>))
       .toList(),
   CoreServerCapabilities_Ocs_Data_Capabilities_Notes: (final data) =>
       CoreServerCapabilities_Ocs_Data_Capabilities_Notes.fromJson(data as Map<String, dynamic>),
   List<CoreServerCapabilities_Ocs_Data_Capabilities_Notes>: (final data) => (data as List)
-      .map<CoreServerCapabilities_Ocs_Data_Capabilities_Notes>(
-          (final e) => CoreServerCapabilities_Ocs_Data_Capabilities_Notes.fromJson(e as Map<String, dynamic>))
+      .map((final e) => CoreServerCapabilities_Ocs_Data_Capabilities_Notes.fromJson(e as Map<String, dynamic>))
       .toList(),
   CoreServerCapabilities_Ocs_Data_Capabilities_Notifications: (final data) =>
       CoreServerCapabilities_Ocs_Data_Capabilities_Notifications.fromJson(data as Map<String, dynamic>),
   List<CoreServerCapabilities_Ocs_Data_Capabilities_Notifications>: (final data) => (data as List)
-      .map<CoreServerCapabilities_Ocs_Data_Capabilities_Notifications>(
-          (final e) => CoreServerCapabilities_Ocs_Data_Capabilities_Notifications.fromJson(e as Map<String, dynamic>))
+      .map((final e) => CoreServerCapabilities_Ocs_Data_Capabilities_Notifications.fromJson(e as Map<String, dynamic>))
       .toList(),
   CoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy: (final data) =>
       CoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy.fromJson(data as Map<String, dynamic>),
   List<CoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy>: (final data) => (data as List)
-      .map<CoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy>(
-          (final e) => CoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy.fromJson(e as Map<String, dynamic>))
+      .map((final e) => CoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy.fromJson(e as Map<String, dynamic>))
       .toList(),
   CoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy_Api: (final data) =>
       CoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy_Api.fromJson(data as Map<String, dynamic>),
   List<CoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy_Api>: (final data) => (data as List)
-      .map<CoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy_Api>((final e) =>
+      .map((final e) =>
           CoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy_Api.fromJson(e as Map<String, dynamic>))
       .toList(),
   CoreServerCapabilities_Ocs_Data_Capabilities_ProvisioningApi: (final data) =>
       CoreServerCapabilities_Ocs_Data_Capabilities_ProvisioningApi.fromJson(data as Map<String, dynamic>),
   List<CoreServerCapabilities_Ocs_Data_Capabilities_ProvisioningApi>: (final data) => (data as List)
-      .map<CoreServerCapabilities_Ocs_Data_Capabilities_ProvisioningApi>(
+      .map(
           (final e) => CoreServerCapabilities_Ocs_Data_Capabilities_ProvisioningApi.fromJson(e as Map<String, dynamic>))
       .toList(),
   CoreServerCapabilities_Ocs_Data_Capabilities_Theming: (final data) =>
       CoreServerCapabilities_Ocs_Data_Capabilities_Theming.fromJson(data as Map<String, dynamic>),
   List<CoreServerCapabilities_Ocs_Data_Capabilities_Theming>: (final data) => (data as List)
-      .map<CoreServerCapabilities_Ocs_Data_Capabilities_Theming>(
-          (final e) => CoreServerCapabilities_Ocs_Data_Capabilities_Theming.fromJson(e as Map<String, dynamic>))
+      .map((final e) => CoreServerCapabilities_Ocs_Data_Capabilities_Theming.fromJson(e as Map<String, dynamic>))
       .toList(),
   CoreServerCapabilities_Ocs_Data_Capabilities_UserStatus: (final data) =>
       CoreServerCapabilities_Ocs_Data_Capabilities_UserStatus.fromJson(data as Map<String, dynamic>),
   List<CoreServerCapabilities_Ocs_Data_Capabilities_UserStatus>: (final data) => (data as List)
-      .map<CoreServerCapabilities_Ocs_Data_Capabilities_UserStatus>(
-          (final e) => CoreServerCapabilities_Ocs_Data_Capabilities_UserStatus.fromJson(e as Map<String, dynamic>))
+      .map((final e) => CoreServerCapabilities_Ocs_Data_Capabilities_UserStatus.fromJson(e as Map<String, dynamic>))
       .toList(),
   CoreServerCapabilities_Ocs_Data_Capabilities_WeatherStatus: (final data) =>
       CoreServerCapabilities_Ocs_Data_Capabilities_WeatherStatus.fromJson(data as Map<String, dynamic>),
   List<CoreServerCapabilities_Ocs_Data_Capabilities_WeatherStatus>: (final data) => (data as List)
-      .map<CoreServerCapabilities_Ocs_Data_Capabilities_WeatherStatus>(
-          (final e) => CoreServerCapabilities_Ocs_Data_Capabilities_WeatherStatus.fromJson(e as Map<String, dynamic>))
+      .map((final e) => CoreServerCapabilities_Ocs_Data_Capabilities_WeatherStatus.fromJson(e as Map<String, dynamic>))
       .toList(),
   CoreNavigationApps: (final data) => CoreNavigationApps.fromJson(data as Map<String, dynamic>),
-  List<CoreNavigationApps>: (final data) => (data as List)
-      .map<CoreNavigationApps>((final e) => CoreNavigationApps.fromJson(e as Map<String, dynamic>))
-      .toList(),
+  List<CoreNavigationApps>: (final data) =>
+      (data as List).map((final e) => CoreNavigationApps.fromJson(e as Map<String, dynamic>)).toList(),
   CoreNavigationApps_Ocs: (final data) => CoreNavigationApps_Ocs.fromJson(data as Map<String, dynamic>),
-  List<CoreNavigationApps_Ocs>: (final data) => (data as List)
-      .map<CoreNavigationApps_Ocs>((final e) => CoreNavigationApps_Ocs.fromJson(e as Map<String, dynamic>))
-      .toList(),
+  List<CoreNavigationApps_Ocs>: (final data) =>
+      (data as List).map((final e) => CoreNavigationApps_Ocs.fromJson(e as Map<String, dynamic>)).toList(),
   CoreNavigationApps_Ocs_Data: (final data) => CoreNavigationApps_Ocs_Data.fromJson(data as Map<String, dynamic>),
-  List<CoreNavigationApps_Ocs_Data>: (final data) => (data as List)
-      .map<CoreNavigationApps_Ocs_Data>((final e) => CoreNavigationApps_Ocs_Data.fromJson(e as Map<String, dynamic>))
-      .toList(),
+  List<CoreNavigationApps_Ocs_Data>: (final data) =>
+      (data as List).map((final e) => CoreNavigationApps_Ocs_Data.fromJson(e as Map<String, dynamic>)).toList(),
   CoreLoginFlowInit: (final data) => CoreLoginFlowInit.fromJson(data as Map<String, dynamic>),
-  List<CoreLoginFlowInit>: (final data) => (data as List)
-      .map<CoreLoginFlowInit>((final e) => CoreLoginFlowInit.fromJson(e as Map<String, dynamic>))
-      .toList(),
+  List<CoreLoginFlowInit>: (final data) =>
+      (data as List).map((final e) => CoreLoginFlowInit.fromJson(e as Map<String, dynamic>)).toList(),
   CoreLoginFlowInit_Poll: (final data) => CoreLoginFlowInit_Poll.fromJson(data as Map<String, dynamic>),
-  List<CoreLoginFlowInit_Poll>: (final data) => (data as List)
-      .map<CoreLoginFlowInit_Poll>((final e) => CoreLoginFlowInit_Poll.fromJson(e as Map<String, dynamic>))
-      .toList(),
+  List<CoreLoginFlowInit_Poll>: (final data) =>
+      (data as List).map((final e) => CoreLoginFlowInit_Poll.fromJson(e as Map<String, dynamic>)).toList(),
   CoreLoginFlowResult: (final data) => CoreLoginFlowResult.fromJson(data as Map<String, dynamic>),
-  List<CoreLoginFlowResult>: (final data) => (data as List)
-      .map<CoreLoginFlowResult>((final e) => CoreLoginFlowResult.fromJson(e as Map<String, dynamic>))
-      .toList(),
+  List<CoreLoginFlowResult>: (final data) =>
+      (data as List).map((final e) => CoreLoginFlowResult.fromJson(e as Map<String, dynamic>)).toList(),
   GetSupportedApiVersions: (final data) => GetSupportedApiVersions.fromJson(data as Map<String, dynamic>),
-  List<GetSupportedApiVersions>: (final data) => (data as List)
-      .map<GetSupportedApiVersions>((final e) => GetSupportedApiVersions.fromJson(e as Map<String, dynamic>))
-      .toList(),
+  List<GetSupportedApiVersions>: (final data) =>
+      (data as List).map((final e) => GetSupportedApiVersions.fromJson(e as Map<String, dynamic>)).toList(),
   NewsListFolders: (final data) => NewsListFolders.fromJson(data as Map<String, dynamic>),
   List<NewsListFolders>: (final data) =>
-      (data as List).map<NewsListFolders>((final e) => NewsListFolders.fromJson(e as Map<String, dynamic>)).toList(),
+      (data as List).map((final e) => NewsListFolders.fromJson(e as Map<String, dynamic>)).toList(),
   NewsFolder: (final data) => NewsFolder.fromJson(data as Map<String, dynamic>),
   List<NewsFolder>: (final data) =>
-      (data as List).map<NewsFolder>((final e) => NewsFolder.fromJson(e as Map<String, dynamic>)).toList(),
+      (data as List).map((final e) => NewsFolder.fromJson(e as Map<String, dynamic>)).toList(),
   NewsFeed: (final data) => NewsFeed.fromJson(data as Map<String, dynamic>),
   List<NewsFeed>: (final data) =>
-      (data as List).map<NewsFeed>((final e) => NewsFeed.fromJson(e as Map<String, dynamic>)).toList(),
+      (data as List).map((final e) => NewsFeed.fromJson(e as Map<String, dynamic>)).toList(),
   NewsArticle: (final data) => NewsArticle.fromJson(data as Map<String, dynamic>),
   List<NewsArticle>: (final data) =>
-      (data as List).map<NewsArticle>((final e) => NewsArticle.fromJson(e as Map<String, dynamic>)).toList(),
+      (data as List).map((final e) => NewsArticle.fromJson(e as Map<String, dynamic>)).toList(),
   NewsListFeeds: (final data) => NewsListFeeds.fromJson(data as Map<String, dynamic>),
   List<NewsListFeeds>: (final data) =>
-      (data as List).map<NewsListFeeds>((final e) => NewsListFeeds.fromJson(e as Map<String, dynamic>)).toList(),
+      (data as List).map((final e) => NewsListFeeds.fromJson(e as Map<String, dynamic>)).toList(),
   NewsListArticles: (final data) => NewsListArticles.fromJson(data as Map<String, dynamic>),
   List<NewsListArticles>: (final data) =>
-      (data as List).map<NewsListArticles>((final e) => NewsListArticles.fromJson(e as Map<String, dynamic>)).toList(),
+      (data as List).map((final e) => NewsListArticles.fromJson(e as Map<String, dynamic>)).toList(),
   NotesNote: (final data) => NotesNote.fromJson(data as Map<String, dynamic>),
   List<NotesNote>: (final data) =>
-      (data as List).map<NotesNote>((final e) => NotesNote.fromJson(e as Map<String, dynamic>)).toList(),
+      (data as List).map((final e) => NotesNote.fromJson(e as Map<String, dynamic>)).toList(),
   NotesSettings: (final data) => NotesSettings.fromJson(data as Map<String, dynamic>),
   List<NotesSettings>: (final data) =>
-      (data as List).map<NotesSettings>((final e) => NotesSettings.fromJson(e as Map<String, dynamic>)).toList(),
+      (data as List).map((final e) => NotesSettings.fromJson(e as Map<String, dynamic>)).toList(),
   NotificationsListNotifications: (final data) => NotificationsListNotifications.fromJson(data as Map<String, dynamic>),
-  List<NotificationsListNotifications>: (final data) => (data as List)
-      .map<NotificationsListNotifications>(
-          (final e) => NotificationsListNotifications.fromJson(e as Map<String, dynamic>))
-      .toList(),
+  List<NotificationsListNotifications>: (final data) =>
+      (data as List).map((final e) => NotificationsListNotifications.fromJson(e as Map<String, dynamic>)).toList(),
   NotificationsListNotifications_Ocs: (final data) =>
       NotificationsListNotifications_Ocs.fromJson(data as Map<String, dynamic>),
-  List<NotificationsListNotifications_Ocs>: (final data) => (data as List)
-      .map<NotificationsListNotifications_Ocs>(
-          (final e) => NotificationsListNotifications_Ocs.fromJson(e as Map<String, dynamic>))
-      .toList(),
+  List<NotificationsListNotifications_Ocs>: (final data) =>
+      (data as List).map((final e) => NotificationsListNotifications_Ocs.fromJson(e as Map<String, dynamic>)).toList(),
   NotificationsNotification: (final data) => NotificationsNotification.fromJson(data as Map<String, dynamic>),
-  List<NotificationsNotification>: (final data) => (data as List)
-      .map<NotificationsNotification>((final e) => NotificationsNotification.fromJson(e as Map<String, dynamic>))
-      .toList(),
+  List<NotificationsNotification>: (final data) =>
+      (data as List).map((final e) => NotificationsNotification.fromJson(e as Map<String, dynamic>)).toList(),
   NotificationsNotificationAction: (final data) =>
       NotificationsNotificationAction.fromJson(data as Map<String, dynamic>),
-  List<NotificationsNotificationAction>: (final data) => (data as List)
-      .map<NotificationsNotificationAction>(
-          (final e) => NotificationsNotificationAction.fromJson(e as Map<String, dynamic>))
-      .toList(),
+  List<NotificationsNotificationAction>: (final data) =>
+      (data as List).map((final e) => NotificationsNotificationAction.fromJson(e as Map<String, dynamic>)).toList(),
   NotificationsGetNotification: (final data) => NotificationsGetNotification.fromJson(data as Map<String, dynamic>),
-  List<NotificationsGetNotification>: (final data) => (data as List)
-      .map<NotificationsGetNotification>((final e) => NotificationsGetNotification.fromJson(e as Map<String, dynamic>))
-      .toList(),
+  List<NotificationsGetNotification>: (final data) =>
+      (data as List).map((final e) => NotificationsGetNotification.fromJson(e as Map<String, dynamic>)).toList(),
   NotificationsGetNotification_Ocs: (final data) =>
       NotificationsGetNotification_Ocs.fromJson(data as Map<String, dynamic>),
-  List<NotificationsGetNotification_Ocs>: (final data) => (data as List)
-      .map<NotificationsGetNotification_Ocs>(
-          (final e) => NotificationsGetNotification_Ocs.fromJson(e as Map<String, dynamic>))
-      .toList(),
+  List<NotificationsGetNotification_Ocs>: (final data) =>
+      (data as List).map((final e) => NotificationsGetNotification_Ocs.fromJson(e as Map<String, dynamic>)).toList(),
   EmptyOCS: (final data) => EmptyOCS.fromJson(data as Map<String, dynamic>),
   List<EmptyOCS>: (final data) =>
-      (data as List).map<EmptyOCS>((final e) => EmptyOCS.fromJson(e as Map<String, dynamic>)).toList(),
+      (data as List).map((final e) => EmptyOCS.fromJson(e as Map<String, dynamic>)).toList(),
   EmptyOCS_Ocs: (final data) => EmptyOCS_Ocs.fromJson(data as Map<String, dynamic>),
   List<EmptyOCS_Ocs>: (final data) =>
-      (data as List).map<EmptyOCS_Ocs>((final e) => EmptyOCS_Ocs.fromJson(e as Map<String, dynamic>)).toList(),
+      (data as List).map((final e) => EmptyOCS_Ocs.fromJson(e as Map<String, dynamic>)).toList(),
   NotificationsPushServerRegistration: (final data) =>
       NotificationsPushServerRegistration.fromJson(data as Map<String, dynamic>),
-  List<NotificationsPushServerRegistration>: (final data) => (data as List)
-      .map<NotificationsPushServerRegistration>(
-          (final e) => NotificationsPushServerRegistration.fromJson(e as Map<String, dynamic>))
-      .toList(),
+  List<NotificationsPushServerRegistration>: (final data) =>
+      (data as List).map((final e) => NotificationsPushServerRegistration.fromJson(e as Map<String, dynamic>)).toList(),
   NotificationsPushServerRegistration_Ocs: (final data) =>
       NotificationsPushServerRegistration_Ocs.fromJson(data as Map<String, dynamic>),
   List<NotificationsPushServerRegistration_Ocs>: (final data) => (data as List)
-      .map<NotificationsPushServerRegistration_Ocs>(
-          (final e) => NotificationsPushServerRegistration_Ocs.fromJson(e as Map<String, dynamic>))
+      .map((final e) => NotificationsPushServerRegistration_Ocs.fromJson(e as Map<String, dynamic>))
       .toList(),
   NotificationsPushServerSubscription: (final data) =>
       NotificationsPushServerSubscription.fromJson(data as Map<String, dynamic>),
-  List<NotificationsPushServerSubscription>: (final data) => (data as List)
-      .map<NotificationsPushServerSubscription>(
-          (final e) => NotificationsPushServerSubscription.fromJson(e as Map<String, dynamic>))
-      .toList(),
+  List<NotificationsPushServerSubscription>: (final data) =>
+      (data as List).map((final e) => NotificationsPushServerSubscription.fromJson(e as Map<String, dynamic>)).toList(),
   ProvisioningApiUser: (final data) => ProvisioningApiUser.fromJson(data as Map<String, dynamic>),
-  List<ProvisioningApiUser>: (final data) => (data as List)
-      .map<ProvisioningApiUser>((final e) => ProvisioningApiUser.fromJson(e as Map<String, dynamic>))
-      .toList(),
+  List<ProvisioningApiUser>: (final data) =>
+      (data as List).map((final e) => ProvisioningApiUser.fromJson(e as Map<String, dynamic>)).toList(),
   ProvisioningApiUser_Ocs: (final data) => ProvisioningApiUser_Ocs.fromJson(data as Map<String, dynamic>),
-  List<ProvisioningApiUser_Ocs>: (final data) => (data as List)
-      .map<ProvisioningApiUser_Ocs>((final e) => ProvisioningApiUser_Ocs.fromJson(e as Map<String, dynamic>))
-      .toList(),
+  List<ProvisioningApiUser_Ocs>: (final data) =>
+      (data as List).map((final e) => ProvisioningApiUser_Ocs.fromJson(e as Map<String, dynamic>)).toList(),
   ProvisioningApiUserDetails: (final data) => ProvisioningApiUserDetails.fromJson(data as Map<String, dynamic>),
-  List<ProvisioningApiUserDetails>: (final data) => (data as List)
-      .map<ProvisioningApiUserDetails>((final e) => ProvisioningApiUserDetails.fromJson(e as Map<String, dynamic>))
-      .toList(),
+  List<ProvisioningApiUserDetails>: (final data) =>
+      (data as List).map((final e) => ProvisioningApiUserDetails.fromJson(e as Map<String, dynamic>)).toList(),
   ProvisioningApiUserDetails_Quota: (final data) =>
       ProvisioningApiUserDetails_Quota.fromJson(data as Map<String, dynamic>),
-  List<ProvisioningApiUserDetails_Quota>: (final data) => (data as List)
-      .map<ProvisioningApiUserDetails_Quota>(
-          (final e) => ProvisioningApiUserDetails_Quota.fromJson(e as Map<String, dynamic>))
-      .toList(),
+  List<ProvisioningApiUserDetails_Quota>: (final data) =>
+      (data as List).map((final e) => ProvisioningApiUserDetails_Quota.fromJson(e as Map<String, dynamic>)).toList(),
   ProvisioningApiUserDetails_BackendCapabilities: (final data) =>
       ProvisioningApiUserDetails_BackendCapabilities.fromJson(data as Map<String, dynamic>),
   List<ProvisioningApiUserDetails_BackendCapabilities>: (final data) => (data as List)
-      .map<ProvisioningApiUserDetails_BackendCapabilities>(
-          (final e) => ProvisioningApiUserDetails_BackendCapabilities.fromJson(e as Map<String, dynamic>))
+      .map((final e) => ProvisioningApiUserDetails_BackendCapabilities.fromJson(e as Map<String, dynamic>))
       .toList(),
   UserStatusFindAllStatuses: (final data) => UserStatusFindAllStatuses.fromJson(data as Map<String, dynamic>),
-  List<UserStatusFindAllStatuses>: (final data) => (data as List)
-      .map<UserStatusFindAllStatuses>((final e) => UserStatusFindAllStatuses.fromJson(e as Map<String, dynamic>))
-      .toList(),
+  List<UserStatusFindAllStatuses>: (final data) =>
+      (data as List).map((final e) => UserStatusFindAllStatuses.fromJson(e as Map<String, dynamic>)).toList(),
   UserStatusFindAllStatuses_Ocs: (final data) => UserStatusFindAllStatuses_Ocs.fromJson(data as Map<String, dynamic>),
-  List<UserStatusFindAllStatuses_Ocs>: (final data) => (data as List)
-      .map<UserStatusFindAllStatuses_Ocs>(
-          (final e) => UserStatusFindAllStatuses_Ocs.fromJson(e as Map<String, dynamic>))
-      .toList(),
+  List<UserStatusFindAllStatuses_Ocs>: (final data) =>
+      (data as List).map((final e) => UserStatusFindAllStatuses_Ocs.fromJson(e as Map<String, dynamic>)).toList(),
   UserStatusPublicUserStatus: (final data) => UserStatusPublicUserStatus.fromJson(data as Map<String, dynamic>),
-  List<UserStatusPublicUserStatus>: (final data) => (data as List)
-      .map<UserStatusPublicUserStatus>((final e) => UserStatusPublicUserStatus.fromJson(e as Map<String, dynamic>))
-      .toList(),
+  List<UserStatusPublicUserStatus>: (final data) =>
+      (data as List).map((final e) => UserStatusPublicUserStatus.fromJson(e as Map<String, dynamic>)).toList(),
   UserStatusClearAt: (final data) => UserStatusClearAt.fromJson(data as Map<String, dynamic>),
-  List<UserStatusClearAt>: (final data) => (data as List)
-      .map<UserStatusClearAt>((final e) => UserStatusClearAt.fromJson(e as Map<String, dynamic>))
-      .toList(),
+  List<UserStatusClearAt>: (final data) =>
+      (data as List).map((final e) => UserStatusClearAt.fromJson(e as Map<String, dynamic>)).toList(),
   UserStatusFindStatus: (final data) => UserStatusFindStatus.fromJson(data as Map<String, dynamic>),
-  List<UserStatusFindStatus>: (final data) => (data as List)
-      .map<UserStatusFindStatus>((final e) => UserStatusFindStatus.fromJson(e as Map<String, dynamic>))
-      .toList(),
+  List<UserStatusFindStatus>: (final data) =>
+      (data as List).map((final e) => UserStatusFindStatus.fromJson(e as Map<String, dynamic>)).toList(),
   UserStatusFindStatus_Ocs: (final data) => UserStatusFindStatus_Ocs.fromJson(data as Map<String, dynamic>),
-  List<UserStatusFindStatus_Ocs>: (final data) => (data as List)
-      .map<UserStatusFindStatus_Ocs>((final e) => UserStatusFindStatus_Ocs.fromJson(e as Map<String, dynamic>))
-      .toList(),
+  List<UserStatusFindStatus_Ocs>: (final data) =>
+      (data as List).map((final e) => UserStatusFindStatus_Ocs.fromJson(e as Map<String, dynamic>)).toList(),
   UserStatusGetUserStatus: (final data) => UserStatusGetUserStatus.fromJson(data as Map<String, dynamic>),
-  List<UserStatusGetUserStatus>: (final data) => (data as List)
-      .map<UserStatusGetUserStatus>((final e) => UserStatusGetUserStatus.fromJson(e as Map<String, dynamic>))
-      .toList(),
+  List<UserStatusGetUserStatus>: (final data) =>
+      (data as List).map((final e) => UserStatusGetUserStatus.fromJson(e as Map<String, dynamic>)).toList(),
   UserStatusGetUserStatus_Ocs: (final data) => UserStatusGetUserStatus_Ocs.fromJson(data as Map<String, dynamic>),
-  List<UserStatusGetUserStatus_Ocs>: (final data) => (data as List)
-      .map<UserStatusGetUserStatus_Ocs>((final e) => UserStatusGetUserStatus_Ocs.fromJson(e as Map<String, dynamic>))
-      .toList(),
+  List<UserStatusGetUserStatus_Ocs>: (final data) =>
+      (data as List).map((final e) => UserStatusGetUserStatus_Ocs.fromJson(e as Map<String, dynamic>)).toList(),
   UserStatus: (final data) => UserStatus.fromJson(data as Map<String, dynamic>),
   List<UserStatus>: (final data) =>
-      (data as List).map<UserStatus>((final e) => UserStatus.fromJson(e as Map<String, dynamic>)).toList(),
+      (data as List).map((final e) => UserStatus.fromJson(e as Map<String, dynamic>)).toList(),
   UserStatusPredefinedStatuses: (final data) => UserStatusPredefinedStatuses.fromJson(data as Map<String, dynamic>),
-  List<UserStatusPredefinedStatuses>: (final data) => (data as List)
-      .map<UserStatusPredefinedStatuses>((final e) => UserStatusPredefinedStatuses.fromJson(e as Map<String, dynamic>))
-      .toList(),
+  List<UserStatusPredefinedStatuses>: (final data) =>
+      (data as List).map((final e) => UserStatusPredefinedStatuses.fromJson(e as Map<String, dynamic>)).toList(),
   UserStatusPredefinedStatuses_Ocs: (final data) =>
       UserStatusPredefinedStatuses_Ocs.fromJson(data as Map<String, dynamic>),
-  List<UserStatusPredefinedStatuses_Ocs>: (final data) => (data as List)
-      .map<UserStatusPredefinedStatuses_Ocs>(
-          (final e) => UserStatusPredefinedStatuses_Ocs.fromJson(e as Map<String, dynamic>))
-      .toList(),
+  List<UserStatusPredefinedStatuses_Ocs>: (final data) =>
+      (data as List).map((final e) => UserStatusPredefinedStatuses_Ocs.fromJson(e as Map<String, dynamic>)).toList(),
   UserStatusPredefinedStatus: (final data) => UserStatusPredefinedStatus.fromJson(data as Map<String, dynamic>),
-  List<UserStatusPredefinedStatus>: (final data) => (data as List)
-      .map<UserStatusPredefinedStatus>((final e) => UserStatusPredefinedStatus.fromJson(e as Map<String, dynamic>))
-      .toList(),
+  List<UserStatusPredefinedStatus>: (final data) =>
+      (data as List).map((final e) => UserStatusPredefinedStatus.fromJson(e as Map<String, dynamic>)).toList(),
   NotificationsPushNotification: (final data) => NotificationsPushNotification.fromJson(data as Map<String, dynamic>),
-  List<NotificationsPushNotification>: (final data) => (data as List)
-      .map<NotificationsPushNotification>(
-          (final e) => NotificationsPushNotification.fromJson(e as Map<String, dynamic>))
-      .toList(),
+  List<NotificationsPushNotification>: (final data) =>
+      (data as List).map((final e) => NotificationsPushNotification.fromJson(e as Map<String, dynamic>)).toList(),
   NotificationsPushNotificationDecryptedSubject: (final data) =>
       NotificationsPushNotificationDecryptedSubject.fromJson(data as Map<String, dynamic>),
   List<NotificationsPushNotificationDecryptedSubject>: (final data) => (data as List)
-      .map<NotificationsPushNotificationDecryptedSubject>(
-          (final e) => NotificationsPushNotificationDecryptedSubject.fromJson(e as Map<String, dynamic>))
+      .map((final e) => NotificationsPushNotificationDecryptedSubject.fromJson(e as Map<String, dynamic>))
       .toList(),
 };
 
 final _serializers = <Type, dynamic Function(dynamic)>{
-  CoreServerStatus: (final data) => (data as CoreServerStatus).toJson(),
-  List<CoreServerStatus>: (final data) =>
-      (data as List<CoreServerStatus>).map((final e) => (e as CoreServerStatus).toJson()).toList(),
-  CoreServerCapabilities: (final data) => (data as CoreServerCapabilities).toJson(),
-  List<CoreServerCapabilities>: (final data) =>
-      (data as List<CoreServerCapabilities>).map((final e) => (e as CoreServerCapabilities).toJson()).toList(),
-  CoreServerCapabilities_Ocs: (final data) => (data as CoreServerCapabilities_Ocs).toJson(),
-  List<CoreServerCapabilities_Ocs>: (final data) =>
-      (data as List<CoreServerCapabilities_Ocs>).map((final e) => (e as CoreServerCapabilities_Ocs).toJson()).toList(),
-  OCSMeta: (final data) => (data as OCSMeta).toJson(),
-  List<OCSMeta>: (final data) => (data as List<OCSMeta>).map((final e) => (e as OCSMeta).toJson()).toList(),
-  CoreServerCapabilities_Ocs_Data: (final data) => (data as CoreServerCapabilities_Ocs_Data).toJson(),
-  List<CoreServerCapabilities_Ocs_Data>: (final data) => (data as List<CoreServerCapabilities_Ocs_Data>)
-      .map((final e) => (e as CoreServerCapabilities_Ocs_Data).toJson())
-      .toList(),
-  CoreServerCapabilities_Ocs_Data_Version: (final data) => (data as CoreServerCapabilities_Ocs_Data_Version).toJson(),
-  List<CoreServerCapabilities_Ocs_Data_Version>: (final data) => (data as List<CoreServerCapabilities_Ocs_Data_Version>)
-      .map((final e) => (e as CoreServerCapabilities_Ocs_Data_Version).toJson())
-      .toList(),
-  CoreServerCapabilities_Ocs_Data_Capabilities: (final data) =>
-      (data as CoreServerCapabilities_Ocs_Data_Capabilities).toJson(),
-  List<CoreServerCapabilities_Ocs_Data_Capabilities>: (final data) =>
-      (data as List<CoreServerCapabilities_Ocs_Data_Capabilities>)
-          .map((final e) => (e as CoreServerCapabilities_Ocs_Data_Capabilities).toJson())
-          .toList(),
-  CoreServerCapabilities_Ocs_Data_Capabilities_Core: (final data) =>
-      (data as CoreServerCapabilities_Ocs_Data_Capabilities_Core).toJson(),
-  List<CoreServerCapabilities_Ocs_Data_Capabilities_Core>: (final data) =>
-      (data as List<CoreServerCapabilities_Ocs_Data_Capabilities_Core>)
-          .map((final e) => (e as CoreServerCapabilities_Ocs_Data_Capabilities_Core).toJson())
-          .toList(),
-  CoreServerCapabilities_Ocs_Data_Capabilities_Bruteforce: (final data) =>
-      (data as CoreServerCapabilities_Ocs_Data_Capabilities_Bruteforce).toJson(),
+  CoreServerStatus: (final data) => data.toJson(),
+  List<CoreServerStatus>: (final data) => data.map((final e) => e.toJson()).toList(),
+  CoreServerCapabilities: (final data) => data.toJson(),
+  List<CoreServerCapabilities>: (final data) => data.map((final e) => e.toJson()).toList(),
+  CoreServerCapabilities_Ocs: (final data) => data.toJson(),
+  List<CoreServerCapabilities_Ocs>: (final data) => data.map((final e) => e.toJson()).toList(),
+  OCSMeta: (final data) => data.toJson(),
+  List<OCSMeta>: (final data) => data.map((final e) => e.toJson()).toList(),
+  CoreServerCapabilities_Ocs_Data: (final data) => data.toJson(),
+  List<CoreServerCapabilities_Ocs_Data>: (final data) => data.map((final e) => e.toJson()).toList(),
+  CoreServerCapabilities_Ocs_Data_Version: (final data) => data.toJson(),
+  List<CoreServerCapabilities_Ocs_Data_Version>: (final data) => data.map((final e) => e.toJson()).toList(),
+  CoreServerCapabilities_Ocs_Data_Capabilities: (final data) => data.toJson(),
+  List<CoreServerCapabilities_Ocs_Data_Capabilities>: (final data) => data.map((final e) => e.toJson()).toList(),
+  CoreServerCapabilities_Ocs_Data_Capabilities_Core: (final data) => data.toJson(),
+  List<CoreServerCapabilities_Ocs_Data_Capabilities_Core>: (final data) => data.map((final e) => e.toJson()).toList(),
+  CoreServerCapabilities_Ocs_Data_Capabilities_Bruteforce: (final data) => data.toJson(),
   List<CoreServerCapabilities_Ocs_Data_Capabilities_Bruteforce>: (final data) =>
-      (data as List<CoreServerCapabilities_Ocs_Data_Capabilities_Bruteforce>)
-          .map((final e) => (e as CoreServerCapabilities_Ocs_Data_Capabilities_Bruteforce).toJson())
-          .toList(),
-  CoreServerCapabilities_Ocs_Data_Capabilities_MetadataAvailable: (final data) =>
-      (data as CoreServerCapabilities_Ocs_Data_Capabilities_MetadataAvailable).toJson(),
+      data.map((final e) => e.toJson()).toList(),
+  CoreServerCapabilities_Ocs_Data_Capabilities_MetadataAvailable: (final data) => data.toJson(),
   List<CoreServerCapabilities_Ocs_Data_Capabilities_MetadataAvailable>: (final data) =>
-      (data as List<CoreServerCapabilities_Ocs_Data_Capabilities_MetadataAvailable>)
-          .map((final e) => (e as CoreServerCapabilities_Ocs_Data_Capabilities_MetadataAvailable).toJson())
-          .toList(),
-  CoreServerCapabilities_Ocs_Data_Capabilities_Files: (final data) =>
-      (data as CoreServerCapabilities_Ocs_Data_Capabilities_Files).toJson(),
-  List<CoreServerCapabilities_Ocs_Data_Capabilities_Files>: (final data) =>
-      (data as List<CoreServerCapabilities_Ocs_Data_Capabilities_Files>)
-          .map((final e) => (e as CoreServerCapabilities_Ocs_Data_Capabilities_Files).toJson())
-          .toList(),
-  CoreServerCapabilities_Ocs_Data_Capabilities_Files_DirectEditing: (final data) =>
-      (data as CoreServerCapabilities_Ocs_Data_Capabilities_Files_DirectEditing).toJson(),
+      data.map((final e) => e.toJson()).toList(),
+  CoreServerCapabilities_Ocs_Data_Capabilities_Files: (final data) => data.toJson(),
+  List<CoreServerCapabilities_Ocs_Data_Capabilities_Files>: (final data) => data.map((final e) => e.toJson()).toList(),
+  CoreServerCapabilities_Ocs_Data_Capabilities_Files_DirectEditing: (final data) => data.toJson(),
   List<CoreServerCapabilities_Ocs_Data_Capabilities_Files_DirectEditing>: (final data) =>
-      (data as List<CoreServerCapabilities_Ocs_Data_Capabilities_Files_DirectEditing>)
-          .map((final e) => (e as CoreServerCapabilities_Ocs_Data_Capabilities_Files_DirectEditing).toJson())
-          .toList(),
-  CoreServerCapabilities_Ocs_Data_Capabilities_Activity: (final data) =>
-      (data as CoreServerCapabilities_Ocs_Data_Capabilities_Activity).toJson(),
+      data.map((final e) => e.toJson()).toList(),
+  CoreServerCapabilities_Ocs_Data_Capabilities_Activity: (final data) => data.toJson(),
   List<CoreServerCapabilities_Ocs_Data_Capabilities_Activity>: (final data) =>
-      (data as List<CoreServerCapabilities_Ocs_Data_Capabilities_Activity>)
-          .map((final e) => (e as CoreServerCapabilities_Ocs_Data_Capabilities_Activity).toJson())
-          .toList(),
-  CoreServerCapabilities_Ocs_Data_Capabilities_Circles: (final data) =>
-      (data as CoreServerCapabilities_Ocs_Data_Capabilities_Circles).toJson(),
+      data.map((final e) => e.toJson()).toList(),
+  CoreServerCapabilities_Ocs_Data_Capabilities_Circles: (final data) => data.toJson(),
   List<CoreServerCapabilities_Ocs_Data_Capabilities_Circles>: (final data) =>
-      (data as List<CoreServerCapabilities_Ocs_Data_Capabilities_Circles>)
-          .map((final e) => (e as CoreServerCapabilities_Ocs_Data_Capabilities_Circles).toJson())
-          .toList(),
-  CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Status: (final data) =>
-      (data as CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Status).toJson(),
+      data.map((final e) => e.toJson()).toList(),
+  CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Status: (final data) => data.toJson(),
   List<CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Status>: (final data) =>
-      (data as List<CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Status>)
-          .map((final e) => (e as CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Status).toJson())
-          .toList(),
-  CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Settings: (final data) =>
-      (data as CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Settings).toJson(),
+      data.map((final e) => e.toJson()).toList(),
+  CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Settings: (final data) => data.toJson(),
   List<CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Settings>: (final data) =>
-      (data as List<CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Settings>)
-          .map((final e) => (e as CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Settings).toJson())
-          .toList(),
-  CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle: (final data) =>
-      (data as CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle).toJson(),
+      data.map((final e) => e.toJson()).toList(),
+  CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle: (final data) => data.toJson(),
   List<CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle>: (final data) =>
-      (data as List<CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle>)
-          .map((final e) => (e as CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle).toJson())
-          .toList(),
-  CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants: (final data) =>
-      (data as CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants).toJson(),
+      data.map((final e) => e.toJson()).toList(),
+  CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants: (final data) => data.toJson(),
   List<CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants>: (final data) =>
-      (data as List<CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants>)
-          .map((final e) => (e as CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants).toJson())
-          .toList(),
-  CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants_Source: (final data) =>
-      (data as CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants_Source).toJson(),
-  List<CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants_Source>: (final data) => (data
-          as List<CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants_Source>)
-      .map((final e) => (e as CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants_Source).toJson())
-      .toList(),
-  CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Config: (final data) =>
-      (data as CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Config).toJson(),
+      data.map((final e) => e.toJson()).toList(),
+  CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants_Source: (final data) => data.toJson(),
+  List<CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants_Source>: (final data) =>
+      data.map((final e) => e.toJson()).toList(),
+  CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Config: (final data) => data.toJson(),
   List<CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Config>: (final data) =>
-      (data as List<CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Config>)
-          .map((final e) => (e as CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Config).toJson())
-          .toList(),
-  CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member: (final data) =>
-      (data as CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member).toJson(),
+      data.map((final e) => e.toJson()).toList(),
+  CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member: (final data) => data.toJson(),
   List<CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member>: (final data) =>
-      (data as List<CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member>)
-          .map((final e) => (e as CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member).toJson())
-          .toList(),
-  CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member_Constants: (final data) =>
-      (data as CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member_Constants).toJson(),
+      data.map((final e) => e.toJson()).toList(),
+  CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member_Constants: (final data) => data.toJson(),
   List<CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member_Constants>: (final data) =>
-      (data as List<CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member_Constants>)
-          .map((final e) => (e as CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member_Constants).toJson())
-          .toList(),
-  CoreServerCapabilities_Ocs_Data_Capabilities_Ocm: (final data) =>
-      (data as CoreServerCapabilities_Ocs_Data_Capabilities_Ocm).toJson(),
-  List<CoreServerCapabilities_Ocs_Data_Capabilities_Ocm>: (final data) =>
-      (data as List<CoreServerCapabilities_Ocs_Data_Capabilities_Ocm>)
-          .map((final e) => (e as CoreServerCapabilities_Ocs_Data_Capabilities_Ocm).toJson())
-          .toList(),
-  CoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes: (final data) =>
-      (data as CoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes).toJson(),
+      data.map((final e) => e.toJson()).toList(),
+  CoreServerCapabilities_Ocs_Data_Capabilities_Ocm: (final data) => data.toJson(),
+  List<CoreServerCapabilities_Ocs_Data_Capabilities_Ocm>: (final data) => data.map((final e) => e.toJson()).toList(),
+  CoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes: (final data) => data.toJson(),
   List<CoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes>: (final data) =>
-      (data as List<CoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes>)
-          .map((final e) => (e as CoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes).toJson())
-          .toList(),
-  CoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes_Protocols: (final data) =>
-      (data as CoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes_Protocols).toJson(),
+      data.map((final e) => e.toJson()).toList(),
+  CoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes_Protocols: (final data) => data.toJson(),
   List<CoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes_Protocols>: (final data) =>
-      (data as List<CoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes_Protocols>)
-          .map((final e) => (e as CoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes_Protocols).toJson())
-          .toList(),
-  CoreServerCapabilities_Ocs_Data_Capabilities_Dav: (final data) =>
-      (data as CoreServerCapabilities_Ocs_Data_Capabilities_Dav).toJson(),
-  List<CoreServerCapabilities_Ocs_Data_Capabilities_Dav>: (final data) =>
-      (data as List<CoreServerCapabilities_Ocs_Data_Capabilities_Dav>)
-          .map((final e) => (e as CoreServerCapabilities_Ocs_Data_Capabilities_Dav).toJson())
-          .toList(),
-  CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing: (final data) =>
-      (data as CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing).toJson(),
+      data.map((final e) => e.toJson()).toList(),
+  CoreServerCapabilities_Ocs_Data_Capabilities_Dav: (final data) => data.toJson(),
+  List<CoreServerCapabilities_Ocs_Data_Capabilities_Dav>: (final data) => data.map((final e) => e.toJson()).toList(),
+  CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing: (final data) => data.toJson(),
   List<CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing>: (final data) =>
-      (data as List<CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing>)
-          .map((final e) => (e as CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing).toJson())
-          .toList(),
-  CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public: (final data) =>
-      (data as CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public).toJson(),
+      data.map((final e) => e.toJson()).toList(),
+  CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public: (final data) => data.toJson(),
   List<CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public>: (final data) =>
-      (data as List<CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public>)
-          .map((final e) => (e as CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public).toJson())
-          .toList(),
-  CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_Password: (final data) =>
-      (data as CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_Password).toJson(),
+      data.map((final e) => e.toJson()).toList(),
+  CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_Password: (final data) => data.toJson(),
   List<CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_Password>: (final data) =>
-      (data as List<CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_Password>)
-          .map((final e) => (e as CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_Password).toJson())
-          .toList(),
-  CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDate: (final data) =>
-      (data as CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDate).toJson(),
+      data.map((final e) => e.toJson()).toList(),
+  CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDate: (final data) => data.toJson(),
   List<CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDate>: (final data) =>
-      (data as List<CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDate>)
-          .map((final e) => (e as CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDate).toJson())
-          .toList(),
-  CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternal: (final data) =>
-      (data as CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternal).toJson(),
+      data.map((final e) => e.toJson()).toList(),
+  CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternal: (final data) => data.toJson(),
   List<CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternal>: (final data) =>
-      (data as List<CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternal>)
-          .map((final e) =>
-              (e as CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternal).toJson())
-          .toList(),
-  CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemote: (final data) =>
-      (data as CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemote).toJson(),
+      data.map((final e) => e.toJson()).toList(),
+  CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemote: (final data) => data.toJson(),
   List<CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemote>: (final data) =>
-      (data as List<CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemote>)
-          .map((final e) =>
-              (e as CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemote).toJson())
-          .toList(),
-  CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User: (final data) =>
-      (data as CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User).toJson(),
+      data.map((final e) => e.toJson()).toList(),
+  CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User: (final data) => data.toJson(),
   List<CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User>: (final data) =>
-      (data as List<CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User>)
-          .map((final e) => (e as CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User).toJson())
-          .toList(),
-  CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User_ExpireDate: (final data) =>
-      (data as CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User_ExpireDate).toJson(),
+      data.map((final e) => e.toJson()).toList(),
+  CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User_ExpireDate: (final data) => data.toJson(),
   List<CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User_ExpireDate>: (final data) =>
-      (data as List<CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User_ExpireDate>)
-          .map((final e) => (e as CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User_ExpireDate).toJson())
-          .toList(),
-  CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group: (final data) =>
-      (data as CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group).toJson(),
+      data.map((final e) => e.toJson()).toList(),
+  CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group: (final data) => data.toJson(),
   List<CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group>: (final data) =>
-      (data as List<CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group>)
-          .map((final e) => (e as CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group).toJson())
-          .toList(),
-  CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDate: (final data) =>
-      (data as CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDate).toJson(),
+      data.map((final e) => e.toJson()).toList(),
+  CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDate: (final data) => data.toJson(),
   List<CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDate>: (final data) =>
-      (data as List<CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDate>)
-          .map((final e) => (e as CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDate).toJson())
-          .toList(),
-  CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation: (final data) =>
-      (data as CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation).toJson(),
+      data.map((final e) => e.toJson()).toList(),
+  CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation: (final data) => data.toJson(),
   List<CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation>: (final data) =>
-      (data as List<CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation>)
-          .map((final e) => (e as CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation).toJson())
-          .toList(),
-  CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDate: (final data) =>
-      (data as CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDate).toJson(),
-  List<CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDate>: (final data) => (data
-          as List<CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDate>)
-      .map((final e) => (e as CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDate).toJson())
-      .toList(),
+      data.map((final e) => e.toJson()).toList(),
+  CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDate: (final data) => data.toJson(),
+  List<CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDate>: (final data) =>
+      data.map((final e) => e.toJson()).toList(),
   CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupported: (final data) =>
-      (data as CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupported).toJson(),
+      data.toJson(),
   List<CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupported>: (final data) =>
-      (data as List<CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupported>)
-          .map((final e) =>
-              (e as CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupported).toJson())
-          .toList(),
-  CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharee: (final data) =>
-      (data as CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharee).toJson(),
+      data.map((final e) => e.toJson()).toList(),
+  CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharee: (final data) => data.toJson(),
   List<CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharee>: (final data) =>
-      (data as List<CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharee>)
-          .map((final e) => (e as CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharee).toJson())
-          .toList(),
-  CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail: (final data) =>
-      (data as CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail).toJson(),
+      data.map((final e) => e.toJson()).toList(),
+  CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail: (final data) => data.toJson(),
   List<CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail>: (final data) =>
-      (data as List<CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail>)
-          .map((final e) => (e as CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail).toJson())
-          .toList(),
-  CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_UploadFilesDrop: (final data) =>
-      (data as CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_UploadFilesDrop).toJson(),
+      data.map((final e) => e.toJson()).toList(),
+  CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_UploadFilesDrop: (final data) => data.toJson(),
   List<CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_UploadFilesDrop>: (final data) =>
-      (data as List<CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_UploadFilesDrop>)
-          .map((final e) =>
-              (e as CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_UploadFilesDrop).toJson())
-          .toList(),
-  CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_Password: (final data) =>
-      (data as CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_Password).toJson(),
-  List<CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_Password>: (final data) => (data
-          as List<CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_Password>)
-      .map((final e) => (e as CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_Password).toJson())
-      .toList(),
-  CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_ExpireDate: (final data) =>
-      (data as CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_ExpireDate).toJson(),
-  List<CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_ExpireDate>: (final data) => (data
-          as List<CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_ExpireDate>)
-      .map(
-          (final e) => (e as CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_ExpireDate).toJson())
-      .toList(),
-  CoreServerCapabilities_Ocs_Data_Capabilities_Notes: (final data) =>
-      (data as CoreServerCapabilities_Ocs_Data_Capabilities_Notes).toJson(),
-  List<CoreServerCapabilities_Ocs_Data_Capabilities_Notes>: (final data) =>
-      (data as List<CoreServerCapabilities_Ocs_Data_Capabilities_Notes>)
-          .map((final e) => (e as CoreServerCapabilities_Ocs_Data_Capabilities_Notes).toJson())
-          .toList(),
-  CoreServerCapabilities_Ocs_Data_Capabilities_Notifications: (final data) =>
-      (data as CoreServerCapabilities_Ocs_Data_Capabilities_Notifications).toJson(),
+      data.map((final e) => e.toJson()).toList(),
+  CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_Password: (final data) => data.toJson(),
+  List<CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_Password>: (final data) =>
+      data.map((final e) => e.toJson()).toList(),
+  CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_ExpireDate: (final data) => data.toJson(),
+  List<CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_ExpireDate>: (final data) =>
+      data.map((final e) => e.toJson()).toList(),
+  CoreServerCapabilities_Ocs_Data_Capabilities_Notes: (final data) => data.toJson(),
+  List<CoreServerCapabilities_Ocs_Data_Capabilities_Notes>: (final data) => data.map((final e) => e.toJson()).toList(),
+  CoreServerCapabilities_Ocs_Data_Capabilities_Notifications: (final data) => data.toJson(),
   List<CoreServerCapabilities_Ocs_Data_Capabilities_Notifications>: (final data) =>
-      (data as List<CoreServerCapabilities_Ocs_Data_Capabilities_Notifications>)
-          .map((final e) => (e as CoreServerCapabilities_Ocs_Data_Capabilities_Notifications).toJson())
-          .toList(),
-  CoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy: (final data) =>
-      (data as CoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy).toJson(),
+      data.map((final e) => e.toJson()).toList(),
+  CoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy: (final data) => data.toJson(),
   List<CoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy>: (final data) =>
-      (data as List<CoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy>)
-          .map((final e) => (e as CoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy).toJson())
-          .toList(),
-  CoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy_Api: (final data) =>
-      (data as CoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy_Api).toJson(),
+      data.map((final e) => e.toJson()).toList(),
+  CoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy_Api: (final data) => data.toJson(),
   List<CoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy_Api>: (final data) =>
-      (data as List<CoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy_Api>)
-          .map((final e) => (e as CoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy_Api).toJson())
-          .toList(),
-  CoreServerCapabilities_Ocs_Data_Capabilities_ProvisioningApi: (final data) =>
-      (data as CoreServerCapabilities_Ocs_Data_Capabilities_ProvisioningApi).toJson(),
+      data.map((final e) => e.toJson()).toList(),
+  CoreServerCapabilities_Ocs_Data_Capabilities_ProvisioningApi: (final data) => data.toJson(),
   List<CoreServerCapabilities_Ocs_Data_Capabilities_ProvisioningApi>: (final data) =>
-      (data as List<CoreServerCapabilities_Ocs_Data_Capabilities_ProvisioningApi>)
-          .map((final e) => (e as CoreServerCapabilities_Ocs_Data_Capabilities_ProvisioningApi).toJson())
-          .toList(),
-  CoreServerCapabilities_Ocs_Data_Capabilities_Theming: (final data) =>
-      (data as CoreServerCapabilities_Ocs_Data_Capabilities_Theming).toJson(),
+      data.map((final e) => e.toJson()).toList(),
+  CoreServerCapabilities_Ocs_Data_Capabilities_Theming: (final data) => data.toJson(),
   List<CoreServerCapabilities_Ocs_Data_Capabilities_Theming>: (final data) =>
-      (data as List<CoreServerCapabilities_Ocs_Data_Capabilities_Theming>)
-          .map((final e) => (e as CoreServerCapabilities_Ocs_Data_Capabilities_Theming).toJson())
-          .toList(),
-  CoreServerCapabilities_Ocs_Data_Capabilities_UserStatus: (final data) =>
-      (data as CoreServerCapabilities_Ocs_Data_Capabilities_UserStatus).toJson(),
+      data.map((final e) => e.toJson()).toList(),
+  CoreServerCapabilities_Ocs_Data_Capabilities_UserStatus: (final data) => data.toJson(),
   List<CoreServerCapabilities_Ocs_Data_Capabilities_UserStatus>: (final data) =>
-      (data as List<CoreServerCapabilities_Ocs_Data_Capabilities_UserStatus>)
-          .map((final e) => (e as CoreServerCapabilities_Ocs_Data_Capabilities_UserStatus).toJson())
-          .toList(),
-  CoreServerCapabilities_Ocs_Data_Capabilities_WeatherStatus: (final data) =>
-      (data as CoreServerCapabilities_Ocs_Data_Capabilities_WeatherStatus).toJson(),
+      data.map((final e) => e.toJson()).toList(),
+  CoreServerCapabilities_Ocs_Data_Capabilities_WeatherStatus: (final data) => data.toJson(),
   List<CoreServerCapabilities_Ocs_Data_Capabilities_WeatherStatus>: (final data) =>
-      (data as List<CoreServerCapabilities_Ocs_Data_Capabilities_WeatherStatus>)
-          .map((final e) => (e as CoreServerCapabilities_Ocs_Data_Capabilities_WeatherStatus).toJson())
-          .toList(),
-  CoreNavigationApps: (final data) => (data as CoreNavigationApps).toJson(),
-  List<CoreNavigationApps>: (final data) =>
-      (data as List<CoreNavigationApps>).map((final e) => (e as CoreNavigationApps).toJson()).toList(),
-  CoreNavigationApps_Ocs: (final data) => (data as CoreNavigationApps_Ocs).toJson(),
-  List<CoreNavigationApps_Ocs>: (final data) =>
-      (data as List<CoreNavigationApps_Ocs>).map((final e) => (e as CoreNavigationApps_Ocs).toJson()).toList(),
-  CoreNavigationApps_Ocs_Data: (final data) => (data as CoreNavigationApps_Ocs_Data).toJson(),
-  List<CoreNavigationApps_Ocs_Data>: (final data) => (data as List<CoreNavigationApps_Ocs_Data>)
-      .map((final e) => (e as CoreNavigationApps_Ocs_Data).toJson())
-      .toList(),
-  CoreLoginFlowInit: (final data) => (data as CoreLoginFlowInit).toJson(),
-  List<CoreLoginFlowInit>: (final data) =>
-      (data as List<CoreLoginFlowInit>).map((final e) => (e as CoreLoginFlowInit).toJson()).toList(),
-  CoreLoginFlowInit_Poll: (final data) => (data as CoreLoginFlowInit_Poll).toJson(),
-  List<CoreLoginFlowInit_Poll>: (final data) =>
-      (data as List<CoreLoginFlowInit_Poll>).map((final e) => (e as CoreLoginFlowInit_Poll).toJson()).toList(),
-  CoreLoginFlowResult: (final data) => (data as CoreLoginFlowResult).toJson(),
-  List<CoreLoginFlowResult>: (final data) =>
-      (data as List<CoreLoginFlowResult>).map((final e) => (e as CoreLoginFlowResult).toJson()).toList(),
-  GetSupportedApiVersions: (final data) => (data as GetSupportedApiVersions).toJson(),
-  List<GetSupportedApiVersions>: (final data) =>
-      (data as List<GetSupportedApiVersions>).map((final e) => (e as GetSupportedApiVersions).toJson()).toList(),
-  NewsListFolders: (final data) => (data as NewsListFolders).toJson(),
-  List<NewsListFolders>: (final data) =>
-      (data as List<NewsListFolders>).map((final e) => (e as NewsListFolders).toJson()).toList(),
-  NewsFolder: (final data) => (data as NewsFolder).toJson(),
-  List<NewsFolder>: (final data) => (data as List<NewsFolder>).map((final e) => (e as NewsFolder).toJson()).toList(),
-  NewsFeed: (final data) => (data as NewsFeed).toJson(),
-  List<NewsFeed>: (final data) => (data as List<NewsFeed>).map((final e) => (e as NewsFeed).toJson()).toList(),
-  NewsArticle: (final data) => (data as NewsArticle).toJson(),
-  List<NewsArticle>: (final data) => (data as List<NewsArticle>).map((final e) => (e as NewsArticle).toJson()).toList(),
-  NewsListFeeds: (final data) => (data as NewsListFeeds).toJson(),
-  List<NewsListFeeds>: (final data) =>
-      (data as List<NewsListFeeds>).map((final e) => (e as NewsListFeeds).toJson()).toList(),
-  NewsListArticles: (final data) => (data as NewsListArticles).toJson(),
-  List<NewsListArticles>: (final data) =>
-      (data as List<NewsListArticles>).map((final e) => (e as NewsListArticles).toJson()).toList(),
-  NotesNote: (final data) => (data as NotesNote).toJson(),
-  List<NotesNote>: (final data) => (data as List<NotesNote>).map((final e) => (e as NotesNote).toJson()).toList(),
-  NotesSettings: (final data) => (data as NotesSettings).toJson(),
-  List<NotesSettings>: (final data) =>
-      (data as List<NotesSettings>).map((final e) => (e as NotesSettings).toJson()).toList(),
-  NotificationsListNotifications: (final data) => (data as NotificationsListNotifications).toJson(),
-  List<NotificationsListNotifications>: (final data) => (data as List<NotificationsListNotifications>)
-      .map((final e) => (e as NotificationsListNotifications).toJson())
-      .toList(),
-  NotificationsListNotifications_Ocs: (final data) => (data as NotificationsListNotifications_Ocs).toJson(),
-  List<NotificationsListNotifications_Ocs>: (final data) => (data as List<NotificationsListNotifications_Ocs>)
-      .map((final e) => (e as NotificationsListNotifications_Ocs).toJson())
-      .toList(),
-  NotificationsNotification: (final data) => (data as NotificationsNotification).toJson(),
-  List<NotificationsNotification>: (final data) =>
-      (data as List<NotificationsNotification>).map((final e) => (e as NotificationsNotification).toJson()).toList(),
-  NotificationsNotificationAction: (final data) => (data as NotificationsNotificationAction).toJson(),
-  List<NotificationsNotificationAction>: (final data) => (data as List<NotificationsNotificationAction>)
-      .map((final e) => (e as NotificationsNotificationAction).toJson())
-      .toList(),
-  NotificationsGetNotification: (final data) => (data as NotificationsGetNotification).toJson(),
-  List<NotificationsGetNotification>: (final data) => (data as List<NotificationsGetNotification>)
-      .map((final e) => (e as NotificationsGetNotification).toJson())
-      .toList(),
-  NotificationsGetNotification_Ocs: (final data) => (data as NotificationsGetNotification_Ocs).toJson(),
-  List<NotificationsGetNotification_Ocs>: (final data) => (data as List<NotificationsGetNotification_Ocs>)
-      .map((final e) => (e as NotificationsGetNotification_Ocs).toJson())
-      .toList(),
-  EmptyOCS: (final data) => (data as EmptyOCS).toJson(),
-  List<EmptyOCS>: (final data) => (data as List<EmptyOCS>).map((final e) => (e as EmptyOCS).toJson()).toList(),
-  EmptyOCS_Ocs: (final data) => (data as EmptyOCS_Ocs).toJson(),
-  List<EmptyOCS_Ocs>: (final data) =>
-      (data as List<EmptyOCS_Ocs>).map((final e) => (e as EmptyOCS_Ocs).toJson()).toList(),
-  NotificationsPushServerRegistration: (final data) => (data as NotificationsPushServerRegistration).toJson(),
-  List<NotificationsPushServerRegistration>: (final data) => (data as List<NotificationsPushServerRegistration>)
-      .map((final e) => (e as NotificationsPushServerRegistration).toJson())
-      .toList(),
-  NotificationsPushServerRegistration_Ocs: (final data) => (data as NotificationsPushServerRegistration_Ocs).toJson(),
-  List<NotificationsPushServerRegistration_Ocs>: (final data) => (data as List<NotificationsPushServerRegistration_Ocs>)
-      .map((final e) => (e as NotificationsPushServerRegistration_Ocs).toJson())
-      .toList(),
-  NotificationsPushServerSubscription: (final data) => (data as NotificationsPushServerSubscription).toJson(),
-  List<NotificationsPushServerSubscription>: (final data) => (data as List<NotificationsPushServerSubscription>)
-      .map((final e) => (e as NotificationsPushServerSubscription).toJson())
-      .toList(),
-  ProvisioningApiUser: (final data) => (data as ProvisioningApiUser).toJson(),
-  List<ProvisioningApiUser>: (final data) =>
-      (data as List<ProvisioningApiUser>).map((final e) => (e as ProvisioningApiUser).toJson()).toList(),
-  ProvisioningApiUser_Ocs: (final data) => (data as ProvisioningApiUser_Ocs).toJson(),
-  List<ProvisioningApiUser_Ocs>: (final data) =>
-      (data as List<ProvisioningApiUser_Ocs>).map((final e) => (e as ProvisioningApiUser_Ocs).toJson()).toList(),
-  ProvisioningApiUserDetails: (final data) => (data as ProvisioningApiUserDetails).toJson(),
-  List<ProvisioningApiUserDetails>: (final data) =>
-      (data as List<ProvisioningApiUserDetails>).map((final e) => (e as ProvisioningApiUserDetails).toJson()).toList(),
-  ProvisioningApiUserDetails_Quota: (final data) => (data as ProvisioningApiUserDetails_Quota).toJson(),
-  List<ProvisioningApiUserDetails_Quota>: (final data) => (data as List<ProvisioningApiUserDetails_Quota>)
-      .map((final e) => (e as ProvisioningApiUserDetails_Quota).toJson())
-      .toList(),
-  ProvisioningApiUserDetails_BackendCapabilities: (final data) =>
-      (data as ProvisioningApiUserDetails_BackendCapabilities).toJson(),
-  List<ProvisioningApiUserDetails_BackendCapabilities>: (final data) =>
-      (data as List<ProvisioningApiUserDetails_BackendCapabilities>)
-          .map((final e) => (e as ProvisioningApiUserDetails_BackendCapabilities).toJson())
-          .toList(),
-  UserStatusFindAllStatuses: (final data) => (data as UserStatusFindAllStatuses).toJson(),
-  List<UserStatusFindAllStatuses>: (final data) =>
-      (data as List<UserStatusFindAllStatuses>).map((final e) => (e as UserStatusFindAllStatuses).toJson()).toList(),
-  UserStatusFindAllStatuses_Ocs: (final data) => (data as UserStatusFindAllStatuses_Ocs).toJson(),
-  List<UserStatusFindAllStatuses_Ocs>: (final data) => (data as List<UserStatusFindAllStatuses_Ocs>)
-      .map((final e) => (e as UserStatusFindAllStatuses_Ocs).toJson())
-      .toList(),
-  UserStatusPublicUserStatus: (final data) => (data as UserStatusPublicUserStatus).toJson(),
-  List<UserStatusPublicUserStatus>: (final data) =>
-      (data as List<UserStatusPublicUserStatus>).map((final e) => (e as UserStatusPublicUserStatus).toJson()).toList(),
-  UserStatusClearAt: (final data) => (data as UserStatusClearAt).toJson(),
-  List<UserStatusClearAt>: (final data) =>
-      (data as List<UserStatusClearAt>).map((final e) => (e as UserStatusClearAt).toJson()).toList(),
-  UserStatusFindStatus: (final data) => (data as UserStatusFindStatus).toJson(),
-  List<UserStatusFindStatus>: (final data) =>
-      (data as List<UserStatusFindStatus>).map((final e) => (e as UserStatusFindStatus).toJson()).toList(),
-  UserStatusFindStatus_Ocs: (final data) => (data as UserStatusFindStatus_Ocs).toJson(),
-  List<UserStatusFindStatus_Ocs>: (final data) =>
-      (data as List<UserStatusFindStatus_Ocs>).map((final e) => (e as UserStatusFindStatus_Ocs).toJson()).toList(),
-  UserStatusGetUserStatus: (final data) => (data as UserStatusGetUserStatus).toJson(),
-  List<UserStatusGetUserStatus>: (final data) =>
-      (data as List<UserStatusGetUserStatus>).map((final e) => (e as UserStatusGetUserStatus).toJson()).toList(),
-  UserStatusGetUserStatus_Ocs: (final data) => (data as UserStatusGetUserStatus_Ocs).toJson(),
-  List<UserStatusGetUserStatus_Ocs>: (final data) => (data as List<UserStatusGetUserStatus_Ocs>)
-      .map((final e) => (e as UserStatusGetUserStatus_Ocs).toJson())
-      .toList(),
-  UserStatus: (final data) => (data as UserStatus).toJson(),
-  List<UserStatus>: (final data) => (data as List<UserStatus>).map((final e) => (e as UserStatus).toJson()).toList(),
-  UserStatusPredefinedStatuses: (final data) => (data as UserStatusPredefinedStatuses).toJson(),
-  List<UserStatusPredefinedStatuses>: (final data) => (data as List<UserStatusPredefinedStatuses>)
-      .map((final e) => (e as UserStatusPredefinedStatuses).toJson())
-      .toList(),
-  UserStatusPredefinedStatuses_Ocs: (final data) => (data as UserStatusPredefinedStatuses_Ocs).toJson(),
-  List<UserStatusPredefinedStatuses_Ocs>: (final data) => (data as List<UserStatusPredefinedStatuses_Ocs>)
-      .map((final e) => (e as UserStatusPredefinedStatuses_Ocs).toJson())
-      .toList(),
-  UserStatusPredefinedStatus: (final data) => (data as UserStatusPredefinedStatus).toJson(),
-  List<UserStatusPredefinedStatus>: (final data) =>
-      (data as List<UserStatusPredefinedStatus>).map((final e) => (e as UserStatusPredefinedStatus).toJson()).toList(),
-  NotificationsPushNotification: (final data) => (data as NotificationsPushNotification).toJson(),
-  List<NotificationsPushNotification>: (final data) => (data as List<NotificationsPushNotification>)
-      .map((final e) => (e as NotificationsPushNotification).toJson())
-      .toList(),
-  NotificationsPushNotificationDecryptedSubject: (final data) =>
-      (data as NotificationsPushNotificationDecryptedSubject).toJson(),
-  List<NotificationsPushNotificationDecryptedSubject>: (final data) =>
-      (data as List<NotificationsPushNotificationDecryptedSubject>)
-          .map((final e) => (e as NotificationsPushNotificationDecryptedSubject).toJson())
-          .toList(),
+      data.map((final e) => e.toJson()).toList(),
+  CoreNavigationApps: (final data) => data.toJson(),
+  List<CoreNavigationApps>: (final data) => data.map((final e) => e.toJson()).toList(),
+  CoreNavigationApps_Ocs: (final data) => data.toJson(),
+  List<CoreNavigationApps_Ocs>: (final data) => data.map((final e) => e.toJson()).toList(),
+  CoreNavigationApps_Ocs_Data: (final data) => data.toJson(),
+  List<CoreNavigationApps_Ocs_Data>: (final data) => data.map((final e) => e.toJson()).toList(),
+  CoreLoginFlowInit: (final data) => data.toJson(),
+  List<CoreLoginFlowInit>: (final data) => data.map((final e) => e.toJson()).toList(),
+  CoreLoginFlowInit_Poll: (final data) => data.toJson(),
+  List<CoreLoginFlowInit_Poll>: (final data) => data.map((final e) => e.toJson()).toList(),
+  CoreLoginFlowResult: (final data) => data.toJson(),
+  List<CoreLoginFlowResult>: (final data) => data.map((final e) => e.toJson()).toList(),
+  GetSupportedApiVersions: (final data) => data.toJson(),
+  List<GetSupportedApiVersions>: (final data) => data.map((final e) => e.toJson()).toList(),
+  NewsListFolders: (final data) => data.toJson(),
+  List<NewsListFolders>: (final data) => data.map((final e) => e.toJson()).toList(),
+  NewsFolder: (final data) => data.toJson(),
+  List<NewsFolder>: (final data) => data.map((final e) => e.toJson()).toList(),
+  NewsFeed: (final data) => data.toJson(),
+  List<NewsFeed>: (final data) => data.map((final e) => e.toJson()).toList(),
+  NewsArticle: (final data) => data.toJson(),
+  List<NewsArticle>: (final data) => data.map((final e) => e.toJson()).toList(),
+  NewsListFeeds: (final data) => data.toJson(),
+  List<NewsListFeeds>: (final data) => data.map((final e) => e.toJson()).toList(),
+  NewsListArticles: (final data) => data.toJson(),
+  List<NewsListArticles>: (final data) => data.map((final e) => e.toJson()).toList(),
+  NotesNote: (final data) => data.toJson(),
+  List<NotesNote>: (final data) => data.map((final e) => e.toJson()).toList(),
+  NotesSettings: (final data) => data.toJson(),
+  List<NotesSettings>: (final data) => data.map((final e) => e.toJson()).toList(),
+  NotificationsListNotifications: (final data) => data.toJson(),
+  List<NotificationsListNotifications>: (final data) => data.map((final e) => e.toJson()).toList(),
+  NotificationsListNotifications_Ocs: (final data) => data.toJson(),
+  List<NotificationsListNotifications_Ocs>: (final data) => data.map((final e) => e.toJson()).toList(),
+  NotificationsNotification: (final data) => data.toJson(),
+  List<NotificationsNotification>: (final data) => data.map((final e) => e.toJson()).toList(),
+  NotificationsNotificationAction: (final data) => data.toJson(),
+  List<NotificationsNotificationAction>: (final data) => data.map((final e) => e.toJson()).toList(),
+  NotificationsGetNotification: (final data) => data.toJson(),
+  List<NotificationsGetNotification>: (final data) => data.map((final e) => e.toJson()).toList(),
+  NotificationsGetNotification_Ocs: (final data) => data.toJson(),
+  List<NotificationsGetNotification_Ocs>: (final data) => data.map((final e) => e.toJson()).toList(),
+  EmptyOCS: (final data) => data.toJson(),
+  List<EmptyOCS>: (final data) => data.map((final e) => e.toJson()).toList(),
+  EmptyOCS_Ocs: (final data) => data.toJson(),
+  List<EmptyOCS_Ocs>: (final data) => data.map((final e) => e.toJson()).toList(),
+  NotificationsPushServerRegistration: (final data) => data.toJson(),
+  List<NotificationsPushServerRegistration>: (final data) => data.map((final e) => e.toJson()).toList(),
+  NotificationsPushServerRegistration_Ocs: (final data) => data.toJson(),
+  List<NotificationsPushServerRegistration_Ocs>: (final data) => data.map((final e) => e.toJson()).toList(),
+  NotificationsPushServerSubscription: (final data) => data.toJson(),
+  List<NotificationsPushServerSubscription>: (final data) => data.map((final e) => e.toJson()).toList(),
+  ProvisioningApiUser: (final data) => data.toJson(),
+  List<ProvisioningApiUser>: (final data) => data.map((final e) => e.toJson()).toList(),
+  ProvisioningApiUser_Ocs: (final data) => data.toJson(),
+  List<ProvisioningApiUser_Ocs>: (final data) => data.map((final e) => e.toJson()).toList(),
+  ProvisioningApiUserDetails: (final data) => data.toJson(),
+  List<ProvisioningApiUserDetails>: (final data) => data.map((final e) => e.toJson()).toList(),
+  ProvisioningApiUserDetails_Quota: (final data) => data.toJson(),
+  List<ProvisioningApiUserDetails_Quota>: (final data) => data.map((final e) => e.toJson()).toList(),
+  ProvisioningApiUserDetails_BackendCapabilities: (final data) => data.toJson(),
+  List<ProvisioningApiUserDetails_BackendCapabilities>: (final data) => data.map((final e) => e.toJson()).toList(),
+  UserStatusFindAllStatuses: (final data) => data.toJson(),
+  List<UserStatusFindAllStatuses>: (final data) => data.map((final e) => e.toJson()).toList(),
+  UserStatusFindAllStatuses_Ocs: (final data) => data.toJson(),
+  List<UserStatusFindAllStatuses_Ocs>: (final data) => data.map((final e) => e.toJson()).toList(),
+  UserStatusPublicUserStatus: (final data) => data.toJson(),
+  List<UserStatusPublicUserStatus>: (final data) => data.map((final e) => e.toJson()).toList(),
+  UserStatusClearAt: (final data) => data.toJson(),
+  List<UserStatusClearAt>: (final data) => data.map((final e) => e.toJson()).toList(),
+  UserStatusFindStatus: (final data) => data.toJson(),
+  List<UserStatusFindStatus>: (final data) => data.map((final e) => e.toJson()).toList(),
+  UserStatusFindStatus_Ocs: (final data) => data.toJson(),
+  List<UserStatusFindStatus_Ocs>: (final data) => data.map((final e) => e.toJson()).toList(),
+  UserStatusGetUserStatus: (final data) => data.toJson(),
+  List<UserStatusGetUserStatus>: (final data) => data.map((final e) => e.toJson()).toList(),
+  UserStatusGetUserStatus_Ocs: (final data) => data.toJson(),
+  List<UserStatusGetUserStatus_Ocs>: (final data) => data.map((final e) => e.toJson()).toList(),
+  UserStatus: (final data) => data.toJson(),
+  List<UserStatus>: (final data) => data.map((final e) => e.toJson()).toList(),
+  UserStatusPredefinedStatuses: (final data) => data.toJson(),
+  List<UserStatusPredefinedStatuses>: (final data) => data.map((final e) => e.toJson()).toList(),
+  UserStatusPredefinedStatuses_Ocs: (final data) => data.toJson(),
+  List<UserStatusPredefinedStatuses_Ocs>: (final data) => data.map((final e) => e.toJson()).toList(),
+  UserStatusPredefinedStatus: (final data) => data.toJson(),
+  List<UserStatusPredefinedStatus>: (final data) => data.map((final e) => e.toJson()).toList(),
+  NotificationsPushNotification: (final data) => data.toJson(),
+  List<NotificationsPushNotification>: (final data) => data.map((final e) => e.toJson()).toList(),
+  NotificationsPushNotificationDecryptedSubject: (final data) => data.toJson(),
+  List<NotificationsPushNotificationDecryptedSubject>: (final data) => data.map((final e) => e.toJson()).toList(),
 };
 
 T deserialize<T>(final dynamic data) => _deserializers[T]!(data) as T;
