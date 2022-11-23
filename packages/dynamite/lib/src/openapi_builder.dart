@@ -1033,7 +1033,7 @@ class OpenAPIBuilder implements Builder {
                                   break;
                                 case 'query':
                                   code.write(
-                                    "queryParameters['${parameter.name}${result is TypeResultList ? '[]' : ''}'] = $value;",
+                                    "queryParameters['${parameter.name}'] = $value;",
                                   );
                                   break;
                                 case 'header':
