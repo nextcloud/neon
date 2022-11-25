@@ -30,8 +30,7 @@ class OpenAPIBuilder implements Builder {
       ];
       final hasAnySecurity = spec.security?.isNotEmpty ?? false;
 
-      final resolvedTypes = <String>[];
-      final registeredJsonObjects = <String>[];
+      final state = State();
       final output = <String>[
         "import 'dart:convert';",
         "import 'dart:io';",
@@ -302,442 +301,6 @@ class OpenAPIBuilder implements Builder {
         }
       }
 
-      TypeResult resolveType(
-        final String identifier,
-        final Schema schema, {
-        final bool ignoreEnum = false,
-        final Map<String, String>? extraJsonSerializableValues,
-        final Map<String, Map<String, String>>? extraJsonKeyValues,
-      }) {
-        TypeResult? result;
-        if (schema.ref != null) {
-          final name = schema.ref!.split('/').last;
-          result = resolveType(
-            name,
-            spec.components!.schemas![name]!,
-            extraJsonSerializableValues: extraJsonSerializableValues,
-          );
-        } else if (schema.ofs != null) {
-          if (!resolvedTypes.contains(identifier)) {
-            resolvedTypes.add(identifier);
-
-            final results = schema.ofs!
-                .map(
-                  (final s) => resolveType(
-                    '$identifier${schema.ofs!.indexOf(s)}',
-                    s,
-                    extraJsonSerializableValues: extraJsonSerializableValues,
-                  ),
-                )
-                .toList();
-
-            output.add(
-              Class(
-                (final b) {
-                  final fields = <String, String>{};
-                  for (final result in results) {
-                    final dartName = _toDartName(result.name);
-                    fields[result.name] = _toFieldName(dartName, result.name);
-                  }
-
-                  b
-                    ..name = identifier
-                    ..fields.addAll([
-                      Field(
-                        (final b) {
-                          b
-                            ..name = '_data'
-                            ..type = refer('dynamic')
-                            ..modifier = FieldModifier.final$;
-                        },
-                      ),
-                      for (final result in results) ...[
-                        Field(
-                          (final b) {
-                            final s = schema.ofs![results.indexOf(result)];
-                            b
-                              ..name = fields[result.name]!
-                              ..type = refer(_makeNullable(result.name, true))
-                              ..modifier = FieldModifier.final$
-                              ..docs.addAll([
-                                if (s.description != null && s.description!.isNotEmpty) ...[
-                                  '/// ${s.description!}',
-                                ],
-                              ]);
-                          },
-                        ),
-                      ],
-                    ])
-                    ..constructors.addAll([
-                      Constructor(
-                        (final b) => b
-                          ..requiredParameters.add(
-                            Parameter(
-                              (final b) => b
-                                ..name = '_data'
-                                ..toThis = true,
-                            ),
-                          )
-                          ..optionalParameters.addAll([
-                            for (final result in results) ...[
-                              Parameter(
-                                (final b) => b
-                                  ..name = fields[result.name]!
-                                  ..toThis = true
-                                  ..named = true,
-                              ),
-                            ],
-                          ]),
-                      ),
-                      Constructor(
-                        (final b) {
-                          b
-                            ..factory = true
-                            ..name = 'fromJson'
-                            ..requiredParameters.add(
-                              Parameter(
-                                (final b) => b
-                                  ..name = 'data'
-                                  ..type = refer('dynamic'),
-                              ),
-                            )
-                            ..body = Code(
-                              <String>[
-                                for (final result in results) ...[
-                                  '${result.name}? ${fields[result.name]!};',
-                                  'try {',
-                                  '${fields[result.name]!} = ${result.deserialize('data')};',
-                                  '} catch (_) {',
-                                  '}',
-                                ],
-                                if (schema.oneOf != null) ...[
-                                  "assert([${fields.values.join(',')}].where((final x) => x != null).length == 1, 'Need oneOf');",
-                                ],
-                                if (schema.allOf != null) ...[
-                                  "assert([${fields.values.join(',')}].where((final x) => x != null).length == ${fields.length}, 'Need allOf');",
-                                ],
-                                'return $identifier(',
-                                'data,',
-                                for (final result in results) ...[
-                                  '${fields[result.name]!}: ${fields[result.name]!},',
-                                ],
-                                ');',
-                              ].join(),
-                            );
-                        },
-                      ),
-                    ])
-                    ..methods.add(
-                      Method(
-                        (final b) => b
-                          ..name = 'toJson'
-                          ..returns = refer('dynamic')
-                          ..lambda = true
-                          ..body = const Code('_data'),
-                      ),
-                    );
-                },
-              ).accept(emitter).toString(),
-            );
-          }
-
-          result = TypeResultObject(identifier);
-        } else {
-          switch (schema.type) {
-            case 'boolean':
-              result = TypeResultBase('bool');
-              break;
-            case 'integer':
-              result = TypeResultBase('int');
-              break;
-            case 'number':
-              result = TypeResultBase('num');
-              break;
-            case 'string':
-              switch (schema.format) {
-                case 'binary':
-                  result = TypeResultBase('Uint8List');
-                  break;
-                case null:
-                  result = TypeResultBase(
-                    'String',
-                  );
-                  break;
-              }
-              break;
-            case 'array':
-              if (schema.items != null) {
-                final subResult = resolveType(
-                  identifier,
-                  schema.items!,
-                  extraJsonSerializableValues: extraJsonSerializableValues,
-                );
-                result = TypeResultList(
-                  'List<${subResult.name}>',
-                  subResult,
-                );
-              } else {
-                result = TypeResultList(
-                  'List',
-                  TypeResultBase('dynamic'),
-                );
-              }
-              break;
-            case 'object':
-              if (schema.properties == null) {
-                result = TypeResultBase('dynamic');
-                break;
-              }
-              if (schema.properties!.isEmpty) {
-                result = TypeResultMap(
-                  'Map<String, dynamic>',
-                  TypeResultBase('dynamic'),
-                );
-                break;
-              }
-
-              if (!resolvedTypes.contains(identifier)) {
-                resolvedTypes.add(identifier);
-                registeredJsonObjects.add(identifier);
-                output.add(
-                  Class(
-                    (final b) {
-                      b
-                        ..name = identifier
-                        ..docs.addAll([
-                          if (schema.description != null && schema.description!.isNotEmpty) ...[
-                            '/// ${schema.description!}',
-                          ],
-                        ])
-                        ..annotations.add(
-                          refer('JsonSerializable').call(
-                            [],
-                            {
-                              if (schema.additionalProperties ?? false) ...{
-                                'disallowUnrecognizedKeys': refer('false'),
-                              },
-                              if (extraJsonSerializableValues != null) ...{
-                                for (final key in extraJsonSerializableValues.keys) ...{
-                                  key: refer(extraJsonSerializableValues[key]!),
-                                },
-                              },
-                            },
-                          ),
-                        )
-                        ..constructors.addAll(
-                          [
-                            Constructor(
-                              (final b) => b
-                                ..optionalParameters.addAll(
-                                  schema.properties!.keys.map(
-                                    (final propertyName) => Parameter(
-                                      (final b) {
-                                        final propertySchema = schema.properties![propertyName]!;
-                                        b
-                                          ..name = _toDartName(propertyName)
-                                          ..toThis = true
-                                          ..named = true
-                                          ..required = (schema.required ?? []).contains(propertyName) &&
-                                              propertySchema.default_ == null;
-                                        if (propertySchema.default_ != null) {
-                                          final value = propertySchema.default_!.toString();
-                                          final result = resolveType(
-                                            propertySchema.type!,
-                                            propertySchema,
-                                          );
-                                          b.defaultTo = Code(_valueToEscapedValue(result.name, value));
-                                        }
-                                      },
-                                    ),
-                                  ),
-                                ),
-                            ),
-                            Constructor(
-                              (final b) => b
-                                ..factory = true
-                                ..name = 'fromJson'
-                                ..lambda = true
-                                ..requiredParameters.add(
-                                  Parameter(
-                                    (final b) => b
-                                      ..name = 'json'
-                                      ..type = refer('Map<String, dynamic>'),
-                                  ),
-                                )
-                                ..body = Code('_\$${identifier}FromJson(json)'),
-                            ),
-                          ],
-                        )
-                        ..methods.add(
-                          Method(
-                            (final b) => b
-                              ..name = 'toJson'
-                              ..returns = refer('Map<String, dynamic>')
-                              ..lambda = true
-                              ..body = Code('_\$${identifier}ToJson(this)'),
-                          ),
-                        )
-                        ..fields.addAll([
-                          for (final propertyName in schema.properties!.keys) ...[
-                            Field(
-                              (final b) {
-                                final result = resolveType(
-                                  '${identifier}_${_toDartName(propertyName, uppercaseFirstCharacter: true)}',
-                                  schema.properties![propertyName]!,
-                                  extraJsonSerializableValues: extraJsonSerializableValues,
-                                );
-
-                                final propertySchema = schema.properties![propertyName]!;
-
-                                b
-                                  ..name = _toDartName(propertyName)
-                                  ..type = refer(
-                                    _makeNullable(
-                                      result.name,
-                                      !(schema.required ?? []).contains(propertyName),
-                                    ),
-                                  )
-                                  ..modifier = FieldModifier.final$
-                                  ..docs.addAll([
-                                    if (propertySchema.description != null &&
-                                        propertySchema.description!.isNotEmpty) ...[
-                                      '/// ${propertySchema.description!}',
-                                    ],
-                                  ]);
-                                if (_toDartName(propertyName) != propertyName) {
-                                  b.annotations.add(
-                                    refer('JsonKey').call(
-                                      [],
-                                      {
-                                        'name': refer("'$propertyName'"),
-                                        if (extraJsonKeyValues != null) ...{
-                                          for (final p in extraJsonKeyValues.keys) ...{
-                                            if (p == propertyName) ...{
-                                              for (final key in extraJsonKeyValues[p]!.keys) ...{
-                                                key: refer(extraJsonKeyValues[p]![key]!),
-                                              },
-                                            },
-                                          },
-                                        },
-                                      },
-                                    ),
-                                  );
-                                }
-                              },
-                            )
-                          ],
-                        ]);
-                    },
-                  ).accept(emitter).toString(),
-                );
-              }
-              result = TypeResultObject(identifier);
-              break;
-          }
-        }
-
-        if (result != null) {
-          if (!ignoreEnum && schema.enum_ != null) {
-            if (!resolvedTypes.contains(identifier)) {
-              resolvedTypes.add(identifier);
-
-              output.add(
-                Enum(
-                  (final b) => b
-                    ..name = identifier
-                    ..constructors.add(
-                      Constructor(
-                        (final b) => b
-                          ..constant = true
-                          ..requiredParameters.add(
-                            Parameter(
-                              (final b) => b
-                                ..name = 'value'
-                                ..toThis = true,
-                            ),
-                          ),
-                      ),
-                    )
-                    ..fields.add(
-                      Field(
-                        (final b) => b
-                          ..name = 'value'
-                          ..type = refer(result!.name)
-                          ..modifier = FieldModifier.final$,
-                      ),
-                    )
-                    ..values.addAll(
-                      schema.enum_!.map(
-                        (final value) => EnumValue(
-                          (final b) {
-                            final result = resolveType(
-                              '$identifier${_toDartName(value.toString(), uppercaseFirstCharacter: true)}',
-                              schema,
-                              ignoreEnum: true,
-                              extraJsonSerializableValues: extraJsonSerializableValues,
-                            );
-                            b
-                              ..name = _toDartName(value.toString())
-                              ..arguments.add(
-                                refer(_valueToEscapedValue(result.name, value)),
-                              );
-                            if (_toDartName(value.toString()) != value.toString()) {
-                              if (result.name != 'String' && result.name != 'int') {
-                                throw Exception(
-                                  'Sorry enum values are a bit broken. '
-                                  'See https://github.com/google/json_serializable.dart/issues/616. '
-                                  'Please remove the enum values on $identifier.',
-                                );
-                              }
-                              b.annotations.add(
-                                refer('JsonValue').call([
-                                  refer(_valueToEscapedValue(result.name, value.toString())),
-                                ]),
-                              );
-                            }
-                          },
-                        ),
-                      ),
-                    )
-                    ..methods.add(
-                      Method(
-                        (final b) => b
-                          ..name = 'fromValue'
-                          ..static = true
-                          ..returns = refer(identifier)
-                          ..requiredParameters.add(
-                            Parameter(
-                              (final b) => b
-                                ..name = 'value'
-                                ..type = refer(result!.name),
-                            ),
-                          )
-                          ..body = Code(
-                            [
-                              'switch (value) {',
-                              for (final value in schema.enum_!) ...[
-                                'case ${_valueToEscapedValue(result!.name, value)}:',
-                                'return $identifier.${_toDartName(value.toString())};',
-                              ],
-                              'default:',
-                              'throw Exception(\'Can not parse UserStatusClearAtTime0 from "\$value"\');',
-                              '}',
-                            ].join(),
-                          ),
-                      ),
-                    ),
-                ).accept(emitter).toString(),
-              );
-            }
-            result = TypeResultEnum(identifier, result);
-          }
-
-          return result;
-        }
-
-        throw Exception('Can not convert OpenAPI type "${schema.toJson()}" to a Dart type');
-      }
-
       for (final tag in tags) {
         final isRootClient = tag == null;
         final paths = <String, PathItem>{};
@@ -986,6 +549,8 @@ class OpenAPIBuilder implements Builder {
                               );
 
                               final result = resolveType(
+                                spec,
+                                state,
                                 _toDartName(
                                   parameter.name,
                                   uppercaseFirstCharacter: true,
@@ -1004,6 +569,8 @@ class OpenAPIBuilder implements Builder {
                                       if (parameter.schema!.default_ != null) {
                                         final value = parameter.schema!.default_!.toString();
                                         final result = resolveType(
+                                          spec,
+                                          state,
                                           parameter.schema!.type!,
                                           parameter.schema!,
                                         );
@@ -1059,6 +626,8 @@ class OpenAPIBuilder implements Builder {
                                 code.write("headers['Content-Type'] = '$mimeType';");
 
                                 final result = resolveType(
+                                  spec,
+                                  state,
                                   _toDartName(methodName, uppercaseFirstCharacter: true),
                                   mediaType.schema!,
                                 );
@@ -1122,6 +691,8 @@ class OpenAPIBuilder implements Builder {
                                     final functionIdentifier = '_${_toDartName('${identifier}Parse$headerName')}';
                                     headerParseFunctions[headerName] = functionIdentifier;
                                     final result = resolveType(
+                                      spec,
+                                      state,
                                       identifier,
                                       response.headers![headerName]!.schema!,
                                     );
@@ -1130,6 +701,8 @@ class OpenAPIBuilder implements Builder {
                                     );
                                   }
                                   final result = resolveType(
+                                    spec,
+                                    state,
                                     identifier,
                                     Schema(
                                       type: 'object',
@@ -1164,6 +737,8 @@ class OpenAPIBuilder implements Builder {
                                     final mediaType = response.content![mimeType]!;
 
                                     final result = resolveType(
+                                      spec,
+                                      state,
                                       _toDartName(methodName, uppercaseFirstCharacter: true),
                                       mediaType.schema!,
                                     );
@@ -1223,6 +798,8 @@ class OpenAPIBuilder implements Builder {
             output.add('typedef $identifier = dynamic;');
           } else {
             final result = resolveType(
+              spec,
+              state,
               identifier,
               schema,
             );
@@ -1233,18 +810,20 @@ class OpenAPIBuilder implements Builder {
         }
       }
 
-      if (registeredJsonObjects.isNotEmpty) {
+      output.addAll(state.output.map((final e) => e.accept(emitter).toString()));
+
+      if (state.registeredJsonObjects.isNotEmpty) {
         output.addAll([
           '// coverage:ignore-start',
           'final _deserializers = <Type, dynamic Function(dynamic)>{',
-          for (final name in registeredJsonObjects) ...[
+          for (final name in state.registeredJsonObjects) ...[
             '$name: (final data) => ${TypeResultObject(name).deserialize('data')},',
             'List<$name>: (final data) => ${TypeResultList('List<$name>', TypeResultObject(name)).deserialize('data')},',
           ],
           '};',
           '',
           'final _serializers = <Type, dynamic Function(dynamic)>{',
-          for (final name in registeredJsonObjects) ...[
+          for (final name in state.registeredJsonObjects) ...[
             '$name: (final data) => ${TypeResultObject(name).serialize('data')},',
             'List<$name>: (final data) => ${TypeResultList('List<$name>', TypeResultObject(name)).serialize('data')},',
           ],
@@ -1394,3 +973,473 @@ String _toFieldName(final String dartName, final String type) => dartName == typ
 bool _isParameterNullable(final bool? required, final dynamic default_) => !(required ?? false) && default_ == null;
 
 String _valueToEscapedValue(final String type, final dynamic value) => type == 'String' ? "'$value'" : value.toString();
+
+class State {
+  final resolvedTypes = <String>[];
+  final registeredJsonObjects = <String>[];
+  final output = <Spec>[];
+}
+
+TypeResult resolveObject(
+  final OpenAPI spec,
+  final State state,
+  final String identifier,
+  final Schema schema, {
+  required final Map<String, String>? extraJsonSerializableValues,
+  required final Map<String, Map<String, String>>? extraJsonKeyValues,
+}) {
+  if (!state.resolvedTypes.contains(identifier)) {
+    state.resolvedTypes.add(identifier);
+    state.registeredJsonObjects.add(identifier);
+    state.output.add(
+      Class(
+        (final b) {
+          b
+            ..name = identifier
+            ..docs.addAll([
+              if (schema.description != null && schema.description!.isNotEmpty) ...[
+                '/// ${schema.description!}',
+              ],
+            ])
+            ..annotations.add(
+              refer('JsonSerializable').call(
+                [],
+                {
+                  if (schema.additionalProperties ?? false) ...{
+                    'disallowUnrecognizedKeys': refer('false'),
+                  },
+                  if (extraJsonSerializableValues != null) ...{
+                    for (final key in extraJsonSerializableValues.keys) ...{
+                      key: refer(extraJsonSerializableValues[key]!),
+                    },
+                  },
+                },
+              ),
+            )
+            ..constructors.addAll(
+              [
+                Constructor(
+                  (final b) => b
+                    ..optionalParameters.addAll(
+                      schema.properties!.keys.map(
+                        (final propertyName) => Parameter(
+                          (final b) {
+                            final propertySchema = schema.properties![propertyName]!;
+                            b
+                              ..name = _toDartName(propertyName)
+                              ..toThis = true
+                              ..named = true
+                              ..required =
+                                  (schema.required ?? []).contains(propertyName) && propertySchema.default_ == null;
+                            if (propertySchema.default_ != null) {
+                              final value = propertySchema.default_!.toString();
+                              final result = resolveType(
+                                spec,
+                                state,
+                                propertySchema.type!,
+                                propertySchema,
+                              );
+                              b.defaultTo = Code(_valueToEscapedValue(result.name, value));
+                            }
+                          },
+                        ),
+                      ),
+                    ),
+                ),
+                Constructor(
+                  (final b) => b
+                    ..factory = true
+                    ..name = 'fromJson'
+                    ..lambda = true
+                    ..requiredParameters.add(
+                      Parameter(
+                        (final b) => b
+                          ..name = 'json'
+                          ..type = refer('Map<String, dynamic>'),
+                      ),
+                    )
+                    ..body = Code('_\$${identifier}FromJson(json)'),
+                ),
+              ],
+            )
+            ..methods.add(
+              Method(
+                (final b) => b
+                  ..name = 'toJson'
+                  ..returns = refer('Map<String, dynamic>')
+                  ..lambda = true
+                  ..body = Code('_\$${identifier}ToJson(this)'),
+              ),
+            )
+            ..fields.addAll([
+              for (final propertyName in schema.properties!.keys) ...[
+                Field(
+                  (final b) {
+                    final result = resolveType(
+                      spec,
+                      state,
+                      '${identifier}_${_toDartName(propertyName, uppercaseFirstCharacter: true)}',
+                      schema.properties![propertyName]!,
+                      extraJsonSerializableValues: extraJsonSerializableValues,
+                    );
+
+                    final propertySchema = schema.properties![propertyName]!;
+
+                    b
+                      ..name = _toDartName(propertyName)
+                      ..type = refer(
+                        _makeNullable(
+                          result.name,
+                          !(schema.required ?? []).contains(propertyName),
+                        ),
+                      )
+                      ..modifier = FieldModifier.final$
+                      ..docs.addAll([
+                        if (propertySchema.description != null && propertySchema.description!.isNotEmpty) ...[
+                          '/// ${propertySchema.description!}',
+                        ],
+                      ]);
+                    if (_toDartName(propertyName) != propertyName) {
+                      b.annotations.add(
+                        refer('JsonKey').call(
+                          [],
+                          {
+                            'name': refer("'$propertyName'"),
+                            if (extraJsonKeyValues != null) ...{
+                              for (final p in extraJsonKeyValues.keys) ...{
+                                if (p == propertyName) ...{
+                                  for (final key in extraJsonKeyValues[p]!.keys) ...{
+                                    key: refer(extraJsonKeyValues[p]![key]!),
+                                  },
+                                },
+                              },
+                            },
+                          },
+                        ),
+                      );
+                    }
+                  },
+                )
+              ],
+            ]);
+        },
+      ),
+    );
+  }
+  return TypeResultObject(identifier);
+}
+
+TypeResult resolveType(
+  final OpenAPI spec,
+  final State state,
+  final String identifier,
+  final Schema schema, {
+  final Map<String, String>? extraJsonSerializableValues,
+  final Map<String, Map<String, String>>? extraJsonKeyValues,
+  final bool ignoreEnum = false,
+}) {
+  TypeResult? result;
+  if (schema.ref != null) {
+    final name = schema.ref!.split('/').last;
+    result = resolveType(
+      spec,
+      state,
+      name,
+      spec.components!.schemas![name]!,
+      extraJsonSerializableValues: extraJsonSerializableValues,
+    );
+  } else if (schema.ofs != null) {
+    if (!state.resolvedTypes.contains(identifier)) {
+      state.resolvedTypes.add(identifier);
+      final results = schema.ofs!
+          .map(
+            (final s) => resolveType(
+              spec,
+              state,
+              '$identifier${schema.ofs!.indexOf(s)}',
+              s,
+              extraJsonSerializableValues: extraJsonSerializableValues,
+            ),
+          )
+          .toList();
+      state.output.add(
+        Class(
+          (final b) {
+            final fields = <String, String>{};
+            for (final result in results) {
+              final dartName = _toDartName(result.name);
+              fields[result.name] = _toFieldName(dartName, result.name);
+            }
+
+            b
+              ..name = identifier
+              ..fields.addAll([
+                Field(
+                  (final b) {
+                    b
+                      ..name = '_data'
+                      ..type = refer('dynamic')
+                      ..modifier = FieldModifier.final$;
+                  },
+                ),
+                for (final result in results) ...[
+                  Field(
+                    (final b) {
+                      final s = schema.ofs![results.indexOf(result)];
+                      b
+                        ..name = fields[result.name]!
+                        ..type = refer(_makeNullable(result.name, true))
+                        ..modifier = FieldModifier.final$
+                        ..docs.addAll([
+                          if (s.description != null && s.description!.isNotEmpty) ...[
+                            '/// ${s.description!}',
+                          ],
+                        ]);
+                    },
+                  ),
+                ],
+              ])
+              ..constructors.addAll([
+                Constructor(
+                  (final b) => b
+                    ..requiredParameters.add(
+                      Parameter(
+                        (final b) => b
+                          ..name = '_data'
+                          ..toThis = true,
+                      ),
+                    )
+                    ..optionalParameters.addAll([
+                      for (final result in results) ...[
+                        Parameter(
+                          (final b) => b
+                            ..name = fields[result.name]!
+                            ..toThis = true
+                            ..named = true,
+                        ),
+                      ],
+                    ]),
+                ),
+                Constructor(
+                  (final b) {
+                    b
+                      ..factory = true
+                      ..name = 'fromJson'
+                      ..requiredParameters.add(
+                        Parameter(
+                          (final b) => b
+                            ..name = 'data'
+                            ..type = refer('dynamic'),
+                        ),
+                      )
+                      ..body = Code(
+                        <String>[
+                          for (final result in results) ...[
+                            '${result.name}? ${fields[result.name]!};',
+                            'try {',
+                            '${fields[result.name]!} = ${result.deserialize('data')};',
+                            '} catch (_) {',
+                            '}',
+                          ],
+                          if (schema.oneOf != null) ...[
+                            "assert([${fields.values.join(',')}].where((final x) => x != null).length == 1, 'Need oneOf');",
+                          ],
+                          if (schema.allOf != null) ...[
+                            "assert([${fields.values.join(',')}].where((final x) => x != null).length == ${fields.length}, 'Need allOf');",
+                          ],
+                          'return $identifier(',
+                          'data,',
+                          for (final result in results) ...[
+                            '${fields[result.name]!}: ${fields[result.name]!},',
+                          ],
+                          ');',
+                        ].join(),
+                      );
+                  },
+                ),
+              ])
+              ..methods.add(
+                Method(
+                  (final b) => b
+                    ..name = 'toJson'
+                    ..returns = refer('dynamic')
+                    ..lambda = true
+                    ..body = const Code('_data'),
+                ),
+              );
+          },
+        ),
+      );
+    }
+
+    result = TypeResultObject(identifier);
+  } else {
+    switch (schema.type) {
+      case 'boolean':
+        result = TypeResultBase('bool');
+        break;
+      case 'integer':
+        result = TypeResultBase('int');
+        break;
+      case 'number':
+        result = TypeResultBase('num');
+        break;
+      case 'string':
+        switch (schema.format) {
+          case 'binary':
+            result = TypeResultBase('Uint8List');
+            break;
+          case null:
+            result = TypeResultBase(
+              'String',
+            );
+            break;
+        }
+        break;
+      case 'array':
+        if (schema.items != null) {
+          final subResult = resolveType(
+            spec,
+            state,
+            identifier,
+            schema.items!,
+            extraJsonSerializableValues: extraJsonSerializableValues,
+          );
+          result = TypeResultList(
+            'List<${subResult.name}>',
+            subResult,
+          );
+        } else {
+          result = TypeResultList(
+            'List',
+            TypeResultBase('dynamic'),
+          );
+        }
+        break;
+      case 'object':
+        if (schema.properties == null) {
+          result = TypeResultBase('dynamic');
+          break;
+        }
+        if (schema.properties!.isEmpty) {
+          result = TypeResultMap(
+            'Map<String, dynamic>',
+            TypeResultBase('dynamic'),
+          );
+          break;
+        }
+
+        result = resolveObject(
+          spec,
+          state,
+          identifier,
+          schema,
+          extraJsonSerializableValues: extraJsonSerializableValues,
+          extraJsonKeyValues: extraJsonKeyValues,
+        );
+        break;
+    }
+  }
+
+  if (result != null) {
+    if (!ignoreEnum && schema.enum_ != null) {
+      if (!state.resolvedTypes.contains(identifier)) {
+        state.resolvedTypes.add(identifier);
+        state.output.add(
+          Enum(
+            (final b) => b
+              ..name = identifier
+              ..constructors.add(
+                Constructor(
+                  (final b) => b
+                    ..constant = true
+                    ..requiredParameters.add(
+                      Parameter(
+                        (final b) => b
+                          ..name = 'value'
+                          ..toThis = true,
+                      ),
+                    ),
+                ),
+              )
+              ..fields.add(
+                Field(
+                  (final b) => b
+                    ..name = 'value'
+                    ..type = refer(result!.name)
+                    ..modifier = FieldModifier.final$,
+                ),
+              )
+              ..values.addAll(
+                schema.enum_!.map(
+                  (final value) => EnumValue(
+                    (final b) {
+                      final result = resolveType(
+                        spec,
+                        state,
+                        '$identifier${_toDartName(value.toString(), uppercaseFirstCharacter: true)}',
+                        schema,
+                        ignoreEnum: true,
+                        extraJsonSerializableValues: extraJsonSerializableValues,
+                      );
+                      b
+                        ..name = _toDartName(value.toString())
+                        ..arguments.add(
+                          refer(_valueToEscapedValue(result.name, value)),
+                        );
+                      if (_toDartName(value.toString()) != value.toString()) {
+                        if (result.name != 'String' && result.name != 'int') {
+                          throw Exception(
+                            'Sorry enum values are a bit broken. '
+                            'See https://github.com/google/json_serializable.dart/issues/616. '
+                            'Please remove the enum values on $identifier.',
+                          );
+                        }
+                        b.annotations.add(
+                          refer('JsonValue').call([
+                            refer(_valueToEscapedValue(result.name, value.toString())),
+                          ]),
+                        );
+                      }
+                    },
+                  ),
+                ),
+              )
+              ..methods.add(
+                Method(
+                  (final b) => b
+                    ..name = 'fromValue'
+                    ..static = true
+                    ..returns = refer(identifier)
+                    ..requiredParameters.add(
+                      Parameter(
+                        (final b) => b
+                          ..name = 'value'
+                          ..type = refer(result!.name),
+                      ),
+                    )
+                    ..body = Code(
+                      [
+                        'switch (value) {',
+                        for (final value in schema.enum_!) ...[
+                          'case ${_valueToEscapedValue(result!.name, value)}:',
+                          'return $identifier.${_toDartName(value.toString())};',
+                        ],
+                        'default:',
+                        'throw Exception(\'Can not parse UserStatusClearAtTime0 from "\$value"\');',
+                        '}',
+                      ].join(),
+                    ),
+                ),
+              ),
+          ),
+        );
+      }
+      result = TypeResultEnum(identifier, result);
+    }
+
+    return result;
+  }
+
+  throw Exception('Can not convert OpenAPI type "${schema.toJson()}" to a Dart type');
+}
