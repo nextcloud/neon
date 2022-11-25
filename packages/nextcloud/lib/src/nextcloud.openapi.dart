@@ -1247,7 +1247,7 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_WeatherStatus {
   // coverage:ignore-end
 }
 
-@JsonSerializable()
+@JsonSerializable(disallowUnrecognizedKeys: false)
 class CoreServerCapabilities_Ocs_Data_Capabilities {
   CoreServerCapabilities_Ocs_Data_Capabilities({
     required this.core,
@@ -3316,7 +3316,7 @@ class UserStatusClearAt_Time {
   // coverage:ignore-end
 }
 
-@JsonSerializable(disallowUnrecognizedKeys: true)
+@JsonSerializable()
 class UserStatusClearAt {
   UserStatusClearAt({
     required this.type,
@@ -3549,7 +3549,7 @@ class UserStatus_ClearAt {
   // coverage:ignore-end
 }
 
-@JsonSerializable(disallowUnrecognizedKeys: true)
+@JsonSerializable()
 class UserStatus {
   UserStatus({
     required this.userId,

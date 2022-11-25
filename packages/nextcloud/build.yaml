@@ -3,5 +3,5 @@ targets:
     builders:
       json_serializable:
         options:
-          # disallow_unrecognized_keys: true # Uncomment this to check that all the models are correct. We can't enable this because the capabilities contain different keys based on which apps are installed
+          disallow_unrecognized_keys: true
           explicit_to_json: true

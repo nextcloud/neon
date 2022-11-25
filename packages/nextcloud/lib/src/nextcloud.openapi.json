@@ -190,6 +190,7 @@
                   },
                   "capabilities": {
                     "type": "object",
+                    "additionalProperties": true,
                     "required": [
                       "core",
                       "bruteforce",

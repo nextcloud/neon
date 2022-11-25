@@ -6,16 +6,31 @@ part of 'nextcloud.openapi.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-CoreServerStatus _$CoreServerStatusFromJson(Map<String, dynamic> json) => CoreServerStatus(
-      installed: json['installed'] as bool,
-      maintenance: json['maintenance'] as bool,
-      needsDbUpgrade: json['needsDbUpgrade'] as bool,
-      version: json['version'] as String,
-      versionstring: json['versionstring'] as String,
-      edition: json['edition'] as String,
-      productname: json['productname'] as String,
-      extendedSupport: json['extendedSupport'] as bool,
-    );
+CoreServerStatus _$CoreServerStatusFromJson(Map<String, dynamic> json) {
+  $checkKeys(
+    json,
+    allowedKeys: const [
+      'installed',
+      'maintenance',
+      'needsDbUpgrade',
+      'version',
+      'versionstring',
+      'edition',
+      'productname',
+      'extendedSupport'
+    ],
+  );
+  return CoreServerStatus(
+    installed: json['installed'] as bool,
+    maintenance: json['maintenance'] as bool,
+    needsDbUpgrade: json['needsDbUpgrade'] as bool,
+    version: json['version'] as String,
+    versionstring: json['versionstring'] as String,
+    edition: json['edition'] as String,
+    productname: json['productname'] as String,
+    extendedSupport: json['extendedSupport'] as bool,
+  );
+}
 
 Map<String, dynamic> _$CoreServerStatusToJson(CoreServerStatus instance) => <String, dynamic>{
       'installed': instance.installed,
@@ -28,13 +43,19 @@ Map<String, dynamic> _$CoreServerStatusToJson(CoreServerStatus instance) => <Str
       'extendedSupport': instance.extendedSupport,
     };
 
-OCSMeta _$OCSMetaFromJson(Map<String, dynamic> json) => OCSMeta(
-      status: json['status'] as String,
-      statuscode: json['statuscode'] as int,
-      message: json['message'] as String?,
-      totalitems: json['totalitems'] as String?,
-      itemsperpage: json['itemsperpage'] as String?,
-    );
+OCSMeta _$OCSMetaFromJson(Map<String, dynamic> json) {
+  $checkKeys(
+    json,
+    allowedKeys: const ['status', 'statuscode', 'message', 'totalitems', 'itemsperpage'],
+  );
+  return OCSMeta(
+    status: json['status'] as String,
+    statuscode: json['statuscode'] as int,
+    message: json['message'] as String?,
+    totalitems: json['totalitems'] as String?,
+    itemsperpage: json['itemsperpage'] as String?,
+  );
+}
 
 Map<String, dynamic> _$OCSMetaToJson(OCSMeta instance) => <String, dynamic>{
       'status': instance.status,
@@ -44,15 +65,20 @@ Map<String, dynamic> _$OCSMetaToJson(OCSMeta instance) => <String, dynamic>{
       'itemsperpage': instance.itemsperpage,
     };
 
-CoreServerCapabilities_Ocs_Data_Version _$CoreServerCapabilities_Ocs_Data_VersionFromJson(Map<String, dynamic> json) =>
-    CoreServerCapabilities_Ocs_Data_Version(
-      major: json['major'] as int,
-      minor: json['minor'] as int,
-      micro: json['micro'] as int,
-      string: json['string'] as String,
-      edition: json['edition'] as String,
-      extendedSupport: json['extendedSupport'] as bool,
-    );
+CoreServerCapabilities_Ocs_Data_Version _$CoreServerCapabilities_Ocs_Data_VersionFromJson(Map<String, dynamic> json) {
+  $checkKeys(
+    json,
+    allowedKeys: const ['major', 'minor', 'micro', 'string', 'edition', 'extendedSupport'],
+  );
+  return CoreServerCapabilities_Ocs_Data_Version(
+    major: json['major'] as int,
+    minor: json['minor'] as int,
+    micro: json['micro'] as int,
+    string: json['string'] as String,
+    edition: json['edition'] as String,
+    extendedSupport: json['extendedSupport'] as bool,
+  );
+}
 
 Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_VersionToJson(
         CoreServerCapabilities_Ocs_Data_Version instance) =>
@@ -66,13 +92,18 @@ Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_VersionToJson(
     };
 
 CoreServerCapabilities_Ocs_Data_Capabilities_Core _$CoreServerCapabilities_Ocs_Data_Capabilities_CoreFromJson(
-        Map<String, dynamic> json) =>
-    CoreServerCapabilities_Ocs_Data_Capabilities_Core(
-      pollinterval: json['pollinterval'] as int,
-      webdavRoot: json['webdav-root'] as String,
-      referenceApi: json['reference-api'] as bool,
-      referenceRegex: json['reference-regex'] as String,
-    );
+    Map<String, dynamic> json) {
+  $checkKeys(
+    json,
+    allowedKeys: const ['pollinterval', 'webdav-root', 'reference-api', 'reference-regex'],
+  );
+  return CoreServerCapabilities_Ocs_Data_Capabilities_Core(
+    pollinterval: json['pollinterval'] as int,
+    webdavRoot: json['webdav-root'] as String,
+    referenceApi: json['reference-api'] as bool,
+    referenceRegex: json['reference-regex'] as String,
+  );
+}
 
 Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_CoreToJson(
         CoreServerCapabilities_Ocs_Data_Capabilities_Core instance) =>
@@ -84,10 +115,15 @@ Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_CoreToJson(
     };
 
 CoreServerCapabilities_Ocs_Data_Capabilities_Bruteforce
-    _$CoreServerCapabilities_Ocs_Data_Capabilities_BruteforceFromJson(Map<String, dynamic> json) =>
-        CoreServerCapabilities_Ocs_Data_Capabilities_Bruteforce(
-          delay: json['delay'] as int,
-        );
+    _$CoreServerCapabilities_Ocs_Data_Capabilities_BruteforceFromJson(Map<String, dynamic> json) {
+  $checkKeys(
+    json,
+    allowedKeys: const ['delay'],
+  );
+  return CoreServerCapabilities_Ocs_Data_Capabilities_Bruteforce(
+    delay: json['delay'] as int,
+  );
+}
 
 Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_BruteforceToJson(
         CoreServerCapabilities_Ocs_Data_Capabilities_Bruteforce instance) =>
@@ -96,10 +132,15 @@ Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_BruteforceTo
     };
 
 CoreServerCapabilities_Ocs_Data_Capabilities_MetadataAvailable
-    _$CoreServerCapabilities_Ocs_Data_Capabilities_MetadataAvailableFromJson(Map<String, dynamic> json) =>
-        CoreServerCapabilities_Ocs_Data_Capabilities_MetadataAvailable(
-          size: (json['size'] as List<dynamic>).map((e) => e as String).toList(),
-        );
+    _$CoreServerCapabilities_Ocs_Data_Capabilities_MetadataAvailableFromJson(Map<String, dynamic> json) {
+  $checkKeys(
+    json,
+    allowedKeys: const ['size'],
+  );
+  return CoreServerCapabilities_Ocs_Data_Capabilities_MetadataAvailable(
+    size: (json['size'] as List<dynamic>).map((e) => e as String).toList(),
+  );
+}
 
 Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_MetadataAvailableToJson(
         CoreServerCapabilities_Ocs_Data_Capabilities_MetadataAvailable instance) =>
@@ -108,11 +149,16 @@ Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_MetadataAvai
     };
 
 CoreServerCapabilities_Ocs_Data_Capabilities_Files_DirectEditing
-    _$CoreServerCapabilities_Ocs_Data_Capabilities_Files_DirectEditingFromJson(Map<String, dynamic> json) =>
-        CoreServerCapabilities_Ocs_Data_Capabilities_Files_DirectEditing(
-          url: json['url'] as String,
-          etag: json['etag'] as String,
-        );
+    _$CoreServerCapabilities_Ocs_Data_Capabilities_Files_DirectEditingFromJson(Map<String, dynamic> json) {
+  $checkKeys(
+    json,
+    allowedKeys: const ['url', 'etag'],
+  );
+  return CoreServerCapabilities_Ocs_Data_Capabilities_Files_DirectEditing(
+    url: json['url'] as String,
+    etag: json['etag'] as String,
+  );
+}
 
 Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_Files_DirectEditingToJson(
         CoreServerCapabilities_Ocs_Data_Capabilities_Files_DirectEditing instance) =>
@@ -122,16 +168,21 @@ Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_Files_Direct
     };
 
 CoreServerCapabilities_Ocs_Data_Capabilities_Files _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesFromJson(
-        Map<String, dynamic> json) =>
-    CoreServerCapabilities_Ocs_Data_Capabilities_Files(
-      bigfilechunking: json['bigfilechunking'] as bool,
-      blacklistedFiles: (json['blacklisted_files'] as List<dynamic>).map((e) => e as String).toList(),
-      directEditing: CoreServerCapabilities_Ocs_Data_Capabilities_Files_DirectEditing.fromJson(
-          json['directEditing'] as Map<String, dynamic>),
-      comments: json['comments'] as bool,
-      undelete: json['undelete'] as bool,
-      versioning: json['versioning'] as bool,
-    );
+    Map<String, dynamic> json) {
+  $checkKeys(
+    json,
+    allowedKeys: const ['bigfilechunking', 'blacklisted_files', 'directEditing', 'comments', 'undelete', 'versioning'],
+  );
+  return CoreServerCapabilities_Ocs_Data_Capabilities_Files(
+    bigfilechunking: json['bigfilechunking'] as bool,
+    blacklistedFiles: (json['blacklisted_files'] as List<dynamic>).map((e) => e as String).toList(),
+    directEditing: CoreServerCapabilities_Ocs_Data_Capabilities_Files_DirectEditing.fromJson(
+        json['directEditing'] as Map<String, dynamic>),
+    comments: json['comments'] as bool,
+    undelete: json['undelete'] as bool,
+    versioning: json['versioning'] as bool,
+  );
+}
 
 Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesToJson(
         CoreServerCapabilities_Ocs_Data_Capabilities_Files instance) =>
@@ -145,10 +196,15 @@ Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesToJson(
     };
 
 CoreServerCapabilities_Ocs_Data_Capabilities_Activity _$CoreServerCapabilities_Ocs_Data_Capabilities_ActivityFromJson(
-        Map<String, dynamic> json) =>
-    CoreServerCapabilities_Ocs_Data_Capabilities_Activity(
-      apiv2: (json['apiv2'] as List<dynamic>).map((e) => e as String).toList(),
-    );
+    Map<String, dynamic> json) {
+  $checkKeys(
+    json,
+    allowedKeys: const ['apiv2'],
+  );
+  return CoreServerCapabilities_Ocs_Data_Capabilities_Activity(
+    apiv2: (json['apiv2'] as List<dynamic>).map((e) => e as String).toList(),
+  );
+}
 
 Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_ActivityToJson(
         CoreServerCapabilities_Ocs_Data_Capabilities_Activity instance) =>
@@ -157,10 +213,15 @@ Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_ActivityToJs
     };
 
 CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Status
-    _$CoreServerCapabilities_Ocs_Data_Capabilities_Circles_StatusFromJson(Map<String, dynamic> json) =>
-        CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Status(
-          globalScale: json['globalScale'] as bool,
-        );
+    _$CoreServerCapabilities_Ocs_Data_Capabilities_Circles_StatusFromJson(Map<String, dynamic> json) {
+  $checkKeys(
+    json,
+    allowedKeys: const ['globalScale'],
+  );
+  return CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Status(
+    globalScale: json['globalScale'] as bool,
+  );
+}
 
 Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_Circles_StatusToJson(
         CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Status instance) =>
@@ -169,13 +230,18 @@ Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Stat
     };
 
 CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Settings
-    _$CoreServerCapabilities_Ocs_Data_Capabilities_Circles_SettingsFromJson(Map<String, dynamic> json) =>
-        CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Settings(
-          frontendEnabled: json['frontendEnabled'] as bool,
-          allowedCircles: json['allowedCircles'] as int,
-          allowedUserTypes: json['allowedUserTypes'] as int,
-          membersLimit: json['membersLimit'] as int,
-        );
+    _$CoreServerCapabilities_Ocs_Data_Capabilities_Circles_SettingsFromJson(Map<String, dynamic> json) {
+  $checkKeys(
+    json,
+    allowedKeys: const ['frontendEnabled', 'allowedCircles', 'allowedUserTypes', 'membersLimit'],
+  );
+  return CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Settings(
+    frontendEnabled: json['frontendEnabled'] as bool,
+    allowedCircles: json['allowedCircles'] as int,
+    allowedUserTypes: json['allowedUserTypes'] as int,
+    membersLimit: json['membersLimit'] as int,
+  );
+}
 
 Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_Circles_SettingsToJson(
         CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Settings instance) =>
@@ -187,11 +253,16 @@ Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Sett
     };
 
 CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants_Source
-    _$CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants_SourceFromJson(Map<String, dynamic> json) =>
-        CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants_Source(
-          core: json['core'],
-          extra: json['extra'],
-        );
+    _$CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants_SourceFromJson(Map<String, dynamic> json) {
+  $checkKeys(
+    json,
+    allowedKeys: const ['core', 'extra'],
+  );
+  return CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants_Source(
+    core: json['core'],
+    extra: json['extra'],
+  );
+}
 
 Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants_SourceToJson(
         CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants_Source instance) =>
@@ -201,12 +272,17 @@ Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circ
     };
 
 CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants
-    _$CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_ConstantsFromJson(Map<String, dynamic> json) =>
-        CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants(
-          flags: json['flags'],
-          source: CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants_Source.fromJson(
-              json['source'] as Map<String, dynamic>),
-        );
+    _$CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_ConstantsFromJson(Map<String, dynamic> json) {
+  $checkKeys(
+    json,
+    allowedKeys: const ['flags', 'source'],
+  );
+  return CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants(
+    flags: json['flags'],
+    source: CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants_Source.fromJson(
+        json['source'] as Map<String, dynamic>),
+  );
+}
 
 Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_ConstantsToJson(
         CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants instance) =>
@@ -216,11 +292,16 @@ Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circ
     };
 
 CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Config
-    _$CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_ConfigFromJson(Map<String, dynamic> json) =>
-        CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Config(
-          coreFlags: (json['coreFlags'] as List<dynamic>).map((e) => e as int).toList(),
-          systemFlags: (json['systemFlags'] as List<dynamic>).map((e) => e as int).toList(),
-        );
+    _$CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_ConfigFromJson(Map<String, dynamic> json) {
+  $checkKeys(
+    json,
+    allowedKeys: const ['coreFlags', 'systemFlags'],
+  );
+  return CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Config(
+    coreFlags: (json['coreFlags'] as List<dynamic>).map((e) => e as int).toList(),
+    systemFlags: (json['systemFlags'] as List<dynamic>).map((e) => e as int).toList(),
+  );
+}
 
 Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_ConfigToJson(
         CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Config instance) =>
@@ -230,13 +311,18 @@ Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circ
     };
 
 CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle
-    _$CoreServerCapabilities_Ocs_Data_Capabilities_Circles_CircleFromJson(Map<String, dynamic> json) =>
-        CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle(
-          constants: CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants.fromJson(
-              json['constants'] as Map<String, dynamic>),
-          config: CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Config.fromJson(
-              json['config'] as Map<String, dynamic>),
-        );
+    _$CoreServerCapabilities_Ocs_Data_Capabilities_Circles_CircleFromJson(Map<String, dynamic> json) {
+  $checkKeys(
+    json,
+    allowedKeys: const ['constants', 'config'],
+  );
+  return CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle(
+    constants: CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants.fromJson(
+        json['constants'] as Map<String, dynamic>),
+    config: CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Config.fromJson(
+        json['config'] as Map<String, dynamic>),
+  );
+}
 
 Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_Circles_CircleToJson(
         CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle instance) =>
@@ -246,10 +332,15 @@ Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circ
     };
 
 CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member_Constants
-    _$CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member_ConstantsFromJson(Map<String, dynamic> json) =>
-        CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member_Constants(
-          level: json['level'],
-        );
+    _$CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member_ConstantsFromJson(Map<String, dynamic> json) {
+  $checkKeys(
+    json,
+    allowedKeys: const ['level'],
+  );
+  return CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member_Constants(
+    level: json['level'],
+  );
+}
 
 Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member_ConstantsToJson(
         CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member_Constants instance) =>
@@ -258,12 +349,17 @@ Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Memb
     };
 
 CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member
-    _$CoreServerCapabilities_Ocs_Data_Capabilities_Circles_MemberFromJson(Map<String, dynamic> json) =>
-        CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member(
-          constants: CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member_Constants.fromJson(
-              json['constants'] as Map<String, dynamic>),
-          type: json['type'],
-        );
+    _$CoreServerCapabilities_Ocs_Data_Capabilities_Circles_MemberFromJson(Map<String, dynamic> json) {
+  $checkKeys(
+    json,
+    allowedKeys: const ['constants', 'type'],
+  );
+  return CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member(
+    constants: CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member_Constants.fromJson(
+        json['constants'] as Map<String, dynamic>),
+    type: json['type'],
+  );
+}
 
 Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_Circles_MemberToJson(
         CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member instance) =>
@@ -273,18 +369,23 @@ Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Memb
     };
 
 CoreServerCapabilities_Ocs_Data_Capabilities_Circles _$CoreServerCapabilities_Ocs_Data_Capabilities_CirclesFromJson(
-        Map<String, dynamic> json) =>
-    CoreServerCapabilities_Ocs_Data_Capabilities_Circles(
-      version: json['version'] as String,
-      status:
-          CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Status.fromJson(json['status'] as Map<String, dynamic>),
-      settings: CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Settings.fromJson(
-          json['settings'] as Map<String, dynamic>),
-      circle:
-          CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle.fromJson(json['circle'] as Map<String, dynamic>),
-      member:
-          CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member.fromJson(json['member'] as Map<String, dynamic>),
-    );
+    Map<String, dynamic> json) {
+  $checkKeys(
+    json,
+    allowedKeys: const ['version', 'status', 'settings', 'circle', 'member'],
+  );
+  return CoreServerCapabilities_Ocs_Data_Capabilities_Circles(
+    version: json['version'] as String,
+    status:
+        CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Status.fromJson(json['status'] as Map<String, dynamic>),
+    settings: CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Settings.fromJson(
+        json['settings'] as Map<String, dynamic>),
+    circle:
+        CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle.fromJson(json['circle'] as Map<String, dynamic>),
+    member:
+        CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member.fromJson(json['member'] as Map<String, dynamic>),
+  );
+}
 
 Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_CirclesToJson(
         CoreServerCapabilities_Ocs_Data_Capabilities_Circles instance) =>
@@ -297,10 +398,15 @@ Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_CirclesToJso
     };
 
 CoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes_Protocols
-    _$CoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes_ProtocolsFromJson(Map<String, dynamic> json) =>
-        CoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes_Protocols(
-          webdav: json['webdav'] as String,
-        );
+    _$CoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes_ProtocolsFromJson(Map<String, dynamic> json) {
+  $checkKeys(
+    json,
+    allowedKeys: const ['webdav'],
+  );
+  return CoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes_Protocols(
+    webdav: json['webdav'] as String,
+  );
+}
 
 Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes_ProtocolsToJson(
         CoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes_Protocols instance) =>
@@ -309,13 +415,18 @@ Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_Ocm_Resource
     };
 
 CoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes
-    _$CoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypesFromJson(Map<String, dynamic> json) =>
-        CoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes(
-          name: json['name'] as String,
-          shareTypes: (json['shareTypes'] as List<dynamic>).map((e) => e as String).toList(),
-          protocols: CoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes_Protocols.fromJson(
-              json['protocols'] as Map<String, dynamic>),
-        );
+    _$CoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypesFromJson(Map<String, dynamic> json) {
+  $checkKeys(
+    json,
+    allowedKeys: const ['name', 'shareTypes', 'protocols'],
+  );
+  return CoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes(
+    name: json['name'] as String,
+    shareTypes: (json['shareTypes'] as List<dynamic>).map((e) => e as String).toList(),
+    protocols: CoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes_Protocols.fromJson(
+        json['protocols'] as Map<String, dynamic>),
+  );
+}
 
 Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypesToJson(
         CoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes instance) =>
@@ -326,16 +437,20 @@ Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_Ocm_Resource
     };
 
 CoreServerCapabilities_Ocs_Data_Capabilities_Ocm _$CoreServerCapabilities_Ocs_Data_Capabilities_OcmFromJson(
-        Map<String, dynamic> json) =>
-    CoreServerCapabilities_Ocs_Data_Capabilities_Ocm(
-      enabled: json['enabled'] as bool,
-      apiVersion: json['apiVersion'] as String,
-      endPoint: json['endPoint'] as String,
-      resourceTypes: (json['resourceTypes'] as List<dynamic>)
-          .map(
-              (e) => CoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes.fromJson(e as Map<String, dynamic>))
-          .toList(),
-    );
+    Map<String, dynamic> json) {
+  $checkKeys(
+    json,
+    allowedKeys: const ['enabled', 'apiVersion', 'endPoint', 'resourceTypes'],
+  );
+  return CoreServerCapabilities_Ocs_Data_Capabilities_Ocm(
+    enabled: json['enabled'] as bool,
+    apiVersion: json['apiVersion'] as String,
+    endPoint: json['endPoint'] as String,
+    resourceTypes: (json['resourceTypes'] as List<dynamic>)
+        .map((e) => CoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes.fromJson(e as Map<String, dynamic>))
+        .toList(),
+  );
+}
 
 Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_OcmToJson(
         CoreServerCapabilities_Ocs_Data_Capabilities_Ocm instance) =>
@@ -347,11 +462,16 @@ Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_OcmToJson(
     };
 
 CoreServerCapabilities_Ocs_Data_Capabilities_Dav _$CoreServerCapabilities_Ocs_Data_Capabilities_DavFromJson(
-        Map<String, dynamic> json) =>
-    CoreServerCapabilities_Ocs_Data_Capabilities_Dav(
-      bulkupload: json['bulkupload'] as String?,
-      chunking: json['chunking'] as String,
-    );
+    Map<String, dynamic> json) {
+  $checkKeys(
+    json,
+    allowedKeys: const ['bulkupload', 'chunking'],
+  );
+  return CoreServerCapabilities_Ocs_Data_Capabilities_Dav(
+    bulkupload: json['bulkupload'] as String?,
+    chunking: json['chunking'] as String,
+  );
+}
 
 Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_DavToJson(
         CoreServerCapabilities_Ocs_Data_Capabilities_Dav instance) =>
@@ -361,11 +481,16 @@ Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_DavToJson(
     };
 
 CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_Password
-    _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_PasswordFromJson(Map<String, dynamic> json) =>
-        CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_Password(
-          enforced: json['enforced'] as bool,
-          askForOptionalPassword: json['askForOptionalPassword'] as bool,
-        );
+    _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_PasswordFromJson(Map<String, dynamic> json) {
+  $checkKeys(
+    json,
+    allowedKeys: const ['enforced', 'askForOptionalPassword'],
+  );
+  return CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_Password(
+    enforced: json['enforced'] as bool,
+    askForOptionalPassword: json['askForOptionalPassword'] as bool,
+  );
+}
 
 Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_PasswordToJson(
         CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_Password instance) =>
@@ -375,10 +500,15 @@ Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing
     };
 
 CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDate
-    _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateFromJson(Map<String, dynamic> json) =>
-        CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDate(
-          enabled: json['enabled'] as bool,
-        );
+    _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateFromJson(Map<String, dynamic> json) {
+  $checkKeys(
+    json,
+    allowedKeys: const ['enabled'],
+  );
+  return CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDate(
+    enabled: json['enabled'] as bool,
+  );
+}
 
 Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateToJson(
         CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDate instance) =>
@@ -388,10 +518,15 @@ Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing
 
 CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternal
     _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternalFromJson(
-            Map<String, dynamic> json) =>
-        CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternal(
-          enabled: json['enabled'] as bool,
-        );
+        Map<String, dynamic> json) {
+  $checkKeys(
+    json,
+    allowedKeys: const ['enabled'],
+  );
+  return CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternal(
+    enabled: json['enabled'] as bool,
+  );
+}
 
 Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternalToJson(
         CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternal instance) =>
@@ -401,10 +536,15 @@ Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing
 
 CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemote
     _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemoteFromJson(
-            Map<String, dynamic> json) =>
-        CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemote(
-          enabled: json['enabled'] as bool,
-        );
+        Map<String, dynamic> json) {
+  $checkKeys(
+    json,
+    allowedKeys: const ['enabled'],
+  );
+  return CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemote(
+    enabled: json['enabled'] as bool,
+  );
+}
 
 Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemoteToJson(
         CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemote instance) =>
@@ -413,23 +553,37 @@ Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing
     };
 
 CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public
-    _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_PublicFromJson(Map<String, dynamic> json) =>
-        CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public(
-          enabled: json['enabled'] as bool,
-          password: CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_Password.fromJson(
-              json['password'] as Map<String, dynamic>),
-          expireDate: CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDate.fromJson(
-              json['expire_date'] as Map<String, dynamic>),
-          multipleLinks: json['multiple_links'] as bool,
-          expireDateInternal:
-              CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternal.fromJson(
-                  json['expire_date_internal'] as Map<String, dynamic>),
-          expireDateRemote: CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemote.fromJson(
-              json['expire_date_remote'] as Map<String, dynamic>),
-          sendMail: json['send_mail'] as bool,
-          upload: json['upload'] as bool,
-          uploadFilesDrop: json['upload_files_drop'] as bool,
-        );
+    _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_PublicFromJson(Map<String, dynamic> json) {
+  $checkKeys(
+    json,
+    allowedKeys: const [
+      'enabled',
+      'password',
+      'expire_date',
+      'multiple_links',
+      'expire_date_internal',
+      'expire_date_remote',
+      'send_mail',
+      'upload',
+      'upload_files_drop'
+    ],
+  );
+  return CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public(
+    enabled: json['enabled'] as bool,
+    password: CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_Password.fromJson(
+        json['password'] as Map<String, dynamic>),
+    expireDate: CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDate.fromJson(
+        json['expire_date'] as Map<String, dynamic>),
+    multipleLinks: json['multiple_links'] as bool,
+    expireDateInternal: CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternal.fromJson(
+        json['expire_date_internal'] as Map<String, dynamic>),
+    expireDateRemote: CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemote.fromJson(
+        json['expire_date_remote'] as Map<String, dynamic>),
+    sendMail: json['send_mail'] as bool,
+    upload: json['upload'] as bool,
+    uploadFilesDrop: json['upload_files_drop'] as bool,
+  );
+}
 
 Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_PublicToJson(
         CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public instance) =>
@@ -446,10 +600,15 @@ Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing
     };
 
 CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User_ExpireDate
-    _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User_ExpireDateFromJson(Map<String, dynamic> json) =>
-        CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User_ExpireDate(
-          enabled: json['enabled'] as bool,
-        );
+    _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User_ExpireDateFromJson(Map<String, dynamic> json) {
+  $checkKeys(
+    json,
+    allowedKeys: const ['enabled'],
+  );
+  return CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User_ExpireDate(
+    enabled: json['enabled'] as bool,
+  );
+}
 
 Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User_ExpireDateToJson(
         CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User_ExpireDate instance) =>
@@ -458,12 +617,17 @@ Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing
     };
 
 CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User
-    _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_UserFromJson(Map<String, dynamic> json) =>
-        CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User(
-          sendMail: json['send_mail'] as bool,
-          expireDate: CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User_ExpireDate.fromJson(
-              json['expire_date'] as Map<String, dynamic>),
-        );
+    _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_UserFromJson(Map<String, dynamic> json) {
+  $checkKeys(
+    json,
+    allowedKeys: const ['send_mail', 'expire_date'],
+  );
+  return CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User(
+    sendMail: json['send_mail'] as bool,
+    expireDate: CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User_ExpireDate.fromJson(
+        json['expire_date'] as Map<String, dynamic>),
+  );
+}
 
 Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_UserToJson(
         CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User instance) =>
@@ -473,10 +637,15 @@ Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing
     };
 
 CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDate
-    _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDateFromJson(Map<String, dynamic> json) =>
-        CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDate(
-          enabled: json['enabled'] as bool,
-        );
+    _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDateFromJson(Map<String, dynamic> json) {
+  $checkKeys(
+    json,
+    allowedKeys: const ['enabled'],
+  );
+  return CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDate(
+    enabled: json['enabled'] as bool,
+  );
+}
 
 Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDateToJson(
         CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDate instance) =>
@@ -485,12 +654,17 @@ Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing
     };
 
 CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group
-    _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_GroupFromJson(Map<String, dynamic> json) =>
-        CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group(
-          enabled: json['enabled'] as bool,
-          expireDate: CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDate.fromJson(
-              json['expire_date'] as Map<String, dynamic>),
-        );
+    _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_GroupFromJson(Map<String, dynamic> json) {
+  $checkKeys(
+    json,
+    allowedKeys: const ['enabled', 'expire_date'],
+  );
+  return CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group(
+    enabled: json['enabled'] as bool,
+    expireDate: CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDate.fromJson(
+        json['expire_date'] as Map<String, dynamic>),
+  );
+}
 
 Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_GroupToJson(
         CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group instance) =>
@@ -501,10 +675,15 @@ Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing
 
 CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDate
     _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateFromJson(
-            Map<String, dynamic> json) =>
-        CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDate(
-          enabled: json['enabled'] as bool,
-        );
+        Map<String, dynamic> json) {
+  $checkKeys(
+    json,
+    allowedKeys: const ['enabled'],
+  );
+  return CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDate(
+    enabled: json['enabled'] as bool,
+  );
+}
 
 Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateToJson(
         CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDate instance) =>
@@ -514,10 +693,15 @@ Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing
 
 CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupported
     _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupportedFromJson(
-            Map<String, dynamic> json) =>
-        CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupported(
-          enabled: json['enabled'] as bool,
-        );
+        Map<String, dynamic> json) {
+  $checkKeys(
+    json,
+    allowedKeys: const ['enabled'],
+  );
+  return CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupported(
+    enabled: json['enabled'] as bool,
+  );
+}
 
 Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupportedToJson(
         CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupported instance) =>
@@ -526,16 +710,21 @@ Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing
     };
 
 CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation
-    _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_FederationFromJson(Map<String, dynamic> json) =>
-        CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation(
-          outgoing: json['outgoing'] as bool,
-          incoming: json['incoming'] as bool,
-          expireDate: CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDate.fromJson(
-              json['expire_date'] as Map<String, dynamic>),
-          expireDateSupported:
-              CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupported.fromJson(
-                  json['expire_date_supported'] as Map<String, dynamic>),
-        );
+    _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_FederationFromJson(Map<String, dynamic> json) {
+  $checkKeys(
+    json,
+    allowedKeys: const ['outgoing', 'incoming', 'expire_date', 'expire_date_supported'],
+  );
+  return CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation(
+    outgoing: json['outgoing'] as bool,
+    incoming: json['incoming'] as bool,
+    expireDate: CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDate.fromJson(
+        json['expire_date'] as Map<String, dynamic>),
+    expireDateSupported:
+        CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupported.fromJson(
+            json['expire_date_supported'] as Map<String, dynamic>),
+  );
+}
 
 Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_FederationToJson(
         CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation instance) =>
@@ -547,11 +736,16 @@ Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing
     };
 
 CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharee
-    _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_ShareeFromJson(Map<String, dynamic> json) =>
-        CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharee(
-          queryLookupDefault: json['query_lookup_default'] as bool,
-          alwaysShowUnique: json['always_show_unique'] as bool,
-        );
+    _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_ShareeFromJson(Map<String, dynamic> json) {
+  $checkKeys(
+    json,
+    allowedKeys: const ['query_lookup_default', 'always_show_unique'],
+  );
+  return CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharee(
+    queryLookupDefault: json['query_lookup_default'] as bool,
+    alwaysShowUnique: json['always_show_unique'] as bool,
+  );
+}
 
 Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_ShareeToJson(
         CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharee instance) =>
@@ -562,10 +756,15 @@ Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing
 
 CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_UploadFilesDrop
     _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_UploadFilesDropFromJson(
-            Map<String, dynamic> json) =>
-        CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_UploadFilesDrop(
-          enabled: json['enabled'] as bool,
-        );
+        Map<String, dynamic> json) {
+  $checkKeys(
+    json,
+    allowedKeys: const ['enabled'],
+  );
+  return CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_UploadFilesDrop(
+    enabled: json['enabled'] as bool,
+  );
+}
 
 Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_UploadFilesDropToJson(
         CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_UploadFilesDrop instance) =>
@@ -575,11 +774,16 @@ Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing
 
 CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_Password
     _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_PasswordFromJson(
-            Map<String, dynamic> json) =>
-        CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_Password(
-          enabled: json['enabled'] as bool,
-          enforced: json['enforced'] as bool,
-        );
+        Map<String, dynamic> json) {
+  $checkKeys(
+    json,
+    allowedKeys: const ['enabled', 'enforced'],
+  );
+  return CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_Password(
+    enabled: json['enabled'] as bool,
+    enforced: json['enforced'] as bool,
+  );
+}
 
 Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_PasswordToJson(
         CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_Password instance) =>
@@ -590,11 +794,16 @@ Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing
 
 CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_ExpireDate
     _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_ExpireDateFromJson(
-            Map<String, dynamic> json) =>
-        CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_ExpireDate(
-          enabled: json['enabled'] as bool,
-          enforced: json['enforced'] as bool,
-        );
+        Map<String, dynamic> json) {
+  $checkKeys(
+    json,
+    allowedKeys: const ['enabled', 'enforced'],
+  );
+  return CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_ExpireDate(
+    enabled: json['enabled'] as bool,
+    enforced: json['enforced'] as bool,
+  );
+}
 
 Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_ExpireDateToJson(
         CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_ExpireDate instance) =>
@@ -604,18 +813,22 @@ Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing
     };
 
 CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail
-    _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_SharebymailFromJson(Map<String, dynamic> json) =>
-        CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail(
-          enabled: json['enabled'] as bool,
-          sendPasswordByMail: json['send_password_by_mail'] as bool,
-          uploadFilesDrop:
-              CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_UploadFilesDrop.fromJson(
-                  json['upload_files_drop'] as Map<String, dynamic>),
-          password: CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_Password.fromJson(
-              json['password'] as Map<String, dynamic>),
-          expireDate: CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_ExpireDate.fromJson(
-              json['expire_date'] as Map<String, dynamic>),
-        );
+    _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_SharebymailFromJson(Map<String, dynamic> json) {
+  $checkKeys(
+    json,
+    allowedKeys: const ['enabled', 'send_password_by_mail', 'upload_files_drop', 'password', 'expire_date'],
+  );
+  return CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail(
+    enabled: json['enabled'] as bool,
+    sendPasswordByMail: json['send_password_by_mail'] as bool,
+    uploadFilesDrop: CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_UploadFilesDrop.fromJson(
+        json['upload_files_drop'] as Map<String, dynamic>),
+    password: CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_Password.fromJson(
+        json['password'] as Map<String, dynamic>),
+    expireDate: CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_ExpireDate.fromJson(
+        json['expire_date'] as Map<String, dynamic>),
+  );
+}
 
 Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_SharebymailToJson(
         CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail instance) =>
@@ -628,25 +841,40 @@ Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing
     };
 
 CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing
-    _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharingFromJson(Map<String, dynamic> json) =>
-        CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing(
-          apiEnabled: json['api_enabled'] as bool,
-          public: CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public.fromJson(
-              json['public'] as Map<String, dynamic>),
-          resharing: json['resharing'] as bool,
-          user: CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User.fromJson(
-              json['user'] as Map<String, dynamic>),
-          groupSharing: json['group_sharing'] as bool,
-          group: CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group.fromJson(
-              json['group'] as Map<String, dynamic>),
-          defaultPermissions: json['default_permissions'] as int,
-          federation: CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation.fromJson(
-              json['federation'] as Map<String, dynamic>),
-          sharee: CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharee.fromJson(
-              json['sharee'] as Map<String, dynamic>),
-          sharebymail: CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail.fromJson(
-              json['sharebymail'] as Map<String, dynamic>),
-        );
+    _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharingFromJson(Map<String, dynamic> json) {
+  $checkKeys(
+    json,
+    allowedKeys: const [
+      'api_enabled',
+      'public',
+      'resharing',
+      'user',
+      'group_sharing',
+      'group',
+      'default_permissions',
+      'federation',
+      'sharee',
+      'sharebymail'
+    ],
+  );
+  return CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing(
+    apiEnabled: json['api_enabled'] as bool,
+    public: CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public.fromJson(
+        json['public'] as Map<String, dynamic>),
+    resharing: json['resharing'] as bool,
+    user: CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User.fromJson(json['user'] as Map<String, dynamic>),
+    groupSharing: json['group_sharing'] as bool,
+    group:
+        CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group.fromJson(json['group'] as Map<String, dynamic>),
+    defaultPermissions: json['default_permissions'] as int,
+    federation: CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation.fromJson(
+        json['federation'] as Map<String, dynamic>),
+    sharee: CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharee.fromJson(
+        json['sharee'] as Map<String, dynamic>),
+    sharebymail: CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail.fromJson(
+        json['sharebymail'] as Map<String, dynamic>),
+  );
+}
 
 Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharingToJson(
         CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing instance) =>
@@ -664,11 +892,16 @@ Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing
     };
 
 CoreServerCapabilities_Ocs_Data_Capabilities_Notes _$CoreServerCapabilities_Ocs_Data_Capabilities_NotesFromJson(
-        Map<String, dynamic> json) =>
-    CoreServerCapabilities_Ocs_Data_Capabilities_Notes(
-      apiVersion: (json['api_version'] as List<dynamic>).map((e) => e as String).toList(),
-      version: json['version'] as String,
-    );
+    Map<String, dynamic> json) {
+  $checkKeys(
+    json,
+    allowedKeys: const ['api_version', 'version'],
+  );
+  return CoreServerCapabilities_Ocs_Data_Capabilities_Notes(
+    apiVersion: (json['api_version'] as List<dynamic>).map((e) => e as String).toList(),
+    version: json['version'] as String,
+  );
+}
 
 Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_NotesToJson(
         CoreServerCapabilities_Ocs_Data_Capabilities_Notes instance) =>
@@ -678,12 +911,17 @@ Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_NotesToJson(
     };
 
 CoreServerCapabilities_Ocs_Data_Capabilities_Notifications
-    _$CoreServerCapabilities_Ocs_Data_Capabilities_NotificationsFromJson(Map<String, dynamic> json) =>
-        CoreServerCapabilities_Ocs_Data_Capabilities_Notifications(
-          ocsEndpoints: (json['ocs-endpoints'] as List<dynamic>).map((e) => e as String).toList(),
-          push: (json['push'] as List<dynamic>).map((e) => e as String).toList(),
-          adminNotifications: (json['admin-notifications'] as List<dynamic>).map((e) => e as String).toList(),
-        );
+    _$CoreServerCapabilities_Ocs_Data_Capabilities_NotificationsFromJson(Map<String, dynamic> json) {
+  $checkKeys(
+    json,
+    allowedKeys: const ['ocs-endpoints', 'push', 'admin-notifications'],
+  );
+  return CoreServerCapabilities_Ocs_Data_Capabilities_Notifications(
+    ocsEndpoints: (json['ocs-endpoints'] as List<dynamic>).map((e) => e as String).toList(),
+    push: (json['push'] as List<dynamic>).map((e) => e as String).toList(),
+    adminNotifications: (json['admin-notifications'] as List<dynamic>).map((e) => e as String).toList(),
+  );
+}
 
 Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_NotificationsToJson(
         CoreServerCapabilities_Ocs_Data_Capabilities_Notifications instance) =>
@@ -694,11 +932,16 @@ Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_Notification
     };
 
 CoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy_Api
-    _$CoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy_ApiFromJson(Map<String, dynamic> json) =>
-        CoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy_Api(
-          generate: json['generate'] as String,
-          validate: json['validate'] as String,
-        );
+    _$CoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy_ApiFromJson(Map<String, dynamic> json) {
+  $checkKeys(
+    json,
+    allowedKeys: const ['generate', 'validate'],
+  );
+  return CoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy_Api(
+    generate: json['generate'] as String,
+    validate: json['validate'] as String,
+  );
+}
 
 Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy_ApiToJson(
         CoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy_Api instance) =>
@@ -708,16 +951,27 @@ Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_PasswordPoli
     };
 
 CoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy
-    _$CoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicyFromJson(Map<String, dynamic> json) =>
-        CoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy(
-          minLength: json['minLength'] as int,
-          enforceNonCommonPassword: json['enforceNonCommonPassword'] as bool,
-          enforceNumericCharacters: json['enforceNumericCharacters'] as bool,
-          enforceSpecialCharacters: json['enforceSpecialCharacters'] as bool,
-          enforceUpperLowerCase: json['enforceUpperLowerCase'] as bool,
-          api: CoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy_Api.fromJson(
-              json['api'] as Map<String, dynamic>),
-        );
+    _$CoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicyFromJson(Map<String, dynamic> json) {
+  $checkKeys(
+    json,
+    allowedKeys: const [
+      'minLength',
+      'enforceNonCommonPassword',
+      'enforceNumericCharacters',
+      'enforceSpecialCharacters',
+      'enforceUpperLowerCase',
+      'api'
+    ],
+  );
+  return CoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy(
+    minLength: json['minLength'] as int,
+    enforceNonCommonPassword: json['enforceNonCommonPassword'] as bool,
+    enforceNumericCharacters: json['enforceNumericCharacters'] as bool,
+    enforceSpecialCharacters: json['enforceSpecialCharacters'] as bool,
+    enforceUpperLowerCase: json['enforceUpperLowerCase'] as bool,
+    api: CoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy_Api.fromJson(json['api'] as Map<String, dynamic>),
+  );
+}
 
 Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicyToJson(
         CoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy instance) =>
@@ -731,13 +985,23 @@ Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_PasswordPoli
     };
 
 CoreServerCapabilities_Ocs_Data_Capabilities_ProvisioningApi
-    _$CoreServerCapabilities_Ocs_Data_Capabilities_ProvisioningApiFromJson(Map<String, dynamic> json) =>
-        CoreServerCapabilities_Ocs_Data_Capabilities_ProvisioningApi(
-          version: json['version'] as String,
-          accountPropertyScopesVersion: json['AccountPropertyScopesVersion'] as int,
-          accountPropertyScopesFederatedEnabled: json['AccountPropertyScopesFederatedEnabled'] as bool,
-          accountPropertyScopesPublishedEnabled: json['AccountPropertyScopesPublishedEnabled'] as bool,
-        );
+    _$CoreServerCapabilities_Ocs_Data_Capabilities_ProvisioningApiFromJson(Map<String, dynamic> json) {
+  $checkKeys(
+    json,
+    allowedKeys: const [
+      'version',
+      'AccountPropertyScopesVersion',
+      'AccountPropertyScopesFederatedEnabled',
+      'AccountPropertyScopesPublishedEnabled'
+    ],
+  );
+  return CoreServerCapabilities_Ocs_Data_Capabilities_ProvisioningApi(
+    version: json['version'] as String,
+    accountPropertyScopesVersion: json['AccountPropertyScopesVersion'] as int,
+    accountPropertyScopesFederatedEnabled: json['AccountPropertyScopesFederatedEnabled'] as bool,
+    accountPropertyScopesPublishedEnabled: json['AccountPropertyScopesPublishedEnabled'] as bool,
+  );
+}
 
 Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_ProvisioningApiToJson(
         CoreServerCapabilities_Ocs_Data_Capabilities_ProvisioningApi instance) =>
@@ -749,23 +1013,43 @@ Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_Provisioning
     };
 
 CoreServerCapabilities_Ocs_Data_Capabilities_Theming _$CoreServerCapabilities_Ocs_Data_Capabilities_ThemingFromJson(
-        Map<String, dynamic> json) =>
-    CoreServerCapabilities_Ocs_Data_Capabilities_Theming(
-      name: json['name'] as String,
-      url: json['url'] as String,
-      slogan: json['slogan'] as String,
-      color: json['color'] as String,
-      colorText: json['color-text'] as String,
-      colorElement: json['color-element'] as String,
-      colorElementBright: json['color-element-bright'] as String,
-      colorElementDark: json['color-element-dark'] as String,
-      logo: json['logo'] as String,
-      background: json['background'] as String,
-      backgroundPlain: json['background-plain'] as bool,
-      backgroundDefault: json['background-default'] as bool,
-      logoheader: json['logoheader'] as String,
-      favicon: json['favicon'] as String,
-    );
+    Map<String, dynamic> json) {
+  $checkKeys(
+    json,
+    allowedKeys: const [
+      'name',
+      'url',
+      'slogan',
+      'color',
+      'color-text',
+      'color-element',
+      'color-element-bright',
+      'color-element-dark',
+      'logo',
+      'background',
+      'background-plain',
+      'background-default',
+      'logoheader',
+      'favicon'
+    ],
+  );
+  return CoreServerCapabilities_Ocs_Data_Capabilities_Theming(
+    name: json['name'] as String,
+    url: json['url'] as String,
+    slogan: json['slogan'] as String,
+    color: json['color'] as String,
+    colorText: json['color-text'] as String,
+    colorElement: json['color-element'] as String,
+    colorElementBright: json['color-element-bright'] as String,
+    colorElementDark: json['color-element-dark'] as String,
+    logo: json['logo'] as String,
+    background: json['background'] as String,
+    backgroundPlain: json['background-plain'] as bool,
+    backgroundDefault: json['background-default'] as bool,
+    logoheader: json['logoheader'] as String,
+    favicon: json['favicon'] as String,
+  );
+}
 
 Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_ThemingToJson(
         CoreServerCapabilities_Ocs_Data_Capabilities_Theming instance) =>
@@ -787,11 +1071,16 @@ Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_ThemingToJso
     };
 
 CoreServerCapabilities_Ocs_Data_Capabilities_UserStatus
-    _$CoreServerCapabilities_Ocs_Data_Capabilities_UserStatusFromJson(Map<String, dynamic> json) =>
-        CoreServerCapabilities_Ocs_Data_Capabilities_UserStatus(
-          enabled: json['enabled'] as bool,
-          supportsEmoji: json['supports_emoji'] as bool,
-        );
+    _$CoreServerCapabilities_Ocs_Data_Capabilities_UserStatusFromJson(Map<String, dynamic> json) {
+  $checkKeys(
+    json,
+    allowedKeys: const ['enabled', 'supports_emoji'],
+  );
+  return CoreServerCapabilities_Ocs_Data_Capabilities_UserStatus(
+    enabled: json['enabled'] as bool,
+    supportsEmoji: json['supports_emoji'] as bool,
+  );
+}
 
 Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_UserStatusToJson(
         CoreServerCapabilities_Ocs_Data_Capabilities_UserStatus instance) =>
@@ -801,10 +1090,15 @@ Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_UserStatusTo
     };
 
 CoreServerCapabilities_Ocs_Data_Capabilities_WeatherStatus
-    _$CoreServerCapabilities_Ocs_Data_Capabilities_WeatherStatusFromJson(Map<String, dynamic> json) =>
-        CoreServerCapabilities_Ocs_Data_Capabilities_WeatherStatus(
-          enabled: json['enabled'] as bool,
-        );
+    _$CoreServerCapabilities_Ocs_Data_Capabilities_WeatherStatusFromJson(Map<String, dynamic> json) {
+  $checkKeys(
+    json,
+    allowedKeys: const ['enabled'],
+  );
+  return CoreServerCapabilities_Ocs_Data_Capabilities_WeatherStatus(
+    enabled: json['enabled'] as bool,
+  );
+}
 
 Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_WeatherStatusToJson(
         CoreServerCapabilities_Ocs_Data_Capabilities_WeatherStatus instance) =>
@@ -882,11 +1176,16 @@ Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_CapabilitiesToJson(
       'weather_status': instance.weatherStatus?.toJson(),
     };
 
-CoreServerCapabilities_Ocs_Data _$CoreServerCapabilities_Ocs_DataFromJson(Map<String, dynamic> json) =>
-    CoreServerCapabilities_Ocs_Data(
-      version: CoreServerCapabilities_Ocs_Data_Version.fromJson(json['version'] as Map<String, dynamic>),
-      capabilities: CoreServerCapabilities_Ocs_Data_Capabilities.fromJson(json['capabilities'] as Map<String, dynamic>),
-    );
+CoreServerCapabilities_Ocs_Data _$CoreServerCapabilities_Ocs_DataFromJson(Map<String, dynamic> json) {
+  $checkKeys(
+    json,
+    allowedKeys: const ['version', 'capabilities'],
+  );
+  return CoreServerCapabilities_Ocs_Data(
+    version: CoreServerCapabilities_Ocs_Data_Version.fromJson(json['version'] as Map<String, dynamic>),
+    capabilities: CoreServerCapabilities_Ocs_Data_Capabilities.fromJson(json['capabilities'] as Map<String, dynamic>),
+  );
+}
 
 Map<String, dynamic> _$CoreServerCapabilities_Ocs_DataToJson(CoreServerCapabilities_Ocs_Data instance) =>
     <String, dynamic>{
@@ -894,37 +1193,53 @@ Map<String, dynamic> _$CoreServerCapabilities_Ocs_DataToJson(CoreServerCapabilit
       'capabilities': instance.capabilities.toJson(),
     };
 
-CoreServerCapabilities_Ocs _$CoreServerCapabilities_OcsFromJson(Map<String, dynamic> json) =>
-    CoreServerCapabilities_Ocs(
-      meta: OCSMeta.fromJson(json['meta'] as Map<String, dynamic>),
-      data: CoreServerCapabilities_Ocs_Data.fromJson(json['data'] as Map<String, dynamic>),
-    );
+CoreServerCapabilities_Ocs _$CoreServerCapabilities_OcsFromJson(Map<String, dynamic> json) {
+  $checkKeys(
+    json,
+    allowedKeys: const ['meta', 'data'],
+  );
+  return CoreServerCapabilities_Ocs(
+    meta: OCSMeta.fromJson(json['meta'] as Map<String, dynamic>),
+    data: CoreServerCapabilities_Ocs_Data.fromJson(json['data'] as Map<String, dynamic>),
+  );
+}
 
 Map<String, dynamic> _$CoreServerCapabilities_OcsToJson(CoreServerCapabilities_Ocs instance) => <String, dynamic>{
       'meta': instance.meta.toJson(),
       'data': instance.data.toJson(),
     };
 
-CoreServerCapabilities _$CoreServerCapabilitiesFromJson(Map<String, dynamic> json) => CoreServerCapabilities(
-      ocs: CoreServerCapabilities_Ocs.fromJson(json['ocs'] as Map<String, dynamic>),
-    );
+CoreServerCapabilities _$CoreServerCapabilitiesFromJson(Map<String, dynamic> json) {
+  $checkKeys(
+    json,
+    allowedKeys: const ['ocs'],
+  );
+  return CoreServerCapabilities(
+    ocs: CoreServerCapabilities_Ocs.fromJson(json['ocs'] as Map<String, dynamic>),
+  );
+}
 
 Map<String, dynamic> _$CoreServerCapabilitiesToJson(CoreServerCapabilities instance) => <String, dynamic>{
       'ocs': instance.ocs.toJson(),
     };
 
-CoreNavigationApps_Ocs_Data _$CoreNavigationApps_Ocs_DataFromJson(Map<String, dynamic> json) =>
-    CoreNavigationApps_Ocs_Data(
-      id: json['id'] as String,
-      order: CoreNavigationApps_Ocs_Data_Order.fromJson(json['order']),
-      href: json['href'] as String,
-      icon: json['icon'] as String,
-      type: json['type'] as String,
-      name: json['name'] as String,
-      active: json['active'] as bool,
-      classes: json['classes'] as String,
-      unread: json['unread'] as int,
-    );
+CoreNavigationApps_Ocs_Data _$CoreNavigationApps_Ocs_DataFromJson(Map<String, dynamic> json) {
+  $checkKeys(
+    json,
+    allowedKeys: const ['id', 'order', 'href', 'icon', 'type', 'name', 'active', 'classes', 'unread'],
+  );
+  return CoreNavigationApps_Ocs_Data(
+    id: json['id'] as String,
+    order: CoreNavigationApps_Ocs_Data_Order.fromJson(json['order']),
+    href: json['href'] as String,
+    icon: json['icon'] as String,
+    type: json['type'] as String,
+    name: json['name'] as String,
+    active: json['active'] as bool,
+    classes: json['classes'] as String,
+    unread: json['unread'] as int,
+  );
+}
 
 Map<String, dynamic> _$CoreNavigationApps_Ocs_DataToJson(CoreNavigationApps_Ocs_Data instance) => <String, dynamic>{
       'id': instance.id,
@@ -938,51 +1253,81 @@ Map<String, dynamic> _$CoreNavigationApps_Ocs_DataToJson(CoreNavigationApps_Ocs_
       'unread': instance.unread,
     };
 
-CoreNavigationApps_Ocs _$CoreNavigationApps_OcsFromJson(Map<String, dynamic> json) => CoreNavigationApps_Ocs(
-      meta: OCSMeta.fromJson(json['meta'] as Map<String, dynamic>),
-      data: (json['data'] as List<dynamic>)
-          .map((e) => CoreNavigationApps_Ocs_Data.fromJson(e as Map<String, dynamic>))
-          .toList(),
-    );
+CoreNavigationApps_Ocs _$CoreNavigationApps_OcsFromJson(Map<String, dynamic> json) {
+  $checkKeys(
+    json,
+    allowedKeys: const ['meta', 'data'],
+  );
+  return CoreNavigationApps_Ocs(
+    meta: OCSMeta.fromJson(json['meta'] as Map<String, dynamic>),
+    data: (json['data'] as List<dynamic>)
+        .map((e) => CoreNavigationApps_Ocs_Data.fromJson(e as Map<String, dynamic>))
+        .toList(),
+  );
+}
 
 Map<String, dynamic> _$CoreNavigationApps_OcsToJson(CoreNavigationApps_Ocs instance) => <String, dynamic>{
       'meta': instance.meta.toJson(),
       'data': instance.data.map((e) => e.toJson()).toList(),
     };
 
-CoreNavigationApps _$CoreNavigationAppsFromJson(Map<String, dynamic> json) => CoreNavigationApps(
-      ocs: CoreNavigationApps_Ocs.fromJson(json['ocs'] as Map<String, dynamic>),
-    );
+CoreNavigationApps _$CoreNavigationAppsFromJson(Map<String, dynamic> json) {
+  $checkKeys(
+    json,
+    allowedKeys: const ['ocs'],
+  );
+  return CoreNavigationApps(
+    ocs: CoreNavigationApps_Ocs.fromJson(json['ocs'] as Map<String, dynamic>),
+  );
+}
 
 Map<String, dynamic> _$CoreNavigationAppsToJson(CoreNavigationApps instance) => <String, dynamic>{
       'ocs': instance.ocs.toJson(),
     };
 
-CoreLoginFlowInit_Poll _$CoreLoginFlowInit_PollFromJson(Map<String, dynamic> json) => CoreLoginFlowInit_Poll(
-      token: json['token'] as String,
-      endpoint: json['endpoint'] as String,
-    );
+CoreLoginFlowInit_Poll _$CoreLoginFlowInit_PollFromJson(Map<String, dynamic> json) {
+  $checkKeys(
+    json,
+    allowedKeys: const ['token', 'endpoint'],
+  );
+  return CoreLoginFlowInit_Poll(
+    token: json['token'] as String,
+    endpoint: json['endpoint'] as String,
+  );
+}
 
 Map<String, dynamic> _$CoreLoginFlowInit_PollToJson(CoreLoginFlowInit_Poll instance) => <String, dynamic>{
       'token': instance.token,
       'endpoint': instance.endpoint,
     };
 
-CoreLoginFlowInit _$CoreLoginFlowInitFromJson(Map<String, dynamic> json) => CoreLoginFlowInit(
-      poll: CoreLoginFlowInit_Poll.fromJson(json['poll'] as Map<String, dynamic>),
-      login: json['login'] as String,
-    );
+CoreLoginFlowInit _$CoreLoginFlowInitFromJson(Map<String, dynamic> json) {
+  $checkKeys(
+    json,
+    allowedKeys: const ['poll', 'login'],
+  );
+  return CoreLoginFlowInit(
+    poll: CoreLoginFlowInit_Poll.fromJson(json['poll'] as Map<String, dynamic>),
+    login: json['login'] as String,
+  );
+}
 
 Map<String, dynamic> _$CoreLoginFlowInitToJson(CoreLoginFlowInit instance) => <String, dynamic>{
       'poll': instance.poll.toJson(),
       'login': instance.login,
     };
 
-CoreLoginFlowResult _$CoreLoginFlowResultFromJson(Map<String, dynamic> json) => CoreLoginFlowResult(
-      server: json['server'] as String,
-      loginName: json['loginName'] as String,
-      appPassword: json['appPassword'] as String,
-    );
+CoreLoginFlowResult _$CoreLoginFlowResultFromJson(Map<String, dynamic> json) {
+  $checkKeys(
+    json,
+    allowedKeys: const ['server', 'loginName', 'appPassword'],
+  );
+  return CoreLoginFlowResult(
+    server: json['server'] as String,
+    loginName: json['loginName'] as String,
+    appPassword: json['appPassword'] as String,
+  );
+}
 
 Map<String, dynamic> _$CoreLoginFlowResultToJson(CoreLoginFlowResult instance) => <String, dynamic>{
       'server': instance.server,
@@ -990,36 +1335,69 @@ Map<String, dynamic> _$CoreLoginFlowResultToJson(CoreLoginFlowResult instance) =
       'appPassword': instance.appPassword,
     };
 
-GetSupportedApiVersions _$GetSupportedApiVersionsFromJson(Map<String, dynamic> json) => GetSupportedApiVersions(
-      apiLevels: (json['apiLevels'] as List<dynamic>?)?.map((e) => e as String).toList(),
-    );
+GetSupportedApiVersions _$GetSupportedApiVersionsFromJson(Map<String, dynamic> json) {
+  $checkKeys(
+    json,
+    allowedKeys: const ['apiLevels'],
+  );
+  return GetSupportedApiVersions(
+    apiLevels: (json['apiLevels'] as List<dynamic>?)?.map((e) => e as String).toList(),
+  );
+}
 
 Map<String, dynamic> _$GetSupportedApiVersionsToJson(GetSupportedApiVersions instance) => <String, dynamic>{
       'apiLevels': instance.apiLevels,
     };
 
-NewsArticle _$NewsArticleFromJson(Map<String, dynamic> json) => NewsArticle(
-      id: json['id'] as int,
-      guid: json['guid'] as String,
-      guidHash: json['guidHash'] as String,
-      url: json['url'] as String?,
-      title: json['title'] as String,
-      author: json['author'] as String?,
-      pubDate: json['pubDate'] as int,
-      updatedDate: json['updatedDate'] as int?,
-      body: json['body'] as String,
-      enclosureMime: json['enclosureMime'] as String?,
-      enclosureLink: json['enclosureLink'] as String?,
-      mediaThumbnail: json['mediaThumbnail'] as String?,
-      mediaDescription: json['mediaDescription'] as String?,
-      feedId: json['feedId'] as int,
-      unread: json['unread'] as bool,
-      starred: json['starred'] as bool,
-      lastModified: json['lastModified'] as int,
-      rtl: json['rtl'] as bool,
-      fingerprint: json['fingerprint'] as String,
-      contentHash: json['contentHash'] as String,
-    );
+NewsArticle _$NewsArticleFromJson(Map<String, dynamic> json) {
+  $checkKeys(
+    json,
+    allowedKeys: const [
+      'id',
+      'guid',
+      'guidHash',
+      'url',
+      'title',
+      'author',
+      'pubDate',
+      'updatedDate',
+      'body',
+      'enclosureMime',
+      'enclosureLink',
+      'mediaThumbnail',
+      'mediaDescription',
+      'feedId',
+      'unread',
+      'starred',
+      'lastModified',
+      'rtl',
+      'fingerprint',
+      'contentHash'
+    ],
+  );
+  return NewsArticle(
+    id: json['id'] as int,
+    guid: json['guid'] as String,
+    guidHash: json['guidHash'] as String,
+    url: json['url'] as String?,
+    title: json['title'] as String,
+    author: json['author'] as String?,
+    pubDate: json['pubDate'] as int,
+    updatedDate: json['updatedDate'] as int?,
+    body: json['body'] as String,
+    enclosureMime: json['enclosureMime'] as String?,
+    enclosureLink: json['enclosureLink'] as String?,
+    mediaThumbnail: json['mediaThumbnail'] as String?,
+    mediaDescription: json['mediaDescription'] as String?,
+    feedId: json['feedId'] as int,
+    unread: json['unread'] as bool,
+    starred: json['starred'] as bool,
+    lastModified: json['lastModified'] as int,
+    rtl: json['rtl'] as bool,
+    fingerprint: json['fingerprint'] as String,
+    contentHash: json['contentHash'] as String,
+  );
+}
 
 Map<String, dynamic> _$NewsArticleToJson(NewsArticle instance) => <String, dynamic>{
       'id': instance.id,
@@ -1044,21 +1422,41 @@ Map<String, dynamic> _$NewsArticleToJson(NewsArticle instance) => <String, dynam
       'contentHash': instance.contentHash,
     };
 
-NewsFeed _$NewsFeedFromJson(Map<String, dynamic> json) => NewsFeed(
-      id: json['id'] as int,
-      url: json['url'] as String,
-      title: json['title'] as String,
-      faviconLink: json['faviconLink'] as String,
-      added: json['added'] as int,
-      folderId: json['folderId'] as int?,
-      unreadCount: json['unreadCount'] as int?,
-      ordering: json['ordering'] as int,
-      link: json['link'] as String?,
-      pinned: json['pinned'] as bool,
-      updateErrorCount: json['updateErrorCount'] as int,
-      lastUpdateError: json['lastUpdateError'] as String?,
-      items: (json['items'] as List<dynamic>).map((e) => NewsArticle.fromJson(e as Map<String, dynamic>)).toList(),
-    );
+NewsFeed _$NewsFeedFromJson(Map<String, dynamic> json) {
+  $checkKeys(
+    json,
+    allowedKeys: const [
+      'id',
+      'url',
+      'title',
+      'faviconLink',
+      'added',
+      'folderId',
+      'unreadCount',
+      'ordering',
+      'link',
+      'pinned',
+      'updateErrorCount',
+      'lastUpdateError',
+      'items'
+    ],
+  );
+  return NewsFeed(
+    id: json['id'] as int,
+    url: json['url'] as String,
+    title: json['title'] as String,
+    faviconLink: json['faviconLink'] as String,
+    added: json['added'] as int,
+    folderId: json['folderId'] as int?,
+    unreadCount: json['unreadCount'] as int?,
+    ordering: json['ordering'] as int,
+    link: json['link'] as String?,
+    pinned: json['pinned'] as bool,
+    updateErrorCount: json['updateErrorCount'] as int,
+    lastUpdateError: json['lastUpdateError'] as String?,
+    items: (json['items'] as List<dynamic>).map((e) => NewsArticle.fromJson(e as Map<String, dynamic>)).toList(),
+  );
+}
 
 Map<String, dynamic> _$NewsFeedToJson(NewsFeed instance) => <String, dynamic>{
       'id': instance.id,
@@ -1076,12 +1474,18 @@ Map<String, dynamic> _$NewsFeedToJson(NewsFeed instance) => <String, dynamic>{
       'items': instance.items.map((e) => e.toJson()).toList(),
     };
 
-NewsFolder _$NewsFolderFromJson(Map<String, dynamic> json) => NewsFolder(
-      id: json['id'] as int,
-      name: json['name'] as String,
-      opened: json['opened'] as bool,
-      feeds: (json['feeds'] as List<dynamic>).map((e) => NewsFeed.fromJson(e as Map<String, dynamic>)).toList(),
-    );
+NewsFolder _$NewsFolderFromJson(Map<String, dynamic> json) {
+  $checkKeys(
+    json,
+    allowedKeys: const ['id', 'name', 'opened', 'feeds'],
+  );
+  return NewsFolder(
+    id: json['id'] as int,
+    name: json['name'] as String,
+    opened: json['opened'] as bool,
+    feeds: (json['feeds'] as List<dynamic>).map((e) => NewsFeed.fromJson(e as Map<String, dynamic>)).toList(),
+  );
+}
 
 Map<String, dynamic> _$NewsFolderToJson(NewsFolder instance) => <String, dynamic>{
       'id': instance.id,
@@ -1090,19 +1494,31 @@ Map<String, dynamic> _$NewsFolderToJson(NewsFolder instance) => <String, dynamic
       'feeds': instance.feeds.map((e) => e.toJson()).toList(),
     };
 
-NewsListFolders _$NewsListFoldersFromJson(Map<String, dynamic> json) => NewsListFolders(
-      folders: (json['folders'] as List<dynamic>).map((e) => NewsFolder.fromJson(e as Map<String, dynamic>)).toList(),
-    );
+NewsListFolders _$NewsListFoldersFromJson(Map<String, dynamic> json) {
+  $checkKeys(
+    json,
+    allowedKeys: const ['folders'],
+  );
+  return NewsListFolders(
+    folders: (json['folders'] as List<dynamic>).map((e) => NewsFolder.fromJson(e as Map<String, dynamic>)).toList(),
+  );
+}
 
 Map<String, dynamic> _$NewsListFoldersToJson(NewsListFolders instance) => <String, dynamic>{
       'folders': instance.folders.map((e) => e.toJson()).toList(),
     };
 
-NewsListFeeds _$NewsListFeedsFromJson(Map<String, dynamic> json) => NewsListFeeds(
-      starredCount: json['starredCount'] as int?,
-      newestItemId: json['newestItemId'] as int?,
-      feeds: (json['feeds'] as List<dynamic>).map((e) => NewsFeed.fromJson(e as Map<String, dynamic>)).toList(),
-    );
+NewsListFeeds _$NewsListFeedsFromJson(Map<String, dynamic> json) {
+  $checkKeys(
+    json,
+    allowedKeys: const ['starredCount', 'newestItemId', 'feeds'],
+  );
+  return NewsListFeeds(
+    starredCount: json['starredCount'] as int?,
+    newestItemId: json['newestItemId'] as int?,
+    feeds: (json['feeds'] as List<dynamic>).map((e) => NewsFeed.fromJson(e as Map<String, dynamic>)).toList(),
+  );
+}
 
 Map<String, dynamic> _$NewsListFeedsToJson(NewsListFeeds instance) => <String, dynamic>{
       'starredCount': instance.starredCount,
@@ -1110,26 +1526,49 @@ Map<String, dynamic> _$NewsListFeedsToJson(NewsListFeeds instance) => <String, d
       'feeds': instance.feeds.map((e) => e.toJson()).toList(),
     };
 
-NewsListArticles _$NewsListArticlesFromJson(Map<String, dynamic> json) => NewsListArticles(
-      items: (json['items'] as List<dynamic>).map((e) => NewsArticle.fromJson(e as Map<String, dynamic>)).toList(),
-    );
+NewsListArticles _$NewsListArticlesFromJson(Map<String, dynamic> json) {
+  $checkKeys(
+    json,
+    allowedKeys: const ['items'],
+  );
+  return NewsListArticles(
+    items: (json['items'] as List<dynamic>).map((e) => NewsArticle.fromJson(e as Map<String, dynamic>)).toList(),
+  );
+}
 
 Map<String, dynamic> _$NewsListArticlesToJson(NewsListArticles instance) => <String, dynamic>{
       'items': instance.items.map((e) => e.toJson()).toList(),
     };
 
-NotesNote _$NotesNoteFromJson(Map<String, dynamic> json) => NotesNote(
-      id: json['id'] as int,
-      etag: json['etag'] as String,
-      readonly: json['readonly'] as bool,
-      content: json['content'] as String,
-      title: json['title'] as String,
-      category: json['category'] as String,
-      favorite: json['favorite'] as bool,
-      modified: json['modified'] as int,
-      error: json['error'] as bool,
-      errorType: json['errorType'] as String,
-    );
+NotesNote _$NotesNoteFromJson(Map<String, dynamic> json) {
+  $checkKeys(
+    json,
+    allowedKeys: const [
+      'id',
+      'etag',
+      'readonly',
+      'content',
+      'title',
+      'category',
+      'favorite',
+      'modified',
+      'error',
+      'errorType'
+    ],
+  );
+  return NotesNote(
+    id: json['id'] as int,
+    etag: json['etag'] as String,
+    readonly: json['readonly'] as bool,
+    content: json['content'] as String,
+    title: json['title'] as String,
+    category: json['category'] as String,
+    favorite: json['favorite'] as bool,
+    modified: json['modified'] as int,
+    error: json['error'] as bool,
+    errorType: json['errorType'] as String,
+  );
+}
 
 Map<String, dynamic> _$NotesNoteToJson(NotesNote instance) => <String, dynamic>{
       'id': instance.id,
@@ -1144,11 +1583,17 @@ Map<String, dynamic> _$NotesNoteToJson(NotesNote instance) => <String, dynamic>{
       'errorType': instance.errorType,
     };
 
-NotesSettings _$NotesSettingsFromJson(Map<String, dynamic> json) => NotesSettings(
-      notesPath: json['notesPath'] as String,
-      fileSuffix: json['fileSuffix'] as String,
-      noteMode: $enumDecode(_$NotesSettings_NoteModeEnumMap, json['noteMode']),
-    );
+NotesSettings _$NotesSettingsFromJson(Map<String, dynamic> json) {
+  $checkKeys(
+    json,
+    allowedKeys: const ['notesPath', 'fileSuffix', 'noteMode'],
+  );
+  return NotesSettings(
+    notesPath: json['notesPath'] as String,
+    fileSuffix: json['fileSuffix'] as String,
+    noteMode: $enumDecode(_$NotesSettings_NoteModeEnumMap, json['noteMode']),
+  );
+}
 
 Map<String, dynamic> _$NotesSettingsToJson(NotesSettings instance) => <String, dynamic>{
       'notesPath': instance.notesPath,
@@ -1161,13 +1606,18 @@ const _$NotesSettings_NoteModeEnumMap = {
   NotesSettings_NoteMode.preview: 'preview',
 };
 
-NotificationsNotificationAction _$NotificationsNotificationActionFromJson(Map<String, dynamic> json) =>
-    NotificationsNotificationAction(
-      label: json['label'] as String,
-      link: json['link'] as String,
-      type: json['type'] as String,
-      primary: json['primary'] as bool?,
-    );
+NotificationsNotificationAction _$NotificationsNotificationActionFromJson(Map<String, dynamic> json) {
+  $checkKeys(
+    json,
+    allowedKeys: const ['label', 'link', 'type', 'primary'],
+  );
+  return NotificationsNotificationAction(
+    label: json['label'] as String,
+    link: json['link'] as String,
+    type: json['type'] as String,
+    primary: json['primary'] as bool?,
+  );
+}
 
 Map<String, dynamic> _$NotificationsNotificationActionToJson(NotificationsNotificationAction instance) =>
     <String, dynamic>{
@@ -1177,25 +1627,47 @@ Map<String, dynamic> _$NotificationsNotificationActionToJson(NotificationsNotifi
       'primary': instance.primary,
     };
 
-NotificationsNotification _$NotificationsNotificationFromJson(Map<String, dynamic> json) => NotificationsNotification(
-      notificationId: json['notification_id'] as int,
-      app: json['app'] as String,
-      user: json['user'] as String,
-      datetime: json['datetime'] as String,
-      objectType: json['object_type'] as String,
-      objectId: json['object_id'] as String,
-      subject: json['subject'] as String,
-      message: json['message'] as String,
-      link: json['link'] as String,
-      subjectRich: json['subjectRich'] as String,
-      subjectRichParameters: NotificationsNotification_SubjectRichParameters.fromJson(json['subjectRichParameters']),
-      messageRich: json['messageRich'] as String,
-      messageRichParameters: NotificationsNotification_MessageRichParameters.fromJson(json['messageRichParameters']),
-      icon: json['icon'] as String,
-      actions: (json['actions'] as List<dynamic>)
-          .map((e) => NotificationsNotificationAction.fromJson(e as Map<String, dynamic>))
-          .toList(),
-    );
+NotificationsNotification _$NotificationsNotificationFromJson(Map<String, dynamic> json) {
+  $checkKeys(
+    json,
+    allowedKeys: const [
+      'notification_id',
+      'app',
+      'user',
+      'datetime',
+      'object_type',
+      'object_id',
+      'subject',
+      'message',
+      'link',
+      'subjectRich',
+      'subjectRichParameters',
+      'messageRich',
+      'messageRichParameters',
+      'icon',
+      'actions'
+    ],
+  );
+  return NotificationsNotification(
+    notificationId: json['notification_id'] as int,
+    app: json['app'] as String,
+    user: json['user'] as String,
+    datetime: json['datetime'] as String,
+    objectType: json['object_type'] as String,
+    objectId: json['object_id'] as String,
+    subject: json['subject'] as String,
+    message: json['message'] as String,
+    link: json['link'] as String,
+    subjectRich: json['subjectRich'] as String,
+    subjectRichParameters: NotificationsNotification_SubjectRichParameters.fromJson(json['subjectRichParameters']),
+    messageRich: json['messageRich'] as String,
+    messageRichParameters: NotificationsNotification_MessageRichParameters.fromJson(json['messageRichParameters']),
+    icon: json['icon'] as String,
+    actions: (json['actions'] as List<dynamic>)
+        .map((e) => NotificationsNotificationAction.fromJson(e as Map<String, dynamic>))
+        .toList(),
+  );
+}
 
 Map<String, dynamic> _$NotificationsNotificationToJson(NotificationsNotification instance) => <String, dynamic>{
       'notification_id': instance.notificationId,
@@ -1215,13 +1687,18 @@ Map<String, dynamic> _$NotificationsNotificationToJson(NotificationsNotification
       'actions': instance.actions.map((e) => e.toJson()).toList(),
     };
 
-NotificationsListNotifications_Ocs _$NotificationsListNotifications_OcsFromJson(Map<String, dynamic> json) =>
-    NotificationsListNotifications_Ocs(
-      meta: OCSMeta.fromJson(json['meta'] as Map<String, dynamic>),
-      data: (json['data'] as List<dynamic>)
-          .map((e) => NotificationsNotification.fromJson(e as Map<String, dynamic>))
-          .toList(),
-    );
+NotificationsListNotifications_Ocs _$NotificationsListNotifications_OcsFromJson(Map<String, dynamic> json) {
+  $checkKeys(
+    json,
+    allowedKeys: const ['meta', 'data'],
+  );
+  return NotificationsListNotifications_Ocs(
+    meta: OCSMeta.fromJson(json['meta'] as Map<String, dynamic>),
+    data: (json['data'] as List<dynamic>)
+        .map((e) => NotificationsNotification.fromJson(e as Map<String, dynamic>))
+        .toList(),
+  );
+}
 
 Map<String, dynamic> _$NotificationsListNotifications_OcsToJson(NotificationsListNotifications_Ocs instance) =>
     <String, dynamic>{
@@ -1229,21 +1706,31 @@ Map<String, dynamic> _$NotificationsListNotifications_OcsToJson(NotificationsLis
       'data': instance.data.map((e) => e.toJson()).toList(),
     };
 
-NotificationsListNotifications _$NotificationsListNotificationsFromJson(Map<String, dynamic> json) =>
-    NotificationsListNotifications(
-      ocs: NotificationsListNotifications_Ocs.fromJson(json['ocs'] as Map<String, dynamic>),
-    );
+NotificationsListNotifications _$NotificationsListNotificationsFromJson(Map<String, dynamic> json) {
+  $checkKeys(
+    json,
+    allowedKeys: const ['ocs'],
+  );
+  return NotificationsListNotifications(
+    ocs: NotificationsListNotifications_Ocs.fromJson(json['ocs'] as Map<String, dynamic>),
+  );
+}
 
 Map<String, dynamic> _$NotificationsListNotificationsToJson(NotificationsListNotifications instance) =>
     <String, dynamic>{
       'ocs': instance.ocs.toJson(),
     };
 
-NotificationsGetNotification_Ocs _$NotificationsGetNotification_OcsFromJson(Map<String, dynamic> json) =>
-    NotificationsGetNotification_Ocs(
-      meta: OCSMeta.fromJson(json['meta'] as Map<String, dynamic>),
-      data: NotificationsNotification.fromJson(json['data'] as Map<String, dynamic>),
-    );
+NotificationsGetNotification_Ocs _$NotificationsGetNotification_OcsFromJson(Map<String, dynamic> json) {
+  $checkKeys(
+    json,
+    allowedKeys: const ['meta', 'data'],
+  );
+  return NotificationsGetNotification_Ocs(
+    meta: OCSMeta.fromJson(json['meta'] as Map<String, dynamic>),
+    data: NotificationsNotification.fromJson(json['data'] as Map<String, dynamic>),
+  );
+}
 
 Map<String, dynamic> _$NotificationsGetNotification_OcsToJson(NotificationsGetNotification_Ocs instance) =>
     <String, dynamic>{
@@ -1251,40 +1738,62 @@ Map<String, dynamic> _$NotificationsGetNotification_OcsToJson(NotificationsGetNo
       'data': instance.data.toJson(),
     };
 
-NotificationsGetNotification _$NotificationsGetNotificationFromJson(Map<String, dynamic> json) =>
-    NotificationsGetNotification(
-      ocs: NotificationsGetNotification_Ocs.fromJson(json['ocs'] as Map<String, dynamic>),
-    );
+NotificationsGetNotification _$NotificationsGetNotificationFromJson(Map<String, dynamic> json) {
+  $checkKeys(
+    json,
+    allowedKeys: const ['ocs'],
+  );
+  return NotificationsGetNotification(
+    ocs: NotificationsGetNotification_Ocs.fromJson(json['ocs'] as Map<String, dynamic>),
+  );
+}
 
 Map<String, dynamic> _$NotificationsGetNotificationToJson(NotificationsGetNotification instance) => <String, dynamic>{
       'ocs': instance.ocs.toJson(),
     };
 
-EmptyOCS_Ocs _$EmptyOCS_OcsFromJson(Map<String, dynamic> json) => EmptyOCS_Ocs(
-      meta: OCSMeta.fromJson(json['meta'] as Map<String, dynamic>),
-      data: json['data'] as List<dynamic>,
-    );
+EmptyOCS_Ocs _$EmptyOCS_OcsFromJson(Map<String, dynamic> json) {
+  $checkKeys(
+    json,
+    allowedKeys: const ['meta', 'data'],
+  );
+  return EmptyOCS_Ocs(
+    meta: OCSMeta.fromJson(json['meta'] as Map<String, dynamic>),
+    data: json['data'] as List<dynamic>,
+  );
+}
 
 Map<String, dynamic> _$EmptyOCS_OcsToJson(EmptyOCS_Ocs instance) => <String, dynamic>{
       'meta': instance.meta.toJson(),
       'data': instance.data,
     };
 
-EmptyOCS _$EmptyOCSFromJson(Map<String, dynamic> json) => EmptyOCS(
-      ocs: EmptyOCS_Ocs.fromJson(json['ocs'] as Map<String, dynamic>),
-    );
+EmptyOCS _$EmptyOCSFromJson(Map<String, dynamic> json) {
+  $checkKeys(
+    json,
+    allowedKeys: const ['ocs'],
+  );
+  return EmptyOCS(
+    ocs: EmptyOCS_Ocs.fromJson(json['ocs'] as Map<String, dynamic>),
+  );
+}
 
 Map<String, dynamic> _$EmptyOCSToJson(EmptyOCS instance) => <String, dynamic>{
       'ocs': instance.ocs.toJson(),
     };
 
-NotificationsPushServerSubscription _$NotificationsPushServerSubscriptionFromJson(Map<String, dynamic> json) =>
-    NotificationsPushServerSubscription(
-      publicKey: json['publicKey'] as String,
-      deviceIdentifier: json['deviceIdentifier'] as String,
-      signature: json['signature'] as String,
-      message: json['message'] as String?,
-    );
+NotificationsPushServerSubscription _$NotificationsPushServerSubscriptionFromJson(Map<String, dynamic> json) {
+  $checkKeys(
+    json,
+    allowedKeys: const ['publicKey', 'deviceIdentifier', 'signature', 'message'],
+  );
+  return NotificationsPushServerSubscription(
+    publicKey: json['publicKey'] as String,
+    deviceIdentifier: json['deviceIdentifier'] as String,
+    signature: json['signature'] as String,
+    message: json['message'] as String?,
+  );
+}
 
 Map<String, dynamic> _$NotificationsPushServerSubscriptionToJson(NotificationsPushServerSubscription instance) =>
     <String, dynamic>{
@@ -1294,11 +1803,16 @@ Map<String, dynamic> _$NotificationsPushServerSubscriptionToJson(NotificationsPu
       'message': instance.message,
     };
 
-NotificationsPushServerRegistration_Ocs _$NotificationsPushServerRegistration_OcsFromJson(Map<String, dynamic> json) =>
-    NotificationsPushServerRegistration_Ocs(
-      meta: OCSMeta.fromJson(json['meta'] as Map<String, dynamic>),
-      data: NotificationsPushServerSubscription.fromJson(json['data'] as Map<String, dynamic>),
-    );
+NotificationsPushServerRegistration_Ocs _$NotificationsPushServerRegistration_OcsFromJson(Map<String, dynamic> json) {
+  $checkKeys(
+    json,
+    allowedKeys: const ['meta', 'data'],
+  );
+  return NotificationsPushServerRegistration_Ocs(
+    meta: OCSMeta.fromJson(json['meta'] as Map<String, dynamic>),
+    data: NotificationsPushServerSubscription.fromJson(json['data'] as Map<String, dynamic>),
+  );
+}
 
 Map<String, dynamic> _$NotificationsPushServerRegistration_OcsToJson(
         NotificationsPushServerRegistration_Ocs instance) =>
@@ -1307,24 +1821,34 @@ Map<String, dynamic> _$NotificationsPushServerRegistration_OcsToJson(
       'data': instance.data.toJson(),
     };
 
-NotificationsPushServerRegistration _$NotificationsPushServerRegistrationFromJson(Map<String, dynamic> json) =>
-    NotificationsPushServerRegistration(
-      ocs: NotificationsPushServerRegistration_Ocs.fromJson(json['ocs'] as Map<String, dynamic>),
-    );
+NotificationsPushServerRegistration _$NotificationsPushServerRegistrationFromJson(Map<String, dynamic> json) {
+  $checkKeys(
+    json,
+    allowedKeys: const ['ocs'],
+  );
+  return NotificationsPushServerRegistration(
+    ocs: NotificationsPushServerRegistration_Ocs.fromJson(json['ocs'] as Map<String, dynamic>),
+  );
+}
 
 Map<String, dynamic> _$NotificationsPushServerRegistrationToJson(NotificationsPushServerRegistration instance) =>
     <String, dynamic>{
       'ocs': instance.ocs.toJson(),
     };
 
-ProvisioningApiUserDetails_Quota _$ProvisioningApiUserDetails_QuotaFromJson(Map<String, dynamic> json) =>
-    ProvisioningApiUserDetails_Quota(
-      free: json['free'] as int,
-      used: json['used'] as int,
-      total: json['total'] as int,
-      relative: json['relative'] as num,
-      quota: json['quota'] as int,
-    );
+ProvisioningApiUserDetails_Quota _$ProvisioningApiUserDetails_QuotaFromJson(Map<String, dynamic> json) {
+  $checkKeys(
+    json,
+    allowedKeys: const ['free', 'used', 'total', 'relative', 'quota'],
+  );
+  return ProvisioningApiUserDetails_Quota(
+    free: json['free'] as int,
+    used: json['used'] as int,
+    total: json['total'] as int,
+    relative: json['relative'] as num,
+    quota: json['quota'] as int,
+  );
+}
 
 Map<String, dynamic> _$ProvisioningApiUserDetails_QuotaToJson(ProvisioningApiUserDetails_Quota instance) =>
     <String, dynamic>{
@@ -1336,11 +1860,16 @@ Map<String, dynamic> _$ProvisioningApiUserDetails_QuotaToJson(ProvisioningApiUse
     };
 
 ProvisioningApiUserDetails_BackendCapabilities _$ProvisioningApiUserDetails_BackendCapabilitiesFromJson(
-        Map<String, dynamic> json) =>
-    ProvisioningApiUserDetails_BackendCapabilities(
-      setDisplayName: json['setDisplayName'] as bool,
-      setPassword: json['setPassword'] as bool,
-    );
+    Map<String, dynamic> json) {
+  $checkKeys(
+    json,
+    allowedKeys: const ['setDisplayName', 'setPassword'],
+  );
+  return ProvisioningApiUserDetails_BackendCapabilities(
+    setDisplayName: json['setDisplayName'] as bool,
+    setPassword: json['setPassword'] as bool,
+  );
+}
 
 Map<String, dynamic> _$ProvisioningApiUserDetails_BackendCapabilitiesToJson(
         ProvisioningApiUserDetails_BackendCapabilities instance) =>
@@ -1349,48 +1878,92 @@ Map<String, dynamic> _$ProvisioningApiUserDetails_BackendCapabilitiesToJson(
       'setPassword': instance.setPassword,
     };
 
-ProvisioningApiUserDetails _$ProvisioningApiUserDetailsFromJson(Map<String, dynamic> json) =>
-    ProvisioningApiUserDetails(
-      enabled: json['enabled'] as bool?,
-      storageLocation: json['storageLocation'] as String,
-      id: json['id'] as String,
-      lastLogin: json['lastLogin'] as int,
-      backend: json['backend'] as String,
-      subadmin: (json['subadmin'] as List<dynamic>).map((e) => e as String).toList(),
-      quota: ProvisioningApiUserDetails_Quota.fromJson(json['quota'] as Map<String, dynamic>),
-      avatarScope: json['avatarScope'] as String,
-      email: json['email'] as String?,
-      emailScope: json['emailScope'] as String,
-      additionalMail: (json['additional_mail'] as List<dynamic>).map((e) => e as String).toList(),
-      additionalMailScope: (json['additional_mailScope'] as List<dynamic>).map((e) => e as String).toList(),
-      displayname: json['displayname'] as String?,
-      displaynameScope: json['displaynameScope'] as String,
-      phone: json['phone'] as String,
-      phoneScope: json['phoneScope'] as String,
-      address: json['address'] as String,
-      addressScope: json['addressScope'] as String,
-      website: json['website'] as String,
-      websiteScope: json['websiteScope'] as String,
-      twitter: json['twitter'] as String,
-      twitterScope: json['twitterScope'] as String,
-      organisation: json['organisation'] as String,
-      organisationScope: json['organisationScope'] as String,
-      role: json['role'] as String,
-      roleScope: json['roleScope'] as String,
-      headline: json['headline'] as String,
-      headlineScope: json['headlineScope'] as String,
-      biography: json['biography'] as String,
-      biographyScope: json['biographyScope'] as String,
-      profileEnabled: json['profile_enabled'] as String,
-      profileEnabledScope: json['profile_enabledScope'] as String,
-      groups: (json['groups'] as List<dynamic>).map((e) => e as String).toList(),
-      language: json['language'] as String,
-      locale: json['locale'] as String,
-      notifyEmail: json['notify_email'] as String?,
-      backendCapabilities:
-          ProvisioningApiUserDetails_BackendCapabilities.fromJson(json['backendCapabilities'] as Map<String, dynamic>),
-      displayName: json['display-name'] as String?,
-    );
+ProvisioningApiUserDetails _$ProvisioningApiUserDetailsFromJson(Map<String, dynamic> json) {
+  $checkKeys(
+    json,
+    allowedKeys: const [
+      'enabled',
+      'storageLocation',
+      'id',
+      'lastLogin',
+      'backend',
+      'subadmin',
+      'quota',
+      'avatarScope',
+      'email',
+      'emailScope',
+      'additional_mail',
+      'additional_mailScope',
+      'displayname',
+      'displaynameScope',
+      'phone',
+      'phoneScope',
+      'address',
+      'addressScope',
+      'website',
+      'websiteScope',
+      'twitter',
+      'twitterScope',
+      'organisation',
+      'organisationScope',
+      'role',
+      'roleScope',
+      'headline',
+      'headlineScope',
+      'biography',
+      'biographyScope',
+      'profile_enabled',
+      'profile_enabledScope',
+      'groups',
+      'language',
+      'locale',
+      'notify_email',
+      'backendCapabilities',
+      'display-name'
+    ],
+  );
+  return ProvisioningApiUserDetails(
+    enabled: json['enabled'] as bool?,
+    storageLocation: json['storageLocation'] as String,
+    id: json['id'] as String,
+    lastLogin: json['lastLogin'] as int,
+    backend: json['backend'] as String,
+    subadmin: (json['subadmin'] as List<dynamic>).map((e) => e as String).toList(),
+    quota: ProvisioningApiUserDetails_Quota.fromJson(json['quota'] as Map<String, dynamic>),
+    avatarScope: json['avatarScope'] as String,
+    email: json['email'] as String?,
+    emailScope: json['emailScope'] as String,
+    additionalMail: (json['additional_mail'] as List<dynamic>).map((e) => e as String).toList(),
+    additionalMailScope: (json['additional_mailScope'] as List<dynamic>).map((e) => e as String).toList(),
+    displayname: json['displayname'] as String?,
+    displaynameScope: json['displaynameScope'] as String,
+    phone: json['phone'] as String,
+    phoneScope: json['phoneScope'] as String,
+    address: json['address'] as String,
+    addressScope: json['addressScope'] as String,
+    website: json['website'] as String,
+    websiteScope: json['websiteScope'] as String,
+    twitter: json['twitter'] as String,
+    twitterScope: json['twitterScope'] as String,
+    organisation: json['organisation'] as String,
+    organisationScope: json['organisationScope'] as String,
+    role: json['role'] as String,
+    roleScope: json['roleScope'] as String,
+    headline: json['headline'] as String,
+    headlineScope: json['headlineScope'] as String,
+    biography: json['biography'] as String,
+    biographyScope: json['biographyScope'] as String,
+    profileEnabled: json['profile_enabled'] as String,
+    profileEnabledScope: json['profile_enabledScope'] as String,
+    groups: (json['groups'] as List<dynamic>).map((e) => e as String).toList(),
+    language: json['language'] as String,
+    locale: json['locale'] as String,
+    notifyEmail: json['notify_email'] as String?,
+    backendCapabilities:
+        ProvisioningApiUserDetails_BackendCapabilities.fromJson(json['backendCapabilities'] as Map<String, dynamic>),
+    displayName: json['display-name'] as String?,
+  );
+}
 
 Map<String, dynamic> _$ProvisioningApiUserDetailsToJson(ProvisioningApiUserDetails instance) => <String, dynamic>{
       'enabled': instance.enabled,
@@ -1433,19 +2006,31 @@ Map<String, dynamic> _$ProvisioningApiUserDetailsToJson(ProvisioningApiUserDetai
       'display-name': instance.displayName,
     };
 
-ProvisioningApiUser_Ocs _$ProvisioningApiUser_OcsFromJson(Map<String, dynamic> json) => ProvisioningApiUser_Ocs(
-      meta: OCSMeta.fromJson(json['meta'] as Map<String, dynamic>),
-      data: ProvisioningApiUserDetails.fromJson(json['data'] as Map<String, dynamic>),
-    );
+ProvisioningApiUser_Ocs _$ProvisioningApiUser_OcsFromJson(Map<String, dynamic> json) {
+  $checkKeys(
+    json,
+    allowedKeys: const ['meta', 'data'],
+  );
+  return ProvisioningApiUser_Ocs(
+    meta: OCSMeta.fromJson(json['meta'] as Map<String, dynamic>),
+    data: ProvisioningApiUserDetails.fromJson(json['data'] as Map<String, dynamic>),
+  );
+}
 
 Map<String, dynamic> _$ProvisioningApiUser_OcsToJson(ProvisioningApiUser_Ocs instance) => <String, dynamic>{
       'meta': instance.meta.toJson(),
       'data': instance.data.toJson(),
     };
 
-ProvisioningApiUser _$ProvisioningApiUserFromJson(Map<String, dynamic> json) => ProvisioningApiUser(
-      ocs: ProvisioningApiUser_Ocs.fromJson(json['ocs'] as Map<String, dynamic>),
-    );
+ProvisioningApiUser _$ProvisioningApiUserFromJson(Map<String, dynamic> json) {
+  $checkKeys(
+    json,
+    allowedKeys: const ['ocs'],
+  );
+  return ProvisioningApiUser(
+    ocs: ProvisioningApiUser_Ocs.fromJson(json['ocs'] as Map<String, dynamic>),
+  );
+}
 
 Map<String, dynamic> _$ProvisioningApiUserToJson(ProvisioningApiUser instance) => <String, dynamic>{
       'ocs': instance.ocs.toJson(),
@@ -1472,14 +2057,19 @@ const _$UserStatusClearAt_TypeEnumMap = {
   UserStatusClearAt_Type.endOf: 'end-of',
 };
 
-UserStatusPublicUserStatus _$UserStatusPublicUserStatusFromJson(Map<String, dynamic> json) =>
-    UserStatusPublicUserStatus(
-      userId: json['userId'] as String,
-      message: json['message'] as String?,
-      icon: json['icon'] as String?,
-      clearAt: UserStatusPublicUserStatus_ClearAt.fromJson(json['clearAt']),
-      status: $enumDecode(_$UserStatusTypeEnumMap, json['status']),
-    );
+UserStatusPublicUserStatus _$UserStatusPublicUserStatusFromJson(Map<String, dynamic> json) {
+  $checkKeys(
+    json,
+    allowedKeys: const ['userId', 'message', 'icon', 'clearAt', 'status'],
+  );
+  return UserStatusPublicUserStatus(
+    userId: json['userId'] as String,
+    message: json['message'] as String?,
+    icon: json['icon'] as String?,
+    clearAt: UserStatusPublicUserStatus_ClearAt.fromJson(json['clearAt']),
+    status: $enumDecode(_$UserStatusTypeEnumMap, json['status']),
+  );
+}
 
 Map<String, dynamic> _$UserStatusPublicUserStatusToJson(UserStatusPublicUserStatus instance) => <String, dynamic>{
       'userId': instance.userId,
@@ -1497,40 +2087,63 @@ const _$UserStatusTypeEnumMap = {
   UserStatusType.invisible: 'invisible',
 };
 
-UserStatusFindAllStatuses_Ocs _$UserStatusFindAllStatuses_OcsFromJson(Map<String, dynamic> json) =>
-    UserStatusFindAllStatuses_Ocs(
-      meta: OCSMeta.fromJson(json['meta'] as Map<String, dynamic>),
-      data: (json['data'] as List<dynamic>)
-          .map((e) => UserStatusPublicUserStatus.fromJson(e as Map<String, dynamic>))
-          .toList(),
-    );
+UserStatusFindAllStatuses_Ocs _$UserStatusFindAllStatuses_OcsFromJson(Map<String, dynamic> json) {
+  $checkKeys(
+    json,
+    allowedKeys: const ['meta', 'data'],
+  );
+  return UserStatusFindAllStatuses_Ocs(
+    meta: OCSMeta.fromJson(json['meta'] as Map<String, dynamic>),
+    data: (json['data'] as List<dynamic>)
+        .map((e) => UserStatusPublicUserStatus.fromJson(e as Map<String, dynamic>))
+        .toList(),
+  );
+}
 
 Map<String, dynamic> _$UserStatusFindAllStatuses_OcsToJson(UserStatusFindAllStatuses_Ocs instance) => <String, dynamic>{
       'meta': instance.meta.toJson(),
       'data': instance.data.map((e) => e.toJson()).toList(),
     };
 
-UserStatusFindAllStatuses _$UserStatusFindAllStatusesFromJson(Map<String, dynamic> json) => UserStatusFindAllStatuses(
-      ocs: UserStatusFindAllStatuses_Ocs.fromJson(json['ocs'] as Map<String, dynamic>),
-    );
+UserStatusFindAllStatuses _$UserStatusFindAllStatusesFromJson(Map<String, dynamic> json) {
+  $checkKeys(
+    json,
+    allowedKeys: const ['ocs'],
+  );
+  return UserStatusFindAllStatuses(
+    ocs: UserStatusFindAllStatuses_Ocs.fromJson(json['ocs'] as Map<String, dynamic>),
+  );
+}
 
 Map<String, dynamic> _$UserStatusFindAllStatusesToJson(UserStatusFindAllStatuses instance) => <String, dynamic>{
       'ocs': instance.ocs.toJson(),
     };
 
-UserStatusFindStatus_Ocs _$UserStatusFindStatus_OcsFromJson(Map<String, dynamic> json) => UserStatusFindStatus_Ocs(
-      meta: OCSMeta.fromJson(json['meta'] as Map<String, dynamic>),
-      data: UserStatusFindStatus_Ocs_Data.fromJson(json['data']),
-    );
+UserStatusFindStatus_Ocs _$UserStatusFindStatus_OcsFromJson(Map<String, dynamic> json) {
+  $checkKeys(
+    json,
+    allowedKeys: const ['meta', 'data'],
+  );
+  return UserStatusFindStatus_Ocs(
+    meta: OCSMeta.fromJson(json['meta'] as Map<String, dynamic>),
+    data: UserStatusFindStatus_Ocs_Data.fromJson(json['data']),
+  );
+}
 
 Map<String, dynamic> _$UserStatusFindStatus_OcsToJson(UserStatusFindStatus_Ocs instance) => <String, dynamic>{
       'meta': instance.meta.toJson(),
       'data': instance.data.toJson(),
     };
 
-UserStatusFindStatus _$UserStatusFindStatusFromJson(Map<String, dynamic> json) => UserStatusFindStatus(
-      ocs: UserStatusFindStatus_Ocs.fromJson(json['ocs'] as Map<String, dynamic>),
-    );
+UserStatusFindStatus _$UserStatusFindStatusFromJson(Map<String, dynamic> json) {
+  $checkKeys(
+    json,
+    allowedKeys: const ['ocs'],
+  );
+  return UserStatusFindStatus(
+    ocs: UserStatusFindStatus_Ocs.fromJson(json['ocs'] as Map<String, dynamic>),
+  );
+}
 
 Map<String, dynamic> _$UserStatusFindStatusToJson(UserStatusFindStatus instance) => <String, dynamic>{
       'ocs': instance.ocs.toJson(),
@@ -1573,32 +2186,48 @@ Map<String, dynamic> _$UserStatusToJson(UserStatus instance) => <String, dynamic
       'statusIsUserDefined': instance.statusIsUserDefined,
     };
 
-UserStatusGetUserStatus_Ocs _$UserStatusGetUserStatus_OcsFromJson(Map<String, dynamic> json) =>
-    UserStatusGetUserStatus_Ocs(
-      meta: OCSMeta.fromJson(json['meta'] as Map<String, dynamic>),
-      data: UserStatusGetUserStatus_Ocs_Data.fromJson(json['data']),
-    );
+UserStatusGetUserStatus_Ocs _$UserStatusGetUserStatus_OcsFromJson(Map<String, dynamic> json) {
+  $checkKeys(
+    json,
+    allowedKeys: const ['meta', 'data'],
+  );
+  return UserStatusGetUserStatus_Ocs(
+    meta: OCSMeta.fromJson(json['meta'] as Map<String, dynamic>),
+    data: UserStatusGetUserStatus_Ocs_Data.fromJson(json['data']),
+  );
+}
 
 Map<String, dynamic> _$UserStatusGetUserStatus_OcsToJson(UserStatusGetUserStatus_Ocs instance) => <String, dynamic>{
       'meta': instance.meta.toJson(),
       'data': instance.data.toJson(),
     };
 
-UserStatusGetUserStatus _$UserStatusGetUserStatusFromJson(Map<String, dynamic> json) => UserStatusGetUserStatus(
-      ocs: UserStatusGetUserStatus_Ocs.fromJson(json['ocs'] as Map<String, dynamic>),
-    );
+UserStatusGetUserStatus _$UserStatusGetUserStatusFromJson(Map<String, dynamic> json) {
+  $checkKeys(
+    json,
+    allowedKeys: const ['ocs'],
+  );
+  return UserStatusGetUserStatus(
+    ocs: UserStatusGetUserStatus_Ocs.fromJson(json['ocs'] as Map<String, dynamic>),
+  );
+}
 
 Map<String, dynamic> _$UserStatusGetUserStatusToJson(UserStatusGetUserStatus instance) => <String, dynamic>{
       'ocs': instance.ocs.toJson(),
     };
 
-UserStatusPredefinedStatus _$UserStatusPredefinedStatusFromJson(Map<String, dynamic> json) =>
-    UserStatusPredefinedStatus(
-      id: json['id'] as String,
-      icon: json['icon'] as String,
-      message: json['message'] as String,
-      clearAt: UserStatusPredefinedStatus_ClearAt.fromJson(json['clearAt']),
-    );
+UserStatusPredefinedStatus _$UserStatusPredefinedStatusFromJson(Map<String, dynamic> json) {
+  $checkKeys(
+    json,
+    allowedKeys: const ['id', 'icon', 'message', 'clearAt'],
+  );
+  return UserStatusPredefinedStatus(
+    id: json['id'] as String,
+    icon: json['icon'] as String,
+    message: json['message'] as String,
+    clearAt: UserStatusPredefinedStatus_ClearAt.fromJson(json['clearAt']),
+  );
+}
 
 Map<String, dynamic> _$UserStatusPredefinedStatusToJson(UserStatusPredefinedStatus instance) => <String, dynamic>{
       'id': instance.id,
@@ -1607,13 +2236,18 @@ Map<String, dynamic> _$UserStatusPredefinedStatusToJson(UserStatusPredefinedStat
       'clearAt': instance.clearAt.toJson(),
     };
 
-UserStatusPredefinedStatuses_Ocs _$UserStatusPredefinedStatuses_OcsFromJson(Map<String, dynamic> json) =>
-    UserStatusPredefinedStatuses_Ocs(
-      meta: OCSMeta.fromJson(json['meta'] as Map<String, dynamic>),
-      data: (json['data'] as List<dynamic>)
-          .map((e) => UserStatusPredefinedStatus.fromJson(e as Map<String, dynamic>))
-          .toList(),
-    );
+UserStatusPredefinedStatuses_Ocs _$UserStatusPredefinedStatuses_OcsFromJson(Map<String, dynamic> json) {
+  $checkKeys(
+    json,
+    allowedKeys: const ['meta', 'data'],
+  );
+  return UserStatusPredefinedStatuses_Ocs(
+    meta: OCSMeta.fromJson(json['meta'] as Map<String, dynamic>),
+    data: (json['data'] as List<dynamic>)
+        .map((e) => UserStatusPredefinedStatus.fromJson(e as Map<String, dynamic>))
+        .toList(),
+  );
+}
 
 Map<String, dynamic> _$UserStatusPredefinedStatuses_OcsToJson(UserStatusPredefinedStatuses_Ocs instance) =>
     <String, dynamic>{
@@ -1621,26 +2255,36 @@ Map<String, dynamic> _$UserStatusPredefinedStatuses_OcsToJson(UserStatusPredefin
       'data': instance.data.map((e) => e.toJson()).toList(),
     };
 
-UserStatusPredefinedStatuses _$UserStatusPredefinedStatusesFromJson(Map<String, dynamic> json) =>
-    UserStatusPredefinedStatuses(
-      ocs: UserStatusPredefinedStatuses_Ocs.fromJson(json['ocs'] as Map<String, dynamic>),
-    );
+UserStatusPredefinedStatuses _$UserStatusPredefinedStatusesFromJson(Map<String, dynamic> json) {
+  $checkKeys(
+    json,
+    allowedKeys: const ['ocs'],
+  );
+  return UserStatusPredefinedStatuses(
+    ocs: UserStatusPredefinedStatuses_Ocs.fromJson(json['ocs'] as Map<String, dynamic>),
+  );
+}
 
 Map<String, dynamic> _$UserStatusPredefinedStatusesToJson(UserStatusPredefinedStatuses instance) => <String, dynamic>{
       'ocs': instance.ocs.toJson(),
     };
 
 NotificationsPushNotificationDecryptedSubject _$NotificationsPushNotificationDecryptedSubjectFromJson(
-        Map<String, dynamic> json) =>
-    NotificationsPushNotificationDecryptedSubject(
-      nid: json['nid'] as int?,
-      app: json['app'] as String?,
-      subject: json['subject'] as String?,
-      type: json['type'] as String?,
-      id: json['id'] as String?,
-      delete: json['delete'] as bool?,
-      deleteAll: json['delete-all'] as bool?,
-    );
+    Map<String, dynamic> json) {
+  $checkKeys(
+    json,
+    allowedKeys: const ['nid', 'app', 'subject', 'type', 'id', 'delete', 'delete-all'],
+  );
+  return NotificationsPushNotificationDecryptedSubject(
+    nid: json['nid'] as int?,
+    app: json['app'] as String?,
+    subject: json['subject'] as String?,
+    type: json['type'] as String?,
+    id: json['id'] as String?,
+    delete: json['delete'] as bool?,
+    deleteAll: json['delete-all'] as bool?,
+  );
+}
 
 Map<String, dynamic> _$NotificationsPushNotificationDecryptedSubjectToJson(
         NotificationsPushNotificationDecryptedSubject instance) =>
@@ -1654,13 +2298,18 @@ Map<String, dynamic> _$NotificationsPushNotificationDecryptedSubjectToJson(
       'delete-all': instance.deleteAll,
     };
 
-NotificationsPushNotification _$NotificationsPushNotificationFromJson(Map<String, dynamic> json) =>
-    NotificationsPushNotification(
-      accountID: json['accountID'] as String,
-      priority: json['priority'] as String,
-      type: json['type'] as String,
-      subject: NotificationsPushNotificationDecryptedSubject.fromJson(json['subject'] as Map<String, dynamic>),
-    );
+NotificationsPushNotification _$NotificationsPushNotificationFromJson(Map<String, dynamic> json) {
+  $checkKeys(
+    json,
+    allowedKeys: const ['accountID', 'priority', 'type', 'subject'],
+  );
+  return NotificationsPushNotification(
+    accountID: json['accountID'] as String,
+    priority: json['priority'] as String,
+    type: json['type'] as String,
+    subject: NotificationsPushNotificationDecryptedSubject.fromJson(json['subject'] as Map<String, dynamic>),
+  );
+}
 
 Map<String, dynamic> _$NotificationsPushNotificationToJson(NotificationsPushNotification instance) => <String, dynamic>{
       'accountID': instance.accountID,
