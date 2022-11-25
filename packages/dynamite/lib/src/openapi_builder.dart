@@ -533,11 +533,23 @@ class OpenAPIBuilder implements Builder {
                                 ..optionalParameters.addAll(
                                   schema.properties!.keys.map(
                                     (final propertyName) => Parameter(
-                                      (final b) => b
-                                        ..name = _toDartName(propertyName)
-                                        ..toThis = true
-                                        ..named = true
-                                        ..required = (schema.required ?? []).contains(propertyName),
+                                      (final b) {
+                                        final propertySchema = schema.properties![propertyName]!;
+                                        b
+                                          ..name = _toDartName(propertyName)
+                                          ..toThis = true
+                                          ..named = true
+                                          ..required = (schema.required ?? []).contains(propertyName) &&
+                                              propertySchema.default_ == null;
+                                        if (propertySchema.default_ != null) {
+                                          final value = propertySchema.default_!.toString();
+                                          final result = resolveType(
+                                            propertySchema.type!,
+                                            propertySchema,
+                                          );
+                                          b.defaultTo = Code(_valueToEscapedValue(result.name, value));
+                                        }
+                                      },
                                     ),
                                   ),
                                 ),
