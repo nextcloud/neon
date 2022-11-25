@@ -135,10 +135,11 @@ CoreServerCapabilities_Ocs_Data_Capabilities_MetadataAvailable
     _$CoreServerCapabilities_Ocs_Data_Capabilities_MetadataAvailableFromJson(Map<String, dynamic> json) {
   $checkKeys(
     json,
-    allowedKeys: const ['size'],
+    allowedKeys: const ['size', 'gps'],
   );
   return CoreServerCapabilities_Ocs_Data_Capabilities_MetadataAvailable(
     size: (json['size'] as List<dynamic>).map((e) => e as String).toList(),
+    gps: (json['gps'] as List<dynamic>).map((e) => e as String).toList(),
   );
 }
 
@@ -146,6 +147,7 @@ Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_MetadataAvai
         CoreServerCapabilities_Ocs_Data_Capabilities_MetadataAvailable instance) =>
     <String, dynamic>{
       'size': instance.size,
+      'gps': instance.gps,
     };
 
 CoreServerCapabilities_Ocs_Data_Capabilities_Files_DirectEditing

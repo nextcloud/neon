@@ -290,12 +290,17 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_Bruteforce {
 
 @JsonSerializable()
 class CoreServerCapabilities_Ocs_Data_Capabilities_MetadataAvailable {
-  CoreServerCapabilities_Ocs_Data_Capabilities_MetadataAvailable({required this.size});
+  CoreServerCapabilities_Ocs_Data_Capabilities_MetadataAvailable({
+    required this.size,
+    required this.gps,
+  });
 
   factory CoreServerCapabilities_Ocs_Data_Capabilities_MetadataAvailable.fromJson(Map<String, dynamic> json) =>
       _$CoreServerCapabilities_Ocs_Data_Capabilities_MetadataAvailableFromJson(json);
 
   final List<String> size;
+
+  final List<String> gps;
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreServerCapabilities_Ocs_Data_Capabilities_MetadataAvailableToJson(this);
