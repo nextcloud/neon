@@ -1,3 +1,4 @@
+import 'package:dynamite/src/models/media_type.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'schema.g.dart';
@@ -19,6 +20,7 @@ class Schema {
     this.required,
     this.items,
     this.additionalProperties,
+    this.content,
   });
 
   factory Schema.fromJson(final Map<String, dynamic> json) => _$SchemaFromJson(json);
@@ -56,4 +58,8 @@ class Schema {
   final Schema? items;
 
   final bool? additionalProperties;
+
+  final Map<String, MediaType>? content;
+
+  bool get isJsonString => type == 'string' && content?['application/json']?.schema != null;
 }

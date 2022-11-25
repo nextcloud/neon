@@ -23,7 +23,8 @@ Schema _$SchemaFromJson(Map<String, dynamic> json) {
       'properties',
       'required',
       'items',
-      'additionalProperties'
+      'additionalProperties',
+      'content'
     ],
   );
   return Schema(
@@ -43,6 +44,9 @@ Schema _$SchemaFromJson(Map<String, dynamic> json) {
     required: (json['required'] as List<dynamic>?)?.map((e) => e as String).toList(),
     items: json['items'] == null ? null : Schema.fromJson(json['items'] as Map<String, dynamic>),
     additionalProperties: json['additionalProperties'] as bool?,
+    content: (json['content'] as Map<String, dynamic>?)?.map(
+      (k, e) => MapEntry(k, MediaType.fromJson(e as Map<String, dynamic>)),
+    ),
   );
 }
 
@@ -69,5 +73,6 @@ Map<String, dynamic> _$SchemaToJson(Schema instance) {
   writeNotNull('required', instance.required);
   writeNotNull('items', instance.items?.toJson());
   writeNotNull('additionalProperties', instance.additionalProperties);
+  writeNotNull('content', instance.content?.map((k, e) => MapEntry(k, e.toJson())));
   return val;
 }

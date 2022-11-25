@@ -1060,9 +1060,23 @@ TypeResult resolveObject(
                     )
                     ..body = Code('_\$${identifier}FromJson(json)'),
                 ),
+                Constructor(
+                  (final b) => b
+                    ..factory = true
+                    ..name = 'fromJsonString'
+                    ..lambda = true
+                    ..requiredParameters.add(
+                      Parameter(
+                        (final b) => b
+                          ..name = 'data'
+                          ..type = refer('String'),
+                      ),
+                    )
+                    ..body = Code('$identifier.fromJson(json.decode(data) as Map<String, dynamic>)'),
+                ),
               ],
             )
-            ..methods.add(
+            ..methods.addAll([
               Method(
                 (final b) => b
                   ..name = 'toJson'
@@ -1070,20 +1084,34 @@ TypeResult resolveObject(
                   ..lambda = true
                   ..body = Code('_\$${identifier}ToJson(this)'),
               ),
-            )
+              Method(
+                (final b) => b
+                  ..name = 'toJsonString'
+                  ..returns = refer('String')
+                  ..lambda = true
+                  ..static = true
+                  ..requiredParameters.add(
+                    Parameter(
+                      (final b) => b
+                        ..name = 'data'
+                        ..type = refer(identifier),
+                    ),
+                  )
+                  ..body = const Code('json.encode(data.toJson())'),
+              ),
+            ])
             ..fields.addAll([
               for (final propertyName in schema.properties!.keys) ...[
                 Field(
                   (final b) {
+                    final propertySchema = schema.properties![propertyName]!;
                     final result = resolveType(
                       spec,
                       state,
                       '${identifier}_${_toDartName(propertyName, uppercaseFirstCharacter: true)}',
-                      schema.properties![propertyName]!,
+                      propertySchema,
                       extraJsonSerializableValues: extraJsonSerializableValues,
                     );
-
-                    final propertySchema = schema.properties![propertyName]!;
 
                     b
                       ..name = _toDartName(propertyName)
@@ -1099,19 +1127,23 @@ TypeResult resolveObject(
                           '/// ${propertySchema.description!}',
                         ],
                       ]);
-                    if (_toDartName(propertyName) != propertyName) {
+                    if (_toDartName(propertyName) != propertyName ||
+                        propertySchema.isJsonString ||
+                        extraJsonKeyValues != null) {
                       b.annotations.add(
                         refer('JsonKey').call(
                           [],
                           {
-                            'name': refer("'$propertyName'"),
-                            if (extraJsonKeyValues != null) ...{
-                              for (final p in extraJsonKeyValues.keys) ...{
-                                if (p == propertyName) ...{
-                                  for (final key in extraJsonKeyValues[p]!.keys) ...{
-                                    key: refer(extraJsonKeyValues[p]![key]!),
-                                  },
-                                },
+                            if (_toDartName(propertyName) != propertyName) ...{
+                              'name': refer("'$propertyName'"),
+                            },
+                            if (propertySchema.isJsonString) ...{
+                              'fromJson': refer('${result.name}.fromJsonString'),
+                              'toJson': refer('${result.name}.toJsonString'),
+                            },
+                            if (extraJsonKeyValues != null && extraJsonKeyValues.containsKey(propertyName)) ...{
+                              for (final key in extraJsonKeyValues[propertyName]!.keys) ...{
+                                key: refer(extraJsonKeyValues[propertyName]![key]!),
                               },
                             },
                           },
@@ -1289,12 +1321,22 @@ TypeResult resolveType(
           case 'binary':
             result = TypeResultBase('Uint8List');
             break;
-          case null:
-            result = TypeResultBase(
-              'String',
-            );
-            break;
         }
+
+        if (schema.isJsonString) {
+          result = resolveType(
+            spec,
+            state,
+            identifier,
+            schema.content!['application/json']!.schema!,
+            extraJsonSerializableValues: extraJsonSerializableValues,
+          );
+          break;
+        }
+
+        result = TypeResultBase(
+          'String',
+        );
         break;
       case 'array':
         if (schema.items != null) {
