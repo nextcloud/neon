@@ -152,6 +152,1113 @@ class Client {
   }
 }
 
+class CoreClient {
+  CoreClient(this.rootClient);
+
+  final Client rootClient;
+
+  Future<CoreServerStatus> getStatus() async {
+    var path = '/status.php';
+    final queryParameters = <String, dynamic>{};
+    final headers = <String, String>{};
+    Uint8List? body;
+    final response = await rootClient.doRequest(
+      'get',
+      Uri(path: path, queryParameters: queryParameters).toString(),
+      headers,
+      body,
+    );
+    if (response.statusCode == 200) {
+      return CoreServerStatus.fromJson(json.decode(utf8.decode(response.body) as String) as Map<String, dynamic>);
+    }
+    throw ApiException.fromResponse(response); // coverage:ignore-line
+  }
+
+  Future<CoreServerCapabilities> getCapabilities() async {
+    var path = '/ocs/v2.php/cloud/capabilities';
+    final queryParameters = <String, dynamic>{};
+    final headers = <String, String>{};
+    Uint8List? body;
+    final response = await rootClient.doRequest(
+      'get',
+      Uri(path: path, queryParameters: queryParameters).toString(),
+      headers,
+      body,
+    );
+    if (response.statusCode == 200) {
+      return CoreServerCapabilities.fromJson(json.decode(utf8.decode(response.body) as String) as Map<String, dynamic>);
+    }
+    throw ApiException.fromResponse(response); // coverage:ignore-line
+  }
+
+  Future<CoreNavigationApps> getNavigationApps() async {
+    var path = '/ocs/v2.php/core/navigation/apps';
+    final queryParameters = <String, dynamic>{};
+    final headers = <String, String>{};
+    Uint8List? body;
+    final response = await rootClient.doRequest(
+      'get',
+      Uri(path: path, queryParameters: queryParameters).toString(),
+      headers,
+      body,
+    );
+    if (response.statusCode == 200) {
+      return CoreNavigationApps.fromJson(json.decode(utf8.decode(response.body) as String) as Map<String, dynamic>);
+    }
+    throw ApiException.fromResponse(response); // coverage:ignore-line
+  }
+
+  Future<CoreLoginFlowInit> initLoginFlow() async {
+    var path = '/index.php/login/v2';
+    final queryParameters = <String, dynamic>{};
+    final headers = <String, String>{};
+    Uint8List? body;
+    final response = await rootClient.doRequest(
+      'post',
+      Uri(path: path, queryParameters: queryParameters).toString(),
+      headers,
+      body,
+    );
+    if (response.statusCode == 200) {
+      return CoreLoginFlowInit.fromJson(json.decode(utf8.decode(response.body) as String) as Map<String, dynamic>);
+    }
+    throw ApiException.fromResponse(response); // coverage:ignore-line
+  }
+
+  Future<CoreLoginFlowResult> getLoginFlowResult({required String token}) async {
+    var path = '/index.php/login/v2/poll';
+    final queryParameters = <String, dynamic>{};
+    final headers = <String, String>{};
+    Uint8List? body;
+    queryParameters['token'] = token.toString();
+    final response = await rootClient.doRequest(
+      'post',
+      Uri(path: path, queryParameters: queryParameters).toString(),
+      headers,
+      body,
+    );
+    if (response.statusCode == 200) {
+      return CoreLoginFlowResult.fromJson(json.decode(utf8.decode(response.body) as String) as Map<String, dynamic>);
+    }
+    throw ApiException.fromResponse(response); // coverage:ignore-line
+  }
+
+  Future<Uint8List> getPreview({
+    String file = '',
+    int x = 32,
+    int y = 32,
+    int a = 0,
+    int forceIcon = 1,
+    String mode = 'fill',
+  }) async {
+    var path = '/index.php/core/preview.png';
+    final queryParameters = <String, dynamic>{};
+    final headers = <String, String>{};
+    Uint8List? body;
+    queryParameters['file'] = file.toString();
+    queryParameters['x'] = x.toString();
+    queryParameters['y'] = y.toString();
+    queryParameters['a'] = a.toString();
+    queryParameters['forceIcon'] = forceIcon.toString();
+    queryParameters['mode'] = mode.toString();
+    final response = await rootClient.doRequest(
+      'get',
+      Uri(path: path, queryParameters: queryParameters).toString(),
+      headers,
+      body,
+    );
+    if (response.statusCode == 200) {
+      return response.body;
+    }
+    throw ApiException.fromResponse(response); // coverage:ignore-line
+  }
+
+  Future<Uint8List> getDarkAvatar({
+    required String userId,
+    required int size,
+  }) async {
+    var path = '/index.php/avatar/{userId}/{size}/dark';
+    final queryParameters = <String, dynamic>{};
+    final headers = <String, String>{};
+    Uint8List? body;
+    path = path.replaceAll('{userId}', Uri.encodeQueryComponent(userId.toString()));
+    path = path.replaceAll('{size}', Uri.encodeQueryComponent(size.toString()));
+    final response = await rootClient.doRequest(
+      'get',
+      Uri(path: path, queryParameters: queryParameters).toString(),
+      headers,
+      body,
+    );
+    if (response.statusCode == 200) {
+      return response.body;
+    }
+    throw ApiException.fromResponse(response); // coverage:ignore-line
+  }
+
+  Future<Uint8List> getAvatar({
+    required String userId,
+    required int size,
+  }) async {
+    var path = '/index.php/avatar/{userId}/{size}';
+    final queryParameters = <String, dynamic>{};
+    final headers = <String, String>{};
+    Uint8List? body;
+    path = path.replaceAll('{userId}', Uri.encodeQueryComponent(userId.toString()));
+    path = path.replaceAll('{size}', Uri.encodeQueryComponent(size.toString()));
+    final response = await rootClient.doRequest(
+      'get',
+      Uri(path: path, queryParameters: queryParameters).toString(),
+      headers,
+      body,
+    );
+    if (response.statusCode == 200) {
+      return response.body;
+    }
+    throw ApiException.fromResponse(response); // coverage:ignore-line
+  }
+}
+
+class NewsClient {
+  NewsClient(this.rootClient);
+
+  final Client rootClient;
+
+  Future<GetSupportedApiVersions> getSupportedApiVersions() async {
+    var path = '/index.php/apps/news/api';
+    final queryParameters = <String, dynamic>{};
+    final headers = <String, String>{};
+    Uint8List? body;
+    final response = await rootClient.doRequest(
+      'get',
+      Uri(path: path, queryParameters: queryParameters).toString(),
+      headers,
+      body,
+    );
+    if (response.statusCode == 200) {
+      return GetSupportedApiVersions.fromJson(
+          json.decode(utf8.decode(response.body) as String) as Map<String, dynamic>);
+    }
+    throw ApiException.fromResponse(response); // coverage:ignore-line
+  }
+
+  Future<NewsListFolders> listFolders() async {
+    var path = '/index.php/apps/news/api/v1-3/folders';
+    final queryParameters = <String, dynamic>{};
+    final headers = <String, String>{};
+    Uint8List? body;
+    final response = await rootClient.doRequest(
+      'get',
+      Uri(path: path, queryParameters: queryParameters).toString(),
+      headers,
+      body,
+    );
+    if (response.statusCode == 200) {
+      return NewsListFolders.fromJson(json.decode(utf8.decode(response.body) as String) as Map<String, dynamic>);
+    }
+    throw ApiException.fromResponse(response); // coverage:ignore-line
+  }
+
+  Future<NewsListFolders> createFolder({required String name}) async {
+    var path = '/index.php/apps/news/api/v1-3/folders';
+    final queryParameters = <String, dynamic>{};
+    final headers = <String, String>{};
+    Uint8List? body;
+    queryParameters['name'] = name.toString();
+    final response = await rootClient.doRequest(
+      'post',
+      Uri(path: path, queryParameters: queryParameters).toString(),
+      headers,
+      body,
+    );
+    if (response.statusCode == 200) {
+      return NewsListFolders.fromJson(json.decode(utf8.decode(response.body) as String) as Map<String, dynamic>);
+    }
+    throw ApiException.fromResponse(response); // coverage:ignore-line
+  }
+
+  Future renameFolder({
+    required int folderId,
+    required String name,
+  }) async {
+    var path = '/index.php/apps/news/api/v1-3/folders/{folderId}';
+    final queryParameters = <String, dynamic>{};
+    final headers = <String, String>{};
+    Uint8List? body;
+    path = path.replaceAll('{folderId}', Uri.encodeQueryComponent(folderId.toString()));
+    queryParameters['name'] = name.toString();
+    final response = await rootClient.doRequest(
+      'put',
+      Uri(path: path, queryParameters: queryParameters).toString(),
+      headers,
+      body,
+    );
+    if (response.statusCode == 200) {
+      return;
+    }
+    throw ApiException.fromResponse(response); // coverage:ignore-line
+  }
+
+  Future deleteFolder({required int folderId}) async {
+    var path = '/index.php/apps/news/api/v1-3/folders/{folderId}';
+    final queryParameters = <String, dynamic>{};
+    final headers = <String, String>{};
+    Uint8List? body;
+    path = path.replaceAll('{folderId}', Uri.encodeQueryComponent(folderId.toString()));
+    final response = await rootClient.doRequest(
+      'delete',
+      Uri(path: path, queryParameters: queryParameters).toString(),
+      headers,
+      body,
+    );
+    if (response.statusCode == 200) {
+      return;
+    }
+    throw ApiException.fromResponse(response); // coverage:ignore-line
+  }
+
+  Future markFolderAsRead({
+    required int folderId,
+    required int newestItemId,
+  }) async {
+    var path = '/index.php/apps/news/api/v1-3/folders/{folderId}/read';
+    final queryParameters = <String, dynamic>{};
+    final headers = <String, String>{};
+    Uint8List? body;
+    path = path.replaceAll('{folderId}', Uri.encodeQueryComponent(folderId.toString()));
+    queryParameters['newestItemId'] = newestItemId.toString();
+    final response = await rootClient.doRequest(
+      'post',
+      Uri(path: path, queryParameters: queryParameters).toString(),
+      headers,
+      body,
+    );
+    if (response.statusCode == 200) {
+      return;
+    }
+    throw ApiException.fromResponse(response); // coverage:ignore-line
+  }
+
+  Future<NewsListFeeds> listFeeds() async {
+    var path = '/index.php/apps/news/api/v1-3/feeds';
+    final queryParameters = <String, dynamic>{};
+    final headers = <String, String>{};
+    Uint8List? body;
+    final response = await rootClient.doRequest(
+      'get',
+      Uri(path: path, queryParameters: queryParameters).toString(),
+      headers,
+      body,
+    );
+    if (response.statusCode == 200) {
+      return NewsListFeeds.fromJson(json.decode(utf8.decode(response.body) as String) as Map<String, dynamic>);
+    }
+    throw ApiException.fromResponse(response); // coverage:ignore-line
+  }
+
+  Future<NewsListFeeds> addFeed({
+    required String url,
+    int? folderId,
+  }) async {
+    var path = '/index.php/apps/news/api/v1-3/feeds';
+    final queryParameters = <String, dynamic>{};
+    final headers = <String, String>{};
+    Uint8List? body;
+    queryParameters['url'] = url.toString();
+    if (folderId != null) {
+      queryParameters['folderId'] = folderId.toString();
+    }
+    final response = await rootClient.doRequest(
+      'post',
+      Uri(path: path, queryParameters: queryParameters).toString(),
+      headers,
+      body,
+    );
+    if (response.statusCode == 200) {
+      return NewsListFeeds.fromJson(json.decode(utf8.decode(response.body) as String) as Map<String, dynamic>);
+    }
+    throw ApiException.fromResponse(response); // coverage:ignore-line
+  }
+
+  Future deleteFeed({required int feedId}) async {
+    var path = '/index.php/apps/news/api/v1-3/feeds/{feedId}';
+    final queryParameters = <String, dynamic>{};
+    final headers = <String, String>{};
+    Uint8List? body;
+    path = path.replaceAll('{feedId}', Uri.encodeQueryComponent(feedId.toString()));
+    final response = await rootClient.doRequest(
+      'delete',
+      Uri(path: path, queryParameters: queryParameters).toString(),
+      headers,
+      body,
+    );
+    if (response.statusCode == 200) {
+      return;
+    }
+    throw ApiException.fromResponse(response); // coverage:ignore-line
+  }
+
+  Future moveFeed({
+    required int feedId,
+    int? folderId,
+  }) async {
+    var path = '/index.php/apps/news/api/v1-3/feeds/{feedId}/move';
+    final queryParameters = <String, dynamic>{};
+    final headers = <String, String>{};
+    Uint8List? body;
+    path = path.replaceAll('{feedId}', Uri.encodeQueryComponent(feedId.toString()));
+    if (folderId != null) {
+      queryParameters['folderId'] = folderId.toString();
+    }
+    final response = await rootClient.doRequest(
+      'post',
+      Uri(path: path, queryParameters: queryParameters).toString(),
+      headers,
+      body,
+    );
+    if (response.statusCode == 200) {
+      return;
+    }
+    throw ApiException.fromResponse(response); // coverage:ignore-line
+  }
+
+  Future renameFeed({
+    required int feedId,
+    required String feedTitle,
+  }) async {
+    var path = '/index.php/apps/news/api/v1-3/feeds/{feedId}/rename';
+    final queryParameters = <String, dynamic>{};
+    final headers = <String, String>{};
+    Uint8List? body;
+    path = path.replaceAll('{feedId}', Uri.encodeQueryComponent(feedId.toString()));
+    queryParameters['feedTitle'] = feedTitle.toString();
+    final response = await rootClient.doRequest(
+      'post',
+      Uri(path: path, queryParameters: queryParameters).toString(),
+      headers,
+      body,
+    );
+    if (response.statusCode == 200) {
+      return;
+    }
+    throw ApiException.fromResponse(response); // coverage:ignore-line
+  }
+
+  Future markFeedAsRead({
+    required int feedId,
+    required int newestItemId,
+  }) async {
+    var path = '/index.php/apps/news/api/v1-3/feeds/{feedId}/read';
+    final queryParameters = <String, dynamic>{};
+    final headers = <String, String>{};
+    Uint8List? body;
+    path = path.replaceAll('{feedId}', Uri.encodeQueryComponent(feedId.toString()));
+    queryParameters['newestItemId'] = newestItemId.toString();
+    final response = await rootClient.doRequest(
+      'post',
+      Uri(path: path, queryParameters: queryParameters).toString(),
+      headers,
+      body,
+    );
+    if (response.statusCode == 200) {
+      return;
+    }
+    throw ApiException.fromResponse(response); // coverage:ignore-line
+  }
+
+  Future<NewsListArticles> listArticles({
+    int type = 3,
+    int id = 0,
+    int getRead = 1,
+    int batchSize = -1,
+    int offset = 0,
+    int oldestFirst = 0,
+  }) async {
+    var path = '/index.php/apps/news/api/v1-3/items';
+    final queryParameters = <String, dynamic>{};
+    final headers = <String, String>{};
+    Uint8List? body;
+    queryParameters['type'] = type.toString();
+    queryParameters['id'] = id.toString();
+    queryParameters['getRead'] = getRead.toString();
+    queryParameters['batchSize'] = batchSize.toString();
+    queryParameters['offset'] = offset.toString();
+    queryParameters['oldestFirst'] = oldestFirst.toString();
+    final response = await rootClient.doRequest(
+      'get',
+      Uri(path: path, queryParameters: queryParameters).toString(),
+      headers,
+      body,
+    );
+    if (response.statusCode == 200) {
+      return NewsListArticles.fromJson(json.decode(utf8.decode(response.body) as String) as Map<String, dynamic>);
+    }
+    throw ApiException.fromResponse(response); // coverage:ignore-line
+  }
+
+  Future<NewsListArticles> listUpdatedArticles({
+    int type = 3,
+    int id = 0,
+    int lastModified = 0,
+  }) async {
+    var path = '/index.php/apps/news/api/v1-3/items/updated';
+    final queryParameters = <String, dynamic>{};
+    final headers = <String, String>{};
+    Uint8List? body;
+    queryParameters['type'] = type.toString();
+    queryParameters['id'] = id.toString();
+    queryParameters['lastModified'] = lastModified.toString();
+    final response = await rootClient.doRequest(
+      'get',
+      Uri(path: path, queryParameters: queryParameters).toString(),
+      headers,
+      body,
+    );
+    if (response.statusCode == 200) {
+      return NewsListArticles.fromJson(json.decode(utf8.decode(response.body) as String) as Map<String, dynamic>);
+    }
+    throw ApiException.fromResponse(response); // coverage:ignore-line
+  }
+
+  Future markArticleAsRead({required int itemId}) async {
+    var path = '/index.php/apps/news/api/v1-3/items/{itemId}/read';
+    final queryParameters = <String, dynamic>{};
+    final headers = <String, String>{};
+    Uint8List? body;
+    path = path.replaceAll('{itemId}', Uri.encodeQueryComponent(itemId.toString()));
+    final response = await rootClient.doRequest(
+      'post',
+      Uri(path: path, queryParameters: queryParameters).toString(),
+      headers,
+      body,
+    );
+    if (response.statusCode == 200) {
+      return;
+    }
+    throw ApiException.fromResponse(response); // coverage:ignore-line
+  }
+
+  Future markArticleAsUnread({required int itemId}) async {
+    var path = '/index.php/apps/news/api/v1-3/items/{itemId}/unread';
+    final queryParameters = <String, dynamic>{};
+    final headers = <String, String>{};
+    Uint8List? body;
+    path = path.replaceAll('{itemId}', Uri.encodeQueryComponent(itemId.toString()));
+    final response = await rootClient.doRequest(
+      'post',
+      Uri(path: path, queryParameters: queryParameters).toString(),
+      headers,
+      body,
+    );
+    if (response.statusCode == 200) {
+      return;
+    }
+    throw ApiException.fromResponse(response); // coverage:ignore-line
+  }
+
+  Future starArticle({required int itemId}) async {
+    var path = '/index.php/apps/news/api/v1-3/items/{itemId}/star';
+    final queryParameters = <String, dynamic>{};
+    final headers = <String, String>{};
+    Uint8List? body;
+    path = path.replaceAll('{itemId}', Uri.encodeQueryComponent(itemId.toString()));
+    final response = await rootClient.doRequest(
+      'post',
+      Uri(path: path, queryParameters: queryParameters).toString(),
+      headers,
+      body,
+    );
+    if (response.statusCode == 200) {
+      return;
+    }
+    throw ApiException.fromResponse(response); // coverage:ignore-line
+  }
+
+  Future unstarArticle({required int itemId}) async {
+    var path = '/index.php/apps/news/api/v1-3/items/{itemId}/unstar';
+    final queryParameters = <String, dynamic>{};
+    final headers = <String, String>{};
+    Uint8List? body;
+    path = path.replaceAll('{itemId}', Uri.encodeQueryComponent(itemId.toString()));
+    final response = await rootClient.doRequest(
+      'post',
+      Uri(path: path, queryParameters: queryParameters).toString(),
+      headers,
+      body,
+    );
+    if (response.statusCode == 200) {
+      return;
+    }
+    throw ApiException.fromResponse(response); // coverage:ignore-line
+  }
+}
+
+class NotesClient {
+  NotesClient(this.rootClient);
+
+  final Client rootClient;
+
+  Future<List<NotesNote>> getNotes({
+    String? category,
+    String exclude = '',
+    int pruneBefore = 0,
+    int chunkSize = 0,
+    String? chunkCursor,
+    String? ifNoneMatch,
+  }) async {
+    var path = '/index.php/apps/notes/api/v1/notes';
+    final queryParameters = <String, dynamic>{};
+    final headers = <String, String>{};
+    Uint8List? body;
+    if (category != null) {
+      queryParameters['category'] = category.toString();
+    }
+    queryParameters['exclude'] = exclude.toString();
+    queryParameters['pruneBefore'] = pruneBefore.toString();
+    queryParameters['chunkSize'] = chunkSize.toString();
+    if (chunkCursor != null) {
+      queryParameters['chunkCursor'] = chunkCursor.toString();
+    }
+    if (ifNoneMatch != null) {
+      headers['If-None-Match'] = ifNoneMatch.toString();
+    }
+    final response = await rootClient.doRequest(
+      'get',
+      Uri(path: path, queryParameters: queryParameters).toString(),
+      headers,
+      body,
+    );
+    if (response.statusCode == 200) {
+      return (json.decode(utf8.decode(response.body) as String) as List)
+          .map((final e) => NotesNote.fromJson(e as Map<String, dynamic>))
+          .toList();
+    }
+    throw ApiException.fromResponse(response); // coverage:ignore-line
+  }
+
+  Future<NotesNote> createNote({
+    String category = '',
+    String title = '',
+    String content = '',
+    int modified = 0,
+    int favorite = 0,
+  }) async {
+    var path = '/index.php/apps/notes/api/v1/notes';
+    final queryParameters = <String, dynamic>{};
+    final headers = <String, String>{};
+    Uint8List? body;
+    queryParameters['category'] = category.toString();
+    queryParameters['title'] = title.toString();
+    queryParameters['content'] = content.toString();
+    queryParameters['modified'] = modified.toString();
+    queryParameters['favorite'] = favorite.toString();
+    final response = await rootClient.doRequest(
+      'post',
+      Uri(path: path, queryParameters: queryParameters).toString(),
+      headers,
+      body,
+    );
+    if (response.statusCode == 200) {
+      return NotesNote.fromJson(json.decode(utf8.decode(response.body) as String) as Map<String, dynamic>);
+    }
+    throw ApiException.fromResponse(response); // coverage:ignore-line
+  }
+
+  Future<NotesNote> getNote({
+    required int id,
+    String exclude = '',
+    String? ifNoneMatch,
+  }) async {
+    var path = '/index.php/apps/notes/api/v1/notes/{id}';
+    final queryParameters = <String, dynamic>{};
+    final headers = <String, String>{};
+    Uint8List? body;
+    path = path.replaceAll('{id}', Uri.encodeQueryComponent(id.toString()));
+    queryParameters['exclude'] = exclude.toString();
+    if (ifNoneMatch != null) {
+      headers['If-None-Match'] = ifNoneMatch.toString();
+    }
+    final response = await rootClient.doRequest(
+      'get',
+      Uri(path: path, queryParameters: queryParameters).toString(),
+      headers,
+      body,
+    );
+    if (response.statusCode == 200) {
+      return NotesNote.fromJson(json.decode(utf8.decode(response.body) as String) as Map<String, dynamic>);
+    }
+    throw ApiException.fromResponse(response); // coverage:ignore-line
+  }
+
+  Future<NotesNote> updateNote({
+    required int id,
+    String? content,
+    int? modified,
+    String? title,
+    String? category,
+    int favorite = 0,
+    String? ifMatch,
+  }) async {
+    var path = '/index.php/apps/notes/api/v1/notes/{id}';
+    final queryParameters = <String, dynamic>{};
+    final headers = <String, String>{};
+    Uint8List? body;
+    path = path.replaceAll('{id}', Uri.encodeQueryComponent(id.toString()));
+    if (content != null) {
+      queryParameters['content'] = content.toString();
+    }
+    if (modified != null) {
+      queryParameters['modified'] = modified.toString();
+    }
+    if (title != null) {
+      queryParameters['title'] = title.toString();
+    }
+    if (category != null) {
+      queryParameters['category'] = category.toString();
+    }
+    queryParameters['favorite'] = favorite.toString();
+    if (ifMatch != null) {
+      headers['If-Match'] = ifMatch.toString();
+    }
+    final response = await rootClient.doRequest(
+      'put',
+      Uri(path: path, queryParameters: queryParameters).toString(),
+      headers,
+      body,
+    );
+    if (response.statusCode == 200) {
+      return NotesNote.fromJson(json.decode(utf8.decode(response.body) as String) as Map<String, dynamic>);
+    }
+    throw ApiException.fromResponse(response); // coverage:ignore-line
+  }
+
+  Future<String> deleteNote({required int id}) async {
+    var path = '/index.php/apps/notes/api/v1/notes/{id}';
+    final queryParameters = <String, dynamic>{};
+    final headers = <String, String>{};
+    Uint8List? body;
+    path = path.replaceAll('{id}', Uri.encodeQueryComponent(id.toString()));
+    final response = await rootClient.doRequest(
+      'delete',
+      Uri(path: path, queryParameters: queryParameters).toString(),
+      headers,
+      body,
+    );
+    if (response.statusCode == 200) {
+      return ((utf8.decode(response.body) as String) as String);
+    }
+    throw ApiException.fromResponse(response); // coverage:ignore-line
+  }
+
+  Future<NotesSettings> getSettings() async {
+    var path = '/index.php/apps/notes/api/v1/settings';
+    final queryParameters = <String, dynamic>{};
+    final headers = <String, String>{};
+    Uint8List? body;
+    final response = await rootClient.doRequest(
+      'get',
+      Uri(path: path, queryParameters: queryParameters).toString(),
+      headers,
+      body,
+    );
+    if (response.statusCode == 200) {
+      return NotesSettings.fromJson(json.decode(utf8.decode(response.body) as String) as Map<String, dynamic>);
+    }
+    throw ApiException.fromResponse(response); // coverage:ignore-line
+  }
+
+  Future<NotesSettings> updateSettings({required NotesSettings notesSettings}) async {
+    var path = '/index.php/apps/notes/api/v1/settings';
+    final queryParameters = <String, dynamic>{};
+    final headers = <String, String>{};
+    Uint8List? body;
+    headers['Content-Type'] = 'application/json';
+    body = Uint8List.fromList(utf8.encode(json.encode(notesSettings.toJson())));
+    final response = await rootClient.doRequest(
+      'put',
+      Uri(path: path, queryParameters: queryParameters).toString(),
+      headers,
+      body,
+    );
+    if (response.statusCode == 200) {
+      return NotesSettings.fromJson(json.decode(utf8.decode(response.body) as String) as Map<String, dynamic>);
+    }
+    throw ApiException.fromResponse(response); // coverage:ignore-line
+  }
+}
+
+class NotificationsClient {
+  NotificationsClient(this.rootClient);
+
+  final Client rootClient;
+
+  Future<NotificationsListNotifications> listNotifications() async {
+    var path = '/ocs/v2.php/apps/notifications/api/v2/notifications';
+    final queryParameters = <String, dynamic>{};
+    final headers = <String, String>{};
+    Uint8List? body;
+    final response = await rootClient.doRequest(
+      'get',
+      Uri(path: path, queryParameters: queryParameters).toString(),
+      headers,
+      body,
+    );
+    if (response.statusCode == 200) {
+      return NotificationsListNotifications.fromJson(
+          json.decode(utf8.decode(response.body) as String) as Map<String, dynamic>);
+    }
+    throw ApiException.fromResponse(response); // coverage:ignore-line
+  }
+
+  Future<String> deleteAllNotifications() async {
+    var path = '/ocs/v2.php/apps/notifications/api/v2/notifications';
+    final queryParameters = <String, dynamic>{};
+    final headers = <String, String>{};
+    Uint8List? body;
+    final response = await rootClient.doRequest(
+      'delete',
+      Uri(path: path, queryParameters: queryParameters).toString(),
+      headers,
+      body,
+    );
+    if (response.statusCode == 200) {
+      return ((utf8.decode(response.body) as String) as String);
+    }
+    throw ApiException.fromResponse(response); // coverage:ignore-line
+  }
+
+  Future<NotificationsGetNotification> getNotification({required int id}) async {
+    var path = '/ocs/v2.php/apps/notifications/api/v2/notifications/{id}';
+    final queryParameters = <String, dynamic>{};
+    final headers = <String, String>{};
+    Uint8List? body;
+    path = path.replaceAll('{id}', Uri.encodeQueryComponent(id.toString()));
+    final response = await rootClient.doRequest(
+      'get',
+      Uri(path: path, queryParameters: queryParameters).toString(),
+      headers,
+      body,
+    );
+    if (response.statusCode == 200) {
+      return NotificationsGetNotification.fromJson(
+          json.decode(utf8.decode(response.body) as String) as Map<String, dynamic>);
+    }
+    throw ApiException.fromResponse(response); // coverage:ignore-line
+  }
+
+  Future<EmptyOCS> deleteNotification({required int id}) async {
+    var path = '/ocs/v2.php/apps/notifications/api/v2/notifications/{id}';
+    final queryParameters = <String, dynamic>{};
+    final headers = <String, String>{};
+    Uint8List? body;
+    path = path.replaceAll('{id}', Uri.encodeQueryComponent(id.toString()));
+    final response = await rootClient.doRequest(
+      'delete',
+      Uri(path: path, queryParameters: queryParameters).toString(),
+      headers,
+      body,
+    );
+    if (response.statusCode == 200) {
+      return EmptyOCS.fromJson(json.decode(utf8.decode(response.body) as String) as Map<String, dynamic>);
+    }
+    throw ApiException.fromResponse(response); // coverage:ignore-line
+  }
+
+  Future<NotificationsPushServerRegistration> registerDevice({
+    required String pushTokenHash,
+    required String devicePublicKey,
+    required String proxyServer,
+  }) async {
+    var path = '/ocs/v2.php/apps/notifications/api/v2/push';
+    final queryParameters = <String, dynamic>{};
+    final headers = <String, String>{};
+    Uint8List? body;
+    queryParameters['pushTokenHash'] = pushTokenHash.toString();
+    queryParameters['devicePublicKey'] = devicePublicKey.toString();
+    queryParameters['proxyServer'] = proxyServer.toString();
+    final response = await rootClient.doRequest(
+      'post',
+      Uri(path: path, queryParameters: queryParameters).toString(),
+      headers,
+      body,
+    );
+    if (response.statusCode == 201) {
+      return NotificationsPushServerRegistration.fromJson(
+          json.decode(utf8.decode(response.body) as String) as Map<String, dynamic>);
+    }
+    throw ApiException.fromResponse(response); // coverage:ignore-line
+  }
+
+  Future<String> removeDevice() async {
+    var path = '/ocs/v2.php/apps/notifications/api/v2/push';
+    final queryParameters = <String, dynamic>{};
+    final headers = <String, String>{};
+    Uint8List? body;
+    final response = await rootClient.doRequest(
+      'delete',
+      Uri(path: path, queryParameters: queryParameters).toString(),
+      headers,
+      body,
+    );
+    if (response.statusCode == 202) {
+      return ((utf8.decode(response.body) as String) as String);
+    }
+    throw ApiException.fromResponse(response); // coverage:ignore-line
+  }
+
+  Future<EmptyOCS> sendAdminNotification({
+    required String userId,
+    required String shortMessage,
+    String longMessage = '',
+  }) async {
+    var path = '/ocs/v2.php/apps/notifications/api/v2/admin_notifications/{userId}';
+    final queryParameters = <String, dynamic>{};
+    final headers = <String, String>{};
+    Uint8List? body;
+    path = path.replaceAll('{userId}', Uri.encodeQueryComponent(userId.toString()));
+    queryParameters['shortMessage'] = shortMessage.toString();
+    queryParameters['longMessage'] = longMessage.toString();
+    final response = await rootClient.doRequest(
+      'post',
+      Uri(path: path, queryParameters: queryParameters).toString(),
+      headers,
+      body,
+    );
+    if (response.statusCode == 200) {
+      return EmptyOCS.fromJson(json.decode(utf8.decode(response.body) as String) as Map<String, dynamic>);
+    }
+    throw ApiException.fromResponse(response); // coverage:ignore-line
+  }
+}
+
+class ProvisioningApiClient {
+  ProvisioningApiClient(this.rootClient);
+
+  final Client rootClient;
+
+  Future<ProvisioningApiUser> getCurrentUser() async {
+    var path = '/ocs/v2.php/cloud/user';
+    final queryParameters = <String, dynamic>{};
+    final headers = <String, String>{};
+    Uint8List? body;
+    final response = await rootClient.doRequest(
+      'get',
+      Uri(path: path, queryParameters: queryParameters).toString(),
+      headers,
+      body,
+    );
+    if (response.statusCode == 200) {
+      return ProvisioningApiUser.fromJson(json.decode(utf8.decode(response.body) as String) as Map<String, dynamic>);
+    }
+    throw ApiException.fromResponse(response); // coverage:ignore-line
+  }
+
+  Future<ProvisioningApiUser> getUser({required String userId}) async {
+    var path = '/ocs/v2.php/cloud/users/{userId}';
+    final queryParameters = <String, dynamic>{};
+    final headers = <String, String>{};
+    Uint8List? body;
+    path = path.replaceAll('{userId}', Uri.encodeQueryComponent(userId.toString()));
+    final response = await rootClient.doRequest(
+      'get',
+      Uri(path: path, queryParameters: queryParameters).toString(),
+      headers,
+      body,
+    );
+    if (response.statusCode == 200) {
+      return ProvisioningApiUser.fromJson(json.decode(utf8.decode(response.body) as String) as Map<String, dynamic>);
+    }
+    throw ApiException.fromResponse(response); // coverage:ignore-line
+  }
+}
+
+class UserStatusClient {
+  UserStatusClient(this.rootClient);
+
+  final Client rootClient;
+
+  Future<UserStatusFindAllStatuses> findAllStatuses() async {
+    var path = '/ocs/v2.php/apps/user_status/api/v1/statuses';
+    final queryParameters = <String, dynamic>{};
+    final headers = <String, String>{};
+    Uint8List? body;
+    final response = await rootClient.doRequest(
+      'get',
+      Uri(path: path, queryParameters: queryParameters).toString(),
+      headers,
+      body,
+    );
+    if (response.statusCode == 200) {
+      return UserStatusFindAllStatuses.fromJson(
+          json.decode(utf8.decode(response.body) as String) as Map<String, dynamic>);
+    }
+    throw ApiException.fromResponse(response); // coverage:ignore-line
+  }
+
+  Future<UserStatusFindStatus> findStatus({required String userId}) async {
+    var path = '/ocs/v2.php/apps/user_status/api/v1/statuses/{userId}';
+    final queryParameters = <String, dynamic>{};
+    final headers = <String, String>{};
+    Uint8List? body;
+    path = path.replaceAll('{userId}', Uri.encodeQueryComponent(userId.toString()));
+    final response = await rootClient.doRequest(
+      'get',
+      Uri(path: path, queryParameters: queryParameters).toString(),
+      headers,
+      body,
+    );
+    if (response.statusCode == 200) {
+      return UserStatusFindStatus.fromJson(json.decode(utf8.decode(response.body) as String) as Map<String, dynamic>);
+    }
+    throw ApiException.fromResponse(response); // coverage:ignore-line
+  }
+
+  Future<UserStatusGetUserStatus> getStatus() async {
+    var path = '/ocs/v2.php/apps/user_status/api/v1/user_status';
+    final queryParameters = <String, dynamic>{};
+    final headers = <String, String>{};
+    Uint8List? body;
+    final response = await rootClient.doRequest(
+      'get',
+      Uri(path: path, queryParameters: queryParameters).toString(),
+      headers,
+      body,
+    );
+    if (response.statusCode == 200) {
+      return UserStatusGetUserStatus.fromJson(
+          json.decode(utf8.decode(response.body) as String) as Map<String, dynamic>);
+    }
+    throw ApiException.fromResponse(response); // coverage:ignore-line
+  }
+
+  Future<UserStatusGetUserStatus> setStatus({required UserStatusType statusType}) async {
+    var path = '/ocs/v2.php/apps/user_status/api/v1/user_status/status';
+    final queryParameters = <String, dynamic>{};
+    final headers = <String, String>{};
+    Uint8List? body;
+    queryParameters['statusType'] = statusType.value.toString();
+    final response = await rootClient.doRequest(
+      'put',
+      Uri(path: path, queryParameters: queryParameters).toString(),
+      headers,
+      body,
+    );
+    if (response.statusCode == 200) {
+      return UserStatusGetUserStatus.fromJson(
+          json.decode(utf8.decode(response.body) as String) as Map<String, dynamic>);
+    }
+    throw ApiException.fromResponse(response); // coverage:ignore-line
+  }
+
+  Future<UserStatusGetUserStatus> setPredefinedMessage({
+    required String messageId,
+    int? clearAt,
+  }) async {
+    var path = '/ocs/v2.php/apps/user_status/api/v1/user_status/message/predefined';
+    final queryParameters = <String, dynamic>{};
+    final headers = <String, String>{};
+    Uint8List? body;
+    queryParameters['messageId'] = messageId.toString();
+    if (clearAt != null) {
+      queryParameters['clearAt'] = clearAt.toString();
+    }
+    final response = await rootClient.doRequest(
+      'put',
+      Uri(path: path, queryParameters: queryParameters).toString(),
+      headers,
+      body,
+    );
+    if (response.statusCode == 200) {
+      return UserStatusGetUserStatus.fromJson(
+          json.decode(utf8.decode(response.body) as String) as Map<String, dynamic>);
+    }
+    throw ApiException.fromResponse(response); // coverage:ignore-line
+  }
+
+  Future<UserStatusGetUserStatus> setCustomMessage({
+    String? statusIcon,
+    String? message,
+    int? clearAt,
+  }) async {
+    var path = '/ocs/v2.php/apps/user_status/api/v1/user_status/message/custom';
+    final queryParameters = <String, dynamic>{};
+    final headers = <String, String>{};
+    Uint8List? body;
+    if (statusIcon != null) {
+      queryParameters['statusIcon'] = statusIcon.toString();
+    }
+    if (message != null) {
+      queryParameters['message'] = message.toString();
+    }
+    if (clearAt != null) {
+      queryParameters['clearAt'] = clearAt.toString();
+    }
+    final response = await rootClient.doRequest(
+      'put',
+      Uri(path: path, queryParameters: queryParameters).toString(),
+      headers,
+      body,
+    );
+    if (response.statusCode == 200) {
+      return UserStatusGetUserStatus.fromJson(
+          json.decode(utf8.decode(response.body) as String) as Map<String, dynamic>);
+    }
+    throw ApiException.fromResponse(response); // coverage:ignore-line
+  }
+
+  Future clearMessage() async {
+    var path = '/ocs/v2.php/apps/user_status/api/v1/user_status/message';
+    final queryParameters = <String, dynamic>{};
+    final headers = <String, String>{};
+    Uint8List? body;
+    final response = await rootClient.doRequest(
+      'delete',
+      Uri(path: path, queryParameters: queryParameters).toString(),
+      headers,
+      body,
+    );
+    if (response.statusCode == 200) {
+      return;
+    }
+    throw ApiException.fromResponse(response); // coverage:ignore-line
+  }
+
+  Future<UserStatusPredefinedStatuses> findAllPredefinedStatuses() async {
+    var path = '/ocs/v2.php/apps/user_status/api/v1/predefined_statuses';
+    final queryParameters = <String, dynamic>{};
+    final headers = <String, String>{};
+    Uint8List? body;
+    final response = await rootClient.doRequest(
+      'get',
+      Uri(path: path, queryParameters: queryParameters).toString(),
+      headers,
+      body,
+    );
+    if (response.statusCode == 200) {
+      return UserStatusPredefinedStatuses.fromJson(
+          json.decode(utf8.decode(response.body) as String) as Map<String, dynamic>);
+    }
+    throw ApiException.fromResponse(response); // coverage:ignore-line
+  }
+
+  Future<UserStatus> heartbeat({required UserStatusType status}) async {
+    var path = '/ocs/v2.php/apps/user_status/api/v1/heartbeat';
+    final queryParameters = <String, dynamic>{};
+    final headers = <String, String>{};
+    Uint8List? body;
+    queryParameters['status'] = status.value.toString();
+    final response = await rootClient.doRequest(
+      'put',
+      Uri(path: path, queryParameters: queryParameters).toString(),
+      headers,
+      body,
+    );
+    if (response.statusCode == 200) {
+      return UserStatus.fromJson(json.decode(utf8.decode(response.body) as String) as Map<String, dynamic>);
+    }
+    throw ApiException.fromResponse(response); // coverage:ignore-line
+  }
+}
+
 @JsonSerializable()
 class CoreServerStatus {
   CoreServerStatus({
@@ -1532,172 +2639,6 @@ class CoreLoginFlowResult {
   // coverage:ignore-end
 }
 
-class CoreClient {
-  CoreClient(this.rootClient);
-
-  final Client rootClient;
-
-  Future<CoreServerStatus> getStatus() async {
-    var path = '/status.php';
-    final queryParameters = <String, dynamic>{};
-    final headers = <String, String>{};
-    Uint8List? body;
-    final response = await rootClient.doRequest(
-      'get',
-      Uri(path: path, queryParameters: queryParameters).toString(),
-      headers,
-      body,
-    );
-    if (response.statusCode == 200) {
-      return CoreServerStatus.fromJson(json.decode(utf8.decode(response.body) as String) as Map<String, dynamic>);
-    }
-    throw ApiException.fromResponse(response); // coverage:ignore-line
-  }
-
-  Future<CoreServerCapabilities> getCapabilities() async {
-    var path = '/ocs/v2.php/cloud/capabilities';
-    final queryParameters = <String, dynamic>{};
-    final headers = <String, String>{};
-    Uint8List? body;
-    final response = await rootClient.doRequest(
-      'get',
-      Uri(path: path, queryParameters: queryParameters).toString(),
-      headers,
-      body,
-    );
-    if (response.statusCode == 200) {
-      return CoreServerCapabilities.fromJson(json.decode(utf8.decode(response.body) as String) as Map<String, dynamic>);
-    }
-    throw ApiException.fromResponse(response); // coverage:ignore-line
-  }
-
-  Future<CoreNavigationApps> getNavigationApps() async {
-    var path = '/ocs/v2.php/core/navigation/apps';
-    final queryParameters = <String, dynamic>{};
-    final headers = <String, String>{};
-    Uint8List? body;
-    final response = await rootClient.doRequest(
-      'get',
-      Uri(path: path, queryParameters: queryParameters).toString(),
-      headers,
-      body,
-    );
-    if (response.statusCode == 200) {
-      return CoreNavigationApps.fromJson(json.decode(utf8.decode(response.body) as String) as Map<String, dynamic>);
-    }
-    throw ApiException.fromResponse(response); // coverage:ignore-line
-  }
-
-  Future<CoreLoginFlowInit> initLoginFlow() async {
-    var path = '/index.php/login/v2';
-    final queryParameters = <String, dynamic>{};
-    final headers = <String, String>{};
-    Uint8List? body;
-    final response = await rootClient.doRequest(
-      'post',
-      Uri(path: path, queryParameters: queryParameters).toString(),
-      headers,
-      body,
-    );
-    if (response.statusCode == 200) {
-      return CoreLoginFlowInit.fromJson(json.decode(utf8.decode(response.body) as String) as Map<String, dynamic>);
-    }
-    throw ApiException.fromResponse(response); // coverage:ignore-line
-  }
-
-  Future<CoreLoginFlowResult> getLoginFlowResult({required String token}) async {
-    var path = '/index.php/login/v2/poll';
-    final queryParameters = <String, dynamic>{};
-    final headers = <String, String>{};
-    Uint8List? body;
-    queryParameters['token'] = token.toString();
-    final response = await rootClient.doRequest(
-      'post',
-      Uri(path: path, queryParameters: queryParameters).toString(),
-      headers,
-      body,
-    );
-    if (response.statusCode == 200) {
-      return CoreLoginFlowResult.fromJson(json.decode(utf8.decode(response.body) as String) as Map<String, dynamic>);
-    }
-    throw ApiException.fromResponse(response); // coverage:ignore-line
-  }
-
-  Future<Uint8List> getPreview({
-    String file = '',
-    int x = 32,
-    int y = 32,
-    int a = 0,
-    int forceIcon = 1,
-    String mode = 'fill',
-  }) async {
-    var path = '/index.php/core/preview.png';
-    final queryParameters = <String, dynamic>{};
-    final headers = <String, String>{};
-    Uint8List? body;
-    queryParameters['file'] = file.toString();
-    queryParameters['x'] = x.toString();
-    queryParameters['y'] = y.toString();
-    queryParameters['a'] = a.toString();
-    queryParameters['forceIcon'] = forceIcon.toString();
-    queryParameters['mode'] = mode.toString();
-    final response = await rootClient.doRequest(
-      'get',
-      Uri(path: path, queryParameters: queryParameters).toString(),
-      headers,
-      body,
-    );
-    if (response.statusCode == 200) {
-      return response.body;
-    }
-    throw ApiException.fromResponse(response); // coverage:ignore-line
-  }
-
-  Future<Uint8List> getDarkAvatar({
-    required String userId,
-    required int size,
-  }) async {
-    var path = '/index.php/avatar/{userId}/{size}/dark';
-    final queryParameters = <String, dynamic>{};
-    final headers = <String, String>{};
-    Uint8List? body;
-    path = path.replaceAll('{userId}', Uri.encodeQueryComponent(userId.toString()));
-    path = path.replaceAll('{size}', Uri.encodeQueryComponent(size.toString()));
-    final response = await rootClient.doRequest(
-      'get',
-      Uri(path: path, queryParameters: queryParameters).toString(),
-      headers,
-      body,
-    );
-    if (response.statusCode == 200) {
-      return response.body;
-    }
-    throw ApiException.fromResponse(response); // coverage:ignore-line
-  }
-
-  Future<Uint8List> getAvatar({
-    required String userId,
-    required int size,
-  }) async {
-    var path = '/index.php/avatar/{userId}/{size}';
-    final queryParameters = <String, dynamic>{};
-    final headers = <String, String>{};
-    Uint8List? body;
-    path = path.replaceAll('{userId}', Uri.encodeQueryComponent(userId.toString()));
-    path = path.replaceAll('{size}', Uri.encodeQueryComponent(size.toString()));
-    final response = await rootClient.doRequest(
-      'get',
-      Uri(path: path, queryParameters: queryParameters).toString(),
-      headers,
-      body,
-    );
-    if (response.statusCode == 200) {
-      return response.body;
-    }
-    throw ApiException.fromResponse(response); // coverage:ignore-line
-  }
-}
-
 @JsonSerializable()
 class GetSupportedApiVersions {
   GetSupportedApiVersions({this.apiLevels});
@@ -1906,380 +2847,6 @@ class NewsListArticles {
   // coverage:ignore-end
 }
 
-class NewsClient {
-  NewsClient(this.rootClient);
-
-  final Client rootClient;
-
-  Future<GetSupportedApiVersions> getSupportedApiVersions() async {
-    var path = '/index.php/apps/news/api';
-    final queryParameters = <String, dynamic>{};
-    final headers = <String, String>{};
-    Uint8List? body;
-    final response = await rootClient.doRequest(
-      'get',
-      Uri(path: path, queryParameters: queryParameters).toString(),
-      headers,
-      body,
-    );
-    if (response.statusCode == 200) {
-      return GetSupportedApiVersions.fromJson(
-          json.decode(utf8.decode(response.body) as String) as Map<String, dynamic>);
-    }
-    throw ApiException.fromResponse(response); // coverage:ignore-line
-  }
-
-  Future<NewsListFolders> listFolders() async {
-    var path = '/index.php/apps/news/api/v1-3/folders';
-    final queryParameters = <String, dynamic>{};
-    final headers = <String, String>{};
-    Uint8List? body;
-    final response = await rootClient.doRequest(
-      'get',
-      Uri(path: path, queryParameters: queryParameters).toString(),
-      headers,
-      body,
-    );
-    if (response.statusCode == 200) {
-      return NewsListFolders.fromJson(json.decode(utf8.decode(response.body) as String) as Map<String, dynamic>);
-    }
-    throw ApiException.fromResponse(response); // coverage:ignore-line
-  }
-
-  Future<NewsListFolders> createFolder({required String name}) async {
-    var path = '/index.php/apps/news/api/v1-3/folders';
-    final queryParameters = <String, dynamic>{};
-    final headers = <String, String>{};
-    Uint8List? body;
-    queryParameters['name'] = name.toString();
-    final response = await rootClient.doRequest(
-      'post',
-      Uri(path: path, queryParameters: queryParameters).toString(),
-      headers,
-      body,
-    );
-    if (response.statusCode == 200) {
-      return NewsListFolders.fromJson(json.decode(utf8.decode(response.body) as String) as Map<String, dynamic>);
-    }
-    throw ApiException.fromResponse(response); // coverage:ignore-line
-  }
-
-  Future renameFolder({
-    required int folderId,
-    required String name,
-  }) async {
-    var path = '/index.php/apps/news/api/v1-3/folders/{folderId}';
-    final queryParameters = <String, dynamic>{};
-    final headers = <String, String>{};
-    Uint8List? body;
-    path = path.replaceAll('{folderId}', Uri.encodeQueryComponent(folderId.toString()));
-    queryParameters['name'] = name.toString();
-    final response = await rootClient.doRequest(
-      'put',
-      Uri(path: path, queryParameters: queryParameters).toString(),
-      headers,
-      body,
-    );
-    if (response.statusCode == 200) {
-      return;
-    }
-    throw ApiException.fromResponse(response); // coverage:ignore-line
-  }
-
-  Future deleteFolder({required int folderId}) async {
-    var path = '/index.php/apps/news/api/v1-3/folders/{folderId}';
-    final queryParameters = <String, dynamic>{};
-    final headers = <String, String>{};
-    Uint8List? body;
-    path = path.replaceAll('{folderId}', Uri.encodeQueryComponent(folderId.toString()));
-    final response = await rootClient.doRequest(
-      'delete',
-      Uri(path: path, queryParameters: queryParameters).toString(),
-      headers,
-      body,
-    );
-    if (response.statusCode == 200) {
-      return;
-    }
-    throw ApiException.fromResponse(response); // coverage:ignore-line
-  }
-
-  Future markFolderAsRead({
-    required int folderId,
-    required int newestItemId,
-  }) async {
-    var path = '/index.php/apps/news/api/v1-3/folders/{folderId}/read';
-    final queryParameters = <String, dynamic>{};
-    final headers = <String, String>{};
-    Uint8List? body;
-    path = path.replaceAll('{folderId}', Uri.encodeQueryComponent(folderId.toString()));
-    queryParameters['newestItemId'] = newestItemId.toString();
-    final response = await rootClient.doRequest(
-      'post',
-      Uri(path: path, queryParameters: queryParameters).toString(),
-      headers,
-      body,
-    );
-    if (response.statusCode == 200) {
-      return;
-    }
-    throw ApiException.fromResponse(response); // coverage:ignore-line
-  }
-
-  Future<NewsListFeeds> listFeeds() async {
-    var path = '/index.php/apps/news/api/v1-3/feeds';
-    final queryParameters = <String, dynamic>{};
-    final headers = <String, String>{};
-    Uint8List? body;
-    final response = await rootClient.doRequest(
-      'get',
-      Uri(path: path, queryParameters: queryParameters).toString(),
-      headers,
-      body,
-    );
-    if (response.statusCode == 200) {
-      return NewsListFeeds.fromJson(json.decode(utf8.decode(response.body) as String) as Map<String, dynamic>);
-    }
-    throw ApiException.fromResponse(response); // coverage:ignore-line
-  }
-
-  Future<NewsListFeeds> addFeed({
-    required String url,
-    int? folderId,
-  }) async {
-    var path = '/index.php/apps/news/api/v1-3/feeds';
-    final queryParameters = <String, dynamic>{};
-    final headers = <String, String>{};
-    Uint8List? body;
-    queryParameters['url'] = url.toString();
-    if (folderId != null) {
-      queryParameters['folderId'] = folderId.toString();
-    }
-    final response = await rootClient.doRequest(
-      'post',
-      Uri(path: path, queryParameters: queryParameters).toString(),
-      headers,
-      body,
-    );
-    if (response.statusCode == 200) {
-      return NewsListFeeds.fromJson(json.decode(utf8.decode(response.body) as String) as Map<String, dynamic>);
-    }
-    throw ApiException.fromResponse(response); // coverage:ignore-line
-  }
-
-  Future deleteFeed({required int feedId}) async {
-    var path = '/index.php/apps/news/api/v1-3/feeds/{feedId}';
-    final queryParameters = <String, dynamic>{};
-    final headers = <String, String>{};
-    Uint8List? body;
-    path = path.replaceAll('{feedId}', Uri.encodeQueryComponent(feedId.toString()));
-    final response = await rootClient.doRequest(
-      'delete',
-      Uri(path: path, queryParameters: queryParameters).toString(),
-      headers,
-      body,
-    );
-    if (response.statusCode == 200) {
-      return;
-    }
-    throw ApiException.fromResponse(response); // coverage:ignore-line
-  }
-
-  Future moveFeed({
-    required int feedId,
-    int? folderId,
-  }) async {
-    var path = '/index.php/apps/news/api/v1-3/feeds/{feedId}/move';
-    final queryParameters = <String, dynamic>{};
-    final headers = <String, String>{};
-    Uint8List? body;
-    path = path.replaceAll('{feedId}', Uri.encodeQueryComponent(feedId.toString()));
-    if (folderId != null) {
-      queryParameters['folderId'] = folderId.toString();
-    }
-    final response = await rootClient.doRequest(
-      'post',
-      Uri(path: path, queryParameters: queryParameters).toString(),
-      headers,
-      body,
-    );
-    if (response.statusCode == 200) {
-      return;
-    }
-    throw ApiException.fromResponse(response); // coverage:ignore-line
-  }
-
-  Future renameFeed({
-    required int feedId,
-    required String feedTitle,
-  }) async {
-    var path = '/index.php/apps/news/api/v1-3/feeds/{feedId}/rename';
-    final queryParameters = <String, dynamic>{};
-    final headers = <String, String>{};
-    Uint8List? body;
-    path = path.replaceAll('{feedId}', Uri.encodeQueryComponent(feedId.toString()));
-    queryParameters['feedTitle'] = feedTitle.toString();
-    final response = await rootClient.doRequest(
-      'post',
-      Uri(path: path, queryParameters: queryParameters).toString(),
-      headers,
-      body,
-    );
-    if (response.statusCode == 200) {
-      return;
-    }
-    throw ApiException.fromResponse(response); // coverage:ignore-line
-  }
-
-  Future markFeedAsRead({
-    required int feedId,
-    required int newestItemId,
-  }) async {
-    var path = '/index.php/apps/news/api/v1-3/feeds/{feedId}/read';
-    final queryParameters = <String, dynamic>{};
-    final headers = <String, String>{};
-    Uint8List? body;
-    path = path.replaceAll('{feedId}', Uri.encodeQueryComponent(feedId.toString()));
-    queryParameters['newestItemId'] = newestItemId.toString();
-    final response = await rootClient.doRequest(
-      'post',
-      Uri(path: path, queryParameters: queryParameters).toString(),
-      headers,
-      body,
-    );
-    if (response.statusCode == 200) {
-      return;
-    }
-    throw ApiException.fromResponse(response); // coverage:ignore-line
-  }
-
-  Future<NewsListArticles> listArticles({
-    int type = 3,
-    int id = 0,
-    int getRead = 1,
-    int batchSize = -1,
-    int offset = 0,
-    int oldestFirst = 0,
-  }) async {
-    var path = '/index.php/apps/news/api/v1-3/items';
-    final queryParameters = <String, dynamic>{};
-    final headers = <String, String>{};
-    Uint8List? body;
-    queryParameters['type'] = type.toString();
-    queryParameters['id'] = id.toString();
-    queryParameters['getRead'] = getRead.toString();
-    queryParameters['batchSize'] = batchSize.toString();
-    queryParameters['offset'] = offset.toString();
-    queryParameters['oldestFirst'] = oldestFirst.toString();
-    final response = await rootClient.doRequest(
-      'get',
-      Uri(path: path, queryParameters: queryParameters).toString(),
-      headers,
-      body,
-    );
-    if (response.statusCode == 200) {
-      return NewsListArticles.fromJson(json.decode(utf8.decode(response.body) as String) as Map<String, dynamic>);
-    }
-    throw ApiException.fromResponse(response); // coverage:ignore-line
-  }
-
-  Future<NewsListArticles> listUpdatedArticles({
-    int type = 3,
-    int id = 0,
-    int lastModified = 0,
-  }) async {
-    var path = '/index.php/apps/news/api/v1-3/items/updated';
-    final queryParameters = <String, dynamic>{};
-    final headers = <String, String>{};
-    Uint8List? body;
-    queryParameters['type'] = type.toString();
-    queryParameters['id'] = id.toString();
-    queryParameters['lastModified'] = lastModified.toString();
-    final response = await rootClient.doRequest(
-      'get',
-      Uri(path: path, queryParameters: queryParameters).toString(),
-      headers,
-      body,
-    );
-    if (response.statusCode == 200) {
-      return NewsListArticles.fromJson(json.decode(utf8.decode(response.body) as String) as Map<String, dynamic>);
-    }
-    throw ApiException.fromResponse(response); // coverage:ignore-line
-  }
-
-  Future markArticleAsRead({required int itemId}) async {
-    var path = '/index.php/apps/news/api/v1-3/items/{itemId}/read';
-    final queryParameters = <String, dynamic>{};
-    final headers = <String, String>{};
-    Uint8List? body;
-    path = path.replaceAll('{itemId}', Uri.encodeQueryComponent(itemId.toString()));
-    final response = await rootClient.doRequest(
-      'post',
-      Uri(path: path, queryParameters: queryParameters).toString(),
-      headers,
-      body,
-    );
-    if (response.statusCode == 200) {
-      return;
-    }
-    throw ApiException.fromResponse(response); // coverage:ignore-line
-  }
-
-  Future markArticleAsUnread({required int itemId}) async {
-    var path = '/index.php/apps/news/api/v1-3/items/{itemId}/unread';
-    final queryParameters = <String, dynamic>{};
-    final headers = <String, String>{};
-    Uint8List? body;
-    path = path.replaceAll('{itemId}', Uri.encodeQueryComponent(itemId.toString()));
-    final response = await rootClient.doRequest(
-      'post',
-      Uri(path: path, queryParameters: queryParameters).toString(),
-      headers,
-      body,
-    );
-    if (response.statusCode == 200) {
-      return;
-    }
-    throw ApiException.fromResponse(response); // coverage:ignore-line
-  }
-
-  Future starArticle({required int itemId}) async {
-    var path = '/index.php/apps/news/api/v1-3/items/{itemId}/star';
-    final queryParameters = <String, dynamic>{};
-    final headers = <String, String>{};
-    Uint8List? body;
-    path = path.replaceAll('{itemId}', Uri.encodeQueryComponent(itemId.toString()));
-    final response = await rootClient.doRequest(
-      'post',
-      Uri(path: path, queryParameters: queryParameters).toString(),
-      headers,
-      body,
-    );
-    if (response.statusCode == 200) {
-      return;
-    }
-    throw ApiException.fromResponse(response); // coverage:ignore-line
-  }
-
-  Future unstarArticle({required int itemId}) async {
-    var path = '/index.php/apps/news/api/v1-3/items/{itemId}/unstar';
-    final queryParameters = <String, dynamic>{};
-    final headers = <String, String>{};
-    Uint8List? body;
-    path = path.replaceAll('{itemId}', Uri.encodeQueryComponent(itemId.toString()));
-    final response = await rootClient.doRequest(
-      'post',
-      Uri(path: path, queryParameters: queryParameters).toString(),
-      headers,
-      body,
-    );
-    if (response.statusCode == 200) {
-      return;
-    }
-    throw ApiException.fromResponse(response); // coverage:ignore-line
-  }
-}
-
 @JsonSerializable()
 class NotesNote {
   NotesNote({
@@ -2361,200 +2928,6 @@ class NotesSettings {
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$NotesSettingsToJson(this);
   // coverage:ignore-end
-}
-
-class NotesClient {
-  NotesClient(this.rootClient);
-
-  final Client rootClient;
-
-  Future<List<NotesNote>> getNotes({
-    String? category,
-    String exclude = '',
-    int pruneBefore = 0,
-    int chunkSize = 0,
-    String? chunkCursor,
-    String? ifNoneMatch,
-  }) async {
-    var path = '/index.php/apps/notes/api/v1/notes';
-    final queryParameters = <String, dynamic>{};
-    final headers = <String, String>{};
-    Uint8List? body;
-    if (category != null) {
-      queryParameters['category'] = category.toString();
-    }
-    queryParameters['exclude'] = exclude.toString();
-    queryParameters['pruneBefore'] = pruneBefore.toString();
-    queryParameters['chunkSize'] = chunkSize.toString();
-    if (chunkCursor != null) {
-      queryParameters['chunkCursor'] = chunkCursor.toString();
-    }
-    if (ifNoneMatch != null) {
-      headers['If-None-Match'] = ifNoneMatch.toString();
-    }
-    final response = await rootClient.doRequest(
-      'get',
-      Uri(path: path, queryParameters: queryParameters).toString(),
-      headers,
-      body,
-    );
-    if (response.statusCode == 200) {
-      return (json.decode(utf8.decode(response.body) as String) as List)
-          .map((final e) => NotesNote.fromJson(e as Map<String, dynamic>))
-          .toList();
-    }
-    throw ApiException.fromResponse(response); // coverage:ignore-line
-  }
-
-  Future<NotesNote> createNote({
-    String category = '',
-    String title = '',
-    String content = '',
-    int modified = 0,
-    int favorite = 0,
-  }) async {
-    var path = '/index.php/apps/notes/api/v1/notes';
-    final queryParameters = <String, dynamic>{};
-    final headers = <String, String>{};
-    Uint8List? body;
-    queryParameters['category'] = category.toString();
-    queryParameters['title'] = title.toString();
-    queryParameters['content'] = content.toString();
-    queryParameters['modified'] = modified.toString();
-    queryParameters['favorite'] = favorite.toString();
-    final response = await rootClient.doRequest(
-      'post',
-      Uri(path: path, queryParameters: queryParameters).toString(),
-      headers,
-      body,
-    );
-    if (response.statusCode == 200) {
-      return NotesNote.fromJson(json.decode(utf8.decode(response.body) as String) as Map<String, dynamic>);
-    }
-    throw ApiException.fromResponse(response); // coverage:ignore-line
-  }
-
-  Future<NotesNote> getNote({
-    required int id,
-    String exclude = '',
-    String? ifNoneMatch,
-  }) async {
-    var path = '/index.php/apps/notes/api/v1/notes/{id}';
-    final queryParameters = <String, dynamic>{};
-    final headers = <String, String>{};
-    Uint8List? body;
-    path = path.replaceAll('{id}', Uri.encodeQueryComponent(id.toString()));
-    queryParameters['exclude'] = exclude.toString();
-    if (ifNoneMatch != null) {
-      headers['If-None-Match'] = ifNoneMatch.toString();
-    }
-    final response = await rootClient.doRequest(
-      'get',
-      Uri(path: path, queryParameters: queryParameters).toString(),
-      headers,
-      body,
-    );
-    if (response.statusCode == 200) {
-      return NotesNote.fromJson(json.decode(utf8.decode(response.body) as String) as Map<String, dynamic>);
-    }
-    throw ApiException.fromResponse(response); // coverage:ignore-line
-  }
-
-  Future<NotesNote> updateNote({
-    required int id,
-    String? content,
-    int? modified,
-    String? title,
-    String? category,
-    int favorite = 0,
-    String? ifMatch,
-  }) async {
-    var path = '/index.php/apps/notes/api/v1/notes/{id}';
-    final queryParameters = <String, dynamic>{};
-    final headers = <String, String>{};
-    Uint8List? body;
-    path = path.replaceAll('{id}', Uri.encodeQueryComponent(id.toString()));
-    if (content != null) {
-      queryParameters['content'] = content.toString();
-    }
-    if (modified != null) {
-      queryParameters['modified'] = modified.toString();
-    }
-    if (title != null) {
-      queryParameters['title'] = title.toString();
-    }
-    if (category != null) {
-      queryParameters['category'] = category.toString();
-    }
-    queryParameters['favorite'] = favorite.toString();
-    if (ifMatch != null) {
-      headers['If-Match'] = ifMatch.toString();
-    }
-    final response = await rootClient.doRequest(
-      'put',
-      Uri(path: path, queryParameters: queryParameters).toString(),
-      headers,
-      body,
-    );
-    if (response.statusCode == 200) {
-      return NotesNote.fromJson(json.decode(utf8.decode(response.body) as String) as Map<String, dynamic>);
-    }
-    throw ApiException.fromResponse(response); // coverage:ignore-line
-  }
-
-  Future<String> deleteNote({required int id}) async {
-    var path = '/index.php/apps/notes/api/v1/notes/{id}';
-    final queryParameters = <String, dynamic>{};
-    final headers = <String, String>{};
-    Uint8List? body;
-    path = path.replaceAll('{id}', Uri.encodeQueryComponent(id.toString()));
-    final response = await rootClient.doRequest(
-      'delete',
-      Uri(path: path, queryParameters: queryParameters).toString(),
-      headers,
-      body,
-    );
-    if (response.statusCode == 200) {
-      return ((utf8.decode(response.body) as String) as String);
-    }
-    throw ApiException.fromResponse(response); // coverage:ignore-line
-  }
-
-  Future<NotesSettings> getSettings() async {
-    var path = '/index.php/apps/notes/api/v1/settings';
-    final queryParameters = <String, dynamic>{};
-    final headers = <String, String>{};
-    Uint8List? body;
-    final response = await rootClient.doRequest(
-      'get',
-      Uri(path: path, queryParameters: queryParameters).toString(),
-      headers,
-      body,
-    );
-    if (response.statusCode == 200) {
-      return NotesSettings.fromJson(json.decode(utf8.decode(response.body) as String) as Map<String, dynamic>);
-    }
-    throw ApiException.fromResponse(response); // coverage:ignore-line
-  }
-
-  Future<NotesSettings> updateSettings({required NotesSettings notesSettings}) async {
-    var path = '/index.php/apps/notes/api/v1/settings';
-    final queryParameters = <String, dynamic>{};
-    final headers = <String, String>{};
-    Uint8List? body;
-    headers['Content-Type'] = 'application/json';
-    body = Uint8List.fromList(utf8.encode(json.encode(notesSettings.toJson())));
-    final response = await rootClient.doRequest(
-      'put',
-      Uri(path: path, queryParameters: queryParameters).toString(),
-      headers,
-      body,
-    );
-    if (response.statusCode == 200) {
-      return NotesSettings.fromJson(json.decode(utf8.decode(response.body) as String) as Map<String, dynamic>);
-    }
-    throw ApiException.fromResponse(response); // coverage:ignore-line
-  }
 }
 
 class NotificationsNotification_SubjectRichParameters {
@@ -2849,150 +3222,6 @@ class NotificationsPushServerRegistration {
   // coverage:ignore-end
 }
 
-class NotificationsClient {
-  NotificationsClient(this.rootClient);
-
-  final Client rootClient;
-
-  Future<NotificationsListNotifications> listNotifications() async {
-    var path = '/ocs/v2.php/apps/notifications/api/v2/notifications';
-    final queryParameters = <String, dynamic>{};
-    final headers = <String, String>{};
-    Uint8List? body;
-    final response = await rootClient.doRequest(
-      'get',
-      Uri(path: path, queryParameters: queryParameters).toString(),
-      headers,
-      body,
-    );
-    if (response.statusCode == 200) {
-      return NotificationsListNotifications.fromJson(
-          json.decode(utf8.decode(response.body) as String) as Map<String, dynamic>);
-    }
-    throw ApiException.fromResponse(response); // coverage:ignore-line
-  }
-
-  Future<String> deleteAllNotifications() async {
-    var path = '/ocs/v2.php/apps/notifications/api/v2/notifications';
-    final queryParameters = <String, dynamic>{};
-    final headers = <String, String>{};
-    Uint8List? body;
-    final response = await rootClient.doRequest(
-      'delete',
-      Uri(path: path, queryParameters: queryParameters).toString(),
-      headers,
-      body,
-    );
-    if (response.statusCode == 200) {
-      return ((utf8.decode(response.body) as String) as String);
-    }
-    throw ApiException.fromResponse(response); // coverage:ignore-line
-  }
-
-  Future<NotificationsGetNotification> getNotification({required int id}) async {
-    var path = '/ocs/v2.php/apps/notifications/api/v2/notifications/{id}';
-    final queryParameters = <String, dynamic>{};
-    final headers = <String, String>{};
-    Uint8List? body;
-    path = path.replaceAll('{id}', Uri.encodeQueryComponent(id.toString()));
-    final response = await rootClient.doRequest(
-      'get',
-      Uri(path: path, queryParameters: queryParameters).toString(),
-      headers,
-      body,
-    );
-    if (response.statusCode == 200) {
-      return NotificationsGetNotification.fromJson(
-          json.decode(utf8.decode(response.body) as String) as Map<String, dynamic>);
-    }
-    throw ApiException.fromResponse(response); // coverage:ignore-line
-  }
-
-  Future<EmptyOCS> deleteNotification({required int id}) async {
-    var path = '/ocs/v2.php/apps/notifications/api/v2/notifications/{id}';
-    final queryParameters = <String, dynamic>{};
-    final headers = <String, String>{};
-    Uint8List? body;
-    path = path.replaceAll('{id}', Uri.encodeQueryComponent(id.toString()));
-    final response = await rootClient.doRequest(
-      'delete',
-      Uri(path: path, queryParameters: queryParameters).toString(),
-      headers,
-      body,
-    );
-    if (response.statusCode == 200) {
-      return EmptyOCS.fromJson(json.decode(utf8.decode(response.body) as String) as Map<String, dynamic>);
-    }
-    throw ApiException.fromResponse(response); // coverage:ignore-line
-  }
-
-  Future<NotificationsPushServerRegistration> registerDevice({
-    required String pushTokenHash,
-    required String devicePublicKey,
-    required String proxyServer,
-  }) async {
-    var path = '/ocs/v2.php/apps/notifications/api/v2/push';
-    final queryParameters = <String, dynamic>{};
-    final headers = <String, String>{};
-    Uint8List? body;
-    queryParameters['pushTokenHash'] = pushTokenHash.toString();
-    queryParameters['devicePublicKey'] = devicePublicKey.toString();
-    queryParameters['proxyServer'] = proxyServer.toString();
-    final response = await rootClient.doRequest(
-      'post',
-      Uri(path: path, queryParameters: queryParameters).toString(),
-      headers,
-      body,
-    );
-    if (response.statusCode == 201) {
-      return NotificationsPushServerRegistration.fromJson(
-          json.decode(utf8.decode(response.body) as String) as Map<String, dynamic>);
-    }
-    throw ApiException.fromResponse(response); // coverage:ignore-line
-  }
-
-  Future<String> removeDevice() async {
-    var path = '/ocs/v2.php/apps/notifications/api/v2/push';
-    final queryParameters = <String, dynamic>{};
-    final headers = <String, String>{};
-    Uint8List? body;
-    final response = await rootClient.doRequest(
-      'delete',
-      Uri(path: path, queryParameters: queryParameters).toString(),
-      headers,
-      body,
-    );
-    if (response.statusCode == 202) {
-      return ((utf8.decode(response.body) as String) as String);
-    }
-    throw ApiException.fromResponse(response); // coverage:ignore-line
-  }
-
-  Future<EmptyOCS> sendAdminNotification({
-    required String userId,
-    required String shortMessage,
-    String longMessage = '',
-  }) async {
-    var path = '/ocs/v2.php/apps/notifications/api/v2/admin_notifications/{userId}';
-    final queryParameters = <String, dynamic>{};
-    final headers = <String, String>{};
-    Uint8List? body;
-    path = path.replaceAll('{userId}', Uri.encodeQueryComponent(userId.toString()));
-    queryParameters['shortMessage'] = shortMessage.toString();
-    queryParameters['longMessage'] = longMessage.toString();
-    final response = await rootClient.doRequest(
-      'post',
-      Uri(path: path, queryParameters: queryParameters).toString(),
-      headers,
-      body,
-    );
-    if (response.statusCode == 200) {
-      return EmptyOCS.fromJson(json.decode(utf8.decode(response.body) as String) as Map<String, dynamic>);
-    }
-    throw ApiException.fromResponse(response); // coverage:ignore-line
-  }
-}
-
 @JsonSerializable()
 class ProvisioningApiUserDetails_Quota {
   ProvisioningApiUserDetails_Quota({
@@ -3201,47 +3430,6 @@ class ProvisioningApiUser {
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$ProvisioningApiUserToJson(this);
   // coverage:ignore-end
-}
-
-class ProvisioningApiClient {
-  ProvisioningApiClient(this.rootClient);
-
-  final Client rootClient;
-
-  Future<ProvisioningApiUser> getCurrentUser() async {
-    var path = '/ocs/v2.php/cloud/user';
-    final queryParameters = <String, dynamic>{};
-    final headers = <String, String>{};
-    Uint8List? body;
-    final response = await rootClient.doRequest(
-      'get',
-      Uri(path: path, queryParameters: queryParameters).toString(),
-      headers,
-      body,
-    );
-    if (response.statusCode == 200) {
-      return ProvisioningApiUser.fromJson(json.decode(utf8.decode(response.body) as String) as Map<String, dynamic>);
-    }
-    throw ApiException.fromResponse(response); // coverage:ignore-line
-  }
-
-  Future<ProvisioningApiUser> getUser({required String userId}) async {
-    var path = '/ocs/v2.php/cloud/users/{userId}';
-    final queryParameters = <String, dynamic>{};
-    final headers = <String, String>{};
-    Uint8List? body;
-    path = path.replaceAll('{userId}', Uri.encodeQueryComponent(userId.toString()));
-    final response = await rootClient.doRequest(
-      'get',
-      Uri(path: path, queryParameters: queryParameters).toString(),
-      headers,
-      body,
-    );
-    if (response.statusCode == 200) {
-      return ProvisioningApiUser.fromJson(json.decode(utf8.decode(response.body) as String) as Map<String, dynamic>);
-    }
-    throw ApiException.fromResponse(response); // coverage:ignore-line
-  }
 }
 
 enum UserStatusClearAt_Type {
@@ -3738,194 +3926,6 @@ class UserStatusPredefinedStatuses {
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$UserStatusPredefinedStatusesToJson(this);
   // coverage:ignore-end
-}
-
-class UserStatusClient {
-  UserStatusClient(this.rootClient);
-
-  final Client rootClient;
-
-  Future<UserStatusFindAllStatuses> findAllStatuses() async {
-    var path = '/ocs/v2.php/apps/user_status/api/v1/statuses';
-    final queryParameters = <String, dynamic>{};
-    final headers = <String, String>{};
-    Uint8List? body;
-    final response = await rootClient.doRequest(
-      'get',
-      Uri(path: path, queryParameters: queryParameters).toString(),
-      headers,
-      body,
-    );
-    if (response.statusCode == 200) {
-      return UserStatusFindAllStatuses.fromJson(
-          json.decode(utf8.decode(response.body) as String) as Map<String, dynamic>);
-    }
-    throw ApiException.fromResponse(response); // coverage:ignore-line
-  }
-
-  Future<UserStatusFindStatus> findStatus({required String userId}) async {
-    var path = '/ocs/v2.php/apps/user_status/api/v1/statuses/{userId}';
-    final queryParameters = <String, dynamic>{};
-    final headers = <String, String>{};
-    Uint8List? body;
-    path = path.replaceAll('{userId}', Uri.encodeQueryComponent(userId.toString()));
-    final response = await rootClient.doRequest(
-      'get',
-      Uri(path: path, queryParameters: queryParameters).toString(),
-      headers,
-      body,
-    );
-    if (response.statusCode == 200) {
-      return UserStatusFindStatus.fromJson(json.decode(utf8.decode(response.body) as String) as Map<String, dynamic>);
-    }
-    throw ApiException.fromResponse(response); // coverage:ignore-line
-  }
-
-  Future<UserStatusGetUserStatus> getStatus() async {
-    var path = '/ocs/v2.php/apps/user_status/api/v1/user_status';
-    final queryParameters = <String, dynamic>{};
-    final headers = <String, String>{};
-    Uint8List? body;
-    final response = await rootClient.doRequest(
-      'get',
-      Uri(path: path, queryParameters: queryParameters).toString(),
-      headers,
-      body,
-    );
-    if (response.statusCode == 200) {
-      return UserStatusGetUserStatus.fromJson(
-          json.decode(utf8.decode(response.body) as String) as Map<String, dynamic>);
-    }
-    throw ApiException.fromResponse(response); // coverage:ignore-line
-  }
-
-  Future<UserStatusGetUserStatus> setStatus({required UserStatusType statusType}) async {
-    var path = '/ocs/v2.php/apps/user_status/api/v1/user_status/status';
-    final queryParameters = <String, dynamic>{};
-    final headers = <String, String>{};
-    Uint8List? body;
-    queryParameters['statusType'] = statusType.value.toString();
-    final response = await rootClient.doRequest(
-      'put',
-      Uri(path: path, queryParameters: queryParameters).toString(),
-      headers,
-      body,
-    );
-    if (response.statusCode == 200) {
-      return UserStatusGetUserStatus.fromJson(
-          json.decode(utf8.decode(response.body) as String) as Map<String, dynamic>);
-    }
-    throw ApiException.fromResponse(response); // coverage:ignore-line
-  }
-
-  Future<UserStatusGetUserStatus> setPredefinedMessage({
-    required String messageId,
-    int? clearAt,
-  }) async {
-    var path = '/ocs/v2.php/apps/user_status/api/v1/user_status/message/predefined';
-    final queryParameters = <String, dynamic>{};
-    final headers = <String, String>{};
-    Uint8List? body;
-    queryParameters['messageId'] = messageId.toString();
-    if (clearAt != null) {
-      queryParameters['clearAt'] = clearAt.toString();
-    }
-    final response = await rootClient.doRequest(
-      'put',
-      Uri(path: path, queryParameters: queryParameters).toString(),
-      headers,
-      body,
-    );
-    if (response.statusCode == 200) {
-      return UserStatusGetUserStatus.fromJson(
-          json.decode(utf8.decode(response.body) as String) as Map<String, dynamic>);
-    }
-    throw ApiException.fromResponse(response); // coverage:ignore-line
-  }
-
-  Future<UserStatusGetUserStatus> setCustomMessage({
-    String? statusIcon,
-    String? message,
-    int? clearAt,
-  }) async {
-    var path = '/ocs/v2.php/apps/user_status/api/v1/user_status/message/custom';
-    final queryParameters = <String, dynamic>{};
-    final headers = <String, String>{};
-    Uint8List? body;
-    if (statusIcon != null) {
-      queryParameters['statusIcon'] = statusIcon.toString();
-    }
-    if (message != null) {
-      queryParameters['message'] = message.toString();
-    }
-    if (clearAt != null) {
-      queryParameters['clearAt'] = clearAt.toString();
-    }
-    final response = await rootClient.doRequest(
-      'put',
-      Uri(path: path, queryParameters: queryParameters).toString(),
-      headers,
-      body,
-    );
-    if (response.statusCode == 200) {
-      return UserStatusGetUserStatus.fromJson(
-          json.decode(utf8.decode(response.body) as String) as Map<String, dynamic>);
-    }
-    throw ApiException.fromResponse(response); // coverage:ignore-line
-  }
-
-  Future clearMessage() async {
-    var path = '/ocs/v2.php/apps/user_status/api/v1/user_status/message';
-    final queryParameters = <String, dynamic>{};
-    final headers = <String, String>{};
-    Uint8List? body;
-    final response = await rootClient.doRequest(
-      'delete',
-      Uri(path: path, queryParameters: queryParameters).toString(),
-      headers,
-      body,
-    );
-    if (response.statusCode == 200) {
-      return;
-    }
-    throw ApiException.fromResponse(response); // coverage:ignore-line
-  }
-
-  Future<UserStatusPredefinedStatuses> findAllPredefinedStatuses() async {
-    var path = '/ocs/v2.php/apps/user_status/api/v1/predefined_statuses';
-    final queryParameters = <String, dynamic>{};
-    final headers = <String, String>{};
-    Uint8List? body;
-    final response = await rootClient.doRequest(
-      'get',
-      Uri(path: path, queryParameters: queryParameters).toString(),
-      headers,
-      body,
-    );
-    if (response.statusCode == 200) {
-      return UserStatusPredefinedStatuses.fromJson(
-          json.decode(utf8.decode(response.body) as String) as Map<String, dynamic>);
-    }
-    throw ApiException.fromResponse(response); // coverage:ignore-line
-  }
-
-  Future<UserStatus> heartbeat({required UserStatusType status}) async {
-    var path = '/ocs/v2.php/apps/user_status/api/v1/heartbeat';
-    final queryParameters = <String, dynamic>{};
-    final headers = <String, String>{};
-    Uint8List? body;
-    queryParameters['status'] = status.value.toString();
-    final response = await rootClient.doRequest(
-      'put',
-      Uri(path: path, queryParameters: queryParameters).toString(),
-      headers,
-      body,
-    );
-    if (response.statusCode == 200) {
-      return UserStatus.fromJson(json.decode(utf8.decode(response.body) as String) as Map<String, dynamic>);
-    }
-    throw ApiException.fromResponse(response); // coverage:ignore-line
-  }
 }
 
 @JsonSerializable()
