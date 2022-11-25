@@ -18,6 +18,7 @@ class Schema {
     this.properties,
     this.required,
     this.items,
+    this.additionalProperties,
   });
 
   factory Schema.fromJson(final Map<String, dynamic> json) => _$SchemaFromJson(json);
@@ -53,4 +54,6 @@ class Schema {
   final List<String>? required;
 
   final Schema? items;
+
+  final bool? additionalProperties;
 }

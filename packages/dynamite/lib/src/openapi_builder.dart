@@ -326,12 +326,7 @@ class OpenAPIBuilder implements Builder {
                   (final s) => resolveType(
                     '$identifier${schema.ofs!.indexOf(s)}',
                     s,
-                    extraJsonSerializableValues: {
-                      'disallowUnrecognizedKeys': 'true',
-                      if (extraJsonSerializableValues != null) ...{
-                        ...extraJsonSerializableValues,
-                      },
-                    },
+                    extraJsonSerializableValues: extraJsonSerializableValues,
                   ),
                 )
                 .toList();
@@ -518,6 +513,9 @@ class OpenAPIBuilder implements Builder {
                           refer('JsonSerializable').call(
                             [],
                             {
+                              if (schema.additionalProperties ?? false) ...{
+                                'disallowUnrecognizedKeys': refer('false'),
+                              },
                               if (extraJsonSerializableValues != null) ...{
                                 for (final key in extraJsonSerializableValues.keys) ...{
                                   key: refer(extraJsonSerializableValues[key]!),

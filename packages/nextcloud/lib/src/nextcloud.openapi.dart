@@ -290,12 +290,17 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_Bruteforce {
 
 @JsonSerializable()
 class CoreServerCapabilities_Ocs_Data_Capabilities_MetadataAvailable {
-  CoreServerCapabilities_Ocs_Data_Capabilities_MetadataAvailable({required this.size});
+  CoreServerCapabilities_Ocs_Data_Capabilities_MetadataAvailable({
+    required this.size,
+    required this.gps,
+  });
 
   factory CoreServerCapabilities_Ocs_Data_Capabilities_MetadataAvailable.fromJson(Map<String, dynamic> json) =>
       _$CoreServerCapabilities_Ocs_Data_Capabilities_MetadataAvailableFromJson(json);
 
   final List<String> size;
+
+  final List<String> gps;
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreServerCapabilities_Ocs_Data_Capabilities_MetadataAvailableToJson(this);
@@ -1247,7 +1252,7 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_WeatherStatus {
   // coverage:ignore-end
 }
 
-@JsonSerializable()
+@JsonSerializable(disallowUnrecognizedKeys: false)
 class CoreServerCapabilities_Ocs_Data_Capabilities {
   CoreServerCapabilities_Ocs_Data_Capabilities({
     required this.core,
@@ -3316,7 +3321,7 @@ class UserStatusClearAt_Time {
   // coverage:ignore-end
 }
 
-@JsonSerializable(disallowUnrecognizedKeys: true)
+@JsonSerializable()
 class UserStatusClearAt {
   UserStatusClearAt({
     required this.type,
@@ -3549,7 +3554,7 @@ class UserStatus_ClearAt {
   // coverage:ignore-end
 }
 
-@JsonSerializable(disallowUnrecognizedKeys: true)
+@JsonSerializable()
 class UserStatus {
   UserStatus({
     required this.userId,

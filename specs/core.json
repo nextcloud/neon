@@ -176,6 +176,7 @@
                   },
                   "capabilities": {
                     "type": "object",
+                    "additionalProperties": true,
                     "required": [
                       "core",
                       "bruteforce",
@@ -222,10 +223,17 @@
                       "metadataAvailable": {
                         "type": "object",
                         "required": [
-                          "size"
+                          "size",
+                          "gps"
                         ],
                         "properties": {
                           "size": {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            }
+                          },
+                          "gps": {
                             "type": "array",
                             "items": {
                               "type": "string"
