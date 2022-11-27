@@ -1332,7 +1332,7 @@ TypeResult resolveType(
             spec,
             state,
             identifier,
-            schema.content!['application/json']!.schema!,
+            schema.contentSchema!,
             extraJsonSerializableValues: extraJsonSerializableValues,
           );
           break;
