@@ -22,6 +22,10 @@ class OpenAPIBuilder implements Builder {
           await buildStep.readAsString(inputId),
         ) as Map<String, dynamic>,
       );
+      if (spec.version != '3.1.0') {
+        throw Exception('Only OpenAPI 3.1.0 is supported');
+      }
+
       final tags = <Tag?>[
         null,
         if (spec.tags != null) ...[
