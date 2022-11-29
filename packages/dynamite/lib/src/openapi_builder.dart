@@ -991,6 +991,7 @@ TypeResult resolveObject(
   final Schema schema, {
   required final Map<String, String>? extraJsonSerializableValues,
   required final Map<String, Map<String, String>>? extraJsonKeyValues,
+  final bool fromJsonString = false,
 }) {
   if (!state.resolvedTypes.contains(identifier)) {
     state.resolvedTypes.add(identifier);
@@ -1162,7 +1163,10 @@ TypeResult resolveObject(
       ),
     );
   }
-  return TypeResultObject(identifier);
+  return TypeResultObject(
+    identifier,
+    fromJsonString: fromJsonString,
+  );
 }
 
 TypeResult resolveType(
@@ -1173,6 +1177,7 @@ TypeResult resolveType(
   final Map<String, String>? extraJsonSerializableValues,
   final Map<String, Map<String, String>>? extraJsonKeyValues,
   final bool ignoreEnum = false,
+  final bool fromJsonString = false,
 }) {
   TypeResult? result;
   if (schema.ref != null) {
@@ -1183,6 +1188,7 @@ TypeResult resolveType(
       name,
       spec.components!.schemas![name]!,
       extraJsonSerializableValues: extraJsonSerializableValues,
+      fromJsonString: fromJsonString,
     );
   } else if (schema.ofs != null) {
     if (!state.resolvedTypes.contains(identifier)) {
@@ -1195,6 +1201,7 @@ TypeResult resolveType(
               '$identifier${schema.ofs!.indexOf(s)}',
               s,
               extraJsonSerializableValues: extraJsonSerializableValues,
+              fromJsonString: fromJsonString,
             ),
           )
           .toList();
@@ -1334,6 +1341,7 @@ TypeResult resolveType(
             identifier,
             schema.contentSchema!,
             extraJsonSerializableValues: extraJsonSerializableValues,
+            fromJsonString: true,
           );
           break;
         }
@@ -1350,6 +1358,7 @@ TypeResult resolveType(
             identifier,
             schema.items!,
             extraJsonSerializableValues: extraJsonSerializableValues,
+            fromJsonString: fromJsonString,
           );
           result = TypeResultList(
             'List<${subResult.name}>',
@@ -1382,6 +1391,7 @@ TypeResult resolveType(
           schema,
           extraJsonSerializableValues: extraJsonSerializableValues,
           extraJsonKeyValues: extraJsonKeyValues,
+          fromJsonString: fromJsonString,
         );
         break;
     }
@@ -1427,6 +1437,7 @@ TypeResult resolveType(
                         schema,
                         ignoreEnum: true,
                         extraJsonSerializableValues: extraJsonSerializableValues,
+                        fromJsonString: fromJsonString,
                       );
                       b
                         ..name = _toDartName(value.toString())
