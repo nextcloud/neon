@@ -1,7 +1,7 @@
 part of '../../dynamite.dart';
 
 class TypeResultBase extends TypeResult {
-  TypeResultBase(super.typeName);
+  TypeResultBase(super.name);
 
   @override
   String serialize(final String object) => object;

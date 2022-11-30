@@ -2,7 +2,7 @@ part of '../../dynamite.dart';
 
 class TypeResultMap extends TypeResult {
   TypeResultMap(
-    super.typeName,
+    super.name,
     this.subType,
   );
 
