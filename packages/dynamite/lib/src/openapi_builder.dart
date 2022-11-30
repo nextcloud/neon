@@ -1299,8 +1299,24 @@ TypeResult resolveType(
                       );
                   },
                 ),
+                Constructor(
+                  (final b) {
+                    b
+                      ..factory = true
+                      ..lambda = true
+                      ..name = 'fromJsonString'
+                      ..requiredParameters.add(
+                        Parameter(
+                          (final b) => b
+                            ..name = 'data'
+                            ..type = refer('String'),
+                        ),
+                      )
+                      ..body = Code('$identifier.fromJson(json.decode(data))');
+                  },
+                ),
               ])
-              ..methods.add(
+              ..methods.addAll([
                 Method(
                   (final b) => b
                     ..name = 'toJson'
@@ -1308,7 +1324,22 @@ TypeResult resolveType(
                     ..lambda = true
                     ..body = const Code('_data'),
                 ),
-              );
+                Method(
+                  (final b) => b
+                    ..name = 'toJsonString'
+                    ..returns = refer('String')
+                    ..lambda = true
+                    ..static = true
+                    ..requiredParameters.add(
+                      Parameter(
+                        (final b) => b
+                          ..name = 'data'
+                          ..type = refer('dynamic'),
+                      ),
+                    )
+                    ..body = const Code('json.encode(data)'),
+                ),
+              ]);
           },
         ),
       );
