@@ -10,8 +10,14 @@ export 'package:cookie_jar/cookie_jar.dart';
 part 'nextcloud.openapi.g.dart';
 
 extension HttpClientResponseBody on HttpClientResponse {
-  Future<Uint8List> get bodyBytes async =>
-      Uint8List.fromList((await toList()).reduce((final value, final element) => [...value, ...element]));
+  Future<Uint8List> get bodyBytes async {
+    final chunks = await toList();
+    if (chunks.isEmpty) {
+      return Uint8List(0);
+    }
+    return Uint8List.fromList(chunks.reduce((final value, final element) => [...value, ...element]));
+  }
+
   Future<String> get body async => utf8.decode(await bodyBytes);
 }
 
