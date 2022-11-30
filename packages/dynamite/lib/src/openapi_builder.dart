@@ -1284,10 +1284,10 @@ TypeResult resolveType(
                             '}',
                           ],
                           if (schema.oneOf != null) ...[
-                            "assert([${fields.values.join(',')}].where((final x) => x != null).length == 1, 'Need oneOf');",
+                            "assert([${fields.values.join(',')}].where((final x) => x != null).length == 1, 'Need oneOf for \$data');",
                           ],
                           if (schema.allOf != null) ...[
-                            "assert([${fields.values.join(',')}].where((final x) => x != null).length == ${fields.length}, 'Need allOf');",
+                            "assert([${fields.values.join(',')}].where((final x) => x != null).length == ${fields.length}, 'Need allOf for \$data');",
                           ],
                           'return $identifier(',
                           'data,',

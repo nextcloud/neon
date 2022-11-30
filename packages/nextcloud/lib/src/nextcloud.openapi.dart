@@ -2821,7 +2821,7 @@ class CoreNavigationApps_Ocs_Data_Order {
     try {
       string = (data as String);
     } catch (_) {}
-    assert([$int, string].where((final x) => x != null).length == 1, 'Need oneOf');
+    assert([$int, string].where((final x) => x != null).length == 1, 'Need oneOf for $data');
     return CoreNavigationApps_Ocs_Data_Order(
       data,
       $int: $int,
@@ -3968,7 +3968,7 @@ class UserStatusClearAt_Time {
     try {
       $int = (data as int);
     } catch (_) {}
-    assert([userStatusClearAtTime0, $int].where((final x) => x != null).length == 1, 'Need oneOf');
+    assert([userStatusClearAtTime0, $int].where((final x) => x != null).length == 1, 'Need oneOf for $data');
     return UserStatusClearAt_Time(
       data,
       userStatusClearAtTime0: userStatusClearAtTime0,
