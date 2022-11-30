@@ -194,7 +194,9 @@ class FilesBloc extends $FilesBloc {
       await _downloadQueue.add(() => task.execute(client, sink));
       _downloadTasksSubject.add(_downloadTasksSubject.value..removeWhere((final t) => t == task));
       await sink.close();
-    } catch (e) {
+    } catch (e, s) {
+      debugPrint(e.toString());
+      debugPrint(s.toString());
       await sink.close();
       rethrow;
     }

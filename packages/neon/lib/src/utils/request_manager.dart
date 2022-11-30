@@ -14,8 +14,9 @@ class RequestManager {
     yield Result.loading();
     try {
       yield Result.success(await _timeout(disableTimeout, call));
-    } on Exception catch (e) {
+    } on Exception catch (e, s) {
       debugPrint(e.toString());
+      debugPrint(s.toString());
       yield Result.error(e);
     }
   }
@@ -39,8 +40,9 @@ class RequestManager {
     if (cache != null && await cache!.has(key)) {
       try {
         yield ResultCached(unwrap(deserialize<R>(json.decode((await cache!.get(key))!))), loading: true);
-      } catch (e) {
+      } catch (e, s) {
         debugPrint(e.toString());
+        debugPrint(s.toString());
       }
     }
 
@@ -48,17 +50,18 @@ class RequestManager {
       final response = await _timeout(disableTimeout, call);
       await cache?.set(key, json.encode(serialize<R>(response)));
       yield Result.success(unwrap(response));
-    } on Exception catch (e) {
+    } on Exception catch (e, s) {
+      debugPrint(e.toString());
+      debugPrint(s.toString());
       if (cache != null && await cache!.has(key)) {
-        debugPrint(e.toString());
         try {
           yield ResultCached(unwrap(deserialize<R>(json.decode((await cache!.get(key))!))), loading: true);
           return;
-        } catch (e) {
+        } catch (e, s) {
           debugPrint(e.toString());
+          debugPrint(s.toString());
         }
       }
-      debugPrint(e.toString());
       yield Result.error(e);
     }
   }

@@ -56,12 +56,14 @@ class LoginBloc extends $LoginBloc {
               final result = await client.core.getLoginFlowResult(token: init.poll.token);
               _cancelPollTimer();
               _loginFlowResultSubject.add(result);
-            } catch (e) {
+            } catch (e, s) {
               debugPrint(e.toString());
+              debugPrint(s.toString());
             }
           });
-        } catch (e) {
+        } catch (e, s) {
           debugPrint(e.toString());
+          debugPrint(s.toString());
           _serverConnectionStateSubject.add(ServerConnectionState.unreachable);
         }
       }
