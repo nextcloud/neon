@@ -1201,7 +1201,6 @@ TypeResult resolveType(
               '$identifier${schema.ofs!.indexOf(s)}',
               s,
               extraJsonSerializableValues: extraJsonSerializableValues,
-              fromJsonString: fromJsonString,
             ),
           )
           .toList();
@@ -1358,7 +1357,6 @@ TypeResult resolveType(
             identifier,
             schema.items!,
             extraJsonSerializableValues: extraJsonSerializableValues,
-            fromJsonString: fromJsonString,
           );
           result = TypeResultList(
             'List<${subResult.name}>',
@@ -1437,7 +1435,6 @@ TypeResult resolveType(
                         schema,
                         ignoreEnum: true,
                         extraJsonSerializableValues: extraJsonSerializableValues,
-                        fromJsonString: fromJsonString,
                       );
                       b
                         ..name = _toDartName(value.toString())
