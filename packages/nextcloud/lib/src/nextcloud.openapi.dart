@@ -2814,10 +2814,10 @@ class CoreNavigationApps_Ocs_Data_Order {
 
   factory CoreNavigationApps_Ocs_Data_Order.fromJson(dynamic data) {
     int? $int;
+    String? string;
     try {
       $int = (data as int);
     } catch (_) {}
-    String? string;
     try {
       string = (data as String);
     } catch (_) {}
@@ -2829,6 +2829,9 @@ class CoreNavigationApps_Ocs_Data_Order {
     );
   }
 
+  factory CoreNavigationApps_Ocs_Data_Order.fromJsonString(String data) =>
+      CoreNavigationApps_Ocs_Data_Order.fromJson(json.decode(data));
+
   final dynamic _data;
 
   final int? $int;
@@ -2838,6 +2841,8 @@ class CoreNavigationApps_Ocs_Data_Order {
   // coverage:ignore-start
   dynamic toJson() => _data;
   // coverage:ignore-end
+
+  static String toJsonString(dynamic data) => json.encode(data);
 }
 
 @JsonSerializable()
@@ -3348,6 +3353,9 @@ class NotificationsNotification_SubjectRichParameters {
     );
   }
 
+  factory NotificationsNotification_SubjectRichParameters.fromJsonString(String data) =>
+      NotificationsNotification_SubjectRichParameters.fromJson(json.decode(data));
+
   final dynamic _data;
 
   final Map<String, dynamic>? mapStringDynamic;
@@ -3355,6 +3363,8 @@ class NotificationsNotification_SubjectRichParameters {
   // coverage:ignore-start
   dynamic toJson() => _data;
   // coverage:ignore-end
+
+  static String toJsonString(dynamic data) => json.encode(data);
 }
 
 class NotificationsNotification_MessageRichParameters {
@@ -3374,6 +3384,9 @@ class NotificationsNotification_MessageRichParameters {
     );
   }
 
+  factory NotificationsNotification_MessageRichParameters.fromJsonString(String data) =>
+      NotificationsNotification_MessageRichParameters.fromJson(json.decode(data));
+
   final dynamic _data;
 
   final Map<String, dynamic>? mapStringDynamic;
@@ -3381,6 +3394,8 @@ class NotificationsNotification_MessageRichParameters {
   // coverage:ignore-start
   dynamic toJson() => _data;
   // coverage:ignore-end
+
+  static String toJsonString(dynamic data) => json.encode(data);
 }
 
 @JsonSerializable()
@@ -3961,10 +3976,10 @@ class UserStatusClearAt_Time {
 
   factory UserStatusClearAt_Time.fromJson(dynamic data) {
     UserStatusClearAt_Time0? userStatusClearAtTime0;
+    int? $int;
     try {
       userStatusClearAtTime0 = UserStatusClearAt_Time0.fromValue(data as String);
     } catch (_) {}
-    int? $int;
     try {
       $int = (data as int);
     } catch (_) {}
@@ -3976,6 +3991,8 @@ class UserStatusClearAt_Time {
     );
   }
 
+  factory UserStatusClearAt_Time.fromJsonString(String data) => UserStatusClearAt_Time.fromJson(json.decode(data));
+
   final dynamic _data;
 
   final UserStatusClearAt_Time0? userStatusClearAtTime0;
@@ -3986,6 +4003,8 @@ class UserStatusClearAt_Time {
   // coverage:ignore-start
   dynamic toJson() => _data;
   // coverage:ignore-end
+
+  static String toJsonString(dynamic data) => json.encode(data);
 }
 
 @JsonSerializable()
@@ -4020,10 +4039,10 @@ class UserStatusPublicUserStatus_ClearAt {
 
   factory UserStatusPublicUserStatus_ClearAt.fromJson(dynamic data) {
     UserStatusClearAt? userStatusClearAt;
+    int? $int;
     try {
       userStatusClearAt = UserStatusClearAt.fromJson(data as Map<String, dynamic>);
     } catch (_) {}
-    int? $int;
     try {
       $int = (data as int);
     } catch (_) {}
@@ -4033,6 +4052,9 @@ class UserStatusPublicUserStatus_ClearAt {
       $int: $int,
     );
   }
+
+  factory UserStatusPublicUserStatus_ClearAt.fromJsonString(String data) =>
+      UserStatusPublicUserStatus_ClearAt.fromJson(json.decode(data));
 
   final dynamic _data;
 
@@ -4044,6 +4066,8 @@ class UserStatusPublicUserStatus_ClearAt {
   // coverage:ignore-start
   dynamic toJson() => _data;
   // coverage:ignore-end
+
+  static String toJsonString(dynamic data) => json.encode(data);
 }
 
 enum UserStatusType {
@@ -4166,6 +4190,9 @@ class UserStatusFindStatus_Ocs_Data {
     );
   }
 
+  factory UserStatusFindStatus_Ocs_Data.fromJsonString(String data) =>
+      UserStatusFindStatus_Ocs_Data.fromJson(json.decode(data));
+
   final dynamic _data;
 
   final UserStatusPublicUserStatus? userStatusPublicUserStatus;
@@ -4173,6 +4200,8 @@ class UserStatusFindStatus_Ocs_Data {
   // coverage:ignore-start
   dynamic toJson() => _data;
   // coverage:ignore-end
+
+  static String toJsonString(dynamic data) => json.encode(data);
 }
 
 @JsonSerializable()
@@ -4225,10 +4254,10 @@ class UserStatus_ClearAt {
 
   factory UserStatus_ClearAt.fromJson(dynamic data) {
     UserStatusClearAt? userStatusClearAt;
+    int? $int;
     try {
       userStatusClearAt = UserStatusClearAt.fromJson(data as Map<String, dynamic>);
     } catch (_) {}
-    int? $int;
     try {
       $int = (data as int);
     } catch (_) {}
@@ -4238,6 +4267,8 @@ class UserStatus_ClearAt {
       $int: $int,
     );
   }
+
+  factory UserStatus_ClearAt.fromJsonString(String data) => UserStatus_ClearAt.fromJson(json.decode(data));
 
   final dynamic _data;
 
@@ -4249,6 +4280,8 @@ class UserStatus_ClearAt {
   // coverage:ignore-start
   dynamic toJson() => _data;
   // coverage:ignore-end
+
+  static String toJsonString(dynamic data) => json.encode(data);
 }
 
 @JsonSerializable()
@@ -4308,6 +4341,9 @@ class UserStatusGetUserStatus_Ocs_Data {
     );
   }
 
+  factory UserStatusGetUserStatus_Ocs_Data.fromJsonString(String data) =>
+      UserStatusGetUserStatus_Ocs_Data.fromJson(json.decode(data));
+
   final dynamic _data;
 
   final UserStatus? userStatus;
@@ -4315,6 +4351,8 @@ class UserStatusGetUserStatus_Ocs_Data {
   // coverage:ignore-start
   dynamic toJson() => _data;
   // coverage:ignore-end
+
+  static String toJsonString(dynamic data) => json.encode(data);
 }
 
 @JsonSerializable()
@@ -4368,10 +4406,10 @@ class UserStatusPredefinedStatus_ClearAt {
 
   factory UserStatusPredefinedStatus_ClearAt.fromJson(dynamic data) {
     UserStatusClearAt? userStatusClearAt;
+    int? $int;
     try {
       userStatusClearAt = UserStatusClearAt.fromJson(data as Map<String, dynamic>);
     } catch (_) {}
-    int? $int;
     try {
       $int = (data as int);
     } catch (_) {}
@@ -4381,6 +4419,9 @@ class UserStatusPredefinedStatus_ClearAt {
       $int: $int,
     );
   }
+
+  factory UserStatusPredefinedStatus_ClearAt.fromJsonString(String data) =>
+      UserStatusPredefinedStatus_ClearAt.fromJson(json.decode(data));
 
   final dynamic _data;
 
@@ -4392,6 +4433,8 @@ class UserStatusPredefinedStatus_ClearAt {
   // coverage:ignore-start
   dynamic toJson() => _data;
   // coverage:ignore-end
+
+  static String toJsonString(dynamic data) => json.encode(data);
 }
 
 @JsonSerializable()

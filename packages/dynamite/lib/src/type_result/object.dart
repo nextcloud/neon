@@ -2,7 +2,7 @@ part of '../../dynamite.dart';
 
 class TypeResultObject extends TypeResult {
   TypeResultObject(
-    super.typeName, {
+    super.name, {
     this.fromJsonString = false,
   });
 

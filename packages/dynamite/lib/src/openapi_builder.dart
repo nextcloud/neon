@@ -1278,10 +1278,30 @@ TypeResult resolveType(
                         <String>[
                           for (final result in results) ...[
                             '${result.name}? ${fields[result.name]!};',
+                          ],
+                          for (final result in results) ...[
+                            if (schema.discriminator != null) ...[
+                              "if (data['${schema.discriminator!.propertyName}'] == '${result.name}'",
+                              if (schema.discriminator!.mapping != null &&
+                                  schema.discriminator!.mapping!.isNotEmpty) ...[
+                                for (final key in schema.discriminator!.mapping!.entries
+                                    .where((final entry) => entry.value.endsWith('/${result.name}'))
+                                    .map((final entry) => entry.key)) ...[
+                                  " ||  data['${schema.discriminator!.propertyName}'] == '$key'",
+                                ],
+                              ],
+                              ') {',
+                            ],
                             'try {',
                             '${fields[result.name]!} = ${result.deserialize('data')};',
                             '} catch (_) {',
+                            if (schema.discriminator != null) ...[
+                              'rethrow;',
+                            ],
                             '}',
+                            if (schema.discriminator != null) ...[
+                              '}',
+                            ],
                           ],
                           if (schema.oneOf != null) ...[
                             "assert([${fields.values.join(',')}].where((final x) => x != null).length == 1, 'Need oneOf for \$data');",
@@ -1299,8 +1319,24 @@ TypeResult resolveType(
                       );
                   },
                 ),
+                Constructor(
+                  (final b) {
+                    b
+                      ..factory = true
+                      ..lambda = true
+                      ..name = 'fromJsonString'
+                      ..requiredParameters.add(
+                        Parameter(
+                          (final b) => b
+                            ..name = 'data'
+                            ..type = refer('String'),
+                        ),
+                      )
+                      ..body = Code('$identifier.fromJson(json.decode(data))');
+                  },
+                ),
               ])
-              ..methods.add(
+              ..methods.addAll([
                 Method(
                   (final b) => b
                     ..name = 'toJson'
@@ -1308,7 +1344,22 @@ TypeResult resolveType(
                     ..lambda = true
                     ..body = const Code('_data'),
                 ),
-              );
+                Method(
+                  (final b) => b
+                    ..name = 'toJsonString'
+                    ..returns = refer('String')
+                    ..lambda = true
+                    ..static = true
+                    ..requiredParameters.add(
+                      Parameter(
+                        (final b) => b
+                          ..name = 'data'
+                          ..type = refer('dynamic'),
+                      ),
+                    )
+                    ..body = const Code('json.encode(data)'),
+                ),
+              ]);
           },
         ),
       );
