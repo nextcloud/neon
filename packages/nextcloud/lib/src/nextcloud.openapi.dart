@@ -2814,10 +2814,10 @@ class CoreNavigationApps_Ocs_Data_Order {
 
   factory CoreNavigationApps_Ocs_Data_Order.fromJson(dynamic data) {
     int? $int;
+    String? string;
     try {
       $int = (data as int);
     } catch (_) {}
-    String? string;
     try {
       string = (data as String);
     } catch (_) {}
@@ -3976,10 +3976,10 @@ class UserStatusClearAt_Time {
 
   factory UserStatusClearAt_Time.fromJson(dynamic data) {
     UserStatusClearAt_Time0? userStatusClearAtTime0;
+    int? $int;
     try {
       userStatusClearAtTime0 = UserStatusClearAt_Time0.fromValue(data as String);
     } catch (_) {}
-    int? $int;
     try {
       $int = (data as int);
     } catch (_) {}
@@ -4039,10 +4039,10 @@ class UserStatusPublicUserStatus_ClearAt {
 
   factory UserStatusPublicUserStatus_ClearAt.fromJson(dynamic data) {
     UserStatusClearAt? userStatusClearAt;
+    int? $int;
     try {
       userStatusClearAt = UserStatusClearAt.fromJson(data as Map<String, dynamic>);
     } catch (_) {}
-    int? $int;
     try {
       $int = (data as int);
     } catch (_) {}
@@ -4254,10 +4254,10 @@ class UserStatus_ClearAt {
 
   factory UserStatus_ClearAt.fromJson(dynamic data) {
     UserStatusClearAt? userStatusClearAt;
+    int? $int;
     try {
       userStatusClearAt = UserStatusClearAt.fromJson(data as Map<String, dynamic>);
     } catch (_) {}
-    int? $int;
     try {
       $int = (data as int);
     } catch (_) {}
@@ -4406,10 +4406,10 @@ class UserStatusPredefinedStatus_ClearAt {
 
   factory UserStatusPredefinedStatus_ClearAt.fromJson(dynamic data) {
     UserStatusClearAt? userStatusClearAt;
+    int? $int;
     try {
       userStatusClearAt = UserStatusClearAt.fromJson(data as Map<String, dynamic>);
     } catch (_) {}
-    int? $int;
     try {
       $int = (data as int);
     } catch (_) {}
