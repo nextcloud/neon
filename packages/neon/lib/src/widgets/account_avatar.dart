@@ -62,12 +62,6 @@ class AccountAvatar extends StatelessWidget {
                     : BoxDecoration(
                         shape: BoxShape.circle,
                         color: _userStatusToColor(userStatusData),
-                        border: userStatusData.status != UserStatusType.offline &&
-                                userStatusData.status != UserStatusType.invisible
-                            ? Border.all(
-                                color: Theme.of(context).colorScheme.onPrimary,
-                              )
-                            : null,
                       ),
                 child: userStatusLoading
                     ? CircularProgressIndicator(
