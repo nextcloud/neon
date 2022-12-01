@@ -58,9 +58,14 @@ class OpenAPIBuilder implements Builder {
                   ..returns = refer('Future<Uint8List>')
                   ..type = MethodType.getter
                   ..modifier = MethodModifier.async
-                  ..lambda = true
                   ..body = const Code(
-                    'Uint8List.fromList((await toList()).reduce((final value, final element) => [...value, ...element]))',
+                    '''
+                  final chunks = await toList();
+                  if (chunks.isEmpty) {
+                    return Uint8List(0);
+                  }
+                  return Uint8List.fromList(chunks.reduce((final value, final element) => [...value, ...element]));
+                    ''',
                   ),
               ),
               Method(
