@@ -95,8 +95,9 @@ class _HomePageState extends State<HomePage> {
           AppLocalizations.of(context).errorServerInMaintenanceMode,
         );
       }
-    } catch (e) {
+    } catch (e, s) {
       debugPrint(e.toString());
+      debugPrint(s.toString());
       ExceptionWidget.showSnackbar(context, e);
     }
   }

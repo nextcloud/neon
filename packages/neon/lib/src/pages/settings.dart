@@ -259,7 +259,7 @@ class _SettingsPageState extends State<SettingsPage> {
                             await saveFileWithPickDialog(fileName, Uint8List.fromList(utf8.encode(data)));
                           } catch (e, s) {
                             debugPrint(e.toString());
-                            debugPrintStack(stackTrace: s);
+                            debugPrint(s.toString());
                             ExceptionWidget.showSnackbar(context, e);
                           }
                         },
@@ -295,7 +295,7 @@ class _SettingsPageState extends State<SettingsPage> {
                             await settingsExportHelper.applyFromJson(data as Map<String, dynamic>);
                           } catch (e, s) {
                             debugPrint(e.toString());
-                            debugPrintStack(stackTrace: s);
+                            debugPrint(s.toString());
                             ExceptionWidget.showSnackbar(context, e);
                           }
                         },
