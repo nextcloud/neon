@@ -284,6 +284,7 @@ class TestDockerHelper {
         ],
       ],
       'RUN ./occ app:enable password_policy',
+      'COPY --chown=www-data:www-data overlay /usr/src/nextcloud/',
       '',
     ];
 

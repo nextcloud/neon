@@ -13,3 +13,5 @@ RUN OC_PASS="user2" ./occ user:add --password-from-env --display-name "User Two"
 
 RUN ./occ app:install news
 RUN ./occ app:install notes
+
+COPY --chown=www-data:www-data overlay /usr/src/nextcloud/
