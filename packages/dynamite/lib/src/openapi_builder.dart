@@ -600,7 +600,11 @@ class OpenAPIBuilder implements Builder {
                               if (nullable) {
                                 code.write('if (${_toDartName(parameter.name)} != null) {');
                               }
-                              final value = result.encode(result.serialize(_toDartName(parameter.name)));
+                              final isPlainList = result is TypeResultList && !result.fromJsonString;
+                              final value = result.encode(
+                                result.serialize(_toDartName(parameter.name)),
+                                onlyChildren: isPlainList && parameter.in_ == 'query',
+                              );
                               switch (parameter.in_) {
                                 case 'path':
                                   code.write(
@@ -609,7 +613,7 @@ class OpenAPIBuilder implements Builder {
                                   break;
                                 case 'query':
                                   code.write(
-                                    "queryParameters['${parameter.name}${result is TypeResultList ? '[]' : ''}'] = $value;",
+                                    "queryParameters['${parameter.name}${isPlainList ? '[]' : ''}'] = $value;",
                                   );
                                   break;
                                 case 'header':
@@ -1417,6 +1421,7 @@ TypeResult resolveType(
           result = TypeResultList(
             'List<${subResult.name}>',
             subResult,
+            fromJsonString: fromJsonString,
           );
         } else {
           result = TypeResultList(

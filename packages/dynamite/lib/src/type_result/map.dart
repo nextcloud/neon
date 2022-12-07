@@ -12,7 +12,7 @@ class TypeResultMap extends TypeResult {
   String serialize(final String object) => object;
 
   @override
-  String encode(final String object) => 'json.encode($object)';
+  String encode(final String object, {final bool onlyChildren = false}) => 'json.encode($object)';
 
   @override
   String deserialize(final String object) => '($object as Map<String, ${subType.name}>)';
