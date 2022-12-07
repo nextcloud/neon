@@ -45,7 +45,7 @@ class _NeonAppState extends State<NeonApp> with WidgetsBindingObserver, tray.Tra
 
     _platform = Provider.of<NeonPlatform>(context, listen: false);
     _globalOptions = Provider.of<GlobalOptions>(context, listen: false);
-    _accountsBloc = RxBlocProvider.of<AccountsBloc>(context);
+    _accountsBloc = Provider.of<AccountsBloc>(context, listen: false);
 
     WidgetsBinding.instance.addObserver(this);
     if (_platform.canUseSystemTray) {
@@ -160,13 +160,13 @@ class _NeonAppState extends State<NeonApp> with WidgetsBindingObserver, tray.Tra
       if (_platform.canUsePushNotifications) {
         final localNotificationsPlugin = await PushUtils.initLocalNotifications();
         Global.onPushNotificationReceived = (final accountID) async {
-          final account = RxBlocProvider.of<AccountsBloc>(context).accounts.value.find(accountID);
+          final account = _accountsBloc.accounts.value.find(accountID);
           if (account == null) {
             return;
           }
           final appImplementation = Provider.of<List<AppImplementation>>(context, listen: false)
               .singleWhere((final a) => a.id == 'notifications');
-          _accountsBloc.getAppsBloc(account).getAppBloc<NotificationsBloc>(appImplementation).refresh();
+          await _accountsBloc.getAppsBloc(account).getAppBloc<NotificationsBloc>(appImplementation).refresh();
         };
         Global.onPushNotificationClicked = (final pushNotificationWithAccountID) async {
           final allAppImplementations = Provider.of<List<AppImplementation>>(context, listen: false);
@@ -181,8 +181,7 @@ class _NeonAppState extends State<NeonApp> with WidgetsBindingObserver, tray.Tra
             appImplementation = allAppImplementations.singleWhere((final a) => a.id == 'notifications');
           }
 
-          final account =
-              RxBlocProvider.of<AccountsBloc>(context).accounts.value.find(pushNotificationWithAccountID.accountID);
+          final account = _accountsBloc.accounts.value.find(pushNotificationWithAccountID.accountID);
           if (account == null) {
             return;
           }

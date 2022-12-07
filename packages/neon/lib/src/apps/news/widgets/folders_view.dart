@@ -23,37 +23,21 @@ class NewsFoldersView extends StatelessWidget {
           },
           child: const Icon(Icons.add),
         ),
-        body: StandardRxResultBuilder<NewsBloc, List<NewsFolder>>(
-          bloc: bloc,
-          state: (final bloc) => bloc.folders,
-          builder: (
-            final context,
-            final foldersData,
-            final foldersError,
-            final foldersLoading,
-            final _,
-          ) =>
-              StandardRxResultBuilder<NewsBloc, List<NewsFeed>>(
-            bloc: bloc,
-            state: (final bloc) => bloc.feeds,
-            builder: (
-              final context,
-              final feedsData,
-              final feedsError,
-              final feedsLoading,
-              final _,
-            ) =>
-                SortBoxBuilder<FoldersSortProperty, FolderFeedsWrapper>(
+        body: ResultBuilder<NewsBloc, List<NewsFolder>>(
+          stream: bloc.folders,
+          builder: (final context, final folders) => ResultBuilder<NewsBloc, List<NewsFeed>>(
+            stream: bloc.feeds,
+            builder: (final context, final feeds) => SortBoxBuilder<FoldersSortProperty, FolderFeedsWrapper>(
               sortBox: foldersSortBox,
               sortPropertyOption: bloc.options.foldersSortPropertyOption,
               sortBoxOrderOption: bloc.options.foldersSortBoxOrderOption,
-              input: feedsData == null
+              input: feeds.data == null
                   ? null
-                  : foldersData
+                  : folders.data
                       ?.map(
                         (final folder) => FolderFeedsWrapper(
                           folder,
-                          feedsData.where((final feed) => feed.folderId == folder.id).toList(),
+                          feeds.data!.where((final feed) => feed.folderId == folder.id).toList(),
                         ),
                       )
                       .toList(),
@@ -61,17 +45,13 @@ class NewsFoldersView extends StatelessWidget {
                 scrollKey: 'news-folders',
                 withFloatingActionButton: true,
                 items: sorted,
-                isLoading: feedsLoading || foldersLoading,
-                error: feedsError ?? foldersError,
-                onRetry: () {
-                  bloc.refresh(
-                    mainArticlesToo: false,
-                  );
+                isLoading: feeds.loading || folders.loading,
+                error: feeds.error ?? folders.error,
+                onRetry: () async {
+                  await bloc.refresh();
                 },
                 onRefresh: () async {
-                  bloc.refresh(
-                    mainArticlesToo: true,
-                  );
+                  await bloc.refresh();
                 },
                 builder: _buildFolder,
               ),

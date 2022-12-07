@@ -26,17 +26,9 @@ class _NotesSelectCategoryDialogState extends State<NotesSelectCategoryDialog> {
   }
 
   @override
-  Widget build(final BuildContext context) => StandardRxResultBuilder<NotesBloc, List<NotesNote>>(
-        bloc: widget.bloc,
-        state: (final bloc) => bloc.notes,
-        builder: (
-          final context,
-          final notesData,
-          final notesError,
-          final notesLoading,
-          final _,
-        ) =>
-            CustomDialog(
+  Widget build(final BuildContext context) => ResultBuilder<NotesBloc, List<NotesNote>>(
+        stream: widget.bloc.notes,
+        builder: (final context, final notes) => CustomDialog(
           title: Text(AppLocalizations.of(context).notesChangeCategory),
           children: [
             Form(
@@ -46,20 +38,20 @@ class _NotesSelectCategoryDialogState extends State<NotesSelectCategoryDialog> {
                 children: [
                   Center(
                     child: ExceptionWidget(
-                      notesError,
-                      onRetry: () {
-                        widget.bloc.refresh();
+                      notes.error,
+                      onRetry: () async {
+                        await widget.bloc.refresh();
                       },
                     ),
                   ),
                   Center(
                     child: CustomLinearProgressIndicator(
-                      visible: notesLoading,
+                      visible: notes.loading,
                     ),
                   ),
-                  if (notesData != null) ...[
+                  if (notes.data != null) ...[
                     NotesCategorySelect(
-                      categories: notesData.map((final note) => note.category).toSet().toList(),
+                      categories: notes.data!.map((final note) => note.category).toSet().toList(),
                       initialValue: widget.initialCategory,
                       onChanged: (final category) {
                         selectedCategory = category;

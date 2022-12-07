@@ -20,6 +20,8 @@ class _NotesNotePageState extends State<NotesNotePage> {
   final _contentFocusNode = FocusNode();
   final _titleFocusNode = FocusNode();
   bool _showEditor = false;
+  final _contentStreamController = StreamController<String>();
+  final _titleStreamController = StreamController<String>();
 
   void _focusEditor() {
     _contentFocusNode.requestFocus();
@@ -34,8 +36,10 @@ class _NotesNotePageState extends State<NotesNotePage> {
       handleNotesException(context, error);
     });
 
-    _contentController.addListener(() => widget.bloc.updateContent(_contentController.text));
-    _titleController.addListener(() => widget.bloc.updateTitle(_titleController.text));
+    _contentStreamController.stream.debounceTime(const Duration(seconds: 1)).listen(widget.bloc.updateContent);
+    _titleStreamController.stream.debounceTime(const Duration(seconds: 1)).listen(widget.bloc.updateTitle);
+    _contentController.addListener(() => _contentStreamController.add(_contentController.text));
+    _titleController.addListener(() => _titleStreamController.add(_titleController.text));
 
     WidgetsBinding.instance.addPostFrameCallback((final _) async {
       if (Provider.of<NeonPlatform>(context, listen: false).canUseWakelock) {
@@ -49,6 +53,13 @@ class _NotesNotePageState extends State<NotesNotePage> {
         _focusEditor();
       }
     });
+  }
+
+  @override
+  void dispose() {
+    unawaited(_contentStreamController.close());
+    unawaited(_titleStreamController.close());
+    super.dispose();
   }
 
   @override
@@ -94,10 +105,9 @@ class _NotesNotePageState extends State<NotesNotePage> {
                   }
                 },
               ),
-              RxBlocBuilder(
-                bloc: widget.bloc,
-                state: (final bloc) => bloc.category,
-                builder: (final context, final categorySnapshot, final _) {
+              StreamBuilder(
+                stream: widget.bloc.category,
+                builder: (final context, final categorySnapshot) {
                   final category = categorySnapshot.data ?? '';
 
                   return IconButton(

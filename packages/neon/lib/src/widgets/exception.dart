@@ -162,7 +162,7 @@ class ExceptionWidget extends StatelessWidget {
     await Navigator.of(context).push(
       MaterialPageRoute(
         builder: (final context) => LoginPage(
-          serverURL: RxBlocProvider.of<AccountsBloc>(context).activeAccount.value!.serverURL,
+          serverURL: Provider.of<AccountsBloc>(context, listen: false).activeAccount.value!.serverURL,
         ),
       ),
     );

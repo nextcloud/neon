@@ -12,7 +12,7 @@ List<AppImplementation> getAppImplementations(
       NotificationsApp(sharedPreferences, requestManager, platform),
     ];
 
-abstract class AppImplementation<T extends RxBlocBase, R extends NextcloudAppSpecificOptions> {
+abstract class AppImplementation<T extends Bloc, R extends NextcloudAppSpecificOptions> {
   AppImplementation(
     final SharedPreferences sharedPreferences,
     this.requestManager,

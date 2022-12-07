@@ -46,10 +46,13 @@ class _NewsFolderViewState extends State<NewsFolderView> {
                 ? NewsArticlesView(
                     bloc: NewsArticlesBloc(
                       widget.bloc,
-                      isMainArticlesBloc: false,
+                      widget.bloc.options,
+                      widget.bloc.requestManager,
+                      widget.bloc.client,
                       id: widget.folder.id,
                       listType: ListType.folder,
                     ),
+                    newsBloc: widget.bloc,
                   )
                 : NewsFeedsView(
                     bloc: widget.bloc,

@@ -17,6 +17,7 @@ class _LoginPageState extends State<LoginPage> {
   final _formKey = GlobalKey<FormState>();
   final _focusNode = FocusNode();
   late final PackageInfo _packageInfo;
+  late final AccountsBloc _accountsBloc;
   late final LoginBloc _loginBloc;
 
   @override
@@ -24,6 +25,7 @@ class _LoginPageState extends State<LoginPage> {
     super.initState();
 
     _packageInfo = Provider.of<PackageInfo>(context, listen: false);
+    _accountsBloc = Provider.of<AccountsBloc>(context, listen: false);
     _loginBloc = LoginBloc(_packageInfo);
 
     if (widget.serverURL != null) {
@@ -56,7 +58,7 @@ class _LoginPageState extends State<LoginPage> {
           return;
         }
 
-        final accountsBloc = RxBlocProvider.of<AccountsBloc>(context);
+        final accountsBloc = Provider.of<AccountsBloc>(context, listen: false);
         if (widget.serverURL != null) {
           accountsBloc.updateAccount(account);
           Navigator.of(context).pop();
@@ -98,9 +100,9 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(final BuildContext context) {
     final env = Provider.of<Env?>(context);
 
-    return RxBlocBuilder<AccountsBloc, List<Account>>(
-      state: (final bloc) => bloc.accounts,
-      builder: (final context, final accountsSnapshot, final accountsBloc) => WillPopScope(
+    return StreamBuilder<List<Account>>(
+      stream: _accountsBloc.accounts,
+      builder: (final context, final accountsSnapshot) => WillPopScope(
         onWillPop: () async {
           if (accountsSnapshot.data?.isNotEmpty ?? false) {
             return true;
@@ -113,14 +115,11 @@ class _LoginPageState extends State<LoginPage> {
           _loginBloc.setServerURL(null);
           return false;
         },
-        child: RxBlocBuilder<LoginBloc, String?>(
-          bloc: _loginBloc,
-          state: (final bloc) => bloc.serverURL,
-          builder: (final context, final serverURLSnapshot, final _) =>
-              RxBlocBuilder<LoginBloc, ServerConnectionState?>(
-            bloc: _loginBloc,
-            state: (final bloc) => bloc.serverConnectionState,
-            builder: (final context, final serverConnectionStateSnapshot, final _) => Scaffold(
+        child: StreamBuilder<String?>(
+          stream: _loginBloc.serverURL,
+          builder: (final context, final serverURLSnapshot) => StreamBuilder<ServerConnectionState?>(
+            stream: _loginBloc.serverConnectionState,
+            builder: (final context, final serverConnectionStateSnapshot) => Scaffold(
               appBar: serverConnectionStateSnapshot.data == ServerConnectionState.success ||
                       (accountsSnapshot.data?.isNotEmpty ?? false)
                   ? AppBar(
@@ -135,14 +134,10 @@ class _LoginPageState extends State<LoginPage> {
                         icon: const Icon(Icons.arrow_back),
                       ),
                       actions: [
-                        if (serverURLSnapshot.hasData && Provider.of<NeonPlatform>(context).canUseWebView) ...[
-                          IconButton(
-                            onPressed: () {
-                              _loginBloc.setServerURL(serverURLSnapshot.data);
-                            },
-                            icon: const Icon(Icons.refresh),
-                          ),
-                        ],
+                        IconButton(
+                          onPressed: _loginBloc.refresh,
+                          icon: const Icon(Icons.refresh),
+                        ),
                       ],
                     )
                   : null,

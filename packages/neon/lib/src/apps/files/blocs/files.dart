@@ -10,14 +10,9 @@ import 'package:nextcloud/nextcloud.dart';
 import 'package:open_file/open_file.dart';
 import 'package:path/path.dart' as p;
 import 'package:queue/queue.dart';
-import 'package:rx_bloc/rx_bloc.dart';
 import 'package:rxdart/rxdart.dart';
 
-part 'files.rxb.g.dart';
-
 abstract class FilesBlocEvents {
-  void refresh();
-
   void uploadFile(final List<String> path, final String localPath);
 
   void syncFile(final List<String> path);
@@ -41,144 +36,153 @@ abstract class FilesBlocStates {
   BehaviorSubject<List<UploadTask>> get uploadTasks;
 
   BehaviorSubject<List<DownloadTask>> get downloadTasks;
-
-  Stream<Exception> get errors;
 }
 
-@RxBloc()
-class FilesBloc extends $FilesBloc {
+class FilesBloc extends InteractiveBloc implements FilesBlocEvents, FilesBlocStates {
   FilesBloc(
     this.options,
-    this._requestManager,
     this.client,
     this._platform,
   ) {
-    _$refreshEvent.listen((final _) => browser.refresh());
-
-    _$uploadFileEvent.listen((final event) {
-      _wrapAction(
-        true,
-        () async {
-          final file = File(event.localPath);
-          // ignore: avoid_slow_async_io
-          final stat = await file.stat();
-          final task = UploadTask(
-            path: event.path,
-            size: stat.size,
-            lastModified: stat.modified,
-          );
-          _uploadTasksSubject.add(_uploadTasksSubject.value..add(task));
-          await _uploadQueue.add(() => task.execute(client, file.openRead()));
-          _uploadTasksSubject.add(_uploadTasksSubject.value..removeWhere((final t) => t == task));
-        },
-      );
-    });
-
-    _$syncFileEvent.listen((final path) {
-      final stream = _requestManager.wrapWithoutCache(
-        () async {
-          final file = File(
-            p.join(
-              await _platform.getUserAccessibleAppDataPath(),
-              client.humanReadableID,
-              'files',
-              path.join(Platform.pathSeparator),
-            ),
-          );
-          if (!file.parent.existsSync()) {
-            file.parent.createSync(recursive: true);
-          }
-          return _downloadFile(path, file);
-        },
-        disableTimeout: true,
-      ).asBroadcastStream();
-      stream.whereError().listen(_errorsStreamController.add);
-    });
-
-    _$openFileEvent.listen((final event) {
-      _wrapAction(
-        true,
-        () async {
-          final file = File(
-            p.join(
-              await _platform.getApplicationCachePath(),
-              'files',
-              event.etag.replaceAll('"', ''),
-              event.path.last,
-            ),
-          );
-          if (!file.existsSync()) {
-            debugPrint('Downloading ${event.path.join('/')} since it does not exist');
-            if (!file.parent.existsSync()) {
-              await file.parent.create(recursive: true);
-            }
-            await _downloadFile(event.path, file);
-          }
-          await OpenFile.open(file.path, type: event.mimeType);
-        },
-      );
-    });
-
-    _$deleteEvent.listen((final path) {
-      _wrapAction(false, () async => client.webdav.delete(path.join('/')));
-    });
-
-    _$renameEvent.listen((final event) {
-      _wrapAction(
-        false,
-        () async => client.webdav.move(
-          event.path.join('/'),
-          (event.path.sublist(0, event.path.length - 1)..add(event.name)).join('/'),
-        ),
-      );
-    });
-
-    _$moveEvent.listen((final event) {
-      _wrapAction(
-        false,
-        () async => client.webdav.move(
-          event.path.join('/'),
-          event.destination.join('/'),
-        ),
-      );
-    });
-
-    _$copyEvent.listen((final event) {
-      _wrapAction(
-        false,
-        () async => client.webdav.copy(
-          event.path.join('/'),
-          event.destination.join('/'),
-        ),
-      );
-    });
-
-    _$addFavoriteEvent.listen((final path) {
-      _wrapAction(
-        false,
-        () async => client.webdav.updateProps(
-          path.join('/'),
-          {WebDavProps.ocFavorite.name: '1'},
-        ),
-      );
-    });
-
-    _$removeFavoriteEvent.listen((final path) {
-      _wrapAction(
-        false,
-        () async => client.webdav.updateProps(
-          path.join('/'),
-          {WebDavProps.ocFavorite.name: '0'},
-        ),
-      );
-    });
-
     options.uploadQueueParallelism.stream.listen((final value) {
       _uploadQueue.parallel = value;
     });
     options.downloadQueueParallelism.stream.listen((final value) {
       _downloadQueue.parallel = value;
     });
+  }
+
+  final FilesAppSpecificOptions options;
+  final NextcloudClient client;
+  final NeonPlatform _platform;
+  late final browser = getNewFilesBrowserBloc();
+
+  final _uploadQueue = Queue();
+  final _downloadQueue = Queue();
+
+  @override
+  void dispose() {
+    _uploadQueue.dispose();
+    _downloadQueue.dispose();
+    unawaited(uploadTasks.close());
+    unawaited(downloadTasks.close());
+  }
+
+  @override
+  BehaviorSubject<List<UploadTask>> uploadTasks = BehaviorSubject<List<UploadTask>>.seeded([]);
+
+  @override
+  BehaviorSubject<List<DownloadTask>> downloadTasks = BehaviorSubject<List<DownloadTask>>.seeded([]);
+
+  @override
+  void addFavorite(final List<String> path) {
+    wrapAction(() async => client.webdav.updateProps(path.join('/'), {WebDavProps.ocFavorite.name: '1'}));
+  }
+
+  @override
+  void copy(final List<String> path, final List<String> destination) {
+    wrapAction(() async => client.webdav.copy(path.join('/'), destination.join('/')));
+  }
+
+  @override
+  void delete(final List<String> path) {
+    wrapAction(() async => client.webdav.delete(path.join('/')));
+  }
+
+  @override
+  void move(final List<String> path, final List<String> destination) {
+    wrapAction(() async => client.webdav.move(path.join('/'), destination.join('/')));
+  }
+
+  @override
+  void openFile(final List<String> path, final String etag, final String? mimeType) {
+    wrapAction(
+      () async {
+        final file = File(
+          p.join(
+            await _platform.getApplicationCachePath(),
+            'files',
+            etag.replaceAll('"', ''),
+            path.last,
+          ),
+        );
+        if (!file.existsSync()) {
+          debugPrint('Downloading ${path.join('/')} since it does not exist');
+          if (!file.parent.existsSync()) {
+            await file.parent.create(recursive: true);
+          }
+          await _downloadFile(path, file);
+        }
+        await OpenFile.open(file.path, type: mimeType);
+      },
+      disableTimeout: true,
+    );
+  }
+
+  @override
+  Future refresh() async {
+    await browser.refresh();
+  }
+
+  @override
+  void removeFavorite(final List<String> path) {
+    wrapAction(
+      () async => client.webdav.updateProps(
+        path.join('/'),
+        {WebDavProps.ocFavorite.name: '0'},
+      ),
+    );
+  }
+
+  @override
+  void rename(final List<String> path, final String name) {
+    wrapAction(
+      () async => client.webdav.move(
+        path.join('/'),
+        (path.sublist(0, path.length - 1)..add(name)).join('/'),
+      ),
+    );
+  }
+
+  @override
+  void syncFile(final List<String> path) {
+    wrapAction(
+      () async {
+        final file = File(
+          p.join(
+            await _platform.getUserAccessibleAppDataPath(),
+            client.humanReadableID,
+            'files',
+            path.join(Platform.pathSeparator),
+          ),
+        );
+        if (!file.parent.existsSync()) {
+          file.parent.createSync(recursive: true);
+        }
+        await _downloadFile(path, file);
+      },
+      disableTimeout: true,
+    );
+  }
+
+  @override
+  void uploadFile(final List<String> path, final String localPath) {
+    wrapAction(
+      () async {
+        final file = File(localPath);
+        // ignore: avoid_slow_async_io
+        final stat = await file.stat();
+        final task = UploadTask(
+          path: path,
+          size: stat.size,
+          lastModified: stat.modified,
+        );
+        uploadTasks.add(uploadTasks.value..add(task));
+        await _uploadQueue.add(() => task.execute(client, file.openRead()));
+        uploadTasks.add(uploadTasks.value..removeWhere((final t) => t == task));
+      },
+      disableTimeout: true,
+    );
   }
 
   Future _downloadFile(
@@ -190,56 +194,13 @@ class FilesBloc extends $FilesBloc {
       final task = DownloadTask(
         path: path,
       );
-      _downloadTasksSubject.add(_downloadTasksSubject.value..add(task));
+      downloadTasks.add(downloadTasks.value..add(task));
       await _downloadQueue.add(() => task.execute(client, sink));
-      _downloadTasksSubject.add(_downloadTasksSubject.value..removeWhere((final t) => t == task));
+      downloadTasks.add(downloadTasks.value..removeWhere((final t) => t == task));
+    } finally {
       await sink.close();
-    } catch (e, s) {
-      debugPrint(e.toString());
-      debugPrint(s.toString());
-      await sink.close();
-      rethrow;
     }
   }
 
-  void _wrapAction(final bool disableTimeout, final Future Function() call) {
-    final stream = _requestManager.wrapWithoutCache(call, disableTimeout: disableTimeout).asBroadcastStream();
-    stream.whereError().listen(_errorsStreamController.add);
-    stream.whereSuccess().listen((final _) async {
-      browser.refresh();
-    });
-  }
-
-  FilesBrowserBloc getNewFilesBrowserBloc() => FilesBrowserBloc(options, _requestManager, client);
-
-  final FilesAppSpecificOptions options;
-  final RequestManager _requestManager;
-  final NextcloudClient client;
-  final NeonPlatform _platform;
-  late final browser = getNewFilesBrowserBloc();
-
-  final _uploadQueue = Queue();
-  final _downloadQueue = Queue();
-  final _uploadTasksSubject = BehaviorSubject<List<UploadTask>>.seeded([]);
-  final _downloadTasksSubject = BehaviorSubject<List<DownloadTask>>.seeded([]);
-  final _errorsStreamController = StreamController<Exception>();
-
-  @override
-  void dispose() {
-    _uploadQueue.dispose();
-    _downloadQueue.dispose();
-    unawaited(_uploadTasksSubject.close());
-    unawaited(_downloadTasksSubject.close());
-    unawaited(_errorsStreamController.close());
-    super.dispose();
-  }
-
-  @override
-  BehaviorSubject<List<UploadTask>> _mapToUploadTasksState() => _uploadTasksSubject;
-
-  @override
-  BehaviorSubject<List<DownloadTask>> _mapToDownloadTasksState() => _downloadTasksSubject;
-
-  @override
-  Stream<Exception> _mapToErrorsState() => _errorsStreamController.stream.asBroadcastStream();
+  FilesBrowserBloc getNewFilesBrowserBloc() => FilesBrowserBloc(options, client);
 }

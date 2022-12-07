@@ -10,7 +10,6 @@ import 'package:file_icons/file_icons.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:filesize/filesize.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_rx_bloc/flutter_rx_bloc.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:intersperse/intersperse.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
@@ -53,7 +52,6 @@ class FilesApp extends AppImplementation<FilesBloc, FilesAppSpecificOptions> {
   @override
   FilesBloc buildBloc(final NextcloudClient client) => FilesBloc(
         options,
-        requestManager,
         client,
         platform,
       );

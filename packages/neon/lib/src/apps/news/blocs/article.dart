@@ -3,10 +3,7 @@ import 'dart:async';
 import 'package:neon/src/apps/news/blocs/articles.dart';
 import 'package:neon/src/neon.dart';
 import 'package:nextcloud/nextcloud.dart';
-import 'package:rx_bloc/rx_bloc.dart';
 import 'package:rxdart/rxdart.dart';
-
-part 'article.rxb.g.dart';
 
 abstract class NewsArticleBlocEvents {
   void markArticleAsRead();
@@ -22,80 +19,76 @@ abstract class NewsArticleBlocStates {
   BehaviorSubject<bool> get unread;
 
   BehaviorSubject<bool> get starred;
-
-  Stream<Exception> get errors;
 }
 
-@RxBloc()
-class NewsArticleBloc extends $NewsArticleBloc {
+class NewsArticleBloc extends InteractiveBloc implements NewsArticleBlocEvents, NewsArticleBlocStates {
   NewsArticleBloc(
-    this._requestManager,
     this._client,
     this._newsArticlesBloc,
     final NewsArticle article,
   ) {
-    _$markArticleAsReadEvent.listen((final _) {
-      _wrapArticleAction(() async {
-        await _client.news.markArticleAsRead(itemId: article.id);
-        _unreadSubject.add(false);
-      });
-    });
-
-    _$markArticleAsUnreadEvent.listen((final _) {
-      _wrapArticleAction(() async {
-        await _client.news.markArticleAsUnread(itemId: article.id);
-        _unreadSubject.add(true);
-      });
-    });
-
-    _$starArticleEvent.listen((final _) {
-      _wrapArticleAction(() async {
-        await _client.news.starArticle(itemId: article.id);
-        _starredSubject.add(true);
-      });
-    });
-
-    _$unstarArticleEvent.listen((final _) {
-      _wrapArticleAction(() async {
-        await _client.news.unstarArticle(itemId: article.id);
-        _starredSubject.add(false);
-      });
-    });
-
-    _unreadSubject.add(article.unread);
-    _starredSubject.add(article.starred);
+    _id = article.id;
+    unread.add(article.unread);
+    starred.add(article.starred);
   }
 
-  void _wrapArticleAction(final Future Function() call) {
-    final stream = _requestManager.wrapWithoutCache(() async => call()).asBroadcastStream();
-    stream.whereError().listen(_errorsStreamController.add);
-    stream.whereSuccess().listen((final _) async {
-      _newsArticlesBloc.refresh();
-    });
-  }
-
-  final RequestManager _requestManager;
   final NextcloudClient _client;
   final NewsArticlesBloc _newsArticlesBloc;
 
-  final _unreadSubject = BehaviorSubject<bool>();
-  final _starredSubject = BehaviorSubject<bool>();
-  final _errorsStreamController = StreamController<Exception>();
+  late final int _id;
 
   @override
   void dispose() {
-    unawaited(_unreadSubject.close());
-    unawaited(_starredSubject.close());
-    unawaited(_errorsStreamController.close());
+    unawaited(starred.close());
+    unawaited(unread.close());
     super.dispose();
   }
 
   @override
-  BehaviorSubject<bool> _mapToUnreadState() => _unreadSubject;
+  BehaviorSubject<bool> starred = BehaviorSubject<bool>();
 
   @override
-  BehaviorSubject<bool> _mapToStarredState() => _starredSubject;
+  BehaviorSubject<bool> unread = BehaviorSubject<bool>();
 
   @override
-  Stream<Exception> _mapToErrorsState() => _errorsStreamController.stream.asBroadcastStream();
+  Future refresh() async {}
+
+  @override
+  void markArticleAsRead() {
+    _wrapArticleAction(() async {
+      await _client.news.markArticleAsRead(itemId: _id);
+      unread.add(false);
+    });
+  }
+
+  @override
+  void markArticleAsUnread() {
+    _wrapArticleAction(() async {
+      await _client.news.markArticleAsUnread(itemId: _id);
+      unread.add(true);
+    });
+  }
+
+  @override
+  void starArticle() {
+    _wrapArticleAction(() async {
+      await _client.news.starArticle(itemId: _id);
+      starred.add(true);
+    });
+  }
+
+  @override
+  void unstarArticle() {
+    _wrapArticleAction(() async {
+      await _client.news.unstarArticle(itemId: _id);
+      starred.add(false);
+    });
+  }
+
+  void _wrapArticleAction(final Future Function() call) => wrapAction(
+        call,
+        refresh: () async {
+          await _newsArticlesBloc.refresh();
+        },
+      );
 }

@@ -24,7 +24,6 @@ dependencies:
     sdk: flutter
   flutter_markdown: ^0.6.10+2
   flutter_native_splash: ^2.2.0+1
-  flutter_rx_bloc: ^5.0.1
   flutter_svg: ^1.0.3
   html: ^0.15.0
   http: ^0.13.4
@@ -43,7 +42,6 @@ dependencies:
   provider: ^6.0.2
   queue: ^3.1.0+1
   quick_actions: ^1.0.0
-  rx_bloc: ^3.2.1
   rxdart: ^0.27.3
   settings:
     path: ../settings
@@ -74,7 +72,6 @@ dev_dependencies:
     git:
       url: https://github.com/stack11/dart_nit_picking
       ref: 9f625eb
-  rx_bloc_generator: ^6.0.0
 
 flutter:
   uses-material-design: true

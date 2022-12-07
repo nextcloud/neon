@@ -13,7 +13,7 @@ class _SettingsPageState extends State<SettingsPage> {
   @override
   Widget build(final BuildContext context) {
     final globalOptions = Provider.of<GlobalOptions>(context);
-    final accountsBloc = RxBlocProvider.of<AccountsBloc>(context);
+    final accountsBloc = Provider.of<AccountsBloc>(context, listen: false);
     final appImplementations = Provider.of<List<AppImplementation>>(context);
     return Scaffold(
       resizeToAvoidBottomInset: false,
@@ -38,13 +38,11 @@ class _SettingsPageState extends State<SettingsPage> {
           ),
         ],
       ),
-      body: RxBlocBuilder<AccountsBloc, List<Account>>(
-        bloc: accountsBloc,
-        state: (final bloc) => bloc.accounts,
+      body: StreamBuilder<List<Account>>(
+        stream: accountsBloc.accounts,
         builder: (
           final context,
           final accountsSnapshot,
-          final _,
         ) {
           final settingsExportHelper = SettingsExportHelper(
             globalOptions: globalOptions,
@@ -58,13 +56,11 @@ class _SettingsPageState extends State<SettingsPage> {
             },
           );
           final platform = Provider.of<NeonPlatform>(context, listen: false);
-          return RxBlocBuilder<AccountsBloc, Account?>(
-            bloc: accountsBloc,
-            state: (final bloc) => bloc.activeAccount,
+          return StreamBuilder<Account?>(
+            stream: accountsBloc.activeAccount,
             builder: (
               final context,
               final activeAccountSnapshot,
-              final _,
             ) =>
                 StreamBuilder<bool>(
               stream: globalOptions.pushNotificationsEnabled.enabled,

@@ -23,18 +23,9 @@ class _NotificationsMainPageState extends State<NotificationsMainPage> {
   }
 
   @override
-  Widget build(final BuildContext context) =>
-      StandardRxResultBuilder<NotificationsBloc, List<NotificationsNotification>>(
-        bloc: widget.bloc,
-        state: (final bloc) => bloc.notifications,
-        builder: (
-          final context,
-          final notificationsData,
-          final notificationsError,
-          final notificationsLoading,
-          final _,
-        ) =>
-            Scaffold(
+  Widget build(final BuildContext context) => ResultBuilder<NotificationsBloc, List<NotificationsNotification>>(
+        stream: widget.bloc.notifications,
+        builder: (final context, final notifications) => Scaffold(
           resizeToAvoidBottomInset: false,
           floatingActionButton: FloatingActionButton(
             onPressed: () async {
@@ -45,14 +36,14 @@ class _NotificationsMainPageState extends State<NotificationsMainPage> {
           body: CustomListView<NotificationsNotification>(
             scrollKey: 'notifications-notifications',
             withFloatingActionButton: true,
-            items: notificationsData,
-            isLoading: notificationsLoading,
-            error: notificationsError,
-            onRetry: () {
-              widget.bloc.refresh();
+            items: notifications.data,
+            isLoading: notifications.loading,
+            error: notifications.error,
+            onRetry: () async {
+              await widget.bloc.refresh();
             },
             onRefresh: () async {
-              widget.bloc.refresh();
+              await widget.bloc.refresh();
             },
             builder: _buildNotification,
           ),
@@ -106,7 +97,7 @@ class _NotificationsMainPageState extends State<NotificationsMainPage> {
         final allAppImplementations = Provider.of<List<AppImplementation>>(context, listen: false);
         final matchingAppImplementations = allAppImplementations.where((final a) => a.id == notification.app);
         if (matchingAppImplementations.isNotEmpty) {
-          final accountsBloc = RxBlocProvider.of<AccountsBloc>(context);
+          final accountsBloc = Provider.of<AccountsBloc>(context, listen: false);
           accountsBloc.getAppsBloc(accountsBloc.activeAccount.value!).setActiveApp(notification.app);
         } else {
           await showDialog(

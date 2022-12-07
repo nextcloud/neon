@@ -19,10 +19,13 @@ class NewsFeedPage extends StatelessWidget {
         body: NewsArticlesView(
           bloc: NewsArticlesBloc(
             bloc,
-            isMainArticlesBloc: false,
+            bloc.options,
+            bloc.requestManager,
+            bloc.client,
             id: feed.id,
             listType: ListType.feed,
           ),
+          newsBloc: bloc,
         ),
       );
 }
