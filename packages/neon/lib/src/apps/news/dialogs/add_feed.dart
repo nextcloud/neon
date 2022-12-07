@@ -43,17 +43,9 @@ class _NewsAddFeedDialogState extends State<NewsAddFeedDialog> {
   }
 
   @override
-  Widget build(final BuildContext context) => StandardRxResultBuilder<NewsBloc, List<NewsFolder>>(
-        bloc: widget.bloc,
-        state: (final bloc) => bloc.folders,
-        builder: (
-          final context,
-          final foldersData,
-          final foldersError,
-          final foldersLoading,
-          final _,
-        ) =>
-            CustomDialog(
+  Widget build(final BuildContext context) => ResultBuilder<NewsBloc, List<NewsFolder>>(
+        stream: widget.bloc.folders,
+        builder: (final context, final folders) => CustomDialog(
           title: Text(AppLocalizations.of(context).newsAddFeed),
           children: [
             Form(
@@ -75,22 +67,20 @@ class _NewsAddFeedDialogState extends State<NewsAddFeedDialog> {
                   if (widget.folderID == null) ...[
                     Center(
                       child: ExceptionWidget(
-                        foldersError,
-                        onRetry: () {
-                          widget.bloc.refresh(
-                            mainArticlesToo: false,
-                          );
+                        folders.error,
+                        onRetry: () async {
+                          await widget.bloc.refresh();
                         },
                       ),
                     ),
                     Center(
                       child: CustomLinearProgressIndicator(
-                        visible: foldersLoading,
+                        visible: folders.loading,
                       ),
                     ),
-                    if (foldersData != null) ...[
+                    if (folders.data != null) ...[
                       NewsFolderSelect(
-                        folders: foldersData,
+                        folders: folders.data!,
                         value: folder,
                         onChanged: (final f) {
                           setState(() {
@@ -101,7 +91,7 @@ class _NewsAddFeedDialogState extends State<NewsAddFeedDialog> {
                     ],
                   ],
                   ElevatedButton(
-                    onPressed: foldersData != null ? submit : null,
+                    onPressed: folders.data != null ? submit : null,
                     child: Text(AppLocalizations.of(context).newsAddFeed),
                   ),
                 ],

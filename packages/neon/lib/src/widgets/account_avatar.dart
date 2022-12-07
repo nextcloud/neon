@@ -39,17 +39,9 @@ class AccountAvatar extends StatelessWidget {
             ),
           ),
         ),
-        StandardRxResultBuilder<UserStatusBloc, UserStatus?>(
-          bloc: RxBlocProvider.of<AccountsBloc>(context).getUserStatusBloc(account),
-          state: (final bloc) => bloc.userStatus,
-          builder: (
-            final context,
-            final userStatusData,
-            final userStatusError,
-            final userStatusLoading,
-            final _,
-          ) =>
-              SizedBox(
+        ResultBuilder<UserStatusBloc, UserStatus?>(
+          stream: Provider.of<AccountsBloc>(context, listen: false).getUserStatusBloc(account).userStatus,
+          builder: (final context, final userStatus) => SizedBox(
             height: kAvatarSize,
             width: kAvatarSize,
             child: Align(
@@ -57,18 +49,19 @@ class AccountAvatar extends StatelessWidget {
               child: Container(
                 height: kAvatarSize / 3,
                 width: kAvatarSize / 3,
-                decoration: userStatusLoading || userStatusError != null || userStatusData == null
+                decoration: userStatus.loading || userStatus.error != null || userStatus.data == null
                     ? null
                     : BoxDecoration(
                         shape: BoxShape.circle,
-                        color: _userStatusToColor(userStatusData),
+                        color: _userStatusToColor(userStatus.data!),
                       ),
-                child: userStatusLoading
+                child: userStatus.loading
                     ? CircularProgressIndicator(
                         strokeWidth: 1.5,
                         color: Theme.of(context).colorScheme.onPrimary,
                       )
-                    : userStatusError != null && (userStatusError is! ApiException || userStatusError.statusCode != 404)
+                    : userStatus.error != null &&
+                            (userStatus.error is! ApiException || (userStatus.error! as ApiException).statusCode != 404)
                         ? const Icon(
                             Icons.error_outline,
                             size: kAvatarSize / 3,

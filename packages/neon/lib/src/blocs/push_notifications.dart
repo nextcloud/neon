@@ -5,12 +5,8 @@ import 'package:neon/src/blocs/accounts.dart';
 import 'package:neon/src/models/account.dart';
 import 'package:neon/src/neon.dart';
 import 'package:nextcloud/nextcloud.dart';
-import 'package:rx_bloc/rx_bloc.dart';
-import 'package:rxdart/rxdart.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:unifiedpush/unifiedpush.dart';
-
-part 'push_notifications.rxb.g.dart';
 
 abstract class PushNotificationsBlocEvents {}
 
@@ -18,8 +14,7 @@ abstract class PushNotificationsBlocStates {
   Stream<NextcloudPushNotification> get notifications;
 }
 
-@RxBloc()
-class PushNotificationsBloc extends $PushNotificationsBloc {
+class PushNotificationsBloc extends Bloc implements PushNotificationsBlocEvents, PushNotificationsBlocStates {
   PushNotificationsBloc(
     this._accountsBloc,
     this._sharedPreferences,
@@ -42,6 +37,27 @@ class PushNotificationsBloc extends $PushNotificationsBloc {
       });
     }
   }
+
+  final AccountsBloc _accountsBloc;
+  final NeonPlatform _platform;
+  final SharedPreferences _sharedPreferences;
+  late final _storage = AppStorage('notifications', _sharedPreferences);
+  final GlobalOptions _globalOptions;
+  final Env? _env;
+  late RSAKeypair _keypair;
+  bool? _pushNotificationsEnabled;
+
+  final _notificationsController = StreamController<NextcloudPushNotification>();
+
+  @override
+  void dispose() {
+    unawaited(_notificationsController.close());
+  }
+
+  @override
+  late Stream<NextcloudPushNotification> notifications = _notificationsController.stream.asBroadcastStream();
+
+  String _keyLastEndpoint(final Account account) => 'last-endpoint-${account.id}';
 
   Future _setupUnifiedPush() async {
     await UnifiedPush.initialize(
@@ -74,7 +90,7 @@ class PushNotificationsBloc extends $PushNotificationsBloc {
 
         final subscription = await account.client.notifications.registerDevice(
           pushTokenHash: account.client.notifications.generatePushTokenHash(endpoint),
-          devicePublicKey: _keypair!.publicKey.toFormattedPEM(),
+          devicePublicKey: _keypair.publicKey.toFormattedPEM(),
           proxyServer: proxyServerForNextcloud,
         );
 
@@ -122,28 +138,6 @@ class PushNotificationsBloc extends $PushNotificationsBloc {
       await UnifiedPush.registerApp(account.client.id);
     }
   }
-
-  final AccountsBloc _accountsBloc;
-  final NeonPlatform _platform;
-  final SharedPreferences _sharedPreferences;
-  late final _storage = AppStorage('notifications', _sharedPreferences);
-  final GlobalOptions _globalOptions;
-  final Env? _env;
-  RSAKeypair? _keypair;
-  bool? _pushNotificationsEnabled;
-
-  String _keyLastEndpoint(final Account account) => 'last-endpoint-${account.id}';
-
-  final _notificationsController = StreamController<NextcloudPushNotification>();
-
-  @override
-  void dispose() {
-    unawaited(_notificationsController.close());
-    super.dispose();
-  }
-
-  @override
-  Stream<NextcloudPushNotification> _mapToNotificationsState() => _notificationsController.stream.asBroadcastStream();
 }
 
 class NextcloudPushNotification {

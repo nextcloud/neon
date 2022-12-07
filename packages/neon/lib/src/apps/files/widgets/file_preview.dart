@@ -33,7 +33,7 @@ class FilePreview extends StatelessWidget {
         stream: bloc.options.showPreviewsOption.stream,
         builder: (final context, final showPreviewsSnapshot) {
           if ((showPreviewsSnapshot.data ?? false) && (details.hasPreview ?? false)) {
-            final account = RxBlocProvider.of<AccountsBloc>(context).activeAccount.value!;
+            final account = Provider.of<AccountsBloc>(context, listen: false).activeAccount.value!;
             final child = CachedAPIImage(
               account: account,
               cacheKey: 'preview-${details.path.join('/')}-$width-$height',

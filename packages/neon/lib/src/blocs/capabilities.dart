@@ -3,56 +3,45 @@ import 'dart:async';
 import 'package:neon/src/models/account.dart';
 import 'package:neon/src/neon.dart';
 import 'package:nextcloud/nextcloud.dart';
-import 'package:rx_bloc/rx_bloc.dart';
 import 'package:rxdart/rxdart.dart';
-
-part 'capabilities.rxb.g.dart';
 
 typedef Capabilities = CoreServerCapabilities_Ocs_Data;
 typedef NextcloudTheme = CoreServerCapabilities_Ocs_Data_Capabilities_Theming;
 
-abstract class CapabilitiesBlocEvents {
-  void refresh();
-}
+abstract class CapabilitiesBlocEvents {}
 
 abstract class CapabilitiesBlocStates {
   BehaviorSubject<Result<Capabilities>> get capabilities;
 }
 
-@RxBloc()
-class CapabilitiesBloc extends $CapabilitiesBloc {
+class CapabilitiesBloc extends InteractiveBloc implements CapabilitiesBlocEvents, CapabilitiesBlocStates {
   CapabilitiesBloc(
     this._requestManager,
     this._client,
   ) {
-    _$refreshEvent.listen((final _) => _loadCapabilities());
-
-    _loadCapabilities();
-  }
-
-  void _loadCapabilities() {
-    _requestManager
-        .wrapNextcloud<CoreServerCapabilities_Ocs_Data, CoreServerCapabilities>(
-          _client.id,
-          'capabilities',
-          () async => _client.core.getCapabilities(),
-          (final response) => response.ocs.data,
-          previousData: _capabilitiesSubject.valueOrNull?.data,
-        )
-        .listen(_capabilitiesSubject.add);
+    unawaited(refresh());
   }
 
   final RequestManager _requestManager;
   final NextcloudClient _client;
 
-  final _capabilitiesSubject = BehaviorSubject<Result<Capabilities>>();
-
   @override
   void dispose() {
-    unawaited(_capabilitiesSubject.close());
+    unawaited(capabilities.close());
     super.dispose();
   }
 
   @override
-  BehaviorSubject<Result<Capabilities>> _mapToCapabilitiesState() => _capabilitiesSubject;
+  BehaviorSubject<Result<Capabilities>> capabilities = BehaviorSubject<Result<Capabilities>>();
+
+  @override
+  Future refresh() async {
+    await _requestManager.wrapNextcloud<CoreServerCapabilities_Ocs_Data, CoreServerCapabilities>(
+      _client.id,
+      'capabilities',
+      capabilities,
+      () async => _client.core.getCapabilities(),
+      (final response) => response.ocs.data,
+    );
+  }
 }

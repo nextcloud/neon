@@ -1,16 +1,12 @@
 import 'dart:async';
 
+import 'package:flutter/foundation.dart';
 import 'package:neon/src/apps/files/app.dart';
 import 'package:neon/src/neon.dart';
 import 'package:nextcloud/nextcloud.dart';
-import 'package:rx_bloc/rx_bloc.dart';
 import 'package:rxdart/rxdart.dart';
 
-part 'browser.rxb.g.dart';
-
 abstract class FilesBrowserBlocEvents {
-  void refresh();
-
   void setPath(final List<String> path);
 
   void createFolder(final List<String> path);
@@ -20,84 +16,69 @@ abstract class FilesBrowserBlocStates {
   BehaviorSubject<Result<List<WebDavFile>>> get files;
 
   BehaviorSubject<List<String>> get path;
-
-  Stream<Exception> get errors;
 }
 
-@RxBloc()
-class FilesBrowserBloc extends $FilesBrowserBloc {
+class FilesBrowserBloc extends InteractiveBloc implements FilesBrowserBlocEvents, FilesBrowserBlocStates {
   FilesBrowserBloc(
     this.options,
-    this._requestManager,
     this.client,
   ) {
-    _$refreshEvent.listen((final _) => _loadFiles());
-
-    _$setPathEvent.listen((final path) {
-      _pathSubject.add(path);
-      _loadFiles();
-    });
-
-    _$createFolderEvent.listen((final path) {
-      _wrapAction(
-        () async => client.webdav.mkdir(
-          path.join('/'),
-          safe: false,
-        ),
-      );
-    });
-
-    _loadFiles();
-  }
-
-  void _wrapAction(final Future Function() call) {
-    final stream = _requestManager.wrapWithoutCache(call).asBroadcastStream();
-    stream.whereError().listen(_errorsStreamController.add);
-    stream.whereSuccess().listen((final _) async {
-      refresh();
-    });
-  }
-
-  void _loadFiles() {
-    _requestManager
-        .wrapWithoutCache(
-          () async => client.webdav.ls(
-            _pathSubject.value.join('/'),
-            props: {
-              WebDavProps.davContentType.name,
-              WebDavProps.davETag.name,
-              WebDavProps.davLastModified.name,
-              WebDavProps.ncHasPreview.name,
-              WebDavProps.ocSize.name,
-              WebDavProps.ocFavorite.name,
-            },
-          ),
-        )
-        .listen(_filesSubject.add);
+    unawaited(refresh());
   }
 
   final FilesAppSpecificOptions options;
-  final RequestManager _requestManager;
   final NextcloudClient client;
-
-  final _filesSubject = BehaviorSubject<Result<List<WebDavFile>>>();
-  final _pathSubject = BehaviorSubject<List<String>>.seeded([]);
-  final _errorsStreamController = StreamController<Exception>();
 
   @override
   void dispose() {
-    unawaited(_filesSubject.close());
-    unawaited(_pathSubject.close());
-    unawaited(_errorsStreamController.close());
+    unawaited(files.close());
+    unawaited(path.close());
     super.dispose();
   }
 
   @override
-  BehaviorSubject<Result<List<WebDavFile>>> _mapToFilesState() => _filesSubject;
+  BehaviorSubject<Result<List<WebDavFile>>> files = BehaviorSubject<Result<List<WebDavFile>>>();
 
   @override
-  BehaviorSubject<List<String>> _mapToPathState() => _pathSubject;
+  BehaviorSubject<List<String>> path = BehaviorSubject<List<String>>.seeded([]);
 
   @override
-  Stream<Exception> _mapToErrorsState() => _errorsStreamController.stream.asBroadcastStream();
+  Future refresh() async {
+    // TODO: We have to do this manually, because we can't cache WebDAV stuff right now
+    try {
+      files.add(Result.loading());
+      final data = await client.webdav.ls(
+        path.value.join('/'),
+        props: {
+          WebDavProps.davContentType.name,
+          WebDavProps.davETag.name,
+          WebDavProps.davLastModified.name,
+          WebDavProps.ncHasPreview.name,
+          WebDavProps.ocSize.name,
+          WebDavProps.ocFavorite.name,
+        },
+      );
+      files.add(Result.success(data));
+    } catch (e, s) {
+      debugPrint(e.toString());
+      debugPrint(s.toString());
+      files.add(Result.error(e));
+    }
+  }
+
+  @override
+  void setPath(final List<String> p) {
+    path.add(p);
+    unawaited(refresh());
+  }
+
+  @override
+  void createFolder(final List<String> path) {
+    wrapAction(
+      () async => client.webdav.mkdir(
+        path.join('/'),
+        safe: false,
+      ),
+    );
+  }
 }

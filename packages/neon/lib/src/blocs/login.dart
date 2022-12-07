@@ -2,12 +2,10 @@ import 'dart:async';
 
 import 'package:flutter/foundation.dart';
 import 'package:neon/src/models/account.dart';
+import 'package:neon/src/neon.dart';
 import 'package:nextcloud/nextcloud.dart';
 import 'package:package_info_plus/package_info_plus.dart';
-import 'package:rx_bloc/rx_bloc.dart';
 import 'package:rxdart/rxdart.dart';
-
-part 'login.rxb.g.dart';
 
 abstract class LoginBlocEvents {
   void setServerURL(final String? url);
@@ -23,51 +21,85 @@ abstract class LoginBlocStates {
   BehaviorSubject<CoreLoginFlowResult?> get loginFlowResult;
 }
 
-@RxBloc()
-class LoginBloc extends $LoginBloc {
-  LoginBloc(this._packageInfo) {
-    _$setServerURLEvent.listen((final url) async {
-      _serverURLSubject.add(url);
-      _loginFlowInitSubject.add(null);
-      _loginFlowResultSubject.add(null);
-      _serverConnectionStateSubject.add(url != null ? ServerConnectionState.loading : null);
+class LoginBloc extends InteractiveBloc implements LoginBlocEvents, LoginBlocStates {
+  LoginBloc(this._packageInfo);
 
-      if (url != null) {
-        try {
-          final client = NextcloudClient(
-            url,
-            userAgentOverride: userAgent(_packageInfo),
-          );
+  final PackageInfo _packageInfo;
 
-          final status = await client.core.getStatus();
-          if (status.maintenance) {
-            _serverConnectionStateSubject.add(ServerConnectionState.maintenanceMode);
-            return;
-          }
+  Timer? _pollTimer;
 
-          _serverConnectionStateSubject.add(ServerConnectionState.success);
+  @override
+  void dispose() {
+    _cancelPollTimer();
+    unawaited(serverURL.close());
+    unawaited(serverConnectionState.close());
+    unawaited(loginFlowInit.close());
+    unawaited(loginFlowResult.close());
+  }
 
-          final init = await client.core.initLoginFlow();
-          _loginFlowInitSubject.add(init);
+  @override
+  BehaviorSubject<CoreLoginFlowInit?> loginFlowInit = BehaviorSubject<CoreLoginFlowInit?>.seeded(null);
 
-          _cancelPollTimer();
-          _pollTimer = Timer.periodic(const Duration(seconds: 2), (final _) async {
-            try {
-              final result = await client.core.getLoginFlowResult(token: init.poll.token);
-              _cancelPollTimer();
-              _loginFlowResultSubject.add(result);
-            } catch (e, s) {
-              debugPrint(e.toString());
-              debugPrint(s.toString());
-            }
-          });
-        } catch (e, s) {
-          debugPrint(e.toString());
-          debugPrint(s.toString());
-          _serverConnectionStateSubject.add(ServerConnectionState.unreachable);
+  @override
+  BehaviorSubject<CoreLoginFlowResult?> loginFlowResult = BehaviorSubject<CoreLoginFlowResult?>.seeded(null);
+
+  @override
+  BehaviorSubject<ServerConnectionState?> serverConnectionState = BehaviorSubject<ServerConnectionState?>.seeded(null);
+
+  @override
+  BehaviorSubject<String?> serverURL = BehaviorSubject<String?>.seeded(null);
+
+  @override
+  Future refresh() async {
+    await _setServerURL(serverURL.valueOrNull);
+  }
+
+  @override
+  void setServerURL(final String? url) {
+    unawaited(_setServerURL(url));
+  }
+
+  Future _setServerURL(final String? url) async {
+    serverURL.add(url);
+    loginFlowInit.add(null);
+    loginFlowResult.add(null);
+    serverConnectionState.add(url != null ? ServerConnectionState.loading : null);
+
+    if (url != null) {
+      try {
+        final client = NextcloudClient(
+          url,
+          userAgentOverride: userAgent(_packageInfo),
+        );
+
+        final status = await client.core.getStatus();
+        if (status.maintenance) {
+          serverConnectionState.add(ServerConnectionState.maintenanceMode);
+          return;
         }
+
+        serverConnectionState.add(ServerConnectionState.success);
+
+        final init = await client.core.initLoginFlow();
+        loginFlowInit.add(init);
+
+        _cancelPollTimer();
+        _pollTimer = Timer.periodic(const Duration(seconds: 2), (final _) async {
+          try {
+            final result = await client.core.getLoginFlowResult(token: init.poll.token);
+            _cancelPollTimer();
+            loginFlowResult.add(result);
+          } catch (e, s) {
+            debugPrint(e.toString());
+            debugPrint(s.toString());
+          }
+        });
+      } catch (e, s) {
+        debugPrint(e.toString());
+        debugPrint(s.toString());
+        serverConnectionState.add(ServerConnectionState.unreachable);
       }
-    });
+    }
   }
 
   void _cancelPollTimer() {
@@ -76,36 +108,6 @@ class LoginBloc extends $LoginBloc {
       _pollTimer = null;
     }
   }
-
-  final PackageInfo _packageInfo;
-
-  final _serverURLSubject = BehaviorSubject<String?>.seeded(null);
-  final _serverConnectionStateSubject = BehaviorSubject<ServerConnectionState?>.seeded(null);
-  final _loginFlowInitSubject = BehaviorSubject<CoreLoginFlowInit?>.seeded(null);
-  final _loginFlowResultSubject = BehaviorSubject<CoreLoginFlowResult?>.seeded(null);
-  Timer? _pollTimer;
-
-  @override
-  void dispose() {
-    _cancelPollTimer();
-    unawaited(_serverURLSubject.close());
-    unawaited(_serverConnectionStateSubject.close());
-    unawaited(_loginFlowInitSubject.close());
-    unawaited(_loginFlowResultSubject.close());
-    super.dispose();
-  }
-
-  @override
-  BehaviorSubject<String?> _mapToServerURLState() => _serverURLSubject;
-
-  @override
-  BehaviorSubject<ServerConnectionState?> _mapToServerConnectionStateState() => _serverConnectionStateSubject;
-
-  @override
-  BehaviorSubject<CoreLoginFlowInit?> _mapToLoginFlowInitState() => _loginFlowInitSubject;
-
-  @override
-  BehaviorSubject<CoreLoginFlowResult?> _mapToLoginFlowResultState() => _loginFlowResultSubject;
 }
 
 enum ServerConnectionState {

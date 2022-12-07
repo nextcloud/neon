@@ -45,11 +45,9 @@ class AccountSettingsPage extends StatelessWidget {
             ),
           ],
         ),
-        body: StandardRxResultBuilder<UserDetailsBloc, ProvisioningApiUserDetails>(
-          bloc: _userDetailsBloc,
-          state: (final bloc) => bloc.userDetails,
-          builder: (final context, final userDetailsData, final userDetailsError, final userDetailsLoading, final _) =>
-              SettingsList(
+        body: ResultBuilder<UserDetailsBloc, ProvisioningApiUserDetails>(
+          stream: _userDetailsBloc.userDetails,
+          builder: (final context, final userDetails) => SettingsList(
             categories: [
               SettingsCategory(
                 title: Text(AppLocalizations.of(context).accountOptionsCategoryStorageInfo),
@@ -58,9 +56,9 @@ class AccountSettingsPage extends StatelessWidget {
                     title: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        if (userDetailsData != null) ...[
+                        if (userDetails.data != null) ...[
                           LinearProgressIndicator(
-                            value: userDetailsData.quota.relative / 100,
+                            value: userDetails.data!.quota.relative / 100,
                             backgroundColor: Theme.of(context).colorScheme.primary.withOpacity(0.3),
                           ),
                           const SizedBox(
@@ -68,20 +66,20 @@ class AccountSettingsPage extends StatelessWidget {
                           ),
                           Text(
                             AppLocalizations.of(context).accountOptionsQuotaUsedOf(
-                              filesize(userDetailsData.quota.used, 1),
-                              filesize(userDetailsData.quota.total, 1),
-                              userDetailsData.quota.relative.toString(),
+                              filesize(userDetails.data!.quota.used, 1),
+                              filesize(userDetails.data!.quota.total, 1),
+                              userDetails.data!.quota.relative.toString(),
                             ),
                           ),
                         ],
                         ExceptionWidget(
-                          userDetailsError,
-                          onRetry: () {
-                            _userDetailsBloc.refresh();
+                          userDetails.error,
+                          onRetry: () async {
+                            await _userDetailsBloc.refresh();
                           },
                         ),
                         CustomLinearProgressIndicator(
-                          visible: userDetailsLoading,
+                          visible: userDetails.loading,
                         ),
                       ],
                     ),

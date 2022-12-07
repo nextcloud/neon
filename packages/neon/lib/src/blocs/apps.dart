@@ -6,15 +6,11 @@ import 'package:neon/src/blocs/capabilities.dart';
 import 'package:neon/src/models/account.dart';
 import 'package:neon/src/neon.dart';
 import 'package:nextcloud/nextcloud.dart';
-import 'package:rx_bloc/rx_bloc.dart';
 import 'package:rxdart/rxdart.dart';
-
-part 'apps.rxb.g.dart';
 
 typedef NextcloudApp = CoreNavigationApps_Ocs_Data;
 
 abstract class AppsBlocEvents {
-  void refresh();
   void setActiveApp(final String? appID);
 }
 
@@ -28,8 +24,7 @@ abstract class AppsBlocStates {
   BehaviorSubject<String?> get activeAppID;
 }
 
-@RxBloc()
-class AppsBloc extends $AppsBloc {
+class AppsBloc extends InteractiveBloc implements AppsBlocEvents, AppsBlocStates {
   AppsBloc(
     this._requestManager,
     this._capabilitiesBloc,
@@ -37,53 +32,26 @@ class AppsBloc extends $AppsBloc {
     this._account,
     this._allAppImplementations,
   ) {
-    _$refreshEvent.listen((final _) => _loadApps);
-    _$setActiveAppEvent.listen((final appId) async {
-      final data = (await _appImplementationsSubject.firstWhere((final result) => result.data != null)).data!;
-      if (data.where((final app) => app.id == appId).isNotEmpty) {
-        if (_activeAppSubject.valueOrNull != appId) {
-          _activeAppSubject.add(appId);
-        }
-      } else if (appId == 'notifications') {
-        // TODO: Open notifications page
-      } else {
-        throw Exception('App $appId not found');
-      }
+    apps.listen((final result) {
+      appImplementations
+          .add(result.transform((final data) => _filteredAppImplementations(data.map((final a) => a.id).toList())));
     });
 
-    _appsSubject.listen((final result) {
-      if (result is ResultLoading) {
-        _appImplementationsSubject.add(Result.loading());
-      } else if (result is ResultError<List<NextcloudApp>>) {
-        _appImplementationsSubject.add(Result.error(result.error));
-      } else if (result is ResultSuccess<List<NextcloudApp>>) {
-        _appImplementationsSubject.add(
-          Result.success(_filteredAppImplementations(result.data.map((final a) => a.id).toList())),
-        );
-      } else if (result is ResultCached<List<NextcloudApp>>) {
-        _appImplementationsSubject.add(
-          ResultCached(_filteredAppImplementations(result.data.map((final a) => a.id).toList())),
-        );
-      }
-
-      final appImplementations = result.data != null
-          ? _filteredAppImplementations(result.data!.map((final a) => a.id).toList())
-          : <AppImplementation>[];
-
+    appImplementations.listen((final result) {
       if (result.data != null) {
         final options = _accountsBloc.getOptions(_account);
         unawaited(
           options.initialApp.stream.first.then((var initialApp) async {
             if (initialApp == null) {
-              if (appImplementations.where((final a) => a.id == 'files').isNotEmpty) {
+              if (result.data!.where((final a) => a.id == 'files').isNotEmpty) {
                 initialApp = 'files';
-              } else if (appImplementations.isNotEmpty) {
+              } else if (result.data!.isNotEmpty) {
                 // This should never happen, because the files app is always installed and can not be removed, but just in
                 // case this changes at a later point.
-                initialApp = appImplementations[0].id;
+                initialApp = result.data![0].id;
               }
             }
-            if (!_activeAppSubject.hasValue) {
+            if (!activeAppID.hasValue) {
               setActiveApp(initialApp);
             }
           }),
@@ -92,24 +60,14 @@ class AppsBloc extends $AppsBloc {
     });
 
     _capabilitiesBloc.capabilities.listen((final result) {
-      if (result is ResultLoading) {
-        _notificationsAppImplementationSubject.add(Result.loading());
-      } else if (result is ResultError<CoreServerCapabilities_Ocs_Data>) {
-        _notificationsAppImplementationSubject.add(Result.error(result.error));
-      } else if (result is ResultSuccess<CoreServerCapabilities_Ocs_Data>) {
-        _notificationsAppImplementationSubject.add(
-          Result.success(
-            result.data.capabilities.notifications != null ? _findAppImplementation('notifications') : null,
-          ),
-        );
-      } else if (result is ResultCached<CoreServerCapabilities_Ocs_Data>) {
-        _notificationsAppImplementationSubject.add(
-          ResultCached(result.data.capabilities.notifications != null ? _findAppImplementation('notifications') : null),
-        );
-      }
+      notificationsAppImplementation.add(
+        result.transform(
+          (final data) => data.capabilities.notifications != null ? _findAppImplementation('notifications') : null,
+        ),
+      );
     });
 
-    _loadApps();
+    unawaited(refresh());
   }
 
   T? _findAppImplementation<T extends AppImplementation>(final String id) {
@@ -124,62 +82,68 @@ class AppsBloc extends $AppsBloc {
   List<AppImplementation> _filteredAppImplementations(final List<String> appIds) =>
       _allAppImplementations.where((final a) => appIds.contains(a.id)).toList();
 
-  void _loadApps() {
-    _requestManager
-        .wrapNextcloud<List<NextcloudApp>, CoreNavigationApps>(
-          _account.client.id,
-          'apps-apps',
-          () async => _account.client.core.getNavigationApps(),
-          (final response) => response.ocs.data,
-          previousData: _appsSubject.valueOrNull?.data,
-        )
-        .listen(_appsSubject.add);
-  }
-
   final RequestManager _requestManager;
   final CapabilitiesBloc _capabilitiesBloc;
   final AccountsBloc _accountsBloc;
   final Account _account;
   final List<AppImplementation> _allAppImplementations;
 
-  final _appsSubject = BehaviorSubject<Result<List<NextcloudApp>>>();
-  final _appImplementationsSubject = BehaviorSubject<Result<List<AppImplementation>>>();
-  final _notificationsAppImplementationSubject = BehaviorSubject<Result<NotificationsApp?>>();
-  late final _activeAppSubject = BehaviorSubject<String?>();
+  final Map<String, Bloc> _blocs = {};
 
-  final Map<String, RxBlocBase> _blocs = {};
+  @override
+  void dispose() {
+    unawaited(apps.close());
+    unawaited(appImplementations.close());
+    unawaited(notificationsAppImplementation.close());
+    unawaited(activeAppID.close());
+    for (final key in _blocs.keys) {
+      _blocs[key]!.dispose();
+    }
+  }
 
-  T getAppBloc<T extends RxBlocBase>(final AppImplementation appImplementation) {
+  @override
+  BehaviorSubject<String?> activeAppID = BehaviorSubject<String?>();
+
+  @override
+  BehaviorSubject<Result<List<AppImplementation<Bloc, NextcloudAppSpecificOptions>>>> appImplementations =
+      BehaviorSubject<Result<List<AppImplementation>>>();
+
+  @override
+  BehaviorSubject<Result<List<NextcloudApp>>> apps = BehaviorSubject<Result<List<NextcloudApp>>>();
+
+  @override
+  BehaviorSubject<Result<NotificationsApp?>> notificationsAppImplementation =
+      BehaviorSubject<Result<NotificationsApp?>>();
+
+  @override
+  Future refresh() async {
+    await _requestManager.wrapNextcloud<List<NextcloudApp>, CoreNavigationApps>(
+      _account.client.id,
+      'apps-apps',
+      apps,
+      () async => _account.client.core.getNavigationApps(),
+      (final response) => response.ocs.data,
+    );
+  }
+
+  @override
+  void setActiveApp(final String? appID) {
+    if (appImplementations.value.data!.where((final app) => app.id == appID).isNotEmpty) {
+      if (activeAppID.valueOrNull != appID) {
+        activeAppID.add(appID);
+      }
+    } else if (appID == 'notifications') {
+      // TODO: Open notifications page
+    } else {
+      throw Exception('App $appID not found');
+    }
+  }
+
+  T getAppBloc<T extends Bloc>(final AppImplementation appImplementation) {
     if (_blocs[appImplementation.id] != null) {
       return _blocs[appImplementation.id]! as T;
     }
 
     return _blocs[appImplementation.id] = appImplementation.buildBloc(_account.client) as T;
   }
-
-  @override
-  void dispose() {
-    unawaited(_appsSubject.close());
-    unawaited(_appImplementationsSubject.close());
-    unawaited(_notificationsAppImplementationSubject.close());
-    unawaited(_activeAppSubject.close());
-    for (final key in _blocs.keys) {
-      _blocs[key]!.dispose();
-    }
-    super.dispose();
-  }
-
-  @override
-  BehaviorSubject<Result<List<NextcloudApp>>> _mapToAppsState() => _appsSubject;
-
-  @override
-  BehaviorSubject<Result<List<AppImplementation<RxBlocBase, NextcloudAppSpecificOptions>>>>
-      _mapToAppImplementationsState() => _appImplementationsSubject;
-
-  @override
-  BehaviorSubject<Result<NotificationsApp?>> _mapToNotificationsAppImplementationState() =>
-      _notificationsAppImplementationSubject;
-
-  @override
-  BehaviorSubject<String?> _mapToActiveAppIDState() => _activeAppSubject;
 }

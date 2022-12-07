@@ -11,27 +11,11 @@ class NewsFeedsView extends StatelessWidget {
   final int? folderID;
 
   @override
-  Widget build(final BuildContext context) => StandardRxResultBuilder<NewsBloc, List<NewsFolder>>(
-        bloc: bloc,
-        state: (final bloc) => bloc.folders,
-        builder: (
-          final context,
-          final foldersData,
-          final foldersError,
-          final foldersLoading,
-          final _,
-        ) =>
-            StandardRxResultBuilder<NewsBloc, List<NewsFeed>>(
-          bloc: bloc,
-          state: (final bloc) => bloc.feeds,
-          builder: (
-            final context,
-            final feedsData,
-            final feedsError,
-            final feedsLoading,
-            final _,
-          ) =>
-              Scaffold(
+  Widget build(final BuildContext context) => ResultBuilder<NewsBloc, List<NewsFolder>>(
+        stream: bloc.folders,
+        builder: (final context, final folders) => ResultBuilder<NewsBloc, List<NewsFeed>>(
+          stream: bloc.feeds,
+          builder: (final context, final feeds) => Scaffold(
             resizeToAvoidBottomInset: false,
             floatingActionButton: FloatingActionButton(
               onPressed: () async {
@@ -52,29 +36,25 @@ class NewsFeedsView extends StatelessWidget {
               sortBox: feedsSortBox,
               sortPropertyOption: bloc.options.feedsSortPropertyOption,
               sortBoxOrderOption: bloc.options.feedsSortBoxOrderOption,
-              input: foldersData == null
+              input: folders.data == null
                   ? null
-                  : feedsData?.where((final f) => folderID == null || f.folderId == folderID).toList(),
+                  : feeds.data?.where((final f) => folderID == null || f.folderId == folderID).toList(),
               builder: (final context, final sorted) => CustomListView<NewsFeed>(
                 scrollKey: 'news-feeds',
                 withFloatingActionButton: true,
                 items: sorted,
-                isLoading: feedsLoading || foldersLoading,
-                error: feedsError ?? foldersError,
-                onRetry: () {
-                  bloc.refresh(
-                    mainArticlesToo: false,
-                  );
+                isLoading: feeds.loading || folders.loading,
+                error: feeds.error ?? folders.error,
+                onRetry: () async {
+                  await bloc.refresh();
                 },
                 onRefresh: () async {
-                  bloc.refresh(
-                    mainArticlesToo: true,
-                  );
+                  await bloc.refresh();
                 },
                 builder: (final context, final feed) => _buildFeed(
                   context,
                   feed,
-                  foldersData!,
+                  folders.data!,
                 ),
               ),
             ),

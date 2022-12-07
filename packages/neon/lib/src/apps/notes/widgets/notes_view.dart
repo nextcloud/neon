@@ -11,17 +11,9 @@ class NotesView extends StatelessWidget {
   final String? category;
 
   @override
-  Widget build(final BuildContext context) => StandardRxResultBuilder<NotesBloc, List<NotesNote>>(
-        bloc: bloc,
-        state: (final bloc) => bloc.notes,
-        builder: (
-          final context,
-          final notesData,
-          final notesError,
-          final notesLoading,
-          final _,
-        ) =>
-            Scaffold(
+  Widget build(final BuildContext context) => ResultBuilder<NotesBloc, List<NotesNote>>(
+        stream: bloc.notes,
+        builder: (final context, final notes) => Scaffold(
           resizeToAvoidBottomInset: false,
           floatingActionButton: FloatingActionButton(
             onPressed: () async {
@@ -46,15 +38,15 @@ class NotesView extends StatelessWidget {
             sortPropertyOption: bloc.options.notesSortPropertyOption,
             sortBoxOrderOption: bloc.options.notesSortBoxOrderOption,
             input: category != null
-                ? notesData?.where((final note) => note.favorite && note.category == category).toList()
-                : notesData?.where((final note) => note.favorite).toList(),
+                ? notes.data?.where((final note) => note.favorite && note.category == category).toList()
+                : notes.data?.where((final note) => note.favorite).toList(),
             builder: (final context, final sortedFavorites) => SortBoxBuilder<NotesSortProperty, NotesNote>(
               sortBox: notesSortBox,
               sortPropertyOption: bloc.options.notesSortPropertyOption,
               sortBoxOrderOption: bloc.options.notesSortBoxOrderOption,
               input: category != null
-                  ? notesData?.where((final note) => !note.favorite && note.category == category).toList()
-                  : notesData?.where((final note) => !note.favorite).toList(),
+                  ? notes.data?.where((final note) => !note.favorite && note.category == category).toList()
+                  : notes.data?.where((final note) => !note.favorite).toList(),
               builder: (final context, final sortedNonFavorites) => CustomListView<NotesNote>(
                 scrollKey: 'notes-notes',
                 withFloatingActionButton: true,
@@ -66,13 +58,13 @@ class NotesView extends StatelessWidget {
                     ...sortedNonFavorites,
                   ],
                 ],
-                isLoading: notesLoading,
-                error: notesError,
-                onRetry: () {
-                  bloc.refresh();
+                isLoading: notes.loading,
+                error: notes.error,
+                onRetry: () async {
+                  await bloc.refresh();
                 },
                 onRefresh: () async {
-                  bloc.refresh();
+                  await bloc.refresh();
                 },
                 builder: _buildNote,
               ),
@@ -127,8 +119,7 @@ class NotesView extends StatelessWidget {
               builder: (final context) => NotesNotePage(
                 bloc: NotesNoteBloc(
                   bloc.options,
-                  Provider.of<RequestManager>(context, listen: false),
-                  RxBlocProvider.of<AccountsBloc>(context).activeAccount.value!.client,
+                  Provider.of<AccountsBloc>(context, listen: false).activeAccount.value!.client,
                   bloc,
                   note,
                 ),

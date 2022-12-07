@@ -20,7 +20,7 @@ class AccountTile extends StatelessWidget {
 
   @override
   Widget build(final BuildContext context) {
-    final userDetailsBloc = RxBlocProvider.of<AccountsBloc>(context).getUserDetailsBloc(account);
+    final userDetailsBloc = Provider.of<AccountsBloc>(context, listen: false).getUserDetailsBloc(account);
 
     return ListTile(
       textColor: textColor,
@@ -38,22 +38,14 @@ class AccountTile extends StatelessWidget {
           account: account,
         ),
       ),
-      title: StandardRxResultBuilder<UserDetailsBloc, ProvisioningApiUserDetails>(
-        bloc: userDetailsBloc,
-        state: (final bloc) => bloc.userDetails,
-        builder: (
-          final context,
-          final userDetailsData,
-          final userDetailsError,
-          final userDetailsLoading,
-          final _,
-        ) =>
-            Row(
+      title: ResultBuilder<UserDetailsBloc, ProvisioningApiUserDetails>(
+        stream: userDetailsBloc.userDetails,
+        builder: (final context, final userDetails) => Row(
           children: [
-            if (userDetailsData != null) ...[
+            if (userDetails.data != null) ...[
               Flexible(
                 child: Text(
-                  userDetailsData.getDisplayName()!,
+                  userDetails.data!.getDisplayName()!,
                   style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                         color: textColor,
                       ),
@@ -61,7 +53,7 @@ class AccountTile extends StatelessWidget {
                 ),
               ),
             ],
-            if (userDetailsLoading) ...[
+            if (userDetails.loading) ...[
               const SizedBox(
                 width: 5,
               ),
@@ -71,16 +63,16 @@ class AccountTile extends StatelessWidget {
                 ),
               ),
             ],
-            if (userDetailsError != null) ...[
+            if (userDetails.error != null) ...[
               const SizedBox(
                 width: 5,
               ),
               ExceptionWidget(
-                userDetailsError,
+                userDetails.error!,
                 onlyIcon: true,
                 iconSize: 24,
-                onRetry: () {
-                  userDetailsBloc.refresh();
+                onRetry: () async {
+                  await userDetailsBloc.refresh();
                 },
               ),
             ],

@@ -1,13 +1,11 @@
 import 'dart:async';
 
+import 'package:neon/src/apps/news/app.dart';
 import 'package:neon/src/apps/news/blocs/news.dart';
 import 'package:neon/src/models/account.dart';
 import 'package:neon/src/neon.dart';
 import 'package:nextcloud/nextcloud.dart';
-import 'package:rx_bloc/rx_bloc.dart';
 import 'package:rxdart/rxdart.dart';
-
-part 'articles.rxb.g.dart';
 
 enum FilterType {
   all,
@@ -21,8 +19,6 @@ enum ListType {
 }
 
 abstract class NewsArticlesBlocEvents {
-  void refresh();
-
   void setFilterType(final FilterType type);
 
   void markArticleAsRead(final NewsArticle article);
@@ -38,71 +34,63 @@ abstract class NewsArticlesBlocStates {
   BehaviorSubject<Result<List<NewsArticle>>> get articles;
 
   BehaviorSubject<FilterType> get filterType;
-
-  Stream<Exception> get errors;
 }
 
-@RxBloc()
-class NewsArticlesBloc extends $NewsArticlesBloc {
+class NewsMainArticlesBloc extends NewsArticlesBloc {
+  NewsMainArticlesBloc(
+    super.newsBloc,
+    super.options,
+    super.requestManager,
+    super.client,
+  );
+}
+
+class NewsArticlesBloc extends InteractiveBloc implements NewsArticlesBlocEvents, NewsArticlesBlocStates {
   NewsArticlesBloc(
-    this.newsBloc, {
-    required this.isMainArticlesBloc,
+    this._newsBloc,
+    this.options,
+    this._requestManager,
+    this._client, {
     this.id,
     this.listType,
   }) {
-    var filterType = newsBloc.options.defaultArticlesFilterOption.value;
-    if (listType != null && filterType == FilterType.starred) {
-      filterType = FilterType.all;
+    filterType.add(options.defaultArticlesFilterOption.value);
+    if (listType != null && filterType.value == FilterType.starred) {
+      filterType.add(FilterType.all);
     }
-    _filterTypeSubject = BehaviorSubject<FilterType>.seeded(filterType);
 
-    _$refreshEvent.listen((final _) {
-      loadArticles();
-      refreshNewsBloc();
-    });
-
-    _$setFilterTypeEvent.listen((final filterType) {
-      _filterTypeSubject.add(filterType);
-      loadArticles();
-    });
-
-    _$markArticleAsReadEvent.listen((final article) {
-      _wrapArticleAction((final client) async {
-        await client.news.markArticleAsRead(itemId: article.id);
-      });
-    });
-
-    _$markArticleAsUnreadEvent.listen((final article) {
-      _wrapArticleAction((final client) async {
-        await client.news.markArticleAsUnread(itemId: article.id);
-      });
-    });
-
-    _$starArticleEvent.listen((final article) {
-      _wrapArticleAction((final client) async {
-        await client.news.starArticle(itemId: article.id);
-      });
-    });
-
-    _$unstarArticleEvent.listen((final article) {
-      _wrapArticleAction((final client) async {
-        await client.news.unstarArticle(itemId: article.id);
-      });
-    });
-
-    loadArticles();
+    unawaited(refresh());
   }
 
-  void _wrapArticleAction(final Future Function(NextcloudClient client) call) {
-    final stream = newsBloc.requestManager.wrapWithoutCache(() async => call(newsBloc.client)).asBroadcastStream();
-    stream.whereError().listen(_errorsStreamController.add);
-    stream.whereSuccess().listen((final _) async {
-      loadArticles();
-      refreshNewsBloc();
-    });
+  final NewsBloc _newsBloc;
+  final NewsAppSpecificOptions options;
+  final RequestManager _requestManager;
+  final NextcloudClient _client;
+  final int? id;
+  final ListType? listType;
+
+  @override
+  void dispose() {
+    unawaited(articles.close());
+    unawaited(filterType.close());
+    super.dispose();
   }
 
-  void loadArticles() {
+  @override
+  BehaviorSubject<Result<List<NewsArticle>>> articles = BehaviorSubject<Result<List<NewsArticle>>>();
+
+  @override
+  BehaviorSubject<FilterType> filterType = BehaviorSubject<FilterType>();
+
+  @override
+  Future refresh() async {
+    if (this is! NewsMainArticlesBloc) {
+      await reload();
+    }
+    await _newsBloc.refresh();
+  }
+
+  Future reload() async {
     // The API for pagination is pretty useless in this case sadly. So no pagination for us :(
     // https://github.com/nextcloud/news/blob/master/docs/api/api-v1-2.md#get-items
 
@@ -110,14 +98,14 @@ class NewsArticlesBloc extends $NewsArticlesBloc {
     late final NewsListType type;
     bool? getRead;
     if (listType != null) {
-      switch (_filterTypeSubject.value) {
+      switch (filterType.value) {
         case FilterType.all:
           break;
         case FilterType.unread:
           getRead = false;
           break;
         default:
-          throw Exception('FilterType ${_filterTypeSubject.value} not allowed');
+          throw Exception('FilterType ${filterType.value} not allowed');
       }
     }
     switch (listType) {
@@ -128,7 +116,7 @@ class NewsArticlesBloc extends $NewsArticlesBloc {
         type = NewsListType.folder;
         break;
       case null:
-        switch (_filterTypeSubject.value) {
+        switch (filterType.value) {
           case FilterType.starred:
             type = NewsListType.starred;
             break;
@@ -142,50 +130,41 @@ class NewsArticlesBloc extends $NewsArticlesBloc {
         break;
     }
 
-    newsBloc.requestManager
-        .wrapNextcloud<List<NewsArticle>, NewsListArticles>(
-          newsBloc.client.id,
-          'news-articles-${type.code}-$id-$getRead',
-          () async => newsBloc.client.news.listArticles(
-            type: type.code,
-            id: id ?? 0,
-            getRead: getRead ?? true ? 1 : 0,
-          ),
-          (final response) => response.items,
-          previousData: _articlesSubject.valueOrNull?.data,
-        )
-        .listen(_articlesSubject.add);
-  }
-
-  void refreshNewsBloc() {
-    newsBloc.refresh(
-      mainArticlesToo: !isMainArticlesBloc,
+    await _requestManager.wrapNextcloud<List<NewsArticle>, NewsListArticles>(
+      _client.id,
+      'news-articles-${type.code}-$id-$getRead',
+      articles,
+      () async => _client.news.listArticles(
+        type: type.code,
+        id: id ?? 0,
+        getRead: getRead ?? true ? 1 : 0,
+      ),
+      (final response) => response.items,
     );
   }
 
-  final NewsBloc newsBloc;
-  final bool isMainArticlesBloc;
-  final int? id;
-  final ListType? listType;
-
-  final _articlesSubject = BehaviorSubject<Result<List<NewsArticle>>>();
-  late final BehaviorSubject<FilterType> _filterTypeSubject;
-  final _errorsStreamController = StreamController<Exception>();
-
   @override
-  void dispose() {
-    unawaited(_articlesSubject.close());
-    unawaited(_filterTypeSubject.close());
-    unawaited(_errorsStreamController.close());
-    super.dispose();
+  void markArticleAsRead(final NewsArticle article) {
+    wrapAction(() async => _client.news.markArticleAsRead(itemId: article.id));
   }
 
   @override
-  BehaviorSubject<Result<List<NewsArticle>>> _mapToArticlesState() => _articlesSubject;
+  void markArticleAsUnread(final NewsArticle article) {
+    wrapAction(() async => _client.news.markArticleAsUnread(itemId: article.id));
+  }
 
   @override
-  BehaviorSubject<FilterType> _mapToFilterTypeState() => _filterTypeSubject;
+  void setFilterType(final FilterType type) {
+    wrapAction(() async => filterType.add(type));
+  }
 
   @override
-  Stream<Exception> _mapToErrorsState() => _errorsStreamController.stream.asBroadcastStream();
+  void starArticle(final NewsArticle article) {
+    wrapAction(() async => _client.news.starArticle(itemId: article.id));
+  }
+
+  @override
+  void unstarArticle(final NewsArticle article) {
+    wrapAction(() async => _client.news.unstarArticle(itemId: article.id));
+  }
 }

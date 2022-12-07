@@ -54,7 +54,7 @@ class _NewsArticlePageState extends State<NewsArticlePage> {
 
   Future _startMarkAsReadTimer() async {
     if (await widget.bloc.unread.first) {
-      if (widget.articlesBloc.newsBloc.options.articleDisableMarkAsReadTimeoutOption.value) {
+      if (widget.articlesBloc.options.articleDisableMarkAsReadTimeoutOption.value) {
         widget.bloc.markArticleAsRead();
       } else {
         _markAsReadTimer = Timer(const Duration(seconds: 3), () async {
@@ -98,10 +98,9 @@ class _NewsArticlePageState extends State<NewsArticlePage> {
           resizeToAvoidBottomInset: false,
           appBar: AppBar(
             actions: [
-              RxBlocBuilder(
-                bloc: widget.bloc,
-                state: (final bloc) => bloc.starred,
-                builder: (final context, final starredSnapshot, final _) {
+              StreamBuilder<bool>(
+                stream: widget.bloc.starred,
+                builder: (final context, final starredSnapshot) {
                   final starred = starredSnapshot.data ?? false;
                   return IconButton(
                     onPressed: () async {
@@ -115,10 +114,9 @@ class _NewsArticlePageState extends State<NewsArticlePage> {
                   );
                 },
               ),
-              RxBlocBuilder(
-                bloc: widget.bloc,
-                state: (final bloc) => bloc.unread,
-                builder: (final context, final unreadSnapshot, final _) {
+              StreamBuilder<bool>(
+                stream: widget.bloc.unread,
+                builder: (final context, final unreadSnapshot) {
                   final unread = unreadSnapshot.data ?? false;
                   return IconButton(
                     onPressed: () async {

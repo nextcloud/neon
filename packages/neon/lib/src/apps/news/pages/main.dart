@@ -52,6 +52,7 @@ class _NewsMainPageState extends State<NewsMainPage> {
         body: _index == 0
             ? NewsArticlesView(
                 bloc: widget.bloc.mainArticlesBloc,
+                newsBloc: widget.bloc,
               )
             : _index == 1
                 ? NewsFoldersView(

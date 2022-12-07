@@ -8,11 +8,8 @@ import 'package:neon/src/blocs/user_status.dart';
 import 'package:neon/src/models/account.dart';
 import 'package:neon/src/neon.dart';
 import 'package:package_info_plus/package_info_plus.dart';
-import 'package:rx_bloc/rx_bloc.dart';
 import 'package:rxdart/rxdart.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
-part 'accounts.rxb.g.dart';
 
 abstract class AccountsBlocEvents {
   void addAccount(final Account account);
@@ -26,8 +23,7 @@ abstract class AccountsBlocStates {
   BehaviorSubject<Account?> get activeAccount;
 }
 
-@RxBloc()
-class AccountsBloc extends $AccountsBloc {
+class AccountsBloc extends Bloc implements AccountsBlocEvents, AccountsBlocStates {
   AccountsBloc(
     this._requestManager,
     this._platform,
@@ -37,68 +33,13 @@ class AccountsBloc extends $AccountsBloc {
     this._packageInfo,
     this._allAppImplementations,
   ) {
-    _accountsSubject.listen((final accounts) async {
-      _globalOptions.updateAccounts(accounts);
-      await _storage.setStringList(_keyAccounts, accounts.map((final a) => json.encode(a.toJson())).toList());
-    });
-
-    _$setActiveAccountEvent.listen((final account) async {
-      if (account != null) {
-        if (_activeAccountSubject.value != account) {
-          await _storage.setString(_keyLastUsedAccount, account.id);
-          _activeAccountSubject.add(account);
-        }
-      } else {
-        final accounts = _accountsSubject.value;
-        if (accounts.isNotEmpty) {
-          setActiveAccount(accounts[0]);
-        } else {
-          await _storage.remove(_keyLastUsedAccount);
-          _activeAccountSubject.add(null);
-        }
-      }
-    });
-
-    _$addAccountEvent.listen((final account) async {
-      account.setupClient(_packageInfo);
-      if (_activeAccountSubject.valueOrNull == null) {
-        setActiveAccount(account);
-      }
-      final accounts = _accountsSubject.value;
-      _accountsSubject.add(accounts..add(account));
-    });
-
-    _$removeAccountEvent.listen((final account) async {
-      final accounts = _accountsSubject.value..removeWhere((final a) => a.id == account.id);
-      _accountsSubject.add(accounts);
-
-      final activeAccount = _activeAccountSubject.valueOrNull;
-      if (activeAccount != null && activeAccount.id == account.id) {
-        setActiveAccount(accounts.isNotEmpty ? accounts[0] : null);
-      }
-    });
-
-    _$updateAccountEvent.listen((final account) async {
-      account.setupClient(_packageInfo);
-      final accounts = _accountsSubject.value;
-      final index = accounts.indexWhere((final a) => a.id == account.id);
-      if (index == -1) {
-        // TODO: Figure out how we can remove the old account without potentially race conditioning
-        accounts.add(account);
-      } else {
-        accounts.replaceRange(
-          index,
-          index + 1,
-          [account],
-        );
-      }
-
-      _accountsSubject.add(accounts);
-      setActiveAccount(account);
+    accounts.listen((final as) async {
+      _globalOptions.updateAccounts(as);
+      await _storage.setStringList(_keyAccounts, as.map((final a) => json.encode(a.toJson())).toList());
     });
 
     if (_storage.containsKey(_keyAccounts)) {
-      _accountsSubject.add(
+      accounts.add(
         _storage
             .getStringList(_keyAccounts)!
             .map((final a) => (Account.fromJson(json.decode(a) as Map<String, dynamic>))..setupClient(_packageInfo))
@@ -106,20 +47,115 @@ class AccountsBloc extends $AccountsBloc {
       );
     }
 
-    final accounts = _accountsSubject.value;
+    final as = accounts.value;
     if (_globalOptions.rememberLastUsedAccount.value && _storage.containsKey(_keyLastUsedAccount)) {
       final lastUsedAccountID = _storage.getString(_keyLastUsedAccount);
-      _activeAccountSubject.add(accounts.singleWhere((final account) => account.id == lastUsedAccountID));
+      activeAccount.add(as.singleWhere((final account) => account.id == lastUsedAccountID));
     } else {
       unawaited(
         _globalOptions.initialAccount.stream.first.then((final lastAccount) {
-          final matches = accounts.where((final account) => account.id == lastAccount).toList();
+          final matches = as.where((final account) => account.id == lastAccount).toList();
           if (matches.isNotEmpty) {
-            _activeAccountSubject.add(matches[0]);
+            activeAccount.add(matches[0]);
           }
         }),
       );
     }
+  }
+
+  final RequestManager _requestManager;
+  final NeonPlatform _platform;
+  final AppStorage _storage;
+  final SharedPreferences _sharedPreferences;
+  final GlobalOptions _globalOptions;
+  final List<AppImplementation> _allAppImplementations;
+  final PackageInfo _packageInfo;
+  final _keyAccounts = 'accounts';
+  final _keyLastUsedAccount = 'last-used-account';
+
+  final _accountsOptions = <String, AccountSpecificOptions>{};
+  final _appsBlocs = <String, AppsBloc>{};
+  final _capabilitiesBlocs = <String, CapabilitiesBloc>{};
+  final _userDetailsBlocs = <String, UserDetailsBloc>{};
+  final _userStatusBlocs = <String, UserStatusBloc>{};
+
+  @override
+  void dispose() {
+    unawaited(activeAccount.close());
+    unawaited(accounts.close());
+    for (final bloc in _userDetailsBlocs.values) {
+      bloc.dispose();
+    }
+    for (final bloc in _userStatusBlocs.values) {
+      bloc.dispose();
+    }
+    for (final options in _accountsOptions.values) {
+      options.dispose();
+    }
+  }
+
+  @override
+  BehaviorSubject<List<Account>> accounts = BehaviorSubject<List<Account>>.seeded([]);
+
+  @override
+  BehaviorSubject<Account?> activeAccount = BehaviorSubject<Account?>.seeded(null);
+
+  @override
+  void addAccount(final Account account) {
+    account.setupClient(_packageInfo);
+    if (activeAccount.valueOrNull == null) {
+      setActiveAccount(account);
+    }
+    accounts.add(accounts.value..add(account));
+  }
+
+  @override
+  void removeAccount(final Account account) {
+    accounts.add(accounts.value..removeWhere((final a) => a.id == account.id));
+
+    final as = accounts.value;
+    final aa = activeAccount.valueOrNull;
+    if (aa != null && aa.id == account.id) {
+      setActiveAccount(as.isNotEmpty ? as[0] : null);
+    }
+  }
+
+  @override
+  void setActiveAccount(final Account? account) {
+    if (account != null) {
+      if (activeAccount.value != account) {
+        unawaited(_storage.setString(_keyLastUsedAccount, account.id));
+        activeAccount.add(account);
+      }
+    } else {
+      final as = accounts.value;
+      if (as.isNotEmpty) {
+        setActiveAccount(as[0]);
+      } else {
+        unawaited(_storage.remove(_keyLastUsedAccount));
+        activeAccount.add(null);
+      }
+    }
+  }
+
+  @override
+  void updateAccount(final Account account) {
+    account.setupClient(_packageInfo);
+    final as = accounts.value;
+    final index = as.indexWhere((final a) => a.id == account.id);
+    if (index == -1) {
+      // TODO: Figure out how we can remove the old account without potentially race conditioning
+      as.add(account);
+    } else {
+      as.replaceRange(
+        index,
+        index + 1,
+        [account],
+      );
+    }
+
+    accounts.add(as);
+    setActiveAccount(account);
   }
 
   AccountSpecificOptions getOptions(final Account account) => _accountsOptions[account.id] ??= AccountSpecificOptions(
@@ -169,50 +205,8 @@ class AccountsBloc extends $AccountsBloc {
     }
 
     return _userStatusBlocs[account.id] = UserStatusBloc(
-      _requestManager,
       _platform,
       account,
     );
   }
-
-  final RequestManager _requestManager;
-  final NeonPlatform _platform;
-  final AppStorage _storage;
-  final SharedPreferences _sharedPreferences;
-  final GlobalOptions _globalOptions;
-  final List<AppImplementation> _allAppImplementations;
-  final PackageInfo _packageInfo;
-  final _keyAccounts = 'accounts';
-  final _keyLastUsedAccount = 'last-used-account';
-
-  final _accountsOptions = <String, AccountSpecificOptions>{};
-  late final _activeAccountSubject = BehaviorSubject<Account?>.seeded(null);
-  late final _accountsSubject = BehaviorSubject<List<Account>>.seeded([]);
-
-  final _appsBlocs = <String, AppsBloc>{};
-  final _capabilitiesBlocs = <String, CapabilitiesBloc>{};
-  final _userDetailsBlocs = <String, UserDetailsBloc>{};
-  final _userStatusBlocs = <String, UserStatusBloc>{};
-
-  @override
-  void dispose() {
-    unawaited(_activeAccountSubject.close());
-    unawaited(_accountsSubject.close());
-    for (final bloc in _userDetailsBlocs.values) {
-      bloc.dispose();
-    }
-    for (final bloc in _userStatusBlocs.values) {
-      bloc.dispose();
-    }
-    for (final options in _accountsOptions.values) {
-      options.dispose();
-    }
-    super.dispose();
-  }
-
-  @override
-  BehaviorSubject<List<Account>> _mapToAccountsState() => _accountsSubject;
-
-  @override
-  BehaviorSubject<Account?> _mapToActiveAccountState() => _activeAccountSubject;
 }

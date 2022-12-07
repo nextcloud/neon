@@ -1,14 +1,12 @@
 import 'dart:async';
 
+import 'package:flutter/cupertino.dart';
 import 'package:neon/src/apps/notes/app.dart';
 import 'package:neon/src/apps/notes/blocs/notes.dart';
 import 'package:neon/src/neon.dart';
 import 'package:nextcloud/nextcloud.dart';
 import 'package:queue/queue.dart';
-import 'package:rx_bloc/rx_bloc.dart';
 import 'package:rxdart/rxdart.dart';
-
-part 'note.rxb.g.dart';
 
 abstract class NotesNoteBlocEvents {
   void updateContent(final String content);
@@ -20,49 +18,15 @@ abstract class NotesNoteBlocEvents {
 
 abstract class NotesNoteBlocStates {
   BehaviorSubject<String> get category;
-
-  Stream<Exception> get errors;
 }
 
-@RxBloc()
-class NotesNoteBloc extends $NotesNoteBloc {
+class NotesNoteBloc extends InteractiveBloc implements NotesNoteBlocEvents, NotesNoteBlocStates {
   NotesNoteBloc(
     this.options,
-    this._requestManager,
     this._client,
     this._notesBloc,
     final NotesNote note,
   ) {
-    _$updateContentEvent.debounceTime(const Duration(seconds: 1)).listen((final content) {
-      _wrapAction(
-        (final etag) async => _client.notes.updateNote(
-          id: id,
-          content: content,
-          ifMatch: '"$etag"',
-        ),
-      );
-    });
-
-    _$updateTitleEvent.debounceTime(const Duration(seconds: 1)).listen((final title) {
-      _wrapAction(
-        (final etag) async => _client.notes.updateNote(
-          id: id,
-          title: title,
-          ifMatch: '"$etag"',
-        ),
-      );
-    });
-
-    _$updateCategoryEvent.listen((final category) {
-      _wrapAction(
-        (final etag) async => _client.notes.updateNote(
-          id: id,
-          category: category,
-          ifMatch: '"$etag"',
-        ),
-      );
-    });
-
     _emitNote(note);
     id = note.id;
     initialContent = note.content;
@@ -70,23 +34,26 @@ class NotesNoteBloc extends $NotesNoteBloc {
   }
 
   void _emitNote(final NotesNote note) {
-    _categorySubject.add(note.category);
+    category.add(note.category);
     _etag = note.etag;
   }
 
-  void _wrapAction(final Future<NotesNote> Function(String etag) call) {
-    unawaited(
-      _updateQueue.add(() async {
-        final stream = _requestManager.wrapWithoutCache(() async => _emitNote(await call(_etag))).asBroadcastStream();
-        stream.whereError().listen(_errorsStreamController.add);
-        stream.whereSuccess().listen((final _) => _notesBloc.refresh());
-        await stream.last;
-      }),
-    );
+  // ignore: avoid_void_async
+  void _wrapAction(final Future<NotesNote> Function(String etag) call) async {
+    await _updateQueue.add(() async {
+      try {
+        final data = await call(_etag);
+        _emitNote(data);
+        await _notesBloc.refresh();
+      } catch (e, s) {
+        debugPrint(e.toString());
+        debugPrint(s.toString());
+        addError(e);
+      }
+    });
   }
 
   final NotesAppSpecificOptions options;
-  final RequestManager _requestManager;
   final NextcloudClient _client;
   final NotesBloc _notesBloc;
   final _updateQueue = Queue();
@@ -95,19 +62,49 @@ class NotesNoteBloc extends $NotesNoteBloc {
   late final String initialContent;
   late final String initialTitle;
   late String _etag;
-  final _categorySubject = BehaviorSubject<String>();
-  final _errorsStreamController = StreamController<Exception>();
 
   @override
   void dispose() {
-    unawaited(_categorySubject.close());
-    unawaited(_errorsStreamController.close());
+    unawaited(category.close());
     super.dispose();
   }
 
   @override
-  BehaviorSubject<String> _mapToCategoryState() => _categorySubject;
+  BehaviorSubject<String> category = BehaviorSubject<String>();
 
   @override
-  Stream<Exception> _mapToErrorsState() => _errorsStreamController.stream.asBroadcastStream();
+  Future refresh() async {}
+
+  @override
+  void updateCategory(final String category) {
+    _wrapAction(
+      (final etag) async => _client.notes.updateNote(
+        id: id,
+        category: category,
+        ifMatch: '"$etag"',
+      ),
+    );
+  }
+
+  @override
+  void updateContent(final String content) {
+    _wrapAction(
+      (final etag) async => _client.notes.updateNote(
+        id: id,
+        content: content,
+        ifMatch: '"$etag"',
+      ),
+    );
+  }
+
+  @override
+  void updateTitle(final String title) {
+    _wrapAction(
+      (final etag) async => _client.notes.updateNote(
+        id: id,
+        title: title,
+        ifMatch: '"$etag"',
+      ),
+    );
+  }
 }

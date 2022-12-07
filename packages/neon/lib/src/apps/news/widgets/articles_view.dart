@@ -3,10 +3,12 @@ part of '../app.dart';
 class NewsArticlesView extends StatefulWidget {
   const NewsArticlesView({
     required this.bloc,
+    required this.newsBloc,
     super.key,
   });
 
   final NewsArticlesBloc bloc;
+  final NewsBloc newsBloc;
 
   @override
   State<NewsArticlesView> createState() => _NewsArticlesViewState();
@@ -23,65 +25,39 @@ class _NewsArticlesViewState extends State<NewsArticlesView> {
   }
 
   @override
-  Widget build(final BuildContext context) => StandardRxResultBuilder<NewsBloc, List<NewsFeed>>(
-        bloc: widget.bloc.newsBloc,
-        state: (final bloc) => bloc.feeds,
-        builder: (
-          final context,
-          final feedsData,
-          final feedsError,
-          final feedsLoading,
-          final _,
-        ) =>
-            StandardRxResultBuilder<NewsArticlesBloc, List<NewsArticle>>(
-          bloc: widget.bloc,
-          state: (final bloc) => bloc.articles,
-          builder: (
-            final context,
-            final articlesData,
-            final articlesError,
-            final articlesLoading,
-            final _,
-          ) =>
-              Scaffold(
+  Widget build(final BuildContext context) => ResultBuilder<NewsBloc, List<NewsFeed>>(
+        stream: widget.newsBloc.feeds,
+        builder: (final context, final feeds) => ResultBuilder<NewsArticlesBloc, List<NewsArticle>>(
+          stream: widget.bloc.articles,
+          builder: (final context, final articles) => Scaffold(
             resizeToAvoidBottomInset: false,
             body: SortBoxBuilder<ArticlesSortProperty, NewsArticle>(
               sortBox: articlesSortBox,
-              sortPropertyOption: widget.bloc.newsBloc.options.articlesSortPropertyOption,
-              sortBoxOrderOption: widget.bloc.newsBloc.options.articlesSortBoxOrderOption,
-              input: articlesData,
+              sortPropertyOption: widget.newsBloc.options.articlesSortPropertyOption,
+              sortBoxOrderOption: widget.newsBloc.options.articlesSortBoxOrderOption,
+              input: articles.data,
               builder: (final context, final sorted) => CustomListView<NewsArticle>(
                 scrollKey: 'news-articles',
-                items: feedsData == null ? null : sorted,
-                isLoading: articlesLoading || feedsLoading,
-                error: articlesError ?? feedsError,
-                onRetry: () {
-                  if (articlesError != null) {
-                    widget.bloc.refresh();
-                  }
-                  if (feedsError != null) {
-                    widget.bloc.refreshNewsBloc();
-                  }
+                items: feeds.data == null ? null : sorted,
+                isLoading: articles.loading || feeds.loading,
+                error: articles.error ?? feeds.error,
+                onRetry: () async {
+                  await widget.bloc.refresh();
+                  await widget.newsBloc.refresh();
                 },
                 onRefresh: () async {
-                  widget.bloc.refresh();
+                  await widget.bloc.refresh();
+                  await widget.newsBloc.refresh();
                 },
                 builder: (final context, final article) => _buildArticle(
                   context,
-                  widget.bloc,
                   article,
-                  feedsData!.singleWhere((final feed) => feed.id == article.feedId),
+                  feeds.data!.singleWhere((final feed) => feed.id == article.feedId),
                 ),
                 topFixedChildren: [
-                  RxBlocBuilder<NewsArticlesBloc, FilterType>(
-                    bloc: widget.bloc,
-                    state: (final bloc) => bloc.filterType,
-                    builder: (
-                      final context,
-                      final selectedFilterTypeSnapshot,
-                      final _,
-                    ) =>
-                        Container(
+                  StreamBuilder<FilterType>(
+                    stream: widget.bloc.filterType,
+                    builder: (final context, final selectedFilterTypeSnapshot) => Container(
                       margin: const EdgeInsets.symmetric(horizontal: 15),
                       child: DropdownButton<FilterType>(
                         isExpanded: true,
@@ -129,7 +105,6 @@ class _NewsArticlesViewState extends State<NewsArticlesView> {
 
   Widget _buildArticle(
     final BuildContext context,
-    final NewsArticlesBloc bloc,
     final NewsArticle article,
     final NewsFeed feed,
   ) =>
@@ -195,21 +170,21 @@ class _NewsArticlesViewState extends State<NewsArticlesView> {
           ),
           onPressed: () {
             if (article.starred) {
-              bloc.unstarArticle(article);
+              widget.bloc.unstarArticle(article);
             } else {
-              bloc.starArticle(article);
+              widget.bloc.starArticle(article);
             }
           },
         ),
         onLongPress: () {
           if (article.unread) {
-            bloc.markArticleAsRead(article);
+            widget.bloc.markArticleAsRead(article);
           } else {
-            bloc.markArticleAsUnread(article);
+            widget.bloc.markArticleAsUnread(article);
           }
         },
         onTap: () async {
-          final viewType = bloc.newsBloc.options.articleViewTypeOption.value;
+          final viewType = widget.newsBloc.options.articleViewTypeOption.value;
           String? bodyData;
           try {
             bodyData = _fixArticleBody(article.body);
@@ -223,8 +198,7 @@ class _NewsArticlesViewState extends State<NewsArticlesView> {
               MaterialPageRoute(
                 builder: (final context) => NewsArticlePage(
                   bloc: NewsArticleBloc(
-                    Provider.of<RequestManager>(context, listen: false),
-                    RxBlocProvider.of<AccountsBloc>(context).activeAccount.value!.client,
+                    Provider.of<AccountsBloc>(context, listen: false).activeAccount.value!.client,
                     widget.bloc,
                     article,
                   ),
@@ -242,8 +216,7 @@ class _NewsArticlesViewState extends State<NewsArticlesView> {
               MaterialPageRoute(
                 builder: (final context) => NewsArticlePage(
                   bloc: NewsArticleBloc(
-                    Provider.of<RequestManager>(context, listen: false),
-                    RxBlocProvider.of<AccountsBloc>(context).activeAccount.value!.client,
+                    Provider.of<AccountsBloc>(context, listen: false).activeAccount.value!.client,
                     widget.bloc,
                     article,
                   ),
@@ -255,7 +228,7 @@ class _NewsArticlesViewState extends State<NewsArticlesView> {
             );
           } else {
             if (article.unread) {
-              bloc.markArticleAsRead(article);
+              widget.bloc.markArticleAsRead(article);
             }
             if (article.url != null) {
               await launchUrlString(

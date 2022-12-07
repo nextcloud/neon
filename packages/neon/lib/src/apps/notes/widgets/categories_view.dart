@@ -9,40 +9,32 @@ class NotesCategoriesView extends StatelessWidget {
   final NotesBloc bloc;
 
   @override
-  Widget build(final BuildContext context) => StandardRxResultBuilder<NotesBloc, List<NotesNote>>(
-        bloc: bloc,
-        state: (final bloc) => bloc.notes,
-        builder: (
-          final context,
-          final notesData,
-          final notesError,
-          final notesLoading,
-          final _,
-        ) =>
-            SortBoxBuilder<CategoriesSortProperty, NoteCategory>(
+  Widget build(final BuildContext context) => ResultBuilder<NotesBloc, List<NotesNote>>(
+        stream: bloc.notes,
+        builder: (final context, final notes) => SortBoxBuilder<CategoriesSortProperty, NoteCategory>(
           sortBox: categoriesSortBox,
           sortPropertyOption: bloc.options.categoriesSortPropertyOption,
           sortBoxOrderOption: bloc.options.categoriesSortBoxOrderOption,
-          input: notesData
+          input: notes.data
               ?.map((final note) => note.category)
               .toSet()
               .map(
                 (final category) => NoteCategory(
                   category,
-                  notesData.where((final note) => note.category == category).length,
+                  notes.data!.where((final note) => note.category == category).length,
                 ),
               )
               .toList(),
           builder: (final context, final sorted) => CustomListView<NoteCategory>(
             scrollKey: 'notes-categories',
             items: sorted,
-            isLoading: notesLoading,
-            error: notesError,
-            onRetry: () {
-              bloc.refresh();
+            isLoading: notes.loading,
+            error: notes.error,
+            onRetry: () async {
+              await bloc.refresh();
             },
             onRefresh: () async {
-              bloc.refresh();
+              await bloc.refresh();
             },
             builder: _buildCategory,
           ),

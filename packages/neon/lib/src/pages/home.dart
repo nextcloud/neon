@@ -29,55 +29,57 @@ class _HomePageState extends State<HomePage> {
     super.initState();
 
     _globalOptions = Provider.of<GlobalOptions>(context, listen: false);
-    _appsBloc = RxBlocProvider.of<AccountsBloc>(context).getAppsBloc(widget.account);
-    _capabilitiesBloc = RxBlocProvider.of<AccountsBloc>(context).getCapabilitiesBloc(widget.account);
+    _appsBloc = Provider.of<AccountsBloc>(context, listen: false).getAppsBloc(widget.account);
+    _capabilitiesBloc = Provider.of<AccountsBloc>(context, listen: false).getCapabilitiesBloc(widget.account);
 
     _capabilitiesBloc.capabilities.listen((final result) async {
       if (result.data != null) {
         widget.onThemeChanged(result.data!.capabilities.theming!);
 
         // ignore cached version and prevent duplicate dialogs
-        if (result is ResultSuccess) {
-          _appsBloc.appImplementations.listen((final appsResult) async {
-            // ignore cached version and prevent duplicate dialogs
-            if (appsResult is ResultSuccess) {
-              for (final id in [
-                'core',
-                ...appsResult.data!.map((final a) => a.id),
-              ]) {
-                try {
-                  bool? supported;
-                  switch (id) {
-                    case 'core':
-                      supported = await widget.account.client.core.isSupported(result.data!);
-                      break;
-                    case 'news':
-                      supported = await widget.account.client.news.isSupported();
-                      break;
-                    case 'notes':
-                      supported = await widget.account.client.notes.isSupported(result.data!);
-                      break;
-                  }
-                  if (!(supported ?? true)) {
-                    if (!mounted) {
-                      return;
-                    }
-                    await _showProblem(
-                      AppLocalizations.of(context).errorUnsupportedVersion(
-                        id == 'core'
-                            ? AppLocalizations.of(context).coreName
-                            : appsResult.data!.singleWhere((final a) => a.id == id).name(context),
-                      ),
-                    );
-                  }
-                } catch (e, s) {
-                  debugPrint(e.toString());
-                  debugPrint(s.toString());
-                }
-              }
-            }
-          });
+        if (result.cached) {
+          return;
         }
+        _appsBloc.appImplementations.listen((final appsResult) async {
+          // ignore cached version and prevent duplicate dialogs
+          if (appsResult.data == null || appsResult.cached) {
+            return;
+          }
+          for (final id in [
+            'core',
+            ...appsResult.data!.map((final a) => a.id),
+          ]) {
+            try {
+              bool? supported;
+              switch (id) {
+                case 'core':
+                  supported = await widget.account.client.core.isSupported(result.data!);
+                  break;
+                case 'news':
+                  supported = await widget.account.client.news.isSupported();
+                  break;
+                case 'notes':
+                  supported = await widget.account.client.notes.isSupported(result.data!);
+                  break;
+              }
+              if (!(supported ?? true)) {
+                if (!mounted) {
+                  return;
+                }
+                await _showProblem(
+                  AppLocalizations.of(context).errorUnsupportedVersion(
+                    id == 'core'
+                        ? AppLocalizations.of(context).coreName
+                        : appsResult.data!.singleWhere((final a) => a.id == id).name(context),
+                  ),
+                );
+              }
+            } catch (e, s) {
+              debugPrint(e.toString());
+              debugPrint(s.toString());
+            }
+          }
+        });
       }
     });
 
@@ -139,52 +141,24 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(final BuildContext context) {
-    final accountsBloc = RxBlocProvider.of<AccountsBloc>(context);
-    return StandardRxResultBuilder<CapabilitiesBloc, Capabilities>(
-      bloc: _capabilitiesBloc,
-      state: (final bloc) => bloc.capabilities,
-      builder: (
-        final context,
-        final capabilitiesData,
-        final capabilitiesError,
-        final capabilitiesLoading,
-        final _,
-      ) =>
-          StandardRxResultBuilder<AppsBloc, List<AppImplementation>>(
-        bloc: _appsBloc,
-        state: (final bloc) => bloc.appImplementations,
-        builder: (
-          final context,
-          final appsData,
-          final appsError,
-          final appsLoading,
-          final _,
-        ) =>
-            StandardRxResultBuilder<AppsBloc, NotificationsApp?>(
-          bloc: _appsBloc,
-          state: (final bloc) => bloc.notificationsAppImplementation,
-          builder: (
-            final context,
-            final notificationsAppData,
-            final notificationsAppError,
-            final notificationsAppLoading,
-            final _,
-          ) =>
-              RxBlocBuilder<AppsBloc, String?>(
-            bloc: _appsBloc,
-            state: (final bloc) => bloc.activeAppID,
+    final accountsBloc = Provider.of<AccountsBloc>(context, listen: false);
+    return ResultBuilder<CapabilitiesBloc, Capabilities>(
+      stream: _capabilitiesBloc.capabilities,
+      builder: (final context, final capabilities) => ResultBuilder<AppsBloc, List<AppImplementation>>(
+        stream: _appsBloc.appImplementations,
+        builder: (final context, final appImplementations) => ResultBuilder<AppsBloc, NotificationsApp?>(
+          stream: _appsBloc.notificationsAppImplementation,
+          builder: (final context, final notificationsAppImplementation) => StreamBuilder<String?>(
+            stream: _appsBloc.activeAppID,
             builder: (
               final context,
               final activeAppIDSnapshot,
-              final _,
             ) =>
-                RxBlocBuilder<AccountsBloc, List<Account>>(
-              bloc: accountsBloc,
-              state: (final bloc) => bloc.accounts,
+                StreamBuilder<List<Account>>(
+              stream: accountsBloc.accounts,
               builder: (
                 final context,
                 final accountsSnapshot,
-                final _,
               ) =>
                   OptionBuilder<NavigationMode>(
                 option: _globalOptions.navigationMode,
@@ -265,27 +239,27 @@ class _HomePageState extends State<HomePage> {
                                                   crossAxisAlignment: CrossAxisAlignment.start,
                                                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                                   children: [
-                                                    if (capabilitiesData != null) ...[
+                                                    if (capabilities.data != null) ...[
                                                       Text(
-                                                        capabilitiesData.capabilities.theming!.name,
+                                                        capabilities.data!.capabilities.theming!.name,
                                                         style: DefaultTextStyle.of(context).style.copyWith(
                                                               color: Theme.of(context).appBarTheme.foregroundColor,
                                                             ),
                                                       ),
                                                       Flexible(
                                                         child: CachedURLImage(
-                                                          url: capabilitiesData.capabilities.theming!.logo,
+                                                          url: capabilities.data!.capabilities.theming!.logo,
                                                         ),
                                                       ),
                                                     ] else ...[
                                                       ExceptionWidget(
-                                                        capabilitiesError,
-                                                        onRetry: () {
-                                                          _capabilitiesBloc.refresh();
+                                                        capabilities.error,
+                                                        onRetry: () async {
+                                                          await _capabilitiesBloc.refresh();
                                                         },
                                                       ),
                                                       CustomLinearProgressIndicator(
-                                                        visible: capabilitiesLoading,
+                                                        visible: capabilities.loading,
                                                       ),
                                                     ],
                                                     if (accounts.length != 1) ...[
@@ -327,17 +301,17 @@ class _HomePageState extends State<HomePage> {
                                           },
                                         ),
                                         ExceptionWidget(
-                                          appsError,
+                                          appImplementations.error,
                                           onlyIcon: isQuickBar,
-                                          onRetry: () {
-                                            _appsBloc.refresh();
+                                          onRetry: () async {
+                                            await _appsBloc.refresh();
                                           },
                                         ),
                                         CustomLinearProgressIndicator(
-                                          visible: appsLoading,
+                                          visible: appImplementations.loading,
                                         ),
-                                        if (appsData != null) ...[
-                                          for (final appImplementation in appsData) ...[
+                                        if (appImplementations.data != null) ...[
+                                          for (final appImplementation in appImplementations.data!) ...[
                                             StreamBuilder<int>(
                                               stream: appImplementation.getUnreadCounter(_appsBloc) ??
                                                   BehaviorSubject<int>.seeded(0),
@@ -440,9 +414,9 @@ class _HomePageState extends State<HomePage> {
                                     leading: isQuickBar
                                         ? Container(
                                             padding: const EdgeInsets.all(5),
-                                            child: capabilitiesData?.capabilities.theming?.logo != null
+                                            child: capabilities.data?.capabilities.theming?.logo != null
                                                 ? CachedURLImage(
-                                                    url: capabilitiesData!.capabilities.theming!.logo,
+                                                    url: capabilities.data!.capabilities.theming!.logo,
                                                   )
                                                 : null,
                                           )
@@ -452,16 +426,16 @@ class _HomePageState extends State<HomePage> {
                                       children: [
                                         Row(
                                           children: [
-                                            if (appsData != null && activeAppIDSnapshot.hasData) ...[
+                                            if (appImplementations.data != null && activeAppIDSnapshot.hasData) ...[
                                               Flexible(
                                                 child: Text(
-                                                  appsData
+                                                  appImplementations.data!
                                                       .singleWhere((final a) => a.id == activeAppIDSnapshot.data!)
                                                       .name(context),
                                                 ),
                                               ),
                                             ],
-                                            if (appsError != null) ...[
+                                            if (appImplementations.error != null) ...[
                                               const SizedBox(
                                                 width: 8,
                                               ),
@@ -471,7 +445,7 @@ class _HomePageState extends State<HomePage> {
                                                 color: Theme.of(context).colorScheme.onPrimary,
                                               ),
                                             ],
-                                            if (appsLoading) ...[
+                                            if (appImplementations.loading) ...[
                                               const SizedBox(
                                                 width: 8,
                                               ),
@@ -492,15 +466,15 @@ class _HomePageState extends State<HomePage> {
                                       ],
                                     ),
                                     actions: [
-                                      if (notificationsAppData != null) ...[
+                                      if (notificationsAppImplementation.data != null) ...[
                                         StreamBuilder<int>(
-                                          stream: notificationsAppData.getUnreadCounter(_appsBloc),
+                                          stream: notificationsAppImplementation.data!.getUnreadCounter(_appsBloc),
                                           builder: (final context, final unreadCounterSnapshot) {
                                             final unreadCount = unreadCounterSnapshot.data ?? 0;
                                             return IconButton(
-                                              key: Key('app-${notificationsAppData.id}'),
+                                              key: Key('app-${notificationsAppImplementation.data!.id}'),
                                               icon: AppImplementationIcon(
-                                                appImplementation: notificationsAppData,
+                                                appImplementation: notificationsAppImplementation.data!,
                                                 unreadCount: unreadCount,
                                                 color: unreadCount > 0
                                                     ? Theme.of(context).colorScheme.primary
@@ -516,7 +490,7 @@ class _HomePageState extends State<HomePage> {
                                                         title: Column(
                                                           crossAxisAlignment: CrossAxisAlignment.start,
                                                           children: [
-                                                            Text(notificationsAppData.name(context)),
+                                                            Text(notificationsAppImplementation.data!.name(context)),
                                                             if (accounts.length > 1) ...[
                                                               Text(
                                                                 account.client.humanReadableID,
@@ -526,7 +500,8 @@ class _HomePageState extends State<HomePage> {
                                                           ],
                                                         ),
                                                       ),
-                                                      body: notificationsAppData.buildPage(context, _appsBloc),
+                                                      body: notificationsAppImplementation.data!
+                                                          .buildPage(context, _appsBloc),
                                                     ),
                                                   ),
                                                 );
@@ -563,13 +538,13 @@ class _HomePageState extends State<HomePage> {
                                         child: Column(
                                           children: [
                                             ExceptionWidget(
-                                              appsError,
-                                              onRetry: () {
-                                                _appsBloc.refresh();
+                                              appImplementations.error,
+                                              onRetry: () async {
+                                                await _appsBloc.refresh();
                                               },
                                             ),
-                                            if (appsData != null) ...[
-                                              if (appsData.isEmpty) ...[
+                                            if (appImplementations.data != null) ...[
+                                              if (appImplementations.data!.isEmpty) ...[
                                                 Expanded(
                                                   child: Center(
                                                     child: Text(
@@ -581,7 +556,7 @@ class _HomePageState extends State<HomePage> {
                                               ] else ...[
                                                 if (activeAppIDSnapshot.hasData) ...[
                                                   Expanded(
-                                                    child: appsData
+                                                    child: appImplementations.data!
                                                         .singleWhere((final a) => a.id == activeAppIDSnapshot.data!)
                                                         .buildPage(context, _appsBloc),
                                                   ),

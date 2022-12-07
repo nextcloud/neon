@@ -331,13 +331,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.0.7"
-  flutter_rx_bloc:
-    dependency: "direct main"
-    description:
-      name: flutter_rx_bloc
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "5.0.1"
   flutter_svg:
     dependency: "direct main"
     description:
@@ -850,20 +843,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.3"
-  rx_bloc:
-    dependency: "direct main"
-    description:
-      name: rx_bloc
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "3.3.1"
-  rx_bloc_generator:
-    dependency: "direct dev"
-    description:
-      name: rx_bloc_generator
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "6.0.0"
   rxdart:
     dependency: "direct main"
     description:
