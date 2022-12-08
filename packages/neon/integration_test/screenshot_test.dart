@@ -119,7 +119,6 @@ Future pumpAppPage(
     AppStorage('accounts', sharedPreferences),
     sharedPreferences,
     globalOptions,
-    packageInfo,
     allAppImplementations,
   );
   if (account != null) {
@@ -227,9 +226,10 @@ Future main() async {
     packageInfo = await PackageInfo.fromPlatform();
     account = Account(
       serverURL: 'http://10.0.2.2',
+      loginName: 'user1',
       username: 'user1',
       password: 'user1',
-    )..setupClient(packageInfo);
+    );
 
     await SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual, overlays: []);
   });
@@ -462,14 +462,12 @@ Future main() async {
   });
 
   testWidgets('notifications', (final tester) async {
-    await (Account(
+    await Account(
       serverURL: 'http://10.0.2.2',
+      loginName: 'admin',
       username: 'admin',
       password: 'admin',
-    )..setupClient(packageInfo))
-        .client
-        .notifications
-        .sendAdminNotification(
+    ).client.notifications.sendAdminNotification(
           userId: account.username,
           shortMessage: 'Notifications demo',
           longMessage: 'This is a notifications demo of the Neon app',

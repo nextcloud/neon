@@ -7,7 +7,6 @@ import 'package:neon/src/blocs/user_details.dart';
 import 'package:neon/src/blocs/user_status.dart';
 import 'package:neon/src/models/account.dart';
 import 'package:neon/src/neon.dart';
-import 'package:package_info_plus/package_info_plus.dart';
 import 'package:rxdart/rxdart.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -30,7 +29,6 @@ class AccountsBloc extends Bloc implements AccountsBlocEvents, AccountsBlocState
     this._storage,
     this._sharedPreferences,
     this._globalOptions,
-    this._packageInfo,
     this._allAppImplementations,
   ) {
     accounts.listen((final as) async {
@@ -42,7 +40,7 @@ class AccountsBloc extends Bloc implements AccountsBlocEvents, AccountsBlocState
       accounts.add(
         _storage
             .getStringList(_keyAccounts)!
-            .map((final a) => (Account.fromJson(json.decode(a) as Map<String, dynamic>))..setupClient(_packageInfo))
+            .map((final a) => Account.fromJson(json.decode(a) as Map<String, dynamic>))
             .toList(),
       );
     }
@@ -69,7 +67,6 @@ class AccountsBloc extends Bloc implements AccountsBlocEvents, AccountsBlocState
   final SharedPreferences _sharedPreferences;
   final GlobalOptions _globalOptions;
   final List<AppImplementation> _allAppImplementations;
-  final PackageInfo _packageInfo;
   final _keyAccounts = 'accounts';
   final _keyLastUsedAccount = 'last-used-account';
 
@@ -102,7 +99,6 @@ class AccountsBloc extends Bloc implements AccountsBlocEvents, AccountsBlocState
 
   @override
   void addAccount(final Account account) {
-    account.setupClient(_packageInfo);
     if (activeAccount.valueOrNull == null) {
       setActiveAccount(account);
     }
@@ -140,7 +136,6 @@ class AccountsBloc extends Bloc implements AccountsBlocEvents, AccountsBlocState
 
   @override
   void updateAccount(final Account account) {
-    account.setupClient(_packageInfo);
     final as = accounts.value;
     final index = as.indexWhere((final a) => a.id == account.id);
     if (index == -1) {

@@ -134,7 +134,7 @@ class PushNotificationsBloc extends Bloc implements PushNotificationsBlocEvents,
 
   Future _registerUnifiedPushInstances(final List<Account> accounts) async {
     // Notifications will only work on accounts with app password
-    for (final account in accounts.where((final a) => a.appPassword != null)) {
+    for (final account in accounts.where((final a) => a.password != null)) {
       await UnifiedPush.registerApp(account.client.id);
     }
   }
