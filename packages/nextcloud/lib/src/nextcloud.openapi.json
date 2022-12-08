@@ -202,6 +202,7 @@
                     "properties": {
                       "core": {
                         "type": "object",
+                        "additionalProperties": true,
                         "required": [
                           "pollinterval",
                           "webdav-root",
@@ -225,6 +226,7 @@
                       },
                       "bruteforce": {
                         "type": "object",
+                        "additionalProperties": true,
                         "required": [
                           "delay"
                         ],
@@ -236,6 +238,7 @@
                       },
                       "metadataAvailable": {
                         "type": "object",
+                        "additionalProperties": true,
                         "required": [
                           "size",
                           "gps"
@@ -257,6 +260,7 @@
                       },
                       "files": {
                         "type": "object",
+                        "additionalProperties": true,
                         "required": [
                           "bigfilechunking",
                           "blacklisted_files",
@@ -277,6 +281,7 @@
                           },
                           "directEditing": {
                             "type": "object",
+                            "additionalProperties": true,
                             "required": [
                               "url",
                               "etag"
@@ -303,6 +308,7 @@
                       },
                       "activity": {
                         "type": "object",
+                        "additionalProperties": true,
                         "required": [
                           "apiv2"
                         ],
@@ -317,6 +323,7 @@
                       },
                       "circles": {
                         "type": "object",
+                        "additionalProperties": true,
                         "required": [
                           "version",
                           "status",
@@ -330,6 +337,7 @@
                           },
                           "status": {
                             "type": "object",
+                            "additionalProperties": true,
                             "required": [
                               "globalScale"
                             ],
@@ -341,6 +349,7 @@
                           },
                           "settings": {
                             "type": "object",
+                            "additionalProperties": true,
                             "required": [
                               "frontendEnabled",
                               "allowedCircles",
@@ -364,6 +373,7 @@
                           },
                           "circle": {
                             "type": "object",
+                            "additionalProperties": true,
                             "required": [
                               "constants",
                               "config"
@@ -371,6 +381,7 @@
                             "properties": {
                               "constants": {
                                 "type": "object",
+                                "additionalProperties": true,
                                 "required": [
                                   "flags",
                                   "source"
@@ -381,6 +392,7 @@
                                   },
                                   "source": {
                                     "type": "object",
+                                    "additionalProperties": true,
                                     "required": [
                                       "core",
                                       "extra"
@@ -398,6 +410,7 @@
                               },
                               "config": {
                                 "type": "object",
+                                "additionalProperties": true,
                                 "required": [
                                   "coreFlags",
                                   "systemFlags"
@@ -421,6 +434,7 @@
                           },
                           "member": {
                             "type": "object",
+                            "additionalProperties": true,
                             "required": [
                               "constants",
                               "type"
@@ -428,6 +442,7 @@
                             "properties": {
                               "constants": {
                                 "type": "object",
+                                "additionalProperties": true,
                                 "required": [
                                   "level"
                                 ],
@@ -446,6 +461,7 @@
                       },
                       "ocm": {
                         "type": "object",
+                        "additionalProperties": true,
                         "required": [
                           "enabled",
                           "apiVersion",
@@ -466,6 +482,7 @@
                             "type": "array",
                             "items": {
                               "type": "object",
+                              "additionalProperties": true,
                               "required": [
                                 "name",
                                 "shareTypes",
@@ -483,6 +500,7 @@
                                 },
                                 "protocols": {
                                   "type": "object",
+                                  "additionalProperties": true,
                                   "required": [
                                     "webdav"
                                   ],
@@ -499,6 +517,7 @@
                       },
                       "dav": {
                         "type": "object",
+                        "additionalProperties": true,
                         "required": [
                           "chunking"
                         ],
@@ -513,6 +532,7 @@
                       },
                       "files_sharing": {
                         "type": "object",
+                        "additionalProperties": true,
                         "required": [
                           "api_enabled",
                           "public",
@@ -531,6 +551,7 @@
                           },
                           "public": {
                             "type": "object",
+                            "additionalProperties": true,
                             "required": [
                               "enabled",
                               "password",
@@ -548,6 +569,7 @@
                               },
                               "password": {
                                 "type": "object",
+                                "additionalProperties": true,
                                 "required": [
                                   "enforced",
                                   "askForOptionalPassword"
@@ -563,6 +585,7 @@
                               },
                               "expire_date": {
                                 "type": "object",
+                                "additionalProperties": true,
                                 "required": [
                                   "enabled"
                                 ],
@@ -577,6 +600,7 @@
                               },
                               "expire_date_internal": {
                                 "type": "object",
+                                "additionalProperties": true,
                                 "required": [
                                   "enabled"
                                 ],
@@ -588,6 +612,7 @@
                               },
                               "expire_date_remote": {
                                 "type": "object",
+                                "additionalProperties": true,
                                 "required": [
                                   "enabled"
                                 ],
@@ -613,6 +638,7 @@
                           },
                           "user": {
                             "type": "object",
+                            "additionalProperties": true,
                             "required": [
                               "send_mail",
                               "expire_date"
@@ -623,6 +649,7 @@
                               },
                               "expire_date": {
                                 "type": "object",
+                                "additionalProperties": true,
                                 "required": [
                                   "enabled"
                                 ],
@@ -639,6 +666,7 @@
                           },
                           "group": {
                             "type": "object",
+                            "additionalProperties": true,
                             "required": [
                               "enabled",
                               "expire_date"
@@ -649,6 +677,7 @@
                               },
                               "expire_date": {
                                 "type": "object",
+                                "additionalProperties": true,
                                 "required": [
                                   "enabled"
                                 ],
@@ -665,6 +694,7 @@
                           },
                           "federation": {
                             "type": "object",
+                            "additionalProperties": true,
                             "required": [
                               "outgoing",
                               "incoming",
@@ -680,6 +710,7 @@
                               },
                               "expire_date": {
                                 "type": "object",
+                                "additionalProperties": true,
                                 "required": [
                                   "enabled"
                                 ],
@@ -691,6 +722,7 @@
                               },
                               "expire_date_supported": {
                                 "type": "object",
+                                "additionalProperties": true,
                                 "required": [
                                   "enabled"
                                 ],
@@ -704,6 +736,7 @@
                           },
                           "sharee": {
                             "type": "object",
+                            "additionalProperties": true,
                             "required": [
                               "query_lookup_default",
                               "always_show_unique"
@@ -719,6 +752,7 @@
                           },
                           "sharebymail": {
                             "type": "object",
+                            "additionalProperties": true,
                             "required": [
                               "enabled",
                               "send_password_by_mail",
@@ -735,6 +769,7 @@
                               },
                               "upload_files_drop": {
                                 "type": "object",
+                                "additionalProperties": true,
                                 "required": [
                                   "enabled"
                                 ],
@@ -746,6 +781,7 @@
                               },
                               "password": {
                                 "type": "object",
+                                "additionalProperties": true,
                                 "required": [
                                   "enabled",
                                   "enforced"
@@ -761,6 +797,7 @@
                               },
                               "expire_date": {
                                 "type": "object",
+                                "additionalProperties": true,
                                 "required": [
                                   "enabled",
                                   "enforced"
@@ -780,6 +817,7 @@
                       },
                       "notes": {
                         "type": "object",
+                        "additionalProperties": true,
                         "required": [
                           "api_version",
                           "version"
@@ -798,6 +836,7 @@
                       },
                       "notifications": {
                         "type": "object",
+                        "additionalProperties": true,
                         "required": [
                           "ocs-endpoints",
                           "push",
@@ -826,6 +865,7 @@
                       },
                       "password_policy": {
                         "type": "object",
+                        "additionalProperties": true,
                         "required": [
                           "minLength",
                           "enforceNonCommonPassword",
@@ -852,6 +892,7 @@
                           },
                           "api": {
                             "type": "object",
+                            "additionalProperties": true,
                             "required": [
                               "generate",
                               "validate"
@@ -869,6 +910,7 @@
                       },
                       "provisioning_api": {
                         "type": "object",
+                        "additionalProperties": true,
                         "required": [
                           "version",
                           "AccountPropertyScopesVersion",
@@ -892,6 +934,7 @@
                       },
                       "theming": {
                         "type": "object",
+                        "additionalProperties": true,
                         "required": [
                           "name",
                           "url",
@@ -955,6 +998,7 @@
                       },
                       "user_status": {
                         "type": "object",
+                        "additionalProperties": true,
                         "required": [
                           "enabled",
                           "supports_emoji"

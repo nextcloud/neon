@@ -92,18 +92,13 @@ Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_VersionToJson(
     };
 
 CoreServerCapabilities_Ocs_Data_Capabilities_Core _$CoreServerCapabilities_Ocs_Data_Capabilities_CoreFromJson(
-    Map<String, dynamic> json) {
-  $checkKeys(
-    json,
-    allowedKeys: const ['pollinterval', 'webdav-root', 'reference-api', 'reference-regex'],
-  );
-  return CoreServerCapabilities_Ocs_Data_Capabilities_Core(
-    pollinterval: json['pollinterval'] as int,
-    webdavRoot: json['webdav-root'] as String,
-    referenceApi: json['reference-api'] as bool,
-    referenceRegex: json['reference-regex'] as String,
-  );
-}
+        Map<String, dynamic> json) =>
+    CoreServerCapabilities_Ocs_Data_Capabilities_Core(
+      pollinterval: json['pollinterval'] as int,
+      webdavRoot: json['webdav-root'] as String,
+      referenceApi: json['reference-api'] as bool,
+      referenceRegex: json['reference-regex'] as String,
+    );
 
 Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_CoreToJson(
         CoreServerCapabilities_Ocs_Data_Capabilities_Core instance) =>
@@ -115,15 +110,10 @@ Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_CoreToJson(
     };
 
 CoreServerCapabilities_Ocs_Data_Capabilities_Bruteforce
-    _$CoreServerCapabilities_Ocs_Data_Capabilities_BruteforceFromJson(Map<String, dynamic> json) {
-  $checkKeys(
-    json,
-    allowedKeys: const ['delay'],
-  );
-  return CoreServerCapabilities_Ocs_Data_Capabilities_Bruteforce(
-    delay: json['delay'] as int,
-  );
-}
+    _$CoreServerCapabilities_Ocs_Data_Capabilities_BruteforceFromJson(Map<String, dynamic> json) =>
+        CoreServerCapabilities_Ocs_Data_Capabilities_Bruteforce(
+          delay: json['delay'] as int,
+        );
 
 Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_BruteforceToJson(
         CoreServerCapabilities_Ocs_Data_Capabilities_Bruteforce instance) =>
@@ -132,16 +122,11 @@ Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_BruteforceTo
     };
 
 CoreServerCapabilities_Ocs_Data_Capabilities_MetadataAvailable
-    _$CoreServerCapabilities_Ocs_Data_Capabilities_MetadataAvailableFromJson(Map<String, dynamic> json) {
-  $checkKeys(
-    json,
-    allowedKeys: const ['size', 'gps'],
-  );
-  return CoreServerCapabilities_Ocs_Data_Capabilities_MetadataAvailable(
-    size: (json['size'] as List<dynamic>).map((e) => e as String).toList(),
-    gps: (json['gps'] as List<dynamic>).map((e) => e as String).toList(),
-  );
-}
+    _$CoreServerCapabilities_Ocs_Data_Capabilities_MetadataAvailableFromJson(Map<String, dynamic> json) =>
+        CoreServerCapabilities_Ocs_Data_Capabilities_MetadataAvailable(
+          size: (json['size'] as List<dynamic>).map((e) => e as String).toList(),
+          gps: (json['gps'] as List<dynamic>).map((e) => e as String).toList(),
+        );
 
 Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_MetadataAvailableToJson(
         CoreServerCapabilities_Ocs_Data_Capabilities_MetadataAvailable instance) =>
@@ -151,16 +136,11 @@ Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_MetadataAvai
     };
 
 CoreServerCapabilities_Ocs_Data_Capabilities_Files_DirectEditing
-    _$CoreServerCapabilities_Ocs_Data_Capabilities_Files_DirectEditingFromJson(Map<String, dynamic> json) {
-  $checkKeys(
-    json,
-    allowedKeys: const ['url', 'etag'],
-  );
-  return CoreServerCapabilities_Ocs_Data_Capabilities_Files_DirectEditing(
-    url: json['url'] as String,
-    etag: json['etag'] as String,
-  );
-}
+    _$CoreServerCapabilities_Ocs_Data_Capabilities_Files_DirectEditingFromJson(Map<String, dynamic> json) =>
+        CoreServerCapabilities_Ocs_Data_Capabilities_Files_DirectEditing(
+          url: json['url'] as String,
+          etag: json['etag'] as String,
+        );
 
 Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_Files_DirectEditingToJson(
         CoreServerCapabilities_Ocs_Data_Capabilities_Files_DirectEditing instance) =>
@@ -170,21 +150,16 @@ Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_Files_Direct
     };
 
 CoreServerCapabilities_Ocs_Data_Capabilities_Files _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesFromJson(
-    Map<String, dynamic> json) {
-  $checkKeys(
-    json,
-    allowedKeys: const ['bigfilechunking', 'blacklisted_files', 'directEditing', 'comments', 'undelete', 'versioning'],
-  );
-  return CoreServerCapabilities_Ocs_Data_Capabilities_Files(
-    bigfilechunking: json['bigfilechunking'] as bool,
-    blacklistedFiles: (json['blacklisted_files'] as List<dynamic>).map((e) => e as String).toList(),
-    directEditing: CoreServerCapabilities_Ocs_Data_Capabilities_Files_DirectEditing.fromJson(
-        json['directEditing'] as Map<String, dynamic>),
-    comments: json['comments'] as bool,
-    undelete: json['undelete'] as bool,
-    versioning: json['versioning'] as bool,
-  );
-}
+        Map<String, dynamic> json) =>
+    CoreServerCapabilities_Ocs_Data_Capabilities_Files(
+      bigfilechunking: json['bigfilechunking'] as bool,
+      blacklistedFiles: (json['blacklisted_files'] as List<dynamic>).map((e) => e as String).toList(),
+      directEditing: CoreServerCapabilities_Ocs_Data_Capabilities_Files_DirectEditing.fromJson(
+          json['directEditing'] as Map<String, dynamic>),
+      comments: json['comments'] as bool,
+      undelete: json['undelete'] as bool,
+      versioning: json['versioning'] as bool,
+    );
 
 Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesToJson(
         CoreServerCapabilities_Ocs_Data_Capabilities_Files instance) =>
@@ -198,15 +173,10 @@ Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesToJson(
     };
 
 CoreServerCapabilities_Ocs_Data_Capabilities_Activity _$CoreServerCapabilities_Ocs_Data_Capabilities_ActivityFromJson(
-    Map<String, dynamic> json) {
-  $checkKeys(
-    json,
-    allowedKeys: const ['apiv2'],
-  );
-  return CoreServerCapabilities_Ocs_Data_Capabilities_Activity(
-    apiv2: (json['apiv2'] as List<dynamic>).map((e) => e as String).toList(),
-  );
-}
+        Map<String, dynamic> json) =>
+    CoreServerCapabilities_Ocs_Data_Capabilities_Activity(
+      apiv2: (json['apiv2'] as List<dynamic>).map((e) => e as String).toList(),
+    );
 
 Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_ActivityToJson(
         CoreServerCapabilities_Ocs_Data_Capabilities_Activity instance) =>
@@ -215,15 +185,10 @@ Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_ActivityToJs
     };
 
 CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Status
-    _$CoreServerCapabilities_Ocs_Data_Capabilities_Circles_StatusFromJson(Map<String, dynamic> json) {
-  $checkKeys(
-    json,
-    allowedKeys: const ['globalScale'],
-  );
-  return CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Status(
-    globalScale: json['globalScale'] as bool,
-  );
-}
+    _$CoreServerCapabilities_Ocs_Data_Capabilities_Circles_StatusFromJson(Map<String, dynamic> json) =>
+        CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Status(
+          globalScale: json['globalScale'] as bool,
+        );
 
 Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_Circles_StatusToJson(
         CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Status instance) =>
@@ -232,18 +197,13 @@ Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Stat
     };
 
 CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Settings
-    _$CoreServerCapabilities_Ocs_Data_Capabilities_Circles_SettingsFromJson(Map<String, dynamic> json) {
-  $checkKeys(
-    json,
-    allowedKeys: const ['frontendEnabled', 'allowedCircles', 'allowedUserTypes', 'membersLimit'],
-  );
-  return CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Settings(
-    frontendEnabled: json['frontendEnabled'] as bool,
-    allowedCircles: json['allowedCircles'] as int,
-    allowedUserTypes: json['allowedUserTypes'] as int,
-    membersLimit: json['membersLimit'] as int,
-  );
-}
+    _$CoreServerCapabilities_Ocs_Data_Capabilities_Circles_SettingsFromJson(Map<String, dynamic> json) =>
+        CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Settings(
+          frontendEnabled: json['frontendEnabled'] as bool,
+          allowedCircles: json['allowedCircles'] as int,
+          allowedUserTypes: json['allowedUserTypes'] as int,
+          membersLimit: json['membersLimit'] as int,
+        );
 
 Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_Circles_SettingsToJson(
         CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Settings instance) =>
@@ -255,16 +215,11 @@ Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Sett
     };
 
 CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants_Source
-    _$CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants_SourceFromJson(Map<String, dynamic> json) {
-  $checkKeys(
-    json,
-    allowedKeys: const ['core', 'extra'],
-  );
-  return CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants_Source(
-    core: json['core'],
-    extra: json['extra'],
-  );
-}
+    _$CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants_SourceFromJson(Map<String, dynamic> json) =>
+        CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants_Source(
+          core: json['core'],
+          extra: json['extra'],
+        );
 
 Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants_SourceToJson(
         CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants_Source instance) =>
@@ -274,17 +229,12 @@ Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circ
     };
 
 CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants
-    _$CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_ConstantsFromJson(Map<String, dynamic> json) {
-  $checkKeys(
-    json,
-    allowedKeys: const ['flags', 'source'],
-  );
-  return CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants(
-    flags: json['flags'],
-    source: CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants_Source.fromJson(
-        json['source'] as Map<String, dynamic>),
-  );
-}
+    _$CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_ConstantsFromJson(Map<String, dynamic> json) =>
+        CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants(
+          flags: json['flags'],
+          source: CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants_Source.fromJson(
+              json['source'] as Map<String, dynamic>),
+        );
 
 Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_ConstantsToJson(
         CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants instance) =>
@@ -294,16 +244,11 @@ Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circ
     };
 
 CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Config
-    _$CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_ConfigFromJson(Map<String, dynamic> json) {
-  $checkKeys(
-    json,
-    allowedKeys: const ['coreFlags', 'systemFlags'],
-  );
-  return CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Config(
-    coreFlags: (json['coreFlags'] as List<dynamic>).map((e) => e as int).toList(),
-    systemFlags: (json['systemFlags'] as List<dynamic>).map((e) => e as int).toList(),
-  );
-}
+    _$CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_ConfigFromJson(Map<String, dynamic> json) =>
+        CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Config(
+          coreFlags: (json['coreFlags'] as List<dynamic>).map((e) => e as int).toList(),
+          systemFlags: (json['systemFlags'] as List<dynamic>).map((e) => e as int).toList(),
+        );
 
 Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_ConfigToJson(
         CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Config instance) =>
@@ -313,18 +258,13 @@ Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circ
     };
 
 CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle
-    _$CoreServerCapabilities_Ocs_Data_Capabilities_Circles_CircleFromJson(Map<String, dynamic> json) {
-  $checkKeys(
-    json,
-    allowedKeys: const ['constants', 'config'],
-  );
-  return CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle(
-    constants: CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants.fromJson(
-        json['constants'] as Map<String, dynamic>),
-    config: CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Config.fromJson(
-        json['config'] as Map<String, dynamic>),
-  );
-}
+    _$CoreServerCapabilities_Ocs_Data_Capabilities_Circles_CircleFromJson(Map<String, dynamic> json) =>
+        CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle(
+          constants: CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants.fromJson(
+              json['constants'] as Map<String, dynamic>),
+          config: CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Config.fromJson(
+              json['config'] as Map<String, dynamic>),
+        );
 
 Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_Circles_CircleToJson(
         CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle instance) =>
@@ -334,15 +274,10 @@ Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circ
     };
 
 CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member_Constants
-    _$CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member_ConstantsFromJson(Map<String, dynamic> json) {
-  $checkKeys(
-    json,
-    allowedKeys: const ['level'],
-  );
-  return CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member_Constants(
-    level: json['level'],
-  );
-}
+    _$CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member_ConstantsFromJson(Map<String, dynamic> json) =>
+        CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member_Constants(
+          level: json['level'],
+        );
 
 Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member_ConstantsToJson(
         CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member_Constants instance) =>
@@ -351,17 +286,12 @@ Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Memb
     };
 
 CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member
-    _$CoreServerCapabilities_Ocs_Data_Capabilities_Circles_MemberFromJson(Map<String, dynamic> json) {
-  $checkKeys(
-    json,
-    allowedKeys: const ['constants', 'type'],
-  );
-  return CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member(
-    constants: CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member_Constants.fromJson(
-        json['constants'] as Map<String, dynamic>),
-    type: json['type'],
-  );
-}
+    _$CoreServerCapabilities_Ocs_Data_Capabilities_Circles_MemberFromJson(Map<String, dynamic> json) =>
+        CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member(
+          constants: CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member_Constants.fromJson(
+              json['constants'] as Map<String, dynamic>),
+          type: json['type'],
+        );
 
 Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_Circles_MemberToJson(
         CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member instance) =>
@@ -371,23 +301,18 @@ Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Memb
     };
 
 CoreServerCapabilities_Ocs_Data_Capabilities_Circles _$CoreServerCapabilities_Ocs_Data_Capabilities_CirclesFromJson(
-    Map<String, dynamic> json) {
-  $checkKeys(
-    json,
-    allowedKeys: const ['version', 'status', 'settings', 'circle', 'member'],
-  );
-  return CoreServerCapabilities_Ocs_Data_Capabilities_Circles(
-    version: json['version'] as String,
-    status:
-        CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Status.fromJson(json['status'] as Map<String, dynamic>),
-    settings: CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Settings.fromJson(
-        json['settings'] as Map<String, dynamic>),
-    circle:
-        CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle.fromJson(json['circle'] as Map<String, dynamic>),
-    member:
-        CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member.fromJson(json['member'] as Map<String, dynamic>),
-  );
-}
+        Map<String, dynamic> json) =>
+    CoreServerCapabilities_Ocs_Data_Capabilities_Circles(
+      version: json['version'] as String,
+      status:
+          CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Status.fromJson(json['status'] as Map<String, dynamic>),
+      settings: CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Settings.fromJson(
+          json['settings'] as Map<String, dynamic>),
+      circle:
+          CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle.fromJson(json['circle'] as Map<String, dynamic>),
+      member:
+          CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member.fromJson(json['member'] as Map<String, dynamic>),
+    );
 
 Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_CirclesToJson(
         CoreServerCapabilities_Ocs_Data_Capabilities_Circles instance) =>
@@ -400,15 +325,10 @@ Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_CirclesToJso
     };
 
 CoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes_Protocols
-    _$CoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes_ProtocolsFromJson(Map<String, dynamic> json) {
-  $checkKeys(
-    json,
-    allowedKeys: const ['webdav'],
-  );
-  return CoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes_Protocols(
-    webdav: json['webdav'] as String,
-  );
-}
+    _$CoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes_ProtocolsFromJson(Map<String, dynamic> json) =>
+        CoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes_Protocols(
+          webdav: json['webdav'] as String,
+        );
 
 Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes_ProtocolsToJson(
         CoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes_Protocols instance) =>
@@ -417,18 +337,13 @@ Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_Ocm_Resource
     };
 
 CoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes
-    _$CoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypesFromJson(Map<String, dynamic> json) {
-  $checkKeys(
-    json,
-    allowedKeys: const ['name', 'shareTypes', 'protocols'],
-  );
-  return CoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes(
-    name: json['name'] as String,
-    shareTypes: (json['shareTypes'] as List<dynamic>).map((e) => e as String).toList(),
-    protocols: CoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes_Protocols.fromJson(
-        json['protocols'] as Map<String, dynamic>),
-  );
-}
+    _$CoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypesFromJson(Map<String, dynamic> json) =>
+        CoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes(
+          name: json['name'] as String,
+          shareTypes: (json['shareTypes'] as List<dynamic>).map((e) => e as String).toList(),
+          protocols: CoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes_Protocols.fromJson(
+              json['protocols'] as Map<String, dynamic>),
+        );
 
 Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypesToJson(
         CoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes instance) =>
@@ -439,20 +354,16 @@ Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_Ocm_Resource
     };
 
 CoreServerCapabilities_Ocs_Data_Capabilities_Ocm _$CoreServerCapabilities_Ocs_Data_Capabilities_OcmFromJson(
-    Map<String, dynamic> json) {
-  $checkKeys(
-    json,
-    allowedKeys: const ['enabled', 'apiVersion', 'endPoint', 'resourceTypes'],
-  );
-  return CoreServerCapabilities_Ocs_Data_Capabilities_Ocm(
-    enabled: json['enabled'] as bool,
-    apiVersion: json['apiVersion'] as String,
-    endPoint: json['endPoint'] as String,
-    resourceTypes: (json['resourceTypes'] as List<dynamic>)
-        .map((e) => CoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes.fromJson(e as Map<String, dynamic>))
-        .toList(),
-  );
-}
+        Map<String, dynamic> json) =>
+    CoreServerCapabilities_Ocs_Data_Capabilities_Ocm(
+      enabled: json['enabled'] as bool,
+      apiVersion: json['apiVersion'] as String,
+      endPoint: json['endPoint'] as String,
+      resourceTypes: (json['resourceTypes'] as List<dynamic>)
+          .map(
+              (e) => CoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes.fromJson(e as Map<String, dynamic>))
+          .toList(),
+    );
 
 Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_OcmToJson(
         CoreServerCapabilities_Ocs_Data_Capabilities_Ocm instance) =>
@@ -464,16 +375,11 @@ Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_OcmToJson(
     };
 
 CoreServerCapabilities_Ocs_Data_Capabilities_Dav _$CoreServerCapabilities_Ocs_Data_Capabilities_DavFromJson(
-    Map<String, dynamic> json) {
-  $checkKeys(
-    json,
-    allowedKeys: const ['bulkupload', 'chunking'],
-  );
-  return CoreServerCapabilities_Ocs_Data_Capabilities_Dav(
-    bulkupload: json['bulkupload'] as String?,
-    chunking: json['chunking'] as String,
-  );
-}
+        Map<String, dynamic> json) =>
+    CoreServerCapabilities_Ocs_Data_Capabilities_Dav(
+      bulkupload: json['bulkupload'] as String?,
+      chunking: json['chunking'] as String,
+    );
 
 Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_DavToJson(
         CoreServerCapabilities_Ocs_Data_Capabilities_Dav instance) =>
@@ -483,16 +389,11 @@ Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_DavToJson(
     };
 
 CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_Password
-    _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_PasswordFromJson(Map<String, dynamic> json) {
-  $checkKeys(
-    json,
-    allowedKeys: const ['enforced', 'askForOptionalPassword'],
-  );
-  return CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_Password(
-    enforced: json['enforced'] as bool,
-    askForOptionalPassword: json['askForOptionalPassword'] as bool,
-  );
-}
+    _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_PasswordFromJson(Map<String, dynamic> json) =>
+        CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_Password(
+          enforced: json['enforced'] as bool,
+          askForOptionalPassword: json['askForOptionalPassword'] as bool,
+        );
 
 Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_PasswordToJson(
         CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_Password instance) =>
@@ -502,15 +403,10 @@ Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing
     };
 
 CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDate
-    _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateFromJson(Map<String, dynamic> json) {
-  $checkKeys(
-    json,
-    allowedKeys: const ['enabled'],
-  );
-  return CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDate(
-    enabled: json['enabled'] as bool,
-  );
-}
+    _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateFromJson(Map<String, dynamic> json) =>
+        CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDate(
+          enabled: json['enabled'] as bool,
+        );
 
 Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateToJson(
         CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDate instance) =>
@@ -520,15 +416,10 @@ Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing
 
 CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternal
     _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternalFromJson(
-        Map<String, dynamic> json) {
-  $checkKeys(
-    json,
-    allowedKeys: const ['enabled'],
-  );
-  return CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternal(
-    enabled: json['enabled'] as bool,
-  );
-}
+            Map<String, dynamic> json) =>
+        CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternal(
+          enabled: json['enabled'] as bool,
+        );
 
 Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternalToJson(
         CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternal instance) =>
@@ -538,15 +429,10 @@ Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing
 
 CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemote
     _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemoteFromJson(
-        Map<String, dynamic> json) {
-  $checkKeys(
-    json,
-    allowedKeys: const ['enabled'],
-  );
-  return CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemote(
-    enabled: json['enabled'] as bool,
-  );
-}
+            Map<String, dynamic> json) =>
+        CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemote(
+          enabled: json['enabled'] as bool,
+        );
 
 Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemoteToJson(
         CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemote instance) =>
@@ -555,37 +441,23 @@ Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing
     };
 
 CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public
-    _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_PublicFromJson(Map<String, dynamic> json) {
-  $checkKeys(
-    json,
-    allowedKeys: const [
-      'enabled',
-      'password',
-      'expire_date',
-      'multiple_links',
-      'expire_date_internal',
-      'expire_date_remote',
-      'send_mail',
-      'upload',
-      'upload_files_drop'
-    ],
-  );
-  return CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public(
-    enabled: json['enabled'] as bool,
-    password: CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_Password.fromJson(
-        json['password'] as Map<String, dynamic>),
-    expireDate: CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDate.fromJson(
-        json['expire_date'] as Map<String, dynamic>),
-    multipleLinks: json['multiple_links'] as bool,
-    expireDateInternal: CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternal.fromJson(
-        json['expire_date_internal'] as Map<String, dynamic>),
-    expireDateRemote: CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemote.fromJson(
-        json['expire_date_remote'] as Map<String, dynamic>),
-    sendMail: json['send_mail'] as bool,
-    upload: json['upload'] as bool,
-    uploadFilesDrop: json['upload_files_drop'] as bool,
-  );
-}
+    _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_PublicFromJson(Map<String, dynamic> json) =>
+        CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public(
+          enabled: json['enabled'] as bool,
+          password: CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_Password.fromJson(
+              json['password'] as Map<String, dynamic>),
+          expireDate: CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDate.fromJson(
+              json['expire_date'] as Map<String, dynamic>),
+          multipleLinks: json['multiple_links'] as bool,
+          expireDateInternal:
+              CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternal.fromJson(
+                  json['expire_date_internal'] as Map<String, dynamic>),
+          expireDateRemote: CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemote.fromJson(
+              json['expire_date_remote'] as Map<String, dynamic>),
+          sendMail: json['send_mail'] as bool,
+          upload: json['upload'] as bool,
+          uploadFilesDrop: json['upload_files_drop'] as bool,
+        );
 
 Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_PublicToJson(
         CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public instance) =>
@@ -602,15 +474,10 @@ Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing
     };
 
 CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User_ExpireDate
-    _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User_ExpireDateFromJson(Map<String, dynamic> json) {
-  $checkKeys(
-    json,
-    allowedKeys: const ['enabled'],
-  );
-  return CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User_ExpireDate(
-    enabled: json['enabled'] as bool,
-  );
-}
+    _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User_ExpireDateFromJson(Map<String, dynamic> json) =>
+        CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User_ExpireDate(
+          enabled: json['enabled'] as bool,
+        );
 
 Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User_ExpireDateToJson(
         CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User_ExpireDate instance) =>
@@ -619,17 +486,12 @@ Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing
     };
 
 CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User
-    _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_UserFromJson(Map<String, dynamic> json) {
-  $checkKeys(
-    json,
-    allowedKeys: const ['send_mail', 'expire_date'],
-  );
-  return CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User(
-    sendMail: json['send_mail'] as bool,
-    expireDate: CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User_ExpireDate.fromJson(
-        json['expire_date'] as Map<String, dynamic>),
-  );
-}
+    _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_UserFromJson(Map<String, dynamic> json) =>
+        CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User(
+          sendMail: json['send_mail'] as bool,
+          expireDate: CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User_ExpireDate.fromJson(
+              json['expire_date'] as Map<String, dynamic>),
+        );
 
 Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_UserToJson(
         CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User instance) =>
@@ -639,15 +501,10 @@ Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing
     };
 
 CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDate
-    _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDateFromJson(Map<String, dynamic> json) {
-  $checkKeys(
-    json,
-    allowedKeys: const ['enabled'],
-  );
-  return CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDate(
-    enabled: json['enabled'] as bool,
-  );
-}
+    _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDateFromJson(Map<String, dynamic> json) =>
+        CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDate(
+          enabled: json['enabled'] as bool,
+        );
 
 Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDateToJson(
         CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDate instance) =>
@@ -656,17 +513,12 @@ Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing
     };
 
 CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group
-    _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_GroupFromJson(Map<String, dynamic> json) {
-  $checkKeys(
-    json,
-    allowedKeys: const ['enabled', 'expire_date'],
-  );
-  return CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group(
-    enabled: json['enabled'] as bool,
-    expireDate: CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDate.fromJson(
-        json['expire_date'] as Map<String, dynamic>),
-  );
-}
+    _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_GroupFromJson(Map<String, dynamic> json) =>
+        CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group(
+          enabled: json['enabled'] as bool,
+          expireDate: CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDate.fromJson(
+              json['expire_date'] as Map<String, dynamic>),
+        );
 
 Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_GroupToJson(
         CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group instance) =>
@@ -677,15 +529,10 @@ Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing
 
 CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDate
     _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateFromJson(
-        Map<String, dynamic> json) {
-  $checkKeys(
-    json,
-    allowedKeys: const ['enabled'],
-  );
-  return CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDate(
-    enabled: json['enabled'] as bool,
-  );
-}
+            Map<String, dynamic> json) =>
+        CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDate(
+          enabled: json['enabled'] as bool,
+        );
 
 Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateToJson(
         CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDate instance) =>
@@ -695,15 +542,10 @@ Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing
 
 CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupported
     _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupportedFromJson(
-        Map<String, dynamic> json) {
-  $checkKeys(
-    json,
-    allowedKeys: const ['enabled'],
-  );
-  return CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupported(
-    enabled: json['enabled'] as bool,
-  );
-}
+            Map<String, dynamic> json) =>
+        CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupported(
+          enabled: json['enabled'] as bool,
+        );
 
 Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupportedToJson(
         CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupported instance) =>
@@ -712,21 +554,16 @@ Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing
     };
 
 CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation
-    _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_FederationFromJson(Map<String, dynamic> json) {
-  $checkKeys(
-    json,
-    allowedKeys: const ['outgoing', 'incoming', 'expire_date', 'expire_date_supported'],
-  );
-  return CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation(
-    outgoing: json['outgoing'] as bool,
-    incoming: json['incoming'] as bool,
-    expireDate: CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDate.fromJson(
-        json['expire_date'] as Map<String, dynamic>),
-    expireDateSupported:
-        CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupported.fromJson(
-            json['expire_date_supported'] as Map<String, dynamic>),
-  );
-}
+    _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_FederationFromJson(Map<String, dynamic> json) =>
+        CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation(
+          outgoing: json['outgoing'] as bool,
+          incoming: json['incoming'] as bool,
+          expireDate: CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDate.fromJson(
+              json['expire_date'] as Map<String, dynamic>),
+          expireDateSupported:
+              CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupported.fromJson(
+                  json['expire_date_supported'] as Map<String, dynamic>),
+        );
 
 Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_FederationToJson(
         CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation instance) =>
@@ -738,16 +575,11 @@ Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing
     };
 
 CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharee
-    _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_ShareeFromJson(Map<String, dynamic> json) {
-  $checkKeys(
-    json,
-    allowedKeys: const ['query_lookup_default', 'always_show_unique'],
-  );
-  return CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharee(
-    queryLookupDefault: json['query_lookup_default'] as bool,
-    alwaysShowUnique: json['always_show_unique'] as bool,
-  );
-}
+    _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_ShareeFromJson(Map<String, dynamic> json) =>
+        CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharee(
+          queryLookupDefault: json['query_lookup_default'] as bool,
+          alwaysShowUnique: json['always_show_unique'] as bool,
+        );
 
 Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_ShareeToJson(
         CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharee instance) =>
@@ -758,15 +590,10 @@ Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing
 
 CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_UploadFilesDrop
     _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_UploadFilesDropFromJson(
-        Map<String, dynamic> json) {
-  $checkKeys(
-    json,
-    allowedKeys: const ['enabled'],
-  );
-  return CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_UploadFilesDrop(
-    enabled: json['enabled'] as bool,
-  );
-}
+            Map<String, dynamic> json) =>
+        CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_UploadFilesDrop(
+          enabled: json['enabled'] as bool,
+        );
 
 Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_UploadFilesDropToJson(
         CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_UploadFilesDrop instance) =>
@@ -776,16 +603,11 @@ Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing
 
 CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_Password
     _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_PasswordFromJson(
-        Map<String, dynamic> json) {
-  $checkKeys(
-    json,
-    allowedKeys: const ['enabled', 'enforced'],
-  );
-  return CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_Password(
-    enabled: json['enabled'] as bool,
-    enforced: json['enforced'] as bool,
-  );
-}
+            Map<String, dynamic> json) =>
+        CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_Password(
+          enabled: json['enabled'] as bool,
+          enforced: json['enforced'] as bool,
+        );
 
 Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_PasswordToJson(
         CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_Password instance) =>
@@ -796,16 +618,11 @@ Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing
 
 CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_ExpireDate
     _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_ExpireDateFromJson(
-        Map<String, dynamic> json) {
-  $checkKeys(
-    json,
-    allowedKeys: const ['enabled', 'enforced'],
-  );
-  return CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_ExpireDate(
-    enabled: json['enabled'] as bool,
-    enforced: json['enforced'] as bool,
-  );
-}
+            Map<String, dynamic> json) =>
+        CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_ExpireDate(
+          enabled: json['enabled'] as bool,
+          enforced: json['enforced'] as bool,
+        );
 
 Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_ExpireDateToJson(
         CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_ExpireDate instance) =>
@@ -815,22 +632,18 @@ Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing
     };
 
 CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail
-    _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_SharebymailFromJson(Map<String, dynamic> json) {
-  $checkKeys(
-    json,
-    allowedKeys: const ['enabled', 'send_password_by_mail', 'upload_files_drop', 'password', 'expire_date'],
-  );
-  return CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail(
-    enabled: json['enabled'] as bool,
-    sendPasswordByMail: json['send_password_by_mail'] as bool,
-    uploadFilesDrop: CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_UploadFilesDrop.fromJson(
-        json['upload_files_drop'] as Map<String, dynamic>),
-    password: CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_Password.fromJson(
-        json['password'] as Map<String, dynamic>),
-    expireDate: CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_ExpireDate.fromJson(
-        json['expire_date'] as Map<String, dynamic>),
-  );
-}
+    _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_SharebymailFromJson(Map<String, dynamic> json) =>
+        CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail(
+          enabled: json['enabled'] as bool,
+          sendPasswordByMail: json['send_password_by_mail'] as bool,
+          uploadFilesDrop:
+              CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_UploadFilesDrop.fromJson(
+                  json['upload_files_drop'] as Map<String, dynamic>),
+          password: CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_Password.fromJson(
+              json['password'] as Map<String, dynamic>),
+          expireDate: CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_ExpireDate.fromJson(
+              json['expire_date'] as Map<String, dynamic>),
+        );
 
 Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_SharebymailToJson(
         CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail instance) =>
@@ -843,40 +656,25 @@ Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing
     };
 
 CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing
-    _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharingFromJson(Map<String, dynamic> json) {
-  $checkKeys(
-    json,
-    allowedKeys: const [
-      'api_enabled',
-      'public',
-      'resharing',
-      'user',
-      'group_sharing',
-      'group',
-      'default_permissions',
-      'federation',
-      'sharee',
-      'sharebymail'
-    ],
-  );
-  return CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing(
-    apiEnabled: json['api_enabled'] as bool,
-    public: CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public.fromJson(
-        json['public'] as Map<String, dynamic>),
-    resharing: json['resharing'] as bool,
-    user: CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User.fromJson(json['user'] as Map<String, dynamic>),
-    groupSharing: json['group_sharing'] as bool,
-    group:
-        CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group.fromJson(json['group'] as Map<String, dynamic>),
-    defaultPermissions: json['default_permissions'] as int,
-    federation: CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation.fromJson(
-        json['federation'] as Map<String, dynamic>),
-    sharee: CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharee.fromJson(
-        json['sharee'] as Map<String, dynamic>),
-    sharebymail: CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail.fromJson(
-        json['sharebymail'] as Map<String, dynamic>),
-  );
-}
+    _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharingFromJson(Map<String, dynamic> json) =>
+        CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing(
+          apiEnabled: json['api_enabled'] as bool,
+          public: CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public.fromJson(
+              json['public'] as Map<String, dynamic>),
+          resharing: json['resharing'] as bool,
+          user: CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User.fromJson(
+              json['user'] as Map<String, dynamic>),
+          groupSharing: json['group_sharing'] as bool,
+          group: CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group.fromJson(
+              json['group'] as Map<String, dynamic>),
+          defaultPermissions: json['default_permissions'] as int,
+          federation: CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation.fromJson(
+              json['federation'] as Map<String, dynamic>),
+          sharee: CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharee.fromJson(
+              json['sharee'] as Map<String, dynamic>),
+          sharebymail: CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail.fromJson(
+              json['sharebymail'] as Map<String, dynamic>),
+        );
 
 Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharingToJson(
         CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing instance) =>
@@ -894,16 +692,11 @@ Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing
     };
 
 CoreServerCapabilities_Ocs_Data_Capabilities_Notes _$CoreServerCapabilities_Ocs_Data_Capabilities_NotesFromJson(
-    Map<String, dynamic> json) {
-  $checkKeys(
-    json,
-    allowedKeys: const ['api_version', 'version'],
-  );
-  return CoreServerCapabilities_Ocs_Data_Capabilities_Notes(
-    apiVersion: (json['api_version'] as List<dynamic>).map((e) => e as String).toList(),
-    version: json['version'] as String,
-  );
-}
+        Map<String, dynamic> json) =>
+    CoreServerCapabilities_Ocs_Data_Capabilities_Notes(
+      apiVersion: (json['api_version'] as List<dynamic>).map((e) => e as String).toList(),
+      version: json['version'] as String,
+    );
 
 Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_NotesToJson(
         CoreServerCapabilities_Ocs_Data_Capabilities_Notes instance) =>
@@ -913,17 +706,12 @@ Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_NotesToJson(
     };
 
 CoreServerCapabilities_Ocs_Data_Capabilities_Notifications
-    _$CoreServerCapabilities_Ocs_Data_Capabilities_NotificationsFromJson(Map<String, dynamic> json) {
-  $checkKeys(
-    json,
-    allowedKeys: const ['ocs-endpoints', 'push', 'admin-notifications'],
-  );
-  return CoreServerCapabilities_Ocs_Data_Capabilities_Notifications(
-    ocsEndpoints: (json['ocs-endpoints'] as List<dynamic>).map((e) => e as String).toList(),
-    push: (json['push'] as List<dynamic>).map((e) => e as String).toList(),
-    adminNotifications: (json['admin-notifications'] as List<dynamic>).map((e) => e as String).toList(),
-  );
-}
+    _$CoreServerCapabilities_Ocs_Data_Capabilities_NotificationsFromJson(Map<String, dynamic> json) =>
+        CoreServerCapabilities_Ocs_Data_Capabilities_Notifications(
+          ocsEndpoints: (json['ocs-endpoints'] as List<dynamic>).map((e) => e as String).toList(),
+          push: (json['push'] as List<dynamic>).map((e) => e as String).toList(),
+          adminNotifications: (json['admin-notifications'] as List<dynamic>).map((e) => e as String).toList(),
+        );
 
 Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_NotificationsToJson(
         CoreServerCapabilities_Ocs_Data_Capabilities_Notifications instance) =>
@@ -934,16 +722,11 @@ Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_Notification
     };
 
 CoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy_Api
-    _$CoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy_ApiFromJson(Map<String, dynamic> json) {
-  $checkKeys(
-    json,
-    allowedKeys: const ['generate', 'validate'],
-  );
-  return CoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy_Api(
-    generate: json['generate'] as String,
-    validate: json['validate'] as String,
-  );
-}
+    _$CoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy_ApiFromJson(Map<String, dynamic> json) =>
+        CoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy_Api(
+          generate: json['generate'] as String,
+          validate: json['validate'] as String,
+        );
 
 Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy_ApiToJson(
         CoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy_Api instance) =>
@@ -953,27 +736,16 @@ Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_PasswordPoli
     };
 
 CoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy
-    _$CoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicyFromJson(Map<String, dynamic> json) {
-  $checkKeys(
-    json,
-    allowedKeys: const [
-      'minLength',
-      'enforceNonCommonPassword',
-      'enforceNumericCharacters',
-      'enforceSpecialCharacters',
-      'enforceUpperLowerCase',
-      'api'
-    ],
-  );
-  return CoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy(
-    minLength: json['minLength'] as int,
-    enforceNonCommonPassword: json['enforceNonCommonPassword'] as bool,
-    enforceNumericCharacters: json['enforceNumericCharacters'] as bool,
-    enforceSpecialCharacters: json['enforceSpecialCharacters'] as bool,
-    enforceUpperLowerCase: json['enforceUpperLowerCase'] as bool,
-    api: CoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy_Api.fromJson(json['api'] as Map<String, dynamic>),
-  );
-}
+    _$CoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicyFromJson(Map<String, dynamic> json) =>
+        CoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy(
+          minLength: json['minLength'] as int,
+          enforceNonCommonPassword: json['enforceNonCommonPassword'] as bool,
+          enforceNumericCharacters: json['enforceNumericCharacters'] as bool,
+          enforceSpecialCharacters: json['enforceSpecialCharacters'] as bool,
+          enforceUpperLowerCase: json['enforceUpperLowerCase'] as bool,
+          api: CoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy_Api.fromJson(
+              json['api'] as Map<String, dynamic>),
+        );
 
 Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicyToJson(
         CoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy instance) =>
@@ -987,23 +759,13 @@ Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_PasswordPoli
     };
 
 CoreServerCapabilities_Ocs_Data_Capabilities_ProvisioningApi
-    _$CoreServerCapabilities_Ocs_Data_Capabilities_ProvisioningApiFromJson(Map<String, dynamic> json) {
-  $checkKeys(
-    json,
-    allowedKeys: const [
-      'version',
-      'AccountPropertyScopesVersion',
-      'AccountPropertyScopesFederatedEnabled',
-      'AccountPropertyScopesPublishedEnabled'
-    ],
-  );
-  return CoreServerCapabilities_Ocs_Data_Capabilities_ProvisioningApi(
-    version: json['version'] as String,
-    accountPropertyScopesVersion: json['AccountPropertyScopesVersion'] as int,
-    accountPropertyScopesFederatedEnabled: json['AccountPropertyScopesFederatedEnabled'] as bool,
-    accountPropertyScopesPublishedEnabled: json['AccountPropertyScopesPublishedEnabled'] as bool,
-  );
-}
+    _$CoreServerCapabilities_Ocs_Data_Capabilities_ProvisioningApiFromJson(Map<String, dynamic> json) =>
+        CoreServerCapabilities_Ocs_Data_Capabilities_ProvisioningApi(
+          version: json['version'] as String,
+          accountPropertyScopesVersion: json['AccountPropertyScopesVersion'] as int,
+          accountPropertyScopesFederatedEnabled: json['AccountPropertyScopesFederatedEnabled'] as bool,
+          accountPropertyScopesPublishedEnabled: json['AccountPropertyScopesPublishedEnabled'] as bool,
+        );
 
 Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_ProvisioningApiToJson(
         CoreServerCapabilities_Ocs_Data_Capabilities_ProvisioningApi instance) =>
@@ -1015,43 +777,23 @@ Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_Provisioning
     };
 
 CoreServerCapabilities_Ocs_Data_Capabilities_Theming _$CoreServerCapabilities_Ocs_Data_Capabilities_ThemingFromJson(
-    Map<String, dynamic> json) {
-  $checkKeys(
-    json,
-    allowedKeys: const [
-      'name',
-      'url',
-      'slogan',
-      'color',
-      'color-text',
-      'color-element',
-      'color-element-bright',
-      'color-element-dark',
-      'logo',
-      'background',
-      'background-plain',
-      'background-default',
-      'logoheader',
-      'favicon'
-    ],
-  );
-  return CoreServerCapabilities_Ocs_Data_Capabilities_Theming(
-    name: json['name'] as String,
-    url: json['url'] as String,
-    slogan: json['slogan'] as String,
-    color: json['color'] as String,
-    colorText: json['color-text'] as String,
-    colorElement: json['color-element'] as String,
-    colorElementBright: json['color-element-bright'] as String,
-    colorElementDark: json['color-element-dark'] as String,
-    logo: json['logo'] as String,
-    background: json['background'] as String,
-    backgroundPlain: json['background-plain'] as bool,
-    backgroundDefault: json['background-default'] as bool,
-    logoheader: json['logoheader'] as String,
-    favicon: json['favicon'] as String,
-  );
-}
+        Map<String, dynamic> json) =>
+    CoreServerCapabilities_Ocs_Data_Capabilities_Theming(
+      name: json['name'] as String,
+      url: json['url'] as String,
+      slogan: json['slogan'] as String,
+      color: json['color'] as String,
+      colorText: json['color-text'] as String,
+      colorElement: json['color-element'] as String,
+      colorElementBright: json['color-element-bright'] as String,
+      colorElementDark: json['color-element-dark'] as String,
+      logo: json['logo'] as String,
+      background: json['background'] as String,
+      backgroundPlain: json['background-plain'] as bool,
+      backgroundDefault: json['background-default'] as bool,
+      logoheader: json['logoheader'] as String,
+      favicon: json['favicon'] as String,
+    );
 
 Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_ThemingToJson(
         CoreServerCapabilities_Ocs_Data_Capabilities_Theming instance) =>
@@ -1073,16 +815,11 @@ Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_ThemingToJso
     };
 
 CoreServerCapabilities_Ocs_Data_Capabilities_UserStatus
-    _$CoreServerCapabilities_Ocs_Data_Capabilities_UserStatusFromJson(Map<String, dynamic> json) {
-  $checkKeys(
-    json,
-    allowedKeys: const ['enabled', 'supports_emoji'],
-  );
-  return CoreServerCapabilities_Ocs_Data_Capabilities_UserStatus(
-    enabled: json['enabled'] as bool,
-    supportsEmoji: json['supports_emoji'] as bool,
-  );
-}
+    _$CoreServerCapabilities_Ocs_Data_Capabilities_UserStatusFromJson(Map<String, dynamic> json) =>
+        CoreServerCapabilities_Ocs_Data_Capabilities_UserStatus(
+          enabled: json['enabled'] as bool,
+          supportsEmoji: json['supports_emoji'] as bool,
+        );
 
 Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_UserStatusToJson(
         CoreServerCapabilities_Ocs_Data_Capabilities_UserStatus instance) =>

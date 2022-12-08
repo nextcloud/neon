@@ -1373,7 +1373,7 @@ class CoreServerCapabilities_Ocs_Data_Version {
   static String toJsonString(CoreServerCapabilities_Ocs_Data_Version data) => json.encode(data.toJson());
 }
 
-@JsonSerializable()
+@JsonSerializable(disallowUnrecognizedKeys: false)
 class CoreServerCapabilities_Ocs_Data_Capabilities_Core {
   CoreServerCapabilities_Ocs_Data_Capabilities_Core({
     required this.pollinterval,
@@ -1406,7 +1406,7 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_Core {
   static String toJsonString(CoreServerCapabilities_Ocs_Data_Capabilities_Core data) => json.encode(data.toJson());
 }
 
-@JsonSerializable()
+@JsonSerializable(disallowUnrecognizedKeys: false)
 class CoreServerCapabilities_Ocs_Data_Capabilities_Bruteforce {
   CoreServerCapabilities_Ocs_Data_Capabilities_Bruteforce({required this.delay});
 
@@ -1426,7 +1426,7 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_Bruteforce {
       json.encode(data.toJson());
 }
 
-@JsonSerializable()
+@JsonSerializable(disallowUnrecognizedKeys: false)
 class CoreServerCapabilities_Ocs_Data_Capabilities_MetadataAvailable {
   CoreServerCapabilities_Ocs_Data_Capabilities_MetadataAvailable({
     required this.size,
@@ -1452,7 +1452,7 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_MetadataAvailable {
       json.encode(data.toJson());
 }
 
-@JsonSerializable()
+@JsonSerializable(disallowUnrecognizedKeys: false)
 class CoreServerCapabilities_Ocs_Data_Capabilities_Files_DirectEditing {
   CoreServerCapabilities_Ocs_Data_Capabilities_Files_DirectEditing({
     required this.url,
@@ -1478,7 +1478,7 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_Files_DirectEditing {
       json.encode(data.toJson());
 }
 
-@JsonSerializable()
+@JsonSerializable(disallowUnrecognizedKeys: false)
 class CoreServerCapabilities_Ocs_Data_Capabilities_Files {
   CoreServerCapabilities_Ocs_Data_Capabilities_Files({
     required this.bigfilechunking,
@@ -1515,7 +1515,7 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_Files {
   static String toJsonString(CoreServerCapabilities_Ocs_Data_Capabilities_Files data) => json.encode(data.toJson());
 }
 
-@JsonSerializable()
+@JsonSerializable(disallowUnrecognizedKeys: false)
 class CoreServerCapabilities_Ocs_Data_Capabilities_Activity {
   CoreServerCapabilities_Ocs_Data_Capabilities_Activity({required this.apiv2});
 
@@ -1534,7 +1534,7 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_Activity {
   static String toJsonString(CoreServerCapabilities_Ocs_Data_Capabilities_Activity data) => json.encode(data.toJson());
 }
 
-@JsonSerializable()
+@JsonSerializable(disallowUnrecognizedKeys: false)
 class CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Status {
   CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Status({required this.globalScale});
 
@@ -1554,7 +1554,7 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Status {
       json.encode(data.toJson());
 }
 
-@JsonSerializable()
+@JsonSerializable(disallowUnrecognizedKeys: false)
 class CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Settings {
   CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Settings({
     required this.frontendEnabled,
@@ -1585,7 +1585,7 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Settings {
       json.encode(data.toJson());
 }
 
-@JsonSerializable()
+@JsonSerializable(disallowUnrecognizedKeys: false)
 class CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants_Source {
   CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants_Source({
     required this.core,
@@ -1613,7 +1613,7 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants_Sour
       json.encode(data.toJson());
 }
 
-@JsonSerializable()
+@JsonSerializable(disallowUnrecognizedKeys: false)
 class CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants {
   CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants({
     required this.flags,
@@ -1639,7 +1639,7 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants {
       json.encode(data.toJson());
 }
 
-@JsonSerializable()
+@JsonSerializable(disallowUnrecognizedKeys: false)
 class CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Config {
   CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Config({
     required this.coreFlags,
@@ -1665,7 +1665,7 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Config {
       json.encode(data.toJson());
 }
 
-@JsonSerializable()
+@JsonSerializable(disallowUnrecognizedKeys: false)
 class CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle {
   CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle({
     required this.constants,
@@ -1690,7 +1690,7 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle {
       json.encode(data.toJson());
 }
 
-@JsonSerializable()
+@JsonSerializable(disallowUnrecognizedKeys: false)
 class CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member_Constants {
   CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member_Constants({required this.level});
 
@@ -1711,7 +1711,7 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member_Constants {
       json.encode(data.toJson());
 }
 
-@JsonSerializable()
+@JsonSerializable(disallowUnrecognizedKeys: false)
 class CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member {
   CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member({
     required this.constants,
@@ -1736,7 +1736,7 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member {
       json.encode(data.toJson());
 }
 
-@JsonSerializable()
+@JsonSerializable(disallowUnrecognizedKeys: false)
 class CoreServerCapabilities_Ocs_Data_Capabilities_Circles {
   CoreServerCapabilities_Ocs_Data_Capabilities_Circles({
     required this.version,
@@ -1769,7 +1769,7 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_Circles {
   static String toJsonString(CoreServerCapabilities_Ocs_Data_Capabilities_Circles data) => json.encode(data.toJson());
 }
 
-@JsonSerializable()
+@JsonSerializable(disallowUnrecognizedKeys: false)
 class CoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes_Protocols {
   CoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes_Protocols({required this.webdav});
 
@@ -1792,7 +1792,7 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes_Protocols {
       json.encode(data.toJson());
 }
 
-@JsonSerializable()
+@JsonSerializable(disallowUnrecognizedKeys: false)
 class CoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes {
   CoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes({
     required this.name,
@@ -1821,7 +1821,7 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes {
       json.encode(data.toJson());
 }
 
-@JsonSerializable()
+@JsonSerializable(disallowUnrecognizedKeys: false)
 class CoreServerCapabilities_Ocs_Data_Capabilities_Ocm {
   CoreServerCapabilities_Ocs_Data_Capabilities_Ocm({
     required this.enabled,
@@ -1851,7 +1851,7 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_Ocm {
   static String toJsonString(CoreServerCapabilities_Ocs_Data_Capabilities_Ocm data) => json.encode(data.toJson());
 }
 
-@JsonSerializable()
+@JsonSerializable(disallowUnrecognizedKeys: false)
 class CoreServerCapabilities_Ocs_Data_Capabilities_Dav {
   CoreServerCapabilities_Ocs_Data_Capabilities_Dav({
     this.bulkupload,
@@ -1875,7 +1875,7 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_Dav {
   static String toJsonString(CoreServerCapabilities_Ocs_Data_Capabilities_Dav data) => json.encode(data.toJson());
 }
 
-@JsonSerializable()
+@JsonSerializable(disallowUnrecognizedKeys: false)
 class CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_Password {
   CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_Password({
     required this.enforced,
@@ -1903,7 +1903,7 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_Password 
       json.encode(data.toJson());
 }
 
-@JsonSerializable()
+@JsonSerializable(disallowUnrecognizedKeys: false)
 class CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDate {
   CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDate({required this.enabled});
 
@@ -1926,7 +1926,7 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDat
       json.encode(data.toJson());
 }
 
-@JsonSerializable()
+@JsonSerializable(disallowUnrecognizedKeys: false)
 class CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternal {
   CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternal({required this.enabled});
 
@@ -1951,7 +1951,7 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDat
       json.encode(data.toJson());
 }
 
-@JsonSerializable()
+@JsonSerializable(disallowUnrecognizedKeys: false)
 class CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemote {
   CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemote({required this.enabled});
 
@@ -1975,7 +1975,7 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDat
       json.encode(data.toJson());
 }
 
-@JsonSerializable()
+@JsonSerializable(disallowUnrecognizedKeys: false)
 class CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public {
   CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public({
     required this.enabled,
@@ -2028,7 +2028,7 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public {
       json.encode(data.toJson());
 }
 
-@JsonSerializable()
+@JsonSerializable(disallowUnrecognizedKeys: false)
 class CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User_ExpireDate {
   CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User_ExpireDate({required this.enabled});
 
@@ -2051,7 +2051,7 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User_ExpireDate 
       json.encode(data.toJson());
 }
 
-@JsonSerializable()
+@JsonSerializable(disallowUnrecognizedKeys: false)
 class CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User {
   CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User({
     required this.sendMail,
@@ -2079,7 +2079,7 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User {
       json.encode(data.toJson());
 }
 
-@JsonSerializable()
+@JsonSerializable(disallowUnrecognizedKeys: false)
 class CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDate {
   CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDate({required this.enabled});
 
@@ -2102,7 +2102,7 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDate
       json.encode(data.toJson());
 }
 
-@JsonSerializable()
+@JsonSerializable(disallowUnrecognizedKeys: false)
 class CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group {
   CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group({
     required this.enabled,
@@ -2129,7 +2129,7 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group {
       json.encode(data.toJson());
 }
 
-@JsonSerializable()
+@JsonSerializable(disallowUnrecognizedKeys: false)
 class CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDate {
   CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDate({required this.enabled});
 
@@ -2152,7 +2152,7 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_Expir
       json.encode(data.toJson());
 }
 
-@JsonSerializable()
+@JsonSerializable(disallowUnrecognizedKeys: false)
 class CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupported {
   CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupported({required this.enabled});
 
@@ -2177,7 +2177,7 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_Expir
       json.encode(data.toJson());
 }
 
-@JsonSerializable()
+@JsonSerializable(disallowUnrecognizedKeys: false)
 class CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation {
   CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation({
     required this.outgoing,
@@ -2211,7 +2211,7 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation {
       json.encode(data.toJson());
 }
 
-@JsonSerializable()
+@JsonSerializable(disallowUnrecognizedKeys: false)
 class CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharee {
   CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharee({
     required this.queryLookupDefault,
@@ -2239,7 +2239,7 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharee {
       json.encode(data.toJson());
 }
 
-@JsonSerializable()
+@JsonSerializable(disallowUnrecognizedKeys: false)
 class CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_UploadFilesDrop {
   CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_UploadFilesDrop({required this.enabled});
 
@@ -2264,7 +2264,7 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_Uplo
       json.encode(data.toJson());
 }
 
-@JsonSerializable()
+@JsonSerializable(disallowUnrecognizedKeys: false)
 class CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_Password {
   CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_Password({
     required this.enabled,
@@ -2292,7 +2292,7 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_Pass
       json.encode(data.toJson());
 }
 
-@JsonSerializable()
+@JsonSerializable(disallowUnrecognizedKeys: false)
 class CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_ExpireDate {
   CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_ExpireDate({
     required this.enabled,
@@ -2321,7 +2321,7 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_Expi
       json.encode(data.toJson());
 }
 
-@JsonSerializable()
+@JsonSerializable(disallowUnrecognizedKeys: false)
 class CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail {
   CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail({
     required this.enabled,
@@ -2359,7 +2359,7 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail {
       json.encode(data.toJson());
 }
 
-@JsonSerializable()
+@JsonSerializable(disallowUnrecognizedKeys: false)
 class CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing {
   CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing({
     required this.apiEnabled,
@@ -2411,7 +2411,7 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing {
       json.encode(data.toJson());
 }
 
-@JsonSerializable()
+@JsonSerializable(disallowUnrecognizedKeys: false)
 class CoreServerCapabilities_Ocs_Data_Capabilities_Notes {
   CoreServerCapabilities_Ocs_Data_Capabilities_Notes({
     required this.apiVersion,
@@ -2436,7 +2436,7 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_Notes {
   static String toJsonString(CoreServerCapabilities_Ocs_Data_Capabilities_Notes data) => json.encode(data.toJson());
 }
 
-@JsonSerializable()
+@JsonSerializable(disallowUnrecognizedKeys: false)
 class CoreServerCapabilities_Ocs_Data_Capabilities_Notifications {
   CoreServerCapabilities_Ocs_Data_Capabilities_Notifications({
     required this.ocsEndpoints,
@@ -2466,7 +2466,7 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_Notifications {
       json.encode(data.toJson());
 }
 
-@JsonSerializable()
+@JsonSerializable(disallowUnrecognizedKeys: false)
 class CoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy_Api {
   CoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy_Api({
     required this.generate,
@@ -2492,7 +2492,7 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy_Api {
       json.encode(data.toJson());
 }
 
-@JsonSerializable()
+@JsonSerializable(disallowUnrecognizedKeys: false)
 class CoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy {
   CoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy({
     required this.minLength,
@@ -2529,7 +2529,7 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy {
       json.encode(data.toJson());
 }
 
-@JsonSerializable()
+@JsonSerializable(disallowUnrecognizedKeys: false)
 class CoreServerCapabilities_Ocs_Data_Capabilities_ProvisioningApi {
   CoreServerCapabilities_Ocs_Data_Capabilities_ProvisioningApi({
     required this.version,
@@ -2563,7 +2563,7 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_ProvisioningApi {
       json.encode(data.toJson());
 }
 
-@JsonSerializable()
+@JsonSerializable(disallowUnrecognizedKeys: false)
 class CoreServerCapabilities_Ocs_Data_Capabilities_Theming {
   CoreServerCapabilities_Ocs_Data_Capabilities_Theming({
     required this.name,
@@ -2629,7 +2629,7 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_Theming {
   static String toJsonString(CoreServerCapabilities_Ocs_Data_Capabilities_Theming data) => json.encode(data.toJson());
 }
 
-@JsonSerializable()
+@JsonSerializable(disallowUnrecognizedKeys: false)
 class CoreServerCapabilities_Ocs_Data_Capabilities_UserStatus {
   CoreServerCapabilities_Ocs_Data_Capabilities_UserStatus({
     required this.enabled,
