@@ -7,7 +7,13 @@ import 'package:package_info_plus/package_info_plus.dart';
 
 part 'account.g.dart';
 
-String userAgent(final PackageInfo packageInfo) => 'Neon ${packageInfo.version}+${packageInfo.buildNumber}';
+String userAgent(final PackageInfo packageInfo) {
+  var buildNumber = packageInfo.buildNumber;
+  if (buildNumber == '') {
+    buildNumber = '1';
+  }
+  return 'Neon ${packageInfo.version}+$buildNumber';
+}
 
 @JsonSerializable()
 class Account {
