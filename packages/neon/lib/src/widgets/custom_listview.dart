@@ -5,7 +5,6 @@ class CustomListView<T> extends StatelessWidget {
     required this.items,
     required this.isLoading,
     required this.error,
-    required this.onRetry,
     required this.onRefresh,
     required this.builder,
     this.scrollKey,
@@ -18,7 +17,6 @@ class CustomListView<T> extends StatelessWidget {
   final List<T>? items;
   final bool isLoading;
   final dynamic error;
-  final Function() onRetry;
   final Future Function() onRefresh;
   final Widget Function(BuildContext, T data) builder;
   final String? scrollKey;
@@ -52,7 +50,7 @@ class CustomListView<T> extends StatelessWidget {
                     ],
                     ExceptionWidget(
                       error,
-                      onRetry: onRetry,
+                      onRetry: onRefresh,
                     ),
                     if (items != null) ...[
                       for (final item in items!) ...[

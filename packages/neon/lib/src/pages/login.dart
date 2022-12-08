@@ -66,7 +66,7 @@ class _LoginPageState extends State<LoginPage> {
           for (final a in accountsBloc.accounts.value) {
             if (a.id == account.id) {
               ExceptionWidget.showSnackbar(context, AppLocalizations.of(context).errorAccountAlreadyExists);
-              _loginBloc.setServerURL(result.server);
+              await _loginBloc.refresh();
               return;
             }
           }
@@ -168,9 +168,7 @@ class _LoginPageState extends State<LoginPage> {
                                 height: 10,
                               ),
                               ElevatedButton(
-                                onPressed: () {
-                                  _loginBloc.setServerURL(serverURLSnapshot.data!);
-                                },
+                                onPressed: _loginBloc.refresh,
                                 child: Text(AppLocalizations.of(context).loginOpenAgain),
                               ),
                             ],
@@ -224,17 +222,13 @@ class _LoginPageState extends State<LoginPage> {
                               if (serverConnectionStateSnapshot.data == ServerConnectionState.unreachable) ...[
                                 ExceptionWidget(
                                   AppLocalizations.of(context).errorUnableToReachServer,
-                                  onRetry: () {
-                                    _loginBloc.setServerURL(serverURLSnapshot.data);
-                                  },
+                                  onRetry: _loginBloc.refresh,
                                 ),
                               ],
                               if (serverConnectionStateSnapshot.data == ServerConnectionState.maintenanceMode) ...[
                                 ExceptionWidget(
                                   AppLocalizations.of(context).errorServerInMaintenanceMode,
-                                  onRetry: () {
-                                    _loginBloc.setServerURL(serverURLSnapshot.data);
-                                  },
+                                  onRetry: _loginBloc.refresh,
                                 ),
                               ],
                             ],

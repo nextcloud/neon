@@ -141,12 +141,7 @@ class _FilesBrowserViewState extends State<FilesBrowserView> {
                         ],
                         isLoading: files.loading,
                         error: files.error,
-                        onRetry: () async {
-                          await widget.bloc.refresh();
-                        },
-                        onRefresh: () async {
-                          await widget.bloc.refresh();
-                        },
+                        onRefresh: widget.bloc.refresh,
                         builder: (final context, final widget) => widget,
                         topScrollingChildren: [
                           Align(

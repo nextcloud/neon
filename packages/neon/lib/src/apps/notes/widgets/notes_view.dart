@@ -60,12 +60,7 @@ class NotesView extends StatelessWidget {
                 ],
                 isLoading: notes.loading,
                 error: notes.error,
-                onRetry: () async {
-                  await bloc.refresh();
-                },
-                onRefresh: () async {
-                  await bloc.refresh();
-                },
+                onRefresh: bloc.refresh,
                 builder: _buildNote,
               ),
             ),

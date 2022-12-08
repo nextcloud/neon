@@ -74,9 +74,7 @@ class AccountSettingsPage extends StatelessWidget {
                         ],
                         ExceptionWidget(
                           userDetails.error,
-                          onRetry: () async {
-                            await _userDetailsBloc.refresh();
-                          },
+                          onRetry: _userDetailsBloc.refresh,
                         ),
                         CustomLinearProgressIndicator(
                           visible: userDetails.loading,

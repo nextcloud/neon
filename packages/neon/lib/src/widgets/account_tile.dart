@@ -71,9 +71,7 @@ class AccountTile extends StatelessWidget {
                 userDetails.error!,
                 onlyIcon: true,
                 iconSize: 24,
-                onRetry: () async {
-                  await userDetailsBloc.refresh();
-                },
+                onRetry: userDetailsBloc.refresh,
               ),
             ],
           ],

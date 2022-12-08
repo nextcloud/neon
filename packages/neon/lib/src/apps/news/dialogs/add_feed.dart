@@ -68,9 +68,7 @@ class _NewsAddFeedDialogState extends State<NewsAddFeedDialog> {
                     Center(
                       child: ExceptionWidget(
                         folders.error,
-                        onRetry: () async {
-                          await widget.bloc.refresh();
-                        },
+                        onRetry: widget.bloc.refresh,
                       ),
                     ),
                     Center(
