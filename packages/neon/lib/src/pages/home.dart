@@ -254,9 +254,7 @@ class _HomePageState extends State<HomePage> {
                                                     ] else ...[
                                                       ExceptionWidget(
                                                         capabilities.error,
-                                                        onRetry: () async {
-                                                          await _capabilitiesBloc.refresh();
-                                                        },
+                                                        onRetry: _capabilitiesBloc.refresh,
                                                       ),
                                                       CustomLinearProgressIndicator(
                                                         visible: capabilities.loading,
@@ -303,9 +301,7 @@ class _HomePageState extends State<HomePage> {
                                         ExceptionWidget(
                                           appImplementations.error,
                                           onlyIcon: isQuickBar,
-                                          onRetry: () async {
-                                            await _appsBloc.refresh();
-                                          },
+                                          onRetry: _appsBloc.refresh,
                                         ),
                                         CustomLinearProgressIndicator(
                                           visible: appImplementations.loading,
@@ -539,9 +535,7 @@ class _HomePageState extends State<HomePage> {
                                           children: [
                                             ExceptionWidget(
                                               appImplementations.error,
-                                              onRetry: () async {
-                                                await _appsBloc.refresh();
-                                              },
+                                              onRetry: _appsBloc.refresh,
                                             ),
                                             if (appImplementations.data != null) ...[
                                               if (appImplementations.data!.isEmpty) ...[

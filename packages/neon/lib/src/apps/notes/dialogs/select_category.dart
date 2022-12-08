@@ -39,9 +39,7 @@ class _NotesSelectCategoryDialogState extends State<NotesSelectCategoryDialog> {
                   Center(
                     child: ExceptionWidget(
                       notes.error,
-                      onRetry: () async {
-                        await widget.bloc.refresh();
-                      },
+                      onRetry: widget.bloc.refresh,
                     ),
                   ),
                   Center(

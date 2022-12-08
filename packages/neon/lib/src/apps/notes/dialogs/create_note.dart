@@ -51,9 +51,7 @@ class _NotesCreateNoteDialogState extends State<NotesCreateNoteDialog> {
                     Center(
                       child: ExceptionWidget(
                         notes.error,
-                        onRetry: () async {
-                          await widget.bloc.refresh();
-                        },
+                        onRetry: widget.bloc.refresh,
                       ),
                     ),
                     Center(
