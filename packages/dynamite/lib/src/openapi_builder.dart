@@ -397,6 +397,12 @@ class OpenAPIBuilder implements Builder {
                           ),
                           Parameter(
                             (final b) => b
+                              ..name = 'userAgent'
+                              ..type = refer('String?')
+                              ..named = true,
+                          ),
+                          Parameter(
+                            (final b) => b
                               ..name = 'httpClient'
                               ..type = refer('HttpClient?')
                               ..named = true,
@@ -427,7 +433,7 @@ class OpenAPIBuilder implements Builder {
                           },
                         ''' : ''}
                         };
-                        this.httpClient = httpClient ?? HttpClient();
+                        this.httpClient = (httpClient ?? HttpClient())..userAgent = userAgent;
                       '''),
                     ),
                   )

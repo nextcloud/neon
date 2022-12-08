@@ -93,6 +93,7 @@ class Client {
   Client(
     this.baseURL, {
     Map<String, String>? baseHeaders,
+    String? userAgent,
     HttpClient? httpClient,
     this.cookieJar,
     this.authentication,
@@ -105,7 +106,7 @@ class Client {
         ...authentication!.headers,
       },
     };
-    this.httpClient = httpClient ?? HttpClient();
+    this.httpClient = (httpClient ?? HttpClient())..userAgent = userAgent;
   }
 
   final String baseURL;

@@ -16,9 +16,9 @@ class NextcloudClient extends Client {
             'OCS-APIRequest': 'true',
             'Accept': 'application/json',
             'Accept-Language': language,
-            'User-Agent': userAgentOverride ?? appType.userAgent,
           }..removeWhere((final _, final value) => value == null))
               .cast<String, String>(),
+          userAgent: userAgentOverride ?? appType.userAgent,
           authentication: username != null && password != null
               ? HttpBasicAuthentication(
                   username: username,
