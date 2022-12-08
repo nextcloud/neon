@@ -48,31 +48,38 @@ class _LoginPageState extends State<LoginPage> {
 
     _loginBloc.loginFlowResult.listen((final result) async {
       if (result != null) {
-        final account = Account(
-          serverURL: result.server,
-          username: result.loginName,
-          appPassword: result.appPassword,
-        )..setupClient(await PackageInfo.fromPlatform());
+        try {
+          final account = await getAccount(
+            _packageInfo,
+            result.server,
+            result.loginName,
+            result.appPassword,
+          );
 
-        if (!mounted) {
-          return;
-        }
-
-        final accountsBloc = Provider.of<AccountsBloc>(context, listen: false);
-        if (widget.serverURL != null) {
-          accountsBloc.updateAccount(account);
-          Navigator.of(context).pop();
-        } else {
-          for (final a in accountsBloc.accounts.value) {
-            if (a.id == account.id) {
-              ExceptionWidget.showSnackbar(context, AppLocalizations.of(context).errorAccountAlreadyExists);
-              await _loginBloc.refresh();
-              return;
-            }
+          if (!mounted) {
+            return;
           }
-          accountsBloc
-            ..addAccount(account)
-            ..setActiveAccount(account);
+
+          if (widget.serverURL != null) {
+            _accountsBloc.updateAccount(account);
+            Navigator.of(context).pop();
+          } else {
+            for (final a in _accountsBloc.accounts.value) {
+              if (a.id == account.id) {
+                ExceptionWidget.showSnackbar(context, AppLocalizations.of(context).errorAccountAlreadyExists);
+                await _loginBloc.refresh();
+                return;
+              }
+            }
+            _accountsBloc
+              ..addAccount(account)
+              ..setActiveAccount(account);
+          }
+        } catch (e, s) {
+          debugPrint(e.toString());
+          debugPrint(s.toString());
+          ExceptionWidget.showSnackbar(context, e);
+          await _loginBloc.refresh();
         }
       }
     });

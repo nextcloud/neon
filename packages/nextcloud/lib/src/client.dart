@@ -5,6 +5,7 @@ class NextcloudClient extends Client {
   // ignore: public_member_api_docs
   NextcloudClient(
     super.baseURL, {
+    this.loginName,
     this.username,
     final String? password,
     final String? language,
@@ -19,20 +20,24 @@ class NextcloudClient extends Client {
           }..removeWhere((final _, final value) => value == null))
               .cast<String, String>(),
           userAgent: userAgentOverride ?? appType.userAgent,
-          authentication: username != null && password != null
+          authentication: loginName != null && password != null
               ? HttpBasicAuthentication(
-                  username: username,
+                  username: loginName,
                   password: password,
                 )
               : null,
         );
 
-  /// Username used for all operations. Necessary for accessing WebDAV resources
+  /// Identifier used for authentication. This can be the username or email or something else.
+  final String? loginName;
+
+  /// Username of the user on the server, it needs to be set for using WebDAV.
+  /// It can be obtained via the provisioning_api.
   final String? username;
 
   WebDavClient? _webdav;
 
-  /// Client for WebDAV. Will be null if no username is set for the client
+  /// Client for WebDAV. Username needs to be set in order to use it
   WebDavClient get webdav {
     if (_webdav != null) {
       return _webdav!;
@@ -43,7 +48,7 @@ class NextcloudClient extends Client {
 
     return _webdav = WebDavClient(
       this,
-      '/remote.php/dav/files/${(super.authentication! as HttpBasicAuthentication).username}',
+      '/remote.php/dav/files/$username',
     );
   }
 }

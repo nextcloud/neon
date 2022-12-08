@@ -7,6 +7,29 @@ import 'package:package_info_plus/package_info_plus.dart';
 
 part 'account.g.dart';
 
+Future<Account> getAccount(
+  final PackageInfo packageInfo,
+  final String serverURL,
+  final String loginName,
+  final String password,
+) async {
+  final username = (await NextcloudClient(
+    serverURL,
+    loginName: loginName,
+    password: password,
+  ).provisioningApi.getCurrentUser())
+      .ocs
+      .data
+      .id;
+  return Account(
+    serverURL: serverURL,
+    loginName: loginName,
+    username: username,
+    password: password,
+    userAgent: userAgent(packageInfo),
+  );
+}
+
 String userAgent(final PackageInfo packageInfo) {
   var buildNumber = packageInfo.buildNumber;
   if (buildNumber == '') {
@@ -19,30 +42,30 @@ String userAgent(final PackageInfo packageInfo) {
 class Account {
   Account({
     required this.serverURL,
+    required this.loginName,
     required this.username,
     this.password,
-    this.appPassword,
-  }) : assert(
-          (password != null && appPassword == null) || (password == null && appPassword != null),
-          'Either password or appPassword has to be set',
-        );
+    this.userAgent,
+  });
 
   factory Account.fromJson(final Map<String, dynamic> json) => _$AccountFromJson(json);
   Map<String, dynamic> toJson() => _$AccountToJson(this);
 
   final String serverURL;
+  final String loginName;
   final String username;
   final String? password;
-  final String? appPassword;
+  final String? userAgent;
 
   @override
   // ignore: avoid_equals_and_hash_code_on_mutable_classes
   bool operator ==(final Object other) =>
       other is Account &&
       other.serverURL == serverURL &&
+      other.loginName == loginName &&
       other.username == username &&
       other.password == password &&
-      other.appPassword == appPassword;
+      other.userAgent == userAgent;
 
   @override
   // ignore: avoid_equals_and_hash_code_on_mutable_classes
@@ -52,22 +75,13 @@ class Account {
 
   NextcloudClient? _client;
 
-  void setupClient(final PackageInfo packageInfo) {
-    _client ??= NextcloudClient(
-      serverURL,
-      username: username,
-      password: appPassword ?? password,
-      userAgentOverride: userAgent(packageInfo),
-    );
-  }
-
-  NextcloudClient get client {
-    if (_client == null) {
-      throw Exception('You need to call setupClient() first');
-    }
-
-    return _client!;
-  }
+  NextcloudClient get client => _client ??= NextcloudClient(
+        serverURL,
+        loginName: loginName,
+        username: username,
+        password: password,
+        userAgentOverride: userAgent,
+      );
 }
 
 Map<String, String> _idCache = {};
