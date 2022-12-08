@@ -42,8 +42,10 @@ class _NewsArticlesViewState extends State<NewsArticlesView> {
                 isLoading: articles.loading || feeds.loading,
                 error: articles.error ?? feeds.error,
                 onRefresh: () async {
-                  await widget.bloc.refresh();
-                  await widget.newsBloc.refresh();
+                  await Future.wait([
+                    widget.bloc.refresh(),
+                    widget.newsBloc.refresh(),
+                  ]);
                 },
                 builder: (final context, final article) => _buildArticle(
                   context,
