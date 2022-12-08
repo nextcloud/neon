@@ -35,6 +35,14 @@ ThemeData getThemeFromNextcloudTheme(
     secondary: keepOriginalAccentColorOverride,
   );
 
+  final fillColor = MaterialStateProperty.resolveWith((final states) {
+    if (states.contains(MaterialState.disabled)) {
+      return selectBrightness == Brightness.dark ? Colors.white38 : Colors.black38;
+    }
+
+    return colorScheme.primary;
+  });
+
   return ThemeData(
     useMaterial3: true,
     colorScheme: colorScheme,
@@ -45,13 +53,7 @@ ThemeData getThemeFromNextcloudTheme(
       behavior: SnackBarBehavior.floating,
     ),
     checkboxTheme: CheckboxThemeData(
-      fillColor: MaterialStateProperty.resolveWith((final states) {
-        if (states.contains(MaterialState.disabled)) {
-          return selectBrightness == Brightness.dark ? Colors.white38 : Colors.black38;
-        }
-
-        return colorScheme.primary;
-      }),
+      fillColor: fillColor,
       checkColor: MaterialStateProperty.resolveWith((final states) => colorScheme.onPrimary),
     ),
     dividerTheme: const DividerThemeData(
@@ -65,6 +67,9 @@ ThemeData getThemeFromNextcloudTheme(
               ? const Color(0xFF202020)
               : const Color(0xFF404040)
           : const Color(0xFFEAEAEA),
+    ),
+    radioTheme: RadioThemeData(
+      fillColor: fillColor,
     ),
   );
 }
