@@ -41,10 +41,6 @@ class _NewsArticlesViewState extends State<NewsArticlesView> {
                 items: feeds.data == null ? null : sorted,
                 isLoading: articles.loading || feeds.loading,
                 error: articles.error ?? feeds.error,
-                onRetry: () async {
-                  await widget.bloc.refresh();
-                  await widget.newsBloc.refresh();
-                },
                 onRefresh: () async {
                   await widget.bloc.refresh();
                   await widget.newsBloc.refresh();

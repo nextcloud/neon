@@ -39,12 +39,7 @@ class _NotificationsMainPageState extends State<NotificationsMainPage> {
             items: notifications.data,
             isLoading: notifications.loading,
             error: notifications.error,
-            onRetry: () async {
-              await widget.bloc.refresh();
-            },
-            onRefresh: () async {
-              await widget.bloc.refresh();
-            },
+            onRefresh: widget.bloc.refresh,
             builder: _buildNotification,
           ),
         ),

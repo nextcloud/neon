@@ -45,12 +45,7 @@ class NewsFeedsView extends StatelessWidget {
                 items: sorted,
                 isLoading: feeds.loading || folders.loading,
                 error: feeds.error ?? folders.error,
-                onRetry: () async {
-                  await bloc.refresh();
-                },
-                onRefresh: () async {
-                  await bloc.refresh();
-                },
+                onRefresh: bloc.refresh,
                 builder: (final context, final feed) => _buildFeed(
                   context,
                   feed,
