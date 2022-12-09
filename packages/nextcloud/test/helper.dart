@@ -8,7 +8,7 @@ import 'package:nextcloud/nextcloud.dart';
 import 'package:process_run/cmd_run.dart';
 import 'package:test/test.dart';
 
-const String nextcloudVersion = '25.0.1';
+const String nextcloudVersion = '25.0.2';
 const String defaultUsername = 'user1';
 const String defaultPassword = 'user1';
 
