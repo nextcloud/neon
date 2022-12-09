@@ -305,6 +305,62 @@
           }
         }
       }
+    },
+    "/ocs/v2.php/apps/notifications/api/{apiVersion}/settings/admin": {
+      "parameters": [
+        {
+          "name": "apiVersion",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "TODO"
+          }
+        }
+      ],
+      "post": {
+        "operationId": "settings-admin-TODO",
+        "tags": [
+          "notifications"
+        ],
+        "parameters": [
+          {
+            "name": "batchSetting",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "soundNotification",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "soundTalk",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
     }
   }
 }
