@@ -19,7 +19,7 @@ elif [[ "$1" == "dependencies" ]]; then
 elif [ -d "external/nextcloud-$1" ]; then
     (
       cd "external/nextcloud-$1"
-      git fetch --tags
+      git fetch --tags --force
       latest_tag="$(git tag --sort=v:refname | grep -vi "rc" | grep -vi "alpha" | grep -vi "beta" | tail -n 1)"
       git reset --hard "$latest_tag"
       git submodule update
