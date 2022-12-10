@@ -1341,12 +1341,12 @@ class OCSMeta {
 @JsonSerializable()
 class CoreServerCapabilities_Ocs_Data_Version {
   CoreServerCapabilities_Ocs_Data_Version({
-    required this.major,
-    required this.minor,
-    required this.micro,
-    required this.string,
-    required this.edition,
-    required this.extendedSupport,
+    this.major,
+    this.minor,
+    this.micro,
+    this.string,
+    this.edition,
+    this.extendedSupport,
   });
 
   factory CoreServerCapabilities_Ocs_Data_Version.fromJson(Map<String, dynamic> json) =>
@@ -1355,17 +1355,17 @@ class CoreServerCapabilities_Ocs_Data_Version {
   factory CoreServerCapabilities_Ocs_Data_Version.fromJsonString(String data) =>
       CoreServerCapabilities_Ocs_Data_Version.fromJson(json.decode(data) as Map<String, dynamic>);
 
-  final int major;
+  final int? major;
 
-  final int minor;
+  final int? minor;
 
-  final int micro;
+  final int? micro;
 
-  final String string;
+  final String? string;
 
-  final String edition;
+  final String? edition;
 
-  final bool extendedSupport;
+  final bool? extendedSupport;
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreServerCapabilities_Ocs_Data_VersionToJson(this);
@@ -1377,10 +1377,10 @@ class CoreServerCapabilities_Ocs_Data_Version {
 @JsonSerializable(disallowUnrecognizedKeys: false)
 class CoreServerCapabilities_Ocs_Data_Capabilities_Core {
   CoreServerCapabilities_Ocs_Data_Capabilities_Core({
-    required this.pollinterval,
-    required this.webdavRoot,
-    required this.referenceApi,
-    required this.referenceRegex,
+    this.pollinterval,
+    this.webdavRoot,
+    this.referenceApi,
+    this.referenceRegex,
   });
 
   factory CoreServerCapabilities_Ocs_Data_Capabilities_Core.fromJson(Map<String, dynamic> json) =>
@@ -1389,16 +1389,16 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_Core {
   factory CoreServerCapabilities_Ocs_Data_Capabilities_Core.fromJsonString(String data) =>
       CoreServerCapabilities_Ocs_Data_Capabilities_Core.fromJson(json.decode(data) as Map<String, dynamic>);
 
-  final int pollinterval;
+  final int? pollinterval;
 
   @JsonKey(name: 'webdav-root')
-  final String webdavRoot;
+  final String? webdavRoot;
 
   @JsonKey(name: 'reference-api')
-  final bool referenceApi;
+  final bool? referenceApi;
 
   @JsonKey(name: 'reference-regex')
-  final String referenceRegex;
+  final String? referenceRegex;
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreServerCapabilities_Ocs_Data_Capabilities_CoreToJson(this);
@@ -1409,7 +1409,7 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_Core {
 
 @JsonSerializable(disallowUnrecognizedKeys: false)
 class CoreServerCapabilities_Ocs_Data_Capabilities_Bruteforce {
-  CoreServerCapabilities_Ocs_Data_Capabilities_Bruteforce({required this.delay});
+  CoreServerCapabilities_Ocs_Data_Capabilities_Bruteforce({this.delay});
 
   factory CoreServerCapabilities_Ocs_Data_Capabilities_Bruteforce.fromJson(Map<String, dynamic> json) =>
       _$CoreServerCapabilities_Ocs_Data_Capabilities_BruteforceFromJson(json);
@@ -1417,7 +1417,7 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_Bruteforce {
   factory CoreServerCapabilities_Ocs_Data_Capabilities_Bruteforce.fromJsonString(String data) =>
       CoreServerCapabilities_Ocs_Data_Capabilities_Bruteforce.fromJson(json.decode(data) as Map<String, dynamic>);
 
-  final int delay;
+  final int? delay;
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreServerCapabilities_Ocs_Data_Capabilities_BruteforceToJson(this);
@@ -1430,8 +1430,8 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_Bruteforce {
 @JsonSerializable(disallowUnrecognizedKeys: false)
 class CoreServerCapabilities_Ocs_Data_Capabilities_MetadataAvailable {
   CoreServerCapabilities_Ocs_Data_Capabilities_MetadataAvailable({
-    required this.size,
-    required this.gps,
+    this.size,
+    this.gps,
   });
 
   factory CoreServerCapabilities_Ocs_Data_Capabilities_MetadataAvailable.fromJson(Map<String, dynamic> json) =>
@@ -1441,9 +1441,9 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_MetadataAvailable {
       CoreServerCapabilities_Ocs_Data_Capabilities_MetadataAvailable.fromJson(
           json.decode(data) as Map<String, dynamic>);
 
-  final List<String> size;
+  final List<String>? size;
 
-  final List<String> gps;
+  final List<String>? gps;
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreServerCapabilities_Ocs_Data_Capabilities_MetadataAvailableToJson(this);
@@ -1456,8 +1456,8 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_MetadataAvailable {
 @JsonSerializable(disallowUnrecognizedKeys: false)
 class CoreServerCapabilities_Ocs_Data_Capabilities_Files_DirectEditing {
   CoreServerCapabilities_Ocs_Data_Capabilities_Files_DirectEditing({
-    required this.url,
-    required this.etag,
+    this.url,
+    this.etag,
   });
 
   factory CoreServerCapabilities_Ocs_Data_Capabilities_Files_DirectEditing.fromJson(Map<String, dynamic> json) =>
@@ -1467,9 +1467,9 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_Files_DirectEditing {
       CoreServerCapabilities_Ocs_Data_Capabilities_Files_DirectEditing.fromJson(
           json.decode(data) as Map<String, dynamic>);
 
-  final String url;
+  final String? url;
 
-  final String etag;
+  final String? etag;
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreServerCapabilities_Ocs_Data_Capabilities_Files_DirectEditingToJson(this);
@@ -1482,12 +1482,12 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_Files_DirectEditing {
 @JsonSerializable(disallowUnrecognizedKeys: false)
 class CoreServerCapabilities_Ocs_Data_Capabilities_Files {
   CoreServerCapabilities_Ocs_Data_Capabilities_Files({
-    required this.bigfilechunking,
-    required this.blacklistedFiles,
-    required this.directEditing,
-    required this.comments,
-    required this.undelete,
-    required this.versioning,
+    this.bigfilechunking,
+    this.blacklistedFiles,
+    this.directEditing,
+    this.comments,
+    this.undelete,
+    this.versioning,
   });
 
   factory CoreServerCapabilities_Ocs_Data_Capabilities_Files.fromJson(Map<String, dynamic> json) =>
@@ -1496,18 +1496,18 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_Files {
   factory CoreServerCapabilities_Ocs_Data_Capabilities_Files.fromJsonString(String data) =>
       CoreServerCapabilities_Ocs_Data_Capabilities_Files.fromJson(json.decode(data) as Map<String, dynamic>);
 
-  final bool bigfilechunking;
+  final bool? bigfilechunking;
 
   @JsonKey(name: 'blacklisted_files')
-  final List<String> blacklistedFiles;
+  final List<String>? blacklistedFiles;
 
-  final CoreServerCapabilities_Ocs_Data_Capabilities_Files_DirectEditing directEditing;
+  final CoreServerCapabilities_Ocs_Data_Capabilities_Files_DirectEditing? directEditing;
 
-  final bool comments;
+  final bool? comments;
 
-  final bool undelete;
+  final bool? undelete;
 
-  final bool versioning;
+  final bool? versioning;
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesToJson(this);
@@ -1518,7 +1518,7 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_Files {
 
 @JsonSerializable(disallowUnrecognizedKeys: false)
 class CoreServerCapabilities_Ocs_Data_Capabilities_Activity {
-  CoreServerCapabilities_Ocs_Data_Capabilities_Activity({required this.apiv2});
+  CoreServerCapabilities_Ocs_Data_Capabilities_Activity({this.apiv2});
 
   factory CoreServerCapabilities_Ocs_Data_Capabilities_Activity.fromJson(Map<String, dynamic> json) =>
       _$CoreServerCapabilities_Ocs_Data_Capabilities_ActivityFromJson(json);
@@ -1526,7 +1526,7 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_Activity {
   factory CoreServerCapabilities_Ocs_Data_Capabilities_Activity.fromJsonString(String data) =>
       CoreServerCapabilities_Ocs_Data_Capabilities_Activity.fromJson(json.decode(data) as Map<String, dynamic>);
 
-  final List<String> apiv2;
+  final List<String>? apiv2;
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreServerCapabilities_Ocs_Data_Capabilities_ActivityToJson(this);
@@ -1537,7 +1537,7 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_Activity {
 
 @JsonSerializable(disallowUnrecognizedKeys: false)
 class CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Status {
-  CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Status({required this.globalScale});
+  CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Status({this.globalScale});
 
   factory CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Status.fromJson(Map<String, dynamic> json) =>
       _$CoreServerCapabilities_Ocs_Data_Capabilities_Circles_StatusFromJson(json);
@@ -1545,7 +1545,7 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Status {
   factory CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Status.fromJsonString(String data) =>
       CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Status.fromJson(json.decode(data) as Map<String, dynamic>);
 
-  final bool globalScale;
+  final bool? globalScale;
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreServerCapabilities_Ocs_Data_Capabilities_Circles_StatusToJson(this);
@@ -1558,10 +1558,10 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Status {
 @JsonSerializable(disallowUnrecognizedKeys: false)
 class CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Settings {
   CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Settings({
-    required this.frontendEnabled,
-    required this.allowedCircles,
-    required this.allowedUserTypes,
-    required this.membersLimit,
+    this.frontendEnabled,
+    this.allowedCircles,
+    this.allowedUserTypes,
+    this.membersLimit,
   });
 
   factory CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Settings.fromJson(Map<String, dynamic> json) =>
@@ -1570,13 +1570,13 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Settings {
   factory CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Settings.fromJsonString(String data) =>
       CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Settings.fromJson(json.decode(data) as Map<String, dynamic>);
 
-  final bool frontendEnabled;
+  final bool? frontendEnabled;
 
-  final int allowedCircles;
+  final int? allowedCircles;
 
-  final int allowedUserTypes;
+  final int? allowedUserTypes;
 
-  final int membersLimit;
+  final int? membersLimit;
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreServerCapabilities_Ocs_Data_Capabilities_Circles_SettingsToJson(this);
@@ -1589,8 +1589,8 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Settings {
 @JsonSerializable(disallowUnrecognizedKeys: false)
 class CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants_Source {
   CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants_Source({
-    required this.core,
-    required this.extra,
+    this.core,
+    this.extra,
   });
 
   factory CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants_Source.fromJson(
@@ -1617,8 +1617,8 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants_Sour
 @JsonSerializable(disallowUnrecognizedKeys: false)
 class CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants {
   CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants({
-    required this.flags,
-    required this.source,
+    this.flags,
+    this.source,
   });
 
   factory CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants.fromJson(Map<String, dynamic> json) =>
@@ -1630,7 +1630,7 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants {
 
   final dynamic flags;
 
-  final CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants_Source source;
+  final CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants_Source? source;
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_ConstantsToJson(this);
@@ -1643,8 +1643,8 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants {
 @JsonSerializable(disallowUnrecognizedKeys: false)
 class CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Config {
   CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Config({
-    required this.coreFlags,
-    required this.systemFlags,
+    this.coreFlags,
+    this.systemFlags,
   });
 
   factory CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Config.fromJson(Map<String, dynamic> json) =>
@@ -1654,9 +1654,9 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Config {
       CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Config.fromJson(
           json.decode(data) as Map<String, dynamic>);
 
-  final List<int> coreFlags;
+  final List<int>? coreFlags;
 
-  final List<int> systemFlags;
+  final List<int>? systemFlags;
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_ConfigToJson(this);
@@ -1669,8 +1669,8 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Config {
 @JsonSerializable(disallowUnrecognizedKeys: false)
 class CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle {
   CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle({
-    required this.constants,
-    required this.config,
+    this.constants,
+    this.config,
   });
 
   factory CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle.fromJson(Map<String, dynamic> json) =>
@@ -1679,9 +1679,9 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle {
   factory CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle.fromJsonString(String data) =>
       CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle.fromJson(json.decode(data) as Map<String, dynamic>);
 
-  final CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants constants;
+  final CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants? constants;
 
-  final CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Config config;
+  final CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Config? config;
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreServerCapabilities_Ocs_Data_Capabilities_Circles_CircleToJson(this);
@@ -1693,7 +1693,7 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle {
 
 @JsonSerializable(disallowUnrecognizedKeys: false)
 class CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member_Constants {
-  CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member_Constants({required this.level});
+  CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member_Constants({this.level});
 
   factory CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member_Constants.fromJson(Map<String, dynamic> json) =>
       _$CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member_ConstantsFromJson(json);
@@ -1715,8 +1715,8 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member_Constants {
 @JsonSerializable(disallowUnrecognizedKeys: false)
 class CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member {
   CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member({
-    required this.constants,
-    required this.type,
+    this.constants,
+    this.type,
   });
 
   factory CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member.fromJson(Map<String, dynamic> json) =>
@@ -1725,7 +1725,7 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member {
   factory CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member.fromJsonString(String data) =>
       CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member.fromJson(json.decode(data) as Map<String, dynamic>);
 
-  final CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member_Constants constants;
+  final CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member_Constants? constants;
 
   final dynamic type;
 
@@ -1740,11 +1740,11 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member {
 @JsonSerializable(disallowUnrecognizedKeys: false)
 class CoreServerCapabilities_Ocs_Data_Capabilities_Circles {
   CoreServerCapabilities_Ocs_Data_Capabilities_Circles({
-    required this.version,
-    required this.status,
-    required this.settings,
-    required this.circle,
-    required this.member,
+    this.version,
+    this.status,
+    this.settings,
+    this.circle,
+    this.member,
   });
 
   factory CoreServerCapabilities_Ocs_Data_Capabilities_Circles.fromJson(Map<String, dynamic> json) =>
@@ -1753,15 +1753,15 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_Circles {
   factory CoreServerCapabilities_Ocs_Data_Capabilities_Circles.fromJsonString(String data) =>
       CoreServerCapabilities_Ocs_Data_Capabilities_Circles.fromJson(json.decode(data) as Map<String, dynamic>);
 
-  final String version;
+  final String? version;
 
-  final CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Status status;
+  final CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Status? status;
 
-  final CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Settings settings;
+  final CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Settings? settings;
 
-  final CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle circle;
+  final CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle? circle;
 
-  final CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member member;
+  final CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member? member;
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreServerCapabilities_Ocs_Data_Capabilities_CirclesToJson(this);
@@ -1772,7 +1772,7 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_Circles {
 
 @JsonSerializable(disallowUnrecognizedKeys: false)
 class CoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes_Protocols {
-  CoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes_Protocols({required this.webdav});
+  CoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes_Protocols({this.webdav});
 
   factory CoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes_Protocols.fromJson(
           Map<String, dynamic> json) =>
@@ -1782,7 +1782,7 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes_Protocols {
       CoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes_Protocols.fromJson(
           json.decode(data) as Map<String, dynamic>);
 
-  final String webdav;
+  final String? webdav;
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() =>
@@ -1796,9 +1796,9 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes_Protocols {
 @JsonSerializable(disallowUnrecognizedKeys: false)
 class CoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes {
   CoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes({
-    required this.name,
-    required this.shareTypes,
-    required this.protocols,
+    this.name,
+    this.shareTypes,
+    this.protocols,
   });
 
   factory CoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes.fromJson(Map<String, dynamic> json) =>
@@ -1808,11 +1808,11 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes {
       CoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes.fromJson(
           json.decode(data) as Map<String, dynamic>);
 
-  final String name;
+  final String? name;
 
-  final List<String> shareTypes;
+  final List<String>? shareTypes;
 
-  final CoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes_Protocols protocols;
+  final CoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes_Protocols? protocols;
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypesToJson(this);
@@ -1825,10 +1825,10 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes {
 @JsonSerializable(disallowUnrecognizedKeys: false)
 class CoreServerCapabilities_Ocs_Data_Capabilities_Ocm {
   CoreServerCapabilities_Ocs_Data_Capabilities_Ocm({
-    required this.enabled,
-    required this.apiVersion,
-    required this.endPoint,
-    required this.resourceTypes,
+    this.enabled,
+    this.apiVersion,
+    this.endPoint,
+    this.resourceTypes,
   });
 
   factory CoreServerCapabilities_Ocs_Data_Capabilities_Ocm.fromJson(Map<String, dynamic> json) =>
@@ -1837,13 +1837,13 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_Ocm {
   factory CoreServerCapabilities_Ocs_Data_Capabilities_Ocm.fromJsonString(String data) =>
       CoreServerCapabilities_Ocs_Data_Capabilities_Ocm.fromJson(json.decode(data) as Map<String, dynamic>);
 
-  final bool enabled;
+  final bool? enabled;
 
-  final String apiVersion;
+  final String? apiVersion;
 
-  final String endPoint;
+  final String? endPoint;
 
-  final List<CoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes> resourceTypes;
+  final List<CoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes>? resourceTypes;
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreServerCapabilities_Ocs_Data_Capabilities_OcmToJson(this);
@@ -1856,7 +1856,7 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_Ocm {
 class CoreServerCapabilities_Ocs_Data_Capabilities_Dav {
   CoreServerCapabilities_Ocs_Data_Capabilities_Dav({
     this.bulkupload,
-    required this.chunking,
+    this.chunking,
   });
 
   factory CoreServerCapabilities_Ocs_Data_Capabilities_Dav.fromJson(Map<String, dynamic> json) =>
@@ -1867,7 +1867,7 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_Dav {
 
   final String? bulkupload;
 
-  final String chunking;
+  final String? chunking;
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreServerCapabilities_Ocs_Data_Capabilities_DavToJson(this);
@@ -1879,8 +1879,8 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_Dav {
 @JsonSerializable(disallowUnrecognizedKeys: false)
 class CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_Password {
   CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_Password({
-    required this.enforced,
-    required this.askForOptionalPassword,
+    this.enforced,
+    this.askForOptionalPassword,
   });
 
   factory CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_Password.fromJson(
@@ -1891,9 +1891,9 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_Password 
       CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_Password.fromJson(
           json.decode(data) as Map<String, dynamic>);
 
-  final bool enforced;
+  final bool? enforced;
 
-  final bool askForOptionalPassword;
+  final bool? askForOptionalPassword;
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() =>
@@ -1906,7 +1906,7 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_Password 
 
 @JsonSerializable(disallowUnrecognizedKeys: false)
 class CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDate {
-  CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDate({required this.enabled});
+  CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDate({this.enabled});
 
   factory CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDate.fromJson(
           Map<String, dynamic> json) =>
@@ -1916,7 +1916,7 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDat
       CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDate.fromJson(
           json.decode(data) as Map<String, dynamic>);
 
-  final bool enabled;
+  final bool? enabled;
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() =>
@@ -1929,7 +1929,7 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDat
 
 @JsonSerializable(disallowUnrecognizedKeys: false)
 class CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternal {
-  CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternal({required this.enabled});
+  CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternal({this.enabled});
 
   factory CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternal.fromJson(
           Map<String, dynamic> json) =>
@@ -1940,7 +1940,7 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDat
       CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternal.fromJson(
           json.decode(data) as Map<String, dynamic>);
 
-  final bool enabled;
+  final bool? enabled;
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() =>
@@ -1954,7 +1954,7 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDat
 
 @JsonSerializable(disallowUnrecognizedKeys: false)
 class CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemote {
-  CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemote({required this.enabled});
+  CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemote({this.enabled});
 
   factory CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemote.fromJson(
           Map<String, dynamic> json) =>
@@ -1965,7 +1965,7 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDat
       CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemote.fromJson(
           json.decode(data) as Map<String, dynamic>);
 
-  final bool enabled;
+  final bool? enabled;
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() =>
@@ -1979,15 +1979,15 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDat
 @JsonSerializable(disallowUnrecognizedKeys: false)
 class CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public {
   CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public({
-    required this.enabled,
-    required this.password,
-    required this.expireDate,
-    required this.multipleLinks,
-    required this.expireDateInternal,
-    required this.expireDateRemote,
-    required this.sendMail,
-    required this.upload,
-    required this.uploadFilesDrop,
+    this.enabled,
+    this.password,
+    this.expireDate,
+    this.multipleLinks,
+    this.expireDateInternal,
+    this.expireDateRemote,
+    this.sendMail,
+    this.upload,
+    this.uploadFilesDrop,
   });
 
   factory CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public.fromJson(Map<String, dynamic> json) =>
@@ -1997,29 +1997,29 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public {
       CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public.fromJson(
           json.decode(data) as Map<String, dynamic>);
 
-  final bool enabled;
+  final bool? enabled;
 
-  final CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_Password password;
+  final CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_Password? password;
 
   @JsonKey(name: 'expire_date')
-  final CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDate expireDate;
+  final CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDate? expireDate;
 
   @JsonKey(name: 'multiple_links')
-  final bool multipleLinks;
+  final bool? multipleLinks;
 
   @JsonKey(name: 'expire_date_internal')
-  final CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternal expireDateInternal;
+  final CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternal? expireDateInternal;
 
   @JsonKey(name: 'expire_date_remote')
-  final CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemote expireDateRemote;
+  final CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemote? expireDateRemote;
 
   @JsonKey(name: 'send_mail')
-  final bool sendMail;
+  final bool? sendMail;
 
-  final bool upload;
+  final bool? upload;
 
   @JsonKey(name: 'upload_files_drop')
-  final bool uploadFilesDrop;
+  final bool? uploadFilesDrop;
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_PublicToJson(this);
@@ -2031,7 +2031,7 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public {
 
 @JsonSerializable(disallowUnrecognizedKeys: false)
 class CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User_ExpireDate {
-  CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User_ExpireDate({required this.enabled});
+  CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User_ExpireDate({this.enabled});
 
   factory CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User_ExpireDate.fromJson(
           Map<String, dynamic> json) =>
@@ -2041,7 +2041,7 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User_ExpireDate 
       CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User_ExpireDate.fromJson(
           json.decode(data) as Map<String, dynamic>);
 
-  final bool enabled;
+  final bool? enabled;
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() =>
@@ -2055,8 +2055,8 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User_ExpireDate 
 @JsonSerializable(disallowUnrecognizedKeys: false)
 class CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User {
   CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User({
-    required this.sendMail,
-    required this.expireDate,
+    this.sendMail,
+    this.expireDate,
   });
 
   factory CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User.fromJson(Map<String, dynamic> json) =>
@@ -2067,10 +2067,10 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User {
           json.decode(data) as Map<String, dynamic>);
 
   @JsonKey(name: 'send_mail')
-  final bool sendMail;
+  final bool? sendMail;
 
   @JsonKey(name: 'expire_date')
-  final CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User_ExpireDate expireDate;
+  final CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User_ExpireDate? expireDate;
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_UserToJson(this);
@@ -2082,7 +2082,7 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User {
 
 @JsonSerializable(disallowUnrecognizedKeys: false)
 class CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDate {
-  CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDate({required this.enabled});
+  CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDate({this.enabled});
 
   factory CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDate.fromJson(
           Map<String, dynamic> json) =>
@@ -2092,7 +2092,7 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDate
       CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDate.fromJson(
           json.decode(data) as Map<String, dynamic>);
 
-  final bool enabled;
+  final bool? enabled;
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() =>
@@ -2106,8 +2106,8 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDate
 @JsonSerializable(disallowUnrecognizedKeys: false)
 class CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group {
   CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group({
-    required this.enabled,
-    required this.expireDate,
+    this.enabled,
+    this.expireDate,
   });
 
   factory CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group.fromJson(Map<String, dynamic> json) =>
@@ -2117,10 +2117,10 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group {
       CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group.fromJson(
           json.decode(data) as Map<String, dynamic>);
 
-  final bool enabled;
+  final bool? enabled;
 
   @JsonKey(name: 'expire_date')
-  final CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDate expireDate;
+  final CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDate? expireDate;
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_GroupToJson(this);
@@ -2132,7 +2132,7 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group {
 
 @JsonSerializable(disallowUnrecognizedKeys: false)
 class CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDate {
-  CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDate({required this.enabled});
+  CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDate({this.enabled});
 
   factory CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDate.fromJson(
           Map<String, dynamic> json) =>
@@ -2142,7 +2142,7 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_Expir
       CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDate.fromJson(
           json.decode(data) as Map<String, dynamic>);
 
-  final bool enabled;
+  final bool? enabled;
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() =>
@@ -2155,7 +2155,7 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_Expir
 
 @JsonSerializable(disallowUnrecognizedKeys: false)
 class CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupported {
-  CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupported({required this.enabled});
+  CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupported({this.enabled});
 
   factory CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupported.fromJson(
           Map<String, dynamic> json) =>
@@ -2166,7 +2166,7 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_Expir
       CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupported.fromJson(
           json.decode(data) as Map<String, dynamic>);
 
-  final bool enabled;
+  final bool? enabled;
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() =>
@@ -2181,10 +2181,10 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_Expir
 @JsonSerializable(disallowUnrecognizedKeys: false)
 class CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation {
   CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation({
-    required this.outgoing,
-    required this.incoming,
-    required this.expireDate,
-    required this.expireDateSupported,
+    this.outgoing,
+    this.incoming,
+    this.expireDate,
+    this.expireDateSupported,
   });
 
   factory CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation.fromJson(Map<String, dynamic> json) =>
@@ -2194,15 +2194,15 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation {
       CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation.fromJson(
           json.decode(data) as Map<String, dynamic>);
 
-  final bool outgoing;
+  final bool? outgoing;
 
-  final bool incoming;
+  final bool? incoming;
 
   @JsonKey(name: 'expire_date')
-  final CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDate expireDate;
+  final CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDate? expireDate;
 
   @JsonKey(name: 'expire_date_supported')
-  final CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupported expireDateSupported;
+  final CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupported? expireDateSupported;
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_FederationToJson(this);
@@ -2215,8 +2215,8 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation {
 @JsonSerializable(disallowUnrecognizedKeys: false)
 class CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharee {
   CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharee({
-    required this.queryLookupDefault,
-    required this.alwaysShowUnique,
+    this.queryLookupDefault,
+    this.alwaysShowUnique,
   });
 
   factory CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharee.fromJson(Map<String, dynamic> json) =>
@@ -2227,10 +2227,10 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharee {
           json.decode(data) as Map<String, dynamic>);
 
   @JsonKey(name: 'query_lookup_default')
-  final bool queryLookupDefault;
+  final bool? queryLookupDefault;
 
   @JsonKey(name: 'always_show_unique')
-  final bool alwaysShowUnique;
+  final bool? alwaysShowUnique;
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_ShareeToJson(this);
@@ -2242,7 +2242,7 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharee {
 
 @JsonSerializable(disallowUnrecognizedKeys: false)
 class CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_UploadFilesDrop {
-  CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_UploadFilesDrop({required this.enabled});
+  CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_UploadFilesDrop({this.enabled});
 
   factory CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_UploadFilesDrop.fromJson(
           Map<String, dynamic> json) =>
@@ -2253,7 +2253,7 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_Uplo
       CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_UploadFilesDrop.fromJson(
           json.decode(data) as Map<String, dynamic>);
 
-  final bool enabled;
+  final bool? enabled;
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() =>
@@ -2268,8 +2268,8 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_Uplo
 @JsonSerializable(disallowUnrecognizedKeys: false)
 class CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_Password {
   CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_Password({
-    required this.enabled,
-    required this.enforced,
+    this.enabled,
+    this.enforced,
   });
 
   factory CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_Password.fromJson(
@@ -2280,9 +2280,9 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_Pass
       CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_Password.fromJson(
           json.decode(data) as Map<String, dynamic>);
 
-  final bool enabled;
+  final bool? enabled;
 
-  final bool enforced;
+  final bool? enforced;
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() =>
@@ -2296,8 +2296,8 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_Pass
 @JsonSerializable(disallowUnrecognizedKeys: false)
 class CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_ExpireDate {
   CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_ExpireDate({
-    required this.enabled,
-    required this.enforced,
+    this.enabled,
+    this.enforced,
   });
 
   factory CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_ExpireDate.fromJson(
@@ -2309,9 +2309,9 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_Expi
       CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_ExpireDate.fromJson(
           json.decode(data) as Map<String, dynamic>);
 
-  final bool enabled;
+  final bool? enabled;
 
-  final bool enforced;
+  final bool? enforced;
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() =>
@@ -2325,11 +2325,11 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_Expi
 @JsonSerializable(disallowUnrecognizedKeys: false)
 class CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail {
   CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail({
-    required this.enabled,
-    required this.sendPasswordByMail,
-    required this.uploadFilesDrop,
-    required this.password,
-    required this.expireDate,
+    this.enabled,
+    this.sendPasswordByMail,
+    this.uploadFilesDrop,
+    this.password,
+    this.expireDate,
   });
 
   factory CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail.fromJson(Map<String, dynamic> json) =>
@@ -2339,18 +2339,18 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail {
       CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail.fromJson(
           json.decode(data) as Map<String, dynamic>);
 
-  final bool enabled;
+  final bool? enabled;
 
   @JsonKey(name: 'send_password_by_mail')
-  final bool sendPasswordByMail;
+  final bool? sendPasswordByMail;
 
   @JsonKey(name: 'upload_files_drop')
-  final CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_UploadFilesDrop uploadFilesDrop;
+  final CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_UploadFilesDrop? uploadFilesDrop;
 
-  final CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_Password password;
+  final CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_Password? password;
 
   @JsonKey(name: 'expire_date')
-  final CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_ExpireDate expireDate;
+  final CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_ExpireDate? expireDate;
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_SharebymailToJson(this);
@@ -2363,16 +2363,16 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail {
 @JsonSerializable(disallowUnrecognizedKeys: false)
 class CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing {
   CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing({
-    required this.apiEnabled,
-    required this.public,
-    required this.resharing,
-    required this.user,
-    required this.groupSharing,
-    required this.group,
-    required this.defaultPermissions,
-    required this.federation,
-    required this.sharee,
-    required this.sharebymail,
+    this.apiEnabled,
+    this.public,
+    this.resharing,
+    this.user,
+    this.groupSharing,
+    this.group,
+    this.defaultPermissions,
+    this.federation,
+    this.sharee,
+    this.sharebymail,
   });
 
   factory CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing.fromJson(Map<String, dynamic> json) =>
@@ -2382,27 +2382,27 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing {
       CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing.fromJson(json.decode(data) as Map<String, dynamic>);
 
   @JsonKey(name: 'api_enabled')
-  final bool apiEnabled;
+  final bool? apiEnabled;
 
-  final CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public public;
+  final CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public? public;
 
-  final bool resharing;
+  final bool? resharing;
 
-  final CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User user;
+  final CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User? user;
 
   @JsonKey(name: 'group_sharing')
-  final bool groupSharing;
+  final bool? groupSharing;
 
-  final CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group group;
+  final CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group? group;
 
   @JsonKey(name: 'default_permissions')
-  final int defaultPermissions;
+  final int? defaultPermissions;
 
-  final CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation federation;
+  final CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation? federation;
 
-  final CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharee sharee;
+  final CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharee? sharee;
 
-  final CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail sharebymail;
+  final CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail? sharebymail;
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharingToJson(this);
@@ -2415,8 +2415,8 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing {
 @JsonSerializable(disallowUnrecognizedKeys: false)
 class CoreServerCapabilities_Ocs_Data_Capabilities_Notes {
   CoreServerCapabilities_Ocs_Data_Capabilities_Notes({
-    required this.apiVersion,
-    required this.version,
+    this.apiVersion,
+    this.version,
   });
 
   factory CoreServerCapabilities_Ocs_Data_Capabilities_Notes.fromJson(Map<String, dynamic> json) =>
@@ -2426,9 +2426,9 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_Notes {
       CoreServerCapabilities_Ocs_Data_Capabilities_Notes.fromJson(json.decode(data) as Map<String, dynamic>);
 
   @JsonKey(name: 'api_version')
-  final List<String> apiVersion;
+  final List<String>? apiVersion;
 
-  final String version;
+  final String? version;
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreServerCapabilities_Ocs_Data_Capabilities_NotesToJson(this);
@@ -2440,9 +2440,9 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_Notes {
 @JsonSerializable(disallowUnrecognizedKeys: false)
 class CoreServerCapabilities_Ocs_Data_Capabilities_Notifications {
   CoreServerCapabilities_Ocs_Data_Capabilities_Notifications({
-    required this.ocsEndpoints,
-    required this.push,
-    required this.adminNotifications,
+    this.ocsEndpoints,
+    this.push,
+    this.adminNotifications,
   });
 
   factory CoreServerCapabilities_Ocs_Data_Capabilities_Notifications.fromJson(Map<String, dynamic> json) =>
@@ -2452,12 +2452,12 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_Notifications {
       CoreServerCapabilities_Ocs_Data_Capabilities_Notifications.fromJson(json.decode(data) as Map<String, dynamic>);
 
   @JsonKey(name: 'ocs-endpoints')
-  final List<String> ocsEndpoints;
+  final List<String>? ocsEndpoints;
 
-  final List<String> push;
+  final List<String>? push;
 
   @JsonKey(name: 'admin-notifications')
-  final List<String> adminNotifications;
+  final List<String>? adminNotifications;
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreServerCapabilities_Ocs_Data_Capabilities_NotificationsToJson(this);
@@ -2470,8 +2470,8 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_Notifications {
 @JsonSerializable(disallowUnrecognizedKeys: false)
 class CoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy_Api {
   CoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy_Api({
-    required this.generate,
-    required this.validate,
+    this.generate,
+    this.validate,
   });
 
   factory CoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy_Api.fromJson(Map<String, dynamic> json) =>
@@ -2481,9 +2481,9 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy_Api {
       CoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy_Api.fromJson(
           json.decode(data) as Map<String, dynamic>);
 
-  final String generate;
+  final String? generate;
 
-  final String validate;
+  final String? validate;
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy_ApiToJson(this);
@@ -2496,12 +2496,12 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy_Api {
 @JsonSerializable(disallowUnrecognizedKeys: false)
 class CoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy {
   CoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy({
-    required this.minLength,
-    required this.enforceNonCommonPassword,
-    required this.enforceNumericCharacters,
-    required this.enforceSpecialCharacters,
-    required this.enforceUpperLowerCase,
-    required this.api,
+    this.minLength,
+    this.enforceNonCommonPassword,
+    this.enforceNumericCharacters,
+    this.enforceSpecialCharacters,
+    this.enforceUpperLowerCase,
+    this.api,
   });
 
   factory CoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy.fromJson(Map<String, dynamic> json) =>
@@ -2510,17 +2510,17 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy {
   factory CoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy.fromJsonString(String data) =>
       CoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy.fromJson(json.decode(data) as Map<String, dynamic>);
 
-  final int minLength;
+  final int? minLength;
 
-  final bool enforceNonCommonPassword;
+  final bool? enforceNonCommonPassword;
 
-  final bool enforceNumericCharacters;
+  final bool? enforceNumericCharacters;
 
-  final bool enforceSpecialCharacters;
+  final bool? enforceSpecialCharacters;
 
-  final bool enforceUpperLowerCase;
+  final bool? enforceUpperLowerCase;
 
-  final CoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy_Api api;
+  final CoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy_Api? api;
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicyToJson(this);
@@ -2533,10 +2533,10 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy {
 @JsonSerializable(disallowUnrecognizedKeys: false)
 class CoreServerCapabilities_Ocs_Data_Capabilities_ProvisioningApi {
   CoreServerCapabilities_Ocs_Data_Capabilities_ProvisioningApi({
-    required this.version,
-    required this.accountPropertyScopesVersion,
-    required this.accountPropertyScopesFederatedEnabled,
-    required this.accountPropertyScopesPublishedEnabled,
+    this.version,
+    this.accountPropertyScopesVersion,
+    this.accountPropertyScopesFederatedEnabled,
+    this.accountPropertyScopesPublishedEnabled,
   });
 
   factory CoreServerCapabilities_Ocs_Data_Capabilities_ProvisioningApi.fromJson(Map<String, dynamic> json) =>
@@ -2545,16 +2545,16 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_ProvisioningApi {
   factory CoreServerCapabilities_Ocs_Data_Capabilities_ProvisioningApi.fromJsonString(String data) =>
       CoreServerCapabilities_Ocs_Data_Capabilities_ProvisioningApi.fromJson(json.decode(data) as Map<String, dynamic>);
 
-  final String version;
+  final String? version;
 
   @JsonKey(name: 'AccountPropertyScopesVersion')
-  final int accountPropertyScopesVersion;
+  final int? accountPropertyScopesVersion;
 
   @JsonKey(name: 'AccountPropertyScopesFederatedEnabled')
-  final bool accountPropertyScopesFederatedEnabled;
+  final bool? accountPropertyScopesFederatedEnabled;
 
   @JsonKey(name: 'AccountPropertyScopesPublishedEnabled')
-  final bool accountPropertyScopesPublishedEnabled;
+  final bool? accountPropertyScopesPublishedEnabled;
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreServerCapabilities_Ocs_Data_Capabilities_ProvisioningApiToJson(this);
@@ -2567,20 +2567,20 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_ProvisioningApi {
 @JsonSerializable(disallowUnrecognizedKeys: false)
 class CoreServerCapabilities_Ocs_Data_Capabilities_Theming {
   CoreServerCapabilities_Ocs_Data_Capabilities_Theming({
-    required this.name,
-    required this.url,
-    required this.slogan,
-    required this.color,
-    required this.colorText,
-    required this.colorElement,
-    required this.colorElementBright,
-    required this.colorElementDark,
-    required this.logo,
-    required this.background,
-    required this.backgroundPlain,
-    required this.backgroundDefault,
-    required this.logoheader,
-    required this.favicon,
+    this.name,
+    this.url,
+    this.slogan,
+    this.color,
+    this.colorText,
+    this.colorElement,
+    this.colorElementBright,
+    this.colorElementDark,
+    this.logo,
+    this.background,
+    this.backgroundPlain,
+    this.backgroundDefault,
+    this.logoheader,
+    this.favicon,
   });
 
   factory CoreServerCapabilities_Ocs_Data_Capabilities_Theming.fromJson(Map<String, dynamic> json) =>
@@ -2589,39 +2589,39 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_Theming {
   factory CoreServerCapabilities_Ocs_Data_Capabilities_Theming.fromJsonString(String data) =>
       CoreServerCapabilities_Ocs_Data_Capabilities_Theming.fromJson(json.decode(data) as Map<String, dynamic>);
 
-  final String name;
+  final String? name;
 
-  final String url;
+  final String? url;
 
-  final String slogan;
+  final String? slogan;
 
-  final String color;
+  final String? color;
 
   @JsonKey(name: 'color-text')
-  final String colorText;
+  final String? colorText;
 
   @JsonKey(name: 'color-element')
-  final String colorElement;
+  final String? colorElement;
 
   @JsonKey(name: 'color-element-bright')
-  final String colorElementBright;
+  final String? colorElementBright;
 
   @JsonKey(name: 'color-element-dark')
-  final String colorElementDark;
+  final String? colorElementDark;
 
-  final String logo;
+  final String? logo;
 
-  final String background;
+  final String? background;
 
   @JsonKey(name: 'background-plain')
-  final bool backgroundPlain;
+  final bool? backgroundPlain;
 
   @JsonKey(name: 'background-default')
-  final bool backgroundDefault;
+  final bool? backgroundDefault;
 
-  final String logoheader;
+  final String? logoheader;
 
-  final String favicon;
+  final String? favicon;
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreServerCapabilities_Ocs_Data_Capabilities_ThemingToJson(this);
@@ -2633,8 +2633,8 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_Theming {
 @JsonSerializable(disallowUnrecognizedKeys: false)
 class CoreServerCapabilities_Ocs_Data_Capabilities_UserStatus {
   CoreServerCapabilities_Ocs_Data_Capabilities_UserStatus({
-    required this.enabled,
-    required this.supportsEmoji,
+    this.enabled,
+    this.supportsEmoji,
   });
 
   factory CoreServerCapabilities_Ocs_Data_Capabilities_UserStatus.fromJson(Map<String, dynamic> json) =>
@@ -2643,10 +2643,10 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_UserStatus {
   factory CoreServerCapabilities_Ocs_Data_Capabilities_UserStatus.fromJsonString(String data) =>
       CoreServerCapabilities_Ocs_Data_Capabilities_UserStatus.fromJson(json.decode(data) as Map<String, dynamic>);
 
-  final bool enabled;
+  final bool? enabled;
 
   @JsonKey(name: 'supports_emoji')
-  final bool supportsEmoji;
+  final bool? supportsEmoji;
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreServerCapabilities_Ocs_Data_Capabilities_UserStatusToJson(this);
@@ -2658,7 +2658,7 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_UserStatus {
 
 @JsonSerializable()
 class CoreServerCapabilities_Ocs_Data_Capabilities_WeatherStatus {
-  CoreServerCapabilities_Ocs_Data_Capabilities_WeatherStatus({required this.enabled});
+  CoreServerCapabilities_Ocs_Data_Capabilities_WeatherStatus({this.enabled});
 
   factory CoreServerCapabilities_Ocs_Data_Capabilities_WeatherStatus.fromJson(Map<String, dynamic> json) =>
       _$CoreServerCapabilities_Ocs_Data_Capabilities_WeatherStatusFromJson(json);
@@ -2666,7 +2666,7 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_WeatherStatus {
   factory CoreServerCapabilities_Ocs_Data_Capabilities_WeatherStatus.fromJsonString(String data) =>
       CoreServerCapabilities_Ocs_Data_Capabilities_WeatherStatus.fromJson(json.decode(data) as Map<String, dynamic>);
 
-  final bool enabled;
+  final bool? enabled;
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreServerCapabilities_Ocs_Data_Capabilities_WeatherStatusToJson(this);
@@ -2679,14 +2679,14 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_WeatherStatus {
 @JsonSerializable(disallowUnrecognizedKeys: false)
 class CoreServerCapabilities_Ocs_Data_Capabilities {
   CoreServerCapabilities_Ocs_Data_Capabilities({
-    required this.core,
-    required this.bruteforce,
-    required this.metadataAvailable,
-    required this.files,
+    this.core,
+    this.bruteforce,
+    this.metadataAvailable,
+    this.files,
     this.activity,
     this.circles,
-    required this.ocm,
-    required this.dav,
+    this.ocm,
+    this.dav,
     this.filesSharing,
     this.notes,
     this.notifications,
@@ -2703,21 +2703,21 @@ class CoreServerCapabilities_Ocs_Data_Capabilities {
   factory CoreServerCapabilities_Ocs_Data_Capabilities.fromJsonString(String data) =>
       CoreServerCapabilities_Ocs_Data_Capabilities.fromJson(json.decode(data) as Map<String, dynamic>);
 
-  final CoreServerCapabilities_Ocs_Data_Capabilities_Core core;
+  final CoreServerCapabilities_Ocs_Data_Capabilities_Core? core;
 
-  final CoreServerCapabilities_Ocs_Data_Capabilities_Bruteforce bruteforce;
+  final CoreServerCapabilities_Ocs_Data_Capabilities_Bruteforce? bruteforce;
 
-  final CoreServerCapabilities_Ocs_Data_Capabilities_MetadataAvailable metadataAvailable;
+  final CoreServerCapabilities_Ocs_Data_Capabilities_MetadataAvailable? metadataAvailable;
 
-  final CoreServerCapabilities_Ocs_Data_Capabilities_Files files;
+  final CoreServerCapabilities_Ocs_Data_Capabilities_Files? files;
 
   final CoreServerCapabilities_Ocs_Data_Capabilities_Activity? activity;
 
   final CoreServerCapabilities_Ocs_Data_Capabilities_Circles? circles;
 
-  final CoreServerCapabilities_Ocs_Data_Capabilities_Ocm ocm;
+  final CoreServerCapabilities_Ocs_Data_Capabilities_Ocm? ocm;
 
-  final CoreServerCapabilities_Ocs_Data_Capabilities_Dav dav;
+  final CoreServerCapabilities_Ocs_Data_Capabilities_Dav? dav;
 
   @JsonKey(name: 'files_sharing')
   final CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing? filesSharing;

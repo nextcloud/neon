@@ -22,11 +22,12 @@ extension NotesVersionSupported on NotesClient {
   Future<bool> isSupported([final CoreServerCapabilities_Ocs_Data? capabilities]) async =>
       (capabilities ?? (await rootClient.core.getCapabilities()).ocs.data)
           .capabilities
-          .notes!
-          .apiVersion
-          .map(Version.parse)
+          .notes
+          ?.apiVersion
+          ?.map(Version.parse)
           .where((final version) => version.major == 1)
-          .isNotEmpty;
+          .isNotEmpty ??
+      false;
 }
 
 // Notifications, ProvisioningApi, UserStatus and Webdav are shipped with the Nextcloud server, so their supported versions depend on the major version of the Nextcloud instance.
