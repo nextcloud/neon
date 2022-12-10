@@ -145,14 +145,6 @@
                 "properties": {
                   "version": {
                     "type": "object",
-                    "required": [
-                      "major",
-                      "minor",
-                      "micro",
-                      "string",
-                      "edition",
-                      "extendedSupport"
-                    ],
                     "properties": {
                       "major": {
                         "type": "integer"
@@ -177,24 +169,10 @@
                   "capabilities": {
                     "type": "object",
                     "additionalProperties": true,
-                    "required": [
-                      "core",
-                      "bruteforce",
-                      "metadataAvailable",
-                      "files",
-                      "ocm",
-                      "dav"
-                    ],
                     "properties": {
                       "core": {
                         "type": "object",
                         "additionalProperties": true,
-                        "required": [
-                          "pollinterval",
-                          "webdav-root",
-                          "reference-api",
-                          "reference-regex"
-                        ],
                         "properties": {
                           "pollinterval": {
                             "type": "integer"
@@ -213,9 +191,6 @@
                       "bruteforce": {
                         "type": "object",
                         "additionalProperties": true,
-                        "required": [
-                          "delay"
-                        ],
                         "properties": {
                           "delay": {
                             "type": "integer"
@@ -225,10 +200,6 @@
                       "metadataAvailable": {
                         "type": "object",
                         "additionalProperties": true,
-                        "required": [
-                          "size",
-                          "gps"
-                        ],
                         "properties": {
                           "size": {
                             "type": "array",
@@ -247,14 +218,6 @@
                       "files": {
                         "type": "object",
                         "additionalProperties": true,
-                        "required": [
-                          "bigfilechunking",
-                          "blacklisted_files",
-                          "directEditing",
-                          "comments",
-                          "undelete",
-                          "versioning"
-                        ],
                         "properties": {
                           "bigfilechunking": {
                             "type": "boolean"
@@ -268,10 +231,6 @@
                           "directEditing": {
                             "type": "object",
                             "additionalProperties": true,
-                            "required": [
-                              "url",
-                              "etag"
-                            ],
                             "properties": {
                               "url": {
                                 "type": "string"
@@ -295,9 +254,6 @@
                       "activity": {
                         "type": "object",
                         "additionalProperties": true,
-                        "required": [
-                          "apiv2"
-                        ],
                         "properties": {
                           "apiv2": {
                             "type": "array",
@@ -310,13 +266,6 @@
                       "circles": {
                         "type": "object",
                         "additionalProperties": true,
-                        "required": [
-                          "version",
-                          "status",
-                          "settings",
-                          "circle",
-                          "member"
-                        ],
                         "properties": {
                           "version": {
                             "type": "string"
@@ -324,9 +273,6 @@
                           "status": {
                             "type": "object",
                             "additionalProperties": true,
-                            "required": [
-                              "globalScale"
-                            ],
                             "properties": {
                               "globalScale": {
                                 "type": "boolean"
@@ -336,12 +282,6 @@
                           "settings": {
                             "type": "object",
                             "additionalProperties": true,
-                            "required": [
-                              "frontendEnabled",
-                              "allowedCircles",
-                              "allowedUserTypes",
-                              "membersLimit"
-                            ],
                             "properties": {
                               "frontendEnabled": {
                                 "type": "boolean"
@@ -360,18 +300,10 @@
                           "circle": {
                             "type": "object",
                             "additionalProperties": true,
-                            "required": [
-                              "constants",
-                              "config"
-                            ],
                             "properties": {
                               "constants": {
                                 "type": "object",
                                 "additionalProperties": true,
-                                "required": [
-                                  "flags",
-                                  "source"
-                                ],
                                 "properties": {
                                   "flags": {
                                     "type": "object"
@@ -379,10 +311,6 @@
                                   "source": {
                                     "type": "object",
                                     "additionalProperties": true,
-                                    "required": [
-                                      "core",
-                                      "extra"
-                                    ],
                                     "properties": {
                                       "core": {
                                         "type": "object"
@@ -397,10 +325,6 @@
                               "config": {
                                 "type": "object",
                                 "additionalProperties": true,
-                                "required": [
-                                  "coreFlags",
-                                  "systemFlags"
-                                ],
                                 "properties": {
                                   "coreFlags": {
                                     "type": "array",
@@ -421,17 +345,10 @@
                           "member": {
                             "type": "object",
                             "additionalProperties": true,
-                            "required": [
-                              "constants",
-                              "type"
-                            ],
                             "properties": {
                               "constants": {
                                 "type": "object",
                                 "additionalProperties": true,
-                                "required": [
-                                  "level"
-                                ],
                                 "properties": {
                                   "level": {
                                     "type": "object"
@@ -448,12 +365,6 @@
                       "ocm": {
                         "type": "object",
                         "additionalProperties": true,
-                        "required": [
-                          "enabled",
-                          "apiVersion",
-                          "endPoint",
-                          "resourceTypes"
-                        ],
                         "properties": {
                           "enabled": {
                             "type": "boolean"
@@ -469,11 +380,6 @@
                             "items": {
                               "type": "object",
                               "additionalProperties": true,
-                              "required": [
-                                "name",
-                                "shareTypes",
-                                "protocols"
-                              ],
                               "properties": {
                                 "name": {
                                   "type": "string"
@@ -487,9 +393,6 @@
                                 "protocols": {
                                   "type": "object",
                                   "additionalProperties": true,
-                                  "required": [
-                                    "webdav"
-                                  ],
                                   "properties": {
                                     "webdav": {
                                       "type": "string"
@@ -504,9 +407,6 @@
                       "dav": {
                         "type": "object",
                         "additionalProperties": true,
-                        "required": [
-                          "chunking"
-                        ],
                         "properties": {
                           "bulkupload": {
                             "type": "string"
@@ -519,18 +419,6 @@
                       "files_sharing": {
                         "type": "object",
                         "additionalProperties": true,
-                        "required": [
-                          "api_enabled",
-                          "public",
-                          "resharing",
-                          "user",
-                          "group_sharing",
-                          "group",
-                          "default_permissions",
-                          "federation",
-                          "sharee",
-                          "sharebymail"
-                        ],
                         "properties": {
                           "api_enabled": {
                             "type": "boolean"
@@ -538,17 +426,6 @@
                           "public": {
                             "type": "object",
                             "additionalProperties": true,
-                            "required": [
-                              "enabled",
-                              "password",
-                              "expire_date",
-                              "multiple_links",
-                              "expire_date_internal",
-                              "expire_date_remote",
-                              "send_mail",
-                              "upload",
-                              "upload_files_drop"
-                            ],
                             "properties": {
                               "enabled": {
                                 "type": "boolean"
@@ -556,10 +433,6 @@
                               "password": {
                                 "type": "object",
                                 "additionalProperties": true,
-                                "required": [
-                                  "enforced",
-                                  "askForOptionalPassword"
-                                ],
                                 "properties": {
                                   "enforced": {
                                     "type": "boolean"
@@ -572,9 +445,6 @@
                               "expire_date": {
                                 "type": "object",
                                 "additionalProperties": true,
-                                "required": [
-                                  "enabled"
-                                ],
                                 "properties": {
                                   "enabled": {
                                     "type": "boolean"
@@ -587,9 +457,6 @@
                               "expire_date_internal": {
                                 "type": "object",
                                 "additionalProperties": true,
-                                "required": [
-                                  "enabled"
-                                ],
                                 "properties": {
                                   "enabled": {
                                     "type": "boolean"
@@ -599,9 +466,6 @@
                               "expire_date_remote": {
                                 "type": "object",
                                 "additionalProperties": true,
-                                "required": [
-                                  "enabled"
-                                ],
                                 "properties": {
                                   "enabled": {
                                     "type": "boolean"
@@ -625,10 +489,6 @@
                           "user": {
                             "type": "object",
                             "additionalProperties": true,
-                            "required": [
-                              "send_mail",
-                              "expire_date"
-                            ],
                             "properties": {
                               "send_mail": {
                                 "type": "boolean"
@@ -636,9 +496,6 @@
                               "expire_date": {
                                 "type": "object",
                                 "additionalProperties": true,
-                                "required": [
-                                  "enabled"
-                                ],
                                 "properties": {
                                   "enabled": {
                                     "type": "boolean"
@@ -653,10 +510,6 @@
                           "group": {
                             "type": "object",
                             "additionalProperties": true,
-                            "required": [
-                              "enabled",
-                              "expire_date"
-                            ],
                             "properties": {
                               "enabled": {
                                 "type": "boolean"
@@ -664,9 +517,6 @@
                               "expire_date": {
                                 "type": "object",
                                 "additionalProperties": true,
-                                "required": [
-                                  "enabled"
-                                ],
                                 "properties": {
                                   "enabled": {
                                     "type": "boolean"
@@ -681,12 +531,6 @@
                           "federation": {
                             "type": "object",
                             "additionalProperties": true,
-                            "required": [
-                              "outgoing",
-                              "incoming",
-                              "expire_date",
-                              "expire_date_supported"
-                            ],
                             "properties": {
                               "outgoing": {
                                 "type": "boolean"
@@ -697,9 +541,6 @@
                               "expire_date": {
                                 "type": "object",
                                 "additionalProperties": true,
-                                "required": [
-                                  "enabled"
-                                ],
                                 "properties": {
                                   "enabled": {
                                     "type": "boolean"
@@ -709,9 +550,6 @@
                               "expire_date_supported": {
                                 "type": "object",
                                 "additionalProperties": true,
-                                "required": [
-                                  "enabled"
-                                ],
                                 "properties": {
                                   "enabled": {
                                     "type": "boolean"
@@ -723,10 +561,6 @@
                           "sharee": {
                             "type": "object",
                             "additionalProperties": true,
-                            "required": [
-                              "query_lookup_default",
-                              "always_show_unique"
-                            ],
                             "properties": {
                               "query_lookup_default": {
                                 "type": "boolean"
@@ -739,13 +573,6 @@
                           "sharebymail": {
                             "type": "object",
                             "additionalProperties": true,
-                            "required": [
-                              "enabled",
-                              "send_password_by_mail",
-                              "upload_files_drop",
-                              "password",
-                              "expire_date"
-                            ],
                             "properties": {
                               "enabled": {
                                 "type": "boolean"
@@ -756,9 +583,6 @@
                               "upload_files_drop": {
                                 "type": "object",
                                 "additionalProperties": true,
-                                "required": [
-                                  "enabled"
-                                ],
                                 "properties": {
                                   "enabled": {
                                     "type": "boolean"
@@ -768,10 +592,6 @@
                               "password": {
                                 "type": "object",
                                 "additionalProperties": true,
-                                "required": [
-                                  "enabled",
-                                  "enforced"
-                                ],
                                 "properties": {
                                   "enabled": {
                                     "type": "boolean"
@@ -784,10 +604,6 @@
                               "expire_date": {
                                 "type": "object",
                                 "additionalProperties": true,
-                                "required": [
-                                  "enabled",
-                                  "enforced"
-                                ],
                                 "properties": {
                                   "enabled": {
                                     "type": "boolean"
@@ -804,10 +620,6 @@
                       "notes": {
                         "type": "object",
                         "additionalProperties": true,
-                        "required": [
-                          "api_version",
-                          "version"
-                        ],
                         "properties": {
                           "api_version": {
                             "type": "array",
@@ -823,11 +635,6 @@
                       "notifications": {
                         "type": "object",
                         "additionalProperties": true,
-                        "required": [
-                          "ocs-endpoints",
-                          "push",
-                          "admin-notifications"
-                        ],
                         "properties": {
                           "ocs-endpoints": {
                             "type": "array",
@@ -852,14 +659,6 @@
                       "password_policy": {
                         "type": "object",
                         "additionalProperties": true,
-                        "required": [
-                          "minLength",
-                          "enforceNonCommonPassword",
-                          "enforceNumericCharacters",
-                          "enforceSpecialCharacters",
-                          "enforceUpperLowerCase",
-                          "api"
-                        ],
                         "properties": {
                           "minLength": {
                             "type": "integer"
@@ -879,10 +678,6 @@
                           "api": {
                             "type": "object",
                             "additionalProperties": true,
-                            "required": [
-                              "generate",
-                              "validate"
-                            ],
                             "properties": {
                               "generate": {
                                 "type": "string"
@@ -897,12 +692,6 @@
                       "provisioning_api": {
                         "type": "object",
                         "additionalProperties": true,
-                        "required": [
-                          "version",
-                          "AccountPropertyScopesVersion",
-                          "AccountPropertyScopesFederatedEnabled",
-                          "AccountPropertyScopesPublishedEnabled"
-                        ],
                         "properties": {
                           "version": {
                             "type": "string"
@@ -921,22 +710,6 @@
                       "theming": {
                         "type": "object",
                         "additionalProperties": true,
-                        "required": [
-                          "name",
-                          "url",
-                          "slogan",
-                          "color",
-                          "color-text",
-                          "color-element",
-                          "color-element-bright",
-                          "color-element-dark",
-                          "logo",
-                          "background",
-                          "background-plain",
-                          "background-default",
-                          "logoheader",
-                          "favicon"
-                        ],
                         "properties": {
                           "name": {
                             "type": "string"
@@ -985,10 +758,6 @@
                       "user_status": {
                         "type": "object",
                         "additionalProperties": true,
-                        "required": [
-                          "enabled",
-                          "supports_emoji"
-                        ],
                         "properties": {
                           "enabled": {
                             "type": "boolean"
@@ -1000,9 +769,6 @@
                       },
                       "weather_status": {
                         "type": "object",
-                        "required": [
-                          "enabled"
-                        ],
                         "properties": {
                           "enabled": {
                             "type": "boolean"

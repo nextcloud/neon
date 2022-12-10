@@ -10,7 +10,7 @@ class HomePage extends StatefulWidget {
   });
 
   final Account account;
-  final Function(NextcloudTheme theme) onThemeChanged;
+  final Function(NextcloudTheme? theme) onThemeChanged;
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -34,7 +34,7 @@ class _HomePageState extends State<HomePage> {
 
     _capabilitiesBloc.capabilities.listen((final result) async {
       if (result.data != null) {
-        widget.onThemeChanged(result.data!.capabilities.theming!);
+        widget.onThemeChanged(result.data!.capabilities.theming);
 
         // ignore cached version and prevent duplicate dialogs
         if (result.cached) {
@@ -240,17 +240,21 @@ class _HomePageState extends State<HomePage> {
                                                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                                   children: [
                                                     if (capabilities.data != null) ...[
-                                                      Text(
-                                                        capabilities.data!.capabilities.theming!.name,
-                                                        style: DefaultTextStyle.of(context).style.copyWith(
-                                                              color: Theme.of(context).appBarTheme.foregroundColor,
-                                                            ),
-                                                      ),
-                                                      Flexible(
-                                                        child: CachedURLImage(
-                                                          url: capabilities.data!.capabilities.theming!.logo,
+                                                      if (capabilities.data!.capabilities.theming?.name != null) ...[
+                                                        Text(
+                                                          capabilities.data!.capabilities.theming!.name!,
+                                                          style: DefaultTextStyle.of(context).style.copyWith(
+                                                                color: Theme.of(context).appBarTheme.foregroundColor,
+                                                              ),
                                                         ),
-                                                      ),
+                                                      ],
+                                                      if (capabilities.data!.capabilities.theming?.logo != null) ...[
+                                                        Flexible(
+                                                          child: CachedURLImage(
+                                                            url: capabilities.data!.capabilities.theming!.logo!,
+                                                          ),
+                                                        ),
+                                                      ],
                                                     ] else ...[
                                                       ExceptionWidget(
                                                         capabilities.error,
@@ -412,7 +416,7 @@ class _HomePageState extends State<HomePage> {
                                             padding: const EdgeInsets.all(5),
                                             child: capabilities.data?.capabilities.theming?.logo != null
                                                 ? CachedURLImage(
-                                                    url: capabilities.data!.capabilities.theming!.logo,
+                                                    url: capabilities.data!.capabilities.theming!.logo!,
                                                   )
                                                 : null,
                                           )

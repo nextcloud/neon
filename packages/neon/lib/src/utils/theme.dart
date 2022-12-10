@@ -9,7 +9,7 @@ ThemeData getThemeFromNextcloudTheme(
   required final bool oledAsDark,
   required final bool keepOriginalAccentColor,
 }) {
-  final primaryColor = nextcloudTheme != null ? HexColor(nextcloudTheme.color) : themePrimaryColor;
+  final primaryColor = nextcloudTheme?.color != null ? HexColor(nextcloudTheme!.color!) : themePrimaryColor;
 
   late final Brightness selectBrightness;
   switch (themeMode) {

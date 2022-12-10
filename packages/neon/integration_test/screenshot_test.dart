@@ -98,7 +98,7 @@ Future pumpAppPage(
   final WidgetTester tester,
   final IntegrationTestWidgetsFlutterBinding binding,
   final PackageInfo packageInfo, {
-  required final Widget Function(BuildContext, Function(NextcloudTheme)) builder,
+  required final Widget Function(BuildContext, Function(NextcloudTheme?)) builder,
   final Account? account,
 }) async {
   final sharedPreferences = MemorySharedPreferences();
@@ -134,7 +134,7 @@ Future pumpAppPage(
   );
 
   // ignore: close_sinks
-  final userThemeStream = BehaviorSubject<NextcloudTheme>();
+  final userThemeStream = BehaviorSubject<NextcloudTheme?>();
 
   await tester.pumpWidget(
     MultiProvider(
@@ -167,7 +167,7 @@ Future pumpAppPage(
           create: (final _) => packageInfo,
         ),
       ],
-      child: StreamBuilder<NextcloudTheme>(
+      child: StreamBuilder<NextcloudTheme?>(
         stream: userThemeStream,
         builder: (final context, final themeSnapshot) => OptionBuilder(
           option: globalOptions.themeMode,
