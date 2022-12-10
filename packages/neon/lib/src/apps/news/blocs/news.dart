@@ -48,7 +48,7 @@ class NewsBloc extends InteractiveBloc implements NewsBlocEvents, NewsBlocStates
       }
     });
 
-    unawaited(refresh());
+    unawaited(mainArticlesBloc.refresh());
   }
 
   @override
@@ -75,6 +75,7 @@ class NewsBloc extends InteractiveBloc implements NewsBlocEvents, NewsBlocStates
     unawaited(unreadCounter.close());
     unawaited(articles.close());
     unawaited(filterType.close());
+    mainArticlesBloc.dispose();
     super.dispose();
   }
 

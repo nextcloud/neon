@@ -59,7 +59,9 @@ class NewsArticlesBloc extends InteractiveBloc implements NewsArticlesBlocEvents
       filterType.add(FilterType.all);
     }
 
-    unawaited(refresh());
+    if (this is! NewsMainArticlesBloc) {
+      unawaited(refresh());
+    }
   }
 
   final NewsBloc _newsBloc;
