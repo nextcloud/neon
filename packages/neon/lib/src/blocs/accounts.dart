@@ -1,14 +1,4 @@
-import 'dart:async';
-import 'dart:convert';
-
-import 'package:neon/src/blocs/apps.dart';
-import 'package:neon/src/blocs/capabilities.dart';
-import 'package:neon/src/blocs/user_details.dart';
-import 'package:neon/src/blocs/user_status.dart';
-import 'package:neon/src/models/account.dart';
-import 'package:neon/src/neon.dart';
-import 'package:rxdart/rxdart.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+part of '../neon.dart';
 
 abstract class AccountsBlocEvents {
   void addAccount(final Account account);

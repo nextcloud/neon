@@ -1,12 +1,4 @@
-import 'dart:async';
-
-import 'package:flutter/cupertino.dart';
-import 'package:neon/src/apps/notes/app.dart';
-import 'package:neon/src/apps/notes/blocs/notes.dart';
-import 'package:neon/src/neon.dart';
-import 'package:nextcloud/nextcloud.dart';
-import 'package:queue/queue.dart';
-import 'package:rxdart/rxdart.dart';
+part of '../app.dart';
 
 abstract class NotesNoteBlocEvents {
   void updateContent(final String content);

@@ -1,12 +1,4 @@
-import 'dart:async';
-
-import 'package:neon/src/apps/notifications/app.dart';
-import 'package:neon/src/blocs/accounts.dart';
-import 'package:neon/src/blocs/capabilities.dart';
-import 'package:neon/src/models/account.dart';
-import 'package:neon/src/neon.dart';
-import 'package:nextcloud/nextcloud.dart';
-import 'package:rxdart/rxdart.dart';
+part of '../neon.dart';
 
 typedef NextcloudApp = CoreNavigationApps_Ocs_Data;
 
