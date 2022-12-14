@@ -1,9 +1,4 @@
-import 'dart:async';
-
-import 'package:neon/src/apps/news/blocs/articles.dart';
-import 'package:neon/src/neon.dart';
-import 'package:nextcloud/nextcloud.dart';
-import 'package:rxdart/rxdart.dart';
+part of '../app.dart';
 
 abstract class NewsArticleBlocEvents {
   void markArticleAsRead();

@@ -1,12 +1,4 @@
-import 'dart:async';
-
-import 'package:flutter/widgets.dart';
-import 'package:neon/src/blocs/accounts.dart';
-import 'package:neon/src/models/account.dart';
-import 'package:neon/src/neon.dart';
-import 'package:nextcloud/nextcloud.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-import 'package:unifiedpush/unifiedpush.dart';
+part of '../neon.dart';
 
 abstract class PushNotificationsBlocEvents {}
 

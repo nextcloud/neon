@@ -1,16 +1,4 @@
-import 'dart:async';
-import 'dart:io';
-
-import 'package:flutter/material.dart';
-import 'package:neon/src/apps/files/app.dart';
-import 'package:neon/src/apps/files/blocs/browser.dart';
-import 'package:neon/src/models/account.dart';
-import 'package:neon/src/neon.dart';
-import 'package:nextcloud/nextcloud.dart';
-import 'package:open_file/open_file.dart';
-import 'package:path/path.dart' as p;
-import 'package:queue/queue.dart';
-import 'package:rxdart/rxdart.dart';
+part of '../app.dart';
 
 abstract class FilesBlocEvents {
   void uploadFile(final List<String> path, final String localPath);

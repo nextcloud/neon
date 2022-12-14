@@ -1,10 +1,4 @@
-import 'dart:async';
-
-import 'package:flutter/foundation.dart';
-import 'package:neon/src/apps/files/app.dart';
-import 'package:neon/src/neon.dart';
-import 'package:nextcloud/nextcloud.dart';
-import 'package:rxdart/rxdart.dart';
+part of '../app.dart';
 
 abstract class FilesBrowserBlocEvents {
   void setPath(final List<String> path);

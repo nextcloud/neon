@@ -1,10 +1,4 @@
-import 'dart:async';
-
-import 'package:neon/src/models/account.dart';
-import 'package:neon/src/neon.dart';
-import 'package:nextcloud/nextcloud.dart';
-import 'package:rxdart/rxdart.dart';
-import 'package:window_manager/window_manager.dart';
+part of '../neon.dart';
 
 abstract class UserStatusBlocEvents {}
 

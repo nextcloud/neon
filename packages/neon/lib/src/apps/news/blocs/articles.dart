@@ -1,11 +1,4 @@
-import 'dart:async';
-
-import 'package:neon/src/apps/news/app.dart';
-import 'package:neon/src/apps/news/blocs/news.dart';
-import 'package:neon/src/models/account.dart';
-import 'package:neon/src/neon.dart';
-import 'package:nextcloud/nextcloud.dart';
-import 'package:rxdart/rxdart.dart';
+part of '../app.dart';
 
 enum FilterType {
   all,
@@ -49,8 +42,8 @@ class NewsArticlesBloc extends InteractiveBloc implements NewsArticlesBlocEvents
   NewsArticlesBloc(
     this._newsBloc,
     this.options,
-    this._requestManager,
-    this._client, {
+    this.requestManager,
+    this.client, {
     this.id,
     this.listType,
   }) {
@@ -66,8 +59,8 @@ class NewsArticlesBloc extends InteractiveBloc implements NewsArticlesBlocEvents
 
   final NewsBloc _newsBloc;
   final NewsAppSpecificOptions options;
-  final RequestManager _requestManager;
-  final NextcloudClient _client;
+  final RequestManager requestManager;
+  final NextcloudClient client;
   final int? id;
   final ListType? listType;
 
@@ -132,11 +125,11 @@ class NewsArticlesBloc extends InteractiveBloc implements NewsArticlesBlocEvents
         break;
     }
 
-    await _requestManager.wrapNextcloud<List<NewsArticle>, NewsListArticles>(
-      _client.id,
+    await requestManager.wrapNextcloud<List<NewsArticle>, NewsListArticles>(
+      client.id,
       'news-articles-${type.code}-$id-$getRead',
       articles,
-      () async => _client.news.listArticles(
+      () async => client.news.listArticles(
         type: type.code,
         id: id ?? 0,
         getRead: getRead ?? true ? 1 : 0,
@@ -147,12 +140,12 @@ class NewsArticlesBloc extends InteractiveBloc implements NewsArticlesBlocEvents
 
   @override
   void markArticleAsRead(final NewsArticle article) {
-    wrapAction(() async => _client.news.markArticleAsRead(itemId: article.id));
+    wrapAction(() async => client.news.markArticleAsRead(itemId: article.id));
   }
 
   @override
   void markArticleAsUnread(final NewsArticle article) {
-    wrapAction(() async => _client.news.markArticleAsUnread(itemId: article.id));
+    wrapAction(() async => client.news.markArticleAsUnread(itemId: article.id));
   }
 
   @override
@@ -162,11 +155,11 @@ class NewsArticlesBloc extends InteractiveBloc implements NewsArticlesBlocEvents
 
   @override
   void starArticle(final NewsArticle article) {
-    wrapAction(() async => _client.news.starArticle(itemId: article.id));
+    wrapAction(() async => client.news.starArticle(itemId: article.id));
   }
 
   @override
   void unstarArticle(final NewsArticle article) {
-    wrapAction(() async => _client.news.unstarArticle(itemId: article.id));
+    wrapAction(() async => client.news.unstarArticle(itemId: article.id));
   }
 }

@@ -1,9 +1,4 @@
-import 'dart:async';
-
-import 'package:neon/src/models/account.dart';
-import 'package:neon/src/neon.dart';
-import 'package:nextcloud/nextcloud.dart';
-import 'package:rxdart/rxdart.dart';
+part of '../neon.dart';
 
 typedef Capabilities = CoreServerCapabilities_Ocs_Data;
 typedef NextcloudTheme = CoreServerCapabilities_Ocs_Data_Capabilities_Theming;
