@@ -652,19 +652,20 @@ class OpenAPIBuilder implements Builder {
                                 );
                                 switch (mimeType) {
                                   case 'application/json':
-                                    b.optionalParameters.add(
-                                      Parameter(
-                                        (final b) => b
-                                          ..name = _toDartName(result.name)
-                                          ..type = refer(result.name)
-                                          ..named = true
-                                          ..required = operation.requestBody!.required ?? false,
-                                      ),
-                                    );
                                     final nullable = _isParameterNullable(
                                       operation.requestBody!.required,
                                       mediaType.schema?.default_,
                                     );
+                                    b.optionalParameters.add(
+                                      Parameter(
+                                        (final b) => b
+                                          ..name = _toDartName(result.name)
+                                          ..type = refer(_makeNullable(result.name, nullable))
+                                          ..named = true
+                                          ..required = operation.requestBody!.required ?? false,
+                                      ),
+                                    );
+
                                     if (nullable) {
                                       code.write('if (${_toDartName(result.name)} != null) {');
                                     }
