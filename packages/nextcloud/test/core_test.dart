@@ -8,6 +8,7 @@ Future main() async {
     apps: [
       'news',
       'notes',
+      'spreed',
     ],
   );
 
@@ -56,13 +57,43 @@ Future main() async {
 
     test('Get navigation apps', () async {
       final navigationApps = await client.core.getNavigationApps();
-      expect(navigationApps.ocs.data, hasLength(6));
+      expect(navigationApps.ocs.data, hasLength(7));
       expect(navigationApps.ocs.data[0].id, 'dashboard');
       expect(navigationApps.ocs.data[1].id, 'files');
       expect(navigationApps.ocs.data[2].id, 'photos');
       expect(navigationApps.ocs.data[3].id, 'activity');
-      expect(navigationApps.ocs.data[4].id, 'notes');
-      expect(navigationApps.ocs.data[5].id, 'news');
+      expect(navigationApps.ocs.data[4].id, 'spreed');
+      expect(navigationApps.ocs.data[5].id, 'notes');
+      expect(navigationApps.ocs.data[6].id, 'news');
+    });
+
+    test('Autocomplete', () async {
+      final response = await client.core.autocomplete(
+        search: '',
+        itemType: 'call',
+        itemId: 'new',
+        shareTypes: [
+          ShareType.user.code,
+          ShareType.group.code,
+        ],
+      );
+      expect(response.ocs.data, hasLength(2));
+
+      expect(response.ocs.data[0].id, 'admin');
+      expect(response.ocs.data[0].label, 'admin');
+      expect(response.ocs.data[0].icon, 'icon-user');
+      expect(response.ocs.data[0].source, 'users');
+      expect(response.ocs.data[0].status.string, isNull);
+      expect(response.ocs.data[0].subline, '');
+      expect(response.ocs.data[0].shareWithDisplayNameUnique, 'admin@example.com');
+
+      expect(response.ocs.data[1].id, 'admin');
+      expect(response.ocs.data[1].label, 'admin');
+      expect(response.ocs.data[1].icon, '');
+      expect(response.ocs.data[1].source, 'groups');
+      expect(response.ocs.data[1].status.string, isEmpty);
+      expect(response.ocs.data[1].subline, '');
+      expect(response.ocs.data[1].shareWithDisplayNameUnique, '');
     });
   });
 }
