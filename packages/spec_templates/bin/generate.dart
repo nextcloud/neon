@@ -468,12 +468,7 @@ Future<Map<String, List<Map<String, dynamic>>>> _parseRoutesFile(
     throw Exception('Unsupported routes format');
   }
 
-  final allowedVariables = [
-    'requirements',
-    'requirementsWithToken',
-    'requirementsWithMessageId',
-  ];
-  final variables = RegExp('^(\\\$(${allowedVariables.join('|')}) =[^;]*;)\$', multiLine: true)
+  final variables = RegExp(r'^(\$(requirements[a-zA-Z]*) =[^;]*;)$', multiLine: true)
       .allMatches(content)
       .map((final match) => match.group(1)!)
       .toList();
