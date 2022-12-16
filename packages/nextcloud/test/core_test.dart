@@ -8,7 +8,6 @@ Future main() async {
     apps: [
       'news',
       'notes',
-      'spreed',
     ],
   );
 
@@ -57,14 +56,13 @@ Future main() async {
 
     test('Get navigation apps', () async {
       final navigationApps = await client.core.getNavigationApps();
-      expect(navigationApps.ocs.data, hasLength(7));
+      expect(navigationApps.ocs.data, hasLength(6));
       expect(navigationApps.ocs.data[0].id, 'dashboard');
       expect(navigationApps.ocs.data[1].id, 'files');
       expect(navigationApps.ocs.data[2].id, 'photos');
       expect(navigationApps.ocs.data[3].id, 'activity');
-      expect(navigationApps.ocs.data[4].id, 'spreed');
-      expect(navigationApps.ocs.data[5].id, 'notes');
-      expect(navigationApps.ocs.data[6].id, 'news');
+      expect(navigationApps.ocs.data[4].id, 'notes');
+      expect(navigationApps.ocs.data[5].id, 'news');
     });
 
     test('Autocomplete', () async {
