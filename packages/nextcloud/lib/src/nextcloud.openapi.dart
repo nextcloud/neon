@@ -171,7 +171,7 @@ class CoreClient {
     Uint8List? body;
     final response = await rootClient.doRequest(
       'get',
-      Uri(path: path, queryParameters: queryParameters).toString(),
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
       headers,
       body,
     );
@@ -188,7 +188,7 @@ class CoreClient {
     Uint8List? body;
     final response = await rootClient.doRequest(
       'get',
-      Uri(path: path, queryParameters: queryParameters).toString(),
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
       headers,
       body,
     );
@@ -205,7 +205,7 @@ class CoreClient {
     Uint8List? body;
     final response = await rootClient.doRequest(
       'get',
-      Uri(path: path, queryParameters: queryParameters).toString(),
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
       headers,
       body,
     );
@@ -222,7 +222,7 @@ class CoreClient {
     Uint8List? body;
     final response = await rootClient.doRequest(
       'post',
-      Uri(path: path, queryParameters: queryParameters).toString(),
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
       headers,
       body,
     );
@@ -240,7 +240,7 @@ class CoreClient {
     queryParameters['token'] = token.toString();
     final response = await rootClient.doRequest(
       'post',
-      Uri(path: path, queryParameters: queryParameters).toString(),
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
       headers,
       body,
     );
@@ -270,7 +270,7 @@ class CoreClient {
     queryParameters['mode'] = mode.toString();
     final response = await rootClient.doRequest(
       'get',
-      Uri(path: path, queryParameters: queryParameters).toString(),
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
       headers,
       body,
     );
@@ -292,7 +292,7 @@ class CoreClient {
     path = path.replaceAll('{size}', Uri.encodeQueryComponent(size.toString()));
     final response = await rootClient.doRequest(
       'get',
-      Uri(path: path, queryParameters: queryParameters).toString(),
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
       headers,
       body,
     );
@@ -314,7 +314,7 @@ class CoreClient {
     path = path.replaceAll('{size}', Uri.encodeQueryComponent(size.toString()));
     final response = await rootClient.doRequest(
       'get',
-      Uri(path: path, queryParameters: queryParameters).toString(),
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
       headers,
       body,
     );
@@ -337,7 +337,7 @@ class NewsClient {
     Uint8List? body;
     final response = await rootClient.doRequest(
       'get',
-      Uri(path: path, queryParameters: queryParameters).toString(),
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
       headers,
       body,
     );
@@ -355,7 +355,7 @@ class NewsClient {
     Uint8List? body;
     final response = await rootClient.doRequest(
       'get',
-      Uri(path: path, queryParameters: queryParameters).toString(),
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
       headers,
       body,
     );
@@ -373,7 +373,7 @@ class NewsClient {
     queryParameters['name'] = name.toString();
     final response = await rootClient.doRequest(
       'post',
-      Uri(path: path, queryParameters: queryParameters).toString(),
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
       headers,
       body,
     );
@@ -395,7 +395,7 @@ class NewsClient {
     queryParameters['name'] = name.toString();
     final response = await rootClient.doRequest(
       'put',
-      Uri(path: path, queryParameters: queryParameters).toString(),
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
       headers,
       body,
     );
@@ -413,7 +413,7 @@ class NewsClient {
     path = path.replaceAll('{folderId}', Uri.encodeQueryComponent(folderId.toString()));
     final response = await rootClient.doRequest(
       'delete',
-      Uri(path: path, queryParameters: queryParameters).toString(),
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
       headers,
       body,
     );
@@ -435,7 +435,7 @@ class NewsClient {
     queryParameters['newestItemId'] = newestItemId.toString();
     final response = await rootClient.doRequest(
       'post',
-      Uri(path: path, queryParameters: queryParameters).toString(),
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
       headers,
       body,
     );
@@ -452,7 +452,7 @@ class NewsClient {
     Uint8List? body;
     final response = await rootClient.doRequest(
       'get',
-      Uri(path: path, queryParameters: queryParameters).toString(),
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
       headers,
       body,
     );
@@ -476,7 +476,7 @@ class NewsClient {
     }
     final response = await rootClient.doRequest(
       'post',
-      Uri(path: path, queryParameters: queryParameters).toString(),
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
       headers,
       body,
     );
@@ -494,7 +494,7 @@ class NewsClient {
     path = path.replaceAll('{feedId}', Uri.encodeQueryComponent(feedId.toString()));
     final response = await rootClient.doRequest(
       'delete',
-      Uri(path: path, queryParameters: queryParameters).toString(),
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
       headers,
       body,
     );
@@ -518,7 +518,7 @@ class NewsClient {
     }
     final response = await rootClient.doRequest(
       'post',
-      Uri(path: path, queryParameters: queryParameters).toString(),
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
       headers,
       body,
     );
@@ -540,7 +540,7 @@ class NewsClient {
     queryParameters['feedTitle'] = feedTitle.toString();
     final response = await rootClient.doRequest(
       'post',
-      Uri(path: path, queryParameters: queryParameters).toString(),
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
       headers,
       body,
     );
@@ -562,7 +562,7 @@ class NewsClient {
     queryParameters['newestItemId'] = newestItemId.toString();
     final response = await rootClient.doRequest(
       'post',
-      Uri(path: path, queryParameters: queryParameters).toString(),
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
       headers,
       body,
     );
@@ -592,7 +592,7 @@ class NewsClient {
     queryParameters['oldestFirst'] = oldestFirst.toString();
     final response = await rootClient.doRequest(
       'get',
-      Uri(path: path, queryParameters: queryParameters).toString(),
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
       headers,
       body,
     );
@@ -616,7 +616,7 @@ class NewsClient {
     queryParameters['lastModified'] = lastModified.toString();
     final response = await rootClient.doRequest(
       'get',
-      Uri(path: path, queryParameters: queryParameters).toString(),
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
       headers,
       body,
     );
@@ -634,7 +634,7 @@ class NewsClient {
     path = path.replaceAll('{itemId}', Uri.encodeQueryComponent(itemId.toString()));
     final response = await rootClient.doRequest(
       'post',
-      Uri(path: path, queryParameters: queryParameters).toString(),
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
       headers,
       body,
     );
@@ -652,7 +652,7 @@ class NewsClient {
     path = path.replaceAll('{itemId}', Uri.encodeQueryComponent(itemId.toString()));
     final response = await rootClient.doRequest(
       'post',
-      Uri(path: path, queryParameters: queryParameters).toString(),
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
       headers,
       body,
     );
@@ -670,7 +670,7 @@ class NewsClient {
     path = path.replaceAll('{itemId}', Uri.encodeQueryComponent(itemId.toString()));
     final response = await rootClient.doRequest(
       'post',
-      Uri(path: path, queryParameters: queryParameters).toString(),
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
       headers,
       body,
     );
@@ -688,7 +688,7 @@ class NewsClient {
     path = path.replaceAll('{itemId}', Uri.encodeQueryComponent(itemId.toString()));
     final response = await rootClient.doRequest(
       'post',
-      Uri(path: path, queryParameters: queryParameters).toString(),
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
       headers,
       body,
     );
@@ -730,7 +730,7 @@ class NotesClient {
     }
     final response = await rootClient.doRequest(
       'get',
-      Uri(path: path, queryParameters: queryParameters).toString(),
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
       headers,
       body,
     );
@@ -760,7 +760,7 @@ class NotesClient {
     queryParameters['favorite'] = favorite.toString();
     final response = await rootClient.doRequest(
       'post',
-      Uri(path: path, queryParameters: queryParameters).toString(),
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
       headers,
       body,
     );
@@ -786,7 +786,7 @@ class NotesClient {
     }
     final response = await rootClient.doRequest(
       'get',
-      Uri(path: path, queryParameters: queryParameters).toString(),
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
       headers,
       body,
     );
@@ -828,7 +828,7 @@ class NotesClient {
     }
     final response = await rootClient.doRequest(
       'put',
-      Uri(path: path, queryParameters: queryParameters).toString(),
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
       headers,
       body,
     );
@@ -846,7 +846,7 @@ class NotesClient {
     path = path.replaceAll('{id}', Uri.encodeQueryComponent(id.toString()));
     final response = await rootClient.doRequest(
       'delete',
-      Uri(path: path, queryParameters: queryParameters).toString(),
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
       headers,
       body,
     );
@@ -863,7 +863,7 @@ class NotesClient {
     Uint8List? body;
     final response = await rootClient.doRequest(
       'get',
-      Uri(path: path, queryParameters: queryParameters).toString(),
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
       headers,
       body,
     );
@@ -882,7 +882,7 @@ class NotesClient {
     body = Uint8List.fromList(utf8.encode(json.encode(notesSettings.toJson())));
     final response = await rootClient.doRequest(
       'put',
-      Uri(path: path, queryParameters: queryParameters).toString(),
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
       headers,
       body,
     );
@@ -905,7 +905,7 @@ class NotificationsClient {
     Uint8List? body;
     final response = await rootClient.doRequest(
       'get',
-      Uri(path: path, queryParameters: queryParameters).toString(),
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
       headers,
       body,
     );
@@ -923,7 +923,7 @@ class NotificationsClient {
     Uint8List? body;
     final response = await rootClient.doRequest(
       'delete',
-      Uri(path: path, queryParameters: queryParameters).toString(),
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
       headers,
       body,
     );
@@ -941,7 +941,7 @@ class NotificationsClient {
     path = path.replaceAll('{id}', Uri.encodeQueryComponent(id.toString()));
     final response = await rootClient.doRequest(
       'get',
-      Uri(path: path, queryParameters: queryParameters).toString(),
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
       headers,
       body,
     );
@@ -960,7 +960,7 @@ class NotificationsClient {
     path = path.replaceAll('{id}', Uri.encodeQueryComponent(id.toString()));
     final response = await rootClient.doRequest(
       'delete',
-      Uri(path: path, queryParameters: queryParameters).toString(),
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
       headers,
       body,
     );
@@ -984,7 +984,7 @@ class NotificationsClient {
     queryParameters['proxyServer'] = proxyServer.toString();
     final response = await rootClient.doRequest(
       'post',
-      Uri(path: path, queryParameters: queryParameters).toString(),
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
       headers,
       body,
     );
@@ -1002,7 +1002,7 @@ class NotificationsClient {
     Uint8List? body;
     final response = await rootClient.doRequest(
       'delete',
-      Uri(path: path, queryParameters: queryParameters).toString(),
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
       headers,
       body,
     );
@@ -1026,7 +1026,7 @@ class NotificationsClient {
     queryParameters['longMessage'] = longMessage.toString();
     final response = await rootClient.doRequest(
       'post',
-      Uri(path: path, queryParameters: queryParameters).toString(),
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
       headers,
       body,
     );
@@ -1049,7 +1049,7 @@ class ProvisioningApiClient {
     Uint8List? body;
     final response = await rootClient.doRequest(
       'get',
-      Uri(path: path, queryParameters: queryParameters).toString(),
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
       headers,
       body,
     );
@@ -1067,7 +1067,7 @@ class ProvisioningApiClient {
     path = path.replaceAll('{userId}', Uri.encodeQueryComponent(userId.toString()));
     final response = await rootClient.doRequest(
       'get',
-      Uri(path: path, queryParameters: queryParameters).toString(),
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
       headers,
       body,
     );
@@ -1090,7 +1090,7 @@ class UserStatusClient {
     Uint8List? body;
     final response = await rootClient.doRequest(
       'get',
-      Uri(path: path, queryParameters: queryParameters).toString(),
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
       headers,
       body,
     );
@@ -1109,7 +1109,7 @@ class UserStatusClient {
     path = path.replaceAll('{userId}', Uri.encodeQueryComponent(userId.toString()));
     final response = await rootClient.doRequest(
       'get',
-      Uri(path: path, queryParameters: queryParameters).toString(),
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
       headers,
       body,
     );
@@ -1126,7 +1126,7 @@ class UserStatusClient {
     Uint8List? body;
     final response = await rootClient.doRequest(
       'get',
-      Uri(path: path, queryParameters: queryParameters).toString(),
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
       headers,
       body,
     );
@@ -1145,7 +1145,7 @@ class UserStatusClient {
     queryParameters['statusType'] = statusType.value.toString();
     final response = await rootClient.doRequest(
       'put',
-      Uri(path: path, queryParameters: queryParameters).toString(),
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
       headers,
       body,
     );
@@ -1170,7 +1170,7 @@ class UserStatusClient {
     }
     final response = await rootClient.doRequest(
       'put',
-      Uri(path: path, queryParameters: queryParameters).toString(),
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
       headers,
       body,
     );
@@ -1201,7 +1201,7 @@ class UserStatusClient {
     }
     final response = await rootClient.doRequest(
       'put',
-      Uri(path: path, queryParameters: queryParameters).toString(),
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
       headers,
       body,
     );
@@ -1219,7 +1219,7 @@ class UserStatusClient {
     Uint8List? body;
     final response = await rootClient.doRequest(
       'delete',
-      Uri(path: path, queryParameters: queryParameters).toString(),
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
       headers,
       body,
     );
@@ -1236,7 +1236,7 @@ class UserStatusClient {
     Uint8List? body;
     final response = await rootClient.doRequest(
       'get',
-      Uri(path: path, queryParameters: queryParameters).toString(),
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
       headers,
       body,
     );
@@ -1255,7 +1255,7 @@ class UserStatusClient {
     queryParameters['status'] = status.value.toString();
     final response = await rootClient.doRequest(
       'put',
-      Uri(path: path, queryParameters: queryParameters).toString(),
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
       headers,
       body,
     );
