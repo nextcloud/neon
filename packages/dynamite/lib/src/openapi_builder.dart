@@ -686,7 +686,7 @@ class OpenAPIBuilder implements Builder {
                               '''
                             final response = await ${isRootClient ? '' : 'rootClient.'}doRequest(
                               '$httpMethod',
-                              Uri(path: path, queryParameters: queryParameters).toString(),
+                              Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
                               headers,
                               body,
                             );
