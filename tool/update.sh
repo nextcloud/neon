@@ -23,6 +23,12 @@ elif [ -d "external/nextcloud-$1" ]; then
       latest_tag="$(git tag --sort=v:refname | grep -vi "rc" | grep -vi "alpha" | grep -vi "beta" | tail -n 1)"
       git reset --hard "$latest_tag"
       git submodule update
+
+      if [[ "$1" == "server" ]]; then
+        # shellcheck disable=SC2001
+        image_version=$(echo "$latest_tag" | sed "s/^v//")
+        sed -i "s/FROM nextcloud:.*/FROM nextcloud:$image_version/" ../../tool/Dockerfile.dev
+      fi
     )
 else
   echo "$1 not found"
