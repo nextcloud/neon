@@ -4,8 +4,10 @@ import 'package:test/test.dart';
 import 'helper.dart';
 
 Future main() async {
-  final image = await getDockerImage(apps: ['notes']);
+  await run(await getDockerImage());
+}
 
+Future run(final DockerImage image) async {
   group('notes', () {
     late DockerContainer container;
     late TestNextcloudClient client;

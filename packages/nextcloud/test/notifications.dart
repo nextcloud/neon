@@ -8,8 +8,10 @@ import 'package:test/test.dart';
 import 'helper.dart';
 
 Future main() async {
-  final image = await getDockerImage();
+  await run(await getDockerImage());
+}
 
+Future run(final DockerImage image) async {
   group('notifications', () {
     late DockerContainer container;
     late TestNextcloudClient client;

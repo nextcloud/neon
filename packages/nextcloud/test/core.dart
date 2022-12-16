@@ -4,13 +4,10 @@ import 'package:test/test.dart';
 import 'helper.dart';
 
 Future main() async {
-  final image = await getDockerImage(
-    apps: [
-      'news',
-      'notes',
-    ],
-  );
+  await run(await getDockerImage());
+}
 
+Future run(final DockerImage image) async {
   group('core', () {
     late DockerContainer container;
     late TestNextcloudClient client;
@@ -27,11 +24,12 @@ Future main() async {
 
     test('Get status', () async {
       final status = await client.core.getStatus();
+      print(status.toJson());
       expect(status.installed, true);
       expect(status.maintenance, false);
       expect(status.needsDbUpgrade, false);
-      expect(status.version, startsWith(nextcloudVersion));
-      expect(status.versionstring, startsWith('${nextcloudVersion.split('.')[0]}.'));
+      expect(status.version, startsWith('25.0.2'));
+      expect(status.versionstring, '25.0.2');
       expect(status.edition, '');
       expect(status.productname, 'Nextcloud');
       expect(status.extendedSupport, false);
@@ -39,8 +37,8 @@ Future main() async {
 
     test('Get capabilities', () async {
       final capabilities = await client.core.getCapabilities();
-      expect(capabilities.ocs.data.version.major.toString(), nextcloudVersion.split('.')[0]);
-      expect(capabilities.ocs.data.version.string, nextcloudVersion);
+      expect(capabilities.ocs.data.version.major.toString(), '25');
+      expect(capabilities.ocs.data.version.string, '25.0.2');
       expect(capabilities.ocs.data.capabilities.theming!.name, 'Nextcloud');
       expect(capabilities.ocs.data.capabilities.theming!.url, 'https://nextcloud.com');
       expect(capabilities.ocs.data.capabilities.theming!.slogan, 'a safe home for all your data');
@@ -75,7 +73,7 @@ Future main() async {
           ShareType.group.code,
         ],
       );
-      expect(response.ocs.data, hasLength(2));
+      expect(response.ocs.data, hasLength(3));
 
       expect(response.ocs.data[0].id, 'admin');
       expect(response.ocs.data[0].label, 'admin');
@@ -85,13 +83,21 @@ Future main() async {
       expect(response.ocs.data[0].subline, '');
       expect(response.ocs.data[0].shareWithDisplayNameUnique, 'admin@example.com');
 
-      expect(response.ocs.data[1].id, 'admin');
-      expect(response.ocs.data[1].label, 'admin');
-      expect(response.ocs.data[1].icon, '');
-      expect(response.ocs.data[1].source, 'groups');
-      expect(response.ocs.data[1].status.string, isEmpty);
+      expect(response.ocs.data[1].id, 'user2');
+      expect(response.ocs.data[1].label, 'User Two');
+      expect(response.ocs.data[1].icon, 'icon-user');
+      expect(response.ocs.data[1].source, 'users');
+      expect(response.ocs.data[1].status.string, isNull);
       expect(response.ocs.data[1].subline, '');
-      expect(response.ocs.data[1].shareWithDisplayNameUnique, '');
+      expect(response.ocs.data[1].shareWithDisplayNameUnique, 'user2');
+
+      expect(response.ocs.data[2].id, 'admin');
+      expect(response.ocs.data[2].label, 'admin');
+      expect(response.ocs.data[2].icon, '');
+      expect(response.ocs.data[2].source, 'groups');
+      expect(response.ocs.data[2].status.string, isEmpty);
+      expect(response.ocs.data[2].subline, '');
+      expect(response.ocs.data[2].shareWithDisplayNameUnique, '');
     });
   });
 }
