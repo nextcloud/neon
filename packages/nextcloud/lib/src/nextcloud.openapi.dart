@@ -3312,7 +3312,7 @@ enum NotesSettings_NoteMode {
       case 'preview':
         return NotesSettings_NoteMode.preview;
       default:
-        throw Exception('Can not parse UserStatusClearAtTime0 from "$value"');
+        throw Exception('Can not parse NotesSettings_NoteMode from "$value"');
     }
   }
 }
@@ -3949,7 +3949,7 @@ enum UserStatusClearAt_Type {
       case 'end-of':
         return UserStatusClearAt_Type.endOf;
       default:
-        throw Exception('Can not parse UserStatusClearAtTime0 from "$value"');
+        throw Exception('Can not parse UserStatusClearAt_Type from "$value"');
     }
   }
 }
@@ -3969,7 +3969,7 @@ enum UserStatusClearAt_Time0 {
       case 'week':
         return UserStatusClearAt_Time0.week;
       default:
-        throw Exception('Can not parse UserStatusClearAtTime0 from "$value"');
+        throw Exception('Can not parse UserStatusClearAt_Time0 from "$value"');
     }
   }
 }
@@ -4101,7 +4101,7 @@ enum UserStatusType {
       case 'invisible':
         return UserStatusType.invisible;
       default:
-        throw Exception('Can not parse UserStatusClearAtTime0 from "$value"');
+        throw Exception('Can not parse UserStatusType from "$value"');
     }
   }
 }

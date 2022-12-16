@@ -1548,7 +1548,7 @@ TypeResult resolveType(
                           'return $identifier.${_toDartName(value.toString())};',
                         ],
                         'default:',
-                        'throw Exception(\'Can not parse UserStatusClearAtTime0 from "\$value"\');',
+                        'throw Exception(\'Can not parse $identifier from "\$value"\');',
                         '}',
                       ].join(),
                     ),
