@@ -3,22 +3,9 @@ import 'dart:convert';
 import 'dart:io';
 import 'dart:math';
 
-import 'package:crypto/crypto.dart';
 import 'package:nextcloud/nextcloud.dart';
 import 'package:process_run/cmd_run.dart';
 import 'package:test/test.dart';
-
-const String nextcloudVersion = '25.0.2';
-const String defaultUsername = 'user1';
-const String defaultPassword = 'user1';
-
-class DockerImage {
-  DockerImage({
-    required this.name,
-  });
-
-  final String name;
-}
 
 class DockerContainer {
   DockerContainer({
@@ -98,8 +85,8 @@ class TestNextcloudClient extends NextcloudClient {
 
 Future<TestNextcloudClient> getTestClient(
   final DockerContainer container, {
-  final String? username = defaultUsername,
-  final String? password = defaultPassword,
+  final String? username = 'user1',
+  final String? password = 'user1',
   final bool useAppPassword = false,
   final AppType appType = AppType.unknown,
   final String? userAgentOverride,
@@ -172,7 +159,7 @@ Future<DockerContainer> getDockerContainer(final DockerImage image) async {
         '$port:80',
         '--add-host',
         'host.docker.internal:host-gateway',
-        image.name,
+        image,
       ],
     );
     // 125 means the docker run command itself has failed which indicated the port is already used
@@ -191,23 +178,10 @@ Future<DockerContainer> getDockerContainer(final DockerImage image) async {
   );
 }
 
-Future<DockerImage> getDockerImage({
-  final List<TestNextcloudUser>? users,
-  final List<String>? apps,
-}) async {
-  final hash = sha1
-      .convert(
-        utf8.encode(
-          <String>[
-            if (users != null)
-              for (final user in users) user.toString(),
-            if (apps != null) ...apps,
-          ].join(),
-        ),
-      )
-      .toString();
+typedef DockerImage = String;
 
-  final dockerImageName = 'nextcloud-neon-$hash';
+Future<DockerImage> getDockerImage() async {
+  const dockerImageName = 'nextcloud-neon-dev';
 
   final inputStream = StreamController<List<int>>();
   final process = runExecutableArguments(
@@ -218,21 +192,13 @@ Future<DockerImage> getDockerImage({
       dockerImageName,
       '-f',
       '-',
-      './test',
+      '../../tool',
     ],
     stdout: stdout,
     stderr: stderr,
     stdin: inputStream.stream,
   );
-  inputStream.add(
-    utf8.encode(
-      TestDockerHelper.generateInstructions(
-        nextcloudVersion,
-        users: users,
-        apps: apps,
-      ),
-    ),
-  );
+  inputStream.add(utf8.encode(File('../../tool/Dockerfile.dev').readAsStringSync()));
   await inputStream.close();
 
   final result = await process;
@@ -240,9 +206,7 @@ Future<DockerImage> getDockerImage({
     throw Exception('Failed to build docker image');
   }
 
-  return DockerImage(
-    name: dockerImageName,
-  );
+  return dockerImageName;
 }
 
 class TestNextcloudUser {
@@ -255,64 +219,6 @@ class TestNextcloudUser {
   final String username;
   final String password;
   final String? displayName;
-}
-
-class TestDockerHelper {
-  static String generateInstructions(
-    final String nextcloudVersion, {
-    final List<TestNextcloudUser>? users,
-    final List<String>? apps,
-  }) {
-    users?.sort((final a, final b) => a.username.compareTo(b.username));
-    apps?.sort();
-
-    final instructions = <String>[
-      generateFromNextcloudImageInstruction(nextcloudVersion),
-      'WORKDIR /usr/src/nextcloud',
-      'RUN chown -R www-data:www-data .',
-      'USER www-data',
-      'RUN ./occ maintenance:install --admin-pass admin --admin-email admin@example.com',
-      'RUN ./occ app:disable password_policy',
-      'RUN ./occ config:system:set allow_local_remote_servers --value=true',
-      generateCreateTestUserInstruction(),
-      if (apps != null) ...[
-        for (final app in apps) ...[
-          generateInstallAppInstruction(app),
-        ],
-      ],
-      if (users != null) ...[
-        for (final user in users) ...[
-          generateCreateUserInstruction(user),
-        ],
-      ],
-      'RUN ./occ app:enable password_policy',
-      'COPY --chown=www-data:www-data overlay /usr/src/nextcloud/',
-      '',
-    ];
-
-    return instructions.join('\n');
-  }
-
-  static String generateFromNextcloudImageInstruction(
-    final String nextcloudVersion,
-  ) =>
-      'FROM nextcloud:$nextcloudVersion';
-
-  static String generateCreateTestUserInstruction() => generateCreateUserInstruction(
-        TestNextcloudUser(
-          defaultUsername,
-          defaultPassword,
-          displayName: 'User One',
-        ),
-      );
-
-  static String generateCreateUserInstruction(final TestNextcloudUser user) =>
-      'RUN OC_PASS="${user.password}" ./occ user:add --password-from-env ${user.displayName != null ? '--display-name="${user.displayName}"' : ''} ${user.username}';
-
-  static String generateInstallAppInstruction(
-    final String appName,
-  ) =>
-      'RUN ./occ app:install $appName';
 }
 
 int randomPort() => 1024 + Random().nextInt(65535 - 1024);

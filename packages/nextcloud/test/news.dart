@@ -7,8 +7,10 @@ const wikipediaFeedURL = 'https://en.wikipedia.org/w/api.php?action=featuredfeed
 const nasaFeedURL = 'https://www.nasa.gov/rss/dyn/breaking_news.rss';
 
 Future main() async {
-  final image = await getDockerImage(apps: ['news']);
+  await run(await getDockerImage());
+}
 
+Future run(final DockerImage image) async {
   group('news', () {
     late DockerContainer container;
     late TestNextcloudClient client;
