@@ -573,6 +573,10 @@ class OpenAPIBuilder implements Builder {
                                 parameter.schema!,
                               );
 
+                              final defaultValueCode = parameter.schema?.default_ != null
+                                  ? _valueToEscapedValue(result.name, parameter.schema!.default_!.toString())
+                                  : null;
+
                               b.optionalParameters.add(
                                 Parameter(
                                   (final b) {
@@ -581,23 +585,15 @@ class OpenAPIBuilder implements Builder {
                                       ..name = _toDartName(parameter.name)
                                       ..required = parameter.required ?? false;
                                     if (parameter.schema != null) {
-                                      if (parameter.schema!.default_ != null) {
-                                        final value = parameter.schema!.default_!.toString();
-                                        final result = resolveType(
-                                          spec,
-                                          state,
-                                          parameter.schema!.type!,
-                                          parameter.schema!,
-                                        );
-                                        b.defaultTo = Code(_valueToEscapedValue(result.name, value));
-                                      }
-
                                       b.type = refer(
                                         _makeNullable(
                                           result.name,
                                           nullable,
                                         ),
                                       );
+                                    }
+                                    if (defaultValueCode != null) {
+                                      b.defaultTo = Code(defaultValueCode);
                                     }
                                   },
                                 ),
@@ -611,6 +607,9 @@ class OpenAPIBuilder implements Builder {
                                 result.serialize(_toDartName(parameter.name)),
                                 onlyChildren: isPlainList && parameter.in_ == 'query',
                               );
+                              if (defaultValueCode != null && parameter.in_ != 'path') {
+                                code.write('if (${_toDartName(parameter.name)} != $defaultValueCode) {');
+                              }
                               switch (parameter.in_) {
                                 case 'path':
                                   code.write(
@@ -629,6 +628,9 @@ class OpenAPIBuilder implements Builder {
                                   break;
                                 default:
                                   throw Exception('Can not work with parameter in "${parameter.in_}"');
+                              }
+                              if (defaultValueCode != null) {
+                                code.write('}');
                               }
                               if (nullable) {
                                 code.write('}');

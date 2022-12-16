@@ -262,12 +262,24 @@ class CoreClient {
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{};
     Uint8List? body;
-    queryParameters['file'] = file.toString();
-    queryParameters['x'] = x.toString();
-    queryParameters['y'] = y.toString();
-    queryParameters['a'] = a.toString();
-    queryParameters['forceIcon'] = forceIcon.toString();
-    queryParameters['mode'] = mode.toString();
+    if (file != '') {
+      queryParameters['file'] = file.toString();
+    }
+    if (x != 32) {
+      queryParameters['x'] = x.toString();
+    }
+    if (y != 32) {
+      queryParameters['y'] = y.toString();
+    }
+    if (a != 0) {
+      queryParameters['a'] = a.toString();
+    }
+    if (forceIcon != 1) {
+      queryParameters['forceIcon'] = forceIcon.toString();
+    }
+    if (mode != 'fill') {
+      queryParameters['mode'] = mode.toString();
+    }
     final response = await rootClient.doRequest(
       'get',
       Uri(path: path, queryParameters: queryParameters).toString(),
@@ -584,12 +596,24 @@ class NewsClient {
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{};
     Uint8List? body;
-    queryParameters['type'] = type.toString();
-    queryParameters['id'] = id.toString();
-    queryParameters['getRead'] = getRead.toString();
-    queryParameters['batchSize'] = batchSize.toString();
-    queryParameters['offset'] = offset.toString();
-    queryParameters['oldestFirst'] = oldestFirst.toString();
+    if (type != 3) {
+      queryParameters['type'] = type.toString();
+    }
+    if (id != 0) {
+      queryParameters['id'] = id.toString();
+    }
+    if (getRead != 1) {
+      queryParameters['getRead'] = getRead.toString();
+    }
+    if (batchSize != -1) {
+      queryParameters['batchSize'] = batchSize.toString();
+    }
+    if (offset != 0) {
+      queryParameters['offset'] = offset.toString();
+    }
+    if (oldestFirst != 0) {
+      queryParameters['oldestFirst'] = oldestFirst.toString();
+    }
     final response = await rootClient.doRequest(
       'get',
       Uri(path: path, queryParameters: queryParameters).toString(),
@@ -611,9 +635,15 @@ class NewsClient {
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{};
     Uint8List? body;
-    queryParameters['type'] = type.toString();
-    queryParameters['id'] = id.toString();
-    queryParameters['lastModified'] = lastModified.toString();
+    if (type != 3) {
+      queryParameters['type'] = type.toString();
+    }
+    if (id != 0) {
+      queryParameters['id'] = id.toString();
+    }
+    if (lastModified != 0) {
+      queryParameters['lastModified'] = lastModified.toString();
+    }
     final response = await rootClient.doRequest(
       'get',
       Uri(path: path, queryParameters: queryParameters).toString(),
@@ -719,9 +749,15 @@ class NotesClient {
     if (category != null) {
       queryParameters['category'] = category.toString();
     }
-    queryParameters['exclude'] = exclude.toString();
-    queryParameters['pruneBefore'] = pruneBefore.toString();
-    queryParameters['chunkSize'] = chunkSize.toString();
+    if (exclude != '') {
+      queryParameters['exclude'] = exclude.toString();
+    }
+    if (pruneBefore != 0) {
+      queryParameters['pruneBefore'] = pruneBefore.toString();
+    }
+    if (chunkSize != 0) {
+      queryParameters['chunkSize'] = chunkSize.toString();
+    }
     if (chunkCursor != null) {
       queryParameters['chunkCursor'] = chunkCursor.toString();
     }
@@ -753,11 +789,21 @@ class NotesClient {
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{};
     Uint8List? body;
-    queryParameters['category'] = category.toString();
-    queryParameters['title'] = title.toString();
-    queryParameters['content'] = content.toString();
-    queryParameters['modified'] = modified.toString();
-    queryParameters['favorite'] = favorite.toString();
+    if (category != '') {
+      queryParameters['category'] = category.toString();
+    }
+    if (title != '') {
+      queryParameters['title'] = title.toString();
+    }
+    if (content != '') {
+      queryParameters['content'] = content.toString();
+    }
+    if (modified != 0) {
+      queryParameters['modified'] = modified.toString();
+    }
+    if (favorite != 0) {
+      queryParameters['favorite'] = favorite.toString();
+    }
     final response = await rootClient.doRequest(
       'post',
       Uri(path: path, queryParameters: queryParameters).toString(),
@@ -780,7 +826,9 @@ class NotesClient {
     final headers = <String, String>{};
     Uint8List? body;
     path = path.replaceAll('{id}', Uri.encodeQueryComponent(id.toString()));
-    queryParameters['exclude'] = exclude.toString();
+    if (exclude != '') {
+      queryParameters['exclude'] = exclude.toString();
+    }
     if (ifNoneMatch != null) {
       headers['If-None-Match'] = ifNoneMatch.toString();
     }
@@ -822,7 +870,9 @@ class NotesClient {
     if (category != null) {
       queryParameters['category'] = category.toString();
     }
-    queryParameters['favorite'] = favorite.toString();
+    if (favorite != 0) {
+      queryParameters['favorite'] = favorite.toString();
+    }
     if (ifMatch != null) {
       headers['If-Match'] = ifMatch.toString();
     }
@@ -1023,7 +1073,9 @@ class NotificationsClient {
     Uint8List? body;
     path = path.replaceAll('{userId}', Uri.encodeQueryComponent(userId.toString()));
     queryParameters['shortMessage'] = shortMessage.toString();
-    queryParameters['longMessage'] = longMessage.toString();
+    if (longMessage != '') {
+      queryParameters['longMessage'] = longMessage.toString();
+    }
     final response = await rootClient.doRequest(
       'post',
       Uri(path: path, queryParameters: queryParameters).toString(),
