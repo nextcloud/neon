@@ -335,6 +335,40 @@ class CoreClient {
     }
     throw ApiException.fromResponse(response); // coverage:ignore-line
   }
+
+  Future<CoreAutocompleteResult> autocomplete({
+    required String search,
+    required String itemType,
+    required String itemId,
+    String? sorter,
+    required List<int> shareTypes,
+    int limit = 10,
+  }) async {
+    var path = '/ocs/v2.php/core/autocomplete/get';
+    final queryParameters = <String, dynamic>{};
+    final headers = <String, String>{};
+    Uint8List? body;
+    queryParameters['search'] = search;
+    queryParameters['itemType'] = itemType;
+    queryParameters['itemId'] = itemId;
+    if (sorter != null) {
+      queryParameters['sorter'] = sorter;
+    }
+    queryParameters['shareTypes[]'] = shareTypes.map((final e) => e).toList().map((final e) => e.toString()).toList();
+    if (limit != 10) {
+      queryParameters['limit'] = limit.toString();
+    }
+    final response = await rootClient.doRequest(
+      'get',
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
+      headers,
+      body,
+    );
+    if (response.statusCode == 200) {
+      return CoreAutocompleteResult.fromJson(json.decode(utf8.decode(response.body) as String) as Map<String, dynamic>);
+    }
+    throw ApiException.fromResponse(response); // coverage:ignore-line
+  }
 }
 
 class NewsClient {
@@ -3063,6 +3097,117 @@ class CoreLoginFlowResult {
   static String toJsonString(CoreLoginFlowResult data) => json.encode(data.toJson());
 }
 
+class CoreAutocompleteResult_Ocs_Data_Status {
+  CoreAutocompleteResult_Ocs_Data_Status(
+    this._data, {
+    this.string,
+  });
+
+  factory CoreAutocompleteResult_Ocs_Data_Status.fromJson(dynamic data) {
+    String? string;
+    try {
+      string = (data as String);
+    } catch (_) {}
+    return CoreAutocompleteResult_Ocs_Data_Status(
+      data,
+      string: string,
+    );
+  }
+
+  factory CoreAutocompleteResult_Ocs_Data_Status.fromJsonString(String data) =>
+      CoreAutocompleteResult_Ocs_Data_Status.fromJson(json.decode(data));
+
+  final dynamic _data;
+
+  final String? string;
+
+  // coverage:ignore-start
+  dynamic toJson() => _data;
+  // coverage:ignore-end
+
+  static String toJsonString(dynamic data) => json.encode(data);
+}
+
+@JsonSerializable()
+class CoreAutocompleteResult_Ocs_Data {
+  CoreAutocompleteResult_Ocs_Data({
+    required this.id,
+    required this.label,
+    required this.icon,
+    required this.source,
+    required this.status,
+    required this.subline,
+    required this.shareWithDisplayNameUnique,
+  });
+
+  factory CoreAutocompleteResult_Ocs_Data.fromJson(Map<String, dynamic> json) =>
+      _$CoreAutocompleteResult_Ocs_DataFromJson(json);
+
+  factory CoreAutocompleteResult_Ocs_Data.fromJsonString(String data) =>
+      CoreAutocompleteResult_Ocs_Data.fromJson(json.decode(data) as Map<String, dynamic>);
+
+  final String id;
+
+  final String label;
+
+  final String icon;
+
+  final String source;
+
+  final CoreAutocompleteResult_Ocs_Data_Status status;
+
+  final String subline;
+
+  final String shareWithDisplayNameUnique;
+
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$CoreAutocompleteResult_Ocs_DataToJson(this);
+  // coverage:ignore-end
+
+  static String toJsonString(CoreAutocompleteResult_Ocs_Data data) => json.encode(data.toJson());
+}
+
+@JsonSerializable()
+class CoreAutocompleteResult_Ocs {
+  CoreAutocompleteResult_Ocs({
+    required this.meta,
+    required this.data,
+  });
+
+  factory CoreAutocompleteResult_Ocs.fromJson(Map<String, dynamic> json) => _$CoreAutocompleteResult_OcsFromJson(json);
+
+  factory CoreAutocompleteResult_Ocs.fromJsonString(String data) =>
+      CoreAutocompleteResult_Ocs.fromJson(json.decode(data) as Map<String, dynamic>);
+
+  final OCSMeta meta;
+
+  final List<CoreAutocompleteResult_Ocs_Data> data;
+
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$CoreAutocompleteResult_OcsToJson(this);
+  // coverage:ignore-end
+
+  static String toJsonString(CoreAutocompleteResult_Ocs data) => json.encode(data.toJson());
+}
+
+@JsonSerializable()
+class CoreAutocompleteResult {
+  CoreAutocompleteResult({required this.ocs});
+
+  factory CoreAutocompleteResult.fromJson(Map<String, dynamic> json) => _$CoreAutocompleteResultFromJson(json);
+
+  factory CoreAutocompleteResult.fromJsonString(String data) =>
+      CoreAutocompleteResult.fromJson(json.decode(data) as Map<String, dynamic>);
+
+  final CoreAutocompleteResult_Ocs ocs;
+
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$CoreAutocompleteResultToJson(this);
+  // coverage:ignore-end
+
+  static String toJsonString(CoreAutocompleteResult data) => json.encode(data.toJson());
+}
+
 @JsonSerializable()
 class GetSupportedApiVersions {
   GetSupportedApiVersions({this.apiLevels});
@@ -4950,6 +5095,16 @@ final _deserializers = <Type, dynamic Function(dynamic)>{
   CoreLoginFlowResult: (final data) => CoreLoginFlowResult.fromJson(data as Map<String, dynamic>),
   List<CoreLoginFlowResult>: (final data) =>
       (data as List).map((final e) => CoreLoginFlowResult.fromJson(e as Map<String, dynamic>)).toList(),
+  CoreAutocompleteResult: (final data) => CoreAutocompleteResult.fromJson(data as Map<String, dynamic>),
+  List<CoreAutocompleteResult>: (final data) =>
+      (data as List).map((final e) => CoreAutocompleteResult.fromJson(e as Map<String, dynamic>)).toList(),
+  CoreAutocompleteResult_Ocs: (final data) => CoreAutocompleteResult_Ocs.fromJson(data as Map<String, dynamic>),
+  List<CoreAutocompleteResult_Ocs>: (final data) =>
+      (data as List).map((final e) => CoreAutocompleteResult_Ocs.fromJson(e as Map<String, dynamic>)).toList(),
+  CoreAutocompleteResult_Ocs_Data: (final data) =>
+      CoreAutocompleteResult_Ocs_Data.fromJson(data as Map<String, dynamic>),
+  List<CoreAutocompleteResult_Ocs_Data>: (final data) =>
+      (data as List).map((final e) => CoreAutocompleteResult_Ocs_Data.fromJson(e as Map<String, dynamic>)).toList(),
   GetSupportedApiVersions: (final data) => GetSupportedApiVersions.fromJson(data as Map<String, dynamic>),
   List<GetSupportedApiVersions>: (final data) =>
       (data as List).map((final e) => GetSupportedApiVersions.fromJson(e as Map<String, dynamic>)).toList(),
@@ -5240,6 +5395,12 @@ final _serializers = <Type, dynamic Function(dynamic)>{
   List<CoreLoginFlowInit_Poll>: (final data) => data.map((final e) => e.toJson()).toList(),
   CoreLoginFlowResult: (final data) => data.toJson(),
   List<CoreLoginFlowResult>: (final data) => data.map((final e) => e.toJson()).toList(),
+  CoreAutocompleteResult: (final data) => data.toJson(),
+  List<CoreAutocompleteResult>: (final data) => data.map((final e) => e.toJson()).toList(),
+  CoreAutocompleteResult_Ocs: (final data) => data.toJson(),
+  List<CoreAutocompleteResult_Ocs>: (final data) => data.map((final e) => e.toJson()).toList(),
+  CoreAutocompleteResult_Ocs_Data: (final data) => data.toJson(),
+  List<CoreAutocompleteResult_Ocs_Data>: (final data) => data.map((final e) => e.toJson()).toList(),
   GetSupportedApiVersions: (final data) => data.toJson(),
   List<GetSupportedApiVersions>: (final data) => data.map((final e) => e.toJson()).toList(),
   NewsListFolders: (final data) => data.toJson(),

@@ -81,3 +81,23 @@ enum NewsListType {
 
   final int code;
 }
+
+enum ShareType {
+  user(0),
+  group(1),
+  usergroup(2),
+  link(3),
+  email(4),
+  // 5 was contact, is no longer used
+  remote(6),
+  circle(7),
+  guest(8),
+  remoteGroup(9),
+  room(10),
+  // 11 is userroom, but it's only used internally
+  deck(12),
+  deckUser(13);
+
+  const ShareType(this.code);
+  final int code;
+}

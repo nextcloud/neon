@@ -1139,6 +1139,65 @@ Map<String, dynamic> _$CoreLoginFlowResultToJson(CoreLoginFlowResult instance) =
       'appPassword': instance.appPassword,
     };
 
+CoreAutocompleteResult_Ocs_Data _$CoreAutocompleteResult_Ocs_DataFromJson(Map<String, dynamic> json) {
+  $checkKeys(
+    json,
+    allowedKeys: const ['id', 'label', 'icon', 'source', 'status', 'subline', 'shareWithDisplayNameUnique'],
+  );
+  return CoreAutocompleteResult_Ocs_Data(
+    id: json['id'] as String,
+    label: json['label'] as String,
+    icon: json['icon'] as String,
+    source: json['source'] as String,
+    status: CoreAutocompleteResult_Ocs_Data_Status.fromJson(json['status']),
+    subline: json['subline'] as String,
+    shareWithDisplayNameUnique: json['shareWithDisplayNameUnique'] as String,
+  );
+}
+
+Map<String, dynamic> _$CoreAutocompleteResult_Ocs_DataToJson(CoreAutocompleteResult_Ocs_Data instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'label': instance.label,
+      'icon': instance.icon,
+      'source': instance.source,
+      'status': instance.status.toJson(),
+      'subline': instance.subline,
+      'shareWithDisplayNameUnique': instance.shareWithDisplayNameUnique,
+    };
+
+CoreAutocompleteResult_Ocs _$CoreAutocompleteResult_OcsFromJson(Map<String, dynamic> json) {
+  $checkKeys(
+    json,
+    allowedKeys: const ['meta', 'data'],
+  );
+  return CoreAutocompleteResult_Ocs(
+    meta: OCSMeta.fromJson(json['meta'] as Map<String, dynamic>),
+    data: (json['data'] as List<dynamic>)
+        .map((e) => CoreAutocompleteResult_Ocs_Data.fromJson(e as Map<String, dynamic>))
+        .toList(),
+  );
+}
+
+Map<String, dynamic> _$CoreAutocompleteResult_OcsToJson(CoreAutocompleteResult_Ocs instance) => <String, dynamic>{
+      'meta': instance.meta.toJson(),
+      'data': instance.data.map((e) => e.toJson()).toList(),
+    };
+
+CoreAutocompleteResult _$CoreAutocompleteResultFromJson(Map<String, dynamic> json) {
+  $checkKeys(
+    json,
+    allowedKeys: const ['ocs'],
+  );
+  return CoreAutocompleteResult(
+    ocs: CoreAutocompleteResult_Ocs.fromJson(json['ocs'] as Map<String, dynamic>),
+  );
+}
+
+Map<String, dynamic> _$CoreAutocompleteResultToJson(CoreAutocompleteResult instance) => <String, dynamic>{
+      'ocs': instance.ocs.toJson(),
+    };
+
 GetSupportedApiVersions _$GetSupportedApiVersionsFromJson(Map<String, dynamic> json) {
   $checkKeys(
     json,
