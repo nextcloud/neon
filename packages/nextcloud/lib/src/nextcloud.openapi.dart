@@ -237,7 +237,7 @@ class CoreClient {
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{};
     Uint8List? body;
-    queryParameters['token'] = token.toString();
+    queryParameters['token'] = token;
     final response = await rootClient.doRequest(
       'post',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
@@ -263,7 +263,7 @@ class CoreClient {
     final headers = <String, String>{};
     Uint8List? body;
     if (file != '') {
-      queryParameters['file'] = file.toString();
+      queryParameters['file'] = file;
     }
     if (x != 32) {
       queryParameters['x'] = x.toString();
@@ -278,7 +278,7 @@ class CoreClient {
       queryParameters['forceIcon'] = forceIcon.toString();
     }
     if (mode != 'fill') {
-      queryParameters['mode'] = mode.toString();
+      queryParameters['mode'] = mode;
     }
     final response = await rootClient.doRequest(
       'get',
@@ -300,7 +300,7 @@ class CoreClient {
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{};
     Uint8List? body;
-    path = path.replaceAll('{userId}', Uri.encodeQueryComponent(userId.toString()));
+    path = path.replaceAll('{userId}', Uri.encodeQueryComponent(userId));
     path = path.replaceAll('{size}', Uri.encodeQueryComponent(size.toString()));
     final response = await rootClient.doRequest(
       'get',
@@ -322,7 +322,7 @@ class CoreClient {
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{};
     Uint8List? body;
-    path = path.replaceAll('{userId}', Uri.encodeQueryComponent(userId.toString()));
+    path = path.replaceAll('{userId}', Uri.encodeQueryComponent(userId));
     path = path.replaceAll('{size}', Uri.encodeQueryComponent(size.toString()));
     final response = await rootClient.doRequest(
       'get',
@@ -382,7 +382,7 @@ class NewsClient {
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{};
     Uint8List? body;
-    queryParameters['name'] = name.toString();
+    queryParameters['name'] = name;
     final response = await rootClient.doRequest(
       'post',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
@@ -404,7 +404,7 @@ class NewsClient {
     final headers = <String, String>{};
     Uint8List? body;
     path = path.replaceAll('{folderId}', Uri.encodeQueryComponent(folderId.toString()));
-    queryParameters['name'] = name.toString();
+    queryParameters['name'] = name;
     final response = await rootClient.doRequest(
       'put',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
@@ -482,7 +482,7 @@ class NewsClient {
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{};
     Uint8List? body;
-    queryParameters['url'] = url.toString();
+    queryParameters['url'] = url;
     if (folderId != null) {
       queryParameters['folderId'] = folderId.toString();
     }
@@ -549,7 +549,7 @@ class NewsClient {
     final headers = <String, String>{};
     Uint8List? body;
     path = path.replaceAll('{feedId}', Uri.encodeQueryComponent(feedId.toString()));
-    queryParameters['feedTitle'] = feedTitle.toString();
+    queryParameters['feedTitle'] = feedTitle;
     final response = await rootClient.doRequest(
       'post',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
@@ -747,10 +747,10 @@ class NotesClient {
     final headers = <String, String>{};
     Uint8List? body;
     if (category != null) {
-      queryParameters['category'] = category.toString();
+      queryParameters['category'] = category;
     }
     if (exclude != '') {
-      queryParameters['exclude'] = exclude.toString();
+      queryParameters['exclude'] = exclude;
     }
     if (pruneBefore != 0) {
       queryParameters['pruneBefore'] = pruneBefore.toString();
@@ -759,10 +759,10 @@ class NotesClient {
       queryParameters['chunkSize'] = chunkSize.toString();
     }
     if (chunkCursor != null) {
-      queryParameters['chunkCursor'] = chunkCursor.toString();
+      queryParameters['chunkCursor'] = chunkCursor;
     }
     if (ifNoneMatch != null) {
-      headers['If-None-Match'] = ifNoneMatch.toString();
+      headers['If-None-Match'] = ifNoneMatch;
     }
     final response = await rootClient.doRequest(
       'get',
@@ -790,13 +790,13 @@ class NotesClient {
     final headers = <String, String>{};
     Uint8List? body;
     if (category != '') {
-      queryParameters['category'] = category.toString();
+      queryParameters['category'] = category;
     }
     if (title != '') {
-      queryParameters['title'] = title.toString();
+      queryParameters['title'] = title;
     }
     if (content != '') {
-      queryParameters['content'] = content.toString();
+      queryParameters['content'] = content;
     }
     if (modified != 0) {
       queryParameters['modified'] = modified.toString();
@@ -827,10 +827,10 @@ class NotesClient {
     Uint8List? body;
     path = path.replaceAll('{id}', Uri.encodeQueryComponent(id.toString()));
     if (exclude != '') {
-      queryParameters['exclude'] = exclude.toString();
+      queryParameters['exclude'] = exclude;
     }
     if (ifNoneMatch != null) {
-      headers['If-None-Match'] = ifNoneMatch.toString();
+      headers['If-None-Match'] = ifNoneMatch;
     }
     final response = await rootClient.doRequest(
       'get',
@@ -859,22 +859,22 @@ class NotesClient {
     Uint8List? body;
     path = path.replaceAll('{id}', Uri.encodeQueryComponent(id.toString()));
     if (content != null) {
-      queryParameters['content'] = content.toString();
+      queryParameters['content'] = content;
     }
     if (modified != null) {
       queryParameters['modified'] = modified.toString();
     }
     if (title != null) {
-      queryParameters['title'] = title.toString();
+      queryParameters['title'] = title;
     }
     if (category != null) {
-      queryParameters['category'] = category.toString();
+      queryParameters['category'] = category;
     }
     if (favorite != 0) {
       queryParameters['favorite'] = favorite.toString();
     }
     if (ifMatch != null) {
-      headers['If-Match'] = ifMatch.toString();
+      headers['If-Match'] = ifMatch;
     }
     final response = await rootClient.doRequest(
       'put',
@@ -1029,9 +1029,9 @@ class NotificationsClient {
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{};
     Uint8List? body;
-    queryParameters['pushTokenHash'] = pushTokenHash.toString();
-    queryParameters['devicePublicKey'] = devicePublicKey.toString();
-    queryParameters['proxyServer'] = proxyServer.toString();
+    queryParameters['pushTokenHash'] = pushTokenHash;
+    queryParameters['devicePublicKey'] = devicePublicKey;
+    queryParameters['proxyServer'] = proxyServer;
     final response = await rootClient.doRequest(
       'post',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
@@ -1071,10 +1071,10 @@ class NotificationsClient {
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{};
     Uint8List? body;
-    path = path.replaceAll('{userId}', Uri.encodeQueryComponent(userId.toString()));
-    queryParameters['shortMessage'] = shortMessage.toString();
+    path = path.replaceAll('{userId}', Uri.encodeQueryComponent(userId));
+    queryParameters['shortMessage'] = shortMessage;
     if (longMessage != '') {
-      queryParameters['longMessage'] = longMessage.toString();
+      queryParameters['longMessage'] = longMessage;
     }
     final response = await rootClient.doRequest(
       'post',
@@ -1116,7 +1116,7 @@ class ProvisioningApiClient {
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{};
     Uint8List? body;
-    path = path.replaceAll('{userId}', Uri.encodeQueryComponent(userId.toString()));
+    path = path.replaceAll('{userId}', Uri.encodeQueryComponent(userId));
     final response = await rootClient.doRequest(
       'get',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
@@ -1158,7 +1158,7 @@ class UserStatusClient {
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{};
     Uint8List? body;
-    path = path.replaceAll('{userId}', Uri.encodeQueryComponent(userId.toString()));
+    path = path.replaceAll('{userId}', Uri.encodeQueryComponent(userId));
     final response = await rootClient.doRequest(
       'get',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
@@ -1194,7 +1194,7 @@ class UserStatusClient {
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{};
     Uint8List? body;
-    queryParameters['statusType'] = statusType.value.toString();
+    queryParameters['statusType'] = statusType.value;
     final response = await rootClient.doRequest(
       'put',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
@@ -1216,7 +1216,7 @@ class UserStatusClient {
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{};
     Uint8List? body;
-    queryParameters['messageId'] = messageId.toString();
+    queryParameters['messageId'] = messageId;
     if (clearAt != null) {
       queryParameters['clearAt'] = clearAt.toString();
     }
@@ -1243,10 +1243,10 @@ class UserStatusClient {
     final headers = <String, String>{};
     Uint8List? body;
     if (statusIcon != null) {
-      queryParameters['statusIcon'] = statusIcon.toString();
+      queryParameters['statusIcon'] = statusIcon;
     }
     if (message != null) {
-      queryParameters['message'] = message.toString();
+      queryParameters['message'] = message;
     }
     if (clearAt != null) {
       queryParameters['clearAt'] = clearAt.toString();
@@ -1304,7 +1304,7 @@ class UserStatusClient {
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{};
     Uint8List? body;
-    queryParameters['status'] = status.value.toString();
+    queryParameters['status'] = status.value;
     final response = await rootClient.doRequest(
       'put',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
