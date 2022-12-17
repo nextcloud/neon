@@ -2,13 +2,6 @@
 
 part of '../nextcloud.dart';
 
-extension HttpClientResponseBody on HttpClientResponse {
-  Future<Uint8List> get bodyBytes async =>
-      Uint8List.fromList((await toList()).reduce((final value, final element) => [...value, ...element]));
-
-  Future<String> get body async => utf8.decode(await bodyBytes);
-}
-
 extension UserDetailsDisplayName on ProvisioningApiUserDetails {
   /// This is used to work around an API change that wasn't made for every endpoint
   /// See https://github.com/nextcloud/server/commit/5086335643b6181284ee50f57b95525002842992
