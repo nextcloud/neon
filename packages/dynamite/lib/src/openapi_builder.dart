@@ -861,24 +861,35 @@ class OpenAPIBuilder implements Builder {
       final formatter = DartFormatter(
         pageWidth: 120,
       );
+      const coverageIgnoreStart = '  // coverage:ignore-start';
+      const coverageIgnoreEnd = '  // coverage:ignore-end';
+      final patterns = [
+        RegExp(
+          r'factory .*\.fromJson\(Map<String, dynamic> json\) => _\$.*FromJson\(json\);',
+        ),
+        RegExp(
+          r'Map<String, dynamic> toJson\(\) => _\$.*ToJson\(this\);',
+        ),
+        RegExp(
+          r'factory .*\.fromJsonString\(String data\) => .*\.fromJson\(json\.decode\(data\)(?: as Map<String, dynamic>)?\);',
+        ),
+        RegExp(
+          r'static String toJsonString\(.* data\) => json\.encode\(data(?:\.toJson\(\))?\);',
+        ),
+        RegExp(
+          r'dynamic toJson\(\) => _data;',
+        ),
+      ];
+      var outputString = output.join('\n');
+      for (final pattern in patterns) {
+        outputString = outputString.replaceAllMapped(
+          pattern,
+          (final match) => '$coverageIgnoreStart\n${match.group(0)}\n$coverageIgnoreEnd',
+        );
+      }
       await buildStep.writeAsString(
         outputId,
-        formatter.format(
-          output
-              .join('\n')
-              .replaceAll(
-                'Map<String, dynamic> toJson()',
-                '  // coverage:ignore-start\nMap<String, dynamic> toJson()',
-              )
-              .replaceAll(
-                'ToJson(this);',
-                'ToJson(this);\n  // coverage:ignore-end\n',
-              )
-              .replaceAll(
-                'dynamic toJson() => _data;',
-                '  // coverage:ignore-start\ndynamic toJson() => _data;\n  // coverage:ignore-end\n',
-              ),
-        ),
+        formatter.format(outputString),
       );
     } catch (e, s) {
       print(s);

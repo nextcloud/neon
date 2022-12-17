@@ -1365,10 +1365,14 @@ class CoreServerStatus {
     required this.extendedSupport,
   });
 
+  // coverage:ignore-start
   factory CoreServerStatus.fromJson(Map<String, dynamic> json) => _$CoreServerStatusFromJson(json);
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   factory CoreServerStatus.fromJsonString(String data) =>
       CoreServerStatus.fromJson(json.decode(data) as Map<String, dynamic>);
+  // coverage:ignore-end
 
   final bool installed;
 
@@ -1389,8 +1393,9 @@ class CoreServerStatus {
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreServerStatusToJson(this);
   // coverage:ignore-end
-
+  // coverage:ignore-start
   static String toJsonString(CoreServerStatus data) => json.encode(data.toJson());
+  // coverage:ignore-end
 }
 
 @JsonSerializable()
@@ -1403,9 +1408,13 @@ class OCSMeta {
     this.itemsperpage,
   });
 
+  // coverage:ignore-start
   factory OCSMeta.fromJson(Map<String, dynamic> json) => _$OCSMetaFromJson(json);
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   factory OCSMeta.fromJsonString(String data) => OCSMeta.fromJson(json.decode(data) as Map<String, dynamic>);
+  // coverage:ignore-end
 
   final String status;
 
@@ -1420,8 +1429,9 @@ class OCSMeta {
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$OCSMetaToJson(this);
   // coverage:ignore-end
-
+  // coverage:ignore-start
   static String toJsonString(OCSMeta data) => json.encode(data.toJson());
+  // coverage:ignore-end
 }
 
 @JsonSerializable()
@@ -1435,11 +1445,15 @@ class CoreServerCapabilities_Ocs_Data_Version {
     this.extendedSupport,
   });
 
+  // coverage:ignore-start
   factory CoreServerCapabilities_Ocs_Data_Version.fromJson(Map<String, dynamic> json) =>
       _$CoreServerCapabilities_Ocs_Data_VersionFromJson(json);
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   factory CoreServerCapabilities_Ocs_Data_Version.fromJsonString(String data) =>
       CoreServerCapabilities_Ocs_Data_Version.fromJson(json.decode(data) as Map<String, dynamic>);
+  // coverage:ignore-end
 
   final int? major;
 
@@ -1456,8 +1470,9 @@ class CoreServerCapabilities_Ocs_Data_Version {
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreServerCapabilities_Ocs_Data_VersionToJson(this);
   // coverage:ignore-end
-
+  // coverage:ignore-start
   static String toJsonString(CoreServerCapabilities_Ocs_Data_Version data) => json.encode(data.toJson());
+  // coverage:ignore-end
 }
 
 @JsonSerializable(disallowUnrecognizedKeys: false)
@@ -1469,11 +1484,15 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_Core {
     this.referenceRegex,
   });
 
+  // coverage:ignore-start
   factory CoreServerCapabilities_Ocs_Data_Capabilities_Core.fromJson(Map<String, dynamic> json) =>
       _$CoreServerCapabilities_Ocs_Data_Capabilities_CoreFromJson(json);
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   factory CoreServerCapabilities_Ocs_Data_Capabilities_Core.fromJsonString(String data) =>
       CoreServerCapabilities_Ocs_Data_Capabilities_Core.fromJson(json.decode(data) as Map<String, dynamic>);
+  // coverage:ignore-end
 
   final int? pollinterval;
 
@@ -1489,28 +1508,34 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_Core {
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreServerCapabilities_Ocs_Data_Capabilities_CoreToJson(this);
   // coverage:ignore-end
-
+  // coverage:ignore-start
   static String toJsonString(CoreServerCapabilities_Ocs_Data_Capabilities_Core data) => json.encode(data.toJson());
+  // coverage:ignore-end
 }
 
 @JsonSerializable(disallowUnrecognizedKeys: false)
 class CoreServerCapabilities_Ocs_Data_Capabilities_Bruteforce {
   CoreServerCapabilities_Ocs_Data_Capabilities_Bruteforce({this.delay});
 
+  // coverage:ignore-start
   factory CoreServerCapabilities_Ocs_Data_Capabilities_Bruteforce.fromJson(Map<String, dynamic> json) =>
       _$CoreServerCapabilities_Ocs_Data_Capabilities_BruteforceFromJson(json);
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   factory CoreServerCapabilities_Ocs_Data_Capabilities_Bruteforce.fromJsonString(String data) =>
       CoreServerCapabilities_Ocs_Data_Capabilities_Bruteforce.fromJson(json.decode(data) as Map<String, dynamic>);
+  // coverage:ignore-end
 
   final int? delay;
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreServerCapabilities_Ocs_Data_Capabilities_BruteforceToJson(this);
   // coverage:ignore-end
-
+  // coverage:ignore-start
   static String toJsonString(CoreServerCapabilities_Ocs_Data_Capabilities_Bruteforce data) =>
       json.encode(data.toJson());
+  // coverage:ignore-end
 }
 
 @JsonSerializable(disallowUnrecognizedKeys: false)
@@ -1520,12 +1545,16 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_MetadataAvailable {
     this.gps,
   });
 
+  // coverage:ignore-start
   factory CoreServerCapabilities_Ocs_Data_Capabilities_MetadataAvailable.fromJson(Map<String, dynamic> json) =>
       _$CoreServerCapabilities_Ocs_Data_Capabilities_MetadataAvailableFromJson(json);
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   factory CoreServerCapabilities_Ocs_Data_Capabilities_MetadataAvailable.fromJsonString(String data) =>
       CoreServerCapabilities_Ocs_Data_Capabilities_MetadataAvailable.fromJson(
           json.decode(data) as Map<String, dynamic>);
+  // coverage:ignore-end
 
   final List<String>? size;
 
@@ -1534,9 +1563,10 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_MetadataAvailable {
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreServerCapabilities_Ocs_Data_Capabilities_MetadataAvailableToJson(this);
   // coverage:ignore-end
-
+  // coverage:ignore-start
   static String toJsonString(CoreServerCapabilities_Ocs_Data_Capabilities_MetadataAvailable data) =>
       json.encode(data.toJson());
+  // coverage:ignore-end
 }
 
 @JsonSerializable(disallowUnrecognizedKeys: false)
@@ -1546,12 +1576,16 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_Files_DirectEditing {
     this.etag,
   });
 
+  // coverage:ignore-start
   factory CoreServerCapabilities_Ocs_Data_Capabilities_Files_DirectEditing.fromJson(Map<String, dynamic> json) =>
       _$CoreServerCapabilities_Ocs_Data_Capabilities_Files_DirectEditingFromJson(json);
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   factory CoreServerCapabilities_Ocs_Data_Capabilities_Files_DirectEditing.fromJsonString(String data) =>
       CoreServerCapabilities_Ocs_Data_Capabilities_Files_DirectEditing.fromJson(
           json.decode(data) as Map<String, dynamic>);
+  // coverage:ignore-end
 
   final String? url;
 
@@ -1560,9 +1594,10 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_Files_DirectEditing {
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreServerCapabilities_Ocs_Data_Capabilities_Files_DirectEditingToJson(this);
   // coverage:ignore-end
-
+  // coverage:ignore-start
   static String toJsonString(CoreServerCapabilities_Ocs_Data_Capabilities_Files_DirectEditing data) =>
       json.encode(data.toJson());
+  // coverage:ignore-end
 }
 
 @JsonSerializable(disallowUnrecognizedKeys: false)
@@ -1576,11 +1611,15 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_Files {
     this.versioning,
   });
 
+  // coverage:ignore-start
   factory CoreServerCapabilities_Ocs_Data_Capabilities_Files.fromJson(Map<String, dynamic> json) =>
       _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesFromJson(json);
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   factory CoreServerCapabilities_Ocs_Data_Capabilities_Files.fromJsonString(String data) =>
       CoreServerCapabilities_Ocs_Data_Capabilities_Files.fromJson(json.decode(data) as Map<String, dynamic>);
+  // coverage:ignore-end
 
   final bool? bigfilechunking;
 
@@ -1598,47 +1637,58 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_Files {
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesToJson(this);
   // coverage:ignore-end
-
+  // coverage:ignore-start
   static String toJsonString(CoreServerCapabilities_Ocs_Data_Capabilities_Files data) => json.encode(data.toJson());
+  // coverage:ignore-end
 }
 
 @JsonSerializable(disallowUnrecognizedKeys: false)
 class CoreServerCapabilities_Ocs_Data_Capabilities_Activity {
   CoreServerCapabilities_Ocs_Data_Capabilities_Activity({this.apiv2});
 
+  // coverage:ignore-start
   factory CoreServerCapabilities_Ocs_Data_Capabilities_Activity.fromJson(Map<String, dynamic> json) =>
       _$CoreServerCapabilities_Ocs_Data_Capabilities_ActivityFromJson(json);
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   factory CoreServerCapabilities_Ocs_Data_Capabilities_Activity.fromJsonString(String data) =>
       CoreServerCapabilities_Ocs_Data_Capabilities_Activity.fromJson(json.decode(data) as Map<String, dynamic>);
+  // coverage:ignore-end
 
   final List<String>? apiv2;
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreServerCapabilities_Ocs_Data_Capabilities_ActivityToJson(this);
   // coverage:ignore-end
-
+  // coverage:ignore-start
   static String toJsonString(CoreServerCapabilities_Ocs_Data_Capabilities_Activity data) => json.encode(data.toJson());
+  // coverage:ignore-end
 }
 
 @JsonSerializable(disallowUnrecognizedKeys: false)
 class CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Status {
   CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Status({this.globalScale});
 
+  // coverage:ignore-start
   factory CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Status.fromJson(Map<String, dynamic> json) =>
       _$CoreServerCapabilities_Ocs_Data_Capabilities_Circles_StatusFromJson(json);
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   factory CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Status.fromJsonString(String data) =>
       CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Status.fromJson(json.decode(data) as Map<String, dynamic>);
+  // coverage:ignore-end
 
   final bool? globalScale;
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreServerCapabilities_Ocs_Data_Capabilities_Circles_StatusToJson(this);
   // coverage:ignore-end
-
+  // coverage:ignore-start
   static String toJsonString(CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Status data) =>
       json.encode(data.toJson());
+  // coverage:ignore-end
 }
 
 @JsonSerializable(disallowUnrecognizedKeys: false)
@@ -1650,11 +1700,15 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Settings {
     this.membersLimit,
   });
 
+  // coverage:ignore-start
   factory CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Settings.fromJson(Map<String, dynamic> json) =>
       _$CoreServerCapabilities_Ocs_Data_Capabilities_Circles_SettingsFromJson(json);
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   factory CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Settings.fromJsonString(String data) =>
       CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Settings.fromJson(json.decode(data) as Map<String, dynamic>);
+  // coverage:ignore-end
 
   final bool? frontendEnabled;
 
@@ -1667,9 +1721,10 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Settings {
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreServerCapabilities_Ocs_Data_Capabilities_Circles_SettingsToJson(this);
   // coverage:ignore-end
-
+  // coverage:ignore-start
   static String toJsonString(CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Settings data) =>
       json.encode(data.toJson());
+  // coverage:ignore-end
 }
 
 @JsonSerializable(disallowUnrecognizedKeys: false)
@@ -1679,13 +1734,17 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants_Sour
     this.extra,
   });
 
+  // coverage:ignore-start
   factory CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants_Source.fromJson(
           Map<String, dynamic> json) =>
       _$CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants_SourceFromJson(json);
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   factory CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants_Source.fromJsonString(String data) =>
       CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants_Source.fromJson(
           json.decode(data) as Map<String, dynamic>);
+  // coverage:ignore-end
 
   final dynamic core;
 
@@ -1695,9 +1754,10 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants_Sour
   Map<String, dynamic> toJson() =>
       _$CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants_SourceToJson(this);
   // coverage:ignore-end
-
+  // coverage:ignore-start
   static String toJsonString(CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants_Source data) =>
       json.encode(data.toJson());
+  // coverage:ignore-end
 }
 
 @JsonSerializable(disallowUnrecognizedKeys: false)
@@ -1707,12 +1767,16 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants {
     this.source,
   });
 
+  // coverage:ignore-start
   factory CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants.fromJson(Map<String, dynamic> json) =>
       _$CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_ConstantsFromJson(json);
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   factory CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants.fromJsonString(String data) =>
       CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants.fromJson(
           json.decode(data) as Map<String, dynamic>);
+  // coverage:ignore-end
 
   final dynamic flags;
 
@@ -1721,9 +1785,10 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants {
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_ConstantsToJson(this);
   // coverage:ignore-end
-
+  // coverage:ignore-start
   static String toJsonString(CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants data) =>
       json.encode(data.toJson());
+  // coverage:ignore-end
 }
 
 @JsonSerializable(disallowUnrecognizedKeys: false)
@@ -1733,12 +1798,16 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Config {
     this.systemFlags,
   });
 
+  // coverage:ignore-start
   factory CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Config.fromJson(Map<String, dynamic> json) =>
       _$CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_ConfigFromJson(json);
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   factory CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Config.fromJsonString(String data) =>
       CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Config.fromJson(
           json.decode(data) as Map<String, dynamic>);
+  // coverage:ignore-end
 
   final List<int>? coreFlags;
 
@@ -1747,9 +1816,10 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Config {
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_ConfigToJson(this);
   // coverage:ignore-end
-
+  // coverage:ignore-start
   static String toJsonString(CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Config data) =>
       json.encode(data.toJson());
+  // coverage:ignore-end
 }
 
 @JsonSerializable(disallowUnrecognizedKeys: false)
@@ -1759,11 +1829,15 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle {
     this.config,
   });
 
+  // coverage:ignore-start
   factory CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle.fromJson(Map<String, dynamic> json) =>
       _$CoreServerCapabilities_Ocs_Data_Capabilities_Circles_CircleFromJson(json);
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   factory CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle.fromJsonString(String data) =>
       CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle.fromJson(json.decode(data) as Map<String, dynamic>);
+  // coverage:ignore-end
 
   final CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants? constants;
 
@@ -1772,30 +1846,36 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle {
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreServerCapabilities_Ocs_Data_Capabilities_Circles_CircleToJson(this);
   // coverage:ignore-end
-
+  // coverage:ignore-start
   static String toJsonString(CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle data) =>
       json.encode(data.toJson());
+  // coverage:ignore-end
 }
 
 @JsonSerializable(disallowUnrecognizedKeys: false)
 class CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member_Constants {
   CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member_Constants({this.level});
 
+  // coverage:ignore-start
   factory CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member_Constants.fromJson(Map<String, dynamic> json) =>
       _$CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member_ConstantsFromJson(json);
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   factory CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member_Constants.fromJsonString(String data) =>
       CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member_Constants.fromJson(
           json.decode(data) as Map<String, dynamic>);
+  // coverage:ignore-end
 
   final dynamic level;
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member_ConstantsToJson(this);
   // coverage:ignore-end
-
+  // coverage:ignore-start
   static String toJsonString(CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member_Constants data) =>
       json.encode(data.toJson());
+  // coverage:ignore-end
 }
 
 @JsonSerializable(disallowUnrecognizedKeys: false)
@@ -1805,11 +1885,15 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member {
     this.type,
   });
 
+  // coverage:ignore-start
   factory CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member.fromJson(Map<String, dynamic> json) =>
       _$CoreServerCapabilities_Ocs_Data_Capabilities_Circles_MemberFromJson(json);
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   factory CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member.fromJsonString(String data) =>
       CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member.fromJson(json.decode(data) as Map<String, dynamic>);
+  // coverage:ignore-end
 
   final CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member_Constants? constants;
 
@@ -1818,9 +1902,10 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member {
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreServerCapabilities_Ocs_Data_Capabilities_Circles_MemberToJson(this);
   // coverage:ignore-end
-
+  // coverage:ignore-start
   static String toJsonString(CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member data) =>
       json.encode(data.toJson());
+  // coverage:ignore-end
 }
 
 @JsonSerializable(disallowUnrecognizedKeys: false)
@@ -1833,11 +1918,15 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_Circles {
     this.member,
   });
 
+  // coverage:ignore-start
   factory CoreServerCapabilities_Ocs_Data_Capabilities_Circles.fromJson(Map<String, dynamic> json) =>
       _$CoreServerCapabilities_Ocs_Data_Capabilities_CirclesFromJson(json);
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   factory CoreServerCapabilities_Ocs_Data_Capabilities_Circles.fromJsonString(String data) =>
       CoreServerCapabilities_Ocs_Data_Capabilities_Circles.fromJson(json.decode(data) as Map<String, dynamic>);
+  // coverage:ignore-end
 
   final String? version;
 
@@ -1852,21 +1941,26 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_Circles {
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreServerCapabilities_Ocs_Data_Capabilities_CirclesToJson(this);
   // coverage:ignore-end
-
+  // coverage:ignore-start
   static String toJsonString(CoreServerCapabilities_Ocs_Data_Capabilities_Circles data) => json.encode(data.toJson());
+  // coverage:ignore-end
 }
 
 @JsonSerializable(disallowUnrecognizedKeys: false)
 class CoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes_Protocols {
   CoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes_Protocols({this.webdav});
 
+  // coverage:ignore-start
   factory CoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes_Protocols.fromJson(
           Map<String, dynamic> json) =>
       _$CoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes_ProtocolsFromJson(json);
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   factory CoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes_Protocols.fromJsonString(String data) =>
       CoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes_Protocols.fromJson(
           json.decode(data) as Map<String, dynamic>);
+  // coverage:ignore-end
 
   final String? webdav;
 
@@ -1874,9 +1968,10 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes_Protocols {
   Map<String, dynamic> toJson() =>
       _$CoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes_ProtocolsToJson(this);
   // coverage:ignore-end
-
+  // coverage:ignore-start
   static String toJsonString(CoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes_Protocols data) =>
       json.encode(data.toJson());
+  // coverage:ignore-end
 }
 
 @JsonSerializable(disallowUnrecognizedKeys: false)
@@ -1887,12 +1982,16 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes {
     this.protocols,
   });
 
+  // coverage:ignore-start
   factory CoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes.fromJson(Map<String, dynamic> json) =>
       _$CoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypesFromJson(json);
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   factory CoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes.fromJsonString(String data) =>
       CoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes.fromJson(
           json.decode(data) as Map<String, dynamic>);
+  // coverage:ignore-end
 
   final String? name;
 
@@ -1903,9 +2002,10 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes {
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypesToJson(this);
   // coverage:ignore-end
-
+  // coverage:ignore-start
   static String toJsonString(CoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes data) =>
       json.encode(data.toJson());
+  // coverage:ignore-end
 }
 
 @JsonSerializable(disallowUnrecognizedKeys: false)
@@ -1917,11 +2017,15 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_Ocm {
     this.resourceTypes,
   });
 
+  // coverage:ignore-start
   factory CoreServerCapabilities_Ocs_Data_Capabilities_Ocm.fromJson(Map<String, dynamic> json) =>
       _$CoreServerCapabilities_Ocs_Data_Capabilities_OcmFromJson(json);
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   factory CoreServerCapabilities_Ocs_Data_Capabilities_Ocm.fromJsonString(String data) =>
       CoreServerCapabilities_Ocs_Data_Capabilities_Ocm.fromJson(json.decode(data) as Map<String, dynamic>);
+  // coverage:ignore-end
 
   final bool? enabled;
 
@@ -1934,8 +2038,9 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_Ocm {
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreServerCapabilities_Ocs_Data_Capabilities_OcmToJson(this);
   // coverage:ignore-end
-
+  // coverage:ignore-start
   static String toJsonString(CoreServerCapabilities_Ocs_Data_Capabilities_Ocm data) => json.encode(data.toJson());
+  // coverage:ignore-end
 }
 
 @JsonSerializable(disallowUnrecognizedKeys: false)
@@ -1945,11 +2050,15 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_Dav {
     this.chunking,
   });
 
+  // coverage:ignore-start
   factory CoreServerCapabilities_Ocs_Data_Capabilities_Dav.fromJson(Map<String, dynamic> json) =>
       _$CoreServerCapabilities_Ocs_Data_Capabilities_DavFromJson(json);
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   factory CoreServerCapabilities_Ocs_Data_Capabilities_Dav.fromJsonString(String data) =>
       CoreServerCapabilities_Ocs_Data_Capabilities_Dav.fromJson(json.decode(data) as Map<String, dynamic>);
+  // coverage:ignore-end
 
   final String? bulkupload;
 
@@ -1958,8 +2067,9 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_Dav {
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreServerCapabilities_Ocs_Data_Capabilities_DavToJson(this);
   // coverage:ignore-end
-
+  // coverage:ignore-start
   static String toJsonString(CoreServerCapabilities_Ocs_Data_Capabilities_Dav data) => json.encode(data.toJson());
+  // coverage:ignore-end
 }
 
 @JsonSerializable(disallowUnrecognizedKeys: false)
@@ -1969,13 +2079,17 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_Password 
     this.askForOptionalPassword,
   });
 
+  // coverage:ignore-start
   factory CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_Password.fromJson(
           Map<String, dynamic> json) =>
       _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_PasswordFromJson(json);
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   factory CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_Password.fromJsonString(String data) =>
       CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_Password.fromJson(
           json.decode(data) as Map<String, dynamic>);
+  // coverage:ignore-end
 
   final bool? enforced;
 
@@ -1985,22 +2099,27 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_Password 
   Map<String, dynamic> toJson() =>
       _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_PasswordToJson(this);
   // coverage:ignore-end
-
+  // coverage:ignore-start
   static String toJsonString(CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_Password data) =>
       json.encode(data.toJson());
+  // coverage:ignore-end
 }
 
 @JsonSerializable(disallowUnrecognizedKeys: false)
 class CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDate {
   CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDate({this.enabled});
 
+  // coverage:ignore-start
   factory CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDate.fromJson(
           Map<String, dynamic> json) =>
       _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateFromJson(json);
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   factory CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDate.fromJsonString(String data) =>
       CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDate.fromJson(
           json.decode(data) as Map<String, dynamic>);
+  // coverage:ignore-end
 
   final bool? enabled;
 
@@ -2008,23 +2127,28 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDat
   Map<String, dynamic> toJson() =>
       _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateToJson(this);
   // coverage:ignore-end
-
+  // coverage:ignore-start
   static String toJsonString(CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDate data) =>
       json.encode(data.toJson());
+  // coverage:ignore-end
 }
 
 @JsonSerializable(disallowUnrecognizedKeys: false)
 class CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternal {
   CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternal({this.enabled});
 
+  // coverage:ignore-start
   factory CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternal.fromJson(
           Map<String, dynamic> json) =>
       _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternalFromJson(json);
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   factory CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternal.fromJsonString(
           String data) =>
       CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternal.fromJson(
           json.decode(data) as Map<String, dynamic>);
+  // coverage:ignore-end
 
   final bool? enabled;
 
@@ -2032,24 +2156,29 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDat
   Map<String, dynamic> toJson() =>
       _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternalToJson(this);
   // coverage:ignore-end
-
+  // coverage:ignore-start
   static String toJsonString(
           CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternal data) =>
       json.encode(data.toJson());
+  // coverage:ignore-end
 }
 
 @JsonSerializable(disallowUnrecognizedKeys: false)
 class CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemote {
   CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemote({this.enabled});
 
+  // coverage:ignore-start
   factory CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemote.fromJson(
           Map<String, dynamic> json) =>
       _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemoteFromJson(json);
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   factory CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemote.fromJsonString(
           String data) =>
       CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemote.fromJson(
           json.decode(data) as Map<String, dynamic>);
+  // coverage:ignore-end
 
   final bool? enabled;
 
@@ -2057,9 +2186,10 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDat
   Map<String, dynamic> toJson() =>
       _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemoteToJson(this);
   // coverage:ignore-end
-
+  // coverage:ignore-start
   static String toJsonString(CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemote data) =>
       json.encode(data.toJson());
+  // coverage:ignore-end
 }
 
 @JsonSerializable(disallowUnrecognizedKeys: false)
@@ -2076,12 +2206,16 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public {
     this.uploadFilesDrop,
   });
 
+  // coverage:ignore-start
   factory CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public.fromJson(Map<String, dynamic> json) =>
       _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_PublicFromJson(json);
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   factory CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public.fromJsonString(String data) =>
       CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public.fromJson(
           json.decode(data) as Map<String, dynamic>);
+  // coverage:ignore-end
 
   final bool? enabled;
 
@@ -2110,22 +2244,27 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public {
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_PublicToJson(this);
   // coverage:ignore-end
-
+  // coverage:ignore-start
   static String toJsonString(CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public data) =>
       json.encode(data.toJson());
+  // coverage:ignore-end
 }
 
 @JsonSerializable(disallowUnrecognizedKeys: false)
 class CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User_ExpireDate {
   CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User_ExpireDate({this.enabled});
 
+  // coverage:ignore-start
   factory CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User_ExpireDate.fromJson(
           Map<String, dynamic> json) =>
       _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User_ExpireDateFromJson(json);
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   factory CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User_ExpireDate.fromJsonString(String data) =>
       CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User_ExpireDate.fromJson(
           json.decode(data) as Map<String, dynamic>);
+  // coverage:ignore-end
 
   final bool? enabled;
 
@@ -2133,9 +2272,10 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User_ExpireDate 
   Map<String, dynamic> toJson() =>
       _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User_ExpireDateToJson(this);
   // coverage:ignore-end
-
+  // coverage:ignore-start
   static String toJsonString(CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User_ExpireDate data) =>
       json.encode(data.toJson());
+  // coverage:ignore-end
 }
 
 @JsonSerializable(disallowUnrecognizedKeys: false)
@@ -2145,12 +2285,16 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User {
     this.expireDate,
   });
 
+  // coverage:ignore-start
   factory CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User.fromJson(Map<String, dynamic> json) =>
       _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_UserFromJson(json);
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   factory CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User.fromJsonString(String data) =>
       CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User.fromJson(
           json.decode(data) as Map<String, dynamic>);
+  // coverage:ignore-end
 
   @JsonKey(name: 'send_mail')
   final bool? sendMail;
@@ -2161,22 +2305,27 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User {
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_UserToJson(this);
   // coverage:ignore-end
-
+  // coverage:ignore-start
   static String toJsonString(CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User data) =>
       json.encode(data.toJson());
+  // coverage:ignore-end
 }
 
 @JsonSerializable(disallowUnrecognizedKeys: false)
 class CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDate {
   CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDate({this.enabled});
 
+  // coverage:ignore-start
   factory CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDate.fromJson(
           Map<String, dynamic> json) =>
       _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDateFromJson(json);
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   factory CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDate.fromJsonString(String data) =>
       CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDate.fromJson(
           json.decode(data) as Map<String, dynamic>);
+  // coverage:ignore-end
 
   final bool? enabled;
 
@@ -2184,9 +2333,10 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDate
   Map<String, dynamic> toJson() =>
       _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDateToJson(this);
   // coverage:ignore-end
-
+  // coverage:ignore-start
   static String toJsonString(CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDate data) =>
       json.encode(data.toJson());
+  // coverage:ignore-end
 }
 
 @JsonSerializable(disallowUnrecognizedKeys: false)
@@ -2196,12 +2346,16 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group {
     this.expireDate,
   });
 
+  // coverage:ignore-start
   factory CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group.fromJson(Map<String, dynamic> json) =>
       _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_GroupFromJson(json);
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   factory CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group.fromJsonString(String data) =>
       CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group.fromJson(
           json.decode(data) as Map<String, dynamic>);
+  // coverage:ignore-end
 
   final bool? enabled;
 
@@ -2211,22 +2365,27 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group {
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_GroupToJson(this);
   // coverage:ignore-end
-
+  // coverage:ignore-start
   static String toJsonString(CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group data) =>
       json.encode(data.toJson());
+  // coverage:ignore-end
 }
 
 @JsonSerializable(disallowUnrecognizedKeys: false)
 class CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDate {
   CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDate({this.enabled});
 
+  // coverage:ignore-start
   factory CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDate.fromJson(
           Map<String, dynamic> json) =>
       _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateFromJson(json);
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   factory CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDate.fromJsonString(String data) =>
       CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDate.fromJson(
           json.decode(data) as Map<String, dynamic>);
+  // coverage:ignore-end
 
   final bool? enabled;
 
@@ -2234,23 +2393,28 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_Expir
   Map<String, dynamic> toJson() =>
       _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateToJson(this);
   // coverage:ignore-end
-
+  // coverage:ignore-start
   static String toJsonString(CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDate data) =>
       json.encode(data.toJson());
+  // coverage:ignore-end
 }
 
 @JsonSerializable(disallowUnrecognizedKeys: false)
 class CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupported {
   CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupported({this.enabled});
 
+  // coverage:ignore-start
   factory CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupported.fromJson(
           Map<String, dynamic> json) =>
       _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupportedFromJson(json);
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   factory CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupported.fromJsonString(
           String data) =>
       CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupported.fromJson(
           json.decode(data) as Map<String, dynamic>);
+  // coverage:ignore-end
 
   final bool? enabled;
 
@@ -2258,10 +2422,11 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_Expir
   Map<String, dynamic> toJson() =>
       _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupportedToJson(this);
   // coverage:ignore-end
-
+  // coverage:ignore-start
   static String toJsonString(
           CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupported data) =>
       json.encode(data.toJson());
+  // coverage:ignore-end
 }
 
 @JsonSerializable(disallowUnrecognizedKeys: false)
@@ -2273,12 +2438,16 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation {
     this.expireDateSupported,
   });
 
+  // coverage:ignore-start
   factory CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation.fromJson(Map<String, dynamic> json) =>
       _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_FederationFromJson(json);
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   factory CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation.fromJsonString(String data) =>
       CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation.fromJson(
           json.decode(data) as Map<String, dynamic>);
+  // coverage:ignore-end
 
   final bool? outgoing;
 
@@ -2293,9 +2462,10 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation {
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_FederationToJson(this);
   // coverage:ignore-end
-
+  // coverage:ignore-start
   static String toJsonString(CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation data) =>
       json.encode(data.toJson());
+  // coverage:ignore-end
 }
 
 @JsonSerializable(disallowUnrecognizedKeys: false)
@@ -2305,12 +2475,16 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharee {
     this.alwaysShowUnique,
   });
 
+  // coverage:ignore-start
   factory CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharee.fromJson(Map<String, dynamic> json) =>
       _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_ShareeFromJson(json);
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   factory CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharee.fromJsonString(String data) =>
       CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharee.fromJson(
           json.decode(data) as Map<String, dynamic>);
+  // coverage:ignore-end
 
   @JsonKey(name: 'query_lookup_default')
   final bool? queryLookupDefault;
@@ -2321,23 +2495,28 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharee {
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_ShareeToJson(this);
   // coverage:ignore-end
-
+  // coverage:ignore-start
   static String toJsonString(CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharee data) =>
       json.encode(data.toJson());
+  // coverage:ignore-end
 }
 
 @JsonSerializable(disallowUnrecognizedKeys: false)
 class CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_UploadFilesDrop {
   CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_UploadFilesDrop({this.enabled});
 
+  // coverage:ignore-start
   factory CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_UploadFilesDrop.fromJson(
           Map<String, dynamic> json) =>
       _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_UploadFilesDropFromJson(json);
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   factory CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_UploadFilesDrop.fromJsonString(
           String data) =>
       CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_UploadFilesDrop.fromJson(
           json.decode(data) as Map<String, dynamic>);
+  // coverage:ignore-end
 
   final bool? enabled;
 
@@ -2345,10 +2524,11 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_Uplo
   Map<String, dynamic> toJson() =>
       _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_UploadFilesDropToJson(this);
   // coverage:ignore-end
-
+  // coverage:ignore-start
   static String toJsonString(
           CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_UploadFilesDrop data) =>
       json.encode(data.toJson());
+  // coverage:ignore-end
 }
 
 @JsonSerializable(disallowUnrecognizedKeys: false)
@@ -2358,13 +2538,17 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_Pass
     this.enforced,
   });
 
+  // coverage:ignore-start
   factory CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_Password.fromJson(
           Map<String, dynamic> json) =>
       _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_PasswordFromJson(json);
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   factory CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_Password.fromJsonString(String data) =>
       CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_Password.fromJson(
           json.decode(data) as Map<String, dynamic>);
+  // coverage:ignore-end
 
   final bool? enabled;
 
@@ -2374,9 +2558,10 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_Pass
   Map<String, dynamic> toJson() =>
       _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_PasswordToJson(this);
   // coverage:ignore-end
-
+  // coverage:ignore-start
   static String toJsonString(CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_Password data) =>
       json.encode(data.toJson());
+  // coverage:ignore-end
 }
 
 @JsonSerializable(disallowUnrecognizedKeys: false)
@@ -2386,14 +2571,18 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_Expi
     this.enforced,
   });
 
+  // coverage:ignore-start
   factory CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_ExpireDate.fromJson(
           Map<String, dynamic> json) =>
       _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_ExpireDateFromJson(json);
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   factory CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_ExpireDate.fromJsonString(
           String data) =>
       CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_ExpireDate.fromJson(
           json.decode(data) as Map<String, dynamic>);
+  // coverage:ignore-end
 
   final bool? enabled;
 
@@ -2403,9 +2592,10 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_Expi
   Map<String, dynamic> toJson() =>
       _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_ExpireDateToJson(this);
   // coverage:ignore-end
-
+  // coverage:ignore-start
   static String toJsonString(CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_ExpireDate data) =>
       json.encode(data.toJson());
+  // coverage:ignore-end
 }
 
 @JsonSerializable(disallowUnrecognizedKeys: false)
@@ -2418,12 +2608,16 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail {
     this.expireDate,
   });
 
+  // coverage:ignore-start
   factory CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail.fromJson(Map<String, dynamic> json) =>
       _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_SharebymailFromJson(json);
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   factory CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail.fromJsonString(String data) =>
       CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail.fromJson(
           json.decode(data) as Map<String, dynamic>);
+  // coverage:ignore-end
 
   final bool? enabled;
 
@@ -2441,9 +2635,10 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail {
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_SharebymailToJson(this);
   // coverage:ignore-end
-
+  // coverage:ignore-start
   static String toJsonString(CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail data) =>
       json.encode(data.toJson());
+  // coverage:ignore-end
 }
 
 @JsonSerializable(disallowUnrecognizedKeys: false)
@@ -2461,11 +2656,15 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing {
     this.sharebymail,
   });
 
+  // coverage:ignore-start
   factory CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing.fromJson(Map<String, dynamic> json) =>
       _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharingFromJson(json);
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   factory CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing.fromJsonString(String data) =>
       CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing.fromJson(json.decode(data) as Map<String, dynamic>);
+  // coverage:ignore-end
 
   @JsonKey(name: 'api_enabled')
   final bool? apiEnabled;
@@ -2493,9 +2692,10 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing {
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharingToJson(this);
   // coverage:ignore-end
-
+  // coverage:ignore-start
   static String toJsonString(CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing data) =>
       json.encode(data.toJson());
+  // coverage:ignore-end
 }
 
 @JsonSerializable(disallowUnrecognizedKeys: false)
@@ -2505,11 +2705,15 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_Notes {
     this.version,
   });
 
+  // coverage:ignore-start
   factory CoreServerCapabilities_Ocs_Data_Capabilities_Notes.fromJson(Map<String, dynamic> json) =>
       _$CoreServerCapabilities_Ocs_Data_Capabilities_NotesFromJson(json);
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   factory CoreServerCapabilities_Ocs_Data_Capabilities_Notes.fromJsonString(String data) =>
       CoreServerCapabilities_Ocs_Data_Capabilities_Notes.fromJson(json.decode(data) as Map<String, dynamic>);
+  // coverage:ignore-end
 
   @JsonKey(name: 'api_version')
   final List<String>? apiVersion;
@@ -2519,8 +2723,9 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_Notes {
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreServerCapabilities_Ocs_Data_Capabilities_NotesToJson(this);
   // coverage:ignore-end
-
+  // coverage:ignore-start
   static String toJsonString(CoreServerCapabilities_Ocs_Data_Capabilities_Notes data) => json.encode(data.toJson());
+  // coverage:ignore-end
 }
 
 @JsonSerializable(disallowUnrecognizedKeys: false)
@@ -2531,11 +2736,15 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_Notifications {
     this.adminNotifications,
   });
 
+  // coverage:ignore-start
   factory CoreServerCapabilities_Ocs_Data_Capabilities_Notifications.fromJson(Map<String, dynamic> json) =>
       _$CoreServerCapabilities_Ocs_Data_Capabilities_NotificationsFromJson(json);
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   factory CoreServerCapabilities_Ocs_Data_Capabilities_Notifications.fromJsonString(String data) =>
       CoreServerCapabilities_Ocs_Data_Capabilities_Notifications.fromJson(json.decode(data) as Map<String, dynamic>);
+  // coverage:ignore-end
 
   @JsonKey(name: 'ocs-endpoints')
   final List<String>? ocsEndpoints;
@@ -2548,9 +2757,10 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_Notifications {
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreServerCapabilities_Ocs_Data_Capabilities_NotificationsToJson(this);
   // coverage:ignore-end
-
+  // coverage:ignore-start
   static String toJsonString(CoreServerCapabilities_Ocs_Data_Capabilities_Notifications data) =>
       json.encode(data.toJson());
+  // coverage:ignore-end
 }
 
 @JsonSerializable(disallowUnrecognizedKeys: false)
@@ -2560,12 +2770,16 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy_Api {
     this.validate,
   });
 
+  // coverage:ignore-start
   factory CoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy_Api.fromJson(Map<String, dynamic> json) =>
       _$CoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy_ApiFromJson(json);
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   factory CoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy_Api.fromJsonString(String data) =>
       CoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy_Api.fromJson(
           json.decode(data) as Map<String, dynamic>);
+  // coverage:ignore-end
 
   final String? generate;
 
@@ -2574,9 +2788,10 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy_Api {
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy_ApiToJson(this);
   // coverage:ignore-end
-
+  // coverage:ignore-start
   static String toJsonString(CoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy_Api data) =>
       json.encode(data.toJson());
+  // coverage:ignore-end
 }
 
 @JsonSerializable(disallowUnrecognizedKeys: false)
@@ -2590,11 +2805,15 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy {
     this.api,
   });
 
+  // coverage:ignore-start
   factory CoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy.fromJson(Map<String, dynamic> json) =>
       _$CoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicyFromJson(json);
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   factory CoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy.fromJsonString(String data) =>
       CoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy.fromJson(json.decode(data) as Map<String, dynamic>);
+  // coverage:ignore-end
 
   final int? minLength;
 
@@ -2611,9 +2830,10 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy {
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicyToJson(this);
   // coverage:ignore-end
-
+  // coverage:ignore-start
   static String toJsonString(CoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy data) =>
       json.encode(data.toJson());
+  // coverage:ignore-end
 }
 
 @JsonSerializable(disallowUnrecognizedKeys: false)
@@ -2625,11 +2845,15 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_ProvisioningApi {
     this.accountPropertyScopesPublishedEnabled,
   });
 
+  // coverage:ignore-start
   factory CoreServerCapabilities_Ocs_Data_Capabilities_ProvisioningApi.fromJson(Map<String, dynamic> json) =>
       _$CoreServerCapabilities_Ocs_Data_Capabilities_ProvisioningApiFromJson(json);
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   factory CoreServerCapabilities_Ocs_Data_Capabilities_ProvisioningApi.fromJsonString(String data) =>
       CoreServerCapabilities_Ocs_Data_Capabilities_ProvisioningApi.fromJson(json.decode(data) as Map<String, dynamic>);
+  // coverage:ignore-end
 
   final String? version;
 
@@ -2645,9 +2869,10 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_ProvisioningApi {
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreServerCapabilities_Ocs_Data_Capabilities_ProvisioningApiToJson(this);
   // coverage:ignore-end
-
+  // coverage:ignore-start
   static String toJsonString(CoreServerCapabilities_Ocs_Data_Capabilities_ProvisioningApi data) =>
       json.encode(data.toJson());
+  // coverage:ignore-end
 }
 
 @JsonSerializable(disallowUnrecognizedKeys: false)
@@ -2669,11 +2894,15 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_Theming {
     this.favicon,
   });
 
+  // coverage:ignore-start
   factory CoreServerCapabilities_Ocs_Data_Capabilities_Theming.fromJson(Map<String, dynamic> json) =>
       _$CoreServerCapabilities_Ocs_Data_Capabilities_ThemingFromJson(json);
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   factory CoreServerCapabilities_Ocs_Data_Capabilities_Theming.fromJsonString(String data) =>
       CoreServerCapabilities_Ocs_Data_Capabilities_Theming.fromJson(json.decode(data) as Map<String, dynamic>);
+  // coverage:ignore-end
 
   final String? name;
 
@@ -2712,8 +2941,9 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_Theming {
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreServerCapabilities_Ocs_Data_Capabilities_ThemingToJson(this);
   // coverage:ignore-end
-
+  // coverage:ignore-start
   static String toJsonString(CoreServerCapabilities_Ocs_Data_Capabilities_Theming data) => json.encode(data.toJson());
+  // coverage:ignore-end
 }
 
 @JsonSerializable(disallowUnrecognizedKeys: false)
@@ -2723,11 +2953,15 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_UserStatus {
     this.supportsEmoji,
   });
 
+  // coverage:ignore-start
   factory CoreServerCapabilities_Ocs_Data_Capabilities_UserStatus.fromJson(Map<String, dynamic> json) =>
       _$CoreServerCapabilities_Ocs_Data_Capabilities_UserStatusFromJson(json);
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   factory CoreServerCapabilities_Ocs_Data_Capabilities_UserStatus.fromJsonString(String data) =>
       CoreServerCapabilities_Ocs_Data_Capabilities_UserStatus.fromJson(json.decode(data) as Map<String, dynamic>);
+  // coverage:ignore-end
 
   final bool? enabled;
 
@@ -2737,29 +2971,35 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_UserStatus {
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreServerCapabilities_Ocs_Data_Capabilities_UserStatusToJson(this);
   // coverage:ignore-end
-
+  // coverage:ignore-start
   static String toJsonString(CoreServerCapabilities_Ocs_Data_Capabilities_UserStatus data) =>
       json.encode(data.toJson());
+  // coverage:ignore-end
 }
 
 @JsonSerializable()
 class CoreServerCapabilities_Ocs_Data_Capabilities_WeatherStatus {
   CoreServerCapabilities_Ocs_Data_Capabilities_WeatherStatus({this.enabled});
 
+  // coverage:ignore-start
   factory CoreServerCapabilities_Ocs_Data_Capabilities_WeatherStatus.fromJson(Map<String, dynamic> json) =>
       _$CoreServerCapabilities_Ocs_Data_Capabilities_WeatherStatusFromJson(json);
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   factory CoreServerCapabilities_Ocs_Data_Capabilities_WeatherStatus.fromJsonString(String data) =>
       CoreServerCapabilities_Ocs_Data_Capabilities_WeatherStatus.fromJson(json.decode(data) as Map<String, dynamic>);
+  // coverage:ignore-end
 
   final bool? enabled;
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreServerCapabilities_Ocs_Data_Capabilities_WeatherStatusToJson(this);
   // coverage:ignore-end
-
+  // coverage:ignore-start
   static String toJsonString(CoreServerCapabilities_Ocs_Data_Capabilities_WeatherStatus data) =>
       json.encode(data.toJson());
+  // coverage:ignore-end
 }
 
 @JsonSerializable(disallowUnrecognizedKeys: false)
@@ -2783,11 +3023,15 @@ class CoreServerCapabilities_Ocs_Data_Capabilities {
     this.weatherStatus,
   });
 
+  // coverage:ignore-start
   factory CoreServerCapabilities_Ocs_Data_Capabilities.fromJson(Map<String, dynamic> json) =>
       _$CoreServerCapabilities_Ocs_Data_CapabilitiesFromJson(json);
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   factory CoreServerCapabilities_Ocs_Data_Capabilities.fromJsonString(String data) =>
       CoreServerCapabilities_Ocs_Data_Capabilities.fromJson(json.decode(data) as Map<String, dynamic>);
+  // coverage:ignore-end
 
   final CoreServerCapabilities_Ocs_Data_Capabilities_Core? core;
 
@@ -2829,8 +3073,9 @@ class CoreServerCapabilities_Ocs_Data_Capabilities {
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreServerCapabilities_Ocs_Data_CapabilitiesToJson(this);
   // coverage:ignore-end
-
+  // coverage:ignore-start
   static String toJsonString(CoreServerCapabilities_Ocs_Data_Capabilities data) => json.encode(data.toJson());
+  // coverage:ignore-end
 }
 
 @JsonSerializable()
@@ -2840,11 +3085,15 @@ class CoreServerCapabilities_Ocs_Data {
     required this.capabilities,
   });
 
+  // coverage:ignore-start
   factory CoreServerCapabilities_Ocs_Data.fromJson(Map<String, dynamic> json) =>
       _$CoreServerCapabilities_Ocs_DataFromJson(json);
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   factory CoreServerCapabilities_Ocs_Data.fromJsonString(String data) =>
       CoreServerCapabilities_Ocs_Data.fromJson(json.decode(data) as Map<String, dynamic>);
+  // coverage:ignore-end
 
   final CoreServerCapabilities_Ocs_Data_Version version;
 
@@ -2853,8 +3102,9 @@ class CoreServerCapabilities_Ocs_Data {
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreServerCapabilities_Ocs_DataToJson(this);
   // coverage:ignore-end
-
+  // coverage:ignore-start
   static String toJsonString(CoreServerCapabilities_Ocs_Data data) => json.encode(data.toJson());
+  // coverage:ignore-end
 }
 
 @JsonSerializable()
@@ -2864,10 +3114,14 @@ class CoreServerCapabilities_Ocs {
     required this.data,
   });
 
+  // coverage:ignore-start
   factory CoreServerCapabilities_Ocs.fromJson(Map<String, dynamic> json) => _$CoreServerCapabilities_OcsFromJson(json);
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   factory CoreServerCapabilities_Ocs.fromJsonString(String data) =>
       CoreServerCapabilities_Ocs.fromJson(json.decode(data) as Map<String, dynamic>);
+  // coverage:ignore-end
 
   final OCSMeta meta;
 
@@ -2876,26 +3130,32 @@ class CoreServerCapabilities_Ocs {
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreServerCapabilities_OcsToJson(this);
   // coverage:ignore-end
-
+  // coverage:ignore-start
   static String toJsonString(CoreServerCapabilities_Ocs data) => json.encode(data.toJson());
+  // coverage:ignore-end
 }
 
 @JsonSerializable()
 class CoreServerCapabilities {
   CoreServerCapabilities({required this.ocs});
 
+  // coverage:ignore-start
   factory CoreServerCapabilities.fromJson(Map<String, dynamic> json) => _$CoreServerCapabilitiesFromJson(json);
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   factory CoreServerCapabilities.fromJsonString(String data) =>
       CoreServerCapabilities.fromJson(json.decode(data) as Map<String, dynamic>);
+  // coverage:ignore-end
 
   final CoreServerCapabilities_Ocs ocs;
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreServerCapabilitiesToJson(this);
   // coverage:ignore-end
-
+  // coverage:ignore-start
   static String toJsonString(CoreServerCapabilities data) => json.encode(data.toJson());
+  // coverage:ignore-end
 }
 
 class CoreNavigationApps_Ocs_Data_Order {
@@ -2922,8 +3182,10 @@ class CoreNavigationApps_Ocs_Data_Order {
     );
   }
 
+  // coverage:ignore-start
   factory CoreNavigationApps_Ocs_Data_Order.fromJsonString(String data) =>
       CoreNavigationApps_Ocs_Data_Order.fromJson(json.decode(data));
+  // coverage:ignore-end
 
   final dynamic _data;
 
@@ -2934,8 +3196,9 @@ class CoreNavigationApps_Ocs_Data_Order {
   // coverage:ignore-start
   dynamic toJson() => _data;
   // coverage:ignore-end
-
+  // coverage:ignore-start
   static String toJsonString(dynamic data) => json.encode(data);
+  // coverage:ignore-end
 }
 
 @JsonSerializable()
@@ -2952,11 +3215,15 @@ class CoreNavigationApps_Ocs_Data {
     required this.unread,
   });
 
+  // coverage:ignore-start
   factory CoreNavigationApps_Ocs_Data.fromJson(Map<String, dynamic> json) =>
       _$CoreNavigationApps_Ocs_DataFromJson(json);
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   factory CoreNavigationApps_Ocs_Data.fromJsonString(String data) =>
       CoreNavigationApps_Ocs_Data.fromJson(json.decode(data) as Map<String, dynamic>);
+  // coverage:ignore-end
 
   final String id;
 
@@ -2980,8 +3247,9 @@ class CoreNavigationApps_Ocs_Data {
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreNavigationApps_Ocs_DataToJson(this);
   // coverage:ignore-end
-
+  // coverage:ignore-start
   static String toJsonString(CoreNavigationApps_Ocs_Data data) => json.encode(data.toJson());
+  // coverage:ignore-end
 }
 
 @JsonSerializable()
@@ -2991,10 +3259,14 @@ class CoreNavigationApps_Ocs {
     required this.data,
   });
 
+  // coverage:ignore-start
   factory CoreNavigationApps_Ocs.fromJson(Map<String, dynamic> json) => _$CoreNavigationApps_OcsFromJson(json);
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   factory CoreNavigationApps_Ocs.fromJsonString(String data) =>
       CoreNavigationApps_Ocs.fromJson(json.decode(data) as Map<String, dynamic>);
+  // coverage:ignore-end
 
   final OCSMeta meta;
 
@@ -3003,26 +3275,32 @@ class CoreNavigationApps_Ocs {
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreNavigationApps_OcsToJson(this);
   // coverage:ignore-end
-
+  // coverage:ignore-start
   static String toJsonString(CoreNavigationApps_Ocs data) => json.encode(data.toJson());
+  // coverage:ignore-end
 }
 
 @JsonSerializable()
 class CoreNavigationApps {
   CoreNavigationApps({required this.ocs});
 
+  // coverage:ignore-start
   factory CoreNavigationApps.fromJson(Map<String, dynamic> json) => _$CoreNavigationAppsFromJson(json);
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   factory CoreNavigationApps.fromJsonString(String data) =>
       CoreNavigationApps.fromJson(json.decode(data) as Map<String, dynamic>);
+  // coverage:ignore-end
 
   final CoreNavigationApps_Ocs ocs;
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreNavigationAppsToJson(this);
   // coverage:ignore-end
-
+  // coverage:ignore-start
   static String toJsonString(CoreNavigationApps data) => json.encode(data.toJson());
+  // coverage:ignore-end
 }
 
 @JsonSerializable()
@@ -3032,10 +3310,14 @@ class CoreLoginFlowInit_Poll {
     required this.endpoint,
   });
 
+  // coverage:ignore-start
   factory CoreLoginFlowInit_Poll.fromJson(Map<String, dynamic> json) => _$CoreLoginFlowInit_PollFromJson(json);
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   factory CoreLoginFlowInit_Poll.fromJsonString(String data) =>
       CoreLoginFlowInit_Poll.fromJson(json.decode(data) as Map<String, dynamic>);
+  // coverage:ignore-end
 
   final String token;
 
@@ -3044,8 +3326,9 @@ class CoreLoginFlowInit_Poll {
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreLoginFlowInit_PollToJson(this);
   // coverage:ignore-end
-
+  // coverage:ignore-start
   static String toJsonString(CoreLoginFlowInit_Poll data) => json.encode(data.toJson());
+  // coverage:ignore-end
 }
 
 @JsonSerializable()
@@ -3055,10 +3338,14 @@ class CoreLoginFlowInit {
     required this.login,
   });
 
+  // coverage:ignore-start
   factory CoreLoginFlowInit.fromJson(Map<String, dynamic> json) => _$CoreLoginFlowInitFromJson(json);
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   factory CoreLoginFlowInit.fromJsonString(String data) =>
       CoreLoginFlowInit.fromJson(json.decode(data) as Map<String, dynamic>);
+  // coverage:ignore-end
 
   final CoreLoginFlowInit_Poll poll;
 
@@ -3067,8 +3354,9 @@ class CoreLoginFlowInit {
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreLoginFlowInitToJson(this);
   // coverage:ignore-end
-
+  // coverage:ignore-start
   static String toJsonString(CoreLoginFlowInit data) => json.encode(data.toJson());
+  // coverage:ignore-end
 }
 
 @JsonSerializable()
@@ -3079,10 +3367,14 @@ class CoreLoginFlowResult {
     required this.appPassword,
   });
 
+  // coverage:ignore-start
   factory CoreLoginFlowResult.fromJson(Map<String, dynamic> json) => _$CoreLoginFlowResultFromJson(json);
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   factory CoreLoginFlowResult.fromJsonString(String data) =>
       CoreLoginFlowResult.fromJson(json.decode(data) as Map<String, dynamic>);
+  // coverage:ignore-end
 
   final String server;
 
@@ -3093,8 +3385,9 @@ class CoreLoginFlowResult {
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreLoginFlowResultToJson(this);
   // coverage:ignore-end
-
+  // coverage:ignore-start
   static String toJsonString(CoreLoginFlowResult data) => json.encode(data.toJson());
+  // coverage:ignore-end
 }
 
 class CoreAutocompleteResult_Ocs_Data_Status {
@@ -3114,8 +3407,10 @@ class CoreAutocompleteResult_Ocs_Data_Status {
     );
   }
 
+  // coverage:ignore-start
   factory CoreAutocompleteResult_Ocs_Data_Status.fromJsonString(String data) =>
       CoreAutocompleteResult_Ocs_Data_Status.fromJson(json.decode(data));
+  // coverage:ignore-end
 
   final dynamic _data;
 
@@ -3124,8 +3419,9 @@ class CoreAutocompleteResult_Ocs_Data_Status {
   // coverage:ignore-start
   dynamic toJson() => _data;
   // coverage:ignore-end
-
+  // coverage:ignore-start
   static String toJsonString(dynamic data) => json.encode(data);
+  // coverage:ignore-end
 }
 
 @JsonSerializable()
@@ -3140,11 +3436,15 @@ class CoreAutocompleteResult_Ocs_Data {
     required this.shareWithDisplayNameUnique,
   });
 
+  // coverage:ignore-start
   factory CoreAutocompleteResult_Ocs_Data.fromJson(Map<String, dynamic> json) =>
       _$CoreAutocompleteResult_Ocs_DataFromJson(json);
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   factory CoreAutocompleteResult_Ocs_Data.fromJsonString(String data) =>
       CoreAutocompleteResult_Ocs_Data.fromJson(json.decode(data) as Map<String, dynamic>);
+  // coverage:ignore-end
 
   final String id;
 
@@ -3163,8 +3463,9 @@ class CoreAutocompleteResult_Ocs_Data {
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreAutocompleteResult_Ocs_DataToJson(this);
   // coverage:ignore-end
-
+  // coverage:ignore-start
   static String toJsonString(CoreAutocompleteResult_Ocs_Data data) => json.encode(data.toJson());
+  // coverage:ignore-end
 }
 
 @JsonSerializable()
@@ -3174,10 +3475,14 @@ class CoreAutocompleteResult_Ocs {
     required this.data,
   });
 
+  // coverage:ignore-start
   factory CoreAutocompleteResult_Ocs.fromJson(Map<String, dynamic> json) => _$CoreAutocompleteResult_OcsFromJson(json);
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   factory CoreAutocompleteResult_Ocs.fromJsonString(String data) =>
       CoreAutocompleteResult_Ocs.fromJson(json.decode(data) as Map<String, dynamic>);
+  // coverage:ignore-end
 
   final OCSMeta meta;
 
@@ -3186,44 +3491,55 @@ class CoreAutocompleteResult_Ocs {
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreAutocompleteResult_OcsToJson(this);
   // coverage:ignore-end
-
+  // coverage:ignore-start
   static String toJsonString(CoreAutocompleteResult_Ocs data) => json.encode(data.toJson());
+  // coverage:ignore-end
 }
 
 @JsonSerializable()
 class CoreAutocompleteResult {
   CoreAutocompleteResult({required this.ocs});
 
+  // coverage:ignore-start
   factory CoreAutocompleteResult.fromJson(Map<String, dynamic> json) => _$CoreAutocompleteResultFromJson(json);
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   factory CoreAutocompleteResult.fromJsonString(String data) =>
       CoreAutocompleteResult.fromJson(json.decode(data) as Map<String, dynamic>);
+  // coverage:ignore-end
 
   final CoreAutocompleteResult_Ocs ocs;
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreAutocompleteResultToJson(this);
   // coverage:ignore-end
-
+  // coverage:ignore-start
   static String toJsonString(CoreAutocompleteResult data) => json.encode(data.toJson());
+  // coverage:ignore-end
 }
 
 @JsonSerializable()
 class GetSupportedApiVersions {
   GetSupportedApiVersions({this.apiLevels});
 
+  // coverage:ignore-start
   factory GetSupportedApiVersions.fromJson(Map<String, dynamic> json) => _$GetSupportedApiVersionsFromJson(json);
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   factory GetSupportedApiVersions.fromJsonString(String data) =>
       GetSupportedApiVersions.fromJson(json.decode(data) as Map<String, dynamic>);
+  // coverage:ignore-end
 
   final List<String>? apiLevels;
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$GetSupportedApiVersionsToJson(this);
   // coverage:ignore-end
-
+  // coverage:ignore-start
   static String toJsonString(GetSupportedApiVersions data) => json.encode(data.toJson());
+  // coverage:ignore-end
 }
 
 @JsonSerializable()
@@ -3251,9 +3567,13 @@ class NewsArticle {
     required this.contentHash,
   });
 
+  // coverage:ignore-start
   factory NewsArticle.fromJson(Map<String, dynamic> json) => _$NewsArticleFromJson(json);
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   factory NewsArticle.fromJsonString(String data) => NewsArticle.fromJson(json.decode(data) as Map<String, dynamic>);
+  // coverage:ignore-end
 
   final int id;
 
@@ -3298,8 +3618,9 @@ class NewsArticle {
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$NewsArticleToJson(this);
   // coverage:ignore-end
-
+  // coverage:ignore-start
   static String toJsonString(NewsArticle data) => json.encode(data.toJson());
+  // coverage:ignore-end
 }
 
 @JsonSerializable()
@@ -3320,9 +3641,13 @@ class NewsFeed {
     required this.items,
   });
 
+  // coverage:ignore-start
   factory NewsFeed.fromJson(Map<String, dynamic> json) => _$NewsFeedFromJson(json);
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   factory NewsFeed.fromJsonString(String data) => NewsFeed.fromJson(json.decode(data) as Map<String, dynamic>);
+  // coverage:ignore-end
 
   final int id;
 
@@ -3353,8 +3678,9 @@ class NewsFeed {
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$NewsFeedToJson(this);
   // coverage:ignore-end
-
+  // coverage:ignore-start
   static String toJsonString(NewsFeed data) => json.encode(data.toJson());
+  // coverage:ignore-end
 }
 
 @JsonSerializable()
@@ -3366,9 +3692,13 @@ class NewsFolder {
     required this.feeds,
   });
 
+  // coverage:ignore-start
   factory NewsFolder.fromJson(Map<String, dynamic> json) => _$NewsFolderFromJson(json);
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   factory NewsFolder.fromJsonString(String data) => NewsFolder.fromJson(json.decode(data) as Map<String, dynamic>);
+  // coverage:ignore-end
 
   final int id;
 
@@ -3382,26 +3712,32 @@ class NewsFolder {
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$NewsFolderToJson(this);
   // coverage:ignore-end
-
+  // coverage:ignore-start
   static String toJsonString(NewsFolder data) => json.encode(data.toJson());
+  // coverage:ignore-end
 }
 
 @JsonSerializable()
 class NewsListFolders {
   NewsListFolders({required this.folders});
 
+  // coverage:ignore-start
   factory NewsListFolders.fromJson(Map<String, dynamic> json) => _$NewsListFoldersFromJson(json);
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   factory NewsListFolders.fromJsonString(String data) =>
       NewsListFolders.fromJson(json.decode(data) as Map<String, dynamic>);
+  // coverage:ignore-end
 
   final List<NewsFolder> folders;
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$NewsListFoldersToJson(this);
   // coverage:ignore-end
-
+  // coverage:ignore-start
   static String toJsonString(NewsListFolders data) => json.encode(data.toJson());
+  // coverage:ignore-end
 }
 
 @JsonSerializable()
@@ -3412,10 +3748,14 @@ class NewsListFeeds {
     required this.feeds,
   });
 
+  // coverage:ignore-start
   factory NewsListFeeds.fromJson(Map<String, dynamic> json) => _$NewsListFeedsFromJson(json);
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   factory NewsListFeeds.fromJsonString(String data) =>
       NewsListFeeds.fromJson(json.decode(data) as Map<String, dynamic>);
+  // coverage:ignore-end
 
   final int? starredCount;
 
@@ -3426,26 +3766,32 @@ class NewsListFeeds {
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$NewsListFeedsToJson(this);
   // coverage:ignore-end
-
+  // coverage:ignore-start
   static String toJsonString(NewsListFeeds data) => json.encode(data.toJson());
+  // coverage:ignore-end
 }
 
 @JsonSerializable()
 class NewsListArticles {
   NewsListArticles({required this.items});
 
+  // coverage:ignore-start
   factory NewsListArticles.fromJson(Map<String, dynamic> json) => _$NewsListArticlesFromJson(json);
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   factory NewsListArticles.fromJsonString(String data) =>
       NewsListArticles.fromJson(json.decode(data) as Map<String, dynamic>);
+  // coverage:ignore-end
 
   final List<NewsArticle> items;
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$NewsListArticlesToJson(this);
   // coverage:ignore-end
-
+  // coverage:ignore-start
   static String toJsonString(NewsListArticles data) => json.encode(data.toJson());
+  // coverage:ignore-end
 }
 
 @JsonSerializable()
@@ -3463,9 +3809,13 @@ class NotesNote {
     required this.errorType,
   });
 
+  // coverage:ignore-start
   factory NotesNote.fromJson(Map<String, dynamic> json) => _$NotesNoteFromJson(json);
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   factory NotesNote.fromJsonString(String data) => NotesNote.fromJson(json.decode(data) as Map<String, dynamic>);
+  // coverage:ignore-end
 
   final int id;
 
@@ -3490,8 +3840,9 @@ class NotesNote {
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$NotesNoteToJson(this);
   // coverage:ignore-end
-
+  // coverage:ignore-start
   static String toJsonString(NotesNote data) => json.encode(data.toJson());
+  // coverage:ignore-end
 }
 
 enum NotesSettings_NoteMode {
@@ -3522,10 +3873,14 @@ class NotesSettings {
     required this.noteMode,
   });
 
+  // coverage:ignore-start
   factory NotesSettings.fromJson(Map<String, dynamic> json) => _$NotesSettingsFromJson(json);
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   factory NotesSettings.fromJsonString(String data) =>
       NotesSettings.fromJson(json.decode(data) as Map<String, dynamic>);
+  // coverage:ignore-end
 
   final String notesPath;
 
@@ -3536,8 +3891,9 @@ class NotesSettings {
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$NotesSettingsToJson(this);
   // coverage:ignore-end
-
+  // coverage:ignore-start
   static String toJsonString(NotesSettings data) => json.encode(data.toJson());
+  // coverage:ignore-end
 }
 
 class NotificationsNotification_SubjectRichParameters {
@@ -3557,8 +3913,10 @@ class NotificationsNotification_SubjectRichParameters {
     );
   }
 
+  // coverage:ignore-start
   factory NotificationsNotification_SubjectRichParameters.fromJsonString(String data) =>
       NotificationsNotification_SubjectRichParameters.fromJson(json.decode(data));
+  // coverage:ignore-end
 
   final dynamic _data;
 
@@ -3567,8 +3925,9 @@ class NotificationsNotification_SubjectRichParameters {
   // coverage:ignore-start
   dynamic toJson() => _data;
   // coverage:ignore-end
-
+  // coverage:ignore-start
   static String toJsonString(dynamic data) => json.encode(data);
+  // coverage:ignore-end
 }
 
 class NotificationsNotification_MessageRichParameters {
@@ -3588,8 +3947,10 @@ class NotificationsNotification_MessageRichParameters {
     );
   }
 
+  // coverage:ignore-start
   factory NotificationsNotification_MessageRichParameters.fromJsonString(String data) =>
       NotificationsNotification_MessageRichParameters.fromJson(json.decode(data));
+  // coverage:ignore-end
 
   final dynamic _data;
 
@@ -3598,8 +3959,9 @@ class NotificationsNotification_MessageRichParameters {
   // coverage:ignore-start
   dynamic toJson() => _data;
   // coverage:ignore-end
-
+  // coverage:ignore-start
   static String toJsonString(dynamic data) => json.encode(data);
+  // coverage:ignore-end
 }
 
 @JsonSerializable()
@@ -3611,11 +3973,15 @@ class NotificationsNotificationAction {
     this.primary,
   });
 
+  // coverage:ignore-start
   factory NotificationsNotificationAction.fromJson(Map<String, dynamic> json) =>
       _$NotificationsNotificationActionFromJson(json);
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   factory NotificationsNotificationAction.fromJsonString(String data) =>
       NotificationsNotificationAction.fromJson(json.decode(data) as Map<String, dynamic>);
+  // coverage:ignore-end
 
   final String label;
 
@@ -3628,8 +3994,9 @@ class NotificationsNotificationAction {
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$NotificationsNotificationActionToJson(this);
   // coverage:ignore-end
-
+  // coverage:ignore-start
   static String toJsonString(NotificationsNotificationAction data) => json.encode(data.toJson());
+  // coverage:ignore-end
 }
 
 @JsonSerializable()
@@ -3652,10 +4019,14 @@ class NotificationsNotification {
     required this.actions,
   });
 
+  // coverage:ignore-start
   factory NotificationsNotification.fromJson(Map<String, dynamic> json) => _$NotificationsNotificationFromJson(json);
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   factory NotificationsNotification.fromJsonString(String data) =>
       NotificationsNotification.fromJson(json.decode(data) as Map<String, dynamic>);
+  // coverage:ignore-end
 
   @JsonKey(name: 'notification_id')
   final int notificationId;
@@ -3693,8 +4064,9 @@ class NotificationsNotification {
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$NotificationsNotificationToJson(this);
   // coverage:ignore-end
-
+  // coverage:ignore-start
   static String toJsonString(NotificationsNotification data) => json.encode(data.toJson());
+  // coverage:ignore-end
 }
 
 @JsonSerializable()
@@ -3704,11 +4076,15 @@ class NotificationsListNotifications_Ocs {
     required this.data,
   });
 
+  // coverage:ignore-start
   factory NotificationsListNotifications_Ocs.fromJson(Map<String, dynamic> json) =>
       _$NotificationsListNotifications_OcsFromJson(json);
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   factory NotificationsListNotifications_Ocs.fromJsonString(String data) =>
       NotificationsListNotifications_Ocs.fromJson(json.decode(data) as Map<String, dynamic>);
+  // coverage:ignore-end
 
   final OCSMeta meta;
 
@@ -3717,27 +4093,33 @@ class NotificationsListNotifications_Ocs {
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$NotificationsListNotifications_OcsToJson(this);
   // coverage:ignore-end
-
+  // coverage:ignore-start
   static String toJsonString(NotificationsListNotifications_Ocs data) => json.encode(data.toJson());
+  // coverage:ignore-end
 }
 
 @JsonSerializable()
 class NotificationsListNotifications {
   NotificationsListNotifications({required this.ocs});
 
+  // coverage:ignore-start
   factory NotificationsListNotifications.fromJson(Map<String, dynamic> json) =>
       _$NotificationsListNotificationsFromJson(json);
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   factory NotificationsListNotifications.fromJsonString(String data) =>
       NotificationsListNotifications.fromJson(json.decode(data) as Map<String, dynamic>);
+  // coverage:ignore-end
 
   final NotificationsListNotifications_Ocs ocs;
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$NotificationsListNotificationsToJson(this);
   // coverage:ignore-end
-
+  // coverage:ignore-start
   static String toJsonString(NotificationsListNotifications data) => json.encode(data.toJson());
+  // coverage:ignore-end
 }
 
 @JsonSerializable()
@@ -3747,11 +4129,15 @@ class NotificationsGetNotification_Ocs {
     required this.data,
   });
 
+  // coverage:ignore-start
   factory NotificationsGetNotification_Ocs.fromJson(Map<String, dynamic> json) =>
       _$NotificationsGetNotification_OcsFromJson(json);
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   factory NotificationsGetNotification_Ocs.fromJsonString(String data) =>
       NotificationsGetNotification_Ocs.fromJson(json.decode(data) as Map<String, dynamic>);
+  // coverage:ignore-end
 
   final OCSMeta meta;
 
@@ -3760,27 +4146,33 @@ class NotificationsGetNotification_Ocs {
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$NotificationsGetNotification_OcsToJson(this);
   // coverage:ignore-end
-
+  // coverage:ignore-start
   static String toJsonString(NotificationsGetNotification_Ocs data) => json.encode(data.toJson());
+  // coverage:ignore-end
 }
 
 @JsonSerializable()
 class NotificationsGetNotification {
   NotificationsGetNotification({required this.ocs});
 
+  // coverage:ignore-start
   factory NotificationsGetNotification.fromJson(Map<String, dynamic> json) =>
       _$NotificationsGetNotificationFromJson(json);
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   factory NotificationsGetNotification.fromJsonString(String data) =>
       NotificationsGetNotification.fromJson(json.decode(data) as Map<String, dynamic>);
+  // coverage:ignore-end
 
   final NotificationsGetNotification_Ocs ocs;
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$NotificationsGetNotificationToJson(this);
   // coverage:ignore-end
-
+  // coverage:ignore-start
   static String toJsonString(NotificationsGetNotification data) => json.encode(data.toJson());
+  // coverage:ignore-end
 }
 
 @JsonSerializable()
@@ -3790,9 +4182,13 @@ class EmptyOCS_Ocs {
     required this.data,
   });
 
+  // coverage:ignore-start
   factory EmptyOCS_Ocs.fromJson(Map<String, dynamic> json) => _$EmptyOCS_OcsFromJson(json);
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   factory EmptyOCS_Ocs.fromJsonString(String data) => EmptyOCS_Ocs.fromJson(json.decode(data) as Map<String, dynamic>);
+  // coverage:ignore-end
 
   final OCSMeta meta;
 
@@ -3801,25 +4197,31 @@ class EmptyOCS_Ocs {
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$EmptyOCS_OcsToJson(this);
   // coverage:ignore-end
-
+  // coverage:ignore-start
   static String toJsonString(EmptyOCS_Ocs data) => json.encode(data.toJson());
+  // coverage:ignore-end
 }
 
 @JsonSerializable()
 class EmptyOCS {
   EmptyOCS({required this.ocs});
 
+  // coverage:ignore-start
   factory EmptyOCS.fromJson(Map<String, dynamic> json) => _$EmptyOCSFromJson(json);
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   factory EmptyOCS.fromJsonString(String data) => EmptyOCS.fromJson(json.decode(data) as Map<String, dynamic>);
+  // coverage:ignore-end
 
   final EmptyOCS_Ocs ocs;
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$EmptyOCSToJson(this);
   // coverage:ignore-end
-
+  // coverage:ignore-start
   static String toJsonString(EmptyOCS data) => json.encode(data.toJson());
+  // coverage:ignore-end
 }
 
 @JsonSerializable()
@@ -3831,11 +4233,15 @@ class NotificationsPushServerSubscription {
     this.message,
   });
 
+  // coverage:ignore-start
   factory NotificationsPushServerSubscription.fromJson(Map<String, dynamic> json) =>
       _$NotificationsPushServerSubscriptionFromJson(json);
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   factory NotificationsPushServerSubscription.fromJsonString(String data) =>
       NotificationsPushServerSubscription.fromJson(json.decode(data) as Map<String, dynamic>);
+  // coverage:ignore-end
 
   final String publicKey;
 
@@ -3848,8 +4254,9 @@ class NotificationsPushServerSubscription {
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$NotificationsPushServerSubscriptionToJson(this);
   // coverage:ignore-end
-
+  // coverage:ignore-start
   static String toJsonString(NotificationsPushServerSubscription data) => json.encode(data.toJson());
+  // coverage:ignore-end
 }
 
 @JsonSerializable()
@@ -3859,11 +4266,15 @@ class NotificationsPushServerRegistration_Ocs {
     required this.data,
   });
 
+  // coverage:ignore-start
   factory NotificationsPushServerRegistration_Ocs.fromJson(Map<String, dynamic> json) =>
       _$NotificationsPushServerRegistration_OcsFromJson(json);
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   factory NotificationsPushServerRegistration_Ocs.fromJsonString(String data) =>
       NotificationsPushServerRegistration_Ocs.fromJson(json.decode(data) as Map<String, dynamic>);
+  // coverage:ignore-end
 
   final OCSMeta meta;
 
@@ -3872,27 +4283,33 @@ class NotificationsPushServerRegistration_Ocs {
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$NotificationsPushServerRegistration_OcsToJson(this);
   // coverage:ignore-end
-
+  // coverage:ignore-start
   static String toJsonString(NotificationsPushServerRegistration_Ocs data) => json.encode(data.toJson());
+  // coverage:ignore-end
 }
 
 @JsonSerializable()
 class NotificationsPushServerRegistration {
   NotificationsPushServerRegistration({required this.ocs});
 
+  // coverage:ignore-start
   factory NotificationsPushServerRegistration.fromJson(Map<String, dynamic> json) =>
       _$NotificationsPushServerRegistrationFromJson(json);
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   factory NotificationsPushServerRegistration.fromJsonString(String data) =>
       NotificationsPushServerRegistration.fromJson(json.decode(data) as Map<String, dynamic>);
+  // coverage:ignore-end
 
   final NotificationsPushServerRegistration_Ocs ocs;
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$NotificationsPushServerRegistrationToJson(this);
   // coverage:ignore-end
-
+  // coverage:ignore-start
   static String toJsonString(NotificationsPushServerRegistration data) => json.encode(data.toJson());
+  // coverage:ignore-end
 }
 
 @JsonSerializable()
@@ -3905,11 +4322,15 @@ class ProvisioningApiUserDetails_Quota {
     required this.quota,
   });
 
+  // coverage:ignore-start
   factory ProvisioningApiUserDetails_Quota.fromJson(Map<String, dynamic> json) =>
       _$ProvisioningApiUserDetails_QuotaFromJson(json);
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   factory ProvisioningApiUserDetails_Quota.fromJsonString(String data) =>
       ProvisioningApiUserDetails_Quota.fromJson(json.decode(data) as Map<String, dynamic>);
+  // coverage:ignore-end
 
   final int free;
 
@@ -3924,8 +4345,9 @@ class ProvisioningApiUserDetails_Quota {
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$ProvisioningApiUserDetails_QuotaToJson(this);
   // coverage:ignore-end
-
+  // coverage:ignore-start
   static String toJsonString(ProvisioningApiUserDetails_Quota data) => json.encode(data.toJson());
+  // coverage:ignore-end
 }
 
 @JsonSerializable()
@@ -3935,11 +4357,15 @@ class ProvisioningApiUserDetails_BackendCapabilities {
     required this.setPassword,
   });
 
+  // coverage:ignore-start
   factory ProvisioningApiUserDetails_BackendCapabilities.fromJson(Map<String, dynamic> json) =>
       _$ProvisioningApiUserDetails_BackendCapabilitiesFromJson(json);
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   factory ProvisioningApiUserDetails_BackendCapabilities.fromJsonString(String data) =>
       ProvisioningApiUserDetails_BackendCapabilities.fromJson(json.decode(data) as Map<String, dynamic>);
+  // coverage:ignore-end
 
   final bool setDisplayName;
 
@@ -3948,8 +4374,9 @@ class ProvisioningApiUserDetails_BackendCapabilities {
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$ProvisioningApiUserDetails_BackendCapabilitiesToJson(this);
   // coverage:ignore-end
-
+  // coverage:ignore-start
   static String toJsonString(ProvisioningApiUserDetails_BackendCapabilities data) => json.encode(data.toJson());
+  // coverage:ignore-end
 }
 
 @JsonSerializable()
@@ -3995,10 +4422,14 @@ class ProvisioningApiUserDetails {
     this.displayName,
   });
 
+  // coverage:ignore-start
   factory ProvisioningApiUserDetails.fromJson(Map<String, dynamic> json) => _$ProvisioningApiUserDetailsFromJson(json);
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   factory ProvisioningApiUserDetails.fromJsonString(String data) =>
       ProvisioningApiUserDetails.fromJson(json.decode(data) as Map<String, dynamic>);
+  // coverage:ignore-end
 
   final bool? enabled;
 
@@ -4085,8 +4516,9 @@ class ProvisioningApiUserDetails {
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$ProvisioningApiUserDetailsToJson(this);
   // coverage:ignore-end
-
+  // coverage:ignore-start
   static String toJsonString(ProvisioningApiUserDetails data) => json.encode(data.toJson());
+  // coverage:ignore-end
 }
 
 @JsonSerializable()
@@ -4096,10 +4528,14 @@ class ProvisioningApiUser_Ocs {
     required this.data,
   });
 
+  // coverage:ignore-start
   factory ProvisioningApiUser_Ocs.fromJson(Map<String, dynamic> json) => _$ProvisioningApiUser_OcsFromJson(json);
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   factory ProvisioningApiUser_Ocs.fromJsonString(String data) =>
       ProvisioningApiUser_Ocs.fromJson(json.decode(data) as Map<String, dynamic>);
+  // coverage:ignore-end
 
   final OCSMeta meta;
 
@@ -4108,26 +4544,32 @@ class ProvisioningApiUser_Ocs {
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$ProvisioningApiUser_OcsToJson(this);
   // coverage:ignore-end
-
+  // coverage:ignore-start
   static String toJsonString(ProvisioningApiUser_Ocs data) => json.encode(data.toJson());
+  // coverage:ignore-end
 }
 
 @JsonSerializable()
 class ProvisioningApiUser {
   ProvisioningApiUser({required this.ocs});
 
+  // coverage:ignore-start
   factory ProvisioningApiUser.fromJson(Map<String, dynamic> json) => _$ProvisioningApiUserFromJson(json);
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   factory ProvisioningApiUser.fromJsonString(String data) =>
       ProvisioningApiUser.fromJson(json.decode(data) as Map<String, dynamic>);
+  // coverage:ignore-end
 
   final ProvisioningApiUser_Ocs ocs;
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$ProvisioningApiUserToJson(this);
   // coverage:ignore-end
-
+  // coverage:ignore-start
   static String toJsonString(ProvisioningApiUser data) => json.encode(data.toJson());
+  // coverage:ignore-end
 }
 
 enum UserStatusClearAt_Type {
@@ -4195,7 +4637,9 @@ class UserStatusClearAt_Time {
     );
   }
 
+  // coverage:ignore-start
   factory UserStatusClearAt_Time.fromJsonString(String data) => UserStatusClearAt_Time.fromJson(json.decode(data));
+  // coverage:ignore-end
 
   final dynamic _data;
 
@@ -4207,8 +4651,9 @@ class UserStatusClearAt_Time {
   // coverage:ignore-start
   dynamic toJson() => _data;
   // coverage:ignore-end
-
+  // coverage:ignore-start
   static String toJsonString(dynamic data) => json.encode(data);
+  // coverage:ignore-end
 }
 
 @JsonSerializable()
@@ -4218,10 +4663,14 @@ class UserStatusClearAt {
     required this.time,
   });
 
+  // coverage:ignore-start
   factory UserStatusClearAt.fromJson(Map<String, dynamic> json) => _$UserStatusClearAtFromJson(json);
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   factory UserStatusClearAt.fromJsonString(String data) =>
       UserStatusClearAt.fromJson(json.decode(data) as Map<String, dynamic>);
+  // coverage:ignore-end
 
   final UserStatusClearAt_Type type;
 
@@ -4230,8 +4679,9 @@ class UserStatusClearAt {
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$UserStatusClearAtToJson(this);
   // coverage:ignore-end
-
+  // coverage:ignore-start
   static String toJsonString(UserStatusClearAt data) => json.encode(data.toJson());
+  // coverage:ignore-end
 }
 
 class UserStatusPublicUserStatus_ClearAt {
@@ -4257,8 +4707,10 @@ class UserStatusPublicUserStatus_ClearAt {
     );
   }
 
+  // coverage:ignore-start
   factory UserStatusPublicUserStatus_ClearAt.fromJsonString(String data) =>
       UserStatusPublicUserStatus_ClearAt.fromJson(json.decode(data));
+  // coverage:ignore-end
 
   final dynamic _data;
 
@@ -4270,8 +4722,9 @@ class UserStatusPublicUserStatus_ClearAt {
   // coverage:ignore-start
   dynamic toJson() => _data;
   // coverage:ignore-end
-
+  // coverage:ignore-start
   static String toJsonString(dynamic data) => json.encode(data);
+  // coverage:ignore-end
 }
 
 enum UserStatusType {
@@ -4313,10 +4766,14 @@ class UserStatusPublicUserStatus {
     required this.status,
   });
 
+  // coverage:ignore-start
   factory UserStatusPublicUserStatus.fromJson(Map<String, dynamic> json) => _$UserStatusPublicUserStatusFromJson(json);
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   factory UserStatusPublicUserStatus.fromJsonString(String data) =>
       UserStatusPublicUserStatus.fromJson(json.decode(data) as Map<String, dynamic>);
+  // coverage:ignore-end
 
   final String userId;
 
@@ -4331,8 +4788,9 @@ class UserStatusPublicUserStatus {
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$UserStatusPublicUserStatusToJson(this);
   // coverage:ignore-end
-
+  // coverage:ignore-start
   static String toJsonString(UserStatusPublicUserStatus data) => json.encode(data.toJson());
+  // coverage:ignore-end
 }
 
 @JsonSerializable()
@@ -4342,11 +4800,15 @@ class UserStatusFindAllStatuses_Ocs {
     required this.data,
   });
 
+  // coverage:ignore-start
   factory UserStatusFindAllStatuses_Ocs.fromJson(Map<String, dynamic> json) =>
       _$UserStatusFindAllStatuses_OcsFromJson(json);
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   factory UserStatusFindAllStatuses_Ocs.fromJsonString(String data) =>
       UserStatusFindAllStatuses_Ocs.fromJson(json.decode(data) as Map<String, dynamic>);
+  // coverage:ignore-end
 
   final OCSMeta meta;
 
@@ -4355,26 +4817,32 @@ class UserStatusFindAllStatuses_Ocs {
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$UserStatusFindAllStatuses_OcsToJson(this);
   // coverage:ignore-end
-
+  // coverage:ignore-start
   static String toJsonString(UserStatusFindAllStatuses_Ocs data) => json.encode(data.toJson());
+  // coverage:ignore-end
 }
 
 @JsonSerializable()
 class UserStatusFindAllStatuses {
   UserStatusFindAllStatuses({required this.ocs});
 
+  // coverage:ignore-start
   factory UserStatusFindAllStatuses.fromJson(Map<String, dynamic> json) => _$UserStatusFindAllStatusesFromJson(json);
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   factory UserStatusFindAllStatuses.fromJsonString(String data) =>
       UserStatusFindAllStatuses.fromJson(json.decode(data) as Map<String, dynamic>);
+  // coverage:ignore-end
 
   final UserStatusFindAllStatuses_Ocs ocs;
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$UserStatusFindAllStatusesToJson(this);
   // coverage:ignore-end
-
+  // coverage:ignore-start
   static String toJsonString(UserStatusFindAllStatuses data) => json.encode(data.toJson());
+  // coverage:ignore-end
 }
 
 class UserStatusFindStatus_Ocs_Data {
@@ -4394,8 +4862,10 @@ class UserStatusFindStatus_Ocs_Data {
     );
   }
 
+  // coverage:ignore-start
   factory UserStatusFindStatus_Ocs_Data.fromJsonString(String data) =>
       UserStatusFindStatus_Ocs_Data.fromJson(json.decode(data));
+  // coverage:ignore-end
 
   final dynamic _data;
 
@@ -4404,8 +4874,9 @@ class UserStatusFindStatus_Ocs_Data {
   // coverage:ignore-start
   dynamic toJson() => _data;
   // coverage:ignore-end
-
+  // coverage:ignore-start
   static String toJsonString(dynamic data) => json.encode(data);
+  // coverage:ignore-end
 }
 
 @JsonSerializable()
@@ -4415,10 +4886,14 @@ class UserStatusFindStatus_Ocs {
     required this.data,
   });
 
+  // coverage:ignore-start
   factory UserStatusFindStatus_Ocs.fromJson(Map<String, dynamic> json) => _$UserStatusFindStatus_OcsFromJson(json);
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   factory UserStatusFindStatus_Ocs.fromJsonString(String data) =>
       UserStatusFindStatus_Ocs.fromJson(json.decode(data) as Map<String, dynamic>);
+  // coverage:ignore-end
 
   final OCSMeta meta;
 
@@ -4427,26 +4902,32 @@ class UserStatusFindStatus_Ocs {
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$UserStatusFindStatus_OcsToJson(this);
   // coverage:ignore-end
-
+  // coverage:ignore-start
   static String toJsonString(UserStatusFindStatus_Ocs data) => json.encode(data.toJson());
+  // coverage:ignore-end
 }
 
 @JsonSerializable()
 class UserStatusFindStatus {
   UserStatusFindStatus({required this.ocs});
 
+  // coverage:ignore-start
   factory UserStatusFindStatus.fromJson(Map<String, dynamic> json) => _$UserStatusFindStatusFromJson(json);
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   factory UserStatusFindStatus.fromJsonString(String data) =>
       UserStatusFindStatus.fromJson(json.decode(data) as Map<String, dynamic>);
+  // coverage:ignore-end
 
   final UserStatusFindStatus_Ocs ocs;
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$UserStatusFindStatusToJson(this);
   // coverage:ignore-end
-
+  // coverage:ignore-start
   static String toJsonString(UserStatusFindStatus data) => json.encode(data.toJson());
+  // coverage:ignore-end
 }
 
 class UserStatus_ClearAt {
@@ -4472,7 +4953,9 @@ class UserStatus_ClearAt {
     );
   }
 
+  // coverage:ignore-start
   factory UserStatus_ClearAt.fromJsonString(String data) => UserStatus_ClearAt.fromJson(json.decode(data));
+  // coverage:ignore-end
 
   final dynamic _data;
 
@@ -4484,8 +4967,9 @@ class UserStatus_ClearAt {
   // coverage:ignore-start
   dynamic toJson() => _data;
   // coverage:ignore-end
-
+  // coverage:ignore-start
   static String toJsonString(dynamic data) => json.encode(data);
+  // coverage:ignore-end
 }
 
 @JsonSerializable()
@@ -4501,9 +4985,13 @@ class UserStatus {
     required this.statusIsUserDefined,
   });
 
+  // coverage:ignore-start
   factory UserStatus.fromJson(Map<String, dynamic> json) => _$UserStatusFromJson(json);
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   factory UserStatus.fromJsonString(String data) => UserStatus.fromJson(json.decode(data) as Map<String, dynamic>);
+  // coverage:ignore-end
 
   final String userId;
 
@@ -4524,8 +5012,9 @@ class UserStatus {
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$UserStatusToJson(this);
   // coverage:ignore-end
-
+  // coverage:ignore-start
   static String toJsonString(UserStatus data) => json.encode(data.toJson());
+  // coverage:ignore-end
 }
 
 class UserStatusGetUserStatus_Ocs_Data {
@@ -4545,8 +5034,10 @@ class UserStatusGetUserStatus_Ocs_Data {
     );
   }
 
+  // coverage:ignore-start
   factory UserStatusGetUserStatus_Ocs_Data.fromJsonString(String data) =>
       UserStatusGetUserStatus_Ocs_Data.fromJson(json.decode(data));
+  // coverage:ignore-end
 
   final dynamic _data;
 
@@ -4555,8 +5046,9 @@ class UserStatusGetUserStatus_Ocs_Data {
   // coverage:ignore-start
   dynamic toJson() => _data;
   // coverage:ignore-end
-
+  // coverage:ignore-start
   static String toJsonString(dynamic data) => json.encode(data);
+  // coverage:ignore-end
 }
 
 @JsonSerializable()
@@ -4566,11 +5058,15 @@ class UserStatusGetUserStatus_Ocs {
     required this.data,
   });
 
+  // coverage:ignore-start
   factory UserStatusGetUserStatus_Ocs.fromJson(Map<String, dynamic> json) =>
       _$UserStatusGetUserStatus_OcsFromJson(json);
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   factory UserStatusGetUserStatus_Ocs.fromJsonString(String data) =>
       UserStatusGetUserStatus_Ocs.fromJson(json.decode(data) as Map<String, dynamic>);
+  // coverage:ignore-end
 
   final OCSMeta meta;
 
@@ -4579,26 +5075,32 @@ class UserStatusGetUserStatus_Ocs {
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$UserStatusGetUserStatus_OcsToJson(this);
   // coverage:ignore-end
-
+  // coverage:ignore-start
   static String toJsonString(UserStatusGetUserStatus_Ocs data) => json.encode(data.toJson());
+  // coverage:ignore-end
 }
 
 @JsonSerializable()
 class UserStatusGetUserStatus {
   UserStatusGetUserStatus({required this.ocs});
 
+  // coverage:ignore-start
   factory UserStatusGetUserStatus.fromJson(Map<String, dynamic> json) => _$UserStatusGetUserStatusFromJson(json);
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   factory UserStatusGetUserStatus.fromJsonString(String data) =>
       UserStatusGetUserStatus.fromJson(json.decode(data) as Map<String, dynamic>);
+  // coverage:ignore-end
 
   final UserStatusGetUserStatus_Ocs ocs;
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$UserStatusGetUserStatusToJson(this);
   // coverage:ignore-end
-
+  // coverage:ignore-start
   static String toJsonString(UserStatusGetUserStatus data) => json.encode(data.toJson());
+  // coverage:ignore-end
 }
 
 class UserStatusPredefinedStatus_ClearAt {
@@ -4624,8 +5126,10 @@ class UserStatusPredefinedStatus_ClearAt {
     );
   }
 
+  // coverage:ignore-start
   factory UserStatusPredefinedStatus_ClearAt.fromJsonString(String data) =>
       UserStatusPredefinedStatus_ClearAt.fromJson(json.decode(data));
+  // coverage:ignore-end
 
   final dynamic _data;
 
@@ -4637,8 +5141,9 @@ class UserStatusPredefinedStatus_ClearAt {
   // coverage:ignore-start
   dynamic toJson() => _data;
   // coverage:ignore-end
-
+  // coverage:ignore-start
   static String toJsonString(dynamic data) => json.encode(data);
+  // coverage:ignore-end
 }
 
 @JsonSerializable()
@@ -4650,10 +5155,14 @@ class UserStatusPredefinedStatus {
     required this.clearAt,
   });
 
+  // coverage:ignore-start
   factory UserStatusPredefinedStatus.fromJson(Map<String, dynamic> json) => _$UserStatusPredefinedStatusFromJson(json);
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   factory UserStatusPredefinedStatus.fromJsonString(String data) =>
       UserStatusPredefinedStatus.fromJson(json.decode(data) as Map<String, dynamic>);
+  // coverage:ignore-end
 
   final String id;
 
@@ -4666,8 +5175,9 @@ class UserStatusPredefinedStatus {
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$UserStatusPredefinedStatusToJson(this);
   // coverage:ignore-end
-
+  // coverage:ignore-start
   static String toJsonString(UserStatusPredefinedStatus data) => json.encode(data.toJson());
+  // coverage:ignore-end
 }
 
 @JsonSerializable()
@@ -4677,11 +5187,15 @@ class UserStatusPredefinedStatuses_Ocs {
     required this.data,
   });
 
+  // coverage:ignore-start
   factory UserStatusPredefinedStatuses_Ocs.fromJson(Map<String, dynamic> json) =>
       _$UserStatusPredefinedStatuses_OcsFromJson(json);
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   factory UserStatusPredefinedStatuses_Ocs.fromJsonString(String data) =>
       UserStatusPredefinedStatuses_Ocs.fromJson(json.decode(data) as Map<String, dynamic>);
+  // coverage:ignore-end
 
   final OCSMeta meta;
 
@@ -4690,27 +5204,33 @@ class UserStatusPredefinedStatuses_Ocs {
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$UserStatusPredefinedStatuses_OcsToJson(this);
   // coverage:ignore-end
-
+  // coverage:ignore-start
   static String toJsonString(UserStatusPredefinedStatuses_Ocs data) => json.encode(data.toJson());
+  // coverage:ignore-end
 }
 
 @JsonSerializable()
 class UserStatusPredefinedStatuses {
   UserStatusPredefinedStatuses({required this.ocs});
 
+  // coverage:ignore-start
   factory UserStatusPredefinedStatuses.fromJson(Map<String, dynamic> json) =>
       _$UserStatusPredefinedStatusesFromJson(json);
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   factory UserStatusPredefinedStatuses.fromJsonString(String data) =>
       UserStatusPredefinedStatuses.fromJson(json.decode(data) as Map<String, dynamic>);
+  // coverage:ignore-end
 
   final UserStatusPredefinedStatuses_Ocs ocs;
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$UserStatusPredefinedStatusesToJson(this);
   // coverage:ignore-end
-
+  // coverage:ignore-start
   static String toJsonString(UserStatusPredefinedStatuses data) => json.encode(data.toJson());
+  // coverage:ignore-end
 }
 
 @JsonSerializable()
@@ -4725,11 +5245,15 @@ class NotificationsPushNotificationDecryptedSubject {
     this.deleteAll,
   });
 
+  // coverage:ignore-start
   factory NotificationsPushNotificationDecryptedSubject.fromJson(Map<String, dynamic> json) =>
       _$NotificationsPushNotificationDecryptedSubjectFromJson(json);
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   factory NotificationsPushNotificationDecryptedSubject.fromJsonString(String data) =>
       NotificationsPushNotificationDecryptedSubject.fromJson(json.decode(data) as Map<String, dynamic>);
+  // coverage:ignore-end
 
   final int? nid;
 
@@ -4749,8 +5273,9 @@ class NotificationsPushNotificationDecryptedSubject {
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$NotificationsPushNotificationDecryptedSubjectToJson(this);
   // coverage:ignore-end
-
+  // coverage:ignore-start
   static String toJsonString(NotificationsPushNotificationDecryptedSubject data) => json.encode(data.toJson());
+  // coverage:ignore-end
 }
 
 @JsonSerializable()
@@ -4762,11 +5287,15 @@ class NotificationsPushNotification {
     required this.subject,
   });
 
+  // coverage:ignore-start
   factory NotificationsPushNotification.fromJson(Map<String, dynamic> json) =>
       _$NotificationsPushNotificationFromJson(json);
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   factory NotificationsPushNotification.fromJsonString(String data) =>
       NotificationsPushNotification.fromJson(json.decode(data) as Map<String, dynamic>);
+  // coverage:ignore-end
 
   final String accountID;
 
@@ -4779,8 +5308,9 @@ class NotificationsPushNotification {
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$NotificationsPushNotificationToJson(this);
   // coverage:ignore-end
-
+  // coverage:ignore-start
   static String toJsonString(NotificationsPushNotification data) => json.encode(data.toJson());
+  // coverage:ignore-end
 }
 
 // coverage:ignore-start
