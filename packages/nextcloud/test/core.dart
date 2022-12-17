@@ -24,7 +24,6 @@ Future run(final DockerImage image) async {
 
     test('Get status', () async {
       final status = await client.core.getStatus();
-      print(status.toJson());
       expect(status.installed, true);
       expect(status.maintenance, false);
       expect(status.needsDbUpgrade, false);
