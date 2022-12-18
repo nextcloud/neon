@@ -36,12 +36,14 @@ class DockerContainer {
     }
   }
 
-  Future destroy() => runExecutableArguments(
-        'docker',
-        [
-          'kill',
-          id,
-        ],
+  void destroy() => unawaited(
+        runExecutableArguments(
+          'docker',
+          [
+            'kill',
+            id,
+          ],
+        ),
       );
 
   Future<String> collectLogs() async {
