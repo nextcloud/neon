@@ -49,7 +49,7 @@ Future run(final DockerImage image) async {
       final file = files.singleWhere((final f) => f.name == 'Nextcloud.png');
       expect(file.hasPreview, isTrue);
       expect(file.mimeType, 'image/png');
-      expectDateInReasonableTimeRange(file.lastModified!, DateTime.now());
+      expect(file.lastModified!.isBefore(DateTime.now()), isTrue);
       expect(file.size!, 50598);
     });
 
@@ -168,7 +168,7 @@ Future run(final DockerImage image) async {
       );
       expect(file.hasPreview, isTrue);
       expect(file.mimeType, 'image/png');
-      expectDateInReasonableTimeRange(file.lastModified!, DateTime.now());
+      expect(file.lastModified!.isBefore(DateTime.now()), isTrue);
       expect(file.size!, 50598);
     });
 
