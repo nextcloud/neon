@@ -15,4 +15,7 @@ RUN ./occ app:install news
 RUN ./occ app:install notes
 
 RUN ./occ app:enable password_policy
+RUN (bash /entrypoint.sh apache2-foreground &) && \
+    until curl -s -o /dev/null http://localhost/status.php; do true; done && \
+    for user in admin user1 user2; do curl -u "$user:$user" -H "ocs-apirequest: true" -s -o /dev/null http://localhost/ocs/v2.php/cloud/user; done
 COPY --chown=www-data:www-data overlay /usr/src/nextcloud/
