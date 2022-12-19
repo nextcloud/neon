@@ -1168,21 +1168,23 @@ TypeResult resolveObject(
                           '/// ${propertySchema.description!}',
                         ],
                       ]);
-                    if (_toDartName(propertyName) != propertyName ||
-                        propertySchema.isJsonString ||
-                        extraJsonKeyValues != null) {
+                    final hasDifferentName = _toDartName(propertyName) != propertyName;
+                    final isJsonString = propertySchema.isJsonString;
+                    final hasExtraJsonKeyValues =
+                        extraJsonKeyValues != null && extraJsonKeyValues.containsKey(propertyName);
+                    if (hasDifferentName || isJsonString || hasExtraJsonKeyValues) {
                       b.annotations.add(
                         refer('JsonKey').call(
                           [],
                           {
-                            if (_toDartName(propertyName) != propertyName) ...{
+                            if (hasDifferentName) ...{
                               'name': refer("'$propertyName'"),
                             },
-                            if (propertySchema.isJsonString) ...{
+                            if (isJsonString) ...{
                               'fromJson': refer('${result.name}.fromJsonString'),
                               'toJson': refer('${result.name}.toJsonString'),
                             },
-                            if (extraJsonKeyValues != null && extraJsonKeyValues.containsKey(propertyName)) ...{
+                            if (hasExtraJsonKeyValues) ...{
                               for (final key in extraJsonKeyValues[propertyName]!.keys) ...{
                                 key: refer(extraJsonKeyValues[propertyName]![key]!),
                               },
