@@ -7,7 +7,11 @@ class TypeResultBase extends TypeResult {
   String serialize(final String object) => object;
 
   @override
-  String encode(final String object, {final bool onlyChildren = false}) =>
+  String encode(
+    final String object, {
+    final bool onlyChildren = false,
+    final String? mimeType,
+  }) =>
       name == 'String' ? object : '$object.toString()';
 
   @override

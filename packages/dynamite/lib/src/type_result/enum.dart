@@ -12,7 +12,12 @@ class TypeResultEnum extends TypeResult {
   String serialize(final String object) => '$object.value';
 
   @override
-  String encode(final String object, {final bool onlyChildren = false}) => subType.encode(object);
+  String encode(
+    final String object, {
+    final bool onlyChildren = false,
+    final String? mimeType,
+  }) =>
+      subType.encode(object);
 
   @override
   String deserialize(final String object) => '$name.fromValue($object as ${subType.name})';

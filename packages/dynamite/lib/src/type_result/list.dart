@@ -14,11 +14,23 @@ class TypeResultList extends TypeResult {
   String serialize(final String object) => '$object.map((final e) => ${subType.serialize('e')}).toList()';
 
   @override
-  String encode(final String object, {final bool onlyChildren = false}) {
+  String encode(
+    final String object, {
+    final bool onlyChildren = false,
+    final String? mimeType,
+  }) {
     if (onlyChildren) {
       return '$object.map((final e) => ${subType.encode('e')}).toList()';
     }
-    return 'json.encode($object)';
+
+    switch (mimeType) {
+      case 'application/json':
+        return 'json.encode($object)';
+      case 'application/x-www-form-urlencoded':
+        return 'Uri(queryParameters: $object).query';
+      default:
+        throw Exception('Can not encode mime type "$mimeType"');
+    }
   }
 
   @override

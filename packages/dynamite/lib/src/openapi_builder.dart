@@ -606,6 +606,8 @@ class OpenAPIBuilder implements Builder {
                               final value = result.encode(
                                 result.serialize(_toDartName(parameter.name)),
                                 onlyChildren: isPlainList && parameter.in_ == 'query',
+                                // Objects inside the query always have to be interpreted in some way
+                                mimeType: 'application/json',
                               );
                               if (defaultValueCode != null && parameter.in_ != 'path') {
                                 code.write('if (${_toDartName(parameter.name)} != $defaultValueCode) {');
@@ -654,6 +656,7 @@ class OpenAPIBuilder implements Builder {
                                 );
                                 switch (mimeType) {
                                   case 'application/json':
+                                  case 'application/x-www-form-urlencoded':
                                     final nullable = _isParameterNullable(
                                       operation.requestBody!.required,
                                       mediaType.schema?.default_,
@@ -672,7 +675,7 @@ class OpenAPIBuilder implements Builder {
                                       code.write('if (${_toDartName(result.name)} != null) {');
                                     }
                                     code.write(
-                                      'body = Uint8List.fromList(utf8.encode(${result.encode(result.serialize(_toDartName(result.name)))}));',
+                                      'body = Uint8List.fromList(utf8.encode(${result.encode(result.serialize(_toDartName(result.name)), mimeType: mimeType)}));',
                                     );
                                     if (nullable) {
                                       code.write('}');
@@ -772,6 +775,10 @@ class OpenAPIBuilder implements Builder {
                                       case 'image/png':
                                         dataType = 'Uint8List';
                                         dataValue = 'response.body';
+                                        break;
+                                      case 'text/plain':
+                                        dataType = 'String';
+                                        dataValue = 'utf8.decode(response.body)';
                                         break;
                                       default:
                                         throw Exception('Can not parse mime type "$mimeType"');
