@@ -3,9 +3,8 @@ import 'dart:io';
 
 import 'package:nextcloud/nextcloud.dart';
 import 'package:nextcloud_push_proxy/nextcloud_push_proxy.dart';
+import 'package:nextcloud_test/nextcloud_test.dart';
 import 'package:test/test.dart';
-
-import 'helper.dart';
 
 Future main() async {
   await run(await getDockerImage());

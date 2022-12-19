@@ -46,6 +46,9 @@
       <excludeFolder url="file://$MODULE_DIR$/packages/dynamite/.pub" />
       <excludeFolder url="file://$MODULE_DIR$/packages/dynamite/.dart_tool" />
       <excludeFolder url="file://$MODULE_DIR$/packages/dynamite/build" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/nextcloud_test/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/nextcloud_test/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/nextcloud_test/build" />
     </content>
     <orderEntry type="jdk" jdkName="Android API 32 Platform" jdkType="Android SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
