@@ -67,5 +67,5 @@ class Schema {
 
   final Discriminator? discriminator;
 
-  bool get isJsonString => type == 'string' && contentMediaType == 'application/json' && contentSchema != null;
+  bool get isContentString => type == 'string' && (contentMediaType?.isNotEmpty ?? false) && contentSchema != null;
 }
