@@ -28,7 +28,7 @@ class _NeonAppState extends State<NeonApp> with WidgetsBindingObserver, tray.Tra
   late GlobalOptions _globalOptions;
   late AccountsBloc _accountsBloc;
 
-  CoreServerCapabilities_Ocs_Data_Capabilities_Theming? _nextcloudTheme;
+  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Theming? _nextcloudTheme;
   final _platformBrightness = BehaviorSubject<Brightness>.seeded(WidgetsBinding.instance.window.platformBrightness);
   Rect? _lastBounds;
 

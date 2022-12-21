@@ -108,7 +108,7 @@ class ExceptionWidget extends StatelessWidget {
       );
     }
 
-    if (exception is ApiException) {
+    if (exception is NextcloudApiException) {
       if (exception.statusCode == 401) {
         return _ExceptionDetails(
           text: AppLocalizations.of(context).errorCredentialsForAccountNoLongerMatch,

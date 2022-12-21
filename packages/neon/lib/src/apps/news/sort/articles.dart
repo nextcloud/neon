@@ -1,6 +1,6 @@
 part of '../app.dart';
 
-final articlesSortBox = SortBox<ArticlesSortProperty, NewsArticle>(
+final articlesSortBox = SortBox<ArticlesSortProperty, NextcloudNewsArticle>(
   {
     ArticlesSortProperty.publishDate: (final article) => article.pubDate,
     ArticlesSortProperty.alphabetical: (final article) => article.title.toLowerCase(),

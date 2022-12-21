@@ -1,7 +1,7 @@
 part of '../nextcloud.dart';
 
 // ignore: public_member_api_docs
-class NextcloudClient extends Client {
+class NextcloudClient extends openapi.NextcloudClient {
   // ignore: public_member_api_docs
   NextcloudClient(
     super.baseURL, {
@@ -21,7 +21,7 @@ class NextcloudClient extends Client {
               .cast<String, String>(),
           userAgent: userAgentOverride ?? appType.userAgent,
           authentication: loginName != null && password != null
-              ? HttpBasicAuthentication(
+              ? openapi.NextcloudHttpBasicAuthentication(
                   username: loginName,
                   password: password,
                 )

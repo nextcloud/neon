@@ -21,9 +21,9 @@ abstract class NewsBlocEvents {
 }
 
 abstract class NewsBlocStates {
-  BehaviorSubject<Result<List<NewsFolder>>> get folders;
+  BehaviorSubject<Result<List<NextcloudNewsFolder>>> get folders;
 
-  BehaviorSubject<Result<List<NewsFeed>>> get feeds;
+  BehaviorSubject<Result<List<NextcloudNewsFeed>>> get feeds;
 
   BehaviorSubject<int> get unreadCounter;
 }
@@ -77,16 +77,16 @@ class NewsBloc extends InteractiveBloc implements NewsBlocEvents, NewsBlocStates
   }
 
   @override
-  BehaviorSubject<Result<List<NewsFeed>>> feeds = BehaviorSubject<Result<List<NewsFeed>>>();
+  BehaviorSubject<Result<List<NextcloudNewsFeed>>> feeds = BehaviorSubject<Result<List<NextcloudNewsFeed>>>();
 
   @override
-  BehaviorSubject<Result<List<NewsFolder>>> folders = BehaviorSubject<Result<List<NewsFolder>>>();
+  BehaviorSubject<Result<List<NextcloudNewsFolder>>> folders = BehaviorSubject<Result<List<NextcloudNewsFolder>>>();
 
   @override
   BehaviorSubject<int> unreadCounter = BehaviorSubject<int>();
 
   @override
-  late BehaviorSubject<Result<List<NewsArticle>>> articles = mainArticlesBloc.articles;
+  late BehaviorSubject<Result<List<NextcloudNewsArticle>>> articles = mainArticlesBloc.articles;
 
   @override
   late BehaviorSubject<FilterType> filterType = mainArticlesBloc.filterType;
@@ -94,14 +94,14 @@ class NewsBloc extends InteractiveBloc implements NewsBlocEvents, NewsBlocStates
   @override
   Future refresh() async {
     await Future.wait([
-      requestManager.wrapNextcloud<List<NewsFolder>, NewsListFolders>(
+      requestManager.wrapNextcloud<List<NextcloudNewsFolder>, NextcloudNewsListFolders>(
         client.id,
         'news-folders',
         folders,
         () async => client.news.listFolders(),
         (final response) => response.folders,
       ),
-      requestManager.wrapNextcloud<List<NewsFeed>, NewsListFeeds>(
+      requestManager.wrapNextcloud<List<NextcloudNewsFeed>, NextcloudNewsListFeeds>(
         client.id,
         'news-feeds',
         feeds,
@@ -164,12 +164,12 @@ class NewsBloc extends InteractiveBloc implements NewsBlocEvents, NewsBlocStates
   }
 
   @override
-  void markArticleAsRead(final NewsArticle article) {
+  void markArticleAsRead(final NextcloudNewsArticle article) {
     mainArticlesBloc.markArticleAsRead(article);
   }
 
   @override
-  void markArticleAsUnread(final NewsArticle article) {
+  void markArticleAsUnread(final NextcloudNewsArticle article) {
     mainArticlesBloc.markArticleAsUnread(article);
   }
 
@@ -179,12 +179,12 @@ class NewsBloc extends InteractiveBloc implements NewsBlocEvents, NewsBlocStates
   }
 
   @override
-  void starArticle(final NewsArticle article) {
+  void starArticle(final NextcloudNewsArticle article) {
     mainArticlesBloc.starArticle(article);
   }
 
   @override
-  void unstarArticle(final NewsArticle article) {
+  void unstarArticle(final NextcloudNewsArticle article) {
     mainArticlesBloc.unstarArticle(article);
   }
 

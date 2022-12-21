@@ -26,7 +26,7 @@ class _NotesCreateNoteDialogState extends State<NotesCreateNoteDialog> {
   }
 
   @override
-  Widget build(final BuildContext context) => ResultBuilder<NotesBloc, List<NotesNote>>(
+  Widget build(final BuildContext context) => ResultBuilder<NotesBloc, List<NextcloudNotesNote>>(
         stream: widget.bloc.notes,
         builder: (final context, final notes) => CustomDialog(
           title: Text(AppLocalizations.of(context).notesCreateNote),

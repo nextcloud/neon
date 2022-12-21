@@ -22,6 +22,7 @@ class OpenAPIBuilder implements Builder {
           await buildStep.readAsString(inputId),
         ) as Map<String, dynamic>,
       );
+      final prefix = _toDartName(spec.info.title, uppercaseFirstCharacter: true);
       if (spec.version != '3.1.0') {
         throw Exception('Only OpenAPI 3.1.0 is supported');
       }
@@ -34,7 +35,7 @@ class OpenAPIBuilder implements Builder {
       ];
       final hasAnySecurity = spec.security?.isNotEmpty ?? false;
 
-      final state = State();
+      final state = State(prefix);
       final output = <String>[
         "import 'dart:convert';",
         "import 'dart:io';",
@@ -49,7 +50,7 @@ class OpenAPIBuilder implements Builder {
         '',
         Extension(
           (final b) => b
-            ..name = 'HttpClientResponseBody'
+            ..name = '${prefix}HttpClientResponseBody'
             ..on = refer('HttpClientResponse')
             ..methods.addAll([
               Method(
@@ -83,7 +84,7 @@ class OpenAPIBuilder implements Builder {
         ).accept(emitter).toString(),
         Class(
           (final b) => b
-            ..name = 'Response'
+            ..name = '${prefix}Response'
             ..types.addAll([
               refer('T'),
               refer('U'),
@@ -123,8 +124,8 @@ class OpenAPIBuilder implements Builder {
                   ..returns = refer('String')
                   ..annotations.add(refer('override'))
                   ..lambda = true
-                  ..body = const Code(
-                    r"'Response(data: $data, headers: $headers)'",
+                  ..body = Code(
+                    "'${prefix}Response(data: \$data, headers: \$headers)'",
                   ),
               ),
             ),
@@ -181,7 +182,7 @@ class OpenAPIBuilder implements Builder {
         ).accept(emitter).toString(),
         Class(
           (final b) => b
-            ..name = 'ApiException'
+            ..name = '${prefix}ApiException'
             ..extend = refer('_Response')
             ..implements.add(refer('Exception'))
             ..constructors.addAll(
@@ -210,7 +211,7 @@ class OpenAPIBuilder implements Builder {
                           ..type = refer('_Response'),
                       ),
                     )
-                    ..body = const Code('ApiException(response.statusCode, response.headers, response.body,)'),
+                    ..body = Code('${prefix}ApiException(response.statusCode, response.headers, response.body,)'),
                 ),
               ],
             )
@@ -221,8 +222,8 @@ class OpenAPIBuilder implements Builder {
                   ..returns = refer('String')
                   ..annotations.add(refer('override'))
                   ..lambda = true
-                  ..body = const Code(
-                    r"'ApiException(statusCode: ${super.statusCode}, headers: ${super.headers}, body: ${utf8.decode(super.body)})'",
+                  ..body = Code(
+                    "'${prefix}ApiException(statusCode: \${super.statusCode}, headers: \${super.headers}, body: \${utf8.decode(super.body)})'",
                   ),
               ),
             ),
@@ -230,7 +231,7 @@ class OpenAPIBuilder implements Builder {
         if (hasAnySecurity) ...[
           Class(
             (final b) => b
-              ..name = 'Authentication'
+              ..name = '${prefix}Authentication'
               ..abstract = true
               ..methods.add(
                 Method(
@@ -257,8 +258,8 @@ class OpenAPIBuilder implements Builder {
                         (final b) {
                           final fields = ['username', 'password'];
                           b
-                            ..name = 'HttpBasicAuthentication'
-                            ..extend = refer('Authentication')
+                            ..name = '${prefix}HttpBasicAuthentication'
+                            ..extend = refer('${prefix}Authentication')
                             ..constructors.add(
                               Constructor(
                                 (final b) => b
@@ -373,7 +374,7 @@ class OpenAPIBuilder implements Builder {
                       Field(
                         (final b) => b
                           ..name = 'authentication'
-                          ..type = refer('Authentication?')
+                          ..type = refer('${prefix}Authentication?')
                           ..modifier = FieldModifier.final$,
                       ),
                     ],
@@ -445,8 +446,8 @@ class OpenAPIBuilder implements Builder {
                             ..name = _toDartName(tag.name)
                             ..lambda = true
                             ..type = MethodType.getter
-                            ..returns = refer(_clientName(tag))
-                            ..body = Code('${_clientName(tag)}(this)'),
+                            ..returns = refer('$prefix${_clientName(tag)}')
+                            ..body = Code('$prefix${_clientName(tag)}(this)'),
                         ),
                       ],
                     ],
@@ -512,7 +513,7 @@ class OpenAPIBuilder implements Builder {
                     Field(
                       (final b) => b
                         ..name = 'rootClient'
-                        ..type = refer('Client')
+                        ..type = refer('${prefix}Client')
                         ..modifier = FieldModifier.final$,
                     ),
                   )
@@ -529,7 +530,7 @@ class OpenAPIBuilder implements Builder {
                   );
               }
               b
-                ..name = isRootClient ? 'Client' : _clientName(tag)
+                ..name = '$prefix${isRootClient ? 'Client' : _clientName(tag)}'
                 ..methods.addAll(
                   [
                     for (final path in paths.keys) ...[
@@ -654,6 +655,7 @@ class OpenAPIBuilder implements Builder {
                                   _toDartName('$methodName-request-$mimeType', uppercaseFirstCharacter: true),
                                   mediaType.schema!,
                                 );
+                                final parameterName = _toDartName(result.name.replaceFirst(prefix, ''));
                                 switch (mimeType) {
                                   case 'application/json':
                                   case 'application/x-www-form-urlencoded':
@@ -664,7 +666,7 @@ class OpenAPIBuilder implements Builder {
                                     b.optionalParameters.add(
                                       Parameter(
                                         (final b) => b
-                                          ..name = _toDartName(result.name)
+                                          ..name = parameterName
                                           ..type = refer(_makeNullable(result.name, nullable))
                                           ..named = true
                                           ..required = operation.requestBody!.required ?? false,
@@ -672,10 +674,10 @@ class OpenAPIBuilder implements Builder {
                                     );
 
                                     if (nullable) {
-                                      code.write('if (${_toDartName(result.name)} != null) {');
+                                      code.write('if ($parameterName != null) {');
                                     }
                                     code.write(
-                                      'body = Uint8List.fromList(utf8.encode(${result.encode(result.serialize(_toDartName(result.name)), mimeType: mimeType)}));',
+                                      'body = Uint8List.fromList(utf8.encode(${result.encode(result.serialize(parameterName), mimeType: mimeType)}));',
                                     );
                                     if (nullable) {
                                       code.write('}');
@@ -805,7 +807,9 @@ class OpenAPIBuilder implements Builder {
 
                                 code.write('}');
                               }
-                              code.write('throw ApiException.fromResponse(response); // coverage:ignore-line\n');
+                              code.write(
+                                'throw ${prefix}ApiException.fromResponse(response); // coverage:ignore-line\n',
+                              );
                             } else {
                               b.returns = refer('Future');
                             }
@@ -1018,6 +1022,9 @@ bool _isParameterNullable(final bool? required, final dynamic default_) => !(req
 String _valueToEscapedValue(final String type, final dynamic value) => type == 'String' ? "'$value'" : value.toString();
 
 class State {
+  State(this.prefix);
+
+  final String prefix;
   final resolvedTypes = <String>[];
   final registeredJsonObjects = <String>[];
   final output = <Spec>[];
@@ -1032,14 +1039,14 @@ TypeResult resolveObject(
   required final Map<String, Map<String, String>>? extraJsonKeyValues,
   final bool fromJsonString = false,
 }) {
-  if (!state.resolvedTypes.contains(identifier)) {
-    state.resolvedTypes.add(identifier);
-    state.registeredJsonObjects.add(identifier);
+  if (!state.resolvedTypes.contains('${state.prefix}$identifier')) {
+    state.resolvedTypes.add('${state.prefix}$identifier');
+    state.registeredJsonObjects.add('${state.prefix}$identifier');
     state.output.add(
       Class(
         (final b) {
           b
-            ..name = identifier
+            ..name = '${state.prefix}$identifier'
             ..docs.addAll([
               if (schema.description != null && schema.description!.isNotEmpty) ...[
                 '/// ${schema.description!}',
@@ -1102,7 +1109,7 @@ TypeResult resolveObject(
                           ..type = refer('Map<String, dynamic>'),
                       ),
                     )
-                    ..body = Code('_\$${identifier}FromJson(json)'),
+                    ..body = Code('_\$${state.prefix}${identifier}FromJson(json)'),
                 ),
                 Constructor(
                   (final b) => b
@@ -1116,7 +1123,7 @@ TypeResult resolveObject(
                           ..type = refer('String'),
                       ),
                     )
-                    ..body = Code('$identifier.fromJson(json.decode(data) as Map<String, dynamic>)'),
+                    ..body = Code('${state.prefix}$identifier.fromJson(json.decode(data) as Map<String, dynamic>)'),
                 ),
               ],
             )
@@ -1126,7 +1133,7 @@ TypeResult resolveObject(
                   ..name = 'toJson'
                   ..returns = refer('Map<String, dynamic>')
                   ..lambda = true
-                  ..body = Code('_\$${identifier}ToJson(this)'),
+                  ..body = Code('_\$${state.prefix}${identifier}ToJson(this)'),
               ),
               Method(
                 (final b) => b
@@ -1138,7 +1145,7 @@ TypeResult resolveObject(
                     Parameter(
                       (final b) => b
                         ..name = 'data'
-                        ..type = refer(_makeNullable(identifier, true)),
+                        ..type = refer(_makeNullable('${state.prefix}$identifier', true)),
                     ),
                   )
                   ..body = const Code('data == null ? null : json.encode(data.toJson())'),
@@ -1180,7 +1187,7 @@ TypeResult resolveObject(
                       var fromJson = '${result.name}.fromJsonString';
                       var toJson = '${result.name}.toJsonString';
                       if (isJsonStringArray) {
-                        fromJson = '_${_toDartName('${identifier}FromJsonString')}';
+                        fromJson = '_${_toDartName('${state.prefix}${identifier}FromJsonString')}';
                         if (!state.resolvedTypes.contains(fromJson)) {
                           state.resolvedTypes.add(fromJson);
                           state.output.add(
@@ -1200,7 +1207,7 @@ TypeResult resolveObject(
                             ),
                           );
                         }
-                        toJson = '_${_toDartName('${identifier}ToJsonString')}';
+                        toJson = '_${_toDartName('${state.prefix}${identifier}ToJsonString')}';
                         if (!state.resolvedTypes.contains(toJson)) {
                           state.resolvedTypes.add(toJson);
                           state.output.add(
@@ -1253,7 +1260,7 @@ TypeResult resolveObject(
     );
   }
   return TypeResultObject(
-    identifier,
+    '${state.prefix}$identifier',
     fromJsonString: fromJsonString,
   );
 }
@@ -1280,8 +1287,8 @@ TypeResult resolveType(
       fromJsonString: fromJsonString,
     );
   } else if (schema.ofs != null) {
-    if (!state.resolvedTypes.contains(identifier)) {
-      state.resolvedTypes.add(identifier);
+    if (!state.resolvedTypes.contains('${state.prefix}$identifier')) {
+      state.resolvedTypes.add('${state.prefix}$identifier');
       final results = schema.ofs!
           .map(
             (final s) => resolveType(
@@ -1298,12 +1305,12 @@ TypeResult resolveType(
           (final b) {
             final fields = <String, String>{};
             for (final result in results) {
-              final dartName = _toDartName(result.name);
-              fields[result.name] = _toFieldName(dartName, result.name);
+              final dartName = _toDartName(result.name.replaceFirst(state.prefix, ''));
+              fields[result.name] = _toFieldName(dartName, result.name.replaceFirst(state.prefix, ''));
             }
 
             b
-              ..name = identifier
+              ..name = '${state.prefix}$identifier'
               ..fields.addAll([
                 Field(
                   (final b) {
@@ -1398,7 +1405,7 @@ TypeResult resolveType(
                           if (schema.allOf != null) ...[
                             "assert([${fields.values.join(',')}].where((final x) => x != null).length == ${fields.length}, 'Need allOf for \$data');",
                           ],
-                          'return $identifier(',
+                          'return ${state.prefix}$identifier(',
                           'data,',
                           for (final result in results) ...[
                             '${fields[result.name]!}: ${fields[result.name]!},',
@@ -1421,7 +1428,7 @@ TypeResult resolveType(
                             ..type = refer('String'),
                         ),
                       )
-                      ..body = Code('$identifier.fromJson(json.decode(data))');
+                      ..body = Code('${state.prefix}$identifier.fromJson(json.decode(data))');
                   },
                 ),
               ])
@@ -1454,7 +1461,7 @@ TypeResult resolveType(
       );
     }
 
-    result = TypeResultObject(identifier);
+    result = TypeResultObject('${state.prefix}$identifier');
   } else {
     switch (schema.type) {
       case 'boolean':
@@ -1538,12 +1545,12 @@ TypeResult resolveType(
 
   if (result != null) {
     if (!ignoreEnum && schema.enum_ != null) {
-      if (!state.resolvedTypes.contains(identifier)) {
-        state.resolvedTypes.add(identifier);
+      if (!state.resolvedTypes.contains('${state.prefix}$identifier')) {
+        state.resolvedTypes.add('${state.prefix}$identifier');
         state.output.add(
           Enum(
             (final b) => b
-              ..name = identifier
+              ..name = '${state.prefix}$identifier'
               ..constructors.add(
                 Constructor(
                   (final b) => b
@@ -1587,7 +1594,7 @@ TypeResult resolveType(
                           throw Exception(
                             'Sorry enum values are a bit broken. '
                             'See https://github.com/google/json_serializable.dart/issues/616. '
-                            'Please remove the enum values on $identifier.',
+                            'Please remove the enum values on ${state.prefix}$identifier.',
                           );
                         }
                         b.annotations.add(
@@ -1605,7 +1612,7 @@ TypeResult resolveType(
                   (final b) => b
                     ..name = 'fromValue'
                     ..static = true
-                    ..returns = refer(identifier)
+                    ..returns = refer('${state.prefix}$identifier')
                     ..requiredParameters.add(
                       Parameter(
                         (final b) => b
@@ -1618,10 +1625,10 @@ TypeResult resolveType(
                         'switch (value) {',
                         for (final value in schema.enum_!) ...[
                           'case ${_valueToEscapedValue(result!.name, value)}:',
-                          'return $identifier.${_toDartName(value.toString())};',
+                          'return ${state.prefix}$identifier.${_toDartName(value.toString())};',
                         ],
                         'default:',
-                        'throw Exception(\'Can not parse $identifier from "\$value"\');',
+                        'throw Exception(\'Can not parse ${state.prefix}$identifier from "\$value"\');',
                         '}',
                       ].join(),
                     ),
@@ -1630,7 +1637,7 @@ TypeResult resolveType(
           ),
         );
       }
-      result = TypeResultEnum(identifier, result);
+      result = TypeResultEnum('${state.prefix}$identifier', result);
     }
 
     return result;

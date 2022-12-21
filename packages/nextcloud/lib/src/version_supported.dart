@@ -1,14 +1,14 @@
 part of '../nextcloud.dart';
 
 // ignore: public_member_api_docs
-extension CoreVersionSupported on CoreClient {
+extension CoreVersionSupported on NextcloudCoreClient {
   /// Checks if the app on the server is supported by the client
-  Future<bool> isSupported([final CoreServerCapabilities_Ocs_Data? capabilities]) async =>
+  Future<bool> isSupported([final NextcloudCoreServerCapabilities_Ocs_Data? capabilities]) async =>
       (capabilities ?? (await getCapabilities()).ocs.data).version.major == 25;
 }
 
 // ignore: public_member_api_docs
-extension NewsVersionSupported on NewsClient {
+extension NewsVersionSupported on NextcloudNewsClient {
   /// Checks if the app on the server is supported by the client
   Future<bool> isSupported() async {
     final versions = await getSupportedApiVersions();
@@ -17,9 +17,9 @@ extension NewsVersionSupported on NewsClient {
 }
 
 // ignore: public_member_api_docs
-extension NotesVersionSupported on NotesClient {
+extension NotesVersionSupported on NextcloudNotesClient {
   /// Checks if the app on the server is supported by the client
-  Future<bool> isSupported([final CoreServerCapabilities_Ocs_Data? capabilities]) async =>
+  Future<bool> isSupported([final NextcloudCoreServerCapabilities_Ocs_Data? capabilities]) async =>
       (capabilities ?? (await rootClient.core.getCapabilities()).ocs.data)
           .capabilities
           .notes

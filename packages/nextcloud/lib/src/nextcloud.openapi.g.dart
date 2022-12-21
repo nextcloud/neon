@@ -6,7 +6,7 @@ part of 'nextcloud.openapi.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-CoreServerStatus _$CoreServerStatusFromJson(Map<String, dynamic> json) {
+NextcloudCoreServerStatus _$NextcloudCoreServerStatusFromJson(Map<String, dynamic> json) {
   $checkKeys(
     json,
     allowedKeys: const [
@@ -20,7 +20,7 @@ CoreServerStatus _$CoreServerStatusFromJson(Map<String, dynamic> json) {
       'extendedSupport'
     ],
   );
-  return CoreServerStatus(
+  return NextcloudCoreServerStatus(
     installed: json['installed'] as bool,
     maintenance: json['maintenance'] as bool,
     needsDbUpgrade: json['needsDbUpgrade'] as bool,
@@ -32,7 +32,7 @@ CoreServerStatus _$CoreServerStatusFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$CoreServerStatusToJson(CoreServerStatus instance) => <String, dynamic>{
+Map<String, dynamic> _$NextcloudCoreServerStatusToJson(NextcloudCoreServerStatus instance) => <String, dynamic>{
       'installed': instance.installed,
       'maintenance': instance.maintenance,
       'needsDbUpgrade': instance.needsDbUpgrade,
@@ -43,12 +43,12 @@ Map<String, dynamic> _$CoreServerStatusToJson(CoreServerStatus instance) => <Str
       'extendedSupport': instance.extendedSupport,
     };
 
-OCSMeta _$OCSMetaFromJson(Map<String, dynamic> json) {
+NextcloudOCSMeta _$NextcloudOCSMetaFromJson(Map<String, dynamic> json) {
   $checkKeys(
     json,
     allowedKeys: const ['status', 'statuscode', 'message', 'totalitems', 'itemsperpage'],
   );
-  return OCSMeta(
+  return NextcloudOCSMeta(
     status: json['status'] as String,
     statuscode: json['statuscode'] as int,
     message: json['message'] as String?,
@@ -57,7 +57,7 @@ OCSMeta _$OCSMetaFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$OCSMetaToJson(OCSMeta instance) => <String, dynamic>{
+Map<String, dynamic> _$NextcloudOCSMetaToJson(NextcloudOCSMeta instance) => <String, dynamic>{
       'status': instance.status,
       'statuscode': instance.statuscode,
       'message': instance.message,
@@ -65,12 +65,13 @@ Map<String, dynamic> _$OCSMetaToJson(OCSMeta instance) => <String, dynamic>{
       'itemsperpage': instance.itemsperpage,
     };
 
-CoreServerCapabilities_Ocs_Data_Version _$CoreServerCapabilities_Ocs_Data_VersionFromJson(Map<String, dynamic> json) {
+NextcloudCoreServerCapabilities_Ocs_Data_Version _$NextcloudCoreServerCapabilities_Ocs_Data_VersionFromJson(
+    Map<String, dynamic> json) {
   $checkKeys(
     json,
     allowedKeys: const ['major', 'minor', 'micro', 'string', 'edition', 'extendedSupport'],
   );
-  return CoreServerCapabilities_Ocs_Data_Version(
+  return NextcloudCoreServerCapabilities_Ocs_Data_Version(
     major: json['major'] as int?,
     minor: json['minor'] as int?,
     micro: json['micro'] as int?,
@@ -80,8 +81,8 @@ CoreServerCapabilities_Ocs_Data_Version _$CoreServerCapabilities_Ocs_Data_Versio
   );
 }
 
-Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_VersionToJson(
-        CoreServerCapabilities_Ocs_Data_Version instance) =>
+Map<String, dynamic> _$NextcloudCoreServerCapabilities_Ocs_Data_VersionToJson(
+        NextcloudCoreServerCapabilities_Ocs_Data_Version instance) =>
     <String, dynamic>{
       'major': instance.major,
       'minor': instance.minor,
@@ -91,17 +92,17 @@ Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_VersionToJson(
       'extendedSupport': instance.extendedSupport,
     };
 
-CoreServerCapabilities_Ocs_Data_Capabilities_Core _$CoreServerCapabilities_Ocs_Data_Capabilities_CoreFromJson(
-        Map<String, dynamic> json) =>
-    CoreServerCapabilities_Ocs_Data_Capabilities_Core(
-      pollinterval: json['pollinterval'] as int?,
-      webdavRoot: json['webdav-root'] as String?,
-      referenceApi: json['reference-api'] as bool?,
-      referenceRegex: json['reference-regex'] as String?,
-    );
+NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Core
+    _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_CoreFromJson(Map<String, dynamic> json) =>
+        NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Core(
+          pollinterval: json['pollinterval'] as int?,
+          webdavRoot: json['webdav-root'] as String?,
+          referenceApi: json['reference-api'] as bool?,
+          referenceRegex: json['reference-regex'] as String?,
+        );
 
-Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_CoreToJson(
-        CoreServerCapabilities_Ocs_Data_Capabilities_Core instance) =>
+Map<String, dynamic> _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_CoreToJson(
+        NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Core instance) =>
     <String, dynamic>{
       'pollinterval': instance.pollinterval,
       'webdav-root': instance.webdavRoot,
@@ -109,62 +110,62 @@ Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_CoreToJson(
       'reference-regex': instance.referenceRegex,
     };
 
-CoreServerCapabilities_Ocs_Data_Capabilities_Bruteforce
-    _$CoreServerCapabilities_Ocs_Data_Capabilities_BruteforceFromJson(Map<String, dynamic> json) =>
-        CoreServerCapabilities_Ocs_Data_Capabilities_Bruteforce(
+NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Bruteforce
+    _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_BruteforceFromJson(Map<String, dynamic> json) =>
+        NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Bruteforce(
           delay: json['delay'] as int?,
         );
 
-Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_BruteforceToJson(
-        CoreServerCapabilities_Ocs_Data_Capabilities_Bruteforce instance) =>
+Map<String, dynamic> _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_BruteforceToJson(
+        NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Bruteforce instance) =>
     <String, dynamic>{
       'delay': instance.delay,
     };
 
-CoreServerCapabilities_Ocs_Data_Capabilities_MetadataAvailable
-    _$CoreServerCapabilities_Ocs_Data_Capabilities_MetadataAvailableFromJson(Map<String, dynamic> json) =>
-        CoreServerCapabilities_Ocs_Data_Capabilities_MetadataAvailable(
+NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_MetadataAvailable
+    _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_MetadataAvailableFromJson(Map<String, dynamic> json) =>
+        NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_MetadataAvailable(
           size: (json['size'] as List<dynamic>?)?.map((e) => e as String).toList(),
           gps: (json['gps'] as List<dynamic>?)?.map((e) => e as String).toList(),
         );
 
-Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_MetadataAvailableToJson(
-        CoreServerCapabilities_Ocs_Data_Capabilities_MetadataAvailable instance) =>
+Map<String, dynamic> _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_MetadataAvailableToJson(
+        NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_MetadataAvailable instance) =>
     <String, dynamic>{
       'size': instance.size,
       'gps': instance.gps,
     };
 
-CoreServerCapabilities_Ocs_Data_Capabilities_Files_DirectEditing
-    _$CoreServerCapabilities_Ocs_Data_Capabilities_Files_DirectEditingFromJson(Map<String, dynamic> json) =>
-        CoreServerCapabilities_Ocs_Data_Capabilities_Files_DirectEditing(
+NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Files_DirectEditing
+    _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Files_DirectEditingFromJson(Map<String, dynamic> json) =>
+        NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Files_DirectEditing(
           url: json['url'] as String?,
           etag: json['etag'] as String?,
         );
 
-Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_Files_DirectEditingToJson(
-        CoreServerCapabilities_Ocs_Data_Capabilities_Files_DirectEditing instance) =>
+Map<String, dynamic> _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Files_DirectEditingToJson(
+        NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Files_DirectEditing instance) =>
     <String, dynamic>{
       'url': instance.url,
       'etag': instance.etag,
     };
 
-CoreServerCapabilities_Ocs_Data_Capabilities_Files _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesFromJson(
-        Map<String, dynamic> json) =>
-    CoreServerCapabilities_Ocs_Data_Capabilities_Files(
-      bigfilechunking: json['bigfilechunking'] as bool?,
-      blacklistedFiles: (json['blacklisted_files'] as List<dynamic>?)?.map((e) => e as String).toList(),
-      directEditing: json['directEditing'] == null
-          ? null
-          : CoreServerCapabilities_Ocs_Data_Capabilities_Files_DirectEditing.fromJson(
-              json['directEditing'] as Map<String, dynamic>),
-      comments: json['comments'] as bool?,
-      undelete: json['undelete'] as bool?,
-      versioning: json['versioning'] as bool?,
-    );
+NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Files
+    _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesFromJson(Map<String, dynamic> json) =>
+        NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Files(
+          bigfilechunking: json['bigfilechunking'] as bool?,
+          blacklistedFiles: (json['blacklisted_files'] as List<dynamic>?)?.map((e) => e as String).toList(),
+          directEditing: json['directEditing'] == null
+              ? null
+              : NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Files_DirectEditing.fromJson(
+                  json['directEditing'] as Map<String, dynamic>),
+          comments: json['comments'] as bool?,
+          undelete: json['undelete'] as bool?,
+          versioning: json['versioning'] as bool?,
+        );
 
-Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesToJson(
-        CoreServerCapabilities_Ocs_Data_Capabilities_Files instance) =>
+Map<String, dynamic> _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesToJson(
+        NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Files instance) =>
     <String, dynamic>{
       'bigfilechunking': instance.bigfilechunking,
       'blacklisted_files': instance.blacklistedFiles,
@@ -174,41 +175,41 @@ Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesToJson(
       'versioning': instance.versioning,
     };
 
-CoreServerCapabilities_Ocs_Data_Capabilities_Activity _$CoreServerCapabilities_Ocs_Data_Capabilities_ActivityFromJson(
-        Map<String, dynamic> json) =>
-    CoreServerCapabilities_Ocs_Data_Capabilities_Activity(
-      apiv2: (json['apiv2'] as List<dynamic>?)?.map((e) => e as String).toList(),
-    );
+NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Activity
+    _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_ActivityFromJson(Map<String, dynamic> json) =>
+        NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Activity(
+          apiv2: (json['apiv2'] as List<dynamic>?)?.map((e) => e as String).toList(),
+        );
 
-Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_ActivityToJson(
-        CoreServerCapabilities_Ocs_Data_Capabilities_Activity instance) =>
+Map<String, dynamic> _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_ActivityToJson(
+        NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Activity instance) =>
     <String, dynamic>{
       'apiv2': instance.apiv2,
     };
 
-CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Status
-    _$CoreServerCapabilities_Ocs_Data_Capabilities_Circles_StatusFromJson(Map<String, dynamic> json) =>
-        CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Status(
+NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Status
+    _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_StatusFromJson(Map<String, dynamic> json) =>
+        NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Status(
           globalScale: json['globalScale'] as bool?,
         );
 
-Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_Circles_StatusToJson(
-        CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Status instance) =>
+Map<String, dynamic> _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_StatusToJson(
+        NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Status instance) =>
     <String, dynamic>{
       'globalScale': instance.globalScale,
     };
 
-CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Settings
-    _$CoreServerCapabilities_Ocs_Data_Capabilities_Circles_SettingsFromJson(Map<String, dynamic> json) =>
-        CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Settings(
+NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Settings
+    _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_SettingsFromJson(Map<String, dynamic> json) =>
+        NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Settings(
           frontendEnabled: json['frontendEnabled'] as bool?,
           allowedCircles: json['allowedCircles'] as int?,
           allowedUserTypes: json['allowedUserTypes'] as int?,
           membersLimit: json['membersLimit'] as int?,
         );
 
-Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_Circles_SettingsToJson(
-        CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Settings instance) =>
+Map<String, dynamic> _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_SettingsToJson(
+        NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Settings instance) =>
     <String, dynamic>{
       'frontendEnabled': instance.frontendEnabled,
       'allowedCircles': instance.allowedCircles,
@@ -216,124 +217,127 @@ Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Sett
       'membersLimit': instance.membersLimit,
     };
 
-CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants_Source
-    _$CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants_SourceFromJson(Map<String, dynamic> json) =>
-        CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants_Source(
+NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants_Source
+    _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants_SourceFromJson(
+            Map<String, dynamic> json) =>
+        NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants_Source(
           core: json['core'],
           extra: json['extra'],
         );
 
-Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants_SourceToJson(
-        CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants_Source instance) =>
+Map<String, dynamic> _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants_SourceToJson(
+        NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants_Source instance) =>
     <String, dynamic>{
       'core': instance.core,
       'extra': instance.extra,
     };
 
-CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants
-    _$CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_ConstantsFromJson(Map<String, dynamic> json) =>
-        CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants(
+NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants
+    _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_ConstantsFromJson(
+            Map<String, dynamic> json) =>
+        NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants(
           flags: json['flags'],
           source: json['source'] == null
               ? null
-              : CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants_Source.fromJson(
+              : NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants_Source.fromJson(
                   json['source'] as Map<String, dynamic>),
         );
 
-Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_ConstantsToJson(
-        CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants instance) =>
+Map<String, dynamic> _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_ConstantsToJson(
+        NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants instance) =>
     <String, dynamic>{
       'flags': instance.flags,
       'source': instance.source?.toJson(),
     };
 
-CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Config
-    _$CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_ConfigFromJson(Map<String, dynamic> json) =>
-        CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Config(
+NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Config
+    _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_ConfigFromJson(Map<String, dynamic> json) =>
+        NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Config(
           coreFlags: (json['coreFlags'] as List<dynamic>?)?.map((e) => e as int).toList(),
           systemFlags: (json['systemFlags'] as List<dynamic>?)?.map((e) => e as int).toList(),
         );
 
-Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_ConfigToJson(
-        CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Config instance) =>
+Map<String, dynamic> _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_ConfigToJson(
+        NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Config instance) =>
     <String, dynamic>{
       'coreFlags': instance.coreFlags,
       'systemFlags': instance.systemFlags,
     };
 
-CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle
-    _$CoreServerCapabilities_Ocs_Data_Capabilities_Circles_CircleFromJson(Map<String, dynamic> json) =>
-        CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle(
+NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle
+    _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_CircleFromJson(Map<String, dynamic> json) =>
+        NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle(
           constants: json['constants'] == null
               ? null
-              : CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants.fromJson(
+              : NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants.fromJson(
                   json['constants'] as Map<String, dynamic>),
           config: json['config'] == null
               ? null
-              : CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Config.fromJson(
+              : NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Config.fromJson(
                   json['config'] as Map<String, dynamic>),
         );
 
-Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_Circles_CircleToJson(
-        CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle instance) =>
+Map<String, dynamic> _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_CircleToJson(
+        NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle instance) =>
     <String, dynamic>{
       'constants': instance.constants?.toJson(),
       'config': instance.config?.toJson(),
     };
 
-CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member_Constants
-    _$CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member_ConstantsFromJson(Map<String, dynamic> json) =>
-        CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member_Constants(
+NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member_Constants
+    _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member_ConstantsFromJson(
+            Map<String, dynamic> json) =>
+        NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member_Constants(
           level: json['level'],
         );
 
-Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member_ConstantsToJson(
-        CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member_Constants instance) =>
+Map<String, dynamic> _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member_ConstantsToJson(
+        NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member_Constants instance) =>
     <String, dynamic>{
       'level': instance.level,
     };
 
-CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member
-    _$CoreServerCapabilities_Ocs_Data_Capabilities_Circles_MemberFromJson(Map<String, dynamic> json) =>
-        CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member(
+NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member
+    _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_MemberFromJson(Map<String, dynamic> json) =>
+        NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member(
           constants: json['constants'] == null
               ? null
-              : CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member_Constants.fromJson(
+              : NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member_Constants.fromJson(
                   json['constants'] as Map<String, dynamic>),
           type: json['type'],
         );
 
-Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_Circles_MemberToJson(
-        CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member instance) =>
+Map<String, dynamic> _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_MemberToJson(
+        NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member instance) =>
     <String, dynamic>{
       'constants': instance.constants?.toJson(),
       'type': instance.type,
     };
 
-CoreServerCapabilities_Ocs_Data_Capabilities_Circles _$CoreServerCapabilities_Ocs_Data_Capabilities_CirclesFromJson(
-        Map<String, dynamic> json) =>
-    CoreServerCapabilities_Ocs_Data_Capabilities_Circles(
-      version: json['version'] as String?,
-      status: json['status'] == null
-          ? null
-          : CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Status.fromJson(
-              json['status'] as Map<String, dynamic>),
-      settings: json['settings'] == null
-          ? null
-          : CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Settings.fromJson(
-              json['settings'] as Map<String, dynamic>),
-      circle: json['circle'] == null
-          ? null
-          : CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle.fromJson(
-              json['circle'] as Map<String, dynamic>),
-      member: json['member'] == null
-          ? null
-          : CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member.fromJson(
-              json['member'] as Map<String, dynamic>),
-    );
+NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles
+    _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_CirclesFromJson(Map<String, dynamic> json) =>
+        NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles(
+          version: json['version'] as String?,
+          status: json['status'] == null
+              ? null
+              : NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Status.fromJson(
+                  json['status'] as Map<String, dynamic>),
+          settings: json['settings'] == null
+              ? null
+              : NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Settings.fromJson(
+                  json['settings'] as Map<String, dynamic>),
+          circle: json['circle'] == null
+              ? null
+              : NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle.fromJson(
+                  json['circle'] as Map<String, dynamic>),
+          member: json['member'] == null
+              ? null
+              : NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member.fromJson(
+                  json['member'] as Map<String, dynamic>),
+        );
 
-Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_CirclesToJson(
-        CoreServerCapabilities_Ocs_Data_Capabilities_Circles instance) =>
+Map<String, dynamic> _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_CirclesToJson(
+        NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles instance) =>
     <String, dynamic>{
       'version': instance.version,
       'status': instance.status?.toJson(),
@@ -342,51 +346,52 @@ Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_CirclesToJso
       'member': instance.member?.toJson(),
     };
 
-CoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes_Protocols
-    _$CoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes_ProtocolsFromJson(Map<String, dynamic> json) =>
-        CoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes_Protocols(
+NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes_Protocols
+    _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes_ProtocolsFromJson(
+            Map<String, dynamic> json) =>
+        NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes_Protocols(
           webdav: json['webdav'] as String?,
         );
 
-Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes_ProtocolsToJson(
-        CoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes_Protocols instance) =>
+Map<String, dynamic> _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes_ProtocolsToJson(
+        NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes_Protocols instance) =>
     <String, dynamic>{
       'webdav': instance.webdav,
     };
 
-CoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes
-    _$CoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypesFromJson(Map<String, dynamic> json) =>
-        CoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes(
+NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes
+    _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypesFromJson(Map<String, dynamic> json) =>
+        NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes(
           name: json['name'] as String?,
           shareTypes: (json['shareTypes'] as List<dynamic>?)?.map((e) => e as String).toList(),
           protocols: json['protocols'] == null
               ? null
-              : CoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes_Protocols.fromJson(
+              : NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes_Protocols.fromJson(
                   json['protocols'] as Map<String, dynamic>),
         );
 
-Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypesToJson(
-        CoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes instance) =>
+Map<String, dynamic> _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypesToJson(
+        NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes instance) =>
     <String, dynamic>{
       'name': instance.name,
       'shareTypes': instance.shareTypes,
       'protocols': instance.protocols?.toJson(),
     };
 
-CoreServerCapabilities_Ocs_Data_Capabilities_Ocm _$CoreServerCapabilities_Ocs_Data_Capabilities_OcmFromJson(
-        Map<String, dynamic> json) =>
-    CoreServerCapabilities_Ocs_Data_Capabilities_Ocm(
-      enabled: json['enabled'] as bool?,
-      apiVersion: json['apiVersion'] as String?,
-      endPoint: json['endPoint'] as String?,
-      resourceTypes: (json['resourceTypes'] as List<dynamic>?)
-          ?.map(
-              (e) => CoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes.fromJson(e as Map<String, dynamic>))
-          .toList(),
-    );
+NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Ocm
+    _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_OcmFromJson(Map<String, dynamic> json) =>
+        NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Ocm(
+          enabled: json['enabled'] as bool?,
+          apiVersion: json['apiVersion'] as String?,
+          endPoint: json['endPoint'] as String?,
+          resourceTypes: (json['resourceTypes'] as List<dynamic>?)
+              ?.map((e) => NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes.fromJson(
+                  e as Map<String, dynamic>))
+              .toList(),
+        );
 
-Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_OcmToJson(
-        CoreServerCapabilities_Ocs_Data_Capabilities_Ocm instance) =>
+Map<String, dynamic> _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_OcmToJson(
+        NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Ocm instance) =>
     <String, dynamic>{
       'enabled': instance.enabled,
       'apiVersion': instance.apiVersion,
@@ -394,100 +399,103 @@ Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_OcmToJson(
       'resourceTypes': instance.resourceTypes?.map((e) => e.toJson()).toList(),
     };
 
-CoreServerCapabilities_Ocs_Data_Capabilities_Dav _$CoreServerCapabilities_Ocs_Data_Capabilities_DavFromJson(
-        Map<String, dynamic> json) =>
-    CoreServerCapabilities_Ocs_Data_Capabilities_Dav(
-      bulkupload: json['bulkupload'] as String?,
-      chunking: json['chunking'] as String?,
-    );
+NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Dav
+    _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_DavFromJson(Map<String, dynamic> json) =>
+        NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Dav(
+          bulkupload: json['bulkupload'] as String?,
+          chunking: json['chunking'] as String?,
+        );
 
-Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_DavToJson(
-        CoreServerCapabilities_Ocs_Data_Capabilities_Dav instance) =>
+Map<String, dynamic> _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_DavToJson(
+        NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Dav instance) =>
     <String, dynamic>{
       'bulkupload': instance.bulkupload,
       'chunking': instance.chunking,
     };
 
-CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_Password
-    _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_PasswordFromJson(Map<String, dynamic> json) =>
-        CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_Password(
+NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_Password
+    _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_PasswordFromJson(
+            Map<String, dynamic> json) =>
+        NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_Password(
           enforced: json['enforced'] as bool?,
           askForOptionalPassword: json['askForOptionalPassword'] as bool?,
         );
 
-Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_PasswordToJson(
-        CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_Password instance) =>
+Map<String, dynamic> _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_PasswordToJson(
+        NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_Password instance) =>
     <String, dynamic>{
       'enforced': instance.enforced,
       'askForOptionalPassword': instance.askForOptionalPassword,
     };
 
-CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDate
-    _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateFromJson(Map<String, dynamic> json) =>
-        CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDate(
-          enabled: json['enabled'] as bool?,
-        );
-
-Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateToJson(
-        CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDate instance) =>
-    <String, dynamic>{
-      'enabled': instance.enabled,
-    };
-
-CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternal
-    _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternalFromJson(
+NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDate
+    _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateFromJson(
             Map<String, dynamic> json) =>
-        CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternal(
+        NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDate(
           enabled: json['enabled'] as bool?,
         );
 
-Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternalToJson(
-        CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternal instance) =>
+Map<String, dynamic> _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateToJson(
+        NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDate instance) =>
     <String, dynamic>{
       'enabled': instance.enabled,
     };
 
-CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemote
-    _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemoteFromJson(
+NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternal
+    _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternalFromJson(
             Map<String, dynamic> json) =>
-        CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemote(
+        NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternal(
           enabled: json['enabled'] as bool?,
         );
 
-Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemoteToJson(
-        CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemote instance) =>
+Map<String, dynamic>
+    _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternalToJson(
+            NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternal instance) =>
+        <String, dynamic>{
+          'enabled': instance.enabled,
+        };
+
+NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemote
+    _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemoteFromJson(
+            Map<String, dynamic> json) =>
+        NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemote(
+          enabled: json['enabled'] as bool?,
+        );
+
+Map<String, dynamic> _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemoteToJson(
+        NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemote instance) =>
     <String, dynamic>{
       'enabled': instance.enabled,
     };
 
-CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public
-    _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_PublicFromJson(Map<String, dynamic> json) =>
-        CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public(
+NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public
+    _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_PublicFromJson(Map<String, dynamic> json) =>
+        NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public(
           enabled: json['enabled'] as bool?,
           password: json['password'] == null
               ? null
-              : CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_Password.fromJson(
+              : NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_Password.fromJson(
                   json['password'] as Map<String, dynamic>),
           expireDate: json['expire_date'] == null
               ? null
-              : CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDate.fromJson(
+              : NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDate.fromJson(
                   json['expire_date'] as Map<String, dynamic>),
           multipleLinks: json['multiple_links'] as bool?,
           expireDateInternal: json['expire_date_internal'] == null
               ? null
-              : CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternal.fromJson(
+              : NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternal.fromJson(
                   json['expire_date_internal'] as Map<String, dynamic>),
           expireDateRemote: json['expire_date_remote'] == null
               ? null
-              : CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemote.fromJson(
+              : NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemote.fromJson(
                   json['expire_date_remote'] as Map<String, dynamic>),
           sendMail: json['send_mail'] as bool?,
           upload: json['upload'] as bool?,
           uploadFilesDrop: json['upload_files_drop'] as bool?,
         );
 
-Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_PublicToJson(
-        CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public instance) =>
+Map<String, dynamic> _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_PublicToJson(
+        NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public instance) =>
     <String, dynamic>{
       'enabled': instance.enabled,
       'password': instance.password?.toJson(),
@@ -500,107 +508,111 @@ Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing
       'upload_files_drop': instance.uploadFilesDrop,
     };
 
-CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User_ExpireDate
-    _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User_ExpireDateFromJson(Map<String, dynamic> json) =>
-        CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User_ExpireDate(
+NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User_ExpireDate
+    _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User_ExpireDateFromJson(
+            Map<String, dynamic> json) =>
+        NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User_ExpireDate(
           enabled: json['enabled'] as bool?,
         );
 
-Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User_ExpireDateToJson(
-        CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User_ExpireDate instance) =>
+Map<String, dynamic> _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User_ExpireDateToJson(
+        NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User_ExpireDate instance) =>
     <String, dynamic>{
       'enabled': instance.enabled,
     };
 
-CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User
-    _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_UserFromJson(Map<String, dynamic> json) =>
-        CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User(
+NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User
+    _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_UserFromJson(Map<String, dynamic> json) =>
+        NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User(
           sendMail: json['send_mail'] as bool?,
           expireDate: json['expire_date'] == null
               ? null
-              : CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User_ExpireDate.fromJson(
+              : NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User_ExpireDate.fromJson(
                   json['expire_date'] as Map<String, dynamic>),
         );
 
-Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_UserToJson(
-        CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User instance) =>
+Map<String, dynamic> _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_UserToJson(
+        NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User instance) =>
     <String, dynamic>{
       'send_mail': instance.sendMail,
       'expire_date': instance.expireDate?.toJson(),
     };
 
-CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDate
-    _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDateFromJson(Map<String, dynamic> json) =>
-        CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDate(
+NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDate
+    _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDateFromJson(
+            Map<String, dynamic> json) =>
+        NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDate(
           enabled: json['enabled'] as bool?,
         );
 
-Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDateToJson(
-        CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDate instance) =>
+Map<String, dynamic> _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDateToJson(
+        NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDate instance) =>
     <String, dynamic>{
       'enabled': instance.enabled,
     };
 
-CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group
-    _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_GroupFromJson(Map<String, dynamic> json) =>
-        CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group(
+NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group
+    _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_GroupFromJson(Map<String, dynamic> json) =>
+        NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group(
           enabled: json['enabled'] as bool?,
           expireDate: json['expire_date'] == null
               ? null
-              : CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDate.fromJson(
+              : NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDate.fromJson(
                   json['expire_date'] as Map<String, dynamic>),
         );
 
-Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_GroupToJson(
-        CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group instance) =>
+Map<String, dynamic> _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_GroupToJson(
+        NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group instance) =>
     <String, dynamic>{
       'enabled': instance.enabled,
       'expire_date': instance.expireDate?.toJson(),
     };
 
-CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDate
-    _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateFromJson(
+NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDate
+    _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateFromJson(
             Map<String, dynamic> json) =>
-        CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDate(
+        NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDate(
           enabled: json['enabled'] as bool?,
         );
 
-Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateToJson(
-        CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDate instance) =>
+Map<String, dynamic> _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateToJson(
+        NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDate instance) =>
     <String, dynamic>{
       'enabled': instance.enabled,
     };
 
-CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupported
-    _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupportedFromJson(
+NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupported
+    _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupportedFromJson(
             Map<String, dynamic> json) =>
-        CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupported(
+        NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupported(
           enabled: json['enabled'] as bool?,
         );
 
-Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupportedToJson(
-        CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupported instance) =>
+Map<String,
+    dynamic> _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupportedToJson(
+        NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupported instance) =>
     <String, dynamic>{
       'enabled': instance.enabled,
     };
 
-CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation
-    _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_FederationFromJson(Map<String, dynamic> json) =>
-        CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation(
+NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation
+    _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_FederationFromJson(
+            Map<String, dynamic> json) =>
+        NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation(
           outgoing: json['outgoing'] as bool?,
           incoming: json['incoming'] as bool?,
           expireDate: json['expire_date'] == null
               ? null
-              : CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDate.fromJson(
+              : NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDate.fromJson(
                   json['expire_date'] as Map<String, dynamic>),
           expireDateSupported: json['expire_date_supported'] == null
               ? null
-              : CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupported.fromJson(
-                  json['expire_date_supported'] as Map<String, dynamic>),
+              : NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupported
+                  .fromJson(json['expire_date_supported'] as Map<String, dynamic>),
         );
 
-Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_FederationToJson(
-        CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation instance) =>
+Map<String, dynamic> _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_FederationToJson(
+        NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation instance) =>
     <String, dynamic>{
       'outgoing': instance.outgoing,
       'incoming': instance.incoming,
@@ -608,84 +620,86 @@ Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing
       'expire_date_supported': instance.expireDateSupported?.toJson(),
     };
 
-CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharee
-    _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_ShareeFromJson(Map<String, dynamic> json) =>
-        CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharee(
+NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharee
+    _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_ShareeFromJson(Map<String, dynamic> json) =>
+        NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharee(
           queryLookupDefault: json['query_lookup_default'] as bool?,
           alwaysShowUnique: json['always_show_unique'] as bool?,
         );
 
-Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_ShareeToJson(
-        CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharee instance) =>
+Map<String, dynamic> _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_ShareeToJson(
+        NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharee instance) =>
     <String, dynamic>{
       'query_lookup_default': instance.queryLookupDefault,
       'always_show_unique': instance.alwaysShowUnique,
     };
 
-CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_UploadFilesDrop
-    _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_UploadFilesDropFromJson(
+NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_UploadFilesDrop
+    _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_UploadFilesDropFromJson(
             Map<String, dynamic> json) =>
-        CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_UploadFilesDrop(
+        NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_UploadFilesDrop(
           enabled: json['enabled'] as bool?,
         );
 
-Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_UploadFilesDropToJson(
-        CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_UploadFilesDrop instance) =>
-    <String, dynamic>{
-      'enabled': instance.enabled,
-    };
+Map<String, dynamic>
+    _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_UploadFilesDropToJson(
+            NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_UploadFilesDrop instance) =>
+        <String, dynamic>{
+          'enabled': instance.enabled,
+        };
 
-CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_Password
-    _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_PasswordFromJson(
+NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_Password
+    _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_PasswordFromJson(
             Map<String, dynamic> json) =>
-        CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_Password(
+        NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_Password(
           enabled: json['enabled'] as bool?,
           enforced: json['enforced'] as bool?,
         );
 
-Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_PasswordToJson(
-        CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_Password instance) =>
+Map<String, dynamic> _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_PasswordToJson(
+        NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_Password instance) =>
     <String, dynamic>{
       'enabled': instance.enabled,
       'enforced': instance.enforced,
     };
 
-CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_ExpireDate
-    _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_ExpireDateFromJson(
+NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_ExpireDate
+    _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_ExpireDateFromJson(
             Map<String, dynamic> json) =>
-        CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_ExpireDate(
+        NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_ExpireDate(
           enabled: json['enabled'] as bool?,
           enforced: json['enforced'] as bool?,
         );
 
-Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_ExpireDateToJson(
-        CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_ExpireDate instance) =>
+Map<String, dynamic> _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_ExpireDateToJson(
+        NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_ExpireDate instance) =>
     <String, dynamic>{
       'enabled': instance.enabled,
       'enforced': instance.enforced,
     };
 
-CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail
-    _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_SharebymailFromJson(Map<String, dynamic> json) =>
-        CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail(
+NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail
+    _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_SharebymailFromJson(
+            Map<String, dynamic> json) =>
+        NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail(
           enabled: json['enabled'] as bool?,
           sendPasswordByMail: json['send_password_by_mail'] as bool?,
           uploadFilesDrop: json['upload_files_drop'] == null
               ? null
-              : CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_UploadFilesDrop.fromJson(
+              : NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_UploadFilesDrop.fromJson(
                   json['upload_files_drop'] as Map<String, dynamic>),
           password: json['password'] == null
               ? null
-              : CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_Password.fromJson(
+              : NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_Password.fromJson(
                   json['password'] as Map<String, dynamic>),
           expireDate: json['expire_date'] == null
               ? null
-              : CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_ExpireDate.fromJson(
+              : NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_ExpireDate.fromJson(
                   json['expire_date'] as Map<String, dynamic>),
         );
 
-Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_SharebymailToJson(
-        CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail instance) =>
+Map<String, dynamic> _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_SharebymailToJson(
+        NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail instance) =>
     <String, dynamic>{
       'enabled': instance.enabled,
       'send_password_by_mail': instance.sendPasswordByMail,
@@ -694,41 +708,41 @@ Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing
       'expire_date': instance.expireDate?.toJson(),
     };
 
-CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing
-    _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharingFromJson(Map<String, dynamic> json) =>
-        CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing(
+NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing
+    _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharingFromJson(Map<String, dynamic> json) =>
+        NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing(
           apiEnabled: json['api_enabled'] as bool?,
           public: json['public'] == null
               ? null
-              : CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public.fromJson(
+              : NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public.fromJson(
                   json['public'] as Map<String, dynamic>),
           resharing: json['resharing'] as bool?,
           user: json['user'] == null
               ? null
-              : CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User.fromJson(
+              : NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User.fromJson(
                   json['user'] as Map<String, dynamic>),
           groupSharing: json['group_sharing'] as bool?,
           group: json['group'] == null
               ? null
-              : CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group.fromJson(
+              : NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group.fromJson(
                   json['group'] as Map<String, dynamic>),
           defaultPermissions: json['default_permissions'] as int?,
           federation: json['federation'] == null
               ? null
-              : CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation.fromJson(
+              : NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation.fromJson(
                   json['federation'] as Map<String, dynamic>),
           sharee: json['sharee'] == null
               ? null
-              : CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharee.fromJson(
+              : NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharee.fromJson(
                   json['sharee'] as Map<String, dynamic>),
           sharebymail: json['sharebymail'] == null
               ? null
-              : CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail.fromJson(
+              : NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail.fromJson(
                   json['sharebymail'] as Map<String, dynamic>),
         );
 
-Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharingToJson(
-        CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing instance) =>
+Map<String, dynamic> _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharingToJson(
+        NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing instance) =>
     <String, dynamic>{
       'api_enabled': instance.apiEnabled,
       'public': instance.public?.toJson(),
@@ -742,53 +756,53 @@ Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing
       'sharebymail': instance.sharebymail?.toJson(),
     };
 
-CoreServerCapabilities_Ocs_Data_Capabilities_Notes _$CoreServerCapabilities_Ocs_Data_Capabilities_NotesFromJson(
-        Map<String, dynamic> json) =>
-    CoreServerCapabilities_Ocs_Data_Capabilities_Notes(
-      apiVersion: (json['api_version'] as List<dynamic>?)?.map((e) => e as String).toList(),
-      version: json['version'] as String?,
-    );
+NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Notes
+    _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_NotesFromJson(Map<String, dynamic> json) =>
+        NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Notes(
+          apiVersion: (json['api_version'] as List<dynamic>?)?.map((e) => e as String).toList(),
+          version: json['version'] as String?,
+        );
 
-Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_NotesToJson(
-        CoreServerCapabilities_Ocs_Data_Capabilities_Notes instance) =>
+Map<String, dynamic> _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_NotesToJson(
+        NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Notes instance) =>
     <String, dynamic>{
       'api_version': instance.apiVersion,
       'version': instance.version,
     };
 
-CoreServerCapabilities_Ocs_Data_Capabilities_Notifications
-    _$CoreServerCapabilities_Ocs_Data_Capabilities_NotificationsFromJson(Map<String, dynamic> json) =>
-        CoreServerCapabilities_Ocs_Data_Capabilities_Notifications(
+NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Notifications
+    _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_NotificationsFromJson(Map<String, dynamic> json) =>
+        NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Notifications(
           ocsEndpoints: (json['ocs-endpoints'] as List<dynamic>?)?.map((e) => e as String).toList(),
           push: (json['push'] as List<dynamic>?)?.map((e) => e as String).toList(),
           adminNotifications: (json['admin-notifications'] as List<dynamic>?)?.map((e) => e as String).toList(),
         );
 
-Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_NotificationsToJson(
-        CoreServerCapabilities_Ocs_Data_Capabilities_Notifications instance) =>
+Map<String, dynamic> _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_NotificationsToJson(
+        NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Notifications instance) =>
     <String, dynamic>{
       'ocs-endpoints': instance.ocsEndpoints,
       'push': instance.push,
       'admin-notifications': instance.adminNotifications,
     };
 
-CoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy_Api
-    _$CoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy_ApiFromJson(Map<String, dynamic> json) =>
-        CoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy_Api(
+NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy_Api
+    _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy_ApiFromJson(Map<String, dynamic> json) =>
+        NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy_Api(
           generate: json['generate'] as String?,
           validate: json['validate'] as String?,
         );
 
-Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy_ApiToJson(
-        CoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy_Api instance) =>
+Map<String, dynamic> _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy_ApiToJson(
+        NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy_Api instance) =>
     <String, dynamic>{
       'generate': instance.generate,
       'validate': instance.validate,
     };
 
-CoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy
-    _$CoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicyFromJson(Map<String, dynamic> json) =>
-        CoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy(
+NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy
+    _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicyFromJson(Map<String, dynamic> json) =>
+        NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy(
           minLength: json['minLength'] as int?,
           enforceNonCommonPassword: json['enforceNonCommonPassword'] as bool?,
           enforceNumericCharacters: json['enforceNumericCharacters'] as bool?,
@@ -796,12 +810,12 @@ CoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy
           enforceUpperLowerCase: json['enforceUpperLowerCase'] as bool?,
           api: json['api'] == null
               ? null
-              : CoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy_Api.fromJson(
+              : NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy_Api.fromJson(
                   json['api'] as Map<String, dynamic>),
         );
 
-Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicyToJson(
-        CoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy instance) =>
+Map<String, dynamic> _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicyToJson(
+        NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy instance) =>
     <String, dynamic>{
       'minLength': instance.minLength,
       'enforceNonCommonPassword': instance.enforceNonCommonPassword,
@@ -811,17 +825,17 @@ Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_PasswordPoli
       'api': instance.api?.toJson(),
     };
 
-CoreServerCapabilities_Ocs_Data_Capabilities_ProvisioningApi
-    _$CoreServerCapabilities_Ocs_Data_Capabilities_ProvisioningApiFromJson(Map<String, dynamic> json) =>
-        CoreServerCapabilities_Ocs_Data_Capabilities_ProvisioningApi(
+NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_ProvisioningApi
+    _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_ProvisioningApiFromJson(Map<String, dynamic> json) =>
+        NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_ProvisioningApi(
           version: json['version'] as String?,
           accountPropertyScopesVersion: json['AccountPropertyScopesVersion'] as int?,
           accountPropertyScopesFederatedEnabled: json['AccountPropertyScopesFederatedEnabled'] as bool?,
           accountPropertyScopesPublishedEnabled: json['AccountPropertyScopesPublishedEnabled'] as bool?,
         );
 
-Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_ProvisioningApiToJson(
-        CoreServerCapabilities_Ocs_Data_Capabilities_ProvisioningApi instance) =>
+Map<String, dynamic> _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_ProvisioningApiToJson(
+        NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_ProvisioningApi instance) =>
     <String, dynamic>{
       'version': instance.version,
       'AccountPropertyScopesVersion': instance.accountPropertyScopesVersion,
@@ -829,27 +843,27 @@ Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_Provisioning
       'AccountPropertyScopesPublishedEnabled': instance.accountPropertyScopesPublishedEnabled,
     };
 
-CoreServerCapabilities_Ocs_Data_Capabilities_Theming _$CoreServerCapabilities_Ocs_Data_Capabilities_ThemingFromJson(
-        Map<String, dynamic> json) =>
-    CoreServerCapabilities_Ocs_Data_Capabilities_Theming(
-      name: json['name'] as String?,
-      url: json['url'] as String?,
-      slogan: json['slogan'] as String?,
-      color: json['color'] as String?,
-      colorText: json['color-text'] as String?,
-      colorElement: json['color-element'] as String?,
-      colorElementBright: json['color-element-bright'] as String?,
-      colorElementDark: json['color-element-dark'] as String?,
-      logo: json['logo'] as String?,
-      background: json['background'] as String?,
-      backgroundPlain: json['background-plain'] as bool?,
-      backgroundDefault: json['background-default'] as bool?,
-      logoheader: json['logoheader'] as String?,
-      favicon: json['favicon'] as String?,
-    );
+NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Theming
+    _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_ThemingFromJson(Map<String, dynamic> json) =>
+        NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Theming(
+          name: json['name'] as String?,
+          url: json['url'] as String?,
+          slogan: json['slogan'] as String?,
+          color: json['color'] as String?,
+          colorText: json['color-text'] as String?,
+          colorElement: json['color-element'] as String?,
+          colorElementBright: json['color-element-bright'] as String?,
+          colorElementDark: json['color-element-dark'] as String?,
+          logo: json['logo'] as String?,
+          background: json['background'] as String?,
+          backgroundPlain: json['background-plain'] as bool?,
+          backgroundDefault: json['background-default'] as bool?,
+          logoheader: json['logoheader'] as String?,
+          favicon: json['favicon'] as String?,
+        );
 
-Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_ThemingToJson(
-        CoreServerCapabilities_Ocs_Data_Capabilities_Theming instance) =>
+Map<String, dynamic> _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_ThemingToJson(
+        NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Theming instance) =>
     <String, dynamic>{
       'name': instance.name,
       'url': instance.url,
@@ -867,100 +881,103 @@ Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_ThemingToJso
       'favicon': instance.favicon,
     };
 
-CoreServerCapabilities_Ocs_Data_Capabilities_UserStatus
-    _$CoreServerCapabilities_Ocs_Data_Capabilities_UserStatusFromJson(Map<String, dynamic> json) =>
-        CoreServerCapabilities_Ocs_Data_Capabilities_UserStatus(
+NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_UserStatus
+    _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_UserStatusFromJson(Map<String, dynamic> json) =>
+        NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_UserStatus(
           enabled: json['enabled'] as bool?,
           supportsEmoji: json['supports_emoji'] as bool?,
         );
 
-Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_UserStatusToJson(
-        CoreServerCapabilities_Ocs_Data_Capabilities_UserStatus instance) =>
+Map<String, dynamic> _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_UserStatusToJson(
+        NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_UserStatus instance) =>
     <String, dynamic>{
       'enabled': instance.enabled,
       'supports_emoji': instance.supportsEmoji,
     };
 
-CoreServerCapabilities_Ocs_Data_Capabilities_WeatherStatus
-    _$CoreServerCapabilities_Ocs_Data_Capabilities_WeatherStatusFromJson(Map<String, dynamic> json) {
+NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_WeatherStatus
+    _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_WeatherStatusFromJson(Map<String, dynamic> json) {
   $checkKeys(
     json,
     allowedKeys: const ['enabled'],
   );
-  return CoreServerCapabilities_Ocs_Data_Capabilities_WeatherStatus(
+  return NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_WeatherStatus(
     enabled: json['enabled'] as bool?,
   );
 }
 
-Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_Capabilities_WeatherStatusToJson(
-        CoreServerCapabilities_Ocs_Data_Capabilities_WeatherStatus instance) =>
+Map<String, dynamic> _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_WeatherStatusToJson(
+        NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_WeatherStatus instance) =>
     <String, dynamic>{
       'enabled': instance.enabled,
     };
 
-CoreServerCapabilities_Ocs_Data_Capabilities _$CoreServerCapabilities_Ocs_Data_CapabilitiesFromJson(
+NextcloudCoreServerCapabilities_Ocs_Data_Capabilities _$NextcloudCoreServerCapabilities_Ocs_Data_CapabilitiesFromJson(
         Map<String, dynamic> json) =>
-    CoreServerCapabilities_Ocs_Data_Capabilities(
+    NextcloudCoreServerCapabilities_Ocs_Data_Capabilities(
       core: json['core'] == null
           ? null
-          : CoreServerCapabilities_Ocs_Data_Capabilities_Core.fromJson(json['core'] as Map<String, dynamic>),
+          : NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Core.fromJson(json['core'] as Map<String, dynamic>),
       bruteforce: json['bruteforce'] == null
           ? null
-          : CoreServerCapabilities_Ocs_Data_Capabilities_Bruteforce.fromJson(
+          : NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Bruteforce.fromJson(
               json['bruteforce'] as Map<String, dynamic>),
       metadataAvailable: json['metadataAvailable'] == null
           ? null
-          : CoreServerCapabilities_Ocs_Data_Capabilities_MetadataAvailable.fromJson(
+          : NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_MetadataAvailable.fromJson(
               json['metadataAvailable'] as Map<String, dynamic>),
       files: json['files'] == null
           ? null
-          : CoreServerCapabilities_Ocs_Data_Capabilities_Files.fromJson(json['files'] as Map<String, dynamic>),
+          : NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Files.fromJson(json['files'] as Map<String, dynamic>),
       activity: json['activity'] == null
           ? null
-          : CoreServerCapabilities_Ocs_Data_Capabilities_Activity.fromJson(json['activity'] as Map<String, dynamic>),
+          : NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Activity.fromJson(
+              json['activity'] as Map<String, dynamic>),
       circles: json['circles'] == null
           ? null
-          : CoreServerCapabilities_Ocs_Data_Capabilities_Circles.fromJson(json['circles'] as Map<String, dynamic>),
+          : NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles.fromJson(
+              json['circles'] as Map<String, dynamic>),
       ocm: json['ocm'] == null
           ? null
-          : CoreServerCapabilities_Ocs_Data_Capabilities_Ocm.fromJson(json['ocm'] as Map<String, dynamic>),
+          : NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Ocm.fromJson(json['ocm'] as Map<String, dynamic>),
       dav: json['dav'] == null
           ? null
-          : CoreServerCapabilities_Ocs_Data_Capabilities_Dav.fromJson(json['dav'] as Map<String, dynamic>),
+          : NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Dav.fromJson(json['dav'] as Map<String, dynamic>),
       filesSharing: json['files_sharing'] == null
           ? null
-          : CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing.fromJson(
+          : NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing.fromJson(
               json['files_sharing'] as Map<String, dynamic>),
       notes: json['notes'] == null
           ? null
-          : CoreServerCapabilities_Ocs_Data_Capabilities_Notes.fromJson(json['notes'] as Map<String, dynamic>),
+          : NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Notes.fromJson(json['notes'] as Map<String, dynamic>),
       notifications: json['notifications'] == null
           ? null
-          : CoreServerCapabilities_Ocs_Data_Capabilities_Notifications.fromJson(
+          : NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Notifications.fromJson(
               json['notifications'] as Map<String, dynamic>),
       passwordPolicy: json['password_policy'] == null
           ? null
-          : CoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy.fromJson(
+          : NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy.fromJson(
               json['password_policy'] as Map<String, dynamic>),
       provisioningApi: json['provisioning_api'] == null
           ? null
-          : CoreServerCapabilities_Ocs_Data_Capabilities_ProvisioningApi.fromJson(
+          : NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_ProvisioningApi.fromJson(
               json['provisioning_api'] as Map<String, dynamic>),
       theming: json['theming'] == null
           ? null
-          : CoreServerCapabilities_Ocs_Data_Capabilities_Theming.fromJson(json['theming'] as Map<String, dynamic>),
+          : NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Theming.fromJson(
+              json['theming'] as Map<String, dynamic>),
       userStatus: json['user_status'] == null
           ? null
-          : CoreServerCapabilities_Ocs_Data_Capabilities_UserStatus.fromJson(
+          : NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_UserStatus.fromJson(
               json['user_status'] as Map<String, dynamic>),
       weatherStatus: json['weather_status'] == null
           ? null
-          : CoreServerCapabilities_Ocs_Data_Capabilities_WeatherStatus.fromJson(
+          : NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_WeatherStatus.fromJson(
               json['weather_status'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_CapabilitiesToJson(
-        CoreServerCapabilities_Ocs_Data_Capabilities instance) =>
+Map<String, dynamic> _$NextcloudCoreServerCapabilities_Ocs_Data_CapabilitiesToJson(
+        NextcloudCoreServerCapabilities_Ocs_Data_Capabilities instance) =>
     <String, dynamic>{
       'core': instance.core?.toJson(),
       'bruteforce': instance.bruteforce?.toJson(),
@@ -980,61 +997,65 @@ Map<String, dynamic> _$CoreServerCapabilities_Ocs_Data_CapabilitiesToJson(
       'weather_status': instance.weatherStatus?.toJson(),
     };
 
-CoreServerCapabilities_Ocs_Data _$CoreServerCapabilities_Ocs_DataFromJson(Map<String, dynamic> json) {
+NextcloudCoreServerCapabilities_Ocs_Data _$NextcloudCoreServerCapabilities_Ocs_DataFromJson(Map<String, dynamic> json) {
   $checkKeys(
     json,
     allowedKeys: const ['version', 'capabilities'],
   );
-  return CoreServerCapabilities_Ocs_Data(
-    version: CoreServerCapabilities_Ocs_Data_Version.fromJson(json['version'] as Map<String, dynamic>),
-    capabilities: CoreServerCapabilities_Ocs_Data_Capabilities.fromJson(json['capabilities'] as Map<String, dynamic>),
+  return NextcloudCoreServerCapabilities_Ocs_Data(
+    version: NextcloudCoreServerCapabilities_Ocs_Data_Version.fromJson(json['version'] as Map<String, dynamic>),
+    capabilities:
+        NextcloudCoreServerCapabilities_Ocs_Data_Capabilities.fromJson(json['capabilities'] as Map<String, dynamic>),
   );
 }
 
-Map<String, dynamic> _$CoreServerCapabilities_Ocs_DataToJson(CoreServerCapabilities_Ocs_Data instance) =>
+Map<String, dynamic> _$NextcloudCoreServerCapabilities_Ocs_DataToJson(
+        NextcloudCoreServerCapabilities_Ocs_Data instance) =>
     <String, dynamic>{
       'version': instance.version.toJson(),
       'capabilities': instance.capabilities.toJson(),
     };
 
-CoreServerCapabilities_Ocs _$CoreServerCapabilities_OcsFromJson(Map<String, dynamic> json) {
+NextcloudCoreServerCapabilities_Ocs _$NextcloudCoreServerCapabilities_OcsFromJson(Map<String, dynamic> json) {
   $checkKeys(
     json,
     allowedKeys: const ['meta', 'data'],
   );
-  return CoreServerCapabilities_Ocs(
-    meta: OCSMeta.fromJson(json['meta'] as Map<String, dynamic>),
-    data: CoreServerCapabilities_Ocs_Data.fromJson(json['data'] as Map<String, dynamic>),
+  return NextcloudCoreServerCapabilities_Ocs(
+    meta: NextcloudOCSMeta.fromJson(json['meta'] as Map<String, dynamic>),
+    data: NextcloudCoreServerCapabilities_Ocs_Data.fromJson(json['data'] as Map<String, dynamic>),
   );
 }
 
-Map<String, dynamic> _$CoreServerCapabilities_OcsToJson(CoreServerCapabilities_Ocs instance) => <String, dynamic>{
+Map<String, dynamic> _$NextcloudCoreServerCapabilities_OcsToJson(NextcloudCoreServerCapabilities_Ocs instance) =>
+    <String, dynamic>{
       'meta': instance.meta.toJson(),
       'data': instance.data.toJson(),
     };
 
-CoreServerCapabilities _$CoreServerCapabilitiesFromJson(Map<String, dynamic> json) {
+NextcloudCoreServerCapabilities _$NextcloudCoreServerCapabilitiesFromJson(Map<String, dynamic> json) {
   $checkKeys(
     json,
     allowedKeys: const ['ocs'],
   );
-  return CoreServerCapabilities(
-    ocs: CoreServerCapabilities_Ocs.fromJson(json['ocs'] as Map<String, dynamic>),
+  return NextcloudCoreServerCapabilities(
+    ocs: NextcloudCoreServerCapabilities_Ocs.fromJson(json['ocs'] as Map<String, dynamic>),
   );
 }
 
-Map<String, dynamic> _$CoreServerCapabilitiesToJson(CoreServerCapabilities instance) => <String, dynamic>{
+Map<String, dynamic> _$NextcloudCoreServerCapabilitiesToJson(NextcloudCoreServerCapabilities instance) =>
+    <String, dynamic>{
       'ocs': instance.ocs.toJson(),
     };
 
-CoreNavigationApps_Ocs_Data _$CoreNavigationApps_Ocs_DataFromJson(Map<String, dynamic> json) {
+NextcloudCoreNavigationApps_Ocs_Data _$NextcloudCoreNavigationApps_Ocs_DataFromJson(Map<String, dynamic> json) {
   $checkKeys(
     json,
     allowedKeys: const ['id', 'order', 'href', 'icon', 'type', 'name', 'active', 'classes', 'unread'],
   );
-  return CoreNavigationApps_Ocs_Data(
+  return NextcloudCoreNavigationApps_Ocs_Data(
     id: json['id'] as String,
-    order: CoreNavigationApps_Ocs_Data_Order.fromJson(json['order']),
+    order: NextcloudCoreNavigationApps_Ocs_Data_Order.fromJson(json['order']),
     href: json['href'] as String,
     icon: json['icon'] as String,
     type: json['type'] as String,
@@ -1045,7 +1066,8 @@ CoreNavigationApps_Ocs_Data _$CoreNavigationApps_Ocs_DataFromJson(Map<String, dy
   );
 }
 
-Map<String, dynamic> _$CoreNavigationApps_Ocs_DataToJson(CoreNavigationApps_Ocs_Data instance) => <String, dynamic>{
+Map<String, dynamic> _$NextcloudCoreNavigationApps_Ocs_DataToJson(NextcloudCoreNavigationApps_Ocs_Data instance) =>
+    <String, dynamic>{
       'id': instance.id,
       'order': instance.order.toJson(),
       'href': instance.href,
@@ -1057,105 +1079,108 @@ Map<String, dynamic> _$CoreNavigationApps_Ocs_DataToJson(CoreNavigationApps_Ocs_
       'unread': instance.unread,
     };
 
-CoreNavigationApps_Ocs _$CoreNavigationApps_OcsFromJson(Map<String, dynamic> json) {
+NextcloudCoreNavigationApps_Ocs _$NextcloudCoreNavigationApps_OcsFromJson(Map<String, dynamic> json) {
   $checkKeys(
     json,
     allowedKeys: const ['meta', 'data'],
   );
-  return CoreNavigationApps_Ocs(
-    meta: OCSMeta.fromJson(json['meta'] as Map<String, dynamic>),
+  return NextcloudCoreNavigationApps_Ocs(
+    meta: NextcloudOCSMeta.fromJson(json['meta'] as Map<String, dynamic>),
     data: (json['data'] as List<dynamic>)
-        .map((e) => CoreNavigationApps_Ocs_Data.fromJson(e as Map<String, dynamic>))
+        .map((e) => NextcloudCoreNavigationApps_Ocs_Data.fromJson(e as Map<String, dynamic>))
         .toList(),
   );
 }
 
-Map<String, dynamic> _$CoreNavigationApps_OcsToJson(CoreNavigationApps_Ocs instance) => <String, dynamic>{
+Map<String, dynamic> _$NextcloudCoreNavigationApps_OcsToJson(NextcloudCoreNavigationApps_Ocs instance) =>
+    <String, dynamic>{
       'meta': instance.meta.toJson(),
       'data': instance.data.map((e) => e.toJson()).toList(),
     };
 
-CoreNavigationApps _$CoreNavigationAppsFromJson(Map<String, dynamic> json) {
+NextcloudCoreNavigationApps _$NextcloudCoreNavigationAppsFromJson(Map<String, dynamic> json) {
   $checkKeys(
     json,
     allowedKeys: const ['ocs'],
   );
-  return CoreNavigationApps(
-    ocs: CoreNavigationApps_Ocs.fromJson(json['ocs'] as Map<String, dynamic>),
+  return NextcloudCoreNavigationApps(
+    ocs: NextcloudCoreNavigationApps_Ocs.fromJson(json['ocs'] as Map<String, dynamic>),
   );
 }
 
-Map<String, dynamic> _$CoreNavigationAppsToJson(CoreNavigationApps instance) => <String, dynamic>{
+Map<String, dynamic> _$NextcloudCoreNavigationAppsToJson(NextcloudCoreNavigationApps instance) => <String, dynamic>{
       'ocs': instance.ocs.toJson(),
     };
 
-CoreLoginFlowInit_Poll _$CoreLoginFlowInit_PollFromJson(Map<String, dynamic> json) {
+NextcloudCoreLoginFlowInit_Poll _$NextcloudCoreLoginFlowInit_PollFromJson(Map<String, dynamic> json) {
   $checkKeys(
     json,
     allowedKeys: const ['token', 'endpoint'],
   );
-  return CoreLoginFlowInit_Poll(
+  return NextcloudCoreLoginFlowInit_Poll(
     token: json['token'] as String,
     endpoint: json['endpoint'] as String,
   );
 }
 
-Map<String, dynamic> _$CoreLoginFlowInit_PollToJson(CoreLoginFlowInit_Poll instance) => <String, dynamic>{
+Map<String, dynamic> _$NextcloudCoreLoginFlowInit_PollToJson(NextcloudCoreLoginFlowInit_Poll instance) =>
+    <String, dynamic>{
       'token': instance.token,
       'endpoint': instance.endpoint,
     };
 
-CoreLoginFlowInit _$CoreLoginFlowInitFromJson(Map<String, dynamic> json) {
+NextcloudCoreLoginFlowInit _$NextcloudCoreLoginFlowInitFromJson(Map<String, dynamic> json) {
   $checkKeys(
     json,
     allowedKeys: const ['poll', 'login'],
   );
-  return CoreLoginFlowInit(
-    poll: CoreLoginFlowInit_Poll.fromJson(json['poll'] as Map<String, dynamic>),
+  return NextcloudCoreLoginFlowInit(
+    poll: NextcloudCoreLoginFlowInit_Poll.fromJson(json['poll'] as Map<String, dynamic>),
     login: json['login'] as String,
   );
 }
 
-Map<String, dynamic> _$CoreLoginFlowInitToJson(CoreLoginFlowInit instance) => <String, dynamic>{
+Map<String, dynamic> _$NextcloudCoreLoginFlowInitToJson(NextcloudCoreLoginFlowInit instance) => <String, dynamic>{
       'poll': instance.poll.toJson(),
       'login': instance.login,
     };
 
-CoreLoginFlowResult _$CoreLoginFlowResultFromJson(Map<String, dynamic> json) {
+NextcloudCoreLoginFlowResult _$NextcloudCoreLoginFlowResultFromJson(Map<String, dynamic> json) {
   $checkKeys(
     json,
     allowedKeys: const ['server', 'loginName', 'appPassword'],
   );
-  return CoreLoginFlowResult(
+  return NextcloudCoreLoginFlowResult(
     server: json['server'] as String,
     loginName: json['loginName'] as String,
     appPassword: json['appPassword'] as String,
   );
 }
 
-Map<String, dynamic> _$CoreLoginFlowResultToJson(CoreLoginFlowResult instance) => <String, dynamic>{
+Map<String, dynamic> _$NextcloudCoreLoginFlowResultToJson(NextcloudCoreLoginFlowResult instance) => <String, dynamic>{
       'server': instance.server,
       'loginName': instance.loginName,
       'appPassword': instance.appPassword,
     };
 
-CoreAutocompleteResult_Ocs_Data _$CoreAutocompleteResult_Ocs_DataFromJson(Map<String, dynamic> json) {
+NextcloudCoreAutocompleteResult_Ocs_Data _$NextcloudCoreAutocompleteResult_Ocs_DataFromJson(Map<String, dynamic> json) {
   $checkKeys(
     json,
     allowedKeys: const ['id', 'label', 'icon', 'source', 'status', 'subline', 'shareWithDisplayNameUnique'],
   );
-  return CoreAutocompleteResult_Ocs_Data(
+  return NextcloudCoreAutocompleteResult_Ocs_Data(
     id: json['id'] as String,
     label: json['label'] as String,
     icon: json['icon'] as String,
     source: json['source'] as String,
-    status: CoreAutocompleteResult_Ocs_Data_Status.fromJson(json['status']),
+    status: NextcloudCoreAutocompleteResult_Ocs_Data_Status.fromJson(json['status']),
     subline: json['subline'] as String,
     shareWithDisplayNameUnique: json['shareWithDisplayNameUnique'] as String,
   );
 }
 
-Map<String, dynamic> _$CoreAutocompleteResult_Ocs_DataToJson(CoreAutocompleteResult_Ocs_Data instance) =>
+Map<String, dynamic> _$NextcloudCoreAutocompleteResult_Ocs_DataToJson(
+        NextcloudCoreAutocompleteResult_Ocs_Data instance) =>
     <String, dynamic>{
       'id': instance.id,
       'label': instance.label,
@@ -1166,53 +1191,56 @@ Map<String, dynamic> _$CoreAutocompleteResult_Ocs_DataToJson(CoreAutocompleteRes
       'shareWithDisplayNameUnique': instance.shareWithDisplayNameUnique,
     };
 
-CoreAutocompleteResult_Ocs _$CoreAutocompleteResult_OcsFromJson(Map<String, dynamic> json) {
+NextcloudCoreAutocompleteResult_Ocs _$NextcloudCoreAutocompleteResult_OcsFromJson(Map<String, dynamic> json) {
   $checkKeys(
     json,
     allowedKeys: const ['meta', 'data'],
   );
-  return CoreAutocompleteResult_Ocs(
-    meta: OCSMeta.fromJson(json['meta'] as Map<String, dynamic>),
+  return NextcloudCoreAutocompleteResult_Ocs(
+    meta: NextcloudOCSMeta.fromJson(json['meta'] as Map<String, dynamic>),
     data: (json['data'] as List<dynamic>)
-        .map((e) => CoreAutocompleteResult_Ocs_Data.fromJson(e as Map<String, dynamic>))
+        .map((e) => NextcloudCoreAutocompleteResult_Ocs_Data.fromJson(e as Map<String, dynamic>))
         .toList(),
   );
 }
 
-Map<String, dynamic> _$CoreAutocompleteResult_OcsToJson(CoreAutocompleteResult_Ocs instance) => <String, dynamic>{
+Map<String, dynamic> _$NextcloudCoreAutocompleteResult_OcsToJson(NextcloudCoreAutocompleteResult_Ocs instance) =>
+    <String, dynamic>{
       'meta': instance.meta.toJson(),
       'data': instance.data.map((e) => e.toJson()).toList(),
     };
 
-CoreAutocompleteResult _$CoreAutocompleteResultFromJson(Map<String, dynamic> json) {
+NextcloudCoreAutocompleteResult _$NextcloudCoreAutocompleteResultFromJson(Map<String, dynamic> json) {
   $checkKeys(
     json,
     allowedKeys: const ['ocs'],
   );
-  return CoreAutocompleteResult(
-    ocs: CoreAutocompleteResult_Ocs.fromJson(json['ocs'] as Map<String, dynamic>),
+  return NextcloudCoreAutocompleteResult(
+    ocs: NextcloudCoreAutocompleteResult_Ocs.fromJson(json['ocs'] as Map<String, dynamic>),
   );
 }
 
-Map<String, dynamic> _$CoreAutocompleteResultToJson(CoreAutocompleteResult instance) => <String, dynamic>{
+Map<String, dynamic> _$NextcloudCoreAutocompleteResultToJson(NextcloudCoreAutocompleteResult instance) =>
+    <String, dynamic>{
       'ocs': instance.ocs.toJson(),
     };
 
-NewsSupportedAPIVersions _$NewsSupportedAPIVersionsFromJson(Map<String, dynamic> json) {
+NextcloudNewsSupportedAPIVersions _$NextcloudNewsSupportedAPIVersionsFromJson(Map<String, dynamic> json) {
   $checkKeys(
     json,
     allowedKeys: const ['apiLevels'],
   );
-  return NewsSupportedAPIVersions(
+  return NextcloudNewsSupportedAPIVersions(
     apiLevels: (json['apiLevels'] as List<dynamic>?)?.map((e) => e as String).toList(),
   );
 }
 
-Map<String, dynamic> _$NewsSupportedAPIVersionsToJson(NewsSupportedAPIVersions instance) => <String, dynamic>{
+Map<String, dynamic> _$NextcloudNewsSupportedAPIVersionsToJson(NextcloudNewsSupportedAPIVersions instance) =>
+    <String, dynamic>{
       'apiLevels': instance.apiLevels,
     };
 
-NewsArticle _$NewsArticleFromJson(Map<String, dynamic> json) {
+NextcloudNewsArticle _$NextcloudNewsArticleFromJson(Map<String, dynamic> json) {
   $checkKeys(
     json,
     allowedKeys: const [
@@ -1238,7 +1266,7 @@ NewsArticle _$NewsArticleFromJson(Map<String, dynamic> json) {
       'contentHash'
     ],
   );
-  return NewsArticle(
+  return NextcloudNewsArticle(
     id: json['id'] as int,
     guid: json['guid'] as String,
     guidHash: json['guidHash'] as String,
@@ -1262,7 +1290,7 @@ NewsArticle _$NewsArticleFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$NewsArticleToJson(NewsArticle instance) => <String, dynamic>{
+Map<String, dynamic> _$NextcloudNewsArticleToJson(NextcloudNewsArticle instance) => <String, dynamic>{
       'id': instance.id,
       'guid': instance.guid,
       'guidHash': instance.guidHash,
@@ -1285,7 +1313,7 @@ Map<String, dynamic> _$NewsArticleToJson(NewsArticle instance) => <String, dynam
       'contentHash': instance.contentHash,
     };
 
-NewsFeed _$NewsFeedFromJson(Map<String, dynamic> json) {
+NextcloudNewsFeed _$NextcloudNewsFeedFromJson(Map<String, dynamic> json) {
   $checkKeys(
     json,
     allowedKeys: const [
@@ -1304,7 +1332,7 @@ NewsFeed _$NewsFeedFromJson(Map<String, dynamic> json) {
       'items'
     ],
   );
-  return NewsFeed(
+  return NextcloudNewsFeed(
     id: json['id'] as int,
     url: json['url'] as String,
     title: json['title'] as String,
@@ -1317,11 +1345,12 @@ NewsFeed _$NewsFeedFromJson(Map<String, dynamic> json) {
     pinned: json['pinned'] as bool,
     updateErrorCount: json['updateErrorCount'] as int,
     lastUpdateError: json['lastUpdateError'] as String?,
-    items: (json['items'] as List<dynamic>).map((e) => NewsArticle.fromJson(e as Map<String, dynamic>)).toList(),
+    items:
+        (json['items'] as List<dynamic>).map((e) => NextcloudNewsArticle.fromJson(e as Map<String, dynamic>)).toList(),
   );
 }
 
-Map<String, dynamic> _$NewsFeedToJson(NewsFeed instance) => <String, dynamic>{
+Map<String, dynamic> _$NextcloudNewsFeedToJson(NextcloudNewsFeed instance) => <String, dynamic>{
       'id': instance.id,
       'url': instance.url,
       'title': instance.title,
@@ -1337,73 +1366,75 @@ Map<String, dynamic> _$NewsFeedToJson(NewsFeed instance) => <String, dynamic>{
       'items': instance.items.map((e) => e.toJson()).toList(),
     };
 
-NewsFolder _$NewsFolderFromJson(Map<String, dynamic> json) {
+NextcloudNewsFolder _$NextcloudNewsFolderFromJson(Map<String, dynamic> json) {
   $checkKeys(
     json,
     allowedKeys: const ['id', 'name', 'opened', 'feeds'],
   );
-  return NewsFolder(
+  return NextcloudNewsFolder(
     id: json['id'] as int,
     name: json['name'] as String,
     opened: json['opened'] as bool,
-    feeds: (json['feeds'] as List<dynamic>).map((e) => NewsFeed.fromJson(e as Map<String, dynamic>)).toList(),
+    feeds: (json['feeds'] as List<dynamic>).map((e) => NextcloudNewsFeed.fromJson(e as Map<String, dynamic>)).toList(),
   );
 }
 
-Map<String, dynamic> _$NewsFolderToJson(NewsFolder instance) => <String, dynamic>{
+Map<String, dynamic> _$NextcloudNewsFolderToJson(NextcloudNewsFolder instance) => <String, dynamic>{
       'id': instance.id,
       'name': instance.name,
       'opened': instance.opened,
       'feeds': instance.feeds.map((e) => e.toJson()).toList(),
     };
 
-NewsListFolders _$NewsListFoldersFromJson(Map<String, dynamic> json) {
+NextcloudNewsListFolders _$NextcloudNewsListFoldersFromJson(Map<String, dynamic> json) {
   $checkKeys(
     json,
     allowedKeys: const ['folders'],
   );
-  return NewsListFolders(
-    folders: (json['folders'] as List<dynamic>).map((e) => NewsFolder.fromJson(e as Map<String, dynamic>)).toList(),
+  return NextcloudNewsListFolders(
+    folders:
+        (json['folders'] as List<dynamic>).map((e) => NextcloudNewsFolder.fromJson(e as Map<String, dynamic>)).toList(),
   );
 }
 
-Map<String, dynamic> _$NewsListFoldersToJson(NewsListFolders instance) => <String, dynamic>{
+Map<String, dynamic> _$NextcloudNewsListFoldersToJson(NextcloudNewsListFolders instance) => <String, dynamic>{
       'folders': instance.folders.map((e) => e.toJson()).toList(),
     };
 
-NewsListFeeds _$NewsListFeedsFromJson(Map<String, dynamic> json) {
+NextcloudNewsListFeeds _$NextcloudNewsListFeedsFromJson(Map<String, dynamic> json) {
   $checkKeys(
     json,
     allowedKeys: const ['starredCount', 'newestItemId', 'feeds'],
   );
-  return NewsListFeeds(
+  return NextcloudNewsListFeeds(
     starredCount: json['starredCount'] as int?,
     newestItemId: json['newestItemId'] as int?,
-    feeds: (json['feeds'] as List<dynamic>).map((e) => NewsFeed.fromJson(e as Map<String, dynamic>)).toList(),
+    feeds: (json['feeds'] as List<dynamic>).map((e) => NextcloudNewsFeed.fromJson(e as Map<String, dynamic>)).toList(),
   );
 }
 
-Map<String, dynamic> _$NewsListFeedsToJson(NewsListFeeds instance) => <String, dynamic>{
+Map<String, dynamic> _$NextcloudNewsListFeedsToJson(NextcloudNewsListFeeds instance) => <String, dynamic>{
       'starredCount': instance.starredCount,
       'newestItemId': instance.newestItemId,
       'feeds': instance.feeds.map((e) => e.toJson()).toList(),
     };
 
-NewsListArticles _$NewsListArticlesFromJson(Map<String, dynamic> json) {
+NextcloudNewsListArticles _$NextcloudNewsListArticlesFromJson(Map<String, dynamic> json) {
   $checkKeys(
     json,
     allowedKeys: const ['items'],
   );
-  return NewsListArticles(
-    items: (json['items'] as List<dynamic>).map((e) => NewsArticle.fromJson(e as Map<String, dynamic>)).toList(),
+  return NextcloudNewsListArticles(
+    items:
+        (json['items'] as List<dynamic>).map((e) => NextcloudNewsArticle.fromJson(e as Map<String, dynamic>)).toList(),
   );
 }
 
-Map<String, dynamic> _$NewsListArticlesToJson(NewsListArticles instance) => <String, dynamic>{
+Map<String, dynamic> _$NextcloudNewsListArticlesToJson(NextcloudNewsListArticles instance) => <String, dynamic>{
       'items': instance.items.map((e) => e.toJson()).toList(),
     };
 
-NotesNote _$NotesNoteFromJson(Map<String, dynamic> json) {
+NextcloudNotesNote _$NextcloudNotesNoteFromJson(Map<String, dynamic> json) {
   $checkKeys(
     json,
     allowedKeys: const [
@@ -1419,7 +1450,7 @@ NotesNote _$NotesNoteFromJson(Map<String, dynamic> json) {
       'errorType'
     ],
   );
-  return NotesNote(
+  return NextcloudNotesNote(
     id: json['id'] as int,
     etag: json['etag'] as String,
     readonly: json['readonly'] as bool,
@@ -1433,7 +1464,7 @@ NotesNote _$NotesNoteFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$NotesNoteToJson(NotesNote instance) => <String, dynamic>{
+Map<String, dynamic> _$NextcloudNotesNoteToJson(NextcloudNotesNote instance) => <String, dynamic>{
       'id': instance.id,
       'etag': instance.etag,
       'readonly': instance.readonly,
@@ -1446,35 +1477,35 @@ Map<String, dynamic> _$NotesNoteToJson(NotesNote instance) => <String, dynamic>{
       'errorType': instance.errorType,
     };
 
-NotesSettings _$NotesSettingsFromJson(Map<String, dynamic> json) {
+NextcloudNotesSettings _$NextcloudNotesSettingsFromJson(Map<String, dynamic> json) {
   $checkKeys(
     json,
     allowedKeys: const ['notesPath', 'fileSuffix', 'noteMode'],
   );
-  return NotesSettings(
+  return NextcloudNotesSettings(
     notesPath: json['notesPath'] as String,
     fileSuffix: json['fileSuffix'] as String,
-    noteMode: $enumDecode(_$NotesSettings_NoteModeEnumMap, json['noteMode']),
+    noteMode: $enumDecode(_$NextcloudNotesSettings_NoteModeEnumMap, json['noteMode']),
   );
 }
 
-Map<String, dynamic> _$NotesSettingsToJson(NotesSettings instance) => <String, dynamic>{
+Map<String, dynamic> _$NextcloudNotesSettingsToJson(NextcloudNotesSettings instance) => <String, dynamic>{
       'notesPath': instance.notesPath,
       'fileSuffix': instance.fileSuffix,
-      'noteMode': _$NotesSettings_NoteModeEnumMap[instance.noteMode]!,
+      'noteMode': _$NextcloudNotesSettings_NoteModeEnumMap[instance.noteMode]!,
     };
 
-const _$NotesSettings_NoteModeEnumMap = {
-  NotesSettings_NoteMode.edit: 'edit',
-  NotesSettings_NoteMode.preview: 'preview',
+const _$NextcloudNotesSettings_NoteModeEnumMap = {
+  NextcloudNotesSettings_NoteMode.edit: 'edit',
+  NextcloudNotesSettings_NoteMode.preview: 'preview',
 };
 
-NotificationsNotificationAction _$NotificationsNotificationActionFromJson(Map<String, dynamic> json) {
+NextcloudNotificationsNotificationAction _$NextcloudNotificationsNotificationActionFromJson(Map<String, dynamic> json) {
   $checkKeys(
     json,
     allowedKeys: const ['label', 'link', 'type', 'primary'],
   );
-  return NotificationsNotificationAction(
+  return NextcloudNotificationsNotificationAction(
     label: json['label'] as String,
     link: json['link'] as String,
     type: json['type'] as String,
@@ -1482,7 +1513,8 @@ NotificationsNotificationAction _$NotificationsNotificationActionFromJson(Map<St
   );
 }
 
-Map<String, dynamic> _$NotificationsNotificationActionToJson(NotificationsNotificationAction instance) =>
+Map<String, dynamic> _$NextcloudNotificationsNotificationActionToJson(
+        NextcloudNotificationsNotificationAction instance) =>
     <String, dynamic>{
       'label': instance.label,
       'link': instance.link,
@@ -1490,7 +1522,7 @@ Map<String, dynamic> _$NotificationsNotificationActionToJson(NotificationsNotifi
       'primary': instance.primary,
     };
 
-NotificationsNotification _$NotificationsNotificationFromJson(Map<String, dynamic> json) {
+NextcloudNotificationsNotification _$NextcloudNotificationsNotificationFromJson(Map<String, dynamic> json) {
   $checkKeys(
     json,
     allowedKeys: const [
@@ -1511,7 +1543,7 @@ NotificationsNotification _$NotificationsNotificationFromJson(Map<String, dynami
       'actions'
     ],
   );
-  return NotificationsNotification(
+  return NextcloudNotificationsNotification(
     notificationId: json['notification_id'] as int,
     app: json['app'] as String,
     user: json['user'] as String,
@@ -1522,17 +1554,20 @@ NotificationsNotification _$NotificationsNotificationFromJson(Map<String, dynami
     message: json['message'] as String,
     link: json['link'] as String,
     subjectRich: json['subjectRich'] as String,
-    subjectRichParameters: NotificationsNotification_SubjectRichParameters.fromJson(json['subjectRichParameters']),
+    subjectRichParameters:
+        NextcloudNotificationsNotification_SubjectRichParameters.fromJson(json['subjectRichParameters']),
     messageRich: json['messageRich'] as String,
-    messageRichParameters: NotificationsNotification_MessageRichParameters.fromJson(json['messageRichParameters']),
+    messageRichParameters:
+        NextcloudNotificationsNotification_MessageRichParameters.fromJson(json['messageRichParameters']),
     icon: json['icon'] as String,
     actions: (json['actions'] as List<dynamic>)
-        .map((e) => NotificationsNotificationAction.fromJson(e as Map<String, dynamic>))
+        .map((e) => NextcloudNotificationsNotificationAction.fromJson(e as Map<String, dynamic>))
         .toList(),
   );
 }
 
-Map<String, dynamic> _$NotificationsNotificationToJson(NotificationsNotification instance) => <String, dynamic>{
+Map<String, dynamic> _$NextcloudNotificationsNotificationToJson(NextcloudNotificationsNotification instance) =>
+    <String, dynamic>{
       'notification_id': instance.notificationId,
       'app': instance.app,
       'user': instance.user,
@@ -1550,107 +1585,114 @@ Map<String, dynamic> _$NotificationsNotificationToJson(NotificationsNotification
       'actions': instance.actions.map((e) => e.toJson()).toList(),
     };
 
-NotificationsListNotifications_Ocs _$NotificationsListNotifications_OcsFromJson(Map<String, dynamic> json) {
+NextcloudNotificationsListNotifications_Ocs _$NextcloudNotificationsListNotifications_OcsFromJson(
+    Map<String, dynamic> json) {
   $checkKeys(
     json,
     allowedKeys: const ['meta', 'data'],
   );
-  return NotificationsListNotifications_Ocs(
-    meta: OCSMeta.fromJson(json['meta'] as Map<String, dynamic>),
+  return NextcloudNotificationsListNotifications_Ocs(
+    meta: NextcloudOCSMeta.fromJson(json['meta'] as Map<String, dynamic>),
     data: (json['data'] as List<dynamic>)
-        .map((e) => NotificationsNotification.fromJson(e as Map<String, dynamic>))
+        .map((e) => NextcloudNotificationsNotification.fromJson(e as Map<String, dynamic>))
         .toList(),
   );
 }
 
-Map<String, dynamic> _$NotificationsListNotifications_OcsToJson(NotificationsListNotifications_Ocs instance) =>
+Map<String, dynamic> _$NextcloudNotificationsListNotifications_OcsToJson(
+        NextcloudNotificationsListNotifications_Ocs instance) =>
     <String, dynamic>{
       'meta': instance.meta.toJson(),
       'data': instance.data.map((e) => e.toJson()).toList(),
     };
 
-NotificationsListNotifications _$NotificationsListNotificationsFromJson(Map<String, dynamic> json) {
+NextcloudNotificationsListNotifications _$NextcloudNotificationsListNotificationsFromJson(Map<String, dynamic> json) {
   $checkKeys(
     json,
     allowedKeys: const ['ocs'],
   );
-  return NotificationsListNotifications(
-    ocs: NotificationsListNotifications_Ocs.fromJson(json['ocs'] as Map<String, dynamic>),
+  return NextcloudNotificationsListNotifications(
+    ocs: NextcloudNotificationsListNotifications_Ocs.fromJson(json['ocs'] as Map<String, dynamic>),
   );
 }
 
-Map<String, dynamic> _$NotificationsListNotificationsToJson(NotificationsListNotifications instance) =>
+Map<String, dynamic> _$NextcloudNotificationsListNotificationsToJson(
+        NextcloudNotificationsListNotifications instance) =>
     <String, dynamic>{
       'ocs': instance.ocs.toJson(),
     };
 
-NotificationsGetNotification_Ocs _$NotificationsGetNotification_OcsFromJson(Map<String, dynamic> json) {
+NextcloudNotificationsGetNotification_Ocs _$NextcloudNotificationsGetNotification_OcsFromJson(
+    Map<String, dynamic> json) {
   $checkKeys(
     json,
     allowedKeys: const ['meta', 'data'],
   );
-  return NotificationsGetNotification_Ocs(
-    meta: OCSMeta.fromJson(json['meta'] as Map<String, dynamic>),
-    data: NotificationsNotification.fromJson(json['data'] as Map<String, dynamic>),
+  return NextcloudNotificationsGetNotification_Ocs(
+    meta: NextcloudOCSMeta.fromJson(json['meta'] as Map<String, dynamic>),
+    data: NextcloudNotificationsNotification.fromJson(json['data'] as Map<String, dynamic>),
   );
 }
 
-Map<String, dynamic> _$NotificationsGetNotification_OcsToJson(NotificationsGetNotification_Ocs instance) =>
+Map<String, dynamic> _$NextcloudNotificationsGetNotification_OcsToJson(
+        NextcloudNotificationsGetNotification_Ocs instance) =>
     <String, dynamic>{
       'meta': instance.meta.toJson(),
       'data': instance.data.toJson(),
     };
 
-NotificationsGetNotification _$NotificationsGetNotificationFromJson(Map<String, dynamic> json) {
+NextcloudNotificationsGetNotification _$NextcloudNotificationsGetNotificationFromJson(Map<String, dynamic> json) {
   $checkKeys(
     json,
     allowedKeys: const ['ocs'],
   );
-  return NotificationsGetNotification(
-    ocs: NotificationsGetNotification_Ocs.fromJson(json['ocs'] as Map<String, dynamic>),
+  return NextcloudNotificationsGetNotification(
+    ocs: NextcloudNotificationsGetNotification_Ocs.fromJson(json['ocs'] as Map<String, dynamic>),
   );
 }
 
-Map<String, dynamic> _$NotificationsGetNotificationToJson(NotificationsGetNotification instance) => <String, dynamic>{
+Map<String, dynamic> _$NextcloudNotificationsGetNotificationToJson(NextcloudNotificationsGetNotification instance) =>
+    <String, dynamic>{
       'ocs': instance.ocs.toJson(),
     };
 
-EmptyOCS_Ocs _$EmptyOCS_OcsFromJson(Map<String, dynamic> json) {
+NextcloudEmptyOCS_Ocs _$NextcloudEmptyOCS_OcsFromJson(Map<String, dynamic> json) {
   $checkKeys(
     json,
     allowedKeys: const ['meta', 'data'],
   );
-  return EmptyOCS_Ocs(
-    meta: OCSMeta.fromJson(json['meta'] as Map<String, dynamic>),
+  return NextcloudEmptyOCS_Ocs(
+    meta: NextcloudOCSMeta.fromJson(json['meta'] as Map<String, dynamic>),
     data: json['data'] as List<dynamic>,
   );
 }
 
-Map<String, dynamic> _$EmptyOCS_OcsToJson(EmptyOCS_Ocs instance) => <String, dynamic>{
+Map<String, dynamic> _$NextcloudEmptyOCS_OcsToJson(NextcloudEmptyOCS_Ocs instance) => <String, dynamic>{
       'meta': instance.meta.toJson(),
       'data': instance.data,
     };
 
-EmptyOCS _$EmptyOCSFromJson(Map<String, dynamic> json) {
+NextcloudEmptyOCS _$NextcloudEmptyOCSFromJson(Map<String, dynamic> json) {
   $checkKeys(
     json,
     allowedKeys: const ['ocs'],
   );
-  return EmptyOCS(
-    ocs: EmptyOCS_Ocs.fromJson(json['ocs'] as Map<String, dynamic>),
+  return NextcloudEmptyOCS(
+    ocs: NextcloudEmptyOCS_Ocs.fromJson(json['ocs'] as Map<String, dynamic>),
   );
 }
 
-Map<String, dynamic> _$EmptyOCSToJson(EmptyOCS instance) => <String, dynamic>{
+Map<String, dynamic> _$NextcloudEmptyOCSToJson(NextcloudEmptyOCS instance) => <String, dynamic>{
       'ocs': instance.ocs.toJson(),
     };
 
-NotificationsPushServerSubscription _$NotificationsPushServerSubscriptionFromJson(Map<String, dynamic> json) {
+NextcloudNotificationsPushServerSubscription _$NextcloudNotificationsPushServerSubscriptionFromJson(
+    Map<String, dynamic> json) {
   $checkKeys(
     json,
     allowedKeys: const ['publicKey', 'deviceIdentifier', 'signature', 'message'],
   );
-  return NotificationsPushServerSubscription(
+  return NextcloudNotificationsPushServerSubscription(
     publicKey: json['publicKey'] as String,
     deviceIdentifier: json['deviceIdentifier'] as String,
     signature: json['signature'] as String,
@@ -1658,7 +1700,8 @@ NotificationsPushServerSubscription _$NotificationsPushServerSubscriptionFromJso
   );
 }
 
-Map<String, dynamic> _$NotificationsPushServerSubscriptionToJson(NotificationsPushServerSubscription instance) =>
+Map<String, dynamic> _$NextcloudNotificationsPushServerSubscriptionToJson(
+        NextcloudNotificationsPushServerSubscription instance) =>
     <String, dynamic>{
       'publicKey': instance.publicKey,
       'deviceIdentifier': instance.deviceIdentifier,
@@ -1666,45 +1709,49 @@ Map<String, dynamic> _$NotificationsPushServerSubscriptionToJson(NotificationsPu
       'message': instance.message,
     };
 
-NotificationsPushServerRegistration_Ocs _$NotificationsPushServerRegistration_OcsFromJson(Map<String, dynamic> json) {
+NextcloudNotificationsPushServerRegistration_Ocs _$NextcloudNotificationsPushServerRegistration_OcsFromJson(
+    Map<String, dynamic> json) {
   $checkKeys(
     json,
     allowedKeys: const ['meta', 'data'],
   );
-  return NotificationsPushServerRegistration_Ocs(
-    meta: OCSMeta.fromJson(json['meta'] as Map<String, dynamic>),
-    data: NotificationsPushServerSubscription.fromJson(json['data'] as Map<String, dynamic>),
+  return NextcloudNotificationsPushServerRegistration_Ocs(
+    meta: NextcloudOCSMeta.fromJson(json['meta'] as Map<String, dynamic>),
+    data: NextcloudNotificationsPushServerSubscription.fromJson(json['data'] as Map<String, dynamic>),
   );
 }
 
-Map<String, dynamic> _$NotificationsPushServerRegistration_OcsToJson(
-        NotificationsPushServerRegistration_Ocs instance) =>
+Map<String, dynamic> _$NextcloudNotificationsPushServerRegistration_OcsToJson(
+        NextcloudNotificationsPushServerRegistration_Ocs instance) =>
     <String, dynamic>{
       'meta': instance.meta.toJson(),
       'data': instance.data.toJson(),
     };
 
-NotificationsPushServerRegistration _$NotificationsPushServerRegistrationFromJson(Map<String, dynamic> json) {
+NextcloudNotificationsPushServerRegistration _$NextcloudNotificationsPushServerRegistrationFromJson(
+    Map<String, dynamic> json) {
   $checkKeys(
     json,
     allowedKeys: const ['ocs'],
   );
-  return NotificationsPushServerRegistration(
-    ocs: NotificationsPushServerRegistration_Ocs.fromJson(json['ocs'] as Map<String, dynamic>),
+  return NextcloudNotificationsPushServerRegistration(
+    ocs: NextcloudNotificationsPushServerRegistration_Ocs.fromJson(json['ocs'] as Map<String, dynamic>),
   );
 }
 
-Map<String, dynamic> _$NotificationsPushServerRegistrationToJson(NotificationsPushServerRegistration instance) =>
+Map<String, dynamic> _$NextcloudNotificationsPushServerRegistrationToJson(
+        NextcloudNotificationsPushServerRegistration instance) =>
     <String, dynamic>{
       'ocs': instance.ocs.toJson(),
     };
 
-ProvisioningApiUserDetails_Quota _$ProvisioningApiUserDetails_QuotaFromJson(Map<String, dynamic> json) {
+NextcloudProvisioningApiUserDetails_Quota _$NextcloudProvisioningApiUserDetails_QuotaFromJson(
+    Map<String, dynamic> json) {
   $checkKeys(
     json,
     allowedKeys: const ['free', 'used', 'total', 'relative', 'quota'],
   );
-  return ProvisioningApiUserDetails_Quota(
+  return NextcloudProvisioningApiUserDetails_Quota(
     free: json['free'] as int,
     used: json['used'] as int,
     total: json['total'] as int,
@@ -1713,7 +1760,8 @@ ProvisioningApiUserDetails_Quota _$ProvisioningApiUserDetails_QuotaFromJson(Map<
   );
 }
 
-Map<String, dynamic> _$ProvisioningApiUserDetails_QuotaToJson(ProvisioningApiUserDetails_Quota instance) =>
+Map<String, dynamic> _$NextcloudProvisioningApiUserDetails_QuotaToJson(
+        NextcloudProvisioningApiUserDetails_Quota instance) =>
     <String, dynamic>{
       'free': instance.free,
       'used': instance.used,
@@ -1722,26 +1770,26 @@ Map<String, dynamic> _$ProvisioningApiUserDetails_QuotaToJson(ProvisioningApiUse
       'quota': instance.quota,
     };
 
-ProvisioningApiUserDetails_BackendCapabilities _$ProvisioningApiUserDetails_BackendCapabilitiesFromJson(
-    Map<String, dynamic> json) {
+NextcloudProvisioningApiUserDetails_BackendCapabilities
+    _$NextcloudProvisioningApiUserDetails_BackendCapabilitiesFromJson(Map<String, dynamic> json) {
   $checkKeys(
     json,
     allowedKeys: const ['setDisplayName', 'setPassword'],
   );
-  return ProvisioningApiUserDetails_BackendCapabilities(
+  return NextcloudProvisioningApiUserDetails_BackendCapabilities(
     setDisplayName: json['setDisplayName'] as bool,
     setPassword: json['setPassword'] as bool,
   );
 }
 
-Map<String, dynamic> _$ProvisioningApiUserDetails_BackendCapabilitiesToJson(
-        ProvisioningApiUserDetails_BackendCapabilities instance) =>
+Map<String, dynamic> _$NextcloudProvisioningApiUserDetails_BackendCapabilitiesToJson(
+        NextcloudProvisioningApiUserDetails_BackendCapabilities instance) =>
     <String, dynamic>{
       'setDisplayName': instance.setDisplayName,
       'setPassword': instance.setPassword,
     };
 
-ProvisioningApiUserDetails _$ProvisioningApiUserDetailsFromJson(Map<String, dynamic> json) {
+NextcloudProvisioningApiUserDetails _$NextcloudProvisioningApiUserDetailsFromJson(Map<String, dynamic> json) {
   $checkKeys(
     json,
     allowedKeys: const [
@@ -1785,14 +1833,14 @@ ProvisioningApiUserDetails _$ProvisioningApiUserDetailsFromJson(Map<String, dyna
       'display-name'
     ],
   );
-  return ProvisioningApiUserDetails(
+  return NextcloudProvisioningApiUserDetails(
     enabled: json['enabled'] as bool?,
     storageLocation: json['storageLocation'] as String,
     id: json['id'] as String,
     lastLogin: json['lastLogin'] as int,
     backend: json['backend'] as String,
     subadmin: (json['subadmin'] as List<dynamic>).map((e) => e as String).toList(),
-    quota: ProvisioningApiUserDetails_Quota.fromJson(json['quota'] as Map<String, dynamic>),
+    quota: NextcloudProvisioningApiUserDetails_Quota.fromJson(json['quota'] as Map<String, dynamic>),
     avatarScope: json['avatarScope'] as String,
     email: json['email'] as String?,
     emailScope: json['emailScope'] as String,
@@ -1822,13 +1870,14 @@ ProvisioningApiUserDetails _$ProvisioningApiUserDetailsFromJson(Map<String, dyna
     language: json['language'] as String,
     locale: json['locale'] as String,
     notifyEmail: json['notify_email'] as String?,
-    backendCapabilities:
-        ProvisioningApiUserDetails_BackendCapabilities.fromJson(json['backendCapabilities'] as Map<String, dynamic>),
+    backendCapabilities: NextcloudProvisioningApiUserDetails_BackendCapabilities.fromJson(
+        json['backendCapabilities'] as Map<String, dynamic>),
     displayName: json['display-name'] as String?,
   );
 }
 
-Map<String, dynamic> _$ProvisioningApiUserDetailsToJson(ProvisioningApiUserDetails instance) => <String, dynamic>{
+Map<String, dynamic> _$NextcloudProvisioningApiUserDetailsToJson(NextcloudProvisioningApiUserDetails instance) =>
+    <String, dynamic>{
       'enabled': instance.enabled,
       'storageLocation': instance.storageLocation,
       'id': instance.id,
@@ -1869,150 +1918,155 @@ Map<String, dynamic> _$ProvisioningApiUserDetailsToJson(ProvisioningApiUserDetai
       'display-name': instance.displayName,
     };
 
-ProvisioningApiUser_Ocs _$ProvisioningApiUser_OcsFromJson(Map<String, dynamic> json) {
+NextcloudProvisioningApiUser_Ocs _$NextcloudProvisioningApiUser_OcsFromJson(Map<String, dynamic> json) {
   $checkKeys(
     json,
     allowedKeys: const ['meta', 'data'],
   );
-  return ProvisioningApiUser_Ocs(
-    meta: OCSMeta.fromJson(json['meta'] as Map<String, dynamic>),
-    data: ProvisioningApiUserDetails.fromJson(json['data'] as Map<String, dynamic>),
+  return NextcloudProvisioningApiUser_Ocs(
+    meta: NextcloudOCSMeta.fromJson(json['meta'] as Map<String, dynamic>),
+    data: NextcloudProvisioningApiUserDetails.fromJson(json['data'] as Map<String, dynamic>),
   );
 }
 
-Map<String, dynamic> _$ProvisioningApiUser_OcsToJson(ProvisioningApiUser_Ocs instance) => <String, dynamic>{
+Map<String, dynamic> _$NextcloudProvisioningApiUser_OcsToJson(NextcloudProvisioningApiUser_Ocs instance) =>
+    <String, dynamic>{
       'meta': instance.meta.toJson(),
       'data': instance.data.toJson(),
     };
 
-ProvisioningApiUser _$ProvisioningApiUserFromJson(Map<String, dynamic> json) {
+NextcloudProvisioningApiUser _$NextcloudProvisioningApiUserFromJson(Map<String, dynamic> json) {
   $checkKeys(
     json,
     allowedKeys: const ['ocs'],
   );
-  return ProvisioningApiUser(
-    ocs: ProvisioningApiUser_Ocs.fromJson(json['ocs'] as Map<String, dynamic>),
+  return NextcloudProvisioningApiUser(
+    ocs: NextcloudProvisioningApiUser_Ocs.fromJson(json['ocs'] as Map<String, dynamic>),
   );
 }
 
-Map<String, dynamic> _$ProvisioningApiUserToJson(ProvisioningApiUser instance) => <String, dynamic>{
+Map<String, dynamic> _$NextcloudProvisioningApiUserToJson(NextcloudProvisioningApiUser instance) => <String, dynamic>{
       'ocs': instance.ocs.toJson(),
     };
 
-UserStatusClearAt _$UserStatusClearAtFromJson(Map<String, dynamic> json) {
+NextcloudUserStatusClearAt _$NextcloudUserStatusClearAtFromJson(Map<String, dynamic> json) {
   $checkKeys(
     json,
     allowedKeys: const ['type', 'time'],
   );
-  return UserStatusClearAt(
-    type: $enumDecode(_$UserStatusClearAt_TypeEnumMap, json['type']),
-    time: UserStatusClearAt_Time.fromJson(json['time']),
+  return NextcloudUserStatusClearAt(
+    type: $enumDecode(_$NextcloudUserStatusClearAt_TypeEnumMap, json['type']),
+    time: NextcloudUserStatusClearAt_Time.fromJson(json['time']),
   );
 }
 
-Map<String, dynamic> _$UserStatusClearAtToJson(UserStatusClearAt instance) => <String, dynamic>{
-      'type': _$UserStatusClearAt_TypeEnumMap[instance.type]!,
+Map<String, dynamic> _$NextcloudUserStatusClearAtToJson(NextcloudUserStatusClearAt instance) => <String, dynamic>{
+      'type': _$NextcloudUserStatusClearAt_TypeEnumMap[instance.type]!,
       'time': instance.time.toJson(),
     };
 
-const _$UserStatusClearAt_TypeEnumMap = {
-  UserStatusClearAt_Type.period: 'period',
-  UserStatusClearAt_Type.endOf: 'end-of',
+const _$NextcloudUserStatusClearAt_TypeEnumMap = {
+  NextcloudUserStatusClearAt_Type.period: 'period',
+  NextcloudUserStatusClearAt_Type.endOf: 'end-of',
 };
 
-UserStatusPublicUserStatus _$UserStatusPublicUserStatusFromJson(Map<String, dynamic> json) {
+NextcloudUserStatusPublicUserStatus _$NextcloudUserStatusPublicUserStatusFromJson(Map<String, dynamic> json) {
   $checkKeys(
     json,
     allowedKeys: const ['userId', 'message', 'icon', 'clearAt', 'status'],
   );
-  return UserStatusPublicUserStatus(
+  return NextcloudUserStatusPublicUserStatus(
     userId: json['userId'] as String,
     message: json['message'] as String?,
     icon: json['icon'] as String?,
-    clearAt: UserStatusPublicUserStatus_ClearAt.fromJson(json['clearAt']),
-    status: $enumDecode(_$UserStatusTypeEnumMap, json['status']),
+    clearAt: NextcloudUserStatusPublicUserStatus_ClearAt.fromJson(json['clearAt']),
+    status: $enumDecode(_$NextcloudUserStatusTypeEnumMap, json['status']),
   );
 }
 
-Map<String, dynamic> _$UserStatusPublicUserStatusToJson(UserStatusPublicUserStatus instance) => <String, dynamic>{
+Map<String, dynamic> _$NextcloudUserStatusPublicUserStatusToJson(NextcloudUserStatusPublicUserStatus instance) =>
+    <String, dynamic>{
       'userId': instance.userId,
       'message': instance.message,
       'icon': instance.icon,
       'clearAt': instance.clearAt.toJson(),
-      'status': _$UserStatusTypeEnumMap[instance.status]!,
+      'status': _$NextcloudUserStatusTypeEnumMap[instance.status]!,
     };
 
-const _$UserStatusTypeEnumMap = {
-  UserStatusType.online: 'online',
-  UserStatusType.offline: 'offline',
-  UserStatusType.dnd: 'dnd',
-  UserStatusType.away: 'away',
-  UserStatusType.invisible: 'invisible',
+const _$NextcloudUserStatusTypeEnumMap = {
+  NextcloudUserStatusType.online: 'online',
+  NextcloudUserStatusType.offline: 'offline',
+  NextcloudUserStatusType.dnd: 'dnd',
+  NextcloudUserStatusType.away: 'away',
+  NextcloudUserStatusType.invisible: 'invisible',
 };
 
-UserStatusFindAllStatuses_Ocs _$UserStatusFindAllStatuses_OcsFromJson(Map<String, dynamic> json) {
+NextcloudUserStatusFindAllStatuses_Ocs _$NextcloudUserStatusFindAllStatuses_OcsFromJson(Map<String, dynamic> json) {
   $checkKeys(
     json,
     allowedKeys: const ['meta', 'data'],
   );
-  return UserStatusFindAllStatuses_Ocs(
-    meta: OCSMeta.fromJson(json['meta'] as Map<String, dynamic>),
+  return NextcloudUserStatusFindAllStatuses_Ocs(
+    meta: NextcloudOCSMeta.fromJson(json['meta'] as Map<String, dynamic>),
     data: (json['data'] as List<dynamic>)
-        .map((e) => UserStatusPublicUserStatus.fromJson(e as Map<String, dynamic>))
+        .map((e) => NextcloudUserStatusPublicUserStatus.fromJson(e as Map<String, dynamic>))
         .toList(),
   );
 }
 
-Map<String, dynamic> _$UserStatusFindAllStatuses_OcsToJson(UserStatusFindAllStatuses_Ocs instance) => <String, dynamic>{
+Map<String, dynamic> _$NextcloudUserStatusFindAllStatuses_OcsToJson(NextcloudUserStatusFindAllStatuses_Ocs instance) =>
+    <String, dynamic>{
       'meta': instance.meta.toJson(),
       'data': instance.data.map((e) => e.toJson()).toList(),
     };
 
-UserStatusFindAllStatuses _$UserStatusFindAllStatusesFromJson(Map<String, dynamic> json) {
+NextcloudUserStatusFindAllStatuses _$NextcloudUserStatusFindAllStatusesFromJson(Map<String, dynamic> json) {
   $checkKeys(
     json,
     allowedKeys: const ['ocs'],
   );
-  return UserStatusFindAllStatuses(
-    ocs: UserStatusFindAllStatuses_Ocs.fromJson(json['ocs'] as Map<String, dynamic>),
+  return NextcloudUserStatusFindAllStatuses(
+    ocs: NextcloudUserStatusFindAllStatuses_Ocs.fromJson(json['ocs'] as Map<String, dynamic>),
   );
 }
 
-Map<String, dynamic> _$UserStatusFindAllStatusesToJson(UserStatusFindAllStatuses instance) => <String, dynamic>{
+Map<String, dynamic> _$NextcloudUserStatusFindAllStatusesToJson(NextcloudUserStatusFindAllStatuses instance) =>
+    <String, dynamic>{
       'ocs': instance.ocs.toJson(),
     };
 
-UserStatusFindStatus_Ocs _$UserStatusFindStatus_OcsFromJson(Map<String, dynamic> json) {
+NextcloudUserStatusFindStatus_Ocs _$NextcloudUserStatusFindStatus_OcsFromJson(Map<String, dynamic> json) {
   $checkKeys(
     json,
     allowedKeys: const ['meta', 'data'],
   );
-  return UserStatusFindStatus_Ocs(
-    meta: OCSMeta.fromJson(json['meta'] as Map<String, dynamic>),
-    data: UserStatusFindStatus_Ocs_Data.fromJson(json['data']),
+  return NextcloudUserStatusFindStatus_Ocs(
+    meta: NextcloudOCSMeta.fromJson(json['meta'] as Map<String, dynamic>),
+    data: NextcloudUserStatusFindStatus_Ocs_Data.fromJson(json['data']),
   );
 }
 
-Map<String, dynamic> _$UserStatusFindStatus_OcsToJson(UserStatusFindStatus_Ocs instance) => <String, dynamic>{
+Map<String, dynamic> _$NextcloudUserStatusFindStatus_OcsToJson(NextcloudUserStatusFindStatus_Ocs instance) =>
+    <String, dynamic>{
       'meta': instance.meta.toJson(),
       'data': instance.data.toJson(),
     };
 
-UserStatusFindStatus _$UserStatusFindStatusFromJson(Map<String, dynamic> json) {
+NextcloudUserStatusFindStatus _$NextcloudUserStatusFindStatusFromJson(Map<String, dynamic> json) {
   $checkKeys(
     json,
     allowedKeys: const ['ocs'],
   );
-  return UserStatusFindStatus(
-    ocs: UserStatusFindStatus_Ocs.fromJson(json['ocs'] as Map<String, dynamic>),
+  return NextcloudUserStatusFindStatus(
+    ocs: NextcloudUserStatusFindStatus_Ocs.fromJson(json['ocs'] as Map<String, dynamic>),
   );
 }
 
-Map<String, dynamic> _$UserStatusFindStatusToJson(UserStatusFindStatus instance) => <String, dynamic>{
+Map<String, dynamic> _$NextcloudUserStatusFindStatusToJson(NextcloudUserStatusFindStatus instance) => <String, dynamic>{
       'ocs': instance.ocs.toJson(),
     };
 
-UserStatus _$UserStatusFromJson(Map<String, dynamic> json) {
+NextcloudUserStatus _$NextcloudUserStatusFromJson(Map<String, dynamic> json) {
   $checkKeys(
     json,
     allowedKeys: const [
@@ -2026,119 +2080,125 @@ UserStatus _$UserStatusFromJson(Map<String, dynamic> json) {
       'statusIsUserDefined'
     ],
   );
-  return UserStatus(
+  return NextcloudUserStatus(
     userId: json['userId'] as String,
     message: json['message'] as String?,
     messageId: json['messageId'] as String?,
     messageIsPredefined: json['messageIsPredefined'] as bool,
     icon: json['icon'] as String?,
-    clearAt: UserStatus_ClearAt.fromJson(json['clearAt']),
-    status: $enumDecode(_$UserStatusTypeEnumMap, json['status']),
+    clearAt: NextcloudUserStatus_ClearAt.fromJson(json['clearAt']),
+    status: $enumDecode(_$NextcloudUserStatusTypeEnumMap, json['status']),
     statusIsUserDefined: json['statusIsUserDefined'] as bool,
   );
 }
 
-Map<String, dynamic> _$UserStatusToJson(UserStatus instance) => <String, dynamic>{
+Map<String, dynamic> _$NextcloudUserStatusToJson(NextcloudUserStatus instance) => <String, dynamic>{
       'userId': instance.userId,
       'message': instance.message,
       'messageId': instance.messageId,
       'messageIsPredefined': instance.messageIsPredefined,
       'icon': instance.icon,
       'clearAt': instance.clearAt.toJson(),
-      'status': _$UserStatusTypeEnumMap[instance.status]!,
+      'status': _$NextcloudUserStatusTypeEnumMap[instance.status]!,
       'statusIsUserDefined': instance.statusIsUserDefined,
     };
 
-UserStatusGetUserStatus_Ocs _$UserStatusGetUserStatus_OcsFromJson(Map<String, dynamic> json) {
+NextcloudUserStatusGetUserStatus_Ocs _$NextcloudUserStatusGetUserStatus_OcsFromJson(Map<String, dynamic> json) {
   $checkKeys(
     json,
     allowedKeys: const ['meta', 'data'],
   );
-  return UserStatusGetUserStatus_Ocs(
-    meta: OCSMeta.fromJson(json['meta'] as Map<String, dynamic>),
-    data: UserStatusGetUserStatus_Ocs_Data.fromJson(json['data']),
+  return NextcloudUserStatusGetUserStatus_Ocs(
+    meta: NextcloudOCSMeta.fromJson(json['meta'] as Map<String, dynamic>),
+    data: NextcloudUserStatusGetUserStatus_Ocs_Data.fromJson(json['data']),
   );
 }
 
-Map<String, dynamic> _$UserStatusGetUserStatus_OcsToJson(UserStatusGetUserStatus_Ocs instance) => <String, dynamic>{
+Map<String, dynamic> _$NextcloudUserStatusGetUserStatus_OcsToJson(NextcloudUserStatusGetUserStatus_Ocs instance) =>
+    <String, dynamic>{
       'meta': instance.meta.toJson(),
       'data': instance.data.toJson(),
     };
 
-UserStatusGetUserStatus _$UserStatusGetUserStatusFromJson(Map<String, dynamic> json) {
+NextcloudUserStatusGetUserStatus _$NextcloudUserStatusGetUserStatusFromJson(Map<String, dynamic> json) {
   $checkKeys(
     json,
     allowedKeys: const ['ocs'],
   );
-  return UserStatusGetUserStatus(
-    ocs: UserStatusGetUserStatus_Ocs.fromJson(json['ocs'] as Map<String, dynamic>),
+  return NextcloudUserStatusGetUserStatus(
+    ocs: NextcloudUserStatusGetUserStatus_Ocs.fromJson(json['ocs'] as Map<String, dynamic>),
   );
 }
 
-Map<String, dynamic> _$UserStatusGetUserStatusToJson(UserStatusGetUserStatus instance) => <String, dynamic>{
+Map<String, dynamic> _$NextcloudUserStatusGetUserStatusToJson(NextcloudUserStatusGetUserStatus instance) =>
+    <String, dynamic>{
       'ocs': instance.ocs.toJson(),
     };
 
-UserStatusPredefinedStatus _$UserStatusPredefinedStatusFromJson(Map<String, dynamic> json) {
+NextcloudUserStatusPredefinedStatus _$NextcloudUserStatusPredefinedStatusFromJson(Map<String, dynamic> json) {
   $checkKeys(
     json,
     allowedKeys: const ['id', 'icon', 'message', 'clearAt'],
   );
-  return UserStatusPredefinedStatus(
+  return NextcloudUserStatusPredefinedStatus(
     id: json['id'] as String,
     icon: json['icon'] as String,
     message: json['message'] as String,
-    clearAt: UserStatusPredefinedStatus_ClearAt.fromJson(json['clearAt']),
+    clearAt: NextcloudUserStatusPredefinedStatus_ClearAt.fromJson(json['clearAt']),
   );
 }
 
-Map<String, dynamic> _$UserStatusPredefinedStatusToJson(UserStatusPredefinedStatus instance) => <String, dynamic>{
+Map<String, dynamic> _$NextcloudUserStatusPredefinedStatusToJson(NextcloudUserStatusPredefinedStatus instance) =>
+    <String, dynamic>{
       'id': instance.id,
       'icon': instance.icon,
       'message': instance.message,
       'clearAt': instance.clearAt.toJson(),
     };
 
-UserStatusPredefinedStatuses_Ocs _$UserStatusPredefinedStatuses_OcsFromJson(Map<String, dynamic> json) {
+NextcloudUserStatusPredefinedStatuses_Ocs _$NextcloudUserStatusPredefinedStatuses_OcsFromJson(
+    Map<String, dynamic> json) {
   $checkKeys(
     json,
     allowedKeys: const ['meta', 'data'],
   );
-  return UserStatusPredefinedStatuses_Ocs(
-    meta: OCSMeta.fromJson(json['meta'] as Map<String, dynamic>),
+  return NextcloudUserStatusPredefinedStatuses_Ocs(
+    meta: NextcloudOCSMeta.fromJson(json['meta'] as Map<String, dynamic>),
     data: (json['data'] as List<dynamic>)
-        .map((e) => UserStatusPredefinedStatus.fromJson(e as Map<String, dynamic>))
+        .map((e) => NextcloudUserStatusPredefinedStatus.fromJson(e as Map<String, dynamic>))
         .toList(),
   );
 }
 
-Map<String, dynamic> _$UserStatusPredefinedStatuses_OcsToJson(UserStatusPredefinedStatuses_Ocs instance) =>
+Map<String, dynamic> _$NextcloudUserStatusPredefinedStatuses_OcsToJson(
+        NextcloudUserStatusPredefinedStatuses_Ocs instance) =>
     <String, dynamic>{
       'meta': instance.meta.toJson(),
       'data': instance.data.map((e) => e.toJson()).toList(),
     };
 
-UserStatusPredefinedStatuses _$UserStatusPredefinedStatusesFromJson(Map<String, dynamic> json) {
+NextcloudUserStatusPredefinedStatuses _$NextcloudUserStatusPredefinedStatusesFromJson(Map<String, dynamic> json) {
   $checkKeys(
     json,
     allowedKeys: const ['ocs'],
   );
-  return UserStatusPredefinedStatuses(
-    ocs: UserStatusPredefinedStatuses_Ocs.fromJson(json['ocs'] as Map<String, dynamic>),
+  return NextcloudUserStatusPredefinedStatuses(
+    ocs: NextcloudUserStatusPredefinedStatuses_Ocs.fromJson(json['ocs'] as Map<String, dynamic>),
   );
 }
 
-Map<String, dynamic> _$UserStatusPredefinedStatusesToJson(UserStatusPredefinedStatuses instance) => <String, dynamic>{
+Map<String, dynamic> _$NextcloudUserStatusPredefinedStatusesToJson(NextcloudUserStatusPredefinedStatuses instance) =>
+    <String, dynamic>{
       'ocs': instance.ocs.toJson(),
     };
 
-NotificationsPushNotificationDecryptedSubject _$NotificationsPushNotificationDecryptedSubjectFromJson(
+NextcloudNotificationsPushNotificationDecryptedSubject _$NextcloudNotificationsPushNotificationDecryptedSubjectFromJson(
     Map<String, dynamic> json) {
   $checkKeys(
     json,
     allowedKeys: const ['nid', 'app', 'subject', 'type', 'id', 'delete', 'delete-all'],
   );
-  return NotificationsPushNotificationDecryptedSubject(
+  return NextcloudNotificationsPushNotificationDecryptedSubject(
     nid: json['nid'] as int?,
     app: json['app'] as String?,
     subject: json['subject'] as String?,
@@ -2149,8 +2209,8 @@ NotificationsPushNotificationDecryptedSubject _$NotificationsPushNotificationDec
   );
 }
 
-Map<String, dynamic> _$NotificationsPushNotificationDecryptedSubjectToJson(
-        NotificationsPushNotificationDecryptedSubject instance) =>
+Map<String, dynamic> _$NextcloudNotificationsPushNotificationDecryptedSubjectToJson(
+        NextcloudNotificationsPushNotificationDecryptedSubject instance) =>
     <String, dynamic>{
       'nid': instance.nid,
       'app': instance.app,
@@ -2161,20 +2221,21 @@ Map<String, dynamic> _$NotificationsPushNotificationDecryptedSubjectToJson(
       'delete-all': instance.deleteAll,
     };
 
-NotificationsPushNotification _$NotificationsPushNotificationFromJson(Map<String, dynamic> json) {
+NextcloudNotificationsPushNotification _$NextcloudNotificationsPushNotificationFromJson(Map<String, dynamic> json) {
   $checkKeys(
     json,
     allowedKeys: const ['accountID', 'priority', 'type', 'subject'],
   );
-  return NotificationsPushNotification(
+  return NextcloudNotificationsPushNotification(
     accountID: json['accountID'] as String,
     priority: json['priority'] as String,
     type: json['type'] as String,
-    subject: NotificationsPushNotificationDecryptedSubject.fromJson(json['subject'] as Map<String, dynamic>),
+    subject: NextcloudNotificationsPushNotificationDecryptedSubject.fromJson(json['subject'] as Map<String, dynamic>),
   );
 }
 
-Map<String, dynamic> _$NotificationsPushNotificationToJson(NotificationsPushNotification instance) => <String, dynamic>{
+Map<String, dynamic> _$NextcloudNotificationsPushNotificationToJson(NextcloudNotificationsPushNotification instance) =>
+    <String, dynamic>{
       'accountID': instance.accountID,
       'priority': instance.priority,
       'type': instance.type,

@@ -107,7 +107,7 @@ Future run(final DockerImage image) async {
 
       expect(
         () => client.webdav.copy('1.txt', '2.txt'),
-        throwsA(predicate((final e) => (e! as ApiException).statusCode == 412)),
+        throwsA(predicate((final e) => (e! as NextcloudApiException).statusCode == 412)),
       );
     });
 
@@ -140,7 +140,7 @@ Future run(final DockerImage image) async {
 
       expect(
         () => client.webdav.move('1.txt', '2.txt'),
-        throwsA(predicate((final e) => (e! as ApiException).statusCode == 412)),
+        throwsA(predicate((final e) => (e! as NextcloudApiException).statusCode == 412)),
       );
     });
 

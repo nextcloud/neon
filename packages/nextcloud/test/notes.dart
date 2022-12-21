@@ -96,7 +96,7 @@ Future run(final DockerImage image) async {
           title: 'c',
           ifMatch: '"${response.etag}"',
         ),
-        throwsA(predicate((final e) => (e! as ApiException).statusCode == 412)),
+        throwsA(predicate((final e) => (e! as NextcloudApiException).statusCode == 412)),
       );
     });
 
@@ -116,25 +116,25 @@ Future run(final DockerImage image) async {
       final response = await client.notes.getSettings();
       expect(response.notesPath, 'Notes');
       expect(response.fileSuffix, '.txt');
-      expect(response.noteMode, NotesSettings_NoteMode.edit);
+      expect(response.noteMode, NextcloudNotesSettings_NoteMode.edit);
     });
 
     test('Update settings', () async {
       var response = await client.notes.updateSettings(
-        notesSettings: NotesSettings(
+        notesSettings: NextcloudNotesSettings(
           notesPath: 'Test Notes',
           fileSuffix: '.md',
-          noteMode: NotesSettings_NoteMode.preview,
+          noteMode: NextcloudNotesSettings_NoteMode.preview,
         ),
       );
       expect(response.notesPath, 'Test Notes');
       expect(response.fileSuffix, '.md');
-      expect(response.noteMode, NotesSettings_NoteMode.preview);
+      expect(response.noteMode, NextcloudNotesSettings_NoteMode.preview);
 
       response = await client.notes.getSettings();
       expect(response.notesPath, 'Test Notes');
       expect(response.fileSuffix, '.md');
-      expect(response.noteMode, NotesSettings_NoteMode.preview);
+      expect(response.noteMode, NextcloudNotesSettings_NoteMode.preview);
     });
   });
 }

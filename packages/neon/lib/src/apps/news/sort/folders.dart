@@ -17,11 +17,11 @@ class FolderFeedsWrapper {
     this.feeds,
   );
 
-  final NewsFolder folder;
-  final List<NewsFeed> feeds;
+  final NextcloudNewsFolder folder;
+  final List<NextcloudNewsFeed> feeds;
 }
 
-int feedsUnreadCountSum(final List<NewsFeed> feeds) => [
+int feedsUnreadCountSum(final List<NextcloudNewsFeed> feeds) => [
       0, // Fixes error when no feeds are in the folder
       ...feeds.map((final f) => f.unreadCount!),
     ].reduce(

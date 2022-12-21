@@ -20,7 +20,7 @@ class NewsArticleBloc extends InteractiveBloc implements NewsArticleBlocEvents, 
   NewsArticleBloc(
     this._client,
     this._newsArticlesBloc,
-    final NewsArticle article,
+    final NextcloudNewsArticle article,
   ) {
     _id = article.id;
     unread.add(article.unread);

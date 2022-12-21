@@ -9,7 +9,7 @@ class WebDavClient {
   );
 
   // ignore: public_member_api_docs
-  final Client rootClient;
+  final NextcloudClient rootClient;
 
   /// Base path used on the server
   final String basePath;
@@ -54,7 +54,7 @@ class WebDavClient {
     final response = await request.close();
 
     if (!expectedCodes.contains(response.statusCode)) {
-      throw ApiException(
+      throw NextcloudApiException(
         response.statusCode,
         {}, // TODO
         await response.bodyBytes,

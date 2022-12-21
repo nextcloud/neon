@@ -23,7 +23,8 @@ class _NotificationsMainPageState extends State<NotificationsMainPage> {
   }
 
   @override
-  Widget build(final BuildContext context) => ResultBuilder<NotificationsBloc, List<NotificationsNotification>>(
+  Widget build(final BuildContext context) =>
+      ResultBuilder<NotificationsBloc, List<NextcloudNotificationsNotification>>(
         stream: widget.bloc.notifications,
         builder: (final context, final notifications) => Scaffold(
           resizeToAvoidBottomInset: false,
@@ -33,7 +34,7 @@ class _NotificationsMainPageState extends State<NotificationsMainPage> {
             },
             child: const Icon(MdiIcons.checkAll),
           ),
-          body: CustomListView<NotificationsNotification>(
+          body: CustomListView<NextcloudNotificationsNotification>(
             scrollKey: 'notifications-notifications',
             withFloatingActionButton: true,
             items: notifications.data,
@@ -47,7 +48,7 @@ class _NotificationsMainPageState extends State<NotificationsMainPage> {
 
   Widget _buildNotification(
     final BuildContext context,
-    final NotificationsNotification notification,
+    final NextcloudNotificationsNotification notification,
   ) {
     final matchingAppImplementations = Provider.of<List<AppImplementation>>(context, listen: false)
         .where((final a) => a.id == notification.app)

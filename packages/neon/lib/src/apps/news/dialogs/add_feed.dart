@@ -18,7 +18,7 @@ class _NewsAddFeedDialogState extends State<NewsAddFeedDialog> {
   final formKey = GlobalKey<FormState>();
   final controller = TextEditingController();
 
-  NewsFolder? folder;
+  NextcloudNewsFolder? folder;
 
   void submit() {
     if (formKey.currentState!.validate()) {
@@ -43,7 +43,7 @@ class _NewsAddFeedDialogState extends State<NewsAddFeedDialog> {
   }
 
   @override
-  Widget build(final BuildContext context) => ResultBuilder<NewsBloc, List<NewsFolder>>(
+  Widget build(final BuildContext context) => ResultBuilder<NewsBloc, List<NextcloudNewsFolder>>(
         stream: widget.bloc.folders,
         builder: (final context, final folders) => CustomDialog(
           title: Text(AppLocalizations.of(context).newsAddFeed),

@@ -11,7 +11,7 @@ class NotesView extends StatelessWidget {
   final String? category;
 
   @override
-  Widget build(final BuildContext context) => ResultBuilder<NotesBloc, List<NotesNote>>(
+  Widget build(final BuildContext context) => ResultBuilder<NotesBloc, List<NextcloudNotesNote>>(
         stream: bloc.notes,
         builder: (final context, final notes) => Scaffold(
           resizeToAvoidBottomInset: false,
@@ -33,21 +33,21 @@ class NotesView extends StatelessWidget {
             },
             child: const Icon(Icons.add),
           ),
-          body: SortBoxBuilder<NotesSortProperty, NotesNote>(
+          body: SortBoxBuilder<NotesSortProperty, NextcloudNotesNote>(
             sortBox: notesSortBox,
             sortPropertyOption: bloc.options.notesSortPropertyOption,
             sortBoxOrderOption: bloc.options.notesSortBoxOrderOption,
             input: category != null
                 ? notes.data?.where((final note) => note.favorite && note.category == category).toList()
                 : notes.data?.where((final note) => note.favorite).toList(),
-            builder: (final context, final sortedFavorites) => SortBoxBuilder<NotesSortProperty, NotesNote>(
+            builder: (final context, final sortedFavorites) => SortBoxBuilder<NotesSortProperty, NextcloudNotesNote>(
               sortBox: notesSortBox,
               sortPropertyOption: bloc.options.notesSortPropertyOption,
               sortBoxOrderOption: bloc.options.notesSortBoxOrderOption,
               input: category != null
                   ? notes.data?.where((final note) => !note.favorite && note.category == category).toList()
                   : notes.data?.where((final note) => !note.favorite).toList(),
-              builder: (final context, final sortedNonFavorites) => CustomListView<NotesNote>(
+              builder: (final context, final sortedNonFavorites) => CustomListView<NextcloudNotesNote>(
                 scrollKey: 'notes-notes',
                 withFloatingActionButton: true,
                 items: [
@@ -70,7 +70,7 @@ class NotesView extends StatelessWidget {
 
   Widget _buildNote(
     final BuildContext context,
-    final NotesNote note,
+    final NextcloudNotesNote note,
   ) =>
       ListTile(
         title: Text(note.title),

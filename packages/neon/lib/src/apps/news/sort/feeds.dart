@@ -1,6 +1,6 @@
 part of '../app.dart';
 
-final feedsSortBox = SortBox<FeedsSortProperty, NewsFeed>(
+final feedsSortBox = SortBox<FeedsSortProperty, NextcloudNewsFeed>(
   {
     FeedsSortProperty.alphabetical: (final feed) => feed.title.toLowerCase(),
     FeedsSortProperty.unreadCount: (final feed) => feed.unreadCount ?? 0,

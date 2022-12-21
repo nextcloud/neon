@@ -6,7 +6,7 @@ class NewsFeedUpdateErrorDialog extends StatefulWidget {
     super.key,
   });
 
-  final NewsFeed feed;
+  final NextcloudNewsFeed feed;
 
   @override
   State<NewsFeedUpdateErrorDialog> createState() => _NewsFeedUpdateErrorDialogState();
