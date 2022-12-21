@@ -792,8 +792,10 @@ class OpenAPIBuilder implements Builder {
                                 }
 
                                 if (headersType != null && dataType != null) {
-                                  b.returns = refer('Future<Response<$dataType, $headersType>>');
-                                  code.write('return Response<$dataType, $headersType>($dataValue, $headersValue,);');
+                                  b.returns = refer('Future<${prefix}Response<$dataType, $headersType>>');
+                                  code.write(
+                                    'return ${prefix}Response<$dataType, $headersType>($dataValue, $headersValue,);',
+                                  );
                                 } else if (headersType != null) {
                                   b.returns = refer('Future<$headersType>');
                                   code.write('return $headersValue;');
