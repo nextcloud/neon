@@ -1198,17 +1198,17 @@ Map<String, dynamic> _$CoreAutocompleteResultToJson(CoreAutocompleteResult insta
       'ocs': instance.ocs.toJson(),
     };
 
-GetSupportedApiVersions _$GetSupportedApiVersionsFromJson(Map<String, dynamic> json) {
+NewsSupportedAPIVersions _$NewsSupportedAPIVersionsFromJson(Map<String, dynamic> json) {
   $checkKeys(
     json,
     allowedKeys: const ['apiLevels'],
   );
-  return GetSupportedApiVersions(
+  return NewsSupportedAPIVersions(
     apiLevels: (json['apiLevels'] as List<dynamic>?)?.map((e) => e as String).toList(),
   );
 }
 
-Map<String, dynamic> _$GetSupportedApiVersionsToJson(GetSupportedApiVersions instance) => <String, dynamic>{
+Map<String, dynamic> _$NewsSupportedAPIVersionsToJson(NewsSupportedAPIVersions instance) => <String, dynamic>{
       'apiLevels': instance.apiLevels,
     };
 

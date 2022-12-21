@@ -1193,6 +1193,17 @@
           }
         }
       },
+      "NewsSupportedAPIVersions": {
+        "type": "object",
+        "properties": {
+          "apiLevels": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
       "NotesNote": {
         "type": "object",
         "required": [
@@ -2349,15 +2360,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "apiLevels": {
-                      "type": "array",
-                      "items": {
-                        "type": "string"
-                      }
-                    }
-                  }
+                  "$ref": "#/components/schemas/NewsSupportedAPIVersions"
                 }
               }
             }

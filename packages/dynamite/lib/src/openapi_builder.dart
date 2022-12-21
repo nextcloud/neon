@@ -651,7 +651,7 @@ class OpenAPIBuilder implements Builder {
                                 final result = resolveType(
                                   spec,
                                   state,
-                                  _toDartName(methodName, uppercaseFirstCharacter: true),
+                                  _toDartName('$methodName-request-$mimeType', uppercaseFirstCharacter: true),
                                   mediaType.schema!,
                                 );
                                 switch (mimeType) {
@@ -764,7 +764,10 @@ class OpenAPIBuilder implements Builder {
                                     final result = resolveType(
                                       spec,
                                       state,
-                                      _toDartName(methodName, uppercaseFirstCharacter: true),
+                                      _toDartName(
+                                        '$methodName-response-$statusCode-$mimeType',
+                                        uppercaseFirstCharacter: true,
+                                      ),
                                       mediaType.schema!,
                                     );
                                     switch (mimeType) {

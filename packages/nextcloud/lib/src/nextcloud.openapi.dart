@@ -376,7 +376,7 @@ class NewsClient {
 
   final Client rootClient;
 
-  Future<GetSupportedApiVersions> getSupportedApiVersions() async {
+  Future<NewsSupportedAPIVersions> getSupportedApiVersions() async {
     var path = '/index.php/apps/news/api';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{};
@@ -388,7 +388,7 @@ class NewsClient {
       body,
     );
     if (response.statusCode == 200) {
-      return GetSupportedApiVersions.fromJson(
+      return NewsSupportedAPIVersions.fromJson(
           json.decode(utf8.decode(response.body) as String) as Map<String, dynamic>);
     }
     throw ApiException.fromResponse(response); // coverage:ignore-line
@@ -3520,25 +3520,25 @@ class CoreAutocompleteResult {
 }
 
 @JsonSerializable()
-class GetSupportedApiVersions {
-  GetSupportedApiVersions({this.apiLevels});
+class NewsSupportedAPIVersions {
+  NewsSupportedAPIVersions({this.apiLevels});
 
   // coverage:ignore-start
-  factory GetSupportedApiVersions.fromJson(Map<String, dynamic> json) => _$GetSupportedApiVersionsFromJson(json);
+  factory NewsSupportedAPIVersions.fromJson(Map<String, dynamic> json) => _$NewsSupportedAPIVersionsFromJson(json);
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory GetSupportedApiVersions.fromJsonString(String data) =>
-      GetSupportedApiVersions.fromJson(json.decode(data) as Map<String, dynamic>);
+  factory NewsSupportedAPIVersions.fromJsonString(String data) =>
+      NewsSupportedAPIVersions.fromJson(json.decode(data) as Map<String, dynamic>);
   // coverage:ignore-end
 
   final List<String>? apiLevels;
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$GetSupportedApiVersionsToJson(this);
+  Map<String, dynamic> toJson() => _$NewsSupportedAPIVersionsToJson(this);
   // coverage:ignore-end
   // coverage:ignore-start
-  static String toJsonString(GetSupportedApiVersions data) => json.encode(data.toJson());
+  static String toJsonString(NewsSupportedAPIVersions data) => json.encode(data.toJson());
   // coverage:ignore-end
 }
 
@@ -5635,9 +5635,9 @@ final _deserializers = <Type, dynamic Function(dynamic)>{
       CoreAutocompleteResult_Ocs_Data.fromJson(data as Map<String, dynamic>),
   List<CoreAutocompleteResult_Ocs_Data>: (final data) =>
       (data as List).map((final e) => CoreAutocompleteResult_Ocs_Data.fromJson(e as Map<String, dynamic>)).toList(),
-  GetSupportedApiVersions: (final data) => GetSupportedApiVersions.fromJson(data as Map<String, dynamic>),
-  List<GetSupportedApiVersions>: (final data) =>
-      (data as List).map((final e) => GetSupportedApiVersions.fromJson(e as Map<String, dynamic>)).toList(),
+  NewsSupportedAPIVersions: (final data) => NewsSupportedAPIVersions.fromJson(data as Map<String, dynamic>),
+  List<NewsSupportedAPIVersions>: (final data) =>
+      (data as List).map((final e) => NewsSupportedAPIVersions.fromJson(e as Map<String, dynamic>)).toList(),
   NewsListFolders: (final data) => NewsListFolders.fromJson(data as Map<String, dynamic>),
   List<NewsListFolders>: (final data) =>
       (data as List).map((final e) => NewsListFolders.fromJson(e as Map<String, dynamic>)).toList(),
@@ -5931,8 +5931,8 @@ final _serializers = <Type, dynamic Function(dynamic)>{
   List<CoreAutocompleteResult_Ocs>: (final data) => data.map((final e) => e.toJson()).toList(),
   CoreAutocompleteResult_Ocs_Data: (final data) => data.toJson(),
   List<CoreAutocompleteResult_Ocs_Data>: (final data) => data.map((final e) => e.toJson()).toList(),
-  GetSupportedApiVersions: (final data) => data.toJson(),
-  List<GetSupportedApiVersions>: (final data) => data.map((final e) => e.toJson()).toList(),
+  NewsSupportedAPIVersions: (final data) => data.toJson(),
+  List<NewsSupportedAPIVersions>: (final data) => data.map((final e) => e.toJson()).toList(),
   NewsListFolders: (final data) => data.toJson(),
   List<NewsListFolders>: (final data) => data.map((final e) => e.toJson()).toList(),
   NewsFolder: (final data) => data.toJson(),
