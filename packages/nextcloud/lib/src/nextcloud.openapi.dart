@@ -6041,7 +6041,7 @@ final _serializers = <Type, dynamic Function(dynamic)>{
       data.map((final e) => e.toJson()).toList(),
 };
 
-T deserialize<T>(final dynamic data) => _deserializers[T]!(data) as T;
+T deserializeNextcloud<T>(final dynamic data) => _deserializers[T]!(data) as T;
 
-dynamic serialize<T>(final T data) => _serializers[T]!(data);
+dynamic serializeNextcloud<T>(final T data) => _serializers[T]!(data);
 // coverage:ignore-end

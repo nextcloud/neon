@@ -865,9 +865,9 @@ class OpenAPIBuilder implements Builder {
           ],
           '};',
           '',
-          'T deserialize<T>(final dynamic data) => _deserializers[T]!(data) as T;',
+          'T deserialize$prefix<T>(final dynamic data) => _deserializers[T]!(data) as T;',
           '',
-          'dynamic serialize<T>(final T data) => _serializers[T]!(data);',
+          'dynamic serialize$prefix<T>(final T data) => _serializers[T]!(data);',
           '// coverage:ignore-end',
         ]);
       }
