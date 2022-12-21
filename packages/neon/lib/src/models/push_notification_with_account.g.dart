@@ -8,7 +8,7 @@ part of 'push_notification_with_account.dart';
 
 PushNotificationWithAccountID _$PushNotificationWithAccountIDFromJson(Map<String, dynamic> json) =>
     PushNotificationWithAccountID(
-      notification: NotificationsPushNotification.fromJson(json['notification'] as Map<String, dynamic>),
+      notification: NextcloudNotificationsPushNotification.fromJson(json['notification'] as Map<String, dynamic>),
       accountID: json['accountID'] as String,
     );
 

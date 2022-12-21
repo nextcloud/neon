@@ -2,17 +2,17 @@
 
 part of '../nextcloud.dart';
 
-extension UserDetailsDisplayName on ProvisioningApiUserDetails {
+extension UserDetailsDisplayName on openapi.NextcloudProvisioningApiUserDetails {
   /// This is used to work around an API change that wasn't made for every endpoint
   /// See https://github.com/nextcloud/server/commit/5086335643b6181284ee50f57b95525002842992
   String? getDisplayName() => displayname ?? displayName;
 }
 
-extension NextcloudNotificationsPushProxy on NotificationsClient {
+extension NextcloudNotificationsPushProxy on NextcloudNotificationsClient {
   /// Registers a device at the push proxy server
   Future registerDeviceAtPushProxy(
     final String pushToken,
-    final NotificationsPushServerSubscription subscription,
+    final NextcloudNotificationsPushServerSubscription subscription,
     final String proxyServer,
   ) async {
     final request = await HttpClient().postUrl(Uri.parse('${proxyServer}devices'))
@@ -38,7 +38,7 @@ extension NextcloudNotificationsPushProxy on NotificationsClient {
 
     if (response.statusCode != 200) {
       // coverage:ignore-start
-      throw ApiException(
+      throw NextcloudApiException(
         response.statusCode,
         {}, // TODO
         await response.bodyBytes,
@@ -52,11 +52,11 @@ extension NextcloudNotificationsPushProxy on NotificationsClient {
 }
 
 /// Decrypts the subject of a push notification
-NotificationsPushNotificationDecryptedSubject decryptPushNotificationSubject(
+NextcloudNotificationsPushNotificationDecryptedSubject decryptPushNotificationSubject(
   final RSAPrivateKey privateKey,
   final String subject,
 ) =>
-    NotificationsPushNotificationDecryptedSubject.fromJson(
+    NextcloudNotificationsPushNotificationDecryptedSubject.fromJson(
       json.decode(privateKey.decrypt(subject)) as Map<String, dynamic>,
     );
 

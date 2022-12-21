@@ -25,18 +25,18 @@ class _NewsArticlesViewState extends State<NewsArticlesView> {
   }
 
   @override
-  Widget build(final BuildContext context) => ResultBuilder<NewsBloc, List<NewsFeed>>(
+  Widget build(final BuildContext context) => ResultBuilder<NewsBloc, List<NextcloudNewsFeed>>(
         stream: widget.newsBloc.feeds,
-        builder: (final context, final feeds) => ResultBuilder<NewsArticlesBloc, List<NewsArticle>>(
+        builder: (final context, final feeds) => ResultBuilder<NewsArticlesBloc, List<NextcloudNewsArticle>>(
           stream: widget.bloc.articles,
           builder: (final context, final articles) => Scaffold(
             resizeToAvoidBottomInset: false,
-            body: SortBoxBuilder<ArticlesSortProperty, NewsArticle>(
+            body: SortBoxBuilder<ArticlesSortProperty, NextcloudNewsArticle>(
               sortBox: articlesSortBox,
               sortPropertyOption: widget.newsBloc.options.articlesSortPropertyOption,
               sortBoxOrderOption: widget.newsBloc.options.articlesSortBoxOrderOption,
               input: articles.data,
-              builder: (final context, final sorted) => CustomListView<NewsArticle>(
+              builder: (final context, final sorted) => CustomListView<NextcloudNewsArticle>(
                 scrollKey: 'news-articles',
                 items: feeds.data == null ? null : sorted,
                 isLoading: articles.loading || feeds.loading,
@@ -103,8 +103,8 @@ class _NewsArticlesViewState extends State<NewsArticlesView> {
 
   Widget _buildArticle(
     final BuildContext context,
-    final NewsArticle article,
-    final NewsFeed feed,
+    final NextcloudNewsArticle article,
+    final NextcloudNewsFeed feed,
   ) =>
       ListTile(
         title: Row(

@@ -8,12 +8,12 @@ class NewsFolderSelect extends StatelessWidget {
     super.key,
   });
 
-  final List<NewsFolder> folders;
-  final void Function(NewsFolder?) onChanged;
-  final NewsFolder? value;
+  final List<NextcloudNewsFolder> folders;
+  final void Function(NextcloudNewsFolder?) onChanged;
+  final NextcloudNewsFolder? value;
 
   @override
-  Widget build(final BuildContext context) => DropdownButtonFormField<NewsFolder>(
+  Widget build(final BuildContext context) => DropdownButtonFormField<NextcloudNewsFolder>(
         decoration: InputDecoration(
           hintText: AppLocalizations.of(context).newsFolder,
         ),
@@ -23,7 +23,7 @@ class NewsFolderSelect extends StatelessWidget {
             child: Text(AppLocalizations.of(context).newsFolderRoot),
           ),
           ...folders.map(
-            (final f) => DropdownMenuItem<NewsFolder>(
+            (final f) => DropdownMenuItem<NextcloudNewsFolder>(
               value: f,
               child: Text(f.name),
             ),

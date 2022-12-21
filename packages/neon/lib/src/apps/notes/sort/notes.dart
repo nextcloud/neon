@@ -1,6 +1,6 @@
 part of '../app.dart';
 
-final notesSortBox = SortBox<NotesSortProperty, NotesNote>(
+final notesSortBox = SortBox<NotesSortProperty, NextcloudNotesNote>(
   {
     NotesSortProperty.alphabetical: (final note) => note.title.toLowerCase(),
     NotesSortProperty.lastModified: (final note) => note.modified,

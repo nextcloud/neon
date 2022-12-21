@@ -39,7 +39,7 @@ class AccountAvatar extends StatelessWidget {
             ),
           ),
         ),
-        ResultBuilder<UserStatusBloc, UserStatus?>(
+        ResultBuilder<UserStatusBloc, NextcloudUserStatus?>(
           stream: Provider.of<AccountsBloc>(context, listen: false).getUserStatusBloc(account).userStatus,
           builder: (final context, final userStatus) => SizedBox(
             height: kAvatarSize,
@@ -61,7 +61,8 @@ class AccountAvatar extends StatelessWidget {
                         color: Theme.of(context).colorScheme.onPrimary,
                       )
                     : userStatus.error != null &&
-                            (userStatus.error is! ApiException || (userStatus.error! as ApiException).statusCode != 404)
+                            (userStatus.error is! NextcloudApiException ||
+                                (userStatus.error! as NextcloudApiException).statusCode != 404)
                         ? const Icon(
                             Icons.error_outline,
                             size: kAvatarSize / 3,
@@ -76,13 +77,13 @@ class AccountAvatar extends StatelessWidget {
     );
   }
 
-  Color _userStatusToColor(final UserStatus userStatus) {
+  Color _userStatusToColor(final NextcloudUserStatus userStatus) {
     switch (userStatus.status) {
-      case UserStatusType.online:
+      case NextcloudUserStatusType.online:
         return const Color(0xFF49B382);
-      case UserStatusType.away:
+      case NextcloudUserStatusType.away:
         return const Color(0xFFF4A331);
-      case UserStatusType.dnd:
+      case NextcloudUserStatusType.dnd:
         return const Color(0xFFED484C);
       default:
         return Colors.transparent;

@@ -11,9 +11,9 @@ class NewsFeedsView extends StatelessWidget {
   final int? folderID;
 
   @override
-  Widget build(final BuildContext context) => ResultBuilder<NewsBloc, List<NewsFolder>>(
+  Widget build(final BuildContext context) => ResultBuilder<NewsBloc, List<NextcloudNewsFolder>>(
         stream: bloc.folders,
-        builder: (final context, final folders) => ResultBuilder<NewsBloc, List<NewsFeed>>(
+        builder: (final context, final folders) => ResultBuilder<NewsBloc, List<NextcloudNewsFeed>>(
           stream: bloc.feeds,
           builder: (final context, final feeds) => Scaffold(
             resizeToAvoidBottomInset: false,
@@ -32,14 +32,14 @@ class NewsFeedsView extends StatelessWidget {
               },
               child: const Icon(Icons.add),
             ),
-            body: SortBoxBuilder<FeedsSortProperty, NewsFeed>(
+            body: SortBoxBuilder<FeedsSortProperty, NextcloudNewsFeed>(
               sortBox: feedsSortBox,
               sortPropertyOption: bloc.options.feedsSortPropertyOption,
               sortBoxOrderOption: bloc.options.feedsSortBoxOrderOption,
               input: folders.data == null
                   ? null
                   : feeds.data?.where((final f) => folderID == null || f.folderId == folderID).toList(),
-              builder: (final context, final sorted) => CustomListView<NewsFeed>(
+              builder: (final context, final sorted) => CustomListView<NextcloudNewsFeed>(
                 scrollKey: 'news-feeds',
                 withFloatingActionButton: true,
                 items: sorted,
@@ -59,8 +59,8 @@ class NewsFeedsView extends StatelessWidget {
 
   Widget _buildFeed(
     final BuildContext context,
-    final NewsFeed feed,
-    final List<NewsFolder> folders,
+    final NextcloudNewsFeed feed,
+    final List<NextcloudNewsFolder> folders,
   ) =>
       ListTile(
         title: Text(

@@ -53,7 +53,7 @@ class PushUtils {
 
     final keypair = await loadRSAKeypair(AppStorage('notifications', sharedPreferences));
     final data = json.decode(utf8.decode(message)) as Map<String, dynamic>;
-    final notification = NotificationsPushNotification(
+    final notification = NextcloudNotificationsPushNotification(
       accountID: instance,
       priority: data['priority']! as String,
       type: data['type']! as String,
@@ -127,7 +127,7 @@ class PushUtils {
 
   static int _getNotificationID(
     final String instance,
-    final NotificationsPushNotification notification,
+    final NextcloudNotificationsPushNotification notification,
   ) =>
       sha256.convert(utf8.encode('$instance${notification.subject.nid}')).bytes.reduce((final a, final b) => a + b);
 }

@@ -1,6 +1,6 @@
 part of '../neon.dart';
 
-typedef NextcloudApp = CoreNavigationApps_Ocs_Data;
+typedef NextcloudApp = NextcloudCoreNavigationApps_Ocs_Data;
 
 abstract class AppsBlocEvents {
   void setActiveApp(final String? appID);
@@ -109,7 +109,7 @@ class AppsBloc extends InteractiveBloc implements AppsBlocEvents, AppsBlocStates
 
   @override
   Future refresh() async {
-    await _requestManager.wrapNextcloud<List<NextcloudApp>, CoreNavigationApps>(
+    await _requestManager.wrapNextcloud<List<NextcloudApp>, NextcloudCoreNavigationApps>(
       _account.client.id,
       'apps-apps',
       apps,

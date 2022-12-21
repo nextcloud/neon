@@ -143,5 +143,5 @@ class NextcloudPushNotification {
   final String instance;
   final String priority;
   final String type;
-  final NotificationsPushNotificationDecryptedSubject subject;
+  final NextcloudNotificationsPushNotificationDecryptedSubject subject;
 }

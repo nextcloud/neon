@@ -14,7 +14,7 @@ class PushNotificationWithAccountID {
       _$PushNotificationWithAccountIDFromJson(json);
   Map<String, dynamic> toJson() => _$PushNotificationWithAccountIDToJson(this);
 
-  final NotificationsPushNotification notification;
+  final NextcloudNotificationsPushNotification notification;
 
   final String accountID;
 }

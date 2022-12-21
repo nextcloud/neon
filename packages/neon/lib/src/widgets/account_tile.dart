@@ -38,7 +38,7 @@ class AccountTile extends StatelessWidget {
           account: account,
         ),
       ),
-      title: ResultBuilder<UserDetailsBloc, ProvisioningApiUserDetails>(
+      title: ResultBuilder<UserDetailsBloc, NextcloudProvisioningApiUserDetails>(
         stream: userDetailsBloc.userDetails,
         builder: (final context, final userDetails) => Row(
           children: [

@@ -3,7 +3,7 @@ part of '../neon.dart';
 abstract class UserStatusBlocEvents {}
 
 abstract class UserStatusBlocStates {
-  BehaviorSubject<Result<UserStatus?>> get userStatus;
+  BehaviorSubject<Result<NextcloudUserStatus?>> get userStatus;
 }
 
 class UserStatusBloc extends InteractiveBloc implements UserStatusBlocEvents, UserStatusBlocStates {
@@ -30,7 +30,7 @@ class UserStatusBloc extends InteractiveBloc implements UserStatusBlocEvents, Us
   }
 
   @override
-  BehaviorSubject<Result<UserStatus?>> userStatus = BehaviorSubject<Result<UserStatus?>>();
+  BehaviorSubject<Result<NextcloudUserStatus?>> userStatus = BehaviorSubject<Result<NextcloudUserStatus?>>();
 
   @override
   Future refresh() async {
@@ -38,11 +38,11 @@ class UserStatusBloc extends InteractiveBloc implements UserStatusBlocEvents, Us
         _platform.canUseWindowManager && (!(await windowManager.isFocused()) || !(await windowManager.isVisible()));
     try {
       final status = await _account.client.userStatus.heartbeat(
-        status: isAway ? UserStatusType.away : UserStatusType.online,
+        status: isAway ? NextcloudUserStatusType.away : NextcloudUserStatusType.online,
       );
       userStatus.add(Result.success(status));
     } catch (e) {
-      if (e is ApiException && e.statusCode == 204) {
+      if (e is NextcloudApiException && e.statusCode == 204) {
         return;
       }
       userStatus.add(Result.error(e));
