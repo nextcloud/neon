@@ -1182,8 +1182,7 @@ TypeResult resolveObject(
                       ]);
                     final hasDifferentName = _toDartName(propertyName) != propertyName;
                     final isContentString = propertySchema.isContentString;
-                    final isContentStringArray =
-                        result is TypeResultList && (propertySchema.items?.isContentString ?? false);
+                    final isContentStringArray = isContentString && result is TypeResultList;
                     final hasExtraJsonKeyValues =
                         extraJsonKeyValues != null && extraJsonKeyValues.containsKey(propertyName);
                     if (hasDifferentName || isContentString || isContentStringArray || hasExtraJsonKeyValues) {
@@ -1217,7 +1216,7 @@ TypeResult resolveObject(
                             Method(
                               (final b) => b
                                 ..name = toJson
-                                ..returns = refer('List<String>?')
+                                ..returns = refer('String?')
                                 ..lambda = true
                                 ..requiredParameters.addAll([
                                   Parameter(
@@ -1227,7 +1226,7 @@ TypeResult resolveObject(
                                   ),
                                 ])
                                 ..body = Code(
-                                  'data == null ? null : ${result.encode(result.serialize('data'), mimeType: 'application/json', onlyChildren: true)};',
+                                  'data == null ? null : ${result.encode(result.serialize('data'), mimeType: 'application/json')};',
                                 ),
                             ),
                           );
