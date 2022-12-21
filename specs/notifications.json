@@ -81,7 +81,7 @@
           }
         }
       },
-      "NotificationsNotification": {
+      "Notification": {
         "type": "object",
         "required": [
           "notification_id",
@@ -156,12 +156,12 @@
           "actions": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/NotificationsNotificationAction"
+              "$ref": "#/components/schemas/NotificationAction"
             }
           }
         }
       },
-      "NotificationsNotificationAction": {
+      "NotificationAction": {
         "type": "object",
         "required": [
           "label",
@@ -183,7 +183,7 @@
           }
         }
       },
-      "NotificationsListNotifications": {
+      "ListNotifications": {
         "type": "object",
         "required": [
           "ocs"
@@ -202,14 +202,14 @@
               "data": {
                 "type": "array",
                 "items": {
-                  "$ref": "#/components/schemas/NotificationsNotification"
+                  "$ref": "#/components/schemas/Notification"
                 }
               }
             }
           }
         }
       },
-      "NotificationsGetNotification": {
+      "GetNotification": {
         "type": "object",
         "required": [
           "ocs"
@@ -226,13 +226,13 @@
                 "$ref": "#/components/schemas/OCSMeta"
               },
               "data": {
-                "$ref": "#/components/schemas/NotificationsNotification"
+                "$ref": "#/components/schemas/Notification"
               }
             }
           }
         }
       },
-      "NotificationsPushServerSubscription": {
+      "PushServerSubscription": {
         "type": "object",
         "required": [
           "publicKey",
@@ -254,7 +254,7 @@
           }
         }
       },
-      "NotificationsPushServerRegistration": {
+      "PushServerRegistration": {
         "type": "object",
         "required": [
           "ocs"
@@ -271,13 +271,13 @@
                 "$ref": "#/components/schemas/OCSMeta"
               },
               "data": {
-                "$ref": "#/components/schemas/NotificationsPushServerSubscription"
+                "$ref": "#/components/schemas/PushServerSubscription"
               }
             }
           }
         }
       },
-      "NotificationsPushNotification": {
+      "PushNotification": {
         "type": "object",
         "required": [
           "accountID",
@@ -296,11 +296,11 @@
             "type": "string"
           },
           "subject": {
-            "$ref": "#/components/schemas/NotificationsPushNotificationDecryptedSubject"
+            "$ref": "#/components/schemas/PushNotificationDecryptedSubject"
           }
         }
       },
-      "NotificationsPushNotificationDecryptedSubject": {
+      "PushNotificationDecryptedSubject": {
         "type": "object",
         "properties": {
           "nid": {
@@ -347,7 +347,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/NotificationsListNotifications"
+                  "$ref": "#/components/schemas/ListNotifications"
                 }
               }
             }
@@ -395,7 +395,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/NotificationsGetNotification"
+                  "$ref": "#/components/schemas/GetNotification"
                 }
               }
             }
@@ -460,7 +460,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/NotificationsPushServerRegistration"
+                  "$ref": "#/components/schemas/PushServerRegistration"
                 }
               }
             }

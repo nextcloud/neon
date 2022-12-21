@@ -39,7 +39,7 @@ class AccountAvatar extends StatelessWidget {
             ),
           ),
         ),
-        ResultBuilder<UserStatusBloc, NextcloudUserStatus?>(
+        ResultBuilder<UserStatusBloc, NextcloudUserStatusStatus?>(
           stream: Provider.of<AccountsBloc>(context, listen: false).getUserStatusBloc(account).userStatus,
           builder: (final context, final userStatus) => SizedBox(
             height: kAvatarSize,
@@ -77,7 +77,7 @@ class AccountAvatar extends StatelessWidget {
     );
   }
 
-  Color _userStatusToColor(final NextcloudUserStatus userStatus) {
+  Color _userStatusToColor(final NextcloudUserStatusStatus userStatus) {
     switch (userStatus.status) {
       case NextcloudUserStatusType.online:
         return const Color(0xFF49B382);

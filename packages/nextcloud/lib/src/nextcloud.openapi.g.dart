@@ -1970,21 +1970,21 @@ const _$NextcloudUserStatusClearAt_TypeEnumMap = {
   NextcloudUserStatusClearAt_Type.endOf: 'end-of',
 };
 
-NextcloudUserStatusPublicUserStatus _$NextcloudUserStatusPublicUserStatusFromJson(Map<String, dynamic> json) {
+NextcloudUserStatusPublicStatus _$NextcloudUserStatusPublicStatusFromJson(Map<String, dynamic> json) {
   $checkKeys(
     json,
     allowedKeys: const ['userId', 'message', 'icon', 'clearAt', 'status'],
   );
-  return NextcloudUserStatusPublicUserStatus(
+  return NextcloudUserStatusPublicStatus(
     userId: json['userId'] as String,
     message: json['message'] as String?,
     icon: json['icon'] as String?,
-    clearAt: NextcloudUserStatusPublicUserStatus_ClearAt.fromJson(json['clearAt']),
+    clearAt: NextcloudUserStatusPublicStatus_ClearAt.fromJson(json['clearAt']),
     status: $enumDecode(_$NextcloudUserStatusTypeEnumMap, json['status']),
   );
 }
 
-Map<String, dynamic> _$NextcloudUserStatusPublicUserStatusToJson(NextcloudUserStatusPublicUserStatus instance) =>
+Map<String, dynamic> _$NextcloudUserStatusPublicStatusToJson(NextcloudUserStatusPublicStatus instance) =>
     <String, dynamic>{
       'userId': instance.userId,
       'message': instance.message,
@@ -2009,7 +2009,7 @@ NextcloudUserStatusGetPublicStatuses_Ocs _$NextcloudUserStatusGetPublicStatuses_
   return NextcloudUserStatusGetPublicStatuses_Ocs(
     meta: NextcloudOCSMeta.fromJson(json['meta'] as Map<String, dynamic>),
     data: (json['data'] as List<dynamic>)
-        .map((e) => NextcloudUserStatusPublicUserStatus.fromJson(e as Map<String, dynamic>))
+        .map((e) => NextcloudUserStatusPublicStatus.fromJson(e as Map<String, dynamic>))
         .toList(),
   );
 }
@@ -2068,7 +2068,7 @@ Map<String, dynamic> _$NextcloudUserStatusGetPublicStatusToJson(NextcloudUserSta
       'ocs': instance.ocs.toJson(),
     };
 
-NextcloudUserStatus _$NextcloudUserStatusFromJson(Map<String, dynamic> json) {
+NextcloudUserStatusStatus _$NextcloudUserStatusStatusFromJson(Map<String, dynamic> json) {
   $checkKeys(
     json,
     allowedKeys: const [
@@ -2082,19 +2082,19 @@ NextcloudUserStatus _$NextcloudUserStatusFromJson(Map<String, dynamic> json) {
       'statusIsUserDefined'
     ],
   );
-  return NextcloudUserStatus(
+  return NextcloudUserStatusStatus(
     userId: json['userId'] as String,
     message: json['message'] as String?,
     messageId: json['messageId'] as String?,
     messageIsPredefined: json['messageIsPredefined'] as bool,
     icon: json['icon'] as String?,
-    clearAt: NextcloudUserStatus_ClearAt.fromJson(json['clearAt']),
+    clearAt: NextcloudUserStatusStatus_ClearAt.fromJson(json['clearAt']),
     status: $enumDecode(_$NextcloudUserStatusTypeEnumMap, json['status']),
     statusIsUserDefined: json['statusIsUserDefined'] as bool,
   );
 }
 
-Map<String, dynamic> _$NextcloudUserStatusToJson(NextcloudUserStatus instance) => <String, dynamic>{
+Map<String, dynamic> _$NextcloudUserStatusStatusToJson(NextcloudUserStatusStatus instance) => <String, dynamic>{
       'userId': instance.userId,
       'message': instance.message,
       'messageId': instance.messageId,
@@ -2105,35 +2105,34 @@ Map<String, dynamic> _$NextcloudUserStatusToJson(NextcloudUserStatus instance) =
       'statusIsUserDefined': instance.statusIsUserDefined,
     };
 
-NextcloudUserStatusGetUserStatus_Ocs _$NextcloudUserStatusGetUserStatus_OcsFromJson(Map<String, dynamic> json) {
+NextcloudUserStatusGetStatus_Ocs _$NextcloudUserStatusGetStatus_OcsFromJson(Map<String, dynamic> json) {
   $checkKeys(
     json,
     allowedKeys: const ['meta', 'data'],
   );
-  return NextcloudUserStatusGetUserStatus_Ocs(
+  return NextcloudUserStatusGetStatus_Ocs(
     meta: NextcloudOCSMeta.fromJson(json['meta'] as Map<String, dynamic>),
-    data: NextcloudUserStatusGetUserStatus_Ocs_Data.fromJson(json['data']),
+    data: NextcloudUserStatusGetStatus_Ocs_Data.fromJson(json['data']),
   );
 }
 
-Map<String, dynamic> _$NextcloudUserStatusGetUserStatus_OcsToJson(NextcloudUserStatusGetUserStatus_Ocs instance) =>
+Map<String, dynamic> _$NextcloudUserStatusGetStatus_OcsToJson(NextcloudUserStatusGetStatus_Ocs instance) =>
     <String, dynamic>{
       'meta': instance.meta.toJson(),
       'data': instance.data.toJson(),
     };
 
-NextcloudUserStatusGetUserStatus _$NextcloudUserStatusGetUserStatusFromJson(Map<String, dynamic> json) {
+NextcloudUserStatusGetStatus _$NextcloudUserStatusGetStatusFromJson(Map<String, dynamic> json) {
   $checkKeys(
     json,
     allowedKeys: const ['ocs'],
   );
-  return NextcloudUserStatusGetUserStatus(
-    ocs: NextcloudUserStatusGetUserStatus_Ocs.fromJson(json['ocs'] as Map<String, dynamic>),
+  return NextcloudUserStatusGetStatus(
+    ocs: NextcloudUserStatusGetStatus_Ocs.fromJson(json['ocs'] as Map<String, dynamic>),
   );
 }
 
-Map<String, dynamic> _$NextcloudUserStatusGetUserStatusToJson(NextcloudUserStatusGetUserStatus instance) =>
-    <String, dynamic>{
+Map<String, dynamic> _$NextcloudUserStatusGetStatusToJson(NextcloudUserStatusGetStatus instance) => <String, dynamic>{
       'ocs': instance.ocs.toJson(),
     };
 

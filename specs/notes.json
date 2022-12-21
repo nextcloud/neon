@@ -81,7 +81,7 @@
           }
         }
       },
-      "NotesNote": {
+      "Note": {
         "type": "object",
         "required": [
           "id",
@@ -128,7 +128,7 @@
           }
         }
       },
-      "NotesSettings": {
+      "Settings": {
         "type": "object",
         "required": [
           "notesPath",
@@ -226,7 +226,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/NotesNote"
+                    "$ref": "#/components/schemas/Note"
                   }
                 }
               }
@@ -292,7 +292,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/NotesNote"
+                  "$ref": "#/components/schemas/Note"
                 }
               }
             }
@@ -340,7 +340,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/NotesNote"
+                  "$ref": "#/components/schemas/Note"
                 }
               }
             }
@@ -408,7 +408,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/NotesNote"
+                  "$ref": "#/components/schemas/Note"
                 }
               }
             }
@@ -446,7 +446,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/NotesSettings"
+                  "$ref": "#/components/schemas/Settings"
                 }
               }
             }
@@ -463,7 +463,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NotesSettings"
+                "$ref": "#/components/schemas/Settings"
               }
             }
           }
@@ -474,7 +474,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/NotesSettings"
+                  "$ref": "#/components/schemas/Settings"
                 }
               }
             }

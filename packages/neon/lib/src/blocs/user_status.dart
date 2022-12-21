@@ -3,7 +3,7 @@ part of '../neon.dart';
 abstract class UserStatusBlocEvents {}
 
 abstract class UserStatusBlocStates {
-  BehaviorSubject<Result<NextcloudUserStatus?>> get userStatus;
+  BehaviorSubject<Result<NextcloudUserStatusStatus?>> get userStatus;
 }
 
 class UserStatusBloc extends InteractiveBloc implements UserStatusBlocEvents, UserStatusBlocStates {
@@ -30,7 +30,8 @@ class UserStatusBloc extends InteractiveBloc implements UserStatusBlocEvents, Us
   }
 
   @override
-  BehaviorSubject<Result<NextcloudUserStatus?>> userStatus = BehaviorSubject<Result<NextcloudUserStatus?>>();
+  BehaviorSubject<Result<NextcloudUserStatusStatus?>> userStatus =
+      BehaviorSubject<Result<NextcloudUserStatusStatus?>>();
 
   @override
   Future refresh() async {

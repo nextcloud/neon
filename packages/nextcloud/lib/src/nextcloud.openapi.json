@@ -1842,7 +1842,7 @@
           "invisible"
         ]
       },
-      "UserStatusGetUserStatus": {
+      "UserStatusGetStatus": {
         "type": "object",
         "required": [
           "ocs"
@@ -1861,7 +1861,7 @@
               "data": {
                 "anyOf": [
                   {
-                    "$ref": "#/components/schemas/UserStatus"
+                    "$ref": "#/components/schemas/UserStatusStatus"
                   }
                 ]
               }
@@ -1888,7 +1888,7 @@
               "data": {
                 "type": "array",
                 "items": {
-                  "$ref": "#/components/schemas/UserStatusPublicUserStatus"
+                  "$ref": "#/components/schemas/UserStatusPublicStatus"
                 }
               }
             }
@@ -1914,7 +1914,7 @@
               "data": {
                 "anyOf": [
                   {
-                    "$ref": "#/components/schemas/UserStatusPublicUserStatus"
+                    "$ref": "#/components/schemas/UserStatusPublicStatus"
                   }
                 ]
               }
@@ -1922,7 +1922,7 @@
           }
         }
       },
-      "UserStatus": {
+      "UserStatusStatus": {
         "type": "object",
         "required": [
           "userId",
@@ -1966,7 +1966,7 @@
           }
         }
       },
-      "UserStatusPublicUserStatus": {
+      "UserStatusPublicStatus": {
         "type": "object",
         "required": [
           "userId",
@@ -3524,7 +3524,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/UserStatusGetUserStatus"
+                  "$ref": "#/components/schemas/UserStatusGetStatus"
                 }
               }
             }
@@ -3554,7 +3554,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/UserStatusGetUserStatus"
+                  "$ref": "#/components/schemas/UserStatusGetStatus"
                 }
               }
             }
@@ -3592,7 +3592,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/UserStatusGetUserStatus"
+                  "$ref": "#/components/schemas/UserStatusGetStatus"
                 }
               }
             }
@@ -3638,7 +3638,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/UserStatusGetUserStatus"
+                  "$ref": "#/components/schemas/UserStatusGetStatus"
                 }
               }
             }
@@ -3701,7 +3701,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/UserStatus"
+                  "$ref": "#/components/schemas/UserStatusStatus"
                 }
               }
             }

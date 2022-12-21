@@ -6,12 +6,25 @@ rm -rf /tmp/nextcloud-neon
 mkdir -p /tmp/nextcloud-neon
 
 codenames=(core news notes notifications provisioning_api user_status)
+prefixes=(Core News Notes Notifications ProvisioningApi UserStatus)
 
 base_spec=/tmp/nextcloud-neon/base.json
 merged_spec=/tmp/nextcloud-neon/merged.json
-for codename in ${codenames[*]}; do
+for i in $(seq 0 $((${#codenames[@]} - 1))); do
+  codename=${codenames[i]}
+  prefix=${prefixes[i]}
+  cp specs/"$codename".json /tmp/nextcloud-neon/"$codename".json
+  jq \
+    --arg prefix "$prefix" \
+    -s \
+    '.[]
+    | .components.schemas = (.components.schemas | with_entries(.key = if .key == "OCSMeta" or .key == "EmptyOCS" then .key else $prefix + .key end))
+    | walk(if type == "object" and has("$ref") and ."$ref" != "#/components/schemas/OCSMeta" and ."$ref" != "#/components/schemas/EmptyOCS" then ."$ref" |= sub("#/components/schemas/";"#/components/schemas/" + $prefix) else . end)' \
+    /tmp/nextcloud-neon/"$codename".json \
+    > /tmp/nextcloud-neon/"$codename"-prefixed.json
+
   if [ ! -f $base_spec ]; then
-    cp specs/"$codename".json $base_spec
+    cp /tmp/nextcloud-neon/"$codename"-prefixed.json $base_spec
   else
       jq \
         -s \
@@ -23,7 +36,7 @@ for codename in ${codenames[*]}; do
           paths: (.[0].paths * .[1].paths),
         }' \
         $base_spec \
-        specs/"$codename".json \
+        /tmp/nextcloud-neon/"$codename"-prefixed.json \
         > $merged_spec
       cp $merged_spec $base_spec
   fi
