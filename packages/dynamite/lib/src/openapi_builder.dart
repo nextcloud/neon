@@ -1131,17 +1131,17 @@ TypeResult resolveObject(
               Method(
                 (final b) => b
                   ..name = 'toJsonString'
-                  ..returns = refer('String')
+                  ..returns = refer('String?')
                   ..lambda = true
                   ..static = true
                   ..requiredParameters.add(
                     Parameter(
                       (final b) => b
                         ..name = 'data'
-                        ..type = refer(identifier),
+                        ..type = refer(_makeNullable(identifier, true)),
                     ),
                   )
-                  ..body = const Code('json.encode(data.toJson())'),
+                  ..body = const Code('data == null ? null : json.encode(data.toJson())'),
               ),
             ])
             ..fields.addAll([

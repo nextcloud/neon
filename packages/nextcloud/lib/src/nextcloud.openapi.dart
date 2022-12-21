@@ -1393,9 +1393,7 @@ class CoreServerStatus {
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreServerStatusToJson(this);
   // coverage:ignore-end
-  // coverage:ignore-start
-  static String toJsonString(CoreServerStatus data) => json.encode(data.toJson());
-  // coverage:ignore-end
+  static String? toJsonString(CoreServerStatus? data) => data == null ? null : json.encode(data.toJson());
 }
 
 @JsonSerializable()
@@ -1429,9 +1427,7 @@ class OCSMeta {
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$OCSMetaToJson(this);
   // coverage:ignore-end
-  // coverage:ignore-start
-  static String toJsonString(OCSMeta data) => json.encode(data.toJson());
-  // coverage:ignore-end
+  static String? toJsonString(OCSMeta? data) => data == null ? null : json.encode(data.toJson());
 }
 
 @JsonSerializable()
@@ -1470,9 +1466,8 @@ class CoreServerCapabilities_Ocs_Data_Version {
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreServerCapabilities_Ocs_Data_VersionToJson(this);
   // coverage:ignore-end
-  // coverage:ignore-start
-  static String toJsonString(CoreServerCapabilities_Ocs_Data_Version data) => json.encode(data.toJson());
-  // coverage:ignore-end
+  static String? toJsonString(CoreServerCapabilities_Ocs_Data_Version? data) =>
+      data == null ? null : json.encode(data.toJson());
 }
 
 @JsonSerializable(disallowUnrecognizedKeys: false)
@@ -1508,9 +1503,8 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_Core {
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreServerCapabilities_Ocs_Data_Capabilities_CoreToJson(this);
   // coverage:ignore-end
-  // coverage:ignore-start
-  static String toJsonString(CoreServerCapabilities_Ocs_Data_Capabilities_Core data) => json.encode(data.toJson());
-  // coverage:ignore-end
+  static String? toJsonString(CoreServerCapabilities_Ocs_Data_Capabilities_Core? data) =>
+      data == null ? null : json.encode(data.toJson());
 }
 
 @JsonSerializable(disallowUnrecognizedKeys: false)
@@ -1532,10 +1526,8 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_Bruteforce {
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreServerCapabilities_Ocs_Data_Capabilities_BruteforceToJson(this);
   // coverage:ignore-end
-  // coverage:ignore-start
-  static String toJsonString(CoreServerCapabilities_Ocs_Data_Capabilities_Bruteforce data) =>
-      json.encode(data.toJson());
-  // coverage:ignore-end
+  static String? toJsonString(CoreServerCapabilities_Ocs_Data_Capabilities_Bruteforce? data) =>
+      data == null ? null : json.encode(data.toJson());
 }
 
 @JsonSerializable(disallowUnrecognizedKeys: false)
@@ -1563,10 +1555,8 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_MetadataAvailable {
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreServerCapabilities_Ocs_Data_Capabilities_MetadataAvailableToJson(this);
   // coverage:ignore-end
-  // coverage:ignore-start
-  static String toJsonString(CoreServerCapabilities_Ocs_Data_Capabilities_MetadataAvailable data) =>
-      json.encode(data.toJson());
-  // coverage:ignore-end
+  static String? toJsonString(CoreServerCapabilities_Ocs_Data_Capabilities_MetadataAvailable? data) =>
+      data == null ? null : json.encode(data.toJson());
 }
 
 @JsonSerializable(disallowUnrecognizedKeys: false)
@@ -1594,10 +1584,8 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_Files_DirectEditing {
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreServerCapabilities_Ocs_Data_Capabilities_Files_DirectEditingToJson(this);
   // coverage:ignore-end
-  // coverage:ignore-start
-  static String toJsonString(CoreServerCapabilities_Ocs_Data_Capabilities_Files_DirectEditing data) =>
-      json.encode(data.toJson());
-  // coverage:ignore-end
+  static String? toJsonString(CoreServerCapabilities_Ocs_Data_Capabilities_Files_DirectEditing? data) =>
+      data == null ? null : json.encode(data.toJson());
 }
 
 @JsonSerializable(disallowUnrecognizedKeys: false)
@@ -1637,9 +1625,8 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_Files {
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesToJson(this);
   // coverage:ignore-end
-  // coverage:ignore-start
-  static String toJsonString(CoreServerCapabilities_Ocs_Data_Capabilities_Files data) => json.encode(data.toJson());
-  // coverage:ignore-end
+  static String? toJsonString(CoreServerCapabilities_Ocs_Data_Capabilities_Files? data) =>
+      data == null ? null : json.encode(data.toJson());
 }
 
 @JsonSerializable(disallowUnrecognizedKeys: false)
@@ -1661,9 +1648,8 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_Activity {
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreServerCapabilities_Ocs_Data_Capabilities_ActivityToJson(this);
   // coverage:ignore-end
-  // coverage:ignore-start
-  static String toJsonString(CoreServerCapabilities_Ocs_Data_Capabilities_Activity data) => json.encode(data.toJson());
-  // coverage:ignore-end
+  static String? toJsonString(CoreServerCapabilities_Ocs_Data_Capabilities_Activity? data) =>
+      data == null ? null : json.encode(data.toJson());
 }
 
 @JsonSerializable(disallowUnrecognizedKeys: false)
@@ -1685,10 +1671,8 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Status {
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreServerCapabilities_Ocs_Data_Capabilities_Circles_StatusToJson(this);
   // coverage:ignore-end
-  // coverage:ignore-start
-  static String toJsonString(CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Status data) =>
-      json.encode(data.toJson());
-  // coverage:ignore-end
+  static String? toJsonString(CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Status? data) =>
+      data == null ? null : json.encode(data.toJson());
 }
 
 @JsonSerializable(disallowUnrecognizedKeys: false)
@@ -1721,10 +1705,8 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Settings {
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreServerCapabilities_Ocs_Data_Capabilities_Circles_SettingsToJson(this);
   // coverage:ignore-end
-  // coverage:ignore-start
-  static String toJsonString(CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Settings data) =>
-      json.encode(data.toJson());
-  // coverage:ignore-end
+  static String? toJsonString(CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Settings? data) =>
+      data == null ? null : json.encode(data.toJson());
 }
 
 @JsonSerializable(disallowUnrecognizedKeys: false)
@@ -1754,10 +1736,8 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants_Sour
   Map<String, dynamic> toJson() =>
       _$CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants_SourceToJson(this);
   // coverage:ignore-end
-  // coverage:ignore-start
-  static String toJsonString(CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants_Source data) =>
-      json.encode(data.toJson());
-  // coverage:ignore-end
+  static String? toJsonString(CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants_Source? data) =>
+      data == null ? null : json.encode(data.toJson());
 }
 
 @JsonSerializable(disallowUnrecognizedKeys: false)
@@ -1785,10 +1765,8 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants {
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_ConstantsToJson(this);
   // coverage:ignore-end
-  // coverage:ignore-start
-  static String toJsonString(CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants data) =>
-      json.encode(data.toJson());
-  // coverage:ignore-end
+  static String? toJsonString(CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants? data) =>
+      data == null ? null : json.encode(data.toJson());
 }
 
 @JsonSerializable(disallowUnrecognizedKeys: false)
@@ -1816,10 +1794,8 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Config {
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_ConfigToJson(this);
   // coverage:ignore-end
-  // coverage:ignore-start
-  static String toJsonString(CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Config data) =>
-      json.encode(data.toJson());
-  // coverage:ignore-end
+  static String? toJsonString(CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Config? data) =>
+      data == null ? null : json.encode(data.toJson());
 }
 
 @JsonSerializable(disallowUnrecognizedKeys: false)
@@ -1846,10 +1822,8 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle {
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreServerCapabilities_Ocs_Data_Capabilities_Circles_CircleToJson(this);
   // coverage:ignore-end
-  // coverage:ignore-start
-  static String toJsonString(CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle data) =>
-      json.encode(data.toJson());
-  // coverage:ignore-end
+  static String? toJsonString(CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle? data) =>
+      data == null ? null : json.encode(data.toJson());
 }
 
 @JsonSerializable(disallowUnrecognizedKeys: false)
@@ -1872,10 +1846,8 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member_Constants {
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member_ConstantsToJson(this);
   // coverage:ignore-end
-  // coverage:ignore-start
-  static String toJsonString(CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member_Constants data) =>
-      json.encode(data.toJson());
-  // coverage:ignore-end
+  static String? toJsonString(CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member_Constants? data) =>
+      data == null ? null : json.encode(data.toJson());
 }
 
 @JsonSerializable(disallowUnrecognizedKeys: false)
@@ -1902,10 +1874,8 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member {
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreServerCapabilities_Ocs_Data_Capabilities_Circles_MemberToJson(this);
   // coverage:ignore-end
-  // coverage:ignore-start
-  static String toJsonString(CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member data) =>
-      json.encode(data.toJson());
-  // coverage:ignore-end
+  static String? toJsonString(CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member? data) =>
+      data == null ? null : json.encode(data.toJson());
 }
 
 @JsonSerializable(disallowUnrecognizedKeys: false)
@@ -1941,9 +1911,8 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_Circles {
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreServerCapabilities_Ocs_Data_Capabilities_CirclesToJson(this);
   // coverage:ignore-end
-  // coverage:ignore-start
-  static String toJsonString(CoreServerCapabilities_Ocs_Data_Capabilities_Circles data) => json.encode(data.toJson());
-  // coverage:ignore-end
+  static String? toJsonString(CoreServerCapabilities_Ocs_Data_Capabilities_Circles? data) =>
+      data == null ? null : json.encode(data.toJson());
 }
 
 @JsonSerializable(disallowUnrecognizedKeys: false)
@@ -1968,10 +1937,8 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes_Protocols {
   Map<String, dynamic> toJson() =>
       _$CoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes_ProtocolsToJson(this);
   // coverage:ignore-end
-  // coverage:ignore-start
-  static String toJsonString(CoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes_Protocols data) =>
-      json.encode(data.toJson());
-  // coverage:ignore-end
+  static String? toJsonString(CoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes_Protocols? data) =>
+      data == null ? null : json.encode(data.toJson());
 }
 
 @JsonSerializable(disallowUnrecognizedKeys: false)
@@ -2002,10 +1969,8 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes {
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypesToJson(this);
   // coverage:ignore-end
-  // coverage:ignore-start
-  static String toJsonString(CoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes data) =>
-      json.encode(data.toJson());
-  // coverage:ignore-end
+  static String? toJsonString(CoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes? data) =>
+      data == null ? null : json.encode(data.toJson());
 }
 
 @JsonSerializable(disallowUnrecognizedKeys: false)
@@ -2038,9 +2003,8 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_Ocm {
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreServerCapabilities_Ocs_Data_Capabilities_OcmToJson(this);
   // coverage:ignore-end
-  // coverage:ignore-start
-  static String toJsonString(CoreServerCapabilities_Ocs_Data_Capabilities_Ocm data) => json.encode(data.toJson());
-  // coverage:ignore-end
+  static String? toJsonString(CoreServerCapabilities_Ocs_Data_Capabilities_Ocm? data) =>
+      data == null ? null : json.encode(data.toJson());
 }
 
 @JsonSerializable(disallowUnrecognizedKeys: false)
@@ -2067,9 +2031,8 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_Dav {
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreServerCapabilities_Ocs_Data_Capabilities_DavToJson(this);
   // coverage:ignore-end
-  // coverage:ignore-start
-  static String toJsonString(CoreServerCapabilities_Ocs_Data_Capabilities_Dav data) => json.encode(data.toJson());
-  // coverage:ignore-end
+  static String? toJsonString(CoreServerCapabilities_Ocs_Data_Capabilities_Dav? data) =>
+      data == null ? null : json.encode(data.toJson());
 }
 
 @JsonSerializable(disallowUnrecognizedKeys: false)
@@ -2099,10 +2062,8 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_Password 
   Map<String, dynamic> toJson() =>
       _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_PasswordToJson(this);
   // coverage:ignore-end
-  // coverage:ignore-start
-  static String toJsonString(CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_Password data) =>
-      json.encode(data.toJson());
-  // coverage:ignore-end
+  static String? toJsonString(CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_Password? data) =>
+      data == null ? null : json.encode(data.toJson());
 }
 
 @JsonSerializable(disallowUnrecognizedKeys: false)
@@ -2127,10 +2088,8 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDat
   Map<String, dynamic> toJson() =>
       _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateToJson(this);
   // coverage:ignore-end
-  // coverage:ignore-start
-  static String toJsonString(CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDate data) =>
-      json.encode(data.toJson());
-  // coverage:ignore-end
+  static String? toJsonString(CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDate? data) =>
+      data == null ? null : json.encode(data.toJson());
 }
 
 @JsonSerializable(disallowUnrecognizedKeys: false)
@@ -2156,11 +2115,9 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDat
   Map<String, dynamic> toJson() =>
       _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternalToJson(this);
   // coverage:ignore-end
-  // coverage:ignore-start
-  static String toJsonString(
-          CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternal data) =>
-      json.encode(data.toJson());
-  // coverage:ignore-end
+  static String? toJsonString(
+          CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternal? data) =>
+      data == null ? null : json.encode(data.toJson());
 }
 
 @JsonSerializable(disallowUnrecognizedKeys: false)
@@ -2186,10 +2143,9 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDat
   Map<String, dynamic> toJson() =>
       _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemoteToJson(this);
   // coverage:ignore-end
-  // coverage:ignore-start
-  static String toJsonString(CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemote data) =>
-      json.encode(data.toJson());
-  // coverage:ignore-end
+  static String? toJsonString(
+          CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemote? data) =>
+      data == null ? null : json.encode(data.toJson());
 }
 
 @JsonSerializable(disallowUnrecognizedKeys: false)
@@ -2244,10 +2200,8 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public {
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_PublicToJson(this);
   // coverage:ignore-end
-  // coverage:ignore-start
-  static String toJsonString(CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public data) =>
-      json.encode(data.toJson());
-  // coverage:ignore-end
+  static String? toJsonString(CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public? data) =>
+      data == null ? null : json.encode(data.toJson());
 }
 
 @JsonSerializable(disallowUnrecognizedKeys: false)
@@ -2272,10 +2226,8 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User_ExpireDate 
   Map<String, dynamic> toJson() =>
       _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User_ExpireDateToJson(this);
   // coverage:ignore-end
-  // coverage:ignore-start
-  static String toJsonString(CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User_ExpireDate data) =>
-      json.encode(data.toJson());
-  // coverage:ignore-end
+  static String? toJsonString(CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User_ExpireDate? data) =>
+      data == null ? null : json.encode(data.toJson());
 }
 
 @JsonSerializable(disallowUnrecognizedKeys: false)
@@ -2305,10 +2257,8 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User {
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_UserToJson(this);
   // coverage:ignore-end
-  // coverage:ignore-start
-  static String toJsonString(CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User data) =>
-      json.encode(data.toJson());
-  // coverage:ignore-end
+  static String? toJsonString(CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User? data) =>
+      data == null ? null : json.encode(data.toJson());
 }
 
 @JsonSerializable(disallowUnrecognizedKeys: false)
@@ -2333,10 +2283,8 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDate
   Map<String, dynamic> toJson() =>
       _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDateToJson(this);
   // coverage:ignore-end
-  // coverage:ignore-start
-  static String toJsonString(CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDate data) =>
-      json.encode(data.toJson());
-  // coverage:ignore-end
+  static String? toJsonString(CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDate? data) =>
+      data == null ? null : json.encode(data.toJson());
 }
 
 @JsonSerializable(disallowUnrecognizedKeys: false)
@@ -2365,10 +2313,8 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group {
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_GroupToJson(this);
   // coverage:ignore-end
-  // coverage:ignore-start
-  static String toJsonString(CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group data) =>
-      json.encode(data.toJson());
-  // coverage:ignore-end
+  static String? toJsonString(CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group? data) =>
+      data == null ? null : json.encode(data.toJson());
 }
 
 @JsonSerializable(disallowUnrecognizedKeys: false)
@@ -2393,10 +2339,8 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_Expir
   Map<String, dynamic> toJson() =>
       _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateToJson(this);
   // coverage:ignore-end
-  // coverage:ignore-start
-  static String toJsonString(CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDate data) =>
-      json.encode(data.toJson());
-  // coverage:ignore-end
+  static String? toJsonString(CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDate? data) =>
+      data == null ? null : json.encode(data.toJson());
 }
 
 @JsonSerializable(disallowUnrecognizedKeys: false)
@@ -2422,11 +2366,9 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_Expir
   Map<String, dynamic> toJson() =>
       _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupportedToJson(this);
   // coverage:ignore-end
-  // coverage:ignore-start
-  static String toJsonString(
-          CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupported data) =>
-      json.encode(data.toJson());
-  // coverage:ignore-end
+  static String? toJsonString(
+          CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupported? data) =>
+      data == null ? null : json.encode(data.toJson());
 }
 
 @JsonSerializable(disallowUnrecognizedKeys: false)
@@ -2462,10 +2404,8 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation {
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_FederationToJson(this);
   // coverage:ignore-end
-  // coverage:ignore-start
-  static String toJsonString(CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation data) =>
-      json.encode(data.toJson());
-  // coverage:ignore-end
+  static String? toJsonString(CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation? data) =>
+      data == null ? null : json.encode(data.toJson());
 }
 
 @JsonSerializable(disallowUnrecognizedKeys: false)
@@ -2495,10 +2435,8 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharee {
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_ShareeToJson(this);
   // coverage:ignore-end
-  // coverage:ignore-start
-  static String toJsonString(CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharee data) =>
-      json.encode(data.toJson());
-  // coverage:ignore-end
+  static String? toJsonString(CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharee? data) =>
+      data == null ? null : json.encode(data.toJson());
 }
 
 @JsonSerializable(disallowUnrecognizedKeys: false)
@@ -2524,11 +2462,9 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_Uplo
   Map<String, dynamic> toJson() =>
       _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_UploadFilesDropToJson(this);
   // coverage:ignore-end
-  // coverage:ignore-start
-  static String toJsonString(
-          CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_UploadFilesDrop data) =>
-      json.encode(data.toJson());
-  // coverage:ignore-end
+  static String? toJsonString(
+          CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_UploadFilesDrop? data) =>
+      data == null ? null : json.encode(data.toJson());
 }
 
 @JsonSerializable(disallowUnrecognizedKeys: false)
@@ -2558,10 +2494,8 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_Pass
   Map<String, dynamic> toJson() =>
       _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_PasswordToJson(this);
   // coverage:ignore-end
-  // coverage:ignore-start
-  static String toJsonString(CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_Password data) =>
-      json.encode(data.toJson());
-  // coverage:ignore-end
+  static String? toJsonString(CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_Password? data) =>
+      data == null ? null : json.encode(data.toJson());
 }
 
 @JsonSerializable(disallowUnrecognizedKeys: false)
@@ -2592,10 +2526,8 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_Expi
   Map<String, dynamic> toJson() =>
       _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_ExpireDateToJson(this);
   // coverage:ignore-end
-  // coverage:ignore-start
-  static String toJsonString(CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_ExpireDate data) =>
-      json.encode(data.toJson());
-  // coverage:ignore-end
+  static String? toJsonString(CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_ExpireDate? data) =>
+      data == null ? null : json.encode(data.toJson());
 }
 
 @JsonSerializable(disallowUnrecognizedKeys: false)
@@ -2635,10 +2567,8 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail {
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_SharebymailToJson(this);
   // coverage:ignore-end
-  // coverage:ignore-start
-  static String toJsonString(CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail data) =>
-      json.encode(data.toJson());
-  // coverage:ignore-end
+  static String? toJsonString(CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail? data) =>
+      data == null ? null : json.encode(data.toJson());
 }
 
 @JsonSerializable(disallowUnrecognizedKeys: false)
@@ -2692,10 +2622,8 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing {
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharingToJson(this);
   // coverage:ignore-end
-  // coverage:ignore-start
-  static String toJsonString(CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing data) =>
-      json.encode(data.toJson());
-  // coverage:ignore-end
+  static String? toJsonString(CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing? data) =>
+      data == null ? null : json.encode(data.toJson());
 }
 
 @JsonSerializable(disallowUnrecognizedKeys: false)
@@ -2723,9 +2651,8 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_Notes {
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreServerCapabilities_Ocs_Data_Capabilities_NotesToJson(this);
   // coverage:ignore-end
-  // coverage:ignore-start
-  static String toJsonString(CoreServerCapabilities_Ocs_Data_Capabilities_Notes data) => json.encode(data.toJson());
-  // coverage:ignore-end
+  static String? toJsonString(CoreServerCapabilities_Ocs_Data_Capabilities_Notes? data) =>
+      data == null ? null : json.encode(data.toJson());
 }
 
 @JsonSerializable(disallowUnrecognizedKeys: false)
@@ -2757,10 +2684,8 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_Notifications {
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreServerCapabilities_Ocs_Data_Capabilities_NotificationsToJson(this);
   // coverage:ignore-end
-  // coverage:ignore-start
-  static String toJsonString(CoreServerCapabilities_Ocs_Data_Capabilities_Notifications data) =>
-      json.encode(data.toJson());
-  // coverage:ignore-end
+  static String? toJsonString(CoreServerCapabilities_Ocs_Data_Capabilities_Notifications? data) =>
+      data == null ? null : json.encode(data.toJson());
 }
 
 @JsonSerializable(disallowUnrecognizedKeys: false)
@@ -2788,10 +2713,8 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy_Api {
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy_ApiToJson(this);
   // coverage:ignore-end
-  // coverage:ignore-start
-  static String toJsonString(CoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy_Api data) =>
-      json.encode(data.toJson());
-  // coverage:ignore-end
+  static String? toJsonString(CoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy_Api? data) =>
+      data == null ? null : json.encode(data.toJson());
 }
 
 @JsonSerializable(disallowUnrecognizedKeys: false)
@@ -2830,10 +2753,8 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy {
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicyToJson(this);
   // coverage:ignore-end
-  // coverage:ignore-start
-  static String toJsonString(CoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy data) =>
-      json.encode(data.toJson());
-  // coverage:ignore-end
+  static String? toJsonString(CoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy? data) =>
+      data == null ? null : json.encode(data.toJson());
 }
 
 @JsonSerializable(disallowUnrecognizedKeys: false)
@@ -2869,10 +2790,8 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_ProvisioningApi {
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreServerCapabilities_Ocs_Data_Capabilities_ProvisioningApiToJson(this);
   // coverage:ignore-end
-  // coverage:ignore-start
-  static String toJsonString(CoreServerCapabilities_Ocs_Data_Capabilities_ProvisioningApi data) =>
-      json.encode(data.toJson());
-  // coverage:ignore-end
+  static String? toJsonString(CoreServerCapabilities_Ocs_Data_Capabilities_ProvisioningApi? data) =>
+      data == null ? null : json.encode(data.toJson());
 }
 
 @JsonSerializable(disallowUnrecognizedKeys: false)
@@ -2941,9 +2860,8 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_Theming {
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreServerCapabilities_Ocs_Data_Capabilities_ThemingToJson(this);
   // coverage:ignore-end
-  // coverage:ignore-start
-  static String toJsonString(CoreServerCapabilities_Ocs_Data_Capabilities_Theming data) => json.encode(data.toJson());
-  // coverage:ignore-end
+  static String? toJsonString(CoreServerCapabilities_Ocs_Data_Capabilities_Theming? data) =>
+      data == null ? null : json.encode(data.toJson());
 }
 
 @JsonSerializable(disallowUnrecognizedKeys: false)
@@ -2971,10 +2889,8 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_UserStatus {
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreServerCapabilities_Ocs_Data_Capabilities_UserStatusToJson(this);
   // coverage:ignore-end
-  // coverage:ignore-start
-  static String toJsonString(CoreServerCapabilities_Ocs_Data_Capabilities_UserStatus data) =>
-      json.encode(data.toJson());
-  // coverage:ignore-end
+  static String? toJsonString(CoreServerCapabilities_Ocs_Data_Capabilities_UserStatus? data) =>
+      data == null ? null : json.encode(data.toJson());
 }
 
 @JsonSerializable()
@@ -2996,10 +2912,8 @@ class CoreServerCapabilities_Ocs_Data_Capabilities_WeatherStatus {
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreServerCapabilities_Ocs_Data_Capabilities_WeatherStatusToJson(this);
   // coverage:ignore-end
-  // coverage:ignore-start
-  static String toJsonString(CoreServerCapabilities_Ocs_Data_Capabilities_WeatherStatus data) =>
-      json.encode(data.toJson());
-  // coverage:ignore-end
+  static String? toJsonString(CoreServerCapabilities_Ocs_Data_Capabilities_WeatherStatus? data) =>
+      data == null ? null : json.encode(data.toJson());
 }
 
 @JsonSerializable(disallowUnrecognizedKeys: false)
@@ -3073,9 +2987,8 @@ class CoreServerCapabilities_Ocs_Data_Capabilities {
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreServerCapabilities_Ocs_Data_CapabilitiesToJson(this);
   // coverage:ignore-end
-  // coverage:ignore-start
-  static String toJsonString(CoreServerCapabilities_Ocs_Data_Capabilities data) => json.encode(data.toJson());
-  // coverage:ignore-end
+  static String? toJsonString(CoreServerCapabilities_Ocs_Data_Capabilities? data) =>
+      data == null ? null : json.encode(data.toJson());
 }
 
 @JsonSerializable()
@@ -3102,9 +3015,8 @@ class CoreServerCapabilities_Ocs_Data {
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreServerCapabilities_Ocs_DataToJson(this);
   // coverage:ignore-end
-  // coverage:ignore-start
-  static String toJsonString(CoreServerCapabilities_Ocs_Data data) => json.encode(data.toJson());
-  // coverage:ignore-end
+  static String? toJsonString(CoreServerCapabilities_Ocs_Data? data) =>
+      data == null ? null : json.encode(data.toJson());
 }
 
 @JsonSerializable()
@@ -3130,9 +3042,7 @@ class CoreServerCapabilities_Ocs {
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreServerCapabilities_OcsToJson(this);
   // coverage:ignore-end
-  // coverage:ignore-start
-  static String toJsonString(CoreServerCapabilities_Ocs data) => json.encode(data.toJson());
-  // coverage:ignore-end
+  static String? toJsonString(CoreServerCapabilities_Ocs? data) => data == null ? null : json.encode(data.toJson());
 }
 
 @JsonSerializable()
@@ -3153,9 +3063,7 @@ class CoreServerCapabilities {
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreServerCapabilitiesToJson(this);
   // coverage:ignore-end
-  // coverage:ignore-start
-  static String toJsonString(CoreServerCapabilities data) => json.encode(data.toJson());
-  // coverage:ignore-end
+  static String? toJsonString(CoreServerCapabilities? data) => data == null ? null : json.encode(data.toJson());
 }
 
 class CoreNavigationApps_Ocs_Data_Order {
@@ -3247,9 +3155,7 @@ class CoreNavigationApps_Ocs_Data {
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreNavigationApps_Ocs_DataToJson(this);
   // coverage:ignore-end
-  // coverage:ignore-start
-  static String toJsonString(CoreNavigationApps_Ocs_Data data) => json.encode(data.toJson());
-  // coverage:ignore-end
+  static String? toJsonString(CoreNavigationApps_Ocs_Data? data) => data == null ? null : json.encode(data.toJson());
 }
 
 @JsonSerializable()
@@ -3275,9 +3181,7 @@ class CoreNavigationApps_Ocs {
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreNavigationApps_OcsToJson(this);
   // coverage:ignore-end
-  // coverage:ignore-start
-  static String toJsonString(CoreNavigationApps_Ocs data) => json.encode(data.toJson());
-  // coverage:ignore-end
+  static String? toJsonString(CoreNavigationApps_Ocs? data) => data == null ? null : json.encode(data.toJson());
 }
 
 @JsonSerializable()
@@ -3298,9 +3202,7 @@ class CoreNavigationApps {
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreNavigationAppsToJson(this);
   // coverage:ignore-end
-  // coverage:ignore-start
-  static String toJsonString(CoreNavigationApps data) => json.encode(data.toJson());
-  // coverage:ignore-end
+  static String? toJsonString(CoreNavigationApps? data) => data == null ? null : json.encode(data.toJson());
 }
 
 @JsonSerializable()
@@ -3326,9 +3228,7 @@ class CoreLoginFlowInit_Poll {
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreLoginFlowInit_PollToJson(this);
   // coverage:ignore-end
-  // coverage:ignore-start
-  static String toJsonString(CoreLoginFlowInit_Poll data) => json.encode(data.toJson());
-  // coverage:ignore-end
+  static String? toJsonString(CoreLoginFlowInit_Poll? data) => data == null ? null : json.encode(data.toJson());
 }
 
 @JsonSerializable()
@@ -3354,9 +3254,7 @@ class CoreLoginFlowInit {
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreLoginFlowInitToJson(this);
   // coverage:ignore-end
-  // coverage:ignore-start
-  static String toJsonString(CoreLoginFlowInit data) => json.encode(data.toJson());
-  // coverage:ignore-end
+  static String? toJsonString(CoreLoginFlowInit? data) => data == null ? null : json.encode(data.toJson());
 }
 
 @JsonSerializable()
@@ -3385,9 +3283,7 @@ class CoreLoginFlowResult {
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreLoginFlowResultToJson(this);
   // coverage:ignore-end
-  // coverage:ignore-start
-  static String toJsonString(CoreLoginFlowResult data) => json.encode(data.toJson());
-  // coverage:ignore-end
+  static String? toJsonString(CoreLoginFlowResult? data) => data == null ? null : json.encode(data.toJson());
 }
 
 class CoreAutocompleteResult_Ocs_Data_Status {
@@ -3463,9 +3359,8 @@ class CoreAutocompleteResult_Ocs_Data {
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreAutocompleteResult_Ocs_DataToJson(this);
   // coverage:ignore-end
-  // coverage:ignore-start
-  static String toJsonString(CoreAutocompleteResult_Ocs_Data data) => json.encode(data.toJson());
-  // coverage:ignore-end
+  static String? toJsonString(CoreAutocompleteResult_Ocs_Data? data) =>
+      data == null ? null : json.encode(data.toJson());
 }
 
 @JsonSerializable()
@@ -3491,9 +3386,7 @@ class CoreAutocompleteResult_Ocs {
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreAutocompleteResult_OcsToJson(this);
   // coverage:ignore-end
-  // coverage:ignore-start
-  static String toJsonString(CoreAutocompleteResult_Ocs data) => json.encode(data.toJson());
-  // coverage:ignore-end
+  static String? toJsonString(CoreAutocompleteResult_Ocs? data) => data == null ? null : json.encode(data.toJson());
 }
 
 @JsonSerializable()
@@ -3514,9 +3407,7 @@ class CoreAutocompleteResult {
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$CoreAutocompleteResultToJson(this);
   // coverage:ignore-end
-  // coverage:ignore-start
-  static String toJsonString(CoreAutocompleteResult data) => json.encode(data.toJson());
-  // coverage:ignore-end
+  static String? toJsonString(CoreAutocompleteResult? data) => data == null ? null : json.encode(data.toJson());
 }
 
 @JsonSerializable()
@@ -3537,9 +3428,7 @@ class NewsSupportedAPIVersions {
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$NewsSupportedAPIVersionsToJson(this);
   // coverage:ignore-end
-  // coverage:ignore-start
-  static String toJsonString(NewsSupportedAPIVersions data) => json.encode(data.toJson());
-  // coverage:ignore-end
+  static String? toJsonString(NewsSupportedAPIVersions? data) => data == null ? null : json.encode(data.toJson());
 }
 
 @JsonSerializable()
@@ -3618,9 +3507,7 @@ class NewsArticle {
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$NewsArticleToJson(this);
   // coverage:ignore-end
-  // coverage:ignore-start
-  static String toJsonString(NewsArticle data) => json.encode(data.toJson());
-  // coverage:ignore-end
+  static String? toJsonString(NewsArticle? data) => data == null ? null : json.encode(data.toJson());
 }
 
 @JsonSerializable()
@@ -3678,9 +3565,7 @@ class NewsFeed {
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$NewsFeedToJson(this);
   // coverage:ignore-end
-  // coverage:ignore-start
-  static String toJsonString(NewsFeed data) => json.encode(data.toJson());
-  // coverage:ignore-end
+  static String? toJsonString(NewsFeed? data) => data == null ? null : json.encode(data.toJson());
 }
 
 @JsonSerializable()
@@ -3712,9 +3597,7 @@ class NewsFolder {
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$NewsFolderToJson(this);
   // coverage:ignore-end
-  // coverage:ignore-start
-  static String toJsonString(NewsFolder data) => json.encode(data.toJson());
-  // coverage:ignore-end
+  static String? toJsonString(NewsFolder? data) => data == null ? null : json.encode(data.toJson());
 }
 
 @JsonSerializable()
@@ -3735,9 +3618,7 @@ class NewsListFolders {
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$NewsListFoldersToJson(this);
   // coverage:ignore-end
-  // coverage:ignore-start
-  static String toJsonString(NewsListFolders data) => json.encode(data.toJson());
-  // coverage:ignore-end
+  static String? toJsonString(NewsListFolders? data) => data == null ? null : json.encode(data.toJson());
 }
 
 @JsonSerializable()
@@ -3766,9 +3647,7 @@ class NewsListFeeds {
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$NewsListFeedsToJson(this);
   // coverage:ignore-end
-  // coverage:ignore-start
-  static String toJsonString(NewsListFeeds data) => json.encode(data.toJson());
-  // coverage:ignore-end
+  static String? toJsonString(NewsListFeeds? data) => data == null ? null : json.encode(data.toJson());
 }
 
 @JsonSerializable()
@@ -3789,9 +3668,7 @@ class NewsListArticles {
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$NewsListArticlesToJson(this);
   // coverage:ignore-end
-  // coverage:ignore-start
-  static String toJsonString(NewsListArticles data) => json.encode(data.toJson());
-  // coverage:ignore-end
+  static String? toJsonString(NewsListArticles? data) => data == null ? null : json.encode(data.toJson());
 }
 
 @JsonSerializable()
@@ -3840,9 +3717,7 @@ class NotesNote {
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$NotesNoteToJson(this);
   // coverage:ignore-end
-  // coverage:ignore-start
-  static String toJsonString(NotesNote data) => json.encode(data.toJson());
-  // coverage:ignore-end
+  static String? toJsonString(NotesNote? data) => data == null ? null : json.encode(data.toJson());
 }
 
 enum NotesSettings_NoteMode {
@@ -3891,9 +3766,7 @@ class NotesSettings {
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$NotesSettingsToJson(this);
   // coverage:ignore-end
-  // coverage:ignore-start
-  static String toJsonString(NotesSettings data) => json.encode(data.toJson());
-  // coverage:ignore-end
+  static String? toJsonString(NotesSettings? data) => data == null ? null : json.encode(data.toJson());
 }
 
 class NotificationsNotification_SubjectRichParameters {
@@ -3994,9 +3867,8 @@ class NotificationsNotificationAction {
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$NotificationsNotificationActionToJson(this);
   // coverage:ignore-end
-  // coverage:ignore-start
-  static String toJsonString(NotificationsNotificationAction data) => json.encode(data.toJson());
-  // coverage:ignore-end
+  static String? toJsonString(NotificationsNotificationAction? data) =>
+      data == null ? null : json.encode(data.toJson());
 }
 
 @JsonSerializable()
@@ -4064,9 +3936,7 @@ class NotificationsNotification {
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$NotificationsNotificationToJson(this);
   // coverage:ignore-end
-  // coverage:ignore-start
-  static String toJsonString(NotificationsNotification data) => json.encode(data.toJson());
-  // coverage:ignore-end
+  static String? toJsonString(NotificationsNotification? data) => data == null ? null : json.encode(data.toJson());
 }
 
 @JsonSerializable()
@@ -4093,9 +3963,8 @@ class NotificationsListNotifications_Ocs {
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$NotificationsListNotifications_OcsToJson(this);
   // coverage:ignore-end
-  // coverage:ignore-start
-  static String toJsonString(NotificationsListNotifications_Ocs data) => json.encode(data.toJson());
-  // coverage:ignore-end
+  static String? toJsonString(NotificationsListNotifications_Ocs? data) =>
+      data == null ? null : json.encode(data.toJson());
 }
 
 @JsonSerializable()
@@ -4117,9 +3986,7 @@ class NotificationsListNotifications {
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$NotificationsListNotificationsToJson(this);
   // coverage:ignore-end
-  // coverage:ignore-start
-  static String toJsonString(NotificationsListNotifications data) => json.encode(data.toJson());
-  // coverage:ignore-end
+  static String? toJsonString(NotificationsListNotifications? data) => data == null ? null : json.encode(data.toJson());
 }
 
 @JsonSerializable()
@@ -4146,9 +4013,8 @@ class NotificationsGetNotification_Ocs {
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$NotificationsGetNotification_OcsToJson(this);
   // coverage:ignore-end
-  // coverage:ignore-start
-  static String toJsonString(NotificationsGetNotification_Ocs data) => json.encode(data.toJson());
-  // coverage:ignore-end
+  static String? toJsonString(NotificationsGetNotification_Ocs? data) =>
+      data == null ? null : json.encode(data.toJson());
 }
 
 @JsonSerializable()
@@ -4170,9 +4036,7 @@ class NotificationsGetNotification {
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$NotificationsGetNotificationToJson(this);
   // coverage:ignore-end
-  // coverage:ignore-start
-  static String toJsonString(NotificationsGetNotification data) => json.encode(data.toJson());
-  // coverage:ignore-end
+  static String? toJsonString(NotificationsGetNotification? data) => data == null ? null : json.encode(data.toJson());
 }
 
 @JsonSerializable()
@@ -4197,9 +4061,7 @@ class EmptyOCS_Ocs {
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$EmptyOCS_OcsToJson(this);
   // coverage:ignore-end
-  // coverage:ignore-start
-  static String toJsonString(EmptyOCS_Ocs data) => json.encode(data.toJson());
-  // coverage:ignore-end
+  static String? toJsonString(EmptyOCS_Ocs? data) => data == null ? null : json.encode(data.toJson());
 }
 
 @JsonSerializable()
@@ -4219,9 +4081,7 @@ class EmptyOCS {
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$EmptyOCSToJson(this);
   // coverage:ignore-end
-  // coverage:ignore-start
-  static String toJsonString(EmptyOCS data) => json.encode(data.toJson());
-  // coverage:ignore-end
+  static String? toJsonString(EmptyOCS? data) => data == null ? null : json.encode(data.toJson());
 }
 
 @JsonSerializable()
@@ -4254,9 +4114,8 @@ class NotificationsPushServerSubscription {
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$NotificationsPushServerSubscriptionToJson(this);
   // coverage:ignore-end
-  // coverage:ignore-start
-  static String toJsonString(NotificationsPushServerSubscription data) => json.encode(data.toJson());
-  // coverage:ignore-end
+  static String? toJsonString(NotificationsPushServerSubscription? data) =>
+      data == null ? null : json.encode(data.toJson());
 }
 
 @JsonSerializable()
@@ -4283,9 +4142,8 @@ class NotificationsPushServerRegistration_Ocs {
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$NotificationsPushServerRegistration_OcsToJson(this);
   // coverage:ignore-end
-  // coverage:ignore-start
-  static String toJsonString(NotificationsPushServerRegistration_Ocs data) => json.encode(data.toJson());
-  // coverage:ignore-end
+  static String? toJsonString(NotificationsPushServerRegistration_Ocs? data) =>
+      data == null ? null : json.encode(data.toJson());
 }
 
 @JsonSerializable()
@@ -4307,9 +4165,8 @@ class NotificationsPushServerRegistration {
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$NotificationsPushServerRegistrationToJson(this);
   // coverage:ignore-end
-  // coverage:ignore-start
-  static String toJsonString(NotificationsPushServerRegistration data) => json.encode(data.toJson());
-  // coverage:ignore-end
+  static String? toJsonString(NotificationsPushServerRegistration? data) =>
+      data == null ? null : json.encode(data.toJson());
 }
 
 @JsonSerializable()
@@ -4345,9 +4202,8 @@ class ProvisioningApiUserDetails_Quota {
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$ProvisioningApiUserDetails_QuotaToJson(this);
   // coverage:ignore-end
-  // coverage:ignore-start
-  static String toJsonString(ProvisioningApiUserDetails_Quota data) => json.encode(data.toJson());
-  // coverage:ignore-end
+  static String? toJsonString(ProvisioningApiUserDetails_Quota? data) =>
+      data == null ? null : json.encode(data.toJson());
 }
 
 @JsonSerializable()
@@ -4374,9 +4230,8 @@ class ProvisioningApiUserDetails_BackendCapabilities {
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$ProvisioningApiUserDetails_BackendCapabilitiesToJson(this);
   // coverage:ignore-end
-  // coverage:ignore-start
-  static String toJsonString(ProvisioningApiUserDetails_BackendCapabilities data) => json.encode(data.toJson());
-  // coverage:ignore-end
+  static String? toJsonString(ProvisioningApiUserDetails_BackendCapabilities? data) =>
+      data == null ? null : json.encode(data.toJson());
 }
 
 @JsonSerializable()
@@ -4516,9 +4371,7 @@ class ProvisioningApiUserDetails {
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$ProvisioningApiUserDetailsToJson(this);
   // coverage:ignore-end
-  // coverage:ignore-start
-  static String toJsonString(ProvisioningApiUserDetails data) => json.encode(data.toJson());
-  // coverage:ignore-end
+  static String? toJsonString(ProvisioningApiUserDetails? data) => data == null ? null : json.encode(data.toJson());
 }
 
 @JsonSerializable()
@@ -4544,9 +4397,7 @@ class ProvisioningApiUser_Ocs {
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$ProvisioningApiUser_OcsToJson(this);
   // coverage:ignore-end
-  // coverage:ignore-start
-  static String toJsonString(ProvisioningApiUser_Ocs data) => json.encode(data.toJson());
-  // coverage:ignore-end
+  static String? toJsonString(ProvisioningApiUser_Ocs? data) => data == null ? null : json.encode(data.toJson());
 }
 
 @JsonSerializable()
@@ -4567,9 +4418,7 @@ class ProvisioningApiUser {
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$ProvisioningApiUserToJson(this);
   // coverage:ignore-end
-  // coverage:ignore-start
-  static String toJsonString(ProvisioningApiUser data) => json.encode(data.toJson());
-  // coverage:ignore-end
+  static String? toJsonString(ProvisioningApiUser? data) => data == null ? null : json.encode(data.toJson());
 }
 
 enum UserStatusClearAt_Type {
@@ -4679,9 +4528,7 @@ class UserStatusClearAt {
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$UserStatusClearAtToJson(this);
   // coverage:ignore-end
-  // coverage:ignore-start
-  static String toJsonString(UserStatusClearAt data) => json.encode(data.toJson());
-  // coverage:ignore-end
+  static String? toJsonString(UserStatusClearAt? data) => data == null ? null : json.encode(data.toJson());
 }
 
 class UserStatusPublicUserStatus_ClearAt {
@@ -4788,9 +4635,7 @@ class UserStatusPublicUserStatus {
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$UserStatusPublicUserStatusToJson(this);
   // coverage:ignore-end
-  // coverage:ignore-start
-  static String toJsonString(UserStatusPublicUserStatus data) => json.encode(data.toJson());
-  // coverage:ignore-end
+  static String? toJsonString(UserStatusPublicUserStatus? data) => data == null ? null : json.encode(data.toJson());
 }
 
 @JsonSerializable()
@@ -4817,9 +4662,7 @@ class UserStatusFindAllStatuses_Ocs {
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$UserStatusFindAllStatuses_OcsToJson(this);
   // coverage:ignore-end
-  // coverage:ignore-start
-  static String toJsonString(UserStatusFindAllStatuses_Ocs data) => json.encode(data.toJson());
-  // coverage:ignore-end
+  static String? toJsonString(UserStatusFindAllStatuses_Ocs? data) => data == null ? null : json.encode(data.toJson());
 }
 
 @JsonSerializable()
@@ -4840,9 +4683,7 @@ class UserStatusFindAllStatuses {
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$UserStatusFindAllStatusesToJson(this);
   // coverage:ignore-end
-  // coverage:ignore-start
-  static String toJsonString(UserStatusFindAllStatuses data) => json.encode(data.toJson());
-  // coverage:ignore-end
+  static String? toJsonString(UserStatusFindAllStatuses? data) => data == null ? null : json.encode(data.toJson());
 }
 
 class UserStatusFindStatus_Ocs_Data {
@@ -4902,9 +4743,7 @@ class UserStatusFindStatus_Ocs {
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$UserStatusFindStatus_OcsToJson(this);
   // coverage:ignore-end
-  // coverage:ignore-start
-  static String toJsonString(UserStatusFindStatus_Ocs data) => json.encode(data.toJson());
-  // coverage:ignore-end
+  static String? toJsonString(UserStatusFindStatus_Ocs? data) => data == null ? null : json.encode(data.toJson());
 }
 
 @JsonSerializable()
@@ -4925,9 +4764,7 @@ class UserStatusFindStatus {
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$UserStatusFindStatusToJson(this);
   // coverage:ignore-end
-  // coverage:ignore-start
-  static String toJsonString(UserStatusFindStatus data) => json.encode(data.toJson());
-  // coverage:ignore-end
+  static String? toJsonString(UserStatusFindStatus? data) => data == null ? null : json.encode(data.toJson());
 }
 
 class UserStatus_ClearAt {
@@ -5012,9 +4849,7 @@ class UserStatus {
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$UserStatusToJson(this);
   // coverage:ignore-end
-  // coverage:ignore-start
-  static String toJsonString(UserStatus data) => json.encode(data.toJson());
-  // coverage:ignore-end
+  static String? toJsonString(UserStatus? data) => data == null ? null : json.encode(data.toJson());
 }
 
 class UserStatusGetUserStatus_Ocs_Data {
@@ -5075,9 +4910,7 @@ class UserStatusGetUserStatus_Ocs {
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$UserStatusGetUserStatus_OcsToJson(this);
   // coverage:ignore-end
-  // coverage:ignore-start
-  static String toJsonString(UserStatusGetUserStatus_Ocs data) => json.encode(data.toJson());
-  // coverage:ignore-end
+  static String? toJsonString(UserStatusGetUserStatus_Ocs? data) => data == null ? null : json.encode(data.toJson());
 }
 
 @JsonSerializable()
@@ -5098,9 +4931,7 @@ class UserStatusGetUserStatus {
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$UserStatusGetUserStatusToJson(this);
   // coverage:ignore-end
-  // coverage:ignore-start
-  static String toJsonString(UserStatusGetUserStatus data) => json.encode(data.toJson());
-  // coverage:ignore-end
+  static String? toJsonString(UserStatusGetUserStatus? data) => data == null ? null : json.encode(data.toJson());
 }
 
 class UserStatusPredefinedStatus_ClearAt {
@@ -5175,9 +5006,7 @@ class UserStatusPredefinedStatus {
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$UserStatusPredefinedStatusToJson(this);
   // coverage:ignore-end
-  // coverage:ignore-start
-  static String toJsonString(UserStatusPredefinedStatus data) => json.encode(data.toJson());
-  // coverage:ignore-end
+  static String? toJsonString(UserStatusPredefinedStatus? data) => data == null ? null : json.encode(data.toJson());
 }
 
 @JsonSerializable()
@@ -5204,9 +5033,8 @@ class UserStatusPredefinedStatuses_Ocs {
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$UserStatusPredefinedStatuses_OcsToJson(this);
   // coverage:ignore-end
-  // coverage:ignore-start
-  static String toJsonString(UserStatusPredefinedStatuses_Ocs data) => json.encode(data.toJson());
-  // coverage:ignore-end
+  static String? toJsonString(UserStatusPredefinedStatuses_Ocs? data) =>
+      data == null ? null : json.encode(data.toJson());
 }
 
 @JsonSerializable()
@@ -5228,9 +5056,7 @@ class UserStatusPredefinedStatuses {
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$UserStatusPredefinedStatusesToJson(this);
   // coverage:ignore-end
-  // coverage:ignore-start
-  static String toJsonString(UserStatusPredefinedStatuses data) => json.encode(data.toJson());
-  // coverage:ignore-end
+  static String? toJsonString(UserStatusPredefinedStatuses? data) => data == null ? null : json.encode(data.toJson());
 }
 
 @JsonSerializable()
@@ -5273,9 +5099,8 @@ class NotificationsPushNotificationDecryptedSubject {
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$NotificationsPushNotificationDecryptedSubjectToJson(this);
   // coverage:ignore-end
-  // coverage:ignore-start
-  static String toJsonString(NotificationsPushNotificationDecryptedSubject data) => json.encode(data.toJson());
-  // coverage:ignore-end
+  static String? toJsonString(NotificationsPushNotificationDecryptedSubject? data) =>
+      data == null ? null : json.encode(data.toJson());
 }
 
 @JsonSerializable()
@@ -5308,9 +5133,7 @@ class NotificationsPushNotification {
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$NotificationsPushNotificationToJson(this);
   // coverage:ignore-end
-  // coverage:ignore-start
-  static String toJsonString(NotificationsPushNotification data) => json.encode(data.toJson());
-  // coverage:ignore-end
+  static String? toJsonString(NotificationsPushNotification? data) => data == null ? null : json.encode(data.toJson());
 }
 
 // coverage:ignore-start
