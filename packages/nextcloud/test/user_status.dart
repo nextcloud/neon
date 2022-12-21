@@ -19,7 +19,7 @@ Future run(final DockerImage image) async {
 
     test('Find all predefined statuses', () async {
       final expectedStatusIDs = ['meeting', 'commuting', 'remote-work', 'sick-leave', 'vacationing'];
-      final response = await client.userStatus.findAllPredefinedStatuses();
+      final response = await client.userStatus.getPredefinedStatuses();
       expect(response.ocs.data, hasLength(5));
       final responseIDs = response.ocs.data.map((final status) => status.id);
       expect(expectedStatusIDs.map(responseIDs.contains).contains(false), false);
@@ -81,12 +81,12 @@ Future run(final DockerImage image) async {
     });
 
     test('Find all statuses', () async {
-      var response = await client.userStatus.findAllStatuses();
+      var response = await client.userStatus.getPublicStatuses();
       expect(response.ocs.data, hasLength(0));
 
       await client.userStatus.setStatus(statusType: NextcloudUserStatusType.online);
 
-      response = await client.userStatus.findAllStatuses();
+      response = await client.userStatus.getPublicStatuses();
       expect(response.ocs.data, hasLength(1));
       expect(response.ocs.data[0].userId, 'user1');
       expect(response.ocs.data[0].message, null);
@@ -100,7 +100,7 @@ Future run(final DockerImage image) async {
       // Same as getting status
       await client.userStatus.setStatus(statusType: NextcloudUserStatusType.online);
 
-      final response = await client.userStatus.findStatus(userId: 'user1');
+      final response = await client.userStatus.getPublicStatus(userId: 'user1');
       expect(response.ocs.data.userStatusPublicUserStatus!.userId, 'user1');
       expect(response.ocs.data.userStatusPublicUserStatus!.message, null);
       expect(response.ocs.data.userStatusPublicUserStatus!.icon, null);

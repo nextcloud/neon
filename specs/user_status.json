@@ -206,7 +206,7 @@
           }
         }
       },
-      "UserStatusFindAllStatuses": {
+      "UserStatusGetPublicStatuses": {
         "type": "object",
         "required": [
           "ocs"
@@ -232,7 +232,7 @@
           }
         }
       },
-      "UserStatusFindStatus": {
+      "UserStatusGetPublicStatus": {
         "type": "object",
         "required": [
           "ocs"
@@ -347,7 +347,7 @@
   "paths": {
     "/ocs/v2.php/apps/user_status/api/v1/statuses": {
       "get": {
-        "operationId": "find-all-statuses",
+        "operationId": "get-public-statuses",
         "tags": [
           "user_status"
         ],
@@ -357,7 +357,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/UserStatusFindAllStatuses"
+                  "$ref": "#/components/schemas/UserStatusGetPublicStatuses"
                 }
               }
             }
@@ -377,7 +377,7 @@
         }
       ],
       "get": {
-        "operationId": "find-status",
+        "operationId": "get-public-status",
         "tags": [
           "user_status"
         ],
@@ -387,7 +387,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/UserStatusFindStatus"
+                  "$ref": "#/components/schemas/UserStatusGetPublicStatus"
                 }
               }
             }
@@ -544,7 +544,7 @@
     },
     "/ocs/v2.php/apps/user_status/api/v1/predefined_statuses": {
       "get": {
-        "operationId": "find-all-predefined-statuses",
+        "operationId": "get-predefined-statuses",
         "tags": [
           "user_status"
         ],

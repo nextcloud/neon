@@ -1181,7 +1181,7 @@ class NextcloudUserStatusClient {
 
   final NextcloudClient rootClient;
 
-  Future<NextcloudUserStatusFindAllStatuses> findAllStatuses() async {
+  Future<NextcloudUserStatusGetPublicStatuses> getPublicStatuses() async {
     var path = '/ocs/v2.php/apps/user_status/api/v1/statuses';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{};
@@ -1193,13 +1193,13 @@ class NextcloudUserStatusClient {
       body,
     );
     if (response.statusCode == 200) {
-      return NextcloudUserStatusFindAllStatuses.fromJson(
+      return NextcloudUserStatusGetPublicStatuses.fromJson(
           json.decode(utf8.decode(response.body) as String) as Map<String, dynamic>);
     }
     throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
   }
 
-  Future<NextcloudUserStatusFindStatus> findStatus({required String userId}) async {
+  Future<NextcloudUserStatusGetPublicStatus> getPublicStatus({required String userId}) async {
     var path = '/ocs/v2.php/apps/user_status/api/v1/statuses/{userId}';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{};
@@ -1212,7 +1212,7 @@ class NextcloudUserStatusClient {
       body,
     );
     if (response.statusCode == 200) {
-      return NextcloudUserStatusFindStatus.fromJson(
+      return NextcloudUserStatusGetPublicStatus.fromJson(
           json.decode(utf8.decode(response.body) as String) as Map<String, dynamic>);
     }
     throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
@@ -1328,7 +1328,7 @@ class NextcloudUserStatusClient {
     throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
   }
 
-  Future<NextcloudUserStatusPredefinedStatuses> findAllPredefinedStatuses() async {
+  Future<NextcloudUserStatusPredefinedStatuses> getPredefinedStatuses() async {
     var path = '/ocs/v2.php/apps/user_status/api/v1/predefined_statuses';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{};
@@ -4742,20 +4742,20 @@ class NextcloudUserStatusPublicUserStatus {
 }
 
 @JsonSerializable()
-class NextcloudUserStatusFindAllStatuses_Ocs {
-  NextcloudUserStatusFindAllStatuses_Ocs({
+class NextcloudUserStatusGetPublicStatuses_Ocs {
+  NextcloudUserStatusGetPublicStatuses_Ocs({
     required this.meta,
     required this.data,
   });
 
   // coverage:ignore-start
-  factory NextcloudUserStatusFindAllStatuses_Ocs.fromJson(Map<String, dynamic> json) =>
-      _$NextcloudUserStatusFindAllStatuses_OcsFromJson(json);
+  factory NextcloudUserStatusGetPublicStatuses_Ocs.fromJson(Map<String, dynamic> json) =>
+      _$NextcloudUserStatusGetPublicStatuses_OcsFromJson(json);
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory NextcloudUserStatusFindAllStatuses_Ocs.fromJsonString(String data) =>
-      NextcloudUserStatusFindAllStatuses_Ocs.fromJson(json.decode(data) as Map<String, dynamic>);
+  factory NextcloudUserStatusGetPublicStatuses_Ocs.fromJsonString(String data) =>
+      NextcloudUserStatusGetPublicStatuses_Ocs.fromJson(json.decode(data) as Map<String, dynamic>);
   // coverage:ignore-end
 
   final NextcloudOCSMeta meta;
@@ -4763,55 +4763,55 @@ class NextcloudUserStatusFindAllStatuses_Ocs {
   final List<NextcloudUserStatusPublicUserStatus> data;
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$NextcloudUserStatusFindAllStatuses_OcsToJson(this);
+  Map<String, dynamic> toJson() => _$NextcloudUserStatusGetPublicStatuses_OcsToJson(this);
   // coverage:ignore-end
-  static String? toJsonString(NextcloudUserStatusFindAllStatuses_Ocs? data) =>
+  static String? toJsonString(NextcloudUserStatusGetPublicStatuses_Ocs? data) =>
       data == null ? null : json.encode(data.toJson());
 }
 
 @JsonSerializable()
-class NextcloudUserStatusFindAllStatuses {
-  NextcloudUserStatusFindAllStatuses({required this.ocs});
+class NextcloudUserStatusGetPublicStatuses {
+  NextcloudUserStatusGetPublicStatuses({required this.ocs});
 
   // coverage:ignore-start
-  factory NextcloudUserStatusFindAllStatuses.fromJson(Map<String, dynamic> json) =>
-      _$NextcloudUserStatusFindAllStatusesFromJson(json);
+  factory NextcloudUserStatusGetPublicStatuses.fromJson(Map<String, dynamic> json) =>
+      _$NextcloudUserStatusGetPublicStatusesFromJson(json);
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory NextcloudUserStatusFindAllStatuses.fromJsonString(String data) =>
-      NextcloudUserStatusFindAllStatuses.fromJson(json.decode(data) as Map<String, dynamic>);
+  factory NextcloudUserStatusGetPublicStatuses.fromJsonString(String data) =>
+      NextcloudUserStatusGetPublicStatuses.fromJson(json.decode(data) as Map<String, dynamic>);
   // coverage:ignore-end
 
-  final NextcloudUserStatusFindAllStatuses_Ocs ocs;
+  final NextcloudUserStatusGetPublicStatuses_Ocs ocs;
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$NextcloudUserStatusFindAllStatusesToJson(this);
+  Map<String, dynamic> toJson() => _$NextcloudUserStatusGetPublicStatusesToJson(this);
   // coverage:ignore-end
-  static String? toJsonString(NextcloudUserStatusFindAllStatuses? data) =>
+  static String? toJsonString(NextcloudUserStatusGetPublicStatuses? data) =>
       data == null ? null : json.encode(data.toJson());
 }
 
-class NextcloudUserStatusFindStatus_Ocs_Data {
-  NextcloudUserStatusFindStatus_Ocs_Data(
+class NextcloudUserStatusGetPublicStatus_Ocs_Data {
+  NextcloudUserStatusGetPublicStatus_Ocs_Data(
     this._data, {
     this.userStatusPublicUserStatus,
   });
 
-  factory NextcloudUserStatusFindStatus_Ocs_Data.fromJson(dynamic data) {
+  factory NextcloudUserStatusGetPublicStatus_Ocs_Data.fromJson(dynamic data) {
     NextcloudUserStatusPublicUserStatus? userStatusPublicUserStatus;
     try {
       userStatusPublicUserStatus = NextcloudUserStatusPublicUserStatus.fromJson(data as Map<String, dynamic>);
     } catch (_) {}
-    return NextcloudUserStatusFindStatus_Ocs_Data(
+    return NextcloudUserStatusGetPublicStatus_Ocs_Data(
       data,
       userStatusPublicUserStatus: userStatusPublicUserStatus,
     );
   }
 
   // coverage:ignore-start
-  factory NextcloudUserStatusFindStatus_Ocs_Data.fromJsonString(String data) =>
-      NextcloudUserStatusFindStatus_Ocs_Data.fromJson(json.decode(data));
+  factory NextcloudUserStatusGetPublicStatus_Ocs_Data.fromJsonString(String data) =>
+      NextcloudUserStatusGetPublicStatus_Ocs_Data.fromJson(json.decode(data));
   // coverage:ignore-end
 
   final dynamic _data;
@@ -4827,53 +4827,54 @@ class NextcloudUserStatusFindStatus_Ocs_Data {
 }
 
 @JsonSerializable()
-class NextcloudUserStatusFindStatus_Ocs {
-  NextcloudUserStatusFindStatus_Ocs({
+class NextcloudUserStatusGetPublicStatus_Ocs {
+  NextcloudUserStatusGetPublicStatus_Ocs({
     required this.meta,
     required this.data,
   });
 
   // coverage:ignore-start
-  factory NextcloudUserStatusFindStatus_Ocs.fromJson(Map<String, dynamic> json) =>
-      _$NextcloudUserStatusFindStatus_OcsFromJson(json);
+  factory NextcloudUserStatusGetPublicStatus_Ocs.fromJson(Map<String, dynamic> json) =>
+      _$NextcloudUserStatusGetPublicStatus_OcsFromJson(json);
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory NextcloudUserStatusFindStatus_Ocs.fromJsonString(String data) =>
-      NextcloudUserStatusFindStatus_Ocs.fromJson(json.decode(data) as Map<String, dynamic>);
+  factory NextcloudUserStatusGetPublicStatus_Ocs.fromJsonString(String data) =>
+      NextcloudUserStatusGetPublicStatus_Ocs.fromJson(json.decode(data) as Map<String, dynamic>);
   // coverage:ignore-end
 
   final NextcloudOCSMeta meta;
 
-  final NextcloudUserStatusFindStatus_Ocs_Data data;
+  final NextcloudUserStatusGetPublicStatus_Ocs_Data data;
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$NextcloudUserStatusFindStatus_OcsToJson(this);
+  Map<String, dynamic> toJson() => _$NextcloudUserStatusGetPublicStatus_OcsToJson(this);
   // coverage:ignore-end
-  static String? toJsonString(NextcloudUserStatusFindStatus_Ocs? data) =>
+  static String? toJsonString(NextcloudUserStatusGetPublicStatus_Ocs? data) =>
       data == null ? null : json.encode(data.toJson());
 }
 
 @JsonSerializable()
-class NextcloudUserStatusFindStatus {
-  NextcloudUserStatusFindStatus({required this.ocs});
+class NextcloudUserStatusGetPublicStatus {
+  NextcloudUserStatusGetPublicStatus({required this.ocs});
 
   // coverage:ignore-start
-  factory NextcloudUserStatusFindStatus.fromJson(Map<String, dynamic> json) =>
-      _$NextcloudUserStatusFindStatusFromJson(json);
+  factory NextcloudUserStatusGetPublicStatus.fromJson(Map<String, dynamic> json) =>
+      _$NextcloudUserStatusGetPublicStatusFromJson(json);
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory NextcloudUserStatusFindStatus.fromJsonString(String data) =>
-      NextcloudUserStatusFindStatus.fromJson(json.decode(data) as Map<String, dynamic>);
+  factory NextcloudUserStatusGetPublicStatus.fromJsonString(String data) =>
+      NextcloudUserStatusGetPublicStatus.fromJson(json.decode(data) as Map<String, dynamic>);
   // coverage:ignore-end
 
-  final NextcloudUserStatusFindStatus_Ocs ocs;
+  final NextcloudUserStatusGetPublicStatus_Ocs ocs;
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$NextcloudUserStatusFindStatusToJson(this);
+  Map<String, dynamic> toJson() => _$NextcloudUserStatusGetPublicStatusToJson(this);
   // coverage:ignore-end
-  static String? toJsonString(NextcloudUserStatusFindStatus? data) => data == null ? null : json.encode(data.toJson());
+  static String? toJsonString(NextcloudUserStatusGetPublicStatus? data) =>
+      data == null ? null : json.encode(data.toJson());
 }
 
 class NextcloudUserStatus_ClearAt {
@@ -5722,14 +5723,15 @@ final _deserializers = <Type, dynamic Function(dynamic)>{
   List<NextcloudProvisioningApiUserDetails_BackendCapabilities>: (final data) => (data as List)
       .map((final e) => NextcloudProvisioningApiUserDetails_BackendCapabilities.fromJson(e as Map<String, dynamic>))
       .toList(),
-  NextcloudUserStatusFindAllStatuses: (final data) =>
-      NextcloudUserStatusFindAllStatuses.fromJson(data as Map<String, dynamic>),
-  List<NextcloudUserStatusFindAllStatuses>: (final data) =>
-      (data as List).map((final e) => NextcloudUserStatusFindAllStatuses.fromJson(e as Map<String, dynamic>)).toList(),
-  NextcloudUserStatusFindAllStatuses_Ocs: (final data) =>
-      NextcloudUserStatusFindAllStatuses_Ocs.fromJson(data as Map<String, dynamic>),
-  List<NextcloudUserStatusFindAllStatuses_Ocs>: (final data) => (data as List)
-      .map((final e) => NextcloudUserStatusFindAllStatuses_Ocs.fromJson(e as Map<String, dynamic>))
+  NextcloudUserStatusGetPublicStatuses: (final data) =>
+      NextcloudUserStatusGetPublicStatuses.fromJson(data as Map<String, dynamic>),
+  List<NextcloudUserStatusGetPublicStatuses>: (final data) => (data as List)
+      .map((final e) => NextcloudUserStatusGetPublicStatuses.fromJson(e as Map<String, dynamic>))
+      .toList(),
+  NextcloudUserStatusGetPublicStatuses_Ocs: (final data) =>
+      NextcloudUserStatusGetPublicStatuses_Ocs.fromJson(data as Map<String, dynamic>),
+  List<NextcloudUserStatusGetPublicStatuses_Ocs>: (final data) => (data as List)
+      .map((final e) => NextcloudUserStatusGetPublicStatuses_Ocs.fromJson(e as Map<String, dynamic>))
       .toList(),
   NextcloudUserStatusPublicUserStatus: (final data) =>
       NextcloudUserStatusPublicUserStatus.fromJson(data as Map<String, dynamic>),
@@ -5738,13 +5740,15 @@ final _deserializers = <Type, dynamic Function(dynamic)>{
   NextcloudUserStatusClearAt: (final data) => NextcloudUserStatusClearAt.fromJson(data as Map<String, dynamic>),
   List<NextcloudUserStatusClearAt>: (final data) =>
       (data as List).map((final e) => NextcloudUserStatusClearAt.fromJson(e as Map<String, dynamic>)).toList(),
-  NextcloudUserStatusFindStatus: (final data) => NextcloudUserStatusFindStatus.fromJson(data as Map<String, dynamic>),
-  List<NextcloudUserStatusFindStatus>: (final data) =>
-      (data as List).map((final e) => NextcloudUserStatusFindStatus.fromJson(e as Map<String, dynamic>)).toList(),
-  NextcloudUserStatusFindStatus_Ocs: (final data) =>
-      NextcloudUserStatusFindStatus_Ocs.fromJson(data as Map<String, dynamic>),
-  List<NextcloudUserStatusFindStatus_Ocs>: (final data) =>
-      (data as List).map((final e) => NextcloudUserStatusFindStatus_Ocs.fromJson(e as Map<String, dynamic>)).toList(),
+  NextcloudUserStatusGetPublicStatus: (final data) =>
+      NextcloudUserStatusGetPublicStatus.fromJson(data as Map<String, dynamic>),
+  List<NextcloudUserStatusGetPublicStatus>: (final data) =>
+      (data as List).map((final e) => NextcloudUserStatusGetPublicStatus.fromJson(e as Map<String, dynamic>)).toList(),
+  NextcloudUserStatusGetPublicStatus_Ocs: (final data) =>
+      NextcloudUserStatusGetPublicStatus_Ocs.fromJson(data as Map<String, dynamic>),
+  List<NextcloudUserStatusGetPublicStatus_Ocs>: (final data) => (data as List)
+      .map((final e) => NextcloudUserStatusGetPublicStatus_Ocs.fromJson(e as Map<String, dynamic>))
+      .toList(),
   NextcloudUserStatusGetUserStatus: (final data) =>
       NextcloudUserStatusGetUserStatus.fromJson(data as Map<String, dynamic>),
   List<NextcloudUserStatusGetUserStatus>: (final data) =>
@@ -6010,18 +6014,18 @@ final _serializers = <Type, dynamic Function(dynamic)>{
   NextcloudProvisioningApiUserDetails_BackendCapabilities: (final data) => data.toJson(),
   List<NextcloudProvisioningApiUserDetails_BackendCapabilities>: (final data) =>
       data.map((final e) => e.toJson()).toList(),
-  NextcloudUserStatusFindAllStatuses: (final data) => data.toJson(),
-  List<NextcloudUserStatusFindAllStatuses>: (final data) => data.map((final e) => e.toJson()).toList(),
-  NextcloudUserStatusFindAllStatuses_Ocs: (final data) => data.toJson(),
-  List<NextcloudUserStatusFindAllStatuses_Ocs>: (final data) => data.map((final e) => e.toJson()).toList(),
+  NextcloudUserStatusGetPublicStatuses: (final data) => data.toJson(),
+  List<NextcloudUserStatusGetPublicStatuses>: (final data) => data.map((final e) => e.toJson()).toList(),
+  NextcloudUserStatusGetPublicStatuses_Ocs: (final data) => data.toJson(),
+  List<NextcloudUserStatusGetPublicStatuses_Ocs>: (final data) => data.map((final e) => e.toJson()).toList(),
   NextcloudUserStatusPublicUserStatus: (final data) => data.toJson(),
   List<NextcloudUserStatusPublicUserStatus>: (final data) => data.map((final e) => e.toJson()).toList(),
   NextcloudUserStatusClearAt: (final data) => data.toJson(),
   List<NextcloudUserStatusClearAt>: (final data) => data.map((final e) => e.toJson()).toList(),
-  NextcloudUserStatusFindStatus: (final data) => data.toJson(),
-  List<NextcloudUserStatusFindStatus>: (final data) => data.map((final e) => e.toJson()).toList(),
-  NextcloudUserStatusFindStatus_Ocs: (final data) => data.toJson(),
-  List<NextcloudUserStatusFindStatus_Ocs>: (final data) => data.map((final e) => e.toJson()).toList(),
+  NextcloudUserStatusGetPublicStatus: (final data) => data.toJson(),
+  List<NextcloudUserStatusGetPublicStatus>: (final data) => data.map((final e) => e.toJson()).toList(),
+  NextcloudUserStatusGetPublicStatus_Ocs: (final data) => data.toJson(),
+  List<NextcloudUserStatusGetPublicStatus_Ocs>: (final data) => data.map((final e) => e.toJson()).toList(),
   NextcloudUserStatusGetUserStatus: (final data) => data.toJson(),
   List<NextcloudUserStatusGetUserStatus>: (final data) => data.map((final e) => e.toJson()).toList(),
   NextcloudUserStatusGetUserStatus_Ocs: (final data) => data.toJson(),
