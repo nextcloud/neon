@@ -81,7 +81,7 @@
           }
         }
       },
-      "ProvisioningApiUser": {
+      "User": {
         "type": "object",
         "required": [
           "ocs"
@@ -98,13 +98,13 @@
                 "$ref": "#/components/schemas/OCSMeta"
               },
               "data": {
-                "$ref": "#/components/schemas/ProvisioningApiUserDetails"
+                "$ref": "#/components/schemas/UserDetails"
               }
             }
           }
         }
       },
-      "ProvisioningApiUserDetails": {
+      "UserDetails": {
         "type": "object",
         "required": [
           "storageLocation",
@@ -327,7 +327,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ProvisioningApiUser"
+                  "$ref": "#/components/schemas/User"
                 }
               }
             }
@@ -357,7 +357,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ProvisioningApiUser"
+                  "$ref": "#/components/schemas/User"
                 }
               }
             }

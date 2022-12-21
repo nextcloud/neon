@@ -81,7 +81,7 @@
           }
         }
       },
-      "CoreServerStatus": {
+      "ServerStatus": {
         "type": "object",
         "required": [
           "installed",
@@ -120,7 +120,7 @@
           }
         }
       },
-      "CoreServerCapabilities": {
+      "ServerCapabilities": {
         "type": "object",
         "required": [
           "ocs"
@@ -783,7 +783,7 @@
           }
         }
       },
-      "CoreNavigationApps": {
+      "NavigationApps": {
         "type": "object",
         "required": [
           "ocs"
@@ -857,7 +857,7 @@
           }
         }
       },
-      "CoreLoginFlowInit": {
+      "LoginFlowInit": {
         "type": "object",
         "required": [
           "poll",
@@ -884,7 +884,7 @@
           }
         }
       },
-      "CoreLoginFlowResult": {
+      "LoginFlowResult": {
         "type": "object",
         "required": [
           "server",
@@ -903,7 +903,7 @@
           }
         }
       },
-      "CoreAutocompleteResult": {
+      "AutocompleteResult": {
         "type": "object",
         "required": [
           "ocs"
@@ -986,7 +986,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/CoreServerStatus"
+                  "$ref": "#/components/schemas/ServerStatus"
                 }
               }
             }
@@ -1006,7 +1006,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/CoreServerCapabilities"
+                  "$ref": "#/components/schemas/ServerCapabilities"
                 }
               }
             }
@@ -1026,7 +1026,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/CoreNavigationApps"
+                  "$ref": "#/components/schemas/NavigationApps"
                 }
               }
             }
@@ -1046,7 +1046,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/CoreLoginFlowInit"
+                  "$ref": "#/components/schemas/LoginFlowInit"
                 }
               }
             }
@@ -1076,7 +1076,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/CoreLoginFlowResult"
+                  "$ref": "#/components/schemas/LoginFlowResult"
                 }
               }
             }
@@ -1306,7 +1306,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/CoreAutocompleteResult"
+                  "$ref": "#/components/schemas/AutocompleteResult"
                 }
               }
             }

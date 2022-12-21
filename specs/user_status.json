@@ -81,7 +81,7 @@
           }
         }
       },
-      "UserStatusPredefinedStatuses": {
+      "PredefinedStatuses": {
         "type": "object",
         "required": [
           "ocs"
@@ -100,14 +100,14 @@
               "data": {
                 "type": "array",
                 "items": {
-                  "$ref": "#/components/schemas/UserStatusPredefinedStatus"
+                  "$ref": "#/components/schemas/PredefinedStatus"
                 }
               }
             }
           }
         }
       },
-      "UserStatusPredefinedStatus": {
+      "PredefinedStatus": {
         "type": "object",
         "required": [
           "id",
@@ -128,7 +128,7 @@
           "clearAt": {
             "anyOf": [
               {
-                "$ref": "#/components/schemas/UserStatusClearAt"
+                "$ref": "#/components/schemas/ClearAt"
               },
               {
                 "type": "integer",
@@ -138,7 +138,7 @@
           }
         }
       },
-      "UserStatusClearAt": {
+      "ClearAt": {
         "type": "object",
         "required": [
           "type",
@@ -169,7 +169,7 @@
           }
         }
       },
-      "UserStatusType": {
+      "Type": {
         "type": "string",
         "enum": [
           "online",
@@ -179,7 +179,7 @@
           "invisible"
         ]
       },
-      "UserStatusGetUserStatus": {
+      "GetStatus": {
         "type": "object",
         "required": [
           "ocs"
@@ -198,7 +198,7 @@
               "data": {
                 "anyOf": [
                   {
-                    "$ref": "#/components/schemas/UserStatus"
+                    "$ref": "#/components/schemas/Status"
                   }
                 ]
               }
@@ -206,7 +206,7 @@
           }
         }
       },
-      "UserStatusGetPublicStatuses": {
+      "GetPublicStatuses": {
         "type": "object",
         "required": [
           "ocs"
@@ -225,14 +225,14 @@
               "data": {
                 "type": "array",
                 "items": {
-                  "$ref": "#/components/schemas/UserStatusPublicUserStatus"
+                  "$ref": "#/components/schemas/PublicStatus"
                 }
               }
             }
           }
         }
       },
-      "UserStatusGetPublicStatus": {
+      "GetPublicStatus": {
         "type": "object",
         "required": [
           "ocs"
@@ -251,7 +251,7 @@
               "data": {
                 "anyOf": [
                   {
-                    "$ref": "#/components/schemas/UserStatusPublicUserStatus"
+                    "$ref": "#/components/schemas/PublicStatus"
                   }
                 ]
               }
@@ -259,7 +259,7 @@
           }
         }
       },
-      "UserStatus": {
+      "Status": {
         "type": "object",
         "required": [
           "userId",
@@ -287,7 +287,7 @@
           "clearAt": {
             "anyOf": [
               {
-                "$ref": "#/components/schemas/UserStatusClearAt"
+                "$ref": "#/components/schemas/ClearAt"
               },
               {
                 "type": "integer",
@@ -296,14 +296,14 @@
             ]
           },
           "status": {
-            "$ref": "#/components/schemas/UserStatusType"
+            "$ref": "#/components/schemas/Type"
           },
           "statusIsUserDefined": {
             "type": "boolean"
           }
         }
       },
-      "UserStatusPublicUserStatus": {
+      "PublicStatus": {
         "type": "object",
         "required": [
           "userId",
@@ -323,7 +323,7 @@
           "clearAt": {
             "anyOf": [
               {
-                "$ref": "#/components/schemas/UserStatusClearAt"
+                "$ref": "#/components/schemas/ClearAt"
               },
               {
                 "type": "integer",
@@ -332,7 +332,7 @@
             ]
           },
           "status": {
-            "$ref": "#/components/schemas/UserStatusType"
+            "$ref": "#/components/schemas/Type"
           }
         }
       }
@@ -357,7 +357,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/UserStatusGetPublicStatuses"
+                  "$ref": "#/components/schemas/GetPublicStatuses"
                 }
               }
             }
@@ -387,7 +387,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/UserStatusGetPublicStatus"
+                  "$ref": "#/components/schemas/GetPublicStatus"
                 }
               }
             }
@@ -407,7 +407,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/UserStatusGetUserStatus"
+                  "$ref": "#/components/schemas/GetStatus"
                 }
               }
             }
@@ -427,7 +427,7 @@
             "in": "query",
             "required": true,
             "schema": {
-              "$ref": "#/components/schemas/UserStatusType"
+              "$ref": "#/components/schemas/Type"
             }
           }
         ],
@@ -437,7 +437,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/UserStatusGetUserStatus"
+                  "$ref": "#/components/schemas/GetStatus"
                 }
               }
             }
@@ -475,7 +475,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/UserStatusGetUserStatus"
+                  "$ref": "#/components/schemas/GetStatus"
                 }
               }
             }
@@ -521,7 +521,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/UserStatusGetUserStatus"
+                  "$ref": "#/components/schemas/GetStatus"
                 }
               }
             }
@@ -554,7 +554,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/UserStatusPredefinedStatuses"
+                  "$ref": "#/components/schemas/PredefinedStatuses"
                 }
               }
             }
@@ -574,7 +574,7 @@
             "in": "query",
             "required": true,
             "schema": {
-              "$ref": "#/components/schemas/UserStatusType"
+              "$ref": "#/components/schemas/Type"
             }
           }
         ],
@@ -584,7 +584,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/UserStatus"
+                  "$ref": "#/components/schemas/Status"
                 }
               }
             }

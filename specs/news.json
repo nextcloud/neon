@@ -81,7 +81,7 @@
           }
         }
       },
-      "NewsListFeeds": {
+      "ListFeeds": {
         "type": "object",
         "required": [
           "feeds"
@@ -96,12 +96,12 @@
           "feeds": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/NewsFeed"
+              "$ref": "#/components/schemas/Feed"
             }
           }
         }
       },
-      "NewsFeed": {
+      "Feed": {
         "type": "object",
         "required": [
           "id",
@@ -154,12 +154,12 @@
           "items": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/NewsArticle"
+              "$ref": "#/components/schemas/Article"
             }
           }
         }
       },
-      "NewsArticle": {
+      "Article": {
         "type": "object",
         "required": [
           "id",
@@ -239,7 +239,7 @@
           }
         }
       },
-      "NewsListArticles": {
+      "ListArticles": {
         "type": "object",
         "required": [
           "items"
@@ -248,12 +248,12 @@
           "items": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/NewsArticle"
+              "$ref": "#/components/schemas/Article"
             }
           }
         }
       },
-      "NewsListFolders": {
+      "ListFolders": {
         "type": "object",
         "required": [
           "folders"
@@ -262,12 +262,12 @@
           "folders": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/NewsFolder"
+              "$ref": "#/components/schemas/Folder"
             }
           }
         }
       },
-      "NewsFolder": {
+      "Folder": {
         "type": "object",
         "required": [
           "id",
@@ -290,12 +290,12 @@
             "deprecated": true,
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/NewsFeed"
+              "$ref": "#/components/schemas/Feed"
             }
           }
         }
       },
-      "NewsSupportedAPIVersions": {
+      "SupportedAPIVersions": {
         "type": "object",
         "properties": {
           "apiLevels": {
@@ -327,7 +327,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/NewsSupportedAPIVersions"
+                  "$ref": "#/components/schemas/SupportedAPIVersions"
                 }
               }
             }
@@ -347,7 +347,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/NewsListFolders"
+                  "$ref": "#/components/schemas/ListFolders"
                 }
               }
             }
@@ -375,7 +375,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/NewsListFolders"
+                  "$ref": "#/components/schemas/ListFolders"
                 }
               }
             }
@@ -474,7 +474,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/NewsListFeeds"
+                  "$ref": "#/components/schemas/ListFeeds"
                 }
               }
             }
@@ -510,7 +510,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/NewsListFeeds"
+                  "$ref": "#/components/schemas/ListFeeds"
                 }
               }
             }
@@ -708,7 +708,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/NewsListArticles"
+                  "$ref": "#/components/schemas/ListArticles"
                 }
               }
             }
@@ -757,7 +757,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/NewsListArticles"
+                  "$ref": "#/components/schemas/ListArticles"
                 }
               }
             }
