@@ -11,5 +11,9 @@ abstract class TypeResult {
 
   String decode(final String object);
 
-  String encode(final String object, {final bool onlyChildren = false});
+  String encode(
+    final String object, {
+    final bool onlyChildren = false,
+    final String? mimeType,
+  });
 }

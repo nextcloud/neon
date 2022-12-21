@@ -12,7 +12,20 @@ class TypeResultMap extends TypeResult {
   String serialize(final String object) => object;
 
   @override
-  String encode(final String object, {final bool onlyChildren = false}) => 'json.encode($object)';
+  String encode(
+    final String object, {
+    final bool onlyChildren = false,
+    final String? mimeType,
+  }) {
+    switch (mimeType) {
+      case 'application/json':
+        return 'json.encode($object)';
+      case 'application/x-www-form-urlencoded':
+        return 'Uri(queryParameters: $object).query';
+      default:
+        throw Exception('Can not encode mime type "$mimeType"');
+    }
+  }
 
   @override
   String deserialize(final String object) => '($object as Map<String, ${subType.name}>)';
