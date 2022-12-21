@@ -277,30 +277,7 @@
           }
         }
       },
-      "PushNotification": {
-        "type": "object",
-        "required": [
-          "accountID",
-          "priority",
-          "type",
-          "subject"
-        ],
-        "properties": {
-          "accountID": {
-            "type": "string"
-          },
-          "priority": {
-            "type": "string"
-          },
-          "type": {
-            "type": "string"
-          },
-          "subject": {
-            "$ref": "#/components/schemas/PushNotificationDecryptedSubject"
-          }
-        }
-      },
-      "PushNotificationDecryptedSubject": {
+      "NotificationDecryptedSubject": {
         "type": "object",
         "properties": {
           "nid": {

@@ -2193,13 +2193,13 @@ Map<String, dynamic> _$NextcloudUserStatusPredefinedStatusesToJson(NextcloudUser
       'ocs': instance.ocs.toJson(),
     };
 
-NextcloudNotificationsPushNotificationDecryptedSubject _$NextcloudNotificationsPushNotificationDecryptedSubjectFromJson(
+NextcloudNotificationsNotificationDecryptedSubject _$NextcloudNotificationsNotificationDecryptedSubjectFromJson(
     Map<String, dynamic> json) {
   $checkKeys(
     json,
     allowedKeys: const ['nid', 'app', 'subject', 'type', 'id', 'delete', 'delete-all'],
   );
-  return NextcloudNotificationsPushNotificationDecryptedSubject(
+  return NextcloudNotificationsNotificationDecryptedSubject(
     nid: json['nid'] as int?,
     app: json['app'] as String?,
     subject: json['subject'] as String?,
@@ -2210,8 +2210,8 @@ NextcloudNotificationsPushNotificationDecryptedSubject _$NextcloudNotificationsP
   );
 }
 
-Map<String, dynamic> _$NextcloudNotificationsPushNotificationDecryptedSubjectToJson(
-        NextcloudNotificationsPushNotificationDecryptedSubject instance) =>
+Map<String, dynamic> _$NextcloudNotificationsNotificationDecryptedSubjectToJson(
+        NextcloudNotificationsNotificationDecryptedSubject instance) =>
     <String, dynamic>{
       'nid': instance.nid,
       'app': instance.app,
@@ -2220,25 +2220,4 @@ Map<String, dynamic> _$NextcloudNotificationsPushNotificationDecryptedSubjectToJ
       'id': instance.id,
       'delete': instance.delete,
       'delete-all': instance.deleteAll,
-    };
-
-NextcloudNotificationsPushNotification _$NextcloudNotificationsPushNotificationFromJson(Map<String, dynamic> json) {
-  $checkKeys(
-    json,
-    allowedKeys: const ['accountID', 'priority', 'type', 'subject'],
-  );
-  return NextcloudNotificationsPushNotification(
-    accountID: json['accountID'] as String,
-    priority: json['priority'] as String,
-    type: json['type'] as String,
-    subject: NextcloudNotificationsPushNotificationDecryptedSubject.fromJson(json['subject'] as Map<String, dynamic>),
-  );
-}
-
-Map<String, dynamic> _$NextcloudNotificationsPushNotificationToJson(NextcloudNotificationsPushNotification instance) =>
-    <String, dynamic>{
-      'accountID': instance.accountID,
-      'priority': instance.priority,
-      'type': instance.type,
-      'subject': instance.subject.toJson(),
     };

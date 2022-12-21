@@ -1,8 +1,6 @@
 import 'dart:async';
-import 'dart:io';
 
 import 'package:nextcloud/nextcloud.dart';
-import 'package:nextcloud_push_proxy/nextcloud_push_proxy.dart';
 import 'package:nextcloud_test/nextcloud_test.dart';
 import 'package:test/test.dart';
 
@@ -117,95 +115,12 @@ Future run(final DockerImage image) async {
     // ignore: avoid_redundant_argument_values
     RSAKeypair generateKeypair() => RSAKeypair.fromRandom(keySize: 2048);
 
-    test('Register device and receive notification', () async {
-      const pushToken = '789';
-      final keypair = generateKeypair();
-
-      final pushProxy = NextcloudPushProxy();
-
-      late int port;
-      while (true) {
-        port = randomPort();
-        try {
-          await pushProxy.create(
-            logging: false,
-            port: port,
-          );
-          break;
-        } on SocketException catch (e) {
-          if (e.osError?.errorCode != 98) {
-            rethrow;
-          }
-        }
-      }
-
-      final subscription = (await client.notifications.registerDevice(
-        pushTokenHash: client.notifications.generatePushTokenHash(pushToken),
-        devicePublicKey: keypair.publicKey.toFormattedPEM(),
-        proxyServer: 'http://host.docker.internal:$port/',
-      ))
-          .ocs
-          .data;
-      expect(subscription.publicKey, hasLength(451));
-      RSAPublicKey.fromPEM(subscription.publicKey);
-      expect(subscription.deviceIdentifier, isNotEmpty);
-      expect(subscription.signature, isNotEmpty);
-      expect(subscription.message, isNull);
-
-      final deviceCompleter = Completer();
-      final notificationCompleter = Completer();
-
-      pushProxy.onNewDevice.listen((final device) async {
-        expect(device.pushToken, pushToken);
-        expect(device.deviceIdentifier, isNotEmpty);
-        expect(device.deviceIdentifierSignature, isNotEmpty);
-        expect(device.userPublicKey, isNotEmpty);
-
-        deviceCompleter.complete();
-      });
-      pushProxy.onNewNotification.listen((final notification) async {
-        expect(notification.deviceIdentifier, subscription.deviceIdentifier);
-        expect(notification.pushTokenHash, client.notifications.generatePushTokenHash(pushToken));
-        expect(notification.subject, isNotEmpty);
-        expect(notification.signature, isNotEmpty);
-        expect(notification.priority, 'normal');
-        expect(notification.type, 'alert');
-
-        final decryptedSubject = decryptPushNotificationSubject(
-          keypair.privateKey,
-          notification.subject,
-        );
-        expect(decryptedSubject.nid, isNotNull);
-        expect(decryptedSubject.app, 'admin_notifications');
-        expect(decryptedSubject.subject, '123');
-        expect(decryptedSubject.type, 'admin_notifications');
-        expect(decryptedSubject.id, isNotEmpty);
-
-        notificationCompleter.complete();
-      });
-
-      await client.notifications.registerDeviceAtPushProxy(
-        pushToken,
-        subscription,
-        'http://localhost:$port/',
-      );
-      await client.notifications.sendAdminNotification(
-        userId: 'admin',
-        shortMessage: '123',
-        longMessage: '456',
-      );
-
-      await deviceCompleter.future;
-      await notificationCompleter.future;
-      await pushProxy.close();
-    });
-
-    test('Remove push device', () async {
+    test('Register and remove push device', () async {
       const pushToken = '789';
       final keypair = generateKeypair();
 
       final subscription = (await client.notifications.registerDevice(
-        pushTokenHash: client.notifications.generatePushTokenHash(pushToken),
+        pushTokenHash: generatePushTokenHash(pushToken),
         devicePublicKey: keypair.publicKey.toFormattedPEM(),
         proxyServer: 'https://example.com/',
       ))

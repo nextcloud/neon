@@ -2,63 +2,23 @@
 
 part of '../nextcloud.dart';
 
+/// Generates the push token hash which is just sha512
+String generatePushTokenHash(final String pushToken) => sha512.convert(utf8.encode(pushToken)).toString();
+
+/// Decrypts the subject of a push notification
+NextcloudNotificationsNotificationDecryptedSubject decryptPushNotificationSubject(
+  final RSAPrivateKey privateKey,
+  final String subject,
+) =>
+    NextcloudNotificationsNotificationDecryptedSubject.fromJson(
+      json.decode(privateKey.decrypt(subject)) as Map<String, dynamic>,
+    );
+
 extension UserDetailsDisplayName on openapi.NextcloudProvisioningApiUserDetails {
   /// This is used to work around an API change that wasn't made for every endpoint
   /// See https://github.com/nextcloud/server/commit/5086335643b6181284ee50f57b95525002842992
   String? getDisplayName() => displayname ?? displayName;
 }
-
-extension NextcloudNotificationsPushProxy on NextcloudNotificationsClient {
-  /// Registers a device at the push proxy server
-  Future registerDeviceAtPushProxy(
-    final String pushToken,
-    final NextcloudNotificationsPushServerSubscription subscription,
-    final String proxyServer,
-  ) async {
-    final request = await HttpClient().postUrl(Uri.parse('${proxyServer}devices'))
-      ..followRedirects = false
-      ..persistentConnection = true;
-
-    request.headers.add(HttpHeaders.contentTypeHeader, 'application/x-www-form-urlencoded');
-
-    request.add(
-      utf8.encode(
-        Uri(
-          queryParameters: {
-            'pushToken': pushToken,
-            'deviceIdentifier': subscription.deviceIdentifier,
-            'deviceIdentifierSignature': subscription.signature,
-            'userPublicKey': subscription.publicKey,
-          },
-        ).query,
-      ),
-    );
-
-    final response = await request.close();
-
-    if (response.statusCode != 200) {
-      // coverage:ignore-start
-      throw NextcloudApiException(
-        response.statusCode,
-        {}, // TODO
-        await response.bodyBytes,
-      );
-      // coverage:ignore-end
-    }
-  }
-
-  /// Generates the push token hash which is just sha512
-  String generatePushTokenHash(final String pushToken) => sha512.convert(utf8.encode(pushToken)).toString();
-}
-
-/// Decrypts the subject of a push notification
-NextcloudNotificationsPushNotificationDecryptedSubject decryptPushNotificationSubject(
-  final RSAPrivateKey privateKey,
-  final String subject,
-) =>
-    NextcloudNotificationsPushNotificationDecryptedSubject.fromJson(
-      json.decode(privateKey.decrypt(subject)) as Map<String, dynamic>,
-    );
 
 /// See https://github.com/nextcloud/news/blob/4a107b3d53c4fe651ac704251b99e04a53cd587f/lib/Db/ListType.php
 enum NewsListType {
