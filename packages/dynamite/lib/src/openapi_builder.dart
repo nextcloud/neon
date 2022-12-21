@@ -1171,21 +1171,71 @@ TypeResult resolveObject(
                           '/// ${propertySchema.description!}',
                         ],
                       ]);
-                    if (_toDartName(propertyName) != propertyName ||
-                        propertySchema.isJsonString ||
-                        extraJsonKeyValues != null) {
+                    final hasDifferentName = _toDartName(propertyName) != propertyName;
+                    final isJsonString = propertySchema.isJsonString;
+                    final isJsonStringArray = result is TypeResultList && (propertySchema.items?.isJsonString ?? false);
+                    final hasExtraJsonKeyValues =
+                        extraJsonKeyValues != null && extraJsonKeyValues.containsKey(propertyName);
+                    if (hasDifferentName || isJsonString || isJsonStringArray || hasExtraJsonKeyValues) {
+                      var fromJson = '${result.name}.fromJsonString';
+                      var toJson = '${result.name}.toJsonString';
+                      if (isJsonStringArray) {
+                        fromJson = '_${_toDartName('${identifier}FromJsonString')}';
+                        if (!state.resolvedTypes.contains(fromJson)) {
+                          state.resolvedTypes.add(fromJson);
+                          state.output.add(
+                            Method(
+                              (final b) => b
+                                ..name = fromJson
+                                ..returns = refer(result.name)
+                                ..lambda = true
+                                ..requiredParameters.addAll([
+                                  Parameter(
+                                    (final b) => b
+                                      ..name = 'data'
+                                      ..type = refer('String'),
+                                  ),
+                                ])
+                                ..body = Code('${result.deserialize(result.decode('data'))};'),
+                            ),
+                          );
+                        }
+                        toJson = '_${_toDartName('${identifier}ToJsonString')}';
+                        if (!state.resolvedTypes.contains(toJson)) {
+                          state.resolvedTypes.add(toJson);
+                          state.output.add(
+                            Method(
+                              (final b) => b
+                                ..name = toJson
+                                ..returns = refer('List<String>?')
+                                ..lambda = true
+                                ..requiredParameters.addAll([
+                                  Parameter(
+                                    (final b) => b
+                                      ..name = 'data'
+                                      ..type = refer(_makeNullable(result.name, true)),
+                                  ),
+                                ])
+                                ..body = Code(
+                                  'data == null ? null : ${result.encode(result.serialize('data'), mimeType: 'application/json', onlyChildren: true)};',
+                                ),
+                            ),
+                          );
+                        }
+                      }
+
                       b.annotations.add(
                         refer('JsonKey').call(
                           [],
                           {
-                            if (_toDartName(propertyName) != propertyName) ...{
+                            if (hasDifferentName) ...{
                               'name': refer("'$propertyName'"),
                             },
-                            if (propertySchema.isJsonString) ...{
-                              'fromJson': refer('${result.name}.fromJsonString'),
-                              'toJson': refer('${result.name}.toJsonString'),
+                            if (isJsonString || isJsonStringArray) ...{
+                              'fromJson': refer(fromJson),
+                              'toJson': refer(toJson),
                             },
-                            if (extraJsonKeyValues != null && extraJsonKeyValues.containsKey(propertyName)) ...{
+                            if (hasExtraJsonKeyValues) ...{
                               for (final key in extraJsonKeyValues[propertyName]!.keys) ...{
                                 key: refer(extraJsonKeyValues[propertyName]![key]!),
                               },

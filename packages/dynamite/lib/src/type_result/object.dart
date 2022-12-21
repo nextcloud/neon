@@ -11,7 +11,7 @@ class TypeResultObject extends TypeResult {
   @override
   String serialize(final String object) {
     if (fromJsonString) {
-      return '$object.toJsonString()';
+      return '$name.toJsonString($object)';
     }
     return '$object.toJson()';
   }
