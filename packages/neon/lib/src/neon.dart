@@ -25,7 +25,7 @@ import 'package:neon/src/apps/news/app.dart';
 import 'package:neon/src/apps/notes/app.dart';
 import 'package:neon/src/apps/notifications/app.dart';
 import 'package:neon/src/models/account.dart';
-import 'package:neon/src/models/push_notification_with_account.dart';
+import 'package:neon/src/models/push_notification.dart';
 import 'package:nextcloud/nextcloud.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:path/path.dart' as p;

@@ -126,7 +126,6 @@ Future pumpAppPage(
     accountsBloc,
     sharedPreferences,
     globalOptions,
-    null,
     platform,
   );
 

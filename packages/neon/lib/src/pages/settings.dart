@@ -119,13 +119,6 @@ class _SettingsPageState extends State<SettingsPage> {
                     SettingsCategory(
                       title: Text(AppLocalizations.of(context).optionsCategoryPushNotifications),
                       tiles: [
-                        TextSettingsTile(
-                          text: AppLocalizations.of(context).globalOptionsPushNotificationsNotice,
-                          style: const TextStyle(
-                            fontWeight: FontWeight.w300,
-                            fontStyle: FontStyle.italic,
-                          ),
-                        ),
                         if (pushNotificationsEnabledEnabledSnapshot.data != null &&
                             !pushNotificationsEnabledEnabledSnapshot.data!) ...[
                           TextSettingsTile(

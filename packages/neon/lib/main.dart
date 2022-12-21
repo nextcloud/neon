@@ -52,7 +52,6 @@ Future main() async {
     accountsBloc,
     sharedPreferences,
     globalOptions,
-    env,
     platform,
   );
 

@@ -172,7 +172,7 @@ class _NeonAppState extends State<NeonApp> with WidgetsBindingObserver, tray.Tra
           final allAppImplementations = Provider.of<List<AppImplementation>>(context, listen: false);
 
           final matchingAppImplementations =
-              allAppImplementations.where((final a) => a.id == pushNotificationWithAccountID.notification.subject.app);
+              allAppImplementations.where((final a) => a.id == pushNotificationWithAccountID.subject.app);
 
           late AppImplementation appImplementation;
           if (matchingAppImplementations.isNotEmpty) {
@@ -191,7 +191,7 @@ class _NeonAppState extends State<NeonApp> with WidgetsBindingObserver, tray.Tra
             _accountsBloc
                 .getAppsBloc(account)
                 .getAppBloc<NotificationsBloc>(appImplementation)
-                .deleteNotification(pushNotificationWithAccountID.notification.subject.nid!);
+                .deleteNotification(pushNotificationWithAccountID.subject.nid!);
           }
           await _openAppFromExternal(account, appImplementation.id);
         };
@@ -199,7 +199,7 @@ class _NeonAppState extends State<NeonApp> with WidgetsBindingObserver, tray.Tra
         final details = await localNotificationsPlugin.getNotificationAppLaunchDetails();
         if (details != null && details.didNotificationLaunchApp && details.notificationResponse?.payload != null) {
           await Global.onPushNotificationClicked!(
-            PushNotificationWithAccountID.fromJson(
+            PushNotification.fromJson(
               json.decode(details.notificationResponse!.payload!) as Map<String, dynamic>,
             ),
           );

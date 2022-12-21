@@ -10,15 +10,25 @@ class GlobalOptions {
     });
 
     _pushNotificationsDistributorsSubject.listen((final distributors) async {
-      _pushNotificationsEnabledEnabledSubject.add(distributors.isNotEmpty);
-      await _setDefaultDistributor();
+      final allowed = distributors.isNotEmpty;
+      _pushNotificationsEnabledEnabledSubject.add(allowed);
+      if (!allowed) {
+        await pushNotificationsEnabled.set(false);
+      }
     });
 
     pushNotificationsEnabled.stream.listen((final enabled) async {
-      if (!enabled) {
+      if (enabled) {
+        final response = await Permission.notification.request();
+        if (response.isPermanentlyDenied) {
+          _pushNotificationsEnabledEnabledSubject.add(false);
+        }
+        if (!response.isGranted) {
+          await pushNotificationsEnabled.set(false);
+        }
+      } else {
         await pushNotificationsDistributor.set(null);
       }
-      await _setDefaultDistributor();
     });
 
     rememberLastUsedAccount.stream.listen((final remember) async {
@@ -48,6 +58,8 @@ class GlobalOptions {
         AppLocalizations.of(context).globalOptionsPushNotificationsDistributorFirebaseEmbedded,
     'com.github.gotify.up': (final context) =>
         AppLocalizations.of(context).globalOptionsPushNotificationsDistributorGotifyUP,
+    'eu.siacs.conversations': (final context) =>
+        AppLocalizations.of(context).globalOptionsPushNotificationsDistributorConversations,
     'io.heckel.ntfy': (final context) => AppLocalizations.of(context).globalOptionsPushNotificationsDistributorNtfy,
     'org.unifiedpush.distributor.fcm': (final context) =>
         AppLocalizations.of(context).globalOptionsPushNotificationsDistributorFCMUP,
@@ -105,17 +117,6 @@ class GlobalOptions {
     });
   }
 
-  Future _setDefaultDistributor() async {
-    if ((pushNotificationsEnabled.enabled.valueOrNull ?? false) &&
-        pushNotificationsEnabled.value &&
-        pushNotificationsDistributor.values.hasValue &&
-        pushNotificationsDistributor.values.value.isNotEmpty &&
-        pushNotificationsDistributor.stream.hasValue &&
-        pushNotificationsDistributor.value == null) {
-      await pushNotificationsDistributor.set((await pushNotificationsDistributor.values.first).keys.toList()[0]);
-    }
-  }
-
   late final themeMode = SelectOption<ThemeMode>(
     storage: _storage,
     key: 'theme-mode',
@@ -147,7 +148,7 @@ class GlobalOptions {
     storage: _storage,
     key: 'push-notifications-enabled',
     label: (final context) => AppLocalizations.of(context).globalOptionsPushNotificationsEnabled,
-    defaultValue: BehaviorSubject.seeded(true),
+    defaultValue: BehaviorSubject.seeded(false),
     enabled: _pushNotificationsEnabledEnabledSubject,
   );
 
