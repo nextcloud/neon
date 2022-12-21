@@ -10,7 +10,6 @@ dependencies:
   crypton: ^2.0.5
   intl: ^0.17.0
   json_annotation: ^4.7.0
-  meta: ^1.7.0
   version: ^3.0.2
   xml: ^6.1.0
 

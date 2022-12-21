@@ -8,12 +8,9 @@ environment:
 dependencies: 
   path: ^1.8.1
   xml: ^6.1.0
-  yaml: ^3.1.0
-
 
 dev_dependencies:
   nit_picking:
     git:
       url: https://github.com/stack11/dart_nit_picking
       ref: 9f625eb
-

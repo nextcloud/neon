@@ -1,7 +1,6 @@
 import 'dart:convert';
 import 'dart:io';
 
-// ignore: depend_on_referenced_packages
 import 'package:crypto/crypto.dart';
 import 'package:nextcloud_push_proxy/nextcloud_push_proxy.dart';
 
