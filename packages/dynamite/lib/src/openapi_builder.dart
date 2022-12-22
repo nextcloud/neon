@@ -1383,7 +1383,10 @@ TypeResult resolveType(
                               if (schema.discriminator!.mapping != null &&
                                   schema.discriminator!.mapping!.isNotEmpty) ...[
                                 for (final key in schema.discriminator!.mapping!.entries
-                                    .where((final entry) => entry.value.endsWith('/${result.name}'))
+                                    .where(
+                                      (final entry) =>
+                                          entry.value.endsWith('/${result.name.replaceFirst(state.prefix, '')}'),
+                                    )
                                     .map((final entry) => entry.key)) ...[
                                   " ||  data['${schema.discriminator!.propertyName}'] == '$key'",
                                 ],

@@ -19,7 +19,7 @@ for i in $(seq 0 $((${#codenames[@]} - 1))); do
     -s \
     '.[]
     | .components.schemas = (.components.schemas | with_entries(.key = if .key == "OCSMeta" or .key == "EmptyOCS" then .key else $prefix + .key end))
-    | walk(if type == "object" and has("$ref") and ."$ref" != "#/components/schemas/OCSMeta" and ."$ref" != "#/components/schemas/EmptyOCS" then ."$ref" |= sub("^#/components/schemas/";"#/components/schemas/" + $prefix) else . end)' \
+    | walk(if type == "string" and . != "#/components/schemas/OCSMeta" and . != "#/components/schemas/EmptyOCS" then . |= sub("^#/components/schemas/";"#/components/schemas/" + $prefix) else . end)' \
     /tmp/nextcloud-neon/"$codename".json \
     > /tmp/nextcloud-neon/"$codename"-prefixed.json
 
