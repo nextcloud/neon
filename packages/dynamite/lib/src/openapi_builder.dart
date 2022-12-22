@@ -1379,7 +1379,7 @@ TypeResult resolveType(
                           ],
                           for (final result in results) ...[
                             if (schema.discriminator != null) ...[
-                              "if (data['${schema.discriminator!.propertyName}'] == '${result.name}'",
+                              "if (data['${schema.discriminator!.propertyName}'] == '${result.name.replaceFirst(state.prefix, '')}'",
                               if (schema.discriminator!.mapping != null &&
                                   schema.discriminator!.mapping!.isNotEmpty) ...[
                                 for (final key in schema.discriminator!.mapping!.entries
