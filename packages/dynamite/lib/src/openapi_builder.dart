@@ -603,7 +603,7 @@ class OpenAPIBuilder implements Builder {
                               if (nullable) {
                                 code.write('if (${_toDartName(parameter.name)} != null) {');
                               }
-                              final isPlainList = result is TypeResultList && !result.fromJsonString;
+                              final isPlainList = result is TypeResultList && !result.fromContentString;
                               final value = result.encode(
                                 result.serialize(_toDartName(parameter.name)),
                                 onlyChildren: isPlainList && parameter.in_ == 'query',
@@ -1039,7 +1039,7 @@ TypeResult resolveObject(
   final Schema schema, {
   required final Map<String, String>? extraJsonSerializableValues,
   required final Map<String, Map<String, String>>? extraJsonKeyValues,
-  final bool fromJsonString = false,
+  final bool fromContentString = false,
 }) {
   if (!state.resolvedTypes.contains('${state.prefix}$identifier')) {
     state.resolvedTypes.add('${state.prefix}$identifier');
@@ -1181,14 +1181,14 @@ TypeResult resolveObject(
                         ],
                       ]);
                     final hasDifferentName = _toDartName(propertyName) != propertyName;
-                    final isJsonString = propertySchema.isJsonString;
-                    final isJsonStringArray = result is TypeResultList && (propertySchema.items?.isJsonString ?? false);
+                    final isContentString = propertySchema.isContentString;
+                    final isContentStringArray = isContentString && result is TypeResultList;
                     final hasExtraJsonKeyValues =
                         extraJsonKeyValues != null && extraJsonKeyValues.containsKey(propertyName);
-                    if (hasDifferentName || isJsonString || isJsonStringArray || hasExtraJsonKeyValues) {
+                    if (hasDifferentName || isContentString || isContentStringArray || hasExtraJsonKeyValues) {
                       var fromJson = '${result.name}.fromJsonString';
                       var toJson = '${result.name}.toJsonString';
-                      if (isJsonStringArray) {
+                      if (isContentStringArray) {
                         fromJson = '_${_toDartName('${state.prefix}${identifier}FromJsonString')}';
                         if (!state.resolvedTypes.contains(fromJson)) {
                           state.resolvedTypes.add(fromJson);
@@ -1216,7 +1216,7 @@ TypeResult resolveObject(
                             Method(
                               (final b) => b
                                 ..name = toJson
-                                ..returns = refer('List<String>?')
+                                ..returns = refer('String?')
                                 ..lambda = true
                                 ..requiredParameters.addAll([
                                   Parameter(
@@ -1226,7 +1226,7 @@ TypeResult resolveObject(
                                   ),
                                 ])
                                 ..body = Code(
-                                  'data == null ? null : ${result.encode(result.serialize('data'), mimeType: 'application/json', onlyChildren: true)};',
+                                  'data == null ? null : ${result.encode(result.serialize('data'), mimeType: 'application/json')};',
                                 ),
                             ),
                           );
@@ -1240,7 +1240,7 @@ TypeResult resolveObject(
                             if (hasDifferentName) ...{
                               'name': refer("'$propertyName'"),
                             },
-                            if (isJsonString || isJsonStringArray) ...{
+                            if (isContentString || isContentStringArray) ...{
                               'fromJson': refer(fromJson),
                               'toJson': refer(toJson),
                             },
@@ -1263,7 +1263,7 @@ TypeResult resolveObject(
   }
   return TypeResultObject(
     '${state.prefix}$identifier',
-    fromJsonString: fromJsonString,
+    fromContentString: fromContentString,
   );
 }
 
@@ -1275,7 +1275,7 @@ TypeResult resolveType(
   final Map<String, String>? extraJsonSerializableValues,
   final Map<String, Map<String, String>>? extraJsonKeyValues,
   final bool ignoreEnum = false,
-  final bool fromJsonString = false,
+  final bool fromContentString = false,
 }) {
   TypeResult? result;
   if (schema.ref != null) {
@@ -1286,7 +1286,7 @@ TypeResult resolveType(
       name,
       spec.components!.schemas![name]!,
       extraJsonSerializableValues: extraJsonSerializableValues,
-      fromJsonString: fromJsonString,
+      fromContentString: fromContentString,
     );
   } else if (schema.ofs != null) {
     if (!state.resolvedTypes.contains('${state.prefix}$identifier')) {
@@ -1482,14 +1482,14 @@ TypeResult resolveType(
             break;
         }
 
-        if (schema.isJsonString) {
+        if (schema.isContentString) {
           result = resolveType(
             spec,
             state,
             identifier,
             schema.contentSchema!,
             extraJsonSerializableValues: extraJsonSerializableValues,
-            fromJsonString: true,
+            fromContentString: true,
           );
           break;
         }
@@ -1510,7 +1510,7 @@ TypeResult resolveType(
           result = TypeResultList(
             'List<${subResult.name}>',
             subResult,
-            fromJsonString: fromJsonString,
+            fromContentString: fromContentString,
           );
         } else {
           result = TypeResultList(
@@ -1539,7 +1539,7 @@ TypeResult resolveType(
           schema,
           extraJsonSerializableValues: extraJsonSerializableValues,
           extraJsonKeyValues: extraJsonKeyValues,
-          fromJsonString: fromJsonString,
+          fromContentString: fromContentString,
         );
         break;
     }

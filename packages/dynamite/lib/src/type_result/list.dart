@@ -4,11 +4,11 @@ class TypeResultList extends TypeResult {
   TypeResultList(
     super.name,
     this.subType, {
-    this.fromJsonString = false,
+    this.fromContentString = false,
   });
 
   final TypeResult subType;
-  final bool fromJsonString;
+  final bool fromContentString;
 
   @override
   String serialize(final String object) => '$object.map((final e) => ${subType.serialize('e')}).toList()';

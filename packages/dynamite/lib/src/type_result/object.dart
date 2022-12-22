@@ -3,14 +3,14 @@ part of '../../dynamite.dart';
 class TypeResultObject extends TypeResult {
   TypeResultObject(
     super.name, {
-    this.fromJsonString = false,
+    this.fromContentString = false,
   });
 
-  final bool fromJsonString;
+  final bool fromContentString;
 
   @override
   String serialize(final String object) {
-    if (fromJsonString) {
+    if (fromContentString) {
       return '$name.toJsonString($object)';
     }
     return '$object.toJson()';
@@ -34,7 +34,7 @@ class TypeResultObject extends TypeResult {
 
   @override
   String deserialize(final String object) {
-    if (fromJsonString) {
+    if (fromContentString) {
       return '$name.fromJsonString($object as String)';
     }
     return '$name.fromJson($object as Map<String, dynamic>)';
