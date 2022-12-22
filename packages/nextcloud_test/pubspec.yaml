@@ -1,0 +1,18 @@
+name: nextcloud_test
+version: 1.0.0
+publish_to: 'none'
+
+environment:
+  sdk: '>=2.18.0 <3.0.0'
+
+dependencies:
+  nextcloud:
+    path: ../nextcloud
+  process_run: ^0.12.3+1
+  test: ^1.16.0
+
+dev_dependencies:
+  nit_picking:
+    git:
+      url: https://github.com/stack11/dart_nit_picking
+      ref: 9f625eb
