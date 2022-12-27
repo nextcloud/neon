@@ -141,10 +141,12 @@ class _LoginPageState extends State<LoginPage> {
                         icon: const Icon(Icons.arrow_back),
                       ),
                       actions: [
-                        IconButton(
-                          onPressed: _loginBloc.refresh,
-                          icon: const Icon(Icons.refresh),
-                        ),
+                        if (serverConnectionStateSnapshot.data != null) ...[
+                          IconButton(
+                            onPressed: _loginBloc.refresh,
+                            icon: const Icon(Icons.refresh),
+                          ),
+                        ],
                       ],
                     )
                   : null,
