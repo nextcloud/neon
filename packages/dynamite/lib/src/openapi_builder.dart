@@ -23,8 +23,9 @@ class OpenAPIBuilder implements Builder {
         ) as Map<String, dynamic>,
       );
       final prefix = _toDartName(spec.info.title, uppercaseFirstCharacter: true);
-      if (spec.version != '3.1.0') {
-        throw Exception('Only OpenAPI 3.1.0 is supported');
+      final supportedVersions = ['3.0.3', '3.1.0'];
+      if (!supportedVersions.contains(spec.version)) {
+        throw Exception('Only OpenAPI ${supportedVersions.join(', ')} are supported');
       }
 
       final tags = <Tag?>[
