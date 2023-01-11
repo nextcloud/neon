@@ -574,6 +574,14 @@ class OpenAPIBuilder implements Builder {
                                 parameter.schema!,
                               );
 
+                              if (result.name == 'String' && parameter.schema?.pattern != null) {
+                                code.write('''
+                                if (!RegExp(r'${parameter.schema!.pattern!}').hasMatch(${_toDartName(parameter.name)})) {
+                                  throw Exception('Invalid value "\$${_toDartName(parameter.name)}" for parameter "${_toDartName(parameter.name)}" with pattern "' r'${parameter.schema!.pattern!}"'); // coverage:ignore-line
+                                }
+                                ''');
+                              }
+
                               final defaultValueCode = parameter.schema?.default_ != null
                                   ? _valueToEscapedValue(result.name, parameter.schema!.default_!.toString())
                                   : null;

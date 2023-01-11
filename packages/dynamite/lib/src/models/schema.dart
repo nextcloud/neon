@@ -23,6 +23,7 @@ class Schema {
     this.contentMediaType,
     this.contentSchema,
     this.discriminator,
+    this.pattern,
   });
 
   factory Schema.fromJson(final Map<String, dynamic> json) => _$SchemaFromJson(json);
@@ -66,6 +67,8 @@ class Schema {
   final Schema? contentSchema;
 
   final Discriminator? discriminator;
+
+  final String? pattern;
 
   bool get isContentString => type == 'string' && (contentMediaType?.isNotEmpty ?? false) && contentSchema != null;
 }
