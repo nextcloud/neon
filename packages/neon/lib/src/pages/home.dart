@@ -53,13 +53,13 @@ class _HomePageState extends State<HomePage> {
               bool? supported;
               switch (id) {
                 case 'core':
-                  supported = await widget.account.client.core.isSupported(result.data!);
+                  supported = await widget.account.client.core.isSupported(result.data);
                   break;
                 case 'news':
                   supported = await widget.account.client.news.isSupported();
                   break;
                 case 'notes':
-                  supported = await widget.account.client.notes.isSupported(result.data!);
+                  supported = await widget.account.client.notes.isSupported(result.data);
                   break;
               }
               if (!(supported ?? true)) {
@@ -460,7 +460,7 @@ class _HomePageState extends State<HomePage> {
                                         if (accounts.length > 1) ...[
                                           Text(
                                             account.client.humanReadableID,
-                                            style: Theme.of(context).textTheme.bodySmall!,
+                                            style: Theme.of(context).textTheme.bodySmall,
                                           ),
                                         ],
                                       ],
@@ -494,7 +494,7 @@ class _HomePageState extends State<HomePage> {
                                                             if (accounts.length > 1) ...[
                                                               Text(
                                                                 account.client.humanReadableID,
-                                                                style: Theme.of(context).textTheme.bodySmall!,
+                                                                style: Theme.of(context).textTheme.bodySmall,
                                                               ),
                                                             ],
                                                           ],

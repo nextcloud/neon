@@ -89,7 +89,7 @@ class _FilesBrowserViewState extends State<FilesBrowserView> {
                                             hasPreview: null,
                                             isFavorite: null,
                                           ),
-                                          uploadProgress: uploadTaskProgressSnapshot.data!,
+                                          uploadProgress: uploadTaskProgressSnapshot.data,
                                           downloadProgress: null,
                                         ),
                             ),

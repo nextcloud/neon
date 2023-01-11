@@ -49,7 +49,7 @@ Future run(final DockerImage image) async {
       expect(file.hasPreview, isTrue);
       expect(file.mimeType, 'image/png');
       expect(file.lastModified!.isBefore(DateTime.now()), isTrue);
-      expect(file.size!, 50598);
+      expect(file.size, 50598);
     });
 
     test('Create directory', () async {
@@ -168,7 +168,7 @@ Future run(final DockerImage image) async {
       expect(file.hasPreview, isTrue);
       expect(file.mimeType, 'image/png');
       expect(file.lastModified!.isBefore(DateTime.now()), isTrue);
-      expect(file.size!, 50598);
+      expect(file.size, 50598);
     });
 
     test('Get directory props', () async {
@@ -189,7 +189,7 @@ Future run(final DockerImage image) async {
       expect(file.name, 'test');
       expect(file.mimeType, null);
       expectDateInReasonableTimeRange(file.lastModified!, DateTime.now());
-      expect(file.size!, data.lengthInBytes);
+      expect(file.size, data.lengthInBytes);
     });
 
     test('Filter files', () async {

@@ -17,7 +17,9 @@ Future main() async {
       }
       env = Env.fromMap(dotenv.env);
     }
-  } catch (e) {}
+  } catch (e) {
+    debugPrint('Failed to load env: $e');
+  }
 
   WidgetsFlutterBinding.ensureInitialized();
 

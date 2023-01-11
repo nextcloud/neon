@@ -29,7 +29,7 @@ class _LoginPageState extends State<LoginPage> {
     _loginBloc = LoginBloc(_packageInfo);
 
     if (widget.serverURL != null) {
-      _loginBloc.setServerURL(widget.serverURL!);
+      _loginBloc.setServerURL(widget.serverURL);
     }
 
     _loginBloc.loginFlowInit.listen((final init) {
