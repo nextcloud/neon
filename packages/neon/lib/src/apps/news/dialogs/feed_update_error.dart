@@ -21,7 +21,7 @@ class _NewsFeedUpdateErrorDialogState extends State<NewsFeedUpdateErrorDialog> {
             onPressed: () async {
               await Clipboard.setData(
                 ClipboardData(
-                  text: widget.feed.lastUpdateError!,
+                  text: widget.feed.lastUpdateError,
                 ),
               );
               if (mounted) {

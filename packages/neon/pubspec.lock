@@ -565,8 +565,8 @@ packages:
     dependency: "direct dev"
     description:
       path: "."
-      ref: "9f625eb"
-      resolved-ref: "9f625ebd64e0fd74a94f3c5409282e0e9f825548"
+      ref: "0b2ee0d"
+      resolved-ref: "0b2ee0d6d6871a04aaf85e88cd7e877f654d15e3"
       url: "https://github.com/stack11/dart_nit_picking"
     source: git
     version: "0.0.0"

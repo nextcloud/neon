@@ -1327,7 +1327,7 @@ TypeResult resolveType(
                     (final b) {
                       final s = schema.ofs![results.indexOf(result)];
                       b
-                        ..name = fields[result.name]!
+                        ..name = fields[result.name]
                         ..type = refer(_makeNullable(result.name, true))
                         ..modifier = FieldModifier.final$
                         ..docs.addAll([
