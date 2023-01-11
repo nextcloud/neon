@@ -584,7 +584,7 @@ class OpenAPIBuilder implements Builder {
                                     b
                                       ..named = true
                                       ..name = _toDartName(parameter.name)
-                                      ..required = parameter.required ?? false;
+                                      ..required = (parameter.required ?? false) && defaultValueCode == null;
                                     if (parameter.schema != null) {
                                       b.type = refer(
                                         _makeNullable(
