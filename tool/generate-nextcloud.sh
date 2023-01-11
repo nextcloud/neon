@@ -29,6 +29,8 @@ for i in $(seq 0 $((${#codenames[@]} - 1))); do
       jq \
         -s \
         '{
+          openapi: .[0].openapi,
+          info: .[0].info,
           servers: .[0].servers,
           security: .[0].security,
           tags: (.[0].tags + .[1].tags),
@@ -45,21 +47,16 @@ done
 jq \
 '
 {
-  openapi: "3.1.0",
-  info: {
-    title: "Nextcloud",
-    version: "latest",
-    license: {
-      name: "agpl",
-      identifier: "AGPL-3.0"
-    }
-  },
+  openapi: .openapi,
+  info: .info,
   servers: .servers,
   security: .security,
   tags: .tags,
   components: .components,
   paths: .paths,
 }
+| .info.title = "Nextcloud"
+| .info.description = "All supported Nextcloud APIs in one"
 ' $merged_spec > packages/nextcloud/lib/src/nextcloud.openapi.json
 
 (
