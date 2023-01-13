@@ -2,10 +2,11 @@
   "openapi": "3.1.0",
   "info": {
     "title": "Nextcloud",
-    "version": "latest",
+    "version": "25.0.2",
+    "description": "All supported Nextcloud APIs in one",
     "license": {
       "name": "agpl",
-      "identifier": "AGPL-3.0"
+      "identifier": " AGPL-3.0"
     }
   },
   "servers": [
