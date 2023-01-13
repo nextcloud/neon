@@ -44,7 +44,7 @@ class AppsBloc extends InteractiveBloc implements AppsBlocEvents, AppsBlocStates
               }
             }
             if (!activeAppID.hasValue) {
-              setActiveApp(initialApp);
+              await setActiveApp(initialApp);
             }
           }),
         );
@@ -119,8 +119,11 @@ class AppsBloc extends InteractiveBloc implements AppsBlocEvents, AppsBlocStates
   }
 
   @override
-  void setActiveApp(final String? appID) {
-    if (appImplementations.value.data!.where((final app) => app.id == appID).isNotEmpty) {
+  Future setActiveApp(final String? appID) async {
+    if ((await appImplementations.firstWhere((final a) => a.data != null))
+        .data!
+        .where((final app) => app.id == appID)
+        .isNotEmpty) {
       if (activeAppID.valueOrNull != appID) {
         activeAppID.add(appID);
       }
