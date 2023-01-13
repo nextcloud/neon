@@ -94,7 +94,7 @@ class _NotificationsMainPageState extends State<NotificationsMainPage> {
         final matchingAppImplementations = allAppImplementations.where((final a) => a.id == notification.app);
         if (matchingAppImplementations.isNotEmpty) {
           final accountsBloc = Provider.of<AccountsBloc>(context, listen: false);
-          accountsBloc.getAppsBloc(accountsBloc.activeAccount.value!).setActiveApp(notification.app);
+          await accountsBloc.getAppsBloc(accountsBloc.activeAccount.value!).setActiveApp(notification.app);
         } else {
           await showDialog(
             context: context,

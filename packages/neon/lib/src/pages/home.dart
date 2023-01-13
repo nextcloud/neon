@@ -321,8 +321,8 @@ class _HomePageState extends State<HomePage> {
                                                   return Tooltip(
                                                     message: appImplementation.name(context),
                                                     child: IconButton(
-                                                      onPressed: () {
-                                                        _appsBloc.setActiveApp(appImplementation.id);
+                                                      onPressed: () async {
+                                                        await _appsBloc.setActiveApp(appImplementation.id);
                                                       },
                                                       icon: AppImplementationIcon(
                                                         appImplementation: appImplementation,
@@ -352,10 +352,13 @@ class _HomePageState extends State<HomePage> {
                                                   ),
                                                   leading: appImplementation.buildIcon(context),
                                                   minLeadingWidth: 0,
-                                                  onTap: () {
-                                                    _appsBloc.setActiveApp(appImplementation.id);
+                                                  onTap: () async {
+                                                    await _appsBloc.setActiveApp(appImplementation.id);
                                                     if (navigationMode == NavigationMode.drawer) {
                                                       // Don't pop when the drawer is always shown
+                                                      if (!mounted) {
+                                                        return;
+                                                      }
                                                       Navigator.of(context).pop();
                                                     }
                                                   },
