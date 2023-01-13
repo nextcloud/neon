@@ -58,14 +58,18 @@ class SettingsExportHelper {
   Map<String, dynamic> toJsonExport() => {
         'global': {
           for (final option in globalOptions.options) ...{
-            option.key: option.serialize(),
+            if (option.enabled.value) ...{
+              option.key: option.serialize(),
+            },
           },
         },
         'apps': {
           for (final appImplementation in appImplementations) ...{
             appImplementation.id: {
               for (final option in appImplementation.options.options) ...{
-                option.key: option.serialize(),
+                if (option.enabled.value) ...{
+                  option.key: option.serialize(),
+                },
               },
             },
           },
@@ -74,7 +78,9 @@ class SettingsExportHelper {
           for (final account in accountSpecificOptions.keys) ...{
             account.id: {
               for (final option in accountSpecificOptions[account]!) ...{
-                option.key: option.serialize(),
+                if (option.enabled.value) ...{
+                  option.key: option.serialize(),
+                },
               },
             },
           },
