@@ -289,7 +289,7 @@ Future main(final List<String> args) async {
   late String spdxIdentifier;
   switch (license) {
     case 'agpl':
-      spdxIdentifier = ' AGPL-3.0';
+      spdxIdentifier = 'AGPL-3.0';
       break;
     default:
       throw Exception('Can not convert license name "$license" to a SPDX identifier');

@@ -6,7 +6,7 @@
     "description": "All supported Nextcloud APIs in one",
     "license": {
       "name": "agpl",
-      "identifier": " AGPL-3.0"
+      "identifier": "AGPL-3.0"
     }
   },
   "servers": [

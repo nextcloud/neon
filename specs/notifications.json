@@ -6,7 +6,7 @@
     "description": "This app provides a backend and frontend for the notification API available in Nextcloud.",
     "license": {
       "name": "agpl",
-      "identifier": " AGPL-3.0"
+      "identifier": "AGPL-3.0"
     }
   },
   "servers": [
