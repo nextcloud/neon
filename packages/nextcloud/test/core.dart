@@ -26,8 +26,8 @@ Future run(final DockerImage image) async {
       expect(status.installed, true);
       expect(status.maintenance, false);
       expect(status.needsDbUpgrade, false);
-      expect(status.version, startsWith('25.0.2'));
-      expect(status.versionstring, '25.0.2');
+      expect(status.version, startsWith('25.0.3'));
+      expect(status.versionstring, '25.0.3');
       expect(status.edition, '');
       expect(status.productname, 'Nextcloud');
       expect(status.extendedSupport, false);
@@ -36,7 +36,7 @@ Future run(final DockerImage image) async {
     test('Get capabilities', () async {
       final capabilities = await client.core.getCapabilities();
       expect(capabilities.ocs.data.version.major.toString(), '25');
-      expect(capabilities.ocs.data.version.string, '25.0.2');
+      expect(capabilities.ocs.data.version.string, '25.0.3');
       expect(capabilities.ocs.data.capabilities.theming!.name, 'Nextcloud');
       expect(capabilities.ocs.data.capabilities.theming!.url, 'https://nextcloud.com');
       expect(capabilities.ocs.data.capabilities.theming!.slogan, 'a safe home for all your data');
