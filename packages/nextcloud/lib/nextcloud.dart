@@ -11,7 +11,7 @@ import 'package:nextcloud/src/nextcloud.openapi.dart' as openapi;
 import 'package:version/version.dart';
 import 'package:xml/xml.dart' as xml;
 
-export 'package:crypton/crypton.dart' show RSAKeypair, RSAPublicKey, RSAPrivateKey;
+export 'package:crypton/crypton.dart' show RSAKeypair, RSAPrivateKey, RSAPublicKey;
 
 export 'src/nextcloud.openapi.dart' hide NextcloudClient;
 

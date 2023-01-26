@@ -64,7 +64,7 @@ class NewsFoldersView extends StatelessWidget {
       title: Text(
         folderFeedsWrapper.folder.name,
         style: unreadCount == 0
-            ? Theme.of(context).textTheme.subtitle1!.copyWith(color: Theme.of(context).disabledColor)
+            ? Theme.of(context).textTheme.titleMedium!.copyWith(color: Theme.of(context).disabledColor)
             : null,
       ),
       subtitle: unreadCount > 0
@@ -107,8 +107,10 @@ class NewsFoldersView extends StatelessWidget {
         onSelected: (final action) async {
           switch (action) {
             case NewsFolderAction.delete:
+              // ignore: use_build_context_synchronously
               if (await showConfirmationDialog(
                 context,
+                // ignore: use_build_context_synchronously
                 AppLocalizations.of(context).newsDeleteFolderConfirm(folderFeedsWrapper.folder.name),
               )) {
                 bloc.deleteFolder(folderFeedsWrapper.folder.id);

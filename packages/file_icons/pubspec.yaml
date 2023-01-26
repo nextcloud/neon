@@ -2,8 +2,8 @@ name: file_icons
 version: 1.0.0
 
 environment:
-  sdk: '>=2.18.0 <3.0.0'
-  flutter: '>=3.3.10'
+  sdk: '>=2.19.0 <3.0.0'
+  flutter: '>=3.7.0'
 
 dependencies:
   flutter:

@@ -1,7 +1,5 @@
 // ignore_for_file: public_member_api_docs
 
-library nextcloud_push_proxy;
-
 import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
@@ -86,7 +84,7 @@ class NextcloudPushProxy {
     _onNewDeviceStream = _onNewDeviceController.stream.asBroadcastStream();
     _onNewNotificationStream = _onNewNotificationController.stream.asBroadcastStream();
 
-    var handler = Cascade().add(_router).handler;
+    var handler = Cascade().add(_router.call).handler;
     if (logging) {
       handler = logRequests().addHandler(handler);
     }

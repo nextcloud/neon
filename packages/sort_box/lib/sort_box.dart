@@ -1,7 +1,5 @@
 // ignore_for_file: public_member_api_docs
 
-library sort_box;
-
 class SortBox<T extends Enum, R> {
   SortBox(
     this._properties,

@@ -66,7 +66,7 @@ class NewsFeedsView extends StatelessWidget {
         title: Text(
           feed.title,
           style: feed.unreadCount! == 0
-              ? Theme.of(context).textTheme.subtitle1!.copyWith(color: Theme.of(context).disabledColor)
+              ? Theme.of(context).textTheme.titleMedium!.copyWith(color: Theme.of(context).disabledColor)
               : null,
         ),
         subtitle: feed.unreadCount! > 0
@@ -130,8 +130,10 @@ class NewsFeedsView extends StatelessWidget {
                     );
                     break;
                   case NewsFeedAction.delete:
+                    // ignore: use_build_context_synchronously
                     if (await showConfirmationDialog(
                       context,
+                      // ignore: use_build_context_synchronously
                       AppLocalizations.of(context).newsRemoveFeedConfirm(feed.title),
                     )) {
                       bloc.removeFeed(feed.id);

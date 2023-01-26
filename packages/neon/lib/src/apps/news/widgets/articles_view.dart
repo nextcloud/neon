@@ -115,7 +115,7 @@ class _NewsArticlesViewState extends State<NewsArticlesView> {
                 article.title,
                 style: article.unread
                     ? null
-                    : Theme.of(context).textTheme.subtitle1!.copyWith(color: Theme.of(context).disabledColor),
+                    : Theme.of(context).textTheme.titleMedium!.copyWith(color: Theme.of(context).disabledColor),
               ),
             ),
             if (article.mediaThumbnail != null) ...[

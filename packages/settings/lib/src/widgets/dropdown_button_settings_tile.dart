@@ -31,7 +31,7 @@ class DropdownButtonSettingsTile<T> extends InputSettingsTile<SelectOption<T>> {
                   option.label(context),
                   style: enabledSnapshot.data ?? false
                       ? null
-                      : Theme.of(context).textTheme.subtitle1!.copyWith(color: Theme.of(context).disabledColor),
+                      : Theme.of(context).textTheme.titleMedium!.copyWith(color: Theme.of(context).disabledColor),
                 ),
                 trailing: valuesSnapshot.hasData
                     ? Container(
