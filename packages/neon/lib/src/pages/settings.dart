@@ -22,6 +22,7 @@ class _SettingsPageState extends State<SettingsPage> {
         actions: [
           IconButton(
             onPressed: () async {
+              // ignore: use_build_context_synchronously
               if (await showConfirmationDialog(context, AppLocalizations.of(context).settingsResetAllConfirmation)) {
                 await globalOptions.reset();
 

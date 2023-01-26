@@ -89,7 +89,7 @@ class _NewsArticlePageState extends State<NewsArticlePage> {
             return false;
           }
 
-          if (Provider.of<NeonPlatform>(context, listen: false).canUseWakelock) {
+          if (mounted && Provider.of<NeonPlatform>(context, listen: false).canUseWakelock) {
             await Wakelock.disable();
           }
           return true;

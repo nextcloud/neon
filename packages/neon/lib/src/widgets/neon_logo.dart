@@ -19,7 +19,7 @@ class NeonLogo extends StatelessWidget {
           if (!withoutText) ...[
             Text(
               AppLocalizations.of(context).appName,
-              style: Theme.of(context).textTheme.headline6,
+              style: Theme.of(context).textTheme.titleLarge,
             ),
           ],
         ],

@@ -382,8 +382,10 @@ class _FilesBrowserViewState extends State<FilesBrowserView> {
                     case FilesFileAction.sync:
                       final sizeWarning = widget.bloc.options.downloadSizeWarning.value;
                       if (sizeWarning != null && details.size > sizeWarning) {
+                        // ignore: use_build_context_synchronously
                         if (!(await showConfirmationDialog(
                           context,
+                          // ignore: use_build_context_synchronously
                           AppLocalizations.of(context).filesConfirmDownloadSizeWarning(
                             filesize(sizeWarning),
                             filesize(details.size),
@@ -395,10 +397,13 @@ class _FilesBrowserViewState extends State<FilesBrowserView> {
                       widget.filesBloc.syncFile(details.path);
                       break;
                     case FilesFileAction.delete:
+                      // ignore: use_build_context_synchronously
                       if (await showConfirmationDialog(
                         context,
                         details.isDirectory
+                            // ignore: use_build_context_synchronously
                             ? AppLocalizations.of(context).filesDeleteFolderConfirm(details.name)
+                            // ignore: use_build_context_synchronously
                             : AppLocalizations.of(context).filesDeleteFileConfirm(details.name),
                       )) {
                         widget.filesBloc.delete(details.path);
