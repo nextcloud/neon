@@ -795,7 +795,11 @@ class OpenAPIBuilder implements Builder {
                                     switch (mimeType) {
                                       case 'application/json':
                                         dataType = result.name;
-                                        dataValue = result.deserialize(result.decode('utf8.decode(response.body)'));
+                                        if (result.name == 'dynamic') {
+                                          dataValue = '';
+                                        } else {
+                                          dataValue = result.deserialize(result.decode('utf8.decode(response.body)'));
+                                        }
                                         break;
                                       case 'image/png':
                                         dataType = 'Uint8List';
@@ -1298,6 +1302,9 @@ TypeResult resolveType(
   final bool fromContentString = false,
 }) {
   TypeResult? result;
+  if (schema.ref == null && schema.ofs == null && schema.type == null) {
+    return TypeResultBase('dynamic');
+  }
   if (schema.ref != null) {
     final name = schema.ref!.split('/').last;
     result = resolveType(
