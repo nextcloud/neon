@@ -550,7 +550,18 @@ class OpenAPIBuilder implements Builder {
                             final methodName = _toDartName(operationId);
                             b
                               ..name = methodName
-                              ..modifier = MethodModifier.async;
+                              ..modifier = MethodModifier.async
+                              ..docs.addAll([
+                                if (operation.summary != null) ...[
+                                  operation.summary!,
+                                ],
+                                if (operation.summary != null && operation.description != null) ...[
+                                  '',
+                                ],
+                                if (operation.description != null) ...[
+                                  operation.description!,
+                                ],
+                              ]);
 
                             final code = StringBuffer('''
                             var path = '$path';

@@ -10,6 +10,8 @@ part 'operation.g.dart';
 class Operation {
   Operation({
     this.operationId,
+    this.summary,
+    this.description,
     this.tags,
     this.parameters,
     this.requestBody,
@@ -20,6 +22,10 @@ class Operation {
   Map<String, dynamic> toJson() => _$OperationToJson(this);
 
   final String? operationId;
+
+  final String? summary;
+
+  final String? description;
 
   final List<String>? tags;
 
