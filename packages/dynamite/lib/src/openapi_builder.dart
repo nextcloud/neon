@@ -1543,6 +1543,13 @@ TypeResult resolveType(
         break;
       case 'object':
         if (schema.properties == null) {
+          if (schema.additionalProperties ?? false) {
+            result = TypeResultMap(
+              'Map<String, dynamic>',
+              TypeResultBase('dynamic'),
+            );
+            break;
+          }
           result = TypeResultBase('dynamic');
           break;
         }
