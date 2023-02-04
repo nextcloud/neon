@@ -552,15 +552,11 @@ class OpenAPIBuilder implements Builder {
                               ..name = methodName
                               ..modifier = MethodModifier.async
                               ..docs.addAll([
-                                if (operation.summary != null) ...[
-                                  operation.summary!,
-                                ],
+                                ..._descriptionToDocs(operation.summary),
                                 if (operation.summary != null && operation.description != null) ...[
                                   '',
                                 ],
-                                if (operation.description != null) ...[
-                                  operation.description!,
-                                ],
+                                ..._descriptionToDocs(operation.description),
                               ]);
 
                             final code = StringBuffer('''
@@ -1047,6 +1043,14 @@ bool _isParameterNullable(final bool? required, final dynamic default_) => !(req
 
 String _valueToEscapedValue(final String type, final dynamic value) => type == 'String' ? "'$value'" : value.toString();
 
+List<String> _descriptionToDocs(final String? description) => [
+      if (description != null && description.isNotEmpty) ...[
+        for (final line in description.split('\n')) ...[
+          '/// $line',
+        ],
+      ],
+    ];
+
 class State {
   State(this.prefix);
 
@@ -1073,11 +1077,7 @@ TypeResult resolveObject(
         (final b) {
           b
             ..name = '${state.prefix}$identifier'
-            ..docs.addAll([
-              if (schema.description != null && schema.description!.isNotEmpty) ...[
-                '/// ${schema.description!}',
-              ],
-            ])
+            ..docs.addAll(_descriptionToDocs(schema.description))
             ..annotations.add(
               refer('JsonSerializable').call(
                 [],
@@ -1199,11 +1199,7 @@ TypeResult resolveObject(
                         ),
                       )
                       ..modifier = FieldModifier.final$
-                      ..docs.addAll([
-                        if (propertySchema.description != null && propertySchema.description!.isNotEmpty) ...[
-                          '/// ${propertySchema.description!}',
-                        ],
-                      ]);
+                      ..docs.addAll(_descriptionToDocs(propertySchema.description));
                     final hasDifferentName = _toDartName(propertyName) != propertyName;
                     final isContentString = propertySchema.isContentString;
                     final isContentStringArray = isContentString && result is TypeResultList;
@@ -1357,11 +1353,7 @@ TypeResult resolveType(
                         ..name = fields[result.name]
                         ..type = refer(_makeNullable(result.name, true))
                         ..modifier = FieldModifier.final$
-                        ..docs.addAll([
-                          if (s.description != null && s.description!.isNotEmpty) ...[
-                            '/// ${s.description!}',
-                          ],
-                        ]);
+                        ..docs.addAll(_descriptionToDocs(s.description));
                     },
                   ),
                 ],
