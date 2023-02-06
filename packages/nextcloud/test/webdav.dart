@@ -89,6 +89,27 @@ Future run(final DockerImage image) async {
       expect(txtFile.size, txtBytes.lengthInBytes);
     });
 
+    test('Upload file with modified time', () async {
+      final lastModified = DateTime.fromMillisecondsSinceEpoch(DateTime.now().millisecondsSinceEpoch ~/ 1000 * 1000);
+      final txtBytes = File('test/files/test.txt').readAsBytesSync();
+
+      final response = await client.webdav.upload(
+        txtBytes,
+        'test.txt',
+        lastModified: lastModified,
+      );
+      expect(response.statusCode, equals(201));
+
+      final files = await client.webdav.ls(
+        '/',
+        props: {
+          WebDavProps.davLastModified.name,
+        },
+      );
+      final txtFile = files.singleWhere((final f) => f.name == 'test.txt');
+      expect(txtFile.lastModified!.millisecondsSinceEpoch, lastModified.millisecondsSinceEpoch);
+    });
+
     test('Copy file', () async {
       final response = await client.webdav.copy(
         'Nextcloud.png',
