@@ -60,7 +60,10 @@ class Schema {
 
   final Schema? items;
 
-  final bool? additionalProperties;
+  @JsonKey(
+    fromJson: _parseAdditionalProperties,
+  )
+  final Schema? additionalProperties;
 
   final String? contentMediaType;
 
@@ -71,4 +74,22 @@ class Schema {
   final String? pattern;
 
   bool get isContentString => type == 'string' && (contentMediaType?.isNotEmpty ?? false) && contentSchema != null;
+}
+
+class EmptySchema extends Schema {}
+
+Schema? _parseAdditionalProperties(final dynamic data) {
+  if (data == null) {
+    return null;
+  }
+
+  if (data is bool) {
+    return data ? EmptySchema() : null;
+  }
+
+  if (data is Map<String, dynamic>) {
+    return Schema.fromJson(data);
+  }
+
+  throw Exception('Can not parse additionalProperties from $data');
 }

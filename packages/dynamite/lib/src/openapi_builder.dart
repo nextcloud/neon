@@ -1082,7 +1082,7 @@ TypeResult resolveObject(
               refer('JsonSerializable').call(
                 [],
                 {
-                  if (schema.additionalProperties ?? false) ...{
+                  if (schema.additionalProperties != null) ...{
                     'disallowUnrecognizedKeys': refer('false'),
                   },
                   if (extraJsonSerializableValues != null) ...{
@@ -1543,11 +1543,25 @@ TypeResult resolveType(
         break;
       case 'object':
         if (schema.properties == null) {
-          if (schema.additionalProperties ?? false) {
-            result = TypeResultMap(
-              'Map<String, dynamic>',
-              TypeResultBase('dynamic'),
-            );
+          if (schema.additionalProperties != null) {
+            if (schema.additionalProperties is EmptySchema) {
+              result = TypeResultMap(
+                'Map<String, dynamic>',
+                TypeResultBase('dynamic'),
+              );
+            } else {
+              final subResult = resolveType(
+                spec,
+                state,
+                identifier,
+                schema.additionalProperties!,
+                extraJsonSerializableValues: extraJsonSerializableValues,
+              );
+              result = TypeResultMap(
+                'Map<String, ${subResult.name}>',
+                TypeResultBase('dynamic'),
+              );
+            }
             break;
           }
           result = TypeResultBase('dynamic');
