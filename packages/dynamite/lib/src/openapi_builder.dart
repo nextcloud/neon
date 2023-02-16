@@ -1367,7 +1367,7 @@ TypeResult resolveType(
                       final s = schema.ofs![results.indexOf(result)];
                       b
                         ..name = fields[result.name]
-                        ..type = refer(_makeNullable(result.name, true))
+                        ..type = refer(_makeNullable(result.name, !(schema.allOf?.contains(s) ?? false)))
                         ..modifier = FieldModifier.final$
                         ..docs.addAll(_descriptionToDocs(s.description));
                     },
@@ -1390,7 +1390,8 @@ TypeResult resolveType(
                           (final b) => b
                             ..name = fields[result.name]!
                             ..toThis = true
-                            ..named = true,
+                            ..named = true
+                            ..required = schema.allOf != null,
                         ),
                       ],
                     ]),
@@ -1409,48 +1410,54 @@ TypeResult resolveType(
                       )
                       ..body = Code(
                         <String>[
-                          for (final result in results) ...[
-                            '${result.name}? ${fields[result.name]!};',
-                          ],
-                          for (final result in results) ...[
-                            if (schema.discriminator != null) ...[
-                              "if (data['${schema.discriminator!.propertyName}'] == '${result.name.replaceFirst(state.prefix, '')}'",
-                              if (schema.discriminator!.mapping != null &&
-                                  schema.discriminator!.mapping!.isNotEmpty) ...[
-                                for (final key in schema.discriminator!.mapping!.entries
-                                    .where(
-                                      (final entry) =>
-                                          entry.value.endsWith('/${result.name.replaceFirst(state.prefix, '')}'),
-                                    )
-                                    .map((final entry) => entry.key)) ...[
-                                  " ||  data['${schema.discriminator!.propertyName}'] == '$key'",
-                                ],
-                              ],
-                              ') {',
-                            ],
-                            'try {',
-                            '${fields[result.name]!} = ${result.deserialize('data')};',
-                            '} catch (_) {',
-                            if (schema.discriminator != null) ...[
-                              'rethrow;',
-                            ],
-                            '}',
-                            if (schema.discriminator != null) ...[
-                              '}',
-                            ],
-                          ],
-                          if (schema.oneOf != null) ...[
-                            "assert([${fields.values.join(',')}].where((final x) => x != null).length == 1, 'Need oneOf for \$data');",
-                          ],
                           if (schema.allOf != null) ...[
-                            "assert([${fields.values.join(',')}].where((final x) => x != null).length == ${fields.length}, 'Need allOf for \$data');",
+                            'return ${state.prefix}$identifier(',
+                            'data,',
+                            for (final result in results) ...[
+                              '${fields[result.name]!}: ${result.deserialize('data')},',
+                            ],
+                            ');',
+                          ] else ...[
+                            for (final result in results) ...[
+                              '${result.name}? ${fields[result.name]!};',
+                            ],
+                            for (final result in results) ...[
+                              if (schema.discriminator != null) ...[
+                                "if (data['${schema.discriminator!.propertyName}'] == '${result.name.replaceFirst(state.prefix, '')}'",
+                                if (schema.discriminator!.mapping != null &&
+                                    schema.discriminator!.mapping!.isNotEmpty) ...[
+                                  for (final key in schema.discriminator!.mapping!.entries
+                                      .where(
+                                        (final entry) =>
+                                            entry.value.endsWith('/${result.name.replaceFirst(state.prefix, '')}'),
+                                      )
+                                      .map((final entry) => entry.key)) ...[
+                                    " ||  data['${schema.discriminator!.propertyName}'] == '$key'",
+                                  ],
+                                ],
+                                ') {',
+                              ],
+                              'try {',
+                              '${fields[result.name]!} = ${result.deserialize('data')};',
+                              '} catch (_) {',
+                              if (schema.discriminator != null) ...[
+                                'rethrow;',
+                              ],
+                              '}',
+                              if (schema.discriminator != null) ...[
+                                '}',
+                              ],
+                            ],
+                            if (schema.oneOf != null) ...[
+                              "assert([${fields.values.join(',')}].where((final x) => x != null).length == 1, 'Need oneOf for \$data');",
+                            ],
+                            'return ${state.prefix}$identifier(',
+                            'data,',
+                            for (final result in results) ...[
+                              '${fields[result.name]!}: ${fields[result.name]!},',
+                            ],
+                            ');',
                           ],
-                          'return ${state.prefix}$identifier(',
-                          'data,',
-                          for (final result in results) ...[
-                            '${fields[result.name]!}: ${fields[result.name]!},',
-                          ],
-                          ');',
                         ].join(),
                       );
                   },
