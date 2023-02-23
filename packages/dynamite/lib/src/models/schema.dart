@@ -24,6 +24,8 @@ class Schema {
     this.contentSchema,
     this.discriminator,
     this.pattern,
+    this.minLength,
+    this.maxLength,
   });
 
   factory Schema.fromJson(final Map<String, dynamic> json) => _$SchemaFromJson(json);
@@ -72,6 +74,10 @@ class Schema {
   final Discriminator? discriminator;
 
   final String? pattern;
+
+  final int? minLength;
+
+  final int? maxLength;
 
   bool get isContentString => type == 'string' && (contentMediaType?.isNotEmpty ?? false) && contentSchema != null;
 }

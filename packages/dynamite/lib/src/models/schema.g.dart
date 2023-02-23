@@ -27,7 +27,9 @@ Schema _$SchemaFromJson(Map<String, dynamic> json) {
       'contentMediaType',
       'contentSchema',
       'discriminator',
-      'pattern'
+      'pattern',
+      'minLength',
+      'maxLength'
     ],
   );
   return Schema(
@@ -53,6 +55,8 @@ Schema _$SchemaFromJson(Map<String, dynamic> json) {
     discriminator:
         json['discriminator'] == null ? null : Discriminator.fromJson(json['discriminator'] as Map<String, dynamic>),
     pattern: json['pattern'] as String?,
+    minLength: json['minLength'] as int?,
+    maxLength: json['maxLength'] as int?,
   );
 }
 
@@ -83,5 +87,7 @@ Map<String, dynamic> _$SchemaToJson(Schema instance) {
   writeNotNull('contentSchema', instance.contentSchema?.toJson());
   writeNotNull('discriminator', instance.discriminator?.toJson());
   writeNotNull('pattern', instance.pattern);
+  writeNotNull('minLength', instance.minLength);
+  writeNotNull('maxLength', instance.maxLength);
   return val;
 }

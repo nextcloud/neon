@@ -582,12 +582,28 @@ class OpenAPIBuilder implements Builder {
                                 parameter.schema!,
                               );
 
-                              if (result.name == 'String' && parameter.schema?.pattern != null) {
-                                code.write('''
-                                if (!RegExp(r'${parameter.schema!.pattern!}').hasMatch(${_toDartName(parameter.name)})) {
-                                  throw Exception('Invalid value "\$${_toDartName(parameter.name)}" for parameter "${_toDartName(parameter.name)}" with pattern "' r'${parameter.schema!.pattern!}"'); // coverage:ignore-line
+                              if (result.name == 'String') {
+                                if (parameter.schema?.pattern != null) {
+                                  code.write('''
+                                  if (!RegExp(r'${parameter.schema!.pattern!}').hasMatch(${_toDartName(parameter.name)})) {
+                                    throw Exception('Invalid value "\$${_toDartName(parameter.name)}" for parameter "${_toDartName(parameter.name)}" with pattern "' r'${parameter.schema!.pattern!}"'); // coverage:ignore-line
+                                  }
+                                  ''');
                                 }
-                                ''');
+                                if (parameter.schema?.minLength != null) {
+                                  code.write('''
+                                  if (${_toDartName(parameter.name)}.length < ${parameter.schema!.minLength!}) {
+                                    throw Exception('Parameter "${_toDartName(parameter.name)}" has to be at least ${parameter.schema!.minLength!} characters long'); // coverage:ignore-line
+                                  }
+                                  ''');
+                                }
+                                if (parameter.schema?.maxLength != null) {
+                                  code.write('''
+                                  if (${_toDartName(parameter.name)}.length > ${parameter.schema!.maxLength!}) {
+                                    throw Exception('Parameter "${_toDartName(parameter.name)}" has to be at most ${parameter.schema!.maxLength!} characters long'); // coverage:ignore-line
+                                  }
+                                  ''');
+                                }
                               }
 
                               final defaultValueCode = parameter.schema?.default_ != null
