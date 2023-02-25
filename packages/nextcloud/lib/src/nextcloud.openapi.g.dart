@@ -1835,7 +1835,7 @@ NextcloudProvisioningApiUserDetails _$NextcloudProvisioningApiUserDetailsFromJso
   );
   return NextcloudProvisioningApiUserDetails(
     enabled: json['enabled'] as bool?,
-    storageLocation: json['storageLocation'] as String,
+    storageLocation: json['storageLocation'] as String?,
     id: json['id'] as String,
     lastLogin: json['lastLogin'] as int,
     backend: json['backend'] as String,

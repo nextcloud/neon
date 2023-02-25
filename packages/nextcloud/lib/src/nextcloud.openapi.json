@@ -2,7 +2,7 @@
   "openapi": "3.1.0",
   "info": {
     "title": "Nextcloud",
-    "version": "25.0.3",
+    "version": "25.0.4",
     "description": "All supported Nextcloud APIs in one",
     "license": {
       "name": "agpl",
@@ -1546,7 +1546,6 @@
       "ProvisioningApiUserDetails": {
         "type": "object",
         "required": [
-          "storageLocation",
           "id",
           "lastLogin",
           "backend",

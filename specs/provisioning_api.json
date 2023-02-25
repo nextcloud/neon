@@ -107,7 +107,6 @@
       "UserDetails": {
         "type": "object",
         "required": [
-          "storageLocation",
           "id",
           "lastLogin",
           "backend",
