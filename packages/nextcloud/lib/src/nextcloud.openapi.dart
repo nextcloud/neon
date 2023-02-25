@@ -4334,7 +4334,7 @@ class NextcloudProvisioningApiUserDetails_BackendCapabilities {
 class NextcloudProvisioningApiUserDetails {
   NextcloudProvisioningApiUserDetails({
     this.enabled,
-    required this.storageLocation,
+    this.storageLocation,
     required this.id,
     required this.lastLogin,
     required this.backend,
@@ -4385,7 +4385,7 @@ class NextcloudProvisioningApiUserDetails {
 
   final bool? enabled;
 
-  final String storageLocation;
+  final String? storageLocation;
 
   final String id;
 
