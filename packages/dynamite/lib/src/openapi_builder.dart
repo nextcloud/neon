@@ -582,12 +582,28 @@ class OpenAPIBuilder implements Builder {
                                 parameter.schema!,
                               );
 
-                              if (result.name == 'String' && parameter.schema?.pattern != null) {
-                                code.write('''
-                                if (!RegExp(r'${parameter.schema!.pattern!}').hasMatch(${_toDartName(parameter.name)})) {
-                                  throw Exception('Invalid value "\$${_toDartName(parameter.name)}" for parameter "${_toDartName(parameter.name)}" with pattern "' r'${parameter.schema!.pattern!}"'); // coverage:ignore-line
+                              if (result.name == 'String') {
+                                if (parameter.schema?.pattern != null) {
+                                  code.write('''
+                                  if (!RegExp(r'${parameter.schema!.pattern!}').hasMatch(${_toDartName(parameter.name)})) {
+                                    throw Exception('Invalid value "\$${_toDartName(parameter.name)}" for parameter "${_toDartName(parameter.name)}" with pattern "' r'${parameter.schema!.pattern!}"'); // coverage:ignore-line
+                                  }
+                                  ''');
                                 }
-                                ''');
+                                if (parameter.schema?.minLength != null) {
+                                  code.write('''
+                                  if (${_toDartName(parameter.name)}.length < ${parameter.schema!.minLength!}) {
+                                    throw Exception('Parameter "${_toDartName(parameter.name)}" has to be at least ${parameter.schema!.minLength!} characters long'); // coverage:ignore-line
+                                  }
+                                  ''');
+                                }
+                                if (parameter.schema?.maxLength != null) {
+                                  code.write('''
+                                  if (${_toDartName(parameter.name)}.length > ${parameter.schema!.maxLength!}) {
+                                    throw Exception('Parameter "${_toDartName(parameter.name)}" has to be at most ${parameter.schema!.maxLength!} characters long'); // coverage:ignore-line
+                                  }
+                                  ''');
+                                }
                               }
 
                               final defaultValueCode = parameter.schema?.default_ != null
@@ -1082,7 +1098,7 @@ TypeResult resolveObject(
               refer('JsonSerializable').call(
                 [],
                 {
-                  if (schema.additionalProperties ?? false) ...{
+                  if (schema.additionalProperties != null) ...{
                     'disallowUnrecognizedKeys': refer('false'),
                   },
                   if (extraJsonSerializableValues != null) ...{
@@ -1351,7 +1367,7 @@ TypeResult resolveType(
                       final s = schema.ofs![results.indexOf(result)];
                       b
                         ..name = fields[result.name]
-                        ..type = refer(_makeNullable(result.name, true))
+                        ..type = refer(_makeNullable(result.name, !(schema.allOf?.contains(s) ?? false)))
                         ..modifier = FieldModifier.final$
                         ..docs.addAll(_descriptionToDocs(s.description));
                     },
@@ -1374,7 +1390,8 @@ TypeResult resolveType(
                           (final b) => b
                             ..name = fields[result.name]!
                             ..toThis = true
-                            ..named = true,
+                            ..named = true
+                            ..required = schema.allOf != null,
                         ),
                       ],
                     ]),
@@ -1393,48 +1410,54 @@ TypeResult resolveType(
                       )
                       ..body = Code(
                         <String>[
-                          for (final result in results) ...[
-                            '${result.name}? ${fields[result.name]!};',
-                          ],
-                          for (final result in results) ...[
-                            if (schema.discriminator != null) ...[
-                              "if (data['${schema.discriminator!.propertyName}'] == '${result.name.replaceFirst(state.prefix, '')}'",
-                              if (schema.discriminator!.mapping != null &&
-                                  schema.discriminator!.mapping!.isNotEmpty) ...[
-                                for (final key in schema.discriminator!.mapping!.entries
-                                    .where(
-                                      (final entry) =>
-                                          entry.value.endsWith('/${result.name.replaceFirst(state.prefix, '')}'),
-                                    )
-                                    .map((final entry) => entry.key)) ...[
-                                  " ||  data['${schema.discriminator!.propertyName}'] == '$key'",
-                                ],
-                              ],
-                              ') {',
-                            ],
-                            'try {',
-                            '${fields[result.name]!} = ${result.deserialize('data')};',
-                            '} catch (_) {',
-                            if (schema.discriminator != null) ...[
-                              'rethrow;',
-                            ],
-                            '}',
-                            if (schema.discriminator != null) ...[
-                              '}',
-                            ],
-                          ],
-                          if (schema.oneOf != null) ...[
-                            "assert([${fields.values.join(',')}].where((final x) => x != null).length == 1, 'Need oneOf for \$data');",
-                          ],
                           if (schema.allOf != null) ...[
-                            "assert([${fields.values.join(',')}].where((final x) => x != null).length == ${fields.length}, 'Need allOf for \$data');",
+                            'return ${state.prefix}$identifier(',
+                            'data,',
+                            for (final result in results) ...[
+                              '${fields[result.name]!}: ${result.deserialize('data')},',
+                            ],
+                            ');',
+                          ] else ...[
+                            for (final result in results) ...[
+                              '${result.name}? ${fields[result.name]!};',
+                            ],
+                            for (final result in results) ...[
+                              if (schema.discriminator != null) ...[
+                                "if (data['${schema.discriminator!.propertyName}'] == '${result.name.replaceFirst(state.prefix, '')}'",
+                                if (schema.discriminator!.mapping != null &&
+                                    schema.discriminator!.mapping!.isNotEmpty) ...[
+                                  for (final key in schema.discriminator!.mapping!.entries
+                                      .where(
+                                        (final entry) =>
+                                            entry.value.endsWith('/${result.name.replaceFirst(state.prefix, '')}'),
+                                      )
+                                      .map((final entry) => entry.key)) ...[
+                                    " ||  data['${schema.discriminator!.propertyName}'] == '$key'",
+                                  ],
+                                ],
+                                ') {',
+                              ],
+                              'try {',
+                              '${fields[result.name]!} = ${result.deserialize('data')};',
+                              '} catch (_) {',
+                              if (schema.discriminator != null) ...[
+                                'rethrow;',
+                              ],
+                              '}',
+                              if (schema.discriminator != null) ...[
+                                '}',
+                              ],
+                            ],
+                            if (schema.oneOf != null) ...[
+                              "assert([${fields.values.join(',')}].where((final x) => x != null).length == 1, 'Need oneOf for \$data');",
+                            ],
+                            'return ${state.prefix}$identifier(',
+                            'data,',
+                            for (final result in results) ...[
+                              '${fields[result.name]!}: ${fields[result.name]!},',
+                            ],
+                            ');',
                           ],
-                          'return ${state.prefix}$identifier(',
-                          'data,',
-                          for (final result in results) ...[
-                            '${fields[result.name]!}: ${fields[result.name]!},',
-                          ],
-                          ');',
                         ].join(),
                       );
                   },
@@ -1543,6 +1566,27 @@ TypeResult resolveType(
         break;
       case 'object':
         if (schema.properties == null) {
+          if (schema.additionalProperties != null) {
+            if (schema.additionalProperties is EmptySchema) {
+              result = TypeResultMap(
+                'Map<String, dynamic>',
+                TypeResultBase('dynamic'),
+              );
+            } else {
+              final subResult = resolveType(
+                spec,
+                state,
+                identifier,
+                schema.additionalProperties!,
+                extraJsonSerializableValues: extraJsonSerializableValues,
+              );
+              result = TypeResultMap(
+                'Map<String, ${subResult.name}>',
+                TypeResultBase('dynamic'),
+              );
+            }
+            break;
+          }
           result = TypeResultBase('dynamic');
           break;
         }

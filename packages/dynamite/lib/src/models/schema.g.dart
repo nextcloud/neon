@@ -27,7 +27,9 @@ Schema _$SchemaFromJson(Map<String, dynamic> json) {
       'contentMediaType',
       'contentSchema',
       'discriminator',
-      'pattern'
+      'pattern',
+      'minLength',
+      'maxLength'
     ],
   );
   return Schema(
@@ -46,13 +48,15 @@ Schema _$SchemaFromJson(Map<String, dynamic> json) {
     ),
     required: (json['required'] as List<dynamic>?)?.map((e) => e as String).toList(),
     items: json['items'] == null ? null : Schema.fromJson(json['items'] as Map<String, dynamic>),
-    additionalProperties: json['additionalProperties'] as bool?,
+    additionalProperties: _parseAdditionalProperties(json['additionalProperties']),
     contentMediaType: json['contentMediaType'] as String?,
     contentSchema:
         json['contentSchema'] == null ? null : Schema.fromJson(json['contentSchema'] as Map<String, dynamic>),
     discriminator:
         json['discriminator'] == null ? null : Discriminator.fromJson(json['discriminator'] as Map<String, dynamic>),
     pattern: json['pattern'] as String?,
+    minLength: json['minLength'] as int?,
+    maxLength: json['maxLength'] as int?,
   );
 }
 
@@ -78,10 +82,12 @@ Map<String, dynamic> _$SchemaToJson(Schema instance) {
   writeNotNull('properties', instance.properties?.map((k, e) => MapEntry(k, e.toJson())));
   writeNotNull('required', instance.required);
   writeNotNull('items', instance.items?.toJson());
-  writeNotNull('additionalProperties', instance.additionalProperties);
+  writeNotNull('additionalProperties', instance.additionalProperties?.toJson());
   writeNotNull('contentMediaType', instance.contentMediaType);
   writeNotNull('contentSchema', instance.contentSchema?.toJson());
   writeNotNull('discriminator', instance.discriminator?.toJson());
   writeNotNull('pattern', instance.pattern);
+  writeNotNull('minLength', instance.minLength);
+  writeNotNull('maxLength', instance.maxLength);
   return val;
 }
