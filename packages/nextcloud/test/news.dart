@@ -1,6 +1,7 @@
 import 'package:nextcloud/nextcloud.dart';
-import 'package:nextcloud_test/nextcloud_test.dart';
 import 'package:test/test.dart';
+
+import 'helper.dart';
 
 const wikipediaFeedURL = 'https://en.wikipedia.org/w/api.php?action=featuredfeed&feed=featured&feedformat=atom';
 const nasaFeedURL = 'https://www.nasa.gov/rss/dyn/breaking_news.rss';

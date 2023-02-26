@@ -1,5 +1,0 @@
-include: package:nit_picking/dart.yaml
-
-linter:
-  rules:
-    public_member_api_docs: false

@@ -1,6 +1,5 @@
-import 'package:nextcloud_test/nextcloud_test.dart';
-
 import 'core.dart' as core;
+import 'helper.dart';
 import 'news.dart' as news;
 import 'notes.dart' as notes;
 import 'notifications.dart' as notifications;
