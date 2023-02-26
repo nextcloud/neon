@@ -54,6 +54,7 @@ Future main() async {
     globalOptions,
     platform,
   );
+  final firstLaunchBloc = FirstLaunchBloc(sharedPreferences);
 
   runApp(
     MultiProvider(
@@ -78,6 +79,9 @@ Future main() async {
         ),
         Provider<PushNotificationsBloc>(
           create: (final _) => pushNotificationsBloc,
+        ),
+        Provider<FirstLaunchBloc>(
+          create: (final _) => firstLaunchBloc,
         ),
         Provider<List<AppImplementation>>(
           create: (final _) => allAppImplementations,

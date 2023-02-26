@@ -311,6 +311,12 @@ abstract class AppLocalizations {
   /// **'Do you want to reset all settings for {name}?'**
   String settingsResetForConfirmation(String name);
 
+  /// No description provided for @settingsGoToSettingsToEnablePushNotifications.
+  ///
+  /// In en, this message translates to:
+  /// **'Go to the settings to enable push notifications'**
+  String get settingsGoToSettingsToEnablePushNotifications;
+
   /// No description provided for @optionsCategoryGeneral.
   ///
   /// In en, this message translates to:

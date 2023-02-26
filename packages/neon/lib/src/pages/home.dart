@@ -23,6 +23,7 @@ class _HomePageState extends State<HomePage> {
   late GlobalOptions _globalOptions;
   late CapabilitiesBloc _capabilitiesBloc;
   late AppsBloc _appsBloc;
+  late FirstLaunchBloc _firstLaunchBloc;
 
   @override
   void initState() {
@@ -31,6 +32,7 @@ class _HomePageState extends State<HomePage> {
     _globalOptions = Provider.of<GlobalOptions>(context, listen: false);
     _appsBloc = Provider.of<AccountsBloc>(context, listen: false).getAppsBloc(widget.account);
     _capabilitiesBloc = Provider.of<AccountsBloc>(context, listen: false).getCapabilitiesBloc(widget.account);
+    _firstLaunchBloc = Provider.of<FirstLaunchBloc>(context, listen: false);
 
     _capabilitiesBloc.capabilities.listen((final result) async {
       if (result.data != null) {
@@ -81,6 +83,24 @@ class _HomePageState extends State<HomePage> {
           }
         });
       }
+    });
+
+    _firstLaunchBloc.onFirstLaunch.listen((final _) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(AppLocalizations.of(context).settingsGoToSettingsToEnablePushNotifications),
+          action: SnackBarAction(
+            label: AppLocalizations.of(context).settings,
+            onPressed: () async {
+              await Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (final context) => const SettingsPage(),
+                ),
+              );
+            },
+          ),
+        ),
+      );
     });
 
     unawaited(_checkMaintenanceMode());

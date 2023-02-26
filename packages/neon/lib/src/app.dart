@@ -70,13 +70,15 @@ class _NeonAppState extends State<NeonApp> with WidgetsBindingObserver, tray.Tra
           const settings = RouteSettings(
             name: 'home',
           );
-          Widget builder(final context) => HomePage(
-                account: activeAccount,
-                onThemeChanged: (final nextcloudTheme) {
-                  setState(() {
-                    _nextcloudTheme = nextcloudTheme;
-                  });
-                },
+          Widget builder(final context) => Scaffold(
+                body: HomePage(
+                  account: activeAccount,
+                  onThemeChanged: (final nextcloudTheme) {
+                    setState(() {
+                      _nextcloudTheme = nextcloudTheme;
+                    });
+                  },
+                ),
               );
           await _navigatorKey.currentState!.pushAndRemoveUntil(
             widget.globalOptions.navigationMode.value == NavigationMode.drawer

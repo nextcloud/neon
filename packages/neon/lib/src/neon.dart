@@ -50,6 +50,7 @@ part 'app.dart';
 part 'blocs/accounts.dart';
 part 'blocs/apps.dart';
 part 'blocs/capabilities.dart';
+part 'blocs/first_launch.dart';
 part 'blocs/login.dart';
 part 'blocs/push_notifications.dart';
 part 'blocs/user_details.dart';

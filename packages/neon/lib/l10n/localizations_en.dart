@@ -127,6 +127,9 @@ class AppLocalizationsEn extends AppLocalizations {
   }
 
   @override
+  String get settingsGoToSettingsToEnablePushNotifications => 'Go to the settings to enable push notifications';
+
+  @override
   String get optionsCategoryGeneral => 'General';
 
   @override

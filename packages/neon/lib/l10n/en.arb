@@ -65,6 +65,7 @@
       }
     }
   },
+  "settingsGoToSettingsToEnablePushNotifications": "Go to the settings to enable push notifications",
   "optionsCategoryGeneral": "General",
   "optionsCategoryTheme": "Theme",
   "optionsCategoryPushNotifications": "Push notifications",
