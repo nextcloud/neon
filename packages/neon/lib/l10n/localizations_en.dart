@@ -127,6 +127,9 @@ class AppLocalizationsEn extends AppLocalizations {
   }
 
   @override
+  String get settingsGoToSettingsToEnablePushNotifications => 'Go to the settings to enable push notifications';
+
+  @override
   String get optionsCategoryGeneral => 'General';
 
   @override
@@ -175,36 +178,35 @@ class AppLocalizationsEn extends AppLocalizations {
   String get globalOptionsThemeKeepOriginalAccentColor => 'Keep the original accent color';
 
   @override
-  String get globalOptionsPushNotificationsNotice =>
-      'External services are used for delivering push notifications. While the content is encrypted and can only be read by this app, extracting metadata like the time and count of notifications is still possible.';
-
-  @override
   String get globalOptionsPushNotificationsEnabled => 'Enabled';
 
   @override
   String get globalOptionsPushNotificationsEnabledDisabledNotice =>
-      'No UnifiedPush distributor could be found. Please go to https://unifiedpush.org/users/distributors and setup any of the listed distributors. Then re-open this app and you should be able to enable notifications';
+      'No UnifiedPush distributor could be found or you denied the permission for showing notifications. Please go to the app settings and allow notifications and go to https://unifiedpush.org/users/distributors and setup any of the listed distributors. Then re-open this app and you should be able to enable notifications';
 
   @override
   String get globalOptionsPushNotificationsDistributor => 'UnifiedPush Distributor';
 
   @override
-  String get globalOptionsPushNotificationsDistributorGotifyUP => 'Gotify-UP';
+  String get globalOptionsPushNotificationsDistributorGotifyUP => 'Gotify-UP (FOSS)';
 
   @override
-  String get globalOptionsPushNotificationsDistributorFirebaseEmbedded => 'Firebase (FOSS)';
+  String get globalOptionsPushNotificationsDistributorFirebaseEmbedded => 'Firebase (proprietary)';
 
   @override
-  String get globalOptionsPushNotificationsDistributorNtfy => 'ntfy';
+  String get globalOptionsPushNotificationsDistributorNtfy => 'ntfy (FOSS)';
 
   @override
-  String get globalOptionsPushNotificationsDistributorFCMUP => 'FCM-UP';
+  String get globalOptionsPushNotificationsDistributorFCMUP => 'FCM-UP (proprietary)';
 
   @override
-  String get globalOptionsPushNotificationsDistributorNextPush => 'NextPush';
+  String get globalOptionsPushNotificationsDistributorNextPush => 'NextPush (FOSS)';
 
   @override
-  String get globalOptionsPushNotificationsDistributorNoProvider2Push => 'NoProvider2Push';
+  String get globalOptionsPushNotificationsDistributorNoProvider2Push => 'NoProvider2Push (FOSS)';
+
+  @override
+  String get globalOptionsPushNotificationsDistributorConversations => 'Conversations';
 
   @override
   String get globalOptionsStartupMinimized => 'Start minimized';

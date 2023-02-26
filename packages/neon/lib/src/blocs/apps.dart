@@ -14,6 +14,8 @@ abstract class AppsBlocStates {
   BehaviorSubject<Result<NotificationsApp?>> get notificationsAppImplementation;
 
   BehaviorSubject<String?> get activeAppID;
+
+  BehaviorSubject get openNotifications;
 }
 
 class AppsBloc extends InteractiveBloc implements AppsBlocEvents, AppsBlocStates {
@@ -88,6 +90,7 @@ class AppsBloc extends InteractiveBloc implements AppsBlocEvents, AppsBlocStates
     unawaited(appImplementations.close());
     unawaited(notificationsAppImplementation.close());
     unawaited(activeAppID.close());
+    unawaited(openNotifications.close());
     for (final key in _blocs.keys) {
       _blocs[key]!.dispose();
     }
@@ -106,6 +109,9 @@ class AppsBloc extends InteractiveBloc implements AppsBlocEvents, AppsBlocStates
   @override
   BehaviorSubject<Result<NotificationsApp?>> notificationsAppImplementation =
       BehaviorSubject<Result<NotificationsApp?>>();
+
+  @override
+  BehaviorSubject openNotifications = BehaviorSubject();
 
   @override
   Future refresh() async {
@@ -128,7 +134,7 @@ class AppsBloc extends InteractiveBloc implements AppsBlocEvents, AppsBlocStates
         activeAppID.add(appID);
       }
     } else if (appID == 'notifications') {
-      // TODO: Open notifications page
+      openNotifications.add(null);
     } else {
       throw Exception('App $appID not found');
     }

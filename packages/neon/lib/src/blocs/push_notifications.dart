@@ -3,7 +3,7 @@ part of '../neon.dart';
 abstract class PushNotificationsBlocEvents {}
 
 abstract class PushNotificationsBlocStates {
-  Stream<NextcloudPushNotification> get notifications;
+  Stream<PushNotification> get notifications;
 }
 
 class PushNotificationsBloc extends Bloc implements PushNotificationsBlocEvents, PushNotificationsBlocStates {
@@ -11,7 +11,6 @@ class PushNotificationsBloc extends Bloc implements PushNotificationsBlocEvents,
     this._accountsBloc,
     this._sharedPreferences,
     this._globalOptions,
-    this._env,
     this._platform,
   ) {
     if (_platform.canUsePushNotifications) {
@@ -35,11 +34,10 @@ class PushNotificationsBloc extends Bloc implements PushNotificationsBlocEvents,
   final SharedPreferences _sharedPreferences;
   late final _storage = AppStorage('notifications', _sharedPreferences);
   final GlobalOptions _globalOptions;
-  final Env? _env;
   late RSAKeypair _keypair;
   bool? _pushNotificationsEnabled;
 
-  final _notificationsController = StreamController<NextcloudPushNotification>();
+  final _notificationsController = StreamController<PushNotification>();
 
   @override
   void dispose() {
@@ -47,20 +45,14 @@ class PushNotificationsBloc extends Bloc implements PushNotificationsBlocEvents,
   }
 
   @override
-  late Stream<NextcloudPushNotification> notifications = _notificationsController.stream.asBroadcastStream();
+  late Stream<PushNotification> notifications = _notificationsController.stream.asBroadcastStream();
 
   String _keyLastEndpoint(final Account account) => 'last-endpoint-${account.id}';
 
   Future _setupUnifiedPush() async {
     await UnifiedPush.initialize(
       onNewEndpoint: (final endpoint, final instance) async {
-        Account? account;
-        for (final a in _accountsBloc.accounts.value) {
-          if (a.id == instance) {
-            account = a;
-            break;
-          }
-        }
+        final account = _accountsBloc.accounts.value.find(instance);
         if (account == null) {
           debugPrint('Account for $instance not found, can not process endpoint');
           return;
@@ -73,28 +65,17 @@ class PushNotificationsBloc extends Bloc implements PushNotificationsBlocEvents,
 
         debugPrint('Registering account $instance for push notifications on $endpoint');
 
-        var proxyServerForNextcloud = 'https://nc.proxy.neon.provokateurin.de/';
-        var proxyServerForClient = proxyServerForNextcloud;
-        if (_env != null) {
-          proxyServerForNextcloud = 'http://host.docker.internal:8080/';
-          proxyServerForClient = 'http://${_env!.testHost}:8080/';
-        }
-
         final subscription = await account.client.notifications.registerDevice(
-          pushTokenHash: account.client.notifications.generatePushTokenHash(endpoint),
+          pushTokenHash: generatePushTokenHash(endpoint),
           devicePublicKey: _keypair.publicKey.toFormattedPEM(),
-          proxyServer: proxyServerForNextcloud,
-        );
-
-        await account.client.notifications.registerDeviceAtPushProxy(
-          endpoint,
-          subscription.ocs.data,
-          proxyServerForClient,
+          proxyServer: '$endpoint#', // This is a hack to make the Nextcloud server directly push to the endpoint
         );
 
         await _storage.setString(_keyLastEndpoint(account), endpoint);
 
-        debugPrint('Account $instance registered for push notifications');
+        debugPrint(
+          'Account $instance registered for push notifications ${json.encode(subscription.ocs.data.toJson())}',
+        );
       },
       onMessage: PushUtils.onMessage,
     );
@@ -120,7 +101,13 @@ class PushNotificationsBloc extends Bloc implements PushNotificationsBlocEvents,
 
   Future _unregisterUnifiedPushInstances(final List<Account> accounts) async {
     for (final account in accounts) {
-      await UnifiedPush.unregister(account.client.id);
+      try {
+        await account.client.notifications.removeDevice();
+        await UnifiedPush.unregister(account.client.id);
+        await _storage.remove(_keyLastEndpoint(account));
+      } catch (e) {
+        debugPrint('Failed to unregister device: $e');
+      }
     }
   }
 
@@ -130,18 +117,4 @@ class PushNotificationsBloc extends Bloc implements PushNotificationsBlocEvents,
       await UnifiedPush.registerApp(account.client.id);
     }
   }
-}
-
-class NextcloudPushNotification {
-  NextcloudPushNotification({
-    required this.instance,
-    required this.priority,
-    required this.type,
-    required this.subject,
-  });
-
-  final String instance;
-  final String priority;
-  final String type;
-  final NextcloudNotificationsPushNotificationDecryptedSubject subject;
 }

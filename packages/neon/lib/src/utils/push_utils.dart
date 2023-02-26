@@ -27,7 +27,7 @@ class PushUtils {
         android: const AndroidInitializationSettings('@mipmap/ic_launcher'),
         linux: LinuxInitializationSettings(
           defaultActionName: 'Open',
-          defaultIcon: AssetsLinuxIcon('assets/logo_harbour.svg'),
+          defaultIcon: AssetsLinuxIcon('assets/logo_neon.svg'),
         ),
       ),
       onDidReceiveNotificationResponse: onDidReceiveNotificationResponse,
@@ -35,14 +35,14 @@ class PushUtils {
     return localNotificationsPlugin;
   }
 
-  static Future onMessage(final Uint8List message, final String instance) async {
+  static Future onMessage(final Uint8List messages, final String instance) async {
     WidgetsFlutterBinding.ensureInitialized();
 
     final localNotificationsPlugin = await initLocalNotifications(
       onDidReceiveNotificationResponse: (final notification) async {
         if (Global.onPushNotificationClicked != null && notification.payload != null) {
           await Global.onPushNotificationClicked!(
-            PushNotificationWithAccountID.fromJson(
+            PushNotification.fromJson(
               json.decode(notification.payload!) as Map<String, dynamic>,
             ),
           );
@@ -52,82 +52,87 @@ class PushUtils {
     final sharedPreferences = await SharedPreferences.getInstance();
 
     final keypair = await loadRSAKeypair(AppStorage('notifications', sharedPreferences));
-    final data = json.decode(utf8.decode(message)) as Map<String, dynamic>;
-    final notification = NextcloudNotificationsPushNotification(
-      accountID: instance,
-      priority: data['priority']! as String,
-      type: data['type']! as String,
-      subject: decryptPushNotificationSubject(keypair.privateKey, data['subject']! as String),
-    );
 
-    if (notification.subject.delete ?? false) {
-      await localNotificationsPlugin.cancel(_getNotificationID(instance, notification));
-      return;
-    }
-    if (notification.subject.deleteAll ?? false) {
-      await localNotificationsPlugin.cancelAll();
-      return;
-    }
-    if (notification.type == 'background') {
-      debugPrint('Got unknown background notification $notification.subject');
-      return;
-    }
+    for (final message in Uri(query: utf8.decode(messages)).queryParameters.values) {
+      final data = json.decode(message) as Map<String, dynamic>;
+      final notification = PushNotification(
+        accountID: instance,
+        priority: data['priority']! as String,
+        type: data['type']! as String,
+        subject: decryptPushNotificationSubject(keypair.privateKey, data['subject']! as String),
+      );
 
-    final localizations = await appLocalizationsFromSystem();
+      if (notification.subject.delete ?? false) {
+        await localNotificationsPlugin.cancel(_getNotificationID(instance, notification));
+        return;
+      }
+      if (notification.subject.deleteAll ?? false) {
+        await localNotificationsPlugin.cancelAll();
+        return;
+      }
+      if (notification.type == 'background') {
+        debugPrint('Got unknown background notification ${json.encode(notification.toJson())}');
+        return;
+      }
 
-    final platform = await getNeonPlatform();
-    final cache = Cache(platform);
-    await cache.init();
-    final requestManager = RequestManager(cache);
-    final allAppImplementations = getAppImplementations(sharedPreferences, requestManager, platform);
+      final localizations = await appLocalizationsFromSystem();
 
-    final matchingAppImplementations =
-        allAppImplementations.where((final a) => a.id == notification.subject.app).toList();
-    late AppImplementation app;
-    if (matchingAppImplementations.isNotEmpty) {
-      app = matchingAppImplementations.single;
-    } else {
-      app = allAppImplementations.singleWhere((final a) => a.id == 'notifications');
-    }
+      final platform = await getNeonPlatform();
+      final cache = Cache(platform);
+      await cache.init();
+      final requestManager = RequestManager(cache);
+      final allAppImplementations = getAppImplementations(sharedPreferences, requestManager, platform);
 
-    final appName = app.nameFromLocalization(localizations);
+      final matchingAppImplementations =
+          allAppImplementations.where((final a) => a.id == notification.subject.app).toList();
+      late AppImplementation app;
+      if (matchingAppImplementations.isNotEmpty) {
+        app = matchingAppImplementations.single;
+      } else {
+        app = allAppImplementations.singleWhere((final a) => a.id == 'notifications');
+      }
 
-    await localNotificationsPlugin.show(
-      _getNotificationID(instance, notification),
-      appName,
-      notification.subject.subject,
-      NotificationDetails(
-        android: AndroidNotificationDetails(
-          app.id,
-          appName,
-          groupKey: 'app_${app.id}',
-          icon: '@mipmap/app_${app.id}',
-          color: themePrimaryColor,
-          category: notification.type == 'voip' ? AndroidNotificationCategory.call : null,
-          importance: Importance.max,
-          priority: notification.priority == 'high'
-              ? (notification.type == 'voip' ? Priority.max : Priority.high)
-              : Priority.defaultPriority,
+      final appName = app.nameFromLocalization(localizations);
+
+      await localNotificationsPlugin.show(
+        _getNotificationID(instance, notification),
+        appName,
+        notification.subject.subject,
+        NotificationDetails(
+          android: AndroidNotificationDetails(
+            app.id,
+            appName,
+            groupKey: 'app_${app.id}',
+            icon: '@mipmap/app_${app.id}',
+            color: themePrimaryColor,
+            category: notification.type == 'voip' ? AndroidNotificationCategory.call : null,
+            importance: Importance.max,
+            priority: notification.priority == 'high'
+                ? (notification.type == 'voip' ? Priority.max : Priority.high)
+                : Priority.defaultPriority,
+          ),
+          linux: LinuxNotificationDetails(
+            icon: AssetsLinuxIcon('assets/apps/${app.id}.svg'),
+            urgency: notification.type == 'voip' ? LinuxNotificationUrgency.critical : LinuxNotificationUrgency.normal,
+          ),
         ),
-        linux: LinuxNotificationDetails(
-          icon: AssetsLinuxIcon('assets/apps/${app.id}.svg'),
-          urgency: notification.type == 'voip' ? LinuxNotificationUrgency.critical : LinuxNotificationUrgency.normal,
+        payload: json.encode(
+          PushNotification(
+            accountID: instance,
+            priority: notification.priority,
+            type: notification.type,
+            subject: notification.subject,
+          ).toJson(),
         ),
-      ),
-      payload: json.encode(
-        PushNotificationWithAccountID(
-          notification: notification,
-          accountID: instance,
-        ).toJson(),
-      ),
-    );
+      );
 
-    Global.onPushNotificationReceived?.call(instance);
+      Global.onPushNotificationReceived?.call(instance);
+    }
   }
 
   static int _getNotificationID(
     final String instance,
-    final NextcloudNotificationsPushNotification notification,
+    final PushNotification notification,
   ) =>
       sha256.convert(utf8.encode('$instance${notification.subject.nid}')).bytes.reduce((final a, final b) => a + b);
 }

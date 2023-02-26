@@ -126,8 +126,11 @@ Future pumpAppPage(
     accountsBloc,
     sharedPreferences,
     globalOptions,
-    null,
     platform,
+  );
+  final firstLaunchBloc = FirstLaunchBloc(
+    sharedPreferences,
+    disabled: true,
   );
 
   // ignore: close_sinks
@@ -156,6 +159,9 @@ Future pumpAppPage(
         ),
         Provider<PushNotificationsBloc>(
           create: (final _) => pushNotificationsBloc,
+        ),
+        Provider<FirstLaunchBloc>(
+          create: (final _) => firstLaunchBloc,
         ),
         Provider<List<AppImplementation>>(
           create: (final _) => allAppImplementations,

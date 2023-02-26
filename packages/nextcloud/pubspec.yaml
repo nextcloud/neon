@@ -6,7 +6,7 @@ environment:
 
 dependencies:
   cookie_jar: ^3.0.1
-  crypto: ^3.0.1
+  crypto: ^3.0.2
   crypton: ^2.0.5
   intl: ^0.17.0
   json_annotation: ^4.7.0
@@ -19,8 +19,6 @@ dev_dependencies:
   dynamite:
     path: ../dynamite
   json_serializable: ^6.3.2
-  nextcloud_push_proxy:
-    path: ../nextcloud_push_proxy
   nextcloud_test:
     path: ../nextcloud_test
   nit_picking:

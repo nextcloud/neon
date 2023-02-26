@@ -311,6 +311,12 @@ abstract class AppLocalizations {
   /// **'Do you want to reset all settings for {name}?'**
   String settingsResetForConfirmation(String name);
 
+  /// No description provided for @settingsGoToSettingsToEnablePushNotifications.
+  ///
+  /// In en, this message translates to:
+  /// **'Go to the settings to enable push notifications'**
+  String get settingsGoToSettingsToEnablePushNotifications;
+
   /// No description provided for @optionsCategoryGeneral.
   ///
   /// In en, this message translates to:
@@ -407,12 +413,6 @@ abstract class AppLocalizations {
   /// **'Keep the original accent color'**
   String get globalOptionsThemeKeepOriginalAccentColor;
 
-  /// No description provided for @globalOptionsPushNotificationsNotice.
-  ///
-  /// In en, this message translates to:
-  /// **'External services are used for delivering push notifications. While the content is encrypted and can only be read by this app, extracting metadata like the time and count of notifications is still possible.'**
-  String get globalOptionsPushNotificationsNotice;
-
   /// No description provided for @globalOptionsPushNotificationsEnabled.
   ///
   /// In en, this message translates to:
@@ -422,7 +422,7 @@ abstract class AppLocalizations {
   /// No description provided for @globalOptionsPushNotificationsEnabledDisabledNotice.
   ///
   /// In en, this message translates to:
-  /// **'No UnifiedPush distributor could be found. Please go to https://unifiedpush.org/users/distributors and setup any of the listed distributors. Then re-open this app and you should be able to enable notifications'**
+  /// **'No UnifiedPush distributor could be found or you denied the permission for showing notifications. Please go to the app settings and allow notifications and go to https://unifiedpush.org/users/distributors and setup any of the listed distributors. Then re-open this app and you should be able to enable notifications'**
   String get globalOptionsPushNotificationsEnabledDisabledNotice;
 
   /// No description provided for @globalOptionsPushNotificationsDistributor.
@@ -434,38 +434,44 @@ abstract class AppLocalizations {
   /// No description provided for @globalOptionsPushNotificationsDistributorGotifyUP.
   ///
   /// In en, this message translates to:
-  /// **'Gotify-UP'**
+  /// **'Gotify-UP (FOSS)'**
   String get globalOptionsPushNotificationsDistributorGotifyUP;
 
   /// No description provided for @globalOptionsPushNotificationsDistributorFirebaseEmbedded.
   ///
   /// In en, this message translates to:
-  /// **'Firebase (FOSS)'**
+  /// **'Firebase (proprietary)'**
   String get globalOptionsPushNotificationsDistributorFirebaseEmbedded;
 
   /// No description provided for @globalOptionsPushNotificationsDistributorNtfy.
   ///
   /// In en, this message translates to:
-  /// **'ntfy'**
+  /// **'ntfy (FOSS)'**
   String get globalOptionsPushNotificationsDistributorNtfy;
 
   /// No description provided for @globalOptionsPushNotificationsDistributorFCMUP.
   ///
   /// In en, this message translates to:
-  /// **'FCM-UP'**
+  /// **'FCM-UP (proprietary)'**
   String get globalOptionsPushNotificationsDistributorFCMUP;
 
   /// No description provided for @globalOptionsPushNotificationsDistributorNextPush.
   ///
   /// In en, this message translates to:
-  /// **'NextPush'**
+  /// **'NextPush (FOSS)'**
   String get globalOptionsPushNotificationsDistributorNextPush;
 
   /// No description provided for @globalOptionsPushNotificationsDistributorNoProvider2Push.
   ///
   /// In en, this message translates to:
-  /// **'NoProvider2Push'**
+  /// **'NoProvider2Push (FOSS)'**
   String get globalOptionsPushNotificationsDistributorNoProvider2Push;
+
+  /// No description provided for @globalOptionsPushNotificationsDistributorConversations.
+  ///
+  /// In en, this message translates to:
+  /// **'Conversations'**
+  String get globalOptionsPushNotificationsDistributorConversations;
 
   /// No description provided for @globalOptionsStartupMinimized.
   ///

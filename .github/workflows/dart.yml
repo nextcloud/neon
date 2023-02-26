@@ -101,38 +101,6 @@ jobs:
     needs:
       - job_001
   job_004:
-    name: "all; PKG: packages/nextcloud_push_proxy; `dart analyze --fatal-infos .`"
-    runs-on: ubuntu-latest
-    steps:
-      - name: Cache Pub hosted dependencies
-        uses: actions/cache@627f0f41f6904a5b1efbaed9f96d9eb58e92e920
-        with:
-          path: "~/.pub-cache/hosted"
-          key: "os:ubuntu-latest;pub-cache-hosted;sdk:stable;packages:packages/nextcloud_push_proxy;commands:analyze_0"
-          restore-keys: |
-            os:ubuntu-latest;pub-cache-hosted;sdk:stable;packages:packages/nextcloud_push_proxy
-            os:ubuntu-latest;pub-cache-hosted;sdk:stable
-            os:ubuntu-latest;pub-cache-hosted
-            os:ubuntu-latest
-      - name: Setup Dart SDK
-        uses: dart-lang/setup-dart@a57a6c04cf7d4840e88432aad6281d1e125f0d46
-        with:
-          sdk: stable
-      - id: checkout
-        name: Checkout repository
-        uses: actions/checkout@ac593985615ec2ede58e132d2e21d2b1cbd6127c
-      - id: packages_nextcloud_push_proxy_pub_upgrade
-        name: packages/nextcloud_push_proxy; dart pub upgrade
-        run: dart pub upgrade
-        if: "always() && steps.checkout.conclusion == 'success'"
-        working-directory: packages/nextcloud_push_proxy
-      - name: "packages/nextcloud_push_proxy; dart analyze --fatal-infos ."
-        run: dart analyze --fatal-infos .
-        if: "always() && steps.packages_nextcloud_push_proxy_pub_upgrade.conclusion == 'success'"
-        working-directory: packages/nextcloud_push_proxy
-    needs:
-      - job_001
-  job_005:
     name: "all; PKG: packages/nextcloud_test; `dart analyze --fatal-infos .`"
     runs-on: ubuntu-latest
     steps:
@@ -164,7 +132,7 @@ jobs:
         working-directory: packages/nextcloud_test
     needs:
       - job_001
-  job_006:
+  job_005:
     name: "all; PKG: packages/sort_box; `dart analyze --fatal-infos .`"
     runs-on: ubuntu-latest
     steps:
@@ -196,7 +164,7 @@ jobs:
         working-directory: packages/sort_box
     needs:
       - job_001
-  job_007:
+  job_006:
     name: "all; PKG: packages/spec_templates; `dart analyze --fatal-infos .`"
     runs-on: ubuntu-latest
     steps:
@@ -228,7 +196,7 @@ jobs:
         working-directory: packages/spec_templates
     needs:
       - job_001
-  job_008:
+  job_007:
     name: "all; PKG: packages/dynamite; `dart format --output=none --set-exit-if-changed --line-length 120 .`"
     runs-on: ubuntu-latest
     steps:
@@ -260,7 +228,7 @@ jobs:
         working-directory: packages/dynamite
     needs:
       - job_001
-  job_009:
+  job_008:
     name: "all; PKG: packages/file_icons; `dart format --output=none --set-exit-if-changed --line-length 120 .`"
     runs-on: ubuntu-latest
     steps:
@@ -292,7 +260,7 @@ jobs:
         working-directory: packages/file_icons
     needs:
       - job_001
-  job_010:
+  job_009:
     name: "all; PKG: packages/neon; `dart format --output=none --set-exit-if-changed --line-length 120 .`"
     runs-on: ubuntu-latest
     steps:
@@ -324,7 +292,7 @@ jobs:
         working-directory: packages/neon
     needs:
       - job_001
-  job_011:
+  job_010:
     name: "all; PKG: packages/nextcloud; `dart format --output=none --set-exit-if-changed --line-length 120 .`"
     runs-on: ubuntu-latest
     steps:
@@ -356,39 +324,7 @@ jobs:
         working-directory: packages/nextcloud
     needs:
       - job_001
-  job_012:
-    name: "all; PKG: packages/nextcloud_push_proxy; `dart format --output=none --set-exit-if-changed --line-length 120 .`"
-    runs-on: ubuntu-latest
-    steps:
-      - name: Cache Pub hosted dependencies
-        uses: actions/cache@627f0f41f6904a5b1efbaed9f96d9eb58e92e920
-        with:
-          path: "~/.pub-cache/hosted"
-          key: "os:ubuntu-latest;pub-cache-hosted;sdk:stable;packages:packages/nextcloud_push_proxy;commands:format"
-          restore-keys: |
-            os:ubuntu-latest;pub-cache-hosted;sdk:stable;packages:packages/nextcloud_push_proxy
-            os:ubuntu-latest;pub-cache-hosted;sdk:stable
-            os:ubuntu-latest;pub-cache-hosted
-            os:ubuntu-latest
-      - name: Setup Dart SDK
-        uses: dart-lang/setup-dart@a57a6c04cf7d4840e88432aad6281d1e125f0d46
-        with:
-          sdk: stable
-      - id: checkout
-        name: Checkout repository
-        uses: actions/checkout@ac593985615ec2ede58e132d2e21d2b1cbd6127c
-      - id: packages_nextcloud_push_proxy_pub_upgrade
-        name: packages/nextcloud_push_proxy; dart pub upgrade
-        run: dart pub upgrade
-        if: "always() && steps.checkout.conclusion == 'success'"
-        working-directory: packages/nextcloud_push_proxy
-      - name: "packages/nextcloud_push_proxy; dart format --output=none --set-exit-if-changed --line-length 120 ."
-        run: "dart format --output=none --set-exit-if-changed --line-length 120 ."
-        if: "always() && steps.packages_nextcloud_push_proxy_pub_upgrade.conclusion == 'success'"
-        working-directory: packages/nextcloud_push_proxy
-    needs:
-      - job_001
-  job_013:
+  job_011:
     name: "all; PKG: packages/nextcloud_test; `dart format --output=none --set-exit-if-changed --line-length 120 .`"
     runs-on: ubuntu-latest
     steps:
@@ -420,7 +356,7 @@ jobs:
         working-directory: packages/nextcloud_test
     needs:
       - job_001
-  job_014:
+  job_012:
     name: "all; PKG: packages/settings; `dart format --output=none --set-exit-if-changed --line-length 120 .`"
     runs-on: ubuntu-latest
     steps:
@@ -452,7 +388,7 @@ jobs:
         working-directory: packages/settings
     needs:
       - job_001
-  job_015:
+  job_013:
     name: "all; PKG: packages/sort_box; `dart format --output=none --set-exit-if-changed --line-length 120 .`"
     runs-on: ubuntu-latest
     steps:
@@ -484,7 +420,7 @@ jobs:
         working-directory: packages/sort_box
     needs:
       - job_001
-  job_016:
+  job_014:
     name: "all; PKG: packages/spec_templates; `dart format --output=none --set-exit-if-changed --line-length 120 .`"
     runs-on: ubuntu-latest
     steps:
@@ -516,7 +452,7 @@ jobs:
         working-directory: packages/spec_templates
     needs:
       - job_001
-  job_017:
+  job_015:
     name: "all; PKG: packages/file_icons; `flutter analyze --fatal-infos .`"
     runs-on: ubuntu-latest
     steps:
@@ -548,7 +484,7 @@ jobs:
         working-directory: packages/file_icons
     needs:
       - job_001
-  job_018:
+  job_016:
     name: "all; PKG: packages/neon; `flutter analyze --fatal-infos .`"
     runs-on: ubuntu-latest
     steps:
@@ -580,7 +516,7 @@ jobs:
         working-directory: packages/neon
     needs:
       - job_001
-  job_019:
+  job_017:
     name: "all; PKG: packages/settings; `flutter analyze --fatal-infos .`"
     runs-on: ubuntu-latest
     steps:
@@ -612,7 +548,7 @@ jobs:
         working-directory: packages/settings
     needs:
       - job_001
-  job_020:
+  job_018:
     name: "all; PKG: packages/nextcloud; `dart test`"
     runs-on: ubuntu-latest
     steps:
@@ -644,7 +580,7 @@ jobs:
         working-directory: packages/nextcloud
     needs:
       - job_001
-  job_021:
+  job_019:
     name: "all; PKG: packages/sort_box; `dart test`"
     runs-on: ubuntu-latest
     steps:

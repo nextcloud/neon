@@ -5178,8 +5178,8 @@ class NextcloudUserStatusPredefinedStatuses {
 }
 
 @JsonSerializable()
-class NextcloudNotificationsPushNotificationDecryptedSubject {
-  NextcloudNotificationsPushNotificationDecryptedSubject({
+class NextcloudNotificationsNotificationDecryptedSubject {
+  NextcloudNotificationsNotificationDecryptedSubject({
     this.nid,
     this.app,
     this.subject,
@@ -5190,13 +5190,13 @@ class NextcloudNotificationsPushNotificationDecryptedSubject {
   });
 
   // coverage:ignore-start
-  factory NextcloudNotificationsPushNotificationDecryptedSubject.fromJson(Map<String, dynamic> json) =>
-      _$NextcloudNotificationsPushNotificationDecryptedSubjectFromJson(json);
+  factory NextcloudNotificationsNotificationDecryptedSubject.fromJson(Map<String, dynamic> json) =>
+      _$NextcloudNotificationsNotificationDecryptedSubjectFromJson(json);
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory NextcloudNotificationsPushNotificationDecryptedSubject.fromJsonString(String data) =>
-      NextcloudNotificationsPushNotificationDecryptedSubject.fromJson(json.decode(data) as Map<String, dynamic>);
+  factory NextcloudNotificationsNotificationDecryptedSubject.fromJsonString(String data) =>
+      NextcloudNotificationsNotificationDecryptedSubject.fromJson(json.decode(data) as Map<String, dynamic>);
   // coverage:ignore-end
 
   final int? nid;
@@ -5215,43 +5215,9 @@ class NextcloudNotificationsPushNotificationDecryptedSubject {
   final bool? deleteAll;
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$NextcloudNotificationsPushNotificationDecryptedSubjectToJson(this);
+  Map<String, dynamic> toJson() => _$NextcloudNotificationsNotificationDecryptedSubjectToJson(this);
   // coverage:ignore-end
-  static String? toJsonString(NextcloudNotificationsPushNotificationDecryptedSubject? data) =>
-      data == null ? null : json.encode(data.toJson());
-}
-
-@JsonSerializable()
-class NextcloudNotificationsPushNotification {
-  NextcloudNotificationsPushNotification({
-    required this.accountID,
-    required this.priority,
-    required this.type,
-    required this.subject,
-  });
-
-  // coverage:ignore-start
-  factory NextcloudNotificationsPushNotification.fromJson(Map<String, dynamic> json) =>
-      _$NextcloudNotificationsPushNotificationFromJson(json);
-  // coverage:ignore-end
-
-  // coverage:ignore-start
-  factory NextcloudNotificationsPushNotification.fromJsonString(String data) =>
-      NextcloudNotificationsPushNotification.fromJson(json.decode(data) as Map<String, dynamic>);
-  // coverage:ignore-end
-
-  final String accountID;
-
-  final String priority;
-
-  final String type;
-
-  final NextcloudNotificationsPushNotificationDecryptedSubject subject;
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$NextcloudNotificationsPushNotificationToJson(this);
-  // coverage:ignore-end
-  static String? toJsonString(NextcloudNotificationsPushNotification? data) =>
+  static String? toJsonString(NextcloudNotificationsNotificationDecryptedSubject? data) =>
       data == null ? null : json.encode(data.toJson());
 }
 
@@ -5773,15 +5739,10 @@ final _deserializers = <Type, dynamic Function(dynamic)>{
       NextcloudUserStatusPredefinedStatus.fromJson(data as Map<String, dynamic>),
   List<NextcloudUserStatusPredefinedStatus>: (final data) =>
       (data as List).map((final e) => NextcloudUserStatusPredefinedStatus.fromJson(e as Map<String, dynamic>)).toList(),
-  NextcloudNotificationsPushNotification: (final data) =>
-      NextcloudNotificationsPushNotification.fromJson(data as Map<String, dynamic>),
-  List<NextcloudNotificationsPushNotification>: (final data) => (data as List)
-      .map((final e) => NextcloudNotificationsPushNotification.fromJson(e as Map<String, dynamic>))
-      .toList(),
-  NextcloudNotificationsPushNotificationDecryptedSubject: (final data) =>
-      NextcloudNotificationsPushNotificationDecryptedSubject.fromJson(data as Map<String, dynamic>),
-  List<NextcloudNotificationsPushNotificationDecryptedSubject>: (final data) => (data as List)
-      .map((final e) => NextcloudNotificationsPushNotificationDecryptedSubject.fromJson(e as Map<String, dynamic>))
+  NextcloudNotificationsNotificationDecryptedSubject: (final data) =>
+      NextcloudNotificationsNotificationDecryptedSubject.fromJson(data as Map<String, dynamic>),
+  List<NextcloudNotificationsNotificationDecryptedSubject>: (final data) => (data as List)
+      .map((final e) => NextcloudNotificationsNotificationDecryptedSubject.fromJson(e as Map<String, dynamic>))
       .toList(),
 };
 
@@ -6036,11 +5997,8 @@ final _serializers = <Type, dynamic Function(dynamic)>{
   List<NextcloudUserStatusPredefinedStatuses_Ocs>: (final data) => data.map((final e) => e.toJson()).toList(),
   NextcloudUserStatusPredefinedStatus: (final data) => data.toJson(),
   List<NextcloudUserStatusPredefinedStatus>: (final data) => data.map((final e) => e.toJson()).toList(),
-  NextcloudNotificationsPushNotification: (final data) => data.toJson(),
-  List<NextcloudNotificationsPushNotification>: (final data) => data.map((final e) => e.toJson()).toList(),
-  NextcloudNotificationsPushNotificationDecryptedSubject: (final data) => data.toJson(),
-  List<NextcloudNotificationsPushNotificationDecryptedSubject>: (final data) =>
-      data.map((final e) => e.toJson()).toList(),
+  NextcloudNotificationsNotificationDecryptedSubject: (final data) => data.toJson(),
+  List<NextcloudNotificationsNotificationDecryptedSubject>: (final data) => data.map((final e) => e.toJson()).toList(),
 };
 
 T deserializeNextcloud<T>(final dynamic data) => _deserializers[T]!(data) as T;

@@ -20,10 +20,6 @@ fi
 echo "TEST_HOST=$ip
 TEST_USER=user1
 TEST_PASSWORD=user1" > packages/neon/assets/.env
-(
-  cd packages/nextcloud_push_proxy
-  fvm dart run bin/unified_push.dart ./tmp/devices.json
-) &
 
 function cleanup() {
   rm packages/neon/assets/.env
