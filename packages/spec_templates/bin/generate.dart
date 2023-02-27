@@ -314,7 +314,6 @@ Future main(final List<String> args) async {
             identifier: spdxIdentifier,
           ),
         ),
-        tags: [id],
         paths: paths,
       ).toMap(),
     ),

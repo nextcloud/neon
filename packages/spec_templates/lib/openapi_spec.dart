@@ -4,21 +4,25 @@ class Spec {
   Spec({
     required this.version,
     required this.info,
-    required this.tags,
-    required this.paths,
+    this.tags,
+    this.paths,
   });
 
   Map<String, dynamic> toMap() => {
         'openapi': version,
         'info': info.toMap(),
-        'tags': tags.map((final tag) => <String, String>{'name': tag}).toList(),
-        'paths': paths.map((final key, final value) => MapEntry(key, value.toMap())),
+        if (tags != null) ...{
+          'tags': tags!.map((final tag) => <String, String>{'name': tag}).toList(),
+        },
+        if (paths != null) ...{
+          'paths': paths!.map((final key, final value) => MapEntry(key, value.toMap())),
+        },
       };
 
   final String version;
   final Info info;
-  final List<String> tags;
-  final Map<String, Path> paths;
+  final List<String>? tags;
+  final Map<String, Path>? paths;
 }
 
 class Info {
