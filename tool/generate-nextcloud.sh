@@ -33,7 +33,6 @@ for i in $(seq 0 $((${#codenames[@]} - 1))); do
           info: .[0].info,
           servers: .[0].servers,
           security: .[0].security,
-          tags: (.[0].tags + .[1].tags),
           components: (.[0].components * .[1].components),
           paths: (.[0].paths * .[1].paths),
         }' \
@@ -51,7 +50,6 @@ jq \
   info: .info,
   servers: .servers,
   security: .security,
-  tags: .tags,
   components: .components,
   paths: .paths,
 }

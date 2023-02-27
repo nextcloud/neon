@@ -9,11 +9,6 @@
       "identifier": "AGPL-3.0"
     }
   },
-  "tags": [
-    {
-      "name": "provisioning_api"
-    }
-  ],
   "paths": {
     "/ocs/v2.php/apps/provisioning_api/apps": {
       "get": {

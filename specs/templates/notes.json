@@ -9,11 +9,6 @@
       "identifier": "AGPL-3.0"
     }
   },
-  "tags": [
-    {
-      "name": "notes"
-    }
-  ],
   "paths": {
     "/apps/notes/notes": {
       "get": {

@@ -9,11 +9,6 @@
       "identifier": "AGPL-3.0"
     }
   },
-  "tags": [
-    {
-      "name": "notifications"
-    }
-  ],
   "paths": {
     "/ocs/v2.php/apps/notifications/api/{apiVersion}/notifications": {
       "parameters": [

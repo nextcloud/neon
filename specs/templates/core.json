@@ -9,11 +9,6 @@
       "identifier": "AGPL-3.0"
     }
   },
-  "tags": [
-    {
-      "name": "core"
-    }
-  ],
   "paths": {
     "/core/lostpassword/email": {
       "post": {

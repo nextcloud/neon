@@ -27,26 +27,6 @@
       "basic_auth": []
     }
   ],
-  "tags": [
-    {
-      "name": "core"
-    },
-    {
-      "name": "news"
-    },
-    {
-      "name": "notes"
-    },
-    {
-      "name": "notifications"
-    },
-    {
-      "name": "provisioning_api"
-    },
-    {
-      "name": "user_status"
-    }
-  ],
   "components": {
     "schemas": {
       "OCSMeta": {

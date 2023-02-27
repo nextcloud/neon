@@ -27,11 +27,6 @@
       "basic_auth": []
     }
   ],
-  "tags": [
-    {
-      "name": "news"
-    }
-  ],
   "components": {
     "schemas": {
       "OCSMeta": {
