@@ -28,12 +28,18 @@ class OpenAPIBuilder implements Builder {
         throw Exception('Only OpenAPI ${supportedVersions.join(', ')} are supported');
       }
 
-      final tags = <Tag?>[
+      final tags = <String?>{
         null,
-        if (spec.tags != null) ...[
-          ...spec.tags!,
-        ],
-      ];
+        if (spec.paths != null) ...{
+          for (final pathItem in spec.paths!.values) ...{
+            for (final operation in pathItem.operations.values) ...{
+              if (operation.tags != null) ...{
+                ...operation.tags!,
+              },
+            },
+          },
+        },
+      };
       final hasAnySecurity = spec.security?.isNotEmpty ?? false;
 
       final state = State(prefix);
@@ -321,7 +327,7 @@ class OpenAPIBuilder implements Builder {
             final pathItem = spec.paths![path]!;
             for (final method in pathItem.operations.keys) {
               final operation = pathItem.operations[method]!;
-              if ((tag != null && operation.tags != null && operation.tags!.contains(tag.name)) ||
+              if ((tag != null && operation.tags != null && operation.tags!.contains(tag)) ||
                   (tag == null && (operation.tags == null || operation.tags!.isEmpty))) {
                 if (paths[path] == null) {
                   paths[path] = PathItem(
@@ -441,10 +447,10 @@ class OpenAPIBuilder implements Builder {
                   )
                   ..methods.addAll([
                     if (isRootClient) ...[
-                      for (final tag in tags.where((final tag) => tag != null).toList().cast<Tag>()) ...[
+                      for (final tag in tags.where((final tag) => tag != null).toList().cast<String>()) ...[
                         Method(
                           (final b) => b
-                            ..name = _toDartName(tag.name)
+                            ..name = _toDartName(tag)
                             ..lambda = true
                             ..type = MethodType.getter
                             ..returns = refer('$prefix${_clientName(tag)}')
@@ -744,7 +750,7 @@ class OpenAPIBuilder implements Builder {
                                 String? headersValue;
                                 if (response.headers != null) {
                                   final identifier =
-                                      '${tag != null ? _toDartName(tag.name, uppercaseFirstCharacter: true) : null}${_toDartName(operationId, uppercaseFirstCharacter: true)}Headers';
+                                      '${tag != null ? _toDartName(tag, uppercaseFirstCharacter: true) : null}${_toDartName(operationId, uppercaseFirstCharacter: true)}Headers';
                                   final headerParseFunctions = <String, String>{};
                                   for (final headerName in response.headers!.keys) {
                                     final functionIdentifier = '_${_toDartName('${identifier}Parse$headerName')}';
@@ -951,7 +957,7 @@ class OpenAPIBuilder implements Builder {
   }
 }
 
-String _clientName(final Tag tag) => '${_toDartName(tag.name, uppercaseFirstCharacter: true)}Client';
+String _clientName(final String tag) => '${_toDartName(tag, uppercaseFirstCharacter: true)}Client';
 
 String _toDartName(
   final String input, {
