@@ -9,11 +9,6 @@
       "identifier": "AGPL-3.0"
     }
   },
-  "tags": [
-    {
-      "name": "user_status"
-    }
-  ],
   "paths": {
     "/ocs/v2.php/apps/user_status/api/v1/statuses": {
       "get": {

@@ -27,11 +27,6 @@
       "basic_auth": []
     }
   ],
-  "tags": [
-    {
-      "name": "provisioning_api"
-    }
-  ],
   "components": {
     "schemas": {
       "OCSMeta": {

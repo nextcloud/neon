@@ -9,11 +9,6 @@
       "identifier": "AGPL-3.0"
     }
   },
-  "tags": [
-    {
-      "name": "news"
-    }
-  ],
   "paths": {
     "/apps/news/folders": {
       "get": {
