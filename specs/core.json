@@ -27,6 +27,7 @@
       "basic_auth": []
     }
   ],
+  "tags": [],
   "components": {
     "schemas": {
       "OCSMeta": {

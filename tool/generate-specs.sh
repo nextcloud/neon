@@ -56,6 +56,7 @@ for codename in ${codenames[*]}; do
             basic_auth: []
           }
         ],
+        tags: .[1].tags,
         components: {
           schemas: .[1].components.schemas
         },
