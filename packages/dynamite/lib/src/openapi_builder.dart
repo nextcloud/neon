@@ -810,25 +810,21 @@ class OpenAPIBuilder implements Builder {
                                       ),
                                       mediaType.schema!,
                                     );
-                                    switch (mimeType) {
-                                      case 'application/json':
-                                        dataType = result.name;
-                                        if (result.name == 'dynamic') {
-                                          dataValue = '';
-                                        } else {
-                                          dataValue = result.deserialize(result.decode('utf8.decode(response.body)'));
-                                        }
-                                        break;
-                                      case 'image/png':
-                                        dataType = 'Uint8List';
-                                        dataValue = 'response.body';
-                                        break;
-                                      case 'text/plain':
-                                        dataType = 'String';
-                                        dataValue = 'utf8.decode(response.body)';
-                                        break;
-                                      default:
-                                        throw Exception('Can not parse mime type "$mimeType"');
+                                    if (mimeType == '*/*' || mimeType.startsWith('image/')) {
+                                      dataType = 'Uint8List';
+                                      dataValue = 'response.body';
+                                    } else if (mimeType.startsWith('text/')) {
+                                      dataType = 'String';
+                                      dataValue = 'utf8.decode(response.body)';
+                                    } else if (mimeType == 'application/json') {
+                                      dataType = result.name;
+                                      if (result.name == 'dynamic') {
+                                        dataValue = '';
+                                      } else {
+                                        dataValue = result.deserialize(result.decode('utf8.decode(response.body)'));
+                                      }
+                                    } else {
+                                      throw Exception('Can not parse mime type "$mimeType"');
                                     }
                                   }
                                 }
