@@ -9,13 +9,25 @@ part of 'tag.dart';
 Tag _$TagFromJson(Map<String, dynamic> json) {
   $checkKeys(
     json,
-    allowedKeys: const ['name'],
+    allowedKeys: const ['name', 'description'],
   );
   return Tag(
     name: json['name'] as String,
+    description: json['description'] as String?,
   );
 }
 
-Map<String, dynamic> _$TagToJson(Tag instance) => <String, dynamic>{
-      'name': instance.name,
-    };
+Map<String, dynamic> _$TagToJson(Tag instance) {
+  final val = <String, dynamic>{
+    'name': instance.name,
+  };
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('description', instance.description);
+  return val;
+}

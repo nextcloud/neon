@@ -536,8 +536,14 @@ class OpenAPIBuilder implements Builder {
                     ),
                   );
               }
+              final matchedTags = spec.tags?.where((final t) => t.name == tag).toList();
               b
                 ..name = '$prefix${isRootClient ? 'Client' : _clientName(tag)}'
+                ..docs.addAll(
+                  _descriptionToDocs(
+                    matchedTags != null && matchedTags.isNotEmpty ? matchedTags.single.description : null,
+                  ),
+                )
                 ..methods.addAll(
                   [
                     for (final path in paths.keys) ...[
