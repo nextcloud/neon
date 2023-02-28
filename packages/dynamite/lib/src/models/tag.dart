@@ -6,10 +6,13 @@ part 'tag.g.dart';
 class Tag {
   Tag({
     required this.name,
+    this.description,
   });
 
   factory Tag.fromJson(final Map<String, dynamic> json) => _$TagFromJson(json);
   Map<String, dynamic> toJson() => _$TagToJson(this);
 
   final String name;
+
+  final String? description;
 }
