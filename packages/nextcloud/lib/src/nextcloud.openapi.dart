@@ -119,12 +119,6 @@ class NextcloudClient {
 
   final NextcloudAuthentication? authentication;
 
-  NextcloudCoreClient get core => NextcloudCoreClient(this);
-  NextcloudNewsClient get news => NextcloudNewsClient(this);
-  NextcloudNotesClient get notes => NextcloudNotesClient(this);
-  NextcloudNotificationsClient get notifications => NextcloudNotificationsClient(this);
-  NextcloudProvisioningApiClient get provisioningApi => NextcloudProvisioningApiClient(this);
-  NextcloudUserStatusClient get userStatus => NextcloudUserStatusClient(this);
   Future<_Response> doRequest(
     String method,
     String path,
@@ -157,6 +151,13 @@ class NextcloudClient {
       await response.bodyBytes,
     );
   }
+
+  NextcloudCoreClient get core => NextcloudCoreClient(this);
+  NextcloudNewsClient get news => NextcloudNewsClient(this);
+  NextcloudNotesClient get notes => NextcloudNotesClient(this);
+  NextcloudNotificationsClient get notifications => NextcloudNotificationsClient(this);
+  NextcloudProvisioningApiClient get provisioningApi => NextcloudProvisioningApiClient(this);
+  NextcloudUserStatusClient get userStatus => NextcloudUserStatusClient(this);
 }
 
 class NextcloudCoreClient {
