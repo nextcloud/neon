@@ -573,9 +573,8 @@ class OpenAPIBuilder implements Builder {
                               ...pathParameters,
                               if (operation.parameters != null) ...operation.parameters!,
                             ];
-                            final methodName = _toDartName(operationId);
                             b
-                              ..name = methodName
+                              ..name = _toDartName(_filterMethodName(operationId, tag ?? ''))
                               ..modifier = MethodModifier.async
                               ..docs.addAll([
                                 ..._descriptionToDocs(operation.summary),
@@ -710,7 +709,7 @@ class OpenAPIBuilder implements Builder {
                                 final result = resolveType(
                                   spec,
                                   state,
-                                  _toDartName('$methodName-request-$mimeType', uppercaseFirstCharacter: true),
+                                  _toDartName('$operationId-request-$mimeType', uppercaseFirstCharacter: true),
                                   mediaType.schema!,
                                 );
                                 final parameterName = _toDartName(result.name.replaceFirst(prefix, ''));
@@ -825,7 +824,7 @@ class OpenAPIBuilder implements Builder {
                                       spec,
                                       state,
                                       _toDartName(
-                                        '$methodName-response-$statusCode-$mimeType',
+                                        '$operationId-response-$statusCode-$mimeType',
                                         uppercaseFirstCharacter: true,
                                       ),
                                       mediaType.schema!,
@@ -1088,6 +1087,18 @@ List<String> _descriptionToDocs(final String? description) => [
         ],
       ],
     ];
+
+String _filterMethodName(final String operationId, final String tag) {
+  final expandedTag = tag.split('/').toList();
+  final parts = operationId.split('-');
+  final output = <String>[];
+  for (var i = 0; i < parts.length; i++) {
+    if (expandedTag.length <= i || expandedTag[i] != parts[i]) {
+      output.add(parts[i]);
+    }
+  }
+  return output.join('-');
+}
 
 class State {
   State(this.prefix);
