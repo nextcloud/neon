@@ -1336,7 +1336,7 @@ NextcloudNewsFeed _$NextcloudNewsFeedFromJson(Map<String, dynamic> json) {
     id: json['id'] as int,
     url: json['url'] as String,
     title: json['title'] as String,
-    faviconLink: json['faviconLink'] as String,
+    faviconLink: json['faviconLink'] as String?,
     added: json['added'] as int,
     folderId: json['folderId'] as int?,
     unreadCount: json['unreadCount'] as int?,

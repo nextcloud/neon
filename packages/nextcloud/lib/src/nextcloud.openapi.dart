@@ -3604,7 +3604,7 @@ class NextcloudNewsFeed {
     required this.id,
     required this.url,
     required this.title,
-    required this.faviconLink,
+    this.faviconLink,
     required this.added,
     this.folderId,
     this.unreadCount,
@@ -3631,7 +3631,7 @@ class NextcloudNewsFeed {
 
   final String title;
 
-  final String faviconLink;
+  final String? faviconLink;
 
   final int added;
 
