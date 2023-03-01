@@ -11,7 +11,7 @@ RUN ./occ app:disable password_policy
 RUN OC_PASS="user1" ./occ user:add --password-from-env --display-name "User One" user1
 RUN OC_PASS="user2" ./occ user:add --password-from-env --display-name "User Two" user2
 
-RUN ./occ app:install news # 20.0.0
+RUN ./occ app:install news # 21.0.0
 RUN ./occ app:install notes # 4.6.0
 
 RUN ./occ app:enable password_policy
