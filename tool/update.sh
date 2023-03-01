@@ -24,10 +24,12 @@ elif [ -d "external/nextcloud-$1" ]; then
       git reset --hard "$latest_tag"
       git submodule update
 
+      # shellcheck disable=SC2001
+      latest_version=$(echo "$latest_tag" | sed "s/^v//")
       if [[ "$1" == "server" ]]; then
-        # shellcheck disable=SC2001
-        image_version=$(echo "$latest_tag" | sed "s/^v//")
-        sed -i "s/FROM nextcloud:.*/FROM nextcloud:$image_version/" ../../tool/Dockerfile.dev
+        sed -i "s/FROM nextcloud:.*/FROM nextcloud:$latest_version/" ../../tool/Dockerfile.dev
+      else
+        sed -i "s/RUN \.\/occ app:install $1 .*/RUN .\/occ app:install $1 # $latest_version/" ../../tool/Dockerfile.dev
       fi
     )
 else

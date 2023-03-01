@@ -11,8 +11,8 @@ RUN ./occ app:disable password_policy
 RUN OC_PASS="user1" ./occ user:add --password-from-env --display-name "User One" user1
 RUN OC_PASS="user2" ./occ user:add --password-from-env --display-name "User Two" user2
 
-RUN ./occ app:install news
-RUN ./occ app:install notes
+RUN ./occ app:install news # 20.0.0
+RUN ./occ app:install notes # 4.6.0
 
 RUN ./occ app:enable password_policy
 # TODO: This stopped working randomly with apache not being able to bind to the port during build. Must be some docker changes?
