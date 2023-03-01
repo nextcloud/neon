@@ -28,7 +28,7 @@ class OpenAPIBuilder implements Builder {
         throw Exception('Only OpenAPI ${supportedVersions.join(', ')} are supported');
       }
 
-      final tags = <String?>{
+      var tags = <String?>[
         null,
         if (spec.paths != null) ...{
           for (final pathItem in spec.paths!.values) ...{
@@ -39,7 +39,22 @@ class OpenAPIBuilder implements Builder {
             },
           },
         },
-      };
+      ];
+      for (final tag in tags.toList()) {
+        final tagPart = tag?.split('/').first;
+        if (!tags.contains(tagPart)) {
+          tags.add(tagPart);
+        }
+      }
+      tags = tags
+        ..sort(
+          (final a, final b) => a == null
+              ? -1
+              : b == null
+                  ? 1
+                  : a.compareTo(b),
+        );
+
       final hasAnySecurity = spec.security?.isNotEmpty ?? false;
 
       final state = State(prefix);
@@ -341,10 +356,6 @@ class OpenAPIBuilder implements Builder {
           }
         }
 
-        if (paths.isEmpty && !isRootClient) {
-          continue;
-        }
-
         output.add(
           Class(
             (final b) {
@@ -446,18 +457,6 @@ class OpenAPIBuilder implements Builder {
                     ),
                   )
                   ..methods.addAll([
-                    if (isRootClient) ...[
-                      for (final tag in tags.where((final tag) => tag != null).toList().cast<String>()) ...[
-                        Method(
-                          (final b) => b
-                            ..name = _toDartName(tag)
-                            ..lambda = true
-                            ..type = MethodType.getter
-                            ..returns = refer('$prefix${_clientName(tag)}')
-                            ..body = Code('$prefix${_clientName(tag)}(this)'),
-                        ),
-                      ],
-                    ],
                     Method(
                       (final b) => b
                         ..name = 'doRequest'
@@ -546,6 +545,21 @@ class OpenAPIBuilder implements Builder {
                 )
                 ..methods.addAll(
                   [
+                    for (final t in tags
+                        .whereType<String>()
+                        .where(
+                          (final t) => (tag != null && (t.startsWith('$tag/'))) || (tag == null && !t.contains('/')),
+                        )
+                        .toList()) ...[
+                      Method(
+                        (final b) => b
+                          ..name = _toDartName(tag == null ? t : t.substring('$tag/'.length))
+                          ..lambda = true
+                          ..type = MethodType.getter
+                          ..returns = refer('$prefix${_clientName(t)}')
+                          ..body = Code('$prefix${_clientName(t)}(${isRootClient ? 'this' : 'rootClient'})'),
+                      ),
+                    ],
                     for (final path in paths.keys) ...[
                       for (final httpMethod in paths[path]!.operations.keys) ...[
                         Method(
@@ -559,9 +573,8 @@ class OpenAPIBuilder implements Builder {
                               ...pathParameters,
                               if (operation.parameters != null) ...operation.parameters!,
                             ];
-                            final methodName = _toDartName(operationId);
                             b
-                              ..name = methodName
+                              ..name = _toDartName(_filterMethodName(operationId, tag ?? ''))
                               ..modifier = MethodModifier.async
                               ..docs.addAll([
                                 ..._descriptionToDocs(operation.summary),
@@ -696,7 +709,7 @@ class OpenAPIBuilder implements Builder {
                                 final result = resolveType(
                                   spec,
                                   state,
-                                  _toDartName('$methodName-request-$mimeType', uppercaseFirstCharacter: true),
+                                  _toDartName('$operationId-request-$mimeType', uppercaseFirstCharacter: true),
                                   mediaType.schema!,
                                 );
                                 final parameterName = _toDartName(result.name.replaceFirst(prefix, ''));
@@ -811,7 +824,7 @@ class OpenAPIBuilder implements Builder {
                                       spec,
                                       state,
                                       _toDartName(
-                                        '$methodName-response-$statusCode-$mimeType',
+                                        '$operationId-response-$statusCode-$mimeType',
                                         uppercaseFirstCharacter: true,
                                       ),
                                       mediaType.schema!,
@@ -1074,6 +1087,18 @@ List<String> _descriptionToDocs(final String? description) => [
         ],
       ],
     ];
+
+String _filterMethodName(final String operationId, final String tag) {
+  final expandedTag = tag.split('/').toList();
+  final parts = operationId.split('-');
+  final output = <String>[];
+  for (var i = 0; i < parts.length; i++) {
+    if (expandedTag.length <= i || expandedTag[i] != parts[i]) {
+      output.add(parts[i]);
+    }
+  }
+  return output.join('-');
+}
 
 class State {
   State(this.prefix);
