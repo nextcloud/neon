@@ -1949,6 +1949,235 @@ Map<String, dynamic> _$NextcloudProvisioningApiUserToJson(NextcloudProvisioningA
       'ocs': instance.ocs.toJson(),
     };
 
+NextcloudUnifiedPushProviderCheckResponse200ApplicationJson
+    _$NextcloudUnifiedPushProviderCheckResponse200ApplicationJsonFromJson(Map<String, dynamic> json) {
+  $checkKeys(
+    json,
+    allowedKeys: const ['success'],
+  );
+  return NextcloudUnifiedPushProviderCheckResponse200ApplicationJson(
+    success: json['success'] as bool,
+  );
+}
+
+Map<String, dynamic> _$NextcloudUnifiedPushProviderCheckResponse200ApplicationJsonToJson(
+        NextcloudUnifiedPushProviderCheckResponse200ApplicationJson instance) =>
+    <String, dynamic>{
+      'success': instance.success,
+    };
+
+NextcloudUnifiedPushProviderSetKeepaliveResponse200ApplicationJson
+    _$NextcloudUnifiedPushProviderSetKeepaliveResponse200ApplicationJsonFromJson(Map<String, dynamic> json) {
+  $checkKeys(
+    json,
+    allowedKeys: const ['success'],
+  );
+  return NextcloudUnifiedPushProviderSetKeepaliveResponse200ApplicationJson(
+    success: json['success'] as bool,
+  );
+}
+
+Map<String, dynamic> _$NextcloudUnifiedPushProviderSetKeepaliveResponse200ApplicationJsonToJson(
+        NextcloudUnifiedPushProviderSetKeepaliveResponse200ApplicationJson instance) =>
+    <String, dynamic>{
+      'success': instance.success,
+    };
+
+NextcloudUnifiedPushProviderCreateDeviceResponse200ApplicationJson
+    _$NextcloudUnifiedPushProviderCreateDeviceResponse200ApplicationJsonFromJson(Map<String, dynamic> json) {
+  $checkKeys(
+    json,
+    allowedKeys: const ['success', 'deviceId'],
+  );
+  return NextcloudUnifiedPushProviderCreateDeviceResponse200ApplicationJson(
+    success: json['success'] as bool,
+    deviceId: json['deviceId'] as String,
+  );
+}
+
+Map<String, dynamic> _$NextcloudUnifiedPushProviderCreateDeviceResponse200ApplicationJsonToJson(
+        NextcloudUnifiedPushProviderCreateDeviceResponse200ApplicationJson instance) =>
+    <String, dynamic>{
+      'success': instance.success,
+      'deviceId': instance.deviceId,
+    };
+
+NextcloudUnifiedPushProviderSyncDeviceResponse401ApplicationJson
+    _$NextcloudUnifiedPushProviderSyncDeviceResponse401ApplicationJsonFromJson(Map<String, dynamic> json) {
+  $checkKeys(
+    json,
+    allowedKeys: const ['success'],
+  );
+  return NextcloudUnifiedPushProviderSyncDeviceResponse401ApplicationJson(
+    success: json['success'] as bool,
+  );
+}
+
+Map<String, dynamic> _$NextcloudUnifiedPushProviderSyncDeviceResponse401ApplicationJsonToJson(
+        NextcloudUnifiedPushProviderSyncDeviceResponse401ApplicationJson instance) =>
+    <String, dynamic>{
+      'success': instance.success,
+    };
+
+NextcloudUnifiedPushProviderDeleteDeviceResponse200ApplicationJson
+    _$NextcloudUnifiedPushProviderDeleteDeviceResponse200ApplicationJsonFromJson(Map<String, dynamic> json) {
+  $checkKeys(
+    json,
+    allowedKeys: const ['success'],
+  );
+  return NextcloudUnifiedPushProviderDeleteDeviceResponse200ApplicationJson(
+    success: json['success'] as bool,
+  );
+}
+
+Map<String, dynamic> _$NextcloudUnifiedPushProviderDeleteDeviceResponse200ApplicationJsonToJson(
+        NextcloudUnifiedPushProviderDeleteDeviceResponse200ApplicationJson instance) =>
+    <String, dynamic>{
+      'success': instance.success,
+    };
+
+NextcloudUnifiedPushProviderCreateAppResponse200ApplicationJson
+    _$NextcloudUnifiedPushProviderCreateAppResponse200ApplicationJsonFromJson(Map<String, dynamic> json) {
+  $checkKeys(
+    json,
+    allowedKeys: const ['success', 'token'],
+  );
+  return NextcloudUnifiedPushProviderCreateAppResponse200ApplicationJson(
+    success: json['success'] as bool,
+    token: json['token'] as String,
+  );
+}
+
+Map<String, dynamic> _$NextcloudUnifiedPushProviderCreateAppResponse200ApplicationJsonToJson(
+        NextcloudUnifiedPushProviderCreateAppResponse200ApplicationJson instance) =>
+    <String, dynamic>{
+      'success': instance.success,
+      'token': instance.token,
+    };
+
+NextcloudUnifiedPushProviderDeleteAppResponse200ApplicationJson
+    _$NextcloudUnifiedPushProviderDeleteAppResponse200ApplicationJsonFromJson(Map<String, dynamic> json) {
+  $checkKeys(
+    json,
+    allowedKeys: const ['success'],
+  );
+  return NextcloudUnifiedPushProviderDeleteAppResponse200ApplicationJson(
+    success: json['success'] as bool,
+  );
+}
+
+Map<String, dynamic> _$NextcloudUnifiedPushProviderDeleteAppResponse200ApplicationJsonToJson(
+        NextcloudUnifiedPushProviderDeleteAppResponse200ApplicationJson instance) =>
+    <String, dynamic>{
+      'success': instance.success,
+    };
+
+NextcloudUnifiedPushProviderUnifiedpushDiscoveryResponse200ApplicationJson_Unifiedpush
+    _$NextcloudUnifiedPushProviderUnifiedpushDiscoveryResponse200ApplicationJson_UnifiedpushFromJson(
+        Map<String, dynamic> json) {
+  $checkKeys(
+    json,
+    allowedKeys: const ['version'],
+  );
+  return NextcloudUnifiedPushProviderUnifiedpushDiscoveryResponse200ApplicationJson_Unifiedpush(
+    version: json['version'] as int,
+  );
+}
+
+Map<String, dynamic> _$NextcloudUnifiedPushProviderUnifiedpushDiscoveryResponse200ApplicationJson_UnifiedpushToJson(
+        NextcloudUnifiedPushProviderUnifiedpushDiscoveryResponse200ApplicationJson_Unifiedpush instance) =>
+    <String, dynamic>{
+      'version': instance.version,
+    };
+
+NextcloudUnifiedPushProviderUnifiedpushDiscoveryResponse200ApplicationJson
+    _$NextcloudUnifiedPushProviderUnifiedpushDiscoveryResponse200ApplicationJsonFromJson(Map<String, dynamic> json) {
+  $checkKeys(
+    json,
+    allowedKeys: const ['unifiedpush'],
+  );
+  return NextcloudUnifiedPushProviderUnifiedpushDiscoveryResponse200ApplicationJson(
+    unifiedpush: NextcloudUnifiedPushProviderUnifiedpushDiscoveryResponse200ApplicationJson_Unifiedpush.fromJson(
+        json['unifiedpush'] as Map<String, dynamic>),
+  );
+}
+
+Map<String, dynamic> _$NextcloudUnifiedPushProviderUnifiedpushDiscoveryResponse200ApplicationJsonToJson(
+        NextcloudUnifiedPushProviderUnifiedpushDiscoveryResponse200ApplicationJson instance) =>
+    <String, dynamic>{
+      'unifiedpush': instance.unifiedpush.toJson(),
+    };
+
+NextcloudUnifiedPushProviderPushResponse201ApplicationJson
+    _$NextcloudUnifiedPushProviderPushResponse201ApplicationJsonFromJson(Map<String, dynamic> json) {
+  $checkKeys(
+    json,
+    allowedKeys: const ['success'],
+  );
+  return NextcloudUnifiedPushProviderPushResponse201ApplicationJson(
+    success: json['success'] as bool,
+  );
+}
+
+Map<String, dynamic> _$NextcloudUnifiedPushProviderPushResponse201ApplicationJsonToJson(
+        NextcloudUnifiedPushProviderPushResponse201ApplicationJson instance) =>
+    <String, dynamic>{
+      'success': instance.success,
+    };
+
+NextcloudUnifiedPushProviderGatewayMatrixDiscoveryResponse200ApplicationJson_Unifiedpush
+    _$NextcloudUnifiedPushProviderGatewayMatrixDiscoveryResponse200ApplicationJson_UnifiedpushFromJson(
+        Map<String, dynamic> json) {
+  $checkKeys(
+    json,
+    allowedKeys: const ['gateway'],
+  );
+  return NextcloudUnifiedPushProviderGatewayMatrixDiscoveryResponse200ApplicationJson_Unifiedpush(
+    gateway: json['gateway'] as String,
+  );
+}
+
+Map<String, dynamic> _$NextcloudUnifiedPushProviderGatewayMatrixDiscoveryResponse200ApplicationJson_UnifiedpushToJson(
+        NextcloudUnifiedPushProviderGatewayMatrixDiscoveryResponse200ApplicationJson_Unifiedpush instance) =>
+    <String, dynamic>{
+      'gateway': instance.gateway,
+    };
+
+NextcloudUnifiedPushProviderGatewayMatrixDiscoveryResponse200ApplicationJson
+    _$NextcloudUnifiedPushProviderGatewayMatrixDiscoveryResponse200ApplicationJsonFromJson(Map<String, dynamic> json) {
+  $checkKeys(
+    json,
+    allowedKeys: const ['unifiedpush'],
+  );
+  return NextcloudUnifiedPushProviderGatewayMatrixDiscoveryResponse200ApplicationJson(
+    unifiedpush: NextcloudUnifiedPushProviderGatewayMatrixDiscoveryResponse200ApplicationJson_Unifiedpush.fromJson(
+        json['unifiedpush'] as Map<String, dynamic>),
+  );
+}
+
+Map<String, dynamic> _$NextcloudUnifiedPushProviderGatewayMatrixDiscoveryResponse200ApplicationJsonToJson(
+        NextcloudUnifiedPushProviderGatewayMatrixDiscoveryResponse200ApplicationJson instance) =>
+    <String, dynamic>{
+      'unifiedpush': instance.unifiedpush.toJson(),
+    };
+
+NextcloudUnifiedPushProviderGatewayMatrixResponse200ApplicationJson
+    _$NextcloudUnifiedPushProviderGatewayMatrixResponse200ApplicationJsonFromJson(Map<String, dynamic> json) {
+  $checkKeys(
+    json,
+    allowedKeys: const ['rejected'],
+  );
+  return NextcloudUnifiedPushProviderGatewayMatrixResponse200ApplicationJson(
+    rejected: (json['rejected'] as List<dynamic>).map((e) => e as String).toList(),
+  );
+}
+
+Map<String, dynamic> _$NextcloudUnifiedPushProviderGatewayMatrixResponse200ApplicationJsonToJson(
+        NextcloudUnifiedPushProviderGatewayMatrixResponse200ApplicationJson instance) =>
+    <String, dynamic>{
+      'rejected': instance.rejected,
+    };
+
 NextcloudUserStatusClearAt _$NextcloudUserStatusClearAtFromJson(Map<String, dynamic> json) {
   $checkKeys(
     json,

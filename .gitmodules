@@ -13,3 +13,6 @@
 [submodule "external/nextcloud-notifications"]
 	path = external/nextcloud-notifications
 	url = https://github.com/nextcloud/notifications
+[submodule "external/nextcloud-uppush"]
+	path = external/nextcloud-uppush
+	url = git@github.com:UP-NextPush/server-app.git
