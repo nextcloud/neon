@@ -41,37 +41,48 @@ class AccountAvatar extends StatelessWidget {
         ),
         ResultBuilder<UserStatusBloc, NextcloudUserStatusStatus?>(
           stream: Provider.of<AccountsBloc>(context, listen: false).getUserStatusBloc(account).userStatus,
-          builder: (final context, final userStatus) => SizedBox(
-            height: kAvatarSize,
-            width: kAvatarSize,
-            child: Align(
-              alignment: Alignment.bottomRight,
-              child: Container(
-                height: kAvatarSize / 3,
-                width: kAvatarSize / 3,
-                decoration: userStatus.loading || userStatus.error != null || userStatus.data == null
-                    ? null
-                    : BoxDecoration(
-                        shape: BoxShape.circle,
-                        color: _userStatusToColor(userStatus.data!),
-                      ),
-                child: userStatus.loading
-                    ? CircularProgressIndicator(
-                        strokeWidth: 1.5,
-                        color: Theme.of(context).colorScheme.onPrimary,
-                      )
-                    : userStatus.error != null &&
-                            (userStatus.error is! NextcloudApiException ||
-                                (userStatus.error! as NextcloudApiException).statusCode != 404)
-                        ? const Icon(
-                            Icons.error_outline,
-                            size: kAvatarSize / 3,
-                            color: Colors.red,
-                          )
-                        : null,
+          builder: (final context, final userStatus) {
+            final hasEmoji = userStatus.data?.icon != null;
+            final factor = hasEmoji ? 2 : 3;
+            return SizedBox(
+              height: kAvatarSize,
+              width: kAvatarSize,
+              child: Align(
+                alignment: Alignment.bottomRight,
+                child: Container(
+                  height: kAvatarSize / factor,
+                  width: kAvatarSize / factor,
+                  decoration: userStatus.loading || userStatus.error != null || userStatus.data == null || hasEmoji
+                      ? null
+                      : BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: _userStatusToColor(userStatus.data!),
+                        ),
+                  child: userStatus.loading
+                      ? CircularProgressIndicator(
+                          strokeWidth: 1.5,
+                          color: Theme.of(context).colorScheme.onPrimary,
+                        )
+                      : userStatus.error != null &&
+                              (userStatus.error is! NextcloudApiException ||
+                                  (userStatus.error! as NextcloudApiException).statusCode != 404)
+                          ? Icon(
+                              Icons.error_outline,
+                              size: kAvatarSize / factor,
+                              color: Colors.red,
+                            )
+                          : hasEmoji
+                              ? Text(
+                                  userStatus.data!.icon!,
+                                  style: const TextStyle(
+                                    fontSize: 16,
+                                  ),
+                                )
+                              : null,
+                ),
               ),
-            ),
-          ),
+            );
+          },
         ),
       ],
     );
