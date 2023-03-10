@@ -269,6 +269,30 @@ abstract class AppLocalizations {
   /// **'Disabled'**
   String get disabled;
 
+  /// No description provided for @firstLaunchGoToSettingsToEnablePushNotifications.
+  ///
+  /// In en, this message translates to:
+  /// **'Go to the settings to enable push notifications'**
+  String get firstLaunchGoToSettingsToEnablePushNotifications;
+
+  /// No description provided for @nextPushSupported.
+  ///
+  /// In en, this message translates to:
+  /// **'NextPush is supported!'**
+  String get nextPushSupported;
+
+  /// No description provided for @nextPushSupportedText.
+  ///
+  /// In en, this message translates to:
+  /// **'NextPush is a FOSS way of receiving push notifications using the UnifiedPush protocol via a Nextcloud instance.\nYou can install NextPush from the F-Droid app store.'**
+  String get nextPushSupportedText;
+
+  /// No description provided for @nextPushSupportedInstall.
+  ///
+  /// In en, this message translates to:
+  /// **'Install NextPush'**
+  String get nextPushSupportedInstall;
+
   /// No description provided for @settings.
   ///
   /// In en, this message translates to:
@@ -310,12 +334,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Do you want to reset all settings for {name}?'**
   String settingsResetForConfirmation(String name);
-
-  /// No description provided for @settingsGoToSettingsToEnablePushNotifications.
-  ///
-  /// In en, this message translates to:
-  /// **'Go to the settings to enable push notifications'**
-  String get settingsGoToSettingsToEnablePushNotifications;
 
   /// No description provided for @optionsCategoryGeneral.
   ///

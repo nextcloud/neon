@@ -52,6 +52,7 @@ part 'blocs/apps.dart';
 part 'blocs/capabilities.dart';
 part 'blocs/first_launch.dart';
 part 'blocs/login.dart';
+part 'blocs/next_push.dart';
 part 'blocs/push_notifications.dart';
 part 'blocs/user_details.dart';
 part 'blocs/user_status.dart';

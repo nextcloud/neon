@@ -1,5 +1,7 @@
 part of '../neon.dart';
 
+const unifiedPushNextPushID = 'org.unifiedpush.distributor.nextpush';
+
 class GlobalOptions {
   GlobalOptions(
     this._storage,
@@ -63,7 +65,7 @@ class GlobalOptions {
     'io.heckel.ntfy': (final context) => AppLocalizations.of(context).globalOptionsPushNotificationsDistributorNtfy,
     'org.unifiedpush.distributor.fcm': (final context) =>
         AppLocalizations.of(context).globalOptionsPushNotificationsDistributorFCMUP,
-    'org.unifiedpush.distributor.nextpush': (final context) =>
+    unifiedPushNextPushID: (final context) =>
         AppLocalizations.of(context).globalOptionsPushNotificationsDistributorNextPush,
     'org.unifiedpush.distributor.noprovider2push': (final context) =>
         AppLocalizations.of(context).globalOptionsPushNotificationsDistributorNoProvider2Push,
