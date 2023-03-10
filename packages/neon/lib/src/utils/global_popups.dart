@@ -10,6 +10,7 @@ class GlobalPopups extends StatefulWidget {
 }
 
 class _GlobalPopupsState extends State<GlobalPopups> {
+  late GlobalOptions _globalOptions;
   late FirstLaunchBloc _firstLaunchBloc;
   late NextPushBloc _nextPushBloc;
 
@@ -17,25 +18,31 @@ class _GlobalPopupsState extends State<GlobalPopups> {
   void initState() {
     super.initState();
 
+    _globalOptions = Provider.of<GlobalOptions>(context, listen: false);
     _firstLaunchBloc = Provider.of<FirstLaunchBloc>(context, listen: false);
     _nextPushBloc = Provider.of<NextPushBloc>(context, listen: false);
 
-    _firstLaunchBloc.onFirstLaunch.listen((final _) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Text(AppLocalizations.of(context).firstLaunchGoToSettingsToEnablePushNotifications),
-          action: SnackBarAction(
-            label: AppLocalizations.of(context).settings,
-            onPressed: () async {
-              await Navigator.of(context).push(
-                MaterialPageRoute(
-                  builder: (final context) => const SettingsPage(),
-                ),
-              );
-            },
+    _firstLaunchBloc.onFirstLaunch.listen((final _) async {
+      if (await _globalOptions.pushNotificationsEnabled.enabled.first) {
+        if (!mounted) {
+          return;
+        }
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text(AppLocalizations.of(context).firstLaunchGoToSettingsToEnablePushNotifications),
+            action: SnackBarAction(
+              label: AppLocalizations.of(context).settings,
+              onPressed: () async {
+                await Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (final context) => const SettingsPage(),
+                  ),
+                );
+              },
+            ),
           ),
-        ),
-      );
+        );
+      }
     });
 
     _nextPushBloc.onNextPushSupported.listen((final _) async {
