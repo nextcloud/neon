@@ -132,6 +132,11 @@ Future pumpAppPage(
     sharedPreferences,
     disabled: true,
   );
+  final nextPushBloc = NextPushBloc(
+    accountsBloc,
+    globalOptions,
+    disabled: true,
+  );
 
   // ignore: close_sinks
   final userThemeStream = BehaviorSubject<NextcloudTheme?>();
@@ -162,6 +167,9 @@ Future pumpAppPage(
         ),
         Provider<FirstLaunchBloc>(
           create: (final _) => firstLaunchBloc,
+        ),
+        Provider<NextPushBloc>(
+          create: (final _) => nextPushBloc,
         ),
         Provider<List<AppImplementation>>(
           create: (final _) => allAppImplementations,

@@ -104,6 +104,19 @@ class AppLocalizationsEn extends AppLocalizations {
   String get disabled => 'Disabled';
 
   @override
+  String get firstLaunchGoToSettingsToEnablePushNotifications => 'Go to the settings to enable push notifications';
+
+  @override
+  String get nextPushSupported => 'NextPush is supported!';
+
+  @override
+  String get nextPushSupportedText =>
+      'NextPush is a FOSS way of receiving push notifications using the UnifiedPush protocol via a Nextcloud instance.\nYou can install NextPush from the F-Droid app store.';
+
+  @override
+  String get nextPushSupportedInstall => 'Install NextPush';
+
+  @override
   String get settings => 'Settings';
 
   @override
@@ -125,9 +138,6 @@ class AppLocalizationsEn extends AppLocalizations {
   String settingsResetForConfirmation(String name) {
     return 'Do you want to reset all settings for $name?';
   }
-
-  @override
-  String get settingsGoToSettingsToEnablePushNotifications => 'Go to the settings to enable push notifications';
 
   @override
   String get optionsCategoryGeneral => 'General';

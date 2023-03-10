@@ -5,8 +5,8 @@ cd "$(dirname "$0")/.."
 rm -rf /tmp/nextcloud-neon
 mkdir -p /tmp/nextcloud-neon
 
-codenames=(core news notes notifications provisioning_api user_status)
-prefixes=(Core News Notes Notifications ProvisioningApi UserStatus)
+codenames=(core news notes notifications provisioning_api uppush user_status)
+prefixes=(Core News Notes Notifications ProvisioningApi UnifiedPushProvider UserStatus)
 
 base_spec=/tmp/nextcloud-neon/base.json
 merged_spec=/tmp/nextcloud-neon/merged.json

@@ -157,6 +157,7 @@ class NextcloudClient {
   NextcloudNotesClient get notes => NextcloudNotesClient(this);
   NextcloudNotificationsClient get notifications => NextcloudNotificationsClient(this);
   NextcloudProvisioningApiClient get provisioningApi => NextcloudProvisioningApiClient(this);
+  NextcloudUnifiedPushProviderClient get unifiedPushProvider => NextcloudUnifiedPushProviderClient(this);
   NextcloudUserStatusClient get userStatus => NextcloudUserStatusClient(this);
 }
 
@@ -1171,6 +1172,240 @@ class NextcloudProvisioningApiClient {
     );
     if (response.statusCode == 200) {
       return NextcloudProvisioningApiUser.fromJson(
+          json.decode(utf8.decode(response.body) as String) as Map<String, dynamic>);
+    }
+    throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
+  }
+}
+
+class NextcloudUnifiedPushProviderClient {
+  NextcloudUnifiedPushProviderClient(this.rootClient);
+
+  final NextcloudClient rootClient;
+
+  /// Check if the UnifiedPush provider is present
+  Future<NextcloudUnifiedPushProviderCheckResponse200ApplicationJson> check() async {
+    var path = '/index.php/apps/uppush';
+    final queryParameters = <String, dynamic>{};
+    final headers = <String, String>{};
+    Uint8List? body;
+    final response = await rootClient.doRequest(
+      'get',
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
+      headers,
+      body,
+    );
+    if (response.statusCode == 200) {
+      return NextcloudUnifiedPushProviderCheckResponse200ApplicationJson.fromJson(
+          json.decode(utf8.decode(response.body) as String) as Map<String, dynamic>);
+    }
+    throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
+  }
+
+  /// Set keepalive interval.
+  Future<NextcloudUnifiedPushProviderSetKeepaliveResponse200ApplicationJson> setKeepalive(
+      {required String keepalive}) async {
+    var path = '/index.php/apps/uppush/keepalive';
+    final queryParameters = <String, dynamic>{};
+    final headers = <String, String>{};
+    Uint8List? body;
+    queryParameters['keepalive'] = keepalive;
+    final response = await rootClient.doRequest(
+      'put',
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
+      headers,
+      body,
+    );
+    if (response.statusCode == 200) {
+      return NextcloudUnifiedPushProviderSetKeepaliveResponse200ApplicationJson.fromJson(
+          json.decode(utf8.decode(response.body) as String) as Map<String, dynamic>);
+    }
+    throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
+  }
+
+  /// Request to create a new deviceId.
+  Future<NextcloudUnifiedPushProviderCreateDeviceResponse200ApplicationJson> createDevice(
+      {required String deviceName}) async {
+    var path = '/index.php/apps/uppush/device';
+    final queryParameters = <String, dynamic>{};
+    final headers = <String, String>{};
+    Uint8List? body;
+    queryParameters['deviceName'] = deviceName;
+    final response = await rootClient.doRequest(
+      'put',
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
+      headers,
+      body,
+    );
+    if (response.statusCode == 200) {
+      return NextcloudUnifiedPushProviderCreateDeviceResponse200ApplicationJson.fromJson(
+          json.decode(utf8.decode(response.body) as String) as Map<String, dynamic>);
+    }
+    throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
+  }
+
+  /// Request to get push messages.
+
+  /// This is a public page since it has to be handle by the non-connected app (NextPush app and not Nextcloud-app)
+  Future<NextcloudUnifiedPushProviderSyncDeviceResponse401ApplicationJson> syncDevice(
+      {required String deviceId}) async {
+    var path = '/index.php/apps/uppush/device/{deviceId}';
+    final queryParameters = <String, dynamic>{};
+    final headers = <String, String>{};
+    Uint8List? body;
+    path = path.replaceAll('{deviceId}', Uri.encodeQueryComponent(deviceId));
+    final response = await rootClient.doRequest(
+      'get',
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
+      headers,
+      body,
+    );
+    if (response.statusCode == 401) {
+      return NextcloudUnifiedPushProviderSyncDeviceResponse401ApplicationJson.fromJson(
+          json.decode(utf8.decode(response.body) as String) as Map<String, dynamic>);
+    }
+    throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
+  }
+
+  /// Delete a device.
+  Future<NextcloudUnifiedPushProviderDeleteDeviceResponse200ApplicationJson> deleteDevice(
+      {required String deviceId}) async {
+    var path = '/index.php/apps/uppush/device/{deviceId}';
+    final queryParameters = <String, dynamic>{};
+    final headers = <String, String>{};
+    Uint8List? body;
+    path = path.replaceAll('{deviceId}', Uri.encodeQueryComponent(deviceId));
+    final response = await rootClient.doRequest(
+      'delete',
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
+      headers,
+      body,
+    );
+    if (response.statusCode == 200) {
+      return NextcloudUnifiedPushProviderDeleteDeviceResponse200ApplicationJson.fromJson(
+          json.decode(utf8.decode(response.body) as String) as Map<String, dynamic>);
+    }
+    throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
+  }
+
+  /// Create an authorization token for a new 3rd party service.
+  Future<NextcloudUnifiedPushProviderCreateAppResponse200ApplicationJson> createApp({
+    required String deviceId,
+    required String appName,
+  }) async {
+    var path = '/index.php/apps/uppush/app';
+    final queryParameters = <String, dynamic>{};
+    final headers = <String, String>{};
+    Uint8List? body;
+    queryParameters['deviceId'] = deviceId;
+    queryParameters['appName'] = appName;
+    final response = await rootClient.doRequest(
+      'put',
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
+      headers,
+      body,
+    );
+    if (response.statusCode == 200) {
+      return NextcloudUnifiedPushProviderCreateAppResponse200ApplicationJson.fromJson(
+          json.decode(utf8.decode(response.body) as String) as Map<String, dynamic>);
+    }
+    throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
+  }
+
+  /// Delete an authorization token.
+  Future<NextcloudUnifiedPushProviderDeleteAppResponse200ApplicationJson> deleteApp({required String token}) async {
+    var path = '/index.php/apps/uppush/app/{token}';
+    final queryParameters = <String, dynamic>{};
+    final headers = <String, String>{};
+    Uint8List? body;
+    path = path.replaceAll('{token}', Uri.encodeQueryComponent(token));
+    final response = await rootClient.doRequest(
+      'delete',
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
+      headers,
+      body,
+    );
+    if (response.statusCode == 200) {
+      return NextcloudUnifiedPushProviderDeleteAppResponse200ApplicationJson.fromJson(
+          json.decode(utf8.decode(response.body) as String) as Map<String, dynamic>);
+    }
+    throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
+  }
+
+  /// Unifiedpush discovery Following specifications
+  Future<NextcloudUnifiedPushProviderUnifiedpushDiscoveryResponse200ApplicationJson> unifiedpushDiscovery(
+      {required String token}) async {
+    var path = '/index.php/apps/uppush/push/{token}';
+    final queryParameters = <String, dynamic>{};
+    final headers = <String, String>{};
+    Uint8List? body;
+    path = path.replaceAll('{token}', Uri.encodeQueryComponent(token));
+    final response = await rootClient.doRequest(
+      'get',
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
+      headers,
+      body,
+    );
+    if (response.statusCode == 200) {
+      return NextcloudUnifiedPushProviderUnifiedpushDiscoveryResponse200ApplicationJson.fromJson(
+          json.decode(utf8.decode(response.body) as String) as Map<String, dynamic>);
+    }
+    throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
+  }
+
+  /// Receive notifications from 3rd parties.
+  Future<NextcloudUnifiedPushProviderPushResponse201ApplicationJson> push({required String token}) async {
+    var path = '/index.php/apps/uppush/push/{token}';
+    final queryParameters = <String, dynamic>{};
+    final headers = <String, String>{};
+    Uint8List? body;
+    path = path.replaceAll('{token}', Uri.encodeQueryComponent(token));
+    final response = await rootClient.doRequest(
+      'post',
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
+      headers,
+      body,
+    );
+    if (response.statusCode == 201) {
+      return NextcloudUnifiedPushProviderPushResponse201ApplicationJson.fromJson(
+          json.decode(utf8.decode(response.body) as String) as Map<String, dynamic>);
+    }
+    throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
+  }
+
+  /// Matrix Gateway discovery
+  Future<NextcloudUnifiedPushProviderGatewayMatrixDiscoveryResponse200ApplicationJson> gatewayMatrixDiscovery() async {
+    var path = '/index.php/apps/uppush/gateway/matrix';
+    final queryParameters = <String, dynamic>{};
+    final headers = <String, String>{};
+    Uint8List? body;
+    final response = await rootClient.doRequest(
+      'get',
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
+      headers,
+      body,
+    );
+    if (response.statusCode == 200) {
+      return NextcloudUnifiedPushProviderGatewayMatrixDiscoveryResponse200ApplicationJson.fromJson(
+          json.decode(utf8.decode(response.body) as String) as Map<String, dynamic>);
+    }
+    throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
+  }
+
+  /// Matrix Gateway
+  Future<NextcloudUnifiedPushProviderGatewayMatrixResponse200ApplicationJson> gatewayMatrix() async {
+    var path = '/index.php/apps/uppush/gateway/matrix';
+    final queryParameters = <String, dynamic>{};
+    final headers = <String, String>{};
+    Uint8List? body;
+    final response = await rootClient.doRequest(
+      'post',
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
+      headers,
+      body,
+    );
+    if (response.statusCode == 200) {
+      return NextcloudUnifiedPushProviderGatewayMatrixResponse200ApplicationJson.fromJson(
           json.decode(utf8.decode(response.body) as String) as Map<String, dynamic>);
     }
     throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
@@ -4523,6 +4758,338 @@ class NextcloudProvisioningApiUser {
   static String? toJsonString(NextcloudProvisioningApiUser? data) => data == null ? null : json.encode(data.toJson());
 }
 
+@JsonSerializable()
+class NextcloudUnifiedPushProviderCheckResponse200ApplicationJson {
+  NextcloudUnifiedPushProviderCheckResponse200ApplicationJson({required this.success});
+
+  // coverage:ignore-start
+  factory NextcloudUnifiedPushProviderCheckResponse200ApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$NextcloudUnifiedPushProviderCheckResponse200ApplicationJsonFromJson(json);
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  factory NextcloudUnifiedPushProviderCheckResponse200ApplicationJson.fromJsonString(String data) =>
+      NextcloudUnifiedPushProviderCheckResponse200ApplicationJson.fromJson(json.decode(data) as Map<String, dynamic>);
+  // coverage:ignore-end
+
+  final bool success;
+
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$NextcloudUnifiedPushProviderCheckResponse200ApplicationJsonToJson(this);
+  // coverage:ignore-end
+  static String? toJsonString(NextcloudUnifiedPushProviderCheckResponse200ApplicationJson? data) =>
+      data == null ? null : json.encode(data.toJson());
+}
+
+@JsonSerializable()
+class NextcloudUnifiedPushProviderSetKeepaliveResponse200ApplicationJson {
+  NextcloudUnifiedPushProviderSetKeepaliveResponse200ApplicationJson({required this.success});
+
+  // coverage:ignore-start
+  factory NextcloudUnifiedPushProviderSetKeepaliveResponse200ApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$NextcloudUnifiedPushProviderSetKeepaliveResponse200ApplicationJsonFromJson(json);
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  factory NextcloudUnifiedPushProviderSetKeepaliveResponse200ApplicationJson.fromJsonString(String data) =>
+      NextcloudUnifiedPushProviderSetKeepaliveResponse200ApplicationJson.fromJson(
+          json.decode(data) as Map<String, dynamic>);
+  // coverage:ignore-end
+
+  final bool success;
+
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$NextcloudUnifiedPushProviderSetKeepaliveResponse200ApplicationJsonToJson(this);
+  // coverage:ignore-end
+  static String? toJsonString(NextcloudUnifiedPushProviderSetKeepaliveResponse200ApplicationJson? data) =>
+      data == null ? null : json.encode(data.toJson());
+}
+
+@JsonSerializable()
+class NextcloudUnifiedPushProviderCreateDeviceResponse200ApplicationJson {
+  NextcloudUnifiedPushProviderCreateDeviceResponse200ApplicationJson({
+    required this.success,
+    required this.deviceId,
+  });
+
+  // coverage:ignore-start
+  factory NextcloudUnifiedPushProviderCreateDeviceResponse200ApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$NextcloudUnifiedPushProviderCreateDeviceResponse200ApplicationJsonFromJson(json);
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  factory NextcloudUnifiedPushProviderCreateDeviceResponse200ApplicationJson.fromJsonString(String data) =>
+      NextcloudUnifiedPushProviderCreateDeviceResponse200ApplicationJson.fromJson(
+          json.decode(data) as Map<String, dynamic>);
+  // coverage:ignore-end
+
+  final bool success;
+
+  final String deviceId;
+
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$NextcloudUnifiedPushProviderCreateDeviceResponse200ApplicationJsonToJson(this);
+  // coverage:ignore-end
+  static String? toJsonString(NextcloudUnifiedPushProviderCreateDeviceResponse200ApplicationJson? data) =>
+      data == null ? null : json.encode(data.toJson());
+}
+
+@JsonSerializable()
+class NextcloudUnifiedPushProviderSyncDeviceResponse401ApplicationJson {
+  NextcloudUnifiedPushProviderSyncDeviceResponse401ApplicationJson({required this.success});
+
+  // coverage:ignore-start
+  factory NextcloudUnifiedPushProviderSyncDeviceResponse401ApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$NextcloudUnifiedPushProviderSyncDeviceResponse401ApplicationJsonFromJson(json);
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  factory NextcloudUnifiedPushProviderSyncDeviceResponse401ApplicationJson.fromJsonString(String data) =>
+      NextcloudUnifiedPushProviderSyncDeviceResponse401ApplicationJson.fromJson(
+          json.decode(data) as Map<String, dynamic>);
+  // coverage:ignore-end
+
+  final bool success;
+
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$NextcloudUnifiedPushProviderSyncDeviceResponse401ApplicationJsonToJson(this);
+  // coverage:ignore-end
+  static String? toJsonString(NextcloudUnifiedPushProviderSyncDeviceResponse401ApplicationJson? data) =>
+      data == null ? null : json.encode(data.toJson());
+}
+
+@JsonSerializable()
+class NextcloudUnifiedPushProviderDeleteDeviceResponse200ApplicationJson {
+  NextcloudUnifiedPushProviderDeleteDeviceResponse200ApplicationJson({required this.success});
+
+  // coverage:ignore-start
+  factory NextcloudUnifiedPushProviderDeleteDeviceResponse200ApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$NextcloudUnifiedPushProviderDeleteDeviceResponse200ApplicationJsonFromJson(json);
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  factory NextcloudUnifiedPushProviderDeleteDeviceResponse200ApplicationJson.fromJsonString(String data) =>
+      NextcloudUnifiedPushProviderDeleteDeviceResponse200ApplicationJson.fromJson(
+          json.decode(data) as Map<String, dynamic>);
+  // coverage:ignore-end
+
+  final bool success;
+
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$NextcloudUnifiedPushProviderDeleteDeviceResponse200ApplicationJsonToJson(this);
+  // coverage:ignore-end
+  static String? toJsonString(NextcloudUnifiedPushProviderDeleteDeviceResponse200ApplicationJson? data) =>
+      data == null ? null : json.encode(data.toJson());
+}
+
+@JsonSerializable()
+class NextcloudUnifiedPushProviderCreateAppResponse200ApplicationJson {
+  NextcloudUnifiedPushProviderCreateAppResponse200ApplicationJson({
+    required this.success,
+    required this.token,
+  });
+
+  // coverage:ignore-start
+  factory NextcloudUnifiedPushProviderCreateAppResponse200ApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$NextcloudUnifiedPushProviderCreateAppResponse200ApplicationJsonFromJson(json);
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  factory NextcloudUnifiedPushProviderCreateAppResponse200ApplicationJson.fromJsonString(String data) =>
+      NextcloudUnifiedPushProviderCreateAppResponse200ApplicationJson.fromJson(
+          json.decode(data) as Map<String, dynamic>);
+  // coverage:ignore-end
+
+  final bool success;
+
+  final String token;
+
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$NextcloudUnifiedPushProviderCreateAppResponse200ApplicationJsonToJson(this);
+  // coverage:ignore-end
+  static String? toJsonString(NextcloudUnifiedPushProviderCreateAppResponse200ApplicationJson? data) =>
+      data == null ? null : json.encode(data.toJson());
+}
+
+@JsonSerializable()
+class NextcloudUnifiedPushProviderDeleteAppResponse200ApplicationJson {
+  NextcloudUnifiedPushProviderDeleteAppResponse200ApplicationJson({required this.success});
+
+  // coverage:ignore-start
+  factory NextcloudUnifiedPushProviderDeleteAppResponse200ApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$NextcloudUnifiedPushProviderDeleteAppResponse200ApplicationJsonFromJson(json);
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  factory NextcloudUnifiedPushProviderDeleteAppResponse200ApplicationJson.fromJsonString(String data) =>
+      NextcloudUnifiedPushProviderDeleteAppResponse200ApplicationJson.fromJson(
+          json.decode(data) as Map<String, dynamic>);
+  // coverage:ignore-end
+
+  final bool success;
+
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$NextcloudUnifiedPushProviderDeleteAppResponse200ApplicationJsonToJson(this);
+  // coverage:ignore-end
+  static String? toJsonString(NextcloudUnifiedPushProviderDeleteAppResponse200ApplicationJson? data) =>
+      data == null ? null : json.encode(data.toJson());
+}
+
+@JsonSerializable()
+class NextcloudUnifiedPushProviderUnifiedpushDiscoveryResponse200ApplicationJson_Unifiedpush {
+  NextcloudUnifiedPushProviderUnifiedpushDiscoveryResponse200ApplicationJson_Unifiedpush({required this.version});
+
+  // coverage:ignore-start
+  factory NextcloudUnifiedPushProviderUnifiedpushDiscoveryResponse200ApplicationJson_Unifiedpush.fromJson(
+          Map<String, dynamic> json) =>
+      _$NextcloudUnifiedPushProviderUnifiedpushDiscoveryResponse200ApplicationJson_UnifiedpushFromJson(json);
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  factory NextcloudUnifiedPushProviderUnifiedpushDiscoveryResponse200ApplicationJson_Unifiedpush.fromJsonString(
+          String data) =>
+      NextcloudUnifiedPushProviderUnifiedpushDiscoveryResponse200ApplicationJson_Unifiedpush.fromJson(
+          json.decode(data) as Map<String, dynamic>);
+  // coverage:ignore-end
+
+  final int version;
+
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() =>
+      _$NextcloudUnifiedPushProviderUnifiedpushDiscoveryResponse200ApplicationJson_UnifiedpushToJson(this);
+  // coverage:ignore-end
+  static String? toJsonString(
+          NextcloudUnifiedPushProviderUnifiedpushDiscoveryResponse200ApplicationJson_Unifiedpush? data) =>
+      data == null ? null : json.encode(data.toJson());
+}
+
+@JsonSerializable()
+class NextcloudUnifiedPushProviderUnifiedpushDiscoveryResponse200ApplicationJson {
+  NextcloudUnifiedPushProviderUnifiedpushDiscoveryResponse200ApplicationJson({required this.unifiedpush});
+
+  // coverage:ignore-start
+  factory NextcloudUnifiedPushProviderUnifiedpushDiscoveryResponse200ApplicationJson.fromJson(
+          Map<String, dynamic> json) =>
+      _$NextcloudUnifiedPushProviderUnifiedpushDiscoveryResponse200ApplicationJsonFromJson(json);
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  factory NextcloudUnifiedPushProviderUnifiedpushDiscoveryResponse200ApplicationJson.fromJsonString(String data) =>
+      NextcloudUnifiedPushProviderUnifiedpushDiscoveryResponse200ApplicationJson.fromJson(
+          json.decode(data) as Map<String, dynamic>);
+  // coverage:ignore-end
+
+  final NextcloudUnifiedPushProviderUnifiedpushDiscoveryResponse200ApplicationJson_Unifiedpush unifiedpush;
+
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() =>
+      _$NextcloudUnifiedPushProviderUnifiedpushDiscoveryResponse200ApplicationJsonToJson(this);
+  // coverage:ignore-end
+  static String? toJsonString(NextcloudUnifiedPushProviderUnifiedpushDiscoveryResponse200ApplicationJson? data) =>
+      data == null ? null : json.encode(data.toJson());
+}
+
+@JsonSerializable()
+class NextcloudUnifiedPushProviderPushResponse201ApplicationJson {
+  NextcloudUnifiedPushProviderPushResponse201ApplicationJson({required this.success});
+
+  // coverage:ignore-start
+  factory NextcloudUnifiedPushProviderPushResponse201ApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$NextcloudUnifiedPushProviderPushResponse201ApplicationJsonFromJson(json);
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  factory NextcloudUnifiedPushProviderPushResponse201ApplicationJson.fromJsonString(String data) =>
+      NextcloudUnifiedPushProviderPushResponse201ApplicationJson.fromJson(json.decode(data) as Map<String, dynamic>);
+  // coverage:ignore-end
+
+  final bool success;
+
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$NextcloudUnifiedPushProviderPushResponse201ApplicationJsonToJson(this);
+  // coverage:ignore-end
+  static String? toJsonString(NextcloudUnifiedPushProviderPushResponse201ApplicationJson? data) =>
+      data == null ? null : json.encode(data.toJson());
+}
+
+@JsonSerializable()
+class NextcloudUnifiedPushProviderGatewayMatrixDiscoveryResponse200ApplicationJson_Unifiedpush {
+  NextcloudUnifiedPushProviderGatewayMatrixDiscoveryResponse200ApplicationJson_Unifiedpush({required this.gateway});
+
+  // coverage:ignore-start
+  factory NextcloudUnifiedPushProviderGatewayMatrixDiscoveryResponse200ApplicationJson_Unifiedpush.fromJson(
+          Map<String, dynamic> json) =>
+      _$NextcloudUnifiedPushProviderGatewayMatrixDiscoveryResponse200ApplicationJson_UnifiedpushFromJson(json);
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  factory NextcloudUnifiedPushProviderGatewayMatrixDiscoveryResponse200ApplicationJson_Unifiedpush.fromJsonString(
+          String data) =>
+      NextcloudUnifiedPushProviderGatewayMatrixDiscoveryResponse200ApplicationJson_Unifiedpush.fromJson(
+          json.decode(data) as Map<String, dynamic>);
+  // coverage:ignore-end
+
+  final String gateway;
+
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() =>
+      _$NextcloudUnifiedPushProviderGatewayMatrixDiscoveryResponse200ApplicationJson_UnifiedpushToJson(this);
+  // coverage:ignore-end
+  static String? toJsonString(
+          NextcloudUnifiedPushProviderGatewayMatrixDiscoveryResponse200ApplicationJson_Unifiedpush? data) =>
+      data == null ? null : json.encode(data.toJson());
+}
+
+@JsonSerializable()
+class NextcloudUnifiedPushProviderGatewayMatrixDiscoveryResponse200ApplicationJson {
+  NextcloudUnifiedPushProviderGatewayMatrixDiscoveryResponse200ApplicationJson({required this.unifiedpush});
+
+  // coverage:ignore-start
+  factory NextcloudUnifiedPushProviderGatewayMatrixDiscoveryResponse200ApplicationJson.fromJson(
+          Map<String, dynamic> json) =>
+      _$NextcloudUnifiedPushProviderGatewayMatrixDiscoveryResponse200ApplicationJsonFromJson(json);
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  factory NextcloudUnifiedPushProviderGatewayMatrixDiscoveryResponse200ApplicationJson.fromJsonString(String data) =>
+      NextcloudUnifiedPushProviderGatewayMatrixDiscoveryResponse200ApplicationJson.fromJson(
+          json.decode(data) as Map<String, dynamic>);
+  // coverage:ignore-end
+
+  final NextcloudUnifiedPushProviderGatewayMatrixDiscoveryResponse200ApplicationJson_Unifiedpush unifiedpush;
+
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() =>
+      _$NextcloudUnifiedPushProviderGatewayMatrixDiscoveryResponse200ApplicationJsonToJson(this);
+  // coverage:ignore-end
+  static String? toJsonString(NextcloudUnifiedPushProviderGatewayMatrixDiscoveryResponse200ApplicationJson? data) =>
+      data == null ? null : json.encode(data.toJson());
+}
+
+@JsonSerializable()
+class NextcloudUnifiedPushProviderGatewayMatrixResponse200ApplicationJson {
+  NextcloudUnifiedPushProviderGatewayMatrixResponse200ApplicationJson({required this.rejected});
+
+  // coverage:ignore-start
+  factory NextcloudUnifiedPushProviderGatewayMatrixResponse200ApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$NextcloudUnifiedPushProviderGatewayMatrixResponse200ApplicationJsonFromJson(json);
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  factory NextcloudUnifiedPushProviderGatewayMatrixResponse200ApplicationJson.fromJsonString(String data) =>
+      NextcloudUnifiedPushProviderGatewayMatrixResponse200ApplicationJson.fromJson(
+          json.decode(data) as Map<String, dynamic>);
+  // coverage:ignore-end
+
+  final List<String> rejected;
+
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$NextcloudUnifiedPushProviderGatewayMatrixResponse200ApplicationJsonToJson(this);
+  // coverage:ignore-end
+  static String? toJsonString(NextcloudUnifiedPushProviderGatewayMatrixResponse200ApplicationJson? data) =>
+      data == null ? null : json.encode(data.toJson());
+}
+
 enum NextcloudUserStatusClearAt_Type {
   period('period'),
   @JsonValue('end-of')
@@ -5690,6 +6257,88 @@ final _deserializers = <Type, dynamic Function(dynamic)>{
   List<NextcloudProvisioningApiUserDetails_BackendCapabilities>: (final data) => (data as List)
       .map((final e) => NextcloudProvisioningApiUserDetails_BackendCapabilities.fromJson(e as Map<String, dynamic>))
       .toList(),
+  NextcloudUnifiedPushProviderCheckResponse200ApplicationJson: (final data) =>
+      NextcloudUnifiedPushProviderCheckResponse200ApplicationJson.fromJson(data as Map<String, dynamic>),
+  List<NextcloudUnifiedPushProviderCheckResponse200ApplicationJson>: (final data) => (data as List)
+      .map((final e) => NextcloudUnifiedPushProviderCheckResponse200ApplicationJson.fromJson(e as Map<String, dynamic>))
+      .toList(),
+  NextcloudUnifiedPushProviderSetKeepaliveResponse200ApplicationJson: (final data) =>
+      NextcloudUnifiedPushProviderSetKeepaliveResponse200ApplicationJson.fromJson(data as Map<String, dynamic>),
+  List<NextcloudUnifiedPushProviderSetKeepaliveResponse200ApplicationJson>: (final data) => (data as List)
+      .map((final e) =>
+          NextcloudUnifiedPushProviderSetKeepaliveResponse200ApplicationJson.fromJson(e as Map<String, dynamic>))
+      .toList(),
+  NextcloudUnifiedPushProviderCreateDeviceResponse200ApplicationJson: (final data) =>
+      NextcloudUnifiedPushProviderCreateDeviceResponse200ApplicationJson.fromJson(data as Map<String, dynamic>),
+  List<NextcloudUnifiedPushProviderCreateDeviceResponse200ApplicationJson>: (final data) => (data as List)
+      .map((final e) =>
+          NextcloudUnifiedPushProviderCreateDeviceResponse200ApplicationJson.fromJson(e as Map<String, dynamic>))
+      .toList(),
+  NextcloudUnifiedPushProviderSyncDeviceResponse401ApplicationJson: (final data) =>
+      NextcloudUnifiedPushProviderSyncDeviceResponse401ApplicationJson.fromJson(data as Map<String, dynamic>),
+  List<NextcloudUnifiedPushProviderSyncDeviceResponse401ApplicationJson>: (final data) => (data as List)
+      .map((final e) =>
+          NextcloudUnifiedPushProviderSyncDeviceResponse401ApplicationJson.fromJson(e as Map<String, dynamic>))
+      .toList(),
+  NextcloudUnifiedPushProviderDeleteDeviceResponse200ApplicationJson: (final data) =>
+      NextcloudUnifiedPushProviderDeleteDeviceResponse200ApplicationJson.fromJson(data as Map<String, dynamic>),
+  List<NextcloudUnifiedPushProviderDeleteDeviceResponse200ApplicationJson>: (final data) => (data as List)
+      .map((final e) =>
+          NextcloudUnifiedPushProviderDeleteDeviceResponse200ApplicationJson.fromJson(e as Map<String, dynamic>))
+      .toList(),
+  NextcloudUnifiedPushProviderCreateAppResponse200ApplicationJson: (final data) =>
+      NextcloudUnifiedPushProviderCreateAppResponse200ApplicationJson.fromJson(data as Map<String, dynamic>),
+  List<NextcloudUnifiedPushProviderCreateAppResponse200ApplicationJson>: (final data) => (data as List)
+      .map((final e) =>
+          NextcloudUnifiedPushProviderCreateAppResponse200ApplicationJson.fromJson(e as Map<String, dynamic>))
+      .toList(),
+  NextcloudUnifiedPushProviderDeleteAppResponse200ApplicationJson: (final data) =>
+      NextcloudUnifiedPushProviderDeleteAppResponse200ApplicationJson.fromJson(data as Map<String, dynamic>),
+  List<NextcloudUnifiedPushProviderDeleteAppResponse200ApplicationJson>: (final data) => (data as List)
+      .map((final e) =>
+          NextcloudUnifiedPushProviderDeleteAppResponse200ApplicationJson.fromJson(e as Map<String, dynamic>))
+      .toList(),
+  NextcloudUnifiedPushProviderUnifiedpushDiscoveryResponse200ApplicationJson: (final data) =>
+      NextcloudUnifiedPushProviderUnifiedpushDiscoveryResponse200ApplicationJson.fromJson(data as Map<String, dynamic>),
+  List<NextcloudUnifiedPushProviderUnifiedpushDiscoveryResponse200ApplicationJson>: (final data) => (data as List)
+      .map((final e) => NextcloudUnifiedPushProviderUnifiedpushDiscoveryResponse200ApplicationJson.fromJson(
+          e as Map<String, dynamic>))
+      .toList(),
+  NextcloudUnifiedPushProviderUnifiedpushDiscoveryResponse200ApplicationJson_Unifiedpush: (final data) =>
+      NextcloudUnifiedPushProviderUnifiedpushDiscoveryResponse200ApplicationJson_Unifiedpush.fromJson(
+          data as Map<String, dynamic>),
+  List<NextcloudUnifiedPushProviderUnifiedpushDiscoveryResponse200ApplicationJson_Unifiedpush>: (final data) => (data
+          as List)
+      .map((final e) => NextcloudUnifiedPushProviderUnifiedpushDiscoveryResponse200ApplicationJson_Unifiedpush.fromJson(
+          e as Map<String, dynamic>))
+      .toList(),
+  NextcloudUnifiedPushProviderPushResponse201ApplicationJson: (final data) =>
+      NextcloudUnifiedPushProviderPushResponse201ApplicationJson.fromJson(data as Map<String, dynamic>),
+  List<NextcloudUnifiedPushProviderPushResponse201ApplicationJson>: (final data) => (data as List)
+      .map((final e) => NextcloudUnifiedPushProviderPushResponse201ApplicationJson.fromJson(e as Map<String, dynamic>))
+      .toList(),
+  NextcloudUnifiedPushProviderGatewayMatrixDiscoveryResponse200ApplicationJson: (final data) =>
+      NextcloudUnifiedPushProviderGatewayMatrixDiscoveryResponse200ApplicationJson.fromJson(
+          data as Map<String, dynamic>),
+  List<NextcloudUnifiedPushProviderGatewayMatrixDiscoveryResponse200ApplicationJson>: (final data) => (data as List)
+      .map((final e) => NextcloudUnifiedPushProviderGatewayMatrixDiscoveryResponse200ApplicationJson.fromJson(
+          e as Map<String, dynamic>))
+      .toList(),
+  NextcloudUnifiedPushProviderGatewayMatrixDiscoveryResponse200ApplicationJson_Unifiedpush: (final data) =>
+      NextcloudUnifiedPushProviderGatewayMatrixDiscoveryResponse200ApplicationJson_Unifiedpush.fromJson(
+          data as Map<String, dynamic>),
+  List<NextcloudUnifiedPushProviderGatewayMatrixDiscoveryResponse200ApplicationJson_Unifiedpush>: (final data) =>
+      (data as List)
+          .map((final e) =>
+              NextcloudUnifiedPushProviderGatewayMatrixDiscoveryResponse200ApplicationJson_Unifiedpush.fromJson(
+                  e as Map<String, dynamic>))
+          .toList(),
+  NextcloudUnifiedPushProviderGatewayMatrixResponse200ApplicationJson: (final data) =>
+      NextcloudUnifiedPushProviderGatewayMatrixResponse200ApplicationJson.fromJson(data as Map<String, dynamic>),
+  List<NextcloudUnifiedPushProviderGatewayMatrixResponse200ApplicationJson>: (final data) => (data as List)
+      .map((final e) =>
+          NextcloudUnifiedPushProviderGatewayMatrixResponse200ApplicationJson.fromJson(e as Map<String, dynamic>))
+      .toList(),
   NextcloudUserStatusGetPublicStatuses: (final data) =>
       NextcloudUserStatusGetPublicStatuses.fromJson(data as Map<String, dynamic>),
   List<NextcloudUserStatusGetPublicStatuses>: (final data) => (data as List)
@@ -5973,6 +6622,46 @@ final _serializers = <Type, dynamic Function(dynamic)>{
   List<NextcloudProvisioningApiUserDetails_Quota>: (final data) => data.map((final e) => e.toJson()).toList(),
   NextcloudProvisioningApiUserDetails_BackendCapabilities: (final data) => data.toJson(),
   List<NextcloudProvisioningApiUserDetails_BackendCapabilities>: (final data) =>
+      data.map((final e) => e.toJson()).toList(),
+  NextcloudUnifiedPushProviderCheckResponse200ApplicationJson: (final data) => data.toJson(),
+  List<NextcloudUnifiedPushProviderCheckResponse200ApplicationJson>: (final data) =>
+      data.map((final e) => e.toJson()).toList(),
+  NextcloudUnifiedPushProviderSetKeepaliveResponse200ApplicationJson: (final data) => data.toJson(),
+  List<NextcloudUnifiedPushProviderSetKeepaliveResponse200ApplicationJson>: (final data) =>
+      data.map((final e) => e.toJson()).toList(),
+  NextcloudUnifiedPushProviderCreateDeviceResponse200ApplicationJson: (final data) => data.toJson(),
+  List<NextcloudUnifiedPushProviderCreateDeviceResponse200ApplicationJson>: (final data) =>
+      data.map((final e) => e.toJson()).toList(),
+  NextcloudUnifiedPushProviderSyncDeviceResponse401ApplicationJson: (final data) => data.toJson(),
+  List<NextcloudUnifiedPushProviderSyncDeviceResponse401ApplicationJson>: (final data) =>
+      data.map((final e) => e.toJson()).toList(),
+  NextcloudUnifiedPushProviderDeleteDeviceResponse200ApplicationJson: (final data) => data.toJson(),
+  List<NextcloudUnifiedPushProviderDeleteDeviceResponse200ApplicationJson>: (final data) =>
+      data.map((final e) => e.toJson()).toList(),
+  NextcloudUnifiedPushProviderCreateAppResponse200ApplicationJson: (final data) => data.toJson(),
+  List<NextcloudUnifiedPushProviderCreateAppResponse200ApplicationJson>: (final data) =>
+      data.map((final e) => e.toJson()).toList(),
+  NextcloudUnifiedPushProviderDeleteAppResponse200ApplicationJson: (final data) => data.toJson(),
+  List<NextcloudUnifiedPushProviderDeleteAppResponse200ApplicationJson>: (final data) =>
+      data.map((final e) => e.toJson()).toList(),
+  NextcloudUnifiedPushProviderUnifiedpushDiscoveryResponse200ApplicationJson: (final data) => data.toJson(),
+  List<NextcloudUnifiedPushProviderUnifiedpushDiscoveryResponse200ApplicationJson>: (final data) =>
+      data.map((final e) => e.toJson()).toList(),
+  NextcloudUnifiedPushProviderUnifiedpushDiscoveryResponse200ApplicationJson_Unifiedpush: (final data) => data.toJson(),
+  List<NextcloudUnifiedPushProviderUnifiedpushDiscoveryResponse200ApplicationJson_Unifiedpush>: (final data) =>
+      data.map((final e) => e.toJson()).toList(),
+  NextcloudUnifiedPushProviderPushResponse201ApplicationJson: (final data) => data.toJson(),
+  List<NextcloudUnifiedPushProviderPushResponse201ApplicationJson>: (final data) =>
+      data.map((final e) => e.toJson()).toList(),
+  NextcloudUnifiedPushProviderGatewayMatrixDiscoveryResponse200ApplicationJson: (final data) => data.toJson(),
+  List<NextcloudUnifiedPushProviderGatewayMatrixDiscoveryResponse200ApplicationJson>: (final data) =>
+      data.map((final e) => e.toJson()).toList(),
+  NextcloudUnifiedPushProviderGatewayMatrixDiscoveryResponse200ApplicationJson_Unifiedpush: (final data) =>
+      data.toJson(),
+  List<NextcloudUnifiedPushProviderGatewayMatrixDiscoveryResponse200ApplicationJson_Unifiedpush>: (final data) =>
+      data.map((final e) => e.toJson()).toList(),
+  NextcloudUnifiedPushProviderGatewayMatrixResponse200ApplicationJson: (final data) => data.toJson(),
+  List<NextcloudUnifiedPushProviderGatewayMatrixResponse200ApplicationJson>: (final data) =>
       data.map((final e) => e.toJson()).toList(),
   NextcloudUserStatusGetPublicStatuses: (final data) => data.toJson(),
   List<NextcloudUserStatusGetPublicStatuses>: (final data) => data.map((final e) => e.toJson()).toList(),
