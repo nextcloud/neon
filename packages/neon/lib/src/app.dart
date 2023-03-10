@@ -27,6 +27,7 @@ class _NeonAppState extends State<NeonApp> with WidgetsBindingObserver, tray.Tra
   late NeonPlatform _platform;
   late GlobalOptions _globalOptions;
   late AccountsBloc _accountsBloc;
+  final _globalPopups = const GlobalPopups();
 
   NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Theming? _nextcloudTheme;
   final _platformBrightness = BehaviorSubject<Brightness>.seeded(WidgetsBinding.instance.window.platformBrightness);
@@ -71,13 +72,18 @@ class _NeonAppState extends State<NeonApp> with WidgetsBindingObserver, tray.Tra
             name: 'home',
           );
           Widget builder(final context) => Scaffold(
-                body: HomePage(
-                  account: activeAccount,
-                  onThemeChanged: (final nextcloudTheme) {
-                    setState(() {
-                      _nextcloudTheme = nextcloudTheme;
-                    });
-                  },
+                body: Stack(
+                  children: [
+                    _globalPopups,
+                    HomePage(
+                      account: activeAccount,
+                      onThemeChanged: (final nextcloudTheme) {
+                        setState(() {
+                          _nextcloudTheme = nextcloudTheme;
+                        });
+                      },
+                    ),
+                  ],
                 ),
               );
           await _navigatorKey.currentState!.pushAndRemoveUntil(

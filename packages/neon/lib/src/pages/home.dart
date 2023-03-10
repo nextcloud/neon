@@ -24,8 +24,6 @@ class _HomePageState extends State<HomePage> {
   late AccountsBloc _accountsBloc;
   late AppsBloc _appsBloc;
   late CapabilitiesBloc _capabilitiesBloc;
-  late FirstLaunchBloc _firstLaunchBloc;
-  late NextPushBloc _nextPushBloc;
 
   @override
   void initState() {
@@ -35,8 +33,6 @@ class _HomePageState extends State<HomePage> {
     _accountsBloc = Provider.of<AccountsBloc>(context, listen: false);
     _appsBloc = _accountsBloc.getAppsBloc(widget.account);
     _capabilitiesBloc = _accountsBloc.getCapabilitiesBloc(widget.account);
-    _firstLaunchBloc = Provider.of<FirstLaunchBloc>(context, listen: false);
-    _nextPushBloc = Provider.of<NextPushBloc>(context, listen: false);
 
     _appsBloc.openNotifications.listen((final _) async {
       final notificationsAppImplementation = _appsBloc.notificationsAppImplementation.valueOrNull;
@@ -98,52 +94,6 @@ class _HomePageState extends State<HomePage> {
           }
         });
       }
-    });
-
-    _firstLaunchBloc.onFirstLaunch.listen((final _) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Text(AppLocalizations.of(context).firstLaunchGoToSettingsToEnablePushNotifications),
-          action: SnackBarAction(
-            label: AppLocalizations.of(context).settings,
-            onPressed: () async {
-              await Navigator.of(context).push(
-                MaterialPageRoute(
-                  builder: (final context) => const SettingsPage(),
-                ),
-              );
-            },
-          ),
-        ),
-      );
-    });
-
-    _nextPushBloc.onNextPushSupported.listen((final _) async {
-      await showDialog(
-        context: context,
-        builder: (final context) => AlertDialog(
-          title: Text(AppLocalizations.of(context).nextPushSupported),
-          content: Text(AppLocalizations.of(context).nextPushSupportedText),
-          actions: [
-            OutlinedButton(
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
-              child: Text(AppLocalizations.of(context).no),
-            ),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.of(context).pop();
-                launchUrlString(
-                  'https://f-droid.org/packages/$unifiedPushNextPushID',
-                  mode: LaunchMode.externalApplication,
-                );
-              },
-              child: Text(AppLocalizations.of(context).nextPushSupportedInstall),
-            ),
-          ],
-        ),
-      );
     });
 
     unawaited(_checkMaintenanceMode());

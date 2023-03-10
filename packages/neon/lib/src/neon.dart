@@ -72,6 +72,7 @@ part 'utils/confirmation_dialog.dart';
 part 'utils/env.dart';
 part 'utils/global.dart';
 part 'utils/global_options.dart';
+part 'utils/global_popups.dart';
 part 'utils/hex_color.dart';
 part 'utils/localizations.dart';
 part 'utils/missing_permission_exception.dart';
