@@ -122,35 +122,35 @@ jobs:
           path: packages/neon/build/linux/x64/release/bundle/*
           if-no-files-found: error
 
-  linux_arm64:
-    name: Linux arm64
-    runs-on: ubuntu-22.04
-    needs: setup
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      - name: Set docker image
-        id: docker_image
-        run: |
-          echo "local=nextcloud-neon-build-linux-arm64:${{ needs.setup.outputs.flutter_version }}" >> $GITHUB_OUTPUT
-          echo "remote=ghcr.io/$GITHUB_REPOSITORY/build-linux-arm64:${{ needs.setup.outputs.flutter_version }}" >> $GITHUB_OUTPUT
-      - run: echo ${{ secrets.GITHUB_TOKEN }} | docker login ghcr.io -u $GITHUB_ACTOR --password-stdin
-      - name: Set up QEMU
-        uses: docker/setup-qemu-action@v2
-        with:
-          platforms: arm64
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v2
-        with:
-          platforms: linux/arm64
-
-      - name: Build
-        env:
-          FLUTTER_VERSION: ${{ needs.setup.outputs.flutter_version }}
-        run: ./tool/build-neon.sh linux/arm64 --build-number="${{ needs.setup.outputs.build_number }}"
-
-      - uses: actions/upload-artifact@v3
-        with:
-          name: Linux arm64
-          path: packages/neon/build/linux/arm64/release/bundle/*
-          if-no-files-found: error
+#  linux_arm64:
+#    name: Linux arm64
+#    runs-on: ubuntu-22.04
+#    needs: setup
+#    steps:
+#      - name: Checkout
+#        uses: actions/checkout@v2
+#      - name: Set docker image
+#        id: docker_image
+#        run: |
+#          echo "local=nextcloud-neon-build-linux-arm64:${{ needs.setup.outputs.flutter_version }}" >> $GITHUB_OUTPUT
+#          echo "remote=ghcr.io/$GITHUB_REPOSITORY/build-linux-arm64:${{ needs.setup.outputs.flutter_version }}" >> $GITHUB_OUTPUT
+#      - run: echo ${{ secrets.GITHUB_TOKEN }} | docker login ghcr.io -u $GITHUB_ACTOR --password-stdin
+#      - name: Set up QEMU
+#        uses: docker/setup-qemu-action@v2
+#        with:
+#          platforms: arm64
+#      - name: Set up Docker Buildx
+#        uses: docker/setup-buildx-action@v2
+#        with:
+#          platforms: linux/arm64
+#
+#      - name: Build
+#        env:
+#          FLUTTER_VERSION: ${{ needs.setup.outputs.flutter_version }}
+#        run: ./tool/build-neon.sh linux/arm64 --build-number="${{ needs.setup.outputs.build_number }}"
+#
+#      - uses: actions/upload-artifact@v3
+#        with:
+#          name: Linux arm64
+#          path: packages/neon/build/linux/arm64/release/bundle/*
+#          if-no-files-found: error
