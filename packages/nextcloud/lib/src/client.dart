@@ -12,7 +12,8 @@ class NextcloudClient extends openapi.NextcloudClient {
     final AppType appType = AppType.unknown,
     final String? userAgentOverride,
     super.cookieJar,
-  }) : super(
+  })  : assert(loginName != null || username == null, 'Provide loginName instead of username or both'),
+        super(
           baseHeaders: (<String, String?>{
             'OCS-APIRequest': 'true',
             'Accept': 'application/json',
