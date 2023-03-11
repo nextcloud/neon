@@ -975,37 +975,27 @@ class OpenAPIBuilder implements Builder {
 String _clientName(final String tag) => '${_toDartName(tag, uppercaseFirstCharacter: true)}Client';
 
 String _toDartName(
-  final String input, {
+  final String name, {
   final bool uppercaseFirstCharacter = false,
 }) {
-  final result = StringBuffer();
-
-  final parts = input.split('');
-  for (var i = 0; i < parts.length; i++) {
-    var char = parts[i];
-    final prevChar = i > 0 ? parts[i - 1] : null;
+  var result = '';
+  var upperCase = uppercaseFirstCharacter;
+  var firstCharacter = !uppercaseFirstCharacter;
+  for (final char in name.split('')) {
     if (_isNonAlphaNumericString(char)) {
-      continue;
+      upperCase = true;
+    } else {
+      result += firstCharacter ? char.toLowerCase() : (upperCase ? char.toUpperCase() : char);
+      upperCase = false;
+      firstCharacter = false;
     }
-    if (prevChar != null && _isNonAlphaNumericString(prevChar)) {
-      char = char.toUpperCase();
-    }
-    if (i == 0) {
-      if (uppercaseFirstCharacter) {
-        char = char.toUpperCase();
-      } else {
-        char = char.toLowerCase();
-      }
-    }
-    result.write(char);
   }
 
-  final out = result.toString();
-  if (_dartKeywords.contains(out) || RegExp(r'^[0-9]+$', multiLine: true).hasMatch(out)) {
-    return '\$$out';
+  if (_dartKeywords.contains(result) || RegExp(r'^[0-9]+$', multiLine: true).hasMatch(result)) {
+    return '\$$result';
   }
 
-  return out;
+  return result;
 }
 
 final _dartKeywords = [
