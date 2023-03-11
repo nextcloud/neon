@@ -1,18 +1,18 @@
 [submodule "external/nextcloud-server"]
 	path = external/nextcloud-server
-	url = https://github.com/nextcloud/server
+	url = https://github.com/nextcloud/server.git
 [submodule "external/nextcloud-news"]
 	path = external/nextcloud-news
-	url = https://github.com/nextcloud/news
+	url = https://github.com/nextcloud/news.git
 [submodule "external/seti-ui"]
 	path = external/seti-ui
-	url = https://github.com/jesseweed/seti-ui
+	url = https://github.com/jesseweed/seti-ui.git
 [submodule "external/nextcloud-notes"]
 	path = external/nextcloud-notes
-	url = https://github.com/nextcloud/notes
+	url = https://github.com/nextcloud/notes.git
 [submodule "external/nextcloud-notifications"]
 	path = external/nextcloud-notifications
-	url = https://github.com/nextcloud/notifications
+	url = https://github.com/nextcloud/notifications.git
 [submodule "external/nextcloud-uppush"]
 	path = external/nextcloud-uppush
-	url = git@github.com:UP-NextPush/server-app.git
+	url = https://github.com/UP-NextPush/server-app.git
