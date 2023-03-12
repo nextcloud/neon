@@ -3462,7 +3462,7 @@
             "description": "Keep alive value in seconds",
             "required": true,
             "schema": {
-              "type": "string"
+              "type": "integer"
             }
           }
         ],

@@ -26,7 +26,7 @@ Future run(final DockerImage image) async {
     });
 
     test('Set keepalive', () async {
-      final response = await client.unifiedPushProvider.setKeepalive(keepalive: '10');
+      final response = await client.unifiedPushProvider.setKeepalive(keepalive: 10);
       expect(response.success, isTrue);
     });
 

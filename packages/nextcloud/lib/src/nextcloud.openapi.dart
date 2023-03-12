@@ -1204,12 +1204,12 @@ class NextcloudUnifiedPushProviderClient {
 
   /// Set keepalive interval.
   Future<NextcloudUnifiedPushProviderSetKeepaliveResponse200ApplicationJson> setKeepalive(
-      {required String keepalive}) async {
+      {required int keepalive}) async {
     var path = '/index.php/apps/uppush/keepalive';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{};
     Uint8List? body;
-    queryParameters['keepalive'] = keepalive;
+    queryParameters['keepalive'] = keepalive.toString();
     final response = await rootClient.doRequest(
       'put',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
