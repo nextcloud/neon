@@ -635,7 +635,7 @@ class OpenAPIBuilder implements Builder {
                               }
 
                               final defaultValueCode = parameter.schema?.default_ != null
-                                  ? _valueToEscapedValue(result.name, parameter.schema!.default_!.toString())
+                                  ? _valueToEscapedValue(result, parameter.schema!.default_!.toString())
                                   : null;
 
                               b.optionalParameters.add(
@@ -1071,7 +1071,15 @@ String _toFieldName(final String dartName, final String type) => dartName == typ
 
 bool _isParameterNullable(final bool? required, final dynamic default_) => !(required ?? false) && default_ == null;
 
-String _valueToEscapedValue(final String type, final dynamic value) => type == 'String' ? "'$value'" : value.toString();
+String _valueToEscapedValue(final TypeResult result, final dynamic value) {
+  if (result is TypeResultBase && result.name == 'String') {
+    return "'$value'";
+  }
+  if (result is TypeResultList) {
+    return 'const $value';
+  }
+  return value.toString();
+}
 
 List<String> _descriptionToDocs(final String? description) => [
       if (description != null && description.isNotEmpty) ...[
@@ -1158,7 +1166,7 @@ TypeResult resolveObject(
                                 propertySchema.type!,
                                 propertySchema,
                               );
-                              b.defaultTo = Code(_valueToEscapedValue(result.name, value));
+                              b.defaultTo = Code(_valueToEscapedValue(result, value));
                             }
                           },
                         ),
@@ -1681,7 +1689,7 @@ TypeResult resolveType(
                       b
                         ..name = _toDartName(value.toString())
                         ..arguments.add(
-                          refer(_valueToEscapedValue(result.name, value)),
+                          refer(_valueToEscapedValue(result, value)),
                         );
                       if (_toDartName(value.toString()) != value.toString()) {
                         if (result.name != 'String' && result.name != 'int') {
@@ -1693,7 +1701,7 @@ TypeResult resolveType(
                         }
                         b.annotations.add(
                           refer('JsonValue').call([
-                            refer(_valueToEscapedValue(result.name, value.toString())),
+                            refer(_valueToEscapedValue(result, value.toString())),
                           ]),
                         );
                       }
@@ -1718,7 +1726,7 @@ TypeResult resolveType(
                       [
                         'switch (value) {',
                         for (final value in schema.enum_!) ...[
-                          'case ${_valueToEscapedValue(result!.name, value)}:',
+                          'case ${_valueToEscapedValue(result!, value)}:',
                           'return ${state.prefix}$identifier.${_toDartName(value.toString())};',
                         ],
                         'default:',
