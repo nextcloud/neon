@@ -604,7 +604,7 @@ class OpenAPIBuilder implements Builder {
                                 spec,
                                 state,
                                 _toDartName(
-                                  parameter.name,
+                                  '$operationId-${parameter.name}',
                                   uppercaseFirstCharacter: true,
                                 ),
                                 parameter.schema!,
@@ -1077,6 +1077,9 @@ String _valueToEscapedValue(final TypeResult result, final dynamic value) {
   }
   if (result is TypeResultList) {
     return 'const $value';
+  }
+  if (result is TypeResultEnum) {
+    return '${result.name}.${_toDartName(value.toString())}';
   }
   return value.toString();
 }
