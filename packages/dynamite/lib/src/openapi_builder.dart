@@ -583,6 +583,9 @@ class OpenAPIBuilder implements Builder {
                                 ],
                                 ..._descriptionToDocs(operation.description),
                               ]);
+                            if (operation.deprecated ?? false) {
+                              b.annotations.add(refer('Deprecated').call([refer("''")]));
+                            }
 
                             final code = StringBuffer('''
                             var path = '$path';
