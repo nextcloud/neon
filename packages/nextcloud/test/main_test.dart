@@ -4,6 +4,7 @@ import 'news.dart' as news;
 import 'notes.dart' as notes;
 import 'notifications.dart' as notifications;
 import 'provisioning_api.dart' as provisioning_api;
+import 'uppush.dart' as uppush;
 import 'user_status.dart' as user_status;
 import 'webdav.dart' as webdav;
 
@@ -14,6 +15,7 @@ Future main() async {
   await notes.run(image);
   await notifications.run(image);
   await provisioning_api.run(image);
+  await uppush.run(image);
   await user_status.run(image);
   await webdav.run(image);
 }
