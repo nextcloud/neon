@@ -4048,7 +4048,8 @@ class NextcloudNotesNote {
 
 enum NextcloudNotesSettings_NoteMode {
   edit('edit'),
-  preview('preview');
+  preview('preview'),
+  rich('rich');
 
   const NextcloudNotesSettings_NoteMode(this.value);
 
@@ -4060,6 +4061,8 @@ enum NextcloudNotesSettings_NoteMode {
         return NextcloudNotesSettings_NoteMode.edit;
       case 'preview':
         return NextcloudNotesSettings_NoteMode.preview;
+      case 'rich':
+        return NextcloudNotesSettings_NoteMode.rich;
       default:
         throw Exception('Can not parse NextcloudNotesSettings_NoteMode from "$value"');
     }

@@ -1498,6 +1498,7 @@ Map<String, dynamic> _$NextcloudNotesSettingsToJson(NextcloudNotesSettings insta
 const _$NextcloudNotesSettings_NoteModeEnumMap = {
   NextcloudNotesSettings_NoteMode.edit: 'edit',
   NextcloudNotesSettings_NoteMode.preview: 'preview',
+  NextcloudNotesSettings_NoteMode.rich: 'rich',
 };
 
 NextcloudNotificationsNotificationAction _$NextcloudNotificationsNotificationActionFromJson(Map<String, dynamic> json) {

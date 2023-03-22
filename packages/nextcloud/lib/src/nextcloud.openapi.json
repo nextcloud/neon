@@ -1250,7 +1250,8 @@
             "type": "string",
             "enum": [
               "edit",
-              "preview"
+              "preview",
+              "rich"
             ]
           }
         }
