@@ -2,7 +2,7 @@
   "openapi": "3.1.0",
   "info": {
     "title": "Notes",
-    "version": "4.6.0",
+    "version": "4.7.1",
     "description": "Distraction-free notes and writing",
     "license": {
       "name": "agpl",
@@ -49,9 +49,28 @@
           {
             "name": "category",
             "in": "query",
-            "required": true,
+            "required": false,
             "schema": {
-              "type": "string"
+              "type": "string",
+              "default": ""
+            }
+          },
+          {
+            "name": "content",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": ""
+            }
+          },
+          {
+            "name": "title",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": ""
             }
           }
         ],
@@ -416,6 +435,26 @@
       },
       "put": {
         "operationId": "settings-set-TODO",
+        "tags": [
+          "notes"
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/apps/notes/settings/migrate": {
+      "post": {
+        "operationId": "settings-migrate-TODO",
         "tags": [
           "notes"
         ],

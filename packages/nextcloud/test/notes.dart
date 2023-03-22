@@ -115,7 +115,7 @@ Future run(final DockerImage image) async {
     test('Get settings', () async {
       final response = await client.notes.getSettings();
       expect(response.notesPath, 'Notes');
-      expect(response.fileSuffix, '.txt');
+      expect(response.fileSuffix, '.md');
       expect(response.noteMode, NextcloudNotesSettings_NoteMode.edit);
     });
 
@@ -123,17 +123,17 @@ Future run(final DockerImage image) async {
       var response = await client.notes.updateSettings(
         notesSettings: NextcloudNotesSettings(
           notesPath: 'Test Notes',
-          fileSuffix: '.md',
+          fileSuffix: '.txt',
           noteMode: NextcloudNotesSettings_NoteMode.preview,
         ),
       );
       expect(response.notesPath, 'Test Notes');
-      expect(response.fileSuffix, '.md');
+      expect(response.fileSuffix, '.txt');
       expect(response.noteMode, NextcloudNotesSettings_NoteMode.preview);
 
       response = await client.notes.getSettings();
       expect(response.notesPath, 'Test Notes');
-      expect(response.fileSuffix, '.md');
+      expect(response.fileSuffix, '.txt');
       expect(response.noteMode, NextcloudNotesSettings_NoteMode.preview);
     });
   });
