@@ -75,6 +75,10 @@ class MethodParameter {
       if (type == 'array') {
         return 'array';
       }
+      if (type == 'Chain') {
+        // Unsupported
+        return null;
+      }
 
       throw Exception(
         'Could not infer OpenAPI type from type "$type" for parameter "$name" of method "$methodName" in controller "$controllerName"',
