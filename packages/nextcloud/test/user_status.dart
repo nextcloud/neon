@@ -165,15 +165,15 @@ Future run(final DockerImage image) async {
 
     test('Heartbeat', () async {
       final response = await client.userStatus.heartbeat(status: NextcloudUserStatusType.online);
-      expect(response.userId, 'user1');
-      expect(response.message, null);
-      expect(response.messageId, null);
-      expect(response.messageIsPredefined, false);
-      expect(response.icon, null);
-      expect(response.clearAt.userStatusClearAt, null);
-      expect(response.clearAt.$int, null);
-      expect(response.status, NextcloudUserStatusType.online);
-      expect(response.statusIsUserDefined, false);
+      expect(response.ocs.data.userId, 'user1');
+      expect(response.ocs.data.message, null);
+      expect(response.ocs.data.messageId, null);
+      expect(response.ocs.data.messageIsPredefined, false);
+      expect(response.ocs.data.icon, null);
+      expect(response.ocs.data.clearAt.userStatusClearAt, null);
+      expect(response.ocs.data.clearAt.$int, null);
+      expect(response.ocs.data.status, NextcloudUserStatusType.online);
+      expect(response.ocs.data.statusIsUserDefined, false);
     });
   });
 }

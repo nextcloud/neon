@@ -45,7 +45,7 @@ Future run(final DockerImage image) async {
           WebDavProps.ocSize.name,
         },
       );
-      expect(files, hasLength(7));
+      expect(files, hasLength(8));
       final file = files.singleWhere((final f) => f.name == 'Nextcloud.png');
       expect(file.hasPreview, isTrue);
       expect(file.mimeType, 'image/png');
@@ -83,7 +83,7 @@ Future run(final DockerImage image) async {
           WebDavProps.ocSize.name,
         },
       );
-      expect(files, hasLength(9));
+      expect(files, hasLength(10));
       final pngFile = files.singleWhere((final f) => f.name == 'test.png');
       final txtFile = files.singleWhere((final f) => f.name == 'test.txt');
       expect(pngFile.size, pngBytes.lengthInBytes);

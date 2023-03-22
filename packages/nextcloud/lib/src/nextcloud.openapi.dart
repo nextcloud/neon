@@ -1684,7 +1684,7 @@ class NextcloudUserStatusClient {
     throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
   }
 
-  Future<NextcloudUserStatusStatus> heartbeat({required NextcloudUserStatusType status}) async {
+  Future<NextcloudUserStatusHeartbeat> heartbeat({required NextcloudUserStatusType status}) async {
     var path = '/ocs/v2.php/apps/user_status/api/v1/heartbeat';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -1699,7 +1699,7 @@ class NextcloudUserStatusClient {
       body,
     );
     if (response.statusCode == 200) {
-      return NextcloudUserStatusStatus.fromJson(
+      return NextcloudUserStatusHeartbeat.fromJson(
           json.decode(utf8.decode(response.body) as String) as Map<String, dynamic>);
     }
     throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
@@ -4708,6 +4708,8 @@ class NextcloudProvisioningApiUserDetails {
     required this.biographyScope,
     required this.profileEnabled,
     required this.profileEnabledScope,
+    required this.fediverse,
+    required this.fediverseScope,
     required this.groups,
     required this.language,
     required this.locale,
@@ -4793,6 +4795,10 @@ class NextcloudProvisioningApiUserDetails {
 
   @JsonKey(name: 'profile_enabledScope')
   final String profileEnabledScope;
+
+  final String fediverse;
+
+  final String fediverseScope;
 
   final List<String> groups;
 
@@ -5853,6 +5859,56 @@ class NextcloudUserStatusPredefinedStatuses {
 }
 
 @JsonSerializable()
+class NextcloudUserStatusHeartbeat_Ocs {
+  NextcloudUserStatusHeartbeat_Ocs({
+    required this.meta,
+    required this.data,
+  });
+
+  // coverage:ignore-start
+  factory NextcloudUserStatusHeartbeat_Ocs.fromJson(Map<String, dynamic> json) =>
+      _$NextcloudUserStatusHeartbeat_OcsFromJson(json);
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  factory NextcloudUserStatusHeartbeat_Ocs.fromJsonString(String data) =>
+      NextcloudUserStatusHeartbeat_Ocs.fromJson(json.decode(data) as Map<String, dynamic>);
+  // coverage:ignore-end
+
+  final NextcloudOCSMeta meta;
+
+  final NextcloudUserStatusStatus data;
+
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$NextcloudUserStatusHeartbeat_OcsToJson(this);
+  // coverage:ignore-end
+  static String? toJsonString(NextcloudUserStatusHeartbeat_Ocs? data) =>
+      data == null ? null : json.encode(data.toJson());
+}
+
+@JsonSerializable()
+class NextcloudUserStatusHeartbeat {
+  NextcloudUserStatusHeartbeat({required this.ocs});
+
+  // coverage:ignore-start
+  factory NextcloudUserStatusHeartbeat.fromJson(Map<String, dynamic> json) =>
+      _$NextcloudUserStatusHeartbeatFromJson(json);
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  factory NextcloudUserStatusHeartbeat.fromJsonString(String data) =>
+      NextcloudUserStatusHeartbeat.fromJson(json.decode(data) as Map<String, dynamic>);
+  // coverage:ignore-end
+
+  final NextcloudUserStatusHeartbeat_Ocs ocs;
+
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$NextcloudUserStatusHeartbeatToJson(this);
+  // coverage:ignore-end
+  static String? toJsonString(NextcloudUserStatusHeartbeat? data) => data == null ? null : json.encode(data.toJson());
+}
+
+@JsonSerializable()
 class NextcloudNotificationsNotificationDecryptedSubject {
   NextcloudNotificationsNotificationDecryptedSubject({
     this.nid,
@@ -6496,6 +6552,13 @@ final _deserializers = <Type, dynamic Function(dynamic)>{
       NextcloudUserStatusPredefinedStatus.fromJson(data as Map<String, dynamic>),
   List<NextcloudUserStatusPredefinedStatus>: (final data) =>
       (data as List).map((final e) => NextcloudUserStatusPredefinedStatus.fromJson(e as Map<String, dynamic>)).toList(),
+  NextcloudUserStatusHeartbeat: (final data) => NextcloudUserStatusHeartbeat.fromJson(data as Map<String, dynamic>),
+  List<NextcloudUserStatusHeartbeat>: (final data) =>
+      (data as List).map((final e) => NextcloudUserStatusHeartbeat.fromJson(e as Map<String, dynamic>)).toList(),
+  NextcloudUserStatusHeartbeat_Ocs: (final data) =>
+      NextcloudUserStatusHeartbeat_Ocs.fromJson(data as Map<String, dynamic>),
+  List<NextcloudUserStatusHeartbeat_Ocs>: (final data) =>
+      (data as List).map((final e) => NextcloudUserStatusHeartbeat_Ocs.fromJson(e as Map<String, dynamic>)).toList(),
   NextcloudNotificationsNotificationDecryptedSubject: (final data) =>
       NextcloudNotificationsNotificationDecryptedSubject.fromJson(data as Map<String, dynamic>),
   List<NextcloudNotificationsNotificationDecryptedSubject>: (final data) => (data as List)
@@ -6794,6 +6857,10 @@ final _serializers = <Type, dynamic Function(dynamic)>{
   List<NextcloudUserStatusPredefinedStatuses_Ocs>: (final data) => data.map((final e) => e.toJson()).toList(),
   NextcloudUserStatusPredefinedStatus: (final data) => data.toJson(),
   List<NextcloudUserStatusPredefinedStatus>: (final data) => data.map((final e) => e.toJson()).toList(),
+  NextcloudUserStatusHeartbeat: (final data) => data.toJson(),
+  List<NextcloudUserStatusHeartbeat>: (final data) => data.map((final e) => e.toJson()).toList(),
+  NextcloudUserStatusHeartbeat_Ocs: (final data) => data.toJson(),
+  List<NextcloudUserStatusHeartbeat_Ocs>: (final data) => data.map((final e) => e.toJson()).toList(),
   NextcloudNotificationsNotificationDecryptedSubject: (final data) => data.toJson(),
   List<NextcloudNotificationsNotificationDecryptedSubject>: (final data) => data.map((final e) => e.toJson()).toList(),
 };
