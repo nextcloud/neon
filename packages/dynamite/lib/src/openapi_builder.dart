@@ -667,7 +667,7 @@ class OpenAPIBuilder implements Builder {
                                 // Objects inside the query always have to be interpreted in some way
                                 mimeType: 'application/json',
                               );
-                              if (defaultValueCode != null && parameter.in_ != 'path') {
+                              if (defaultValueCode != null && parameter.in_ == 'query') {
                                 code.write('if (${_toDartName(parameter.name)} != $defaultValueCode) {');
                               }
                               switch (parameter.in_) {
@@ -689,7 +689,7 @@ class OpenAPIBuilder implements Builder {
                                 default:
                                   throw Exception('Can not work with parameter in "${parameter.in_}"');
                               }
-                              if (defaultValueCode != null) {
+                              if (defaultValueCode != null && parameter.in_ == 'query') {
                                 code.write('}');
                               }
                               if (nullable) {
