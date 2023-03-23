@@ -16,7 +16,6 @@ class NextcloudClient extends openapi.NextcloudClient {
         super(
           baseHeaders: (<String, String?>{
             'OCS-APIRequest': 'true',
-            'Accept': 'application/json',
             'Accept-Language': language,
           }..removeWhere((final _, final value) => value == null))
               .cast<String, String>(),
