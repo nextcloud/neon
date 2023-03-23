@@ -584,10 +584,20 @@ class OpenAPIBuilder implements Builder {
                                 ..._descriptionToDocs(operation.description),
                               ]);
 
+                            final acceptHeader = operation.responses?.values
+                                .map((final response) => response.content?.keys)
+                                .reduce(
+                                  (final a, final b) => [
+                                    ...a ?? [],
+                                    ...b ?? [],
+                                  ],
+                                )
+                                ?.toSet()
+                                .join(',');
                             final code = StringBuffer('''
                             var path = '$path';
                             final queryParameters = <String, dynamic>{};
-                            final headers = <String, String>{};
+                            final headers = <String, String>{${acceptHeader != null ? "'Accept': '$acceptHeader'," : ''}};
                             Uint8List? body;
                           ''');
 
