@@ -12,6 +12,7 @@ class Operation {
     this.operationId,
     this.summary,
     this.description,
+    this.deprecated,
     this.tags,
     this.parameters,
     this.requestBody,
@@ -26,6 +27,8 @@ class Operation {
   final String? summary;
 
   final String? description;
+
+  final bool? deprecated;
 
   final List<String>? tags;
 

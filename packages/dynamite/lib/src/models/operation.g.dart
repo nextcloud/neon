@@ -9,12 +9,22 @@ part of 'operation.dart';
 Operation _$OperationFromJson(Map<String, dynamic> json) {
   $checkKeys(
     json,
-    allowedKeys: const ['operationId', 'summary', 'description', 'tags', 'parameters', 'requestBody', 'responses'],
+    allowedKeys: const [
+      'operationId',
+      'summary',
+      'description',
+      'deprecated',
+      'tags',
+      'parameters',
+      'requestBody',
+      'responses'
+    ],
   );
   return Operation(
     operationId: json['operationId'] as String?,
     summary: json['summary'] as String?,
     description: json['description'] as String?,
+    deprecated: json['deprecated'] as bool?,
     tags: (json['tags'] as List<dynamic>?)?.map((e) => e as String).toList(),
     parameters:
         (json['parameters'] as List<dynamic>?)?.map((e) => Parameter.fromJson(e as Map<String, dynamic>)).toList(),
@@ -37,6 +47,7 @@ Map<String, dynamic> _$OperationToJson(Operation instance) {
   writeNotNull('operationId', instance.operationId);
   writeNotNull('summary', instance.summary);
   writeNotNull('description', instance.description);
+  writeNotNull('deprecated', instance.deprecated);
   writeNotNull('tags', instance.tags);
   writeNotNull('parameters', instance.parameters?.map((e) => e.toJson()).toList());
   writeNotNull('requestBody', instance.requestBody?.toJson());
