@@ -587,10 +587,20 @@ class OpenAPIBuilder implements Builder {
                               b.annotations.add(refer('Deprecated').call([refer("''")]));
                             }
 
+                            final acceptHeader = operation.responses?.values
+                                .map((final response) => response.content?.keys)
+                                .reduce(
+                                  (final a, final b) => [
+                                    ...a ?? [],
+                                    ...b ?? [],
+                                  ],
+                                )
+                                ?.toSet()
+                                .join(',');
                             final code = StringBuffer('''
                             var path = '$path';
                             final queryParameters = <String, dynamic>{};
-                            final headers = <String, String>{};
+                            final headers = <String, String>{${acceptHeader != null ? "'Accept': '$acceptHeader'," : ''}};
                             Uint8List? body;
                           ''');
 

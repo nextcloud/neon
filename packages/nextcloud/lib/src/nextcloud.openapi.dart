@@ -169,7 +169,9 @@ class NextcloudCoreClient {
   Future<NextcloudCoreServerStatus> getStatus() async {
     var path = '/status.php';
     final queryParameters = <String, dynamic>{};
-    final headers = <String, String>{};
+    final headers = <String, String>{
+      'Accept': 'application/json',
+    };
     Uint8List? body;
     final response = await rootClient.doRequest(
       'get',
@@ -187,7 +189,9 @@ class NextcloudCoreClient {
   Future<NextcloudCoreServerCapabilities> getCapabilities() async {
     var path = '/ocs/v2.php/cloud/capabilities';
     final queryParameters = <String, dynamic>{};
-    final headers = <String, String>{};
+    final headers = <String, String>{
+      'Accept': 'application/json',
+    };
     Uint8List? body;
     final response = await rootClient.doRequest(
       'get',
@@ -205,7 +209,9 @@ class NextcloudCoreClient {
   Future<NextcloudCoreNavigationApps> getNavigationApps() async {
     var path = '/ocs/v2.php/core/navigation/apps';
     final queryParameters = <String, dynamic>{};
-    final headers = <String, String>{};
+    final headers = <String, String>{
+      'Accept': 'application/json',
+    };
     Uint8List? body;
     final response = await rootClient.doRequest(
       'get',
@@ -223,7 +229,9 @@ class NextcloudCoreClient {
   Future<NextcloudCoreLoginFlowInit> initLoginFlow() async {
     var path = '/index.php/login/v2';
     final queryParameters = <String, dynamic>{};
-    final headers = <String, String>{};
+    final headers = <String, String>{
+      'Accept': 'application/json',
+    };
     Uint8List? body;
     final response = await rootClient.doRequest(
       'post',
@@ -241,7 +249,9 @@ class NextcloudCoreClient {
   Future<NextcloudCoreLoginFlowResult> getLoginFlowResult({required String token}) async {
     var path = '/index.php/login/v2/poll';
     final queryParameters = <String, dynamic>{};
-    final headers = <String, String>{};
+    final headers = <String, String>{
+      'Accept': 'application/json',
+    };
     Uint8List? body;
     queryParameters['token'] = token;
     final response = await rootClient.doRequest(
@@ -267,7 +277,9 @@ class NextcloudCoreClient {
   }) async {
     var path = '/index.php/core/preview.png';
     final queryParameters = <String, dynamic>{};
-    final headers = <String, String>{};
+    final headers = <String, String>{
+      'Accept': 'image/png',
+    };
     Uint8List? body;
     if (file != '') {
       queryParameters['file'] = file;
@@ -305,7 +317,9 @@ class NextcloudCoreClient {
   }) async {
     var path = '/index.php/avatar/{userId}/{size}/dark';
     final queryParameters = <String, dynamic>{};
-    final headers = <String, String>{};
+    final headers = <String, String>{
+      'Accept': 'image/png',
+    };
     Uint8List? body;
     path = path.replaceAll('{userId}', Uri.encodeQueryComponent(userId));
     path = path.replaceAll('{size}', Uri.encodeQueryComponent(size.toString()));
@@ -327,7 +341,9 @@ class NextcloudCoreClient {
   }) async {
     var path = '/index.php/avatar/{userId}/{size}';
     final queryParameters = <String, dynamic>{};
-    final headers = <String, String>{};
+    final headers = <String, String>{
+      'Accept': 'image/png',
+    };
     Uint8List? body;
     path = path.replaceAll('{userId}', Uri.encodeQueryComponent(userId));
     path = path.replaceAll('{size}', Uri.encodeQueryComponent(size.toString()));
@@ -353,7 +369,9 @@ class NextcloudCoreClient {
   }) async {
     var path = '/ocs/v2.php/core/autocomplete/get';
     final queryParameters = <String, dynamic>{};
-    final headers = <String, String>{};
+    final headers = <String, String>{
+      'Accept': 'application/json',
+    };
     Uint8List? body;
     queryParameters['search'] = search;
     queryParameters['itemType'] = itemType;
@@ -387,7 +405,9 @@ class NextcloudNewsClient {
   Future<NextcloudNewsSupportedAPIVersions> getSupportedApiVersions() async {
     var path = '/index.php/apps/news/api';
     final queryParameters = <String, dynamic>{};
-    final headers = <String, String>{};
+    final headers = <String, String>{
+      'Accept': 'application/json',
+    };
     Uint8List? body;
     final response = await rootClient.doRequest(
       'get',
@@ -405,7 +425,9 @@ class NextcloudNewsClient {
   Future<NextcloudNewsListFolders> listFolders() async {
     var path = '/index.php/apps/news/api/v1-3/folders';
     final queryParameters = <String, dynamic>{};
-    final headers = <String, String>{};
+    final headers = <String, String>{
+      'Accept': 'application/json',
+    };
     Uint8List? body;
     final response = await rootClient.doRequest(
       'get',
@@ -423,7 +445,9 @@ class NextcloudNewsClient {
   Future<NextcloudNewsListFolders> createFolder({required String name}) async {
     var path = '/index.php/apps/news/api/v1-3/folders';
     final queryParameters = <String, dynamic>{};
-    final headers = <String, String>{};
+    final headers = <String, String>{
+      'Accept': 'application/json',
+    };
     Uint8List? body;
     queryParameters['name'] = name;
     final response = await rootClient.doRequest(
@@ -504,7 +528,9 @@ class NextcloudNewsClient {
   Future<NextcloudNewsListFeeds> listFeeds() async {
     var path = '/index.php/apps/news/api/v1-3/feeds';
     final queryParameters = <String, dynamic>{};
-    final headers = <String, String>{};
+    final headers = <String, String>{
+      'Accept': 'application/json',
+    };
     Uint8List? body;
     final response = await rootClient.doRequest(
       'get',
@@ -524,7 +550,9 @@ class NextcloudNewsClient {
   }) async {
     var path = '/index.php/apps/news/api/v1-3/feeds';
     final queryParameters = <String, dynamic>{};
-    final headers = <String, String>{};
+    final headers = <String, String>{
+      'Accept': 'application/json',
+    };
     Uint8List? body;
     queryParameters['url'] = url;
     if (folderId != null) {
@@ -638,7 +666,9 @@ class NextcloudNewsClient {
   }) async {
     var path = '/index.php/apps/news/api/v1-3/items';
     final queryParameters = <String, dynamic>{};
-    final headers = <String, String>{};
+    final headers = <String, String>{
+      'Accept': 'application/json',
+    };
     Uint8List? body;
     if (type != 3) {
       queryParameters['type'] = type.toString();
@@ -678,7 +708,9 @@ class NextcloudNewsClient {
   }) async {
     var path = '/index.php/apps/news/api/v1-3/items/updated';
     final queryParameters = <String, dynamic>{};
-    final headers = <String, String>{};
+    final headers = <String, String>{
+      'Accept': 'application/json',
+    };
     Uint8List? body;
     if (type != 3) {
       queryParameters['type'] = type.toString();
@@ -790,7 +822,9 @@ class NextcloudNotesClient {
   }) async {
     var path = '/index.php/apps/notes/api/v1/notes';
     final queryParameters = <String, dynamic>{};
-    final headers = <String, String>{};
+    final headers = <String, String>{
+      'Accept': 'application/json',
+    };
     Uint8List? body;
     if (category != null) {
       queryParameters['category'] = category;
@@ -833,7 +867,9 @@ class NextcloudNotesClient {
   }) async {
     var path = '/index.php/apps/notes/api/v1/notes';
     final queryParameters = <String, dynamic>{};
-    final headers = <String, String>{};
+    final headers = <String, String>{
+      'Accept': 'application/json',
+    };
     Uint8List? body;
     if (category != '') {
       queryParameters['category'] = category;
@@ -869,7 +905,9 @@ class NextcloudNotesClient {
   }) async {
     var path = '/index.php/apps/notes/api/v1/notes/{id}';
     final queryParameters = <String, dynamic>{};
-    final headers = <String, String>{};
+    final headers = <String, String>{
+      'Accept': 'application/json',
+    };
     Uint8List? body;
     path = path.replaceAll('{id}', Uri.encodeQueryComponent(id.toString()));
     if (exclude != '') {
@@ -901,7 +939,9 @@ class NextcloudNotesClient {
   }) async {
     var path = '/index.php/apps/notes/api/v1/notes/{id}';
     final queryParameters = <String, dynamic>{};
-    final headers = <String, String>{};
+    final headers = <String, String>{
+      'Accept': 'application/json',
+    };
     Uint8List? body;
     path = path.replaceAll('{id}', Uri.encodeQueryComponent(id.toString()));
     if (content != null) {
@@ -937,7 +977,9 @@ class NextcloudNotesClient {
   Future<String> deleteNote({required int id}) async {
     var path = '/index.php/apps/notes/api/v1/notes/{id}';
     final queryParameters = <String, dynamic>{};
-    final headers = <String, String>{};
+    final headers = <String, String>{
+      'Accept': 'application/json',
+    };
     Uint8List? body;
     path = path.replaceAll('{id}', Uri.encodeQueryComponent(id.toString()));
     final response = await rootClient.doRequest(
@@ -955,7 +997,9 @@ class NextcloudNotesClient {
   Future<NextcloudNotesSettings> getSettings() async {
     var path = '/index.php/apps/notes/api/v1/settings';
     final queryParameters = <String, dynamic>{};
-    final headers = <String, String>{};
+    final headers = <String, String>{
+      'Accept': 'application/json',
+    };
     Uint8List? body;
     final response = await rootClient.doRequest(
       'get',
@@ -972,7 +1016,9 @@ class NextcloudNotesClient {
   Future<NextcloudNotesSettings> updateSettings({required NextcloudNotesSettings notesSettings}) async {
     var path = '/index.php/apps/notes/api/v1/settings';
     final queryParameters = <String, dynamic>{};
-    final headers = <String, String>{};
+    final headers = <String, String>{
+      'Accept': 'application/json',
+    };
     Uint8List? body;
     headers['Content-Type'] = 'application/json';
     body = Uint8List.fromList(utf8.encode(json.encode(notesSettings.toJson())));
@@ -997,7 +1043,9 @@ class NextcloudNotificationsClient {
   Future<NextcloudNotificationsListNotifications> listNotifications() async {
     var path = '/ocs/v2.php/apps/notifications/api/v2/notifications';
     final queryParameters = <String, dynamic>{};
-    final headers = <String, String>{};
+    final headers = <String, String>{
+      'Accept': 'application/json',
+    };
     Uint8List? body;
     final response = await rootClient.doRequest(
       'get',
@@ -1015,7 +1063,9 @@ class NextcloudNotificationsClient {
   Future<String> deleteAllNotifications() async {
     var path = '/ocs/v2.php/apps/notifications/api/v2/notifications';
     final queryParameters = <String, dynamic>{};
-    final headers = <String, String>{};
+    final headers = <String, String>{
+      'Accept': 'application/json',
+    };
     Uint8List? body;
     final response = await rootClient.doRequest(
       'delete',
@@ -1032,7 +1082,9 @@ class NextcloudNotificationsClient {
   Future<NextcloudNotificationsGetNotification> getNotification({required int id}) async {
     var path = '/ocs/v2.php/apps/notifications/api/v2/notifications/{id}';
     final queryParameters = <String, dynamic>{};
-    final headers = <String, String>{};
+    final headers = <String, String>{
+      'Accept': 'application/json',
+    };
     Uint8List? body;
     path = path.replaceAll('{id}', Uri.encodeQueryComponent(id.toString()));
     final response = await rootClient.doRequest(
@@ -1051,7 +1103,9 @@ class NextcloudNotificationsClient {
   Future<NextcloudEmptyOCS> deleteNotification({required int id}) async {
     var path = '/ocs/v2.php/apps/notifications/api/v2/notifications/{id}';
     final queryParameters = <String, dynamic>{};
-    final headers = <String, String>{};
+    final headers = <String, String>{
+      'Accept': 'application/json',
+    };
     Uint8List? body;
     path = path.replaceAll('{id}', Uri.encodeQueryComponent(id.toString()));
     final response = await rootClient.doRequest(
@@ -1073,7 +1127,9 @@ class NextcloudNotificationsClient {
   }) async {
     var path = '/ocs/v2.php/apps/notifications/api/v2/push';
     final queryParameters = <String, dynamic>{};
-    final headers = <String, String>{};
+    final headers = <String, String>{
+      'Accept': 'application/json',
+    };
     Uint8List? body;
     queryParameters['pushTokenHash'] = pushTokenHash;
     queryParameters['devicePublicKey'] = devicePublicKey;
@@ -1094,7 +1150,9 @@ class NextcloudNotificationsClient {
   Future<String> removeDevice() async {
     var path = '/ocs/v2.php/apps/notifications/api/v2/push';
     final queryParameters = <String, dynamic>{};
-    final headers = <String, String>{};
+    final headers = <String, String>{
+      'Accept': 'application/json',
+    };
     Uint8List? body;
     final response = await rootClient.doRequest(
       'delete',
@@ -1115,7 +1173,9 @@ class NextcloudNotificationsClient {
   }) async {
     var path = '/ocs/v2.php/apps/notifications/api/v2/admin_notifications/{userId}';
     final queryParameters = <String, dynamic>{};
-    final headers = <String, String>{};
+    final headers = <String, String>{
+      'Accept': 'application/json',
+    };
     Uint8List? body;
     path = path.replaceAll('{userId}', Uri.encodeQueryComponent(userId));
     queryParameters['shortMessage'] = shortMessage;
@@ -1143,7 +1203,9 @@ class NextcloudProvisioningApiClient {
   Future<NextcloudProvisioningApiUser> getCurrentUser() async {
     var path = '/ocs/v2.php/cloud/user';
     final queryParameters = <String, dynamic>{};
-    final headers = <String, String>{};
+    final headers = <String, String>{
+      'Accept': 'application/json',
+    };
     Uint8List? body;
     final response = await rootClient.doRequest(
       'get',
@@ -1161,7 +1223,9 @@ class NextcloudProvisioningApiClient {
   Future<NextcloudProvisioningApiUser> getUser({required String userId}) async {
     var path = '/ocs/v2.php/cloud/users/{userId}';
     final queryParameters = <String, dynamic>{};
-    final headers = <String, String>{};
+    final headers = <String, String>{
+      'Accept': 'application/json',
+    };
     Uint8List? body;
     path = path.replaceAll('{userId}', Uri.encodeQueryComponent(userId));
     final response = await rootClient.doRequest(
@@ -1187,7 +1251,9 @@ class NextcloudUnifiedPushProviderClient {
   Future<NextcloudUnifiedPushProviderCheckResponse200ApplicationJson> check() async {
     var path = '/index.php/apps/uppush';
     final queryParameters = <String, dynamic>{};
-    final headers = <String, String>{};
+    final headers = <String, String>{
+      'Accept': 'application/json',
+    };
     Uint8List? body;
     final response = await rootClient.doRequest(
       'get',
@@ -1207,7 +1273,9 @@ class NextcloudUnifiedPushProviderClient {
       {required int keepalive}) async {
     var path = '/index.php/apps/uppush/keepalive';
     final queryParameters = <String, dynamic>{};
-    final headers = <String, String>{};
+    final headers = <String, String>{
+      'Accept': 'application/json',
+    };
     Uint8List? body;
     queryParameters['keepalive'] = keepalive.toString();
     final response = await rootClient.doRequest(
@@ -1228,7 +1296,9 @@ class NextcloudUnifiedPushProviderClient {
       {required String deviceName}) async {
     var path = '/index.php/apps/uppush/device';
     final queryParameters = <String, dynamic>{};
-    final headers = <String, String>{};
+    final headers = <String, String>{
+      'Accept': 'application/json',
+    };
     Uint8List? body;
     queryParameters['deviceName'] = deviceName;
     final response = await rootClient.doRequest(
@@ -1251,7 +1321,9 @@ class NextcloudUnifiedPushProviderClient {
       {required String deviceId}) async {
     var path = '/index.php/apps/uppush/device/{deviceId}';
     final queryParameters = <String, dynamic>{};
-    final headers = <String, String>{};
+    final headers = <String, String>{
+      'Accept': 'application/json',
+    };
     Uint8List? body;
     path = path.replaceAll('{deviceId}', Uri.encodeQueryComponent(deviceId));
     final response = await rootClient.doRequest(
@@ -1272,7 +1344,9 @@ class NextcloudUnifiedPushProviderClient {
       {required String deviceId}) async {
     var path = '/index.php/apps/uppush/device/{deviceId}';
     final queryParameters = <String, dynamic>{};
-    final headers = <String, String>{};
+    final headers = <String, String>{
+      'Accept': 'application/json',
+    };
     Uint8List? body;
     path = path.replaceAll('{deviceId}', Uri.encodeQueryComponent(deviceId));
     final response = await rootClient.doRequest(
@@ -1295,7 +1369,9 @@ class NextcloudUnifiedPushProviderClient {
   }) async {
     var path = '/index.php/apps/uppush/app';
     final queryParameters = <String, dynamic>{};
-    final headers = <String, String>{};
+    final headers = <String, String>{
+      'Accept': 'application/json',
+    };
     Uint8List? body;
     queryParameters['deviceId'] = deviceId;
     queryParameters['appName'] = appName;
@@ -1316,7 +1392,9 @@ class NextcloudUnifiedPushProviderClient {
   Future<NextcloudUnifiedPushProviderDeleteAppResponse200ApplicationJson> deleteApp({required String token}) async {
     var path = '/index.php/apps/uppush/app/{token}';
     final queryParameters = <String, dynamic>{};
-    final headers = <String, String>{};
+    final headers = <String, String>{
+      'Accept': 'application/json',
+    };
     Uint8List? body;
     path = path.replaceAll('{token}', Uri.encodeQueryComponent(token));
     final response = await rootClient.doRequest(
@@ -1337,7 +1415,9 @@ class NextcloudUnifiedPushProviderClient {
       {required String token}) async {
     var path = '/index.php/apps/uppush/push/{token}';
     final queryParameters = <String, dynamic>{};
-    final headers = <String, String>{};
+    final headers = <String, String>{
+      'Accept': 'application/json',
+    };
     Uint8List? body;
     path = path.replaceAll('{token}', Uri.encodeQueryComponent(token));
     final response = await rootClient.doRequest(
@@ -1357,7 +1437,9 @@ class NextcloudUnifiedPushProviderClient {
   Future<NextcloudUnifiedPushProviderPushResponse201ApplicationJson> push({required String token}) async {
     var path = '/index.php/apps/uppush/push/{token}';
     final queryParameters = <String, dynamic>{};
-    final headers = <String, String>{};
+    final headers = <String, String>{
+      'Accept': 'application/json',
+    };
     Uint8List? body;
     path = path.replaceAll('{token}', Uri.encodeQueryComponent(token));
     final response = await rootClient.doRequest(
@@ -1377,7 +1459,9 @@ class NextcloudUnifiedPushProviderClient {
   Future<NextcloudUnifiedPushProviderGatewayMatrixDiscoveryResponse200ApplicationJson> gatewayMatrixDiscovery() async {
     var path = '/index.php/apps/uppush/gateway/matrix';
     final queryParameters = <String, dynamic>{};
-    final headers = <String, String>{};
+    final headers = <String, String>{
+      'Accept': 'application/json',
+    };
     Uint8List? body;
     final response = await rootClient.doRequest(
       'get',
@@ -1396,7 +1480,9 @@ class NextcloudUnifiedPushProviderClient {
   Future<NextcloudUnifiedPushProviderGatewayMatrixResponse200ApplicationJson> gatewayMatrix() async {
     var path = '/index.php/apps/uppush/gateway/matrix';
     final queryParameters = <String, dynamic>{};
-    final headers = <String, String>{};
+    final headers = <String, String>{
+      'Accept': 'application/json',
+    };
     Uint8List? body;
     final response = await rootClient.doRequest(
       'post',
@@ -1420,7 +1506,9 @@ class NextcloudUserStatusClient {
   Future<NextcloudUserStatusGetPublicStatuses> getPublicStatuses() async {
     var path = '/ocs/v2.php/apps/user_status/api/v1/statuses';
     final queryParameters = <String, dynamic>{};
-    final headers = <String, String>{};
+    final headers = <String, String>{
+      'Accept': 'application/json',
+    };
     Uint8List? body;
     final response = await rootClient.doRequest(
       'get',
@@ -1438,7 +1526,9 @@ class NextcloudUserStatusClient {
   Future<NextcloudUserStatusGetPublicStatus> getPublicStatus({required String userId}) async {
     var path = '/ocs/v2.php/apps/user_status/api/v1/statuses/{userId}';
     final queryParameters = <String, dynamic>{};
-    final headers = <String, String>{};
+    final headers = <String, String>{
+      'Accept': 'application/json',
+    };
     Uint8List? body;
     path = path.replaceAll('{userId}', Uri.encodeQueryComponent(userId));
     final response = await rootClient.doRequest(
@@ -1457,7 +1547,9 @@ class NextcloudUserStatusClient {
   Future<NextcloudUserStatusGetStatus> getStatus() async {
     var path = '/ocs/v2.php/apps/user_status/api/v1/user_status';
     final queryParameters = <String, dynamic>{};
-    final headers = <String, String>{};
+    final headers = <String, String>{
+      'Accept': 'application/json',
+    };
     Uint8List? body;
     final response = await rootClient.doRequest(
       'get',
@@ -1475,7 +1567,9 @@ class NextcloudUserStatusClient {
   Future<NextcloudUserStatusGetStatus> setStatus({required NextcloudUserStatusType statusType}) async {
     var path = '/ocs/v2.php/apps/user_status/api/v1/user_status/status';
     final queryParameters = <String, dynamic>{};
-    final headers = <String, String>{};
+    final headers = <String, String>{
+      'Accept': 'application/json',
+    };
     Uint8List? body;
     queryParameters['statusType'] = statusType.value;
     final response = await rootClient.doRequest(
@@ -1497,7 +1591,9 @@ class NextcloudUserStatusClient {
   }) async {
     var path = '/ocs/v2.php/apps/user_status/api/v1/user_status/message/predefined';
     final queryParameters = <String, dynamic>{};
-    final headers = <String, String>{};
+    final headers = <String, String>{
+      'Accept': 'application/json',
+    };
     Uint8List? body;
     queryParameters['messageId'] = messageId;
     if (clearAt != null) {
@@ -1523,7 +1619,9 @@ class NextcloudUserStatusClient {
   }) async {
     var path = '/ocs/v2.php/apps/user_status/api/v1/user_status/message/custom';
     final queryParameters = <String, dynamic>{};
-    final headers = <String, String>{};
+    final headers = <String, String>{
+      'Accept': 'application/json',
+    };
     Uint8List? body;
     if (statusIcon != null) {
       queryParameters['statusIcon'] = statusIcon;
@@ -1567,7 +1665,9 @@ class NextcloudUserStatusClient {
   Future<NextcloudUserStatusPredefinedStatuses> getPredefinedStatuses() async {
     var path = '/ocs/v2.php/apps/user_status/api/v1/predefined_statuses';
     final queryParameters = <String, dynamic>{};
-    final headers = <String, String>{};
+    final headers = <String, String>{
+      'Accept': 'application/json',
+    };
     Uint8List? body;
     final response = await rootClient.doRequest(
       'get',
@@ -1585,7 +1685,9 @@ class NextcloudUserStatusClient {
   Future<NextcloudUserStatusStatus> heartbeat({required NextcloudUserStatusType status}) async {
     var path = '/ocs/v2.php/apps/user_status/api/v1/heartbeat';
     final queryParameters = <String, dynamic>{};
-    final headers = <String, String>{};
+    final headers = <String, String>{
+      'Accept': 'application/json',
+    };
     Uint8List? body;
     queryParameters['status'] = status.value;
     final response = await rootClient.doRequest(
