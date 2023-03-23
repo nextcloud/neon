@@ -579,7 +579,7 @@ class OpenAPIBuilder implements Builder {
                               ..docs.addAll([
                                 ..._descriptionToDocs(operation.summary),
                                 if (operation.summary != null && operation.description != null) ...[
-                                  '',
+                                  '///',
                                 ],
                                 ..._descriptionToDocs(operation.description),
                               ]);

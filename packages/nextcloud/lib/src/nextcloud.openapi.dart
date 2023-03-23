@@ -1245,7 +1245,7 @@ class NextcloudUnifiedPushProviderClient {
   }
 
   /// Request to get push messages.
-
+  ///
   /// This is a public page since it has to be handle by the non-connected app (NextPush app and not Nextcloud-app)
   Future<NextcloudUnifiedPushProviderSyncDeviceResponse401ApplicationJson> syncDevice(
       {required String deviceId}) async {
