@@ -2,7 +2,7 @@
   "openapi": "3.1.0",
   "info": {
     "title": "Nextcloud",
-    "version": "25.0.4",
+    "version": "26.0.0",
     "description": "All supported Nextcloud APIs in one",
     "license": {
       "name": "agpl",
@@ -1532,6 +1532,8 @@
           "biographyScope",
           "profile_enabled",
           "profile_enabledScope",
+          "fediverse",
+          "fediverseScope",
           "groups",
           "language",
           "locale",
@@ -1665,6 +1667,12 @@
             "type": "string"
           },
           "profile_enabledScope": {
+            "type": "string"
+          },
+          "fediverse": {
+            "type": "string"
+          },
+          "fediverseScope": {
             "type": "string"
           },
           "groups": {
@@ -1954,6 +1962,29 @@
           },
           "status": {
             "$ref": "#/components/schemas/UserStatusType"
+          }
+        }
+      },
+      "UserStatusHeartbeat": {
+        "type": "object",
+        "required": [
+          "ocs"
+        ],
+        "properties": {
+          "ocs": {
+            "type": "object",
+            "required": [
+              "meta",
+              "data"
+            ],
+            "properties": {
+              "meta": {
+                "$ref": "#/components/schemas/OCSMeta"
+              },
+              "data": {
+                "$ref": "#/components/schemas/UserStatusStatus"
+              }
+            }
           }
         }
       }
@@ -4076,7 +4107,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/UserStatusStatus"
+                  "$ref": "#/components/schemas/UserStatusHeartbeat"
                 }
               }
             }

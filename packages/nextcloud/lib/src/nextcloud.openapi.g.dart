@@ -1826,6 +1826,8 @@ NextcloudProvisioningApiUserDetails _$NextcloudProvisioningApiUserDetailsFromJso
       'biographyScope',
       'profile_enabled',
       'profile_enabledScope',
+      'fediverse',
+      'fediverseScope',
       'groups',
       'language',
       'locale',
@@ -1867,6 +1869,8 @@ NextcloudProvisioningApiUserDetails _$NextcloudProvisioningApiUserDetailsFromJso
     biographyScope: json['biographyScope'] as String,
     profileEnabled: json['profile_enabled'] as String,
     profileEnabledScope: json['profile_enabledScope'] as String,
+    fediverse: json['fediverse'] as String,
+    fediverseScope: json['fediverseScope'] as String,
     groups: (json['groups'] as List<dynamic>).map((e) => e as String).toList(),
     language: json['language'] as String,
     locale: json['locale'] as String,
@@ -1911,6 +1915,8 @@ Map<String, dynamic> _$NextcloudProvisioningApiUserDetailsToJson(NextcloudProvis
       'biographyScope': instance.biographyScope,
       'profile_enabled': instance.profileEnabled,
       'profile_enabledScope': instance.profileEnabledScope,
+      'fediverse': instance.fediverse,
+      'fediverseScope': instance.fediverseScope,
       'groups': instance.groups,
       'language': instance.language,
       'locale': instance.locale,
@@ -2420,6 +2426,37 @@ NextcloudUserStatusPredefinedStatuses _$NextcloudUserStatusPredefinedStatusesFro
 
 Map<String, dynamic> _$NextcloudUserStatusPredefinedStatusesToJson(NextcloudUserStatusPredefinedStatuses instance) =>
     <String, dynamic>{
+      'ocs': instance.ocs.toJson(),
+    };
+
+NextcloudUserStatusHeartbeat_Ocs _$NextcloudUserStatusHeartbeat_OcsFromJson(Map<String, dynamic> json) {
+  $checkKeys(
+    json,
+    allowedKeys: const ['meta', 'data'],
+  );
+  return NextcloudUserStatusHeartbeat_Ocs(
+    meta: NextcloudOCSMeta.fromJson(json['meta'] as Map<String, dynamic>),
+    data: NextcloudUserStatusStatus.fromJson(json['data'] as Map<String, dynamic>),
+  );
+}
+
+Map<String, dynamic> _$NextcloudUserStatusHeartbeat_OcsToJson(NextcloudUserStatusHeartbeat_Ocs instance) =>
+    <String, dynamic>{
+      'meta': instance.meta.toJson(),
+      'data': instance.data.toJson(),
+    };
+
+NextcloudUserStatusHeartbeat _$NextcloudUserStatusHeartbeatFromJson(Map<String, dynamic> json) {
+  $checkKeys(
+    json,
+    allowedKeys: const ['ocs'],
+  );
+  return NextcloudUserStatusHeartbeat(
+    ocs: NextcloudUserStatusHeartbeat_Ocs.fromJson(json['ocs'] as Map<String, dynamic>),
+  );
+}
+
+Map<String, dynamic> _$NextcloudUserStatusHeartbeatToJson(NextcloudUserStatusHeartbeat instance) => <String, dynamic>{
       'ocs': instance.ocs.toJson(),
     };
 

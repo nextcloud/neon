@@ -116,7 +116,7 @@ Future run(final DockerImage image) async {
       final response = await client.notes.getSettings();
       expect(response.notesPath, 'Notes');
       expect(response.fileSuffix, '.md');
-      expect(response.noteMode, NextcloudNotesSettings_NoteMode.edit);
+      expect(response.noteMode, NextcloudNotesSettings_NoteMode.rich);
     });
 
     test('Update settings', () async {

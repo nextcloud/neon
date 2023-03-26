@@ -2,7 +2,7 @@
   "openapi": "3.1.0",
   "info": {
     "title": "Core",
-    "version": "25.0.4",
+    "version": "26.0.0",
     "description": "Core functionality of Nextcloud",
     "license": {
       "name": "agpl",
@@ -521,19 +521,29 @@
         ],
         "parameters": [
           {
-            "name": "user",
+            "name": "loginChain",
             "in": "query",
             "required": true,
             "schema": {
-              "type": "string"
+              "type": "TODO"
+            }
+          },
+          {
+            "name": "user",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": ""
             }
           },
           {
             "name": "password",
             "in": "query",
-            "required": true,
+            "required": false,
             "schema": {
-              "type": "string"
+              "type": "string",
+              "default": ""
             }
           },
           {
@@ -920,7 +930,7 @@
           {
             "name": "stateToken",
             "in": "query",
-            "required": true,
+            "required": false,
             "schema": {
               "type": "string"
             }
@@ -948,7 +958,7 @@
           {
             "name": "stateToken",
             "in": "query",
-            "required": true,
+            "required": false,
             "schema": {
               "type": "string"
             }
@@ -998,7 +1008,7 @@
           {
             "name": "stateToken",
             "in": "query",
-            "required": true,
+            "required": false,
             "schema": {
               "type": "string"
             }
@@ -1775,6 +1785,46 @@
         }
       }
     },
+    "/core/error/404": {
+      "get": {
+        "operationId": "error-error404-TODO",
+        "tags": [
+          "core"
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/core/error/403": {
+      "get": {
+        "operationId": "error-error403-TODO",
+        "tags": [
+          "core"
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/core/.well-known/{service}": {
       "parameters": [
         {
@@ -1788,6 +1838,26 @@
       ],
       "get": {
         "operationId": "wellknown-handle-TODO",
+        "tags": [
+          "core"
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/core/unsupported": {
+      "get": {
+        "operationId": "unsupportedbrowser-index-TODO",
         "tags": [
           "core"
         ],
@@ -2548,6 +2618,78 @@
         }
       }
     },
+    "/ocs/v2.php/core/providers": {
+      "get": {
+        "operationId": "unifiedsearch-getproviders-TODO",
+        "tags": [
+          "core"
+        ],
+        "parameters": [
+          {
+            "name": "from",
+            "in": "query",
+            "description": "the url the user is currently at",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": ""
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ocs/v2.php/core/provider/{providerId}": {
+      "parameters": [
+        {
+          "name": "providerId",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "put": {
+        "operationId": "referenceapi-touchprovider-TODO",
+        "tags": [
+          "core"
+        ],
+        "parameters": [
+          {
+            "name": "timestamp",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/ocs/v2.php/core/{targetUserId}": {
       "parameters": [
         {
@@ -2579,38 +2721,6 @@
             "required": true,
             "schema": {
               "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "string"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/ocs/v2.php/core/providers": {
-      "get": {
-        "operationId": "unifiedsearch-getproviders-TODO",
-        "tags": [
-          "core"
-        ],
-        "parameters": [
-          {
-            "name": "from",
-            "in": "query",
-            "description": "the url the user is currently at",
-            "required": false,
-            "schema": {
-              "type": "string",
-              "default": ""
             }
           }
         ],
@@ -2685,6 +2795,72 @@
             "schema": {
               "type": "string",
               "default": ""
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ocs/v2.php/core/languages": {
+      "get": {
+        "operationId": "translationapi-languages-TODO",
+        "tags": [
+          "core"
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ocs/v2.php/core/translate": {
+      "post": {
+        "operationId": "translationapi-translate-TODO",
+        "tags": [
+          "core"
+        ],
+        "parameters": [
+          {
+            "name": "text",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "fromLanguage",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "toLanguage",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
             }
           }
         ],

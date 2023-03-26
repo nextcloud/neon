@@ -2,7 +2,7 @@
   "openapi": "3.1.0",
   "info": {
     "title": "User status",
-    "version": "1.5.0",
+    "version": "1.6.0",
     "description": "User status",
     "license": {
       "name": "agpl",
@@ -331,6 +331,29 @@
             "$ref": "#/components/schemas/Type"
           }
         }
+      },
+      "Heartbeat": {
+        "type": "object",
+        "required": [
+          "ocs"
+        ],
+        "properties": {
+          "ocs": {
+            "type": "object",
+            "required": [
+              "meta",
+              "data"
+            ],
+            "properties": {
+              "meta": {
+                "$ref": "#/components/schemas/OCSMeta"
+              },
+              "data": {
+                "$ref": "#/components/schemas/Status"
+              }
+            }
+          }
+        }
       }
     },
     "securitySchemes": {
@@ -580,7 +603,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Status"
+                  "$ref": "#/components/schemas/Heartbeat"
                 }
               }
             }

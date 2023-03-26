@@ -38,10 +38,10 @@ class UserStatusBloc extends InteractiveBloc implements UserStatusBlocEvents, Us
     final isAway =
         _platform.canUseWindowManager && (!(await windowManager.isFocused()) || !(await windowManager.isVisible()));
     try {
-      final status = await _account.client.userStatus.heartbeat(
+      final response = await _account.client.userStatus.heartbeat(
         status: isAway ? NextcloudUserStatusType.away : NextcloudUserStatusType.online,
       );
-      userStatus.add(Result.success(status));
+      userStatus.add(Result.success(response.ocs.data));
     } catch (e) {
       if (e is NextcloudApiException && e.statusCode == 204) {
         return;
