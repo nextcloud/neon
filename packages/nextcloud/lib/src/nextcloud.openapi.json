@@ -3454,7 +3454,8 @@
         "tags": [
           "unified_push_provider"
         ],
-        "summary": "Set keepalive interval.",
+        "summary": "Set keepalive interval",
+        "description": "This endpoint requires admin access",
         "operationId": "unified_push_provider-set-keepalive",
         "parameters": [
           {
@@ -3494,7 +3495,7 @@
         "tags": [
           "unified_push_provider"
         ],
-        "summary": "Request to create a new deviceId.",
+        "summary": "Request to create a new deviceId",
         "operationId": "unified_push_provider-create-device",
         "parameters": [
           {
@@ -3549,7 +3550,7 @@
         "tags": [
           "unified_push_provider"
         ],
-        "summary": "Request to get push messages.",
+        "summary": "Request to get push messages",
         "description": "This is a public page since it has to be handle by the non-connected app (NextPush app and not Nextcloud-app)",
         "operationId": "unified_push_provider-sync-device",
         "responses": {
@@ -3577,7 +3578,7 @@
         "tags": [
           "unified_push_provider"
         ],
-        "summary": "Delete a device.",
+        "summary": "Delete a device",
         "operationId": "unified_push_provider-delete-device",
         "responses": {
           "200": {
@@ -3606,7 +3607,7 @@
         "tags": [
           "unified_push_provider"
         ],
-        "summary": "Create an authorization token for a new 3rd party service.",
+        "summary": "Create an authorization token for a new 3rd party service",
         "operationId": "unified_push_provider-create-app",
         "parameters": [
           {
@@ -3670,7 +3671,7 @@
         "tags": [
           "unified_push_provider"
         ],
-        "summary": "Delete an authorization token.",
+        "summary": "Delete an authorization token",
         "operationId": "unified_push_provider-delete-app",
         "responses": {
           "200": {
@@ -3710,7 +3711,7 @@
         "tags": [
           "unified_push_provider"
         ],
-        "summary": "Receive notifications from 3rd parties.",
+        "summary": "Receive notifications from 3rd parties",
         "operationId": "unified_push_provider-push",
         "responses": {
           "201": {
