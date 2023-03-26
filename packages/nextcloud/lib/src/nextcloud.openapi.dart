@@ -1268,7 +1268,9 @@ class NextcloudUnifiedPushProviderClient {
     throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
   }
 
-  /// Set keepalive interval.
+  /// Set keepalive interval
+  ///
+  /// This endpoint requires admin access
   Future<NextcloudUnifiedPushProviderSetKeepaliveResponse200ApplicationJson> setKeepalive(
       {required int keepalive}) async {
     var path = '/index.php/apps/uppush/keepalive';
@@ -1291,7 +1293,7 @@ class NextcloudUnifiedPushProviderClient {
     throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
   }
 
-  /// Request to create a new deviceId.
+  /// Request to create a new deviceId
   Future<NextcloudUnifiedPushProviderCreateDeviceResponse200ApplicationJson> createDevice(
       {required String deviceName}) async {
     var path = '/index.php/apps/uppush/device';
@@ -1314,7 +1316,7 @@ class NextcloudUnifiedPushProviderClient {
     throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
   }
 
-  /// Request to get push messages.
+  /// Request to get push messages
   ///
   /// This is a public page since it has to be handle by the non-connected app (NextPush app and not Nextcloud-app)
   Future<NextcloudUnifiedPushProviderSyncDeviceResponse401ApplicationJson> syncDevice(
@@ -1339,7 +1341,7 @@ class NextcloudUnifiedPushProviderClient {
     throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
   }
 
-  /// Delete a device.
+  /// Delete a device
   Future<NextcloudUnifiedPushProviderDeleteDeviceResponse200ApplicationJson> deleteDevice(
       {required String deviceId}) async {
     var path = '/index.php/apps/uppush/device/{deviceId}';
@@ -1362,7 +1364,7 @@ class NextcloudUnifiedPushProviderClient {
     throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
   }
 
-  /// Create an authorization token for a new 3rd party service.
+  /// Create an authorization token for a new 3rd party service
   Future<NextcloudUnifiedPushProviderCreateAppResponse200ApplicationJson> createApp({
     required String deviceId,
     required String appName,
@@ -1388,7 +1390,7 @@ class NextcloudUnifiedPushProviderClient {
     throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
   }
 
-  /// Delete an authorization token.
+  /// Delete an authorization token
   Future<NextcloudUnifiedPushProviderDeleteAppResponse200ApplicationJson> deleteApp({required String token}) async {
     var path = '/index.php/apps/uppush/app/{token}';
     final queryParameters = <String, dynamic>{};
@@ -1433,7 +1435,7 @@ class NextcloudUnifiedPushProviderClient {
     throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
   }
 
-  /// Receive notifications from 3rd parties.
+  /// Receive notifications from 3rd parties
   Future<NextcloudUnifiedPushProviderPushResponse201ApplicationJson> push({required String token}) async {
     var path = '/index.php/apps/uppush/push/{token}';
     final queryParameters = <String, dynamic>{};
