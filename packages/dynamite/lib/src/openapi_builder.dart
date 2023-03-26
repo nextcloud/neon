@@ -1265,13 +1265,28 @@ TypeResult resolveObject(
                       ..docs.addAll(_descriptionToDocs(propertySchema.description));
                     final hasDifferentName = _toDartName(propertyName) != propertyName;
                     final isContentString = propertySchema.isContentString;
-                    final isContentStringArray = isContentString && result is TypeResultList;
                     final hasExtraJsonKeyValues =
                         extraJsonKeyValues != null && extraJsonKeyValues.containsKey(propertyName);
-                    if (hasDifferentName || isContentString || isContentStringArray || hasExtraJsonKeyValues) {
+
+                    final arguments = <String, Expression>{
+                      if (hasDifferentName) ...{
+                        'name': refer("'$propertyName'"),
+                      },
+                      if (hasExtraJsonKeyValues) ...{
+                        for (final key in extraJsonKeyValues[propertyName]!.keys) ...{
+                          key: refer(extraJsonKeyValues[propertyName]![key]!),
+                        },
+                      },
+                    };
+
+                    if (isContentString) {
+                      if (result is! TypeResultObject || result is! TypeResultList) {
+                        print("The content string $identifier.$propertyName can't be decoded automatically.");
+                      }
+
                       var fromJson = '${result.name}.fromJsonString';
                       var toJson = '${result.name}.toJsonString';
-                      if (isContentStringArray) {
+                      if (result is TypeResultList) {
                         fromJson = '_${_toDartName('${state.prefix}${identifier}FromJsonString')}';
                         if (!state.resolvedTypes.contains(fromJson)) {
                           state.resolvedTypes.add(fromJson);
@@ -1316,24 +1331,15 @@ TypeResult resolveObject(
                         }
                       }
 
+                      arguments.addAll({
+                        'fromJson': refer(fromJson),
+                        'toJson': refer(toJson),
+                      });
+                    }
+
+                    if (arguments.isNotEmpty) {
                       b.annotations.add(
-                        refer('JsonKey').call(
-                          [],
-                          {
-                            if (hasDifferentName) ...{
-                              'name': refer("'$propertyName'"),
-                            },
-                            if (isContentString || isContentStringArray) ...{
-                              'fromJson': refer(fromJson),
-                              'toJson': refer(toJson),
-                            },
-                            if (hasExtraJsonKeyValues) ...{
-                              for (final key in extraJsonKeyValues[propertyName]!.keys) ...{
-                                key: refer(extraJsonKeyValues[propertyName]![key]!),
-                              },
-                            },
-                          },
-                        ),
+                        refer('JsonKey').call([], arguments),
                       );
                     }
                   },
