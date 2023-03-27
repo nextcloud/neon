@@ -2,11 +2,11 @@
 // ignore_for_file: camel_case_types
 // ignore_for_file: public_member_api_docs
 import 'dart:convert';
-import 'dart:io';
 import 'dart:typed_data';
 
 import 'package:cookie_jar/cookie_jar.dart';
 import 'package:json_annotation/json_annotation.dart';
+import 'package:universal_io/io.dart';
 
 export 'package:cookie_jar/cookie_jar.dart';
 
