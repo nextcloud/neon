@@ -326,6 +326,53 @@ class OpenAPIBuilder implements Builder {
                       ).accept(emitter).toString(),
                     );
                     continue;
+                  case 'bearer':
+                    output.add(
+                      Class(
+                        (final b) {
+                          b
+                            ..name = '${prefix}HttpBearerAuthentication'
+                            ..extend = refer('${prefix}Authentication')
+                            ..constructors.add(
+                              Constructor(
+                                (final b) => b
+                                  ..optionalParameters.add(
+                                    Parameter(
+                                      (final b) => b
+                                        ..name = 'token'
+                                        ..toThis = true
+                                        ..named = true
+                                        ..required = true,
+                                    ),
+                                  ),
+                              ),
+                            )
+                            ..fields.add(
+                              Field(
+                                (final b) => b
+                                  ..name = 'token'
+                                  ..type = refer('String')
+                                  ..modifier = FieldModifier.final$,
+                              ),
+                            )
+                            ..methods.add(
+                              Method(
+                                (final b) => b
+                                  ..name = 'headers'
+                                  ..type = MethodType.getter
+                                  ..returns = refer('Map<String, String>')
+                                  ..lambda = true
+                                  ..body = const Code(r'''
+                                    {
+                                      'Authorization': 'Bearer $token',
+                                    }
+                                  '''),
+                              ),
+                            );
+                        },
+                      ).accept(emitter).toString(),
+                    );
+                    continue;
                 }
             }
             throw Exception('Can not work with security scheme ${securityScheme.toJson()}');
