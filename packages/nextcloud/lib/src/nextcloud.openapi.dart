@@ -3709,16 +3709,23 @@ class NextcloudCoreLoginFlowResult {
 class NextcloudCoreAutocompleteResult_Ocs_Data_Status {
   NextcloudCoreAutocompleteResult_Ocs_Data_Status(
     this._data, {
+    this.listDynamic,
     this.string,
   });
 
   factory NextcloudCoreAutocompleteResult_Ocs_Data_Status.fromJson(dynamic data) {
+    List<dynamic>? listDynamic;
     String? string;
+    try {
+      listDynamic = (data as List).map((final e) => (e as dynamic)).toList();
+    } catch (_) {}
     try {
       string = (data as String);
     } catch (_) {}
+    assert([listDynamic, string].where((final x) => x != null).length == 1, 'Need oneOf for $data');
     return NextcloudCoreAutocompleteResult_Ocs_Data_Status(
       data,
+      listDynamic: listDynamic,
       string: string,
     );
   }
@@ -3729,6 +3736,8 @@ class NextcloudCoreAutocompleteResult_Ocs_Data_Status {
   // coverage:ignore-end
 
   final dynamic _data;
+
+  final List<dynamic>? listDynamic;
 
   final String? string;
 
@@ -4202,74 +4211,6 @@ class NextcloudNotesSettings {
   static String? toJsonString(NextcloudNotesSettings? data) => data == null ? null : json.encode(data.toJson());
 }
 
-class NextcloudNotificationsNotification_SubjectRichParameters {
-  NextcloudNotificationsNotification_SubjectRichParameters(
-    this._data, {
-    this.mapStringDynamic,
-  });
-
-  factory NextcloudNotificationsNotification_SubjectRichParameters.fromJson(dynamic data) {
-    Map<String, dynamic>? mapStringDynamic;
-    try {
-      mapStringDynamic = (data as Map<String, dynamic>);
-    } catch (_) {}
-    return NextcloudNotificationsNotification_SubjectRichParameters(
-      data,
-      mapStringDynamic: mapStringDynamic,
-    );
-  }
-
-  // coverage:ignore-start
-  factory NextcloudNotificationsNotification_SubjectRichParameters.fromJsonString(String data) =>
-      NextcloudNotificationsNotification_SubjectRichParameters.fromJson(json.decode(data));
-  // coverage:ignore-end
-
-  final dynamic _data;
-
-  final Map<String, dynamic>? mapStringDynamic;
-
-  // coverage:ignore-start
-  dynamic toJson() => _data;
-  // coverage:ignore-end
-  // coverage:ignore-start
-  static String toJsonString(dynamic data) => json.encode(data);
-  // coverage:ignore-end
-}
-
-class NextcloudNotificationsNotification_MessageRichParameters {
-  NextcloudNotificationsNotification_MessageRichParameters(
-    this._data, {
-    this.mapStringDynamic,
-  });
-
-  factory NextcloudNotificationsNotification_MessageRichParameters.fromJson(dynamic data) {
-    Map<String, dynamic>? mapStringDynamic;
-    try {
-      mapStringDynamic = (data as Map<String, dynamic>);
-    } catch (_) {}
-    return NextcloudNotificationsNotification_MessageRichParameters(
-      data,
-      mapStringDynamic: mapStringDynamic,
-    );
-  }
-
-  // coverage:ignore-start
-  factory NextcloudNotificationsNotification_MessageRichParameters.fromJsonString(String data) =>
-      NextcloudNotificationsNotification_MessageRichParameters.fromJson(json.decode(data));
-  // coverage:ignore-end
-
-  final dynamic _data;
-
-  final Map<String, dynamic>? mapStringDynamic;
-
-  // coverage:ignore-start
-  dynamic toJson() => _data;
-  // coverage:ignore-end
-  // coverage:ignore-start
-  static String toJsonString(dynamic data) => json.encode(data);
-  // coverage:ignore-end
-}
-
 @JsonSerializable()
 class NextcloudNotificationsNotificationAction {
   NextcloudNotificationsNotificationAction({
@@ -4357,11 +4298,11 @@ class NextcloudNotificationsNotification {
 
   final String subjectRich;
 
-  final NextcloudNotificationsNotification_SubjectRichParameters subjectRichParameters;
+  final dynamic subjectRichParameters;
 
   final String messageRich;
 
-  final NextcloudNotificationsNotification_MessageRichParameters messageRichParameters;
+  final dynamic messageRichParameters;
 
   final String icon;
 
@@ -5330,6 +5271,7 @@ class NextcloudUserStatusPublicStatus_ClearAt {
     try {
       $int = (data as int);
     } catch (_) {}
+    assert([userStatusClearAt, $int].where((final x) => x != null).length == 1, 'Need oneOf for $data');
     return NextcloudUserStatusPublicStatus_ClearAt(
       data,
       userStatusClearAt: userStatusClearAt,
@@ -5392,7 +5334,7 @@ class NextcloudUserStatusPublicStatus {
     required this.userId,
     this.message,
     this.icon,
-    required this.clearAt,
+    this.clearAt,
     required this.status,
   });
 
@@ -5412,7 +5354,7 @@ class NextcloudUserStatusPublicStatus {
 
   final String? icon;
 
-  final NextcloudUserStatusPublicStatus_ClearAt clearAt;
+  final NextcloudUserStatusPublicStatus_ClearAt? clearAt;
 
   final NextcloudUserStatusType status;
 
@@ -5477,16 +5419,23 @@ class NextcloudUserStatusGetPublicStatuses {
 class NextcloudUserStatusGetPublicStatus_Ocs_Data {
   NextcloudUserStatusGetPublicStatus_Ocs_Data(
     this._data, {
+    this.listDynamic,
     this.userStatusPublicStatus,
   });
 
   factory NextcloudUserStatusGetPublicStatus_Ocs_Data.fromJson(dynamic data) {
+    List<dynamic>? listDynamic;
     NextcloudUserStatusPublicStatus? userStatusPublicStatus;
+    try {
+      listDynamic = (data as List).map((final e) => (e as dynamic)).toList();
+    } catch (_) {}
     try {
       userStatusPublicStatus = NextcloudUserStatusPublicStatus.fromJson(data as Map<String, dynamic>);
     } catch (_) {}
+    assert([listDynamic, userStatusPublicStatus].where((final x) => x != null).length == 1, 'Need oneOf for $data');
     return NextcloudUserStatusGetPublicStatus_Ocs_Data(
       data,
+      listDynamic: listDynamic,
       userStatusPublicStatus: userStatusPublicStatus,
     );
   }
@@ -5497,6 +5446,8 @@ class NextcloudUserStatusGetPublicStatus_Ocs_Data {
   // coverage:ignore-end
 
   final dynamic _data;
+
+  final List<dynamic>? listDynamic;
 
   final NextcloudUserStatusPublicStatus? userStatusPublicStatus;
 
@@ -5575,6 +5526,7 @@ class NextcloudUserStatusStatus_ClearAt {
     try {
       $int = (data as int);
     } catch (_) {}
+    assert([userStatusClearAt, $int].where((final x) => x != null).length == 1, 'Need oneOf for $data');
     return NextcloudUserStatusStatus_ClearAt(
       data,
       userStatusClearAt: userStatusClearAt,
@@ -5610,7 +5562,7 @@ class NextcloudUserStatusStatus {
     this.messageId,
     required this.messageIsPredefined,
     this.icon,
-    required this.clearAt,
+    this.clearAt,
     required this.status,
     required this.statusIsUserDefined,
   });
@@ -5634,7 +5586,7 @@ class NextcloudUserStatusStatus {
 
   final String? icon;
 
-  final NextcloudUserStatusStatus_ClearAt clearAt;
+  final NextcloudUserStatusStatus_ClearAt? clearAt;
 
   final NextcloudUserStatusType status;
 
@@ -5649,16 +5601,23 @@ class NextcloudUserStatusStatus {
 class NextcloudUserStatusGetStatus_Ocs_Data {
   NextcloudUserStatusGetStatus_Ocs_Data(
     this._data, {
+    this.listDynamic,
     this.userStatusStatus,
   });
 
   factory NextcloudUserStatusGetStatus_Ocs_Data.fromJson(dynamic data) {
+    List<dynamic>? listDynamic;
     NextcloudUserStatusStatus? userStatusStatus;
+    try {
+      listDynamic = (data as List).map((final e) => (e as dynamic)).toList();
+    } catch (_) {}
     try {
       userStatusStatus = NextcloudUserStatusStatus.fromJson(data as Map<String, dynamic>);
     } catch (_) {}
+    assert([listDynamic, userStatusStatus].where((final x) => x != null).length == 1, 'Need oneOf for $data');
     return NextcloudUserStatusGetStatus_Ocs_Data(
       data,
+      listDynamic: listDynamic,
       userStatusStatus: userStatusStatus,
     );
   }
@@ -5669,6 +5628,8 @@ class NextcloudUserStatusGetStatus_Ocs_Data {
   // coverage:ignore-end
 
   final dynamic _data;
+
+  final List<dynamic>? listDynamic;
 
   final NextcloudUserStatusStatus? userStatusStatus;
 
@@ -5746,6 +5707,7 @@ class NextcloudUserStatusPredefinedStatus_ClearAt {
     try {
       $int = (data as int);
     } catch (_) {}
+    assert([userStatusClearAt, $int].where((final x) => x != null).length == 1, 'Need oneOf for $data');
     return NextcloudUserStatusPredefinedStatus_ClearAt(
       data,
       userStatusClearAt: userStatusClearAt,
@@ -5779,7 +5741,7 @@ class NextcloudUserStatusPredefinedStatus {
     required this.id,
     required this.icon,
     required this.message,
-    required this.clearAt,
+    this.clearAt,
   });
 
   // coverage:ignore-start
@@ -5798,7 +5760,7 @@ class NextcloudUserStatusPredefinedStatus {
 
   final String message;
 
-  final NextcloudUserStatusPredefinedStatus_ClearAt clearAt;
+  final NextcloudUserStatusPredefinedStatus_ClearAt? clearAt;
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$NextcloudUserStatusPredefinedStatusToJson(this);

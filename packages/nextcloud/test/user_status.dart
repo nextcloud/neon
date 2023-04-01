@@ -28,25 +28,24 @@ Future run(final DockerImage image) async {
         expect(status.message, isNotNull);
       }
 
-      final meeting = response.ocs.data.singleWhere((final s) => s.id == 'meeting').clearAt.userStatusClearAt!;
+      final meeting = response.ocs.data.singleWhere((final s) => s.id == 'meeting').clearAt!.userStatusClearAt!;
       expect(meeting.type, NextcloudUserStatusClearAt_Type.period);
       expect(meeting.time.$int, 3600);
 
-      final commuting = response.ocs.data.singleWhere((final s) => s.id == 'commuting').clearAt.userStatusClearAt!;
+      final commuting = response.ocs.data.singleWhere((final s) => s.id == 'commuting').clearAt!.userStatusClearAt!;
       expect(commuting.type, NextcloudUserStatusClearAt_Type.period);
       expect(commuting.time.$int, 1800);
 
-      final remoteWork = response.ocs.data.singleWhere((final s) => s.id == 'remote-work').clearAt.userStatusClearAt!;
+      final remoteWork = response.ocs.data.singleWhere((final s) => s.id == 'remote-work').clearAt!.userStatusClearAt!;
       expect(remoteWork.type, NextcloudUserStatusClearAt_Type.endOf);
       expect(remoteWork.time.userStatusClearAtTime0, NextcloudUserStatusClearAt_Time0.day);
 
-      final sickLeave = response.ocs.data.singleWhere((final s) => s.id == 'sick-leave').clearAt.userStatusClearAt!;
+      final sickLeave = response.ocs.data.singleWhere((final s) => s.id == 'sick-leave').clearAt!.userStatusClearAt!;
       expect(sickLeave.type, NextcloudUserStatusClearAt_Type.endOf);
       expect(sickLeave.time.userStatusClearAtTime0, NextcloudUserStatusClearAt_Time0.day);
 
       final vacationing = response.ocs.data.singleWhere((final s) => s.id == 'vacationing').clearAt;
-      expect(vacationing.userStatusClearAt, null);
-      expect(vacationing.$int, null);
+      expect(vacationing, null);
     });
 
     test('Set status', () async {
@@ -57,8 +56,7 @@ Future run(final DockerImage image) async {
       expect(response.ocs.data.userStatusStatus!.messageId, null);
       expect(response.ocs.data.userStatusStatus!.messageIsPredefined, false);
       expect(response.ocs.data.userStatusStatus!.icon, null);
-      expect(response.ocs.data.userStatusStatus!.clearAt.userStatusClearAt, null);
-      expect(response.ocs.data.userStatusStatus!.clearAt.$int, null);
+      expect(response.ocs.data.userStatusStatus!.clearAt, null);
       expect(response.ocs.data.userStatusStatus!.status, NextcloudUserStatusType.online);
       expect(response.ocs.data.userStatusStatus!.statusIsUserDefined, true);
     });
@@ -74,8 +72,7 @@ Future run(final DockerImage image) async {
       expect(response.ocs.data.userStatusStatus!.messageId, null);
       expect(response.ocs.data.userStatusStatus!.messageIsPredefined, false);
       expect(response.ocs.data.userStatusStatus!.icon, null);
-      expect(response.ocs.data.userStatusStatus!.clearAt.userStatusClearAt, null);
-      expect(response.ocs.data.userStatusStatus!.clearAt.$int, null);
+      expect(response.ocs.data.userStatusStatus!.clearAt, null);
       expect(response.ocs.data.userStatusStatus!.status, NextcloudUserStatusType.online);
       expect(response.ocs.data.userStatusStatus!.statusIsUserDefined, true);
     });
@@ -91,8 +88,7 @@ Future run(final DockerImage image) async {
       expect(response.ocs.data[0].userId, 'user1');
       expect(response.ocs.data[0].message, null);
       expect(response.ocs.data[0].icon, null);
-      expect(response.ocs.data[0].clearAt.userStatusClearAt, null);
-      expect(response.ocs.data[0].clearAt.$int, null);
+      expect(response.ocs.data[0].clearAt, null);
       expect(response.ocs.data[0].status, NextcloudUserStatusType.online);
     });
 
@@ -104,8 +100,7 @@ Future run(final DockerImage image) async {
       expect(response.ocs.data.userStatusPublicStatus!.userId, 'user1');
       expect(response.ocs.data.userStatusPublicStatus!.message, null);
       expect(response.ocs.data.userStatusPublicStatus!.icon, null);
-      expect(response.ocs.data.userStatusPublicStatus!.clearAt.userStatusClearAt, null);
-      expect(response.ocs.data.userStatusPublicStatus!.clearAt.$int, null);
+      expect(response.ocs.data.userStatusPublicStatus!.clearAt, null);
       expect(response.ocs.data.userStatusPublicStatus!.status, NextcloudUserStatusType.online);
     });
 
@@ -120,7 +115,7 @@ Future run(final DockerImage image) async {
       expect(response.ocs.data.userStatusStatus!.messageId, 'meeting');
       expect(response.ocs.data.userStatusStatus!.messageIsPredefined, true);
       expect(response.ocs.data.userStatusStatus!.icon, null);
-      expect(response.ocs.data.userStatusStatus!.clearAt.$int, clearAt);
+      expect(response.ocs.data.userStatusStatus!.clearAt!.$int, clearAt);
       expect(response.ocs.data.userStatusStatus!.status, NextcloudUserStatusType.offline);
       expect(response.ocs.data.userStatusStatus!.statusIsUserDefined, false);
     });
@@ -137,7 +132,7 @@ Future run(final DockerImage image) async {
       expect(response.ocs.data.userStatusStatus!.messageId, null);
       expect(response.ocs.data.userStatusStatus!.messageIsPredefined, false);
       expect(response.ocs.data.userStatusStatus!.icon, '😀');
-      expect(response.ocs.data.userStatusStatus!.clearAt.$int, clearAt);
+      expect(response.ocs.data.userStatusStatus!.clearAt!.$int, clearAt);
       expect(response.ocs.data.userStatusStatus!.status, NextcloudUserStatusType.offline);
       expect(response.ocs.data.userStatusStatus!.statusIsUserDefined, false);
     });
@@ -157,8 +152,7 @@ Future run(final DockerImage image) async {
       expect(response.ocs.data.userStatusStatus!.messageId, null);
       expect(response.ocs.data.userStatusStatus!.messageIsPredefined, false);
       expect(response.ocs.data.userStatusStatus!.icon, null);
-      expect(response.ocs.data.userStatusStatus!.clearAt.userStatusClearAt, null);
-      expect(response.ocs.data.userStatusStatus!.clearAt.$int, null);
+      expect(response.ocs.data.userStatusStatus!.clearAt, null);
       expect(response.ocs.data.userStatusStatus!.status, NextcloudUserStatusType.offline);
       expect(response.ocs.data.userStatusStatus!.statusIsUserDefined, false);
     });
@@ -170,8 +164,7 @@ Future run(final DockerImage image) async {
       expect(response.ocs.data.messageId, null);
       expect(response.ocs.data.messageIsPredefined, false);
       expect(response.ocs.data.icon, null);
-      expect(response.ocs.data.clearAt.userStatusClearAt, null);
-      expect(response.ocs.data.clearAt.$int, null);
+      expect(response.ocs.data.clearAt, null);
       expect(response.ocs.data.status, NextcloudUserStatusType.online);
       expect(response.ocs.data.statusIsUserDefined, false);
     });

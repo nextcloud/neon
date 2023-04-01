@@ -128,23 +128,13 @@
             "type": "string"
           },
           "subjectRichParameters": {
-            "anyOf": [
-              {
-                "type": "object",
-                "properties": {}
-              }
-            ]
+            "type": "object"
           },
           "messageRich": {
             "type": "string"
           },
           "messageRichParameters": {
-            "anyOf": [
-              {
-                "type": "object",
-                "properties": {}
-              }
-            ]
+            "type": "object"
           },
           "icon": {
             "type": "string"
