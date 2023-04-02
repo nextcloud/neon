@@ -942,7 +942,13 @@
                       "type": "string"
                     },
                     "status": {
-                      "anyOf": [
+                      "oneOf": [
+                        {
+                          "type": "array",
+                          "items": {
+                            "type": "object"
+                          }
+                        },
                         {
                           "type": "string"
                         }

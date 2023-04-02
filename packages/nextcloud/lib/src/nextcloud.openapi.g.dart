@@ -1555,11 +1555,9 @@ NextcloudNotificationsNotification _$NextcloudNotificationsNotificationFromJson(
     message: json['message'] as String,
     link: json['link'] as String,
     subjectRich: json['subjectRich'] as String,
-    subjectRichParameters:
-        NextcloudNotificationsNotification_SubjectRichParameters.fromJson(json['subjectRichParameters']),
+    subjectRichParameters: json['subjectRichParameters'],
     messageRich: json['messageRich'] as String,
-    messageRichParameters:
-        NextcloudNotificationsNotification_MessageRichParameters.fromJson(json['messageRichParameters']),
+    messageRichParameters: json['messageRichParameters'],
     icon: json['icon'] as String,
     actions: (json['actions'] as List<dynamic>)
         .map((e) => NextcloudNotificationsNotificationAction.fromJson(e as Map<String, dynamic>))
@@ -1579,9 +1577,9 @@ Map<String, dynamic> _$NextcloudNotificationsNotificationToJson(NextcloudNotific
       'message': instance.message,
       'link': instance.link,
       'subjectRich': instance.subjectRich,
-      'subjectRichParameters': instance.subjectRichParameters.toJson(),
+      'subjectRichParameters': instance.subjectRichParameters,
       'messageRich': instance.messageRich,
-      'messageRichParameters': instance.messageRichParameters.toJson(),
+      'messageRichParameters': instance.messageRichParameters,
       'icon': instance.icon,
       'actions': instance.actions.map((e) => e.toJson()).toList(),
     };
@@ -2215,7 +2213,7 @@ NextcloudUserStatusPublicStatus _$NextcloudUserStatusPublicStatusFromJson(Map<St
     userId: json['userId'] as String,
     message: json['message'] as String?,
     icon: json['icon'] as String?,
-    clearAt: NextcloudUserStatusPublicStatus_ClearAt.fromJson(json['clearAt']),
+    clearAt: json['clearAt'] == null ? null : NextcloudUserStatusPublicStatus_ClearAt.fromJson(json['clearAt']),
     status: $enumDecode(_$NextcloudUserStatusTypeEnumMap, json['status']),
   );
 }
@@ -2225,7 +2223,7 @@ Map<String, dynamic> _$NextcloudUserStatusPublicStatusToJson(NextcloudUserStatus
       'userId': instance.userId,
       'message': instance.message,
       'icon': instance.icon,
-      'clearAt': instance.clearAt.toJson(),
+      'clearAt': instance.clearAt?.toJson(),
       'status': _$NextcloudUserStatusTypeEnumMap[instance.status]!,
     };
 
@@ -2324,7 +2322,7 @@ NextcloudUserStatusStatus _$NextcloudUserStatusStatusFromJson(Map<String, dynami
     messageId: json['messageId'] as String?,
     messageIsPredefined: json['messageIsPredefined'] as bool,
     icon: json['icon'] as String?,
-    clearAt: NextcloudUserStatusStatus_ClearAt.fromJson(json['clearAt']),
+    clearAt: json['clearAt'] == null ? null : NextcloudUserStatusStatus_ClearAt.fromJson(json['clearAt']),
     status: $enumDecode(_$NextcloudUserStatusTypeEnumMap, json['status']),
     statusIsUserDefined: json['statusIsUserDefined'] as bool,
   );
@@ -2336,7 +2334,7 @@ Map<String, dynamic> _$NextcloudUserStatusStatusToJson(NextcloudUserStatusStatus
       'messageId': instance.messageId,
       'messageIsPredefined': instance.messageIsPredefined,
       'icon': instance.icon,
-      'clearAt': instance.clearAt.toJson(),
+      'clearAt': instance.clearAt?.toJson(),
       'status': _$NextcloudUserStatusTypeEnumMap[instance.status]!,
       'statusIsUserDefined': instance.statusIsUserDefined,
     };
@@ -2381,7 +2379,7 @@ NextcloudUserStatusPredefinedStatus _$NextcloudUserStatusPredefinedStatusFromJso
     id: json['id'] as String,
     icon: json['icon'] as String,
     message: json['message'] as String,
-    clearAt: NextcloudUserStatusPredefinedStatus_ClearAt.fromJson(json['clearAt']),
+    clearAt: json['clearAt'] == null ? null : NextcloudUserStatusPredefinedStatus_ClearAt.fromJson(json['clearAt']),
   );
 }
 
@@ -2390,7 +2388,7 @@ Map<String, dynamic> _$NextcloudUserStatusPredefinedStatusToJson(NextcloudUserSt
       'id': instance.id,
       'icon': instance.icon,
       'message': instance.message,
-      'clearAt': instance.clearAt.toJson(),
+      'clearAt': instance.clearAt?.toJson(),
     };
 
 NextcloudUserStatusPredefinedStatuses_Ocs _$NextcloudUserStatusPredefinedStatuses_OcsFromJson(

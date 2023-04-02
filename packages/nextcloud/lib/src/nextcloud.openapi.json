@@ -942,7 +942,13 @@
                       "type": "string"
                     },
                     "status": {
-                      "anyOf": [
+                      "oneOf": [
+                        {
+                          "type": "array",
+                          "items": {
+                            "type": "object"
+                          }
+                        },
                         {
                           "type": "string"
                         }
@@ -1307,23 +1313,13 @@
             "type": "string"
           },
           "subjectRichParameters": {
-            "anyOf": [
-              {
-                "type": "object",
-                "properties": {}
-              }
-            ]
+            "type": "object"
           },
           "messageRich": {
             "type": "string"
           },
           "messageRichParameters": {
-            "anyOf": [
-              {
-                "type": "object",
-                "properties": {}
-              }
-            ]
+            "type": "object"
           },
           "icon": {
             "type": "string"
@@ -1741,8 +1737,7 @@
         "required": [
           "id",
           "icon",
-          "message",
-          "clearAt"
+          "message"
         ],
         "properties": {
           "id": {
@@ -1755,7 +1750,7 @@
             "type": "string"
           },
           "clearAt": {
-            "anyOf": [
+            "oneOf": [
               {
                 "$ref": "#/components/schemas/UserStatusClearAt"
               },
@@ -1825,7 +1820,13 @@
                 "$ref": "#/components/schemas/OCSMeta"
               },
               "data": {
-                "anyOf": [
+                "oneOf": [
+                  {
+                    "type": "array",
+                    "items": {
+                      "type": "object"
+                    }
+                  },
                   {
                     "$ref": "#/components/schemas/UserStatusStatus"
                   }
@@ -1878,7 +1879,13 @@
                 "$ref": "#/components/schemas/OCSMeta"
               },
               "data": {
-                "anyOf": [
+                "oneOf": [
+                  {
+                    "type": "array",
+                    "items": {
+                      "type": "object"
+                    }
+                  },
                   {
                     "$ref": "#/components/schemas/UserStatusPublicStatus"
                   }
@@ -1893,7 +1900,6 @@
         "required": [
           "userId",
           "messageIsPredefined",
-          "clearAt",
           "status",
           "statusIsUserDefined"
         ],
@@ -1914,7 +1920,7 @@
             "type": "string"
           },
           "clearAt": {
-            "anyOf": [
+            "oneOf": [
               {
                 "$ref": "#/components/schemas/UserStatusClearAt"
               },
@@ -1936,7 +1942,6 @@
         "type": "object",
         "required": [
           "userId",
-          "clearAt",
           "status"
         ],
         "properties": {
@@ -1950,7 +1955,7 @@
             "type": "string"
           },
           "clearAt": {
-            "anyOf": [
+            "oneOf": [
               {
                 "$ref": "#/components/schemas/UserStatusClearAt"
               },
