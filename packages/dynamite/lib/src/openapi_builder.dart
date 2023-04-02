@@ -1549,7 +1549,10 @@ TypeResult resolveType(
                               ],
                             ],
                             if (schema.oneOf != null) ...[
-                              "assert([${fields.values.join(',')}].where((final x) => x != null).length == 1, 'Need oneOf for \$data');",
+                              "assert([${fields.values.join(',')}].where((final x) => x != null).length >= 1, 'Need oneOf for \$data');",
+                            ],
+                            if (schema.anyOf != null) ...[
+                              "assert([${fields.values.join(',')}].where((final x) => x != null).length >= 1,  'Need anyOf for \$data');",
                             ],
                             'return ${state.prefix}$identifier(',
                             'data,',
