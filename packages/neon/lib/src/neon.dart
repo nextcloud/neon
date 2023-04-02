@@ -69,7 +69,6 @@ part 'utils/account_options.dart';
 part 'utils/app_implementation.dart';
 part 'utils/bloc.dart';
 part 'utils/confirmation_dialog.dart';
-part 'utils/env.dart';
 part 'utils/global.dart';
 part 'utils/global_options.dart';
 part 'utils/global_popups.dart';

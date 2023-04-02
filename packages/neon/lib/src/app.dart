@@ -4,7 +4,6 @@ class NeonApp extends StatefulWidget {
   const NeonApp({
     required this.accountsBloc,
     required this.sharedPreferences,
-    required this.env,
     required this.platform,
     required this.globalOptions,
     super.key,
@@ -12,7 +11,6 @@ class NeonApp extends StatefulWidget {
 
   final AccountsBloc accountsBloc;
   final SharedPreferences sharedPreferences;
-  final Env? env;
   final NeonPlatform platform;
   final GlobalOptions globalOptions;
 

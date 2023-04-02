@@ -38,9 +38,6 @@ class _LoginPageState extends State<LoginPage> {
           await launchUrlString(
             init.login,
             mode: LaunchMode.externalApplication,
-            webViewConfiguration: WebViewConfiguration(
-              headers: _buildHeaders(context, Provider.of<Env?>(context, listen: false)),
-            ),
           );
         });
       }
@@ -85,18 +82,6 @@ class _LoginPageState extends State<LoginPage> {
     });
   }
 
-  Map<String, String> _buildHeaders(
-    final BuildContext context,
-    final Env? env,
-  ) =>
-      {
-        HttpHeaders.userAgentHeader: userAgent(_packageInfo),
-        if (env != null) ...{
-          HttpHeaders.authorizationHeader:
-              'Basic ${base64.encode(utf8.encode('${env.testUsername}:${env.testPassword}'))}',
-        },
-      };
-
   @override
   void dispose() {
     _loginBloc.dispose();
@@ -104,151 +89,143 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   @override
-  Widget build(final BuildContext context) {
-    final env = Provider.of<Env?>(context);
+  Widget build(final BuildContext context) => StreamBuilder<List<Account>>(
+        stream: _accountsBloc.accounts,
+        builder: (final context, final accountsSnapshot) => WillPopScope(
+          onWillPop: () async {
+            if (accountsSnapshot.data?.isNotEmpty ?? false) {
+              return true;
+            }
 
-    return StreamBuilder<List<Account>>(
-      stream: _accountsBloc.accounts,
-      builder: (final context, final accountsSnapshot) => WillPopScope(
-        onWillPop: () async {
-          if (accountsSnapshot.data?.isNotEmpty ?? false) {
-            return true;
-          }
+            if ((await _loginBloc.serverURL.first) == null) {
+              return true;
+            }
 
-          if ((await _loginBloc.serverURL.first) == null) {
-            return true;
-          }
-
-          _loginBloc.setServerURL(null);
-          return false;
-        },
-        child: StreamBuilder<String?>(
-          stream: _loginBloc.serverURL,
-          builder: (final context, final serverURLSnapshot) => StreamBuilder<ServerConnectionState?>(
-            stream: _loginBloc.serverConnectionState,
-            builder: (final context, final serverConnectionStateSnapshot) => Scaffold(
-              appBar: serverConnectionStateSnapshot.data == ServerConnectionState.success ||
-                      (accountsSnapshot.data?.isNotEmpty ?? false)
-                  ? AppBar(
-                      leading: IconButton(
-                        onPressed: () {
-                          if (accountsSnapshot.data?.isNotEmpty ?? false) {
-                            Navigator.of(context).pop();
-                          } else {
-                            _loginBloc.setServerURL(null);
-                          }
-                        },
-                        icon: const Icon(Icons.arrow_back),
-                      ),
-                      actions: [
-                        if (serverConnectionStateSnapshot.data != null) ...[
-                          IconButton(
-                            onPressed: _loginBloc.refresh,
-                            icon: const Icon(Icons.refresh),
-                          ),
-                        ],
-                      ],
-                    )
-                  : null,
-              body: serverConnectionStateSnapshot.data == ServerConnectionState.success
-                  ? Provider.of<NeonPlatform>(context).canUseWebView
-                      ? WebView(
-                          javascriptMode: JavascriptMode.unrestricted,
-                          zoomEnabled: false,
-                          userAgent: userAgent(_packageInfo),
-                          onWebViewCreated: (final controller) async {
-                            _webViewController = controller;
-                            final url =
-                                (await _loginBloc.loginFlowInit.firstWhere((final init) => init != null))!.login;
-                            if (mounted) {
-                              await _webViewController!.loadUrl(
-                                url,
-                                headers: _buildHeaders(context, env),
-                              );
+            _loginBloc.setServerURL(null);
+            return false;
+          },
+          child: StreamBuilder<String?>(
+            stream: _loginBloc.serverURL,
+            builder: (final context, final serverURLSnapshot) => StreamBuilder<ServerConnectionState?>(
+              stream: _loginBloc.serverConnectionState,
+              builder: (final context, final serverConnectionStateSnapshot) => Scaffold(
+                appBar: serverConnectionStateSnapshot.data == ServerConnectionState.success ||
+                        (accountsSnapshot.data?.isNotEmpty ?? false)
+                    ? AppBar(
+                        leading: IconButton(
+                          onPressed: () {
+                            if (accountsSnapshot.data?.isNotEmpty ?? false) {
+                              Navigator.of(context).pop();
+                            } else {
+                              _loginBloc.setServerURL(null);
                             }
                           },
-                        )
-                      : Center(
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Text(AppLocalizations.of(context).loginSwitchToBrowserWindow),
-                              const SizedBox(
-                                height: 10,
-                              ),
-                              ElevatedButton(
-                                onPressed: _loginBloc.refresh,
-                                child: Text(AppLocalizations.of(context).loginOpenAgain),
-                              ),
-                            ],
-                          ),
-                        )
-                  : Center(
-                      child: ListView(
-                        shrinkWrap: true,
-                        padding: const EdgeInsets.symmetric(vertical: 40, horizontal: 20),
-                        children: [
-                          SizedBox(
-                            height: MediaQuery.of(context).size.height / 2,
-                            child: Column(
-                              children: [
-                                const NeonLogo(),
-                                const SizedBox(
-                                  height: 30,
-                                ),
-                                Text(AppLocalizations.of(context).loginWorksWith),
-                                const SizedBox(
-                                  height: 20,
-                                ),
-                                const NextcloudLogo(),
-                              ],
+                          icon: const Icon(Icons.arrow_back),
+                        ),
+                        actions: [
+                          if (serverConnectionStateSnapshot.data != null) ...[
+                            IconButton(
+                              onPressed: _loginBloc.refresh,
+                              icon: const Icon(Icons.refresh),
                             ),
-                          ),
-                          Form(
-                            key: _formKey,
-                            child: TextFormField(
-                              focusNode: _focusNode,
-                              decoration: const InputDecoration(
-                                hintText: 'https://...',
-                              ),
-                              initialValue:
-                                  widget.serverURL ?? (env?.testHost != null ? 'http://${env!.testHost}' : null),
-                              validator: (final input) => validateHttpUrl(context, input),
-                              onFieldSubmitted: (final input) {
-                                if (_formKey.currentState!.validate()) {
-                                  _loginBloc.setServerURL(input);
-                                } else {
-                                  _focusNode.requestFocus();
-                                }
-                              },
-                            ),
-                          ),
-                          Column(
-                            children: [
-                              CustomLinearProgressIndicator(
-                                visible: serverConnectionStateSnapshot.data == ServerConnectionState.loading,
-                              ),
-                              if (serverConnectionStateSnapshot.data == ServerConnectionState.unreachable) ...[
-                                ExceptionWidget(
-                                  AppLocalizations.of(context).errorUnableToReachServer,
-                                  onRetry: _loginBloc.refresh,
-                                ),
-                              ],
-                              if (serverConnectionStateSnapshot.data == ServerConnectionState.maintenanceMode) ...[
-                                ExceptionWidget(
-                                  AppLocalizations.of(context).errorServerInMaintenanceMode,
-                                  onRetry: _loginBloc.refresh,
-                                ),
-                              ],
-                            ],
-                          ),
+                          ],
                         ],
+                      )
+                    : null,
+                body: serverConnectionStateSnapshot.data == ServerConnectionState.success
+                    ? Provider.of<NeonPlatform>(context).canUseWebView
+                        ? WebView(
+                            javascriptMode: JavascriptMode.unrestricted,
+                            zoomEnabled: false,
+                            userAgent: userAgent(_packageInfo),
+                            onWebViewCreated: (final controller) async {
+                              _webViewController = controller;
+                              final url =
+                                  (await _loginBloc.loginFlowInit.firstWhere((final init) => init != null))!.login;
+                              if (mounted) {
+                                await _webViewController!.loadUrl(url);
+                              }
+                            },
+                          )
+                        : Center(
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text(AppLocalizations.of(context).loginSwitchToBrowserWindow),
+                                const SizedBox(
+                                  height: 10,
+                                ),
+                                ElevatedButton(
+                                  onPressed: _loginBloc.refresh,
+                                  child: Text(AppLocalizations.of(context).loginOpenAgain),
+                                ),
+                              ],
+                            ),
+                          )
+                    : Center(
+                        child: ListView(
+                          shrinkWrap: true,
+                          padding: const EdgeInsets.symmetric(vertical: 40, horizontal: 20),
+                          children: [
+                            SizedBox(
+                              height: MediaQuery.of(context).size.height / 2,
+                              child: Column(
+                                children: [
+                                  const NeonLogo(),
+                                  const SizedBox(
+                                    height: 30,
+                                  ),
+                                  Text(AppLocalizations.of(context).loginWorksWith),
+                                  const SizedBox(
+                                    height: 20,
+                                  ),
+                                  const NextcloudLogo(),
+                                ],
+                              ),
+                            ),
+                            Form(
+                              key: _formKey,
+                              child: TextFormField(
+                                focusNode: _focusNode,
+                                decoration: const InputDecoration(
+                                  hintText: 'https://...',
+                                ),
+                                initialValue: widget.serverURL,
+                                validator: (final input) => validateHttpUrl(context, input),
+                                onFieldSubmitted: (final input) {
+                                  if (_formKey.currentState!.validate()) {
+                                    _loginBloc.setServerURL(input);
+                                  } else {
+                                    _focusNode.requestFocus();
+                                  }
+                                },
+                              ),
+                            ),
+                            Column(
+                              children: [
+                                CustomLinearProgressIndicator(
+                                  visible: serverConnectionStateSnapshot.data == ServerConnectionState.loading,
+                                ),
+                                if (serverConnectionStateSnapshot.data == ServerConnectionState.unreachable) ...[
+                                  ExceptionWidget(
+                                    AppLocalizations.of(context).errorUnableToReachServer,
+                                    onRetry: _loginBloc.refresh,
+                                  ),
+                                ],
+                                if (serverConnectionStateSnapshot.data == ServerConnectionState.maintenanceMode) ...[
+                                  ExceptionWidget(
+                                    AppLocalizations.of(context).errorServerInMaintenanceMode,
+                                    onRetry: _loginBloc.refresh,
+                                  ),
+                                ],
+                              ],
+                            ),
+                          ],
+                        ),
                       ),
-                    ),
+              ),
             ),
           ),
         ),
-      ),
-    );
-  }
+      );
 }
