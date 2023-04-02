@@ -35,7 +35,7 @@ function copy_nextcloud_app_svg() {
     echo "Can not find icon for $id in $path"
     exit 1
   fi
-  sed -i "s/fill=\"[^\"]*\"/fill=\"$color\"/g" "$target"
+  sed -i "s/fill=\"#[^\"]*\"/fill=\"$color\"/g" "$target"
 }
 
 rm -rf /tmp/nextcloud-neon
