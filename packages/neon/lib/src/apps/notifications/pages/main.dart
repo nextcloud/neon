@@ -90,6 +90,9 @@ class _NotificationsMainPageState extends State<NotificationsMainPage> {
               ),
             ),
       onTap: () async {
+        if (notification.app == 'notifications') {
+          return;
+        }
         final allAppImplementations = Provider.of<List<AppImplementation>>(context, listen: false);
         final matchingAppImplementations = allAppImplementations.where((final a) => a.id == notification.app);
         if (matchingAppImplementations.isNotEmpty) {
