@@ -3495,7 +3495,7 @@ class NextcloudCoreNavigationApps_Ocs_Data_Order {
     try {
       string = (data as String);
     } catch (_) {}
-    assert([$int, string].where((final x) => x != null).length == 1, 'Need oneOf for $data');
+    assert([$int, string].where((final x) => x != null).length >= 1, 'Need oneOf for $data');
     return NextcloudCoreNavigationApps_Ocs_Data_Order(
       data,
       $int: $int,
@@ -3722,7 +3722,7 @@ class NextcloudCoreAutocompleteResult_Ocs_Data_Status {
     try {
       string = (data as String);
     } catch (_) {}
-    assert([listDynamic, string].where((final x) => x != null).length == 1, 'Need oneOf for $data');
+    assert([listDynamic, string].where((final x) => x != null).length >= 1, 'Need oneOf for $data');
     return NextcloudCoreAutocompleteResult_Ocs_Data_Status(
       data,
       listDynamic: listDynamic,
@@ -5201,7 +5201,7 @@ class NextcloudUserStatusClearAt_Time {
     try {
       $int = (data as int);
     } catch (_) {}
-    assert([userStatusClearAtTime0, $int].where((final x) => x != null).length == 1, 'Need oneOf for $data');
+    assert([userStatusClearAtTime0, $int].where((final x) => x != null).length >= 1, 'Need oneOf for $data');
     return NextcloudUserStatusClearAt_Time(
       data,
       userStatusClearAtTime0: userStatusClearAtTime0,
@@ -5271,7 +5271,7 @@ class NextcloudUserStatusPublicStatus_ClearAt {
     try {
       $int = (data as int);
     } catch (_) {}
-    assert([userStatusClearAt, $int].where((final x) => x != null).length == 1, 'Need oneOf for $data');
+    assert([userStatusClearAt, $int].where((final x) => x != null).length >= 1, 'Need oneOf for $data');
     return NextcloudUserStatusPublicStatus_ClearAt(
       data,
       userStatusClearAt: userStatusClearAt,
@@ -5432,7 +5432,7 @@ class NextcloudUserStatusGetPublicStatus_Ocs_Data {
     try {
       userStatusPublicStatus = NextcloudUserStatusPublicStatus.fromJson(data as Map<String, dynamic>);
     } catch (_) {}
-    assert([listDynamic, userStatusPublicStatus].where((final x) => x != null).length == 1, 'Need oneOf for $data');
+    assert([listDynamic, userStatusPublicStatus].where((final x) => x != null).length >= 1, 'Need oneOf for $data');
     return NextcloudUserStatusGetPublicStatus_Ocs_Data(
       data,
       listDynamic: listDynamic,
@@ -5526,7 +5526,7 @@ class NextcloudUserStatusStatus_ClearAt {
     try {
       $int = (data as int);
     } catch (_) {}
-    assert([userStatusClearAt, $int].where((final x) => x != null).length == 1, 'Need oneOf for $data');
+    assert([userStatusClearAt, $int].where((final x) => x != null).length >= 1, 'Need oneOf for $data');
     return NextcloudUserStatusStatus_ClearAt(
       data,
       userStatusClearAt: userStatusClearAt,
@@ -5614,7 +5614,7 @@ class NextcloudUserStatusGetStatus_Ocs_Data {
     try {
       userStatusStatus = NextcloudUserStatusStatus.fromJson(data as Map<String, dynamic>);
     } catch (_) {}
-    assert([listDynamic, userStatusStatus].where((final x) => x != null).length == 1, 'Need oneOf for $data');
+    assert([listDynamic, userStatusStatus].where((final x) => x != null).length >= 1, 'Need oneOf for $data');
     return NextcloudUserStatusGetStatus_Ocs_Data(
       data,
       listDynamic: listDynamic,
@@ -5707,7 +5707,7 @@ class NextcloudUserStatusPredefinedStatus_ClearAt {
     try {
       $int = (data as int);
     } catch (_) {}
-    assert([userStatusClearAt, $int].where((final x) => x != null).length == 1, 'Need oneOf for $data');
+    assert([userStatusClearAt, $int].where((final x) => x != null).length >= 1, 'Need oneOf for $data');
     return NextcloudUserStatusPredefinedStatus_ClearAt(
       data,
       userStatusClearAt: userStatusClearAt,
