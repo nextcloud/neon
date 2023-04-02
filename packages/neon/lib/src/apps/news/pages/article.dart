@@ -22,7 +22,6 @@ class NewsArticlePage extends StatefulWidget {
 }
 
 class _NewsArticlePageState extends State<NewsArticlePage> {
-  bool _webviewLoading = true;
   WebViewController? _webviewController;
   Timer? _markAsReadTimer;
 
@@ -150,42 +149,15 @@ class _NewsArticlePageState extends State<NewsArticlePage> {
             ],
           ),
           body: widget.useWebView
-              ? Stack(
-                  alignment: Alignment.center,
-                  fit: StackFit.expand,
-                  children: [
-                    WebView(
-                      javascriptMode: JavascriptMode.unrestricted,
-                      onWebViewCreated: (final controller) async {
-                        _webviewController = controller;
-                        await controller.loadUrl(widget.url!);
-                      },
-                      onPageStarted: (final _) {
-                        setState(() {
-                          _webviewLoading = true;
-                        });
-                      },
-                      onPageFinished: (final _) async {
-                        await _startMarkAsReadTimer();
-                        setState(() {
-                          _webviewLoading = false;
-                        });
-                      },
-                    ),
-                    if (_webviewLoading) ...[
-                      ColoredBox(
-                        color: Theme.of(context).colorScheme.background,
-                        child: Center(
-                          child: LayoutBuilder(
-                            builder: (final context, final constraints) => SizedBox(
-                              width: constraints.maxWidth / 2,
-                              child: const CustomLinearProgressIndicator(),
-                            ),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ],
+              ? WebView(
+                  javascriptMode: JavascriptMode.unrestricted,
+                  onWebViewCreated: (final controller) async {
+                    _webviewController = controller;
+                    await controller.loadUrl(widget.url!);
+                  },
+                  onPageFinished: (final _) async {
+                    await _startMarkAsReadTimer();
+                  },
                 )
               : SingleChildScrollView(
                   padding: const EdgeInsets.all(10),
