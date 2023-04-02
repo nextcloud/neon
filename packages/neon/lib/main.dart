@@ -1,6 +1,4 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:neon/src/neon.dart';
 import 'package:package_info_plus/package_info_plus.dart';
@@ -8,19 +6,6 @@ import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 Future main() async {
-  Env? env;
-  try {
-    await dotenv.load(fileName: 'assets/.env');
-    if (dotenv.env.keys.isNotEmpty) {
-      if (kReleaseMode) {
-        throw Exception('A release build can not contain a .env file');
-      }
-      env = Env.fromMap(dotenv.env);
-    }
-  } catch (e) {
-    debugPrint('Failed to load env: $e');
-  }
-
   WidgetsFlutterBinding.ensureInitialized();
 
   FlutterNativeSplash.preserve(widgetsBinding: WidgetsBinding.instance);
@@ -63,9 +48,6 @@ Future main() async {
         Provider<SharedPreferences>(
           create: (final _) => sharedPreferences,
         ),
-        Provider<Env?>(
-          create: (final _) => env,
-        ),
         Provider<NeonPlatform>(
           create: (final _) => platform,
         ),
@@ -97,7 +79,6 @@ Future main() async {
       child: NeonApp(
         accountsBloc: accountsBloc,
         sharedPreferences: sharedPreferences,
-        env: env,
         platform: platform,
         globalOptions: globalOptions,
       ),

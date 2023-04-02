@@ -2,7 +2,7 @@
 set -euxo pipefail
 cd "$(dirname "$0")/.."
 
-./tool/build-dev-container-image.sh
+./tool/build-dev-container.sh
 container_id="$(docker run --rm -d -p "80:80" nextcloud-neon-dev)"
 function cleanup() {
     docker kill "$container_id"

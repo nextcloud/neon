@@ -147,9 +147,6 @@ Future pumpAppPage(
         Provider<SharedPreferences>(
           create: (final _) => sharedPreferences,
         ),
-        Provider<Env?>(
-          create: (final _) => null,
-        ),
         Provider<NeonPlatform>(
           create: (final _) => platform,
         ),
