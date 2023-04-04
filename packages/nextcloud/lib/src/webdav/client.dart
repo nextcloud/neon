@@ -43,6 +43,7 @@ class WebDavClient {
       HttpHeaders.contentTypeHeader: 'application/xml',
       ...rootClient.baseHeaders,
       if (headers != null) ...headers,
+      if (rootClient.authentications.isNotEmpty) ...rootClient.authentications.first.headers,
     }.entries) {
       request.headers.add(header.key, header.value);
     }

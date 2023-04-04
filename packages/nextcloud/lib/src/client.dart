@@ -20,12 +20,14 @@ class NextcloudClient extends openapi.NextcloudClient {
           }..removeWhere((final _, final value) => value == null))
               .cast<String, String>(),
           userAgent: userAgentOverride ?? appType.userAgent,
-          authentication: loginName != null && password != null
-              ? openapi.NextcloudHttpBasicAuthentication(
-                  username: loginName,
-                  password: password,
-                )
-              : null,
+          authentications: [
+            if (loginName != null && password != null) ...[
+              openapi.NextcloudHttpBasicAuthentication(
+                username: loginName,
+                password: password,
+              ),
+            ],
+          ],
         );
 
   /// Identifier used for authentication. This can be the username or email or something else.

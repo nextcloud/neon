@@ -2008,6 +2008,7 @@
         "tags": [
           "core"
         ],
+        "security": [],
         "responses": {
           "200": {
             "description": "Status of the Nextcloud instance",

@@ -17,7 +17,8 @@ Operation _$OperationFromJson(Map<String, dynamic> json) {
       'tags',
       'parameters',
       'requestBody',
-      'responses'
+      'responses',
+      'security'
     ],
   );
   return Operation(
@@ -32,6 +33,11 @@ Operation _$OperationFromJson(Map<String, dynamic> json) {
     responses: (json['responses'] as Map<String, dynamic>?)?.map(
       (k, e) => MapEntry(k, Response.fromJson(e as Map<String, dynamic>)),
     ),
+    security: (json['security'] as List<dynamic>?)
+        ?.map((e) => (e as Map<String, dynamic>).map(
+              (k, e) => MapEntry(k, (e as List<dynamic>).map((e) => e as String).toList()),
+            ))
+        .toList(),
   );
 }
 
@@ -52,5 +58,6 @@ Map<String, dynamic> _$OperationToJson(Operation instance) {
   writeNotNull('parameters', instance.parameters?.map((e) => e.toJson()).toList());
   writeNotNull('requestBody', instance.requestBody?.toJson());
   writeNotNull('responses', instance.responses?.map((k, e) => MapEntry(k, e.toJson())));
+  writeNotNull('security', instance.security);
   return val;
 }
