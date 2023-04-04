@@ -55,7 +55,7 @@ class OpenAPIBuilder implements Builder {
                   : a.compareTo(b),
         );
 
-      final hasAnySecurity = spec.security?.isNotEmpty ?? false;
+      final hasAnySecurity = spec.components?.securitySchemes?.isNotEmpty ?? false;
 
       final state = State(prefix);
       final output = <String>[
@@ -255,128 +255,152 @@ class OpenAPIBuilder implements Builder {
             (final b) => b
               ..name = '${prefix}Authentication'
               ..abstract = true
-              ..methods.add(
+              ..methods.addAll([
+                Method(
+                  (final b) => b
+                    ..name = 'id'
+                    ..type = MethodType.getter
+                    ..returns = refer('String'),
+                ),
                 Method(
                   (final b) => b
                     ..name = 'headers'
                     ..type = MethodType.getter
                     ..returns = refer('Map<String, String>'),
                 ),
-              ),
+              ]),
           ).accept(emitter).toString(),
         ],
       ];
 
-      if (spec.security != null) {
-        for (final securityRequirement in spec.security!) {
-          for (final name in securityRequirement.keys) {
-            final securityScheme = spec.components!.securitySchemes![name]!;
-            switch (securityScheme.type) {
-              case 'http':
-                switch (securityScheme.scheme) {
-                  case 'basic':
-                    output.add(
-                      Class(
-                        (final b) {
-                          final fields = ['username', 'password'];
-                          b
-                            ..name = '${prefix}HttpBasicAuthentication'
-                            ..extend = refer('${prefix}Authentication')
-                            ..constructors.add(
-                              Constructor(
-                                (final b) => b
-                                  ..optionalParameters.addAll(
-                                    fields.map(
-                                      (final name) => Parameter(
-                                        (final b) => b
-                                          ..name = name
-                                          ..toThis = true
-                                          ..named = true
-                                          ..required = true,
-                                      ),
-                                    ),
-                                  ),
-                              ),
-                            )
-                            ..fields.addAll(
-                              fields.map(
-                                (final name) => Field(
-                                  (final b) => b
-                                    ..name = name
-                                    ..type = refer('String')
-                                    ..modifier = FieldModifier.final$,
-                                ),
-                              ),
-                            )
-                            ..methods.add(
-                              Method(
-                                (final b) => b
-                                  ..name = 'headers'
-                                  ..type = MethodType.getter
-                                  ..returns = refer('Map<String, String>')
-                                  ..lambda = true
-                                  ..body = const Code(r'''
-                                    {
-                                      'Authorization': 'Basic ${base64.encode(utf8.encode('$username:$password'))}',
-                                    }
-                                  '''),
-                              ),
-                            );
-                        },
-                      ).accept(emitter).toString(),
-                    );
-                    continue;
-                  case 'bearer':
-                    output.add(
-                      Class(
-                        (final b) {
-                          b
-                            ..name = '${prefix}HttpBearerAuthentication'
-                            ..extend = refer('${prefix}Authentication')
-                            ..constructors.add(
-                              Constructor(
-                                (final b) => b
-                                  ..optionalParameters.add(
-                                    Parameter(
+      if (spec.components?.securitySchemes != null) {
+        for (final name in spec.components!.securitySchemes!.keys) {
+          final securityScheme = spec.components!.securitySchemes![name]!;
+          switch (securityScheme.type) {
+            case 'http':
+              switch (securityScheme.scheme) {
+                case 'basic':
+                  output.add(
+                    Class(
+                      (final b) {
+                        final fields = ['username', 'password'];
+                        b
+                          ..name = '${prefix}HttpBasicAuthentication'
+                          ..extend = refer('${prefix}Authentication')
+                          ..constructors.add(
+                            Constructor(
+                              (final b) => b
+                                ..optionalParameters.addAll(
+                                  fields.map(
+                                    (final name) => Parameter(
                                       (final b) => b
-                                        ..name = 'token'
+                                        ..name = name
                                         ..toThis = true
                                         ..named = true
                                         ..required = true,
                                     ),
                                   ),
-                              ),
-                            )
-                            ..fields.add(
-                              Field(
+                                ),
+                            ),
+                          )
+                          ..fields.addAll(
+                            fields.map(
+                              (final name) => Field(
                                 (final b) => b
-                                  ..name = 'token'
+                                  ..name = name
                                   ..type = refer('String')
                                   ..modifier = FieldModifier.final$,
                               ),
-                            )
-                            ..methods.add(
-                              Method(
-                                (final b) => b
-                                  ..name = 'headers'
-                                  ..type = MethodType.getter
-                                  ..returns = refer('Map<String, String>')
-                                  ..lambda = true
-                                  ..body = const Code(r'''
+                            ),
+                          )
+                          ..methods.addAll([
+                            Method(
+                              (final b) => b
+                                ..name = 'id'
+                                ..annotations.add(refer('override'))
+                                ..type = MethodType.getter
+                                ..lambda = true
+                                ..returns = refer('String')
+                                ..body = Code("'$name'"),
+                            ),
+                            Method(
+                              (final b) => b
+                                ..name = 'headers'
+                                ..annotations.add(refer('override'))
+                                ..type = MethodType.getter
+                                ..returns = refer('Map<String, String>')
+                                ..lambda = true
+                                ..body = const Code(r'''
+                                    {
+                                      'Authorization': 'Basic ${base64.encode(utf8.encode('$username:$password'))}',
+                                    }
+                                  '''),
+                            ),
+                          ]);
+                      },
+                    ).accept(emitter).toString(),
+                  );
+                  continue;
+                case 'bearer':
+                  output.add(
+                    Class(
+                      (final b) {
+                        b
+                          ..name = '${prefix}HttpBearerAuthentication'
+                          ..extend = refer('${prefix}Authentication')
+                          ..constructors.add(
+                            Constructor(
+                              (final b) => b
+                                ..optionalParameters.add(
+                                  Parameter(
+                                    (final b) => b
+                                      ..name = 'token'
+                                      ..toThis = true
+                                      ..named = true
+                                      ..required = true,
+                                  ),
+                                ),
+                            ),
+                          )
+                          ..fields.addAll([
+                            Field(
+                              (final b) => b
+                                ..name = 'token'
+                                ..type = refer('String')
+                                ..modifier = FieldModifier.final$,
+                            ),
+                          ])
+                          ..methods.addAll([
+                            Method(
+                              (final b) => b
+                                ..name = 'id'
+                                ..annotations.add(refer('override'))
+                                ..type = MethodType.getter
+                                ..lambda = true
+                                ..returns = refer('String')
+                                ..body = Code("'$name'"),
+                            ),
+                            Method(
+                              (final b) => b
+                                ..name = 'headers'
+                                ..annotations.add(refer('override'))
+                                ..type = MethodType.getter
+                                ..returns = refer('Map<String, String>')
+                                ..lambda = true
+                                ..body = const Code(r'''
                                     {
                                       'Authorization': 'Bearer $token',
                                     }
                                   '''),
-                              ),
-                            );
-                        },
-                      ).accept(emitter).toString(),
-                    );
-                    continue;
-                }
-            }
-            throw Exception('Can not work with security scheme ${securityScheme.toJson()}');
+                            ),
+                          ]);
+                      },
+                    ).accept(emitter).toString(),
+                  );
+                  continue;
+              }
           }
+          throw Exception('Can not work with security scheme ${securityScheme.toJson()}');
         }
       }
 
@@ -438,8 +462,8 @@ class OpenAPIBuilder implements Builder {
                     if (hasAnySecurity) ...[
                       Field(
                         (final b) => b
-                          ..name = 'authentication'
-                          ..type = refer('${prefix}Authentication?')
+                          ..name = 'authentications'
+                          ..type = refer('List<${prefix}Authentication>')
                           ..modifier = FieldModifier.final$,
                       ),
                     ],
@@ -482,22 +506,18 @@ class OpenAPIBuilder implements Builder {
                           if (hasAnySecurity) ...[
                             Parameter(
                               (final b) => b
-                                ..name = 'authentication'
+                                ..name = 'authentications'
                                 ..toThis = true
-                                ..named = true,
+                                ..named = true
+                                ..defaultTo = const Code('const []'),
                             ),
                           ],
                         ])
-                        ..body = Code('''
+                        ..body = const Code('''
                         this.baseHeaders = {
                           if (baseHeaders != null) ...{
                             ...baseHeaders,
                           },
-                        ${hasAnySecurity ? '''
-                          if (authentication != null) ...{
-                            ...authentication!.headers,
-                          },
-                        ''' : ''}
                         };
                         this.httpClient = (httpClient ?? HttpClient())..userAgent = userAgent;
                       '''),
@@ -650,6 +670,33 @@ class OpenAPIBuilder implements Builder {
                             final headers = <String, String>{${acceptHeader != null ? "'Accept': '$acceptHeader'," : ''}};
                             Uint8List? body;
                           ''');
+
+                            final securityRequirements =
+                                (operation.security ?? spec.security) ?? <Map<String, List<String>>>[];
+                            final isOptionalSecurity =
+                                securityRequirements.where((final requirement) => requirement.keys.isEmpty).isNotEmpty;
+                            if (isOptionalSecurity) {
+                              code.write('''
+                                if (${isRootClient ? '' : 'rootClient.'}authentications.isNotEmpty) {
+                                  headers.addAll(${isRootClient ? '' : 'rootClient.'}authentications.first.headers);
+                                }
+                              ''');
+                            } else {
+                              for (final requirement in securityRequirements) {
+                                code.write('''
+                                if (${isRootClient ? '' : 'rootClient.'}authentications.map((final a) => a.id).contains('${requirement.keys.single}')) {
+                                  headers.addAll(${isRootClient ? '' : 'rootClient.'}authentications.singleWhere((final a) => a.id == '${requirement.keys.single}').headers);
+                                } else
+                              ''');
+                              }
+                              if (securityRequirements.isNotEmpty) {
+                                code.write('''
+                                {
+                                  throw Exception('Missing authentication for ${securityRequirements.map((final r) => r.keys.single).join(' or ')}');
+                                }
+                              ''');
+                              }
+                            }
 
                             for (final parameter in parameters) {
                               final nullable = _isParameterNullable(

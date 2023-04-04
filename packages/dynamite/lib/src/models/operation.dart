@@ -2,6 +2,7 @@ import 'package:dynamite/src/models/parameter.dart';
 import 'package:dynamite/src/models/request_body.dart';
 import 'package:dynamite/src/models/response.dart';
 import 'package:dynamite/src/models/responses.dart';
+import 'package:dynamite/src/models/security_requirement.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'operation.g.dart';
@@ -17,6 +18,7 @@ class Operation {
     this.parameters,
     this.requestBody,
     this.responses,
+    this.security,
   });
 
   factory Operation.fromJson(final Map<String, dynamic> json) => _$OperationFromJson(json);
@@ -37,4 +39,6 @@ class Operation {
   final RequestBody? requestBody;
 
   final Responses? responses;
+
+  final List<SecurityRequirement>? security;
 }
