@@ -675,27 +675,26 @@ class OpenAPIBuilder implements Builder {
                                 (operation.security ?? spec.security) ?? <Map<String, List<String>>>[];
                             final isOptionalSecurity =
                                 securityRequirements.where((final requirement) => requirement.keys.isEmpty).isNotEmpty;
-                            if (isOptionalSecurity) {
+                            for (final requirement in securityRequirements) {
+                              if (requirement.keys.isEmpty) {
+                                continue;
+                              }
                               code.write('''
-                                if (${isRootClient ? '' : 'rootClient.'}authentications.isNotEmpty) {
-                                  headers.addAll(${isRootClient ? '' : 'rootClient.'}authentications.first.headers);
-                                }
-                              ''');
-                            } else {
-                              for (final requirement in securityRequirements) {
-                                code.write('''
                                 if (${isRootClient ? '' : 'rootClient.'}authentications.map((final a) => a.id).contains('${requirement.keys.single}')) {
                                   headers.addAll(${isRootClient ? '' : 'rootClient.'}authentications.singleWhere((final a) => a.id == '${requirement.keys.single}').headers);
-                                } else
+                                }
                               ''');
+                              if (!isOptionalSecurity ||
+                                  securityRequirements.indexOf(requirement) != securityRequirements.length - 1) {
+                                code.write('else');
                               }
-                              if (securityRequirements.isNotEmpty) {
-                                code.write('''
+                            }
+                            if (securityRequirements.isNotEmpty && !isOptionalSecurity) {
+                              code.write('''
                                 {
                                   throw Exception('Missing authentication for ${securityRequirements.map((final r) => r.keys.single).join(' or ')}');
                                 }
                               ''');
-                              }
                             }
 
                             for (final parameter in parameters) {
