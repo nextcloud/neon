@@ -244,11 +244,6 @@ class NextcloudCoreClient {
       'Accept': 'application/json',
     };
     Uint8List? body;
-    if (rootClient.authentications.map((final a) => a.id).contains('basic_auth')) {
-      headers.addAll(rootClient.authentications.singleWhere((final a) => a.id == 'basic_auth').headers);
-    } else {
-      throw Exception('Missing authentication for basic_auth');
-    }
     final response = await rootClient.doRequest(
       'post',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
@@ -269,11 +264,6 @@ class NextcloudCoreClient {
       'Accept': 'application/json',
     };
     Uint8List? body;
-    if (rootClient.authentications.map((final a) => a.id).contains('basic_auth')) {
-      headers.addAll(rootClient.authentications.singleWhere((final a) => a.id == 'basic_auth').headers);
-    } else {
-      throw Exception('Missing authentication for basic_auth');
-    }
     queryParameters['token'] = token;
     final response = await rootClient.doRequest(
       'post',
