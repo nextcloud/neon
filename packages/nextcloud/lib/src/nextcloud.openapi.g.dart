@@ -106,6 +106,7 @@ final BuiltSet<NextcloudUserStatusType> _$nextcloudUserStatusTypeValues =
   _$nextcloudUserStatusTypeInvisible,
 ]);
 
+Serializers _$serializers = (Serializers().toBuilder()).build();
 Serializer<NextcloudNotesSettings_NoteMode> _$nextcloudNotesSettingsNoteModeSerializer =
     _$NextcloudNotesSettings_NoteModeSerializer();
 Serializer<NextcloudUserStatusClearAt_Type> _$nextcloudUserStatusClearAtTypeSerializer =

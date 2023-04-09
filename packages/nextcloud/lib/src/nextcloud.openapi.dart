@@ -4,6 +4,8 @@ import 'dart:typed_data';
 
 import 'package:built_collection/built_collection.dart';
 import 'package:built_value/built_value.dart';
+import 'package:built_value/serializer.dart';
+import 'package:built_value/standard_json_plugin.dart';
 import 'package:cookie_jar/cookie_jar.dart';
 
 export 'package:cookie_jar/cookie_jar.dart';
@@ -6180,920 +6182,126 @@ class NextcloudNotificationsNotificationDecryptedSubject {
       data == null ? null : json.encode(data.toJson());
 }
 
+@SerializersFor([
+  NextcloudCoreServerStatus,
+  NextcloudCoreServerCapabilities,
+  NextcloudCoreServerCapabilities_Ocs,
+  NextcloudOCSMeta,
+  NextcloudCoreServerCapabilities_Ocs_Data,
+  NextcloudCoreServerCapabilities_Ocs_Data_Version,
+  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities,
+  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Core,
+  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Bruteforce,
+  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_MetadataAvailable,
+  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Files,
+  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Files_DirectEditing,
+  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Activity,
+  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles,
+  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Status,
+  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Settings,
+  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle,
+  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants,
+  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants_Source,
+  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Config,
+  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member,
+  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member_Constants,
+  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Ocm,
+  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes,
+  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes_Protocols,
+  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Dav,
+  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing,
+  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public,
+  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_Password,
+  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDate,
+  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternal,
+  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemote,
+  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User,
+  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User_ExpireDate,
+  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group,
+  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDate,
+  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation,
+  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDate,
+  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupported,
+  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharee,
+  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail,
+  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_UploadFilesDrop,
+  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_Password,
+  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_ExpireDate,
+  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Notes,
+  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Notifications,
+  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy,
+  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy_Api,
+  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_ProvisioningApi,
+  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Theming,
+  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_UserStatus,
+  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_WeatherStatus,
+  NextcloudCoreNavigationApps,
+  NextcloudCoreNavigationApps_Ocs,
+  NextcloudCoreNavigationApps_Ocs_Data,
+  NextcloudCoreLoginFlowInit,
+  NextcloudCoreLoginFlowInit_Poll,
+  NextcloudCoreLoginFlowResult,
+  NextcloudCoreAutocompleteResult,
+  NextcloudCoreAutocompleteResult_Ocs,
+  NextcloudCoreAutocompleteResult_Ocs_Data,
+  NextcloudNewsSupportedAPIVersions,
+  NextcloudNewsListFolders,
+  NextcloudNewsFolder,
+  NextcloudNewsFeed,
+  NextcloudNewsArticle,
+  NextcloudNewsListFeeds,
+  NextcloudNewsListArticles,
+  NextcloudNotesNote,
+  NextcloudNotesSettings,
+  NextcloudNotificationsListNotifications,
+  NextcloudNotificationsListNotifications_Ocs,
+  NextcloudNotificationsNotification,
+  NextcloudNotificationsNotificationAction,
+  NextcloudNotificationsGetNotification,
+  NextcloudNotificationsGetNotification_Ocs,
+  NextcloudEmptyOCS,
+  NextcloudEmptyOCS_Ocs,
+  NextcloudNotificationsPushServerRegistration,
+  NextcloudNotificationsPushServerRegistration_Ocs,
+  NextcloudNotificationsPushServerSubscription,
+  NextcloudProvisioningApiUser,
+  NextcloudProvisioningApiUser_Ocs,
+  NextcloudProvisioningApiUserDetails,
+  NextcloudProvisioningApiUserDetails_Quota,
+  NextcloudProvisioningApiUserDetails_BackendCapabilities,
+  NextcloudUnifiedPushProviderCheckResponse200ApplicationJson,
+  NextcloudUnifiedPushProviderSetKeepaliveResponse200ApplicationJson,
+  NextcloudUnifiedPushProviderCreateDeviceResponse200ApplicationJson,
+  NextcloudUnifiedPushProviderSyncDeviceResponse401ApplicationJson,
+  NextcloudUnifiedPushProviderDeleteDeviceResponse200ApplicationJson,
+  NextcloudUnifiedPushProviderCreateAppResponse200ApplicationJson,
+  NextcloudUnifiedPushProviderDeleteAppResponse200ApplicationJson,
+  NextcloudUnifiedPushProviderUnifiedpushDiscoveryResponse200ApplicationJson,
+  NextcloudUnifiedPushProviderUnifiedpushDiscoveryResponse200ApplicationJson_Unifiedpush,
+  NextcloudUnifiedPushProviderPushResponse201ApplicationJson,
+  NextcloudUnifiedPushProviderGatewayMatrixDiscoveryResponse200ApplicationJson,
+  NextcloudUnifiedPushProviderGatewayMatrixDiscoveryResponse200ApplicationJson_Unifiedpush,
+  NextcloudUnifiedPushProviderGatewayMatrixResponse200ApplicationJson,
+  NextcloudUserStatusGetPublicStatuses,
+  NextcloudUserStatusGetPublicStatuses_Ocs,
+  NextcloudUserStatusPublicStatus,
+  NextcloudUserStatusClearAt,
+  NextcloudUserStatusGetPublicStatus,
+  NextcloudUserStatusGetPublicStatus_Ocs,
+  NextcloudUserStatusGetStatus,
+  NextcloudUserStatusGetStatus_Ocs,
+  NextcloudUserStatusStatus,
+  NextcloudUserStatusPredefinedStatuses,
+  NextcloudUserStatusPredefinedStatuses_Ocs,
+  NextcloudUserStatusPredefinedStatus,
+  NextcloudUserStatusHeartbeat,
+  NextcloudUserStatusHeartbeat_Ocs,
+  NextcloudNotificationsNotificationDecryptedSubject,
+])
+final Serializers serializers = (_$serializers.toBuilder()..addPlugin(StandardJsonPlugin())).build();
+
 // coverage:ignore-start
-final _deserializers = <Type, dynamic Function(dynamic)>{
-  NextcloudCoreServerStatus: (final data) => NextcloudCoreServerStatus.fromJson(data as Map<String, dynamic>),
-  List<NextcloudCoreServerStatus>: (final data) =>
-      (data as List).map((final e) => NextcloudCoreServerStatus.fromJson(e as Map<String, dynamic>)).toList(),
-  NextcloudCoreServerCapabilities: (final data) =>
-      NextcloudCoreServerCapabilities.fromJson(data as Map<String, dynamic>),
-  List<NextcloudCoreServerCapabilities>: (final data) =>
-      (data as List).map((final e) => NextcloudCoreServerCapabilities.fromJson(e as Map<String, dynamic>)).toList(),
-  NextcloudCoreServerCapabilities_Ocs: (final data) =>
-      NextcloudCoreServerCapabilities_Ocs.fromJson(data as Map<String, dynamic>),
-  List<NextcloudCoreServerCapabilities_Ocs>: (final data) =>
-      (data as List).map((final e) => NextcloudCoreServerCapabilities_Ocs.fromJson(e as Map<String, dynamic>)).toList(),
-  NextcloudOCSMeta: (final data) => NextcloudOCSMeta.fromJson(data as Map<String, dynamic>),
-  List<NextcloudOCSMeta>: (final data) =>
-      (data as List).map((final e) => NextcloudOCSMeta.fromJson(e as Map<String, dynamic>)).toList(),
-  NextcloudCoreServerCapabilities_Ocs_Data: (final data) =>
-      NextcloudCoreServerCapabilities_Ocs_Data.fromJson(data as Map<String, dynamic>),
-  List<NextcloudCoreServerCapabilities_Ocs_Data>: (final data) => (data as List)
-      .map((final e) => NextcloudCoreServerCapabilities_Ocs_Data.fromJson(e as Map<String, dynamic>))
-      .toList(),
-  NextcloudCoreServerCapabilities_Ocs_Data_Version: (final data) =>
-      NextcloudCoreServerCapabilities_Ocs_Data_Version.fromJson(data as Map<String, dynamic>),
-  List<NextcloudCoreServerCapabilities_Ocs_Data_Version>: (final data) => (data as List)
-      .map((final e) => NextcloudCoreServerCapabilities_Ocs_Data_Version.fromJson(e as Map<String, dynamic>))
-      .toList(),
-  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities: (final data) =>
-      NextcloudCoreServerCapabilities_Ocs_Data_Capabilities.fromJson(data as Map<String, dynamic>),
-  List<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities>: (final data) => (data as List)
-      .map((final e) => NextcloudCoreServerCapabilities_Ocs_Data_Capabilities.fromJson(e as Map<String, dynamic>))
-      .toList(),
-  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Core: (final data) =>
-      NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Core.fromJson(data as Map<String, dynamic>),
-  List<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Core>: (final data) => (data as List)
-      .map((final e) => NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Core.fromJson(e as Map<String, dynamic>))
-      .toList(),
-  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Bruteforce: (final data) =>
-      NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Bruteforce.fromJson(data as Map<String, dynamic>),
-  List<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Bruteforce>: (final data) => (data as List)
-      .map((final e) =>
-          NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Bruteforce.fromJson(e as Map<String, dynamic>))
-      .toList(),
-  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_MetadataAvailable: (final data) =>
-      NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_MetadataAvailable.fromJson(data as Map<String, dynamic>),
-  List<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_MetadataAvailable>: (final data) => (data as List)
-      .map((final e) =>
-          NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_MetadataAvailable.fromJson(e as Map<String, dynamic>))
-      .toList(),
-  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Files: (final data) =>
-      NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Files.fromJson(data as Map<String, dynamic>),
-  List<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Files>: (final data) => (data as List)
-      .map((final e) => NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Files.fromJson(e as Map<String, dynamic>))
-      .toList(),
-  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Files_DirectEditing: (final data) =>
-      NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Files_DirectEditing.fromJson(data as Map<String, dynamic>),
-  List<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Files_DirectEditing>: (final data) => (data as List)
-      .map((final e) =>
-          NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Files_DirectEditing.fromJson(e as Map<String, dynamic>))
-      .toList(),
-  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Activity: (final data) =>
-      NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Activity.fromJson(data as Map<String, dynamic>),
-  List<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Activity>: (final data) => (data as List)
-      .map((final e) =>
-          NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Activity.fromJson(e as Map<String, dynamic>))
-      .toList(),
-  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles: (final data) =>
-      NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles.fromJson(data as Map<String, dynamic>),
-  List<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles>: (final data) => (data as List)
-      .map((final e) =>
-          NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles.fromJson(e as Map<String, dynamic>))
-      .toList(),
-  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Status: (final data) =>
-      NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Status.fromJson(data as Map<String, dynamic>),
-  List<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Status>: (final data) => (data as List)
-      .map((final e) =>
-          NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Status.fromJson(e as Map<String, dynamic>))
-      .toList(),
-  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Settings: (final data) =>
-      NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Settings.fromJson(data as Map<String, dynamic>),
-  List<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Settings>: (final data) => (data as List)
-      .map((final e) =>
-          NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Settings.fromJson(e as Map<String, dynamic>))
-      .toList(),
-  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle: (final data) =>
-      NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle.fromJson(data as Map<String, dynamic>),
-  List<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle>: (final data) => (data as List)
-      .map((final e) =>
-          NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle.fromJson(e as Map<String, dynamic>))
-      .toList(),
-  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants: (final data) =>
-      NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants.fromJson(
-          data as Map<String, dynamic>),
-  List<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants>: (final data) => (data as List)
-      .map((final e) => NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants.fromJson(
-          e as Map<String, dynamic>))
-      .toList(),
-  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants_Source: (final data) =>
-      NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants_Source.fromJson(
-          data as Map<String, dynamic>),
-  List<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants_Source>: (final data) => (data
-          as List)
-      .map((final e) => NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants_Source.fromJson(
-          e as Map<String, dynamic>))
-      .toList(),
-  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Config: (final data) =>
-      NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Config.fromJson(
-          data as Map<String, dynamic>),
-  List<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Config>: (final data) => (data as List)
-      .map((final e) => NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Config.fromJson(
-          e as Map<String, dynamic>))
-      .toList(),
-  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member: (final data) =>
-      NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member.fromJson(data as Map<String, dynamic>),
-  List<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member>: (final data) => (data as List)
-      .map((final e) =>
-          NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member.fromJson(e as Map<String, dynamic>))
-      .toList(),
-  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member_Constants: (final data) =>
-      NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member_Constants.fromJson(
-          data as Map<String, dynamic>),
-  List<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member_Constants>: (final data) => (data as List)
-      .map((final e) => NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member_Constants.fromJson(
-          e as Map<String, dynamic>))
-      .toList(),
-  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Ocm: (final data) =>
-      NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Ocm.fromJson(data as Map<String, dynamic>),
-  List<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Ocm>: (final data) => (data as List)
-      .map((final e) => NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Ocm.fromJson(e as Map<String, dynamic>))
-      .toList(),
-  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes: (final data) =>
-      NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes.fromJson(data as Map<String, dynamic>),
-  List<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes>: (final data) => (data as List)
-      .map((final e) =>
-          NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes.fromJson(e as Map<String, dynamic>))
-      .toList(),
-  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes_Protocols: (final data) =>
-      NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes_Protocols.fromJson(
-          data as Map<String, dynamic>),
-  List<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes_Protocols>: (final data) =>
-      (data as List)
-          .map((final e) => NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes_Protocols.fromJson(
-              e as Map<String, dynamic>))
-          .toList(),
-  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Dav: (final data) =>
-      NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Dav.fromJson(data as Map<String, dynamic>),
-  List<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Dav>: (final data) => (data as List)
-      .map((final e) => NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Dav.fromJson(e as Map<String, dynamic>))
-      .toList(),
-  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing: (final data) =>
-      NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing.fromJson(data as Map<String, dynamic>),
-  List<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing>: (final data) => (data as List)
-      .map((final e) =>
-          NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing.fromJson(e as Map<String, dynamic>))
-      .toList(),
-  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public: (final data) =>
-      NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public.fromJson(data as Map<String, dynamic>),
-  List<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public>: (final data) => (data as List)
-      .map((final e) =>
-          NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public.fromJson(e as Map<String, dynamic>))
-      .toList(),
-  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_Password: (final data) =>
-      NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_Password.fromJson(
-          data as Map<String, dynamic>),
-  List<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_Password>: (final data) =>
-      (data as List)
-          .map((final e) => NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_Password.fromJson(
-              e as Map<String, dynamic>))
-          .toList(),
-  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDate: (final data) =>
-      NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDate.fromJson(
-          data as Map<String, dynamic>),
-  List<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDate>: (final data) => (data
-          as List)
-      .map((final e) => NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDate.fromJson(
-          e as Map<String, dynamic>))
-      .toList(),
-  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternal: (final data) =>
-      NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternal.fromJson(
-          data as Map<String, dynamic>),
-  List<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternal>: (final data) =>
-      (data as List)
-          .map((final e) =>
-              NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternal.fromJson(
-                  e as Map<String, dynamic>))
-          .toList(),
-  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemote: (final data) =>
-      NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemote.fromJson(
-          data as Map<String, dynamic>),
-  List<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemote>: (final data) =>
-      (data as List)
-          .map((final e) =>
-              NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemote.fromJson(
-                  e as Map<String, dynamic>))
-          .toList(),
-  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User: (final data) =>
-      NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User.fromJson(data as Map<String, dynamic>),
-  List<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User>: (final data) => (data as List)
-      .map((final e) =>
-          NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User.fromJson(e as Map<String, dynamic>))
-      .toList(),
-  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User_ExpireDate: (final data) =>
-      NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User_ExpireDate.fromJson(
-          data as Map<String, dynamic>),
-  List<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User_ExpireDate>: (final data) =>
-      (data as List)
-          .map((final e) => NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User_ExpireDate.fromJson(
-              e as Map<String, dynamic>))
-          .toList(),
-  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group: (final data) =>
-      NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group.fromJson(data as Map<String, dynamic>),
-  List<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group>: (final data) => (data as List)
-      .map((final e) =>
-          NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group.fromJson(e as Map<String, dynamic>))
-      .toList(),
-  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDate: (final data) =>
-      NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDate.fromJson(
-          data as Map<String, dynamic>),
-  List<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDate>: (final data) => (data
-          as List)
-      .map((final e) => NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDate.fromJson(
-          e as Map<String, dynamic>))
-      .toList(),
-  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation: (final data) =>
-      NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation.fromJson(
-          data as Map<String, dynamic>),
-  List<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation>: (final data) => (data as List)
-      .map((final e) => NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation.fromJson(
-          e as Map<String, dynamic>))
-      .toList(),
-  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDate: (final data) =>
-      NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDate.fromJson(
-          data as Map<String, dynamic>),
-  List<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDate>: (final data) =>
-      (data as List)
-          .map((final e) =>
-              NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDate.fromJson(
-                  e as Map<String, dynamic>))
-          .toList(),
-  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupported: (final data) =>
-      NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupported.fromJson(
-          data as Map<String, dynamic>),
-  List<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupported>:
-      (final data) => (data as List)
-          .map((final e) =>
-              NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupported
-                  .fromJson(e as Map<String, dynamic>))
-          .toList(),
-  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharee: (final data) =>
-      NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharee.fromJson(data as Map<String, dynamic>),
-  List<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharee>: (final data) => (data as List)
-      .map((final e) =>
-          NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharee.fromJson(e as Map<String, dynamic>))
-      .toList(),
-  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail: (final data) =>
-      NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail.fromJson(
-          data as Map<String, dynamic>),
-  List<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail>: (final data) => (data as List)
-      .map((final e) => NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail.fromJson(
-          e as Map<String, dynamic>))
-      .toList(),
-  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_UploadFilesDrop: (final data) =>
-      NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_UploadFilesDrop.fromJson(
-          data as Map<String, dynamic>),
-  List<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_UploadFilesDrop>: (final data) =>
-      (data as List)
-          .map((final e) =>
-              NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_UploadFilesDrop.fromJson(
-                  e as Map<String, dynamic>))
-          .toList(),
-  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_Password: (final data) =>
-      NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_Password.fromJson(
-          data as Map<String, dynamic>),
-  List<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_Password>: (final data) =>
-      (data as List)
-          .map((final e) =>
-              NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_Password.fromJson(
-                  e as Map<String, dynamic>))
-          .toList(),
-  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_ExpireDate: (final data) =>
-      NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_ExpireDate.fromJson(
-          data as Map<String, dynamic>),
-  List<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_ExpireDate>: (final data) =>
-      (data as List)
-          .map((final e) =>
-              NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_ExpireDate.fromJson(
-                  e as Map<String, dynamic>))
-          .toList(),
-  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Notes: (final data) =>
-      NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Notes.fromJson(data as Map<String, dynamic>),
-  List<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Notes>: (final data) => (data as List)
-      .map((final e) => NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Notes.fromJson(e as Map<String, dynamic>))
-      .toList(),
-  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Notifications: (final data) =>
-      NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Notifications.fromJson(data as Map<String, dynamic>),
-  List<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Notifications>: (final data) => (data as List)
-      .map((final e) =>
-          NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Notifications.fromJson(e as Map<String, dynamic>))
-      .toList(),
-  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy: (final data) =>
-      NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy.fromJson(data as Map<String, dynamic>),
-  List<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy>: (final data) => (data as List)
-      .map((final e) =>
-          NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy.fromJson(e as Map<String, dynamic>))
-      .toList(),
-  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy_Api: (final data) =>
-      NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy_Api.fromJson(data as Map<String, dynamic>),
-  List<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy_Api>: (final data) => (data as List)
-      .map((final e) =>
-          NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy_Api.fromJson(e as Map<String, dynamic>))
-      .toList(),
-  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_ProvisioningApi: (final data) =>
-      NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_ProvisioningApi.fromJson(data as Map<String, dynamic>),
-  List<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_ProvisioningApi>: (final data) => (data as List)
-      .map((final e) =>
-          NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_ProvisioningApi.fromJson(e as Map<String, dynamic>))
-      .toList(),
-  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Theming: (final data) =>
-      NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Theming.fromJson(data as Map<String, dynamic>),
-  List<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Theming>: (final data) => (data as List)
-      .map((final e) =>
-          NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Theming.fromJson(e as Map<String, dynamic>))
-      .toList(),
-  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_UserStatus: (final data) =>
-      NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_UserStatus.fromJson(data as Map<String, dynamic>),
-  List<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_UserStatus>: (final data) => (data as List)
-      .map((final e) =>
-          NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_UserStatus.fromJson(e as Map<String, dynamic>))
-      .toList(),
-  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_WeatherStatus: (final data) =>
-      NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_WeatherStatus.fromJson(data as Map<String, dynamic>),
-  List<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_WeatherStatus>: (final data) => (data as List)
-      .map((final e) =>
-          NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_WeatherStatus.fromJson(e as Map<String, dynamic>))
-      .toList(),
-  NextcloudCoreNavigationApps: (final data) => NextcloudCoreNavigationApps.fromJson(data as Map<String, dynamic>),
-  List<NextcloudCoreNavigationApps>: (final data) =>
-      (data as List).map((final e) => NextcloudCoreNavigationApps.fromJson(e as Map<String, dynamic>)).toList(),
-  NextcloudCoreNavigationApps_Ocs: (final data) =>
-      NextcloudCoreNavigationApps_Ocs.fromJson(data as Map<String, dynamic>),
-  List<NextcloudCoreNavigationApps_Ocs>: (final data) =>
-      (data as List).map((final e) => NextcloudCoreNavigationApps_Ocs.fromJson(e as Map<String, dynamic>)).toList(),
-  NextcloudCoreNavigationApps_Ocs_Data: (final data) =>
-      NextcloudCoreNavigationApps_Ocs_Data.fromJson(data as Map<String, dynamic>),
-  List<NextcloudCoreNavigationApps_Ocs_Data>: (final data) => (data as List)
-      .map((final e) => NextcloudCoreNavigationApps_Ocs_Data.fromJson(e as Map<String, dynamic>))
-      .toList(),
-  NextcloudCoreLoginFlowInit: (final data) => NextcloudCoreLoginFlowInit.fromJson(data as Map<String, dynamic>),
-  List<NextcloudCoreLoginFlowInit>: (final data) =>
-      (data as List).map((final e) => NextcloudCoreLoginFlowInit.fromJson(e as Map<String, dynamic>)).toList(),
-  NextcloudCoreLoginFlowInit_Poll: (final data) =>
-      NextcloudCoreLoginFlowInit_Poll.fromJson(data as Map<String, dynamic>),
-  List<NextcloudCoreLoginFlowInit_Poll>: (final data) =>
-      (data as List).map((final e) => NextcloudCoreLoginFlowInit_Poll.fromJson(e as Map<String, dynamic>)).toList(),
-  NextcloudCoreLoginFlowResult: (final data) => NextcloudCoreLoginFlowResult.fromJson(data as Map<String, dynamic>),
-  List<NextcloudCoreLoginFlowResult>: (final data) =>
-      (data as List).map((final e) => NextcloudCoreLoginFlowResult.fromJson(e as Map<String, dynamic>)).toList(),
-  NextcloudCoreAutocompleteResult: (final data) =>
-      NextcloudCoreAutocompleteResult.fromJson(data as Map<String, dynamic>),
-  List<NextcloudCoreAutocompleteResult>: (final data) =>
-      (data as List).map((final e) => NextcloudCoreAutocompleteResult.fromJson(e as Map<String, dynamic>)).toList(),
-  NextcloudCoreAutocompleteResult_Ocs: (final data) =>
-      NextcloudCoreAutocompleteResult_Ocs.fromJson(data as Map<String, dynamic>),
-  List<NextcloudCoreAutocompleteResult_Ocs>: (final data) =>
-      (data as List).map((final e) => NextcloudCoreAutocompleteResult_Ocs.fromJson(e as Map<String, dynamic>)).toList(),
-  NextcloudCoreAutocompleteResult_Ocs_Data: (final data) =>
-      NextcloudCoreAutocompleteResult_Ocs_Data.fromJson(data as Map<String, dynamic>),
-  List<NextcloudCoreAutocompleteResult_Ocs_Data>: (final data) => (data as List)
-      .map((final e) => NextcloudCoreAutocompleteResult_Ocs_Data.fromJson(e as Map<String, dynamic>))
-      .toList(),
-  NextcloudNewsSupportedAPIVersions: (final data) =>
-      NextcloudNewsSupportedAPIVersions.fromJson(data as Map<String, dynamic>),
-  List<NextcloudNewsSupportedAPIVersions>: (final data) =>
-      (data as List).map((final e) => NextcloudNewsSupportedAPIVersions.fromJson(e as Map<String, dynamic>)).toList(),
-  NextcloudNewsListFolders: (final data) => NextcloudNewsListFolders.fromJson(data as Map<String, dynamic>),
-  List<NextcloudNewsListFolders>: (final data) =>
-      (data as List).map((final e) => NextcloudNewsListFolders.fromJson(e as Map<String, dynamic>)).toList(),
-  NextcloudNewsFolder: (final data) => NextcloudNewsFolder.fromJson(data as Map<String, dynamic>),
-  List<NextcloudNewsFolder>: (final data) =>
-      (data as List).map((final e) => NextcloudNewsFolder.fromJson(e as Map<String, dynamic>)).toList(),
-  NextcloudNewsFeed: (final data) => NextcloudNewsFeed.fromJson(data as Map<String, dynamic>),
-  List<NextcloudNewsFeed>: (final data) =>
-      (data as List).map((final e) => NextcloudNewsFeed.fromJson(e as Map<String, dynamic>)).toList(),
-  NextcloudNewsArticle: (final data) => NextcloudNewsArticle.fromJson(data as Map<String, dynamic>),
-  List<NextcloudNewsArticle>: (final data) =>
-      (data as List).map((final e) => NextcloudNewsArticle.fromJson(e as Map<String, dynamic>)).toList(),
-  NextcloudNewsListFeeds: (final data) => NextcloudNewsListFeeds.fromJson(data as Map<String, dynamic>),
-  List<NextcloudNewsListFeeds>: (final data) =>
-      (data as List).map((final e) => NextcloudNewsListFeeds.fromJson(e as Map<String, dynamic>)).toList(),
-  NextcloudNewsListArticles: (final data) => NextcloudNewsListArticles.fromJson(data as Map<String, dynamic>),
-  List<NextcloudNewsListArticles>: (final data) =>
-      (data as List).map((final e) => NextcloudNewsListArticles.fromJson(e as Map<String, dynamic>)).toList(),
-  NextcloudNotesNote: (final data) => NextcloudNotesNote.fromJson(data as Map<String, dynamic>),
-  List<NextcloudNotesNote>: (final data) =>
-      (data as List).map((final e) => NextcloudNotesNote.fromJson(e as Map<String, dynamic>)).toList(),
-  NextcloudNotesSettings: (final data) => NextcloudNotesSettings.fromJson(data as Map<String, dynamic>),
-  List<NextcloudNotesSettings>: (final data) =>
-      (data as List).map((final e) => NextcloudNotesSettings.fromJson(e as Map<String, dynamic>)).toList(),
-  NextcloudNotificationsListNotifications: (final data) =>
-      NextcloudNotificationsListNotifications.fromJson(data as Map<String, dynamic>),
-  List<NextcloudNotificationsListNotifications>: (final data) => (data as List)
-      .map((final e) => NextcloudNotificationsListNotifications.fromJson(e as Map<String, dynamic>))
-      .toList(),
-  NextcloudNotificationsListNotifications_Ocs: (final data) =>
-      NextcloudNotificationsListNotifications_Ocs.fromJson(data as Map<String, dynamic>),
-  List<NextcloudNotificationsListNotifications_Ocs>: (final data) => (data as List)
-      .map((final e) => NextcloudNotificationsListNotifications_Ocs.fromJson(e as Map<String, dynamic>))
-      .toList(),
-  NextcloudNotificationsNotification: (final data) =>
-      NextcloudNotificationsNotification.fromJson(data as Map<String, dynamic>),
-  List<NextcloudNotificationsNotification>: (final data) =>
-      (data as List).map((final e) => NextcloudNotificationsNotification.fromJson(e as Map<String, dynamic>)).toList(),
-  NextcloudNotificationsNotificationAction: (final data) =>
-      NextcloudNotificationsNotificationAction.fromJson(data as Map<String, dynamic>),
-  List<NextcloudNotificationsNotificationAction>: (final data) => (data as List)
-      .map((final e) => NextcloudNotificationsNotificationAction.fromJson(e as Map<String, dynamic>))
-      .toList(),
-  NextcloudNotificationsGetNotification: (final data) =>
-      NextcloudNotificationsGetNotification.fromJson(data as Map<String, dynamic>),
-  List<NextcloudNotificationsGetNotification>: (final data) => (data as List)
-      .map((final e) => NextcloudNotificationsGetNotification.fromJson(e as Map<String, dynamic>))
-      .toList(),
-  NextcloudNotificationsGetNotification_Ocs: (final data) =>
-      NextcloudNotificationsGetNotification_Ocs.fromJson(data as Map<String, dynamic>),
-  List<NextcloudNotificationsGetNotification_Ocs>: (final data) => (data as List)
-      .map((final e) => NextcloudNotificationsGetNotification_Ocs.fromJson(e as Map<String, dynamic>))
-      .toList(),
-  NextcloudEmptyOCS: (final data) => NextcloudEmptyOCS.fromJson(data as Map<String, dynamic>),
-  List<NextcloudEmptyOCS>: (final data) =>
-      (data as List).map((final e) => NextcloudEmptyOCS.fromJson(e as Map<String, dynamic>)).toList(),
-  NextcloudEmptyOCS_Ocs: (final data) => NextcloudEmptyOCS_Ocs.fromJson(data as Map<String, dynamic>),
-  List<NextcloudEmptyOCS_Ocs>: (final data) =>
-      (data as List).map((final e) => NextcloudEmptyOCS_Ocs.fromJson(e as Map<String, dynamic>)).toList(),
-  NextcloudNotificationsPushServerRegistration: (final data) =>
-      NextcloudNotificationsPushServerRegistration.fromJson(data as Map<String, dynamic>),
-  List<NextcloudNotificationsPushServerRegistration>: (final data) => (data as List)
-      .map((final e) => NextcloudNotificationsPushServerRegistration.fromJson(e as Map<String, dynamic>))
-      .toList(),
-  NextcloudNotificationsPushServerRegistration_Ocs: (final data) =>
-      NextcloudNotificationsPushServerRegistration_Ocs.fromJson(data as Map<String, dynamic>),
-  List<NextcloudNotificationsPushServerRegistration_Ocs>: (final data) => (data as List)
-      .map((final e) => NextcloudNotificationsPushServerRegistration_Ocs.fromJson(e as Map<String, dynamic>))
-      .toList(),
-  NextcloudNotificationsPushServerSubscription: (final data) =>
-      NextcloudNotificationsPushServerSubscription.fromJson(data as Map<String, dynamic>),
-  List<NextcloudNotificationsPushServerSubscription>: (final data) => (data as List)
-      .map((final e) => NextcloudNotificationsPushServerSubscription.fromJson(e as Map<String, dynamic>))
-      .toList(),
-  NextcloudProvisioningApiUser: (final data) => NextcloudProvisioningApiUser.fromJson(data as Map<String, dynamic>),
-  List<NextcloudProvisioningApiUser>: (final data) =>
-      (data as List).map((final e) => NextcloudProvisioningApiUser.fromJson(e as Map<String, dynamic>)).toList(),
-  NextcloudProvisioningApiUser_Ocs: (final data) =>
-      NextcloudProvisioningApiUser_Ocs.fromJson(data as Map<String, dynamic>),
-  List<NextcloudProvisioningApiUser_Ocs>: (final data) =>
-      (data as List).map((final e) => NextcloudProvisioningApiUser_Ocs.fromJson(e as Map<String, dynamic>)).toList(),
-  NextcloudProvisioningApiUserDetails: (final data) =>
-      NextcloudProvisioningApiUserDetails.fromJson(data as Map<String, dynamic>),
-  List<NextcloudProvisioningApiUserDetails>: (final data) =>
-      (data as List).map((final e) => NextcloudProvisioningApiUserDetails.fromJson(e as Map<String, dynamic>)).toList(),
-  NextcloudProvisioningApiUserDetails_Quota: (final data) =>
-      NextcloudProvisioningApiUserDetails_Quota.fromJson(data as Map<String, dynamic>),
-  List<NextcloudProvisioningApiUserDetails_Quota>: (final data) => (data as List)
-      .map((final e) => NextcloudProvisioningApiUserDetails_Quota.fromJson(e as Map<String, dynamic>))
-      .toList(),
-  NextcloudProvisioningApiUserDetails_BackendCapabilities: (final data) =>
-      NextcloudProvisioningApiUserDetails_BackendCapabilities.fromJson(data as Map<String, dynamic>),
-  List<NextcloudProvisioningApiUserDetails_BackendCapabilities>: (final data) => (data as List)
-      .map((final e) => NextcloudProvisioningApiUserDetails_BackendCapabilities.fromJson(e as Map<String, dynamic>))
-      .toList(),
-  NextcloudUnifiedPushProviderCheckResponse200ApplicationJson: (final data) =>
-      NextcloudUnifiedPushProviderCheckResponse200ApplicationJson.fromJson(data as Map<String, dynamic>),
-  List<NextcloudUnifiedPushProviderCheckResponse200ApplicationJson>: (final data) => (data as List)
-      .map((final e) => NextcloudUnifiedPushProviderCheckResponse200ApplicationJson.fromJson(e as Map<String, dynamic>))
-      .toList(),
-  NextcloudUnifiedPushProviderSetKeepaliveResponse200ApplicationJson: (final data) =>
-      NextcloudUnifiedPushProviderSetKeepaliveResponse200ApplicationJson.fromJson(data as Map<String, dynamic>),
-  List<NextcloudUnifiedPushProviderSetKeepaliveResponse200ApplicationJson>: (final data) => (data as List)
-      .map((final e) =>
-          NextcloudUnifiedPushProviderSetKeepaliveResponse200ApplicationJson.fromJson(e as Map<String, dynamic>))
-      .toList(),
-  NextcloudUnifiedPushProviderCreateDeviceResponse200ApplicationJson: (final data) =>
-      NextcloudUnifiedPushProviderCreateDeviceResponse200ApplicationJson.fromJson(data as Map<String, dynamic>),
-  List<NextcloudUnifiedPushProviderCreateDeviceResponse200ApplicationJson>: (final data) => (data as List)
-      .map((final e) =>
-          NextcloudUnifiedPushProviderCreateDeviceResponse200ApplicationJson.fromJson(e as Map<String, dynamic>))
-      .toList(),
-  NextcloudUnifiedPushProviderSyncDeviceResponse401ApplicationJson: (final data) =>
-      NextcloudUnifiedPushProviderSyncDeviceResponse401ApplicationJson.fromJson(data as Map<String, dynamic>),
-  List<NextcloudUnifiedPushProviderSyncDeviceResponse401ApplicationJson>: (final data) => (data as List)
-      .map((final e) =>
-          NextcloudUnifiedPushProviderSyncDeviceResponse401ApplicationJson.fromJson(e as Map<String, dynamic>))
-      .toList(),
-  NextcloudUnifiedPushProviderDeleteDeviceResponse200ApplicationJson: (final data) =>
-      NextcloudUnifiedPushProviderDeleteDeviceResponse200ApplicationJson.fromJson(data as Map<String, dynamic>),
-  List<NextcloudUnifiedPushProviderDeleteDeviceResponse200ApplicationJson>: (final data) => (data as List)
-      .map((final e) =>
-          NextcloudUnifiedPushProviderDeleteDeviceResponse200ApplicationJson.fromJson(e as Map<String, dynamic>))
-      .toList(),
-  NextcloudUnifiedPushProviderCreateAppResponse200ApplicationJson: (final data) =>
-      NextcloudUnifiedPushProviderCreateAppResponse200ApplicationJson.fromJson(data as Map<String, dynamic>),
-  List<NextcloudUnifiedPushProviderCreateAppResponse200ApplicationJson>: (final data) => (data as List)
-      .map((final e) =>
-          NextcloudUnifiedPushProviderCreateAppResponse200ApplicationJson.fromJson(e as Map<String, dynamic>))
-      .toList(),
-  NextcloudUnifiedPushProviderDeleteAppResponse200ApplicationJson: (final data) =>
-      NextcloudUnifiedPushProviderDeleteAppResponse200ApplicationJson.fromJson(data as Map<String, dynamic>),
-  List<NextcloudUnifiedPushProviderDeleteAppResponse200ApplicationJson>: (final data) => (data as List)
-      .map((final e) =>
-          NextcloudUnifiedPushProviderDeleteAppResponse200ApplicationJson.fromJson(e as Map<String, dynamic>))
-      .toList(),
-  NextcloudUnifiedPushProviderUnifiedpushDiscoveryResponse200ApplicationJson: (final data) =>
-      NextcloudUnifiedPushProviderUnifiedpushDiscoveryResponse200ApplicationJson.fromJson(data as Map<String, dynamic>),
-  List<NextcloudUnifiedPushProviderUnifiedpushDiscoveryResponse200ApplicationJson>: (final data) => (data as List)
-      .map((final e) => NextcloudUnifiedPushProviderUnifiedpushDiscoveryResponse200ApplicationJson.fromJson(
-          e as Map<String, dynamic>))
-      .toList(),
-  NextcloudUnifiedPushProviderUnifiedpushDiscoveryResponse200ApplicationJson_Unifiedpush: (final data) =>
-      NextcloudUnifiedPushProviderUnifiedpushDiscoveryResponse200ApplicationJson_Unifiedpush.fromJson(
-          data as Map<String, dynamic>),
-  List<NextcloudUnifiedPushProviderUnifiedpushDiscoveryResponse200ApplicationJson_Unifiedpush>: (final data) => (data
-          as List)
-      .map((final e) => NextcloudUnifiedPushProviderUnifiedpushDiscoveryResponse200ApplicationJson_Unifiedpush.fromJson(
-          e as Map<String, dynamic>))
-      .toList(),
-  NextcloudUnifiedPushProviderPushResponse201ApplicationJson: (final data) =>
-      NextcloudUnifiedPushProviderPushResponse201ApplicationJson.fromJson(data as Map<String, dynamic>),
-  List<NextcloudUnifiedPushProviderPushResponse201ApplicationJson>: (final data) => (data as List)
-      .map((final e) => NextcloudUnifiedPushProviderPushResponse201ApplicationJson.fromJson(e as Map<String, dynamic>))
-      .toList(),
-  NextcloudUnifiedPushProviderGatewayMatrixDiscoveryResponse200ApplicationJson: (final data) =>
-      NextcloudUnifiedPushProviderGatewayMatrixDiscoveryResponse200ApplicationJson.fromJson(
-          data as Map<String, dynamic>),
-  List<NextcloudUnifiedPushProviderGatewayMatrixDiscoveryResponse200ApplicationJson>: (final data) => (data as List)
-      .map((final e) => NextcloudUnifiedPushProviderGatewayMatrixDiscoveryResponse200ApplicationJson.fromJson(
-          e as Map<String, dynamic>))
-      .toList(),
-  NextcloudUnifiedPushProviderGatewayMatrixDiscoveryResponse200ApplicationJson_Unifiedpush: (final data) =>
-      NextcloudUnifiedPushProviderGatewayMatrixDiscoveryResponse200ApplicationJson_Unifiedpush.fromJson(
-          data as Map<String, dynamic>),
-  List<NextcloudUnifiedPushProviderGatewayMatrixDiscoveryResponse200ApplicationJson_Unifiedpush>: (final data) =>
-      (data as List)
-          .map((final e) =>
-              NextcloudUnifiedPushProviderGatewayMatrixDiscoveryResponse200ApplicationJson_Unifiedpush.fromJson(
-                  e as Map<String, dynamic>))
-          .toList(),
-  NextcloudUnifiedPushProviderGatewayMatrixResponse200ApplicationJson: (final data) =>
-      NextcloudUnifiedPushProviderGatewayMatrixResponse200ApplicationJson.fromJson(data as Map<String, dynamic>),
-  List<NextcloudUnifiedPushProviderGatewayMatrixResponse200ApplicationJson>: (final data) => (data as List)
-      .map((final e) =>
-          NextcloudUnifiedPushProviderGatewayMatrixResponse200ApplicationJson.fromJson(e as Map<String, dynamic>))
-      .toList(),
-  NextcloudUserStatusGetPublicStatuses: (final data) =>
-      NextcloudUserStatusGetPublicStatuses.fromJson(data as Map<String, dynamic>),
-  List<NextcloudUserStatusGetPublicStatuses>: (final data) => (data as List)
-      .map((final e) => NextcloudUserStatusGetPublicStatuses.fromJson(e as Map<String, dynamic>))
-      .toList(),
-  NextcloudUserStatusGetPublicStatuses_Ocs: (final data) =>
-      NextcloudUserStatusGetPublicStatuses_Ocs.fromJson(data as Map<String, dynamic>),
-  List<NextcloudUserStatusGetPublicStatuses_Ocs>: (final data) => (data as List)
-      .map((final e) => NextcloudUserStatusGetPublicStatuses_Ocs.fromJson(e as Map<String, dynamic>))
-      .toList(),
-  NextcloudUserStatusPublicStatus: (final data) =>
-      NextcloudUserStatusPublicStatus.fromJson(data as Map<String, dynamic>),
-  List<NextcloudUserStatusPublicStatus>: (final data) =>
-      (data as List).map((final e) => NextcloudUserStatusPublicStatus.fromJson(e as Map<String, dynamic>)).toList(),
-  NextcloudUserStatusClearAt: (final data) => NextcloudUserStatusClearAt.fromJson(data as Map<String, dynamic>),
-  List<NextcloudUserStatusClearAt>: (final data) =>
-      (data as List).map((final e) => NextcloudUserStatusClearAt.fromJson(e as Map<String, dynamic>)).toList(),
-  NextcloudUserStatusGetPublicStatus: (final data) =>
-      NextcloudUserStatusGetPublicStatus.fromJson(data as Map<String, dynamic>),
-  List<NextcloudUserStatusGetPublicStatus>: (final data) =>
-      (data as List).map((final e) => NextcloudUserStatusGetPublicStatus.fromJson(e as Map<String, dynamic>)).toList(),
-  NextcloudUserStatusGetPublicStatus_Ocs: (final data) =>
-      NextcloudUserStatusGetPublicStatus_Ocs.fromJson(data as Map<String, dynamic>),
-  List<NextcloudUserStatusGetPublicStatus_Ocs>: (final data) => (data as List)
-      .map((final e) => NextcloudUserStatusGetPublicStatus_Ocs.fromJson(e as Map<String, dynamic>))
-      .toList(),
-  NextcloudUserStatusGetStatus: (final data) => NextcloudUserStatusGetStatus.fromJson(data as Map<String, dynamic>),
-  List<NextcloudUserStatusGetStatus>: (final data) =>
-      (data as List).map((final e) => NextcloudUserStatusGetStatus.fromJson(e as Map<String, dynamic>)).toList(),
-  NextcloudUserStatusGetStatus_Ocs: (final data) =>
-      NextcloudUserStatusGetStatus_Ocs.fromJson(data as Map<String, dynamic>),
-  List<NextcloudUserStatusGetStatus_Ocs>: (final data) =>
-      (data as List).map((final e) => NextcloudUserStatusGetStatus_Ocs.fromJson(e as Map<String, dynamic>)).toList(),
-  NextcloudUserStatusStatus: (final data) => NextcloudUserStatusStatus.fromJson(data as Map<String, dynamic>),
-  List<NextcloudUserStatusStatus>: (final data) =>
-      (data as List).map((final e) => NextcloudUserStatusStatus.fromJson(e as Map<String, dynamic>)).toList(),
-  NextcloudUserStatusPredefinedStatuses: (final data) =>
-      NextcloudUserStatusPredefinedStatuses.fromJson(data as Map<String, dynamic>),
-  List<NextcloudUserStatusPredefinedStatuses>: (final data) => (data as List)
-      .map((final e) => NextcloudUserStatusPredefinedStatuses.fromJson(e as Map<String, dynamic>))
-      .toList(),
-  NextcloudUserStatusPredefinedStatuses_Ocs: (final data) =>
-      NextcloudUserStatusPredefinedStatuses_Ocs.fromJson(data as Map<String, dynamic>),
-  List<NextcloudUserStatusPredefinedStatuses_Ocs>: (final data) => (data as List)
-      .map((final e) => NextcloudUserStatusPredefinedStatuses_Ocs.fromJson(e as Map<String, dynamic>))
-      .toList(),
-  NextcloudUserStatusPredefinedStatus: (final data) =>
-      NextcloudUserStatusPredefinedStatus.fromJson(data as Map<String, dynamic>),
-  List<NextcloudUserStatusPredefinedStatus>: (final data) =>
-      (data as List).map((final e) => NextcloudUserStatusPredefinedStatus.fromJson(e as Map<String, dynamic>)).toList(),
-  NextcloudUserStatusHeartbeat: (final data) => NextcloudUserStatusHeartbeat.fromJson(data as Map<String, dynamic>),
-  List<NextcloudUserStatusHeartbeat>: (final data) =>
-      (data as List).map((final e) => NextcloudUserStatusHeartbeat.fromJson(e as Map<String, dynamic>)).toList(),
-  NextcloudUserStatusHeartbeat_Ocs: (final data) =>
-      NextcloudUserStatusHeartbeat_Ocs.fromJson(data as Map<String, dynamic>),
-  List<NextcloudUserStatusHeartbeat_Ocs>: (final data) =>
-      (data as List).map((final e) => NextcloudUserStatusHeartbeat_Ocs.fromJson(e as Map<String, dynamic>)).toList(),
-  NextcloudNotificationsNotificationDecryptedSubject: (final data) =>
-      NextcloudNotificationsNotificationDecryptedSubject.fromJson(data as Map<String, dynamic>),
-  List<NextcloudNotificationsNotificationDecryptedSubject>: (final data) => (data as List)
-      .map((final e) => NextcloudNotificationsNotificationDecryptedSubject.fromJson(e as Map<String, dynamic>))
-      .toList(),
-};
+T deserializeNextcloud<T>(final Object data) => serializers.deserialize(data, specifiedType: FullType(T))! as T;
 
-final _serializers = <Type, dynamic Function(dynamic)>{
-  NextcloudCoreServerStatus: (final data) => data.toJson(),
-  List<NextcloudCoreServerStatus>: (final data) => data.map((final e) => e.toJson()).toList(),
-  NextcloudCoreServerCapabilities: (final data) => data.toJson(),
-  List<NextcloudCoreServerCapabilities>: (final data) => data.map((final e) => e.toJson()).toList(),
-  NextcloudCoreServerCapabilities_Ocs: (final data) => data.toJson(),
-  List<NextcloudCoreServerCapabilities_Ocs>: (final data) => data.map((final e) => e.toJson()).toList(),
-  NextcloudOCSMeta: (final data) => data.toJson(),
-  List<NextcloudOCSMeta>: (final data) => data.map((final e) => e.toJson()).toList(),
-  NextcloudCoreServerCapabilities_Ocs_Data: (final data) => data.toJson(),
-  List<NextcloudCoreServerCapabilities_Ocs_Data>: (final data) => data.map((final e) => e.toJson()).toList(),
-  NextcloudCoreServerCapabilities_Ocs_Data_Version: (final data) => data.toJson(),
-  List<NextcloudCoreServerCapabilities_Ocs_Data_Version>: (final data) => data.map((final e) => e.toJson()).toList(),
-  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities: (final data) => data.toJson(),
-  List<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities>: (final data) =>
-      data.map((final e) => e.toJson()).toList(),
-  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Core: (final data) => data.toJson(),
-  List<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Core>: (final data) =>
-      data.map((final e) => e.toJson()).toList(),
-  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Bruteforce: (final data) => data.toJson(),
-  List<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Bruteforce>: (final data) =>
-      data.map((final e) => e.toJson()).toList(),
-  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_MetadataAvailable: (final data) => data.toJson(),
-  List<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_MetadataAvailable>: (final data) =>
-      data.map((final e) => e.toJson()).toList(),
-  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Files: (final data) => data.toJson(),
-  List<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Files>: (final data) =>
-      data.map((final e) => e.toJson()).toList(),
-  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Files_DirectEditing: (final data) => data.toJson(),
-  List<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Files_DirectEditing>: (final data) =>
-      data.map((final e) => e.toJson()).toList(),
-  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Activity: (final data) => data.toJson(),
-  List<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Activity>: (final data) =>
-      data.map((final e) => e.toJson()).toList(),
-  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles: (final data) => data.toJson(),
-  List<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles>: (final data) =>
-      data.map((final e) => e.toJson()).toList(),
-  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Status: (final data) => data.toJson(),
-  List<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Status>: (final data) =>
-      data.map((final e) => e.toJson()).toList(),
-  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Settings: (final data) => data.toJson(),
-  List<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Settings>: (final data) =>
-      data.map((final e) => e.toJson()).toList(),
-  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle: (final data) => data.toJson(),
-  List<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle>: (final data) =>
-      data.map((final e) => e.toJson()).toList(),
-  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants: (final data) => data.toJson(),
-  List<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants>: (final data) =>
-      data.map((final e) => e.toJson()).toList(),
-  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants_Source: (final data) => data.toJson(),
-  List<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants_Source>: (final data) =>
-      data.map((final e) => e.toJson()).toList(),
-  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Config: (final data) => data.toJson(),
-  List<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Config>: (final data) =>
-      data.map((final e) => e.toJson()).toList(),
-  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member: (final data) => data.toJson(),
-  List<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member>: (final data) =>
-      data.map((final e) => e.toJson()).toList(),
-  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member_Constants: (final data) => data.toJson(),
-  List<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member_Constants>: (final data) =>
-      data.map((final e) => e.toJson()).toList(),
-  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Ocm: (final data) => data.toJson(),
-  List<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Ocm>: (final data) =>
-      data.map((final e) => e.toJson()).toList(),
-  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes: (final data) => data.toJson(),
-  List<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes>: (final data) =>
-      data.map((final e) => e.toJson()).toList(),
-  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes_Protocols: (final data) => data.toJson(),
-  List<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes_Protocols>: (final data) =>
-      data.map((final e) => e.toJson()).toList(),
-  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Dav: (final data) => data.toJson(),
-  List<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Dav>: (final data) =>
-      data.map((final e) => e.toJson()).toList(),
-  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing: (final data) => data.toJson(),
-  List<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing>: (final data) =>
-      data.map((final e) => e.toJson()).toList(),
-  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public: (final data) => data.toJson(),
-  List<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public>: (final data) =>
-      data.map((final e) => e.toJson()).toList(),
-  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_Password: (final data) => data.toJson(),
-  List<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_Password>: (final data) =>
-      data.map((final e) => e.toJson()).toList(),
-  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDate: (final data) => data.toJson(),
-  List<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDate>: (final data) =>
-      data.map((final e) => e.toJson()).toList(),
-  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternal: (final data) =>
-      data.toJson(),
-  List<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternal>: (final data) =>
-      data.map((final e) => e.toJson()).toList(),
-  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemote: (final data) =>
-      data.toJson(),
-  List<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemote>: (final data) =>
-      data.map((final e) => e.toJson()).toList(),
-  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User: (final data) => data.toJson(),
-  List<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User>: (final data) =>
-      data.map((final e) => e.toJson()).toList(),
-  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User_ExpireDate: (final data) => data.toJson(),
-  List<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User_ExpireDate>: (final data) =>
-      data.map((final e) => e.toJson()).toList(),
-  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group: (final data) => data.toJson(),
-  List<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group>: (final data) =>
-      data.map((final e) => e.toJson()).toList(),
-  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDate: (final data) => data.toJson(),
-  List<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDate>: (final data) =>
-      data.map((final e) => e.toJson()).toList(),
-  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation: (final data) => data.toJson(),
-  List<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation>: (final data) =>
-      data.map((final e) => e.toJson()).toList(),
-  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDate: (final data) =>
-      data.toJson(),
-  List<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDate>: (final data) =>
-      data.map((final e) => e.toJson()).toList(),
-  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupported: (final data) =>
-      data.toJson(),
-  List<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupported>:
-      (final data) => data.map((final e) => e.toJson()).toList(),
-  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharee: (final data) => data.toJson(),
-  List<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharee>: (final data) =>
-      data.map((final e) => e.toJson()).toList(),
-  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail: (final data) => data.toJson(),
-  List<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail>: (final data) =>
-      data.map((final e) => e.toJson()).toList(),
-  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_UploadFilesDrop: (final data) =>
-      data.toJson(),
-  List<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_UploadFilesDrop>: (final data) =>
-      data.map((final e) => e.toJson()).toList(),
-  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_Password: (final data) =>
-      data.toJson(),
-  List<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_Password>: (final data) =>
-      data.map((final e) => e.toJson()).toList(),
-  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_ExpireDate: (final data) =>
-      data.toJson(),
-  List<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_ExpireDate>: (final data) =>
-      data.map((final e) => e.toJson()).toList(),
-  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Notes: (final data) => data.toJson(),
-  List<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Notes>: (final data) =>
-      data.map((final e) => e.toJson()).toList(),
-  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Notifications: (final data) => data.toJson(),
-  List<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Notifications>: (final data) =>
-      data.map((final e) => e.toJson()).toList(),
-  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy: (final data) => data.toJson(),
-  List<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy>: (final data) =>
-      data.map((final e) => e.toJson()).toList(),
-  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy_Api: (final data) => data.toJson(),
-  List<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy_Api>: (final data) =>
-      data.map((final e) => e.toJson()).toList(),
-  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_ProvisioningApi: (final data) => data.toJson(),
-  List<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_ProvisioningApi>: (final data) =>
-      data.map((final e) => e.toJson()).toList(),
-  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Theming: (final data) => data.toJson(),
-  List<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Theming>: (final data) =>
-      data.map((final e) => e.toJson()).toList(),
-  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_UserStatus: (final data) => data.toJson(),
-  List<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_UserStatus>: (final data) =>
-      data.map((final e) => e.toJson()).toList(),
-  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_WeatherStatus: (final data) => data.toJson(),
-  List<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_WeatherStatus>: (final data) =>
-      data.map((final e) => e.toJson()).toList(),
-  NextcloudCoreNavigationApps: (final data) => data.toJson(),
-  List<NextcloudCoreNavigationApps>: (final data) => data.map((final e) => e.toJson()).toList(),
-  NextcloudCoreNavigationApps_Ocs: (final data) => data.toJson(),
-  List<NextcloudCoreNavigationApps_Ocs>: (final data) => data.map((final e) => e.toJson()).toList(),
-  NextcloudCoreNavigationApps_Ocs_Data: (final data) => data.toJson(),
-  List<NextcloudCoreNavigationApps_Ocs_Data>: (final data) => data.map((final e) => e.toJson()).toList(),
-  NextcloudCoreLoginFlowInit: (final data) => data.toJson(),
-  List<NextcloudCoreLoginFlowInit>: (final data) => data.map((final e) => e.toJson()).toList(),
-  NextcloudCoreLoginFlowInit_Poll: (final data) => data.toJson(),
-  List<NextcloudCoreLoginFlowInit_Poll>: (final data) => data.map((final e) => e.toJson()).toList(),
-  NextcloudCoreLoginFlowResult: (final data) => data.toJson(),
-  List<NextcloudCoreLoginFlowResult>: (final data) => data.map((final e) => e.toJson()).toList(),
-  NextcloudCoreAutocompleteResult: (final data) => data.toJson(),
-  List<NextcloudCoreAutocompleteResult>: (final data) => data.map((final e) => e.toJson()).toList(),
-  NextcloudCoreAutocompleteResult_Ocs: (final data) => data.toJson(),
-  List<NextcloudCoreAutocompleteResult_Ocs>: (final data) => data.map((final e) => e.toJson()).toList(),
-  NextcloudCoreAutocompleteResult_Ocs_Data: (final data) => data.toJson(),
-  List<NextcloudCoreAutocompleteResult_Ocs_Data>: (final data) => data.map((final e) => e.toJson()).toList(),
-  NextcloudNewsSupportedAPIVersions: (final data) => data.toJson(),
-  List<NextcloudNewsSupportedAPIVersions>: (final data) => data.map((final e) => e.toJson()).toList(),
-  NextcloudNewsListFolders: (final data) => data.toJson(),
-  List<NextcloudNewsListFolders>: (final data) => data.map((final e) => e.toJson()).toList(),
-  NextcloudNewsFolder: (final data) => data.toJson(),
-  List<NextcloudNewsFolder>: (final data) => data.map((final e) => e.toJson()).toList(),
-  NextcloudNewsFeed: (final data) => data.toJson(),
-  List<NextcloudNewsFeed>: (final data) => data.map((final e) => e.toJson()).toList(),
-  NextcloudNewsArticle: (final data) => data.toJson(),
-  List<NextcloudNewsArticle>: (final data) => data.map((final e) => e.toJson()).toList(),
-  NextcloudNewsListFeeds: (final data) => data.toJson(),
-  List<NextcloudNewsListFeeds>: (final data) => data.map((final e) => e.toJson()).toList(),
-  NextcloudNewsListArticles: (final data) => data.toJson(),
-  List<NextcloudNewsListArticles>: (final data) => data.map((final e) => e.toJson()).toList(),
-  NextcloudNotesNote: (final data) => data.toJson(),
-  List<NextcloudNotesNote>: (final data) => data.map((final e) => e.toJson()).toList(),
-  NextcloudNotesSettings: (final data) => data.toJson(),
-  List<NextcloudNotesSettings>: (final data) => data.map((final e) => e.toJson()).toList(),
-  NextcloudNotificationsListNotifications: (final data) => data.toJson(),
-  List<NextcloudNotificationsListNotifications>: (final data) => data.map((final e) => e.toJson()).toList(),
-  NextcloudNotificationsListNotifications_Ocs: (final data) => data.toJson(),
-  List<NextcloudNotificationsListNotifications_Ocs>: (final data) => data.map((final e) => e.toJson()).toList(),
-  NextcloudNotificationsNotification: (final data) => data.toJson(),
-  List<NextcloudNotificationsNotification>: (final data) => data.map((final e) => e.toJson()).toList(),
-  NextcloudNotificationsNotificationAction: (final data) => data.toJson(),
-  List<NextcloudNotificationsNotificationAction>: (final data) => data.map((final e) => e.toJson()).toList(),
-  NextcloudNotificationsGetNotification: (final data) => data.toJson(),
-  List<NextcloudNotificationsGetNotification>: (final data) => data.map((final e) => e.toJson()).toList(),
-  NextcloudNotificationsGetNotification_Ocs: (final data) => data.toJson(),
-  List<NextcloudNotificationsGetNotification_Ocs>: (final data) => data.map((final e) => e.toJson()).toList(),
-  NextcloudEmptyOCS: (final data) => data.toJson(),
-  List<NextcloudEmptyOCS>: (final data) => data.map((final e) => e.toJson()).toList(),
-  NextcloudEmptyOCS_Ocs: (final data) => data.toJson(),
-  List<NextcloudEmptyOCS_Ocs>: (final data) => data.map((final e) => e.toJson()).toList(),
-  NextcloudNotificationsPushServerRegistration: (final data) => data.toJson(),
-  List<NextcloudNotificationsPushServerRegistration>: (final data) => data.map((final e) => e.toJson()).toList(),
-  NextcloudNotificationsPushServerRegistration_Ocs: (final data) => data.toJson(),
-  List<NextcloudNotificationsPushServerRegistration_Ocs>: (final data) => data.map((final e) => e.toJson()).toList(),
-  NextcloudNotificationsPushServerSubscription: (final data) => data.toJson(),
-  List<NextcloudNotificationsPushServerSubscription>: (final data) => data.map((final e) => e.toJson()).toList(),
-  NextcloudProvisioningApiUser: (final data) => data.toJson(),
-  List<NextcloudProvisioningApiUser>: (final data) => data.map((final e) => e.toJson()).toList(),
-  NextcloudProvisioningApiUser_Ocs: (final data) => data.toJson(),
-  List<NextcloudProvisioningApiUser_Ocs>: (final data) => data.map((final e) => e.toJson()).toList(),
-  NextcloudProvisioningApiUserDetails: (final data) => data.toJson(),
-  List<NextcloudProvisioningApiUserDetails>: (final data) => data.map((final e) => e.toJson()).toList(),
-  NextcloudProvisioningApiUserDetails_Quota: (final data) => data.toJson(),
-  List<NextcloudProvisioningApiUserDetails_Quota>: (final data) => data.map((final e) => e.toJson()).toList(),
-  NextcloudProvisioningApiUserDetails_BackendCapabilities: (final data) => data.toJson(),
-  List<NextcloudProvisioningApiUserDetails_BackendCapabilities>: (final data) =>
-      data.map((final e) => e.toJson()).toList(),
-  NextcloudUnifiedPushProviderCheckResponse200ApplicationJson: (final data) => data.toJson(),
-  List<NextcloudUnifiedPushProviderCheckResponse200ApplicationJson>: (final data) =>
-      data.map((final e) => e.toJson()).toList(),
-  NextcloudUnifiedPushProviderSetKeepaliveResponse200ApplicationJson: (final data) => data.toJson(),
-  List<NextcloudUnifiedPushProviderSetKeepaliveResponse200ApplicationJson>: (final data) =>
-      data.map((final e) => e.toJson()).toList(),
-  NextcloudUnifiedPushProviderCreateDeviceResponse200ApplicationJson: (final data) => data.toJson(),
-  List<NextcloudUnifiedPushProviderCreateDeviceResponse200ApplicationJson>: (final data) =>
-      data.map((final e) => e.toJson()).toList(),
-  NextcloudUnifiedPushProviderSyncDeviceResponse401ApplicationJson: (final data) => data.toJson(),
-  List<NextcloudUnifiedPushProviderSyncDeviceResponse401ApplicationJson>: (final data) =>
-      data.map((final e) => e.toJson()).toList(),
-  NextcloudUnifiedPushProviderDeleteDeviceResponse200ApplicationJson: (final data) => data.toJson(),
-  List<NextcloudUnifiedPushProviderDeleteDeviceResponse200ApplicationJson>: (final data) =>
-      data.map((final e) => e.toJson()).toList(),
-  NextcloudUnifiedPushProviderCreateAppResponse200ApplicationJson: (final data) => data.toJson(),
-  List<NextcloudUnifiedPushProviderCreateAppResponse200ApplicationJson>: (final data) =>
-      data.map((final e) => e.toJson()).toList(),
-  NextcloudUnifiedPushProviderDeleteAppResponse200ApplicationJson: (final data) => data.toJson(),
-  List<NextcloudUnifiedPushProviderDeleteAppResponse200ApplicationJson>: (final data) =>
-      data.map((final e) => e.toJson()).toList(),
-  NextcloudUnifiedPushProviderUnifiedpushDiscoveryResponse200ApplicationJson: (final data) => data.toJson(),
-  List<NextcloudUnifiedPushProviderUnifiedpushDiscoveryResponse200ApplicationJson>: (final data) =>
-      data.map((final e) => e.toJson()).toList(),
-  NextcloudUnifiedPushProviderUnifiedpushDiscoveryResponse200ApplicationJson_Unifiedpush: (final data) => data.toJson(),
-  List<NextcloudUnifiedPushProviderUnifiedpushDiscoveryResponse200ApplicationJson_Unifiedpush>: (final data) =>
-      data.map((final e) => e.toJson()).toList(),
-  NextcloudUnifiedPushProviderPushResponse201ApplicationJson: (final data) => data.toJson(),
-  List<NextcloudUnifiedPushProviderPushResponse201ApplicationJson>: (final data) =>
-      data.map((final e) => e.toJson()).toList(),
-  NextcloudUnifiedPushProviderGatewayMatrixDiscoveryResponse200ApplicationJson: (final data) => data.toJson(),
-  List<NextcloudUnifiedPushProviderGatewayMatrixDiscoveryResponse200ApplicationJson>: (final data) =>
-      data.map((final e) => e.toJson()).toList(),
-  NextcloudUnifiedPushProviderGatewayMatrixDiscoveryResponse200ApplicationJson_Unifiedpush: (final data) =>
-      data.toJson(),
-  List<NextcloudUnifiedPushProviderGatewayMatrixDiscoveryResponse200ApplicationJson_Unifiedpush>: (final data) =>
-      data.map((final e) => e.toJson()).toList(),
-  NextcloudUnifiedPushProviderGatewayMatrixResponse200ApplicationJson: (final data) => data.toJson(),
-  List<NextcloudUnifiedPushProviderGatewayMatrixResponse200ApplicationJson>: (final data) =>
-      data.map((final e) => e.toJson()).toList(),
-  NextcloudUserStatusGetPublicStatuses: (final data) => data.toJson(),
-  List<NextcloudUserStatusGetPublicStatuses>: (final data) => data.map((final e) => e.toJson()).toList(),
-  NextcloudUserStatusGetPublicStatuses_Ocs: (final data) => data.toJson(),
-  List<NextcloudUserStatusGetPublicStatuses_Ocs>: (final data) => data.map((final e) => e.toJson()).toList(),
-  NextcloudUserStatusPublicStatus: (final data) => data.toJson(),
-  List<NextcloudUserStatusPublicStatus>: (final data) => data.map((final e) => e.toJson()).toList(),
-  NextcloudUserStatusClearAt: (final data) => data.toJson(),
-  List<NextcloudUserStatusClearAt>: (final data) => data.map((final e) => e.toJson()).toList(),
-  NextcloudUserStatusGetPublicStatus: (final data) => data.toJson(),
-  List<NextcloudUserStatusGetPublicStatus>: (final data) => data.map((final e) => e.toJson()).toList(),
-  NextcloudUserStatusGetPublicStatus_Ocs: (final data) => data.toJson(),
-  List<NextcloudUserStatusGetPublicStatus_Ocs>: (final data) => data.map((final e) => e.toJson()).toList(),
-  NextcloudUserStatusGetStatus: (final data) => data.toJson(),
-  List<NextcloudUserStatusGetStatus>: (final data) => data.map((final e) => e.toJson()).toList(),
-  NextcloudUserStatusGetStatus_Ocs: (final data) => data.toJson(),
-  List<NextcloudUserStatusGetStatus_Ocs>: (final data) => data.map((final e) => e.toJson()).toList(),
-  NextcloudUserStatusStatus: (final data) => data.toJson(),
-  List<NextcloudUserStatusStatus>: (final data) => data.map((final e) => e.toJson()).toList(),
-  NextcloudUserStatusPredefinedStatuses: (final data) => data.toJson(),
-  List<NextcloudUserStatusPredefinedStatuses>: (final data) => data.map((final e) => e.toJson()).toList(),
-  NextcloudUserStatusPredefinedStatuses_Ocs: (final data) => data.toJson(),
-  List<NextcloudUserStatusPredefinedStatuses_Ocs>: (final data) => data.map((final e) => e.toJson()).toList(),
-  NextcloudUserStatusPredefinedStatus: (final data) => data.toJson(),
-  List<NextcloudUserStatusPredefinedStatus>: (final data) => data.map((final e) => e.toJson()).toList(),
-  NextcloudUserStatusHeartbeat: (final data) => data.toJson(),
-  List<NextcloudUserStatusHeartbeat>: (final data) => data.map((final e) => e.toJson()).toList(),
-  NextcloudUserStatusHeartbeat_Ocs: (final data) => data.toJson(),
-  List<NextcloudUserStatusHeartbeat_Ocs>: (final data) => data.map((final e) => e.toJson()).toList(),
-  NextcloudNotificationsNotificationDecryptedSubject: (final data) => data.toJson(),
-  List<NextcloudNotificationsNotificationDecryptedSubject>: (final data) => data.map((final e) => e.toJson()).toList(),
-};
-
-T deserializeNextcloud<T>(final dynamic data) => _deserializers[T]!(data) as T;
-
-dynamic serializeNextcloud<T>(final T data) => _serializers[T]!(data);
+Object? serializeNextcloud<T>(final T data) => serializers.serialize(data, specifiedType: FullType(T));
 // coverage:ignore-end
