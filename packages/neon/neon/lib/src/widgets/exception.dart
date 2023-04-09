@@ -1,7 +1,7 @@
 part of '../../neon.dart';
 
-class ExceptionWidget extends StatelessWidget {
-  const ExceptionWidget(
+class NeonException extends StatelessWidget {
+  const NeonException(
     this.exception, {
     required this.onRetry,
     this.onlyIcon = false,

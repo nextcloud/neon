@@ -20,7 +20,7 @@ class _NewsMainPageState extends State<NewsMainPage> {
     super.initState();
 
     widget.bloc.errors.listen((final error) {
-      ExceptionWidget.showSnackbar(context, error);
+      NeonException.showSnackbar(context, error);
     });
   }
 

@@ -1,7 +1,7 @@
 part of '../../neon.dart';
 
-class CachedURLImage extends CachedImage {
-  CachedURLImage({
+class NeonCachedUrlImage extends NeonCachedImage {
+  NeonCachedUrlImage({
     required final String url,
     super.height,
     super.width,

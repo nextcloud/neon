@@ -13,13 +13,13 @@ class NewsFeedIcon extends StatelessWidget {
   final BorderRadius? borderRadius;
 
   @override
-  Widget build(final BuildContext context) => ImageWrapper(
+  Widget build(final BuildContext context) => NeonImageWrapper(
         color: Colors.white,
         width: size,
         height: size,
         borderRadius: borderRadius,
         child: feed.faviconLink != null && feed.faviconLink != ''
-            ? CachedURLImage(
+            ? NeonCachedUrlImage(
                 url: feed.faviconLink!,
                 height: size,
                 width: size,

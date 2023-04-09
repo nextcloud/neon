@@ -30,7 +30,7 @@ class _NewsArticlePageState extends State<NewsArticlePage> {
     super.initState();
 
     widget.bloc.errors.listen((final error) {
-      ExceptionWidget.showSnackbar(context, error);
+      NeonException.showSnackbar(context, error);
     });
 
     WidgetsBinding.instance.addPostFrameCallback((final _) async {

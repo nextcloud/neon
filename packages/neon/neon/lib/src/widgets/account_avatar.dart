@@ -2,8 +2,8 @@ part of '../../neon.dart';
 
 const kAvatarSize = 40.0;
 
-class AccountAvatar extends StatelessWidget {
-  const AccountAvatar({
+class NeonAccountAvatar extends StatelessWidget {
+  const NeonAccountAvatar({
     required this.account,
     super.key,
   });
@@ -20,7 +20,7 @@ class AccountAvatar extends StatelessWidget {
         CircleAvatar(
           radius: kAvatarSize / 2,
           child: ClipOval(
-            child: CachedAPIImage(
+            child: NeonCachedApiImage(
               account: account,
               cacheKey: 'avatar-${account.id}-${isDark ? 'dark' : 'light'}$size',
               download: () async {

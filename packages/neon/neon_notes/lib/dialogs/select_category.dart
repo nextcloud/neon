@@ -28,7 +28,7 @@ class _NotesSelectCategoryDialogState extends State<NotesSelectCategoryDialog> {
   @override
   Widget build(final BuildContext context) => ResultBuilder<NotesBloc, List<NextcloudNotesNote>>(
         stream: widget.bloc.notes,
-        builder: (final context, final notes) => CustomDialog(
+        builder: (final context, final notes) => NeonDialog(
           title: Text(AppLocalizations.of(context).notesChangeCategory),
           children: [
             Form(
@@ -37,13 +37,13 @@ class _NotesSelectCategoryDialogState extends State<NotesSelectCategoryDialog> {
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
                   Center(
-                    child: ExceptionWidget(
+                    child: NeonException(
                       notes.error,
                       onRetry: widget.bloc.refresh,
                     ),
                   ),
                   Center(
-                    child: CustomLinearProgressIndicator(
+                    child: NeonLinearProgressIndicator(
                       visible: notes.loading,
                     ),
                   ),

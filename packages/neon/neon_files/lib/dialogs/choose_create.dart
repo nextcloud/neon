@@ -49,7 +49,7 @@ class _FilesChooseCreateDialogState extends State<FilesChooseCreateDialog> {
   }
 
   @override
-  Widget build(final BuildContext context) => CustomDialog(
+  Widget build(final BuildContext context) => NeonDialog(
         children: [
           ListTile(
             leading: Icon(

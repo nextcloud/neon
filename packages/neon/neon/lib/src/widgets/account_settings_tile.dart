@@ -1,7 +1,7 @@
 part of '../../neon.dart';
 
-class AccountSettingsTile extends SettingsTile {
-  const AccountSettingsTile({
+class NeonAccountSettingsTile extends SettingsTile {
+  const NeonAccountSettingsTile({
     required this.account,
     this.color,
     this.trailing,
@@ -15,7 +15,7 @@ class AccountSettingsTile extends SettingsTile {
   final VoidCallback? onTap;
 
   @override
-  Widget build(final BuildContext context) => AccountTile(
+  Widget build(final BuildContext context) => NeonAccountTile(
         account: account,
         color: color,
         trailing: trailing,

@@ -18,7 +18,7 @@ class _NotificationsMainPageState extends State<NotificationsMainPage> {
     super.initState();
 
     widget.bloc.errors.listen((final error) {
-      ExceptionWidget.showSnackbar(context, error);
+      NeonException.showSnackbar(context, error);
     });
   }
 
@@ -34,7 +34,7 @@ class _NotificationsMainPageState extends State<NotificationsMainPage> {
             },
             child: const Icon(MdiIcons.checkAll),
           ),
-          body: CustomListView<NextcloudNotificationsNotification>(
+          body: NeonListView<NextcloudNotificationsNotification>(
             scrollKey: 'notifications-notifications',
             withFloatingActionButton: true,
             items: notifications.data,
@@ -82,7 +82,7 @@ class _NotificationsMainPageState extends State<NotificationsMainPage> {
           : SizedBox(
               width: 40,
               height: 40,
-              child: CachedURLImage(
+              child: NeonCachedUrlImage(
                 url: notification.icon,
                 width: 40,
                 height: 40,

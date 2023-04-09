@@ -1,7 +1,7 @@
 part of '../../neon.dart';
 
-class AppImplementationIcon extends StatelessWidget {
-  const AppImplementationIcon({
+class NeonAppImplementationIcon extends StatelessWidget {
+  const NeonAppImplementationIcon({
     required this.appImplementation,
     this.unreadCount = 0,
     this.color,

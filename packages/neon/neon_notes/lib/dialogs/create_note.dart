@@ -28,7 +28,7 @@ class _NotesCreateNoteDialogState extends State<NotesCreateNoteDialog> {
   @override
   Widget build(final BuildContext context) => ResultBuilder<NotesBloc, List<NextcloudNotesNote>>(
         stream: widget.bloc.notes,
-        builder: (final context, final notes) => CustomDialog(
+        builder: (final context, final notes) => NeonDialog(
           title: Text(AppLocalizations.of(context).notesCreateNote),
           children: [
             Form(
@@ -49,13 +49,13 @@ class _NotesCreateNoteDialogState extends State<NotesCreateNoteDialog> {
                   ),
                   if (widget.category == null) ...[
                     Center(
-                      child: ExceptionWidget(
+                      child: NeonException(
                         notes.error,
                         onRetry: widget.bloc.refresh,
                       ),
                     ),
                     Center(
-                      child: CustomLinearProgressIndicator(
+                      child: NeonLinearProgressIndicator(
                         visible: notes.loading,
                       ),
                     ),

@@ -20,7 +20,7 @@ class _NewsArticlesViewState extends State<NewsArticlesView> {
     super.initState();
 
     widget.bloc.errors.listen((final error) {
-      ExceptionWidget.showSnackbar(context, error);
+      NeonException.showSnackbar(context, error);
     });
   }
 
@@ -36,7 +36,7 @@ class _NewsArticlesViewState extends State<NewsArticlesView> {
               sortPropertyOption: widget.newsBloc.options.articlesSortPropertyOption,
               sortBoxOrderOption: widget.newsBloc.options.articlesSortBoxOrderOption,
               input: articles.data,
-              builder: (final context, final sorted) => CustomListView<NextcloudNewsArticle>(
+              builder: (final context, final sorted) => NeonListView<NextcloudNewsArticle>(
                 scrollKey: 'news-articles',
                 items: feeds.data == null ? null : sorted,
                 isLoading: articles.loading || feeds.loading,
@@ -119,7 +119,7 @@ class _NewsArticlesViewState extends State<NewsArticlesView> {
               ),
             ),
             if (article.mediaThumbnail != null) ...[
-              CachedURLImage(
+              NeonCachedUrlImage(
                 url: article.mediaThumbnail!,
                 width: 100,
                 height: 50,

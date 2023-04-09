@@ -21,7 +21,7 @@ class _FilesCreateFolderDialogState extends State<FilesCreateFolderDialog> {
   }
 
   @override
-  Widget build(final BuildContext context) => CustomDialog(
+  Widget build(final BuildContext context) => NeonDialog(
         title: Text(AppLocalizations.of(context).filesCreateFolder),
         children: [
           Form(

@@ -91,7 +91,7 @@ class _NeonAppState extends State<NeonApp> with WidgetsBindingObserver, tray.Tra
                     settings: settings,
                     builder: builder,
                   )
-                : NoAnimationPageRoute(
+                : _NoAnimationPageRoute(
                     settings: settings,
                     builder: builder,
                   ),
@@ -329,4 +329,14 @@ class _NeonAppState extends State<NeonApp> with WidgetsBindingObserver, tray.Tra
           ),
         ),
       );
+}
+
+class _NoAnimationPageRoute extends MaterialPageRoute {
+  _NoAnimationPageRoute({
+    required super.builder,
+    super.settings,
+  });
+
+  @override
+  Duration get transitionDuration => Duration.zero;
 }

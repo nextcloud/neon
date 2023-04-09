@@ -3,8 +3,8 @@
 
 part of '../../neon.dart';
 
-class TextSettingsTile extends SettingsTile {
-  const TextSettingsTile({
+class NeonTextSettingsTile extends SettingsTile {
+  const NeonTextSettingsTile({
     required this.text,
     this.style,
     super.key,

@@ -1,7 +1,7 @@
 part of '../../neon.dart';
 
-class CustomListView<T> extends StatelessWidget {
-  const CustomListView({
+class NeonListView<T> extends StatelessWidget {
+  const NeonListView({
     required this.items,
     required this.isLoading,
     required this.error,
@@ -32,7 +32,7 @@ class CustomListView<T> extends StatelessWidget {
             if (topFixedChildren != null) ...[
               ...topFixedChildren!,
             ],
-            CustomLinearProgressIndicator(
+            NeonLinearProgressIndicator(
               margin: const EdgeInsets.symmetric(
                 horizontal: 10,
                 vertical: 5,
@@ -48,7 +48,7 @@ class CustomListView<T> extends StatelessWidget {
                     if (topScrollingChildren != null) ...[
                       ...topScrollingChildren!,
                     ],
-                    ExceptionWidget(
+                    NeonException(
                       error,
                       onRetry: onRefresh,
                     ),

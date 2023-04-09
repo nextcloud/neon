@@ -113,7 +113,7 @@ class _HomePageState extends State<HomePage> {
     } catch (e, s) {
       debugPrint(e.toString());
       debugPrint(s.toString());
-      ExceptionWidget.showSnackbar(context, e);
+      NeonException.showSnackbar(context, e);
     }
   }
 
@@ -250,7 +250,7 @@ class _HomePageState extends State<HomePage> {
                                                                   _accountsBloc.setActiveAccount(account);
                                                                 },
                                                                 icon: IntrinsicHeight(
-                                                                  child: AccountAvatar(
+                                                                  child: NeonAccountAvatar(
                                                                     account: account,
                                                                   ),
                                                                 ),
@@ -290,17 +290,17 @@ class _HomePageState extends State<HomePage> {
                                                         ],
                                                         if (capabilities.data!.capabilities.theming?.logo != null) ...[
                                                           Flexible(
-                                                            child: CachedURLImage(
+                                                            child: NeonCachedUrlImage(
                                                               url: capabilities.data!.capabilities.theming!.logo!,
                                                             ),
                                                           ),
                                                         ],
                                                       ] else ...[
-                                                        ExceptionWidget(
+                                                        NeonException(
                                                           capabilities.error,
                                                           onRetry: _capabilitiesBloc.refresh,
                                                         ),
-                                                        CustomLinearProgressIndicator(
+                                                        NeonLinearProgressIndicator(
                                                           visible: capabilities.loading,
                                                         ),
                                                       ],
@@ -316,7 +316,7 @@ class _HomePageState extends State<HomePage> {
                                                                 .map<DropdownMenuItem<String>>(
                                                                   (final account) => DropdownMenuItem<String>(
                                                                     value: account.id,
-                                                                    child: AccountTile(
+                                                                    child: NeonAccountTile(
                                                                       account: account,
                                                                       dense: true,
                                                                       textColor:
@@ -343,12 +343,12 @@ class _HomePageState extends State<HomePage> {
                                               return Container();
                                             },
                                           ),
-                                          ExceptionWidget(
+                                          NeonException(
                                             appImplementations.error,
                                             onlyIcon: isQuickBar,
                                             onRetry: _appsBloc.refresh,
                                           ),
-                                          CustomLinearProgressIndicator(
+                                          NeonLinearProgressIndicator(
                                             visible: appImplementations.loading,
                                           ),
                                           if (appImplementations.data != null) ...[
@@ -365,7 +365,7 @@ class _HomePageState extends State<HomePage> {
                                                         onPressed: () async {
                                                           await _appsBloc.setActiveApp(appImplementation.id);
                                                         },
-                                                        icon: AppImplementationIcon(
+                                                        icon: NeonAppImplementationIcon(
                                                           appImplementation: appImplementation,
                                                           unreadCount: unreadCount,
                                                           color: Theme.of(context).colorScheme.primary,
@@ -459,7 +459,7 @@ class _HomePageState extends State<HomePage> {
                                           ? Container(
                                               padding: const EdgeInsets.all(5),
                                               child: capabilities.data?.capabilities.theming?.logo != null
-                                                  ? CachedURLImage(
+                                                  ? NeonCachedUrlImage(
                                                       url: capabilities.data!.capabilities.theming!.logo!,
                                                     )
                                                   : null,
@@ -494,7 +494,7 @@ class _HomePageState extends State<HomePage> {
                                                   width: 8,
                                                 ),
                                                 Expanded(
-                                                  child: CustomLinearProgressIndicator(
+                                                  child: NeonLinearProgressIndicator(
                                                     color: Theme.of(context).appBarTheme.foregroundColor,
                                                   ),
                                                 ),
@@ -517,7 +517,7 @@ class _HomePageState extends State<HomePage> {
                                               final unreadCount = unreadCounterSnapshot.data ?? 0;
                                               return IconButton(
                                                 key: Key('app-${notificationsAppImplementation.data!.id}'),
-                                                icon: AppImplementationIcon(
+                                                icon: NeonAppImplementationIcon(
                                                   appImplementation: notificationsAppImplementation.data!,
                                                   unreadCount: unreadCount,
                                                   color: unreadCount > 0
@@ -539,7 +539,7 @@ class _HomePageState extends State<HomePage> {
                                         ],
                                         IconButton(
                                           icon: IntrinsicWidth(
-                                            child: AccountAvatar(
+                                            child: NeonAccountAvatar(
                                               account: account,
                                             ),
                                           ),
@@ -564,7 +564,7 @@ class _HomePageState extends State<HomePage> {
                                         Expanded(
                                           child: Column(
                                             children: [
-                                              ExceptionWidget(
+                                              NeonException(
                                                 appImplementations.error,
                                                 onRetry: _appsBloc.refresh,
                                               ),

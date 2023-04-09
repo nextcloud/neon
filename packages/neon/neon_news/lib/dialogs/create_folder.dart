@@ -21,7 +21,7 @@ class _NewsCreateFolderDialogState extends State<NewsCreateFolderDialog> {
   }
 
   @override
-  Widget build(final BuildContext context) => CustomDialog(
+  Widget build(final BuildContext context) => NeonDialog(
         title: Text(AppLocalizations.of(context).newsCreateFolder),
         children: [
           Form(

@@ -1,7 +1,7 @@
 part of '../../neon.dart';
 
-class ImageWrapper extends StatelessWidget {
-  const ImageWrapper({
+class NeonImageWrapper extends StatelessWidget {
+  const NeonImageWrapper({
     required this.child,
     required this.color,
     this.width,

@@ -1,7 +1,7 @@
 part of '../../neon.dart';
 
-class CustomDialog extends StatelessWidget {
-  const CustomDialog({
+class NeonDialog extends StatelessWidget {
+  const NeonDialog({
     this.title,
     this.children,
     super.key,

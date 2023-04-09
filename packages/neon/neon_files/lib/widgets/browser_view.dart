@@ -29,7 +29,7 @@ class _FilesBrowserViewState extends State<FilesBrowserView> {
     super.initState();
 
     widget.bloc.errors.listen((final error) {
-      ExceptionWidget.showSnackbar(context, error);
+      NeonException.showSnackbar(context, error);
     });
   }
 
@@ -62,7 +62,7 @@ class _FilesBrowserViewState extends State<FilesBrowserView> {
                               child: const Icon(Icons.add),
                             )
                           : null,
-                      body: CustomListView<Widget>(
+                      body: NeonListView<Widget>(
                         scrollKey: 'files-${pathSnapshot.data!.join('/')}',
                         withFloatingActionButton: true,
                         items: [

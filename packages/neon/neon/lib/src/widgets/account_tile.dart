@@ -1,7 +1,7 @@
 part of '../../neon.dart';
 
-class AccountTile extends StatelessWidget {
-  const AccountTile({
+class NeonAccountTile extends StatelessWidget {
+  const NeonAccountTile({
     required this.account,
     this.color,
     this.trailing,
@@ -34,7 +34,7 @@ class AccountTile extends StatelessWidget {
             )
           : null,
       leading: IntrinsicWidth(
-        child: AccountAvatar(
+        child: NeonAccountAvatar(
           account: account,
         ),
       ),
@@ -58,7 +58,7 @@ class AccountTile extends StatelessWidget {
                 width: 5,
               ),
               Expanded(
-                child: CustomLinearProgressIndicator(
+                child: NeonLinearProgressIndicator(
                   color: textColor,
                 ),
               ),
@@ -67,7 +67,7 @@ class AccountTile extends StatelessWidget {
               const SizedBox(
                 width: 5,
               ),
-              ExceptionWidget(
+              NeonException(
                 userDetails.error,
                 onlyIcon: true,
                 iconSize: 24,

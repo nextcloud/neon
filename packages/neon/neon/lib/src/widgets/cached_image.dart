@@ -2,8 +2,8 @@ part of '../../neon.dart';
 
 final _cacheManager = DefaultCacheManager();
 
-abstract class CachedImage extends StatelessWidget {
-  const CachedImage({
+abstract class NeonCachedImage extends StatelessWidget {
+  const NeonCachedImage({
     required this.future,
     this.isSvgHint = false,
     this.height,
@@ -63,7 +63,7 @@ abstract class CachedImage extends StatelessWidget {
           }
           return SizedBox(
             width: width,
-            child: CustomLinearProgressIndicator(
+            child: NeonLinearProgressIndicator(
               color: iconColor,
             ),
           );

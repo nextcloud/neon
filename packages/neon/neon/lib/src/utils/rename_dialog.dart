@@ -41,7 +41,7 @@ class _RenameDialogState extends State<_RenameDialog> {
   }
 
   @override
-  Widget build(final BuildContext context) => CustomDialog(
+  Widget build(final BuildContext context) => NeonDialog(
         title: Text(widget.title),
         children: [
           Form(

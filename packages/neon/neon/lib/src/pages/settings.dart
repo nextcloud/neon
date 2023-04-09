@@ -121,7 +121,7 @@ class _SettingsPageState extends State<SettingsPage> {
                       tiles: [
                         if (pushNotificationsEnabledEnabledSnapshot.data != null &&
                             !pushNotificationsEnabledEnabledSnapshot.data!) ...[
-                          TextSettingsTile(
+                          NeonTextSettingsTile(
                             text: AppLocalizations.of(context).globalOptionsPushNotificationsEnabledDisabledNotice,
                             style: const TextStyle(
                               fontWeight: FontWeight.w600,
@@ -178,7 +178,7 @@ class _SettingsPageState extends State<SettingsPage> {
                           ),
                         ],
                         for (final account in accountsSnapshot.data!) ...[
-                          AccountSettingsTile(
+                          NeonAccountSettingsTile(
                             account: account,
                             onTap: () async {
                               await Navigator.of(context).push(
@@ -250,7 +250,7 @@ class _SettingsPageState extends State<SettingsPage> {
                           } catch (e, s) {
                             debugPrint(e.toString());
                             debugPrint(s.toString());
-                            ExceptionWidget.showSnackbar(context, e);
+                            NeonException.showSnackbar(context, e);
                           }
                         },
                       ),
@@ -272,7 +272,7 @@ class _SettingsPageState extends State<SettingsPage> {
 
                             if (!result.files.single.path!.endsWith('.json.base64')) {
                               if (mounted) {
-                                ExceptionWidget.showSnackbar(
+                                NeonException.showSnackbar(
                                   context,
                                   AppLocalizations.of(context).settingsImportWrongFileExtension,
                                 );
@@ -286,7 +286,7 @@ class _SettingsPageState extends State<SettingsPage> {
                           } catch (e, s) {
                             debugPrint(e.toString());
                             debugPrint(s.toString());
-                            ExceptionWidget.showSnackbar(context, e);
+                            NeonException.showSnackbar(context, e);
                           }
                         },
                       ),

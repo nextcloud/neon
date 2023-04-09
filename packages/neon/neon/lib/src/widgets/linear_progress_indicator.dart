@@ -1,7 +1,7 @@
 part of '../../neon.dart';
 
-class CustomLinearProgressIndicator extends StatelessWidget {
-  const CustomLinearProgressIndicator({
+class NeonLinearProgressIndicator extends StatelessWidget {
+  const NeonLinearProgressIndicator({
     this.visible = true,
     this.margin = const EdgeInsets.symmetric(horizontal: 10),
     this.color,

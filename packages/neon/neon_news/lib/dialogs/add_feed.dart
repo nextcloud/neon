@@ -45,7 +45,7 @@ class _NewsAddFeedDialogState extends State<NewsAddFeedDialog> {
   @override
   Widget build(final BuildContext context) => ResultBuilder<NewsBloc, List<NextcloudNewsFolder>>(
         stream: widget.bloc.folders,
-        builder: (final context, final folders) => CustomDialog(
+        builder: (final context, final folders) => NeonDialog(
           title: Text(AppLocalizations.of(context).newsAddFeed),
           children: [
             Form(
@@ -66,13 +66,13 @@ class _NewsAddFeedDialogState extends State<NewsAddFeedDialog> {
                   ),
                   if (widget.folderID == null) ...[
                     Center(
-                      child: ExceptionWidget(
+                      child: NeonException(
                         folders.error,
                         onRetry: widget.bloc.refresh,
                       ),
                     ),
                     Center(
-                      child: CustomLinearProgressIndicator(
+                      child: NeonLinearProgressIndicator(
                         visible: folders.loading,
                       ),
                     ),

@@ -18,7 +18,7 @@ class _FilesMainPageState extends State<FilesMainPage> {
     super.initState();
 
     widget.bloc.errors.listen((final error) {
-      ExceptionWidget.showSnackbar(context, error);
+      NeonException.showSnackbar(context, error);
     });
   }
 

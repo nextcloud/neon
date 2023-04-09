@@ -63,7 +63,7 @@ class _LoginPageState extends State<LoginPage> {
           } else {
             for (final a in _accountsBloc.accounts.value) {
               if (a.id == account.id) {
-                ExceptionWidget.showSnackbar(context, AppLocalizations.of(context).errorAccountAlreadyExists);
+                NeonException.showSnackbar(context, AppLocalizations.of(context).errorAccountAlreadyExists);
                 await _loginBloc.refresh();
                 return;
               }
@@ -75,7 +75,7 @@ class _LoginPageState extends State<LoginPage> {
         } catch (e, s) {
           debugPrint(e.toString());
           debugPrint(s.toString());
-          ExceptionWidget.showSnackbar(context, e);
+          NeonException.showSnackbar(context, e);
           await _loginBloc.refresh();
         }
       }
@@ -212,17 +212,17 @@ class _LoginPageState extends State<LoginPage> {
                             ),
                             Column(
                               children: [
-                                CustomLinearProgressIndicator(
+                                NeonLinearProgressIndicator(
                                   visible: serverConnectionStateSnapshot.data == ServerConnectionState.loading,
                                 ),
                                 if (serverConnectionStateSnapshot.data == ServerConnectionState.unreachable) ...[
-                                  ExceptionWidget(
+                                  NeonException(
                                     AppLocalizations.of(context).errorUnableToReachServer,
                                     onRetry: _loginBloc.refresh,
                                   ),
                                 ],
                                 if (serverConnectionStateSnapshot.data == ServerConnectionState.maintenanceMode) ...[
-                                  ExceptionWidget(
+                                  NeonException(
                                     AppLocalizations.of(context).errorServerInMaintenanceMode,
                                     onRetry: _loginBloc.refresh,
                                   ),

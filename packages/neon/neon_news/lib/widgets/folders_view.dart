@@ -41,7 +41,7 @@ class NewsFoldersView extends StatelessWidget {
                         ),
                       )
                       .toList(),
-              builder: (final context, final sorted) => CustomListView<FolderFeedsWrapper>(
+              builder: (final context, final sorted) => NeonListView<FolderFeedsWrapper>(
                 scrollKey: 'news-folders',
                 withFloatingActionButton: true,
                 items: sorted,

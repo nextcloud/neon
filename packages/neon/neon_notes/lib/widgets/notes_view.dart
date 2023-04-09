@@ -47,7 +47,7 @@ class NotesView extends StatelessWidget {
               input: category != null
                   ? notes.data?.where((final note) => !note.favorite && note.category == category).toList()
                   : notes.data?.where((final note) => !note.favorite).toList(),
-              builder: (final context, final sortedNonFavorites) => CustomListView<NextcloudNotesNote>(
+              builder: (final context, final sortedNonFavorites) => NeonListView<NextcloudNotesNote>(
                 scrollKey: 'notes-notes',
                 withFloatingActionButton: true,
                 items: [

@@ -2,8 +2,8 @@ part of '../../neon.dart';
 
 typedef APIImageDownloader = Future<Uint8List> Function();
 
-class CachedAPIImage extends CachedImage {
-  CachedAPIImage({
+class NeonCachedApiImage extends NeonCachedImage {
+  NeonCachedApiImage({
     required final Account account,
     required final String cacheKey,
     required final APIImageDownloader download,

@@ -77,11 +77,11 @@ class AccountSettingsPage extends StatelessWidget {
                             ),
                           ),
                         ],
-                        ExceptionWidget(
+                        NeonException(
                           userDetails.error,
                           onRetry: _userDetailsBloc.refresh,
                         ),
-                        CustomLinearProgressIndicator(
+                        NeonLinearProgressIndicator(
                           visible: userDetails.loading,
                         ),
                       ],

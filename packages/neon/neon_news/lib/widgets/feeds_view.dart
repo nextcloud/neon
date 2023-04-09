@@ -39,7 +39,7 @@ class NewsFeedsView extends StatelessWidget {
               input: folders.data == null
                   ? null
                   : feeds.data?.where((final f) => folderID == null || f.folderId == folderID).toList(),
-              builder: (final context, final sorted) => CustomListView<NextcloudNewsFeed>(
+              builder: (final context, final sorted) => NeonListView<NextcloudNewsFeed>(
                 scrollKey: 'news-feeds',
                 withFloatingActionButton: true,
                 items: sorted,

@@ -25,7 +25,7 @@ class NotesCategoriesView extends StatelessWidget {
                 ),
               )
               .toList(),
-          builder: (final context, final sorted) => CustomListView<NoteCategory>(
+          builder: (final context, final sorted) => NeonListView<NoteCategory>(
             scrollKey: 'notes-categories',
             items: sorted,
             isLoading: notes.loading,

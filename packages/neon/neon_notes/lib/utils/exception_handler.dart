@@ -2,8 +2,8 @@ part of '../neon_notes.dart';
 
 void handleNotesException(final BuildContext context, final Object error) {
   if (error is NextcloudApiException && error.statusCode == 412) {
-    ExceptionWidget.showSnackbar(context, AppLocalizations.of(context).notesNoteChangedOnServer);
+    NeonException.showSnackbar(context, AppLocalizations.of(context).notesNoteChangedOnServer);
   } else {
-    ExceptionWidget.showSnackbar(context, error);
+    NeonException.showSnackbar(context, error);
   }
 }

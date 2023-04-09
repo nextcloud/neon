@@ -26,7 +26,7 @@ class _NewsMoveFeedDialogState extends State<NewsMoveFeedDialog> {
   }
 
   @override
-  Widget build(final BuildContext context) => CustomDialog(
+  Widget build(final BuildContext context) => NeonDialog(
         title: Text(AppLocalizations.of(context).newsMoveFeed),
         children: [
           Form(
