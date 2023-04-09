@@ -11,7 +11,7 @@ abstract class AppsBlocStates {
 
   BehaviorSubject<Result<List<AppImplementation>>> get appImplementations;
 
-  BehaviorSubject<Result<NotificationsApp?>> get notificationsAppImplementation;
+  BehaviorSubject<Result<NotificationsAppInterface?>> get notificationsAppImplementation;
 
   BehaviorSubject<String?> get activeAppID;
 
@@ -107,8 +107,8 @@ class AppsBloc extends InteractiveBloc implements AppsBlocEvents, AppsBlocStates
   BehaviorSubject<Result<List<NextcloudApp>>> apps = BehaviorSubject<Result<List<NextcloudApp>>>();
 
   @override
-  BehaviorSubject<Result<NotificationsApp?>> notificationsAppImplementation =
-      BehaviorSubject<Result<NotificationsApp?>>();
+  BehaviorSubject<Result<NotificationsAppInterface?>> notificationsAppImplementation =
+      BehaviorSubject<Result<NotificationsAppInterface?>>();
 
   @override
   BehaviorSubject openNotifications = BehaviorSubject();

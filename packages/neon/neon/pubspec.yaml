@@ -24,8 +24,6 @@ dependencies:
   intl: ^0.17.0
   json_annotation: ^4.7.0
   material_design_icons_flutter: ^6.0.7096
-  neon_notifications:
-    path: ../neon_notifications
   nextcloud:
     path: ../../nextcloud
   package_info_plus: ^1.4.2

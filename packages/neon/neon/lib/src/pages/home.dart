@@ -147,7 +147,7 @@ class _HomePageState extends State<HomePage> {
   }
 
   Future _openNotifications(
-    final NotificationsApp app,
+    final NotificationsAppInterface app,
     final List<Account> accounts,
     final Account account,
   ) async {
@@ -186,7 +186,7 @@ class _HomePageState extends State<HomePage> {
         stream: _capabilitiesBloc.capabilities,
         builder: (final context, final capabilities) => ResultBuilder<AppsBloc, List<AppImplementation>>(
           stream: _appsBloc.appImplementations,
-          builder: (final context, final appImplementations) => ResultBuilder<AppsBloc, NotificationsApp?>(
+          builder: (final context, final appImplementations) => ResultBuilder<AppsBloc, NotificationsAppInterface?>(
             stream: _appsBloc.notificationsAppImplementation,
             builder: (final context, final notificationsAppImplementation) => StreamBuilder<String?>(
               stream: _appsBloc.activeAppID,

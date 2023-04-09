@@ -13,7 +13,7 @@ part 'blocs/notifications.dart';
 part 'options.dart';
 part 'pages/main.dart';
 
-class NotificationsApp extends AppImplementation<NotificationsBloc, NotificationsAppSpecificOptions> {
+class NotificationsApp extends NotificationsAppInterface {
   NotificationsApp(super.sharedPreferences, super.requestManager, super.platform);
 
   @override

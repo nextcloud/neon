@@ -23,7 +23,6 @@ import 'package:material_design_icons_flutter/material_design_icons_flutter.dart
 import 'package:neon/l10n/localizations.dart';
 import 'package:neon/src/models/account.dart';
 import 'package:neon/src/models/push_notification.dart';
-import 'package:neon_notifications/neon_notifications.dart';
 import 'package:nextcloud/nextcloud.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:path/path.dart' as p;
@@ -58,6 +57,7 @@ part 'src/blocs/next_push.dart';
 part 'src/blocs/push_notifications.dart';
 part 'src/blocs/user_details.dart';
 part 'src/blocs/user_status.dart';
+part 'src/interfaces/notifications.dart';
 part 'src/pages/account_settings.dart';
 part 'src/pages/home.dart';
 part 'src/pages/login.dart';

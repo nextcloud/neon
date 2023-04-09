@@ -173,7 +173,7 @@ class _NeonAppState extends State<NeonApp> with WidgetsBindingObserver, tray.Tra
           }
           final appImplementation = Provider.of<List<AppImplementation>>(context, listen: false)
               .singleWhere((final a) => a.id == 'notifications');
-          await _accountsBloc.getAppsBloc(account).getAppBloc<NotificationsBloc>(appImplementation).refresh();
+          await _accountsBloc.getAppsBloc(account).getAppBloc<NotificationsBlocInterface>(appImplementation).refresh();
         };
         Global.onPushNotificationClicked = (final pushNotificationWithAccountID) async {
           final allAppImplementations = Provider.of<List<AppImplementation>>(context, listen: false);
@@ -197,7 +197,7 @@ class _NeonAppState extends State<NeonApp> with WidgetsBindingObserver, tray.Tra
           if (appImplementation.id != 'notifications') {
             _accountsBloc
                 .getAppsBloc(account)
-                .getAppBloc<NotificationsBloc>(appImplementation)
+                .getAppBloc<NotificationsBlocInterface>(appImplementation)
                 .deleteNotification(pushNotificationWithAccountID.subject.nid!);
           }
           await _openAppFromExternal(account, appImplementation.id);

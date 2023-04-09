@@ -12,9 +12,9 @@ abstract class NotificationsBlocStates {
   BehaviorSubject<int> get unreadCounter;
 }
 
-class NotificationsBloc extends InteractiveBloc implements NotificationsBlocEvents, NotificationsBlocStates {
+class NotificationsBloc extends NotificationsBlocInterface implements NotificationsBlocEvents, NotificationsBlocStates {
   NotificationsBloc(
-    this.options,
+    super.options,
     this._requestManager,
     this._client,
   ) {
@@ -27,7 +27,6 @@ class NotificationsBloc extends InteractiveBloc implements NotificationsBlocEven
     unawaited(refresh());
   }
 
-  final NotificationsAppSpecificOptions options;
   final RequestManager _requestManager;
   final NextcloudClient _client;
 
