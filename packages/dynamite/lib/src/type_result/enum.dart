@@ -20,7 +20,8 @@ class TypeResultEnum extends TypeResult {
       subType.encode(object);
 
   @override
-  String deserialize(final String object) => '$name.valueOf($object as ${subType.name})';
+  String deserialize(final String object, {final bool toBuilder = false}) =>
+      '$name.valueOf($object as ${subType.name})';
 
   @override
   String decode(final String object) => subType.decode(object);

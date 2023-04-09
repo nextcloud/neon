@@ -7,7 +7,7 @@ abstract class TypeResult {
 
   String serialize(final String object);
 
-  String deserialize(final String object);
+  String deserialize(final String object, {final bool toBuilder = false});
 
   String decode(final String object);
 

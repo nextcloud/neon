@@ -65,6 +65,7 @@ class OpenAPIBuilder implements Builder {
         '',
         "import 'package:built_collection/built_collection.dart';",
         "import 'package:built_value/built_value.dart';",
+        "import 'package:built_value/json_object.dart';",
         "import 'package:built_value/serializer.dart';",
         "import 'package:built_value/standard_json_plugin.dart';",
         "import 'package:cookie_jar/cookie_jar.dart';",
@@ -1475,7 +1476,7 @@ TypeResult resolveType(
 }) {
   TypeResult? result;
   if (schema.ref == null && schema.ofs == null && schema.type == null) {
-    return TypeResultBase('dynamic');
+    return TypeResultBase('JsonObject');
   }
   if (schema.ref != null) {
     final name = schema.ref!.split('/').last;
@@ -1716,14 +1717,14 @@ TypeResult resolveType(
             extraJsonSerializableValues: extraJsonSerializableValues,
           );
           result = TypeResultList(
-            'List<${subResult.name}>',
+            'BuiltList<${subResult.name}>',
             subResult,
             fromContentString: fromContentString,
           );
         } else {
           result = TypeResultList(
-            'List',
-            TypeResultBase('dynamic'),
+            'BuiltList<JsonObject>',
+            TypeResultBase('JsonObject'),
           );
         }
         break;
@@ -1732,8 +1733,8 @@ TypeResult resolveType(
           if (schema.additionalProperties != null) {
             if (schema.additionalProperties is EmptySchema) {
               result = TypeResultMap(
-                'Map<String, dynamic>',
-                TypeResultBase('dynamic'),
+                'BuiltMap<String, Object?>',
+                TypeResultBase('JsonObject'),
               );
             } else {
               final subResult = resolveType(
@@ -1744,19 +1745,19 @@ TypeResult resolveType(
                 extraJsonSerializableValues: extraJsonSerializableValues,
               );
               result = TypeResultMap(
-                'Map<String, ${subResult.name}>',
-                TypeResultBase('dynamic'),
+                'BuiltMap<String, ${subResult.name}>',
+                TypeResultBase('JsonObject'),
               );
             }
             break;
           }
-          result = TypeResultBase('dynamic');
+          result = TypeResultBase('JsonObject');
           break;
         }
         if (schema.properties!.isEmpty) {
           result = TypeResultMap(
-            'Map<String, dynamic>',
-            TypeResultBase('dynamic'),
+            'BuiltMap<String, Object?>',
+            TypeResultBase('JsonObject'),
           );
           break;
         }
