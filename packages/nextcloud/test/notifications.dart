@@ -51,9 +51,9 @@ Future run(final DockerImage image) async {
       expect(response.ocs.data[0].message, '456');
       expect(response.ocs.data[0].link, '');
       expect(response.ocs.data[0].subjectRich, '');
-      expect(response.ocs.data[0].subjectRichParameters, isEmpty);
+      expect(response.ocs.data[0].subjectRichParameters.asList, isEmpty);
       expect(response.ocs.data[0].messageRich, '');
-      expect(response.ocs.data[0].messageRichParameters, isEmpty);
+      expect(response.ocs.data[0].messageRichParameters.asList, isEmpty);
       expect(response.ocs.data[0].icon, isNotEmpty);
       expect(response.ocs.data[0].actions, hasLength(0));
     });
@@ -73,9 +73,9 @@ Future run(final DockerImage image) async {
       expect(response.ocs.data.message, '456');
       expect(response.ocs.data.link, '');
       expect(response.ocs.data.subjectRich, '');
-      expect(response.ocs.data.subjectRichParameters, isEmpty);
+      expect(response.ocs.data.subjectRichParameters.asList, isEmpty);
       expect(response.ocs.data.messageRich, '');
-      expect(response.ocs.data.messageRichParameters, isEmpty);
+      expect(response.ocs.data.messageRichParameters.asList, isEmpty);
       expect(response.ocs.data.icon, isNotEmpty);
       expect(response.ocs.data.actions, hasLength(0));
     });

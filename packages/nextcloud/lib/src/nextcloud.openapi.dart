@@ -4,6 +4,7 @@ import 'dart:typed_data';
 
 import 'package:built_collection/built_collection.dart';
 import 'package:built_value/built_value.dart';
+import 'package:built_value/json_object.dart';
 import 'package:built_value/serializer.dart';
 import 'package:built_value/standard_json_plugin.dart';
 import 'package:cookie_jar/cookie_jar.dart';
@@ -393,7 +394,7 @@ class NextcloudCoreClient {
     required String itemType,
     required String itemId,
     String? sorter,
-    required List<int> shareTypes,
+    required BuiltList<int> shareTypes,
     int limit = 10,
   }) async {
     var path = '/ocs/v2.php/core/autocomplete/get';
@@ -413,7 +414,7 @@ class NextcloudCoreClient {
     if (sorter != null) {
       queryParameters['sorter'] = sorter;
     }
-    queryParameters['shareTypes[]'] = shareTypes.map((final e) => e).toList().map((final e) => e.toString()).toList();
+    queryParameters['shareTypes[]'] = shareTypes.map((final e) => e).map((final e) => e.toString());
     if (limit != 10) {
       queryParameters['limit'] = limit.toString();
     }
@@ -936,7 +937,7 @@ class NextcloudNotesClient {
 
   final NextcloudClient rootClient;
 
-  Future<List<NextcloudNotesNote>> getNotes({
+  Future<BuiltList<NextcloudNotesNote>> getNotes({
     String? category,
     String exclude = '',
     int pruneBefore = 0,
@@ -980,9 +981,8 @@ class NextcloudNotesClient {
       body,
     );
     if (response.statusCode == 200) {
-      return (json.decode(utf8.decode(response.body) as String) as List)
-          .map((final e) => NextcloudNotesNote.fromJson(e as Map<String, dynamic>))
-          .toList();
+      return BuiltList<NextcloudNotesNote>((json.decode(utf8.decode(response.body) as String) as List)
+          .map((final e) => NextcloudNotesNote.fromJson(e as Map<String, dynamic>)));
     }
     throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
   }
@@ -2208,9 +2208,9 @@ class NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_MetadataAvailable {
           json.decode(data) as Map<String, dynamic>);
   // coverage:ignore-end
 
-  final List<String>? size;
+  final BuiltList<String>? size;
 
-  final List<String>? gps;
+  final BuiltList<String>? gps;
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() =>
@@ -2275,7 +2275,7 @@ class NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Files {
   final bool? bigfilechunking;
 
   @JsonKey(name: 'blacklisted_files')
-  final List<String>? blacklistedFiles;
+  final BuiltList<String>? blacklistedFiles;
 
   final NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Files_DirectEditing? directEditing;
 
@@ -2307,7 +2307,7 @@ class NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Activity {
           json.decode(data) as Map<String, dynamic>);
   // coverage:ignore-end
 
-  final List<String>? apiv2;
+  final BuiltList<String>? apiv2;
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_ActivityToJson(this);
@@ -2395,9 +2395,9 @@ class NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Const
           json.decode(data) as Map<String, dynamic>);
   // coverage:ignore-end
 
-  final dynamic core;
+  final JsonObject? core;
 
-  final dynamic extra;
+  final JsonObject? extra;
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() =>
@@ -2427,7 +2427,7 @@ class NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Const
           json.decode(data) as Map<String, dynamic>);
   // coverage:ignore-end
 
-  final dynamic flags;
+  final JsonObject? flags;
 
   final NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants_Source? source;
 
@@ -2458,9 +2458,9 @@ class NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Confi
           json.decode(data) as Map<String, dynamic>);
   // coverage:ignore-end
 
-  final List<int>? coreFlags;
+  final BuiltList<int>? coreFlags;
 
-  final List<int>? systemFlags;
+  final BuiltList<int>? systemFlags;
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() =>
@@ -2515,7 +2515,7 @@ class NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member_Const
           json.decode(data) as Map<String, dynamic>);
   // coverage:ignore-end
 
-  final dynamic level;
+  final JsonObject? level;
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() =>
@@ -2545,7 +2545,7 @@ class NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member {
 
   final NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member_Constants? constants;
 
-  final dynamic type;
+  final JsonObject? type;
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_MemberToJson(this);
@@ -2640,7 +2640,7 @@ class NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes {
 
   final String? name;
 
-  final List<String>? shareTypes;
+  final BuiltList<String>? shareTypes;
 
   final NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes_Protocols? protocols;
 
@@ -2677,7 +2677,7 @@ class NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Ocm {
 
   final String? endPoint;
 
-  final List<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes>? resourceTypes;
+  final BuiltList<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes>? resourceTypes;
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_OcmToJson(this);
@@ -3350,7 +3350,7 @@ class NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Notes {
   // coverage:ignore-end
 
   @JsonKey(name: 'api_version')
-  final List<String>? apiVersion;
+  final BuiltList<String>? apiVersion;
 
   final String? version;
 
@@ -3381,12 +3381,12 @@ class NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Notifications {
   // coverage:ignore-end
 
   @JsonKey(name: 'ocs-endpoints')
-  final List<String>? ocsEndpoints;
+  final BuiltList<String>? ocsEndpoints;
 
-  final List<String>? push;
+  final BuiltList<String>? push;
 
   @JsonKey(name: 'admin-notifications')
-  final List<String>? adminNotifications;
+  final BuiltList<String>? adminNotifications;
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_NotificationsToJson(this);
@@ -3895,7 +3895,7 @@ class NextcloudCoreNavigationApps_Ocs {
 
   final NextcloudOCSMeta meta;
 
-  final List<NextcloudCoreNavigationApps_Ocs_Data> data;
+  final BuiltList<NextcloudCoreNavigationApps_Ocs_Data> data;
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$NextcloudCoreNavigationApps_OcsToJson(this);
@@ -4013,23 +4013,23 @@ class NextcloudCoreLoginFlowResult {
 class NextcloudCoreAutocompleteResult_Ocs_Data_Status {
   NextcloudCoreAutocompleteResult_Ocs_Data_Status(
     this._data, {
-    this.listDynamic,
+    this.builtListJsonObject,
     this.string,
   });
 
   factory NextcloudCoreAutocompleteResult_Ocs_Data_Status.fromJson(dynamic data) {
-    List<dynamic>? listDynamic;
+    BuiltList<JsonObject>? builtListJsonObject;
     String? string;
     try {
-      listDynamic = (data as List).map((final e) => (e as dynamic)).toList();
+      builtListJsonObject = BuiltList<JsonObject>((data as List).map((final e) => JsonObject(e)));
     } catch (_) {}
     try {
       string = (data as String);
     } catch (_) {}
-    assert([listDynamic, string].where((final x) => x != null).length >= 1, 'Need oneOf for $data');
+    assert([builtListJsonObject, string].where((final x) => x != null).length >= 1, 'Need oneOf for $data');
     return NextcloudCoreAutocompleteResult_Ocs_Data_Status(
       data,
-      listDynamic: listDynamic,
+      builtListJsonObject: builtListJsonObject,
       string: string,
     );
   }
@@ -4041,7 +4041,7 @@ class NextcloudCoreAutocompleteResult_Ocs_Data_Status {
 
   final dynamic _data;
 
-  final List<dynamic>? listDynamic;
+  final BuiltList<JsonObject>? builtListJsonObject;
 
   final String? string;
 
@@ -4115,7 +4115,7 @@ class NextcloudCoreAutocompleteResult_Ocs {
 
   final NextcloudOCSMeta meta;
 
-  final List<NextcloudCoreAutocompleteResult_Ocs_Data> data;
+  final BuiltList<NextcloudCoreAutocompleteResult_Ocs_Data> data;
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$NextcloudCoreAutocompleteResult_OcsToJson(this);
@@ -4161,7 +4161,7 @@ class NextcloudNewsSupportedAPIVersions {
       NextcloudNewsSupportedAPIVersions.fromJson(json.decode(data) as Map<String, dynamic>);
   // coverage:ignore-end
 
-  final List<String>? apiLevels;
+  final BuiltList<String>? apiLevels;
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$NextcloudNewsSupportedAPIVersionsToJson(this);
@@ -4301,7 +4301,7 @@ class NextcloudNewsFeed {
 
   final String? lastUpdateError;
 
-  final List<NextcloudNewsArticle> items;
+  final BuiltList<NextcloudNewsArticle> items;
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$NextcloudNewsFeedToJson(this);
@@ -4334,7 +4334,7 @@ class NextcloudNewsFolder {
   final bool opened;
 
   /// This seems to be broken. In testing it is always empty
-  final List<NextcloudNewsFeed> feeds;
+  final BuiltList<NextcloudNewsFeed> feeds;
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$NextcloudNewsFolderToJson(this);
@@ -4355,7 +4355,7 @@ class NextcloudNewsListFolders {
       NextcloudNewsListFolders.fromJson(json.decode(data) as Map<String, dynamic>);
   // coverage:ignore-end
 
-  final List<NextcloudNewsFolder> folders;
+  final BuiltList<NextcloudNewsFolder> folders;
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$NextcloudNewsListFoldersToJson(this);
@@ -4384,7 +4384,7 @@ class NextcloudNewsListFeeds {
 
   final int? newestItemId;
 
-  final List<NextcloudNewsFeed> feeds;
+  final BuiltList<NextcloudNewsFeed> feeds;
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$NextcloudNewsListFeedsToJson(this);
@@ -4405,7 +4405,7 @@ class NextcloudNewsListArticles {
       NextcloudNewsListArticles.fromJson(json.decode(data) as Map<String, dynamic>);
   // coverage:ignore-end
 
-  final List<NextcloudNewsArticle> items;
+  final BuiltList<NextcloudNewsArticle> items;
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$NextcloudNewsListArticlesToJson(this);
@@ -4593,15 +4593,15 @@ class NextcloudNotificationsNotification {
 
   final String subjectRich;
 
-  final dynamic subjectRichParameters;
+  final JsonObject subjectRichParameters;
 
   final String messageRich;
 
-  final dynamic messageRichParameters;
+  final JsonObject messageRichParameters;
 
   final String icon;
 
-  final List<NextcloudNotificationsNotificationAction> actions;
+  final BuiltList<NextcloudNotificationsNotificationAction> actions;
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$NextcloudNotificationsNotificationToJson(this);
@@ -4629,7 +4629,7 @@ class NextcloudNotificationsListNotifications_Ocs {
 
   final NextcloudOCSMeta meta;
 
-  final List<NextcloudNotificationsNotification> data;
+  final BuiltList<NextcloudNotificationsNotification> data;
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$NextcloudNotificationsListNotifications_OcsToJson(this);
@@ -4730,7 +4730,7 @@ class NextcloudEmptyOCS_Ocs {
 
   final NextcloudOCSMeta meta;
 
-  final List data;
+  final BuiltList<JsonObject> data;
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$NextcloudEmptyOCS_OcsToJson(this);
@@ -4974,7 +4974,7 @@ class NextcloudProvisioningApiUserDetails {
 
   final String backend;
 
-  final List<String> subadmin;
+  final BuiltList<String> subadmin;
 
   final NextcloudProvisioningApiUserDetails_Quota quota;
 
@@ -4985,10 +4985,10 @@ class NextcloudProvisioningApiUserDetails {
   final String emailScope;
 
   @JsonKey(name: 'additional_mail')
-  final List<String> additionalMail;
+  final BuiltList<String> additionalMail;
 
   @JsonKey(name: 'additional_mailScope')
-  final List<String> additionalMailScope;
+  final BuiltList<String> additionalMailScope;
 
   final String? displayname;
 
@@ -5036,7 +5036,7 @@ class NextcloudProvisioningApiUserDetails {
 
   final String fediverseScope;
 
-  final List<String> groups;
+  final BuiltList<String> groups;
 
   final String language;
 
@@ -5430,7 +5430,7 @@ class NextcloudUnifiedPushProviderGatewayMatrixResponse200ApplicationJson {
           json.decode(data) as Map<String, dynamic>);
   // coverage:ignore-end
 
-  final List<String> rejected;
+  final BuiltList<String> rejected;
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$NextcloudUnifiedPushProviderGatewayMatrixResponse200ApplicationJsonToJson(this);
@@ -5652,7 +5652,7 @@ class NextcloudUserStatusGetPublicStatuses_Ocs {
 
   final NextcloudOCSMeta meta;
 
-  final List<NextcloudUserStatusPublicStatus> data;
+  final BuiltList<NextcloudUserStatusPublicStatus> data;
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$NextcloudUserStatusGetPublicStatuses_OcsToJson(this);
@@ -5687,23 +5687,24 @@ class NextcloudUserStatusGetPublicStatuses {
 class NextcloudUserStatusGetPublicStatus_Ocs_Data {
   NextcloudUserStatusGetPublicStatus_Ocs_Data(
     this._data, {
-    this.listDynamic,
+    this.builtListJsonObject,
     this.userStatusPublicStatus,
   });
 
   factory NextcloudUserStatusGetPublicStatus_Ocs_Data.fromJson(dynamic data) {
-    List<dynamic>? listDynamic;
+    BuiltList<JsonObject>? builtListJsonObject;
     NextcloudUserStatusPublicStatus? userStatusPublicStatus;
     try {
-      listDynamic = (data as List).map((final e) => (e as dynamic)).toList();
+      builtListJsonObject = BuiltList<JsonObject>((data as List).map((final e) => JsonObject(e)));
     } catch (_) {}
     try {
       userStatusPublicStatus = NextcloudUserStatusPublicStatus.fromJson(data as Map<String, dynamic>);
     } catch (_) {}
-    assert([listDynamic, userStatusPublicStatus].where((final x) => x != null).length >= 1, 'Need oneOf for $data');
+    assert([builtListJsonObject, userStatusPublicStatus].where((final x) => x != null).length >= 1,
+        'Need oneOf for $data');
     return NextcloudUserStatusGetPublicStatus_Ocs_Data(
       data,
-      listDynamic: listDynamic,
+      builtListJsonObject: builtListJsonObject,
       userStatusPublicStatus: userStatusPublicStatus,
     );
   }
@@ -5715,7 +5716,7 @@ class NextcloudUserStatusGetPublicStatus_Ocs_Data {
 
   final dynamic _data;
 
-  final List<dynamic>? listDynamic;
+  final BuiltList<JsonObject>? builtListJsonObject;
 
   final NextcloudUserStatusPublicStatus? userStatusPublicStatus;
 
@@ -5869,23 +5870,23 @@ class NextcloudUserStatusStatus {
 class NextcloudUserStatusGetStatus_Ocs_Data {
   NextcloudUserStatusGetStatus_Ocs_Data(
     this._data, {
-    this.listDynamic,
+    this.builtListJsonObject,
     this.userStatusStatus,
   });
 
   factory NextcloudUserStatusGetStatus_Ocs_Data.fromJson(dynamic data) {
-    List<dynamic>? listDynamic;
+    BuiltList<JsonObject>? builtListJsonObject;
     NextcloudUserStatusStatus? userStatusStatus;
     try {
-      listDynamic = (data as List).map((final e) => (e as dynamic)).toList();
+      builtListJsonObject = BuiltList<JsonObject>((data as List).map((final e) => JsonObject(e)));
     } catch (_) {}
     try {
       userStatusStatus = NextcloudUserStatusStatus.fromJson(data as Map<String, dynamic>);
     } catch (_) {}
-    assert([listDynamic, userStatusStatus].where((final x) => x != null).length >= 1, 'Need oneOf for $data');
+    assert([builtListJsonObject, userStatusStatus].where((final x) => x != null).length >= 1, 'Need oneOf for $data');
     return NextcloudUserStatusGetStatus_Ocs_Data(
       data,
-      listDynamic: listDynamic,
+      builtListJsonObject: builtListJsonObject,
       userStatusStatus: userStatusStatus,
     );
   }
@@ -5897,7 +5898,7 @@ class NextcloudUserStatusGetStatus_Ocs_Data {
 
   final dynamic _data;
 
-  final List<dynamic>? listDynamic;
+  final BuiltList<JsonObject>? builtListJsonObject;
 
   final NextcloudUserStatusStatus? userStatusStatus;
 
@@ -6056,7 +6057,7 @@ class NextcloudUserStatusPredefinedStatuses_Ocs {
 
   final NextcloudOCSMeta meta;
 
-  final List<NextcloudUserStatusPredefinedStatus> data;
+  final BuiltList<NextcloudUserStatusPredefinedStatus> data;
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _$NextcloudUserStatusPredefinedStatuses_OcsToJson(this);
