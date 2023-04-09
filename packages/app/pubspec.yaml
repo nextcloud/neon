@@ -1,0 +1,37 @@
+name: app
+version: 1.0.0
+publish_to: 'none'
+
+environment:
+  sdk: '>=2.19.0 <3.0.0'
+  flutter: '>=3.7.9'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_native_splash: ^2.2.0+1
+  neon:
+    path: ../neon/neon
+  neon_files:
+    path: ../neon/neon_files
+  neon_news:
+    path: ../neon/neon_news
+  neon_notes:
+    path: ../neon/neon_notes
+  neon_notifications:
+    path: ../neon/neon_notifications
+  shared_preferences: ^2.1.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  integration_test:
+    sdk: flutter
+  material_design_icons_flutter: ^6.0.7096
+  nit_picking:
+    git:
+      url: https://github.com/stack11/dart_nit_picking
+      ref: 0b2ee0d
+
+flutter:
+  uses-material-design: true

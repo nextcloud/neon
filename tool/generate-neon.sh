@@ -26,7 +26,7 @@ function export_mipmap_icon_all() {
 function copy_nextcloud_app_svg() {
   id="$1"
   path="$2"
-  target="packages/neon/assets/apps/$id.svg"
+  target="packages/neon_$id/assets/app.svg"
   if [ -f "$path/img/app.svg" ]; then
     cp "$path/img/app.svg" "$target"
   elif [ -f "$path/img/$id.svg" ]; then
@@ -56,28 +56,26 @@ copy_nextcloud_app_svg notifications external/nextcloud-notifications
   wget https://raw.githubusercontent.com/Templarian/MaterialDesign/master/svg/cable-data.svg -O assets/logo_neon.svg
   sed -i "s/<path /<path fill=\"$color\" /g" assets/logo_neon.svg
 
-  # Splash screens
-  inkscape assets/logo_neon.svg -o assets/splash_icon.png -w 768 -h 768 # 768px at xxxhdpi is 192dp
-  convert -size 1152x1152 xc:none assets/splash_icon.png -gravity center -composite assets/splash_icon_android_12.png # 1152px at xxxhdpi is 288dp
-  exiftool -overwrite_original -all= assets/splash_icon_android_12.png # To remove timestamps
-
-  # Android launcher icons
-  export_mipmap_icon_all "assets/logo_neon.svg" "ic_launcher" &
-  export_mipmap_icon_all "assets/apps/files.svg" "app_files" &
-  export_mipmap_icon_all "assets/apps/news.svg" "app_news" &
-  export_mipmap_icon_all "assets/apps/notes.svg" "app_notes" &
-  export_mipmap_icon_all "assets/apps/notifications.svg" "app_notifications" &
-  wait
-
   fvm dart run build_runner build --delete-conflicting-outputs
-  fvm dart run flutter_native_splash:create
   fvm flutter gen-l10n
-  ../../tool/format.sh
-
-  rm assets/splash_icon.png assets/splash_icon_android_12.png
 )
 
 (
-  cd packages/file_icons
-  fvm dart run
+  cd packages/app
+
+  # Splash screens
+  inkscape ../neon/assets/logo_neon.svg -o img/splash_icon.png -w 768 -h 768 # 768px at xxxhdpi is 192dp
+  convert -size 1152x1152 xc:none img/splash_icon.png -gravity center -composite img/splash_icon_android_12.png # 1152px at xxxhdpi is 288dp
+  exiftool -overwrite_original -all= img/splash_icon_android_12.png # To remove timestamps
+
+  # Android launcher icons
+  export_mipmap_icon_all "../neon/assets/logo_neon.svg" "ic_launcher" &
+  for id in files news notes notifications; do
+    export_mipmap_icon_all "../neon_$id/assets/app.svg" "app_$id" &
+  done
+  wait
+
+  fvm dart run flutter_native_splash:create
 )
+
+./tool/format.sh

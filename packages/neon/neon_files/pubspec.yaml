@@ -1,0 +1,41 @@
+name: neon_files
+version: 1.0.0
+publish_to: 'none'
+
+environment:
+  sdk: '>=2.19.0 <3.0.0'
+  flutter: '>=3.7.9'
+
+dependencies:
+  collection: ^1.17.0
+  file_icons:
+    path: ../../file_icons
+  file_picker: ^4.6.1
+  filesize: ^2.0.1
+  flutter:
+    sdk: flutter
+  image_picker: ^0.8.7+1
+  intersperse: ^2.0.0
+  material_design_icons_flutter: ^6.0.7096
+  neon:
+    path: ../neon
+  nextcloud:
+    path: ../../nextcloud
+  open_file: ^3.2.1
+  path: ^1.8.2
+  provider: ^6.0.5
+  queue: ^3.1.0+2
+  rxdart: ^0.27.7
+  settings:
+    path: ../../settings
+
+dev_dependencies:
+  nit_picking:
+    git:
+      url: https://github.com/stack11/dart_nit_picking
+      ref: 0b2ee0d
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/

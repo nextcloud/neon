@@ -11,6 +11,6 @@ function cleanup() {
 }
 trap cleanup EXIT
 
-cd /src/packages/neon
+cd /src/packages/app
 # shellcheck disable=SC2086
 flutter build linux ${BUILD_ARGS[*]}

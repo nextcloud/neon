@@ -1,0 +1,29 @@
+name: neon_notifications
+version: 1.0.0
+publish_to: 'none'
+
+environment:
+  sdk: '>=2.19.0 <3.0.0'
+  flutter: '>=3.7.9'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  material_design_icons_flutter: ^6.0.7096
+  neon:
+    path: ../neon
+  nextcloud:
+    path: ../../nextcloud
+  provider: ^6.0.5
+  rxdart: ^0.27.7
+
+dev_dependencies:
+  nit_picking:
+    git:
+      url: https://github.com/stack11/dart_nit_picking
+      ref: 0b2ee0d
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/
