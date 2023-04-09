@@ -2,8 +2,9 @@ import 'dart:convert';
 import 'dart:io';
 import 'dart:typed_data';
 
+import 'package:built_collection/built_collection.dart';
+import 'package:built_value/built_value.dart';
 import 'package:cookie_jar/cookie_jar.dart';
-import 'package:json_annotation/json_annotation.dart';
 
 export 'package:cookie_jar/cookie_jar.dart';
 
@@ -1849,7 +1850,7 @@ class NextcloudUserStatusClient {
     } else {
       throw Exception('Missing authentication for basic_auth');
     }
-    queryParameters['statusType'] = statusType.value;
+    queryParameters['statusType'] = statusType.name;
     final response = await rootClient.doRequest(
       'put',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
@@ -1992,7 +1993,7 @@ class NextcloudUserStatusClient {
     } else {
       throw Exception('Missing authentication for basic_auth');
     }
-    queryParameters['status'] = status.value;
+    queryParameters['status'] = status.name;
     final response = await rootClient.doRequest(
       'put',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
@@ -4460,27 +4461,18 @@ class NextcloudNotesNote {
   static String? toJsonString(NextcloudNotesNote? data) => data == null ? null : json.encode(data.toJson());
 }
 
-enum NextcloudNotesSettings_NoteMode {
-  edit('edit'),
-  preview('preview'),
-  rich('rich');
+class NextcloudNotesSettings_NoteMode extends EnumClass {
+  const NextcloudNotesSettings_NoteMode._(super.name);
 
-  const NextcloudNotesSettings_NoteMode(this.value);
+  static const NextcloudNotesSettings_NoteMode edit = _$nextcloudNotesSettingsNoteModeEdit;
 
-  final String value;
+  static const NextcloudNotesSettings_NoteMode preview = _$nextcloudNotesSettingsNoteModePreview;
 
-  static NextcloudNotesSettings_NoteMode fromValue(String value) {
-    switch (value) {
-      case 'edit':
-        return NextcloudNotesSettings_NoteMode.edit;
-      case 'preview':
-        return NextcloudNotesSettings_NoteMode.preview;
-      case 'rich':
-        return NextcloudNotesSettings_NoteMode.rich;
-      default:
-        throw Exception('Can not parse NextcloudNotesSettings_NoteMode from "$value"');
-    }
-  }
+  static const NextcloudNotesSettings_NoteMode rich = _$nextcloudNotesSettingsNoteModeRich;
+
+  static BuiltSet<NextcloudNotesSettings_NoteMode> get values => _$nextcloudNotesSettingsNoteModeValues;
+  static NextcloudNotesSettings_NoteMode valueOf(String name) => _$valueOfNextcloudNotesSettings_NoteMode(name);
+  static Serializer<NextcloudNotesSettings_NoteMode> get serializer => _$nextcloudNotesSettingsNoteModeSerializer;
 }
 
 @JsonSerializable()
@@ -5445,45 +5437,29 @@ class NextcloudUnifiedPushProviderGatewayMatrixResponse200ApplicationJson {
       data == null ? null : json.encode(data.toJson());
 }
 
-enum NextcloudUserStatusClearAt_Type {
-  period('period'),
-  @JsonValue('end-of')
-  endOf('end-of');
+class NextcloudUserStatusClearAt_Type extends EnumClass {
+  const NextcloudUserStatusClearAt_Type._(super.name);
 
-  const NextcloudUserStatusClearAt_Type(this.value);
+  static const NextcloudUserStatusClearAt_Type period = _$nextcloudUserStatusClearAtTypePeriod;
 
-  final String value;
+  @BuiltValueEnumConst(wireName: 'end-of')
+  static const NextcloudUserStatusClearAt_Type endOf = _$nextcloudUserStatusClearAtTypeEndOf;
 
-  static NextcloudUserStatusClearAt_Type fromValue(String value) {
-    switch (value) {
-      case 'period':
-        return NextcloudUserStatusClearAt_Type.period;
-      case 'end-of':
-        return NextcloudUserStatusClearAt_Type.endOf;
-      default:
-        throw Exception('Can not parse NextcloudUserStatusClearAt_Type from "$value"');
-    }
-  }
+  static BuiltSet<NextcloudUserStatusClearAt_Type> get values => _$nextcloudUserStatusClearAtTypeValues;
+  static NextcloudUserStatusClearAt_Type valueOf(String name) => _$valueOfNextcloudUserStatusClearAt_Type(name);
+  static Serializer<NextcloudUserStatusClearAt_Type> get serializer => _$nextcloudUserStatusClearAtTypeSerializer;
 }
 
-enum NextcloudUserStatusClearAt_Time0 {
-  day('day'),
-  week('week');
+class NextcloudUserStatusClearAt_Time0 extends EnumClass {
+  const NextcloudUserStatusClearAt_Time0._(super.name);
 
-  const NextcloudUserStatusClearAt_Time0(this.value);
+  static const NextcloudUserStatusClearAt_Time0 day = _$nextcloudUserStatusClearAtTime0Day;
 
-  final String value;
+  static const NextcloudUserStatusClearAt_Time0 week = _$nextcloudUserStatusClearAtTime0Week;
 
-  static NextcloudUserStatusClearAt_Time0 fromValue(String value) {
-    switch (value) {
-      case 'day':
-        return NextcloudUserStatusClearAt_Time0.day;
-      case 'week':
-        return NextcloudUserStatusClearAt_Time0.week;
-      default:
-        throw Exception('Can not parse NextcloudUserStatusClearAt_Time0 from "$value"');
-    }
-  }
+  static BuiltSet<NextcloudUserStatusClearAt_Time0> get values => _$nextcloudUserStatusClearAtTime0Values;
+  static NextcloudUserStatusClearAt_Time0 valueOf(String name) => _$valueOfNextcloudUserStatusClearAt_Time0(name);
+  static Serializer<NextcloudUserStatusClearAt_Time0> get serializer => _$nextcloudUserStatusClearAtTime0Serializer;
 }
 
 class NextcloudUserStatusClearAt_Time {
@@ -5497,7 +5473,7 @@ class NextcloudUserStatusClearAt_Time {
     NextcloudUserStatusClearAt_Time0? userStatusClearAtTime0;
     int? $int;
     try {
-      userStatusClearAtTime0 = NextcloudUserStatusClearAt_Time0.fromValue(data as String);
+      userStatusClearAtTime0 = NextcloudUserStatusClearAt_Time0.valueOf(data as String);
     } catch (_) {}
     try {
       $int = (data as int);
@@ -5600,33 +5576,22 @@ class NextcloudUserStatusPublicStatus_ClearAt {
   // coverage:ignore-end
 }
 
-enum NextcloudUserStatusType {
-  online('online'),
-  offline('offline'),
-  dnd('dnd'),
-  away('away'),
-  invisible('invisible');
+class NextcloudUserStatusType extends EnumClass {
+  const NextcloudUserStatusType._(super.name);
 
-  const NextcloudUserStatusType(this.value);
+  static const NextcloudUserStatusType online = _$nextcloudUserStatusTypeOnline;
 
-  final String value;
+  static const NextcloudUserStatusType offline = _$nextcloudUserStatusTypeOffline;
 
-  static NextcloudUserStatusType fromValue(String value) {
-    switch (value) {
-      case 'online':
-        return NextcloudUserStatusType.online;
-      case 'offline':
-        return NextcloudUserStatusType.offline;
-      case 'dnd':
-        return NextcloudUserStatusType.dnd;
-      case 'away':
-        return NextcloudUserStatusType.away;
-      case 'invisible':
-        return NextcloudUserStatusType.invisible;
-      default:
-        throw Exception('Can not parse NextcloudUserStatusType from "$value"');
-    }
-  }
+  static const NextcloudUserStatusType dnd = _$nextcloudUserStatusTypeDnd;
+
+  static const NextcloudUserStatusType away = _$nextcloudUserStatusTypeAway;
+
+  static const NextcloudUserStatusType invisible = _$nextcloudUserStatusTypeInvisible;
+
+  static BuiltSet<NextcloudUserStatusType> get values => _$nextcloudUserStatusTypeValues;
+  static NextcloudUserStatusType valueOf(String name) => _$valueOfNextcloudUserStatusType(name);
+  static Serializer<NextcloudUserStatusType> get serializer => _$nextcloudUserStatusTypeSerializer;
 }
 
 @JsonSerializable()

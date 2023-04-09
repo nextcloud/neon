@@ -63,8 +63,9 @@ class OpenAPIBuilder implements Builder {
         "import 'dart:io';",
         "import 'dart:typed_data';",
         '',
+        "import 'package:built_collection/built_collection.dart';",
+        "import 'package:built_value/built_value.dart';",
         "import 'package:cookie_jar/cookie_jar.dart';",
-        "import 'package:json_annotation/json_annotation.dart';",
         '',
         "export 'package:cookie_jar/cookie_jar.dart';",
         '',
@@ -1187,6 +1188,24 @@ String _valueToEscapedValue(final TypeResult result, final dynamic value) {
   return value.toString();
 }
 
+String _toCamelCase(final String name) {
+  var result = '';
+  var upperCase = false;
+  var firstCharacter = true;
+  for (final char in name.split('')) {
+    if (char == '_') {
+      upperCase = true;
+    } else if (char == r'$') {
+      result += r'$';
+    } else {
+      result += firstCharacter ? char.toLowerCase() : (upperCase ? char.toUpperCase() : char);
+      upperCase = false;
+      firstCharacter = false;
+    }
+  }
+  return result;
+}
+
 List<String> _descriptionToDocs(final String? description) => [
       if (description != null && description.isNotEmpty) ...[
         for (final line in description.split('\n')) ...[
@@ -1765,33 +1784,27 @@ TypeResult resolveType(
       if (!state.resolvedTypes.contains('${state.prefix}$identifier')) {
         state.resolvedTypes.add('${state.prefix}$identifier');
         state.output.add(
-          Enum(
+          Class(
             (final b) => b
               ..name = '${state.prefix}$identifier'
+              ..extend = refer('EnumClass')
               ..constructors.add(
                 Constructor(
                   (final b) => b
+                    ..name = '_'
                     ..constant = true
                     ..requiredParameters.add(
                       Parameter(
                         (final b) => b
-                          ..name = 'value'
-                          ..toThis = true,
+                          ..name = 'name'
+                          ..toSuper = true,
                       ),
                     ),
                 ),
               )
-              ..fields.add(
-                Field(
-                  (final b) => b
-                    ..name = 'value'
-                    ..type = refer(result!.name)
-                    ..modifier = FieldModifier.final$,
-                ),
-              )
-              ..values.addAll(
+              ..fields.addAll(
                 schema.enum_!.map(
-                  (final value) => EnumValue(
+                  (final value) => Field(
                     (final b) {
                       final result = resolveType(
                         spec,
@@ -1803,9 +1816,13 @@ TypeResult resolveType(
                       );
                       b
                         ..name = _toDartName(value.toString())
-                        ..arguments.add(
-                          refer(_valueToEscapedValue(result, value)),
+                        ..static = true
+                        ..modifier = FieldModifier.constant
+                        ..type = refer('${state.prefix}$identifier')
+                        ..assignment = Code(
+                          '_\$${_toCamelCase('${state.prefix}$identifier')}${_toDartName(value.toString(), uppercaseFirstCharacter: true)}',
                         );
+
                       if (_toDartName(value.toString()) != value.toString()) {
                         if (result.name != 'String' && result.name != 'int') {
                           throw Exception(
@@ -1815,42 +1832,50 @@ TypeResult resolveType(
                           );
                         }
                         b.annotations.add(
-                          refer('JsonValue').call([
-                            refer(_valueToEscapedValue(result, value.toString())),
-                          ]),
+                          refer('BuiltValueEnumConst').call([], {
+                            'wireName': refer(_valueToEscapedValue(result, value.toString())),
+                          }),
                         );
                       }
                     },
                   ),
                 ),
               )
-              ..methods.add(
+              ..methods.addAll([
                 Method(
                   (final b) => b
-                    ..name = 'fromValue'
+                    ..name = 'values'
+                    ..returns = refer('BuiltSet<${state.prefix}$identifier>')
+                    ..lambda = true
                     ..static = true
+                    ..body = Code('_\$${_toCamelCase('${state.prefix}$identifier')}Values')
+                    ..type = MethodType.getter,
+                ),
+                Method(
+                  (final b) => b
+                    ..name = 'valueOf'
                     ..returns = refer('${state.prefix}$identifier')
+                    ..lambda = true
+                    ..static = true
                     ..requiredParameters.add(
                       Parameter(
                         (final b) => b
-                          ..name = 'value'
+                          ..name = 'name'
                           ..type = refer(result!.name),
                       ),
                     )
-                    ..body = Code(
-                      [
-                        'switch (value) {',
-                        for (final value in schema.enum_!) ...[
-                          'case ${_valueToEscapedValue(result!, value)}:',
-                          'return ${state.prefix}$identifier.${_toDartName(value.toString())};',
-                        ],
-                        'default:',
-                        'throw Exception(\'Can not parse ${state.prefix}$identifier from "\$value"\');',
-                        '}',
-                      ].join(),
-                    ),
+                    ..body = Code('_\$valueOf${state.prefix}$identifier(name)'),
                 ),
-              ),
+                Method(
+                  (final b) => b
+                    ..name = 'serializer'
+                    ..returns = refer('Serializer<${state.prefix}$identifier>')
+                    ..lambda = true
+                    ..static = true
+                    ..body = Code("_\$${_toCamelCase('${state.prefix}$identifier')}Serializer")
+                    ..type = MethodType.getter,
+                ),
+              ]),
           ),
         );
       }
