@@ -1,7 +1,5 @@
 targets:
   $default:
     builders:
-      json_serializable:
-        options:
-          disallow_unrecognized_keys: true
-          explicit_to_json: true
+      built_value_generator|built_value:
+        enabled: true
