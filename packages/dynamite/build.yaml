@@ -18,5 +18,5 @@ builders:
     build_extensions: {'.openapi.json': ['openapi.dart']}
     auto_apply: root_package
     build_to: source
-    runs_before: ["json_serializable"]
-    applies_builders: ["json_serializable"]
+    runs_before: ["built_value_generator|built_value"]
+    applies_builders: ["built_value_generator|built_value"]
