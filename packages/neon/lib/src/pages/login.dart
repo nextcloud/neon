@@ -32,15 +32,15 @@ class _LoginPageState extends State<LoginPage> {
       _loginBloc.setServerURL(widget.serverURL);
     }
 
-    _loginBloc.loginFlowInit.listen((final init) {
-      if (init != null && !Provider.of<NeonPlatform>(context, listen: false).canUseWebView) {
-        WidgetsBinding.instance.addPostFrameCallback((final _) async {
+    WidgetsBinding.instance.addPostFrameCallback((final _) {
+      _loginBloc.loginFlowInit.listen((final init) async {
+        if (init != null && !Provider.of<NeonPlatform>(context, listen: false).canUseWebView) {
           await launchUrlString(
             init.login,
             mode: LaunchMode.externalApplication,
           );
-        });
-      }
+        }
+      });
     });
 
     _loginBloc.loginFlowResult.listen((final result) async {
