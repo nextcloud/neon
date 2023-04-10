@@ -2010,1777 +2010,1332 @@ class NextcloudUserStatusClient {
   }
 }
 
-@JsonSerializable()
-class NextcloudCoreServerStatus {
-  NextcloudCoreServerStatus({
-    required this.installed,
-    required this.maintenance,
-    required this.needsDbUpgrade,
-    required this.version,
-    required this.versionstring,
-    required this.edition,
-    required this.productname,
-    required this.extendedSupport,
-  });
+abstract class NextcloudCoreServerStatus implements Built<NextcloudCoreServerStatus, NextcloudCoreServerStatusBuilder> {
+  const NextcloudCoreServerStatus._();
 
-  // coverage:ignore-start
-  factory NextcloudCoreServerStatus.fromJson(Map<String, dynamic> json) => _$NextcloudCoreServerStatusFromJson(json);
-  // coverage:ignore-end
+  factory NextcloudCoreServerStatus([void Function(NextcloudCoreServerStatusBuilder)? b]) = _$NextcloudCoreServerStatus;
 
-  // coverage:ignore-start
-  factory NextcloudCoreServerStatus.fromJsonString(String data) =>
-      NextcloudCoreServerStatus.fromJson(json.decode(data) as Map<String, dynamic>);
-  // coverage:ignore-end
-
-  final bool installed;
-
-  final bool maintenance;
-
-  final bool needsDbUpgrade;
-
-  final String version;
-
-  final String versionstring;
-
-  final String edition;
-
-  final String productname;
-
-  final bool extendedSupport;
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$NextcloudCoreServerStatusToJson(this);
-  // coverage:ignore-end
-  static String? toJsonString(NextcloudCoreServerStatus? data) => data == null ? null : json.encode(data.toJson());
+  static NextcloudCoreServerStatus fromJson(Map<String, dynamic> json) =>
+      serializers.deserializeWith(serializer, json)!;
+  static NextcloudCoreServerStatus fromJsonString(String data) => serializers.fromJson(serializer, data)!;
+  Map<String, dynamic> toJson() => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
+  static String? toJsonString(NextcloudCoreServerStatus? data) =>
+      data == null ? null : serializers.toJson(serializer, data);
+  bool get installed;
+  bool get maintenance;
+  bool get needsDbUpgrade;
+  String get version;
+  String get versionstring;
+  String get edition;
+  String get productname;
+  bool get extendedSupport;
+  static Serializer<NextcloudCoreServerStatus> get serializer => _$nextcloudCoreServerStatusSerializer;
 }
 
-@JsonSerializable()
-class NextcloudOCSMeta {
-  NextcloudOCSMeta({
-    required this.status,
-    required this.statuscode,
-    this.message,
-    this.totalitems,
-    this.itemsperpage,
-  });
+abstract class NextcloudOCSMeta implements Built<NextcloudOCSMeta, NextcloudOCSMetaBuilder> {
+  const NextcloudOCSMeta._();
 
-  // coverage:ignore-start
-  factory NextcloudOCSMeta.fromJson(Map<String, dynamic> json) => _$NextcloudOCSMetaFromJson(json);
-  // coverage:ignore-end
+  factory NextcloudOCSMeta([void Function(NextcloudOCSMetaBuilder)? b]) = _$NextcloudOCSMeta;
 
-  // coverage:ignore-start
-  factory NextcloudOCSMeta.fromJsonString(String data) =>
-      NextcloudOCSMeta.fromJson(json.decode(data) as Map<String, dynamic>);
-  // coverage:ignore-end
-
-  final String status;
-
-  final int statuscode;
-
-  final String? message;
-
-  final String? totalitems;
-
-  final String? itemsperpage;
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$NextcloudOCSMetaToJson(this);
-  // coverage:ignore-end
-  static String? toJsonString(NextcloudOCSMeta? data) => data == null ? null : json.encode(data.toJson());
+  static NextcloudOCSMeta fromJson(Map<String, dynamic> json) => serializers.deserializeWith(serializer, json)!;
+  static NextcloudOCSMeta fromJsonString(String data) => serializers.fromJson(serializer, data)!;
+  Map<String, dynamic> toJson() => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
+  static String? toJsonString(NextcloudOCSMeta? data) => data == null ? null : serializers.toJson(serializer, data);
+  String get status;
+  int get statuscode;
+  String? get message;
+  String? get totalitems;
+  String? get itemsperpage;
+  static Serializer<NextcloudOCSMeta> get serializer => _$nextcloudOCSMetaSerializer;
 }
 
-@JsonSerializable()
-class NextcloudCoreServerCapabilities_Ocs_Data_Version {
-  NextcloudCoreServerCapabilities_Ocs_Data_Version({
-    this.major,
-    this.minor,
-    this.micro,
-    this.string,
-    this.edition,
-    this.extendedSupport,
-  });
+abstract class NextcloudCoreServerCapabilities_Ocs_Data_Version
+    implements
+        Built<NextcloudCoreServerCapabilities_Ocs_Data_Version,
+            NextcloudCoreServerCapabilities_Ocs_Data_VersionBuilder> {
+  const NextcloudCoreServerCapabilities_Ocs_Data_Version._();
 
-  // coverage:ignore-start
-  factory NextcloudCoreServerCapabilities_Ocs_Data_Version.fromJson(Map<String, dynamic> json) =>
-      _$NextcloudCoreServerCapabilities_Ocs_Data_VersionFromJson(json);
-  // coverage:ignore-end
+  factory NextcloudCoreServerCapabilities_Ocs_Data_Version(
+          [void Function(NextcloudCoreServerCapabilities_Ocs_Data_VersionBuilder)? b]) =
+      _$NextcloudCoreServerCapabilities_Ocs_Data_Version;
 
-  // coverage:ignore-start
-  factory NextcloudCoreServerCapabilities_Ocs_Data_Version.fromJsonString(String data) =>
-      NextcloudCoreServerCapabilities_Ocs_Data_Version.fromJson(json.decode(data) as Map<String, dynamic>);
-  // coverage:ignore-end
-
-  final int? major;
-
-  final int? minor;
-
-  final int? micro;
-
-  final String? string;
-
-  final String? edition;
-
-  final bool? extendedSupport;
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$NextcloudCoreServerCapabilities_Ocs_Data_VersionToJson(this);
-  // coverage:ignore-end
+  static NextcloudCoreServerCapabilities_Ocs_Data_Version fromJson(Map<String, dynamic> json) =>
+      serializers.deserializeWith(serializer, json)!;
+  static NextcloudCoreServerCapabilities_Ocs_Data_Version fromJsonString(String data) =>
+      serializers.fromJson(serializer, data)!;
+  Map<String, dynamic> toJson() => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
   static String? toJsonString(NextcloudCoreServerCapabilities_Ocs_Data_Version? data) =>
-      data == null ? null : json.encode(data.toJson());
+      data == null ? null : serializers.toJson(serializer, data);
+  int? get major;
+  int? get minor;
+  int? get micro;
+  String? get string;
+  String? get edition;
+  bool? get extendedSupport;
+  static Serializer<NextcloudCoreServerCapabilities_Ocs_Data_Version> get serializer =>
+      _$nextcloudCoreServerCapabilitiesOcsDataVersionSerializer;
 }
 
-@JsonSerializable(disallowUnrecognizedKeys: false)
-class NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Core {
-  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Core({
-    this.pollinterval,
-    this.webdavRoot,
-    this.referenceApi,
-    this.referenceRegex,
-  });
+abstract class NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Core
+    implements
+        Built<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Core,
+            NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_CoreBuilder> {
+  const NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Core._();
 
-  // coverage:ignore-start
-  factory NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Core.fromJson(Map<String, dynamic> json) =>
-      _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_CoreFromJson(json);
-  // coverage:ignore-end
+  factory NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Core(
+          [void Function(NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_CoreBuilder)? b]) =
+      _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Core;
 
-  // coverage:ignore-start
-  factory NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Core.fromJsonString(String data) =>
-      NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Core.fromJson(json.decode(data) as Map<String, dynamic>);
-  // coverage:ignore-end
-
-  final int? pollinterval;
-
-  @JsonKey(name: 'webdav-root')
-  final String? webdavRoot;
-
-  @JsonKey(name: 'reference-api')
-  final bool? referenceApi;
-
-  @JsonKey(name: 'reference-regex')
-  final String? referenceRegex;
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_CoreToJson(this);
-  // coverage:ignore-end
+  static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Core fromJson(Map<String, dynamic> json) =>
+      serializers.deserializeWith(serializer, json)!;
+  static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Core fromJsonString(String data) =>
+      serializers.fromJson(serializer, data)!;
+  Map<String, dynamic> toJson() => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
   static String? toJsonString(NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Core? data) =>
-      data == null ? null : json.encode(data.toJson());
+      data == null ? null : serializers.toJson(serializer, data);
+  int? get pollinterval;
+  @BuiltValueField(wireName: 'webdav-root')
+  String? get webdavRoot;
+  @BuiltValueField(wireName: 'reference-api')
+  bool? get referenceApi;
+  @BuiltValueField(wireName: 'reference-regex')
+  String? get referenceRegex;
+  static Serializer<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Core> get serializer =>
+      _$nextcloudCoreServerCapabilitiesOcsDataCapabilitiesCoreSerializer;
 }
 
-@JsonSerializable(disallowUnrecognizedKeys: false)
-class NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Bruteforce {
-  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Bruteforce({this.delay});
+abstract class NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Bruteforce
+    implements
+        Built<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Bruteforce,
+            NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_BruteforceBuilder> {
+  const NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Bruteforce._();
 
-  // coverage:ignore-start
-  factory NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Bruteforce.fromJson(Map<String, dynamic> json) =>
-      _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_BruteforceFromJson(json);
-  // coverage:ignore-end
+  factory NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Bruteforce(
+          [void Function(NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_BruteforceBuilder)? b]) =
+      _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Bruteforce;
 
-  // coverage:ignore-start
-  factory NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Bruteforce.fromJsonString(String data) =>
-      NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Bruteforce.fromJson(
-          json.decode(data) as Map<String, dynamic>);
-  // coverage:ignore-end
-
-  final int? delay;
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_BruteforceToJson(this);
-  // coverage:ignore-end
+  static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Bruteforce fromJson(Map<String, dynamic> json) =>
+      serializers.deserializeWith(serializer, json)!;
+  static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Bruteforce fromJsonString(String data) =>
+      serializers.fromJson(serializer, data)!;
+  Map<String, dynamic> toJson() => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
   static String? toJsonString(NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Bruteforce? data) =>
-      data == null ? null : json.encode(data.toJson());
+      data == null ? null : serializers.toJson(serializer, data);
+  int? get delay;
+  static Serializer<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Bruteforce> get serializer =>
+      _$nextcloudCoreServerCapabilitiesOcsDataCapabilitiesBruteforceSerializer;
 }
 
-@JsonSerializable(disallowUnrecognizedKeys: false)
-class NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_MetadataAvailable {
-  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_MetadataAvailable({
-    this.size,
-    this.gps,
-  });
+abstract class NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_MetadataAvailable
+    implements
+        Built<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_MetadataAvailable,
+            NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_MetadataAvailableBuilder> {
+  const NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_MetadataAvailable._();
 
-  // coverage:ignore-start
-  factory NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_MetadataAvailable.fromJson(Map<String, dynamic> json) =>
-      _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_MetadataAvailableFromJson(json);
-  // coverage:ignore-end
+  factory NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_MetadataAvailable(
+          [void Function(NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_MetadataAvailableBuilder)? b]) =
+      _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_MetadataAvailable;
 
-  // coverage:ignore-start
-  factory NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_MetadataAvailable.fromJsonString(String data) =>
-      NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_MetadataAvailable.fromJson(
-          json.decode(data) as Map<String, dynamic>);
-  // coverage:ignore-end
-
-  final BuiltList<String>? size;
-
-  final BuiltList<String>? gps;
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() =>
-      _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_MetadataAvailableToJson(this);
-  // coverage:ignore-end
+  static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_MetadataAvailable fromJson(Map<String, dynamic> json) =>
+      serializers.deserializeWith(serializer, json)!;
+  static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_MetadataAvailable fromJsonString(String data) =>
+      serializers.fromJson(serializer, data)!;
+  Map<String, dynamic> toJson() => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
   static String? toJsonString(NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_MetadataAvailable? data) =>
-      data == null ? null : json.encode(data.toJson());
+      data == null ? null : serializers.toJson(serializer, data);
+  BuiltList<String>? get size;
+  BuiltList<String>? get gps;
+  static Serializer<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_MetadataAvailable> get serializer =>
+      _$nextcloudCoreServerCapabilitiesOcsDataCapabilitiesMetadataAvailableSerializer;
 }
 
-@JsonSerializable(disallowUnrecognizedKeys: false)
-class NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Files_DirectEditing {
-  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Files_DirectEditing({
-    this.url,
-    this.etag,
-  });
+abstract class NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Files_DirectEditing
+    implements
+        Built<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Files_DirectEditing,
+            NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Files_DirectEditingBuilder> {
+  const NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Files_DirectEditing._();
 
-  // coverage:ignore-start
-  factory NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Files_DirectEditing.fromJson(
+  factory NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Files_DirectEditing(
+          [void Function(NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Files_DirectEditingBuilder)? b]) =
+      _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Files_DirectEditing;
+
+  static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Files_DirectEditing fromJson(
           Map<String, dynamic> json) =>
-      _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Files_DirectEditingFromJson(json);
-  // coverage:ignore-end
-
-  // coverage:ignore-start
-  factory NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Files_DirectEditing.fromJsonString(String data) =>
-      NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Files_DirectEditing.fromJson(
-          json.decode(data) as Map<String, dynamic>);
-  // coverage:ignore-end
-
-  final String? url;
-
-  final String? etag;
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() =>
-      _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Files_DirectEditingToJson(this);
-  // coverage:ignore-end
+      serializers.deserializeWith(serializer, json)!;
+  static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Files_DirectEditing fromJsonString(String data) =>
+      serializers.fromJson(serializer, data)!;
+  Map<String, dynamic> toJson() => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
   static String? toJsonString(NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Files_DirectEditing? data) =>
-      data == null ? null : json.encode(data.toJson());
+      data == null ? null : serializers.toJson(serializer, data);
+  String? get url;
+  String? get etag;
+  static Serializer<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Files_DirectEditing> get serializer =>
+      _$nextcloudCoreServerCapabilitiesOcsDataCapabilitiesFilesDirectEditingSerializer;
 }
 
-@JsonSerializable(disallowUnrecognizedKeys: false)
-class NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Files {
-  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Files({
-    this.bigfilechunking,
-    this.blacklistedFiles,
-    this.directEditing,
-    this.comments,
-    this.undelete,
-    this.versioning,
-  });
+abstract class NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Files
+    implements
+        Built<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Files,
+            NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesBuilder> {
+  const NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Files._();
 
-  // coverage:ignore-start
-  factory NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Files.fromJson(Map<String, dynamic> json) =>
-      _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesFromJson(json);
-  // coverage:ignore-end
+  factory NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Files(
+          [void Function(NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesBuilder)? b]) =
+      _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Files;
 
-  // coverage:ignore-start
-  factory NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Files.fromJsonString(String data) =>
-      NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Files.fromJson(json.decode(data) as Map<String, dynamic>);
-  // coverage:ignore-end
-
-  final bool? bigfilechunking;
-
-  @JsonKey(name: 'blacklisted_files')
-  final BuiltList<String>? blacklistedFiles;
-
-  final NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Files_DirectEditing? directEditing;
-
-  final bool? comments;
-
-  final bool? undelete;
-
-  final bool? versioning;
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesToJson(this);
-  // coverage:ignore-end
+  static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Files fromJson(Map<String, dynamic> json) =>
+      serializers.deserializeWith(serializer, json)!;
+  static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Files fromJsonString(String data) =>
+      serializers.fromJson(serializer, data)!;
+  Map<String, dynamic> toJson() => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
   static String? toJsonString(NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Files? data) =>
-      data == null ? null : json.encode(data.toJson());
+      data == null ? null : serializers.toJson(serializer, data);
+  bool? get bigfilechunking;
+  @BuiltValueField(wireName: 'blacklisted_files')
+  BuiltList<String>? get blacklistedFiles;
+  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Files_DirectEditing? get directEditing;
+  bool? get comments;
+  bool? get undelete;
+  bool? get versioning;
+  static Serializer<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Files> get serializer =>
+      _$nextcloudCoreServerCapabilitiesOcsDataCapabilitiesFilesSerializer;
 }
 
-@JsonSerializable(disallowUnrecognizedKeys: false)
-class NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Activity {
-  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Activity({this.apiv2});
+abstract class NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Activity
+    implements
+        Built<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Activity,
+            NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_ActivityBuilder> {
+  const NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Activity._();
 
-  // coverage:ignore-start
-  factory NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Activity.fromJson(Map<String, dynamic> json) =>
-      _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_ActivityFromJson(json);
-  // coverage:ignore-end
+  factory NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Activity(
+          [void Function(NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_ActivityBuilder)? b]) =
+      _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Activity;
 
-  // coverage:ignore-start
-  factory NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Activity.fromJsonString(String data) =>
-      NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Activity.fromJson(
-          json.decode(data) as Map<String, dynamic>);
-  // coverage:ignore-end
-
-  final BuiltList<String>? apiv2;
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_ActivityToJson(this);
-  // coverage:ignore-end
+  static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Activity fromJson(Map<String, dynamic> json) =>
+      serializers.deserializeWith(serializer, json)!;
+  static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Activity fromJsonString(String data) =>
+      serializers.fromJson(serializer, data)!;
+  Map<String, dynamic> toJson() => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
   static String? toJsonString(NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Activity? data) =>
-      data == null ? null : json.encode(data.toJson());
+      data == null ? null : serializers.toJson(serializer, data);
+  BuiltList<String>? get apiv2;
+  static Serializer<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Activity> get serializer =>
+      _$nextcloudCoreServerCapabilitiesOcsDataCapabilitiesActivitySerializer;
 }
 
-@JsonSerializable(disallowUnrecognizedKeys: false)
-class NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Status {
-  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Status({this.globalScale});
+abstract class NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Status
+    implements
+        Built<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Status,
+            NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_StatusBuilder> {
+  const NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Status._();
 
-  // coverage:ignore-start
-  factory NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Status.fromJson(Map<String, dynamic> json) =>
-      _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_StatusFromJson(json);
-  // coverage:ignore-end
+  factory NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Status(
+          [void Function(NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_StatusBuilder)? b]) =
+      _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Status;
 
-  // coverage:ignore-start
-  factory NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Status.fromJsonString(String data) =>
-      NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Status.fromJson(
-          json.decode(data) as Map<String, dynamic>);
-  // coverage:ignore-end
-
-  final bool? globalScale;
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_StatusToJson(this);
-  // coverage:ignore-end
+  static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Status fromJson(Map<String, dynamic> json) =>
+      serializers.deserializeWith(serializer, json)!;
+  static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Status fromJsonString(String data) =>
+      serializers.fromJson(serializer, data)!;
+  Map<String, dynamic> toJson() => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
   static String? toJsonString(NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Status? data) =>
-      data == null ? null : json.encode(data.toJson());
+      data == null ? null : serializers.toJson(serializer, data);
+  bool? get globalScale;
+  static Serializer<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Status> get serializer =>
+      _$nextcloudCoreServerCapabilitiesOcsDataCapabilitiesCirclesStatusSerializer;
 }
 
-@JsonSerializable(disallowUnrecognizedKeys: false)
-class NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Settings {
-  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Settings({
-    this.frontendEnabled,
-    this.allowedCircles,
-    this.allowedUserTypes,
-    this.membersLimit,
-  });
+abstract class NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Settings
+    implements
+        Built<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Settings,
+            NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_SettingsBuilder> {
+  const NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Settings._();
 
-  // coverage:ignore-start
-  factory NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Settings.fromJson(Map<String, dynamic> json) =>
-      _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_SettingsFromJson(json);
-  // coverage:ignore-end
+  factory NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Settings(
+          [void Function(NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_SettingsBuilder)? b]) =
+      _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Settings;
 
-  // coverage:ignore-start
-  factory NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Settings.fromJsonString(String data) =>
-      NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Settings.fromJson(
-          json.decode(data) as Map<String, dynamic>);
-  // coverage:ignore-end
-
-  final bool? frontendEnabled;
-
-  final int? allowedCircles;
-
-  final int? allowedUserTypes;
-
-  final int? membersLimit;
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_SettingsToJson(this);
-  // coverage:ignore-end
+  static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Settings fromJson(Map<String, dynamic> json) =>
+      serializers.deserializeWith(serializer, json)!;
+  static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Settings fromJsonString(String data) =>
+      serializers.fromJson(serializer, data)!;
+  Map<String, dynamic> toJson() => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
   static String? toJsonString(NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Settings? data) =>
-      data == null ? null : json.encode(data.toJson());
+      data == null ? null : serializers.toJson(serializer, data);
+  bool? get frontendEnabled;
+  int? get allowedCircles;
+  int? get allowedUserTypes;
+  int? get membersLimit;
+  static Serializer<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Settings> get serializer =>
+      _$nextcloudCoreServerCapabilitiesOcsDataCapabilitiesCirclesSettingsSerializer;
 }
 
-@JsonSerializable(disallowUnrecognizedKeys: false)
-class NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants_Source {
-  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants_Source({
-    this.core,
-    this.extra,
-  });
+abstract class NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants_Source
+    implements
+        Built<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants_Source,
+            NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants_SourceBuilder> {
+  const NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants_Source._();
 
-  // coverage:ignore-start
-  factory NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants_Source.fromJson(
+  factory NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants_Source(
+      [void Function(NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants_SourceBuilder)?
+          b]) = _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants_Source;
+
+  static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants_Source fromJson(
           Map<String, dynamic> json) =>
-      _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants_SourceFromJson(json);
-  // coverage:ignore-end
-
-  // coverage:ignore-start
-  factory NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants_Source.fromJsonString(
+      serializers.deserializeWith(serializer, json)!;
+  static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants_Source fromJsonString(
           String data) =>
-      NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants_Source.fromJson(
-          json.decode(data) as Map<String, dynamic>);
-  // coverage:ignore-end
-
-  final JsonObject? core;
-
-  final JsonObject? extra;
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() =>
-      _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants_SourceToJson(this);
-  // coverage:ignore-end
+      serializers.fromJson(serializer, data)!;
+  Map<String, dynamic> toJson() => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
   static String? toJsonString(
           NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants_Source? data) =>
-      data == null ? null : json.encode(data.toJson());
+      data == null ? null : serializers.toJson(serializer, data);
+  JsonObject? get core;
+  JsonObject? get extra;
+  static Serializer<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants_Source>
+      get serializer => _$nextcloudCoreServerCapabilitiesOcsDataCapabilitiesCirclesCircleConstantsSourceSerializer;
 }
 
-@JsonSerializable(disallowUnrecognizedKeys: false)
-class NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants {
-  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants({
-    this.flags,
-    this.source,
-  });
+abstract class NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants
+    implements
+        Built<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants,
+            NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_ConstantsBuilder> {
+  const NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants._();
 
-  // coverage:ignore-start
-  factory NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants.fromJson(
+  factory NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants(
+          [void Function(NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_ConstantsBuilder)? b]) =
+      _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants;
+
+  static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants fromJson(
           Map<String, dynamic> json) =>
-      _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_ConstantsFromJson(json);
-  // coverage:ignore-end
-
-  // coverage:ignore-start
-  factory NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants.fromJsonString(String data) =>
-      NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants.fromJson(
-          json.decode(data) as Map<String, dynamic>);
-  // coverage:ignore-end
-
-  final JsonObject? flags;
-
-  final NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants_Source? source;
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() =>
-      _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_ConstantsToJson(this);
-  // coverage:ignore-end
+      serializers.deserializeWith(serializer, json)!;
+  static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants fromJsonString(String data) =>
+      serializers.fromJson(serializer, data)!;
+  Map<String, dynamic> toJson() => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
   static String? toJsonString(NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants? data) =>
-      data == null ? null : json.encode(data.toJson());
+      data == null ? null : serializers.toJson(serializer, data);
+  JsonObject? get flags;
+  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants_Source? get source;
+  static Serializer<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants> get serializer =>
+      _$nextcloudCoreServerCapabilitiesOcsDataCapabilitiesCirclesCircleConstantsSerializer;
 }
 
-@JsonSerializable(disallowUnrecognizedKeys: false)
-class NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Config {
-  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Config({
-    this.coreFlags,
-    this.systemFlags,
-  });
+abstract class NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Config
+    implements
+        Built<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Config,
+            NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_ConfigBuilder> {
+  const NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Config._();
 
-  // coverage:ignore-start
-  factory NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Config.fromJson(
+  factory NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Config(
+          [void Function(NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_ConfigBuilder)? b]) =
+      _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Config;
+
+  static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Config fromJson(
           Map<String, dynamic> json) =>
-      _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_ConfigFromJson(json);
-  // coverage:ignore-end
-
-  // coverage:ignore-start
-  factory NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Config.fromJsonString(String data) =>
-      NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Config.fromJson(
-          json.decode(data) as Map<String, dynamic>);
-  // coverage:ignore-end
-
-  final BuiltList<int>? coreFlags;
-
-  final BuiltList<int>? systemFlags;
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() =>
-      _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_ConfigToJson(this);
-  // coverage:ignore-end
+      serializers.deserializeWith(serializer, json)!;
+  static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Config fromJsonString(String data) =>
+      serializers.fromJson(serializer, data)!;
+  Map<String, dynamic> toJson() => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
   static String? toJsonString(NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Config? data) =>
-      data == null ? null : json.encode(data.toJson());
+      data == null ? null : serializers.toJson(serializer, data);
+  BuiltList<int>? get coreFlags;
+  BuiltList<int>? get systemFlags;
+  static Serializer<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Config> get serializer =>
+      _$nextcloudCoreServerCapabilitiesOcsDataCapabilitiesCirclesCircleConfigSerializer;
 }
 
-@JsonSerializable(disallowUnrecognizedKeys: false)
-class NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle {
-  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle({
-    this.constants,
-    this.config,
-  });
+abstract class NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle
+    implements
+        Built<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle,
+            NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_CircleBuilder> {
+  const NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle._();
 
-  // coverage:ignore-start
-  factory NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle.fromJson(Map<String, dynamic> json) =>
-      _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_CircleFromJson(json);
-  // coverage:ignore-end
+  factory NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle(
+          [void Function(NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_CircleBuilder)? b]) =
+      _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle;
 
-  // coverage:ignore-start
-  factory NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle.fromJsonString(String data) =>
-      NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle.fromJson(
-          json.decode(data) as Map<String, dynamic>);
-  // coverage:ignore-end
-
-  final NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants? constants;
-
-  final NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Config? config;
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_CircleToJson(this);
-  // coverage:ignore-end
+  static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle fromJson(Map<String, dynamic> json) =>
+      serializers.deserializeWith(serializer, json)!;
+  static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle fromJsonString(String data) =>
+      serializers.fromJson(serializer, data)!;
+  Map<String, dynamic> toJson() => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
   static String? toJsonString(NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle? data) =>
-      data == null ? null : json.encode(data.toJson());
+      data == null ? null : serializers.toJson(serializer, data);
+  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants? get constants;
+  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Config? get config;
+  static Serializer<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle> get serializer =>
+      _$nextcloudCoreServerCapabilitiesOcsDataCapabilitiesCirclesCircleSerializer;
 }
 
-@JsonSerializable(disallowUnrecognizedKeys: false)
-class NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member_Constants {
-  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member_Constants({this.level});
+abstract class NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member_Constants
+    implements
+        Built<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member_Constants,
+            NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member_ConstantsBuilder> {
+  const NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member_Constants._();
 
-  // coverage:ignore-start
-  factory NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member_Constants.fromJson(
+  factory NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member_Constants(
+          [void Function(NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member_ConstantsBuilder)? b]) =
+      _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member_Constants;
+
+  static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member_Constants fromJson(
           Map<String, dynamic> json) =>
-      _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member_ConstantsFromJson(json);
-  // coverage:ignore-end
-
-  // coverage:ignore-start
-  factory NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member_Constants.fromJsonString(String data) =>
-      NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member_Constants.fromJson(
-          json.decode(data) as Map<String, dynamic>);
-  // coverage:ignore-end
-
-  final JsonObject? level;
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() =>
-      _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member_ConstantsToJson(this);
-  // coverage:ignore-end
+      serializers.deserializeWith(serializer, json)!;
+  static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member_Constants fromJsonString(String data) =>
+      serializers.fromJson(serializer, data)!;
+  Map<String, dynamic> toJson() => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
   static String? toJsonString(NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member_Constants? data) =>
-      data == null ? null : json.encode(data.toJson());
+      data == null ? null : serializers.toJson(serializer, data);
+  JsonObject? get level;
+  static Serializer<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member_Constants> get serializer =>
+      _$nextcloudCoreServerCapabilitiesOcsDataCapabilitiesCirclesMemberConstantsSerializer;
 }
 
-@JsonSerializable(disallowUnrecognizedKeys: false)
-class NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member {
-  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member({
-    this.constants,
-    this.type,
-  });
+abstract class NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member
+    implements
+        Built<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member,
+            NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_MemberBuilder> {
+  const NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member._();
 
-  // coverage:ignore-start
-  factory NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member.fromJson(Map<String, dynamic> json) =>
-      _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_MemberFromJson(json);
-  // coverage:ignore-end
+  factory NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member(
+          [void Function(NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_MemberBuilder)? b]) =
+      _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member;
 
-  // coverage:ignore-start
-  factory NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member.fromJsonString(String data) =>
-      NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member.fromJson(
-          json.decode(data) as Map<String, dynamic>);
-  // coverage:ignore-end
-
-  final NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member_Constants? constants;
-
-  final JsonObject? type;
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_MemberToJson(this);
-  // coverage:ignore-end
+  static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member fromJson(Map<String, dynamic> json) =>
+      serializers.deserializeWith(serializer, json)!;
+  static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member fromJsonString(String data) =>
+      serializers.fromJson(serializer, data)!;
+  Map<String, dynamic> toJson() => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
   static String? toJsonString(NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member? data) =>
-      data == null ? null : json.encode(data.toJson());
+      data == null ? null : serializers.toJson(serializer, data);
+  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member_Constants? get constants;
+  JsonObject? get type;
+  static Serializer<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member> get serializer =>
+      _$nextcloudCoreServerCapabilitiesOcsDataCapabilitiesCirclesMemberSerializer;
 }
 
-@JsonSerializable(disallowUnrecognizedKeys: false)
-class NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles {
-  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles({
-    this.version,
-    this.status,
-    this.settings,
-    this.circle,
-    this.member,
-  });
+abstract class NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles
+    implements
+        Built<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles,
+            NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_CirclesBuilder> {
+  const NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles._();
 
-  // coverage:ignore-start
-  factory NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles.fromJson(Map<String, dynamic> json) =>
-      _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_CirclesFromJson(json);
-  // coverage:ignore-end
+  factory NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles(
+          [void Function(NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_CirclesBuilder)? b]) =
+      _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles;
 
-  // coverage:ignore-start
-  factory NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles.fromJsonString(String data) =>
-      NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles.fromJson(json.decode(data) as Map<String, dynamic>);
-  // coverage:ignore-end
-
-  final String? version;
-
-  final NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Status? status;
-
-  final NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Settings? settings;
-
-  final NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle? circle;
-
-  final NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member? member;
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_CirclesToJson(this);
-  // coverage:ignore-end
+  static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles fromJson(Map<String, dynamic> json) =>
+      serializers.deserializeWith(serializer, json)!;
+  static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles fromJsonString(String data) =>
+      serializers.fromJson(serializer, data)!;
+  Map<String, dynamic> toJson() => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
   static String? toJsonString(NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles? data) =>
-      data == null ? null : json.encode(data.toJson());
+      data == null ? null : serializers.toJson(serializer, data);
+  String? get version;
+  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Status? get status;
+  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Settings? get settings;
+  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle? get circle;
+  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member? get member;
+  static Serializer<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles> get serializer =>
+      _$nextcloudCoreServerCapabilitiesOcsDataCapabilitiesCirclesSerializer;
 }
 
-@JsonSerializable(disallowUnrecognizedKeys: false)
-class NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes_Protocols {
-  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes_Protocols({this.webdav});
+abstract class NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes_Protocols
+    implements
+        Built<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes_Protocols,
+            NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes_ProtocolsBuilder> {
+  const NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes_Protocols._();
 
-  // coverage:ignore-start
-  factory NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes_Protocols.fromJson(
+  factory NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes_Protocols(
+      [void Function(NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes_ProtocolsBuilder)?
+          b]) = _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes_Protocols;
+
+  static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes_Protocols fromJson(
           Map<String, dynamic> json) =>
-      _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes_ProtocolsFromJson(json);
-  // coverage:ignore-end
-
-  // coverage:ignore-start
-  factory NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes_Protocols.fromJsonString(
+      serializers.deserializeWith(serializer, json)!;
+  static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes_Protocols fromJsonString(
           String data) =>
-      NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes_Protocols.fromJson(
-          json.decode(data) as Map<String, dynamic>);
-  // coverage:ignore-end
-
-  final String? webdav;
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() =>
-      _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes_ProtocolsToJson(this);
-  // coverage:ignore-end
+      serializers.fromJson(serializer, data)!;
+  Map<String, dynamic> toJson() => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
   static String? toJsonString(
           NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes_Protocols? data) =>
-      data == null ? null : json.encode(data.toJson());
+      data == null ? null : serializers.toJson(serializer, data);
+  String? get webdav;
+  static Serializer<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes_Protocols> get serializer =>
+      _$nextcloudCoreServerCapabilitiesOcsDataCapabilitiesOcmResourceTypesProtocolsSerializer;
 }
 
-@JsonSerializable(disallowUnrecognizedKeys: false)
-class NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes {
-  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes({
-    this.name,
-    this.shareTypes,
-    this.protocols,
-  });
+abstract class NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes
+    implements
+        Built<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes,
+            NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypesBuilder> {
+  const NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes._();
 
-  // coverage:ignore-start
-  factory NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes.fromJson(Map<String, dynamic> json) =>
-      _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypesFromJson(json);
-  // coverage:ignore-end
+  factory NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes(
+          [void Function(NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypesBuilder)? b]) =
+      _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes;
 
-  // coverage:ignore-start
-  factory NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes.fromJsonString(String data) =>
-      NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes.fromJson(
-          json.decode(data) as Map<String, dynamic>);
-  // coverage:ignore-end
-
-  final String? name;
-
-  final BuiltList<String>? shareTypes;
-
-  final NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes_Protocols? protocols;
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() =>
-      _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypesToJson(this);
-  // coverage:ignore-end
+  static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes fromJson(Map<String, dynamic> json) =>
+      serializers.deserializeWith(serializer, json)!;
+  static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes fromJsonString(String data) =>
+      serializers.fromJson(serializer, data)!;
+  Map<String, dynamic> toJson() => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
   static String? toJsonString(NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes? data) =>
-      data == null ? null : json.encode(data.toJson());
+      data == null ? null : serializers.toJson(serializer, data);
+  String? get name;
+  BuiltList<String>? get shareTypes;
+  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes_Protocols? get protocols;
+  static Serializer<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes> get serializer =>
+      _$nextcloudCoreServerCapabilitiesOcsDataCapabilitiesOcmResourceTypesSerializer;
 }
 
-@JsonSerializable(disallowUnrecognizedKeys: false)
-class NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Ocm {
-  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Ocm({
-    this.enabled,
-    this.apiVersion,
-    this.endPoint,
-    this.resourceTypes,
-  });
+abstract class NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Ocm
+    implements
+        Built<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Ocm,
+            NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_OcmBuilder> {
+  const NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Ocm._();
 
-  // coverage:ignore-start
-  factory NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Ocm.fromJson(Map<String, dynamic> json) =>
-      _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_OcmFromJson(json);
-  // coverage:ignore-end
+  factory NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Ocm(
+          [void Function(NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_OcmBuilder)? b]) =
+      _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Ocm;
 
-  // coverage:ignore-start
-  factory NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Ocm.fromJsonString(String data) =>
-      NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Ocm.fromJson(json.decode(data) as Map<String, dynamic>);
-  // coverage:ignore-end
-
-  final bool? enabled;
-
-  final String? apiVersion;
-
-  final String? endPoint;
-
-  final BuiltList<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes>? resourceTypes;
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_OcmToJson(this);
-  // coverage:ignore-end
+  static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Ocm fromJson(Map<String, dynamic> json) =>
+      serializers.deserializeWith(serializer, json)!;
+  static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Ocm fromJsonString(String data) =>
+      serializers.fromJson(serializer, data)!;
+  Map<String, dynamic> toJson() => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
   static String? toJsonString(NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Ocm? data) =>
-      data == null ? null : json.encode(data.toJson());
+      data == null ? null : serializers.toJson(serializer, data);
+  bool? get enabled;
+  String? get apiVersion;
+  String? get endPoint;
+  BuiltList<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes>? get resourceTypes;
+  static Serializer<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Ocm> get serializer =>
+      _$nextcloudCoreServerCapabilitiesOcsDataCapabilitiesOcmSerializer;
 }
 
-@JsonSerializable(disallowUnrecognizedKeys: false)
-class NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Dav {
-  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Dav({
-    this.bulkupload,
-    this.chunking,
-  });
+abstract class NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Dav
+    implements
+        Built<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Dav,
+            NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_DavBuilder> {
+  const NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Dav._();
 
-  // coverage:ignore-start
-  factory NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Dav.fromJson(Map<String, dynamic> json) =>
-      _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_DavFromJson(json);
-  // coverage:ignore-end
+  factory NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Dav(
+          [void Function(NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_DavBuilder)? b]) =
+      _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Dav;
 
-  // coverage:ignore-start
-  factory NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Dav.fromJsonString(String data) =>
-      NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Dav.fromJson(json.decode(data) as Map<String, dynamic>);
-  // coverage:ignore-end
-
-  final String? bulkupload;
-
-  final String? chunking;
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_DavToJson(this);
-  // coverage:ignore-end
+  static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Dav fromJson(Map<String, dynamic> json) =>
+      serializers.deserializeWith(serializer, json)!;
+  static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Dav fromJsonString(String data) =>
+      serializers.fromJson(serializer, data)!;
+  Map<String, dynamic> toJson() => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
   static String? toJsonString(NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Dav? data) =>
-      data == null ? null : json.encode(data.toJson());
+      data == null ? null : serializers.toJson(serializer, data);
+  String? get bulkupload;
+  String? get chunking;
+  static Serializer<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Dav> get serializer =>
+      _$nextcloudCoreServerCapabilitiesOcsDataCapabilitiesDavSerializer;
 }
 
-@JsonSerializable(disallowUnrecognizedKeys: false)
-class NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_Password {
-  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_Password({
-    this.enforced,
-    this.askForOptionalPassword,
-  });
+abstract class NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_Password
+    implements
+        Built<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_Password,
+            NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_PasswordBuilder> {
+  const NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_Password._();
 
-  // coverage:ignore-start
-  factory NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_Password.fromJson(
+  factory NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_Password(
+      [void Function(NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_PasswordBuilder)?
+          b]) = _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_Password;
+
+  static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_Password fromJson(
           Map<String, dynamic> json) =>
-      _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_PasswordFromJson(json);
-  // coverage:ignore-end
-
-  // coverage:ignore-start
-  factory NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_Password.fromJsonString(
+      serializers.deserializeWith(serializer, json)!;
+  static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_Password fromJsonString(
           String data) =>
-      NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_Password.fromJson(
-          json.decode(data) as Map<String, dynamic>);
-  // coverage:ignore-end
-
-  final bool? enforced;
-
-  final bool? askForOptionalPassword;
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() =>
-      _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_PasswordToJson(this);
-  // coverage:ignore-end
+      serializers.fromJson(serializer, data)!;
+  Map<String, dynamic> toJson() => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
   static String? toJsonString(
           NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_Password? data) =>
-      data == null ? null : json.encode(data.toJson());
+      data == null ? null : serializers.toJson(serializer, data);
+  bool? get enforced;
+  bool? get askForOptionalPassword;
+  static Serializer<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_Password>
+      get serializer => _$nextcloudCoreServerCapabilitiesOcsDataCapabilitiesFilesSharingPublicPasswordSerializer;
 }
 
-@JsonSerializable(disallowUnrecognizedKeys: false)
-class NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDate {
-  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDate({this.enabled});
+abstract class NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDate
+    implements
+        Built<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDate,
+            NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateBuilder> {
+  const NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDate._();
 
-  // coverage:ignore-start
-  factory NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDate.fromJson(
+  factory NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDate(
+      [void Function(NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateBuilder)?
+          b]) = _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDate;
+
+  static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDate fromJson(
           Map<String, dynamic> json) =>
-      _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateFromJson(json);
-  // coverage:ignore-end
-
-  // coverage:ignore-start
-  factory NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDate.fromJsonString(
+      serializers.deserializeWith(serializer, json)!;
+  static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDate fromJsonString(
           String data) =>
-      NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDate.fromJson(
-          json.decode(data) as Map<String, dynamic>);
-  // coverage:ignore-end
-
-  final bool? enabled;
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() =>
-      _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateToJson(this);
-  // coverage:ignore-end
+      serializers.fromJson(serializer, data)!;
+  Map<String, dynamic> toJson() => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
   static String? toJsonString(
           NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDate? data) =>
-      data == null ? null : json.encode(data.toJson());
+      data == null ? null : serializers.toJson(serializer, data);
+  bool? get enabled;
+  static Serializer<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDate>
+      get serializer => _$nextcloudCoreServerCapabilitiesOcsDataCapabilitiesFilesSharingPublicExpireDateSerializer;
 }
 
-@JsonSerializable(disallowUnrecognizedKeys: false)
-class NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternal {
-  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternal({this.enabled});
+abstract class NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternal
+    implements
+        Built<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternal,
+            NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternalBuilder> {
+  const NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternal._();
 
-  // coverage:ignore-start
-  factory NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternal.fromJson(
+  factory NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternal(
+      [void Function(
+              NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternalBuilder)?
+          b]) = _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternal;
+
+  static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternal fromJson(
           Map<String, dynamic> json) =>
-      _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternalFromJson(json);
-  // coverage:ignore-end
-
-  // coverage:ignore-start
-  factory NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternal.fromJsonString(
+      serializers.deserializeWith(serializer, json)!;
+  static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternal fromJsonString(
           String data) =>
-      NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternal.fromJson(
-          json.decode(data) as Map<String, dynamic>);
-  // coverage:ignore-end
-
-  final bool? enabled;
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() =>
-      _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternalToJson(this);
-  // coverage:ignore-end
+      serializers.fromJson(serializer, data)!;
+  Map<String, dynamic> toJson() => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
   static String? toJsonString(
           NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternal? data) =>
-      data == null ? null : json.encode(data.toJson());
+      data == null ? null : serializers.toJson(serializer, data);
+  bool? get enabled;
+  static Serializer<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternal>
+      get serializer =>
+          _$nextcloudCoreServerCapabilitiesOcsDataCapabilitiesFilesSharingPublicExpireDateInternalSerializer;
 }
 
-@JsonSerializable(disallowUnrecognizedKeys: false)
-class NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemote {
-  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemote({this.enabled});
+abstract class NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemote
+    implements
+        Built<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemote,
+            NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemoteBuilder> {
+  const NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemote._();
 
-  // coverage:ignore-start
-  factory NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemote.fromJson(
+  factory NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemote(
+      [void Function(NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemoteBuilder)?
+          b]) = _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemote;
+
+  static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemote fromJson(
           Map<String, dynamic> json) =>
-      _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemoteFromJson(json);
-  // coverage:ignore-end
-
-  // coverage:ignore-start
-  factory NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemote.fromJsonString(
+      serializers.deserializeWith(serializer, json)!;
+  static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemote fromJsonString(
           String data) =>
-      NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemote.fromJson(
-          json.decode(data) as Map<String, dynamic>);
-  // coverage:ignore-end
-
-  final bool? enabled;
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() =>
-      _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemoteToJson(this);
-  // coverage:ignore-end
+      serializers.fromJson(serializer, data)!;
+  Map<String, dynamic> toJson() => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
   static String? toJsonString(
           NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemote? data) =>
-      data == null ? null : json.encode(data.toJson());
+      data == null ? null : serializers.toJson(serializer, data);
+  bool? get enabled;
+  static Serializer<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemote>
+      get serializer =>
+          _$nextcloudCoreServerCapabilitiesOcsDataCapabilitiesFilesSharingPublicExpireDateRemoteSerializer;
 }
 
-@JsonSerializable(disallowUnrecognizedKeys: false)
-class NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public {
-  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public({
-    this.enabled,
-    this.password,
-    this.expireDate,
-    this.multipleLinks,
-    this.expireDateInternal,
-    this.expireDateRemote,
-    this.sendMail,
-    this.upload,
-    this.uploadFilesDrop,
-  });
+abstract class NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public
+    implements
+        Built<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public,
+            NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_PublicBuilder> {
+  const NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public._();
 
-  // coverage:ignore-start
-  factory NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public.fromJson(
+  factory NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public(
+          [void Function(NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_PublicBuilder)? b]) =
+      _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public;
+
+  static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public fromJson(
           Map<String, dynamic> json) =>
-      _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_PublicFromJson(json);
-  // coverage:ignore-end
-
-  // coverage:ignore-start
-  factory NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public.fromJsonString(String data) =>
-      NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public.fromJson(
-          json.decode(data) as Map<String, dynamic>);
-  // coverage:ignore-end
-
-  final bool? enabled;
-
-  final NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_Password? password;
-
-  @JsonKey(name: 'expire_date')
-  final NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDate? expireDate;
-
-  @JsonKey(name: 'multiple_links')
-  final bool? multipleLinks;
-
-  @JsonKey(name: 'expire_date_internal')
-  final NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternal?
-      expireDateInternal;
-
-  @JsonKey(name: 'expire_date_remote')
-  final NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemote? expireDateRemote;
-
-  @JsonKey(name: 'send_mail')
-  final bool? sendMail;
-
-  final bool? upload;
-
-  @JsonKey(name: 'upload_files_drop')
-  final bool? uploadFilesDrop;
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() =>
-      _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_PublicToJson(this);
-  // coverage:ignore-end
+      serializers.deserializeWith(serializer, json)!;
+  static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public fromJsonString(String data) =>
+      serializers.fromJson(serializer, data)!;
+  Map<String, dynamic> toJson() => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
   static String? toJsonString(NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public? data) =>
-      data == null ? null : json.encode(data.toJson());
+      data == null ? null : serializers.toJson(serializer, data);
+  bool? get enabled;
+  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_Password? get password;
+  @BuiltValueField(wireName: 'expire_date')
+  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDate? get expireDate;
+  @BuiltValueField(wireName: 'multiple_links')
+  bool? get multipleLinks;
+  @BuiltValueField(wireName: 'expire_date_internal')
+  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternal? get expireDateInternal;
+  @BuiltValueField(wireName: 'expire_date_remote')
+  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemote? get expireDateRemote;
+  @BuiltValueField(wireName: 'send_mail')
+  bool? get sendMail;
+  bool? get upload;
+  @BuiltValueField(wireName: 'upload_files_drop')
+  bool? get uploadFilesDrop;
+  static Serializer<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public> get serializer =>
+      _$nextcloudCoreServerCapabilitiesOcsDataCapabilitiesFilesSharingPublicSerializer;
 }
 
-@JsonSerializable(disallowUnrecognizedKeys: false)
-class NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User_ExpireDate {
-  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User_ExpireDate({this.enabled});
+abstract class NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User_ExpireDate
+    implements
+        Built<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User_ExpireDate,
+            NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User_ExpireDateBuilder> {
+  const NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User_ExpireDate._();
 
-  // coverage:ignore-start
-  factory NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User_ExpireDate.fromJson(
+  factory NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User_ExpireDate(
+      [void Function(NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User_ExpireDateBuilder)?
+          b]) = _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User_ExpireDate;
+
+  static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User_ExpireDate fromJson(
           Map<String, dynamic> json) =>
-      _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User_ExpireDateFromJson(json);
-  // coverage:ignore-end
-
-  // coverage:ignore-start
-  factory NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User_ExpireDate.fromJsonString(
+      serializers.deserializeWith(serializer, json)!;
+  static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User_ExpireDate fromJsonString(
           String data) =>
-      NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User_ExpireDate.fromJson(
-          json.decode(data) as Map<String, dynamic>);
-  // coverage:ignore-end
-
-  final bool? enabled;
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() =>
-      _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User_ExpireDateToJson(this);
-  // coverage:ignore-end
+      serializers.fromJson(serializer, data)!;
+  Map<String, dynamic> toJson() => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
   static String? toJsonString(
           NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User_ExpireDate? data) =>
-      data == null ? null : json.encode(data.toJson());
+      data == null ? null : serializers.toJson(serializer, data);
+  bool? get enabled;
+  static Serializer<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User_ExpireDate>
+      get serializer => _$nextcloudCoreServerCapabilitiesOcsDataCapabilitiesFilesSharingUserExpireDateSerializer;
 }
 
-@JsonSerializable(disallowUnrecognizedKeys: false)
-class NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User {
-  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User({
-    this.sendMail,
-    this.expireDate,
-  });
+abstract class NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User
+    implements
+        Built<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User,
+            NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_UserBuilder> {
+  const NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User._();
 
-  // coverage:ignore-start
-  factory NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User.fromJson(Map<String, dynamic> json) =>
-      _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_UserFromJson(json);
-  // coverage:ignore-end
+  factory NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User(
+          [void Function(NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_UserBuilder)? b]) =
+      _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User;
 
-  // coverage:ignore-start
-  factory NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User.fromJsonString(String data) =>
-      NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User.fromJson(
-          json.decode(data) as Map<String, dynamic>);
-  // coverage:ignore-end
-
-  @JsonKey(name: 'send_mail')
-  final bool? sendMail;
-
-  @JsonKey(name: 'expire_date')
-  final NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User_ExpireDate? expireDate;
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() =>
-      _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_UserToJson(this);
-  // coverage:ignore-end
+  static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User fromJson(Map<String, dynamic> json) =>
+      serializers.deserializeWith(serializer, json)!;
+  static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User fromJsonString(String data) =>
+      serializers.fromJson(serializer, data)!;
+  Map<String, dynamic> toJson() => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
   static String? toJsonString(NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User? data) =>
-      data == null ? null : json.encode(data.toJson());
+      data == null ? null : serializers.toJson(serializer, data);
+  @BuiltValueField(wireName: 'send_mail')
+  bool? get sendMail;
+  @BuiltValueField(wireName: 'expire_date')
+  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User_ExpireDate? get expireDate;
+  static Serializer<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User> get serializer =>
+      _$nextcloudCoreServerCapabilitiesOcsDataCapabilitiesFilesSharingUserSerializer;
 }
 
-@JsonSerializable(disallowUnrecognizedKeys: false)
-class NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDate {
-  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDate({this.enabled});
+abstract class NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDate
+    implements
+        Built<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDate,
+            NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDateBuilder> {
+  const NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDate._();
 
-  // coverage:ignore-start
-  factory NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDate.fromJson(
+  factory NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDate(
+      [void Function(NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDateBuilder)?
+          b]) = _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDate;
+
+  static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDate fromJson(
           Map<String, dynamic> json) =>
-      _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDateFromJson(json);
-  // coverage:ignore-end
-
-  // coverage:ignore-start
-  factory NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDate.fromJsonString(
+      serializers.deserializeWith(serializer, json)!;
+  static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDate fromJsonString(
           String data) =>
-      NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDate.fromJson(
-          json.decode(data) as Map<String, dynamic>);
-  // coverage:ignore-end
-
-  final bool? enabled;
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() =>
-      _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDateToJson(this);
-  // coverage:ignore-end
+      serializers.fromJson(serializer, data)!;
+  Map<String, dynamic> toJson() => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
   static String? toJsonString(
           NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDate? data) =>
-      data == null ? null : json.encode(data.toJson());
+      data == null ? null : serializers.toJson(serializer, data);
+  bool? get enabled;
+  static Serializer<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDate>
+      get serializer => _$nextcloudCoreServerCapabilitiesOcsDataCapabilitiesFilesSharingGroupExpireDateSerializer;
 }
 
-@JsonSerializable(disallowUnrecognizedKeys: false)
-class NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group {
-  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group({
-    this.enabled,
-    this.expireDate,
-  });
+abstract class NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group
+    implements
+        Built<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group,
+            NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_GroupBuilder> {
+  const NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group._();
 
-  // coverage:ignore-start
-  factory NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group.fromJson(
-          Map<String, dynamic> json) =>
-      _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_GroupFromJson(json);
-  // coverage:ignore-end
+  factory NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group(
+          [void Function(NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_GroupBuilder)? b]) =
+      _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group;
 
-  // coverage:ignore-start
-  factory NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group.fromJsonString(String data) =>
-      NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group.fromJson(
-          json.decode(data) as Map<String, dynamic>);
-  // coverage:ignore-end
-
-  final bool? enabled;
-
-  @JsonKey(name: 'expire_date')
-  final NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDate? expireDate;
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() =>
-      _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_GroupToJson(this);
-  // coverage:ignore-end
+  static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group fromJson(Map<String, dynamic> json) =>
+      serializers.deserializeWith(serializer, json)!;
+  static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group fromJsonString(String data) =>
+      serializers.fromJson(serializer, data)!;
+  Map<String, dynamic> toJson() => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
   static String? toJsonString(NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group? data) =>
-      data == null ? null : json.encode(data.toJson());
+      data == null ? null : serializers.toJson(serializer, data);
+  bool? get enabled;
+  @BuiltValueField(wireName: 'expire_date')
+  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDate? get expireDate;
+  static Serializer<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group> get serializer =>
+      _$nextcloudCoreServerCapabilitiesOcsDataCapabilitiesFilesSharingGroupSerializer;
 }
 
-@JsonSerializable(disallowUnrecognizedKeys: false)
-class NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDate {
-  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDate({this.enabled});
+abstract class NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDate
+    implements
+        Built<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDate,
+            NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateBuilder> {
+  const NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDate._();
 
-  // coverage:ignore-start
-  factory NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDate.fromJson(
+  factory NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDate(
+      [void Function(NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateBuilder)?
+          b]) = _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDate;
+
+  static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDate fromJson(
           Map<String, dynamic> json) =>
-      _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateFromJson(json);
-  // coverage:ignore-end
-
-  // coverage:ignore-start
-  factory NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDate.fromJsonString(
+      serializers.deserializeWith(serializer, json)!;
+  static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDate fromJsonString(
           String data) =>
-      NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDate.fromJson(
-          json.decode(data) as Map<String, dynamic>);
-  // coverage:ignore-end
-
-  final bool? enabled;
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() =>
-      _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateToJson(this);
-  // coverage:ignore-end
+      serializers.fromJson(serializer, data)!;
+  Map<String, dynamic> toJson() => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
   static String? toJsonString(
           NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDate? data) =>
-      data == null ? null : json.encode(data.toJson());
+      data == null ? null : serializers.toJson(serializer, data);
+  bool? get enabled;
+  static Serializer<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDate>
+      get serializer => _$nextcloudCoreServerCapabilitiesOcsDataCapabilitiesFilesSharingFederationExpireDateSerializer;
 }
 
-@JsonSerializable(disallowUnrecognizedKeys: false)
-class NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupported {
-  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupported({this.enabled});
+abstract class NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupported
+    implements
+        Built<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupported,
+            NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupportedBuilder> {
+  const NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupported._();
 
-  // coverage:ignore-start
-  factory NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupported.fromJson(
+  factory NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupported(
+      [void Function(
+              NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupportedBuilder)?
+          b]) = _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupported;
+
+  static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupported fromJson(
           Map<String, dynamic> json) =>
-      _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupportedFromJson(json);
-  // coverage:ignore-end
-
-  // coverage:ignore-start
-  factory NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupported.fromJsonString(
-          String data) =>
-      NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupported.fromJson(
-          json.decode(data) as Map<String, dynamic>);
-  // coverage:ignore-end
-
-  final bool? enabled;
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() =>
-      _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupportedToJson(this);
-  // coverage:ignore-end
+      serializers.deserializeWith(serializer, json)!;
+  static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupported
+      fromJsonString(String data) => serializers.fromJson(serializer, data)!;
+  Map<String, dynamic> toJson() => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
   static String? toJsonString(
           NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupported? data) =>
-      data == null ? null : json.encode(data.toJson());
+      data == null ? null : serializers.toJson(serializer, data);
+  bool? get enabled;
+  static Serializer<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupported>
+      get serializer =>
+          _$nextcloudCoreServerCapabilitiesOcsDataCapabilitiesFilesSharingFederationExpireDateSupportedSerializer;
 }
 
-@JsonSerializable(disallowUnrecognizedKeys: false)
-class NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation {
-  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation({
-    this.outgoing,
-    this.incoming,
-    this.expireDate,
-    this.expireDateSupported,
-  });
+abstract class NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation
+    implements
+        Built<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation,
+            NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_FederationBuilder> {
+  const NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation._();
 
-  // coverage:ignore-start
-  factory NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation.fromJson(
+  factory NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation(
+          [void Function(NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_FederationBuilder)? b]) =
+      _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation;
+
+  static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation fromJson(
           Map<String, dynamic> json) =>
-      _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_FederationFromJson(json);
-  // coverage:ignore-end
-
-  // coverage:ignore-start
-  factory NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation.fromJsonString(String data) =>
-      NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation.fromJson(
-          json.decode(data) as Map<String, dynamic>);
-  // coverage:ignore-end
-
-  final bool? outgoing;
-
-  final bool? incoming;
-
-  @JsonKey(name: 'expire_date')
-  final NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDate? expireDate;
-
-  @JsonKey(name: 'expire_date_supported')
-  final NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupported?
-      expireDateSupported;
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() =>
-      _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_FederationToJson(this);
-  // coverage:ignore-end
+      serializers.deserializeWith(serializer, json)!;
+  static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation fromJsonString(String data) =>
+      serializers.fromJson(serializer, data)!;
+  Map<String, dynamic> toJson() => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
   static String? toJsonString(NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation? data) =>
-      data == null ? null : json.encode(data.toJson());
+      data == null ? null : serializers.toJson(serializer, data);
+  bool? get outgoing;
+  bool? get incoming;
+  @BuiltValueField(wireName: 'expire_date')
+  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDate? get expireDate;
+  @BuiltValueField(wireName: 'expire_date_supported')
+  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupported?
+      get expireDateSupported;
+  static Serializer<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation> get serializer =>
+      _$nextcloudCoreServerCapabilitiesOcsDataCapabilitiesFilesSharingFederationSerializer;
 }
 
-@JsonSerializable(disallowUnrecognizedKeys: false)
-class NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharee {
-  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharee({
-    this.queryLookupDefault,
-    this.alwaysShowUnique,
-  });
+abstract class NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharee
+    implements
+        Built<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharee,
+            NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_ShareeBuilder> {
+  const NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharee._();
 
-  // coverage:ignore-start
-  factory NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharee.fromJson(
+  factory NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharee(
+          [void Function(NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_ShareeBuilder)? b]) =
+      _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharee;
+
+  static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharee fromJson(
           Map<String, dynamic> json) =>
-      _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_ShareeFromJson(json);
-  // coverage:ignore-end
-
-  // coverage:ignore-start
-  factory NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharee.fromJsonString(String data) =>
-      NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharee.fromJson(
-          json.decode(data) as Map<String, dynamic>);
-  // coverage:ignore-end
-
-  @JsonKey(name: 'query_lookup_default')
-  final bool? queryLookupDefault;
-
-  @JsonKey(name: 'always_show_unique')
-  final bool? alwaysShowUnique;
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() =>
-      _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_ShareeToJson(this);
-  // coverage:ignore-end
+      serializers.deserializeWith(serializer, json)!;
+  static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharee fromJsonString(String data) =>
+      serializers.fromJson(serializer, data)!;
+  Map<String, dynamic> toJson() => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
   static String? toJsonString(NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharee? data) =>
-      data == null ? null : json.encode(data.toJson());
+      data == null ? null : serializers.toJson(serializer, data);
+  @BuiltValueField(wireName: 'query_lookup_default')
+  bool? get queryLookupDefault;
+  @BuiltValueField(wireName: 'always_show_unique')
+  bool? get alwaysShowUnique;
+  static Serializer<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharee> get serializer =>
+      _$nextcloudCoreServerCapabilitiesOcsDataCapabilitiesFilesSharingShareeSerializer;
 }
 
-@JsonSerializable(disallowUnrecognizedKeys: false)
-class NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_UploadFilesDrop {
-  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_UploadFilesDrop({this.enabled});
+abstract class NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_UploadFilesDrop
+    implements
+        Built<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_UploadFilesDrop,
+            NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_UploadFilesDropBuilder> {
+  const NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_UploadFilesDrop._();
 
-  // coverage:ignore-start
-  factory NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_UploadFilesDrop.fromJson(
+  factory NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_UploadFilesDrop(
+      [void Function(
+              NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_UploadFilesDropBuilder)?
+          b]) = _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_UploadFilesDrop;
+
+  static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_UploadFilesDrop fromJson(
           Map<String, dynamic> json) =>
-      _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_UploadFilesDropFromJson(json);
-  // coverage:ignore-end
-
-  // coverage:ignore-start
-  factory NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_UploadFilesDrop.fromJsonString(
+      serializers.deserializeWith(serializer, json)!;
+  static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_UploadFilesDrop fromJsonString(
           String data) =>
-      NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_UploadFilesDrop.fromJson(
-          json.decode(data) as Map<String, dynamic>);
-  // coverage:ignore-end
-
-  final bool? enabled;
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() =>
-      _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_UploadFilesDropToJson(this);
-  // coverage:ignore-end
+      serializers.fromJson(serializer, data)!;
+  Map<String, dynamic> toJson() => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
   static String? toJsonString(
           NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_UploadFilesDrop? data) =>
-      data == null ? null : json.encode(data.toJson());
+      data == null ? null : serializers.toJson(serializer, data);
+  bool? get enabled;
+  static Serializer<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_UploadFilesDrop>
+      get serializer =>
+          _$nextcloudCoreServerCapabilitiesOcsDataCapabilitiesFilesSharingSharebymailUploadFilesDropSerializer;
 }
 
-@JsonSerializable(disallowUnrecognizedKeys: false)
-class NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_Password {
-  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_Password({
-    this.enabled,
-    this.enforced,
-  });
+abstract class NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_Password
+    implements
+        Built<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_Password,
+            NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_PasswordBuilder> {
+  const NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_Password._();
 
-  // coverage:ignore-start
-  factory NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_Password.fromJson(
+  factory NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_Password(
+      [void Function(NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_PasswordBuilder)?
+          b]) = _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_Password;
+
+  static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_Password fromJson(
           Map<String, dynamic> json) =>
-      _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_PasswordFromJson(json);
-  // coverage:ignore-end
-
-  // coverage:ignore-start
-  factory NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_Password.fromJsonString(
+      serializers.deserializeWith(serializer, json)!;
+  static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_Password fromJsonString(
           String data) =>
-      NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_Password.fromJson(
-          json.decode(data) as Map<String, dynamic>);
-  // coverage:ignore-end
-
-  final bool? enabled;
-
-  final bool? enforced;
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() =>
-      _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_PasswordToJson(this);
-  // coverage:ignore-end
+      serializers.fromJson(serializer, data)!;
+  Map<String, dynamic> toJson() => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
   static String? toJsonString(
           NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_Password? data) =>
-      data == null ? null : json.encode(data.toJson());
+      data == null ? null : serializers.toJson(serializer, data);
+  bool? get enabled;
+  bool? get enforced;
+  static Serializer<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_Password>
+      get serializer => _$nextcloudCoreServerCapabilitiesOcsDataCapabilitiesFilesSharingSharebymailPasswordSerializer;
 }
 
-@JsonSerializable(disallowUnrecognizedKeys: false)
-class NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_ExpireDate {
-  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_ExpireDate({
-    this.enabled,
-    this.enforced,
-  });
+abstract class NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_ExpireDate
+    implements
+        Built<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_ExpireDate,
+            NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_ExpireDateBuilder> {
+  const NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_ExpireDate._();
 
-  // coverage:ignore-start
-  factory NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_ExpireDate.fromJson(
+  factory NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_ExpireDate(
+      [void Function(NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_ExpireDateBuilder)?
+          b]) = _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_ExpireDate;
+
+  static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_ExpireDate fromJson(
           Map<String, dynamic> json) =>
-      _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_ExpireDateFromJson(json);
-  // coverage:ignore-end
-
-  // coverage:ignore-start
-  factory NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_ExpireDate.fromJsonString(
+      serializers.deserializeWith(serializer, json)!;
+  static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_ExpireDate fromJsonString(
           String data) =>
-      NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_ExpireDate.fromJson(
-          json.decode(data) as Map<String, dynamic>);
-  // coverage:ignore-end
-
-  final bool? enabled;
-
-  final bool? enforced;
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() =>
-      _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_ExpireDateToJson(this);
-  // coverage:ignore-end
+      serializers.fromJson(serializer, data)!;
+  Map<String, dynamic> toJson() => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
   static String? toJsonString(
           NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_ExpireDate? data) =>
-      data == null ? null : json.encode(data.toJson());
+      data == null ? null : serializers.toJson(serializer, data);
+  bool? get enabled;
+  bool? get enforced;
+  static Serializer<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_ExpireDate>
+      get serializer => _$nextcloudCoreServerCapabilitiesOcsDataCapabilitiesFilesSharingSharebymailExpireDateSerializer;
 }
 
-@JsonSerializable(disallowUnrecognizedKeys: false)
-class NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail {
-  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail({
-    this.enabled,
-    this.sendPasswordByMail,
-    this.uploadFilesDrop,
-    this.password,
-    this.expireDate,
-  });
+abstract class NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail
+    implements
+        Built<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail,
+            NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_SharebymailBuilder> {
+  const NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail._();
 
-  // coverage:ignore-start
-  factory NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail.fromJson(
+  factory NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail(
+          [void Function(NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_SharebymailBuilder)? b]) =
+      _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail;
+
+  static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail fromJson(
           Map<String, dynamic> json) =>
-      _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_SharebymailFromJson(json);
-  // coverage:ignore-end
-
-  // coverage:ignore-start
-  factory NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail.fromJsonString(String data) =>
-      NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail.fromJson(
-          json.decode(data) as Map<String, dynamic>);
-  // coverage:ignore-end
-
-  final bool? enabled;
-
-  @JsonKey(name: 'send_password_by_mail')
-  final bool? sendPasswordByMail;
-
-  @JsonKey(name: 'upload_files_drop')
-  final NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_UploadFilesDrop? uploadFilesDrop;
-
-  final NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_Password? password;
-
-  @JsonKey(name: 'expire_date')
-  final NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_ExpireDate? expireDate;
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() =>
-      _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_SharebymailToJson(this);
-  // coverage:ignore-end
+      serializers.deserializeWith(serializer, json)!;
+  static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail fromJsonString(String data) =>
+      serializers.fromJson(serializer, data)!;
+  Map<String, dynamic> toJson() => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
   static String? toJsonString(NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail? data) =>
-      data == null ? null : json.encode(data.toJson());
+      data == null ? null : serializers.toJson(serializer, data);
+  bool? get enabled;
+  @BuiltValueField(wireName: 'send_password_by_mail')
+  bool? get sendPasswordByMail;
+  @BuiltValueField(wireName: 'upload_files_drop')
+  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_UploadFilesDrop? get uploadFilesDrop;
+  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_Password? get password;
+  @BuiltValueField(wireName: 'expire_date')
+  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_ExpireDate? get expireDate;
+  static Serializer<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail> get serializer =>
+      _$nextcloudCoreServerCapabilitiesOcsDataCapabilitiesFilesSharingSharebymailSerializer;
 }
 
-@JsonSerializable(disallowUnrecognizedKeys: false)
-class NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing {
-  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing({
-    this.apiEnabled,
-    this.public,
-    this.resharing,
-    this.user,
-    this.groupSharing,
-    this.group,
-    this.defaultPermissions,
-    this.federation,
-    this.sharee,
-    this.sharebymail,
-  });
+abstract class NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing
+    implements
+        Built<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing,
+            NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharingBuilder> {
+  const NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing._();
 
-  // coverage:ignore-start
-  factory NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing.fromJson(Map<String, dynamic> json) =>
-      _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharingFromJson(json);
-  // coverage:ignore-end
+  factory NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing(
+          [void Function(NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharingBuilder)? b]) =
+      _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing;
 
-  // coverage:ignore-start
-  factory NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing.fromJsonString(String data) =>
-      NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing.fromJson(
-          json.decode(data) as Map<String, dynamic>);
-  // coverage:ignore-end
-
-  @JsonKey(name: 'api_enabled')
-  final bool? apiEnabled;
-
-  final NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public? public;
-
-  final bool? resharing;
-
-  final NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User? user;
-
-  @JsonKey(name: 'group_sharing')
-  final bool? groupSharing;
-
-  final NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group? group;
-
-  @JsonKey(name: 'default_permissions')
-  final int? defaultPermissions;
-
-  final NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation? federation;
-
-  final NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharee? sharee;
-
-  final NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail? sharebymail;
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharingToJson(this);
-  // coverage:ignore-end
+  static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing fromJson(Map<String, dynamic> json) =>
+      serializers.deserializeWith(serializer, json)!;
+  static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing fromJsonString(String data) =>
+      serializers.fromJson(serializer, data)!;
+  Map<String, dynamic> toJson() => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
   static String? toJsonString(NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing? data) =>
-      data == null ? null : json.encode(data.toJson());
+      data == null ? null : serializers.toJson(serializer, data);
+  @BuiltValueField(wireName: 'api_enabled')
+  bool? get apiEnabled;
+  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public? get public;
+  bool? get resharing;
+  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User? get user;
+  @BuiltValueField(wireName: 'group_sharing')
+  bool? get groupSharing;
+  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group? get group;
+  @BuiltValueField(wireName: 'default_permissions')
+  int? get defaultPermissions;
+  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation? get federation;
+  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharee? get sharee;
+  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail? get sharebymail;
+  static Serializer<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing> get serializer =>
+      _$nextcloudCoreServerCapabilitiesOcsDataCapabilitiesFilesSharingSerializer;
 }
 
-@JsonSerializable(disallowUnrecognizedKeys: false)
-class NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Notes {
-  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Notes({
-    this.apiVersion,
-    this.version,
-  });
+abstract class NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Notes
+    implements
+        Built<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Notes,
+            NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_NotesBuilder> {
+  const NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Notes._();
 
-  // coverage:ignore-start
-  factory NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Notes.fromJson(Map<String, dynamic> json) =>
-      _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_NotesFromJson(json);
-  // coverage:ignore-end
+  factory NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Notes(
+          [void Function(NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_NotesBuilder)? b]) =
+      _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Notes;
 
-  // coverage:ignore-start
-  factory NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Notes.fromJsonString(String data) =>
-      NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Notes.fromJson(json.decode(data) as Map<String, dynamic>);
-  // coverage:ignore-end
-
-  @JsonKey(name: 'api_version')
-  final BuiltList<String>? apiVersion;
-
-  final String? version;
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_NotesToJson(this);
-  // coverage:ignore-end
+  static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Notes fromJson(Map<String, dynamic> json) =>
+      serializers.deserializeWith(serializer, json)!;
+  static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Notes fromJsonString(String data) =>
+      serializers.fromJson(serializer, data)!;
+  Map<String, dynamic> toJson() => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
   static String? toJsonString(NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Notes? data) =>
-      data == null ? null : json.encode(data.toJson());
+      data == null ? null : serializers.toJson(serializer, data);
+  @BuiltValueField(wireName: 'api_version')
+  BuiltList<String>? get apiVersion;
+  String? get version;
+  static Serializer<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Notes> get serializer =>
+      _$nextcloudCoreServerCapabilitiesOcsDataCapabilitiesNotesSerializer;
 }
 
-@JsonSerializable(disallowUnrecognizedKeys: false)
-class NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Notifications {
-  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Notifications({
-    this.ocsEndpoints,
-    this.push,
-    this.adminNotifications,
-  });
+abstract class NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Notifications
+    implements
+        Built<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Notifications,
+            NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_NotificationsBuilder> {
+  const NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Notifications._();
 
-  // coverage:ignore-start
-  factory NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Notifications.fromJson(Map<String, dynamic> json) =>
-      _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_NotificationsFromJson(json);
-  // coverage:ignore-end
+  factory NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Notifications(
+          [void Function(NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_NotificationsBuilder)? b]) =
+      _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Notifications;
 
-  // coverage:ignore-start
-  factory NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Notifications.fromJsonString(String data) =>
-      NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Notifications.fromJson(
-          json.decode(data) as Map<String, dynamic>);
-  // coverage:ignore-end
-
-  @JsonKey(name: 'ocs-endpoints')
-  final BuiltList<String>? ocsEndpoints;
-
-  final BuiltList<String>? push;
-
-  @JsonKey(name: 'admin-notifications')
-  final BuiltList<String>? adminNotifications;
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_NotificationsToJson(this);
-  // coverage:ignore-end
+  static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Notifications fromJson(Map<String, dynamic> json) =>
+      serializers.deserializeWith(serializer, json)!;
+  static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Notifications fromJsonString(String data) =>
+      serializers.fromJson(serializer, data)!;
+  Map<String, dynamic> toJson() => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
   static String? toJsonString(NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Notifications? data) =>
-      data == null ? null : json.encode(data.toJson());
+      data == null ? null : serializers.toJson(serializer, data);
+  @BuiltValueField(wireName: 'ocs-endpoints')
+  BuiltList<String>? get ocsEndpoints;
+  BuiltList<String>? get push;
+  @BuiltValueField(wireName: 'admin-notifications')
+  BuiltList<String>? get adminNotifications;
+  static Serializer<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Notifications> get serializer =>
+      _$nextcloudCoreServerCapabilitiesOcsDataCapabilitiesNotificationsSerializer;
 }
 
-@JsonSerializable(disallowUnrecognizedKeys: false)
-class NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy_Api {
-  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy_Api({
-    this.generate,
-    this.validate,
-  });
+abstract class NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy_Api
+    implements
+        Built<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy_Api,
+            NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy_ApiBuilder> {
+  const NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy_Api._();
 
-  // coverage:ignore-start
-  factory NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy_Api.fromJson(
-          Map<String, dynamic> json) =>
-      _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy_ApiFromJson(json);
-  // coverage:ignore-end
+  factory NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy_Api(
+          [void Function(NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy_ApiBuilder)? b]) =
+      _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy_Api;
 
-  // coverage:ignore-start
-  factory NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy_Api.fromJsonString(String data) =>
-      NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy_Api.fromJson(
-          json.decode(data) as Map<String, dynamic>);
-  // coverage:ignore-end
-
-  final String? generate;
-
-  final String? validate;
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() =>
-      _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy_ApiToJson(this);
-  // coverage:ignore-end
+  static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy_Api fromJson(Map<String, dynamic> json) =>
+      serializers.deserializeWith(serializer, json)!;
+  static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy_Api fromJsonString(String data) =>
+      serializers.fromJson(serializer, data)!;
+  Map<String, dynamic> toJson() => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
   static String? toJsonString(NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy_Api? data) =>
-      data == null ? null : json.encode(data.toJson());
+      data == null ? null : serializers.toJson(serializer, data);
+  String? get generate;
+  String? get validate;
+  static Serializer<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy_Api> get serializer =>
+      _$nextcloudCoreServerCapabilitiesOcsDataCapabilitiesPasswordPolicyApiSerializer;
 }
 
-@JsonSerializable(disallowUnrecognizedKeys: false)
-class NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy {
-  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy({
-    this.minLength,
-    this.enforceNonCommonPassword,
-    this.enforceNumericCharacters,
-    this.enforceSpecialCharacters,
-    this.enforceUpperLowerCase,
-    this.api,
-  });
+abstract class NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy
+    implements
+        Built<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy,
+            NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicyBuilder> {
+  const NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy._();
 
-  // coverage:ignore-start
-  factory NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy.fromJson(Map<String, dynamic> json) =>
-      _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicyFromJson(json);
-  // coverage:ignore-end
+  factory NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy(
+          [void Function(NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicyBuilder)? b]) =
+      _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy;
 
-  // coverage:ignore-start
-  factory NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy.fromJsonString(String data) =>
-      NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy.fromJson(
-          json.decode(data) as Map<String, dynamic>);
-  // coverage:ignore-end
-
-  final int? minLength;
-
-  final bool? enforceNonCommonPassword;
-
-  final bool? enforceNumericCharacters;
-
-  final bool? enforceSpecialCharacters;
-
-  final bool? enforceUpperLowerCase;
-
-  final NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy_Api? api;
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicyToJson(this);
-  // coverage:ignore-end
+  static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy fromJson(Map<String, dynamic> json) =>
+      serializers.deserializeWith(serializer, json)!;
+  static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy fromJsonString(String data) =>
+      serializers.fromJson(serializer, data)!;
+  Map<String, dynamic> toJson() => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
   static String? toJsonString(NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy? data) =>
-      data == null ? null : json.encode(data.toJson());
+      data == null ? null : serializers.toJson(serializer, data);
+  int? get minLength;
+  bool? get enforceNonCommonPassword;
+  bool? get enforceNumericCharacters;
+  bool? get enforceSpecialCharacters;
+  bool? get enforceUpperLowerCase;
+  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy_Api? get api;
+  static Serializer<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy> get serializer =>
+      _$nextcloudCoreServerCapabilitiesOcsDataCapabilitiesPasswordPolicySerializer;
 }
 
-@JsonSerializable(disallowUnrecognizedKeys: false)
-class NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_ProvisioningApi {
-  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_ProvisioningApi({
-    this.version,
-    this.accountPropertyScopesVersion,
-    this.accountPropertyScopesFederatedEnabled,
-    this.accountPropertyScopesPublishedEnabled,
-  });
+abstract class NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_ProvisioningApi
+    implements
+        Built<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_ProvisioningApi,
+            NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_ProvisioningApiBuilder> {
+  const NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_ProvisioningApi._();
 
-  // coverage:ignore-start
-  factory NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_ProvisioningApi.fromJson(Map<String, dynamic> json) =>
-      _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_ProvisioningApiFromJson(json);
-  // coverage:ignore-end
+  factory NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_ProvisioningApi(
+          [void Function(NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_ProvisioningApiBuilder)? b]) =
+      _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_ProvisioningApi;
 
-  // coverage:ignore-start
-  factory NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_ProvisioningApi.fromJsonString(String data) =>
-      NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_ProvisioningApi.fromJson(
-          json.decode(data) as Map<String, dynamic>);
-  // coverage:ignore-end
-
-  final String? version;
-
-  @JsonKey(name: 'AccountPropertyScopesVersion')
-  final int? accountPropertyScopesVersion;
-
-  @JsonKey(name: 'AccountPropertyScopesFederatedEnabled')
-  final bool? accountPropertyScopesFederatedEnabled;
-
-  @JsonKey(name: 'AccountPropertyScopesPublishedEnabled')
-  final bool? accountPropertyScopesPublishedEnabled;
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_ProvisioningApiToJson(this);
-  // coverage:ignore-end
+  static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_ProvisioningApi fromJson(Map<String, dynamic> json) =>
+      serializers.deserializeWith(serializer, json)!;
+  static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_ProvisioningApi fromJsonString(String data) =>
+      serializers.fromJson(serializer, data)!;
+  Map<String, dynamic> toJson() => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
   static String? toJsonString(NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_ProvisioningApi? data) =>
-      data == null ? null : json.encode(data.toJson());
+      data == null ? null : serializers.toJson(serializer, data);
+  String? get version;
+  @BuiltValueField(wireName: 'AccountPropertyScopesVersion')
+  int? get accountPropertyScopesVersion;
+  @BuiltValueField(wireName: 'AccountPropertyScopesFederatedEnabled')
+  bool? get accountPropertyScopesFederatedEnabled;
+  @BuiltValueField(wireName: 'AccountPropertyScopesPublishedEnabled')
+  bool? get accountPropertyScopesPublishedEnabled;
+  static Serializer<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_ProvisioningApi> get serializer =>
+      _$nextcloudCoreServerCapabilitiesOcsDataCapabilitiesProvisioningApiSerializer;
 }
 
-@JsonSerializable(disallowUnrecognizedKeys: false)
-class NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Theming {
-  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Theming({
-    this.name,
-    this.url,
-    this.slogan,
-    this.color,
-    this.colorText,
-    this.colorElement,
-    this.colorElementBright,
-    this.colorElementDark,
-    this.logo,
-    this.background,
-    this.backgroundPlain,
-    this.backgroundDefault,
-    this.logoheader,
-    this.favicon,
-  });
+abstract class NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Theming
+    implements
+        Built<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Theming,
+            NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_ThemingBuilder> {
+  const NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Theming._();
 
-  // coverage:ignore-start
-  factory NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Theming.fromJson(Map<String, dynamic> json) =>
-      _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_ThemingFromJson(json);
-  // coverage:ignore-end
+  factory NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Theming(
+          [void Function(NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_ThemingBuilder)? b]) =
+      _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Theming;
 
-  // coverage:ignore-start
-  factory NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Theming.fromJsonString(String data) =>
-      NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Theming.fromJson(json.decode(data) as Map<String, dynamic>);
-  // coverage:ignore-end
-
-  final String? name;
-
-  final String? url;
-
-  final String? slogan;
-
-  final String? color;
-
-  @JsonKey(name: 'color-text')
-  final String? colorText;
-
-  @JsonKey(name: 'color-element')
-  final String? colorElement;
-
-  @JsonKey(name: 'color-element-bright')
-  final String? colorElementBright;
-
-  @JsonKey(name: 'color-element-dark')
-  final String? colorElementDark;
-
-  final String? logo;
-
-  final String? background;
-
-  @JsonKey(name: 'background-plain')
-  final bool? backgroundPlain;
-
-  @JsonKey(name: 'background-default')
-  final bool? backgroundDefault;
-
-  final String? logoheader;
-
-  final String? favicon;
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_ThemingToJson(this);
-  // coverage:ignore-end
+  static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Theming fromJson(Map<String, dynamic> json) =>
+      serializers.deserializeWith(serializer, json)!;
+  static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Theming fromJsonString(String data) =>
+      serializers.fromJson(serializer, data)!;
+  Map<String, dynamic> toJson() => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
   static String? toJsonString(NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Theming? data) =>
-      data == null ? null : json.encode(data.toJson());
+      data == null ? null : serializers.toJson(serializer, data);
+  String? get name;
+  String? get url;
+  String? get slogan;
+  String? get color;
+  @BuiltValueField(wireName: 'color-text')
+  String? get colorText;
+  @BuiltValueField(wireName: 'color-element')
+  String? get colorElement;
+  @BuiltValueField(wireName: 'color-element-bright')
+  String? get colorElementBright;
+  @BuiltValueField(wireName: 'color-element-dark')
+  String? get colorElementDark;
+  String? get logo;
+  String? get background;
+  @BuiltValueField(wireName: 'background-plain')
+  bool? get backgroundPlain;
+  @BuiltValueField(wireName: 'background-default')
+  bool? get backgroundDefault;
+  String? get logoheader;
+  String? get favicon;
+  static Serializer<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Theming> get serializer =>
+      _$nextcloudCoreServerCapabilitiesOcsDataCapabilitiesThemingSerializer;
 }
 
-@JsonSerializable(disallowUnrecognizedKeys: false)
-class NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_UserStatus {
-  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_UserStatus({
-    this.enabled,
-    this.supportsEmoji,
-  });
+abstract class NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_UserStatus
+    implements
+        Built<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_UserStatus,
+            NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_UserStatusBuilder> {
+  const NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_UserStatus._();
 
-  // coverage:ignore-start
-  factory NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_UserStatus.fromJson(Map<String, dynamic> json) =>
-      _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_UserStatusFromJson(json);
-  // coverage:ignore-end
+  factory NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_UserStatus(
+          [void Function(NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_UserStatusBuilder)? b]) =
+      _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_UserStatus;
 
-  // coverage:ignore-start
-  factory NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_UserStatus.fromJsonString(String data) =>
-      NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_UserStatus.fromJson(
-          json.decode(data) as Map<String, dynamic>);
-  // coverage:ignore-end
-
-  final bool? enabled;
-
-  @JsonKey(name: 'supports_emoji')
-  final bool? supportsEmoji;
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_UserStatusToJson(this);
-  // coverage:ignore-end
+  static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_UserStatus fromJson(Map<String, dynamic> json) =>
+      serializers.deserializeWith(serializer, json)!;
+  static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_UserStatus fromJsonString(String data) =>
+      serializers.fromJson(serializer, data)!;
+  Map<String, dynamic> toJson() => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
   static String? toJsonString(NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_UserStatus? data) =>
-      data == null ? null : json.encode(data.toJson());
+      data == null ? null : serializers.toJson(serializer, data);
+  bool? get enabled;
+  @BuiltValueField(wireName: 'supports_emoji')
+  bool? get supportsEmoji;
+  static Serializer<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_UserStatus> get serializer =>
+      _$nextcloudCoreServerCapabilitiesOcsDataCapabilitiesUserStatusSerializer;
 }
 
-@JsonSerializable()
-class NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_WeatherStatus {
-  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_WeatherStatus({this.enabled});
+abstract class NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_WeatherStatus
+    implements
+        Built<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_WeatherStatus,
+            NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_WeatherStatusBuilder> {
+  const NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_WeatherStatus._();
 
-  // coverage:ignore-start
-  factory NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_WeatherStatus.fromJson(Map<String, dynamic> json) =>
-      _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_WeatherStatusFromJson(json);
-  // coverage:ignore-end
+  factory NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_WeatherStatus(
+          [void Function(NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_WeatherStatusBuilder)? b]) =
+      _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_WeatherStatus;
 
-  // coverage:ignore-start
-  factory NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_WeatherStatus.fromJsonString(String data) =>
-      NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_WeatherStatus.fromJson(
-          json.decode(data) as Map<String, dynamic>);
-  // coverage:ignore-end
-
-  final bool? enabled;
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_WeatherStatusToJson(this);
-  // coverage:ignore-end
+  static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_WeatherStatus fromJson(Map<String, dynamic> json) =>
+      serializers.deserializeWith(serializer, json)!;
+  static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_WeatherStatus fromJsonString(String data) =>
+      serializers.fromJson(serializer, data)!;
+  Map<String, dynamic> toJson() => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
   static String? toJsonString(NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_WeatherStatus? data) =>
-      data == null ? null : json.encode(data.toJson());
+      data == null ? null : serializers.toJson(serializer, data);
+  bool? get enabled;
+  static Serializer<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_WeatherStatus> get serializer =>
+      _$nextcloudCoreServerCapabilitiesOcsDataCapabilitiesWeatherStatusSerializer;
 }
 
-@JsonSerializable(disallowUnrecognizedKeys: false)
-class NextcloudCoreServerCapabilities_Ocs_Data_Capabilities {
-  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities({
-    this.core,
-    this.bruteforce,
-    this.metadataAvailable,
-    this.files,
-    this.activity,
-    this.circles,
-    this.ocm,
-    this.dav,
-    this.filesSharing,
-    this.notes,
-    this.notifications,
-    this.passwordPolicy,
-    this.provisioningApi,
-    this.theming,
-    this.userStatus,
-    this.weatherStatus,
-  });
+abstract class NextcloudCoreServerCapabilities_Ocs_Data_Capabilities
+    implements
+        Built<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities,
+            NextcloudCoreServerCapabilities_Ocs_Data_CapabilitiesBuilder> {
+  const NextcloudCoreServerCapabilities_Ocs_Data_Capabilities._();
 
-  // coverage:ignore-start
-  factory NextcloudCoreServerCapabilities_Ocs_Data_Capabilities.fromJson(Map<String, dynamic> json) =>
-      _$NextcloudCoreServerCapabilities_Ocs_Data_CapabilitiesFromJson(json);
-  // coverage:ignore-end
+  factory NextcloudCoreServerCapabilities_Ocs_Data_Capabilities(
+          [void Function(NextcloudCoreServerCapabilities_Ocs_Data_CapabilitiesBuilder)? b]) =
+      _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities;
 
-  // coverage:ignore-start
-  factory NextcloudCoreServerCapabilities_Ocs_Data_Capabilities.fromJsonString(String data) =>
-      NextcloudCoreServerCapabilities_Ocs_Data_Capabilities.fromJson(json.decode(data) as Map<String, dynamic>);
-  // coverage:ignore-end
-
-  final NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Core? core;
-
-  final NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Bruteforce? bruteforce;
-
-  final NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_MetadataAvailable? metadataAvailable;
-
-  final NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Files? files;
-
-  final NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Activity? activity;
-
-  final NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles? circles;
-
-  final NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Ocm? ocm;
-
-  final NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Dav? dav;
-
-  @JsonKey(name: 'files_sharing')
-  final NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing? filesSharing;
-
-  final NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Notes? notes;
-
-  final NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Notifications? notifications;
-
-  @JsonKey(name: 'password_policy')
-  final NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy? passwordPolicy;
-
-  @JsonKey(name: 'provisioning_api')
-  final NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_ProvisioningApi? provisioningApi;
-
-  final NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Theming? theming;
-
-  @JsonKey(name: 'user_status')
-  final NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_UserStatus? userStatus;
-
-  @JsonKey(name: 'weather_status')
-  final NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_WeatherStatus? weatherStatus;
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$NextcloudCoreServerCapabilities_Ocs_Data_CapabilitiesToJson(this);
-  // coverage:ignore-end
+  static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities fromJson(Map<String, dynamic> json) =>
+      serializers.deserializeWith(serializer, json)!;
+  static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities fromJsonString(String data) =>
+      serializers.fromJson(serializer, data)!;
+  Map<String, dynamic> toJson() => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
   static String? toJsonString(NextcloudCoreServerCapabilities_Ocs_Data_Capabilities? data) =>
-      data == null ? null : json.encode(data.toJson());
+      data == null ? null : serializers.toJson(serializer, data);
+  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Core? get core;
+  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Bruteforce? get bruteforce;
+  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_MetadataAvailable? get metadataAvailable;
+  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Files? get files;
+  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Activity? get activity;
+  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles? get circles;
+  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Ocm? get ocm;
+  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Dav? get dav;
+  @BuiltValueField(wireName: 'files_sharing')
+  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing? get filesSharing;
+  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Notes? get notes;
+  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Notifications? get notifications;
+  @BuiltValueField(wireName: 'password_policy')
+  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy? get passwordPolicy;
+  @BuiltValueField(wireName: 'provisioning_api')
+  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_ProvisioningApi? get provisioningApi;
+  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Theming? get theming;
+  @BuiltValueField(wireName: 'user_status')
+  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_UserStatus? get userStatus;
+  @BuiltValueField(wireName: 'weather_status')
+  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_WeatherStatus? get weatherStatus;
+  static Serializer<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities> get serializer =>
+      _$nextcloudCoreServerCapabilitiesOcsDataCapabilitiesSerializer;
 }
 
-@JsonSerializable()
-class NextcloudCoreServerCapabilities_Ocs_Data {
-  NextcloudCoreServerCapabilities_Ocs_Data({
-    required this.version,
-    required this.capabilities,
-  });
+abstract class NextcloudCoreServerCapabilities_Ocs_Data
+    implements Built<NextcloudCoreServerCapabilities_Ocs_Data, NextcloudCoreServerCapabilities_Ocs_DataBuilder> {
+  const NextcloudCoreServerCapabilities_Ocs_Data._();
 
-  // coverage:ignore-start
-  factory NextcloudCoreServerCapabilities_Ocs_Data.fromJson(Map<String, dynamic> json) =>
-      _$NextcloudCoreServerCapabilities_Ocs_DataFromJson(json);
-  // coverage:ignore-end
+  factory NextcloudCoreServerCapabilities_Ocs_Data(
+      [void Function(NextcloudCoreServerCapabilities_Ocs_DataBuilder)? b]) = _$NextcloudCoreServerCapabilities_Ocs_Data;
 
-  // coverage:ignore-start
-  factory NextcloudCoreServerCapabilities_Ocs_Data.fromJsonString(String data) =>
-      NextcloudCoreServerCapabilities_Ocs_Data.fromJson(json.decode(data) as Map<String, dynamic>);
-  // coverage:ignore-end
-
-  final NextcloudCoreServerCapabilities_Ocs_Data_Version version;
-
-  final NextcloudCoreServerCapabilities_Ocs_Data_Capabilities capabilities;
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$NextcloudCoreServerCapabilities_Ocs_DataToJson(this);
-  // coverage:ignore-end
+  static NextcloudCoreServerCapabilities_Ocs_Data fromJson(Map<String, dynamic> json) =>
+      serializers.deserializeWith(serializer, json)!;
+  static NextcloudCoreServerCapabilities_Ocs_Data fromJsonString(String data) =>
+      serializers.fromJson(serializer, data)!;
+  Map<String, dynamic> toJson() => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
   static String? toJsonString(NextcloudCoreServerCapabilities_Ocs_Data? data) =>
-      data == null ? null : json.encode(data.toJson());
+      data == null ? null : serializers.toJson(serializer, data);
+  NextcloudCoreServerCapabilities_Ocs_Data_Version get version;
+  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities get capabilities;
+  static Serializer<NextcloudCoreServerCapabilities_Ocs_Data> get serializer =>
+      _$nextcloudCoreServerCapabilitiesOcsDataSerializer;
 }
 
-@JsonSerializable()
-class NextcloudCoreServerCapabilities_Ocs {
-  NextcloudCoreServerCapabilities_Ocs({
-    required this.meta,
-    required this.data,
-  });
+abstract class NextcloudCoreServerCapabilities_Ocs
+    implements Built<NextcloudCoreServerCapabilities_Ocs, NextcloudCoreServerCapabilities_OcsBuilder> {
+  const NextcloudCoreServerCapabilities_Ocs._();
 
-  // coverage:ignore-start
-  factory NextcloudCoreServerCapabilities_Ocs.fromJson(Map<String, dynamic> json) =>
-      _$NextcloudCoreServerCapabilities_OcsFromJson(json);
-  // coverage:ignore-end
+  factory NextcloudCoreServerCapabilities_Ocs([void Function(NextcloudCoreServerCapabilities_OcsBuilder)? b]) =
+      _$NextcloudCoreServerCapabilities_Ocs;
 
-  // coverage:ignore-start
-  factory NextcloudCoreServerCapabilities_Ocs.fromJsonString(String data) =>
-      NextcloudCoreServerCapabilities_Ocs.fromJson(json.decode(data) as Map<String, dynamic>);
-  // coverage:ignore-end
-
-  final NextcloudOCSMeta meta;
-
-  final NextcloudCoreServerCapabilities_Ocs_Data data;
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$NextcloudCoreServerCapabilities_OcsToJson(this);
-  // coverage:ignore-end
+  static NextcloudCoreServerCapabilities_Ocs fromJson(Map<String, dynamic> json) =>
+      serializers.deserializeWith(serializer, json)!;
+  static NextcloudCoreServerCapabilities_Ocs fromJsonString(String data) => serializers.fromJson(serializer, data)!;
+  Map<String, dynamic> toJson() => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
   static String? toJsonString(NextcloudCoreServerCapabilities_Ocs? data) =>
-      data == null ? null : json.encode(data.toJson());
+      data == null ? null : serializers.toJson(serializer, data);
+  NextcloudOCSMeta get meta;
+  NextcloudCoreServerCapabilities_Ocs_Data get data;
+  static Serializer<NextcloudCoreServerCapabilities_Ocs> get serializer =>
+      _$nextcloudCoreServerCapabilitiesOcsSerializer;
 }
 
-@JsonSerializable()
-class NextcloudCoreServerCapabilities {
-  NextcloudCoreServerCapabilities({required this.ocs});
+abstract class NextcloudCoreServerCapabilities
+    implements Built<NextcloudCoreServerCapabilities, NextcloudCoreServerCapabilitiesBuilder> {
+  const NextcloudCoreServerCapabilities._();
 
-  // coverage:ignore-start
-  factory NextcloudCoreServerCapabilities.fromJson(Map<String, dynamic> json) =>
-      _$NextcloudCoreServerCapabilitiesFromJson(json);
-  // coverage:ignore-end
+  factory NextcloudCoreServerCapabilities([void Function(NextcloudCoreServerCapabilitiesBuilder)? b]) =
+      _$NextcloudCoreServerCapabilities;
 
-  // coverage:ignore-start
-  factory NextcloudCoreServerCapabilities.fromJsonString(String data) =>
-      NextcloudCoreServerCapabilities.fromJson(json.decode(data) as Map<String, dynamic>);
-  // coverage:ignore-end
-
-  final NextcloudCoreServerCapabilities_Ocs ocs;
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$NextcloudCoreServerCapabilitiesToJson(this);
-  // coverage:ignore-end
+  static NextcloudCoreServerCapabilities fromJson(Map<String, dynamic> json) =>
+      serializers.deserializeWith(serializer, json)!;
+  static NextcloudCoreServerCapabilities fromJsonString(String data) => serializers.fromJson(serializer, data)!;
+  Map<String, dynamic> toJson() => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
   static String? toJsonString(NextcloudCoreServerCapabilities? data) =>
-      data == null ? null : json.encode(data.toJson());
+      data == null ? null : serializers.toJson(serializer, data);
+  NextcloudCoreServerCapabilities_Ocs get ocs;
+  static Serializer<NextcloudCoreServerCapabilities> get serializer => _$nextcloudCoreServerCapabilitiesSerializer;
 }
 
 class NextcloudCoreNavigationApps_Ocs_Data_Order {
@@ -3826,188 +3381,122 @@ class NextcloudCoreNavigationApps_Ocs_Data_Order {
   // coverage:ignore-end
 }
 
-@JsonSerializable()
-class NextcloudCoreNavigationApps_Ocs_Data {
-  NextcloudCoreNavigationApps_Ocs_Data({
-    required this.id,
-    required this.order,
-    required this.href,
-    required this.icon,
-    required this.type,
-    required this.name,
-    required this.active,
-    required this.classes,
-    required this.unread,
-  });
+abstract class NextcloudCoreNavigationApps_Ocs_Data
+    implements Built<NextcloudCoreNavigationApps_Ocs_Data, NextcloudCoreNavigationApps_Ocs_DataBuilder> {
+  const NextcloudCoreNavigationApps_Ocs_Data._();
 
-  // coverage:ignore-start
-  factory NextcloudCoreNavigationApps_Ocs_Data.fromJson(Map<String, dynamic> json) =>
-      _$NextcloudCoreNavigationApps_Ocs_DataFromJson(json);
-  // coverage:ignore-end
+  factory NextcloudCoreNavigationApps_Ocs_Data([void Function(NextcloudCoreNavigationApps_Ocs_DataBuilder)? b]) =
+      _$NextcloudCoreNavigationApps_Ocs_Data;
 
-  // coverage:ignore-start
-  factory NextcloudCoreNavigationApps_Ocs_Data.fromJsonString(String data) =>
-      NextcloudCoreNavigationApps_Ocs_Data.fromJson(json.decode(data) as Map<String, dynamic>);
-  // coverage:ignore-end
-
-  final String id;
+  static NextcloudCoreNavigationApps_Ocs_Data fromJson(Map<String, dynamic> json) =>
+      serializers.deserializeWith(serializer, json)!;
+  static NextcloudCoreNavigationApps_Ocs_Data fromJsonString(String data) => serializers.fromJson(serializer, data)!;
+  Map<String, dynamic> toJson() => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
+  static String? toJsonString(NextcloudCoreNavigationApps_Ocs_Data? data) =>
+      data == null ? null : serializers.toJson(serializer, data);
+  String get id;
 
   /// Should always be an integer, but there is a bug. See https://github.com/nextcloud/server/issues/32828
-  final NextcloudCoreNavigationApps_Ocs_Data_Order order;
-
-  final String href;
-
-  final String icon;
-
-  final String type;
-
-  final String name;
-
-  final bool active;
-
-  final String classes;
-
-  final int unread;
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$NextcloudCoreNavigationApps_Ocs_DataToJson(this);
-  // coverage:ignore-end
-  static String? toJsonString(NextcloudCoreNavigationApps_Ocs_Data? data) =>
-      data == null ? null : json.encode(data.toJson());
+  NextcloudCoreNavigationApps_Ocs_Data_Order get order;
+  String get href;
+  String get icon;
+  String get type;
+  String get name;
+  bool get active;
+  String get classes;
+  int get unread;
+  static Serializer<NextcloudCoreNavigationApps_Ocs_Data> get serializer =>
+      _$nextcloudCoreNavigationAppsOcsDataSerializer;
 }
 
-@JsonSerializable()
-class NextcloudCoreNavigationApps_Ocs {
-  NextcloudCoreNavigationApps_Ocs({
-    required this.meta,
-    required this.data,
-  });
+abstract class NextcloudCoreNavigationApps_Ocs
+    implements Built<NextcloudCoreNavigationApps_Ocs, NextcloudCoreNavigationApps_OcsBuilder> {
+  const NextcloudCoreNavigationApps_Ocs._();
 
-  // coverage:ignore-start
-  factory NextcloudCoreNavigationApps_Ocs.fromJson(Map<String, dynamic> json) =>
-      _$NextcloudCoreNavigationApps_OcsFromJson(json);
-  // coverage:ignore-end
+  factory NextcloudCoreNavigationApps_Ocs([void Function(NextcloudCoreNavigationApps_OcsBuilder)? b]) =
+      _$NextcloudCoreNavigationApps_Ocs;
 
-  // coverage:ignore-start
-  factory NextcloudCoreNavigationApps_Ocs.fromJsonString(String data) =>
-      NextcloudCoreNavigationApps_Ocs.fromJson(json.decode(data) as Map<String, dynamic>);
-  // coverage:ignore-end
-
-  final NextcloudOCSMeta meta;
-
-  final BuiltList<NextcloudCoreNavigationApps_Ocs_Data> data;
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$NextcloudCoreNavigationApps_OcsToJson(this);
-  // coverage:ignore-end
+  static NextcloudCoreNavigationApps_Ocs fromJson(Map<String, dynamic> json) =>
+      serializers.deserializeWith(serializer, json)!;
+  static NextcloudCoreNavigationApps_Ocs fromJsonString(String data) => serializers.fromJson(serializer, data)!;
+  Map<String, dynamic> toJson() => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
   static String? toJsonString(NextcloudCoreNavigationApps_Ocs? data) =>
-      data == null ? null : json.encode(data.toJson());
+      data == null ? null : serializers.toJson(serializer, data);
+  NextcloudOCSMeta get meta;
+  BuiltList<NextcloudCoreNavigationApps_Ocs_Data> get data;
+  static Serializer<NextcloudCoreNavigationApps_Ocs> get serializer => _$nextcloudCoreNavigationAppsOcsSerializer;
 }
 
-@JsonSerializable()
-class NextcloudCoreNavigationApps {
-  NextcloudCoreNavigationApps({required this.ocs});
+abstract class NextcloudCoreNavigationApps
+    implements Built<NextcloudCoreNavigationApps, NextcloudCoreNavigationAppsBuilder> {
+  const NextcloudCoreNavigationApps._();
 
-  // coverage:ignore-start
-  factory NextcloudCoreNavigationApps.fromJson(Map<String, dynamic> json) =>
-      _$NextcloudCoreNavigationAppsFromJson(json);
-  // coverage:ignore-end
+  factory NextcloudCoreNavigationApps([void Function(NextcloudCoreNavigationAppsBuilder)? b]) =
+      _$NextcloudCoreNavigationApps;
 
-  // coverage:ignore-start
-  factory NextcloudCoreNavigationApps.fromJsonString(String data) =>
-      NextcloudCoreNavigationApps.fromJson(json.decode(data) as Map<String, dynamic>);
-  // coverage:ignore-end
-
-  final NextcloudCoreNavigationApps_Ocs ocs;
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$NextcloudCoreNavigationAppsToJson(this);
-  // coverage:ignore-end
-  static String? toJsonString(NextcloudCoreNavigationApps? data) => data == null ? null : json.encode(data.toJson());
+  static NextcloudCoreNavigationApps fromJson(Map<String, dynamic> json) =>
+      serializers.deserializeWith(serializer, json)!;
+  static NextcloudCoreNavigationApps fromJsonString(String data) => serializers.fromJson(serializer, data)!;
+  Map<String, dynamic> toJson() => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
+  static String? toJsonString(NextcloudCoreNavigationApps? data) =>
+      data == null ? null : serializers.toJson(serializer, data);
+  NextcloudCoreNavigationApps_Ocs get ocs;
+  static Serializer<NextcloudCoreNavigationApps> get serializer => _$nextcloudCoreNavigationAppsSerializer;
 }
 
-@JsonSerializable()
-class NextcloudCoreLoginFlowInit_Poll {
-  NextcloudCoreLoginFlowInit_Poll({
-    required this.token,
-    required this.endpoint,
-  });
+abstract class NextcloudCoreLoginFlowInit_Poll
+    implements Built<NextcloudCoreLoginFlowInit_Poll, NextcloudCoreLoginFlowInit_PollBuilder> {
+  const NextcloudCoreLoginFlowInit_Poll._();
 
-  // coverage:ignore-start
-  factory NextcloudCoreLoginFlowInit_Poll.fromJson(Map<String, dynamic> json) =>
-      _$NextcloudCoreLoginFlowInit_PollFromJson(json);
-  // coverage:ignore-end
+  factory NextcloudCoreLoginFlowInit_Poll([void Function(NextcloudCoreLoginFlowInit_PollBuilder)? b]) =
+      _$NextcloudCoreLoginFlowInit_Poll;
 
-  // coverage:ignore-start
-  factory NextcloudCoreLoginFlowInit_Poll.fromJsonString(String data) =>
-      NextcloudCoreLoginFlowInit_Poll.fromJson(json.decode(data) as Map<String, dynamic>);
-  // coverage:ignore-end
-
-  final String token;
-
-  final String endpoint;
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$NextcloudCoreLoginFlowInit_PollToJson(this);
-  // coverage:ignore-end
+  static NextcloudCoreLoginFlowInit_Poll fromJson(Map<String, dynamic> json) =>
+      serializers.deserializeWith(serializer, json)!;
+  static NextcloudCoreLoginFlowInit_Poll fromJsonString(String data) => serializers.fromJson(serializer, data)!;
+  Map<String, dynamic> toJson() => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
   static String? toJsonString(NextcloudCoreLoginFlowInit_Poll? data) =>
-      data == null ? null : json.encode(data.toJson());
+      data == null ? null : serializers.toJson(serializer, data);
+  String get token;
+  String get endpoint;
+  static Serializer<NextcloudCoreLoginFlowInit_Poll> get serializer => _$nextcloudCoreLoginFlowInitPollSerializer;
 }
 
-@JsonSerializable()
-class NextcloudCoreLoginFlowInit {
-  NextcloudCoreLoginFlowInit({
-    required this.poll,
-    required this.login,
-  });
+abstract class NextcloudCoreLoginFlowInit
+    implements Built<NextcloudCoreLoginFlowInit, NextcloudCoreLoginFlowInitBuilder> {
+  const NextcloudCoreLoginFlowInit._();
 
-  // coverage:ignore-start
-  factory NextcloudCoreLoginFlowInit.fromJson(Map<String, dynamic> json) => _$NextcloudCoreLoginFlowInitFromJson(json);
-  // coverage:ignore-end
+  factory NextcloudCoreLoginFlowInit([void Function(NextcloudCoreLoginFlowInitBuilder)? b]) =
+      _$NextcloudCoreLoginFlowInit;
 
-  // coverage:ignore-start
-  factory NextcloudCoreLoginFlowInit.fromJsonString(String data) =>
-      NextcloudCoreLoginFlowInit.fromJson(json.decode(data) as Map<String, dynamic>);
-  // coverage:ignore-end
-
-  final NextcloudCoreLoginFlowInit_Poll poll;
-
-  final String login;
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$NextcloudCoreLoginFlowInitToJson(this);
-  // coverage:ignore-end
-  static String? toJsonString(NextcloudCoreLoginFlowInit? data) => data == null ? null : json.encode(data.toJson());
+  static NextcloudCoreLoginFlowInit fromJson(Map<String, dynamic> json) =>
+      serializers.deserializeWith(serializer, json)!;
+  static NextcloudCoreLoginFlowInit fromJsonString(String data) => serializers.fromJson(serializer, data)!;
+  Map<String, dynamic> toJson() => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
+  static String? toJsonString(NextcloudCoreLoginFlowInit? data) =>
+      data == null ? null : serializers.toJson(serializer, data);
+  NextcloudCoreLoginFlowInit_Poll get poll;
+  String get login;
+  static Serializer<NextcloudCoreLoginFlowInit> get serializer => _$nextcloudCoreLoginFlowInitSerializer;
 }
 
-@JsonSerializable()
-class NextcloudCoreLoginFlowResult {
-  NextcloudCoreLoginFlowResult({
-    required this.server,
-    required this.loginName,
-    required this.appPassword,
-  });
+abstract class NextcloudCoreLoginFlowResult
+    implements Built<NextcloudCoreLoginFlowResult, NextcloudCoreLoginFlowResultBuilder> {
+  const NextcloudCoreLoginFlowResult._();
 
-  // coverage:ignore-start
-  factory NextcloudCoreLoginFlowResult.fromJson(Map<String, dynamic> json) =>
-      _$NextcloudCoreLoginFlowResultFromJson(json);
-  // coverage:ignore-end
+  factory NextcloudCoreLoginFlowResult([void Function(NextcloudCoreLoginFlowResultBuilder)? b]) =
+      _$NextcloudCoreLoginFlowResult;
 
-  // coverage:ignore-start
-  factory NextcloudCoreLoginFlowResult.fromJsonString(String data) =>
-      NextcloudCoreLoginFlowResult.fromJson(json.decode(data) as Map<String, dynamic>);
-  // coverage:ignore-end
-
-  final String server;
-
-  final String loginName;
-
-  final String appPassword;
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$NextcloudCoreLoginFlowResultToJson(this);
-  // coverage:ignore-end
-  static String? toJsonString(NextcloudCoreLoginFlowResult? data) => data == null ? null : json.encode(data.toJson());
+  static NextcloudCoreLoginFlowResult fromJson(Map<String, dynamic> json) =>
+      serializers.deserializeWith(serializer, json)!;
+  static NextcloudCoreLoginFlowResult fromJsonString(String data) => serializers.fromJson(serializer, data)!;
+  Map<String, dynamic> toJson() => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
+  static String? toJsonString(NextcloudCoreLoginFlowResult? data) =>
+      data == null ? null : serializers.toJson(serializer, data);
+  String get server;
+  String get loginName;
+  String get appPassword;
+  static Serializer<NextcloudCoreLoginFlowResult> get serializer => _$nextcloudCoreLoginFlowResultSerializer;
 }
 
 class NextcloudCoreAutocompleteResult_Ocs_Data_Status {
@@ -4053,414 +3542,224 @@ class NextcloudCoreAutocompleteResult_Ocs_Data_Status {
   // coverage:ignore-end
 }
 
-@JsonSerializable()
-class NextcloudCoreAutocompleteResult_Ocs_Data {
-  NextcloudCoreAutocompleteResult_Ocs_Data({
-    required this.id,
-    required this.label,
-    required this.icon,
-    required this.source,
-    required this.status,
-    required this.subline,
-    required this.shareWithDisplayNameUnique,
-  });
+abstract class NextcloudCoreAutocompleteResult_Ocs_Data
+    implements Built<NextcloudCoreAutocompleteResult_Ocs_Data, NextcloudCoreAutocompleteResult_Ocs_DataBuilder> {
+  const NextcloudCoreAutocompleteResult_Ocs_Data._();
 
-  // coverage:ignore-start
-  factory NextcloudCoreAutocompleteResult_Ocs_Data.fromJson(Map<String, dynamic> json) =>
-      _$NextcloudCoreAutocompleteResult_Ocs_DataFromJson(json);
-  // coverage:ignore-end
+  factory NextcloudCoreAutocompleteResult_Ocs_Data(
+      [void Function(NextcloudCoreAutocompleteResult_Ocs_DataBuilder)? b]) = _$NextcloudCoreAutocompleteResult_Ocs_Data;
 
-  // coverage:ignore-start
-  factory NextcloudCoreAutocompleteResult_Ocs_Data.fromJsonString(String data) =>
-      NextcloudCoreAutocompleteResult_Ocs_Data.fromJson(json.decode(data) as Map<String, dynamic>);
-  // coverage:ignore-end
-
-  final String id;
-
-  final String label;
-
-  final String icon;
-
-  final String source;
-
-  final NextcloudCoreAutocompleteResult_Ocs_Data_Status status;
-
-  final String subline;
-
-  final String shareWithDisplayNameUnique;
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$NextcloudCoreAutocompleteResult_Ocs_DataToJson(this);
-  // coverage:ignore-end
+  static NextcloudCoreAutocompleteResult_Ocs_Data fromJson(Map<String, dynamic> json) =>
+      serializers.deserializeWith(serializer, json)!;
+  static NextcloudCoreAutocompleteResult_Ocs_Data fromJsonString(String data) =>
+      serializers.fromJson(serializer, data)!;
+  Map<String, dynamic> toJson() => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
   static String? toJsonString(NextcloudCoreAutocompleteResult_Ocs_Data? data) =>
-      data == null ? null : json.encode(data.toJson());
+      data == null ? null : serializers.toJson(serializer, data);
+  String get id;
+  String get label;
+  String get icon;
+  String get source;
+  NextcloudCoreAutocompleteResult_Ocs_Data_Status get status;
+  String get subline;
+  String get shareWithDisplayNameUnique;
+  static Serializer<NextcloudCoreAutocompleteResult_Ocs_Data> get serializer =>
+      _$nextcloudCoreAutocompleteResultOcsDataSerializer;
 }
 
-@JsonSerializable()
-class NextcloudCoreAutocompleteResult_Ocs {
-  NextcloudCoreAutocompleteResult_Ocs({
-    required this.meta,
-    required this.data,
-  });
+abstract class NextcloudCoreAutocompleteResult_Ocs
+    implements Built<NextcloudCoreAutocompleteResult_Ocs, NextcloudCoreAutocompleteResult_OcsBuilder> {
+  const NextcloudCoreAutocompleteResult_Ocs._();
 
-  // coverage:ignore-start
-  factory NextcloudCoreAutocompleteResult_Ocs.fromJson(Map<String, dynamic> json) =>
-      _$NextcloudCoreAutocompleteResult_OcsFromJson(json);
-  // coverage:ignore-end
+  factory NextcloudCoreAutocompleteResult_Ocs([void Function(NextcloudCoreAutocompleteResult_OcsBuilder)? b]) =
+      _$NextcloudCoreAutocompleteResult_Ocs;
 
-  // coverage:ignore-start
-  factory NextcloudCoreAutocompleteResult_Ocs.fromJsonString(String data) =>
-      NextcloudCoreAutocompleteResult_Ocs.fromJson(json.decode(data) as Map<String, dynamic>);
-  // coverage:ignore-end
-
-  final NextcloudOCSMeta meta;
-
-  final BuiltList<NextcloudCoreAutocompleteResult_Ocs_Data> data;
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$NextcloudCoreAutocompleteResult_OcsToJson(this);
-  // coverage:ignore-end
+  static NextcloudCoreAutocompleteResult_Ocs fromJson(Map<String, dynamic> json) =>
+      serializers.deserializeWith(serializer, json)!;
+  static NextcloudCoreAutocompleteResult_Ocs fromJsonString(String data) => serializers.fromJson(serializer, data)!;
+  Map<String, dynamic> toJson() => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
   static String? toJsonString(NextcloudCoreAutocompleteResult_Ocs? data) =>
-      data == null ? null : json.encode(data.toJson());
+      data == null ? null : serializers.toJson(serializer, data);
+  NextcloudOCSMeta get meta;
+  BuiltList<NextcloudCoreAutocompleteResult_Ocs_Data> get data;
+  static Serializer<NextcloudCoreAutocompleteResult_Ocs> get serializer =>
+      _$nextcloudCoreAutocompleteResultOcsSerializer;
 }
 
-@JsonSerializable()
-class NextcloudCoreAutocompleteResult {
-  NextcloudCoreAutocompleteResult({required this.ocs});
+abstract class NextcloudCoreAutocompleteResult
+    implements Built<NextcloudCoreAutocompleteResult, NextcloudCoreAutocompleteResultBuilder> {
+  const NextcloudCoreAutocompleteResult._();
 
-  // coverage:ignore-start
-  factory NextcloudCoreAutocompleteResult.fromJson(Map<String, dynamic> json) =>
-      _$NextcloudCoreAutocompleteResultFromJson(json);
-  // coverage:ignore-end
+  factory NextcloudCoreAutocompleteResult([void Function(NextcloudCoreAutocompleteResultBuilder)? b]) =
+      _$NextcloudCoreAutocompleteResult;
 
-  // coverage:ignore-start
-  factory NextcloudCoreAutocompleteResult.fromJsonString(String data) =>
-      NextcloudCoreAutocompleteResult.fromJson(json.decode(data) as Map<String, dynamic>);
-  // coverage:ignore-end
-
-  final NextcloudCoreAutocompleteResult_Ocs ocs;
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$NextcloudCoreAutocompleteResultToJson(this);
-  // coverage:ignore-end
+  static NextcloudCoreAutocompleteResult fromJson(Map<String, dynamic> json) =>
+      serializers.deserializeWith(serializer, json)!;
+  static NextcloudCoreAutocompleteResult fromJsonString(String data) => serializers.fromJson(serializer, data)!;
+  Map<String, dynamic> toJson() => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
   static String? toJsonString(NextcloudCoreAutocompleteResult? data) =>
-      data == null ? null : json.encode(data.toJson());
+      data == null ? null : serializers.toJson(serializer, data);
+  NextcloudCoreAutocompleteResult_Ocs get ocs;
+  static Serializer<NextcloudCoreAutocompleteResult> get serializer => _$nextcloudCoreAutocompleteResultSerializer;
 }
 
-@JsonSerializable()
-class NextcloudNewsSupportedAPIVersions {
-  NextcloudNewsSupportedAPIVersions({this.apiLevels});
+abstract class NextcloudNewsSupportedAPIVersions
+    implements Built<NextcloudNewsSupportedAPIVersions, NextcloudNewsSupportedAPIVersionsBuilder> {
+  const NextcloudNewsSupportedAPIVersions._();
 
-  // coverage:ignore-start
-  factory NextcloudNewsSupportedAPIVersions.fromJson(Map<String, dynamic> json) =>
-      _$NextcloudNewsSupportedAPIVersionsFromJson(json);
-  // coverage:ignore-end
+  factory NextcloudNewsSupportedAPIVersions([void Function(NextcloudNewsSupportedAPIVersionsBuilder)? b]) =
+      _$NextcloudNewsSupportedAPIVersions;
 
-  // coverage:ignore-start
-  factory NextcloudNewsSupportedAPIVersions.fromJsonString(String data) =>
-      NextcloudNewsSupportedAPIVersions.fromJson(json.decode(data) as Map<String, dynamic>);
-  // coverage:ignore-end
-
-  final BuiltList<String>? apiLevels;
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$NextcloudNewsSupportedAPIVersionsToJson(this);
-  // coverage:ignore-end
+  static NextcloudNewsSupportedAPIVersions fromJson(Map<String, dynamic> json) =>
+      serializers.deserializeWith(serializer, json)!;
+  static NextcloudNewsSupportedAPIVersions fromJsonString(String data) => serializers.fromJson(serializer, data)!;
+  Map<String, dynamic> toJson() => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
   static String? toJsonString(NextcloudNewsSupportedAPIVersions? data) =>
-      data == null ? null : json.encode(data.toJson());
+      data == null ? null : serializers.toJson(serializer, data);
+  BuiltList<String>? get apiLevels;
+  static Serializer<NextcloudNewsSupportedAPIVersions> get serializer => _$nextcloudNewsSupportedAPIVersionsSerializer;
 }
 
-@JsonSerializable()
-class NextcloudNewsArticle {
-  NextcloudNewsArticle({
-    required this.id,
-    required this.guid,
-    required this.guidHash,
-    this.url,
-    required this.title,
-    this.author,
-    required this.pubDate,
-    this.updatedDate,
-    required this.body,
-    this.enclosureMime,
-    this.enclosureLink,
-    this.mediaThumbnail,
-    this.mediaDescription,
-    required this.feedId,
-    required this.unread,
-    required this.starred,
-    required this.lastModified,
-    required this.rtl,
-    required this.fingerprint,
-    required this.contentHash,
-  });
+abstract class NextcloudNewsArticle implements Built<NextcloudNewsArticle, NextcloudNewsArticleBuilder> {
+  const NextcloudNewsArticle._();
 
-  // coverage:ignore-start
-  factory NextcloudNewsArticle.fromJson(Map<String, dynamic> json) => _$NextcloudNewsArticleFromJson(json);
-  // coverage:ignore-end
+  factory NextcloudNewsArticle([void Function(NextcloudNewsArticleBuilder)? b]) = _$NextcloudNewsArticle;
 
-  // coverage:ignore-start
-  factory NextcloudNewsArticle.fromJsonString(String data) =>
-      NextcloudNewsArticle.fromJson(json.decode(data) as Map<String, dynamic>);
-  // coverage:ignore-end
-
-  final int id;
-
-  final String guid;
-
-  final String guidHash;
-
-  final String? url;
-
-  final String title;
-
-  final String? author;
-
-  final int pubDate;
-
-  final int? updatedDate;
-
-  final String body;
-
-  final String? enclosureMime;
-
-  final String? enclosureLink;
-
-  final String? mediaThumbnail;
-
-  final String? mediaDescription;
-
-  final int feedId;
-
-  final bool unread;
-
-  final bool starred;
-
-  final int lastModified;
-
-  final bool rtl;
-
-  final String fingerprint;
-
-  final String contentHash;
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$NextcloudNewsArticleToJson(this);
-  // coverage:ignore-end
-  static String? toJsonString(NextcloudNewsArticle? data) => data == null ? null : json.encode(data.toJson());
+  static NextcloudNewsArticle fromJson(Map<String, dynamic> json) => serializers.deserializeWith(serializer, json)!;
+  static NextcloudNewsArticle fromJsonString(String data) => serializers.fromJson(serializer, data)!;
+  Map<String, dynamic> toJson() => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
+  static String? toJsonString(NextcloudNewsArticle? data) => data == null ? null : serializers.toJson(serializer, data);
+  int get id;
+  String get guid;
+  String get guidHash;
+  String? get url;
+  String get title;
+  String? get author;
+  int get pubDate;
+  int? get updatedDate;
+  String get body;
+  String? get enclosureMime;
+  String? get enclosureLink;
+  String? get mediaThumbnail;
+  String? get mediaDescription;
+  int get feedId;
+  bool get unread;
+  bool get starred;
+  int get lastModified;
+  bool get rtl;
+  String get fingerprint;
+  String get contentHash;
+  static Serializer<NextcloudNewsArticle> get serializer => _$nextcloudNewsArticleSerializer;
 }
 
-@JsonSerializable()
-class NextcloudNewsFeed {
-  NextcloudNewsFeed({
-    required this.id,
-    required this.url,
-    required this.title,
-    this.faviconLink,
-    required this.added,
-    this.folderId,
-    this.unreadCount,
-    required this.ordering,
-    this.link,
-    required this.pinned,
-    required this.updateErrorCount,
-    this.lastUpdateError,
-    required this.items,
-  });
+abstract class NextcloudNewsFeed implements Built<NextcloudNewsFeed, NextcloudNewsFeedBuilder> {
+  const NextcloudNewsFeed._();
 
-  // coverage:ignore-start
-  factory NextcloudNewsFeed.fromJson(Map<String, dynamic> json) => _$NextcloudNewsFeedFromJson(json);
-  // coverage:ignore-end
+  factory NextcloudNewsFeed([void Function(NextcloudNewsFeedBuilder)? b]) = _$NextcloudNewsFeed;
 
-  // coverage:ignore-start
-  factory NextcloudNewsFeed.fromJsonString(String data) =>
-      NextcloudNewsFeed.fromJson(json.decode(data) as Map<String, dynamic>);
-  // coverage:ignore-end
-
-  final int id;
-
-  final String url;
-
-  final String title;
-
-  final String? faviconLink;
-
-  final int added;
-
-  final int? folderId;
-
-  final int? unreadCount;
-
-  final int ordering;
-
-  final String? link;
-
-  final bool pinned;
-
-  final int updateErrorCount;
-
-  final String? lastUpdateError;
-
-  final BuiltList<NextcloudNewsArticle> items;
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$NextcloudNewsFeedToJson(this);
-  // coverage:ignore-end
-  static String? toJsonString(NextcloudNewsFeed? data) => data == null ? null : json.encode(data.toJson());
+  static NextcloudNewsFeed fromJson(Map<String, dynamic> json) => serializers.deserializeWith(serializer, json)!;
+  static NextcloudNewsFeed fromJsonString(String data) => serializers.fromJson(serializer, data)!;
+  Map<String, dynamic> toJson() => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
+  static String? toJsonString(NextcloudNewsFeed? data) => data == null ? null : serializers.toJson(serializer, data);
+  int get id;
+  String get url;
+  String get title;
+  String? get faviconLink;
+  int get added;
+  int? get folderId;
+  int? get unreadCount;
+  int get ordering;
+  String? get link;
+  bool get pinned;
+  int get updateErrorCount;
+  String? get lastUpdateError;
+  BuiltList<NextcloudNewsArticle> get items;
+  static Serializer<NextcloudNewsFeed> get serializer => _$nextcloudNewsFeedSerializer;
 }
 
-@JsonSerializable()
-class NextcloudNewsFolder {
-  NextcloudNewsFolder({
-    required this.id,
-    required this.name,
-    required this.opened,
-    required this.feeds,
-  });
+abstract class NextcloudNewsFolder implements Built<NextcloudNewsFolder, NextcloudNewsFolderBuilder> {
+  const NextcloudNewsFolder._();
 
-  // coverage:ignore-start
-  factory NextcloudNewsFolder.fromJson(Map<String, dynamic> json) => _$NextcloudNewsFolderFromJson(json);
-  // coverage:ignore-end
+  factory NextcloudNewsFolder([void Function(NextcloudNewsFolderBuilder)? b]) = _$NextcloudNewsFolder;
 
-  // coverage:ignore-start
-  factory NextcloudNewsFolder.fromJsonString(String data) =>
-      NextcloudNewsFolder.fromJson(json.decode(data) as Map<String, dynamic>);
-  // coverage:ignore-end
-
-  final int id;
-
-  final String name;
-
-  final bool opened;
+  static NextcloudNewsFolder fromJson(Map<String, dynamic> json) => serializers.deserializeWith(serializer, json)!;
+  static NextcloudNewsFolder fromJsonString(String data) => serializers.fromJson(serializer, data)!;
+  Map<String, dynamic> toJson() => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
+  static String? toJsonString(NextcloudNewsFolder? data) => data == null ? null : serializers.toJson(serializer, data);
+  int get id;
+  String get name;
+  bool get opened;
 
   /// This seems to be broken. In testing it is always empty
-  final BuiltList<NextcloudNewsFeed> feeds;
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$NextcloudNewsFolderToJson(this);
-  // coverage:ignore-end
-  static String? toJsonString(NextcloudNewsFolder? data) => data == null ? null : json.encode(data.toJson());
+  BuiltList<NextcloudNewsFeed> get feeds;
+  static Serializer<NextcloudNewsFolder> get serializer => _$nextcloudNewsFolderSerializer;
 }
 
-@JsonSerializable()
-class NextcloudNewsListFolders {
-  NextcloudNewsListFolders({required this.folders});
+abstract class NextcloudNewsListFolders implements Built<NextcloudNewsListFolders, NextcloudNewsListFoldersBuilder> {
+  const NextcloudNewsListFolders._();
 
-  // coverage:ignore-start
-  factory NextcloudNewsListFolders.fromJson(Map<String, dynamic> json) => _$NextcloudNewsListFoldersFromJson(json);
-  // coverage:ignore-end
+  factory NextcloudNewsListFolders([void Function(NextcloudNewsListFoldersBuilder)? b]) = _$NextcloudNewsListFolders;
 
-  // coverage:ignore-start
-  factory NextcloudNewsListFolders.fromJsonString(String data) =>
-      NextcloudNewsListFolders.fromJson(json.decode(data) as Map<String, dynamic>);
-  // coverage:ignore-end
-
-  final BuiltList<NextcloudNewsFolder> folders;
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$NextcloudNewsListFoldersToJson(this);
-  // coverage:ignore-end
-  static String? toJsonString(NextcloudNewsListFolders? data) => data == null ? null : json.encode(data.toJson());
+  static NextcloudNewsListFolders fromJson(Map<String, dynamic> json) => serializers.deserializeWith(serializer, json)!;
+  static NextcloudNewsListFolders fromJsonString(String data) => serializers.fromJson(serializer, data)!;
+  Map<String, dynamic> toJson() => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
+  static String? toJsonString(NextcloudNewsListFolders? data) =>
+      data == null ? null : serializers.toJson(serializer, data);
+  BuiltList<NextcloudNewsFolder> get folders;
+  static Serializer<NextcloudNewsListFolders> get serializer => _$nextcloudNewsListFoldersSerializer;
 }
 
-@JsonSerializable()
-class NextcloudNewsListFeeds {
-  NextcloudNewsListFeeds({
-    this.starredCount,
-    this.newestItemId,
-    required this.feeds,
-  });
+abstract class NextcloudNewsListFeeds implements Built<NextcloudNewsListFeeds, NextcloudNewsListFeedsBuilder> {
+  const NextcloudNewsListFeeds._();
 
-  // coverage:ignore-start
-  factory NextcloudNewsListFeeds.fromJson(Map<String, dynamic> json) => _$NextcloudNewsListFeedsFromJson(json);
-  // coverage:ignore-end
+  factory NextcloudNewsListFeeds([void Function(NextcloudNewsListFeedsBuilder)? b]) = _$NextcloudNewsListFeeds;
 
-  // coverage:ignore-start
-  factory NextcloudNewsListFeeds.fromJsonString(String data) =>
-      NextcloudNewsListFeeds.fromJson(json.decode(data) as Map<String, dynamic>);
-  // coverage:ignore-end
-
-  final int? starredCount;
-
-  final int? newestItemId;
-
-  final BuiltList<NextcloudNewsFeed> feeds;
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$NextcloudNewsListFeedsToJson(this);
-  // coverage:ignore-end
-  static String? toJsonString(NextcloudNewsListFeeds? data) => data == null ? null : json.encode(data.toJson());
+  static NextcloudNewsListFeeds fromJson(Map<String, dynamic> json) => serializers.deserializeWith(serializer, json)!;
+  static NextcloudNewsListFeeds fromJsonString(String data) => serializers.fromJson(serializer, data)!;
+  Map<String, dynamic> toJson() => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
+  static String? toJsonString(NextcloudNewsListFeeds? data) =>
+      data == null ? null : serializers.toJson(serializer, data);
+  int? get starredCount;
+  int? get newestItemId;
+  BuiltList<NextcloudNewsFeed> get feeds;
+  static Serializer<NextcloudNewsListFeeds> get serializer => _$nextcloudNewsListFeedsSerializer;
 }
 
-@JsonSerializable()
-class NextcloudNewsListArticles {
-  NextcloudNewsListArticles({required this.items});
+abstract class NextcloudNewsListArticles implements Built<NextcloudNewsListArticles, NextcloudNewsListArticlesBuilder> {
+  const NextcloudNewsListArticles._();
 
-  // coverage:ignore-start
-  factory NextcloudNewsListArticles.fromJson(Map<String, dynamic> json) => _$NextcloudNewsListArticlesFromJson(json);
-  // coverage:ignore-end
+  factory NextcloudNewsListArticles([void Function(NextcloudNewsListArticlesBuilder)? b]) = _$NextcloudNewsListArticles;
 
-  // coverage:ignore-start
-  factory NextcloudNewsListArticles.fromJsonString(String data) =>
-      NextcloudNewsListArticles.fromJson(json.decode(data) as Map<String, dynamic>);
-  // coverage:ignore-end
-
-  final BuiltList<NextcloudNewsArticle> items;
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$NextcloudNewsListArticlesToJson(this);
-  // coverage:ignore-end
-  static String? toJsonString(NextcloudNewsListArticles? data) => data == null ? null : json.encode(data.toJson());
+  static NextcloudNewsListArticles fromJson(Map<String, dynamic> json) =>
+      serializers.deserializeWith(serializer, json)!;
+  static NextcloudNewsListArticles fromJsonString(String data) => serializers.fromJson(serializer, data)!;
+  Map<String, dynamic> toJson() => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
+  static String? toJsonString(NextcloudNewsListArticles? data) =>
+      data == null ? null : serializers.toJson(serializer, data);
+  BuiltList<NextcloudNewsArticle> get items;
+  static Serializer<NextcloudNewsListArticles> get serializer => _$nextcloudNewsListArticlesSerializer;
 }
 
-@JsonSerializable()
-class NextcloudNotesNote {
-  NextcloudNotesNote({
-    required this.id,
-    required this.etag,
-    required this.readonly,
-    required this.content,
-    required this.title,
-    required this.category,
-    required this.favorite,
-    required this.modified,
-    required this.error,
-    required this.errorType,
-  });
+abstract class NextcloudNotesNote implements Built<NextcloudNotesNote, NextcloudNotesNoteBuilder> {
+  const NextcloudNotesNote._();
 
-  // coverage:ignore-start
-  factory NextcloudNotesNote.fromJson(Map<String, dynamic> json) => _$NextcloudNotesNoteFromJson(json);
-  // coverage:ignore-end
+  factory NextcloudNotesNote([void Function(NextcloudNotesNoteBuilder)? b]) = _$NextcloudNotesNote;
 
-  // coverage:ignore-start
-  factory NextcloudNotesNote.fromJsonString(String data) =>
-      NextcloudNotesNote.fromJson(json.decode(data) as Map<String, dynamic>);
-  // coverage:ignore-end
-
-  final int id;
-
-  final String etag;
-
-  final bool readonly;
-
-  final String content;
-
-  final String title;
-
-  final String category;
-
-  final bool favorite;
-
-  final int modified;
-
-  final bool error;
-
-  final String errorType;
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$NextcloudNotesNoteToJson(this);
-  // coverage:ignore-end
-  static String? toJsonString(NextcloudNotesNote? data) => data == null ? null : json.encode(data.toJson());
+  static NextcloudNotesNote fromJson(Map<String, dynamic> json) => serializers.deserializeWith(serializer, json)!;
+  static NextcloudNotesNote fromJsonString(String data) => serializers.fromJson(serializer, data)!;
+  Map<String, dynamic> toJson() => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
+  static String? toJsonString(NextcloudNotesNote? data) => data == null ? null : serializers.toJson(serializer, data);
+  int get id;
+  String get etag;
+  bool get readonly;
+  String get content;
+  String get title;
+  String get category;
+  bool get favorite;
+  int get modified;
+  bool get error;
+  String get errorType;
+  static Serializer<NextcloudNotesNote> get serializer => _$nextcloudNotesNoteSerializer;
 }
 
 class NextcloudNotesSettings_NoteMode extends EnumClass {
@@ -4477,966 +3776,694 @@ class NextcloudNotesSettings_NoteMode extends EnumClass {
   static Serializer<NextcloudNotesSettings_NoteMode> get serializer => _$nextcloudNotesSettingsNoteModeSerializer;
 }
 
-@JsonSerializable()
-class NextcloudNotesSettings {
-  NextcloudNotesSettings({
-    required this.notesPath,
-    required this.fileSuffix,
-    required this.noteMode,
-  });
+abstract class NextcloudNotesSettings implements Built<NextcloudNotesSettings, NextcloudNotesSettingsBuilder> {
+  const NextcloudNotesSettings._();
 
-  // coverage:ignore-start
-  factory NextcloudNotesSettings.fromJson(Map<String, dynamic> json) => _$NextcloudNotesSettingsFromJson(json);
-  // coverage:ignore-end
+  factory NextcloudNotesSettings([void Function(NextcloudNotesSettingsBuilder)? b]) = _$NextcloudNotesSettings;
 
-  // coverage:ignore-start
-  factory NextcloudNotesSettings.fromJsonString(String data) =>
-      NextcloudNotesSettings.fromJson(json.decode(data) as Map<String, dynamic>);
-  // coverage:ignore-end
-
-  final String notesPath;
-
-  final String fileSuffix;
-
-  final NextcloudNotesSettings_NoteMode noteMode;
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$NextcloudNotesSettingsToJson(this);
-  // coverage:ignore-end
-  static String? toJsonString(NextcloudNotesSettings? data) => data == null ? null : json.encode(data.toJson());
+  static NextcloudNotesSettings fromJson(Map<String, dynamic> json) => serializers.deserializeWith(serializer, json)!;
+  static NextcloudNotesSettings fromJsonString(String data) => serializers.fromJson(serializer, data)!;
+  Map<String, dynamic> toJson() => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
+  static String? toJsonString(NextcloudNotesSettings? data) =>
+      data == null ? null : serializers.toJson(serializer, data);
+  String get notesPath;
+  String get fileSuffix;
+  NextcloudNotesSettings_NoteMode get noteMode;
+  static Serializer<NextcloudNotesSettings> get serializer => _$nextcloudNotesSettingsSerializer;
 }
 
-@JsonSerializable()
-class NextcloudNotificationsNotificationAction {
-  NextcloudNotificationsNotificationAction({
-    required this.label,
-    required this.link,
-    required this.type,
-    this.primary,
-  });
+abstract class NextcloudNotificationsNotificationAction
+    implements Built<NextcloudNotificationsNotificationAction, NextcloudNotificationsNotificationActionBuilder> {
+  const NextcloudNotificationsNotificationAction._();
 
-  // coverage:ignore-start
-  factory NextcloudNotificationsNotificationAction.fromJson(Map<String, dynamic> json) =>
-      _$NextcloudNotificationsNotificationActionFromJson(json);
-  // coverage:ignore-end
+  factory NextcloudNotificationsNotificationAction(
+      [void Function(NextcloudNotificationsNotificationActionBuilder)? b]) = _$NextcloudNotificationsNotificationAction;
 
-  // coverage:ignore-start
-  factory NextcloudNotificationsNotificationAction.fromJsonString(String data) =>
-      NextcloudNotificationsNotificationAction.fromJson(json.decode(data) as Map<String, dynamic>);
-  // coverage:ignore-end
-
-  final String label;
-
-  final String link;
-
-  final String type;
-
-  final bool? primary;
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$NextcloudNotificationsNotificationActionToJson(this);
-  // coverage:ignore-end
+  static NextcloudNotificationsNotificationAction fromJson(Map<String, dynamic> json) =>
+      serializers.deserializeWith(serializer, json)!;
+  static NextcloudNotificationsNotificationAction fromJsonString(String data) =>
+      serializers.fromJson(serializer, data)!;
+  Map<String, dynamic> toJson() => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
   static String? toJsonString(NextcloudNotificationsNotificationAction? data) =>
-      data == null ? null : json.encode(data.toJson());
+      data == null ? null : serializers.toJson(serializer, data);
+  String get label;
+  String get link;
+  String get type;
+  bool? get primary;
+  static Serializer<NextcloudNotificationsNotificationAction> get serializer =>
+      _$nextcloudNotificationsNotificationActionSerializer;
 }
 
-@JsonSerializable()
-class NextcloudNotificationsNotification {
-  NextcloudNotificationsNotification({
-    required this.notificationId,
-    required this.app,
-    required this.user,
-    required this.datetime,
-    required this.objectType,
-    required this.objectId,
-    required this.subject,
-    required this.message,
-    required this.link,
-    required this.subjectRich,
-    required this.subjectRichParameters,
-    required this.messageRich,
-    required this.messageRichParameters,
-    required this.icon,
-    required this.actions,
-  });
+abstract class NextcloudNotificationsNotification
+    implements Built<NextcloudNotificationsNotification, NextcloudNotificationsNotificationBuilder> {
+  const NextcloudNotificationsNotification._();
 
-  // coverage:ignore-start
-  factory NextcloudNotificationsNotification.fromJson(Map<String, dynamic> json) =>
-      _$NextcloudNotificationsNotificationFromJson(json);
-  // coverage:ignore-end
+  factory NextcloudNotificationsNotification([void Function(NextcloudNotificationsNotificationBuilder)? b]) =
+      _$NextcloudNotificationsNotification;
 
-  // coverage:ignore-start
-  factory NextcloudNotificationsNotification.fromJsonString(String data) =>
-      NextcloudNotificationsNotification.fromJson(json.decode(data) as Map<String, dynamic>);
-  // coverage:ignore-end
-
-  @JsonKey(name: 'notification_id')
-  final int notificationId;
-
-  final String app;
-
-  final String user;
-
-  final String datetime;
-
-  @JsonKey(name: 'object_type')
-  final String objectType;
-
-  @JsonKey(name: 'object_id')
-  final String objectId;
-
-  final String subject;
-
-  final String message;
-
-  final String link;
-
-  final String subjectRich;
-
-  final JsonObject subjectRichParameters;
-
-  final String messageRich;
-
-  final JsonObject messageRichParameters;
-
-  final String icon;
-
-  final BuiltList<NextcloudNotificationsNotificationAction> actions;
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$NextcloudNotificationsNotificationToJson(this);
-  // coverage:ignore-end
+  static NextcloudNotificationsNotification fromJson(Map<String, dynamic> json) =>
+      serializers.deserializeWith(serializer, json)!;
+  static NextcloudNotificationsNotification fromJsonString(String data) => serializers.fromJson(serializer, data)!;
+  Map<String, dynamic> toJson() => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
   static String? toJsonString(NextcloudNotificationsNotification? data) =>
-      data == null ? null : json.encode(data.toJson());
+      data == null ? null : serializers.toJson(serializer, data);
+  @BuiltValueField(wireName: 'notification_id')
+  int get notificationId;
+  String get app;
+  String get user;
+  String get datetime;
+  @BuiltValueField(wireName: 'object_type')
+  String get objectType;
+  @BuiltValueField(wireName: 'object_id')
+  String get objectId;
+  String get subject;
+  String get message;
+  String get link;
+  String get subjectRich;
+  JsonObject get subjectRichParameters;
+  String get messageRich;
+  JsonObject get messageRichParameters;
+  String get icon;
+  BuiltList<NextcloudNotificationsNotificationAction> get actions;
+  static Serializer<NextcloudNotificationsNotification> get serializer =>
+      _$nextcloudNotificationsNotificationSerializer;
 }
 
-@JsonSerializable()
-class NextcloudNotificationsListNotifications_Ocs {
-  NextcloudNotificationsListNotifications_Ocs({
-    required this.meta,
-    required this.data,
-  });
+abstract class NextcloudNotificationsListNotifications_Ocs
+    implements Built<NextcloudNotificationsListNotifications_Ocs, NextcloudNotificationsListNotifications_OcsBuilder> {
+  const NextcloudNotificationsListNotifications_Ocs._();
 
-  // coverage:ignore-start
-  factory NextcloudNotificationsListNotifications_Ocs.fromJson(Map<String, dynamic> json) =>
-      _$NextcloudNotificationsListNotifications_OcsFromJson(json);
-  // coverage:ignore-end
+  factory NextcloudNotificationsListNotifications_Ocs(
+          [void Function(NextcloudNotificationsListNotifications_OcsBuilder)? b]) =
+      _$NextcloudNotificationsListNotifications_Ocs;
 
-  // coverage:ignore-start
-  factory NextcloudNotificationsListNotifications_Ocs.fromJsonString(String data) =>
-      NextcloudNotificationsListNotifications_Ocs.fromJson(json.decode(data) as Map<String, dynamic>);
-  // coverage:ignore-end
-
-  final NextcloudOCSMeta meta;
-
-  final BuiltList<NextcloudNotificationsNotification> data;
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$NextcloudNotificationsListNotifications_OcsToJson(this);
-  // coverage:ignore-end
+  static NextcloudNotificationsListNotifications_Ocs fromJson(Map<String, dynamic> json) =>
+      serializers.deserializeWith(serializer, json)!;
+  static NextcloudNotificationsListNotifications_Ocs fromJsonString(String data) =>
+      serializers.fromJson(serializer, data)!;
+  Map<String, dynamic> toJson() => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
   static String? toJsonString(NextcloudNotificationsListNotifications_Ocs? data) =>
-      data == null ? null : json.encode(data.toJson());
+      data == null ? null : serializers.toJson(serializer, data);
+  NextcloudOCSMeta get meta;
+  BuiltList<NextcloudNotificationsNotification> get data;
+  static Serializer<NextcloudNotificationsListNotifications_Ocs> get serializer =>
+      _$nextcloudNotificationsListNotificationsOcsSerializer;
 }
 
-@JsonSerializable()
-class NextcloudNotificationsListNotifications {
-  NextcloudNotificationsListNotifications({required this.ocs});
+abstract class NextcloudNotificationsListNotifications
+    implements Built<NextcloudNotificationsListNotifications, NextcloudNotificationsListNotificationsBuilder> {
+  const NextcloudNotificationsListNotifications._();
 
-  // coverage:ignore-start
-  factory NextcloudNotificationsListNotifications.fromJson(Map<String, dynamic> json) =>
-      _$NextcloudNotificationsListNotificationsFromJson(json);
-  // coverage:ignore-end
+  factory NextcloudNotificationsListNotifications([void Function(NextcloudNotificationsListNotificationsBuilder)? b]) =
+      _$NextcloudNotificationsListNotifications;
 
-  // coverage:ignore-start
-  factory NextcloudNotificationsListNotifications.fromJsonString(String data) =>
-      NextcloudNotificationsListNotifications.fromJson(json.decode(data) as Map<String, dynamic>);
-  // coverage:ignore-end
-
-  final NextcloudNotificationsListNotifications_Ocs ocs;
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$NextcloudNotificationsListNotificationsToJson(this);
-  // coverage:ignore-end
+  static NextcloudNotificationsListNotifications fromJson(Map<String, dynamic> json) =>
+      serializers.deserializeWith(serializer, json)!;
+  static NextcloudNotificationsListNotifications fromJsonString(String data) => serializers.fromJson(serializer, data)!;
+  Map<String, dynamic> toJson() => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
   static String? toJsonString(NextcloudNotificationsListNotifications? data) =>
-      data == null ? null : json.encode(data.toJson());
+      data == null ? null : serializers.toJson(serializer, data);
+  NextcloudNotificationsListNotifications_Ocs get ocs;
+  static Serializer<NextcloudNotificationsListNotifications> get serializer =>
+      _$nextcloudNotificationsListNotificationsSerializer;
 }
 
-@JsonSerializable()
-class NextcloudNotificationsGetNotification_Ocs {
-  NextcloudNotificationsGetNotification_Ocs({
-    required this.meta,
-    required this.data,
-  });
+abstract class NextcloudNotificationsGetNotification_Ocs
+    implements Built<NextcloudNotificationsGetNotification_Ocs, NextcloudNotificationsGetNotification_OcsBuilder> {
+  const NextcloudNotificationsGetNotification_Ocs._();
 
-  // coverage:ignore-start
-  factory NextcloudNotificationsGetNotification_Ocs.fromJson(Map<String, dynamic> json) =>
-      _$NextcloudNotificationsGetNotification_OcsFromJson(json);
-  // coverage:ignore-end
+  factory NextcloudNotificationsGetNotification_Ocs(
+          [void Function(NextcloudNotificationsGetNotification_OcsBuilder)? b]) =
+      _$NextcloudNotificationsGetNotification_Ocs;
 
-  // coverage:ignore-start
-  factory NextcloudNotificationsGetNotification_Ocs.fromJsonString(String data) =>
-      NextcloudNotificationsGetNotification_Ocs.fromJson(json.decode(data) as Map<String, dynamic>);
-  // coverage:ignore-end
-
-  final NextcloudOCSMeta meta;
-
-  final NextcloudNotificationsNotification data;
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$NextcloudNotificationsGetNotification_OcsToJson(this);
-  // coverage:ignore-end
+  static NextcloudNotificationsGetNotification_Ocs fromJson(Map<String, dynamic> json) =>
+      serializers.deserializeWith(serializer, json)!;
+  static NextcloudNotificationsGetNotification_Ocs fromJsonString(String data) =>
+      serializers.fromJson(serializer, data)!;
+  Map<String, dynamic> toJson() => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
   static String? toJsonString(NextcloudNotificationsGetNotification_Ocs? data) =>
-      data == null ? null : json.encode(data.toJson());
+      data == null ? null : serializers.toJson(serializer, data);
+  NextcloudOCSMeta get meta;
+  NextcloudNotificationsNotification get data;
+  static Serializer<NextcloudNotificationsGetNotification_Ocs> get serializer =>
+      _$nextcloudNotificationsGetNotificationOcsSerializer;
 }
 
-@JsonSerializable()
-class NextcloudNotificationsGetNotification {
-  NextcloudNotificationsGetNotification({required this.ocs});
+abstract class NextcloudNotificationsGetNotification
+    implements Built<NextcloudNotificationsGetNotification, NextcloudNotificationsGetNotificationBuilder> {
+  const NextcloudNotificationsGetNotification._();
 
-  // coverage:ignore-start
-  factory NextcloudNotificationsGetNotification.fromJson(Map<String, dynamic> json) =>
-      _$NextcloudNotificationsGetNotificationFromJson(json);
-  // coverage:ignore-end
+  factory NextcloudNotificationsGetNotification([void Function(NextcloudNotificationsGetNotificationBuilder)? b]) =
+      _$NextcloudNotificationsGetNotification;
 
-  // coverage:ignore-start
-  factory NextcloudNotificationsGetNotification.fromJsonString(String data) =>
-      NextcloudNotificationsGetNotification.fromJson(json.decode(data) as Map<String, dynamic>);
-  // coverage:ignore-end
-
-  final NextcloudNotificationsGetNotification_Ocs ocs;
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$NextcloudNotificationsGetNotificationToJson(this);
-  // coverage:ignore-end
+  static NextcloudNotificationsGetNotification fromJson(Map<String, dynamic> json) =>
+      serializers.deserializeWith(serializer, json)!;
+  static NextcloudNotificationsGetNotification fromJsonString(String data) => serializers.fromJson(serializer, data)!;
+  Map<String, dynamic> toJson() => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
   static String? toJsonString(NextcloudNotificationsGetNotification? data) =>
-      data == null ? null : json.encode(data.toJson());
+      data == null ? null : serializers.toJson(serializer, data);
+  NextcloudNotificationsGetNotification_Ocs get ocs;
+  static Serializer<NextcloudNotificationsGetNotification> get serializer =>
+      _$nextcloudNotificationsGetNotificationSerializer;
 }
 
-@JsonSerializable()
-class NextcloudEmptyOCS_Ocs {
-  NextcloudEmptyOCS_Ocs({
-    required this.meta,
-    required this.data,
-  });
+abstract class NextcloudEmptyOCS_Ocs implements Built<NextcloudEmptyOCS_Ocs, NextcloudEmptyOCS_OcsBuilder> {
+  const NextcloudEmptyOCS_Ocs._();
 
-  // coverage:ignore-start
-  factory NextcloudEmptyOCS_Ocs.fromJson(Map<String, dynamic> json) => _$NextcloudEmptyOCS_OcsFromJson(json);
-  // coverage:ignore-end
+  factory NextcloudEmptyOCS_Ocs([void Function(NextcloudEmptyOCS_OcsBuilder)? b]) = _$NextcloudEmptyOCS_Ocs;
 
-  // coverage:ignore-start
-  factory NextcloudEmptyOCS_Ocs.fromJsonString(String data) =>
-      NextcloudEmptyOCS_Ocs.fromJson(json.decode(data) as Map<String, dynamic>);
-  // coverage:ignore-end
-
-  final NextcloudOCSMeta meta;
-
-  final BuiltList<JsonObject> data;
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$NextcloudEmptyOCS_OcsToJson(this);
-  // coverage:ignore-end
-  static String? toJsonString(NextcloudEmptyOCS_Ocs? data) => data == null ? null : json.encode(data.toJson());
+  static NextcloudEmptyOCS_Ocs fromJson(Map<String, dynamic> json) => serializers.deserializeWith(serializer, json)!;
+  static NextcloudEmptyOCS_Ocs fromJsonString(String data) => serializers.fromJson(serializer, data)!;
+  Map<String, dynamic> toJson() => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
+  static String? toJsonString(NextcloudEmptyOCS_Ocs? data) =>
+      data == null ? null : serializers.toJson(serializer, data);
+  NextcloudOCSMeta get meta;
+  BuiltList<JsonObject> get data;
+  static Serializer<NextcloudEmptyOCS_Ocs> get serializer => _$nextcloudEmptyOCSOcsSerializer;
 }
 
-@JsonSerializable()
-class NextcloudEmptyOCS {
-  NextcloudEmptyOCS({required this.ocs});
+abstract class NextcloudEmptyOCS implements Built<NextcloudEmptyOCS, NextcloudEmptyOCSBuilder> {
+  const NextcloudEmptyOCS._();
 
-  // coverage:ignore-start
-  factory NextcloudEmptyOCS.fromJson(Map<String, dynamic> json) => _$NextcloudEmptyOCSFromJson(json);
-  // coverage:ignore-end
+  factory NextcloudEmptyOCS([void Function(NextcloudEmptyOCSBuilder)? b]) = _$NextcloudEmptyOCS;
 
-  // coverage:ignore-start
-  factory NextcloudEmptyOCS.fromJsonString(String data) =>
-      NextcloudEmptyOCS.fromJson(json.decode(data) as Map<String, dynamic>);
-  // coverage:ignore-end
-
-  final NextcloudEmptyOCS_Ocs ocs;
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$NextcloudEmptyOCSToJson(this);
-  // coverage:ignore-end
-  static String? toJsonString(NextcloudEmptyOCS? data) => data == null ? null : json.encode(data.toJson());
+  static NextcloudEmptyOCS fromJson(Map<String, dynamic> json) => serializers.deserializeWith(serializer, json)!;
+  static NextcloudEmptyOCS fromJsonString(String data) => serializers.fromJson(serializer, data)!;
+  Map<String, dynamic> toJson() => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
+  static String? toJsonString(NextcloudEmptyOCS? data) => data == null ? null : serializers.toJson(serializer, data);
+  NextcloudEmptyOCS_Ocs get ocs;
+  static Serializer<NextcloudEmptyOCS> get serializer => _$nextcloudEmptyOCSSerializer;
 }
 
-@JsonSerializable()
-class NextcloudNotificationsPushServerSubscription {
-  NextcloudNotificationsPushServerSubscription({
-    required this.publicKey,
-    required this.deviceIdentifier,
-    required this.signature,
-    this.message,
-  });
+abstract class NextcloudNotificationsPushServerSubscription
+    implements
+        Built<NextcloudNotificationsPushServerSubscription, NextcloudNotificationsPushServerSubscriptionBuilder> {
+  const NextcloudNotificationsPushServerSubscription._();
 
-  // coverage:ignore-start
-  factory NextcloudNotificationsPushServerSubscription.fromJson(Map<String, dynamic> json) =>
-      _$NextcloudNotificationsPushServerSubscriptionFromJson(json);
-  // coverage:ignore-end
+  factory NextcloudNotificationsPushServerSubscription(
+          [void Function(NextcloudNotificationsPushServerSubscriptionBuilder)? b]) =
+      _$NextcloudNotificationsPushServerSubscription;
 
-  // coverage:ignore-start
-  factory NextcloudNotificationsPushServerSubscription.fromJsonString(String data) =>
-      NextcloudNotificationsPushServerSubscription.fromJson(json.decode(data) as Map<String, dynamic>);
-  // coverage:ignore-end
-
-  final String publicKey;
-
-  final String deviceIdentifier;
-
-  final String signature;
-
-  final String? message;
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$NextcloudNotificationsPushServerSubscriptionToJson(this);
-  // coverage:ignore-end
+  static NextcloudNotificationsPushServerSubscription fromJson(Map<String, dynamic> json) =>
+      serializers.deserializeWith(serializer, json)!;
+  static NextcloudNotificationsPushServerSubscription fromJsonString(String data) =>
+      serializers.fromJson(serializer, data)!;
+  Map<String, dynamic> toJson() => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
   static String? toJsonString(NextcloudNotificationsPushServerSubscription? data) =>
-      data == null ? null : json.encode(data.toJson());
+      data == null ? null : serializers.toJson(serializer, data);
+  String get publicKey;
+  String get deviceIdentifier;
+  String get signature;
+  String? get message;
+  static Serializer<NextcloudNotificationsPushServerSubscription> get serializer =>
+      _$nextcloudNotificationsPushServerSubscriptionSerializer;
 }
 
-@JsonSerializable()
-class NextcloudNotificationsPushServerRegistration_Ocs {
-  NextcloudNotificationsPushServerRegistration_Ocs({
-    required this.meta,
-    required this.data,
-  });
+abstract class NextcloudNotificationsPushServerRegistration_Ocs
+    implements
+        Built<NextcloudNotificationsPushServerRegistration_Ocs,
+            NextcloudNotificationsPushServerRegistration_OcsBuilder> {
+  const NextcloudNotificationsPushServerRegistration_Ocs._();
 
-  // coverage:ignore-start
-  factory NextcloudNotificationsPushServerRegistration_Ocs.fromJson(Map<String, dynamic> json) =>
-      _$NextcloudNotificationsPushServerRegistration_OcsFromJson(json);
-  // coverage:ignore-end
+  factory NextcloudNotificationsPushServerRegistration_Ocs(
+          [void Function(NextcloudNotificationsPushServerRegistration_OcsBuilder)? b]) =
+      _$NextcloudNotificationsPushServerRegistration_Ocs;
 
-  // coverage:ignore-start
-  factory NextcloudNotificationsPushServerRegistration_Ocs.fromJsonString(String data) =>
-      NextcloudNotificationsPushServerRegistration_Ocs.fromJson(json.decode(data) as Map<String, dynamic>);
-  // coverage:ignore-end
-
-  final NextcloudOCSMeta meta;
-
-  final NextcloudNotificationsPushServerSubscription data;
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$NextcloudNotificationsPushServerRegistration_OcsToJson(this);
-  // coverage:ignore-end
+  static NextcloudNotificationsPushServerRegistration_Ocs fromJson(Map<String, dynamic> json) =>
+      serializers.deserializeWith(serializer, json)!;
+  static NextcloudNotificationsPushServerRegistration_Ocs fromJsonString(String data) =>
+      serializers.fromJson(serializer, data)!;
+  Map<String, dynamic> toJson() => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
   static String? toJsonString(NextcloudNotificationsPushServerRegistration_Ocs? data) =>
-      data == null ? null : json.encode(data.toJson());
+      data == null ? null : serializers.toJson(serializer, data);
+  NextcloudOCSMeta get meta;
+  NextcloudNotificationsPushServerSubscription get data;
+  static Serializer<NextcloudNotificationsPushServerRegistration_Ocs> get serializer =>
+      _$nextcloudNotificationsPushServerRegistrationOcsSerializer;
 }
 
-@JsonSerializable()
-class NextcloudNotificationsPushServerRegistration {
-  NextcloudNotificationsPushServerRegistration({required this.ocs});
+abstract class NextcloudNotificationsPushServerRegistration
+    implements
+        Built<NextcloudNotificationsPushServerRegistration, NextcloudNotificationsPushServerRegistrationBuilder> {
+  const NextcloudNotificationsPushServerRegistration._();
 
-  // coverage:ignore-start
-  factory NextcloudNotificationsPushServerRegistration.fromJson(Map<String, dynamic> json) =>
-      _$NextcloudNotificationsPushServerRegistrationFromJson(json);
-  // coverage:ignore-end
+  factory NextcloudNotificationsPushServerRegistration(
+          [void Function(NextcloudNotificationsPushServerRegistrationBuilder)? b]) =
+      _$NextcloudNotificationsPushServerRegistration;
 
-  // coverage:ignore-start
-  factory NextcloudNotificationsPushServerRegistration.fromJsonString(String data) =>
-      NextcloudNotificationsPushServerRegistration.fromJson(json.decode(data) as Map<String, dynamic>);
-  // coverage:ignore-end
-
-  final NextcloudNotificationsPushServerRegistration_Ocs ocs;
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$NextcloudNotificationsPushServerRegistrationToJson(this);
-  // coverage:ignore-end
+  static NextcloudNotificationsPushServerRegistration fromJson(Map<String, dynamic> json) =>
+      serializers.deserializeWith(serializer, json)!;
+  static NextcloudNotificationsPushServerRegistration fromJsonString(String data) =>
+      serializers.fromJson(serializer, data)!;
+  Map<String, dynamic> toJson() => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
   static String? toJsonString(NextcloudNotificationsPushServerRegistration? data) =>
-      data == null ? null : json.encode(data.toJson());
+      data == null ? null : serializers.toJson(serializer, data);
+  NextcloudNotificationsPushServerRegistration_Ocs get ocs;
+  static Serializer<NextcloudNotificationsPushServerRegistration> get serializer =>
+      _$nextcloudNotificationsPushServerRegistrationSerializer;
 }
 
-@JsonSerializable()
-class NextcloudProvisioningApiUserDetails_Quota {
-  NextcloudProvisioningApiUserDetails_Quota({
-    required this.free,
-    required this.used,
-    required this.total,
-    required this.relative,
-    required this.quota,
-  });
+abstract class NextcloudProvisioningApiUserDetails_Quota
+    implements Built<NextcloudProvisioningApiUserDetails_Quota, NextcloudProvisioningApiUserDetails_QuotaBuilder> {
+  const NextcloudProvisioningApiUserDetails_Quota._();
 
-  // coverage:ignore-start
-  factory NextcloudProvisioningApiUserDetails_Quota.fromJson(Map<String, dynamic> json) =>
-      _$NextcloudProvisioningApiUserDetails_QuotaFromJson(json);
-  // coverage:ignore-end
+  factory NextcloudProvisioningApiUserDetails_Quota(
+          [void Function(NextcloudProvisioningApiUserDetails_QuotaBuilder)? b]) =
+      _$NextcloudProvisioningApiUserDetails_Quota;
 
-  // coverage:ignore-start
-  factory NextcloudProvisioningApiUserDetails_Quota.fromJsonString(String data) =>
-      NextcloudProvisioningApiUserDetails_Quota.fromJson(json.decode(data) as Map<String, dynamic>);
-  // coverage:ignore-end
-
-  final int free;
-
-  final int used;
-
-  final int total;
-
-  final num relative;
-
-  final int quota;
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$NextcloudProvisioningApiUserDetails_QuotaToJson(this);
-  // coverage:ignore-end
+  static NextcloudProvisioningApiUserDetails_Quota fromJson(Map<String, dynamic> json) =>
+      serializers.deserializeWith(serializer, json)!;
+  static NextcloudProvisioningApiUserDetails_Quota fromJsonString(String data) =>
+      serializers.fromJson(serializer, data)!;
+  Map<String, dynamic> toJson() => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
   static String? toJsonString(NextcloudProvisioningApiUserDetails_Quota? data) =>
-      data == null ? null : json.encode(data.toJson());
+      data == null ? null : serializers.toJson(serializer, data);
+  int get free;
+  int get used;
+  int get total;
+  num get relative;
+  int get quota;
+  static Serializer<NextcloudProvisioningApiUserDetails_Quota> get serializer =>
+      _$nextcloudProvisioningApiUserDetailsQuotaSerializer;
 }
 
-@JsonSerializable()
-class NextcloudProvisioningApiUserDetails_BackendCapabilities {
-  NextcloudProvisioningApiUserDetails_BackendCapabilities({
-    required this.setDisplayName,
-    required this.setPassword,
-  });
+abstract class NextcloudProvisioningApiUserDetails_BackendCapabilities
+    implements
+        Built<NextcloudProvisioningApiUserDetails_BackendCapabilities,
+            NextcloudProvisioningApiUserDetails_BackendCapabilitiesBuilder> {
+  const NextcloudProvisioningApiUserDetails_BackendCapabilities._();
 
-  // coverage:ignore-start
-  factory NextcloudProvisioningApiUserDetails_BackendCapabilities.fromJson(Map<String, dynamic> json) =>
-      _$NextcloudProvisioningApiUserDetails_BackendCapabilitiesFromJson(json);
-  // coverage:ignore-end
+  factory NextcloudProvisioningApiUserDetails_BackendCapabilities(
+          [void Function(NextcloudProvisioningApiUserDetails_BackendCapabilitiesBuilder)? b]) =
+      _$NextcloudProvisioningApiUserDetails_BackendCapabilities;
 
-  // coverage:ignore-start
-  factory NextcloudProvisioningApiUserDetails_BackendCapabilities.fromJsonString(String data) =>
-      NextcloudProvisioningApiUserDetails_BackendCapabilities.fromJson(json.decode(data) as Map<String, dynamic>);
-  // coverage:ignore-end
-
-  final bool setDisplayName;
-
-  final bool setPassword;
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$NextcloudProvisioningApiUserDetails_BackendCapabilitiesToJson(this);
-  // coverage:ignore-end
+  static NextcloudProvisioningApiUserDetails_BackendCapabilities fromJson(Map<String, dynamic> json) =>
+      serializers.deserializeWith(serializer, json)!;
+  static NextcloudProvisioningApiUserDetails_BackendCapabilities fromJsonString(String data) =>
+      serializers.fromJson(serializer, data)!;
+  Map<String, dynamic> toJson() => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
   static String? toJsonString(NextcloudProvisioningApiUserDetails_BackendCapabilities? data) =>
-      data == null ? null : json.encode(data.toJson());
+      data == null ? null : serializers.toJson(serializer, data);
+  bool get setDisplayName;
+  bool get setPassword;
+  static Serializer<NextcloudProvisioningApiUserDetails_BackendCapabilities> get serializer =>
+      _$nextcloudProvisioningApiUserDetailsBackendCapabilitiesSerializer;
 }
 
-@JsonSerializable()
-class NextcloudProvisioningApiUserDetails {
-  NextcloudProvisioningApiUserDetails({
-    this.enabled,
-    this.storageLocation,
-    required this.id,
-    required this.lastLogin,
-    required this.backend,
-    required this.subadmin,
-    required this.quota,
-    required this.avatarScope,
-    this.email,
-    required this.emailScope,
-    required this.additionalMail,
-    required this.additionalMailScope,
-    this.displayname,
-    required this.displaynameScope,
-    required this.phone,
-    required this.phoneScope,
-    required this.address,
-    required this.addressScope,
-    required this.website,
-    required this.websiteScope,
-    required this.twitter,
-    required this.twitterScope,
-    required this.organisation,
-    required this.organisationScope,
-    required this.role,
-    required this.roleScope,
-    required this.headline,
-    required this.headlineScope,
-    required this.biography,
-    required this.biographyScope,
-    required this.profileEnabled,
-    required this.profileEnabledScope,
-    required this.fediverse,
-    required this.fediverseScope,
-    required this.groups,
-    required this.language,
-    required this.locale,
-    this.notifyEmail,
-    required this.backendCapabilities,
-    this.displayName,
-  });
+abstract class NextcloudProvisioningApiUserDetails
+    implements Built<NextcloudProvisioningApiUserDetails, NextcloudProvisioningApiUserDetailsBuilder> {
+  const NextcloudProvisioningApiUserDetails._();
 
-  // coverage:ignore-start
-  factory NextcloudProvisioningApiUserDetails.fromJson(Map<String, dynamic> json) =>
-      _$NextcloudProvisioningApiUserDetailsFromJson(json);
-  // coverage:ignore-end
+  factory NextcloudProvisioningApiUserDetails([void Function(NextcloudProvisioningApiUserDetailsBuilder)? b]) =
+      _$NextcloudProvisioningApiUserDetails;
 
-  // coverage:ignore-start
-  factory NextcloudProvisioningApiUserDetails.fromJsonString(String data) =>
-      NextcloudProvisioningApiUserDetails.fromJson(json.decode(data) as Map<String, dynamic>);
-  // coverage:ignore-end
-
-  final bool? enabled;
-
-  final String? storageLocation;
-
-  final String id;
-
-  final int lastLogin;
-
-  final String backend;
-
-  final BuiltList<String> subadmin;
-
-  final NextcloudProvisioningApiUserDetails_Quota quota;
-
-  final String avatarScope;
-
-  final String? email;
-
-  final String emailScope;
-
-  @JsonKey(name: 'additional_mail')
-  final BuiltList<String> additionalMail;
-
-  @JsonKey(name: 'additional_mailScope')
-  final BuiltList<String> additionalMailScope;
-
-  final String? displayname;
-
-  final String displaynameScope;
-
-  final String phone;
-
-  final String phoneScope;
-
-  final String address;
-
-  final String addressScope;
-
-  final String website;
-
-  final String websiteScope;
-
-  final String twitter;
-
-  final String twitterScope;
-
-  final String organisation;
-
-  final String organisationScope;
-
-  final String role;
-
-  final String roleScope;
-
-  final String headline;
-
-  final String headlineScope;
-
-  final String biography;
-
-  final String biographyScope;
-
-  @JsonKey(name: 'profile_enabled')
-  final String profileEnabled;
-
-  @JsonKey(name: 'profile_enabledScope')
-  final String profileEnabledScope;
-
-  final String fediverse;
-
-  final String fediverseScope;
-
-  final BuiltList<String> groups;
-
-  final String language;
-
-  final String locale;
-
-  @JsonKey(name: 'notify_email')
-  final String? notifyEmail;
-
-  final NextcloudProvisioningApiUserDetails_BackendCapabilities backendCapabilities;
-
-  @JsonKey(name: 'display-name')
-  final String? displayName;
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$NextcloudProvisioningApiUserDetailsToJson(this);
-  // coverage:ignore-end
+  static NextcloudProvisioningApiUserDetails fromJson(Map<String, dynamic> json) =>
+      serializers.deserializeWith(serializer, json)!;
+  static NextcloudProvisioningApiUserDetails fromJsonString(String data) => serializers.fromJson(serializer, data)!;
+  Map<String, dynamic> toJson() => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
   static String? toJsonString(NextcloudProvisioningApiUserDetails? data) =>
-      data == null ? null : json.encode(data.toJson());
+      data == null ? null : serializers.toJson(serializer, data);
+  bool? get enabled;
+  String? get storageLocation;
+  String get id;
+  int get lastLogin;
+  String get backend;
+  BuiltList<String> get subadmin;
+  NextcloudProvisioningApiUserDetails_Quota get quota;
+  String get avatarScope;
+  String? get email;
+  String get emailScope;
+  @BuiltValueField(wireName: 'additional_mail')
+  BuiltList<String> get additionalMail;
+  @BuiltValueField(wireName: 'additional_mailScope')
+  BuiltList<String> get additionalMailScope;
+  String? get displayname;
+  String get displaynameScope;
+  String get phone;
+  String get phoneScope;
+  String get address;
+  String get addressScope;
+  String get website;
+  String get websiteScope;
+  String get twitter;
+  String get twitterScope;
+  String get organisation;
+  String get organisationScope;
+  String get role;
+  String get roleScope;
+  String get headline;
+  String get headlineScope;
+  String get biography;
+  String get biographyScope;
+  @BuiltValueField(wireName: 'profile_enabled')
+  String get profileEnabled;
+  @BuiltValueField(wireName: 'profile_enabledScope')
+  String get profileEnabledScope;
+  String get fediverse;
+  String get fediverseScope;
+  BuiltList<String> get groups;
+  String get language;
+  String get locale;
+  @BuiltValueField(wireName: 'notify_email')
+  String? get notifyEmail;
+  NextcloudProvisioningApiUserDetails_BackendCapabilities get backendCapabilities;
+  @BuiltValueField(wireName: 'display-name')
+  String? get displayName;
+  static Serializer<NextcloudProvisioningApiUserDetails> get serializer =>
+      _$nextcloudProvisioningApiUserDetailsSerializer;
 }
 
-@JsonSerializable()
-class NextcloudProvisioningApiUser_Ocs {
-  NextcloudProvisioningApiUser_Ocs({
-    required this.meta,
-    required this.data,
-  });
+abstract class NextcloudProvisioningApiUser_Ocs
+    implements Built<NextcloudProvisioningApiUser_Ocs, NextcloudProvisioningApiUser_OcsBuilder> {
+  const NextcloudProvisioningApiUser_Ocs._();
 
-  // coverage:ignore-start
-  factory NextcloudProvisioningApiUser_Ocs.fromJson(Map<String, dynamic> json) =>
-      _$NextcloudProvisioningApiUser_OcsFromJson(json);
-  // coverage:ignore-end
+  factory NextcloudProvisioningApiUser_Ocs([void Function(NextcloudProvisioningApiUser_OcsBuilder)? b]) =
+      _$NextcloudProvisioningApiUser_Ocs;
 
-  // coverage:ignore-start
-  factory NextcloudProvisioningApiUser_Ocs.fromJsonString(String data) =>
-      NextcloudProvisioningApiUser_Ocs.fromJson(json.decode(data) as Map<String, dynamic>);
-  // coverage:ignore-end
-
-  final NextcloudOCSMeta meta;
-
-  final NextcloudProvisioningApiUserDetails data;
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$NextcloudProvisioningApiUser_OcsToJson(this);
-  // coverage:ignore-end
+  static NextcloudProvisioningApiUser_Ocs fromJson(Map<String, dynamic> json) =>
+      serializers.deserializeWith(serializer, json)!;
+  static NextcloudProvisioningApiUser_Ocs fromJsonString(String data) => serializers.fromJson(serializer, data)!;
+  Map<String, dynamic> toJson() => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
   static String? toJsonString(NextcloudProvisioningApiUser_Ocs? data) =>
-      data == null ? null : json.encode(data.toJson());
+      data == null ? null : serializers.toJson(serializer, data);
+  NextcloudOCSMeta get meta;
+  NextcloudProvisioningApiUserDetails get data;
+  static Serializer<NextcloudProvisioningApiUser_Ocs> get serializer => _$nextcloudProvisioningApiUserOcsSerializer;
 }
 
-@JsonSerializable()
-class NextcloudProvisioningApiUser {
-  NextcloudProvisioningApiUser({required this.ocs});
+abstract class NextcloudProvisioningApiUser
+    implements Built<NextcloudProvisioningApiUser, NextcloudProvisioningApiUserBuilder> {
+  const NextcloudProvisioningApiUser._();
 
-  // coverage:ignore-start
-  factory NextcloudProvisioningApiUser.fromJson(Map<String, dynamic> json) =>
-      _$NextcloudProvisioningApiUserFromJson(json);
-  // coverage:ignore-end
+  factory NextcloudProvisioningApiUser([void Function(NextcloudProvisioningApiUserBuilder)? b]) =
+      _$NextcloudProvisioningApiUser;
 
-  // coverage:ignore-start
-  factory NextcloudProvisioningApiUser.fromJsonString(String data) =>
-      NextcloudProvisioningApiUser.fromJson(json.decode(data) as Map<String, dynamic>);
-  // coverage:ignore-end
-
-  final NextcloudProvisioningApiUser_Ocs ocs;
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$NextcloudProvisioningApiUserToJson(this);
-  // coverage:ignore-end
-  static String? toJsonString(NextcloudProvisioningApiUser? data) => data == null ? null : json.encode(data.toJson());
+  static NextcloudProvisioningApiUser fromJson(Map<String, dynamic> json) =>
+      serializers.deserializeWith(serializer, json)!;
+  static NextcloudProvisioningApiUser fromJsonString(String data) => serializers.fromJson(serializer, data)!;
+  Map<String, dynamic> toJson() => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
+  static String? toJsonString(NextcloudProvisioningApiUser? data) =>
+      data == null ? null : serializers.toJson(serializer, data);
+  NextcloudProvisioningApiUser_Ocs get ocs;
+  static Serializer<NextcloudProvisioningApiUser> get serializer => _$nextcloudProvisioningApiUserSerializer;
 }
 
-@JsonSerializable()
-class NextcloudUnifiedPushProviderCheckResponse200ApplicationJson {
-  NextcloudUnifiedPushProviderCheckResponse200ApplicationJson({required this.success});
+abstract class NextcloudUnifiedPushProviderCheckResponse200ApplicationJson
+    implements
+        Built<NextcloudUnifiedPushProviderCheckResponse200ApplicationJson,
+            NextcloudUnifiedPushProviderCheckResponse200ApplicationJsonBuilder> {
+  const NextcloudUnifiedPushProviderCheckResponse200ApplicationJson._();
 
-  // coverage:ignore-start
-  factory NextcloudUnifiedPushProviderCheckResponse200ApplicationJson.fromJson(Map<String, dynamic> json) =>
-      _$NextcloudUnifiedPushProviderCheckResponse200ApplicationJsonFromJson(json);
-  // coverage:ignore-end
+  factory NextcloudUnifiedPushProviderCheckResponse200ApplicationJson(
+          [void Function(NextcloudUnifiedPushProviderCheckResponse200ApplicationJsonBuilder)? b]) =
+      _$NextcloudUnifiedPushProviderCheckResponse200ApplicationJson;
 
-  // coverage:ignore-start
-  factory NextcloudUnifiedPushProviderCheckResponse200ApplicationJson.fromJsonString(String data) =>
-      NextcloudUnifiedPushProviderCheckResponse200ApplicationJson.fromJson(json.decode(data) as Map<String, dynamic>);
-  // coverage:ignore-end
-
-  final bool success;
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$NextcloudUnifiedPushProviderCheckResponse200ApplicationJsonToJson(this);
-  // coverage:ignore-end
+  static NextcloudUnifiedPushProviderCheckResponse200ApplicationJson fromJson(Map<String, dynamic> json) =>
+      serializers.deserializeWith(serializer, json)!;
+  static NextcloudUnifiedPushProviderCheckResponse200ApplicationJson fromJsonString(String data) =>
+      serializers.fromJson(serializer, data)!;
+  Map<String, dynamic> toJson() => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
   static String? toJsonString(NextcloudUnifiedPushProviderCheckResponse200ApplicationJson? data) =>
-      data == null ? null : json.encode(data.toJson());
+      data == null ? null : serializers.toJson(serializer, data);
+  bool get success;
+  static Serializer<NextcloudUnifiedPushProviderCheckResponse200ApplicationJson> get serializer =>
+      _$nextcloudUnifiedPushProviderCheckResponse200ApplicationJsonSerializer;
 }
 
-@JsonSerializable()
-class NextcloudUnifiedPushProviderSetKeepaliveResponse200ApplicationJson {
-  NextcloudUnifiedPushProviderSetKeepaliveResponse200ApplicationJson({required this.success});
+abstract class NextcloudUnifiedPushProviderSetKeepaliveResponse200ApplicationJson
+    implements
+        Built<NextcloudUnifiedPushProviderSetKeepaliveResponse200ApplicationJson,
+            NextcloudUnifiedPushProviderSetKeepaliveResponse200ApplicationJsonBuilder> {
+  const NextcloudUnifiedPushProviderSetKeepaliveResponse200ApplicationJson._();
 
-  // coverage:ignore-start
-  factory NextcloudUnifiedPushProviderSetKeepaliveResponse200ApplicationJson.fromJson(Map<String, dynamic> json) =>
-      _$NextcloudUnifiedPushProviderSetKeepaliveResponse200ApplicationJsonFromJson(json);
-  // coverage:ignore-end
+  factory NextcloudUnifiedPushProviderSetKeepaliveResponse200ApplicationJson(
+          [void Function(NextcloudUnifiedPushProviderSetKeepaliveResponse200ApplicationJsonBuilder)? b]) =
+      _$NextcloudUnifiedPushProviderSetKeepaliveResponse200ApplicationJson;
 
-  // coverage:ignore-start
-  factory NextcloudUnifiedPushProviderSetKeepaliveResponse200ApplicationJson.fromJsonString(String data) =>
-      NextcloudUnifiedPushProviderSetKeepaliveResponse200ApplicationJson.fromJson(
-          json.decode(data) as Map<String, dynamic>);
-  // coverage:ignore-end
-
-  final bool success;
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$NextcloudUnifiedPushProviderSetKeepaliveResponse200ApplicationJsonToJson(this);
-  // coverage:ignore-end
+  static NextcloudUnifiedPushProviderSetKeepaliveResponse200ApplicationJson fromJson(Map<String, dynamic> json) =>
+      serializers.deserializeWith(serializer, json)!;
+  static NextcloudUnifiedPushProviderSetKeepaliveResponse200ApplicationJson fromJsonString(String data) =>
+      serializers.fromJson(serializer, data)!;
+  Map<String, dynamic> toJson() => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
   static String? toJsonString(NextcloudUnifiedPushProviderSetKeepaliveResponse200ApplicationJson? data) =>
-      data == null ? null : json.encode(data.toJson());
+      data == null ? null : serializers.toJson(serializer, data);
+  bool get success;
+  static Serializer<NextcloudUnifiedPushProviderSetKeepaliveResponse200ApplicationJson> get serializer =>
+      _$nextcloudUnifiedPushProviderSetKeepaliveResponse200ApplicationJsonSerializer;
 }
 
-@JsonSerializable()
-class NextcloudUnifiedPushProviderCreateDeviceResponse200ApplicationJson {
-  NextcloudUnifiedPushProviderCreateDeviceResponse200ApplicationJson({
-    required this.success,
-    required this.deviceId,
-  });
+abstract class NextcloudUnifiedPushProviderCreateDeviceResponse200ApplicationJson
+    implements
+        Built<NextcloudUnifiedPushProviderCreateDeviceResponse200ApplicationJson,
+            NextcloudUnifiedPushProviderCreateDeviceResponse200ApplicationJsonBuilder> {
+  const NextcloudUnifiedPushProviderCreateDeviceResponse200ApplicationJson._();
 
-  // coverage:ignore-start
-  factory NextcloudUnifiedPushProviderCreateDeviceResponse200ApplicationJson.fromJson(Map<String, dynamic> json) =>
-      _$NextcloudUnifiedPushProviderCreateDeviceResponse200ApplicationJsonFromJson(json);
-  // coverage:ignore-end
+  factory NextcloudUnifiedPushProviderCreateDeviceResponse200ApplicationJson(
+          [void Function(NextcloudUnifiedPushProviderCreateDeviceResponse200ApplicationJsonBuilder)? b]) =
+      _$NextcloudUnifiedPushProviderCreateDeviceResponse200ApplicationJson;
 
-  // coverage:ignore-start
-  factory NextcloudUnifiedPushProviderCreateDeviceResponse200ApplicationJson.fromJsonString(String data) =>
-      NextcloudUnifiedPushProviderCreateDeviceResponse200ApplicationJson.fromJson(
-          json.decode(data) as Map<String, dynamic>);
-  // coverage:ignore-end
-
-  final bool success;
-
-  final String deviceId;
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$NextcloudUnifiedPushProviderCreateDeviceResponse200ApplicationJsonToJson(this);
-  // coverage:ignore-end
+  static NextcloudUnifiedPushProviderCreateDeviceResponse200ApplicationJson fromJson(Map<String, dynamic> json) =>
+      serializers.deserializeWith(serializer, json)!;
+  static NextcloudUnifiedPushProviderCreateDeviceResponse200ApplicationJson fromJsonString(String data) =>
+      serializers.fromJson(serializer, data)!;
+  Map<String, dynamic> toJson() => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
   static String? toJsonString(NextcloudUnifiedPushProviderCreateDeviceResponse200ApplicationJson? data) =>
-      data == null ? null : json.encode(data.toJson());
+      data == null ? null : serializers.toJson(serializer, data);
+  bool get success;
+  String get deviceId;
+  static Serializer<NextcloudUnifiedPushProviderCreateDeviceResponse200ApplicationJson> get serializer =>
+      _$nextcloudUnifiedPushProviderCreateDeviceResponse200ApplicationJsonSerializer;
 }
 
-@JsonSerializable()
-class NextcloudUnifiedPushProviderSyncDeviceResponse401ApplicationJson {
-  NextcloudUnifiedPushProviderSyncDeviceResponse401ApplicationJson({required this.success});
+abstract class NextcloudUnifiedPushProviderSyncDeviceResponse401ApplicationJson
+    implements
+        Built<NextcloudUnifiedPushProviderSyncDeviceResponse401ApplicationJson,
+            NextcloudUnifiedPushProviderSyncDeviceResponse401ApplicationJsonBuilder> {
+  const NextcloudUnifiedPushProviderSyncDeviceResponse401ApplicationJson._();
 
-  // coverage:ignore-start
-  factory NextcloudUnifiedPushProviderSyncDeviceResponse401ApplicationJson.fromJson(Map<String, dynamic> json) =>
-      _$NextcloudUnifiedPushProviderSyncDeviceResponse401ApplicationJsonFromJson(json);
-  // coverage:ignore-end
+  factory NextcloudUnifiedPushProviderSyncDeviceResponse401ApplicationJson(
+          [void Function(NextcloudUnifiedPushProviderSyncDeviceResponse401ApplicationJsonBuilder)? b]) =
+      _$NextcloudUnifiedPushProviderSyncDeviceResponse401ApplicationJson;
 
-  // coverage:ignore-start
-  factory NextcloudUnifiedPushProviderSyncDeviceResponse401ApplicationJson.fromJsonString(String data) =>
-      NextcloudUnifiedPushProviderSyncDeviceResponse401ApplicationJson.fromJson(
-          json.decode(data) as Map<String, dynamic>);
-  // coverage:ignore-end
-
-  final bool success;
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$NextcloudUnifiedPushProviderSyncDeviceResponse401ApplicationJsonToJson(this);
-  // coverage:ignore-end
+  static NextcloudUnifiedPushProviderSyncDeviceResponse401ApplicationJson fromJson(Map<String, dynamic> json) =>
+      serializers.deserializeWith(serializer, json)!;
+  static NextcloudUnifiedPushProviderSyncDeviceResponse401ApplicationJson fromJsonString(String data) =>
+      serializers.fromJson(serializer, data)!;
+  Map<String, dynamic> toJson() => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
   static String? toJsonString(NextcloudUnifiedPushProviderSyncDeviceResponse401ApplicationJson? data) =>
-      data == null ? null : json.encode(data.toJson());
+      data == null ? null : serializers.toJson(serializer, data);
+  bool get success;
+  static Serializer<NextcloudUnifiedPushProviderSyncDeviceResponse401ApplicationJson> get serializer =>
+      _$nextcloudUnifiedPushProviderSyncDeviceResponse401ApplicationJsonSerializer;
 }
 
-@JsonSerializable()
-class NextcloudUnifiedPushProviderDeleteDeviceResponse200ApplicationJson {
-  NextcloudUnifiedPushProviderDeleteDeviceResponse200ApplicationJson({required this.success});
+abstract class NextcloudUnifiedPushProviderDeleteDeviceResponse200ApplicationJson
+    implements
+        Built<NextcloudUnifiedPushProviderDeleteDeviceResponse200ApplicationJson,
+            NextcloudUnifiedPushProviderDeleteDeviceResponse200ApplicationJsonBuilder> {
+  const NextcloudUnifiedPushProviderDeleteDeviceResponse200ApplicationJson._();
 
-  // coverage:ignore-start
-  factory NextcloudUnifiedPushProviderDeleteDeviceResponse200ApplicationJson.fromJson(Map<String, dynamic> json) =>
-      _$NextcloudUnifiedPushProviderDeleteDeviceResponse200ApplicationJsonFromJson(json);
-  // coverage:ignore-end
+  factory NextcloudUnifiedPushProviderDeleteDeviceResponse200ApplicationJson(
+          [void Function(NextcloudUnifiedPushProviderDeleteDeviceResponse200ApplicationJsonBuilder)? b]) =
+      _$NextcloudUnifiedPushProviderDeleteDeviceResponse200ApplicationJson;
 
-  // coverage:ignore-start
-  factory NextcloudUnifiedPushProviderDeleteDeviceResponse200ApplicationJson.fromJsonString(String data) =>
-      NextcloudUnifiedPushProviderDeleteDeviceResponse200ApplicationJson.fromJson(
-          json.decode(data) as Map<String, dynamic>);
-  // coverage:ignore-end
-
-  final bool success;
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$NextcloudUnifiedPushProviderDeleteDeviceResponse200ApplicationJsonToJson(this);
-  // coverage:ignore-end
+  static NextcloudUnifiedPushProviderDeleteDeviceResponse200ApplicationJson fromJson(Map<String, dynamic> json) =>
+      serializers.deserializeWith(serializer, json)!;
+  static NextcloudUnifiedPushProviderDeleteDeviceResponse200ApplicationJson fromJsonString(String data) =>
+      serializers.fromJson(serializer, data)!;
+  Map<String, dynamic> toJson() => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
   static String? toJsonString(NextcloudUnifiedPushProviderDeleteDeviceResponse200ApplicationJson? data) =>
-      data == null ? null : json.encode(data.toJson());
+      data == null ? null : serializers.toJson(serializer, data);
+  bool get success;
+  static Serializer<NextcloudUnifiedPushProviderDeleteDeviceResponse200ApplicationJson> get serializer =>
+      _$nextcloudUnifiedPushProviderDeleteDeviceResponse200ApplicationJsonSerializer;
 }
 
-@JsonSerializable()
-class NextcloudUnifiedPushProviderCreateAppResponse200ApplicationJson {
-  NextcloudUnifiedPushProviderCreateAppResponse200ApplicationJson({
-    required this.success,
-    required this.token,
-  });
+abstract class NextcloudUnifiedPushProviderCreateAppResponse200ApplicationJson
+    implements
+        Built<NextcloudUnifiedPushProviderCreateAppResponse200ApplicationJson,
+            NextcloudUnifiedPushProviderCreateAppResponse200ApplicationJsonBuilder> {
+  const NextcloudUnifiedPushProviderCreateAppResponse200ApplicationJson._();
 
-  // coverage:ignore-start
-  factory NextcloudUnifiedPushProviderCreateAppResponse200ApplicationJson.fromJson(Map<String, dynamic> json) =>
-      _$NextcloudUnifiedPushProviderCreateAppResponse200ApplicationJsonFromJson(json);
-  // coverage:ignore-end
+  factory NextcloudUnifiedPushProviderCreateAppResponse200ApplicationJson(
+          [void Function(NextcloudUnifiedPushProviderCreateAppResponse200ApplicationJsonBuilder)? b]) =
+      _$NextcloudUnifiedPushProviderCreateAppResponse200ApplicationJson;
 
-  // coverage:ignore-start
-  factory NextcloudUnifiedPushProviderCreateAppResponse200ApplicationJson.fromJsonString(String data) =>
-      NextcloudUnifiedPushProviderCreateAppResponse200ApplicationJson.fromJson(
-          json.decode(data) as Map<String, dynamic>);
-  // coverage:ignore-end
-
-  final bool success;
-
-  final String token;
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$NextcloudUnifiedPushProviderCreateAppResponse200ApplicationJsonToJson(this);
-  // coverage:ignore-end
+  static NextcloudUnifiedPushProviderCreateAppResponse200ApplicationJson fromJson(Map<String, dynamic> json) =>
+      serializers.deserializeWith(serializer, json)!;
+  static NextcloudUnifiedPushProviderCreateAppResponse200ApplicationJson fromJsonString(String data) =>
+      serializers.fromJson(serializer, data)!;
+  Map<String, dynamic> toJson() => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
   static String? toJsonString(NextcloudUnifiedPushProviderCreateAppResponse200ApplicationJson? data) =>
-      data == null ? null : json.encode(data.toJson());
+      data == null ? null : serializers.toJson(serializer, data);
+  bool get success;
+  String get token;
+  static Serializer<NextcloudUnifiedPushProviderCreateAppResponse200ApplicationJson> get serializer =>
+      _$nextcloudUnifiedPushProviderCreateAppResponse200ApplicationJsonSerializer;
 }
 
-@JsonSerializable()
-class NextcloudUnifiedPushProviderDeleteAppResponse200ApplicationJson {
-  NextcloudUnifiedPushProviderDeleteAppResponse200ApplicationJson({required this.success});
+abstract class NextcloudUnifiedPushProviderDeleteAppResponse200ApplicationJson
+    implements
+        Built<NextcloudUnifiedPushProviderDeleteAppResponse200ApplicationJson,
+            NextcloudUnifiedPushProviderDeleteAppResponse200ApplicationJsonBuilder> {
+  const NextcloudUnifiedPushProviderDeleteAppResponse200ApplicationJson._();
 
-  // coverage:ignore-start
-  factory NextcloudUnifiedPushProviderDeleteAppResponse200ApplicationJson.fromJson(Map<String, dynamic> json) =>
-      _$NextcloudUnifiedPushProviderDeleteAppResponse200ApplicationJsonFromJson(json);
-  // coverage:ignore-end
+  factory NextcloudUnifiedPushProviderDeleteAppResponse200ApplicationJson(
+          [void Function(NextcloudUnifiedPushProviderDeleteAppResponse200ApplicationJsonBuilder)? b]) =
+      _$NextcloudUnifiedPushProviderDeleteAppResponse200ApplicationJson;
 
-  // coverage:ignore-start
-  factory NextcloudUnifiedPushProviderDeleteAppResponse200ApplicationJson.fromJsonString(String data) =>
-      NextcloudUnifiedPushProviderDeleteAppResponse200ApplicationJson.fromJson(
-          json.decode(data) as Map<String, dynamic>);
-  // coverage:ignore-end
-
-  final bool success;
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$NextcloudUnifiedPushProviderDeleteAppResponse200ApplicationJsonToJson(this);
-  // coverage:ignore-end
+  static NextcloudUnifiedPushProviderDeleteAppResponse200ApplicationJson fromJson(Map<String, dynamic> json) =>
+      serializers.deserializeWith(serializer, json)!;
+  static NextcloudUnifiedPushProviderDeleteAppResponse200ApplicationJson fromJsonString(String data) =>
+      serializers.fromJson(serializer, data)!;
+  Map<String, dynamic> toJson() => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
   static String? toJsonString(NextcloudUnifiedPushProviderDeleteAppResponse200ApplicationJson? data) =>
-      data == null ? null : json.encode(data.toJson());
+      data == null ? null : serializers.toJson(serializer, data);
+  bool get success;
+  static Serializer<NextcloudUnifiedPushProviderDeleteAppResponse200ApplicationJson> get serializer =>
+      _$nextcloudUnifiedPushProviderDeleteAppResponse200ApplicationJsonSerializer;
 }
 
-@JsonSerializable()
-class NextcloudUnifiedPushProviderUnifiedpushDiscoveryResponse200ApplicationJson_Unifiedpush {
-  NextcloudUnifiedPushProviderUnifiedpushDiscoveryResponse200ApplicationJson_Unifiedpush({required this.version});
+abstract class NextcloudUnifiedPushProviderUnifiedpushDiscoveryResponse200ApplicationJson_Unifiedpush
+    implements
+        Built<NextcloudUnifiedPushProviderUnifiedpushDiscoveryResponse200ApplicationJson_Unifiedpush,
+            NextcloudUnifiedPushProviderUnifiedpushDiscoveryResponse200ApplicationJson_UnifiedpushBuilder> {
+  const NextcloudUnifiedPushProviderUnifiedpushDiscoveryResponse200ApplicationJson_Unifiedpush._();
 
-  // coverage:ignore-start
-  factory NextcloudUnifiedPushProviderUnifiedpushDiscoveryResponse200ApplicationJson_Unifiedpush.fromJson(
+  factory NextcloudUnifiedPushProviderUnifiedpushDiscoveryResponse200ApplicationJson_Unifiedpush(
+      [void Function(NextcloudUnifiedPushProviderUnifiedpushDiscoveryResponse200ApplicationJson_UnifiedpushBuilder)?
+          b]) = _$NextcloudUnifiedPushProviderUnifiedpushDiscoveryResponse200ApplicationJson_Unifiedpush;
+
+  static NextcloudUnifiedPushProviderUnifiedpushDiscoveryResponse200ApplicationJson_Unifiedpush fromJson(
           Map<String, dynamic> json) =>
-      _$NextcloudUnifiedPushProviderUnifiedpushDiscoveryResponse200ApplicationJson_UnifiedpushFromJson(json);
-  // coverage:ignore-end
-
-  // coverage:ignore-start
-  factory NextcloudUnifiedPushProviderUnifiedpushDiscoveryResponse200ApplicationJson_Unifiedpush.fromJsonString(
+      serializers.deserializeWith(serializer, json)!;
+  static NextcloudUnifiedPushProviderUnifiedpushDiscoveryResponse200ApplicationJson_Unifiedpush fromJsonString(
           String data) =>
-      NextcloudUnifiedPushProviderUnifiedpushDiscoveryResponse200ApplicationJson_Unifiedpush.fromJson(
-          json.decode(data) as Map<String, dynamic>);
-  // coverage:ignore-end
-
-  final int version;
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() =>
-      _$NextcloudUnifiedPushProviderUnifiedpushDiscoveryResponse200ApplicationJson_UnifiedpushToJson(this);
-  // coverage:ignore-end
+      serializers.fromJson(serializer, data)!;
+  Map<String, dynamic> toJson() => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
   static String? toJsonString(
           NextcloudUnifiedPushProviderUnifiedpushDiscoveryResponse200ApplicationJson_Unifiedpush? data) =>
-      data == null ? null : json.encode(data.toJson());
+      data == null ? null : serializers.toJson(serializer, data);
+  int get version;
+  static Serializer<NextcloudUnifiedPushProviderUnifiedpushDiscoveryResponse200ApplicationJson_Unifiedpush>
+      get serializer =>
+          _$nextcloudUnifiedPushProviderUnifiedpushDiscoveryResponse200ApplicationJsonUnifiedpushSerializer;
 }
 
-@JsonSerializable()
-class NextcloudUnifiedPushProviderUnifiedpushDiscoveryResponse200ApplicationJson {
-  NextcloudUnifiedPushProviderUnifiedpushDiscoveryResponse200ApplicationJson({required this.unifiedpush});
+abstract class NextcloudUnifiedPushProviderUnifiedpushDiscoveryResponse200ApplicationJson
+    implements
+        Built<NextcloudUnifiedPushProviderUnifiedpushDiscoveryResponse200ApplicationJson,
+            NextcloudUnifiedPushProviderUnifiedpushDiscoveryResponse200ApplicationJsonBuilder> {
+  const NextcloudUnifiedPushProviderUnifiedpushDiscoveryResponse200ApplicationJson._();
 
-  // coverage:ignore-start
-  factory NextcloudUnifiedPushProviderUnifiedpushDiscoveryResponse200ApplicationJson.fromJson(
+  factory NextcloudUnifiedPushProviderUnifiedpushDiscoveryResponse200ApplicationJson(
+          [void Function(NextcloudUnifiedPushProviderUnifiedpushDiscoveryResponse200ApplicationJsonBuilder)? b]) =
+      _$NextcloudUnifiedPushProviderUnifiedpushDiscoveryResponse200ApplicationJson;
+
+  static NextcloudUnifiedPushProviderUnifiedpushDiscoveryResponse200ApplicationJson fromJson(
           Map<String, dynamic> json) =>
-      _$NextcloudUnifiedPushProviderUnifiedpushDiscoveryResponse200ApplicationJsonFromJson(json);
-  // coverage:ignore-end
-
-  // coverage:ignore-start
-  factory NextcloudUnifiedPushProviderUnifiedpushDiscoveryResponse200ApplicationJson.fromJsonString(String data) =>
-      NextcloudUnifiedPushProviderUnifiedpushDiscoveryResponse200ApplicationJson.fromJson(
-          json.decode(data) as Map<String, dynamic>);
-  // coverage:ignore-end
-
-  final NextcloudUnifiedPushProviderUnifiedpushDiscoveryResponse200ApplicationJson_Unifiedpush unifiedpush;
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() =>
-      _$NextcloudUnifiedPushProviderUnifiedpushDiscoveryResponse200ApplicationJsonToJson(this);
-  // coverage:ignore-end
+      serializers.deserializeWith(serializer, json)!;
+  static NextcloudUnifiedPushProviderUnifiedpushDiscoveryResponse200ApplicationJson fromJsonString(String data) =>
+      serializers.fromJson(serializer, data)!;
+  Map<String, dynamic> toJson() => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
   static String? toJsonString(NextcloudUnifiedPushProviderUnifiedpushDiscoveryResponse200ApplicationJson? data) =>
-      data == null ? null : json.encode(data.toJson());
+      data == null ? null : serializers.toJson(serializer, data);
+  NextcloudUnifiedPushProviderUnifiedpushDiscoveryResponse200ApplicationJson_Unifiedpush get unifiedpush;
+  static Serializer<NextcloudUnifiedPushProviderUnifiedpushDiscoveryResponse200ApplicationJson> get serializer =>
+      _$nextcloudUnifiedPushProviderUnifiedpushDiscoveryResponse200ApplicationJsonSerializer;
 }
 
-@JsonSerializable()
-class NextcloudUnifiedPushProviderPushResponse201ApplicationJson {
-  NextcloudUnifiedPushProviderPushResponse201ApplicationJson({required this.success});
+abstract class NextcloudUnifiedPushProviderPushResponse201ApplicationJson
+    implements
+        Built<NextcloudUnifiedPushProviderPushResponse201ApplicationJson,
+            NextcloudUnifiedPushProviderPushResponse201ApplicationJsonBuilder> {
+  const NextcloudUnifiedPushProviderPushResponse201ApplicationJson._();
 
-  // coverage:ignore-start
-  factory NextcloudUnifiedPushProviderPushResponse201ApplicationJson.fromJson(Map<String, dynamic> json) =>
-      _$NextcloudUnifiedPushProviderPushResponse201ApplicationJsonFromJson(json);
-  // coverage:ignore-end
+  factory NextcloudUnifiedPushProviderPushResponse201ApplicationJson(
+          [void Function(NextcloudUnifiedPushProviderPushResponse201ApplicationJsonBuilder)? b]) =
+      _$NextcloudUnifiedPushProviderPushResponse201ApplicationJson;
 
-  // coverage:ignore-start
-  factory NextcloudUnifiedPushProviderPushResponse201ApplicationJson.fromJsonString(String data) =>
-      NextcloudUnifiedPushProviderPushResponse201ApplicationJson.fromJson(json.decode(data) as Map<String, dynamic>);
-  // coverage:ignore-end
-
-  final bool success;
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$NextcloudUnifiedPushProviderPushResponse201ApplicationJsonToJson(this);
-  // coverage:ignore-end
+  static NextcloudUnifiedPushProviderPushResponse201ApplicationJson fromJson(Map<String, dynamic> json) =>
+      serializers.deserializeWith(serializer, json)!;
+  static NextcloudUnifiedPushProviderPushResponse201ApplicationJson fromJsonString(String data) =>
+      serializers.fromJson(serializer, data)!;
+  Map<String, dynamic> toJson() => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
   static String? toJsonString(NextcloudUnifiedPushProviderPushResponse201ApplicationJson? data) =>
-      data == null ? null : json.encode(data.toJson());
+      data == null ? null : serializers.toJson(serializer, data);
+  bool get success;
+  static Serializer<NextcloudUnifiedPushProviderPushResponse201ApplicationJson> get serializer =>
+      _$nextcloudUnifiedPushProviderPushResponse201ApplicationJsonSerializer;
 }
 
-@JsonSerializable()
-class NextcloudUnifiedPushProviderGatewayMatrixDiscoveryResponse200ApplicationJson_Unifiedpush {
-  NextcloudUnifiedPushProviderGatewayMatrixDiscoveryResponse200ApplicationJson_Unifiedpush({required this.gateway});
+abstract class NextcloudUnifiedPushProviderGatewayMatrixDiscoveryResponse200ApplicationJson_Unifiedpush
+    implements
+        Built<NextcloudUnifiedPushProviderGatewayMatrixDiscoveryResponse200ApplicationJson_Unifiedpush,
+            NextcloudUnifiedPushProviderGatewayMatrixDiscoveryResponse200ApplicationJson_UnifiedpushBuilder> {
+  const NextcloudUnifiedPushProviderGatewayMatrixDiscoveryResponse200ApplicationJson_Unifiedpush._();
 
-  // coverage:ignore-start
-  factory NextcloudUnifiedPushProviderGatewayMatrixDiscoveryResponse200ApplicationJson_Unifiedpush.fromJson(
+  factory NextcloudUnifiedPushProviderGatewayMatrixDiscoveryResponse200ApplicationJson_Unifiedpush(
+      [void Function(NextcloudUnifiedPushProviderGatewayMatrixDiscoveryResponse200ApplicationJson_UnifiedpushBuilder)?
+          b]) = _$NextcloudUnifiedPushProviderGatewayMatrixDiscoveryResponse200ApplicationJson_Unifiedpush;
+
+  static NextcloudUnifiedPushProviderGatewayMatrixDiscoveryResponse200ApplicationJson_Unifiedpush fromJson(
           Map<String, dynamic> json) =>
-      _$NextcloudUnifiedPushProviderGatewayMatrixDiscoveryResponse200ApplicationJson_UnifiedpushFromJson(json);
-  // coverage:ignore-end
-
-  // coverage:ignore-start
-  factory NextcloudUnifiedPushProviderGatewayMatrixDiscoveryResponse200ApplicationJson_Unifiedpush.fromJsonString(
+      serializers.deserializeWith(serializer, json)!;
+  static NextcloudUnifiedPushProviderGatewayMatrixDiscoveryResponse200ApplicationJson_Unifiedpush fromJsonString(
           String data) =>
-      NextcloudUnifiedPushProviderGatewayMatrixDiscoveryResponse200ApplicationJson_Unifiedpush.fromJson(
-          json.decode(data) as Map<String, dynamic>);
-  // coverage:ignore-end
-
-  final String gateway;
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() =>
-      _$NextcloudUnifiedPushProviderGatewayMatrixDiscoveryResponse200ApplicationJson_UnifiedpushToJson(this);
-  // coverage:ignore-end
+      serializers.fromJson(serializer, data)!;
+  Map<String, dynamic> toJson() => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
   static String? toJsonString(
           NextcloudUnifiedPushProviderGatewayMatrixDiscoveryResponse200ApplicationJson_Unifiedpush? data) =>
-      data == null ? null : json.encode(data.toJson());
+      data == null ? null : serializers.toJson(serializer, data);
+  String get gateway;
+  static Serializer<NextcloudUnifiedPushProviderGatewayMatrixDiscoveryResponse200ApplicationJson_Unifiedpush>
+      get serializer =>
+          _$nextcloudUnifiedPushProviderGatewayMatrixDiscoveryResponse200ApplicationJsonUnifiedpushSerializer;
 }
 
-@JsonSerializable()
-class NextcloudUnifiedPushProviderGatewayMatrixDiscoveryResponse200ApplicationJson {
-  NextcloudUnifiedPushProviderGatewayMatrixDiscoveryResponse200ApplicationJson({required this.unifiedpush});
+abstract class NextcloudUnifiedPushProviderGatewayMatrixDiscoveryResponse200ApplicationJson
+    implements
+        Built<NextcloudUnifiedPushProviderGatewayMatrixDiscoveryResponse200ApplicationJson,
+            NextcloudUnifiedPushProviderGatewayMatrixDiscoveryResponse200ApplicationJsonBuilder> {
+  const NextcloudUnifiedPushProviderGatewayMatrixDiscoveryResponse200ApplicationJson._();
 
-  // coverage:ignore-start
-  factory NextcloudUnifiedPushProviderGatewayMatrixDiscoveryResponse200ApplicationJson.fromJson(
+  factory NextcloudUnifiedPushProviderGatewayMatrixDiscoveryResponse200ApplicationJson(
+          [void Function(NextcloudUnifiedPushProviderGatewayMatrixDiscoveryResponse200ApplicationJsonBuilder)? b]) =
+      _$NextcloudUnifiedPushProviderGatewayMatrixDiscoveryResponse200ApplicationJson;
+
+  static NextcloudUnifiedPushProviderGatewayMatrixDiscoveryResponse200ApplicationJson fromJson(
           Map<String, dynamic> json) =>
-      _$NextcloudUnifiedPushProviderGatewayMatrixDiscoveryResponse200ApplicationJsonFromJson(json);
-  // coverage:ignore-end
-
-  // coverage:ignore-start
-  factory NextcloudUnifiedPushProviderGatewayMatrixDiscoveryResponse200ApplicationJson.fromJsonString(String data) =>
-      NextcloudUnifiedPushProviderGatewayMatrixDiscoveryResponse200ApplicationJson.fromJson(
-          json.decode(data) as Map<String, dynamic>);
-  // coverage:ignore-end
-
-  final NextcloudUnifiedPushProviderGatewayMatrixDiscoveryResponse200ApplicationJson_Unifiedpush unifiedpush;
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() =>
-      _$NextcloudUnifiedPushProviderGatewayMatrixDiscoveryResponse200ApplicationJsonToJson(this);
-  // coverage:ignore-end
+      serializers.deserializeWith(serializer, json)!;
+  static NextcloudUnifiedPushProviderGatewayMatrixDiscoveryResponse200ApplicationJson fromJsonString(String data) =>
+      serializers.fromJson(serializer, data)!;
+  Map<String, dynamic> toJson() => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
   static String? toJsonString(NextcloudUnifiedPushProviderGatewayMatrixDiscoveryResponse200ApplicationJson? data) =>
-      data == null ? null : json.encode(data.toJson());
+      data == null ? null : serializers.toJson(serializer, data);
+  NextcloudUnifiedPushProviderGatewayMatrixDiscoveryResponse200ApplicationJson_Unifiedpush get unifiedpush;
+  static Serializer<NextcloudUnifiedPushProviderGatewayMatrixDiscoveryResponse200ApplicationJson> get serializer =>
+      _$nextcloudUnifiedPushProviderGatewayMatrixDiscoveryResponse200ApplicationJsonSerializer;
 }
 
-@JsonSerializable()
-class NextcloudUnifiedPushProviderGatewayMatrixResponse200ApplicationJson {
-  NextcloudUnifiedPushProviderGatewayMatrixResponse200ApplicationJson({required this.rejected});
+abstract class NextcloudUnifiedPushProviderGatewayMatrixResponse200ApplicationJson
+    implements
+        Built<NextcloudUnifiedPushProviderGatewayMatrixResponse200ApplicationJson,
+            NextcloudUnifiedPushProviderGatewayMatrixResponse200ApplicationJsonBuilder> {
+  const NextcloudUnifiedPushProviderGatewayMatrixResponse200ApplicationJson._();
 
-  // coverage:ignore-start
-  factory NextcloudUnifiedPushProviderGatewayMatrixResponse200ApplicationJson.fromJson(Map<String, dynamic> json) =>
-      _$NextcloudUnifiedPushProviderGatewayMatrixResponse200ApplicationJsonFromJson(json);
-  // coverage:ignore-end
+  factory NextcloudUnifiedPushProviderGatewayMatrixResponse200ApplicationJson(
+          [void Function(NextcloudUnifiedPushProviderGatewayMatrixResponse200ApplicationJsonBuilder)? b]) =
+      _$NextcloudUnifiedPushProviderGatewayMatrixResponse200ApplicationJson;
 
-  // coverage:ignore-start
-  factory NextcloudUnifiedPushProviderGatewayMatrixResponse200ApplicationJson.fromJsonString(String data) =>
-      NextcloudUnifiedPushProviderGatewayMatrixResponse200ApplicationJson.fromJson(
-          json.decode(data) as Map<String, dynamic>);
-  // coverage:ignore-end
-
-  final BuiltList<String> rejected;
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$NextcloudUnifiedPushProviderGatewayMatrixResponse200ApplicationJsonToJson(this);
-  // coverage:ignore-end
+  static NextcloudUnifiedPushProviderGatewayMatrixResponse200ApplicationJson fromJson(Map<String, dynamic> json) =>
+      serializers.deserializeWith(serializer, json)!;
+  static NextcloudUnifiedPushProviderGatewayMatrixResponse200ApplicationJson fromJsonString(String data) =>
+      serializers.fromJson(serializer, data)!;
+  Map<String, dynamic> toJson() => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
   static String? toJsonString(NextcloudUnifiedPushProviderGatewayMatrixResponse200ApplicationJson? data) =>
-      data == null ? null : json.encode(data.toJson());
+      data == null ? null : serializers.toJson(serializer, data);
+  BuiltList<String> get rejected;
+  static Serializer<NextcloudUnifiedPushProviderGatewayMatrixResponse200ApplicationJson> get serializer =>
+      _$nextcloudUnifiedPushProviderGatewayMatrixResponse200ApplicationJsonSerializer;
 }
 
 class NextcloudUserStatusClearAt_Type extends EnumClass {
@@ -5508,30 +4535,22 @@ class NextcloudUserStatusClearAt_Time {
   // coverage:ignore-end
 }
 
-@JsonSerializable()
-class NextcloudUserStatusClearAt {
-  NextcloudUserStatusClearAt({
-    required this.type,
-    required this.time,
-  });
+abstract class NextcloudUserStatusClearAt
+    implements Built<NextcloudUserStatusClearAt, NextcloudUserStatusClearAtBuilder> {
+  const NextcloudUserStatusClearAt._();
 
-  // coverage:ignore-start
-  factory NextcloudUserStatusClearAt.fromJson(Map<String, dynamic> json) => _$NextcloudUserStatusClearAtFromJson(json);
-  // coverage:ignore-end
+  factory NextcloudUserStatusClearAt([void Function(NextcloudUserStatusClearAtBuilder)? b]) =
+      _$NextcloudUserStatusClearAt;
 
-  // coverage:ignore-start
-  factory NextcloudUserStatusClearAt.fromJsonString(String data) =>
-      NextcloudUserStatusClearAt.fromJson(json.decode(data) as Map<String, dynamic>);
-  // coverage:ignore-end
-
-  final NextcloudUserStatusClearAt_Type type;
-
-  final NextcloudUserStatusClearAt_Time time;
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$NextcloudUserStatusClearAtToJson(this);
-  // coverage:ignore-end
-  static String? toJsonString(NextcloudUserStatusClearAt? data) => data == null ? null : json.encode(data.toJson());
+  static NextcloudUserStatusClearAt fromJson(Map<String, dynamic> json) =>
+      serializers.deserializeWith(serializer, json)!;
+  static NextcloudUserStatusClearAt fromJsonString(String data) => serializers.fromJson(serializer, data)!;
+  Map<String, dynamic> toJson() => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
+  static String? toJsonString(NextcloudUserStatusClearAt? data) =>
+      data == null ? null : serializers.toJson(serializer, data);
+  NextcloudUserStatusClearAt_Type get type;
+  NextcloudUserStatusClearAt_Time get time;
+  static Serializer<NextcloudUserStatusClearAt> get serializer => _$nextcloudUserStatusClearAtSerializer;
 }
 
 class NextcloudUserStatusPublicStatus_ClearAt {
@@ -5596,92 +4615,63 @@ class NextcloudUserStatusType extends EnumClass {
   static Serializer<NextcloudUserStatusType> get serializer => _$nextcloudUserStatusTypeSerializer;
 }
 
-@JsonSerializable()
-class NextcloudUserStatusPublicStatus {
-  NextcloudUserStatusPublicStatus({
-    required this.userId,
-    this.message,
-    this.icon,
-    this.clearAt,
-    required this.status,
-  });
+abstract class NextcloudUserStatusPublicStatus
+    implements Built<NextcloudUserStatusPublicStatus, NextcloudUserStatusPublicStatusBuilder> {
+  const NextcloudUserStatusPublicStatus._();
 
-  // coverage:ignore-start
-  factory NextcloudUserStatusPublicStatus.fromJson(Map<String, dynamic> json) =>
-      _$NextcloudUserStatusPublicStatusFromJson(json);
-  // coverage:ignore-end
+  factory NextcloudUserStatusPublicStatus([void Function(NextcloudUserStatusPublicStatusBuilder)? b]) =
+      _$NextcloudUserStatusPublicStatus;
 
-  // coverage:ignore-start
-  factory NextcloudUserStatusPublicStatus.fromJsonString(String data) =>
-      NextcloudUserStatusPublicStatus.fromJson(json.decode(data) as Map<String, dynamic>);
-  // coverage:ignore-end
-
-  final String userId;
-
-  final String? message;
-
-  final String? icon;
-
-  final NextcloudUserStatusPublicStatus_ClearAt? clearAt;
-
-  final NextcloudUserStatusType status;
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$NextcloudUserStatusPublicStatusToJson(this);
-  // coverage:ignore-end
+  static NextcloudUserStatusPublicStatus fromJson(Map<String, dynamic> json) =>
+      serializers.deserializeWith(serializer, json)!;
+  static NextcloudUserStatusPublicStatus fromJsonString(String data) => serializers.fromJson(serializer, data)!;
+  Map<String, dynamic> toJson() => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
   static String? toJsonString(NextcloudUserStatusPublicStatus? data) =>
-      data == null ? null : json.encode(data.toJson());
+      data == null ? null : serializers.toJson(serializer, data);
+  String get userId;
+  String? get message;
+  String? get icon;
+  NextcloudUserStatusPublicStatus_ClearAt? get clearAt;
+  NextcloudUserStatusType get status;
+  static Serializer<NextcloudUserStatusPublicStatus> get serializer => _$nextcloudUserStatusPublicStatusSerializer;
 }
 
-@JsonSerializable()
-class NextcloudUserStatusGetPublicStatuses_Ocs {
-  NextcloudUserStatusGetPublicStatuses_Ocs({
-    required this.meta,
-    required this.data,
-  });
+abstract class NextcloudUserStatusGetPublicStatuses_Ocs
+    implements Built<NextcloudUserStatusGetPublicStatuses_Ocs, NextcloudUserStatusGetPublicStatuses_OcsBuilder> {
+  const NextcloudUserStatusGetPublicStatuses_Ocs._();
 
-  // coverage:ignore-start
-  factory NextcloudUserStatusGetPublicStatuses_Ocs.fromJson(Map<String, dynamic> json) =>
-      _$NextcloudUserStatusGetPublicStatuses_OcsFromJson(json);
-  // coverage:ignore-end
+  factory NextcloudUserStatusGetPublicStatuses_Ocs(
+      [void Function(NextcloudUserStatusGetPublicStatuses_OcsBuilder)? b]) = _$NextcloudUserStatusGetPublicStatuses_Ocs;
 
-  // coverage:ignore-start
-  factory NextcloudUserStatusGetPublicStatuses_Ocs.fromJsonString(String data) =>
-      NextcloudUserStatusGetPublicStatuses_Ocs.fromJson(json.decode(data) as Map<String, dynamic>);
-  // coverage:ignore-end
-
-  final NextcloudOCSMeta meta;
-
-  final BuiltList<NextcloudUserStatusPublicStatus> data;
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$NextcloudUserStatusGetPublicStatuses_OcsToJson(this);
-  // coverage:ignore-end
+  static NextcloudUserStatusGetPublicStatuses_Ocs fromJson(Map<String, dynamic> json) =>
+      serializers.deserializeWith(serializer, json)!;
+  static NextcloudUserStatusGetPublicStatuses_Ocs fromJsonString(String data) =>
+      serializers.fromJson(serializer, data)!;
+  Map<String, dynamic> toJson() => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
   static String? toJsonString(NextcloudUserStatusGetPublicStatuses_Ocs? data) =>
-      data == null ? null : json.encode(data.toJson());
+      data == null ? null : serializers.toJson(serializer, data);
+  NextcloudOCSMeta get meta;
+  BuiltList<NextcloudUserStatusPublicStatus> get data;
+  static Serializer<NextcloudUserStatusGetPublicStatuses_Ocs> get serializer =>
+      _$nextcloudUserStatusGetPublicStatusesOcsSerializer;
 }
 
-@JsonSerializable()
-class NextcloudUserStatusGetPublicStatuses {
-  NextcloudUserStatusGetPublicStatuses({required this.ocs});
+abstract class NextcloudUserStatusGetPublicStatuses
+    implements Built<NextcloudUserStatusGetPublicStatuses, NextcloudUserStatusGetPublicStatusesBuilder> {
+  const NextcloudUserStatusGetPublicStatuses._();
 
-  // coverage:ignore-start
-  factory NextcloudUserStatusGetPublicStatuses.fromJson(Map<String, dynamic> json) =>
-      _$NextcloudUserStatusGetPublicStatusesFromJson(json);
-  // coverage:ignore-end
+  factory NextcloudUserStatusGetPublicStatuses([void Function(NextcloudUserStatusGetPublicStatusesBuilder)? b]) =
+      _$NextcloudUserStatusGetPublicStatuses;
 
-  // coverage:ignore-start
-  factory NextcloudUserStatusGetPublicStatuses.fromJsonString(String data) =>
-      NextcloudUserStatusGetPublicStatuses.fromJson(json.decode(data) as Map<String, dynamic>);
-  // coverage:ignore-end
-
-  final NextcloudUserStatusGetPublicStatuses_Ocs ocs;
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$NextcloudUserStatusGetPublicStatusesToJson(this);
-  // coverage:ignore-end
+  static NextcloudUserStatusGetPublicStatuses fromJson(Map<String, dynamic> json) =>
+      serializers.deserializeWith(serializer, json)!;
+  static NextcloudUserStatusGetPublicStatuses fromJsonString(String data) => serializers.fromJson(serializer, data)!;
+  Map<String, dynamic> toJson() => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
   static String? toJsonString(NextcloudUserStatusGetPublicStatuses? data) =>
-      data == null ? null : json.encode(data.toJson());
+      data == null ? null : serializers.toJson(serializer, data);
+  NextcloudUserStatusGetPublicStatuses_Ocs get ocs;
+  static Serializer<NextcloudUserStatusGetPublicStatuses> get serializer =>
+      _$nextcloudUserStatusGetPublicStatusesSerializer;
 }
 
 class NextcloudUserStatusGetPublicStatus_Ocs_Data {
@@ -5728,55 +4718,41 @@ class NextcloudUserStatusGetPublicStatus_Ocs_Data {
   // coverage:ignore-end
 }
 
-@JsonSerializable()
-class NextcloudUserStatusGetPublicStatus_Ocs {
-  NextcloudUserStatusGetPublicStatus_Ocs({
-    required this.meta,
-    required this.data,
-  });
+abstract class NextcloudUserStatusGetPublicStatus_Ocs
+    implements Built<NextcloudUserStatusGetPublicStatus_Ocs, NextcloudUserStatusGetPublicStatus_OcsBuilder> {
+  const NextcloudUserStatusGetPublicStatus_Ocs._();
 
-  // coverage:ignore-start
-  factory NextcloudUserStatusGetPublicStatus_Ocs.fromJson(Map<String, dynamic> json) =>
-      _$NextcloudUserStatusGetPublicStatus_OcsFromJson(json);
-  // coverage:ignore-end
+  factory NextcloudUserStatusGetPublicStatus_Ocs([void Function(NextcloudUserStatusGetPublicStatus_OcsBuilder)? b]) =
+      _$NextcloudUserStatusGetPublicStatus_Ocs;
 
-  // coverage:ignore-start
-  factory NextcloudUserStatusGetPublicStatus_Ocs.fromJsonString(String data) =>
-      NextcloudUserStatusGetPublicStatus_Ocs.fromJson(json.decode(data) as Map<String, dynamic>);
-  // coverage:ignore-end
-
-  final NextcloudOCSMeta meta;
-
-  final NextcloudUserStatusGetPublicStatus_Ocs_Data data;
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$NextcloudUserStatusGetPublicStatus_OcsToJson(this);
-  // coverage:ignore-end
+  static NextcloudUserStatusGetPublicStatus_Ocs fromJson(Map<String, dynamic> json) =>
+      serializers.deserializeWith(serializer, json)!;
+  static NextcloudUserStatusGetPublicStatus_Ocs fromJsonString(String data) => serializers.fromJson(serializer, data)!;
+  Map<String, dynamic> toJson() => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
   static String? toJsonString(NextcloudUserStatusGetPublicStatus_Ocs? data) =>
-      data == null ? null : json.encode(data.toJson());
+      data == null ? null : serializers.toJson(serializer, data);
+  NextcloudOCSMeta get meta;
+  NextcloudUserStatusGetPublicStatus_Ocs_Data get data;
+  static Serializer<NextcloudUserStatusGetPublicStatus_Ocs> get serializer =>
+      _$nextcloudUserStatusGetPublicStatusOcsSerializer;
 }
 
-@JsonSerializable()
-class NextcloudUserStatusGetPublicStatus {
-  NextcloudUserStatusGetPublicStatus({required this.ocs});
+abstract class NextcloudUserStatusGetPublicStatus
+    implements Built<NextcloudUserStatusGetPublicStatus, NextcloudUserStatusGetPublicStatusBuilder> {
+  const NextcloudUserStatusGetPublicStatus._();
 
-  // coverage:ignore-start
-  factory NextcloudUserStatusGetPublicStatus.fromJson(Map<String, dynamic> json) =>
-      _$NextcloudUserStatusGetPublicStatusFromJson(json);
-  // coverage:ignore-end
+  factory NextcloudUserStatusGetPublicStatus([void Function(NextcloudUserStatusGetPublicStatusBuilder)? b]) =
+      _$NextcloudUserStatusGetPublicStatus;
 
-  // coverage:ignore-start
-  factory NextcloudUserStatusGetPublicStatus.fromJsonString(String data) =>
-      NextcloudUserStatusGetPublicStatus.fromJson(json.decode(data) as Map<String, dynamic>);
-  // coverage:ignore-end
-
-  final NextcloudUserStatusGetPublicStatus_Ocs ocs;
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$NextcloudUserStatusGetPublicStatusToJson(this);
-  // coverage:ignore-end
+  static NextcloudUserStatusGetPublicStatus fromJson(Map<String, dynamic> json) =>
+      serializers.deserializeWith(serializer, json)!;
+  static NextcloudUserStatusGetPublicStatus fromJsonString(String data) => serializers.fromJson(serializer, data)!;
+  Map<String, dynamic> toJson() => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
   static String? toJsonString(NextcloudUserStatusGetPublicStatus? data) =>
-      data == null ? null : json.encode(data.toJson());
+      data == null ? null : serializers.toJson(serializer, data);
+  NextcloudUserStatusGetPublicStatus_Ocs get ocs;
+  static Serializer<NextcloudUserStatusGetPublicStatus> get serializer =>
+      _$nextcloudUserStatusGetPublicStatusSerializer;
 }
 
 class NextcloudUserStatusStatus_ClearAt {
@@ -5823,48 +4799,26 @@ class NextcloudUserStatusStatus_ClearAt {
   // coverage:ignore-end
 }
 
-@JsonSerializable()
-class NextcloudUserStatusStatus {
-  NextcloudUserStatusStatus({
-    required this.userId,
-    this.message,
-    this.messageId,
-    required this.messageIsPredefined,
-    this.icon,
-    this.clearAt,
-    required this.status,
-    required this.statusIsUserDefined,
-  });
+abstract class NextcloudUserStatusStatus implements Built<NextcloudUserStatusStatus, NextcloudUserStatusStatusBuilder> {
+  const NextcloudUserStatusStatus._();
 
-  // coverage:ignore-start
-  factory NextcloudUserStatusStatus.fromJson(Map<String, dynamic> json) => _$NextcloudUserStatusStatusFromJson(json);
-  // coverage:ignore-end
+  factory NextcloudUserStatusStatus([void Function(NextcloudUserStatusStatusBuilder)? b]) = _$NextcloudUserStatusStatus;
 
-  // coverage:ignore-start
-  factory NextcloudUserStatusStatus.fromJsonString(String data) =>
-      NextcloudUserStatusStatus.fromJson(json.decode(data) as Map<String, dynamic>);
-  // coverage:ignore-end
-
-  final String userId;
-
-  final String? message;
-
-  final String? messageId;
-
-  final bool messageIsPredefined;
-
-  final String? icon;
-
-  final NextcloudUserStatusStatus_ClearAt? clearAt;
-
-  final NextcloudUserStatusType status;
-
-  final bool statusIsUserDefined;
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$NextcloudUserStatusStatusToJson(this);
-  // coverage:ignore-end
-  static String? toJsonString(NextcloudUserStatusStatus? data) => data == null ? null : json.encode(data.toJson());
+  static NextcloudUserStatusStatus fromJson(Map<String, dynamic> json) =>
+      serializers.deserializeWith(serializer, json)!;
+  static NextcloudUserStatusStatus fromJsonString(String data) => serializers.fromJson(serializer, data)!;
+  Map<String, dynamic> toJson() => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
+  static String? toJsonString(NextcloudUserStatusStatus? data) =>
+      data == null ? null : serializers.toJson(serializer, data);
+  String get userId;
+  String? get message;
+  String? get messageId;
+  bool get messageIsPredefined;
+  String? get icon;
+  NextcloudUserStatusStatus_ClearAt? get clearAt;
+  NextcloudUserStatusType get status;
+  bool get statusIsUserDefined;
+  static Serializer<NextcloudUserStatusStatus> get serializer => _$nextcloudUserStatusStatusSerializer;
 }
 
 class NextcloudUserStatusGetStatus_Ocs_Data {
@@ -5910,54 +4864,39 @@ class NextcloudUserStatusGetStatus_Ocs_Data {
   // coverage:ignore-end
 }
 
-@JsonSerializable()
-class NextcloudUserStatusGetStatus_Ocs {
-  NextcloudUserStatusGetStatus_Ocs({
-    required this.meta,
-    required this.data,
-  });
+abstract class NextcloudUserStatusGetStatus_Ocs
+    implements Built<NextcloudUserStatusGetStatus_Ocs, NextcloudUserStatusGetStatus_OcsBuilder> {
+  const NextcloudUserStatusGetStatus_Ocs._();
 
-  // coverage:ignore-start
-  factory NextcloudUserStatusGetStatus_Ocs.fromJson(Map<String, dynamic> json) =>
-      _$NextcloudUserStatusGetStatus_OcsFromJson(json);
-  // coverage:ignore-end
+  factory NextcloudUserStatusGetStatus_Ocs([void Function(NextcloudUserStatusGetStatus_OcsBuilder)? b]) =
+      _$NextcloudUserStatusGetStatus_Ocs;
 
-  // coverage:ignore-start
-  factory NextcloudUserStatusGetStatus_Ocs.fromJsonString(String data) =>
-      NextcloudUserStatusGetStatus_Ocs.fromJson(json.decode(data) as Map<String, dynamic>);
-  // coverage:ignore-end
-
-  final NextcloudOCSMeta meta;
-
-  final NextcloudUserStatusGetStatus_Ocs_Data data;
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$NextcloudUserStatusGetStatus_OcsToJson(this);
-  // coverage:ignore-end
+  static NextcloudUserStatusGetStatus_Ocs fromJson(Map<String, dynamic> json) =>
+      serializers.deserializeWith(serializer, json)!;
+  static NextcloudUserStatusGetStatus_Ocs fromJsonString(String data) => serializers.fromJson(serializer, data)!;
+  Map<String, dynamic> toJson() => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
   static String? toJsonString(NextcloudUserStatusGetStatus_Ocs? data) =>
-      data == null ? null : json.encode(data.toJson());
+      data == null ? null : serializers.toJson(serializer, data);
+  NextcloudOCSMeta get meta;
+  NextcloudUserStatusGetStatus_Ocs_Data get data;
+  static Serializer<NextcloudUserStatusGetStatus_Ocs> get serializer => _$nextcloudUserStatusGetStatusOcsSerializer;
 }
 
-@JsonSerializable()
-class NextcloudUserStatusGetStatus {
-  NextcloudUserStatusGetStatus({required this.ocs});
+abstract class NextcloudUserStatusGetStatus
+    implements Built<NextcloudUserStatusGetStatus, NextcloudUserStatusGetStatusBuilder> {
+  const NextcloudUserStatusGetStatus._();
 
-  // coverage:ignore-start
-  factory NextcloudUserStatusGetStatus.fromJson(Map<String, dynamic> json) =>
-      _$NextcloudUserStatusGetStatusFromJson(json);
-  // coverage:ignore-end
+  factory NextcloudUserStatusGetStatus([void Function(NextcloudUserStatusGetStatusBuilder)? b]) =
+      _$NextcloudUserStatusGetStatus;
 
-  // coverage:ignore-start
-  factory NextcloudUserStatusGetStatus.fromJsonString(String data) =>
-      NextcloudUserStatusGetStatus.fromJson(json.decode(data) as Map<String, dynamic>);
-  // coverage:ignore-end
-
-  final NextcloudUserStatusGetStatus_Ocs ocs;
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$NextcloudUserStatusGetStatusToJson(this);
-  // coverage:ignore-end
-  static String? toJsonString(NextcloudUserStatusGetStatus? data) => data == null ? null : json.encode(data.toJson());
+  static NextcloudUserStatusGetStatus fromJson(Map<String, dynamic> json) =>
+      serializers.deserializeWith(serializer, json)!;
+  static NextcloudUserStatusGetStatus fromJsonString(String data) => serializers.fromJson(serializer, data)!;
+  Map<String, dynamic> toJson() => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
+  static String? toJsonString(NextcloudUserStatusGetStatus? data) =>
+      data == null ? null : serializers.toJson(serializer, data);
+  NextcloudUserStatusGetStatus_Ocs get ocs;
+  static Serializer<NextcloudUserStatusGetStatus> get serializer => _$nextcloudUserStatusGetStatusSerializer;
 }
 
 class NextcloudUserStatusPredefinedStatus_ClearAt {
@@ -6004,183 +4943,128 @@ class NextcloudUserStatusPredefinedStatus_ClearAt {
   // coverage:ignore-end
 }
 
-@JsonSerializable()
-class NextcloudUserStatusPredefinedStatus {
-  NextcloudUserStatusPredefinedStatus({
-    required this.id,
-    required this.icon,
-    required this.message,
-    this.clearAt,
-  });
+abstract class NextcloudUserStatusPredefinedStatus
+    implements Built<NextcloudUserStatusPredefinedStatus, NextcloudUserStatusPredefinedStatusBuilder> {
+  const NextcloudUserStatusPredefinedStatus._();
 
-  // coverage:ignore-start
-  factory NextcloudUserStatusPredefinedStatus.fromJson(Map<String, dynamic> json) =>
-      _$NextcloudUserStatusPredefinedStatusFromJson(json);
-  // coverage:ignore-end
+  factory NextcloudUserStatusPredefinedStatus([void Function(NextcloudUserStatusPredefinedStatusBuilder)? b]) =
+      _$NextcloudUserStatusPredefinedStatus;
 
-  // coverage:ignore-start
-  factory NextcloudUserStatusPredefinedStatus.fromJsonString(String data) =>
-      NextcloudUserStatusPredefinedStatus.fromJson(json.decode(data) as Map<String, dynamic>);
-  // coverage:ignore-end
-
-  final String id;
-
-  final String icon;
-
-  final String message;
-
-  final NextcloudUserStatusPredefinedStatus_ClearAt? clearAt;
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$NextcloudUserStatusPredefinedStatusToJson(this);
-  // coverage:ignore-end
+  static NextcloudUserStatusPredefinedStatus fromJson(Map<String, dynamic> json) =>
+      serializers.deserializeWith(serializer, json)!;
+  static NextcloudUserStatusPredefinedStatus fromJsonString(String data) => serializers.fromJson(serializer, data)!;
+  Map<String, dynamic> toJson() => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
   static String? toJsonString(NextcloudUserStatusPredefinedStatus? data) =>
-      data == null ? null : json.encode(data.toJson());
+      data == null ? null : serializers.toJson(serializer, data);
+  String get id;
+  String get icon;
+  String get message;
+  NextcloudUserStatusPredefinedStatus_ClearAt? get clearAt;
+  static Serializer<NextcloudUserStatusPredefinedStatus> get serializer =>
+      _$nextcloudUserStatusPredefinedStatusSerializer;
 }
 
-@JsonSerializable()
-class NextcloudUserStatusPredefinedStatuses_Ocs {
-  NextcloudUserStatusPredefinedStatuses_Ocs({
-    required this.meta,
-    required this.data,
-  });
+abstract class NextcloudUserStatusPredefinedStatuses_Ocs
+    implements Built<NextcloudUserStatusPredefinedStatuses_Ocs, NextcloudUserStatusPredefinedStatuses_OcsBuilder> {
+  const NextcloudUserStatusPredefinedStatuses_Ocs._();
 
-  // coverage:ignore-start
-  factory NextcloudUserStatusPredefinedStatuses_Ocs.fromJson(Map<String, dynamic> json) =>
-      _$NextcloudUserStatusPredefinedStatuses_OcsFromJson(json);
-  // coverage:ignore-end
+  factory NextcloudUserStatusPredefinedStatuses_Ocs(
+          [void Function(NextcloudUserStatusPredefinedStatuses_OcsBuilder)? b]) =
+      _$NextcloudUserStatusPredefinedStatuses_Ocs;
 
-  // coverage:ignore-start
-  factory NextcloudUserStatusPredefinedStatuses_Ocs.fromJsonString(String data) =>
-      NextcloudUserStatusPredefinedStatuses_Ocs.fromJson(json.decode(data) as Map<String, dynamic>);
-  // coverage:ignore-end
-
-  final NextcloudOCSMeta meta;
-
-  final BuiltList<NextcloudUserStatusPredefinedStatus> data;
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$NextcloudUserStatusPredefinedStatuses_OcsToJson(this);
-  // coverage:ignore-end
+  static NextcloudUserStatusPredefinedStatuses_Ocs fromJson(Map<String, dynamic> json) =>
+      serializers.deserializeWith(serializer, json)!;
+  static NextcloudUserStatusPredefinedStatuses_Ocs fromJsonString(String data) =>
+      serializers.fromJson(serializer, data)!;
+  Map<String, dynamic> toJson() => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
   static String? toJsonString(NextcloudUserStatusPredefinedStatuses_Ocs? data) =>
-      data == null ? null : json.encode(data.toJson());
+      data == null ? null : serializers.toJson(serializer, data);
+  NextcloudOCSMeta get meta;
+  BuiltList<NextcloudUserStatusPredefinedStatus> get data;
+  static Serializer<NextcloudUserStatusPredefinedStatuses_Ocs> get serializer =>
+      _$nextcloudUserStatusPredefinedStatusesOcsSerializer;
 }
 
-@JsonSerializable()
-class NextcloudUserStatusPredefinedStatuses {
-  NextcloudUserStatusPredefinedStatuses({required this.ocs});
+abstract class NextcloudUserStatusPredefinedStatuses
+    implements Built<NextcloudUserStatusPredefinedStatuses, NextcloudUserStatusPredefinedStatusesBuilder> {
+  const NextcloudUserStatusPredefinedStatuses._();
 
-  // coverage:ignore-start
-  factory NextcloudUserStatusPredefinedStatuses.fromJson(Map<String, dynamic> json) =>
-      _$NextcloudUserStatusPredefinedStatusesFromJson(json);
-  // coverage:ignore-end
+  factory NextcloudUserStatusPredefinedStatuses([void Function(NextcloudUserStatusPredefinedStatusesBuilder)? b]) =
+      _$NextcloudUserStatusPredefinedStatuses;
 
-  // coverage:ignore-start
-  factory NextcloudUserStatusPredefinedStatuses.fromJsonString(String data) =>
-      NextcloudUserStatusPredefinedStatuses.fromJson(json.decode(data) as Map<String, dynamic>);
-  // coverage:ignore-end
-
-  final NextcloudUserStatusPredefinedStatuses_Ocs ocs;
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$NextcloudUserStatusPredefinedStatusesToJson(this);
-  // coverage:ignore-end
+  static NextcloudUserStatusPredefinedStatuses fromJson(Map<String, dynamic> json) =>
+      serializers.deserializeWith(serializer, json)!;
+  static NextcloudUserStatusPredefinedStatuses fromJsonString(String data) => serializers.fromJson(serializer, data)!;
+  Map<String, dynamic> toJson() => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
   static String? toJsonString(NextcloudUserStatusPredefinedStatuses? data) =>
-      data == null ? null : json.encode(data.toJson());
+      data == null ? null : serializers.toJson(serializer, data);
+  NextcloudUserStatusPredefinedStatuses_Ocs get ocs;
+  static Serializer<NextcloudUserStatusPredefinedStatuses> get serializer =>
+      _$nextcloudUserStatusPredefinedStatusesSerializer;
 }
 
-@JsonSerializable()
-class NextcloudUserStatusHeartbeat_Ocs {
-  NextcloudUserStatusHeartbeat_Ocs({
-    required this.meta,
-    required this.data,
-  });
+abstract class NextcloudUserStatusHeartbeat_Ocs
+    implements Built<NextcloudUserStatusHeartbeat_Ocs, NextcloudUserStatusHeartbeat_OcsBuilder> {
+  const NextcloudUserStatusHeartbeat_Ocs._();
 
-  // coverage:ignore-start
-  factory NextcloudUserStatusHeartbeat_Ocs.fromJson(Map<String, dynamic> json) =>
-      _$NextcloudUserStatusHeartbeat_OcsFromJson(json);
-  // coverage:ignore-end
+  factory NextcloudUserStatusHeartbeat_Ocs([void Function(NextcloudUserStatusHeartbeat_OcsBuilder)? b]) =
+      _$NextcloudUserStatusHeartbeat_Ocs;
 
-  // coverage:ignore-start
-  factory NextcloudUserStatusHeartbeat_Ocs.fromJsonString(String data) =>
-      NextcloudUserStatusHeartbeat_Ocs.fromJson(json.decode(data) as Map<String, dynamic>);
-  // coverage:ignore-end
-
-  final NextcloudOCSMeta meta;
-
-  final NextcloudUserStatusStatus data;
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$NextcloudUserStatusHeartbeat_OcsToJson(this);
-  // coverage:ignore-end
+  static NextcloudUserStatusHeartbeat_Ocs fromJson(Map<String, dynamic> json) =>
+      serializers.deserializeWith(serializer, json)!;
+  static NextcloudUserStatusHeartbeat_Ocs fromJsonString(String data) => serializers.fromJson(serializer, data)!;
+  Map<String, dynamic> toJson() => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
   static String? toJsonString(NextcloudUserStatusHeartbeat_Ocs? data) =>
-      data == null ? null : json.encode(data.toJson());
+      data == null ? null : serializers.toJson(serializer, data);
+  NextcloudOCSMeta get meta;
+  NextcloudUserStatusStatus get data;
+  static Serializer<NextcloudUserStatusHeartbeat_Ocs> get serializer => _$nextcloudUserStatusHeartbeatOcsSerializer;
 }
 
-@JsonSerializable()
-class NextcloudUserStatusHeartbeat {
-  NextcloudUserStatusHeartbeat({required this.ocs});
+abstract class NextcloudUserStatusHeartbeat
+    implements Built<NextcloudUserStatusHeartbeat, NextcloudUserStatusHeartbeatBuilder> {
+  const NextcloudUserStatusHeartbeat._();
 
-  // coverage:ignore-start
-  factory NextcloudUserStatusHeartbeat.fromJson(Map<String, dynamic> json) =>
-      _$NextcloudUserStatusHeartbeatFromJson(json);
-  // coverage:ignore-end
+  factory NextcloudUserStatusHeartbeat([void Function(NextcloudUserStatusHeartbeatBuilder)? b]) =
+      _$NextcloudUserStatusHeartbeat;
 
-  // coverage:ignore-start
-  factory NextcloudUserStatusHeartbeat.fromJsonString(String data) =>
-      NextcloudUserStatusHeartbeat.fromJson(json.decode(data) as Map<String, dynamic>);
-  // coverage:ignore-end
-
-  final NextcloudUserStatusHeartbeat_Ocs ocs;
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$NextcloudUserStatusHeartbeatToJson(this);
-  // coverage:ignore-end
-  static String? toJsonString(NextcloudUserStatusHeartbeat? data) => data == null ? null : json.encode(data.toJson());
+  static NextcloudUserStatusHeartbeat fromJson(Map<String, dynamic> json) =>
+      serializers.deserializeWith(serializer, json)!;
+  static NextcloudUserStatusHeartbeat fromJsonString(String data) => serializers.fromJson(serializer, data)!;
+  Map<String, dynamic> toJson() => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
+  static String? toJsonString(NextcloudUserStatusHeartbeat? data) =>
+      data == null ? null : serializers.toJson(serializer, data);
+  NextcloudUserStatusHeartbeat_Ocs get ocs;
+  static Serializer<NextcloudUserStatusHeartbeat> get serializer => _$nextcloudUserStatusHeartbeatSerializer;
 }
 
-@JsonSerializable()
-class NextcloudNotificationsNotificationDecryptedSubject {
-  NextcloudNotificationsNotificationDecryptedSubject({
-    this.nid,
-    this.app,
-    this.subject,
-    this.type,
-    this.id,
-    this.delete,
-    this.deleteAll,
-  });
+abstract class NextcloudNotificationsNotificationDecryptedSubject
+    implements
+        Built<NextcloudNotificationsNotificationDecryptedSubject,
+            NextcloudNotificationsNotificationDecryptedSubjectBuilder> {
+  const NextcloudNotificationsNotificationDecryptedSubject._();
 
-  // coverage:ignore-start
-  factory NextcloudNotificationsNotificationDecryptedSubject.fromJson(Map<String, dynamic> json) =>
-      _$NextcloudNotificationsNotificationDecryptedSubjectFromJson(json);
-  // coverage:ignore-end
+  factory NextcloudNotificationsNotificationDecryptedSubject(
+          [void Function(NextcloudNotificationsNotificationDecryptedSubjectBuilder)? b]) =
+      _$NextcloudNotificationsNotificationDecryptedSubject;
 
-  // coverage:ignore-start
-  factory NextcloudNotificationsNotificationDecryptedSubject.fromJsonString(String data) =>
-      NextcloudNotificationsNotificationDecryptedSubject.fromJson(json.decode(data) as Map<String, dynamic>);
-  // coverage:ignore-end
-
-  final int? nid;
-
-  final String? app;
-
-  final String? subject;
-
-  final String? type;
-
-  final String? id;
-
-  final bool? delete;
-
-  @JsonKey(name: 'delete-all')
-  final bool? deleteAll;
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$NextcloudNotificationsNotificationDecryptedSubjectToJson(this);
-  // coverage:ignore-end
+  static NextcloudNotificationsNotificationDecryptedSubject fromJson(Map<String, dynamic> json) =>
+      serializers.deserializeWith(serializer, json)!;
+  static NextcloudNotificationsNotificationDecryptedSubject fromJsonString(String data) =>
+      serializers.fromJson(serializer, data)!;
+  Map<String, dynamic> toJson() => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
   static String? toJsonString(NextcloudNotificationsNotificationDecryptedSubject? data) =>
-      data == null ? null : json.encode(data.toJson());
+      data == null ? null : serializers.toJson(serializer, data);
+  int? get nid;
+  String? get app;
+  String? get subject;
+  String? get type;
+  String? get id;
+  bool? get delete;
+  @BuiltValueField(wireName: 'delete-all')
+  bool? get deleteAll;
+  static Serializer<NextcloudNotificationsNotificationDecryptedSubject> get serializer =>
+      _$nextcloudNotificationsNotificationDecryptedSubjectSerializer;
 }
 
 @SerializersFor([
