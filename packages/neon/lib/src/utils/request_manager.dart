@@ -14,6 +14,7 @@ class RequestManager {
     final Future<R> Function() call,
     final T Function(R) unwrap, {
     final bool disableTimeout = false,
+    final int retries = 0,
   }) async {
     if (subject.valueOrNull?.data != null) {
       subject.add(
@@ -53,6 +54,19 @@ class RequestManager {
     } catch (e, s) {
       debugPrint(e.toString());
       debugPrint(s.toString());
+      if (e is NextcloudApiException && e.statusCode >= 500 && retries < 3) {
+        debugPrint('Retrying...');
+        await wrapNextcloud(
+          clientID,
+          k,
+          subject,
+          call,
+          unwrap,
+          disableTimeout: disableTimeout,
+          retries: retries + 1,
+        );
+        return;
+      }
       if (cache != null && await cache!.has(key)) {
         try {
           subject.add(
