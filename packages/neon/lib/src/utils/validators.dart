@@ -4,20 +4,24 @@ String? validateHttpUrl(
   final BuildContext context,
   final String? input, {
   final bool httpsOnly = false,
+  final bool allowEmptyScheme = false,
 }) {
   if (input == null || input == '') {
     return AppLocalizations.of(context).errorInvalidURL;
   }
   try {
     final uri = Uri.parse(input);
-    // TODO: Maybe make a better error message for http URLs if only https is allowed
-    if (!(!httpsOnly && (uri.isScheme('http')) || uri.isScheme('https'))) {
-      return AppLocalizations.of(context).errorInvalidURL;
+    if (uri.isScheme('https')) {
+      return null;
     }
-  } catch (e) {
-    return AppLocalizations.of(context).errorInvalidURL;
-  }
-  return null;
+    if (uri.isScheme('http') && !httpsOnly) {
+      return null;
+    }
+    if (uri.isScheme('') && allowEmptyScheme) {
+      return null;
+    }
+  } catch (_) {}
+  return AppLocalizations.of(context).errorInvalidURL;
 }
 
 String? validateNotEmpty(final BuildContext context, final String? input) {
