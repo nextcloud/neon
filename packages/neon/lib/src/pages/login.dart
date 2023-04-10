@@ -191,10 +191,18 @@ class _LoginPageState extends State<LoginPage> {
                                   hintText: 'https://...',
                                 ),
                                 initialValue: widget.serverURL,
-                                validator: (final input) => validateHttpUrl(context, input),
+                                validator: (final input) => validateHttpUrl(
+                                  context,
+                                  input,
+                                  allowEmptyScheme: true,
+                                ),
                                 onFieldSubmitted: (final input) {
                                   if (_formKey.currentState!.validate()) {
-                                    _loginBloc.setServerURL(input);
+                                    var url = input;
+                                    if (!(url.startsWith('http://') || url.startsWith('https://'))) {
+                                      url = 'http://$url';
+                                    }
+                                    _loginBloc.setServerURL(url);
                                   } else {
                                     _focusNode.requestFocus();
                                   }
