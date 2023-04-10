@@ -37,7 +37,7 @@ class TypeResultObject extends TypeResult {
     if (fromContentString) {
       return '$name.fromJsonString($object as String)${toBuilder ? '.toBuilder()' : ''}';
     }
-    return '$name.fromJson($object as Map<String, dynamic>)${toBuilder ? '.toBuilder()' : ''}';
+    return '$name.fromJson($object as Object)${toBuilder ? '.toBuilder()' : ''}';
   }
 
   @override
