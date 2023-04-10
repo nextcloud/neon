@@ -185,8 +185,7 @@ class NextcloudCoreClient {
       body,
     );
     if (response.statusCode == 200) {
-      return NextcloudCoreServerStatus.fromJson(
-          json.decode(utf8.decode(response.body) as String) as Map<String, dynamic>);
+      return NextcloudCoreServerStatus.fromJson(json.decode(utf8.decode(response.body) as String) as Object);
     }
     throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
   }
@@ -210,8 +209,7 @@ class NextcloudCoreClient {
       body,
     );
     if (response.statusCode == 200) {
-      return NextcloudCoreServerCapabilities.fromJson(
-          json.decode(utf8.decode(response.body) as String) as Map<String, dynamic>);
+      return NextcloudCoreServerCapabilities.fromJson(json.decode(utf8.decode(response.body) as String) as Object);
     }
     throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
   }
@@ -235,8 +233,7 @@ class NextcloudCoreClient {
       body,
     );
     if (response.statusCode == 200) {
-      return NextcloudCoreNavigationApps.fromJson(
-          json.decode(utf8.decode(response.body) as String) as Map<String, dynamic>);
+      return NextcloudCoreNavigationApps.fromJson(json.decode(utf8.decode(response.body) as String) as Object);
     }
     throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
   }
@@ -255,8 +252,7 @@ class NextcloudCoreClient {
       body,
     );
     if (response.statusCode == 200) {
-      return NextcloudCoreLoginFlowInit.fromJson(
-          json.decode(utf8.decode(response.body) as String) as Map<String, dynamic>);
+      return NextcloudCoreLoginFlowInit.fromJson(json.decode(utf8.decode(response.body) as String) as Object);
     }
     throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
   }
@@ -276,8 +272,7 @@ class NextcloudCoreClient {
       body,
     );
     if (response.statusCode == 200) {
-      return NextcloudCoreLoginFlowResult.fromJson(
-          json.decode(utf8.decode(response.body) as String) as Map<String, dynamic>);
+      return NextcloudCoreLoginFlowResult.fromJson(json.decode(utf8.decode(response.body) as String) as Object);
     }
     throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
   }
@@ -425,8 +420,7 @@ class NextcloudCoreClient {
       body,
     );
     if (response.statusCode == 200) {
-      return NextcloudCoreAutocompleteResult.fromJson(
-          json.decode(utf8.decode(response.body) as String) as Map<String, dynamic>);
+      return NextcloudCoreAutocompleteResult.fromJson(json.decode(utf8.decode(response.body) as String) as Object);
     }
     throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
   }
@@ -456,8 +450,7 @@ class NextcloudNewsClient {
       body,
     );
     if (response.statusCode == 200) {
-      return NextcloudNewsSupportedAPIVersions.fromJson(
-          json.decode(utf8.decode(response.body) as String) as Map<String, dynamic>);
+      return NextcloudNewsSupportedAPIVersions.fromJson(json.decode(utf8.decode(response.body) as String) as Object);
     }
     throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
   }
@@ -481,8 +474,7 @@ class NextcloudNewsClient {
       body,
     );
     if (response.statusCode == 200) {
-      return NextcloudNewsListFolders.fromJson(
-          json.decode(utf8.decode(response.body) as String) as Map<String, dynamic>);
+      return NextcloudNewsListFolders.fromJson(json.decode(utf8.decode(response.body) as String) as Object);
     }
     throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
   }
@@ -507,8 +499,7 @@ class NextcloudNewsClient {
       body,
     );
     if (response.statusCode == 200) {
-      return NextcloudNewsListFolders.fromJson(
-          json.decode(utf8.decode(response.body) as String) as Map<String, dynamic>);
+      return NextcloudNewsListFolders.fromJson(json.decode(utf8.decode(response.body) as String) as Object);
     }
     throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
   }
@@ -609,7 +600,7 @@ class NextcloudNewsClient {
       body,
     );
     if (response.statusCode == 200) {
-      return NextcloudNewsListFeeds.fromJson(json.decode(utf8.decode(response.body) as String) as Map<String, dynamic>);
+      return NextcloudNewsListFeeds.fromJson(json.decode(utf8.decode(response.body) as String) as Object);
     }
     throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
   }
@@ -640,7 +631,7 @@ class NextcloudNewsClient {
       body,
     );
     if (response.statusCode == 200) {
-      return NextcloudNewsListFeeds.fromJson(json.decode(utf8.decode(response.body) as String) as Map<String, dynamic>);
+      return NextcloudNewsListFeeds.fromJson(json.decode(utf8.decode(response.body) as String) as Object);
     }
     throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
   }
@@ -795,8 +786,7 @@ class NextcloudNewsClient {
       body,
     );
     if (response.statusCode == 200) {
-      return NextcloudNewsListArticles.fromJson(
-          json.decode(utf8.decode(response.body) as String) as Map<String, dynamic>);
+      return NextcloudNewsListArticles.fromJson(json.decode(utf8.decode(response.body) as String) as Object);
     }
     throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
   }
@@ -833,8 +823,7 @@ class NextcloudNewsClient {
       body,
     );
     if (response.statusCode == 200) {
-      return NextcloudNewsListArticles.fromJson(
-          json.decode(utf8.decode(response.body) as String) as Map<String, dynamic>);
+      return NextcloudNewsListArticles.fromJson(json.decode(utf8.decode(response.body) as String) as Object);
     }
     throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
   }
@@ -982,7 +971,7 @@ class NextcloudNotesClient {
     );
     if (response.statusCode == 200) {
       return BuiltList<NextcloudNotesNote>((json.decode(utf8.decode(response.body) as String) as List)
-          .map((final e) => NextcloudNotesNote.fromJson(e as Map<String, dynamic>)));
+          .map((final e) => NextcloudNotesNote.fromJson(e as Object)));
     }
     throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
   }
@@ -1027,7 +1016,7 @@ class NextcloudNotesClient {
       body,
     );
     if (response.statusCode == 200) {
-      return NextcloudNotesNote.fromJson(json.decode(utf8.decode(response.body) as String) as Map<String, dynamic>);
+      return NextcloudNotesNote.fromJson(json.decode(utf8.decode(response.body) as String) as Object);
     }
     throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
   }
@@ -1062,7 +1051,7 @@ class NextcloudNotesClient {
       body,
     );
     if (response.statusCode == 200) {
-      return NextcloudNotesNote.fromJson(json.decode(utf8.decode(response.body) as String) as Map<String, dynamic>);
+      return NextcloudNotesNote.fromJson(json.decode(utf8.decode(response.body) as String) as Object);
     }
     throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
   }
@@ -1113,7 +1102,7 @@ class NextcloudNotesClient {
       body,
     );
     if (response.statusCode == 200) {
-      return NextcloudNotesNote.fromJson(json.decode(utf8.decode(response.body) as String) as Map<String, dynamic>);
+      return NextcloudNotesNote.fromJson(json.decode(utf8.decode(response.body) as String) as Object);
     }
     throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
   }
@@ -1162,7 +1151,7 @@ class NextcloudNotesClient {
       body,
     );
     if (response.statusCode == 200) {
-      return NextcloudNotesSettings.fromJson(json.decode(utf8.decode(response.body) as String) as Map<String, dynamic>);
+      return NextcloudNotesSettings.fromJson(json.decode(utf8.decode(response.body) as String) as Object);
     }
     throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
   }
@@ -1188,7 +1177,7 @@ class NextcloudNotesClient {
       body,
     );
     if (response.statusCode == 200) {
-      return NextcloudNotesSettings.fromJson(json.decode(utf8.decode(response.body) as String) as Map<String, dynamic>);
+      return NextcloudNotesSettings.fromJson(json.decode(utf8.decode(response.body) as String) as Object);
     }
     throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
   }
@@ -1219,7 +1208,7 @@ class NextcloudNotificationsClient {
     );
     if (response.statusCode == 200) {
       return NextcloudNotificationsListNotifications.fromJson(
-          json.decode(utf8.decode(response.body) as String) as Map<String, dynamic>);
+          json.decode(utf8.decode(response.body) as String) as Object);
     }
     throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
   }
@@ -1269,7 +1258,7 @@ class NextcloudNotificationsClient {
     );
     if (response.statusCode == 200) {
       return NextcloudNotificationsGetNotification.fromJson(
-          json.decode(utf8.decode(response.body) as String) as Map<String, dynamic>);
+          json.decode(utf8.decode(response.body) as String) as Object);
     }
     throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
   }
@@ -1294,7 +1283,7 @@ class NextcloudNotificationsClient {
       body,
     );
     if (response.statusCode == 200) {
-      return NextcloudEmptyOCS.fromJson(json.decode(utf8.decode(response.body) as String) as Map<String, dynamic>);
+      return NextcloudEmptyOCS.fromJson(json.decode(utf8.decode(response.body) as String) as Object);
     }
     throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
   }
@@ -1326,7 +1315,7 @@ class NextcloudNotificationsClient {
     );
     if (response.statusCode == 201) {
       return NextcloudNotificationsPushServerRegistration.fromJson(
-          json.decode(utf8.decode(response.body) as String) as Map<String, dynamic>);
+          json.decode(utf8.decode(response.body) as String) as Object);
     }
     throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
   }
@@ -1383,7 +1372,7 @@ class NextcloudNotificationsClient {
       body,
     );
     if (response.statusCode == 200) {
-      return NextcloudEmptyOCS.fromJson(json.decode(utf8.decode(response.body) as String) as Map<String, dynamic>);
+      return NextcloudEmptyOCS.fromJson(json.decode(utf8.decode(response.body) as String) as Object);
     }
     throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
   }
@@ -1413,8 +1402,7 @@ class NextcloudProvisioningApiClient {
       body,
     );
     if (response.statusCode == 200) {
-      return NextcloudProvisioningApiUser.fromJson(
-          json.decode(utf8.decode(response.body) as String) as Map<String, dynamic>);
+      return NextcloudProvisioningApiUser.fromJson(json.decode(utf8.decode(response.body) as String) as Object);
     }
     throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
   }
@@ -1439,8 +1427,7 @@ class NextcloudProvisioningApiClient {
       body,
     );
     if (response.statusCode == 200) {
-      return NextcloudProvisioningApiUser.fromJson(
-          json.decode(utf8.decode(response.body) as String) as Map<String, dynamic>);
+      return NextcloudProvisioningApiUser.fromJson(json.decode(utf8.decode(response.body) as String) as Object);
     }
     throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
   }
@@ -1472,7 +1459,7 @@ class NextcloudUnifiedPushProviderClient {
     );
     if (response.statusCode == 200) {
       return NextcloudUnifiedPushProviderCheckResponse200ApplicationJson.fromJson(
-          json.decode(utf8.decode(response.body) as String) as Map<String, dynamic>);
+          json.decode(utf8.decode(response.body) as String) as Object);
     }
     throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
   }
@@ -1502,7 +1489,7 @@ class NextcloudUnifiedPushProviderClient {
     );
     if (response.statusCode == 200) {
       return NextcloudUnifiedPushProviderSetKeepaliveResponse200ApplicationJson.fromJson(
-          json.decode(utf8.decode(response.body) as String) as Map<String, dynamic>);
+          json.decode(utf8.decode(response.body) as String) as Object);
     }
     throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
   }
@@ -1530,7 +1517,7 @@ class NextcloudUnifiedPushProviderClient {
     );
     if (response.statusCode == 200) {
       return NextcloudUnifiedPushProviderCreateDeviceResponse200ApplicationJson.fromJson(
-          json.decode(utf8.decode(response.body) as String) as Map<String, dynamic>);
+          json.decode(utf8.decode(response.body) as String) as Object);
     }
     throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
   }
@@ -1560,7 +1547,7 @@ class NextcloudUnifiedPushProviderClient {
     );
     if (response.statusCode == 401) {
       return NextcloudUnifiedPushProviderSyncDeviceResponse401ApplicationJson.fromJson(
-          json.decode(utf8.decode(response.body) as String) as Map<String, dynamic>);
+          json.decode(utf8.decode(response.body) as String) as Object);
     }
     throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
   }
@@ -1588,7 +1575,7 @@ class NextcloudUnifiedPushProviderClient {
     );
     if (response.statusCode == 200) {
       return NextcloudUnifiedPushProviderDeleteDeviceResponse200ApplicationJson.fromJson(
-          json.decode(utf8.decode(response.body) as String) as Map<String, dynamic>);
+          json.decode(utf8.decode(response.body) as String) as Object);
     }
     throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
   }
@@ -1619,7 +1606,7 @@ class NextcloudUnifiedPushProviderClient {
     );
     if (response.statusCode == 200) {
       return NextcloudUnifiedPushProviderCreateAppResponse200ApplicationJson.fromJson(
-          json.decode(utf8.decode(response.body) as String) as Map<String, dynamic>);
+          json.decode(utf8.decode(response.body) as String) as Object);
     }
     throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
   }
@@ -1646,7 +1633,7 @@ class NextcloudUnifiedPushProviderClient {
     );
     if (response.statusCode == 200) {
       return NextcloudUnifiedPushProviderDeleteAppResponse200ApplicationJson.fromJson(
-          json.decode(utf8.decode(response.body) as String) as Map<String, dynamic>);
+          json.decode(utf8.decode(response.body) as String) as Object);
     }
     throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
   }
@@ -1674,7 +1661,7 @@ class NextcloudUnifiedPushProviderClient {
     );
     if (response.statusCode == 200) {
       return NextcloudUnifiedPushProviderUnifiedpushDiscoveryResponse200ApplicationJson.fromJson(
-          json.decode(utf8.decode(response.body) as String) as Map<String, dynamic>);
+          json.decode(utf8.decode(response.body) as String) as Object);
     }
     throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
   }
@@ -1701,7 +1688,7 @@ class NextcloudUnifiedPushProviderClient {
     );
     if (response.statusCode == 201) {
       return NextcloudUnifiedPushProviderPushResponse201ApplicationJson.fromJson(
-          json.decode(utf8.decode(response.body) as String) as Map<String, dynamic>);
+          json.decode(utf8.decode(response.body) as String) as Object);
     }
     throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
   }
@@ -1727,7 +1714,7 @@ class NextcloudUnifiedPushProviderClient {
     );
     if (response.statusCode == 200) {
       return NextcloudUnifiedPushProviderGatewayMatrixDiscoveryResponse200ApplicationJson.fromJson(
-          json.decode(utf8.decode(response.body) as String) as Map<String, dynamic>);
+          json.decode(utf8.decode(response.body) as String) as Object);
     }
     throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
   }
@@ -1753,7 +1740,7 @@ class NextcloudUnifiedPushProviderClient {
     );
     if (response.statusCode == 200) {
       return NextcloudUnifiedPushProviderGatewayMatrixResponse200ApplicationJson.fromJson(
-          json.decode(utf8.decode(response.body) as String) as Map<String, dynamic>);
+          json.decode(utf8.decode(response.body) as String) as Object);
     }
     throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
   }
@@ -1783,8 +1770,7 @@ class NextcloudUserStatusClient {
       body,
     );
     if (response.statusCode == 200) {
-      return NextcloudUserStatusGetPublicStatuses.fromJson(
-          json.decode(utf8.decode(response.body) as String) as Map<String, dynamic>);
+      return NextcloudUserStatusGetPublicStatuses.fromJson(json.decode(utf8.decode(response.body) as String) as Object);
     }
     throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
   }
@@ -1809,8 +1795,7 @@ class NextcloudUserStatusClient {
       body,
     );
     if (response.statusCode == 200) {
-      return NextcloudUserStatusGetPublicStatus.fromJson(
-          json.decode(utf8.decode(response.body) as String) as Map<String, dynamic>);
+      return NextcloudUserStatusGetPublicStatus.fromJson(json.decode(utf8.decode(response.body) as String) as Object);
     }
     throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
   }
@@ -1834,8 +1819,7 @@ class NextcloudUserStatusClient {
       body,
     );
     if (response.statusCode == 200) {
-      return NextcloudUserStatusGetStatus.fromJson(
-          json.decode(utf8.decode(response.body) as String) as Map<String, dynamic>);
+      return NextcloudUserStatusGetStatus.fromJson(json.decode(utf8.decode(response.body) as String) as Object);
     }
     throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
   }
@@ -1860,8 +1844,7 @@ class NextcloudUserStatusClient {
       body,
     );
     if (response.statusCode == 200) {
-      return NextcloudUserStatusGetStatus.fromJson(
-          json.decode(utf8.decode(response.body) as String) as Map<String, dynamic>);
+      return NextcloudUserStatusGetStatus.fromJson(json.decode(utf8.decode(response.body) as String) as Object);
     }
     throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
   }
@@ -1892,8 +1875,7 @@ class NextcloudUserStatusClient {
       body,
     );
     if (response.statusCode == 200) {
-      return NextcloudUserStatusGetStatus.fromJson(
-          json.decode(utf8.decode(response.body) as String) as Map<String, dynamic>);
+      return NextcloudUserStatusGetStatus.fromJson(json.decode(utf8.decode(response.body) as String) as Object);
     }
     throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
   }
@@ -1930,8 +1912,7 @@ class NextcloudUserStatusClient {
       body,
     );
     if (response.statusCode == 200) {
-      return NextcloudUserStatusGetStatus.fromJson(
-          json.decode(utf8.decode(response.body) as String) as Map<String, dynamic>);
+      return NextcloudUserStatusGetStatus.fromJson(json.decode(utf8.decode(response.body) as String) as Object);
     }
     throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
   }
@@ -1978,7 +1959,7 @@ class NextcloudUserStatusClient {
     );
     if (response.statusCode == 200) {
       return NextcloudUserStatusPredefinedStatuses.fromJson(
-          json.decode(utf8.decode(response.body) as String) as Map<String, dynamic>);
+          json.decode(utf8.decode(response.body) as String) as Object);
     }
     throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
   }
@@ -2003,8 +1984,7 @@ class NextcloudUserStatusClient {
       body,
     );
     if (response.statusCode == 200) {
-      return NextcloudUserStatusHeartbeat.fromJson(
-          json.decode(utf8.decode(response.body) as String) as Map<String, dynamic>);
+      return NextcloudUserStatusHeartbeat.fromJson(json.decode(utf8.decode(response.body) as String) as Object);
     }
     throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
   }
@@ -2015,8 +1995,7 @@ abstract class NextcloudCoreServerStatus implements Built<NextcloudCoreServerSta
 
   factory NextcloudCoreServerStatus([void Function(NextcloudCoreServerStatusBuilder)? b]) = _$NextcloudCoreServerStatus;
 
-  static NextcloudCoreServerStatus fromJson(Map<String, dynamic> json) =>
-      serializers.deserializeWith(serializer, json)!;
+  static NextcloudCoreServerStatus fromJson(Object json) => serializers.deserializeWith(serializer, json)!;
   static NextcloudCoreServerStatus fromJsonString(String data) => serializers.fromJson(serializer, data)!;
   Map<String, dynamic> toJson() => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
   static String? toJsonString(NextcloudCoreServerStatus? data) =>
@@ -2037,7 +2016,7 @@ abstract class NextcloudOCSMeta implements Built<NextcloudOCSMeta, NextcloudOCSM
 
   factory NextcloudOCSMeta([void Function(NextcloudOCSMetaBuilder)? b]) = _$NextcloudOCSMeta;
 
-  static NextcloudOCSMeta fromJson(Map<String, dynamic> json) => serializers.deserializeWith(serializer, json)!;
+  static NextcloudOCSMeta fromJson(Object json) => serializers.deserializeWith(serializer, json)!;
   static NextcloudOCSMeta fromJsonString(String data) => serializers.fromJson(serializer, data)!;
   Map<String, dynamic> toJson() => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
   static String? toJsonString(NextcloudOCSMeta? data) => data == null ? null : serializers.toJson(serializer, data);
@@ -2059,7 +2038,7 @@ abstract class NextcloudCoreServerCapabilities_Ocs_Data_Version
           [void Function(NextcloudCoreServerCapabilities_Ocs_Data_VersionBuilder)? b]) =
       _$NextcloudCoreServerCapabilities_Ocs_Data_Version;
 
-  static NextcloudCoreServerCapabilities_Ocs_Data_Version fromJson(Map<String, dynamic> json) =>
+  static NextcloudCoreServerCapabilities_Ocs_Data_Version fromJson(Object json) =>
       serializers.deserializeWith(serializer, json)!;
   static NextcloudCoreServerCapabilities_Ocs_Data_Version fromJsonString(String data) =>
       serializers.fromJson(serializer, data)!;
@@ -2086,7 +2065,7 @@ abstract class NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Core
           [void Function(NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_CoreBuilder)? b]) =
       _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Core;
 
-  static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Core fromJson(Map<String, dynamic> json) =>
+  static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Core fromJson(Object json) =>
       serializers.deserializeWith(serializer, json)!;
   static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Core fromJsonString(String data) =>
       serializers.fromJson(serializer, data)!;
@@ -2114,7 +2093,7 @@ abstract class NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Bruteforce
           [void Function(NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_BruteforceBuilder)? b]) =
       _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Bruteforce;
 
-  static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Bruteforce fromJson(Map<String, dynamic> json) =>
+  static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Bruteforce fromJson(Object json) =>
       serializers.deserializeWith(serializer, json)!;
   static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Bruteforce fromJsonString(String data) =>
       serializers.fromJson(serializer, data)!;
@@ -2136,7 +2115,7 @@ abstract class NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_MetadataAva
           [void Function(NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_MetadataAvailableBuilder)? b]) =
       _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_MetadataAvailable;
 
-  static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_MetadataAvailable fromJson(Map<String, dynamic> json) =>
+  static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_MetadataAvailable fromJson(Object json) =>
       serializers.deserializeWith(serializer, json)!;
   static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_MetadataAvailable fromJsonString(String data) =>
       serializers.fromJson(serializer, data)!;
@@ -2159,8 +2138,7 @@ abstract class NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Files_Direc
           [void Function(NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Files_DirectEditingBuilder)? b]) =
       _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Files_DirectEditing;
 
-  static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Files_DirectEditing fromJson(
-          Map<String, dynamic> json) =>
+  static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Files_DirectEditing fromJson(Object json) =>
       serializers.deserializeWith(serializer, json)!;
   static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Files_DirectEditing fromJsonString(String data) =>
       serializers.fromJson(serializer, data)!;
@@ -2183,7 +2161,7 @@ abstract class NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Files
           [void Function(NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesBuilder)? b]) =
       _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Files;
 
-  static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Files fromJson(Map<String, dynamic> json) =>
+  static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Files fromJson(Object json) =>
       serializers.deserializeWith(serializer, json)!;
   static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Files fromJsonString(String data) =>
       serializers.fromJson(serializer, data)!;
@@ -2211,7 +2189,7 @@ abstract class NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Activity
           [void Function(NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_ActivityBuilder)? b]) =
       _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Activity;
 
-  static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Activity fromJson(Map<String, dynamic> json) =>
+  static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Activity fromJson(Object json) =>
       serializers.deserializeWith(serializer, json)!;
   static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Activity fromJsonString(String data) =>
       serializers.fromJson(serializer, data)!;
@@ -2233,7 +2211,7 @@ abstract class NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Sta
           [void Function(NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_StatusBuilder)? b]) =
       _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Status;
 
-  static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Status fromJson(Map<String, dynamic> json) =>
+  static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Status fromJson(Object json) =>
       serializers.deserializeWith(serializer, json)!;
   static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Status fromJsonString(String data) =>
       serializers.fromJson(serializer, data)!;
@@ -2255,7 +2233,7 @@ abstract class NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Set
           [void Function(NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_SettingsBuilder)? b]) =
       _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Settings;
 
-  static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Settings fromJson(Map<String, dynamic> json) =>
+  static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Settings fromJson(Object json) =>
       serializers.deserializeWith(serializer, json)!;
   static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Settings fromJsonString(String data) =>
       serializers.fromJson(serializer, data)!;
@@ -2280,8 +2258,7 @@ abstract class NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Cir
       [void Function(NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants_SourceBuilder)?
           b]) = _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants_Source;
 
-  static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants_Source fromJson(
-          Map<String, dynamic> json) =>
+  static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants_Source fromJson(Object json) =>
       serializers.deserializeWith(serializer, json)!;
   static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants_Source fromJsonString(
           String data) =>
@@ -2306,8 +2283,7 @@ abstract class NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Cir
           [void Function(NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_ConstantsBuilder)? b]) =
       _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants;
 
-  static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants fromJson(
-          Map<String, dynamic> json) =>
+  static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants fromJson(Object json) =>
       serializers.deserializeWith(serializer, json)!;
   static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants fromJsonString(String data) =>
       serializers.fromJson(serializer, data)!;
@@ -2330,8 +2306,7 @@ abstract class NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Cir
           [void Function(NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_ConfigBuilder)? b]) =
       _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Config;
 
-  static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Config fromJson(
-          Map<String, dynamic> json) =>
+  static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Config fromJson(Object json) =>
       serializers.deserializeWith(serializer, json)!;
   static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Config fromJsonString(String data) =>
       serializers.fromJson(serializer, data)!;
@@ -2354,7 +2329,7 @@ abstract class NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Cir
           [void Function(NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_CircleBuilder)? b]) =
       _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle;
 
-  static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle fromJson(Map<String, dynamic> json) =>
+  static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle fromJson(Object json) =>
       serializers.deserializeWith(serializer, json)!;
   static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle fromJsonString(String data) =>
       serializers.fromJson(serializer, data)!;
@@ -2377,8 +2352,7 @@ abstract class NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Mem
           [void Function(NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member_ConstantsBuilder)? b]) =
       _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member_Constants;
 
-  static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member_Constants fromJson(
-          Map<String, dynamic> json) =>
+  static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member_Constants fromJson(Object json) =>
       serializers.deserializeWith(serializer, json)!;
   static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member_Constants fromJsonString(String data) =>
       serializers.fromJson(serializer, data)!;
@@ -2400,7 +2374,7 @@ abstract class NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Mem
           [void Function(NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_MemberBuilder)? b]) =
       _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member;
 
-  static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member fromJson(Map<String, dynamic> json) =>
+  static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member fromJson(Object json) =>
       serializers.deserializeWith(serializer, json)!;
   static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member fromJsonString(String data) =>
       serializers.fromJson(serializer, data)!;
@@ -2423,7 +2397,7 @@ abstract class NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles
           [void Function(NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_CirclesBuilder)? b]) =
       _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles;
 
-  static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles fromJson(Map<String, dynamic> json) =>
+  static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles fromJson(Object json) =>
       serializers.deserializeWith(serializer, json)!;
   static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Circles fromJsonString(String data) =>
       serializers.fromJson(serializer, data)!;
@@ -2449,8 +2423,7 @@ abstract class NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Ocm_Resourc
       [void Function(NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes_ProtocolsBuilder)?
           b]) = _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes_Protocols;
 
-  static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes_Protocols fromJson(
-          Map<String, dynamic> json) =>
+  static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes_Protocols fromJson(Object json) =>
       serializers.deserializeWith(serializer, json)!;
   static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes_Protocols fromJsonString(
           String data) =>
@@ -2474,7 +2447,7 @@ abstract class NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Ocm_Resourc
           [void Function(NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypesBuilder)? b]) =
       _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes;
 
-  static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes fromJson(Map<String, dynamic> json) =>
+  static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes fromJson(Object json) =>
       serializers.deserializeWith(serializer, json)!;
   static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes fromJsonString(String data) =>
       serializers.fromJson(serializer, data)!;
@@ -2498,7 +2471,7 @@ abstract class NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Ocm
           [void Function(NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_OcmBuilder)? b]) =
       _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Ocm;
 
-  static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Ocm fromJson(Map<String, dynamic> json) =>
+  static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Ocm fromJson(Object json) =>
       serializers.deserializeWith(serializer, json)!;
   static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Ocm fromJsonString(String data) =>
       serializers.fromJson(serializer, data)!;
@@ -2523,7 +2496,7 @@ abstract class NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Dav
           [void Function(NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_DavBuilder)? b]) =
       _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Dav;
 
-  static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Dav fromJson(Map<String, dynamic> json) =>
+  static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Dav fromJson(Object json) =>
       serializers.deserializeWith(serializer, json)!;
   static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Dav fromJsonString(String data) =>
       serializers.fromJson(serializer, data)!;
@@ -2546,8 +2519,7 @@ abstract class NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharin
       [void Function(NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_PasswordBuilder)?
           b]) = _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_Password;
 
-  static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_Password fromJson(
-          Map<String, dynamic> json) =>
+  static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_Password fromJson(Object json) =>
       serializers.deserializeWith(serializer, json)!;
   static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_Password fromJsonString(
           String data) =>
@@ -2572,8 +2544,7 @@ abstract class NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharin
       [void Function(NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateBuilder)?
           b]) = _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDate;
 
-  static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDate fromJson(
-          Map<String, dynamic> json) =>
+  static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDate fromJson(Object json) =>
       serializers.deserializeWith(serializer, json)!;
   static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDate fromJsonString(
           String data) =>
@@ -2599,7 +2570,7 @@ abstract class NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharin
           b]) = _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternal;
 
   static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternal fromJson(
-          Map<String, dynamic> json) =>
+          Object json) =>
       serializers.deserializeWith(serializer, json)!;
   static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternal fromJsonString(
           String data) =>
@@ -2625,7 +2596,7 @@ abstract class NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharin
           b]) = _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemote;
 
   static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemote fromJson(
-          Map<String, dynamic> json) =>
+          Object json) =>
       serializers.deserializeWith(serializer, json)!;
   static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemote fromJsonString(
           String data) =>
@@ -2650,8 +2621,7 @@ abstract class NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharin
           [void Function(NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_PublicBuilder)? b]) =
       _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public;
 
-  static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public fromJson(
-          Map<String, dynamic> json) =>
+  static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public fromJson(Object json) =>
       serializers.deserializeWith(serializer, json)!;
   static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public fromJsonString(String data) =>
       serializers.fromJson(serializer, data)!;
@@ -2687,8 +2657,7 @@ abstract class NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharin
       [void Function(NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User_ExpireDateBuilder)?
           b]) = _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User_ExpireDate;
 
-  static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User_ExpireDate fromJson(
-          Map<String, dynamic> json) =>
+  static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User_ExpireDate fromJson(Object json) =>
       serializers.deserializeWith(serializer, json)!;
   static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User_ExpireDate fromJsonString(
           String data) =>
@@ -2712,7 +2681,7 @@ abstract class NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharin
           [void Function(NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_UserBuilder)? b]) =
       _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User;
 
-  static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User fromJson(Map<String, dynamic> json) =>
+  static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User fromJson(Object json) =>
       serializers.deserializeWith(serializer, json)!;
   static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User fromJsonString(String data) =>
       serializers.fromJson(serializer, data)!;
@@ -2737,8 +2706,7 @@ abstract class NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharin
       [void Function(NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDateBuilder)?
           b]) = _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDate;
 
-  static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDate fromJson(
-          Map<String, dynamic> json) =>
+  static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDate fromJson(Object json) =>
       serializers.deserializeWith(serializer, json)!;
   static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDate fromJsonString(
           String data) =>
@@ -2762,7 +2730,7 @@ abstract class NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharin
           [void Function(NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_GroupBuilder)? b]) =
       _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group;
 
-  static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group fromJson(Map<String, dynamic> json) =>
+  static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group fromJson(Object json) =>
       serializers.deserializeWith(serializer, json)!;
   static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group fromJsonString(String data) =>
       serializers.fromJson(serializer, data)!;
@@ -2787,7 +2755,7 @@ abstract class NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharin
           b]) = _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDate;
 
   static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDate fromJson(
-          Map<String, dynamic> json) =>
+          Object json) =>
       serializers.deserializeWith(serializer, json)!;
   static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDate fromJsonString(
           String data) =>
@@ -2813,7 +2781,7 @@ abstract class NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharin
           b]) = _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupported;
 
   static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupported fromJson(
-          Map<String, dynamic> json) =>
+          Object json) =>
       serializers.deserializeWith(serializer, json)!;
   static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupported
       fromJsonString(String data) => serializers.fromJson(serializer, data)!;
@@ -2837,8 +2805,7 @@ abstract class NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharin
           [void Function(NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_FederationBuilder)? b]) =
       _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation;
 
-  static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation fromJson(
-          Map<String, dynamic> json) =>
+  static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation fromJson(Object json) =>
       serializers.deserializeWith(serializer, json)!;
   static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation fromJsonString(String data) =>
       serializers.fromJson(serializer, data)!;
@@ -2866,8 +2833,7 @@ abstract class NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharin
           [void Function(NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_ShareeBuilder)? b]) =
       _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharee;
 
-  static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharee fromJson(
-          Map<String, dynamic> json) =>
+  static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharee fromJson(Object json) =>
       serializers.deserializeWith(serializer, json)!;
   static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharee fromJsonString(String data) =>
       serializers.fromJson(serializer, data)!;
@@ -2894,7 +2860,7 @@ abstract class NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharin
           b]) = _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_UploadFilesDrop;
 
   static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_UploadFilesDrop fromJson(
-          Map<String, dynamic> json) =>
+          Object json) =>
       serializers.deserializeWith(serializer, json)!;
   static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_UploadFilesDrop fromJsonString(
           String data) =>
@@ -2920,7 +2886,7 @@ abstract class NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharin
           b]) = _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_Password;
 
   static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_Password fromJson(
-          Map<String, dynamic> json) =>
+          Object json) =>
       serializers.deserializeWith(serializer, json)!;
   static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_Password fromJsonString(
           String data) =>
@@ -2946,7 +2912,7 @@ abstract class NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharin
           b]) = _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_ExpireDate;
 
   static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_ExpireDate fromJson(
-          Map<String, dynamic> json) =>
+          Object json) =>
       serializers.deserializeWith(serializer, json)!;
   static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_ExpireDate fromJsonString(
           String data) =>
@@ -2971,8 +2937,7 @@ abstract class NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharin
           [void Function(NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_SharebymailBuilder)? b]) =
       _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail;
 
-  static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail fromJson(
-          Map<String, dynamic> json) =>
+  static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail fromJson(Object json) =>
       serializers.deserializeWith(serializer, json)!;
   static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail fromJsonString(String data) =>
       serializers.fromJson(serializer, data)!;
@@ -3001,7 +2966,7 @@ abstract class NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharin
           [void Function(NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharingBuilder)? b]) =
       _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing;
 
-  static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing fromJson(Map<String, dynamic> json) =>
+  static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing fromJson(Object json) =>
       serializers.deserializeWith(serializer, json)!;
   static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing fromJsonString(String data) =>
       serializers.fromJson(serializer, data)!;
@@ -3035,7 +3000,7 @@ abstract class NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Notes
           [void Function(NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_NotesBuilder)? b]) =
       _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Notes;
 
-  static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Notes fromJson(Map<String, dynamic> json) =>
+  static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Notes fromJson(Object json) =>
       serializers.deserializeWith(serializer, json)!;
   static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Notes fromJsonString(String data) =>
       serializers.fromJson(serializer, data)!;
@@ -3059,7 +3024,7 @@ abstract class NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Notificatio
           [void Function(NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_NotificationsBuilder)? b]) =
       _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Notifications;
 
-  static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Notifications fromJson(Map<String, dynamic> json) =>
+  static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Notifications fromJson(Object json) =>
       serializers.deserializeWith(serializer, json)!;
   static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Notifications fromJsonString(String data) =>
       serializers.fromJson(serializer, data)!;
@@ -3085,7 +3050,7 @@ abstract class NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_PasswordPol
           [void Function(NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy_ApiBuilder)? b]) =
       _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy_Api;
 
-  static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy_Api fromJson(Map<String, dynamic> json) =>
+  static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy_Api fromJson(Object json) =>
       serializers.deserializeWith(serializer, json)!;
   static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy_Api fromJsonString(String data) =>
       serializers.fromJson(serializer, data)!;
@@ -3108,7 +3073,7 @@ abstract class NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_PasswordPol
           [void Function(NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicyBuilder)? b]) =
       _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy;
 
-  static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy fromJson(Map<String, dynamic> json) =>
+  static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy fromJson(Object json) =>
       serializers.deserializeWith(serializer, json)!;
   static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy fromJsonString(String data) =>
       serializers.fromJson(serializer, data)!;
@@ -3135,7 +3100,7 @@ abstract class NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Provisionin
           [void Function(NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_ProvisioningApiBuilder)? b]) =
       _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_ProvisioningApi;
 
-  static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_ProvisioningApi fromJson(Map<String, dynamic> json) =>
+  static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_ProvisioningApi fromJson(Object json) =>
       serializers.deserializeWith(serializer, json)!;
   static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_ProvisioningApi fromJsonString(String data) =>
       serializers.fromJson(serializer, data)!;
@@ -3163,7 +3128,7 @@ abstract class NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Theming
           [void Function(NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_ThemingBuilder)? b]) =
       _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Theming;
 
-  static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Theming fromJson(Map<String, dynamic> json) =>
+  static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Theming fromJson(Object json) =>
       serializers.deserializeWith(serializer, json)!;
   static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Theming fromJsonString(String data) =>
       serializers.fromJson(serializer, data)!;
@@ -3204,7 +3169,7 @@ abstract class NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_UserStatus
           [void Function(NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_UserStatusBuilder)? b]) =
       _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_UserStatus;
 
-  static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_UserStatus fromJson(Map<String, dynamic> json) =>
+  static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_UserStatus fromJson(Object json) =>
       serializers.deserializeWith(serializer, json)!;
   static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_UserStatus fromJsonString(String data) =>
       serializers.fromJson(serializer, data)!;
@@ -3228,7 +3193,7 @@ abstract class NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_WeatherStat
           [void Function(NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_WeatherStatusBuilder)? b]) =
       _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_WeatherStatus;
 
-  static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_WeatherStatus fromJson(Map<String, dynamic> json) =>
+  static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_WeatherStatus fromJson(Object json) =>
       serializers.deserializeWith(serializer, json)!;
   static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_WeatherStatus fromJsonString(String data) =>
       serializers.fromJson(serializer, data)!;
@@ -3250,7 +3215,7 @@ abstract class NextcloudCoreServerCapabilities_Ocs_Data_Capabilities
           [void Function(NextcloudCoreServerCapabilities_Ocs_Data_CapabilitiesBuilder)? b]) =
       _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities;
 
-  static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities fromJson(Map<String, dynamic> json) =>
+  static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities fromJson(Object json) =>
       serializers.deserializeWith(serializer, json)!;
   static NextcloudCoreServerCapabilities_Ocs_Data_Capabilities fromJsonString(String data) =>
       serializers.fromJson(serializer, data)!;
@@ -3289,7 +3254,7 @@ abstract class NextcloudCoreServerCapabilities_Ocs_Data
   factory NextcloudCoreServerCapabilities_Ocs_Data(
       [void Function(NextcloudCoreServerCapabilities_Ocs_DataBuilder)? b]) = _$NextcloudCoreServerCapabilities_Ocs_Data;
 
-  static NextcloudCoreServerCapabilities_Ocs_Data fromJson(Map<String, dynamic> json) =>
+  static NextcloudCoreServerCapabilities_Ocs_Data fromJson(Object json) =>
       serializers.deserializeWith(serializer, json)!;
   static NextcloudCoreServerCapabilities_Ocs_Data fromJsonString(String data) =>
       serializers.fromJson(serializer, data)!;
@@ -3309,8 +3274,7 @@ abstract class NextcloudCoreServerCapabilities_Ocs
   factory NextcloudCoreServerCapabilities_Ocs([void Function(NextcloudCoreServerCapabilities_OcsBuilder)? b]) =
       _$NextcloudCoreServerCapabilities_Ocs;
 
-  static NextcloudCoreServerCapabilities_Ocs fromJson(Map<String, dynamic> json) =>
-      serializers.deserializeWith(serializer, json)!;
+  static NextcloudCoreServerCapabilities_Ocs fromJson(Object json) => serializers.deserializeWith(serializer, json)!;
   static NextcloudCoreServerCapabilities_Ocs fromJsonString(String data) => serializers.fromJson(serializer, data)!;
   Map<String, dynamic> toJson() => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
   static String? toJsonString(NextcloudCoreServerCapabilities_Ocs? data) =>
@@ -3328,8 +3292,7 @@ abstract class NextcloudCoreServerCapabilities
   factory NextcloudCoreServerCapabilities([void Function(NextcloudCoreServerCapabilitiesBuilder)? b]) =
       _$NextcloudCoreServerCapabilities;
 
-  static NextcloudCoreServerCapabilities fromJson(Map<String, dynamic> json) =>
-      serializers.deserializeWith(serializer, json)!;
+  static NextcloudCoreServerCapabilities fromJson(Object json) => serializers.deserializeWith(serializer, json)!;
   static NextcloudCoreServerCapabilities fromJsonString(String data) => serializers.fromJson(serializer, data)!;
   Map<String, dynamic> toJson() => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
   static String? toJsonString(NextcloudCoreServerCapabilities? data) =>
@@ -3338,47 +3301,65 @@ abstract class NextcloudCoreServerCapabilities
   static Serializer<NextcloudCoreServerCapabilities> get serializer => _$nextcloudCoreServerCapabilitiesSerializer;
 }
 
-class NextcloudCoreNavigationApps_Ocs_Data_Order {
-  NextcloudCoreNavigationApps_Ocs_Data_Order(
-    this._data, {
-    this.$int,
-    this.string,
-  });
+abstract class NextcloudCoreNavigationApps_Ocs_Data_Order
+    implements Built<NextcloudCoreNavigationApps_Ocs_Data_Order, NextcloudCoreNavigationApps_Ocs_Data_OrderBuilder> {
+  const NextcloudCoreNavigationApps_Ocs_Data_Order._();
 
-  factory NextcloudCoreNavigationApps_Ocs_Data_Order.fromJson(dynamic data) {
-    int? $int;
-    String? string;
-    try {
-      $int = (data as int);
-    } catch (_) {}
-    try {
-      string = (data as String);
-    } catch (_) {}
-    assert([$int, string].where((final x) => x != null).length >= 1, 'Need oneOf for $data');
-    return NextcloudCoreNavigationApps_Ocs_Data_Order(
-      data,
-      $int: $int,
-      string: string,
-    );
+  factory NextcloudCoreNavigationApps_Ocs_Data_Order(
+          [void Function(NextcloudCoreNavigationApps_Ocs_Data_OrderBuilder)? b]) =
+      _$NextcloudCoreNavigationApps_Ocs_Data_Order;
+
+  JsonObject get data;
+  int? get $int;
+  String? get string;
+  static NextcloudCoreNavigationApps_Ocs_Data_Order fromJson(Object json) =>
+      serializers.deserializeWith(serializer, json)!;
+  static NextcloudCoreNavigationApps_Ocs_Data_Order fromJsonString(String data) =>
+      serializers.fromJson(serializer, data)!;
+  Map<String, dynamic> toJson() => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
+  static String? toJsonString(NextcloudCoreNavigationApps_Ocs_Data_Order? data) =>
+      data == null ? null : serializers.toJson(serializer, data);
+  @BuiltValueSerializer(custom: true)
+  static Serializer<NextcloudCoreNavigationApps_Ocs_Data_Order> get serializer =>
+      _$NextcloudCoreNavigationApps_Ocs_Data_OrderSerializer();
+}
+
+class _$NextcloudCoreNavigationApps_Ocs_Data_OrderSerializer
+    implements PrimitiveSerializer<NextcloudCoreNavigationApps_Ocs_Data_Order> {
+  @override
+  final Iterable<Type> types = const [
+    NextcloudCoreNavigationApps_Ocs_Data_Order,
+    _$NextcloudCoreNavigationApps_Ocs_Data_Order
+  ];
+
+  @override
+  final String wireName = r'NextcloudCoreNavigationApps_Ocs_Data_Order';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    NextcloudCoreNavigationApps_Ocs_Data_Order object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
+    return object.data.value;
   }
 
-  // coverage:ignore-start
-  factory NextcloudCoreNavigationApps_Ocs_Data_Order.fromJsonString(String data) =>
-      NextcloudCoreNavigationApps_Ocs_Data_Order.fromJson(json.decode(data));
-  // coverage:ignore-end
-
-  final dynamic _data;
-
-  final int? $int;
-
-  final String? string;
-
-  // coverage:ignore-start
-  dynamic toJson() => _data;
-  // coverage:ignore-end
-  // coverage:ignore-start
-  static String toJsonString(dynamic data) => json.encode(data);
-  // coverage:ignore-end
+  @override
+  NextcloudCoreNavigationApps_Ocs_Data_Order deserialize(
+    Serializers serializers,
+    Object data, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = NextcloudCoreNavigationApps_Ocs_Data_OrderBuilder()..data = JsonObject(data);
+    try {
+      result.$int = (data as int);
+    } catch (_) {}
+    try {
+      result.string = (data as String);
+    } catch (_) {}
+    assert([result._$int, result._string].where((final x) => x != null).length >= 1, 'Need oneOf for ${result._data}');
+    return result.build();
+  }
 }
 
 abstract class NextcloudCoreNavigationApps_Ocs_Data
@@ -3388,8 +3369,7 @@ abstract class NextcloudCoreNavigationApps_Ocs_Data
   factory NextcloudCoreNavigationApps_Ocs_Data([void Function(NextcloudCoreNavigationApps_Ocs_DataBuilder)? b]) =
       _$NextcloudCoreNavigationApps_Ocs_Data;
 
-  static NextcloudCoreNavigationApps_Ocs_Data fromJson(Map<String, dynamic> json) =>
-      serializers.deserializeWith(serializer, json)!;
+  static NextcloudCoreNavigationApps_Ocs_Data fromJson(Object json) => serializers.deserializeWith(serializer, json)!;
   static NextcloudCoreNavigationApps_Ocs_Data fromJsonString(String data) => serializers.fromJson(serializer, data)!;
   Map<String, dynamic> toJson() => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
   static String? toJsonString(NextcloudCoreNavigationApps_Ocs_Data? data) =>
@@ -3416,8 +3396,7 @@ abstract class NextcloudCoreNavigationApps_Ocs
   factory NextcloudCoreNavigationApps_Ocs([void Function(NextcloudCoreNavigationApps_OcsBuilder)? b]) =
       _$NextcloudCoreNavigationApps_Ocs;
 
-  static NextcloudCoreNavigationApps_Ocs fromJson(Map<String, dynamic> json) =>
-      serializers.deserializeWith(serializer, json)!;
+  static NextcloudCoreNavigationApps_Ocs fromJson(Object json) => serializers.deserializeWith(serializer, json)!;
   static NextcloudCoreNavigationApps_Ocs fromJsonString(String data) => serializers.fromJson(serializer, data)!;
   Map<String, dynamic> toJson() => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
   static String? toJsonString(NextcloudCoreNavigationApps_Ocs? data) =>
@@ -3434,8 +3413,7 @@ abstract class NextcloudCoreNavigationApps
   factory NextcloudCoreNavigationApps([void Function(NextcloudCoreNavigationAppsBuilder)? b]) =
       _$NextcloudCoreNavigationApps;
 
-  static NextcloudCoreNavigationApps fromJson(Map<String, dynamic> json) =>
-      serializers.deserializeWith(serializer, json)!;
+  static NextcloudCoreNavigationApps fromJson(Object json) => serializers.deserializeWith(serializer, json)!;
   static NextcloudCoreNavigationApps fromJsonString(String data) => serializers.fromJson(serializer, data)!;
   Map<String, dynamic> toJson() => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
   static String? toJsonString(NextcloudCoreNavigationApps? data) =>
@@ -3451,8 +3429,7 @@ abstract class NextcloudCoreLoginFlowInit_Poll
   factory NextcloudCoreLoginFlowInit_Poll([void Function(NextcloudCoreLoginFlowInit_PollBuilder)? b]) =
       _$NextcloudCoreLoginFlowInit_Poll;
 
-  static NextcloudCoreLoginFlowInit_Poll fromJson(Map<String, dynamic> json) =>
-      serializers.deserializeWith(serializer, json)!;
+  static NextcloudCoreLoginFlowInit_Poll fromJson(Object json) => serializers.deserializeWith(serializer, json)!;
   static NextcloudCoreLoginFlowInit_Poll fromJsonString(String data) => serializers.fromJson(serializer, data)!;
   Map<String, dynamic> toJson() => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
   static String? toJsonString(NextcloudCoreLoginFlowInit_Poll? data) =>
@@ -3469,8 +3446,7 @@ abstract class NextcloudCoreLoginFlowInit
   factory NextcloudCoreLoginFlowInit([void Function(NextcloudCoreLoginFlowInitBuilder)? b]) =
       _$NextcloudCoreLoginFlowInit;
 
-  static NextcloudCoreLoginFlowInit fromJson(Map<String, dynamic> json) =>
-      serializers.deserializeWith(serializer, json)!;
+  static NextcloudCoreLoginFlowInit fromJson(Object json) => serializers.deserializeWith(serializer, json)!;
   static NextcloudCoreLoginFlowInit fromJsonString(String data) => serializers.fromJson(serializer, data)!;
   Map<String, dynamic> toJson() => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
   static String? toJsonString(NextcloudCoreLoginFlowInit? data) =>
@@ -3487,8 +3463,7 @@ abstract class NextcloudCoreLoginFlowResult
   factory NextcloudCoreLoginFlowResult([void Function(NextcloudCoreLoginFlowResultBuilder)? b]) =
       _$NextcloudCoreLoginFlowResult;
 
-  static NextcloudCoreLoginFlowResult fromJson(Map<String, dynamic> json) =>
-      serializers.deserializeWith(serializer, json)!;
+  static NextcloudCoreLoginFlowResult fromJson(Object json) => serializers.deserializeWith(serializer, json)!;
   static NextcloudCoreLoginFlowResult fromJsonString(String data) => serializers.fromJson(serializer, data)!;
   Map<String, dynamic> toJson() => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
   static String? toJsonString(NextcloudCoreLoginFlowResult? data) =>
@@ -3499,47 +3474,67 @@ abstract class NextcloudCoreLoginFlowResult
   static Serializer<NextcloudCoreLoginFlowResult> get serializer => _$nextcloudCoreLoginFlowResultSerializer;
 }
 
-class NextcloudCoreAutocompleteResult_Ocs_Data_Status {
-  NextcloudCoreAutocompleteResult_Ocs_Data_Status(
-    this._data, {
-    this.builtListJsonObject,
-    this.string,
-  });
+abstract class NextcloudCoreAutocompleteResult_Ocs_Data_Status
+    implements
+        Built<NextcloudCoreAutocompleteResult_Ocs_Data_Status, NextcloudCoreAutocompleteResult_Ocs_Data_StatusBuilder> {
+  const NextcloudCoreAutocompleteResult_Ocs_Data_Status._();
 
-  factory NextcloudCoreAutocompleteResult_Ocs_Data_Status.fromJson(dynamic data) {
-    BuiltList<JsonObject>? builtListJsonObject;
-    String? string;
-    try {
-      builtListJsonObject = BuiltList<JsonObject>((data as List).map((final e) => JsonObject(e)));
-    } catch (_) {}
-    try {
-      string = (data as String);
-    } catch (_) {}
-    assert([builtListJsonObject, string].where((final x) => x != null).length >= 1, 'Need oneOf for $data');
-    return NextcloudCoreAutocompleteResult_Ocs_Data_Status(
-      data,
-      builtListJsonObject: builtListJsonObject,
-      string: string,
-    );
+  factory NextcloudCoreAutocompleteResult_Ocs_Data_Status(
+          [void Function(NextcloudCoreAutocompleteResult_Ocs_Data_StatusBuilder)? b]) =
+      _$NextcloudCoreAutocompleteResult_Ocs_Data_Status;
+
+  JsonObject get data;
+  BuiltList<JsonObject>? get builtListJsonObject;
+  String? get string;
+  static NextcloudCoreAutocompleteResult_Ocs_Data_Status fromJson(Object json) =>
+      serializers.deserializeWith(serializer, json)!;
+  static NextcloudCoreAutocompleteResult_Ocs_Data_Status fromJsonString(String data) =>
+      serializers.fromJson(serializer, data)!;
+  Map<String, dynamic> toJson() => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
+  static String? toJsonString(NextcloudCoreAutocompleteResult_Ocs_Data_Status? data) =>
+      data == null ? null : serializers.toJson(serializer, data);
+  @BuiltValueSerializer(custom: true)
+  static Serializer<NextcloudCoreAutocompleteResult_Ocs_Data_Status> get serializer =>
+      _$NextcloudCoreAutocompleteResult_Ocs_Data_StatusSerializer();
+}
+
+class _$NextcloudCoreAutocompleteResult_Ocs_Data_StatusSerializer
+    implements PrimitiveSerializer<NextcloudCoreAutocompleteResult_Ocs_Data_Status> {
+  @override
+  final Iterable<Type> types = const [
+    NextcloudCoreAutocompleteResult_Ocs_Data_Status,
+    _$NextcloudCoreAutocompleteResult_Ocs_Data_Status
+  ];
+
+  @override
+  final String wireName = r'NextcloudCoreAutocompleteResult_Ocs_Data_Status';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    NextcloudCoreAutocompleteResult_Ocs_Data_Status object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
+    return object.data.value;
   }
 
-  // coverage:ignore-start
-  factory NextcloudCoreAutocompleteResult_Ocs_Data_Status.fromJsonString(String data) =>
-      NextcloudCoreAutocompleteResult_Ocs_Data_Status.fromJson(json.decode(data));
-  // coverage:ignore-end
-
-  final dynamic _data;
-
-  final BuiltList<JsonObject>? builtListJsonObject;
-
-  final String? string;
-
-  // coverage:ignore-start
-  dynamic toJson() => _data;
-  // coverage:ignore-end
-  // coverage:ignore-start
-  static String toJsonString(dynamic data) => json.encode(data);
-  // coverage:ignore-end
+  @override
+  NextcloudCoreAutocompleteResult_Ocs_Data_Status deserialize(
+    Serializers serializers,
+    Object data, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = NextcloudCoreAutocompleteResult_Ocs_Data_StatusBuilder()..data = JsonObject(data);
+    try {
+      result.builtListJsonObject = BuiltList<JsonObject>((data as List).map((final e) => JsonObject(e))).toBuilder();
+    } catch (_) {}
+    try {
+      result.string = (data as String);
+    } catch (_) {}
+    assert([result._builtListJsonObject, result._string].where((final x) => x != null).length >= 1,
+        'Need oneOf for ${result._data}');
+    return result.build();
+  }
 }
 
 abstract class NextcloudCoreAutocompleteResult_Ocs_Data
@@ -3549,7 +3544,7 @@ abstract class NextcloudCoreAutocompleteResult_Ocs_Data
   factory NextcloudCoreAutocompleteResult_Ocs_Data(
       [void Function(NextcloudCoreAutocompleteResult_Ocs_DataBuilder)? b]) = _$NextcloudCoreAutocompleteResult_Ocs_Data;
 
-  static NextcloudCoreAutocompleteResult_Ocs_Data fromJson(Map<String, dynamic> json) =>
+  static NextcloudCoreAutocompleteResult_Ocs_Data fromJson(Object json) =>
       serializers.deserializeWith(serializer, json)!;
   static NextcloudCoreAutocompleteResult_Ocs_Data fromJsonString(String data) =>
       serializers.fromJson(serializer, data)!;
@@ -3574,8 +3569,7 @@ abstract class NextcloudCoreAutocompleteResult_Ocs
   factory NextcloudCoreAutocompleteResult_Ocs([void Function(NextcloudCoreAutocompleteResult_OcsBuilder)? b]) =
       _$NextcloudCoreAutocompleteResult_Ocs;
 
-  static NextcloudCoreAutocompleteResult_Ocs fromJson(Map<String, dynamic> json) =>
-      serializers.deserializeWith(serializer, json)!;
+  static NextcloudCoreAutocompleteResult_Ocs fromJson(Object json) => serializers.deserializeWith(serializer, json)!;
   static NextcloudCoreAutocompleteResult_Ocs fromJsonString(String data) => serializers.fromJson(serializer, data)!;
   Map<String, dynamic> toJson() => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
   static String? toJsonString(NextcloudCoreAutocompleteResult_Ocs? data) =>
@@ -3593,8 +3587,7 @@ abstract class NextcloudCoreAutocompleteResult
   factory NextcloudCoreAutocompleteResult([void Function(NextcloudCoreAutocompleteResultBuilder)? b]) =
       _$NextcloudCoreAutocompleteResult;
 
-  static NextcloudCoreAutocompleteResult fromJson(Map<String, dynamic> json) =>
-      serializers.deserializeWith(serializer, json)!;
+  static NextcloudCoreAutocompleteResult fromJson(Object json) => serializers.deserializeWith(serializer, json)!;
   static NextcloudCoreAutocompleteResult fromJsonString(String data) => serializers.fromJson(serializer, data)!;
   Map<String, dynamic> toJson() => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
   static String? toJsonString(NextcloudCoreAutocompleteResult? data) =>
@@ -3610,8 +3603,7 @@ abstract class NextcloudNewsSupportedAPIVersions
   factory NextcloudNewsSupportedAPIVersions([void Function(NextcloudNewsSupportedAPIVersionsBuilder)? b]) =
       _$NextcloudNewsSupportedAPIVersions;
 
-  static NextcloudNewsSupportedAPIVersions fromJson(Map<String, dynamic> json) =>
-      serializers.deserializeWith(serializer, json)!;
+  static NextcloudNewsSupportedAPIVersions fromJson(Object json) => serializers.deserializeWith(serializer, json)!;
   static NextcloudNewsSupportedAPIVersions fromJsonString(String data) => serializers.fromJson(serializer, data)!;
   Map<String, dynamic> toJson() => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
   static String? toJsonString(NextcloudNewsSupportedAPIVersions? data) =>
@@ -3625,7 +3617,7 @@ abstract class NextcloudNewsArticle implements Built<NextcloudNewsArticle, Nextc
 
   factory NextcloudNewsArticle([void Function(NextcloudNewsArticleBuilder)? b]) = _$NextcloudNewsArticle;
 
-  static NextcloudNewsArticle fromJson(Map<String, dynamic> json) => serializers.deserializeWith(serializer, json)!;
+  static NextcloudNewsArticle fromJson(Object json) => serializers.deserializeWith(serializer, json)!;
   static NextcloudNewsArticle fromJsonString(String data) => serializers.fromJson(serializer, data)!;
   Map<String, dynamic> toJson() => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
   static String? toJsonString(NextcloudNewsArticle? data) => data == null ? null : serializers.toJson(serializer, data);
@@ -3657,7 +3649,7 @@ abstract class NextcloudNewsFeed implements Built<NextcloudNewsFeed, NextcloudNe
 
   factory NextcloudNewsFeed([void Function(NextcloudNewsFeedBuilder)? b]) = _$NextcloudNewsFeed;
 
-  static NextcloudNewsFeed fromJson(Map<String, dynamic> json) => serializers.deserializeWith(serializer, json)!;
+  static NextcloudNewsFeed fromJson(Object json) => serializers.deserializeWith(serializer, json)!;
   static NextcloudNewsFeed fromJsonString(String data) => serializers.fromJson(serializer, data)!;
   Map<String, dynamic> toJson() => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
   static String? toJsonString(NextcloudNewsFeed? data) => data == null ? null : serializers.toJson(serializer, data);
@@ -3682,7 +3674,7 @@ abstract class NextcloudNewsFolder implements Built<NextcloudNewsFolder, Nextclo
 
   factory NextcloudNewsFolder([void Function(NextcloudNewsFolderBuilder)? b]) = _$NextcloudNewsFolder;
 
-  static NextcloudNewsFolder fromJson(Map<String, dynamic> json) => serializers.deserializeWith(serializer, json)!;
+  static NextcloudNewsFolder fromJson(Object json) => serializers.deserializeWith(serializer, json)!;
   static NextcloudNewsFolder fromJsonString(String data) => serializers.fromJson(serializer, data)!;
   Map<String, dynamic> toJson() => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
   static String? toJsonString(NextcloudNewsFolder? data) => data == null ? null : serializers.toJson(serializer, data);
@@ -3700,7 +3692,7 @@ abstract class NextcloudNewsListFolders implements Built<NextcloudNewsListFolder
 
   factory NextcloudNewsListFolders([void Function(NextcloudNewsListFoldersBuilder)? b]) = _$NextcloudNewsListFolders;
 
-  static NextcloudNewsListFolders fromJson(Map<String, dynamic> json) => serializers.deserializeWith(serializer, json)!;
+  static NextcloudNewsListFolders fromJson(Object json) => serializers.deserializeWith(serializer, json)!;
   static NextcloudNewsListFolders fromJsonString(String data) => serializers.fromJson(serializer, data)!;
   Map<String, dynamic> toJson() => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
   static String? toJsonString(NextcloudNewsListFolders? data) =>
@@ -3714,7 +3706,7 @@ abstract class NextcloudNewsListFeeds implements Built<NextcloudNewsListFeeds, N
 
   factory NextcloudNewsListFeeds([void Function(NextcloudNewsListFeedsBuilder)? b]) = _$NextcloudNewsListFeeds;
 
-  static NextcloudNewsListFeeds fromJson(Map<String, dynamic> json) => serializers.deserializeWith(serializer, json)!;
+  static NextcloudNewsListFeeds fromJson(Object json) => serializers.deserializeWith(serializer, json)!;
   static NextcloudNewsListFeeds fromJsonString(String data) => serializers.fromJson(serializer, data)!;
   Map<String, dynamic> toJson() => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
   static String? toJsonString(NextcloudNewsListFeeds? data) =>
@@ -3730,8 +3722,7 @@ abstract class NextcloudNewsListArticles implements Built<NextcloudNewsListArtic
 
   factory NextcloudNewsListArticles([void Function(NextcloudNewsListArticlesBuilder)? b]) = _$NextcloudNewsListArticles;
 
-  static NextcloudNewsListArticles fromJson(Map<String, dynamic> json) =>
-      serializers.deserializeWith(serializer, json)!;
+  static NextcloudNewsListArticles fromJson(Object json) => serializers.deserializeWith(serializer, json)!;
   static NextcloudNewsListArticles fromJsonString(String data) => serializers.fromJson(serializer, data)!;
   Map<String, dynamic> toJson() => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
   static String? toJsonString(NextcloudNewsListArticles? data) =>
@@ -3745,7 +3736,7 @@ abstract class NextcloudNotesNote implements Built<NextcloudNotesNote, Nextcloud
 
   factory NextcloudNotesNote([void Function(NextcloudNotesNoteBuilder)? b]) = _$NextcloudNotesNote;
 
-  static NextcloudNotesNote fromJson(Map<String, dynamic> json) => serializers.deserializeWith(serializer, json)!;
+  static NextcloudNotesNote fromJson(Object json) => serializers.deserializeWith(serializer, json)!;
   static NextcloudNotesNote fromJsonString(String data) => serializers.fromJson(serializer, data)!;
   Map<String, dynamic> toJson() => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
   static String? toJsonString(NextcloudNotesNote? data) => data == null ? null : serializers.toJson(serializer, data);
@@ -3781,7 +3772,7 @@ abstract class NextcloudNotesSettings implements Built<NextcloudNotesSettings, N
 
   factory NextcloudNotesSettings([void Function(NextcloudNotesSettingsBuilder)? b]) = _$NextcloudNotesSettings;
 
-  static NextcloudNotesSettings fromJson(Map<String, dynamic> json) => serializers.deserializeWith(serializer, json)!;
+  static NextcloudNotesSettings fromJson(Object json) => serializers.deserializeWith(serializer, json)!;
   static NextcloudNotesSettings fromJsonString(String data) => serializers.fromJson(serializer, data)!;
   Map<String, dynamic> toJson() => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
   static String? toJsonString(NextcloudNotesSettings? data) =>
@@ -3799,7 +3790,7 @@ abstract class NextcloudNotificationsNotificationAction
   factory NextcloudNotificationsNotificationAction(
       [void Function(NextcloudNotificationsNotificationActionBuilder)? b]) = _$NextcloudNotificationsNotificationAction;
 
-  static NextcloudNotificationsNotificationAction fromJson(Map<String, dynamic> json) =>
+  static NextcloudNotificationsNotificationAction fromJson(Object json) =>
       serializers.deserializeWith(serializer, json)!;
   static NextcloudNotificationsNotificationAction fromJsonString(String data) =>
       serializers.fromJson(serializer, data)!;
@@ -3821,8 +3812,7 @@ abstract class NextcloudNotificationsNotification
   factory NextcloudNotificationsNotification([void Function(NextcloudNotificationsNotificationBuilder)? b]) =
       _$NextcloudNotificationsNotification;
 
-  static NextcloudNotificationsNotification fromJson(Map<String, dynamic> json) =>
-      serializers.deserializeWith(serializer, json)!;
+  static NextcloudNotificationsNotification fromJson(Object json) => serializers.deserializeWith(serializer, json)!;
   static NextcloudNotificationsNotification fromJsonString(String data) => serializers.fromJson(serializer, data)!;
   Map<String, dynamic> toJson() => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
   static String? toJsonString(NextcloudNotificationsNotification? data) =>
@@ -3857,7 +3847,7 @@ abstract class NextcloudNotificationsListNotifications_Ocs
           [void Function(NextcloudNotificationsListNotifications_OcsBuilder)? b]) =
       _$NextcloudNotificationsListNotifications_Ocs;
 
-  static NextcloudNotificationsListNotifications_Ocs fromJson(Map<String, dynamic> json) =>
+  static NextcloudNotificationsListNotifications_Ocs fromJson(Object json) =>
       serializers.deserializeWith(serializer, json)!;
   static NextcloudNotificationsListNotifications_Ocs fromJsonString(String data) =>
       serializers.fromJson(serializer, data)!;
@@ -3877,7 +3867,7 @@ abstract class NextcloudNotificationsListNotifications
   factory NextcloudNotificationsListNotifications([void Function(NextcloudNotificationsListNotificationsBuilder)? b]) =
       _$NextcloudNotificationsListNotifications;
 
-  static NextcloudNotificationsListNotifications fromJson(Map<String, dynamic> json) =>
+  static NextcloudNotificationsListNotifications fromJson(Object json) =>
       serializers.deserializeWith(serializer, json)!;
   static NextcloudNotificationsListNotifications fromJsonString(String data) => serializers.fromJson(serializer, data)!;
   Map<String, dynamic> toJson() => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
@@ -3896,7 +3886,7 @@ abstract class NextcloudNotificationsGetNotification_Ocs
           [void Function(NextcloudNotificationsGetNotification_OcsBuilder)? b]) =
       _$NextcloudNotificationsGetNotification_Ocs;
 
-  static NextcloudNotificationsGetNotification_Ocs fromJson(Map<String, dynamic> json) =>
+  static NextcloudNotificationsGetNotification_Ocs fromJson(Object json) =>
       serializers.deserializeWith(serializer, json)!;
   static NextcloudNotificationsGetNotification_Ocs fromJsonString(String data) =>
       serializers.fromJson(serializer, data)!;
@@ -3916,8 +3906,7 @@ abstract class NextcloudNotificationsGetNotification
   factory NextcloudNotificationsGetNotification([void Function(NextcloudNotificationsGetNotificationBuilder)? b]) =
       _$NextcloudNotificationsGetNotification;
 
-  static NextcloudNotificationsGetNotification fromJson(Map<String, dynamic> json) =>
-      serializers.deserializeWith(serializer, json)!;
+  static NextcloudNotificationsGetNotification fromJson(Object json) => serializers.deserializeWith(serializer, json)!;
   static NextcloudNotificationsGetNotification fromJsonString(String data) => serializers.fromJson(serializer, data)!;
   Map<String, dynamic> toJson() => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
   static String? toJsonString(NextcloudNotificationsGetNotification? data) =>
@@ -3932,7 +3921,7 @@ abstract class NextcloudEmptyOCS_Ocs implements Built<NextcloudEmptyOCS_Ocs, Nex
 
   factory NextcloudEmptyOCS_Ocs([void Function(NextcloudEmptyOCS_OcsBuilder)? b]) = _$NextcloudEmptyOCS_Ocs;
 
-  static NextcloudEmptyOCS_Ocs fromJson(Map<String, dynamic> json) => serializers.deserializeWith(serializer, json)!;
+  static NextcloudEmptyOCS_Ocs fromJson(Object json) => serializers.deserializeWith(serializer, json)!;
   static NextcloudEmptyOCS_Ocs fromJsonString(String data) => serializers.fromJson(serializer, data)!;
   Map<String, dynamic> toJson() => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
   static String? toJsonString(NextcloudEmptyOCS_Ocs? data) =>
@@ -3947,7 +3936,7 @@ abstract class NextcloudEmptyOCS implements Built<NextcloudEmptyOCS, NextcloudEm
 
   factory NextcloudEmptyOCS([void Function(NextcloudEmptyOCSBuilder)? b]) = _$NextcloudEmptyOCS;
 
-  static NextcloudEmptyOCS fromJson(Map<String, dynamic> json) => serializers.deserializeWith(serializer, json)!;
+  static NextcloudEmptyOCS fromJson(Object json) => serializers.deserializeWith(serializer, json)!;
   static NextcloudEmptyOCS fromJsonString(String data) => serializers.fromJson(serializer, data)!;
   Map<String, dynamic> toJson() => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
   static String? toJsonString(NextcloudEmptyOCS? data) => data == null ? null : serializers.toJson(serializer, data);
@@ -3964,7 +3953,7 @@ abstract class NextcloudNotificationsPushServerSubscription
           [void Function(NextcloudNotificationsPushServerSubscriptionBuilder)? b]) =
       _$NextcloudNotificationsPushServerSubscription;
 
-  static NextcloudNotificationsPushServerSubscription fromJson(Map<String, dynamic> json) =>
+  static NextcloudNotificationsPushServerSubscription fromJson(Object json) =>
       serializers.deserializeWith(serializer, json)!;
   static NextcloudNotificationsPushServerSubscription fromJsonString(String data) =>
       serializers.fromJson(serializer, data)!;
@@ -3989,7 +3978,7 @@ abstract class NextcloudNotificationsPushServerRegistration_Ocs
           [void Function(NextcloudNotificationsPushServerRegistration_OcsBuilder)? b]) =
       _$NextcloudNotificationsPushServerRegistration_Ocs;
 
-  static NextcloudNotificationsPushServerRegistration_Ocs fromJson(Map<String, dynamic> json) =>
+  static NextcloudNotificationsPushServerRegistration_Ocs fromJson(Object json) =>
       serializers.deserializeWith(serializer, json)!;
   static NextcloudNotificationsPushServerRegistration_Ocs fromJsonString(String data) =>
       serializers.fromJson(serializer, data)!;
@@ -4011,7 +4000,7 @@ abstract class NextcloudNotificationsPushServerRegistration
           [void Function(NextcloudNotificationsPushServerRegistrationBuilder)? b]) =
       _$NextcloudNotificationsPushServerRegistration;
 
-  static NextcloudNotificationsPushServerRegistration fromJson(Map<String, dynamic> json) =>
+  static NextcloudNotificationsPushServerRegistration fromJson(Object json) =>
       serializers.deserializeWith(serializer, json)!;
   static NextcloudNotificationsPushServerRegistration fromJsonString(String data) =>
       serializers.fromJson(serializer, data)!;
@@ -4031,7 +4020,7 @@ abstract class NextcloudProvisioningApiUserDetails_Quota
           [void Function(NextcloudProvisioningApiUserDetails_QuotaBuilder)? b]) =
       _$NextcloudProvisioningApiUserDetails_Quota;
 
-  static NextcloudProvisioningApiUserDetails_Quota fromJson(Map<String, dynamic> json) =>
+  static NextcloudProvisioningApiUserDetails_Quota fromJson(Object json) =>
       serializers.deserializeWith(serializer, json)!;
   static NextcloudProvisioningApiUserDetails_Quota fromJsonString(String data) =>
       serializers.fromJson(serializer, data)!;
@@ -4057,7 +4046,7 @@ abstract class NextcloudProvisioningApiUserDetails_BackendCapabilities
           [void Function(NextcloudProvisioningApiUserDetails_BackendCapabilitiesBuilder)? b]) =
       _$NextcloudProvisioningApiUserDetails_BackendCapabilities;
 
-  static NextcloudProvisioningApiUserDetails_BackendCapabilities fromJson(Map<String, dynamic> json) =>
+  static NextcloudProvisioningApiUserDetails_BackendCapabilities fromJson(Object json) =>
       serializers.deserializeWith(serializer, json)!;
   static NextcloudProvisioningApiUserDetails_BackendCapabilities fromJsonString(String data) =>
       serializers.fromJson(serializer, data)!;
@@ -4077,8 +4066,7 @@ abstract class NextcloudProvisioningApiUserDetails
   factory NextcloudProvisioningApiUserDetails([void Function(NextcloudProvisioningApiUserDetailsBuilder)? b]) =
       _$NextcloudProvisioningApiUserDetails;
 
-  static NextcloudProvisioningApiUserDetails fromJson(Map<String, dynamic> json) =>
-      serializers.deserializeWith(serializer, json)!;
+  static NextcloudProvisioningApiUserDetails fromJson(Object json) => serializers.deserializeWith(serializer, json)!;
   static NextcloudProvisioningApiUserDetails fromJsonString(String data) => serializers.fromJson(serializer, data)!;
   Map<String, dynamic> toJson() => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
   static String? toJsonString(NextcloudProvisioningApiUserDetails? data) =>
@@ -4140,8 +4128,7 @@ abstract class NextcloudProvisioningApiUser_Ocs
   factory NextcloudProvisioningApiUser_Ocs([void Function(NextcloudProvisioningApiUser_OcsBuilder)? b]) =
       _$NextcloudProvisioningApiUser_Ocs;
 
-  static NextcloudProvisioningApiUser_Ocs fromJson(Map<String, dynamic> json) =>
-      serializers.deserializeWith(serializer, json)!;
+  static NextcloudProvisioningApiUser_Ocs fromJson(Object json) => serializers.deserializeWith(serializer, json)!;
   static NextcloudProvisioningApiUser_Ocs fromJsonString(String data) => serializers.fromJson(serializer, data)!;
   Map<String, dynamic> toJson() => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
   static String? toJsonString(NextcloudProvisioningApiUser_Ocs? data) =>
@@ -4158,8 +4145,7 @@ abstract class NextcloudProvisioningApiUser
   factory NextcloudProvisioningApiUser([void Function(NextcloudProvisioningApiUserBuilder)? b]) =
       _$NextcloudProvisioningApiUser;
 
-  static NextcloudProvisioningApiUser fromJson(Map<String, dynamic> json) =>
-      serializers.deserializeWith(serializer, json)!;
+  static NextcloudProvisioningApiUser fromJson(Object json) => serializers.deserializeWith(serializer, json)!;
   static NextcloudProvisioningApiUser fromJsonString(String data) => serializers.fromJson(serializer, data)!;
   Map<String, dynamic> toJson() => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
   static String? toJsonString(NextcloudProvisioningApiUser? data) =>
@@ -4178,7 +4164,7 @@ abstract class NextcloudUnifiedPushProviderCheckResponse200ApplicationJson
           [void Function(NextcloudUnifiedPushProviderCheckResponse200ApplicationJsonBuilder)? b]) =
       _$NextcloudUnifiedPushProviderCheckResponse200ApplicationJson;
 
-  static NextcloudUnifiedPushProviderCheckResponse200ApplicationJson fromJson(Map<String, dynamic> json) =>
+  static NextcloudUnifiedPushProviderCheckResponse200ApplicationJson fromJson(Object json) =>
       serializers.deserializeWith(serializer, json)!;
   static NextcloudUnifiedPushProviderCheckResponse200ApplicationJson fromJsonString(String data) =>
       serializers.fromJson(serializer, data)!;
@@ -4200,7 +4186,7 @@ abstract class NextcloudUnifiedPushProviderSetKeepaliveResponse200ApplicationJso
           [void Function(NextcloudUnifiedPushProviderSetKeepaliveResponse200ApplicationJsonBuilder)? b]) =
       _$NextcloudUnifiedPushProviderSetKeepaliveResponse200ApplicationJson;
 
-  static NextcloudUnifiedPushProviderSetKeepaliveResponse200ApplicationJson fromJson(Map<String, dynamic> json) =>
+  static NextcloudUnifiedPushProviderSetKeepaliveResponse200ApplicationJson fromJson(Object json) =>
       serializers.deserializeWith(serializer, json)!;
   static NextcloudUnifiedPushProviderSetKeepaliveResponse200ApplicationJson fromJsonString(String data) =>
       serializers.fromJson(serializer, data)!;
@@ -4222,7 +4208,7 @@ abstract class NextcloudUnifiedPushProviderCreateDeviceResponse200ApplicationJso
           [void Function(NextcloudUnifiedPushProviderCreateDeviceResponse200ApplicationJsonBuilder)? b]) =
       _$NextcloudUnifiedPushProviderCreateDeviceResponse200ApplicationJson;
 
-  static NextcloudUnifiedPushProviderCreateDeviceResponse200ApplicationJson fromJson(Map<String, dynamic> json) =>
+  static NextcloudUnifiedPushProviderCreateDeviceResponse200ApplicationJson fromJson(Object json) =>
       serializers.deserializeWith(serializer, json)!;
   static NextcloudUnifiedPushProviderCreateDeviceResponse200ApplicationJson fromJsonString(String data) =>
       serializers.fromJson(serializer, data)!;
@@ -4245,7 +4231,7 @@ abstract class NextcloudUnifiedPushProviderSyncDeviceResponse401ApplicationJson
           [void Function(NextcloudUnifiedPushProviderSyncDeviceResponse401ApplicationJsonBuilder)? b]) =
       _$NextcloudUnifiedPushProviderSyncDeviceResponse401ApplicationJson;
 
-  static NextcloudUnifiedPushProviderSyncDeviceResponse401ApplicationJson fromJson(Map<String, dynamic> json) =>
+  static NextcloudUnifiedPushProviderSyncDeviceResponse401ApplicationJson fromJson(Object json) =>
       serializers.deserializeWith(serializer, json)!;
   static NextcloudUnifiedPushProviderSyncDeviceResponse401ApplicationJson fromJsonString(String data) =>
       serializers.fromJson(serializer, data)!;
@@ -4267,7 +4253,7 @@ abstract class NextcloudUnifiedPushProviderDeleteDeviceResponse200ApplicationJso
           [void Function(NextcloudUnifiedPushProviderDeleteDeviceResponse200ApplicationJsonBuilder)? b]) =
       _$NextcloudUnifiedPushProviderDeleteDeviceResponse200ApplicationJson;
 
-  static NextcloudUnifiedPushProviderDeleteDeviceResponse200ApplicationJson fromJson(Map<String, dynamic> json) =>
+  static NextcloudUnifiedPushProviderDeleteDeviceResponse200ApplicationJson fromJson(Object json) =>
       serializers.deserializeWith(serializer, json)!;
   static NextcloudUnifiedPushProviderDeleteDeviceResponse200ApplicationJson fromJsonString(String data) =>
       serializers.fromJson(serializer, data)!;
@@ -4289,7 +4275,7 @@ abstract class NextcloudUnifiedPushProviderCreateAppResponse200ApplicationJson
           [void Function(NextcloudUnifiedPushProviderCreateAppResponse200ApplicationJsonBuilder)? b]) =
       _$NextcloudUnifiedPushProviderCreateAppResponse200ApplicationJson;
 
-  static NextcloudUnifiedPushProviderCreateAppResponse200ApplicationJson fromJson(Map<String, dynamic> json) =>
+  static NextcloudUnifiedPushProviderCreateAppResponse200ApplicationJson fromJson(Object json) =>
       serializers.deserializeWith(serializer, json)!;
   static NextcloudUnifiedPushProviderCreateAppResponse200ApplicationJson fromJsonString(String data) =>
       serializers.fromJson(serializer, data)!;
@@ -4312,7 +4298,7 @@ abstract class NextcloudUnifiedPushProviderDeleteAppResponse200ApplicationJson
           [void Function(NextcloudUnifiedPushProviderDeleteAppResponse200ApplicationJsonBuilder)? b]) =
       _$NextcloudUnifiedPushProviderDeleteAppResponse200ApplicationJson;
 
-  static NextcloudUnifiedPushProviderDeleteAppResponse200ApplicationJson fromJson(Map<String, dynamic> json) =>
+  static NextcloudUnifiedPushProviderDeleteAppResponse200ApplicationJson fromJson(Object json) =>
       serializers.deserializeWith(serializer, json)!;
   static NextcloudUnifiedPushProviderDeleteAppResponse200ApplicationJson fromJsonString(String data) =>
       serializers.fromJson(serializer, data)!;
@@ -4334,8 +4320,7 @@ abstract class NextcloudUnifiedPushProviderUnifiedpushDiscoveryResponse200Applic
       [void Function(NextcloudUnifiedPushProviderUnifiedpushDiscoveryResponse200ApplicationJson_UnifiedpushBuilder)?
           b]) = _$NextcloudUnifiedPushProviderUnifiedpushDiscoveryResponse200ApplicationJson_Unifiedpush;
 
-  static NextcloudUnifiedPushProviderUnifiedpushDiscoveryResponse200ApplicationJson_Unifiedpush fromJson(
-          Map<String, dynamic> json) =>
+  static NextcloudUnifiedPushProviderUnifiedpushDiscoveryResponse200ApplicationJson_Unifiedpush fromJson(Object json) =>
       serializers.deserializeWith(serializer, json)!;
   static NextcloudUnifiedPushProviderUnifiedpushDiscoveryResponse200ApplicationJson_Unifiedpush fromJsonString(
           String data) =>
@@ -4360,8 +4345,7 @@ abstract class NextcloudUnifiedPushProviderUnifiedpushDiscoveryResponse200Applic
           [void Function(NextcloudUnifiedPushProviderUnifiedpushDiscoveryResponse200ApplicationJsonBuilder)? b]) =
       _$NextcloudUnifiedPushProviderUnifiedpushDiscoveryResponse200ApplicationJson;
 
-  static NextcloudUnifiedPushProviderUnifiedpushDiscoveryResponse200ApplicationJson fromJson(
-          Map<String, dynamic> json) =>
+  static NextcloudUnifiedPushProviderUnifiedpushDiscoveryResponse200ApplicationJson fromJson(Object json) =>
       serializers.deserializeWith(serializer, json)!;
   static NextcloudUnifiedPushProviderUnifiedpushDiscoveryResponse200ApplicationJson fromJsonString(String data) =>
       serializers.fromJson(serializer, data)!;
@@ -4383,7 +4367,7 @@ abstract class NextcloudUnifiedPushProviderPushResponse201ApplicationJson
           [void Function(NextcloudUnifiedPushProviderPushResponse201ApplicationJsonBuilder)? b]) =
       _$NextcloudUnifiedPushProviderPushResponse201ApplicationJson;
 
-  static NextcloudUnifiedPushProviderPushResponse201ApplicationJson fromJson(Map<String, dynamic> json) =>
+  static NextcloudUnifiedPushProviderPushResponse201ApplicationJson fromJson(Object json) =>
       serializers.deserializeWith(serializer, json)!;
   static NextcloudUnifiedPushProviderPushResponse201ApplicationJson fromJsonString(String data) =>
       serializers.fromJson(serializer, data)!;
@@ -4406,7 +4390,7 @@ abstract class NextcloudUnifiedPushProviderGatewayMatrixDiscoveryResponse200Appl
           b]) = _$NextcloudUnifiedPushProviderGatewayMatrixDiscoveryResponse200ApplicationJson_Unifiedpush;
 
   static NextcloudUnifiedPushProviderGatewayMatrixDiscoveryResponse200ApplicationJson_Unifiedpush fromJson(
-          Map<String, dynamic> json) =>
+          Object json) =>
       serializers.deserializeWith(serializer, json)!;
   static NextcloudUnifiedPushProviderGatewayMatrixDiscoveryResponse200ApplicationJson_Unifiedpush fromJsonString(
           String data) =>
@@ -4431,8 +4415,7 @@ abstract class NextcloudUnifiedPushProviderGatewayMatrixDiscoveryResponse200Appl
           [void Function(NextcloudUnifiedPushProviderGatewayMatrixDiscoveryResponse200ApplicationJsonBuilder)? b]) =
       _$NextcloudUnifiedPushProviderGatewayMatrixDiscoveryResponse200ApplicationJson;
 
-  static NextcloudUnifiedPushProviderGatewayMatrixDiscoveryResponse200ApplicationJson fromJson(
-          Map<String, dynamic> json) =>
+  static NextcloudUnifiedPushProviderGatewayMatrixDiscoveryResponse200ApplicationJson fromJson(Object json) =>
       serializers.deserializeWith(serializer, json)!;
   static NextcloudUnifiedPushProviderGatewayMatrixDiscoveryResponse200ApplicationJson fromJsonString(String data) =>
       serializers.fromJson(serializer, data)!;
@@ -4454,7 +4437,7 @@ abstract class NextcloudUnifiedPushProviderGatewayMatrixResponse200ApplicationJs
           [void Function(NextcloudUnifiedPushProviderGatewayMatrixResponse200ApplicationJsonBuilder)? b]) =
       _$NextcloudUnifiedPushProviderGatewayMatrixResponse200ApplicationJson;
 
-  static NextcloudUnifiedPushProviderGatewayMatrixResponse200ApplicationJson fromJson(Map<String, dynamic> json) =>
+  static NextcloudUnifiedPushProviderGatewayMatrixResponse200ApplicationJson fromJson(Object json) =>
       serializers.deserializeWith(serializer, json)!;
   static NextcloudUnifiedPushProviderGatewayMatrixResponse200ApplicationJson fromJsonString(String data) =>
       serializers.fromJson(serializer, data)!;
@@ -4491,48 +4474,60 @@ class NextcloudUserStatusClearAt_Time0 extends EnumClass {
   static Serializer<NextcloudUserStatusClearAt_Time0> get serializer => _$nextcloudUserStatusClearAtTime0Serializer;
 }
 
-class NextcloudUserStatusClearAt_Time {
-  NextcloudUserStatusClearAt_Time(
-    this._data, {
-    this.userStatusClearAtTime0,
-    this.$int,
-  });
+abstract class NextcloudUserStatusClearAt_Time
+    implements Built<NextcloudUserStatusClearAt_Time, NextcloudUserStatusClearAt_TimeBuilder> {
+  const NextcloudUserStatusClearAt_Time._();
 
-  factory NextcloudUserStatusClearAt_Time.fromJson(dynamic data) {
-    NextcloudUserStatusClearAt_Time0? userStatusClearAtTime0;
-    int? $int;
-    try {
-      userStatusClearAtTime0 = NextcloudUserStatusClearAt_Time0.valueOf(data as String);
-    } catch (_) {}
-    try {
-      $int = (data as int);
-    } catch (_) {}
-    assert([userStatusClearAtTime0, $int].where((final x) => x != null).length >= 1, 'Need oneOf for $data');
-    return NextcloudUserStatusClearAt_Time(
-      data,
-      userStatusClearAtTime0: userStatusClearAtTime0,
-      $int: $int,
-    );
-  }
+  factory NextcloudUserStatusClearAt_Time([void Function(NextcloudUserStatusClearAt_TimeBuilder)? b]) =
+      _$NextcloudUserStatusClearAt_Time;
 
-  // coverage:ignore-start
-  factory NextcloudUserStatusClearAt_Time.fromJsonString(String data) =>
-      NextcloudUserStatusClearAt_Time.fromJson(json.decode(data));
-  // coverage:ignore-end
-
-  final dynamic _data;
-
-  final NextcloudUserStatusClearAt_Time0? userStatusClearAtTime0;
+  JsonObject get data;
+  NextcloudUserStatusClearAt_Time0? get userStatusClearAtTime0;
 
   /// Time offset in seconds
-  final int? $int;
+  int? get $int;
+  static NextcloudUserStatusClearAt_Time fromJson(Object json) => serializers.deserializeWith(serializer, json)!;
+  static NextcloudUserStatusClearAt_Time fromJsonString(String data) => serializers.fromJson(serializer, data)!;
+  Map<String, dynamic> toJson() => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
+  static String? toJsonString(NextcloudUserStatusClearAt_Time? data) =>
+      data == null ? null : serializers.toJson(serializer, data);
+  @BuiltValueSerializer(custom: true)
+  static Serializer<NextcloudUserStatusClearAt_Time> get serializer => _$NextcloudUserStatusClearAt_TimeSerializer();
+}
 
-  // coverage:ignore-start
-  dynamic toJson() => _data;
-  // coverage:ignore-end
-  // coverage:ignore-start
-  static String toJsonString(dynamic data) => json.encode(data);
-  // coverage:ignore-end
+class _$NextcloudUserStatusClearAt_TimeSerializer implements PrimitiveSerializer<NextcloudUserStatusClearAt_Time> {
+  @override
+  final Iterable<Type> types = const [NextcloudUserStatusClearAt_Time, _$NextcloudUserStatusClearAt_Time];
+
+  @override
+  final String wireName = r'NextcloudUserStatusClearAt_Time';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    NextcloudUserStatusClearAt_Time object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
+    return object.data.value;
+  }
+
+  @override
+  NextcloudUserStatusClearAt_Time deserialize(
+    Serializers serializers,
+    Object data, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = NextcloudUserStatusClearAt_TimeBuilder()..data = JsonObject(data);
+    try {
+      result.userStatusClearAtTime0 = NextcloudUserStatusClearAt_Time0.valueOf(data as String);
+    } catch (_) {}
+    try {
+      result.$int = (data as int);
+    } catch (_) {}
+    assert([result._userStatusClearAtTime0, result._$int].where((final x) => x != null).length >= 1,
+        'Need oneOf for ${result._data}');
+    return result.build();
+  }
 }
 
 abstract class NextcloudUserStatusClearAt
@@ -4542,8 +4537,7 @@ abstract class NextcloudUserStatusClearAt
   factory NextcloudUserStatusClearAt([void Function(NextcloudUserStatusClearAtBuilder)? b]) =
       _$NextcloudUserStatusClearAt;
 
-  static NextcloudUserStatusClearAt fromJson(Map<String, dynamic> json) =>
-      serializers.deserializeWith(serializer, json)!;
+  static NextcloudUserStatusClearAt fromJson(Object json) => serializers.deserializeWith(serializer, json)!;
   static NextcloudUserStatusClearAt fromJsonString(String data) => serializers.fromJson(serializer, data)!;
   Map<String, dynamic> toJson() => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
   static String? toJsonString(NextcloudUserStatusClearAt? data) =>
@@ -4553,48 +4547,66 @@ abstract class NextcloudUserStatusClearAt
   static Serializer<NextcloudUserStatusClearAt> get serializer => _$nextcloudUserStatusClearAtSerializer;
 }
 
-class NextcloudUserStatusPublicStatus_ClearAt {
-  NextcloudUserStatusPublicStatus_ClearAt(
-    this._data, {
-    this.userStatusClearAt,
-    this.$int,
-  });
+abstract class NextcloudUserStatusPublicStatus_ClearAt
+    implements Built<NextcloudUserStatusPublicStatus_ClearAt, NextcloudUserStatusPublicStatus_ClearAtBuilder> {
+  const NextcloudUserStatusPublicStatus_ClearAt._();
 
-  factory NextcloudUserStatusPublicStatus_ClearAt.fromJson(dynamic data) {
-    NextcloudUserStatusClearAt? userStatusClearAt;
-    int? $int;
-    try {
-      userStatusClearAt = NextcloudUserStatusClearAt.fromJson(data as Map<String, dynamic>);
-    } catch (_) {}
-    try {
-      $int = (data as int);
-    } catch (_) {}
-    assert([userStatusClearAt, $int].where((final x) => x != null).length >= 1, 'Need oneOf for $data');
-    return NextcloudUserStatusPublicStatus_ClearAt(
-      data,
-      userStatusClearAt: userStatusClearAt,
-      $int: $int,
-    );
-  }
+  factory NextcloudUserStatusPublicStatus_ClearAt([void Function(NextcloudUserStatusPublicStatus_ClearAtBuilder)? b]) =
+      _$NextcloudUserStatusPublicStatus_ClearAt;
 
-  // coverage:ignore-start
-  factory NextcloudUserStatusPublicStatus_ClearAt.fromJsonString(String data) =>
-      NextcloudUserStatusPublicStatus_ClearAt.fromJson(json.decode(data));
-  // coverage:ignore-end
-
-  final dynamic _data;
-
-  final NextcloudUserStatusClearAt? userStatusClearAt;
+  JsonObject get data;
+  NextcloudUserStatusClearAt? get userStatusClearAt;
 
   /// Time as unix timestamp
-  final int? $int;
+  int? get $int;
+  static NextcloudUserStatusPublicStatus_ClearAt fromJson(Object json) =>
+      serializers.deserializeWith(serializer, json)!;
+  static NextcloudUserStatusPublicStatus_ClearAt fromJsonString(String data) => serializers.fromJson(serializer, data)!;
+  Map<String, dynamic> toJson() => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
+  static String? toJsonString(NextcloudUserStatusPublicStatus_ClearAt? data) =>
+      data == null ? null : serializers.toJson(serializer, data);
+  @BuiltValueSerializer(custom: true)
+  static Serializer<NextcloudUserStatusPublicStatus_ClearAt> get serializer =>
+      _$NextcloudUserStatusPublicStatus_ClearAtSerializer();
+}
 
-  // coverage:ignore-start
-  dynamic toJson() => _data;
-  // coverage:ignore-end
-  // coverage:ignore-start
-  static String toJsonString(dynamic data) => json.encode(data);
-  // coverage:ignore-end
+class _$NextcloudUserStatusPublicStatus_ClearAtSerializer
+    implements PrimitiveSerializer<NextcloudUserStatusPublicStatus_ClearAt> {
+  @override
+  final Iterable<Type> types = const [
+    NextcloudUserStatusPublicStatus_ClearAt,
+    _$NextcloudUserStatusPublicStatus_ClearAt
+  ];
+
+  @override
+  final String wireName = r'NextcloudUserStatusPublicStatus_ClearAt';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    NextcloudUserStatusPublicStatus_ClearAt object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
+    return object.data.value;
+  }
+
+  @override
+  NextcloudUserStatusPublicStatus_ClearAt deserialize(
+    Serializers serializers,
+    Object data, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = NextcloudUserStatusPublicStatus_ClearAtBuilder()..data = JsonObject(data);
+    try {
+      result.userStatusClearAt = NextcloudUserStatusClearAt.fromJson(data as Object).toBuilder();
+    } catch (_) {}
+    try {
+      result.$int = (data as int);
+    } catch (_) {}
+    assert([result._userStatusClearAt, result._$int].where((final x) => x != null).length >= 1,
+        'Need oneOf for ${result._data}');
+    return result.build();
+  }
 }
 
 class NextcloudUserStatusType extends EnumClass {
@@ -4622,8 +4634,7 @@ abstract class NextcloudUserStatusPublicStatus
   factory NextcloudUserStatusPublicStatus([void Function(NextcloudUserStatusPublicStatusBuilder)? b]) =
       _$NextcloudUserStatusPublicStatus;
 
-  static NextcloudUserStatusPublicStatus fromJson(Map<String, dynamic> json) =>
-      serializers.deserializeWith(serializer, json)!;
+  static NextcloudUserStatusPublicStatus fromJson(Object json) => serializers.deserializeWith(serializer, json)!;
   static NextcloudUserStatusPublicStatus fromJsonString(String data) => serializers.fromJson(serializer, data)!;
   Map<String, dynamic> toJson() => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
   static String? toJsonString(NextcloudUserStatusPublicStatus? data) =>
@@ -4643,7 +4654,7 @@ abstract class NextcloudUserStatusGetPublicStatuses_Ocs
   factory NextcloudUserStatusGetPublicStatuses_Ocs(
       [void Function(NextcloudUserStatusGetPublicStatuses_OcsBuilder)? b]) = _$NextcloudUserStatusGetPublicStatuses_Ocs;
 
-  static NextcloudUserStatusGetPublicStatuses_Ocs fromJson(Map<String, dynamic> json) =>
+  static NextcloudUserStatusGetPublicStatuses_Ocs fromJson(Object json) =>
       serializers.deserializeWith(serializer, json)!;
   static NextcloudUserStatusGetPublicStatuses_Ocs fromJsonString(String data) =>
       serializers.fromJson(serializer, data)!;
@@ -4663,8 +4674,7 @@ abstract class NextcloudUserStatusGetPublicStatuses
   factory NextcloudUserStatusGetPublicStatuses([void Function(NextcloudUserStatusGetPublicStatusesBuilder)? b]) =
       _$NextcloudUserStatusGetPublicStatuses;
 
-  static NextcloudUserStatusGetPublicStatuses fromJson(Map<String, dynamic> json) =>
-      serializers.deserializeWith(serializer, json)!;
+  static NextcloudUserStatusGetPublicStatuses fromJson(Object json) => serializers.deserializeWith(serializer, json)!;
   static NextcloudUserStatusGetPublicStatuses fromJsonString(String data) => serializers.fromJson(serializer, data)!;
   Map<String, dynamic> toJson() => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
   static String? toJsonString(NextcloudUserStatusGetPublicStatuses? data) =>
@@ -4674,48 +4684,66 @@ abstract class NextcloudUserStatusGetPublicStatuses
       _$nextcloudUserStatusGetPublicStatusesSerializer;
 }
 
-class NextcloudUserStatusGetPublicStatus_Ocs_Data {
-  NextcloudUserStatusGetPublicStatus_Ocs_Data(
-    this._data, {
-    this.builtListJsonObject,
-    this.userStatusPublicStatus,
-  });
+abstract class NextcloudUserStatusGetPublicStatus_Ocs_Data
+    implements Built<NextcloudUserStatusGetPublicStatus_Ocs_Data, NextcloudUserStatusGetPublicStatus_Ocs_DataBuilder> {
+  const NextcloudUserStatusGetPublicStatus_Ocs_Data._();
 
-  factory NextcloudUserStatusGetPublicStatus_Ocs_Data.fromJson(dynamic data) {
-    BuiltList<JsonObject>? builtListJsonObject;
-    NextcloudUserStatusPublicStatus? userStatusPublicStatus;
-    try {
-      builtListJsonObject = BuiltList<JsonObject>((data as List).map((final e) => JsonObject(e)));
-    } catch (_) {}
-    try {
-      userStatusPublicStatus = NextcloudUserStatusPublicStatus.fromJson(data as Map<String, dynamic>);
-    } catch (_) {}
-    assert([builtListJsonObject, userStatusPublicStatus].where((final x) => x != null).length >= 1,
-        'Need oneOf for $data');
-    return NextcloudUserStatusGetPublicStatus_Ocs_Data(
-      data,
-      builtListJsonObject: builtListJsonObject,
-      userStatusPublicStatus: userStatusPublicStatus,
-    );
+  factory NextcloudUserStatusGetPublicStatus_Ocs_Data(
+          [void Function(NextcloudUserStatusGetPublicStatus_Ocs_DataBuilder)? b]) =
+      _$NextcloudUserStatusGetPublicStatus_Ocs_Data;
+
+  JsonObject get data;
+  BuiltList<JsonObject>? get builtListJsonObject;
+  NextcloudUserStatusPublicStatus? get userStatusPublicStatus;
+  static NextcloudUserStatusGetPublicStatus_Ocs_Data fromJson(Object json) =>
+      serializers.deserializeWith(serializer, json)!;
+  static NextcloudUserStatusGetPublicStatus_Ocs_Data fromJsonString(String data) =>
+      serializers.fromJson(serializer, data)!;
+  Map<String, dynamic> toJson() => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
+  static String? toJsonString(NextcloudUserStatusGetPublicStatus_Ocs_Data? data) =>
+      data == null ? null : serializers.toJson(serializer, data);
+  @BuiltValueSerializer(custom: true)
+  static Serializer<NextcloudUserStatusGetPublicStatus_Ocs_Data> get serializer =>
+      _$NextcloudUserStatusGetPublicStatus_Ocs_DataSerializer();
+}
+
+class _$NextcloudUserStatusGetPublicStatus_Ocs_DataSerializer
+    implements PrimitiveSerializer<NextcloudUserStatusGetPublicStatus_Ocs_Data> {
+  @override
+  final Iterable<Type> types = const [
+    NextcloudUserStatusGetPublicStatus_Ocs_Data,
+    _$NextcloudUserStatusGetPublicStatus_Ocs_Data
+  ];
+
+  @override
+  final String wireName = r'NextcloudUserStatusGetPublicStatus_Ocs_Data';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    NextcloudUserStatusGetPublicStatus_Ocs_Data object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
+    return object.data.value;
   }
 
-  // coverage:ignore-start
-  factory NextcloudUserStatusGetPublicStatus_Ocs_Data.fromJsonString(String data) =>
-      NextcloudUserStatusGetPublicStatus_Ocs_Data.fromJson(json.decode(data));
-  // coverage:ignore-end
-
-  final dynamic _data;
-
-  final BuiltList<JsonObject>? builtListJsonObject;
-
-  final NextcloudUserStatusPublicStatus? userStatusPublicStatus;
-
-  // coverage:ignore-start
-  dynamic toJson() => _data;
-  // coverage:ignore-end
-  // coverage:ignore-start
-  static String toJsonString(dynamic data) => json.encode(data);
-  // coverage:ignore-end
+  @override
+  NextcloudUserStatusGetPublicStatus_Ocs_Data deserialize(
+    Serializers serializers,
+    Object data, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = NextcloudUserStatusGetPublicStatus_Ocs_DataBuilder()..data = JsonObject(data);
+    try {
+      result.builtListJsonObject = BuiltList<JsonObject>((data as List).map((final e) => JsonObject(e))).toBuilder();
+    } catch (_) {}
+    try {
+      result.userStatusPublicStatus = NextcloudUserStatusPublicStatus.fromJson(data as Object).toBuilder();
+    } catch (_) {}
+    assert([result._builtListJsonObject, result._userStatusPublicStatus].where((final x) => x != null).length >= 1,
+        'Need oneOf for ${result._data}');
+    return result.build();
+  }
 }
 
 abstract class NextcloudUserStatusGetPublicStatus_Ocs
@@ -4725,8 +4753,7 @@ abstract class NextcloudUserStatusGetPublicStatus_Ocs
   factory NextcloudUserStatusGetPublicStatus_Ocs([void Function(NextcloudUserStatusGetPublicStatus_OcsBuilder)? b]) =
       _$NextcloudUserStatusGetPublicStatus_Ocs;
 
-  static NextcloudUserStatusGetPublicStatus_Ocs fromJson(Map<String, dynamic> json) =>
-      serializers.deserializeWith(serializer, json)!;
+  static NextcloudUserStatusGetPublicStatus_Ocs fromJson(Object json) => serializers.deserializeWith(serializer, json)!;
   static NextcloudUserStatusGetPublicStatus_Ocs fromJsonString(String data) => serializers.fromJson(serializer, data)!;
   Map<String, dynamic> toJson() => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
   static String? toJsonString(NextcloudUserStatusGetPublicStatus_Ocs? data) =>
@@ -4744,8 +4771,7 @@ abstract class NextcloudUserStatusGetPublicStatus
   factory NextcloudUserStatusGetPublicStatus([void Function(NextcloudUserStatusGetPublicStatusBuilder)? b]) =
       _$NextcloudUserStatusGetPublicStatus;
 
-  static NextcloudUserStatusGetPublicStatus fromJson(Map<String, dynamic> json) =>
-      serializers.deserializeWith(serializer, json)!;
+  static NextcloudUserStatusGetPublicStatus fromJson(Object json) => serializers.deserializeWith(serializer, json)!;
   static NextcloudUserStatusGetPublicStatus fromJsonString(String data) => serializers.fromJson(serializer, data)!;
   Map<String, dynamic> toJson() => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
   static String? toJsonString(NextcloudUserStatusGetPublicStatus? data) =>
@@ -4755,48 +4781,61 @@ abstract class NextcloudUserStatusGetPublicStatus
       _$nextcloudUserStatusGetPublicStatusSerializer;
 }
 
-class NextcloudUserStatusStatus_ClearAt {
-  NextcloudUserStatusStatus_ClearAt(
-    this._data, {
-    this.userStatusClearAt,
-    this.$int,
-  });
+abstract class NextcloudUserStatusStatus_ClearAt
+    implements Built<NextcloudUserStatusStatus_ClearAt, NextcloudUserStatusStatus_ClearAtBuilder> {
+  const NextcloudUserStatusStatus_ClearAt._();
 
-  factory NextcloudUserStatusStatus_ClearAt.fromJson(dynamic data) {
-    NextcloudUserStatusClearAt? userStatusClearAt;
-    int? $int;
-    try {
-      userStatusClearAt = NextcloudUserStatusClearAt.fromJson(data as Map<String, dynamic>);
-    } catch (_) {}
-    try {
-      $int = (data as int);
-    } catch (_) {}
-    assert([userStatusClearAt, $int].where((final x) => x != null).length >= 1, 'Need oneOf for $data');
-    return NextcloudUserStatusStatus_ClearAt(
-      data,
-      userStatusClearAt: userStatusClearAt,
-      $int: $int,
-    );
-  }
+  factory NextcloudUserStatusStatus_ClearAt([void Function(NextcloudUserStatusStatus_ClearAtBuilder)? b]) =
+      _$NextcloudUserStatusStatus_ClearAt;
 
-  // coverage:ignore-start
-  factory NextcloudUserStatusStatus_ClearAt.fromJsonString(String data) =>
-      NextcloudUserStatusStatus_ClearAt.fromJson(json.decode(data));
-  // coverage:ignore-end
-
-  final dynamic _data;
-
-  final NextcloudUserStatusClearAt? userStatusClearAt;
+  JsonObject get data;
+  NextcloudUserStatusClearAt? get userStatusClearAt;
 
   /// Time as unix timestamp
-  final int? $int;
+  int? get $int;
+  static NextcloudUserStatusStatus_ClearAt fromJson(Object json) => serializers.deserializeWith(serializer, json)!;
+  static NextcloudUserStatusStatus_ClearAt fromJsonString(String data) => serializers.fromJson(serializer, data)!;
+  Map<String, dynamic> toJson() => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
+  static String? toJsonString(NextcloudUserStatusStatus_ClearAt? data) =>
+      data == null ? null : serializers.toJson(serializer, data);
+  @BuiltValueSerializer(custom: true)
+  static Serializer<NextcloudUserStatusStatus_ClearAt> get serializer =>
+      _$NextcloudUserStatusStatus_ClearAtSerializer();
+}
 
-  // coverage:ignore-start
-  dynamic toJson() => _data;
-  // coverage:ignore-end
-  // coverage:ignore-start
-  static String toJsonString(dynamic data) => json.encode(data);
-  // coverage:ignore-end
+class _$NextcloudUserStatusStatus_ClearAtSerializer implements PrimitiveSerializer<NextcloudUserStatusStatus_ClearAt> {
+  @override
+  final Iterable<Type> types = const [NextcloudUserStatusStatus_ClearAt, _$NextcloudUserStatusStatus_ClearAt];
+
+  @override
+  final String wireName = r'NextcloudUserStatusStatus_ClearAt';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    NextcloudUserStatusStatus_ClearAt object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
+    return object.data.value;
+  }
+
+  @override
+  NextcloudUserStatusStatus_ClearAt deserialize(
+    Serializers serializers,
+    Object data, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = NextcloudUserStatusStatus_ClearAtBuilder()..data = JsonObject(data);
+    try {
+      result.userStatusClearAt = NextcloudUserStatusClearAt.fromJson(data as Object).toBuilder();
+    } catch (_) {}
+    try {
+      result.$int = (data as int);
+    } catch (_) {}
+    assert([result._userStatusClearAt, result._$int].where((final x) => x != null).length >= 1,
+        'Need oneOf for ${result._data}');
+    return result.build();
+  }
 }
 
 abstract class NextcloudUserStatusStatus implements Built<NextcloudUserStatusStatus, NextcloudUserStatusStatusBuilder> {
@@ -4804,8 +4843,7 @@ abstract class NextcloudUserStatusStatus implements Built<NextcloudUserStatusSta
 
   factory NextcloudUserStatusStatus([void Function(NextcloudUserStatusStatusBuilder)? b]) = _$NextcloudUserStatusStatus;
 
-  static NextcloudUserStatusStatus fromJson(Map<String, dynamic> json) =>
-      serializers.deserializeWith(serializer, json)!;
+  static NextcloudUserStatusStatus fromJson(Object json) => serializers.deserializeWith(serializer, json)!;
   static NextcloudUserStatusStatus fromJsonString(String data) => serializers.fromJson(serializer, data)!;
   Map<String, dynamic> toJson() => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
   static String? toJsonString(NextcloudUserStatusStatus? data) =>
@@ -4821,47 +4859,60 @@ abstract class NextcloudUserStatusStatus implements Built<NextcloudUserStatusSta
   static Serializer<NextcloudUserStatusStatus> get serializer => _$nextcloudUserStatusStatusSerializer;
 }
 
-class NextcloudUserStatusGetStatus_Ocs_Data {
-  NextcloudUserStatusGetStatus_Ocs_Data(
-    this._data, {
-    this.builtListJsonObject,
-    this.userStatusStatus,
-  });
+abstract class NextcloudUserStatusGetStatus_Ocs_Data
+    implements Built<NextcloudUserStatusGetStatus_Ocs_Data, NextcloudUserStatusGetStatus_Ocs_DataBuilder> {
+  const NextcloudUserStatusGetStatus_Ocs_Data._();
 
-  factory NextcloudUserStatusGetStatus_Ocs_Data.fromJson(dynamic data) {
-    BuiltList<JsonObject>? builtListJsonObject;
-    NextcloudUserStatusStatus? userStatusStatus;
-    try {
-      builtListJsonObject = BuiltList<JsonObject>((data as List).map((final e) => JsonObject(e)));
-    } catch (_) {}
-    try {
-      userStatusStatus = NextcloudUserStatusStatus.fromJson(data as Map<String, dynamic>);
-    } catch (_) {}
-    assert([builtListJsonObject, userStatusStatus].where((final x) => x != null).length >= 1, 'Need oneOf for $data');
-    return NextcloudUserStatusGetStatus_Ocs_Data(
-      data,
-      builtListJsonObject: builtListJsonObject,
-      userStatusStatus: userStatusStatus,
-    );
+  factory NextcloudUserStatusGetStatus_Ocs_Data([void Function(NextcloudUserStatusGetStatus_Ocs_DataBuilder)? b]) =
+      _$NextcloudUserStatusGetStatus_Ocs_Data;
+
+  JsonObject get data;
+  BuiltList<JsonObject>? get builtListJsonObject;
+  NextcloudUserStatusStatus? get userStatusStatus;
+  static NextcloudUserStatusGetStatus_Ocs_Data fromJson(Object json) => serializers.deserializeWith(serializer, json)!;
+  static NextcloudUserStatusGetStatus_Ocs_Data fromJsonString(String data) => serializers.fromJson(serializer, data)!;
+  Map<String, dynamic> toJson() => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
+  static String? toJsonString(NextcloudUserStatusGetStatus_Ocs_Data? data) =>
+      data == null ? null : serializers.toJson(serializer, data);
+  @BuiltValueSerializer(custom: true)
+  static Serializer<NextcloudUserStatusGetStatus_Ocs_Data> get serializer =>
+      _$NextcloudUserStatusGetStatus_Ocs_DataSerializer();
+}
+
+class _$NextcloudUserStatusGetStatus_Ocs_DataSerializer
+    implements PrimitiveSerializer<NextcloudUserStatusGetStatus_Ocs_Data> {
+  @override
+  final Iterable<Type> types = const [NextcloudUserStatusGetStatus_Ocs_Data, _$NextcloudUserStatusGetStatus_Ocs_Data];
+
+  @override
+  final String wireName = r'NextcloudUserStatusGetStatus_Ocs_Data';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    NextcloudUserStatusGetStatus_Ocs_Data object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
+    return object.data.value;
   }
 
-  // coverage:ignore-start
-  factory NextcloudUserStatusGetStatus_Ocs_Data.fromJsonString(String data) =>
-      NextcloudUserStatusGetStatus_Ocs_Data.fromJson(json.decode(data));
-  // coverage:ignore-end
-
-  final dynamic _data;
-
-  final BuiltList<JsonObject>? builtListJsonObject;
-
-  final NextcloudUserStatusStatus? userStatusStatus;
-
-  // coverage:ignore-start
-  dynamic toJson() => _data;
-  // coverage:ignore-end
-  // coverage:ignore-start
-  static String toJsonString(dynamic data) => json.encode(data);
-  // coverage:ignore-end
+  @override
+  NextcloudUserStatusGetStatus_Ocs_Data deserialize(
+    Serializers serializers,
+    Object data, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = NextcloudUserStatusGetStatus_Ocs_DataBuilder()..data = JsonObject(data);
+    try {
+      result.builtListJsonObject = BuiltList<JsonObject>((data as List).map((final e) => JsonObject(e))).toBuilder();
+    } catch (_) {}
+    try {
+      result.userStatusStatus = NextcloudUserStatusStatus.fromJson(data as Object).toBuilder();
+    } catch (_) {}
+    assert([result._builtListJsonObject, result._userStatusStatus].where((final x) => x != null).length >= 1,
+        'Need oneOf for ${result._data}');
+    return result.build();
+  }
 }
 
 abstract class NextcloudUserStatusGetStatus_Ocs
@@ -4871,8 +4922,7 @@ abstract class NextcloudUserStatusGetStatus_Ocs
   factory NextcloudUserStatusGetStatus_Ocs([void Function(NextcloudUserStatusGetStatus_OcsBuilder)? b]) =
       _$NextcloudUserStatusGetStatus_Ocs;
 
-  static NextcloudUserStatusGetStatus_Ocs fromJson(Map<String, dynamic> json) =>
-      serializers.deserializeWith(serializer, json)!;
+  static NextcloudUserStatusGetStatus_Ocs fromJson(Object json) => serializers.deserializeWith(serializer, json)!;
   static NextcloudUserStatusGetStatus_Ocs fromJsonString(String data) => serializers.fromJson(serializer, data)!;
   Map<String, dynamic> toJson() => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
   static String? toJsonString(NextcloudUserStatusGetStatus_Ocs? data) =>
@@ -4889,8 +4939,7 @@ abstract class NextcloudUserStatusGetStatus
   factory NextcloudUserStatusGetStatus([void Function(NextcloudUserStatusGetStatusBuilder)? b]) =
       _$NextcloudUserStatusGetStatus;
 
-  static NextcloudUserStatusGetStatus fromJson(Map<String, dynamic> json) =>
-      serializers.deserializeWith(serializer, json)!;
+  static NextcloudUserStatusGetStatus fromJson(Object json) => serializers.deserializeWith(serializer, json)!;
   static NextcloudUserStatusGetStatus fromJsonString(String data) => serializers.fromJson(serializer, data)!;
   Map<String, dynamic> toJson() => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
   static String? toJsonString(NextcloudUserStatusGetStatus? data) =>
@@ -4899,48 +4948,68 @@ abstract class NextcloudUserStatusGetStatus
   static Serializer<NextcloudUserStatusGetStatus> get serializer => _$nextcloudUserStatusGetStatusSerializer;
 }
 
-class NextcloudUserStatusPredefinedStatus_ClearAt {
-  NextcloudUserStatusPredefinedStatus_ClearAt(
-    this._data, {
-    this.userStatusClearAt,
-    this.$int,
-  });
+abstract class NextcloudUserStatusPredefinedStatus_ClearAt
+    implements Built<NextcloudUserStatusPredefinedStatus_ClearAt, NextcloudUserStatusPredefinedStatus_ClearAtBuilder> {
+  const NextcloudUserStatusPredefinedStatus_ClearAt._();
 
-  factory NextcloudUserStatusPredefinedStatus_ClearAt.fromJson(dynamic data) {
-    NextcloudUserStatusClearAt? userStatusClearAt;
-    int? $int;
-    try {
-      userStatusClearAt = NextcloudUserStatusClearAt.fromJson(data as Map<String, dynamic>);
-    } catch (_) {}
-    try {
-      $int = (data as int);
-    } catch (_) {}
-    assert([userStatusClearAt, $int].where((final x) => x != null).length >= 1, 'Need oneOf for $data');
-    return NextcloudUserStatusPredefinedStatus_ClearAt(
-      data,
-      userStatusClearAt: userStatusClearAt,
-      $int: $int,
-    );
-  }
+  factory NextcloudUserStatusPredefinedStatus_ClearAt(
+          [void Function(NextcloudUserStatusPredefinedStatus_ClearAtBuilder)? b]) =
+      _$NextcloudUserStatusPredefinedStatus_ClearAt;
 
-  // coverage:ignore-start
-  factory NextcloudUserStatusPredefinedStatus_ClearAt.fromJsonString(String data) =>
-      NextcloudUserStatusPredefinedStatus_ClearAt.fromJson(json.decode(data));
-  // coverage:ignore-end
-
-  final dynamic _data;
-
-  final NextcloudUserStatusClearAt? userStatusClearAt;
+  JsonObject get data;
+  NextcloudUserStatusClearAt? get userStatusClearAt;
 
   /// Time as unix timestamp
-  final int? $int;
+  int? get $int;
+  static NextcloudUserStatusPredefinedStatus_ClearAt fromJson(Object json) =>
+      serializers.deserializeWith(serializer, json)!;
+  static NextcloudUserStatusPredefinedStatus_ClearAt fromJsonString(String data) =>
+      serializers.fromJson(serializer, data)!;
+  Map<String, dynamic> toJson() => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
+  static String? toJsonString(NextcloudUserStatusPredefinedStatus_ClearAt? data) =>
+      data == null ? null : serializers.toJson(serializer, data);
+  @BuiltValueSerializer(custom: true)
+  static Serializer<NextcloudUserStatusPredefinedStatus_ClearAt> get serializer =>
+      _$NextcloudUserStatusPredefinedStatus_ClearAtSerializer();
+}
 
-  // coverage:ignore-start
-  dynamic toJson() => _data;
-  // coverage:ignore-end
-  // coverage:ignore-start
-  static String toJsonString(dynamic data) => json.encode(data);
-  // coverage:ignore-end
+class _$NextcloudUserStatusPredefinedStatus_ClearAtSerializer
+    implements PrimitiveSerializer<NextcloudUserStatusPredefinedStatus_ClearAt> {
+  @override
+  final Iterable<Type> types = const [
+    NextcloudUserStatusPredefinedStatus_ClearAt,
+    _$NextcloudUserStatusPredefinedStatus_ClearAt
+  ];
+
+  @override
+  final String wireName = r'NextcloudUserStatusPredefinedStatus_ClearAt';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    NextcloudUserStatusPredefinedStatus_ClearAt object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
+    return object.data.value;
+  }
+
+  @override
+  NextcloudUserStatusPredefinedStatus_ClearAt deserialize(
+    Serializers serializers,
+    Object data, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = NextcloudUserStatusPredefinedStatus_ClearAtBuilder()..data = JsonObject(data);
+    try {
+      result.userStatusClearAt = NextcloudUserStatusClearAt.fromJson(data as Object).toBuilder();
+    } catch (_) {}
+    try {
+      result.$int = (data as int);
+    } catch (_) {}
+    assert([result._userStatusClearAt, result._$int].where((final x) => x != null).length >= 1,
+        'Need oneOf for ${result._data}');
+    return result.build();
+  }
 }
 
 abstract class NextcloudUserStatusPredefinedStatus
@@ -4950,8 +5019,7 @@ abstract class NextcloudUserStatusPredefinedStatus
   factory NextcloudUserStatusPredefinedStatus([void Function(NextcloudUserStatusPredefinedStatusBuilder)? b]) =
       _$NextcloudUserStatusPredefinedStatus;
 
-  static NextcloudUserStatusPredefinedStatus fromJson(Map<String, dynamic> json) =>
-      serializers.deserializeWith(serializer, json)!;
+  static NextcloudUserStatusPredefinedStatus fromJson(Object json) => serializers.deserializeWith(serializer, json)!;
   static NextcloudUserStatusPredefinedStatus fromJsonString(String data) => serializers.fromJson(serializer, data)!;
   Map<String, dynamic> toJson() => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
   static String? toJsonString(NextcloudUserStatusPredefinedStatus? data) =>
@@ -4972,7 +5040,7 @@ abstract class NextcloudUserStatusPredefinedStatuses_Ocs
           [void Function(NextcloudUserStatusPredefinedStatuses_OcsBuilder)? b]) =
       _$NextcloudUserStatusPredefinedStatuses_Ocs;
 
-  static NextcloudUserStatusPredefinedStatuses_Ocs fromJson(Map<String, dynamic> json) =>
+  static NextcloudUserStatusPredefinedStatuses_Ocs fromJson(Object json) =>
       serializers.deserializeWith(serializer, json)!;
   static NextcloudUserStatusPredefinedStatuses_Ocs fromJsonString(String data) =>
       serializers.fromJson(serializer, data)!;
@@ -4992,8 +5060,7 @@ abstract class NextcloudUserStatusPredefinedStatuses
   factory NextcloudUserStatusPredefinedStatuses([void Function(NextcloudUserStatusPredefinedStatusesBuilder)? b]) =
       _$NextcloudUserStatusPredefinedStatuses;
 
-  static NextcloudUserStatusPredefinedStatuses fromJson(Map<String, dynamic> json) =>
-      serializers.deserializeWith(serializer, json)!;
+  static NextcloudUserStatusPredefinedStatuses fromJson(Object json) => serializers.deserializeWith(serializer, json)!;
   static NextcloudUserStatusPredefinedStatuses fromJsonString(String data) => serializers.fromJson(serializer, data)!;
   Map<String, dynamic> toJson() => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
   static String? toJsonString(NextcloudUserStatusPredefinedStatuses? data) =>
@@ -5010,8 +5077,7 @@ abstract class NextcloudUserStatusHeartbeat_Ocs
   factory NextcloudUserStatusHeartbeat_Ocs([void Function(NextcloudUserStatusHeartbeat_OcsBuilder)? b]) =
       _$NextcloudUserStatusHeartbeat_Ocs;
 
-  static NextcloudUserStatusHeartbeat_Ocs fromJson(Map<String, dynamic> json) =>
-      serializers.deserializeWith(serializer, json)!;
+  static NextcloudUserStatusHeartbeat_Ocs fromJson(Object json) => serializers.deserializeWith(serializer, json)!;
   static NextcloudUserStatusHeartbeat_Ocs fromJsonString(String data) => serializers.fromJson(serializer, data)!;
   Map<String, dynamic> toJson() => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
   static String? toJsonString(NextcloudUserStatusHeartbeat_Ocs? data) =>
@@ -5028,8 +5094,7 @@ abstract class NextcloudUserStatusHeartbeat
   factory NextcloudUserStatusHeartbeat([void Function(NextcloudUserStatusHeartbeatBuilder)? b]) =
       _$NextcloudUserStatusHeartbeat;
 
-  static NextcloudUserStatusHeartbeat fromJson(Map<String, dynamic> json) =>
-      serializers.deserializeWith(serializer, json)!;
+  static NextcloudUserStatusHeartbeat fromJson(Object json) => serializers.deserializeWith(serializer, json)!;
   static NextcloudUserStatusHeartbeat fromJsonString(String data) => serializers.fromJson(serializer, data)!;
   Map<String, dynamic> toJson() => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
   static String? toJsonString(NextcloudUserStatusHeartbeat? data) =>
@@ -5048,7 +5113,7 @@ abstract class NextcloudNotificationsNotificationDecryptedSubject
           [void Function(NextcloudNotificationsNotificationDecryptedSubjectBuilder)? b]) =
       _$NextcloudNotificationsNotificationDecryptedSubject;
 
-  static NextcloudNotificationsNotificationDecryptedSubject fromJson(Map<String, dynamic> json) =>
+  static NextcloudNotificationsNotificationDecryptedSubject fromJson(Object json) =>
       serializers.deserializeWith(serializer, json)!;
   static NextcloudNotificationsNotificationDecryptedSubject fromJsonString(String data) =>
       serializers.fromJson(serializer, data)!;
