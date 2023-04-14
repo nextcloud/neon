@@ -59,6 +59,9 @@ class OpenAPIBuilder implements Builder {
 
       final state = State(prefix);
       final output = <String>[
+        '// ignore_for_file: avoid_dynamic_calls',
+        '// ignore_for_file: camel_case_types',
+        '// ignore_for_file: public_member_api_docs',
         "import 'dart:convert';",
         "import 'dart:io';",
         "import 'dart:typed_data';",
