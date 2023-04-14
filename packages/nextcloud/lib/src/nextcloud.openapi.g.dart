@@ -1270,16 +1270,9 @@ NextcloudNewsArticle _$NextcloudNewsArticleFromJson(Map<String, dynamic> json) {
     id: json['id'] as int,
     guid: json['guid'] as String,
     guidHash: json['guidHash'] as String,
-    url: json['url'] as String?,
     title: json['title'] as String,
-    author: json['author'] as String?,
     pubDate: json['pubDate'] as int,
-    updatedDate: json['updatedDate'] as int?,
     body: json['body'] as String,
-    enclosureMime: json['enclosureMime'] as String?,
-    enclosureLink: json['enclosureLink'] as String?,
-    mediaThumbnail: json['mediaThumbnail'] as String?,
-    mediaDescription: json['mediaDescription'] as String?,
     feedId: json['feedId'] as int,
     unread: json['unread'] as bool,
     starred: json['starred'] as bool,
@@ -1287,6 +1280,13 @@ NextcloudNewsArticle _$NextcloudNewsArticleFromJson(Map<String, dynamic> json) {
     rtl: json['rtl'] as bool,
     fingerprint: json['fingerprint'] as String,
     contentHash: json['contentHash'] as String,
+    url: json['url'] as String?,
+    author: json['author'] as String?,
+    updatedDate: json['updatedDate'] as int?,
+    enclosureMime: json['enclosureMime'] as String?,
+    enclosureLink: json['enclosureLink'] as String?,
+    mediaThumbnail: json['mediaThumbnail'] as String?,
+    mediaDescription: json['mediaDescription'] as String?,
   );
 }
 
@@ -1336,17 +1336,17 @@ NextcloudNewsFeed _$NextcloudNewsFeedFromJson(Map<String, dynamic> json) {
     id: json['id'] as int,
     url: json['url'] as String,
     title: json['title'] as String,
-    faviconLink: json['faviconLink'] as String?,
     added: json['added'] as int,
-    folderId: json['folderId'] as int?,
-    unreadCount: json['unreadCount'] as int?,
     ordering: json['ordering'] as int,
-    link: json['link'] as String?,
     pinned: json['pinned'] as bool,
     updateErrorCount: json['updateErrorCount'] as int,
-    lastUpdateError: json['lastUpdateError'] as String?,
     items:
         (json['items'] as List<dynamic>).map((e) => NextcloudNewsArticle.fromJson(e as Map<String, dynamic>)).toList(),
+    faviconLink: json['faviconLink'] as String?,
+    folderId: json['folderId'] as int?,
+    unreadCount: json['unreadCount'] as int?,
+    link: json['link'] as String?,
+    lastUpdateError: json['lastUpdateError'] as String?,
   );
 }
 
@@ -1407,9 +1407,9 @@ NextcloudNewsListFeeds _$NextcloudNewsListFeedsFromJson(Map<String, dynamic> jso
     allowedKeys: const ['starredCount', 'newestItemId', 'feeds'],
   );
   return NextcloudNewsListFeeds(
+    feeds: (json['feeds'] as List<dynamic>).map((e) => NextcloudNewsFeed.fromJson(e as Map<String, dynamic>)).toList(),
     starredCount: json['starredCount'] as int?,
     newestItemId: json['newestItemId'] as int?,
-    feeds: (json['feeds'] as List<dynamic>).map((e) => NextcloudNewsFeed.fromJson(e as Map<String, dynamic>)).toList(),
   );
 }
 
@@ -1835,20 +1835,21 @@ NextcloudProvisioningApiUserDetails _$NextcloudProvisioningApiUserDetailsFromJso
     ],
   );
   return NextcloudProvisioningApiUserDetails(
-    enabled: json['enabled'] as bool?,
-    storageLocation: json['storageLocation'] as String?,
+    displaynameScope: json['displaynameScope'] as String,
+    backendCapabilities: NextcloudProvisioningApiUserDetails_BackendCapabilities.fromJson(
+        json['backendCapabilities'] as Map<String, dynamic>),
     id: json['id'] as String,
     lastLogin: json['lastLogin'] as int,
     backend: json['backend'] as String,
     subadmin: (json['subadmin'] as List<dynamic>).map((e) => e as String).toList(),
     quota: NextcloudProvisioningApiUserDetails_Quota.fromJson(json['quota'] as Map<String, dynamic>),
     avatarScope: json['avatarScope'] as String,
-    email: json['email'] as String?,
+    locale: json['locale'] as String,
     emailScope: json['emailScope'] as String,
     additionalMail: (json['additional_mail'] as List<dynamic>).map((e) => e as String).toList(),
     additionalMailScope: (json['additional_mailScope'] as List<dynamic>).map((e) => e as String).toList(),
-    displayname: json['displayname'] as String?,
-    displaynameScope: json['displaynameScope'] as String,
+    language: json['language'] as String,
+    groups: (json['groups'] as List<dynamic>).map((e) => e as String).toList(),
     phone: json['phone'] as String,
     phoneScope: json['phoneScope'] as String,
     address: json['address'] as String,
@@ -1860,7 +1861,7 @@ NextcloudProvisioningApiUserDetails _$NextcloudProvisioningApiUserDetailsFromJso
     organisation: json['organisation'] as String,
     organisationScope: json['organisationScope'] as String,
     role: json['role'] as String,
-    roleScope: json['roleScope'] as String,
+    fediverseScope: json['fediverseScope'] as String,
     headline: json['headline'] as String,
     headlineScope: json['headlineScope'] as String,
     biography: json['biography'] as String,
@@ -1868,13 +1869,12 @@ NextcloudProvisioningApiUserDetails _$NextcloudProvisioningApiUserDetailsFromJso
     profileEnabled: json['profile_enabled'] as String,
     profileEnabledScope: json['profile_enabledScope'] as String,
     fediverse: json['fediverse'] as String,
-    fediverseScope: json['fediverseScope'] as String,
-    groups: (json['groups'] as List<dynamic>).map((e) => e as String).toList(),
-    language: json['language'] as String,
-    locale: json['locale'] as String,
+    roleScope: json['roleScope'] as String,
+    enabled: json['enabled'] as bool?,
+    displayname: json['displayname'] as String?,
+    email: json['email'] as String?,
     notifyEmail: json['notify_email'] as String?,
-    backendCapabilities: NextcloudProvisioningApiUserDetails_BackendCapabilities.fromJson(
-        json['backendCapabilities'] as Map<String, dynamic>),
+    storageLocation: json['storageLocation'] as String?,
     displayName: json['display-name'] as String?,
   );
 }
@@ -2211,10 +2211,10 @@ NextcloudUserStatusPublicStatus _$NextcloudUserStatusPublicStatusFromJson(Map<St
   );
   return NextcloudUserStatusPublicStatus(
     userId: json['userId'] as String,
+    status: $enumDecode(_$NextcloudUserStatusTypeEnumMap, json['status']),
     message: json['message'] as String?,
     icon: json['icon'] as String?,
     clearAt: json['clearAt'] == null ? null : NextcloudUserStatusPublicStatus_ClearAt.fromJson(json['clearAt']),
-    status: $enumDecode(_$NextcloudUserStatusTypeEnumMap, json['status']),
   );
 }
 
@@ -2318,13 +2318,13 @@ NextcloudUserStatusStatus _$NextcloudUserStatusStatusFromJson(Map<String, dynami
   );
   return NextcloudUserStatusStatus(
     userId: json['userId'] as String,
-    message: json['message'] as String?,
-    messageId: json['messageId'] as String?,
     messageIsPredefined: json['messageIsPredefined'] as bool,
-    icon: json['icon'] as String?,
-    clearAt: json['clearAt'] == null ? null : NextcloudUserStatusStatus_ClearAt.fromJson(json['clearAt']),
     status: $enumDecode(_$NextcloudUserStatusTypeEnumMap, json['status']),
     statusIsUserDefined: json['statusIsUserDefined'] as bool,
+    message: json['message'] as String?,
+    messageId: json['messageId'] as String?,
+    icon: json['icon'] as String?,
+    clearAt: json['clearAt'] == null ? null : NextcloudUserStatusStatus_ClearAt.fromJson(json['clearAt']),
   );
 }
 
