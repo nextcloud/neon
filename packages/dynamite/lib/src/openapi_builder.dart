@@ -157,7 +157,7 @@ class OpenAPIBuilder implements Builder {
         ).accept(emitter).toString(),
         Class(
           (final b) => b
-            ..name = '_Response'
+            ..name = 'RawResponse'
             ..fields.addAll([
               Field(
                 (final b) => b
@@ -200,7 +200,7 @@ class OpenAPIBuilder implements Builder {
                   ..annotations.add(refer('override'))
                   ..lambda = true
                   ..body = const Code(
-                    r"'_Response(statusCode: $statusCode, headers: $headers, body: ${utf8.decode(body)})'",
+                    r"'RawResponse(statusCode: $statusCode, headers: $headers, body: ${utf8.decode(body)})'",
                   ),
               ),
             ),
@@ -208,7 +208,7 @@ class OpenAPIBuilder implements Builder {
         Class(
           (final b) => b
             ..name = '${prefix}ApiException'
-            ..extend = refer('_Response')
+            ..extend = refer('RawResponse')
             ..implements.add(refer('Exception'))
             ..constructors.addAll(
               [
@@ -233,7 +233,7 @@ class OpenAPIBuilder implements Builder {
                       Parameter(
                         (final b) => b
                           ..name = 'response'
-                          ..type = refer('_Response'),
+                          ..type = refer('RawResponse'),
                       ),
                     )
                     ..body = Code('${prefix}ApiException(response.statusCode, response.headers, response.body,)'),
@@ -530,7 +530,7 @@ class OpenAPIBuilder implements Builder {
                     Method(
                       (final b) => b
                         ..name = 'doRequest'
-                        ..returns = refer('Future<_Response>')
+                        ..returns = refer('Future<RawResponse>')
                         ..modifier = MethodModifier.async
                         ..requiredParameters.addAll([
                           Parameter(
@@ -575,7 +575,7 @@ class OpenAPIBuilder implements Builder {
                         response.headers.forEach((final name, final values) {
                           responseHeaders[name] = values.last;
                         });
-                        return _Response(
+                        return RawResponse(
                           response.statusCode,
                           responseHeaders,
                           await response.bodyBytes,
