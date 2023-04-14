@@ -642,7 +642,12 @@ class OpenAPIBuilder implements Builder {
                             final parameters = <spec_parameter.Parameter>[
                               ...pathParameters,
                               if (operation.parameters != null) ...operation.parameters!,
-                            ];
+                            ]..sort(
+                                (final a, final b) => sortRequiredElements(
+                                  a.required ?? false,
+                                  b.required ?? false,
+                                ),
+                              );
                             b
                               ..name = _toDartName(_filterMethodName(operationId, tag ?? ''))
                               ..modifier = MethodModifier.async
@@ -1234,6 +1239,13 @@ TypeResult resolveObject(
     state.output.add(
       Class(
         (final b) {
+          final sortedParameterKeys = schema.properties!.keys.toList()
+            ..sort(
+              (final a, final b) => sortRequiredElements(
+                (schema.required ?? []).contains(a),
+                (schema.required ?? []).contains(b),
+              ),
+            );
           b
             ..name = '${state.prefix}$identifier'
             ..docs.addAll(_descriptionToDocs(schema.description))
@@ -1257,7 +1269,7 @@ TypeResult resolveObject(
                 Constructor(
                   (final b) => b
                     ..optionalParameters.addAll(
-                      schema.properties!.keys.map(
+                      sortedParameterKeys.map(
                         (final propertyName) => Parameter(
                           (final b) {
                             final propertySchema = schema.properties![propertyName]!;
@@ -1864,4 +1876,17 @@ TypeResult resolveType(
   }
 
   throw Exception('Can not convert OpenAPI type "${schema.toJson()}" to a Dart type');
+}
+
+// ignore: avoid_positional_boolean_parameters
+int sortRequiredElements(final bool a, final bool b) {
+  if (a != b) {
+    if (a && !b) {
+      return -1;
+    } else {
+      return 1;
+    }
+  }
+
+  return 0;
 }
