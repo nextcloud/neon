@@ -59,6 +59,9 @@ class OpenAPIBuilder implements Builder {
 
       final state = State(prefix);
       final output = <String>[
+        '// ignore_for_file: avoid_dynamic_calls',
+        '// ignore_for_file: camel_case_types',
+        '// ignore_for_file: public_member_api_docs',
         "import 'dart:convert';",
         "import 'dart:io';",
         "import 'dart:typed_data';",
@@ -154,7 +157,7 @@ class OpenAPIBuilder implements Builder {
         ).accept(emitter).toString(),
         Class(
           (final b) => b
-            ..name = '_Response'
+            ..name = 'RawResponse'
             ..fields.addAll([
               Field(
                 (final b) => b
@@ -197,7 +200,7 @@ class OpenAPIBuilder implements Builder {
                   ..annotations.add(refer('override'))
                   ..lambda = true
                   ..body = const Code(
-                    r"'_Response(statusCode: $statusCode, headers: $headers, body: ${utf8.decode(body)})'",
+                    r"'RawResponse(statusCode: $statusCode, headers: $headers, body: ${utf8.decode(body)})'",
                   ),
               ),
             ),
@@ -205,7 +208,7 @@ class OpenAPIBuilder implements Builder {
         Class(
           (final b) => b
             ..name = '${prefix}ApiException'
-            ..extend = refer('_Response')
+            ..extend = refer('RawResponse')
             ..implements.add(refer('Exception'))
             ..constructors.addAll(
               [
@@ -230,7 +233,7 @@ class OpenAPIBuilder implements Builder {
                       Parameter(
                         (final b) => b
                           ..name = 'response'
-                          ..type = refer('_Response'),
+                          ..type = refer('RawResponse'),
                       ),
                     )
                     ..body = Code('${prefix}ApiException(response.statusCode, response.headers, response.body,)'),
@@ -527,7 +530,7 @@ class OpenAPIBuilder implements Builder {
                     Method(
                       (final b) => b
                         ..name = 'doRequest'
-                        ..returns = refer('Future<_Response>')
+                        ..returns = refer('Future<RawResponse>')
                         ..modifier = MethodModifier.async
                         ..requiredParameters.addAll([
                           Parameter(
@@ -572,7 +575,7 @@ class OpenAPIBuilder implements Builder {
                         response.headers.forEach((final name, final values) {
                           responseHeaders[name] = values.last;
                         });
-                        return _Response(
+                        return RawResponse(
                           response.statusCode,
                           responseHeaders,
                           await response.bodyBytes,
@@ -639,7 +642,12 @@ class OpenAPIBuilder implements Builder {
                             final parameters = <spec_parameter.Parameter>[
                               ...pathParameters,
                               if (operation.parameters != null) ...operation.parameters!,
-                            ];
+                            ]..sort(
+                                (final a, final b) => sortRequiredElements(
+                                  a.required ?? false,
+                                  b.required ?? false,
+                                ),
+                              );
                             b
                               ..name = _toDartName(_filterMethodName(operationId, tag ?? ''))
                               ..modifier = MethodModifier.async
@@ -1231,6 +1239,13 @@ TypeResult resolveObject(
     state.output.add(
       Class(
         (final b) {
+          final sortedParameterKeys = schema.properties!.keys.toList()
+            ..sort(
+              (final a, final b) => sortRequiredElements(
+                (schema.required ?? []).contains(a),
+                (schema.required ?? []).contains(b),
+              ),
+            );
           b
             ..name = '${state.prefix}$identifier'
             ..docs.addAll(_descriptionToDocs(schema.description))
@@ -1254,7 +1269,7 @@ TypeResult resolveObject(
                 Constructor(
                   (final b) => b
                     ..optionalParameters.addAll(
-                      schema.properties!.keys.map(
+                      sortedParameterKeys.map(
                         (final propertyName) => Parameter(
                           (final b) {
                             final propertySchema = schema.properties![propertyName]!;
@@ -1861,4 +1876,17 @@ TypeResult resolveType(
   }
 
   throw Exception('Can not convert OpenAPI type "${schema.toJson()}" to a Dart type');
+}
+
+// ignore: avoid_positional_boolean_parameters
+int sortRequiredElements(final bool a, final bool b) {
+  if (a != b) {
+    if (a && !b) {
+      return -1;
+    } else {
+      return 1;
+    }
+  }
+
+  return 0;
 }
