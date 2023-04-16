@@ -644,8 +644,8 @@ class OpenAPIBuilder implements Builder {
                               if (operation.parameters != null) ...operation.parameters!,
                             ]..sort(
                                 (final a, final b) => sortRequiredElements(
-                                  a.required ?? false,
-                                  b.required ?? false,
+                                  (a.required ?? false) && a.schema?.default_ == null,
+                                  (b.required ?? false) && b.schema?.default_ == null,
                                 ),
                               );
                             b
@@ -1242,8 +1242,8 @@ TypeResult resolveObject(
           final sortedParameterKeys = schema.properties!.keys.toList()
             ..sort(
               (final a, final b) => sortRequiredElements(
-                (schema.required ?? []).contains(a),
-                (schema.required ?? []).contains(b),
+                (schema.required ?? []).contains(a) && schema.properties![a]!.default_ == null,
+                (schema.required ?? []).contains(b) && schema.properties![b]!.default_ == null,
               ),
             );
           b
