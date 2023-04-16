@@ -10,7 +10,7 @@ function cleanup() {
 trap cleanup EXIT
 
 (
-  cd packages/neon
+  cd packages/app
   fvm flutter drive \
     --driver=test_driver/integration_test.dart \
     --target=integration_test/screenshot_test.dart \

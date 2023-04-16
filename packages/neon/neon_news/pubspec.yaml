@@ -1,0 +1,39 @@
+name: neon_news
+version: 1.0.0
+publish_to: 'none'
+
+environment:
+  sdk: '>=2.19.0 <3.0.0'
+  flutter: '>=3.7.9'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_html: ^3.0.0-alpha.6
+  html: ^0.15.2
+  material_design_icons_flutter: ^6.0.7096
+  neon:
+    path: ../neon
+  nextcloud:
+    path: ../../nextcloud
+  provider: ^6.0.5
+  rxdart: ^0.27.7
+  settings:
+    path: ../../settings
+  share_plus: ^4.5.3
+  sort_box:
+    path: ../../sort_box
+  url_launcher: ^6.1.10
+  wakelock: ^0.6.2
+  webview_flutter: ^3.0.4
+
+dev_dependencies:
+  nit_picking:
+    git:
+      url: https://github.com/stack11/dart_nit_picking
+      ref: 0b2ee0d
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/

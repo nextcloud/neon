@@ -49,10 +49,10 @@ if [[ "$target" == "linux/arm64" ]] || [[ "$target" == "linux/amd64" ]]; then
     paths+=("$path/lib" "$path/pubspec.yaml")
   done
   run_args=()
-  for path in ${paths[*]} "packages/file_icons/fonts" "packages/neon/assets" "packages/neon/build" "packages/neon/linux"; do
+  for path in ${paths[*]} "packages/file_icons/fonts" packages/neon{,_files,_news,_notes,_notifications}/assets "packages/app/build" "packages/app/linux"; do
     run_args+=(-v "$(pwd)/$path:/src/$path")
   done
-  mkdir -p "packages/neon/build"
+  mkdir -p "packages/app/build"
 
   container_id="$(
     # shellcheck disable=SC2086

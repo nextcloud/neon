@@ -1,0 +1,38 @@
+name: neon_notes
+version: 1.0.0
+publish_to: 'none'
+
+environment:
+  sdk: '>=2.19.0 <3.0.0'
+  flutter: '>=3.7.9'
+
+dependencies:
+  crypto: ^3.0.2
+  flutter:
+    sdk: flutter
+  flutter_markdown: ^0.6.14
+  material_design_icons_flutter: ^6.0.7096
+  neon:
+    path: ../neon
+  nextcloud:
+    path: ../../nextcloud
+  provider: ^6.0.5
+  queue: ^3.1.0+2
+  rxdart: ^0.27.7
+  settings:
+    path: ../../settings
+  sort_box:
+    path: ../../sort_box
+  url_launcher: ^6.1.10
+  wakelock: ^0.6.2
+
+dev_dependencies:
+  nit_picking:
+    git:
+      url: https://github.com/stack11/dart_nit_picking
+      ref: 0b2ee0d
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/

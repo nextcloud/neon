@@ -37,134 +37,38 @@ jobs:
       - name: mono_repo self validate
         run: dart pub global run mono_repo generate --validate
   job_002:
-    name: "all; PKG: packages/dynamite; `dart analyze --fatal-infos .`"
+    name: "all; PKG: packages/app; `dart format --output=none --set-exit-if-changed --line-length 120 .`"
     runs-on: ubuntu-latest
     steps:
       - name: Cache Pub hosted dependencies
         uses: actions/cache@627f0f41f6904a5b1efbaed9f96d9eb58e92e920
         with:
           path: "~/.pub-cache/hosted"
-          key: "os:ubuntu-latest;pub-cache-hosted;sdk:stable;packages:packages/dynamite;commands:analyze_0"
+          key: "os:ubuntu-latest;pub-cache-hosted;sdk:stable;packages:packages/app;commands:format"
           restore-keys: |
-            os:ubuntu-latest;pub-cache-hosted;sdk:stable;packages:packages/dynamite
+            os:ubuntu-latest;pub-cache-hosted;sdk:stable;packages:packages/app
             os:ubuntu-latest;pub-cache-hosted;sdk:stable
             os:ubuntu-latest;pub-cache-hosted
             os:ubuntu-latest
-      - name: Setup Dart SDK
-        uses: dart-lang/setup-dart@a57a6c04cf7d4840e88432aad6281d1e125f0d46
+      - name: Setup Flutter SDK
+        uses: subosito/flutter-action@dbf1fa04f4d2e52c33185153d06cdb5443aa189d
         with:
-          sdk: stable
+          channel: stable
       - id: checkout
         name: Checkout repository
         uses: actions/checkout@ac593985615ec2ede58e132d2e21d2b1cbd6127c
-      - id: packages_dynamite_pub_upgrade
-        name: packages/dynamite; dart pub upgrade
-        run: dart pub upgrade
+      - id: packages_app_pub_upgrade
+        name: packages/app; flutter pub upgrade
+        run: flutter pub upgrade
         if: "always() && steps.checkout.conclusion == 'success'"
-        working-directory: packages/dynamite
-      - name: "packages/dynamite; dart analyze --fatal-infos ."
-        run: dart analyze --fatal-infos .
-        if: "always() && steps.packages_dynamite_pub_upgrade.conclusion == 'success'"
-        working-directory: packages/dynamite
+        working-directory: packages/app
+      - name: "packages/app; dart format --output=none --set-exit-if-changed --line-length 120 ."
+        run: "dart format --output=none --set-exit-if-changed --line-length 120 ."
+        if: "always() && steps.packages_app_pub_upgrade.conclusion == 'success'"
+        working-directory: packages/app
     needs:
       - job_001
   job_003:
-    name: "all; PKG: packages/nextcloud; `dart analyze --fatal-infos .`"
-    runs-on: ubuntu-latest
-    steps:
-      - name: Cache Pub hosted dependencies
-        uses: actions/cache@627f0f41f6904a5b1efbaed9f96d9eb58e92e920
-        with:
-          path: "~/.pub-cache/hosted"
-          key: "os:ubuntu-latest;pub-cache-hosted;sdk:stable;packages:packages/nextcloud;commands:analyze_0"
-          restore-keys: |
-            os:ubuntu-latest;pub-cache-hosted;sdk:stable;packages:packages/nextcloud
-            os:ubuntu-latest;pub-cache-hosted;sdk:stable
-            os:ubuntu-latest;pub-cache-hosted
-            os:ubuntu-latest
-      - name: Setup Dart SDK
-        uses: dart-lang/setup-dart@a57a6c04cf7d4840e88432aad6281d1e125f0d46
-        with:
-          sdk: stable
-      - id: checkout
-        name: Checkout repository
-        uses: actions/checkout@ac593985615ec2ede58e132d2e21d2b1cbd6127c
-      - id: packages_nextcloud_pub_upgrade
-        name: packages/nextcloud; dart pub upgrade
-        run: dart pub upgrade
-        if: "always() && steps.checkout.conclusion == 'success'"
-        working-directory: packages/nextcloud
-      - name: "packages/nextcloud; dart analyze --fatal-infos ."
-        run: dart analyze --fatal-infos .
-        if: "always() && steps.packages_nextcloud_pub_upgrade.conclusion == 'success'"
-        working-directory: packages/nextcloud
-    needs:
-      - job_001
-  job_004:
-    name: "all; PKG: packages/sort_box; `dart analyze --fatal-infos .`"
-    runs-on: ubuntu-latest
-    steps:
-      - name: Cache Pub hosted dependencies
-        uses: actions/cache@627f0f41f6904a5b1efbaed9f96d9eb58e92e920
-        with:
-          path: "~/.pub-cache/hosted"
-          key: "os:ubuntu-latest;pub-cache-hosted;sdk:stable;packages:packages/sort_box;commands:analyze_0"
-          restore-keys: |
-            os:ubuntu-latest;pub-cache-hosted;sdk:stable;packages:packages/sort_box
-            os:ubuntu-latest;pub-cache-hosted;sdk:stable
-            os:ubuntu-latest;pub-cache-hosted
-            os:ubuntu-latest
-      - name: Setup Dart SDK
-        uses: dart-lang/setup-dart@a57a6c04cf7d4840e88432aad6281d1e125f0d46
-        with:
-          sdk: stable
-      - id: checkout
-        name: Checkout repository
-        uses: actions/checkout@ac593985615ec2ede58e132d2e21d2b1cbd6127c
-      - id: packages_sort_box_pub_upgrade
-        name: packages/sort_box; dart pub upgrade
-        run: dart pub upgrade
-        if: "always() && steps.checkout.conclusion == 'success'"
-        working-directory: packages/sort_box
-      - name: "packages/sort_box; dart analyze --fatal-infos ."
-        run: dart analyze --fatal-infos .
-        if: "always() && steps.packages_sort_box_pub_upgrade.conclusion == 'success'"
-        working-directory: packages/sort_box
-    needs:
-      - job_001
-  job_005:
-    name: "all; PKG: packages/spec_templates; `dart analyze --fatal-infos .`"
-    runs-on: ubuntu-latest
-    steps:
-      - name: Cache Pub hosted dependencies
-        uses: actions/cache@627f0f41f6904a5b1efbaed9f96d9eb58e92e920
-        with:
-          path: "~/.pub-cache/hosted"
-          key: "os:ubuntu-latest;pub-cache-hosted;sdk:stable;packages:packages/spec_templates;commands:analyze_0"
-          restore-keys: |
-            os:ubuntu-latest;pub-cache-hosted;sdk:stable;packages:packages/spec_templates
-            os:ubuntu-latest;pub-cache-hosted;sdk:stable
-            os:ubuntu-latest;pub-cache-hosted
-            os:ubuntu-latest
-      - name: Setup Dart SDK
-        uses: dart-lang/setup-dart@a57a6c04cf7d4840e88432aad6281d1e125f0d46
-        with:
-          sdk: stable
-      - id: checkout
-        name: Checkout repository
-        uses: actions/checkout@ac593985615ec2ede58e132d2e21d2b1cbd6127c
-      - id: packages_spec_templates_pub_upgrade
-        name: packages/spec_templates; dart pub upgrade
-        run: dart pub upgrade
-        if: "always() && steps.checkout.conclusion == 'success'"
-        working-directory: packages/spec_templates
-      - name: "packages/spec_templates; dart analyze --fatal-infos ."
-        run: dart analyze --fatal-infos .
-        if: "always() && steps.packages_spec_templates_pub_upgrade.conclusion == 'success'"
-        working-directory: packages/spec_templates
-    needs:
-      - job_001
-  job_006:
     name: "all; PKG: packages/dynamite; `dart format --output=none --set-exit-if-changed --line-length 120 .`"
     runs-on: ubuntu-latest
     steps:
@@ -196,7 +100,7 @@ jobs:
         working-directory: packages/dynamite
     needs:
       - job_001
-  job_007:
+  job_004:
     name: "all; PKG: packages/file_icons; `dart format --output=none --set-exit-if-changed --line-length 120 .`"
     runs-on: ubuntu-latest
     steps:
@@ -228,17 +132,17 @@ jobs:
         working-directory: packages/file_icons
     needs:
       - job_001
-  job_008:
-    name: "all; PKG: packages/neon; `dart format --output=none --set-exit-if-changed --line-length 120 .`"
+  job_005:
+    name: "all; PKG: packages/neon/neon; `dart format --output=none --set-exit-if-changed --line-length 120 .`"
     runs-on: ubuntu-latest
     steps:
       - name: Cache Pub hosted dependencies
         uses: actions/cache@627f0f41f6904a5b1efbaed9f96d9eb58e92e920
         with:
           path: "~/.pub-cache/hosted"
-          key: "os:ubuntu-latest;pub-cache-hosted;sdk:stable;packages:packages/neon;commands:format"
+          key: "os:ubuntu-latest;pub-cache-hosted;sdk:stable;packages:packages/neon/neon;commands:format"
           restore-keys: |
-            os:ubuntu-latest;pub-cache-hosted;sdk:stable;packages:packages/neon
+            os:ubuntu-latest;pub-cache-hosted;sdk:stable;packages:packages/neon/neon
             os:ubuntu-latest;pub-cache-hosted;sdk:stable
             os:ubuntu-latest;pub-cache-hosted
             os:ubuntu-latest
@@ -249,18 +153,146 @@ jobs:
       - id: checkout
         name: Checkout repository
         uses: actions/checkout@ac593985615ec2ede58e132d2e21d2b1cbd6127c
-      - id: packages_neon_pub_upgrade
-        name: packages/neon; flutter pub upgrade
+      - id: packages_neon_neon_pub_upgrade
+        name: packages/neon/neon; flutter pub upgrade
         run: flutter pub upgrade
         if: "always() && steps.checkout.conclusion == 'success'"
-        working-directory: packages/neon
-      - name: "packages/neon; dart format --output=none --set-exit-if-changed --line-length 120 ."
+        working-directory: packages/neon/neon
+      - name: "packages/neon/neon; dart format --output=none --set-exit-if-changed --line-length 120 ."
         run: "dart format --output=none --set-exit-if-changed --line-length 120 ."
-        if: "always() && steps.packages_neon_pub_upgrade.conclusion == 'success'"
-        working-directory: packages/neon
+        if: "always() && steps.packages_neon_neon_pub_upgrade.conclusion == 'success'"
+        working-directory: packages/neon/neon
+    needs:
+      - job_001
+  job_006:
+    name: "all; PKG: packages/neon/neon_files; `dart format --output=none --set-exit-if-changed --line-length 120 .`"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Cache Pub hosted dependencies
+        uses: actions/cache@627f0f41f6904a5b1efbaed9f96d9eb58e92e920
+        with:
+          path: "~/.pub-cache/hosted"
+          key: "os:ubuntu-latest;pub-cache-hosted;sdk:stable;packages:packages/neon/neon_files;commands:format"
+          restore-keys: |
+            os:ubuntu-latest;pub-cache-hosted;sdk:stable;packages:packages/neon/neon_files
+            os:ubuntu-latest;pub-cache-hosted;sdk:stable
+            os:ubuntu-latest;pub-cache-hosted
+            os:ubuntu-latest
+      - name: Setup Flutter SDK
+        uses: subosito/flutter-action@dbf1fa04f4d2e52c33185153d06cdb5443aa189d
+        with:
+          channel: stable
+      - id: checkout
+        name: Checkout repository
+        uses: actions/checkout@ac593985615ec2ede58e132d2e21d2b1cbd6127c
+      - id: packages_neon_neon_files_pub_upgrade
+        name: packages/neon/neon_files; flutter pub upgrade
+        run: flutter pub upgrade
+        if: "always() && steps.checkout.conclusion == 'success'"
+        working-directory: packages/neon/neon_files
+      - name: "packages/neon/neon_files; dart format --output=none --set-exit-if-changed --line-length 120 ."
+        run: "dart format --output=none --set-exit-if-changed --line-length 120 ."
+        if: "always() && steps.packages_neon_neon_files_pub_upgrade.conclusion == 'success'"
+        working-directory: packages/neon/neon_files
+    needs:
+      - job_001
+  job_007:
+    name: "all; PKG: packages/neon/neon_news; `dart format --output=none --set-exit-if-changed --line-length 120 .`"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Cache Pub hosted dependencies
+        uses: actions/cache@627f0f41f6904a5b1efbaed9f96d9eb58e92e920
+        with:
+          path: "~/.pub-cache/hosted"
+          key: "os:ubuntu-latest;pub-cache-hosted;sdk:stable;packages:packages/neon/neon_news;commands:format"
+          restore-keys: |
+            os:ubuntu-latest;pub-cache-hosted;sdk:stable;packages:packages/neon/neon_news
+            os:ubuntu-latest;pub-cache-hosted;sdk:stable
+            os:ubuntu-latest;pub-cache-hosted
+            os:ubuntu-latest
+      - name: Setup Flutter SDK
+        uses: subosito/flutter-action@dbf1fa04f4d2e52c33185153d06cdb5443aa189d
+        with:
+          channel: stable
+      - id: checkout
+        name: Checkout repository
+        uses: actions/checkout@ac593985615ec2ede58e132d2e21d2b1cbd6127c
+      - id: packages_neon_neon_news_pub_upgrade
+        name: packages/neon/neon_news; flutter pub upgrade
+        run: flutter pub upgrade
+        if: "always() && steps.checkout.conclusion == 'success'"
+        working-directory: packages/neon/neon_news
+      - name: "packages/neon/neon_news; dart format --output=none --set-exit-if-changed --line-length 120 ."
+        run: "dart format --output=none --set-exit-if-changed --line-length 120 ."
+        if: "always() && steps.packages_neon_neon_news_pub_upgrade.conclusion == 'success'"
+        working-directory: packages/neon/neon_news
+    needs:
+      - job_001
+  job_008:
+    name: "all; PKG: packages/neon/neon_notes; `dart format --output=none --set-exit-if-changed --line-length 120 .`"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Cache Pub hosted dependencies
+        uses: actions/cache@627f0f41f6904a5b1efbaed9f96d9eb58e92e920
+        with:
+          path: "~/.pub-cache/hosted"
+          key: "os:ubuntu-latest;pub-cache-hosted;sdk:stable;packages:packages/neon/neon_notes;commands:format"
+          restore-keys: |
+            os:ubuntu-latest;pub-cache-hosted;sdk:stable;packages:packages/neon/neon_notes
+            os:ubuntu-latest;pub-cache-hosted;sdk:stable
+            os:ubuntu-latest;pub-cache-hosted
+            os:ubuntu-latest
+      - name: Setup Flutter SDK
+        uses: subosito/flutter-action@dbf1fa04f4d2e52c33185153d06cdb5443aa189d
+        with:
+          channel: stable
+      - id: checkout
+        name: Checkout repository
+        uses: actions/checkout@ac593985615ec2ede58e132d2e21d2b1cbd6127c
+      - id: packages_neon_neon_notes_pub_upgrade
+        name: packages/neon/neon_notes; flutter pub upgrade
+        run: flutter pub upgrade
+        if: "always() && steps.checkout.conclusion == 'success'"
+        working-directory: packages/neon/neon_notes
+      - name: "packages/neon/neon_notes; dart format --output=none --set-exit-if-changed --line-length 120 ."
+        run: "dart format --output=none --set-exit-if-changed --line-length 120 ."
+        if: "always() && steps.packages_neon_neon_notes_pub_upgrade.conclusion == 'success'"
+        working-directory: packages/neon/neon_notes
     needs:
       - job_001
   job_009:
+    name: "all; PKG: packages/neon/neon_notifications; `dart format --output=none --set-exit-if-changed --line-length 120 .`"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Cache Pub hosted dependencies
+        uses: actions/cache@627f0f41f6904a5b1efbaed9f96d9eb58e92e920
+        with:
+          path: "~/.pub-cache/hosted"
+          key: "os:ubuntu-latest;pub-cache-hosted;sdk:stable;packages:packages/neon/neon_notifications;commands:format"
+          restore-keys: |
+            os:ubuntu-latest;pub-cache-hosted;sdk:stable;packages:packages/neon/neon_notifications
+            os:ubuntu-latest;pub-cache-hosted;sdk:stable
+            os:ubuntu-latest;pub-cache-hosted
+            os:ubuntu-latest
+      - name: Setup Flutter SDK
+        uses: subosito/flutter-action@dbf1fa04f4d2e52c33185153d06cdb5443aa189d
+        with:
+          channel: stable
+      - id: checkout
+        name: Checkout repository
+        uses: actions/checkout@ac593985615ec2ede58e132d2e21d2b1cbd6127c
+      - id: packages_neon_neon_notifications_pub_upgrade
+        name: packages/neon/neon_notifications; flutter pub upgrade
+        run: flutter pub upgrade
+        if: "always() && steps.checkout.conclusion == 'success'"
+        working-directory: packages/neon/neon_notifications
+      - name: "packages/neon/neon_notifications; dart format --output=none --set-exit-if-changed --line-length 120 ."
+        run: "dart format --output=none --set-exit-if-changed --line-length 120 ."
+        if: "always() && steps.packages_neon_neon_notifications_pub_upgrade.conclusion == 'success'"
+        working-directory: packages/neon/neon_notifications
+    needs:
+      - job_001
+  job_010:
     name: "all; PKG: packages/nextcloud; `dart format --output=none --set-exit-if-changed --line-length 120 .`"
     runs-on: ubuntu-latest
     steps:
@@ -292,7 +324,7 @@ jobs:
         working-directory: packages/nextcloud
     needs:
       - job_001
-  job_010:
+  job_011:
     name: "all; PKG: packages/settings; `dart format --output=none --set-exit-if-changed --line-length 120 .`"
     runs-on: ubuntu-latest
     steps:
@@ -324,7 +356,7 @@ jobs:
         working-directory: packages/settings
     needs:
       - job_001
-  job_011:
+  job_012:
     name: "all; PKG: packages/sort_box; `dart format --output=none --set-exit-if-changed --line-length 120 .`"
     runs-on: ubuntu-latest
     steps:
@@ -356,7 +388,7 @@ jobs:
         working-directory: packages/sort_box
     needs:
       - job_001
-  job_012:
+  job_013:
     name: "all; PKG: packages/spec_templates; `dart format --output=none --set-exit-if-changed --line-length 120 .`"
     runs-on: ubuntu-latest
     steps:
@@ -388,7 +420,39 @@ jobs:
         working-directory: packages/spec_templates
     needs:
       - job_001
-  job_013:
+  job_014:
+    name: "all; PKG: packages/app; `flutter analyze --fatal-infos .`"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Cache Pub hosted dependencies
+        uses: actions/cache@627f0f41f6904a5b1efbaed9f96d9eb58e92e920
+        with:
+          path: "~/.pub-cache/hosted"
+          key: "os:ubuntu-latest;pub-cache-hosted;sdk:stable;packages:packages/app;commands:analyze_0"
+          restore-keys: |
+            os:ubuntu-latest;pub-cache-hosted;sdk:stable;packages:packages/app
+            os:ubuntu-latest;pub-cache-hosted;sdk:stable
+            os:ubuntu-latest;pub-cache-hosted
+            os:ubuntu-latest
+      - name: Setup Flutter SDK
+        uses: subosito/flutter-action@dbf1fa04f4d2e52c33185153d06cdb5443aa189d
+        with:
+          channel: stable
+      - id: checkout
+        name: Checkout repository
+        uses: actions/checkout@ac593985615ec2ede58e132d2e21d2b1cbd6127c
+      - id: packages_app_pub_upgrade
+        name: packages/app; flutter pub upgrade
+        run: flutter pub upgrade
+        if: "always() && steps.checkout.conclusion == 'success'"
+        working-directory: packages/app
+      - name: "packages/app; flutter analyze --fatal-infos ."
+        run: flutter analyze --fatal-infos .
+        if: "always() && steps.packages_app_pub_upgrade.conclusion == 'success'"
+        working-directory: packages/app
+    needs:
+      - job_001
+  job_015:
     name: "all; PKG: packages/file_icons; `flutter analyze --fatal-infos .`"
     runs-on: ubuntu-latest
     steps:
@@ -396,7 +460,7 @@ jobs:
         uses: actions/cache@627f0f41f6904a5b1efbaed9f96d9eb58e92e920
         with:
           path: "~/.pub-cache/hosted"
-          key: "os:ubuntu-latest;pub-cache-hosted;sdk:stable;packages:packages/file_icons;commands:analyze_1"
+          key: "os:ubuntu-latest;pub-cache-hosted;sdk:stable;packages:packages/file_icons;commands:analyze_0"
           restore-keys: |
             os:ubuntu-latest;pub-cache-hosted;sdk:stable;packages:packages/file_icons
             os:ubuntu-latest;pub-cache-hosted;sdk:stable
@@ -420,17 +484,17 @@ jobs:
         working-directory: packages/file_icons
     needs:
       - job_001
-  job_014:
-    name: "all; PKG: packages/neon; `flutter analyze --fatal-infos .`"
+  job_016:
+    name: "all; PKG: packages/neon/neon; `flutter analyze --fatal-infos .`"
     runs-on: ubuntu-latest
     steps:
       - name: Cache Pub hosted dependencies
         uses: actions/cache@627f0f41f6904a5b1efbaed9f96d9eb58e92e920
         with:
           path: "~/.pub-cache/hosted"
-          key: "os:ubuntu-latest;pub-cache-hosted;sdk:stable;packages:packages/neon;commands:analyze_1"
+          key: "os:ubuntu-latest;pub-cache-hosted;sdk:stable;packages:packages/neon/neon;commands:analyze_0"
           restore-keys: |
-            os:ubuntu-latest;pub-cache-hosted;sdk:stable;packages:packages/neon
+            os:ubuntu-latest;pub-cache-hosted;sdk:stable;packages:packages/neon/neon
             os:ubuntu-latest;pub-cache-hosted;sdk:stable
             os:ubuntu-latest;pub-cache-hosted
             os:ubuntu-latest
@@ -441,18 +505,146 @@ jobs:
       - id: checkout
         name: Checkout repository
         uses: actions/checkout@ac593985615ec2ede58e132d2e21d2b1cbd6127c
-      - id: packages_neon_pub_upgrade
-        name: packages/neon; flutter pub upgrade
+      - id: packages_neon_neon_pub_upgrade
+        name: packages/neon/neon; flutter pub upgrade
         run: flutter pub upgrade
         if: "always() && steps.checkout.conclusion == 'success'"
-        working-directory: packages/neon
-      - name: "packages/neon; flutter analyze --fatal-infos ."
+        working-directory: packages/neon/neon
+      - name: "packages/neon/neon; flutter analyze --fatal-infos ."
         run: flutter analyze --fatal-infos .
-        if: "always() && steps.packages_neon_pub_upgrade.conclusion == 'success'"
-        working-directory: packages/neon
+        if: "always() && steps.packages_neon_neon_pub_upgrade.conclusion == 'success'"
+        working-directory: packages/neon/neon
     needs:
       - job_001
-  job_015:
+  job_017:
+    name: "all; PKG: packages/neon/neon_files; `flutter analyze --fatal-infos .`"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Cache Pub hosted dependencies
+        uses: actions/cache@627f0f41f6904a5b1efbaed9f96d9eb58e92e920
+        with:
+          path: "~/.pub-cache/hosted"
+          key: "os:ubuntu-latest;pub-cache-hosted;sdk:stable;packages:packages/neon/neon_files;commands:analyze_0"
+          restore-keys: |
+            os:ubuntu-latest;pub-cache-hosted;sdk:stable;packages:packages/neon/neon_files
+            os:ubuntu-latest;pub-cache-hosted;sdk:stable
+            os:ubuntu-latest;pub-cache-hosted
+            os:ubuntu-latest
+      - name: Setup Flutter SDK
+        uses: subosito/flutter-action@dbf1fa04f4d2e52c33185153d06cdb5443aa189d
+        with:
+          channel: stable
+      - id: checkout
+        name: Checkout repository
+        uses: actions/checkout@ac593985615ec2ede58e132d2e21d2b1cbd6127c
+      - id: packages_neon_neon_files_pub_upgrade
+        name: packages/neon/neon_files; flutter pub upgrade
+        run: flutter pub upgrade
+        if: "always() && steps.checkout.conclusion == 'success'"
+        working-directory: packages/neon/neon_files
+      - name: "packages/neon/neon_files; flutter analyze --fatal-infos ."
+        run: flutter analyze --fatal-infos .
+        if: "always() && steps.packages_neon_neon_files_pub_upgrade.conclusion == 'success'"
+        working-directory: packages/neon/neon_files
+    needs:
+      - job_001
+  job_018:
+    name: "all; PKG: packages/neon/neon_news; `flutter analyze --fatal-infos .`"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Cache Pub hosted dependencies
+        uses: actions/cache@627f0f41f6904a5b1efbaed9f96d9eb58e92e920
+        with:
+          path: "~/.pub-cache/hosted"
+          key: "os:ubuntu-latest;pub-cache-hosted;sdk:stable;packages:packages/neon/neon_news;commands:analyze_0"
+          restore-keys: |
+            os:ubuntu-latest;pub-cache-hosted;sdk:stable;packages:packages/neon/neon_news
+            os:ubuntu-latest;pub-cache-hosted;sdk:stable
+            os:ubuntu-latest;pub-cache-hosted
+            os:ubuntu-latest
+      - name: Setup Flutter SDK
+        uses: subosito/flutter-action@dbf1fa04f4d2e52c33185153d06cdb5443aa189d
+        with:
+          channel: stable
+      - id: checkout
+        name: Checkout repository
+        uses: actions/checkout@ac593985615ec2ede58e132d2e21d2b1cbd6127c
+      - id: packages_neon_neon_news_pub_upgrade
+        name: packages/neon/neon_news; flutter pub upgrade
+        run: flutter pub upgrade
+        if: "always() && steps.checkout.conclusion == 'success'"
+        working-directory: packages/neon/neon_news
+      - name: "packages/neon/neon_news; flutter analyze --fatal-infos ."
+        run: flutter analyze --fatal-infos .
+        if: "always() && steps.packages_neon_neon_news_pub_upgrade.conclusion == 'success'"
+        working-directory: packages/neon/neon_news
+    needs:
+      - job_001
+  job_019:
+    name: "all; PKG: packages/neon/neon_notes; `flutter analyze --fatal-infos .`"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Cache Pub hosted dependencies
+        uses: actions/cache@627f0f41f6904a5b1efbaed9f96d9eb58e92e920
+        with:
+          path: "~/.pub-cache/hosted"
+          key: "os:ubuntu-latest;pub-cache-hosted;sdk:stable;packages:packages/neon/neon_notes;commands:analyze_0"
+          restore-keys: |
+            os:ubuntu-latest;pub-cache-hosted;sdk:stable;packages:packages/neon/neon_notes
+            os:ubuntu-latest;pub-cache-hosted;sdk:stable
+            os:ubuntu-latest;pub-cache-hosted
+            os:ubuntu-latest
+      - name: Setup Flutter SDK
+        uses: subosito/flutter-action@dbf1fa04f4d2e52c33185153d06cdb5443aa189d
+        with:
+          channel: stable
+      - id: checkout
+        name: Checkout repository
+        uses: actions/checkout@ac593985615ec2ede58e132d2e21d2b1cbd6127c
+      - id: packages_neon_neon_notes_pub_upgrade
+        name: packages/neon/neon_notes; flutter pub upgrade
+        run: flutter pub upgrade
+        if: "always() && steps.checkout.conclusion == 'success'"
+        working-directory: packages/neon/neon_notes
+      - name: "packages/neon/neon_notes; flutter analyze --fatal-infos ."
+        run: flutter analyze --fatal-infos .
+        if: "always() && steps.packages_neon_neon_notes_pub_upgrade.conclusion == 'success'"
+        working-directory: packages/neon/neon_notes
+    needs:
+      - job_001
+  job_020:
+    name: "all; PKG: packages/neon/neon_notifications; `flutter analyze --fatal-infos .`"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Cache Pub hosted dependencies
+        uses: actions/cache@627f0f41f6904a5b1efbaed9f96d9eb58e92e920
+        with:
+          path: "~/.pub-cache/hosted"
+          key: "os:ubuntu-latest;pub-cache-hosted;sdk:stable;packages:packages/neon/neon_notifications;commands:analyze_0"
+          restore-keys: |
+            os:ubuntu-latest;pub-cache-hosted;sdk:stable;packages:packages/neon/neon_notifications
+            os:ubuntu-latest;pub-cache-hosted;sdk:stable
+            os:ubuntu-latest;pub-cache-hosted
+            os:ubuntu-latest
+      - name: Setup Flutter SDK
+        uses: subosito/flutter-action@dbf1fa04f4d2e52c33185153d06cdb5443aa189d
+        with:
+          channel: stable
+      - id: checkout
+        name: Checkout repository
+        uses: actions/checkout@ac593985615ec2ede58e132d2e21d2b1cbd6127c
+      - id: packages_neon_neon_notifications_pub_upgrade
+        name: packages/neon/neon_notifications; flutter pub upgrade
+        run: flutter pub upgrade
+        if: "always() && steps.checkout.conclusion == 'success'"
+        working-directory: packages/neon/neon_notifications
+      - name: "packages/neon/neon_notifications; flutter analyze --fatal-infos ."
+        run: flutter analyze --fatal-infos .
+        if: "always() && steps.packages_neon_neon_notifications_pub_upgrade.conclusion == 'success'"
+        working-directory: packages/neon/neon_notifications
+    needs:
+      - job_001
+  job_021:
     name: "all; PKG: packages/settings; `flutter analyze --fatal-infos .`"
     runs-on: ubuntu-latest
     steps:
@@ -460,7 +652,7 @@ jobs:
         uses: actions/cache@627f0f41f6904a5b1efbaed9f96d9eb58e92e920
         with:
           path: "~/.pub-cache/hosted"
-          key: "os:ubuntu-latest;pub-cache-hosted;sdk:stable;packages:packages/settings;commands:analyze_1"
+          key: "os:ubuntu-latest;pub-cache-hosted;sdk:stable;packages:packages/settings;commands:analyze_0"
           restore-keys: |
             os:ubuntu-latest;pub-cache-hosted;sdk:stable;packages:packages/settings
             os:ubuntu-latest;pub-cache-hosted;sdk:stable
@@ -484,7 +676,135 @@ jobs:
         working-directory: packages/settings
     needs:
       - job_001
-  job_016:
+  job_022:
+    name: "all; PKG: packages/dynamite; `dart analyze --fatal-infos .`"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Cache Pub hosted dependencies
+        uses: actions/cache@627f0f41f6904a5b1efbaed9f96d9eb58e92e920
+        with:
+          path: "~/.pub-cache/hosted"
+          key: "os:ubuntu-latest;pub-cache-hosted;sdk:stable;packages:packages/dynamite;commands:analyze_1"
+          restore-keys: |
+            os:ubuntu-latest;pub-cache-hosted;sdk:stable;packages:packages/dynamite
+            os:ubuntu-latest;pub-cache-hosted;sdk:stable
+            os:ubuntu-latest;pub-cache-hosted
+            os:ubuntu-latest
+      - name: Setup Dart SDK
+        uses: dart-lang/setup-dart@a57a6c04cf7d4840e88432aad6281d1e125f0d46
+        with:
+          sdk: stable
+      - id: checkout
+        name: Checkout repository
+        uses: actions/checkout@ac593985615ec2ede58e132d2e21d2b1cbd6127c
+      - id: packages_dynamite_pub_upgrade
+        name: packages/dynamite; dart pub upgrade
+        run: dart pub upgrade
+        if: "always() && steps.checkout.conclusion == 'success'"
+        working-directory: packages/dynamite
+      - name: "packages/dynamite; dart analyze --fatal-infos ."
+        run: dart analyze --fatal-infos .
+        if: "always() && steps.packages_dynamite_pub_upgrade.conclusion == 'success'"
+        working-directory: packages/dynamite
+    needs:
+      - job_001
+  job_023:
+    name: "all; PKG: packages/nextcloud; `dart analyze --fatal-infos .`"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Cache Pub hosted dependencies
+        uses: actions/cache@627f0f41f6904a5b1efbaed9f96d9eb58e92e920
+        with:
+          path: "~/.pub-cache/hosted"
+          key: "os:ubuntu-latest;pub-cache-hosted;sdk:stable;packages:packages/nextcloud;commands:analyze_1"
+          restore-keys: |
+            os:ubuntu-latest;pub-cache-hosted;sdk:stable;packages:packages/nextcloud
+            os:ubuntu-latest;pub-cache-hosted;sdk:stable
+            os:ubuntu-latest;pub-cache-hosted
+            os:ubuntu-latest
+      - name: Setup Dart SDK
+        uses: dart-lang/setup-dart@a57a6c04cf7d4840e88432aad6281d1e125f0d46
+        with:
+          sdk: stable
+      - id: checkout
+        name: Checkout repository
+        uses: actions/checkout@ac593985615ec2ede58e132d2e21d2b1cbd6127c
+      - id: packages_nextcloud_pub_upgrade
+        name: packages/nextcloud; dart pub upgrade
+        run: dart pub upgrade
+        if: "always() && steps.checkout.conclusion == 'success'"
+        working-directory: packages/nextcloud
+      - name: "packages/nextcloud; dart analyze --fatal-infos ."
+        run: dart analyze --fatal-infos .
+        if: "always() && steps.packages_nextcloud_pub_upgrade.conclusion == 'success'"
+        working-directory: packages/nextcloud
+    needs:
+      - job_001
+  job_024:
+    name: "all; PKG: packages/sort_box; `dart analyze --fatal-infos .`"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Cache Pub hosted dependencies
+        uses: actions/cache@627f0f41f6904a5b1efbaed9f96d9eb58e92e920
+        with:
+          path: "~/.pub-cache/hosted"
+          key: "os:ubuntu-latest;pub-cache-hosted;sdk:stable;packages:packages/sort_box;commands:analyze_1"
+          restore-keys: |
+            os:ubuntu-latest;pub-cache-hosted;sdk:stable;packages:packages/sort_box
+            os:ubuntu-latest;pub-cache-hosted;sdk:stable
+            os:ubuntu-latest;pub-cache-hosted
+            os:ubuntu-latest
+      - name: Setup Dart SDK
+        uses: dart-lang/setup-dart@a57a6c04cf7d4840e88432aad6281d1e125f0d46
+        with:
+          sdk: stable
+      - id: checkout
+        name: Checkout repository
+        uses: actions/checkout@ac593985615ec2ede58e132d2e21d2b1cbd6127c
+      - id: packages_sort_box_pub_upgrade
+        name: packages/sort_box; dart pub upgrade
+        run: dart pub upgrade
+        if: "always() && steps.checkout.conclusion == 'success'"
+        working-directory: packages/sort_box
+      - name: "packages/sort_box; dart analyze --fatal-infos ."
+        run: dart analyze --fatal-infos .
+        if: "always() && steps.packages_sort_box_pub_upgrade.conclusion == 'success'"
+        working-directory: packages/sort_box
+    needs:
+      - job_001
+  job_025:
+    name: "all; PKG: packages/spec_templates; `dart analyze --fatal-infos .`"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Cache Pub hosted dependencies
+        uses: actions/cache@627f0f41f6904a5b1efbaed9f96d9eb58e92e920
+        with:
+          path: "~/.pub-cache/hosted"
+          key: "os:ubuntu-latest;pub-cache-hosted;sdk:stable;packages:packages/spec_templates;commands:analyze_1"
+          restore-keys: |
+            os:ubuntu-latest;pub-cache-hosted;sdk:stable;packages:packages/spec_templates
+            os:ubuntu-latest;pub-cache-hosted;sdk:stable
+            os:ubuntu-latest;pub-cache-hosted
+            os:ubuntu-latest
+      - name: Setup Dart SDK
+        uses: dart-lang/setup-dart@a57a6c04cf7d4840e88432aad6281d1e125f0d46
+        with:
+          sdk: stable
+      - id: checkout
+        name: Checkout repository
+        uses: actions/checkout@ac593985615ec2ede58e132d2e21d2b1cbd6127c
+      - id: packages_spec_templates_pub_upgrade
+        name: packages/spec_templates; dart pub upgrade
+        run: dart pub upgrade
+        if: "always() && steps.checkout.conclusion == 'success'"
+        working-directory: packages/spec_templates
+      - name: "packages/spec_templates; dart analyze --fatal-infos ."
+        run: dart analyze --fatal-infos .
+        if: "always() && steps.packages_spec_templates_pub_upgrade.conclusion == 'success'"
+        working-directory: packages/spec_templates
+    needs:
+      - job_001
+  job_026:
     name: "all; PKG: packages/nextcloud; `dart test`"
     runs-on: ubuntu-latest
     steps:
@@ -516,7 +836,7 @@ jobs:
         working-directory: packages/nextcloud
     needs:
       - job_001
-  job_017:
+  job_027:
     name: "all; PKG: packages/sort_box; `dart test`"
     runs-on: ubuntu-latest
     steps:

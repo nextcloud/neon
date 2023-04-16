@@ -1,0 +1,308 @@
+{
+  "@@locale": "en",
+  "appName": "Nextcloud Neon",
+  "appImplementationName": "{app, select, core{Server} files{Files} news{News} notes{Notes} notifications{Notifications} other{}}",
+  "@appImplementationName": {
+    "placeholders": {
+      "app": {}
+    }
+  },
+  "loginAgain": "Login again",
+  "loginOpenAgain": "Open again",
+  "loginSwitchToBrowserWindow": "Please switch to the browser window that just opened and proceed there",
+  "loginWorksWith": "works with",
+  "errorAccountAlreadyExists": "The account you are trying to add already exists",
+  "errorCredentialsForAccountNoLongerMatch": "The credentials for this account no longer match",
+  "errorServerHadAProblemProcessingYourRequest": "The server had a problem while processing your request. You might want to try again",
+  "errorSomethingWentWrongTryAgainLater": "Something went wrong. Please try again later",
+  "errorUnableToReachServer": "Unable to reach the server",
+  "errorUnableToReachServerAt": "Unable to reach the server at {url}",
+  "@errorUnableToReachServerAt": {
+    "placeholders": {
+      "url": {
+        "type": "String"
+      }
+    }
+  },
+  "errorConnectionTimedOut": "Connection has timed out",
+  "errorNoCompatibleNextcloudAppsFound": "No compatible Nextcloud apps could be found.\nWe are working hard to implement more and more apps!",
+  "errorServerInMaintenanceMode": "The server is in maintenance mode. Please try again later or contact the server admin.",
+  "errorMissingPermission": "Permission for {name} is missing",
+  "@errorMissingPermission" : {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "errorUnsupportedVersion": "Sorry, this Nextcloud {name} version is not supported.",
+  "@errorUnsupportedVersion" : {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "errorEmptyField": "This field can not be empty",
+  "errorInvalidURL": "Invalid URL provided",
+  "delete": "Delete",
+  "remove": "Remove",
+  "rename": "Rename",
+  "move": "Move",
+  "copy": "Copy",
+  "yes": "Yes",
+  "no": "No",
+  "close": "Close",
+  "retry": "Retry",
+  "showSlashHide": "Show/Hide",
+  "exit": "Exit",
+  "disabled": "Disabled",
+  "firstLaunchGoToSettingsToEnablePushNotifications": "Go to the settings to enable push notifications",
+  "nextPushSupported": "NextPush is supported!",
+  "nextPushSupportedText": "NextPush is a FOSS way of receiving push notifications using the UnifiedPush protocol via a Nextcloud instance.\nYou can install NextPush from the F-Droid app store.",
+  "nextPushSupportedInstall": "Install NextPush",
+  "settings": "Settings",
+  "settingsApps": "Apps",
+  "settingsExport": "Export settings",
+  "settingsImport": "Import settings",
+  "settingsImportWrongFileExtension": "Settings import has wrong file extension (has to be .json.base64)",
+  "settingsResetAllConfirmation": "Do you want to reset all settings?",
+  "settingsResetForConfirmation": "Do you want to reset all settings for {name}?",
+  "@settingsResetForConfirmation": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "optionsCategoryGeneral": "General",
+  "optionsCategoryTheme": "Theme",
+  "optionsCategoryPushNotifications": "Push notifications",
+  "optionsCategoryOther": "Other",
+  "optionsCategoryAccounts": "Accounts",
+  "optionsCategoryStartup": "Startup",
+  "optionsCategorySystemTray": "System tray",
+  "optionsCategoryNavigation": "Navigation",
+  "optionsSortOrderAscending": "Ascending",
+  "optionsSortOrderDescending": "Descending",
+  "globalOptionsThemeMode": "Theme mode",
+  "globalOptionsThemeModeLight": "Light",
+  "globalOptionsThemeModeDark": "Dark",
+  "globalOptionsThemeModeAutomatic": "Automatic",
+  "globalOptionsThemeOLEDAsDark": "OLED theme as dark theme",
+  "globalOptionsThemeKeepOriginalAccentColor": "Keep the original accent color",
+  "globalOptionsPushNotificationsEnabled": "Enabled",
+  "globalOptionsPushNotificationsEnabledDisabledNotice": "No UnifiedPush distributor could be found or you denied the permission for showing notifications. Please go to the app settings and allow notifications and go to https://unifiedpush.org/users/distributors and setup any of the listed distributors. Then re-open this app and you should be able to enable notifications",
+  "globalOptionsPushNotificationsDistributor": "UnifiedPush Distributor",
+  "globalOptionsPushNotificationsDistributorGotifyUP": "Gotify-UP (FOSS)",
+  "globalOptionsPushNotificationsDistributorFirebaseEmbedded": "Firebase (proprietary)",
+  "globalOptionsPushNotificationsDistributorNtfy": "ntfy (FOSS)",
+  "globalOptionsPushNotificationsDistributorFCMUP": "FCM-UP (proprietary)",
+  "globalOptionsPushNotificationsDistributorNextPush": "NextPush (FOSS)",
+  "globalOptionsPushNotificationsDistributorNoProvider2Push": "NoProvider2Push (FOSS)",
+  "globalOptionsPushNotificationsDistributorConversations": "Conversations",
+  "globalOptionsStartupMinimized": "Start minimized",
+  "globalOptionsStartupMinimizeInsteadOfExit": "Minimize instead of exit",
+  "globalOptionsSystemTrayEnabled": "Enable system tray",
+  "globalOptionsSystemTrayHideToTrayWhenMinimized": "Hide to system tray when minimized",
+  "globalOptionsAccountsRememberLastUsedAccount": "Remember last used account",
+  "globalOptionsAccountsInitialAccount": "Initial account",
+  "globalOptionsAccountsAdd": "Add account",
+  "globalOptionsNavigationMode": "Navigation mode",
+  "globalOptionsNavigationModeDrawer": "Drawer",
+  "globalOptionsNavigationModeDrawerAlwaysVisible": "Drawer always visible",
+  "globalOptionsNavigationModeQuickBar": "Quick bar",
+  "accountOptionsRemoveConfirm": "Are you sure you want to remove the account {id}?",
+  "@accountOptionsRemoveConfirm": {
+    "placeholders": {
+      "id": {
+        "type": "String"
+      }
+    }
+  },
+  "accountOptionsCategoryStorageInfo": "Storage info",
+  "accountOptionsQuotaUsedOf": "{used} used of {total} ({relative}%)",
+  "@accountOptionsQuotaUsedOf": {
+    "placeholders": {
+      "used": {
+        "type": "String"
+      },
+      "total": {
+        "type": "String"
+      },
+      "relative": {
+        "type": "String"
+      }
+    }
+  },
+  "accountOptionsInitialApp": "App to show initially",
+  "accountOptionsAutomatic": "Automatic",
+  "licenses": "Licenses",
+  "filesUploadFiles": "Upload files",
+  "filesUploadImages": "Upload images",
+  "filesUploadCamera": "Upload from camera",
+  "filesCreateFolder": "Create folder",
+  "filesFolderName": "Folder name",
+  "filesRenameFolder": "Rename folder",
+  "filesRenameFile": "Rename file",
+  "filesDetails": "Details",
+  "filesDetailsFileName": "File name",
+  "filesDetailsFolderName": "Folder name",
+  "filesDetailsParentFolder": "Parent folder",
+  "filesDetailsFileSize": "File size",
+  "filesDetailsFolderSize": "Folder size",
+  "filesDetailsLastModified": "Last modified",
+  "filesDetailsIsFavorite": "Is favorite",
+  "filesSync": "Sync",
+  "filesDeleteFileConfirm": "Are you sure you want to delete the file '{name}'?",
+  "@filesDeleteFileConfirm": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "filesDeleteFolderConfirm": "Are you sure you want to delete the folder '{name}'?",
+  "@filesDeleteFolderConfirm": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "filesChooseFolder": "Choose folder",
+  "filesAddToFavorites": "Add to favorites",
+  "filesRemoveFromFavorites": "Remove from favorites",
+  "filesConfirmUploadSizeWarning": "Are you sure you want to upload a file that is bigger than {warningSize} ({actualSize})?",
+  "@filesConfirmUploadSizeWarning": {
+    "placeholders": {
+      "warningSize": {
+        "type": "String"
+      },
+      "actualSize": {
+        "type": "String"
+      }
+    }
+  },
+  "filesConfirmDownloadSizeWarning": "Are you sure you want to download a file that is bigger than {warningSize} ({actualSize})?",
+  "@filesConfirmDownloadSizeWarning": {
+    "placeholders": {
+      "warningSize": {
+        "type": "String"
+      },
+      "actualSize": {
+        "type": "String"
+      }
+    }
+  },
+  "filesOptionsShowPreviews": "Show previews for files",
+  "filesOptionsUploadQueueParallelism": "Upload queue parallelism",
+  "filesOptionsDownloadQueueParallelism": "Download queue parallelism",
+  "filesOptionsUploadSizeWarning": "Upload size warning",
+  "filesOptionsDownloadSizeWarning": "Download size warning",
+  "newsAddFeed": "Add feed",
+  "newsFolder": "Folder",
+  "newsFolderRoot": "Root Folder",
+  "newsCreateFolder": "Create folder",
+  "newsCreateFolderName": "Folder name",
+  "newsDeleteFolderConfirm": "Are you sure you want to delete the folder '{name}'?",
+  "@newsDeleteFolderConfirm": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "newsRenameFolder": "Rename folder",
+  "newsRemoveFeedConfirm": "Are you sure you want to remove the feed '{name}'?",
+  "@newsRemoveFeedConfirm": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "newsMoveFeed": "Move feed",
+  "newsRenameFeed": "Rename feed",
+  "newsArticles": "Articles",
+  "newsFolders": "Folders",
+  "newsFeeds": "Feeds",
+  "newsFilterAll": "All",
+  "newsFilterUnread": "Unread",
+  "newsFilterStarred": "Starred",
+  "newsUnreadArticles": "{count} unread",
+  "@newsUnreadArticles": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "newsShowFeedURL": "Show URL",
+  "newsCopyFeedURL": "Copy URL",
+  "newsCopiedFeedURL": "URL copied to clipboard",
+  "newsCopyFeedErrorMessage": "Copy error message",
+  "newsCopiedFeedErrorMessage": "Error message copied to clipboard",
+  "newsOptionsDefaultCategory": "Category to show by default",
+  "newsOptionsArticleViewType": "How to open article",
+  "newsOptionsArticleViewTypeDirect": "Show text directly",
+  "newsOptionsArticleViewTypeInternalBrowser": "Open in internal browser",
+  "newsOptionsArticleViewTypeExternalBrowser": "Open in external browser",
+  "newsOptionsArticleDisableMarkAsReadTimeout": "Mark articles as read instantly",
+  "newsOptionsDefaultArticlesFilter": "Articles to show by default",
+  "newsOptionsArticlesSortProperty": "How to sort articles",
+  "newsOptionsArticlesSortPropertyPublishDate": "Publish date",
+  "newsOptionsArticlesSortPropertyAlphabetical": "Alphabetical",
+  "newsOptionsArticlesSortPropertyFeed": "Feed",
+  "newsOptionsArticlesSortOrder": "Sort order of articles",
+  "newsOptionsFeedsSortProperty": "How to sort feeds",
+  "newsOptionsFeedsSortPropertyAlphabetical": "Alphabetical",
+  "newsOptionsFeedsSortPropertyUnreadCount": "Unread count",
+  "newsOptionsFeedsSortOrder": "Sort order of feeds",
+  "newsOptionsFoldersSortProperty": "How to sort folders",
+  "newsOptionsFoldersSortPropertyAlphabetical": "Alphabetical",
+  "newsOptionsFoldersSortPropertyUnreadCount": "Unread count",
+  "newsOptionsFoldersSortOrder": "Sort order of folders",
+  "newsOptionsDefaultFolderViewType": "What should be shown first when opening a folder",
+  "notesNote": "Note",
+  "notesNotes": "Notes",
+  "notesCategories": "Categories",
+  "notesCreateNote": "Create note",
+  "notesCategory": "Category",
+  "notesChangeCategory": "Change category",
+  "notesSetCategory": "Set category",
+  "notesNoteTitle": "Title",
+  "notesNoteChangedOnServer": "The note has been changed on the server. Please refresh and try again",
+  "notesNotesInCategory": "{count} notes",
+  "@notesNotesInCategory": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "notesUncategorized": "Uncategorized",
+  "notesEdit": "Edit",
+  "notesPreview": "Preview",
+  "notesDeleteNoteConfirm": "Are you sure you want to delete the note '{name}'?",
+  "@notesDeleteNoteConfirm": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "notesOptionsDefaultCategory": "Category to show by default",
+  "notesOptionsDefaultNoteViewType": "How to show note",
+  "notesOptionsDefaultNoteViewTypePreview": "Preview",
+  "notesOptionsDefaultNoteViewTypeEdit": "Editor",
+  "notesOptionsNotesSortOrder": "Sort order of notes",
+  "notesOptionsNotesSortProperty": "How to sort notes",
+  "notesOptionsNotesSortPropertyLastModified": "Last modified",
+  "notesOptionsNotesSortPropertyAlphabetical": "Alphabetical",
+  "notesOptionsCategoriesSortOrder": "Sort order of categories",
+  "notesOptionsCategoriesSortProperty": "How to sort categories",
+  "notesOptionsCategoriesSortPropertyAlphabetical": "Alphabetical",
+  "notesOptionsCategoriesSortPropertyNotesCount": "Count of notes",
+  "notificationsNextcloudAppNotImplementedYet": "Sorry, this Nextcloud app has not been implemented yet"
+}
