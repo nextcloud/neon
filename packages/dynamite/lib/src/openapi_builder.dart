@@ -1388,7 +1388,7 @@ TypeResult resolveObject(
                     };
 
                     if (isContentString) {
-                      if (result is! TypeResultObject || result is! TypeResultList) {
+                      if (result is! TypeResultObject && result is! TypeResultList) {
                         print("The content string $identifier.$propertyName can't be decoded automatically.");
                       }
 
