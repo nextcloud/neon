@@ -45,11 +45,11 @@ if [[ "$target" == "linux/arm64" ]] || [[ "$target" == "linux/amd64" ]]; then
   ./tool/build
 
   paths=()
-  for path in packages/*; do
+  for path in packages/{app,file_icons,nextcloud,settings,sort_box} packages/neon/*; do
     paths+=("$path/lib" "$path/pubspec.yaml")
   done
   run_args=()
-  for path in ${paths[*]} "packages/file_icons/fonts" packages/neon{,_files,_news,_notes,_notifications}/assets "packages/app/build" "packages/app/linux"; do
+  for path in ${paths[*]} "packages/file_icons/fonts" packages/neon/neon{,_files,_news,_notes,_notifications}/assets "packages/app/build" "packages/app/linux"; do
     run_args+=(-v "$(pwd)/$path:/src/$path")
   done
   mkdir -p "packages/app/build"

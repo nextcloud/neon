@@ -61,11 +61,11 @@ jobs:
           java-version: 11
 
       - name: Build
-        run: cd packages/neon && flutter build apk --split-per-abi --build-number="${{ needs.setup.outputs.build_number }}"
+        run: cd packages/app && flutter build apk --split-per-abi --build-number="${{ needs.setup.outputs.build_number }}"
       - uses: ilharp/sign-android-release@v1
         name: Sign
         with:
-          releaseDir: packages/neon/build/app/outputs/flutter-apk
+          releaseDir: packages/app/build/app/outputs/flutter-apk
           signingKey: ${{ secrets.SIGNING_KEY }}
           keyAlias: ${{ secrets.ALIAS }}
           keyStorePassword: ${{ secrets.KEY_STORE_PASSWORD }}
@@ -74,17 +74,17 @@ jobs:
       - uses: actions/upload-artifact@v3
         with:
           name: Android arm64-v8a
-          path: packages/neon/build/app/outputs/flutter-apk/app-arm64-v8a-release-signed.apk
+          path: packages/app/build/app/outputs/flutter-apk/app-arm64-v8a-release-signed.apk
           if-no-files-found: error
       - uses: actions/upload-artifact@v3
         with:
           name: Android armeabi-v7a
-          path: packages/neon/build/app/outputs/flutter-apk/app-armeabi-v7a-release-signed.apk
+          path: packages/app/build/app/outputs/flutter-apk/app-armeabi-v7a-release-signed.apk
           if-no-files-found: error
       - uses: actions/upload-artifact@v3
         with:
           name: Android x86_64
-          path: packages/neon/build/app/outputs/flutter-apk/app-x86_64-release-signed.apk
+          path: packages/app/build/app/outputs/flutter-apk/app-x86_64-release-signed.apk
           if-no-files-found: error
 
   linux_x86_64:
@@ -114,12 +114,12 @@ jobs:
             libappindicator3-dev
 
       - name: Build
-        run: cd packages/neon && flutter build linux --build-number="${{ needs.setup.outputs.build_number }}"
+        run: cd packages/app && flutter build linux --build-number="${{ needs.setup.outputs.build_number }}"
 
       - uses: actions/upload-artifact@v3
         with:
           name: Linux x86_64
-          path: packages/neon/build/linux/x64/release/bundle/*
+          path: packages/app/build/linux/x64/release/bundle/*
           if-no-files-found: error
 
 #  linux_arm64:
@@ -152,5 +152,5 @@ jobs:
 #      - uses: actions/upload-artifact@v3
 #        with:
 #          name: Linux arm64
-#          path: packages/neon/build/linux/arm64/release/bundle/*
+#          path: packages/app/build/linux/arm64/release/bundle/*
 #          if-no-files-found: error

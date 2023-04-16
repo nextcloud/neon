@@ -26,7 +26,7 @@ function export_mipmap_icon_all() {
 function copy_nextcloud_app_svg() {
   id="$1"
   path="$2"
-  target="packages/neon_$id/assets/app.svg"
+  target="packages/neon/neon_$id/assets/app.svg"
   if [ -f "$path/img/app.svg" ]; then
     cp "$path/img/app.svg" "$target"
   elif [ -f "$path/img/$id.svg" ]; then
@@ -47,7 +47,7 @@ copy_nextcloud_app_svg notes external/nextcloud-notes
 copy_nextcloud_app_svg notifications external/nextcloud-notifications
 
 (
-  cd packages/neon
+  cd packages/neon/neon
 
   # Nextcloud logo
   wget https://raw.githubusercontent.com/nextcloud/promo/master/nextcloud-logo-inverted.svg -O assets/logo_nextcloud.svg
@@ -69,9 +69,9 @@ copy_nextcloud_app_svg notifications external/nextcloud-notifications
   exiftool -overwrite_original -all= img/splash_icon_android_12.png # To remove timestamps
 
   # Android launcher icons
-  export_mipmap_icon_all "../neon/assets/logo_neon.svg" "ic_launcher" &
+  export_mipmap_icon_all "../neon/neon/assets/logo_neon.svg" "ic_launcher" &
   for id in files news notes notifications; do
-    export_mipmap_icon_all "../neon_$id/assets/app.svg" "app_$id" &
+    export_mipmap_icon_all "../neon/neon_$id/assets/app.svg" "app_$id" &
   done
   wait
 
