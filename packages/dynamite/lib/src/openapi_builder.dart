@@ -725,7 +725,7 @@ class OpenAPIBuilder implements Builder {
                                 if (parameter.schema?.pattern != null) {
                                   code.write('''
                                   if (!RegExp(r'${parameter.schema!.pattern!}').hasMatch(${_toDartName(parameter.name)})) {
-                                    throw Exception('Invalid value "\$${_toDartName(parameter.name)}" for parameter "${_toDartName(parameter.name)}" with pattern "' r'${parameter.schema!.pattern!}"'); // coverage:ignore-line
+                                    throw Exception('Invalid value "\$${_toDartName(parameter.name)}" for parameter "${_toDartName(parameter.name)}" with pattern "\${r'${parameter.schema!.pattern!}'}"'); // coverage:ignore-line
                                   }
                                   ''');
                                 }
