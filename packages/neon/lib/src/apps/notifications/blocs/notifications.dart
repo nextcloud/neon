@@ -48,7 +48,7 @@ class NotificationsBloc extends InteractiveBloc implements NotificationsBlocEven
   @override
   Future refresh() async {
     await _requestManager
-        .wrapNextcloud<List<NextcloudNotificationsNotification>, NextcloudNotificationsListNotifications>(
+        .wrapNextcloud<Iterable<NextcloudNotificationsNotification>, NextcloudNotificationsListNotifications>(
       _client.id,
       'notifications-notifications',
       notifications,
