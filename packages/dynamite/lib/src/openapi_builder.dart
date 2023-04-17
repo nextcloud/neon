@@ -905,9 +905,6 @@ class OpenAPIBuilder implements Builder {
                                         },
                                       },
                                     ),
-                                    extraJsonSerializableValues: {
-                                      'disallowUnrecognizedKeys': 'false',
-                                    },
                                     extraJsonKeyValues: {
                                       for (final headerName in response.headers!.keys) ...{
                                         headerName.toLowerCase(): {
@@ -1427,7 +1424,6 @@ TypeResult resolveObject(
   final State state,
   final String identifier,
   final Schema schema, {
-  required final Map<String, String>? extraJsonSerializableValues,
   required final Map<String, Map<String, String>>? extraJsonKeyValues,
 }) {
   if (!state.resolvedTypes.contains('${state.prefix}$identifier')) {
@@ -1497,7 +1493,6 @@ TypeResult resolveObject(
                       state,
                       '${identifier}_${_toDartName(propertyName, uppercaseFirstCharacter: true)}',
                       propertySchema,
-                      extraJsonSerializableValues: extraJsonSerializableValues,
                     );
 
                     b
@@ -1602,7 +1597,6 @@ TypeResult resolveType(
   final State state,
   final String identifier,
   final Schema schema, {
-  final Map<String, String>? extraJsonSerializableValues,
   final Map<String, Map<String, String>>? extraJsonKeyValues,
   final bool ignoreEnum = false,
 }) {
@@ -1617,7 +1611,6 @@ TypeResult resolveType(
       state,
       name,
       spec.components!.schemas![name]!,
-      extraJsonSerializableValues: extraJsonSerializableValues,
     );
   } else if (schema.ofs != null) {
     if (!state.resolvedTypes.contains('${state.prefix}$identifier')) {
@@ -1629,7 +1622,6 @@ TypeResult resolveType(
               state,
               '$identifier${schema.ofs!.indexOf(s)}',
               s,
-              extraJsonSerializableValues: extraJsonSerializableValues,
             ),
           )
           .toList();
@@ -1893,7 +1885,6 @@ TypeResult resolveType(
             state,
             identifier,
             schema.items!,
-            extraJsonSerializableValues: extraJsonSerializableValues,
           );
           result = TypeResultList(
             'BuiltList<${subResult.name}>',
@@ -1920,7 +1911,6 @@ TypeResult resolveType(
                 state,
                 identifier,
                 schema.additionalProperties!,
-                extraJsonSerializableValues: extraJsonSerializableValues,
               );
               result = TypeResultMap(
                 'BuiltMap<String, ${subResult.name}>',
@@ -1945,7 +1935,6 @@ TypeResult resolveType(
           state,
           identifier,
           schema,
-          extraJsonSerializableValues: extraJsonSerializableValues,
           extraJsonKeyValues: extraJsonKeyValues,
         );
         break;
@@ -1985,7 +1974,6 @@ TypeResult resolveType(
                         '$identifier${_toDartName(value.toString(), uppercaseFirstCharacter: true)}',
                         schema,
                         ignoreEnum: true,
-                        extraJsonSerializableValues: extraJsonSerializableValues,
                       );
                       b
                         ..name = _toDartName(value.toString())
