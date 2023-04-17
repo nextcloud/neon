@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:app/apps.dart';
+import 'package:app/branding.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -92,8 +93,9 @@ Future runTestApp(
   final Account? account,
 }) async {
   await runNeon(
-    getAppImplementations: getAppImplementations,
     binding: binding,
+    getAppImplementations: getAppImplementations,
+    branding: getNeonBranding(),
     sharedPreferencesOverride: MemorySharedPreferences(),
     account: account,
     firstLaunchDisabled: true,

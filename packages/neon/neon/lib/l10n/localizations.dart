@@ -89,12 +89,6 @@ abstract class AppLocalizations {
   /// A list of this localizations delegate's supported locales.
   static const List<Locale> supportedLocales = <Locale>[Locale('en')];
 
-  /// No description provided for @appName.
-  ///
-  /// In en, this message translates to:
-  /// **'Nextcloud Neon'**
-  String get appName;
-
   /// No description provided for @appImplementationName.
   ///
   /// In en, this message translates to:

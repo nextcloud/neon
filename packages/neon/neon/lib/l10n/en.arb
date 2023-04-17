@@ -1,6 +1,5 @@
 {
   "@@locale": "en",
-  "appName": "Nextcloud Neon",
   "appImplementationName": "{app, select, core{Server} files{Files} news{News} notes{Notes} notifications{Notifications} other{}}",
   "@appImplementationName": {
     "placeholders": {
