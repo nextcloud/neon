@@ -70,6 +70,7 @@ part 'src/platform/platform.dart';
 part 'src/utils/account_options.dart';
 part 'src/utils/app_implementation.dart';
 part 'src/utils/bloc.dart';
+part 'src/utils/branding.dart';
 part 'src/utils/confirmation_dialog.dart';
 part 'src/utils/global.dart';
 part 'src/utils/global_options.dart';
@@ -101,16 +102,16 @@ part 'src/widgets/exception.dart';
 part 'src/widgets/image_wrapper.dart';
 part 'src/widgets/linear_progress_indicator.dart';
 part 'src/widgets/list_view.dart';
-part 'src/widgets/neon_logo.dart';
 part 'src/widgets/nextcloud_logo.dart';
 part 'src/widgets/relative_time.dart';
 part 'src/widgets/result_builder.dart';
 part 'src/widgets/text_settings_tile.dart';
 
 Future runNeon({
+  required final WidgetsBinding binding,
   required final List<AppImplementation> Function(SharedPreferences, RequestManager, NeonPlatform)
       getAppImplementations,
-  required final WidgetsBinding binding,
+  required final Branding branding,
   final SharedPreferences? sharedPreferencesOverride,
   final Account? account,
   final bool firstLaunchDisabled = false,
@@ -194,6 +195,9 @@ Future runNeon({
         ),
         Provider<PackageInfo>(
           create: (final _) => packageInfo,
+        ),
+        Provider<Branding>(
+          create: (final _) => branding,
         ),
       ],
       child: NeonApp(

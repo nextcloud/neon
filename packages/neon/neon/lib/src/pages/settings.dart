@@ -218,13 +218,15 @@ class _SettingsPageState extends State<SettingsPage> {
                         ),
                         title: Text(AppLocalizations.of(context).licenses),
                         onTap: () async {
+                          final branding = Provider.of<Branding>(context, listen: false);
                           showLicensePage(
                             context: context,
-                            applicationName: AppLocalizations.of(context).appName,
-                            applicationIcon: const NeonLogo(
-                              withoutText: true,
+                            applicationName: branding.name,
+                            applicationIcon: branding.buildLogo(
+                              context,
+                              const Size(100, 100),
                             ),
-                            applicationLegalese: await rootBundle.loadString('assets/LEGALESE.txt'),
+                            applicationLegalese: branding.legalese,
                             applicationVersion: Provider.of<PackageInfo>(context, listen: false).version,
                           );
                         },

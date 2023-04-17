@@ -7,9 +7,6 @@ class AppLocalizationsEn extends AppLocalizations {
   AppLocalizationsEn([String locale = 'en']) : super(locale);
 
   @override
-  String get appName => 'Nextcloud Neon';
-
-  @override
   String appImplementationName(String app) {
     String _temp0 = intl.Intl.selectLogic(
       app,
