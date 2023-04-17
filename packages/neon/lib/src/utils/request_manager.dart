@@ -34,7 +34,7 @@ class RequestManager {
       try {
         subject.add(
           Result(
-            unwrap(deserializeNextcloud<R>(json.decode((await cache!.get(key))!))),
+            unwrap(deserializeNextcloud<R>(json.decode((await cache!.get(key))!) as Object)),
             null,
             loading: true,
             cached: true,
@@ -48,7 +48,7 @@ class RequestManager {
 
     try {
       final response = await (disableTimeout ? call() : timeout(call));
-      await cache?.set(key, json.encode(serializeNextcloud<R>(response)));
+      await cache?.set(key, json.encode(response, toEncodable: serializeNextcloud));
       subject.add(Result.success(unwrap(response)));
     } catch (e, s) {
       debugPrint(e.toString());
@@ -57,7 +57,7 @@ class RequestManager {
         try {
           subject.add(
             Result(
-              unwrap(deserializeNextcloud<R>(json.decode((await cache!.get(key))!))),
+              unwrap(deserializeNextcloud<R>(json.decode((await cache!.get(key))!) as Object)),
               null,
               loading: false,
               cached: true,
