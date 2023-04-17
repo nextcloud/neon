@@ -115,12 +115,12 @@ class AppsBloc extends InteractiveBloc implements AppsBlocEvents, AppsBlocStates
 
   @override
   Future refresh() async {
-    await _requestManager.wrapNextcloud<Iterable<NextcloudApp>, NextcloudCoreNavigationApps>(
+    await _requestManager.wrapNextcloud<List<NextcloudApp>, NextcloudCoreNavigationApps>(
       _account.client.id,
       'apps-apps',
       apps,
       () async => _account.client.core.getNavigationApps(),
-      (final response) => response.ocs.data,
+      (final response) => response.ocs.data.toList(),
     );
   }
 

@@ -125,7 +125,7 @@ class NewsArticlesBloc extends InteractiveBloc implements NewsArticlesBlocEvents
         break;
     }
 
-    await requestManager.wrapNextcloud<Iterable<NextcloudNewsArticle>, NextcloudNewsListArticles>(
+    await requestManager.wrapNextcloud<List<NextcloudNewsArticle>, NextcloudNewsListArticles>(
       client.id,
       'news-articles-${type.code}-$id-$getRead',
       articles,
@@ -134,7 +134,7 @@ class NewsArticlesBloc extends InteractiveBloc implements NewsArticlesBlocEvents
         id: id ?? 0,
         getRead: getRead ?? true ? 1 : 0,
       ),
-      (final response) => response.items,
+      (final response) => response.items.toList(),
     );
   }
 

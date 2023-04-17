@@ -94,14 +94,14 @@ class NewsBloc extends InteractiveBloc implements NewsBlocEvents, NewsBlocStates
   @override
   Future refresh() async {
     await Future.wait([
-      requestManager.wrapNextcloud<Iterable<NextcloudNewsFolder>, NextcloudNewsListFolders>(
+      requestManager.wrapNextcloud<List<NextcloudNewsFolder>, NextcloudNewsListFolders>(
         client.id,
         'news-folders',
         folders,
         () async => client.news.listFolders(),
-        (final response) => response.folders,
+        (final response) => response.folders.toList(),
       ),
-      requestManager.wrapNextcloud<Iterable<NextcloudNewsFeed>, NextcloudNewsListFeeds>(
+      requestManager.wrapNextcloud<List<NextcloudNewsFeed>, NextcloudNewsListFeeds>(
         client.id,
         'news-feeds',
         feeds,
@@ -111,7 +111,7 @@ class NewsBloc extends InteractiveBloc implements NewsBlocEvents, NewsBlocStates
           if (response.newestItemId != null) {
             _newestItemId = response.newestItemId!;
           }
-          return response.feeds;
+          return response.feeds.toList();
         },
       ),
       mainArticlesBloc.reload(),
