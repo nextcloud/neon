@@ -321,7 +321,7 @@ class _NeonAppState extends State<NeonApp> with WidgetsBindingObserver, tray.Tra
                   themeMode ?? ThemeMode.system,
                   platformBrightnessSnapshot.data ?? Brightness.light,
                   oledAsDark: themeOLEDAsDark ?? false,
-                  keepOriginalAccentColor: themeKeepOriginalAccentColor ?? false,
+                  keepOriginalAccentColor: _nextcloudTheme == null || (themeKeepOriginalAccentColor ?? false),
                 ),
                 home: Container(),
               ),
