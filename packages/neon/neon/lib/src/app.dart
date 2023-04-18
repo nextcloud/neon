@@ -312,19 +312,24 @@ class _NeonAppState extends State<NeonApp> with WidgetsBindingObserver, tray.Tra
             option: widget.globalOptions.themeOLEDAsDark,
             builder: (final context, final themeOLEDAsDark) => OptionBuilder(
               option: widget.globalOptions.themeKeepOriginalAccentColor,
-              builder: (final context, final themeKeepOriginalAccentColor) => MaterialApp(
-                localizationsDelegates: AppLocalizations.localizationsDelegates,
-                supportedLocales: AppLocalizations.supportedLocales,
-                navigatorKey: _navigatorKey,
-                theme: getThemeFromNextcloudTheme(
-                  _nextcloudTheme,
-                  themeMode ?? ThemeMode.system,
-                  platformBrightnessSnapshot.data ?? Brightness.light,
-                  oledAsDark: themeOLEDAsDark ?? false,
-                  keepOriginalAccentColor: _nextcloudTheme == null || (themeKeepOriginalAccentColor ?? false),
-                ),
-                home: Container(),
-              ),
+              builder: (final context, final themeKeepOriginalAccentColor) {
+                if (themeMode == null || !platformBrightnessSnapshot.hasData || themeOLEDAsDark == null) {
+                  return Container();
+                }
+                return MaterialApp(
+                  localizationsDelegates: AppLocalizations.localizationsDelegates,
+                  supportedLocales: AppLocalizations.supportedLocales,
+                  navigatorKey: _navigatorKey,
+                  theme: getThemeFromNextcloudTheme(
+                    _nextcloudTheme,
+                    themeMode,
+                    platformBrightnessSnapshot.data!,
+                    oledAsDark: themeOLEDAsDark,
+                    keepOriginalAccentColor: _nextcloudTheme == null || (themeKeepOriginalAccentColor ?? false),
+                  ),
+                  home: Container(),
+                );
+              },
             ),
           ),
         ),
