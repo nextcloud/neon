@@ -70,10 +70,6 @@ copy_nextcloud_app_svg notifications external/nextcloud-notifications
 
   # Android launcher icons
   export_mipmap_icon_all "assets/logo.svg" "ic_launcher" &
-  for id in files news notes notifications; do
-    export_mipmap_icon_all "../neon/neon_$id/assets/app.svg" "app_$id" &
-  done
-  wait
 
   fvm dart run flutter_native_splash:create
 )

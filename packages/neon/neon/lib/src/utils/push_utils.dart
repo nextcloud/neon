@@ -75,23 +75,11 @@ class PushUtils {
         final platform = await getNeonPlatform();
         final cache = Cache(platform);
         await cache.init();
-        //final requestManager = RequestManager(cache);
-        //final allAppImplementations = getAppImplementations(sharedPreferences, requestManager, platform);
-        final allAppImplementations = <AppImplementation>[];
 
-        final matchingAppImplementations =
-            allAppImplementations.where((final a) => a.id == notification.subject.app).toList();
-        AppImplementation? app;
-        if (matchingAppImplementations.isNotEmpty) {
-          app = matchingAppImplementations.single;
-        } else {
-          app = allAppImplementations.firstWhereOrNull((final a) => a.id == 'notifications');
-        }
-
-        final appID = app?.id ?? notification.subject.app;
-        var appName = localizations.appImplementationName(appID ?? '');
+        var appName = localizations.appImplementationName(notification.subject.app ?? '');
         if (appName == '') {
-          appName = appID ?? 'Nextcloud';
+          debugPrint('Missing app name for ${notification.subject.app}');
+          appName = notification.subject.app ?? 'Nextcloud';
         }
 
         await localNotificationsPlugin.show(
@@ -103,7 +91,7 @@ class PushUtils {
               notification.subject.app ?? 'nextcloud',
               appName,
               groupKey: notification.subject.app != null ? 'app_${notification.subject.app}' : 'nextcloud',
-              icon: '@mipmap/${app != null ? 'app_${app.id}' : 'ic_launcher'}',
+              icon: '@mipmap/ic_launcher',
               color: themePrimaryColor,
               category: notification.type == 'voip' ? AndroidNotificationCategory.call : null,
               importance: Importance.max,
