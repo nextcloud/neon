@@ -1770,6 +1770,11 @@ TypeResult resolveType(
                           'result.${fields[result.name]!} = ${result.deserialize('data', toBuilder: true)};',
                         ],
                       ] else ...[
+                        if (schema.discriminator != null) ...[
+                          'if (data is! Map<String, dynamic>) {',
+                          "throw StateError('discriminator is only supported for serializing Json like data.');",
+                          '}',
+                        ],
                         for (final result in results) ...[
                           if (schema.discriminator != null) ...[
                             "if (data['${schema.discriminator!.propertyName}'] == '${result.name.replaceFirst(state.prefix, '')}'",
