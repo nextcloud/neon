@@ -130,14 +130,13 @@ Future runNeon({
   final packageInfo = await PackageInfo.fromPlatform();
 
   final globalOptions = GlobalOptions(
-    AppStorage('global', sharedPreferences),
+    sharedPreferences,
     packageInfo,
   );
 
   final accountsBloc = AccountsBloc(
     requestManager,
     platform,
-    AppStorage('accounts', sharedPreferences),
     sharedPreferences,
     globalOptions,
     allAppImplementations,
