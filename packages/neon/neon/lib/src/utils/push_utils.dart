@@ -77,8 +77,11 @@ class PushUtils {
         await cache.init();
 
         NextcloudNotificationsNotification? notification;
+        var accounts = <Account>[];
+        Account? account;
         try {
-          final account = loadAccounts(AppStorage('accounts', sharedPreferences)).find(instance);
+          accounts = loadAccounts(AppStorage('accounts', sharedPreferences));
+          account = accounts.find(instance);
           if (account != null) {
             notification =
                 (await account.client.notifications.getNotification(id: pushNotification.subject.nid!)).ocs.data;
@@ -105,6 +108,7 @@ class PushUtils {
             android: AndroidNotificationDetails(
               appID,
               appName,
+              subText: accounts.length > 1 && account != null ? account.client.humanReadableID : null,
               groupKey: 'app_$appID',
               icon: '@mipmap/ic_launcher',
               color: themePrimaryColor,
