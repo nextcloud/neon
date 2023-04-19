@@ -16,3 +16,6 @@
 [submodule "external/nextcloud-uppush"]
 	path = external/nextcloud-uppush
 	url = https://github.com/UP-NextPush/server-app.git
+[submodule "external/flathub-shared-modules"]
+	path = external/flathub-shared-modules
+	url = https://github.com/flathub/shared-modules.git
