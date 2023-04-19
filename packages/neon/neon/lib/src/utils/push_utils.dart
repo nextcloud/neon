@@ -92,25 +92,27 @@ class PushUtils {
         }
 
         final appID = notification?.app ?? pushNotification.subject.app ?? 'nextcloud';
-        var appName = localizations.appImplementationName(appID);
+        String? appName = localizations.appImplementationName(appID);
         if (appName == '') {
           debugPrint('Missing app name for $appID');
-          appName = appID;
+          appName = null;
         }
-        final title = notification?.subject ?? pushNotification.subject.subject;
-        final message = notification != null && notification.message != '' ? notification.message : null;
+        final title = (notification?.subject ?? pushNotification.subject.subject)!;
+        final message = (notification?.message.isNotEmpty ?? false) ? notification!.message : null;
+        final when = notification != null ? DateTime.parse(notification.datetime) : null;
 
         await localNotificationsPlugin.show(
           _getNotificationID(instance, pushNotification),
-          message != null ? '$appName: $title' : appName,
-          message ?? title,
+          message != null && appName != null ? '$appName: $title' : title,
+          message,
           NotificationDetails(
             android: AndroidNotificationDetails(
               appID,
-              appName,
+              appName ?? appID,
               subText: accounts.length > 1 && account != null ? account.client.humanReadableID : null,
               groupKey: 'app_$appID',
               icon: '@mipmap/ic_launcher',
+              when: when?.millisecondsSinceEpoch,
               color: themePrimaryColor,
               category: pushNotification.type == 'voip' ? AndroidNotificationCategory.call : null,
               importance: Importance.max,
