@@ -55,20 +55,20 @@ class PushUtils {
 
     for (final message in Uri(query: utf8.decode(messages)).queryParameters.values) {
       final data = json.decode(message) as Map<String, dynamic>;
-      final notification = PushNotification(
+      final pushNotification = PushNotification(
         accountID: instance,
         priority: data['priority']! as String,
         type: data['type']! as String,
         subject: decryptPushNotificationSubject(keypair.privateKey, data['subject']! as String),
       );
 
-      if (notification.subject.delete ?? false) {
-        await localNotificationsPlugin.cancel(_getNotificationID(instance, notification));
-      } else if (notification.subject.deleteAll ?? false) {
+      if (pushNotification.subject.delete ?? false) {
+        await localNotificationsPlugin.cancel(_getNotificationID(instance, pushNotification));
+      } else if (pushNotification.subject.deleteAll ?? false) {
         await localNotificationsPlugin.cancelAll();
         Global.onPushNotificationReceived?.call(instance);
-      } else if (notification.type == 'background') {
-        debugPrint('Got unknown background notification ${json.encode(notification.toJson())}');
+      } else if (pushNotification.type == 'background') {
+        debugPrint('Got unknown background notification ${json.encode(pushNotification.toJson())}');
       } else {
         final localizations = await appLocalizationsFromSystem();
 
@@ -76,38 +76,46 @@ class PushUtils {
         final cache = Cache(platform);
         await cache.init();
 
-        var appName = localizations.appImplementationName(notification.subject.app ?? '');
-        if (appName == '') {
-          debugPrint('Missing app name for ${notification.subject.app}');
-          appName = notification.subject.app ?? 'Nextcloud';
+        NextcloudNotificationsNotification? notification;
+        try {
+          final account = loadAccounts(AppStorage('accounts', sharedPreferences)).find(instance);
+          if (account != null) {
+            notification =
+                (await account.client.notifications.getNotification(id: pushNotification.subject.nid!)).ocs.data;
+          }
+        } catch (e, s) {
+          debugPrint(e.toString());
+          debugPrint(s.toString());
         }
 
+        final appID = notification?.app ?? pushNotification.subject.app ?? 'nextcloud';
+        var appName = localizations.appImplementationName(appID);
+        if (appName == '') {
+          debugPrint('Missing app name for $appID');
+          appName = appID;
+        }
+        final title = notification?.subject ?? pushNotification.subject.subject;
+        final message = notification != null && notification.message != '' ? notification.message : null;
+
         await localNotificationsPlugin.show(
-          _getNotificationID(instance, notification),
-          appName,
-          notification.subject.subject,
+          _getNotificationID(instance, pushNotification),
+          message != null ? '$appName: $title' : appName,
+          message ?? title,
           NotificationDetails(
             android: AndroidNotificationDetails(
-              notification.subject.app ?? 'nextcloud',
+              appID,
               appName,
-              groupKey: notification.subject.app != null ? 'app_${notification.subject.app}' : 'nextcloud',
+              groupKey: 'app_$appID',
               icon: '@mipmap/ic_launcher',
               color: themePrimaryColor,
-              category: notification.type == 'voip' ? AndroidNotificationCategory.call : null,
+              category: pushNotification.type == 'voip' ? AndroidNotificationCategory.call : null,
               importance: Importance.max,
-              priority: notification.priority == 'high'
-                  ? (notification.type == 'voip' ? Priority.max : Priority.high)
+              priority: pushNotification.priority == 'high'
+                  ? (pushNotification.type == 'voip' ? Priority.max : Priority.high)
                   : Priority.defaultPriority,
             ),
           ),
-          payload: json.encode(
-            PushNotification(
-              accountID: instance,
-              priority: notification.priority,
-              type: notification.type,
-              subject: notification.subject,
-            ).toJson(),
-          ),
+          payload: json.encode(pushNotification.toJson()),
         );
       }
 

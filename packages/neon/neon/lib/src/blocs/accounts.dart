@@ -1,5 +1,7 @@
 part of '../../neon.dart';
 
+const _keyAccounts = 'accounts';
+
 abstract class AccountsBlocEvents {
   void addAccount(final Account account);
   void removeAccount(final Account account);
@@ -20,19 +22,12 @@ class AccountsBloc extends Bloc implements AccountsBlocEvents, AccountsBlocState
     this._globalOptions,
     this._allAppImplementations,
   ) {
-    accounts.listen((final as) async {
-      _globalOptions.updateAccounts(as);
-      await _storage.setStringList(_keyAccounts, as.map((final a) => json.encode(a.toJson())).toList());
-    });
-
-    if (_storage.containsKey(_keyAccounts)) {
-      accounts.add(
-        _storage
-            .getStringList(_keyAccounts)!
-            .map((final a) => Account.fromJson(json.decode(a) as Map<String, dynamic>))
-            .toList(),
-      );
-    }
+    accounts
+      ..add(loadAccounts(_storage))
+      ..listen((final as) async {
+        _globalOptions.updateAccounts(as);
+        await _storage.setStringList(_keyAccounts, as.map((final a) => json.encode(a.toJson())).toList());
+      });
 
     final as = accounts.value;
     if (_globalOptions.rememberLastUsedAccount.value && _storage.containsKey(_keyLastUsedAccount)) {
@@ -56,7 +51,6 @@ class AccountsBloc extends Bloc implements AccountsBlocEvents, AccountsBlocState
   final SharedPreferences _sharedPreferences;
   final GlobalOptions _globalOptions;
   final List<AppImplementation> _allAppImplementations;
-  final _keyAccounts = 'accounts';
   final _keyLastUsedAccount = 'last-used-account';
 
   final _accountsOptions = <String, AccountSpecificOptions>{};
@@ -193,4 +187,14 @@ class AccountsBloc extends Bloc implements AccountsBlocEvents, AccountsBlocState
       account,
     );
   }
+}
+
+List<Account> loadAccounts(final AppStorage storage) {
+  if (storage.containsKey(_keyAccounts)) {
+    return storage
+        .getStringList(_keyAccounts)!
+        .map((final a) => Account.fromJson(json.decode(a) as Map<String, dynamic>))
+        .toList();
+  }
+  return [];
 }
