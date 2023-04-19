@@ -55,71 +55,71 @@ class PushUtils {
 
     for (final message in Uri(query: utf8.decode(messages)).queryParameters.values) {
       final data = json.decode(message) as Map<String, dynamic>;
-      final notification = PushNotification(
+      final pushNotification = PushNotification(
         accountID: instance,
         priority: data['priority']! as String,
         type: data['type']! as String,
         subject: decryptPushNotificationSubject(keypair.privateKey, data['subject']! as String),
       );
 
-      if (notification.subject.delete ?? false) {
-        await localNotificationsPlugin.cancel(_getNotificationID(instance, notification));
-      } else if (notification.subject.deleteAll ?? false) {
+      if (pushNotification.subject.delete ?? false) {
+        await localNotificationsPlugin.cancel(_getNotificationID(instance, pushNotification));
+      } else if (pushNotification.subject.deleteAll ?? false) {
         await localNotificationsPlugin.cancelAll();
         Global.onPushNotificationReceived?.call(instance);
-      } else if (notification.type == 'background') {
-        debugPrint('Got unknown background notification ${json.encode(notification.toJson())}');
+      } else if (pushNotification.type == 'background') {
+        debugPrint('Got unknown background notification ${json.encode(pushNotification.toJson())}');
       } else {
         final localizations = await appLocalizationsFromSystem();
 
         final platform = await getNeonPlatform();
         final cache = Cache(platform);
         await cache.init();
-        //final requestManager = RequestManager(cache);
-        //final allAppImplementations = getAppImplementations(sharedPreferences, requestManager, platform);
-        final allAppImplementations = <AppImplementation>[];
 
-        final matchingAppImplementations =
-            allAppImplementations.where((final a) => a.id == notification.subject.app).toList();
-        AppImplementation? app;
-        if (matchingAppImplementations.isNotEmpty) {
-          app = matchingAppImplementations.single;
-        } else {
-          app = allAppImplementations.firstWhereOrNull((final a) => a.id == 'notifications');
+        NextcloudNotificationsNotification? notification;
+        var accounts = <Account>[];
+        Account? account;
+        try {
+          accounts = loadAccounts(AppStorage('accounts', sharedPreferences));
+          account = accounts.find(instance);
+          if (account != null) {
+            notification =
+                (await account.client.notifications.getNotification(id: pushNotification.subject.nid!)).ocs.data;
+          }
+        } catch (e, s) {
+          debugPrint(e.toString());
+          debugPrint(s.toString());
         }
 
-        final appID = app?.id ?? notification.subject.app;
-        var appName = localizations.appImplementationName(appID ?? '');
+        final appID = notification?.app ?? pushNotification.subject.app ?? 'nextcloud';
+        var appName = localizations.appImplementationName(appID);
         if (appName == '') {
-          appName = appID ?? 'Nextcloud';
+          debugPrint('Missing app name for $appID');
+          appName = appID;
         }
+        final title = notification?.subject ?? pushNotification.subject.subject;
+        final message = notification != null && notification.message != '' ? notification.message : null;
 
         await localNotificationsPlugin.show(
-          _getNotificationID(instance, notification),
-          appName,
-          notification.subject.subject,
+          _getNotificationID(instance, pushNotification),
+          message != null ? '$appName: $title' : appName,
+          message ?? title,
           NotificationDetails(
             android: AndroidNotificationDetails(
-              notification.subject.app ?? 'nextcloud',
+              appID,
               appName,
-              groupKey: notification.subject.app != null ? 'app_${notification.subject.app}' : 'nextcloud',
-              icon: '@mipmap/${app != null ? 'app_${app.id}' : 'ic_launcher'}',
+              subText: accounts.length > 1 && account != null ? account.client.humanReadableID : null,
+              groupKey: 'app_$appID',
+              icon: '@mipmap/ic_launcher',
               color: themePrimaryColor,
-              category: notification.type == 'voip' ? AndroidNotificationCategory.call : null,
+              category: pushNotification.type == 'voip' ? AndroidNotificationCategory.call : null,
               importance: Importance.max,
-              priority: notification.priority == 'high'
-                  ? (notification.type == 'voip' ? Priority.max : Priority.high)
+              priority: pushNotification.priority == 'high'
+                  ? (pushNotification.type == 'voip' ? Priority.max : Priority.high)
                   : Priority.defaultPriority,
             ),
           ),
-          payload: json.encode(
-            PushNotification(
-              accountID: instance,
-              priority: notification.priority,
-              type: notification.type,
-              subject: notification.subject,
-            ).toJson(),
-          ),
+          payload: json.encode(pushNotification.toJson()),
         );
       }
 
