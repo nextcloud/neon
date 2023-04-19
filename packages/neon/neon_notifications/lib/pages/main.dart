@@ -50,9 +50,7 @@ class _NotificationsMainPageState extends State<NotificationsMainPage> {
     final BuildContext context,
     final NextcloudNotificationsNotification notification,
   ) {
-    final matchingAppImplementations = Provider.of<List<AppImplementation>>(context, listen: false)
-        .where((final a) => a.id == notification.app)
-        .toList();
+    final app = Provider.of<List<AppImplementation>>(context, listen: false).find(notification.app);
 
     return ListTile(
       title: Text(notification.subject),
@@ -73,8 +71,8 @@ class _NotificationsMainPageState extends State<NotificationsMainPage> {
           ),
         ],
       ),
-      leading: matchingAppImplementations.isNotEmpty
-          ? matchingAppImplementations.single.buildIcon(
+      leading: app != null
+          ? app.buildIcon(
               context,
               width: 40,
               height: 40,
@@ -93,11 +91,9 @@ class _NotificationsMainPageState extends State<NotificationsMainPage> {
         if (notification.app == 'notifications') {
           return;
         }
-        final allAppImplementations = Provider.of<List<AppImplementation>>(context, listen: false);
-        final matchingAppImplementations = allAppImplementations.where((final a) => a.id == notification.app);
-        if (matchingAppImplementations.isNotEmpty) {
+        if (app != null) {
           final accountsBloc = Provider.of<AccountsBloc>(context, listen: false);
-          await accountsBloc.getAppsBloc(accountsBloc.activeAccount.value!).setActiveApp(notification.app);
+          await accountsBloc.getAppsBloc(accountsBloc.activeAccount.value!).setActiveApp(app.id);
         } else {
           await showDialog(
             context: context,

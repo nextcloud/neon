@@ -216,7 +216,7 @@ class _HomePageState extends State<HomePage> {
                       builder: (final context) {
                         if (accountsSnapshot.hasData) {
                           final accounts = accountsSnapshot.data!;
-                          final account = accounts.singleWhere((final account) => account.id == widget.account.id);
+                          final account = accounts.find(widget.account.id)!;
 
                           final isQuickBar = navigationMode == NavigationMode.quickBar;
                           final drawer = Drawer(
@@ -326,11 +326,8 @@ class _HomePageState extends State<HomePage> {
                                                                 )
                                                                 .toList(),
                                                             onChanged: (final id) {
-                                                              for (final account in accounts) {
-                                                                if (account.id == id) {
-                                                                  _accountsBloc.setActiveAccount(account);
-                                                                  break;
-                                                                }
+                                                              if (id != null) {
+                                                                _accountsBloc.setActiveAccount(accounts.find(id));
                                                               }
                                                             },
                                                           ),
@@ -474,7 +471,7 @@ class _HomePageState extends State<HomePage> {
                                                 Flexible(
                                                   child: Text(
                                                     appImplementations.data!
-                                                        .singleWhere((final a) => a.id == activeAppIDSnapshot.data!)
+                                                        .find(activeAppIDSnapshot.data!)!
                                                         .name(context),
                                                   ),
                                                 ),
@@ -583,7 +580,7 @@ class _HomePageState extends State<HomePage> {
                                                   if (activeAppIDSnapshot.hasData) ...[
                                                     Expanded(
                                                       child: appImplementations.data!
-                                                          .singleWhere((final a) => a.id == activeAppIDSnapshot.data!)
+                                                          .find(activeAppIDSnapshot.data!)!
                                                           .buildPage(context, _appsBloc),
                                                     ),
                                                   ],

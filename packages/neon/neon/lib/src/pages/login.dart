@@ -61,12 +61,11 @@ class _LoginPageState extends State<LoginPage> {
             _accountsBloc.updateAccount(account);
             Navigator.of(context).pop();
           } else {
-            for (final a in _accountsBloc.accounts.value) {
-              if (a.id == account.id) {
-                NeonException.showSnackbar(context, AppLocalizations.of(context).errorAccountAlreadyExists);
-                await _loginBloc.refresh();
-                return;
-              }
+            final existingAccount = _accountsBloc.accounts.value.find(account.id);
+            if (existingAccount != null) {
+              NeonException.showSnackbar(context, AppLocalizations.of(context).errorAccountAlreadyExists);
+              await _loginBloc.refresh();
+              return;
             }
             _accountsBloc
               ..addAccount(account)

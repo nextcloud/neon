@@ -46,3 +46,15 @@ abstract class AppImplementation<T extends Bloc, R extends NextcloudAppSpecificO
     options.dispose();
   }
 }
+
+extension AppImplementationFind on List<AppImplementation> {
+  AppImplementation? find(final String appID) {
+    for (final app in this) {
+      if (app.id == appID) {
+        return app;
+      }
+    }
+
+    return null;
+  }
+}
