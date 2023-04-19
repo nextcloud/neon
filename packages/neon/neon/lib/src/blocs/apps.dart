@@ -37,7 +37,7 @@ class AppsBloc extends InteractiveBloc implements AppsBlocEvents, AppsBlocStates
         unawaited(
           options.initialApp.stream.first.then((var initialApp) async {
             if (initialApp == null) {
-              if (result.data!.where((final a) => a.id == 'files').isNotEmpty) {
+              if (result.data!.find('files') != null) {
                 initialApp = 'files';
               } else if (result.data!.isNotEmpty) {
                 // This should never happen, because the files app is always installed and can not be removed, but just in
@@ -126,10 +126,7 @@ class AppsBloc extends InteractiveBloc implements AppsBlocEvents, AppsBlocStates
 
   @override
   Future setActiveApp(final String? appID) async {
-    if ((await appImplementations.firstWhere((final a) => a.data != null))
-        .data!
-        .where((final app) => app.id == appID)
-        .isNotEmpty) {
+    if (appID != null && (await appImplementations.firstWhere((final a) => a.data != null)).data!.find(appID) != null) {
       if (activeAppID.valueOrNull != appID) {
         activeAppID.add(appID);
       }

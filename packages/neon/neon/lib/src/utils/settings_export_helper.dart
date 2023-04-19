@@ -20,13 +20,13 @@ class SettingsExportHelper {
 
     final appImplementationsData = data['apps'] as Map<String, dynamic>;
     for (final appId in appImplementationsData.keys) {
-      final matchingAppImplementations = appImplementations.where((final app) => app.id == appId).toList();
-      if (matchingAppImplementations.length != 1) {
+      final app = appImplementations.find(appId);
+      if (app == null) {
         return;
       }
       final appImplementationData = appImplementationsData[appId]! as Map<String, dynamic>;
       await _applyOptionsMapToOptions(
-        matchingAppImplementations[0].options.options,
+        app.options.options,
         appImplementationData,
       );
     }

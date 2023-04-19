@@ -474,7 +474,7 @@ class _HomePageState extends State<HomePage> {
                                                 Flexible(
                                                   child: Text(
                                                     appImplementations.data!
-                                                        .singleWhere((final a) => a.id == activeAppIDSnapshot.data!)
+                                                        .find(activeAppIDSnapshot.data!)!
                                                         .name(context),
                                                   ),
                                                 ),
@@ -583,7 +583,7 @@ class _HomePageState extends State<HomePage> {
                                                   if (activeAppIDSnapshot.hasData) ...[
                                                     Expanded(
                                                       child: appImplementations.data!
-                                                          .singleWhere((final a) => a.id == activeAppIDSnapshot.data!)
+                                                          .find(activeAppIDSnapshot.data!)!
                                                           .buildPage(context, _appsBloc),
                                                     ),
                                                   ],

@@ -171,22 +171,18 @@ class _NeonAppState extends State<NeonApp> with WidgetsBindingObserver, tray.Tra
           if (account == null) {
             return;
           }
-          final appImplementation = Provider.of<List<AppImplementation>>(context, listen: false)
-              .singleWhere((final a) => a.id == 'notifications');
-          await _accountsBloc.getAppsBloc(account).getAppBloc<NotificationsBlocInterface>(appImplementation).refresh();
+          final app = Provider.of<List<AppImplementation>>(context, listen: false).find('notifications');
+          if (app != null) {
+            await _accountsBloc.getAppsBloc(account).getAppBloc<NotificationsBlocInterface>(app).refresh();
+          }
         };
         Global.onPushNotificationClicked = (final pushNotificationWithAccountID) async {
           final allAppImplementations = Provider.of<List<AppImplementation>>(context, listen: false);
 
-          final matchingAppImplementations =
-              allAppImplementations.where((final a) => a.id == pushNotificationWithAccountID.subject.app);
-
-          late AppImplementation appImplementation;
-          if (matchingAppImplementations.isNotEmpty) {
-            appImplementation = matchingAppImplementations.single;
-          } else {
-            appImplementation = allAppImplementations.singleWhere((final a) => a.id == 'notifications');
-          }
+          final app = (pushNotificationWithAccountID.subject.app != null
+                  ? allAppImplementations.find(pushNotificationWithAccountID.subject.app!)
+                  : null) ??
+              allAppImplementations.find('notifications');
 
           final account = _accountsBloc.accounts.value.find(pushNotificationWithAccountID.accountID);
           if (account == null) {
@@ -194,13 +190,15 @@ class _NeonAppState extends State<NeonApp> with WidgetsBindingObserver, tray.Tra
           }
 
           _accountsBloc.setActiveAccount(account);
-          if (appImplementation.id != 'notifications') {
-            _accountsBloc
-                .getAppsBloc(account)
-                .getAppBloc<NotificationsBlocInterface>(appImplementation)
-                .deleteNotification(pushNotificationWithAccountID.subject.nid!);
+          if (app != null) {
+            if (app.id != 'notifications') {
+              _accountsBloc
+                  .getAppsBloc(account)
+                  .getAppBloc<NotificationsBlocInterface>(app)
+                  .deleteNotification(pushNotificationWithAccountID.subject.nid!);
+            }
+            await _openAppFromExternal(account, app.id);
           }
-          await _openAppFromExternal(account, appImplementation.id);
         };
 
         final details = await localNotificationsPlugin.getNotificationAppLaunchDetails();
