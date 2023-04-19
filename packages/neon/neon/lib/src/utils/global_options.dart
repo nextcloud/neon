@@ -4,7 +4,7 @@ const unifiedPushNextPushID = 'org.unifiedpush.distributor.nextpush';
 
 class GlobalOptions {
   GlobalOptions(
-    this._storage,
+    this._sharedPreferences,
     this._packageInfo,
   ) {
     themeMode.stream.listen((final value) {
@@ -47,7 +47,8 @@ class GlobalOptions {
     });
   }
 
-  final AppStorage _storage;
+  final SharedPreferences _sharedPreferences;
+  late final AppStorage _storage = AppStorage('global', _sharedPreferences);
   final PackageInfo _packageInfo;
   final _themeOLEDAsDarkEnabledSubject = BehaviorSubject<bool>();
   final _pushNotificationsEnabledEnabledSubject = BehaviorSubject<bool>();

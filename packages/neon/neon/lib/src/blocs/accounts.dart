@@ -16,7 +16,6 @@ class AccountsBloc extends Bloc implements AccountsBlocEvents, AccountsBlocState
   AccountsBloc(
     this._requestManager,
     this._platform,
-    this._storage,
     this._sharedPreferences,
     this._globalOptions,
     this._allAppImplementations,
@@ -53,7 +52,7 @@ class AccountsBloc extends Bloc implements AccountsBlocEvents, AccountsBlocState
 
   final RequestManager _requestManager;
   final NeonPlatform _platform;
-  final AppStorage _storage;
+  late final AppStorage _storage = AppStorage('accounts', _sharedPreferences);
   final SharedPreferences _sharedPreferences;
   final GlobalOptions _globalOptions;
   final List<AppImplementation> _allAppImplementations;
