@@ -38,13 +38,13 @@ class AccountsBloc extends Bloc implements AccountsBlocEvents, AccountsBlocState
     final as = accounts.value;
     if (_globalOptions.rememberLastUsedAccount.value && _storage.containsKey(_keyLastUsedAccount)) {
       final lastUsedAccountID = _storage.getString(_keyLastUsedAccount);
-      activeAccount.add(as.singleWhere((final account) => account.id == lastUsedAccountID));
+      activeAccount.add(lastUsedAccountID != null ? as.find(lastUsedAccountID) : null);
     } else {
       unawaited(
         _globalOptions.initialAccount.stream.first.then((final lastAccount) {
-          final matches = as.where((final account) => account.id == lastAccount).toList();
-          if (matches.isNotEmpty) {
-            activeAccount.add(matches[0]);
+          final account = lastAccount != null ? as.find(lastAccount) : null;
+          if (account != null) {
+            activeAccount.add(account);
           }
         }),
       );

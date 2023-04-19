@@ -33,13 +33,13 @@ class SettingsExportHelper {
 
     final accountsData = data['accounts'] as Map<String, dynamic>;
     for (final accountId in accountsData.keys) {
-      final matchingAccounts = accountSpecificOptions.keys.where((final account) => account.id == accountId).toList();
-      if (matchingAccounts.length != 1) {
+      final account = accountSpecificOptions.keys.toList().find(accountId);
+      if (account == null) {
         return;
       }
       final accountData = accountsData[accountId]! as Map<String, dynamic>;
       await _applyOptionsMapToOptions(
-        accountSpecificOptions[matchingAccounts[0]]!,
+        accountSpecificOptions[account]!,
         accountData,
       );
     }
