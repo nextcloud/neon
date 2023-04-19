@@ -172,9 +172,10 @@ class _LoginPageState extends State<LoginPage> {
                               height: MediaQuery.of(context).size.height / 2,
                               child: Column(
                                 children: [
-                                  Provider.of<Branding>(context, listen: false).buildLogo(
-                                    context,
-                                    const Size(100, 100),
+                                  SvgPicture.asset(
+                                    'assets/logo.svg',
+                                    width: 100,
+                                    height: 100,
                                   ),
                                   Text(
                                     Provider.of<Branding>(context, listen: false).name,

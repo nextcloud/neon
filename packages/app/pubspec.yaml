@@ -10,7 +10,6 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_native_splash: ^2.2.0+1
-  flutter_svg: ^1.1.6
   neon:
     path: ../neon/neon
   neon_files:

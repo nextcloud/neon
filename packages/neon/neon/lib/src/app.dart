@@ -133,7 +133,7 @@ class _NeonAppState extends State<NeonApp> with WidgetsBindingObserver, tray.Tra
         _globalOptions.systemTrayEnabled.stream.listen((final enabled) async {
           if (enabled) {
             // TODO: This works on Linux, but maybe not on macOS or Windows
-            await tray.trayManager.setIcon('assets/logo_neon.svg');
+            await tray.trayManager.setIcon('assets/logo.svg');
             if (mounted) {
               await tray.trayManager.setContextMenu(
                 tray.Menu(
