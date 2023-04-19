@@ -27,7 +27,7 @@ class PushUtils {
         android: const AndroidInitializationSettings('@mipmap/ic_launcher'),
         linux: LinuxInitializationSettings(
           defaultActionName: 'Open',
-          defaultIcon: AssetsLinuxIcon('assets/logo_neon.svg'),
+          defaultIcon: AssetsLinuxIcon('assets/logo.svg'),
         ),
       ),
       onDidReceiveNotificationResponse: onDidReceiveNotificationResponse,
