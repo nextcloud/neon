@@ -99,6 +99,7 @@ class PushUtils {
         }
         final title = notification?.subject ?? pushNotification.subject.subject;
         final message = notification != null && notification.message != '' ? notification.message : null;
+        final when = notification != null ? DateTime.parse(notification.datetime) : null;
 
         await localNotificationsPlugin.show(
           _getNotificationID(instance, pushNotification),
@@ -111,6 +112,7 @@ class PushUtils {
               subText: accounts.length > 1 && account != null ? account.client.humanReadableID : null,
               groupKey: 'app_$appID',
               icon: '@mipmap/ic_launcher',
+              when: when?.millisecondsSinceEpoch,
               color: themePrimaryColor,
               category: pushNotification.type == 'voip' ? AndroidNotificationCategory.call : null,
               importance: Importance.max,
