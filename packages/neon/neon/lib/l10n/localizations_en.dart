@@ -42,7 +42,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get errorCredentialsForAccountNoLongerMatch => 'The credentials for this account no longer match';
 
   @override
-  String get errorServerHadAProblemProcessingYourRequest => 'The server had a problem while processing your request. You might want to try again';
+  String get errorServerHadAProblemProcessingYourRequest =>
+      'The server had a problem while processing your request. You might want to try again';
 
   @override
   String get errorSomethingWentWrongTryAgainLater => 'Something went wrong. Please try again later';
@@ -59,10 +60,12 @@ class AppLocalizationsEn extends AppLocalizations {
   String get errorConnectionTimedOut => 'Connection has timed out';
 
   @override
-  String get errorNoCompatibleNextcloudAppsFound => 'No compatible Nextcloud apps could be found.\nWe are working hard to implement more and more apps!';
+  String get errorNoCompatibleNextcloudAppsFound =>
+      'No compatible Nextcloud apps could be found.\nWe are working hard to implement more and more apps!';
 
   @override
-  String get errorServerInMaintenanceMode => 'The server is in maintenance mode. Please try again later or contact the server admin.';
+  String get errorServerInMaintenanceMode =>
+      'The server is in maintenance mode. Please try again later or contact the server admin.';
 
   @override
   String errorMissingPermission(String name) {
@@ -123,7 +126,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get nextPushSupported => 'NextPush is supported!';
 
   @override
-  String get nextPushSupportedText => 'NextPush is a FOSS way of receiving push notifications using the UnifiedPush protocol via a Nextcloud instance.\nYou can install NextPush from the F-Droid app store.';
+  String get nextPushSupportedText =>
+      'NextPush is a FOSS way of receiving push notifications using the UnifiedPush protocol via a Nextcloud instance.\nYou can install NextPush from the F-Droid app store.';
 
   @override
   String get nextPushSupportedInstall => 'Install NextPush';
@@ -203,7 +207,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get globalOptionsPushNotificationsEnabled => 'Enabled';
 
   @override
-  String get globalOptionsPushNotificationsEnabledDisabledNotice => 'No UnifiedPush distributor could be found or you denied the permission for showing notifications. Please go to the app settings and allow notifications and go to https://unifiedpush.org/users/distributors and setup any of the listed distributors. Then re-open this app and you should be able to enable notifications';
+  String get globalOptionsPushNotificationsEnabledDisabledNotice =>
+      'No UnifiedPush distributor could be found or you denied the permission for showing notifications. Please go to the app settings and allow notifications and go to https://unifiedpush.org/users/distributors and setup any of the listed distributors. Then re-open this app and you should be able to enable notifications';
 
   @override
   String get globalOptionsPushNotificationsDistributor => 'UnifiedPush Distributor';
