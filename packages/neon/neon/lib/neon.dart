@@ -66,6 +66,7 @@ part 'src/platform/abstract.dart';
 part 'src/platform/android.dart';
 part 'src/platform/linux.dart';
 part 'src/platform/platform.dart';
+part 'src/router.dart';
 part 'src/utils/account_options.dart';
 part 'src/utils/app_implementation.dart';
 part 'src/utils/bloc.dart';

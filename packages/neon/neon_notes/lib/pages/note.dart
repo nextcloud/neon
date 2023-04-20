@@ -63,12 +63,12 @@ class _NotesNotePageState extends State<NotesNotePage> {
   }
 
   @override
-  Widget build(final BuildContext context) => WillPopScope(
-        onWillPop: () async {
+  Widget build(final BuildContext context) => BackButtonListener(
+        onBackButtonPressed: () async {
           if (Provider.of<NeonPlatform>(context, listen: false).canUseWakelock) {
             await Wakelock.disable();
           }
-          return true;
+          return false;
         },
         child: Scaffold(
           resizeToAvoidBottomInset: true,

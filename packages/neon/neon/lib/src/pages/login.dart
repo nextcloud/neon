@@ -90,18 +90,18 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(final BuildContext context) => StreamBuilder<List<Account>>(
         stream: _accountsBloc.accounts,
-        builder: (final context, final accountsSnapshot) => WillPopScope(
-          onWillPop: () async {
+        builder: (final context, final accountsSnapshot) => BackButtonListener(
+          onBackButtonPressed: () async {
             if (accountsSnapshot.data?.isNotEmpty ?? false) {
-              return true;
+              return false;
             }
 
             if ((await _loginBloc.serverURL.first) == null) {
-              return true;
+              return false;
             }
 
             _loginBloc.setServerURL(null);
-            return false;
+            return true;
           },
           child: StreamBuilder<String?>(
             stream: _loginBloc.serverURL,
