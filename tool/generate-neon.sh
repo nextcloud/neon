@@ -4,25 +4,6 @@ cd "$(dirname "$0")/.."
 
 color="#f37736"
 
-function export_mipmap_icon() {
-    source="$1"
-    name="$2"
-    size="$3"
-    dpi="$4"
-    inkscape "$source" -o "android/app/src/main/res/mipmap-${dpi}dpi/$name.png" -w "$size" -h "$size"
-}
-
-function export_mipmap_icon_all() {
-    source="$1"
-    name="$2"
-    export_mipmap_icon "$source" "$name" 72 h &
-    export_mipmap_icon "$source" "$name" 48 m &
-    export_mipmap_icon "$source" "$name" 96 xh &
-    export_mipmap_icon "$source" "$name" 144 xxh &
-    export_mipmap_icon "$source" "$name" 192 xxxh &
-    wait
-}
-
 function copy_nextcloud_app_svg() {
   id="$1"
   path="$2"
