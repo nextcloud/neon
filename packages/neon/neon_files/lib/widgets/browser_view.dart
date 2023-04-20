@@ -46,142 +46,154 @@ class _FilesBrowserViewState extends State<FilesBrowserView> {
                       !uploadTasksSnapshot.hasData ||
                       !downloadTasksSnapshot.hasData
                   ? Container()
-                  : Scaffold(
-                      resizeToAvoidBottomInset: false,
-                      floatingActionButton: widget.enableCreateActions
-                          ? FloatingActionButton(
-                              onPressed: () async {
-                                await showDialog(
-                                  context: context,
-                                  builder: (final context) => FilesChooseCreateDialog(
-                                    bloc: widget.filesBloc,
-                                    basePath: widget.bloc.path.value,
-                                  ),
-                                );
-                              },
-                              child: const Icon(Icons.add),
-                            )
-                          : null,
-                      body: NeonListView<Widget>(
-                        scrollKey: 'files-${pathSnapshot.data!.join('/')}',
-                        withFloatingActionButton: true,
-                        items: [
-                          for (final uploadTask in files.data == null
-                              ? <UploadTask>[]
-                              : uploadTasksSnapshot.data!.where(
-                                  (final task) =>
-                                      files.data!.where((final file) => _pathMatchesFile(task.path, file.name)).isEmpty,
-                                )) ...[
-                            StreamBuilder<int>(
-                              stream: uploadTask.progress,
-                              builder: (final context, final uploadTaskProgressSnapshot) =>
-                                  !uploadTaskProgressSnapshot.hasData
-                                      ? Container()
-                                      : _buildFile(
-                                          context: context,
-                                          details: FileDetails(
-                                            path: uploadTask.path,
-                                            isDirectory: false,
-                                            size: uploadTask.size,
-                                            etag: null,
-                                            mimeType: null,
-                                            lastModified: uploadTask.lastModified,
-                                            hasPreview: null,
-                                            isFavorite: null,
+                  : BackButtonListener(
+                      onBackButtonPressed: () async {
+                        final path = pathSnapshot.data!;
+                        if (path.isNotEmpty) {
+                          widget.bloc.setPath(path.sublist(0, path.length - 1));
+                          return true;
+                        }
+                        return false;
+                      },
+                      child: Scaffold(
+                        resizeToAvoidBottomInset: false,
+                        floatingActionButton: widget.enableCreateActions
+                            ? FloatingActionButton(
+                                onPressed: () async {
+                                  await showDialog(
+                                    context: context,
+                                    builder: (final context) => FilesChooseCreateDialog(
+                                      bloc: widget.filesBloc,
+                                      basePath: widget.bloc.path.value,
+                                    ),
+                                  );
+                                },
+                                child: const Icon(Icons.add),
+                              )
+                            : null,
+                        body: NeonListView<Widget>(
+                          scrollKey: 'files-${pathSnapshot.data!.join('/')}',
+                          withFloatingActionButton: true,
+                          items: [
+                            for (final uploadTask in files.data == null
+                                ? <UploadTask>[]
+                                : uploadTasksSnapshot.data!.where(
+                                    (final task) => files.data!
+                                        .where((final file) => _pathMatchesFile(task.path, file.name))
+                                        .isEmpty,
+                                  )) ...[
+                              StreamBuilder<int>(
+                                stream: uploadTask.progress,
+                                builder: (final context, final uploadTaskProgressSnapshot) =>
+                                    !uploadTaskProgressSnapshot.hasData
+                                        ? Container()
+                                        : _buildFile(
+                                            context: context,
+                                            details: FileDetails(
+                                              path: uploadTask.path,
+                                              isDirectory: false,
+                                              size: uploadTask.size,
+                                              etag: null,
+                                              mimeType: null,
+                                              lastModified: uploadTask.lastModified,
+                                              hasPreview: null,
+                                              isFavorite: null,
+                                            ),
+                                            uploadProgress: uploadTaskProgressSnapshot.data,
+                                            downloadProgress: null,
                                           ),
-                                          uploadProgress: uploadTaskProgressSnapshot.data,
-                                          downloadProgress: null,
-                                        ),
-                            ),
-                          ],
-                          if (files.data != null) ...[
-                            for (final file in files.data!) ...[
-                              if (!widget.onlyShowDirectories || file.isDirectory) ...[
-                                Builder(
-                                  builder: (final context) {
-                                    final matchingUploadTasks = uploadTasksSnapshot.data!
-                                        .where((final task) => _pathMatchesFile(task.path, file.name));
-                                    final matchingDownloadTasks = downloadTasksSnapshot.data!
-                                        .where((final task) => _pathMatchesFile(task.path, file.name));
+                              ),
+                            ],
+                            if (files.data != null) ...[
+                              for (final file in files.data!) ...[
+                                if (!widget.onlyShowDirectories || file.isDirectory) ...[
+                                  Builder(
+                                    builder: (final context) {
+                                      final matchingUploadTasks = uploadTasksSnapshot.data!
+                                          .where((final task) => _pathMatchesFile(task.path, file.name));
+                                      final matchingDownloadTasks = downloadTasksSnapshot.data!
+                                          .where((final task) => _pathMatchesFile(task.path, file.name));
 
-                                    return StreamBuilder<int?>(
-                                      stream: matchingUploadTasks.isNotEmpty
-                                          ? matchingUploadTasks.first.progress
-                                          : Stream.value(null),
-                                      builder: (final context, final uploadTaskProgressSnapshot) => StreamBuilder<int?>(
-                                        stream: matchingDownloadTasks.isNotEmpty
-                                            ? matchingDownloadTasks.first.progress
+                                      return StreamBuilder<int?>(
+                                        stream: matchingUploadTasks.isNotEmpty
+                                            ? matchingUploadTasks.first.progress
                                             : Stream.value(null),
-                                        builder: (final context, final downloadTaskProgressSnapshot) => _buildFile(
-                                          context: context,
-                                          details: FileDetails(
-                                            path: [...widget.bloc.path.value, file.name],
-                                            isDirectory: matchingUploadTasks.isEmpty && file.isDirectory,
-                                            size: matchingUploadTasks.isNotEmpty
-                                                ? matchingUploadTasks.first.size
-                                                : file.size!,
-                                            etag: matchingUploadTasks.isNotEmpty ? null : file.etag,
-                                            mimeType: matchingUploadTasks.isNotEmpty ? null : file.mimeType,
-                                            lastModified: matchingUploadTasks.isNotEmpty
-                                                ? matchingUploadTasks.first.lastModified
-                                                : file.lastModified!,
-                                            hasPreview: matchingUploadTasks.isNotEmpty ? null : file.hasPreview,
-                                            isFavorite: matchingUploadTasks.isNotEmpty ? null : file.favorite,
+                                        builder: (final context, final uploadTaskProgressSnapshot) =>
+                                            StreamBuilder<int?>(
+                                          stream: matchingDownloadTasks.isNotEmpty
+                                              ? matchingDownloadTasks.first.progress
+                                              : Stream.value(null),
+                                          builder: (final context, final downloadTaskProgressSnapshot) => _buildFile(
+                                            context: context,
+                                            details: FileDetails(
+                                              path: [...widget.bloc.path.value, file.name],
+                                              isDirectory: matchingUploadTasks.isEmpty && file.isDirectory,
+                                              size: matchingUploadTasks.isNotEmpty
+                                                  ? matchingUploadTasks.first.size
+                                                  : file.size!,
+                                              etag: matchingUploadTasks.isNotEmpty ? null : file.etag,
+                                              mimeType: matchingUploadTasks.isNotEmpty ? null : file.mimeType,
+                                              lastModified: matchingUploadTasks.isNotEmpty
+                                                  ? matchingUploadTasks.first.lastModified
+                                                  : file.lastModified!,
+                                              hasPreview: matchingUploadTasks.isNotEmpty ? null : file.hasPreview,
+                                              isFavorite: matchingUploadTasks.isNotEmpty ? null : file.favorite,
+                                            ),
+                                            uploadProgress: uploadTaskProgressSnapshot.data,
+                                            downloadProgress: downloadTaskProgressSnapshot.data,
                                           ),
-                                          uploadProgress: uploadTaskProgressSnapshot.data,
-                                          downloadProgress: downloadTaskProgressSnapshot.data,
                                         ),
-                                      ),
-                                    );
-                                  },
-                                ),
+                                      );
+                                    },
+                                  ),
+                                ],
                               ],
                             ],
                           ],
-                        ],
-                        isLoading: files.loading,
-                        error: files.error,
-                        onRefresh: widget.bloc.refresh,
-                        builder: (final context, final widget) => widget,
-                        topScrollingChildren: [
-                          Align(
-                            alignment: Alignment.topLeft,
-                            child: Container(
-                              margin: const EdgeInsets.symmetric(
-                                horizontal: 10,
-                              ),
-                              child: Wrap(
-                                crossAxisAlignment: WrapCrossAlignment.center,
-                                children: <Widget>[
-                                  SizedBox(
-                                    height: 40,
-                                    child: InkWell(
-                                      onTap: () {
-                                        widget.bloc.setPath([]);
-                                      },
-                                      child: const Icon(Icons.house),
-                                    ),
-                                  ),
-                                  for (var i = 0; i < pathSnapshot.data!.length; i++) ...[
-                                    InkWell(
-                                      onTap: () {
-                                        widget.bloc.setPath(pathSnapshot.data!.sublist(0, i + 1));
-                                      },
-                                      child: Text(pathSnapshot.data![i]),
-                                    ),
-                                  ],
-                                ]
-                                    .intersperse(
-                                      const Icon(
-                                        Icons.keyboard_arrow_right,
-                                        size: 40,
+                          isLoading: files.loading,
+                          error: files.error,
+                          onRefresh: widget.bloc.refresh,
+                          builder: (final context, final widget) => widget,
+                          topScrollingChildren: [
+                            Align(
+                              alignment: Alignment.topLeft,
+                              child: Container(
+                                margin: const EdgeInsets.symmetric(
+                                  horizontal: 10,
+                                ),
+                                child: Wrap(
+                                  crossAxisAlignment: WrapCrossAlignment.center,
+                                  children: <Widget>[
+                                    SizedBox(
+                                      height: 40,
+                                      child: InkWell(
+                                        onTap: () {
+                                          widget.bloc.setPath([]);
+                                        },
+                                        child: const Icon(Icons.house),
                                       ),
-                                    )
-                                    .toList(),
+                                    ),
+                                    for (var i = 0; i < pathSnapshot.data!.length; i++) ...[
+                                      InkWell(
+                                        onTap: () {
+                                          widget.bloc.setPath(pathSnapshot.data!.sublist(0, i + 1));
+                                        },
+                                        child: Text(pathSnapshot.data![i]),
+                                      ),
+                                    ],
+                                  ]
+                                      .intersperse(
+                                        const Icon(
+                                          Icons.keyboard_arrow_right,
+                                          size: 40,
+                                        ),
+                                      )
+                                      .toList(),
+                                ),
                               ),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
                     ),
             ),
