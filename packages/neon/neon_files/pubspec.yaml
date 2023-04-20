@@ -4,7 +4,7 @@ publish_to: 'none'
 
 environment:
   sdk: '>=2.19.0 <3.0.0'
-  flutter: '>=3.7.9'
+  flutter: '>=3.7.12'
 
 dependencies:
   collection: ^1.17.0
