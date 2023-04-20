@@ -32,6 +32,7 @@ class AppRouter extends RouterDelegate<Account> with ChangeNotifier, PopNavigato
             ),
           ] else ...[
             MaterialPage(
+              name: 'home',
               child: Scaffold(
                 resizeToAvoidBottomInset: false,
                 body: Stack(
