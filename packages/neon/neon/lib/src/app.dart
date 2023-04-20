@@ -25,7 +25,15 @@ class _NeonAppState extends State<NeonApp> with WidgetsBindingObserver, tray.Tra
   late NeonPlatform _platform;
   late GlobalOptions _globalOptions;
   late AccountsBloc _accountsBloc;
-  final _globalPopups = const GlobalPopups();
+  late final _routerDelegate = AppRouter(
+    navigatorKey: _navigatorKey,
+    accountsBloc: _accountsBloc,
+    onThemeChanged: (final nextcloudTheme) {
+      setState(() {
+        _nextcloudTheme = nextcloudTheme;
+      });
+    },
+  );
 
   NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Theming? _nextcloudTheme;
   final _platformBrightness = BehaviorSubject<Brightness>.seeded(WidgetsBinding.instance.window.platformBrightness);
@@ -55,50 +63,6 @@ class _NeonAppState extends State<NeonApp> with WidgetsBindingObserver, tray.Tra
     }
 
     WidgetsBinding.instance.addPostFrameCallback((final _) async {
-      widget.accountsBloc.activeAccount.listen((final activeAccount) async {
-        FlutterNativeSplash.remove();
-
-        if (activeAccount == null) {
-          await _navigatorKey.currentState!.pushAndRemoveUntil(
-            MaterialPageRoute(
-              builder: (final context) => const LoginPage(),
-            ),
-            (final _) => false,
-          );
-        } else {
-          const settings = RouteSettings(
-            name: 'home',
-          );
-          Widget builder(final context) => Scaffold(
-                resizeToAvoidBottomInset: false,
-                body: Stack(
-                  children: [
-                    _globalPopups,
-                    HomePage(
-                      account: activeAccount,
-                      onThemeChanged: (final nextcloudTheme) {
-                        setState(() {
-                          _nextcloudTheme = nextcloudTheme;
-                        });
-                      },
-                    ),
-                  ],
-                ),
-              );
-          await _navigatorKey.currentState!.pushAndRemoveUntil(
-            widget.globalOptions.navigationMode.value == NavigationMode.drawer
-                ? MaterialPageRoute(
-                    settings: settings,
-                    builder: builder,
-                  )
-                : _NoAnimationPageRoute(
-                    settings: settings,
-                    builder: builder,
-                  ),
-            (final _) => false,
-          );
-        }
-      });
       final localizations = await appLocalizationsFromSystem();
 
       if (!mounted) {
@@ -310,36 +274,30 @@ class _NeonAppState extends State<NeonApp> with WidgetsBindingObserver, tray.Tra
             option: widget.globalOptions.themeOLEDAsDark,
             builder: (final context, final themeOLEDAsDark) => OptionBuilder(
               option: widget.globalOptions.themeKeepOriginalAccentColor,
-              builder: (final context, final themeKeepOriginalAccentColor) {
-                if (themeMode == null || !platformBrightnessSnapshot.hasData || themeOLEDAsDark == null) {
-                  return Container();
-                }
-                return MaterialApp(
-                  localizationsDelegates: AppLocalizations.localizationsDelegates,
-                  supportedLocales: AppLocalizations.supportedLocales,
-                  navigatorKey: _navigatorKey,
-                  theme: getThemeFromNextcloudTheme(
-                    _nextcloudTheme,
-                    themeMode,
-                    platformBrightnessSnapshot.data!,
-                    oledAsDark: themeOLEDAsDark,
-                    keepOriginalAccentColor: _nextcloudTheme == null || (themeKeepOriginalAccentColor ?? false),
-                  ),
-                  home: Container(),
-                );
-              },
+              builder: (final context, final themeKeepOriginalAccentColor) => StreamBuilder<Account?>(
+                stream: widget.accountsBloc.activeAccount,
+                builder: (final context, final activeAccountSnapshot) {
+                  if (themeMode == null || !platformBrightnessSnapshot.hasData || themeOLEDAsDark == null) {
+                    return Container();
+                  }
+
+                  FlutterNativeSplash.remove();
+                  return MaterialApp.router(
+                    localizationsDelegates: AppLocalizations.localizationsDelegates,
+                    supportedLocales: AppLocalizations.supportedLocales,
+                    theme: getThemeFromNextcloudTheme(
+                      _nextcloudTheme,
+                      themeMode,
+                      platformBrightnessSnapshot.data!,
+                      oledAsDark: themeOLEDAsDark,
+                      keepOriginalAccentColor: _nextcloudTheme == null || (themeKeepOriginalAccentColor ?? false),
+                    ),
+                    routerDelegate: _routerDelegate,
+                  );
+                },
+              ),
             ),
           ),
         ),
       );
-}
-
-class _NoAnimationPageRoute extends MaterialPageRoute {
-  _NoAnimationPageRoute({
-    required super.builder,
-    super.settings,
-  });
-
-  @override
-  Duration get transitionDuration => Duration.zero;
 }

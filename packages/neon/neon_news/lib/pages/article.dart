@@ -81,17 +81,17 @@ class _NewsArticlePageState extends State<NewsArticlePage> {
   }
 
   @override
-  Widget build(final BuildContext context) => WillPopScope(
-        onWillPop: () async {
+  Widget build(final BuildContext context) => BackButtonListener(
+        onBackButtonPressed: () async {
           if (_webviewController != null && await _webviewController!.canGoBack()) {
             await _webviewController!.goBack();
-            return false;
+            return true;
           }
 
           if (mounted && Provider.of<NeonPlatform>(context, listen: false).canUseWakelock) {
             await Wakelock.disable();
           }
-          return true;
+          return false;
         },
         child: Scaffold(
           resizeToAvoidBottomInset: false,
