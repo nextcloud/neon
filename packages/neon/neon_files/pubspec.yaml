@@ -28,6 +28,8 @@ dependencies:
   rxdart: ^0.27.7
   settings:
     path: ../../settings
+  sort_box:
+    path: ../../sort_box
 
 dev_dependencies:
   nit_picking:

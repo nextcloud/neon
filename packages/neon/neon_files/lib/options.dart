@@ -6,6 +6,8 @@ class FilesAppSpecificOptions extends NextcloudAppSpecificOptions {
       generalCategory,
     ];
     super.options = [
+      filesSortPropertyOption,
+      filesSortBoxOrderOption,
       showPreviewsOption,
       uploadQueueParallelism,
       downloadQueueParallelism,
@@ -16,6 +18,29 @@ class FilesAppSpecificOptions extends NextcloudAppSpecificOptions {
 
   final generalCategory = OptionsCategory(
     name: (final context) => AppLocalizations.of(context).optionsCategoryGeneral,
+  );
+
+  late final filesSortPropertyOption = SelectOption<FilesSortProperty>(
+    storage: super.storage,
+    category: generalCategory,
+    key: 'files-sort-property',
+    label: (final context) => AppLocalizations.of(context).newsOptionsArticlesSortProperty,
+    defaultValue: BehaviorSubject.seeded(FilesSortProperty.name),
+    values: BehaviorSubject.seeded({
+      FilesSortProperty.name: (final context) => AppLocalizations.of(context).filesOptionsFilesSortPropertyName,
+      FilesSortProperty.modifiedDate: (final context) =>
+          AppLocalizations.of(context).filesOptionsFilesSortPropertyModifiedDate,
+      FilesSortProperty.size: (final context) => AppLocalizations.of(context).filesOptionsFilesSortPropertySize,
+    }),
+  );
+
+  late final filesSortBoxOrderOption = SelectOption<SortBoxOrder>(
+    storage: super.storage,
+    category: generalCategory,
+    key: 'files-sort-box-order',
+    label: (final context) => AppLocalizations.of(context).filesOptionsFilesSortOrder,
+    defaultValue: BehaviorSubject.seeded(SortBoxOrder.ascending),
+    values: BehaviorSubject.seeded(sortBoxOrderOptionValues),
   );
 
   late final showPreviewsOption = ToggleOption(
@@ -86,4 +111,10 @@ class FilesAppSpecificOptions extends NextcloudAppSpecificOptions {
     defaultValue: BehaviorSubject.seeded(_mb(10)),
     values: BehaviorSubject.seeded(_sizeWarningValues),
   );
+}
+
+enum FilesSortProperty {
+  name,
+  modifiedDate,
+  size,
 }
