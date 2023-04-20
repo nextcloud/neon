@@ -367,6 +367,18 @@ class AppLocalizationsEn extends AppLocalizations {
   }
 
   @override
+  String get filesOptionsFilesSortPropertyName => 'Name';
+
+  @override
+  String get filesOptionsFilesSortPropertyModifiedDate => 'Last modified';
+
+  @override
+  String get filesOptionsFilesSortPropertySize => 'Size';
+
+  @override
+  String get filesOptionsFilesSortOrder => 'Sort order of files';
+
+  @override
   String get filesOptionsShowPreviews => 'Show previews for files';
 
   @override

@@ -731,6 +731,30 @@ abstract class AppLocalizations {
   /// **'Are you sure you want to download a file that is bigger than {warningSize} ({actualSize})?'**
   String filesConfirmDownloadSizeWarning(String warningSize, String actualSize);
 
+  /// No description provided for @filesOptionsFilesSortPropertyName.
+  ///
+  /// In en, this message translates to:
+  /// **'Name'**
+  String get filesOptionsFilesSortPropertyName;
+
+  /// No description provided for @filesOptionsFilesSortPropertyModifiedDate.
+  ///
+  /// In en, this message translates to:
+  /// **'Last modified'**
+  String get filesOptionsFilesSortPropertyModifiedDate;
+
+  /// No description provided for @filesOptionsFilesSortPropertySize.
+  ///
+  /// In en, this message translates to:
+  /// **'Size'**
+  String get filesOptionsFilesSortPropertySize;
+
+  /// No description provided for @filesOptionsFilesSortOrder.
+  ///
+  /// In en, this message translates to:
+  /// **'Sort order of files'**
+  String get filesOptionsFilesSortOrder;
+
   /// No description provided for @filesOptionsShowPreviews.
   ///
   /// In en, this message translates to:

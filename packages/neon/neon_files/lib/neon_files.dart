@@ -21,6 +21,7 @@ import 'package:provider/provider.dart';
 import 'package:queue/queue.dart';
 import 'package:rxdart/rxdart.dart';
 import 'package:settings/settings.dart';
+import 'package:sort_box/sort_box.dart';
 
 part 'blocs/browser.dart';
 part 'blocs/files.dart';
@@ -31,6 +32,7 @@ part 'models/file_details.dart';
 part 'options.dart';
 part 'pages/details.dart';
 part 'pages/main.dart';
+part 'sort/files.dart';
 part 'utils/download_task.dart';
 part 'utils/upload_task.dart';
 part 'widgets/browser_view.dart';

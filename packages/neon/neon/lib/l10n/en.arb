@@ -194,6 +194,10 @@
       }
     }
   },
+  "filesOptionsFilesSortPropertyName": "Name",
+  "filesOptionsFilesSortPropertyModifiedDate": "Last modified",
+  "filesOptionsFilesSortPropertySize": "Size",
+  "filesOptionsFilesSortOrder": "Sort order of files",
   "filesOptionsShowPreviews": "Show previews for files",
   "filesOptionsUploadQueueParallelism": "Upload queue parallelism",
   "filesOptionsDownloadQueueParallelism": "Download queue parallelism",
