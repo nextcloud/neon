@@ -81,7 +81,7 @@ class _NotificationsMainPageState extends State<NotificationsMainPage> {
               width: 40,
               height: 40,
               child: NeonCachedUrlImage(
-                url: notification.icon,
+                url: notification.icon!,
                 width: 40,
                 height: 40,
                 svgColor: Theme.of(context).colorScheme.primary,

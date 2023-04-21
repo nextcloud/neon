@@ -2,7 +2,7 @@
   "openapi": "3.1.0",
   "info": {
     "title": "Nextcloud",
-    "version": "26.0.0",
+    "version": "26.0.1",
     "description": "All supported Nextcloud APIs in one",
     "license": {
       "name": "agpl",
@@ -1274,11 +1274,6 @@
           "subject",
           "message",
           "link",
-          "subjectRich",
-          "subjectRichParameters",
-          "messageRich",
-          "messageRichParameters",
-          "icon",
           "actions"
         ],
         "properties": {
@@ -1323,6 +1318,9 @@
           },
           "icon": {
             "type": "string"
+          },
+          "shouldNotify": {
+            "type": "boolean"
           },
           "actions": {
             "type": "array",

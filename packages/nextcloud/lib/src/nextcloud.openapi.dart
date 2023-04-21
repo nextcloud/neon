@@ -4743,12 +4743,13 @@ class NextcloudNotificationsNotification {
     required this.subject,
     required this.message,
     required this.link,
-    required this.subjectRich,
-    required this.subjectRichParameters,
-    required this.messageRich,
-    required this.messageRichParameters,
-    required this.icon,
     required this.actions,
+    this.subjectRich,
+    this.subjectRichParameters,
+    this.messageRich,
+    this.messageRichParameters,
+    this.icon,
+    this.shouldNotify,
   });
 
   // coverage:ignore-start
@@ -4782,15 +4783,17 @@ class NextcloudNotificationsNotification {
 
   final String link;
 
-  final String subjectRich;
+  final String? subjectRich;
 
   final dynamic subjectRichParameters;
 
-  final String messageRich;
+  final String? messageRich;
 
   final dynamic messageRichParameters;
 
-  final String icon;
+  final String? icon;
+
+  final bool? shouldNotify;
 
   final List<NextcloudNotificationsNotificationAction> actions;
 
