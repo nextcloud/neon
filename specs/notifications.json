@@ -89,11 +89,6 @@
           "subject",
           "message",
           "link",
-          "subjectRich",
-          "subjectRichParameters",
-          "messageRich",
-          "messageRichParameters",
-          "icon",
           "actions"
         ],
         "properties": {
@@ -138,6 +133,9 @@
           },
           "icon": {
             "type": "string"
+          },
+          "shouldNotify": {
+            "type": "boolean"
           },
           "actions": {
             "type": "array",

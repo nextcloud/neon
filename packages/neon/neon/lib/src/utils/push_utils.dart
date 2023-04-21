@@ -91,38 +91,40 @@ class PushUtils {
           debugPrint(s.toString());
         }
 
-        final appID = notification?.app ?? pushNotification.subject.app ?? 'nextcloud';
-        String? appName = localizations.appImplementationName(appID);
-        if (appName == '') {
-          debugPrint('Missing app name for $appID');
-          appName = null;
-        }
-        final title = (notification?.subject ?? pushNotification.subject.subject)!;
-        final message = (notification?.message.isNotEmpty ?? false) ? notification!.message : null;
-        final when = notification != null ? DateTime.parse(notification.datetime) : null;
+        if (notification?.shouldNotify ?? true) {
+          final appID = notification?.app ?? pushNotification.subject.app ?? 'nextcloud';
+          String? appName = localizations.appImplementationName(appID);
+          if (appName == '') {
+            debugPrint('Missing app name for $appID');
+            appName = null;
+          }
+          final title = (notification?.subject ?? pushNotification.subject.subject)!;
+          final message = (notification?.message.isNotEmpty ?? false) ? notification!.message : null;
+          final when = notification != null ? DateTime.parse(notification.datetime) : null;
 
-        await localNotificationsPlugin.show(
-          _getNotificationID(instance, pushNotification),
-          message != null && appName != null ? '$appName: $title' : title,
-          message,
-          NotificationDetails(
-            android: AndroidNotificationDetails(
-              appID,
-              appName ?? appID,
-              subText: accounts.length > 1 && account != null ? account.client.humanReadableID : null,
-              groupKey: 'app_$appID',
-              icon: '@mipmap/ic_launcher',
-              when: when?.millisecondsSinceEpoch,
-              color: themePrimaryColor,
-              category: pushNotification.type == 'voip' ? AndroidNotificationCategory.call : null,
-              importance: Importance.max,
-              priority: pushNotification.priority == 'high'
-                  ? (pushNotification.type == 'voip' ? Priority.max : Priority.high)
-                  : Priority.defaultPriority,
+          await localNotificationsPlugin.show(
+            _getNotificationID(instance, pushNotification),
+            message != null && appName != null ? '$appName: $title' : title,
+            message,
+            NotificationDetails(
+              android: AndroidNotificationDetails(
+                appID,
+                appName ?? appID,
+                subText: accounts.length > 1 && account != null ? account.client.humanReadableID : null,
+                groupKey: 'app_$appID',
+                icon: '@mipmap/ic_launcher',
+                when: when?.millisecondsSinceEpoch,
+                color: themePrimaryColor,
+                category: pushNotification.type == 'voip' ? AndroidNotificationCategory.call : null,
+                importance: Importance.max,
+                priority: pushNotification.priority == 'high'
+                    ? (pushNotification.type == 'voip' ? Priority.max : Priority.high)
+                    : Priority.defaultPriority,
+              ),
             ),
-          ),
-          payload: json.encode(pushNotification.toJson()),
-        );
+            payload: json.encode(pushNotification.toJson()),
+          );
+        }
       }
 
       Global.onPushNotificationReceived?.call(instance);

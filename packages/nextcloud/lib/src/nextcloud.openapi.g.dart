@@ -1541,6 +1541,7 @@ NextcloudNotificationsNotification _$NextcloudNotificationsNotificationFromJson(
       'messageRich',
       'messageRichParameters',
       'icon',
+      'shouldNotify',
       'actions'
     ],
   );
@@ -1554,14 +1555,15 @@ NextcloudNotificationsNotification _$NextcloudNotificationsNotificationFromJson(
     subject: json['subject'] as String,
     message: json['message'] as String,
     link: json['link'] as String,
-    subjectRich: json['subjectRich'] as String,
-    subjectRichParameters: json['subjectRichParameters'],
-    messageRich: json['messageRich'] as String,
-    messageRichParameters: json['messageRichParameters'],
-    icon: json['icon'] as String,
     actions: (json['actions'] as List<dynamic>)
         .map((e) => NextcloudNotificationsNotificationAction.fromJson(e as Map<String, dynamic>))
         .toList(),
+    subjectRich: json['subjectRich'] as String?,
+    subjectRichParameters: json['subjectRichParameters'],
+    messageRich: json['messageRich'] as String?,
+    messageRichParameters: json['messageRichParameters'],
+    icon: json['icon'] as String?,
+    shouldNotify: json['shouldNotify'] as bool?,
   );
 }
 
@@ -1581,6 +1583,7 @@ Map<String, dynamic> _$NextcloudNotificationsNotificationToJson(NextcloudNotific
       'messageRich': instance.messageRich,
       'messageRichParameters': instance.messageRichParameters,
       'icon': instance.icon,
+      'shouldNotify': instance.shouldNotify,
       'actions': instance.actions.map((e) => e.toJson()).toList(),
     };
 

@@ -114,6 +114,46 @@
         }
       }
     },
+    "/ocs/v2.php/apps/notifications/api/{apiVersion}/notifications/exists": {
+      "parameters": [
+        {
+          "name": "apiVersion",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "post": {
+        "operationId": "endpoint-confirmidsforuser-TODO",
+        "tags": [
+          "notifications"
+        ],
+        "parameters": [
+          {
+            "name": "ids",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "array"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/ocs/v2.php/apps/notifications/api/{apiVersion}/push": {
       "parameters": [
         {
