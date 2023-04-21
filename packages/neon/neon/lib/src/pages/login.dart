@@ -198,6 +198,7 @@ class _LoginPageState extends State<LoginPage> {
                                 decoration: const InputDecoration(
                                   hintText: 'https://...',
                                 ),
+                                keyboardType: TextInputType.url,
                                 initialValue: widget.serverURL,
                                 validator: (final input) => validateHttpUrl(
                                   context,

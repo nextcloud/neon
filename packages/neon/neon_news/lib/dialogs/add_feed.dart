@@ -59,6 +59,7 @@ class _NewsAddFeedDialogState extends State<NewsAddFeedDialog> {
                     decoration: const InputDecoration(
                       hintText: 'https://...',
                     ),
+                    keyboardType: TextInputType.url,
                     validator: (final input) => validateHttpUrl(context, input),
                     onFieldSubmitted: (final _) {
                       submit();
