@@ -202,15 +202,15 @@ class _HomePageState extends State<HomePage> {
                 ) =>
                     OptionBuilder<NavigationMode>(
                   option: _globalOptions.navigationMode,
-                  builder: (final context, final navigationMode) => BackButtonListener(
-                    onBackButtonPressed: () async {
+                  builder: (final context, final navigationMode) => WillPopScope(
+                    onWillPop: () async {
                       if (_scaffoldKey.currentState!.isDrawerOpen) {
                         Navigator.pop(context);
-                        return false;
+                        return true;
                       }
 
                       _scaffoldKey.currentState!.openDrawer();
-                      return true;
+                      return false;
                     },
                     child: Builder(
                       builder: (final context) {
