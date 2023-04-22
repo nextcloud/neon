@@ -16,7 +16,7 @@ abstract class InteractiveBloc extends Bloc {
   Future refresh();
 
   void addError(final Object error) {
-    _errorsStreamController.add(e);
+    _errorsStreamController.add(error);
   }
 
   // ignore: avoid_void_async
@@ -33,10 +33,10 @@ abstract class InteractiveBloc extends Bloc {
       }
 
       await (refresh ?? this.refresh)();
-    } catch (e, s) {
-      debugPrint(e.toString());
-      debugPrint(s.toString());
-      addError(e);
+    } catch (error, stacktrace) {
+      debugPrint(error.toString());
+      debugPrint(stacktrace.toString());
+      addError(error);
     }
   }
 }
