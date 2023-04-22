@@ -1281,6 +1281,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "6.2.2"
+  xml_annotation:
+    dependency: transitive
+    description:
+      name: xml_annotation
+      sha256: "4c67438bd8cbe4c717b66f3991631ea3cdd372dc77255f9fd166a6b6e1cf6965"
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.2.0"
   yaml:
     dependency: transitive
     description:
