@@ -5,3 +5,5 @@ class MissingPermissionException implements Exception {
 
   final Permission permission;
 }
+
+class UnableToOpenFileException implements Exception {}
