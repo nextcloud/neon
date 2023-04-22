@@ -77,7 +77,7 @@ class RequestManager {
       try {
         subject.add(
           Result(
-            unwrap(deserialize((await cache!.get(key))!)),
+            unwrap(await compute(deserialize, (await cache!.get(key))!)),
             null,
             loading: true,
             cached: true,
@@ -91,7 +91,7 @@ class RequestManager {
 
     try {
       final response = await (disableTimeout ? call() : timeout(call));
-      await cache?.set(key, serialize(response));
+      await cache?.set(key, await compute(serialize, response));
       subject.add(Result.success(unwrap(response)));
     } catch (e, s) {
       debugPrint(e.toString());
@@ -115,7 +115,7 @@ class RequestManager {
         try {
           subject.add(
             Result(
-              unwrap(deserialize((await cache!.get(key))!)),
+              unwrap(await compute(deserialize, (await cache!.get(key))!)),
               null,
               loading: false,
               cached: true,
