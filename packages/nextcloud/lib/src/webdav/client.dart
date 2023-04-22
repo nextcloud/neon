@@ -14,18 +14,6 @@ class WebDavClient {
   /// Base path used on the server
   final String basePath;
 
-  /// XML namespaces supported by this client.
-  ///
-  /// For Nextcloud namespaces see [WebDav/Requesting properties](https://docs.nextcloud.com/server/latest/developer_manual/client_apis/WebDAV/basic.html#requesting-properties).
-  final Map<String, String> namespaces = {
-    'DAV:': 'd',
-    'http://owncloud.org/ns': 'oc',
-    'http://nextcloud.org/ns': 'nc',
-    'http://open-collaboration-services.org/ns': 'ocs',
-    'http://open-cloud-mesh.org/ns': 'ocm',
-    'http://sabredav.org/ns': 's', // mostly used in error responses
-  };
-
   Future<HttpClientResponse> _send(
     final String method,
     final String url,
@@ -65,12 +53,6 @@ class WebDavClient {
     return response;
   }
 
-  /// Registers a custom namespace for properties.
-  ///
-  /// Requires a unique [namespaceUri] and [prefix].
-  void registerNamespace(final String namespaceUri, final String prefix) =>
-      namespaces.putIfAbsent(namespaceUri, () => prefix);
-
   String _constructPath([final String? path]) => [
         rootClient.baseURL,
         basePath,
@@ -89,25 +71,6 @@ class WebDavClient {
           })
           .where((final part) => part.isNotEmpty)
           .join('/');
-
-  String _buildPropsRequest(final Set<String> props) {
-    final builder = xml.XmlBuilder();
-    builder
-      ..processing('xml', 'version="1.0"')
-      ..element(
-        'd:propfind',
-        nest: () {
-          namespaces.forEach(builder.namespace);
-          builder.element(
-            'd:prop',
-            nest: () {
-              props.forEach(builder.element);
-            },
-          );
-        },
-      );
-    return builder.buildDocument().toString();
-  }
 
   /// returns the WebDAV capabilities of the server
   Future<WebDavStatus> status() async {
@@ -175,18 +138,37 @@ class WebDavClient {
         [204],
       );
 
+  Map<String, String>? _generateUploadHeaders({
+    required final DateTime? lastModified,
+    required final DateTime? created,
+  }) {
+    final headers = <String, String>{
+      if (lastModified != null) ...{
+        'X-OC-Mtime': (lastModified.millisecondsSinceEpoch ~/ 1000).toString(),
+      },
+      if (created != null) ...{
+        'X-OC-CTime': (created.millisecondsSinceEpoch ~/ 1000).toString(),
+      },
+    };
+    return headers.isNotEmpty ? headers : null;
+  }
+
   /// upload a new file with [localData] as content to [remotePath]
   Future<HttpClientResponse> upload(
     final Uint8List localData,
     final String remotePath, {
     final DateTime? lastModified,
+    final DateTime? created,
   }) =>
       _send(
         'PUT',
         _constructPath(remotePath),
         [200, 201, 204],
         data: Stream.value(localData),
-        headers: lastModified != null ? {'X-OC-Mtime': (lastModified.millisecondsSinceEpoch ~/ 1000).toString()} : null,
+        headers: _generateUploadHeaders(
+          lastModified: lastModified,
+          created: created,
+        ),
       );
 
   /// upload a new file with [localData] as content to [remotePath]
@@ -194,13 +176,17 @@ class WebDavClient {
     final Stream<Uint8List> localData,
     final String remotePath, {
     final DateTime? lastModified,
+    final DateTime? created,
   }) async =>
       _send(
         'PUT',
         _constructPath(remotePath),
         [200, 201, 204],
         data: localData,
-        headers: lastModified != null ? {'X-OC-Mtime': (lastModified.millisecondsSinceEpoch ~/ 1000).toString()} : null,
+        headers: _generateUploadHeaders(
+          lastModified: lastModified,
+          created: created,
+        ),
       );
 
   /// download [remotePath] and store the response file contents to String
@@ -221,100 +207,69 @@ class WebDavClient {
         [200],
       );
 
+  Future<WebDavMultistatus> _parseResponse(final HttpClientResponse response) async =>
+      WebDavMultistatus.fromXmlElement(xml.XmlDocument.parse(await response.body).rootElement);
+
   /// list the directories and files under given [remotePath].
   ///
-  /// Optionally populates the given [props] on the returned files.
-  Future<List<WebDavFile>> ls(
+  /// Optionally populates the given [prop]s on the returned files.
+  Future<WebDavMultistatus> ls(
     final String remotePath, {
-    final Set<String>? props,
+    final WebDavPropfindProp? prop,
+    final int? depth,
   }) async {
     final response = await _send(
       'PROPFIND',
       _constructPath(remotePath),
       [207, 301],
-      data: Stream.value(Uint8List.fromList(utf8.encode(_buildPropsRequest(props ?? {})))),
+      data: Stream.value(
+        Uint8List.fromList(
+          utf8.encode(
+            WebDavPropfind(prop: prop ?? WebDavPropfindProp()).toXmlElement(namespaces: namespaces).toXmlString(),
+          ),
+        ),
+      ),
+      headers: {
+        if (depth != null) ...{
+          'Depth': depth.toString(),
+        },
+      },
     );
     if (response.statusCode == 301) {
-      return ls(response.headers['location']!.first);
+      return ls(
+        response.headers['location']!.first,
+        prop: prop,
+        depth: depth,
+      );
     }
-    return treeFromWebDavXml(
-      basePath,
-      namespaces,
-      await response.body,
-    )..removeAt(0);
+    return _parseResponse(response);
   }
 
-  /// Runs the filter-files report with the given [propFilters] on the
+  /// Runs the filter-files report with the given [filterRules] on the
   /// [remotePath].
   ///
-  /// Optionally populates the given [props] on the returned files.
-  Future<List<WebDavFile>> filter(
+  /// Optionally populates the given [prop]s on the returned files.
+  Future<WebDavMultistatus> filter(
     final String remotePath,
-    final Map<String, String> propFilters, {
-    final Set<String> props = const {},
+    final WebDavOcFilterRules filterRules, {
+    final WebDavPropfindProp? prop,
   }) async {
-    final builder = xml.XmlBuilder();
-    builder
-      ..processing('xml', 'version="1.0"')
-      ..element(
-        'oc:filter-files',
-        nest: () {
-          namespaces.forEach(builder.namespace);
-          builder
-            ..element(
-              'oc:filter-rules',
-              nest: () {
-                propFilters.forEach((final key, final value) {
-                  builder.element(
-                    key,
-                    nest: () {
-                      builder.text(value);
-                    },
-                  );
-                });
-              },
-            )
-            ..element(
-              'd:prop',
-              nest: () {
-                props.forEach(builder.element);
-              },
-            );
-        },
-      );
     final response = await _send(
       'REPORT',
       _constructPath(remotePath),
       [200, 207],
-      data: Stream.value(Uint8List.fromList(utf8.encode(builder.buildDocument().toString()))),
+      data: Stream.value(
+        Uint8List.fromList(
+          utf8.encode(
+            WebDavOcFilterFiles(
+              filterRules: filterRules,
+              prop: prop ?? WebDavPropfindProp(),
+            ).toXmlElement(namespaces: namespaces).toXmlString(),
+          ),
+        ),
+      ),
     );
-    return treeFromWebDavXml(
-      basePath,
-      namespaces,
-      await response.body,
-    );
-  }
-
-  /// Retrieves properties for the given [remotePath].
-  ///
-  /// Populates all available properties by default, but a reduced set can be
-  /// specified via [props].
-  Future<WebDavFile> getProps(
-    final String remotePath, {
-    final Set<String>? props,
-  }) async {
-    final response = await _send(
-      'PROPFIND',
-      _constructPath(remotePath),
-      [200, 207],
-      data: Stream.value(Uint8List.fromList(utf8.encode(_buildPropsRequest(props ?? {})))),
-      headers: {'Depth': '0'},
-    );
-    return fileFromWebDavXml(
-      basePath,
-      namespaces,
-      await response.body,
-    );
+    return _parseResponse(response);
   }
 
   /// Update (string) properties of the given [remotePath].
@@ -322,42 +277,29 @@ class WebDavClient {
   /// Returns true if the update was successful.
   Future<bool> updateProps(
     final String remotePath,
-    final Map<String, String> props,
+    final WebDavProp prop,
   ) async {
-    final builder = xml.XmlBuilder();
-    builder
-      ..processing('xml', 'version="1.0"')
-      ..element(
-        'd:propertyupdate',
-        nest: () {
-          namespaces.forEach(builder.namespace);
-          builder.element(
-            'd:set',
-            nest: () {
-              builder.element(
-                'd:prop',
-                nest: () {
-                  props.forEach((final key, final value) {
-                    builder.element(
-                      key,
-                      nest: () {
-                        builder.text(value);
-                      },
-                    );
-                  });
-                },
-              );
-            },
-          );
-        },
-      );
     final response = await _send(
       'PROPPATCH',
       _constructPath(remotePath),
       [200, 207],
-      data: Stream.value(Uint8List.fromList(utf8.encode(builder.buildDocument().toString()))),
+      data: Stream.value(
+        Uint8List.fromList(
+          utf8.encode(
+            WebDavPropertyupdate(set: WebDavSet(prop: prop)).toXmlElement(namespaces: namespaces).toXmlString(),
+          ),
+        ),
+      ),
     );
-    return checkUpdateFromWebDavXml(await response.body);
+    final data = await _parseResponse(response);
+    for (final a in data.responses) {
+      for (final b in a.propstats) {
+        if (!b.status.contains('200')) {
+          return false;
+        }
+      }
+    }
+    return true;
   }
 
   /// Move a file from [sourcePath] to [destinationPath]

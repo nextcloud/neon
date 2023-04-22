@@ -1,166 +1,263 @@
-part of '../../nextcloud.dart';
+// ignore_for_file: public_member_api_docs
+import 'package:nextcloud/src/webdav/webdav.dart';
+import 'package:xml/xml.dart';
+import 'package:xml_annotation/xml_annotation.dart' as annotation;
+part 'props.g.dart';
 
-/// Mapping of all WebDAV properties.
-enum WebDavProps {
-  /// Contains the Last-Modified header value  .
-  davLastModified('d:getlastmodified'),
+@annotation.XmlSerializable(createMixin: true)
+@annotation.XmlRootElement(name: 'prop', namespace: namespaceDav)
+class WebDavPropfindProp with _$WebDavPropfindPropXmlSerializableMixin {
+  WebDavPropfindProp({
+    this.davgetlastmodified,
+    this.davgetetag,
+    this.davgetcontenttype,
+    this.davgetcontentlength,
+    this.ocid,
+    this.ocfileid,
+    this.ocfavorite,
+    this.occommentshref,
+    this.occommentscount,
+    this.occommentsunread,
+    this.ocdownloadurl,
+    this.ocownerid,
+    this.ocownerdisplayname,
+    this.ocsize,
+    this.ocpermissions,
+    this.ncnote,
+    this.ncdatafingerprint,
+    this.nchaspreview,
+    this.ncmounttype,
+    this.ncisencrypted,
+    this.ncmetadataetag,
+    this.ncuploadtime,
+    this.nccreationtime,
+    this.ncrichworkspace,
+    this.ocssharepermissions,
+    this.ocmsharepermissions,
+  });
+  factory WebDavPropfindProp.fromXmlElement(final XmlElement element) => _$WebDavPropfindPropFromXmlElement(element);
+  @annotation.XmlElement(name: 'getlastmodified', namespace: namespaceDav, includeIfNull: false)
+  bool? davgetlastmodified;
+  @annotation.XmlElement(name: 'getetag', namespace: namespaceDav, includeIfNull: false)
+  bool? davgetetag;
+  @annotation.XmlElement(name: 'getcontenttype', namespace: namespaceDav, includeIfNull: false)
+  bool? davgetcontenttype;
+  @annotation.XmlElement(name: 'getcontentlength', namespace: namespaceDav, includeIfNull: false)
+  bool? davgetcontentlength;
+  @annotation.XmlElement(name: 'id', namespace: namespaceOwncloud, includeIfNull: false)
+  bool? ocid;
+  @annotation.XmlElement(name: 'fileid', namespace: namespaceOwncloud, includeIfNull: false)
+  bool? ocfileid;
+  @annotation.XmlElement(name: 'favorite', namespace: namespaceOwncloud, includeIfNull: false)
+  bool? ocfavorite;
+  @annotation.XmlElement(name: 'comments-href', namespace: namespaceOwncloud, includeIfNull: false)
+  bool? occommentshref;
+  @annotation.XmlElement(name: 'comments-count', namespace: namespaceOwncloud, includeIfNull: false)
+  bool? occommentscount;
+  @annotation.XmlElement(name: 'comments-unread', namespace: namespaceOwncloud, includeIfNull: false)
+  bool? occommentsunread;
+  @annotation.XmlElement(name: 'downloadURL', namespace: namespaceOwncloud, includeIfNull: false)
+  bool? ocdownloadurl;
+  @annotation.XmlElement(name: 'owner-id', namespace: namespaceOwncloud, includeIfNull: false)
+  bool? ocownerid;
+  @annotation.XmlElement(name: 'owner-display-name', namespace: namespaceOwncloud, includeIfNull: false)
+  bool? ocownerdisplayname;
+  @annotation.XmlElement(name: 'size', namespace: namespaceOwncloud, includeIfNull: false)
+  bool? ocsize;
+  @annotation.XmlElement(name: 'permissions', namespace: namespaceOwncloud, includeIfNull: false)
+  bool? ocpermissions;
+  @annotation.XmlElement(name: 'note', namespace: namespaceNextcloud, includeIfNull: false)
+  bool? ncnote;
+  @annotation.XmlElement(name: 'data-fingerprint', namespace: namespaceNextcloud, includeIfNull: false)
+  bool? ncdatafingerprint;
+  @annotation.XmlElement(name: 'has-preview', namespace: namespaceNextcloud, includeIfNull: false)
+  bool? nchaspreview;
+  @annotation.XmlElement(name: 'mount-type', namespace: namespaceNextcloud, includeIfNull: false)
+  bool? ncmounttype;
+  @annotation.XmlElement(name: 'is-encrypted', namespace: namespaceNextcloud, includeIfNull: false)
+  bool? ncisencrypted;
+  @annotation.XmlElement(name: 'metadata_etag', namespace: namespaceNextcloud, includeIfNull: false)
+  bool? ncmetadataetag;
+  @annotation.XmlElement(name: 'upload_time', namespace: namespaceNextcloud, includeIfNull: false)
+  bool? ncuploadtime;
+  @annotation.XmlElement(name: 'creation_time', namespace: namespaceNextcloud, includeIfNull: false)
+  bool? nccreationtime;
+  @annotation.XmlElement(name: 'rich-workspace', namespace: namespaceNextcloud, includeIfNull: false)
+  bool? ncrichworkspace;
+  @annotation.XmlElement(name: 'share-permissions', namespace: namespaceOpenCollaborationServices, includeIfNull: false)
+  bool? ocssharepermissions;
+  @annotation.XmlElement(name: 'share-permissions', namespace: namespaceOpenCloudMesh, includeIfNull: false)
+  bool? ocmsharepermissions;
+}
 
-  /// Contains the ETag header value.
-  davETag('d:getetag'),
+@annotation.XmlSerializable(createMixin: true)
+@annotation.XmlRootElement(name: 'prop', namespace: namespaceDav)
+class WebDavProp with _$WebDavPropXmlSerializableMixin {
+  WebDavProp({
+    this.davgetlastmodified,
+    this.davgetetag,
+    this.davgetcontenttype,
+    this.davgetcontentlength,
+    this.ocid,
+    this.ocfileid,
+    this.ocfavorite,
+    this.occommentshref,
+    this.occommentscount,
+    this.occommentsunread,
+    this.ocdownloadurl,
+    this.ocownerid,
+    this.ocownerdisplayname,
+    this.ocsize,
+    this.ocpermissions,
+    this.ncnote,
+    this.ncdatafingerprint,
+    this.nchaspreview,
+    this.ncmounttype,
+    this.ncisencrypted,
+    this.ncmetadataetag,
+    this.ncuploadtime,
+    this.nccreationtime,
+    this.ncrichworkspace,
+    this.ocssharepermissions,
+    this.ocmsharepermissions,
+  });
+  factory WebDavProp.fromXmlElement(final XmlElement element) => _$WebDavPropFromXmlElement(element);
+  @annotation.XmlElement(name: 'getlastmodified', namespace: namespaceDav, includeIfNull: false)
+  String? davgetlastmodified;
+  @annotation.XmlElement(name: 'getetag', namespace: namespaceDav, includeIfNull: false)
+  String? davgetetag;
+  @annotation.XmlElement(name: 'getcontenttype', namespace: namespaceDav, includeIfNull: false)
+  String? davgetcontenttype;
+  @annotation.XmlElement(name: 'getcontentlength', namespace: namespaceDav, includeIfNull: false)
+  int? davgetcontentlength;
+  @annotation.XmlElement(name: 'id', namespace: namespaceOwncloud, includeIfNull: false)
+  String? ocid;
+  @annotation.XmlElement(name: 'fileid', namespace: namespaceOwncloud, includeIfNull: false)
+  String? ocfileid;
+  @annotation.XmlElement(name: 'favorite', namespace: namespaceOwncloud, includeIfNull: false)
+  int? ocfavorite;
+  @annotation.XmlElement(name: 'comments-href', namespace: namespaceOwncloud, includeIfNull: false)
+  String? occommentshref;
+  @annotation.XmlElement(name: 'comments-count', namespace: namespaceOwncloud, includeIfNull: false)
+  int? occommentscount;
+  @annotation.XmlElement(name: 'comments-unread', namespace: namespaceOwncloud, includeIfNull: false)
+  int? occommentsunread;
+  @annotation.XmlElement(name: 'downloadURL', namespace: namespaceOwncloud, includeIfNull: false)
+  String? ocdownloadurl;
+  @annotation.XmlElement(name: 'owner-id', namespace: namespaceOwncloud, includeIfNull: false)
+  String? ocownerid;
+  @annotation.XmlElement(name: 'owner-display-name', namespace: namespaceOwncloud, includeIfNull: false)
+  String? ocownerdisplayname;
+  @annotation.XmlElement(name: 'size', namespace: namespaceOwncloud, includeIfNull: false)
+  int? ocsize;
+  @annotation.XmlElement(name: 'permissions', namespace: namespaceOwncloud, includeIfNull: false)
+  String? ocpermissions;
+  @annotation.XmlElement(name: 'note', namespace: namespaceNextcloud, includeIfNull: false)
+  String? ncnote;
+  @annotation.XmlElement(name: 'data-fingerprint', namespace: namespaceNextcloud, includeIfNull: false)
+  String? ncdatafingerprint;
+  @annotation.XmlElement(name: 'has-preview', namespace: namespaceNextcloud, includeIfNull: false)
+  bool? nchaspreview;
+  @annotation.XmlElement(name: 'mount-type', namespace: namespaceNextcloud, includeIfNull: false)
+  String? ncmounttype;
+  @annotation.XmlElement(name: 'is-encrypted', namespace: namespaceNextcloud, includeIfNull: false)
+  int? ncisencrypted;
+  @annotation.XmlElement(name: 'metadata_etag', namespace: namespaceNextcloud, includeIfNull: false)
+  String? ncmetadataetag;
+  @annotation.XmlElement(name: 'upload_time', namespace: namespaceNextcloud, includeIfNull: false)
+  int? ncuploadtime;
+  @annotation.XmlElement(name: 'creation_time', namespace: namespaceNextcloud, includeIfNull: false)
+  int? nccreationtime;
+  @annotation.XmlElement(name: 'rich-workspace', namespace: namespaceNextcloud, includeIfNull: false)
+  String? ncrichworkspace;
+  @annotation.XmlElement(name: 'share-permissions', namespace: namespaceOpenCollaborationServices, includeIfNull: false)
+  int? ocssharepermissions;
+  @annotation.XmlElement(name: 'share-permissions', namespace: namespaceOpenCloudMesh, includeIfNull: false)
+  String? ocmsharepermissions;
+}
 
-  /// Contains the Content-Type header value.
-  davContentType('d:getcontenttype'),
-
-  /// Specifies the nature of the resource.
-  davResourceType('d:resourcetype'),
-
-  /// Contains the Content-Length header.
-  davContentLength('d:getcontentlength'),
-
-  /// The fileid namespaced by the instance id, globally unique
-  ocId('oc:id'),
-
-  /// The unique id for the file within the instance
-  ocFileId('oc:fileid'),
-
-  /// List of user specified tags. Can be modified.
-  ocTags('oc:tags'),
-
-  /// Whether a resource is tagged as favorite.
-  /// Can be modified and reported on with list-files.
-  ocFavorite('oc:favorite'),
-
-  /// List of collaborative tags. Can be reported on with list-files.
-  ///
-  /// Valid system tags are:
-  /// - oc:id
-  /// - oc:display-name
-  /// - oc:user-visible
-  /// - oc:user-assignable
-  /// - oc:groups
-  /// - oc:can-assign
-  ocSystemTag('oc:systemtag'),
-
-  /// Can be reported on with list-files.
-  ocCircle('oc:circle'),
-
-  /// Link to the comments for this resource.
-  ocCommentsHref('oc:comments-href'),
-
-  /// Number of comments.
-  ocCommentsCount('oc:comments-count'),
-
-  /// Number of unread comments.
-  ocCommentsUnread('oc:comments-unread'),
-
-  /// Download URL.
-  ocDownloadURL('oc:downloadURL'),
-
-  /// The user id of the owner of a shared file
-  ocOwnerId('oc:owner-id'),
-
-  /// The display name of the owner of a shared file
-  ocOwnerDisplayName('oc:owner-display-name'),
-
-  /// Share types of this file.
-  ///
-  /// Returns a list of share-type objects where:
-  /// - 0: user share
-  /// - 1: group share
-  /// - 2: usergroup share
-  /// - 3: public link
-  /// - 4: email
-  /// - 5: contact
-  /// - 6: remote (federated cloud)
-  /// - 7: circle
-  /// - 8: guest
-  /// - 9: remote group
-  /// - 10: room (talk conversation)
-  /// - 11: userroom
-  /// See also [OCS Share API](https://docs.nextcloud.com/server/19/developer_manual/client_apis/OCS/ocs-share-api.html)
-  ocShareTypes('oc:share-types'),
-
-  /// List of users this file is shared with.
-  ///
-  /// Returns a list of sharee objects with:
-  /// - id
-  /// - display-name
-  /// - type (share type)
-  ncShareees('nc:sharees'),
-
-  /// Share note.
-  ncNote('nc:note'),
-
-  /// Checksums as provided during upload.
-  ///
-  /// Returns a list of checksum objects.
-  ocChecksums('oc:checksums'),
-
-  /// Unlike [[davContentLength]], this property also works for folders
-  /// reporting the size of everything in the folder.
-  ocSize('oc:size'),
-
-  /// WebDAV permissions:
-  ///
-  /// - S: shared
-  /// - R: shareable
-  /// - M: mounted
-  /// - G: readable
-  /// - D: deletable
-  /// - NV: updateable, renameable, moveble
-  /// - W: updateable (file)
-  /// - CK: creatable
-  ocPermissions('oc:permissions'),
-
-  /// Nextcloud CRUDS permissions:
-  ///
-  /// - 1: read
-  /// - 2: update
-  /// - 4: create
-  /// - 8: delete
-  /// - 16: share
-  /// - 31: all
-  ocsSharePermissions('ocs:share-permissions'),
-
-  /// OCM permissions:
-  ///
-  /// - share
-  /// - read
-  /// - write
-  ocmSharePermissions('ocm:share-permissions'),
-
-  /// system data-fingerprint
-  ncDataFingerprint('nc:data-fingerprint'),
-
-  /// Whether a preview is available.
-  ncHasPreview('nc:has-preview'),
-
-  /// Mount type, e.g. global, group, user, personal, shared, shared-root, external
-  ncMountType('nc:mount-type'),
-
-  /// Is this file is encrypted, 0 for false or 1 for true.
-  ncIsEncrypted('nc:is-encrypted'),
-
-  // ignore: public_member_api_docs
-  ncMetadataETag('nc:metadata_etag'),
-
-  /// Date this file was uploaded.
-  ncUploadTime('nc:upload_time'),
-
-  /// Creation time of the file as provided during upload.
-  ncCreationTime('nc:creation_time'),
-
-  // ignore: public_member_api_docs
-  ncRichWorkspace('nc:rich-workspace');
-
-  // ignore: public_member_api_docs
-  const WebDavProps(this.name);
-
-  /// Name of the prop
-  final String name;
-
-  // coverage:ignore-start
-  @override
-  String toString() => name;
-  // coverage:ignore-end
+@annotation.XmlSerializable(createMixin: true)
+@annotation.XmlRootElement(name: 'filter-rules', namespace: namespaceOwncloud)
+class WebDavOcFilterRules with _$WebDavOcFilterRulesXmlSerializableMixin {
+  WebDavOcFilterRules({
+    this.davgetlastmodified,
+    this.davgetetag,
+    this.davgetcontenttype,
+    this.davgetcontentlength,
+    this.ocid,
+    this.ocfileid,
+    this.ocfavorite,
+    this.occommentshref,
+    this.occommentscount,
+    this.occommentsunread,
+    this.ocdownloadurl,
+    this.ocownerid,
+    this.ocownerdisplayname,
+    this.ocsize,
+    this.ocpermissions,
+    this.ncnote,
+    this.ncdatafingerprint,
+    this.nchaspreview,
+    this.ncmounttype,
+    this.ncisencrypted,
+    this.ncmetadataetag,
+    this.ncuploadtime,
+    this.nccreationtime,
+    this.ncrichworkspace,
+    this.ocssharepermissions,
+    this.ocmsharepermissions,
+  });
+  factory WebDavOcFilterRules.fromXmlElement(final XmlElement element) => _$WebDavOcFilterRulesFromXmlElement(element);
+  @annotation.XmlElement(name: 'getlastmodified', namespace: namespaceDav, includeIfNull: false)
+  String? davgetlastmodified;
+  @annotation.XmlElement(name: 'getetag', namespace: namespaceDav, includeIfNull: false)
+  String? davgetetag;
+  @annotation.XmlElement(name: 'getcontenttype', namespace: namespaceDav, includeIfNull: false)
+  String? davgetcontenttype;
+  @annotation.XmlElement(name: 'getcontentlength', namespace: namespaceDav, includeIfNull: false)
+  int? davgetcontentlength;
+  @annotation.XmlElement(name: 'id', namespace: namespaceOwncloud, includeIfNull: false)
+  String? ocid;
+  @annotation.XmlElement(name: 'fileid', namespace: namespaceOwncloud, includeIfNull: false)
+  String? ocfileid;
+  @annotation.XmlElement(name: 'favorite', namespace: namespaceOwncloud, includeIfNull: false)
+  int? ocfavorite;
+  @annotation.XmlElement(name: 'comments-href', namespace: namespaceOwncloud, includeIfNull: false)
+  String? occommentshref;
+  @annotation.XmlElement(name: 'comments-count', namespace: namespaceOwncloud, includeIfNull: false)
+  int? occommentscount;
+  @annotation.XmlElement(name: 'comments-unread', namespace: namespaceOwncloud, includeIfNull: false)
+  int? occommentsunread;
+  @annotation.XmlElement(name: 'downloadURL', namespace: namespaceOwncloud, includeIfNull: false)
+  String? ocdownloadurl;
+  @annotation.XmlElement(name: 'owner-id', namespace: namespaceOwncloud, includeIfNull: false)
+  String? ocownerid;
+  @annotation.XmlElement(name: 'owner-display-name', namespace: namespaceOwncloud, includeIfNull: false)
+  String? ocownerdisplayname;
+  @annotation.XmlElement(name: 'size', namespace: namespaceOwncloud, includeIfNull: false)
+  int? ocsize;
+  @annotation.XmlElement(name: 'permissions', namespace: namespaceOwncloud, includeIfNull: false)
+  String? ocpermissions;
+  @annotation.XmlElement(name: 'note', namespace: namespaceNextcloud, includeIfNull: false)
+  String? ncnote;
+  @annotation.XmlElement(name: 'data-fingerprint', namespace: namespaceNextcloud, includeIfNull: false)
+  String? ncdatafingerprint;
+  @annotation.XmlElement(name: 'has-preview', namespace: namespaceNextcloud, includeIfNull: false)
+  bool? nchaspreview;
+  @annotation.XmlElement(name: 'mount-type', namespace: namespaceNextcloud, includeIfNull: false)
+  String? ncmounttype;
+  @annotation.XmlElement(name: 'is-encrypted', namespace: namespaceNextcloud, includeIfNull: false)
+  int? ncisencrypted;
+  @annotation.XmlElement(name: 'metadata_etag', namespace: namespaceNextcloud, includeIfNull: false)
+  String? ncmetadataetag;
+  @annotation.XmlElement(name: 'upload_time', namespace: namespaceNextcloud, includeIfNull: false)
+  int? ncuploadtime;
+  @annotation.XmlElement(name: 'creation_time', namespace: namespaceNextcloud, includeIfNull: false)
+  int? nccreationtime;
+  @annotation.XmlElement(name: 'rich-workspace', namespace: namespaceNextcloud, includeIfNull: false)
+  String? ncrichworkspace;
+  @annotation.XmlElement(name: 'share-permissions', namespace: namespaceOpenCollaborationServices, includeIfNull: false)
+  int? ocssharepermissions;
+  @annotation.XmlElement(name: 'share-permissions', namespace: namespaceOpenCloudMesh, includeIfNull: false)
+  String? ocmsharepermissions;
 }
