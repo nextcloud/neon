@@ -101,7 +101,10 @@ class FilesBloc extends InteractiveBloc implements FilesBlocEvents, FilesBlocSta
           }
           await _downloadFile(path, file);
         }
-        await OpenFile.open(file.path, type: mimeType);
+        final result = await OpenFile.open(file.path, type: mimeType);
+        if (result.type != ResultType.done) {
+          throw UnableToOpenFileException();
+        }
       },
       disableTimeout: true,
     );

@@ -108,6 +108,12 @@ class NeonException extends StatelessWidget {
       );
     }
 
+    if (exception is UnableToOpenFileException) {
+      return _ExceptionDetails(
+        text: AppLocalizations.of(context).errorUnableToOpenFile,
+      );
+    }
+
     if (exception is NextcloudApiException) {
       if (exception.statusCode == 401) {
         return _ExceptionDetails(
