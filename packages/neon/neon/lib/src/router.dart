@@ -39,6 +39,7 @@ class AppRouter extends RouterDelegate<Account> with ChangeNotifier, PopNavigato
                   children: [
                     _globalPopups,
                     HomePage(
+                      key: Key(currentConfiguration!.id),
                       account: currentConfiguration!,
                       onThemeChanged: onThemeChanged,
                     ),
