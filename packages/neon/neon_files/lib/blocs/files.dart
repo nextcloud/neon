@@ -30,6 +30,7 @@ class FilesBloc extends InteractiveBloc implements FilesBlocEvents, FilesBlocSta
   FilesBloc(
     this.options,
     this.client,
+    this._requestManager,
     this._platform,
   ) {
     options.uploadQueueParallelism.stream.listen((final value) {
@@ -42,6 +43,7 @@ class FilesBloc extends InteractiveBloc implements FilesBlocEvents, FilesBlocSta
 
   final FilesAppSpecificOptions options;
   final NextcloudClient client;
+  final RequestManager _requestManager;
   final NeonPlatform _platform;
   late final browser = getNewFilesBrowserBloc();
 
@@ -64,7 +66,7 @@ class FilesBloc extends InteractiveBloc implements FilesBlocEvents, FilesBlocSta
 
   @override
   void addFavorite(final List<String> path) {
-    wrapAction(() async => client.webdav.updateProps(path.join('/'), {WebDavProps.ocFavorite.name: '1'}));
+    wrapAction(() async => client.webdav.updateProps(path.join('/'), WebDavProp(ocfavorite: 1)));
   }
 
   @override
@@ -120,7 +122,7 @@ class FilesBloc extends InteractiveBloc implements FilesBlocEvents, FilesBlocSta
     wrapAction(
       () async => client.webdav.updateProps(
         path.join('/'),
-        {WebDavProps.ocFavorite.name: '0'},
+        WebDavProp(ocfavorite: 0),
       ),
     );
   }
@@ -193,5 +195,5 @@ class FilesBloc extends InteractiveBloc implements FilesBlocEvents, FilesBlocSta
     }
   }
 
-  FilesBrowserBloc getNewFilesBrowserBloc() => FilesBrowserBloc(options, client);
+  FilesBrowserBloc getNewFilesBrowserBloc() => FilesBrowserBloc(_requestManager, options, client);
 }

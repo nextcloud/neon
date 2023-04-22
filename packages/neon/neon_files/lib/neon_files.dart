@@ -51,6 +51,7 @@ class FilesApp extends AppImplementation<FilesBloc, FilesAppSpecificOptions> {
   FilesBloc buildBloc(final NextcloudClient client) => FilesBloc(
         options,
         client,
+        requestManager,
         platform,
       );
 

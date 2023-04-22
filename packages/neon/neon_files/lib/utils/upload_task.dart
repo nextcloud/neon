@@ -24,6 +24,7 @@ class UploadTask {
         return Uint8List.fromList(chunk);
       }),
       path.join('/'),
+      lastModified: lastModified,
     );
   }
 }
