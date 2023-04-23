@@ -11,14 +11,12 @@ void main() {
     final type = prop[2];
     final name = prop[1];
     final variable = namespacePrefix + name.toLowerCase().replaceAll(RegExp('[^a-z]'), '');
-    valueProps.addAll([
-      "@annotation.XmlElement(name: '$name', namespace: $namespaceVariable, includeIfNull: false)",
-      '$type? $variable;',
-    ]);
-    findProps.addAll([
-      "@annotation.XmlElement(name: '$name', namespace: $namespaceVariable, includeIfNull: false)",
-      'bool? $variable;',
-    ]);
+    valueProps.add(
+      "@annotation.XmlElement(name: '$name', namespace: $namespaceVariable, includeIfNull: false,)\n  $type? $variable;",
+    );
+    findProps.add(
+      "@annotation.XmlElement(name: '$name', namespace: $namespaceVariable, includeIfNull: false,)\n  bool? $variable;",
+    );
     variables.add(variable);
   }
   File('lib/src/webdav/props.dart').writeAsStringSync(
@@ -32,6 +30,7 @@ void main() {
       ...generateClass('WebDavPropfindProp', 'prop', 'namespaceDav', findProps, variables),
       ...generateClass('WebDavProp', 'prop', 'namespaceDav', valueProps, variables),
       ...generateClass('WebDavOcFilterRules', 'filter-rules', 'namespaceOwncloud', valueProps, variables),
+      '',
     ].join('\n'),
   );
 }
@@ -48,10 +47,10 @@ List<String> generateClass(
       "@annotation.XmlRootElement(name: '$elementName', namespace: $namespace)",
       'class $name with _\$${name}XmlSerializableMixin {',
       '  $name({',
-      ...variables.map((final variable) => '  this.$variable,'),
+      ...variables.map((final variable) => '    this.$variable,'),
       '  });',
       '  factory $name.fromXmlElement(final XmlElement element) => _\$${name}FromXmlElement(element);',
-      ...props.map((final prop) => '  $prop'),
+      ...props.map((final prop) => '\n  $prop'),
       '}',
     ];
 
