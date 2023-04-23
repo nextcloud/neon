@@ -9,301 +9,302 @@ part of 'props.dart';
 void _$WebDavPropfindPropBuildXmlChildren(WebDavPropfindProp instance, XmlBuilder builder,
     {Map<String, String> namespaces = const {}}) {
   final davgetlastmodified = instance.davgetlastmodified;
-  final davgetlastmodifiedSerialized = davgetlastmodified != null
-      ? davgetlastmodified == true
-          ? 'true'
-          : 'false'
-      : null;
+  final davgetlastmodifiedSerialized = davgetlastmodified;
   if (davgetlastmodifiedSerialized != null) {
-    builder.element('getlastmodified', namespace: 'DAV:', nest: () {
-      builder.text(davgetlastmodifiedSerialized);
-    });
+    for (final value in davgetlastmodifiedSerialized) {
+      builder.element('getlastmodified', namespace: 'DAV:', isSelfClosing: true, nest: () {
+        if (value != null) {
+          builder.text(value);
+        }
+      });
+    }
   }
   final davgetetag = instance.davgetetag;
-  final davgetetagSerialized = davgetetag != null
-      ? davgetetag == true
-          ? 'true'
-          : 'false'
-      : null;
+  final davgetetagSerialized = davgetetag;
   if (davgetetagSerialized != null) {
-    builder.element('getetag', namespace: 'DAV:', nest: () {
-      builder.text(davgetetagSerialized);
-    });
+    for (final value in davgetetagSerialized) {
+      builder.element('getetag', namespace: 'DAV:', isSelfClosing: true, nest: () {
+        if (value != null) {
+          builder.text(value);
+        }
+      });
+    }
   }
   final davgetcontenttype = instance.davgetcontenttype;
-  final davgetcontenttypeSerialized = davgetcontenttype != null
-      ? davgetcontenttype == true
-          ? 'true'
-          : 'false'
-      : null;
+  final davgetcontenttypeSerialized = davgetcontenttype;
   if (davgetcontenttypeSerialized != null) {
-    builder.element('getcontenttype', namespace: 'DAV:', nest: () {
-      builder.text(davgetcontenttypeSerialized);
-    });
+    for (final value in davgetcontenttypeSerialized) {
+      builder.element('getcontenttype', namespace: 'DAV:', isSelfClosing: true, nest: () {
+        if (value != null) {
+          builder.text(value);
+        }
+      });
+    }
   }
   final davgetcontentlength = instance.davgetcontentlength;
-  final davgetcontentlengthSerialized = davgetcontentlength != null
-      ? davgetcontentlength == true
-          ? 'true'
-          : 'false'
-      : null;
+  final davgetcontentlengthSerialized = davgetcontentlength;
   if (davgetcontentlengthSerialized != null) {
-    builder.element('getcontentlength', namespace: 'DAV:', nest: () {
-      builder.text(davgetcontentlengthSerialized);
-    });
+    for (final value in davgetcontentlengthSerialized) {
+      builder.element('getcontentlength', namespace: 'DAV:', isSelfClosing: true, nest: () {
+        if (value != null) {
+          builder.text(value);
+        }
+      });
+    }
   }
   final davresourcetype = instance.davresourcetype;
-  final davresourcetypeSerialized = davresourcetype != null
-      ? davresourcetype == true
-          ? 'true'
-          : 'false'
-      : null;
+  final davresourcetypeSerialized = davresourcetype;
   if (davresourcetypeSerialized != null) {
-    builder.element('resourcetype', namespace: 'DAV:', nest: () {
-      builder.text(davresourcetypeSerialized);
-    });
+    for (final value in davresourcetypeSerialized) {
+      builder.element('resourcetype', namespace: 'DAV:', isSelfClosing: true, nest: () {
+        if (value != null) {
+          builder.text(value);
+        }
+      });
+    }
   }
   final ocid = instance.ocid;
-  final ocidSerialized = ocid != null
-      ? ocid == true
-          ? 'true'
-          : 'false'
-      : null;
+  final ocidSerialized = ocid;
   if (ocidSerialized != null) {
-    builder.element('id', namespace: 'http://owncloud.org/ns', nest: () {
-      builder.text(ocidSerialized);
-    });
+    for (final value in ocidSerialized) {
+      builder.element('id', namespace: 'http://owncloud.org/ns', isSelfClosing: true, nest: () {
+        if (value != null) {
+          builder.text(value);
+        }
+      });
+    }
   }
   final ocfileid = instance.ocfileid;
-  final ocfileidSerialized = ocfileid != null
-      ? ocfileid == true
-          ? 'true'
-          : 'false'
-      : null;
+  final ocfileidSerialized = ocfileid;
   if (ocfileidSerialized != null) {
-    builder.element('fileid', namespace: 'http://owncloud.org/ns', nest: () {
-      builder.text(ocfileidSerialized);
-    });
+    for (final value in ocfileidSerialized) {
+      builder.element('fileid', namespace: 'http://owncloud.org/ns', isSelfClosing: true, nest: () {
+        if (value != null) {
+          builder.text(value);
+        }
+      });
+    }
   }
   final ocfavorite = instance.ocfavorite;
-  final ocfavoriteSerialized = ocfavorite != null
-      ? ocfavorite == true
-          ? 'true'
-          : 'false'
-      : null;
+  final ocfavoriteSerialized = ocfavorite;
   if (ocfavoriteSerialized != null) {
-    builder.element('favorite', namespace: 'http://owncloud.org/ns', nest: () {
-      builder.text(ocfavoriteSerialized);
-    });
+    for (final value in ocfavoriteSerialized) {
+      builder.element('favorite', namespace: 'http://owncloud.org/ns', isSelfClosing: true, nest: () {
+        if (value != null) {
+          builder.text(value);
+        }
+      });
+    }
   }
   final occommentshref = instance.occommentshref;
-  final occommentshrefSerialized = occommentshref != null
-      ? occommentshref == true
-          ? 'true'
-          : 'false'
-      : null;
+  final occommentshrefSerialized = occommentshref;
   if (occommentshrefSerialized != null) {
-    builder.element('comments-href', namespace: 'http://owncloud.org/ns', nest: () {
-      builder.text(occommentshrefSerialized);
-    });
+    for (final value in occommentshrefSerialized) {
+      builder.element('comments-href', namespace: 'http://owncloud.org/ns', isSelfClosing: true, nest: () {
+        if (value != null) {
+          builder.text(value);
+        }
+      });
+    }
   }
   final occommentscount = instance.occommentscount;
-  final occommentscountSerialized = occommentscount != null
-      ? occommentscount == true
-          ? 'true'
-          : 'false'
-      : null;
+  final occommentscountSerialized = occommentscount;
   if (occommentscountSerialized != null) {
-    builder.element('comments-count', namespace: 'http://owncloud.org/ns', nest: () {
-      builder.text(occommentscountSerialized);
-    });
+    for (final value in occommentscountSerialized) {
+      builder.element('comments-count', namespace: 'http://owncloud.org/ns', isSelfClosing: true, nest: () {
+        if (value != null) {
+          builder.text(value);
+        }
+      });
+    }
   }
   final occommentsunread = instance.occommentsunread;
-  final occommentsunreadSerialized = occommentsunread != null
-      ? occommentsunread == true
-          ? 'true'
-          : 'false'
-      : null;
+  final occommentsunreadSerialized = occommentsunread;
   if (occommentsunreadSerialized != null) {
-    builder.element('comments-unread', namespace: 'http://owncloud.org/ns', nest: () {
-      builder.text(occommentsunreadSerialized);
-    });
+    for (final value in occommentsunreadSerialized) {
+      builder.element('comments-unread', namespace: 'http://owncloud.org/ns', isSelfClosing: true, nest: () {
+        if (value != null) {
+          builder.text(value);
+        }
+      });
+    }
   }
   final ocdownloadurl = instance.ocdownloadurl;
-  final ocdownloadurlSerialized = ocdownloadurl != null
-      ? ocdownloadurl == true
-          ? 'true'
-          : 'false'
-      : null;
+  final ocdownloadurlSerialized = ocdownloadurl;
   if (ocdownloadurlSerialized != null) {
-    builder.element('downloadURL', namespace: 'http://owncloud.org/ns', nest: () {
-      builder.text(ocdownloadurlSerialized);
-    });
+    for (final value in ocdownloadurlSerialized) {
+      builder.element('downloadURL', namespace: 'http://owncloud.org/ns', isSelfClosing: true, nest: () {
+        if (value != null) {
+          builder.text(value);
+        }
+      });
+    }
   }
   final ocownerid = instance.ocownerid;
-  final ocowneridSerialized = ocownerid != null
-      ? ocownerid == true
-          ? 'true'
-          : 'false'
-      : null;
+  final ocowneridSerialized = ocownerid;
   if (ocowneridSerialized != null) {
-    builder.element('owner-id', namespace: 'http://owncloud.org/ns', nest: () {
-      builder.text(ocowneridSerialized);
-    });
+    for (final value in ocowneridSerialized) {
+      builder.element('owner-id', namespace: 'http://owncloud.org/ns', isSelfClosing: true, nest: () {
+        if (value != null) {
+          builder.text(value);
+        }
+      });
+    }
   }
   final ocownerdisplayname = instance.ocownerdisplayname;
-  final ocownerdisplaynameSerialized = ocownerdisplayname != null
-      ? ocownerdisplayname == true
-          ? 'true'
-          : 'false'
-      : null;
+  final ocownerdisplaynameSerialized = ocownerdisplayname;
   if (ocownerdisplaynameSerialized != null) {
-    builder.element('owner-display-name', namespace: 'http://owncloud.org/ns', nest: () {
-      builder.text(ocownerdisplaynameSerialized);
-    });
+    for (final value in ocownerdisplaynameSerialized) {
+      builder.element('owner-display-name', namespace: 'http://owncloud.org/ns', isSelfClosing: true, nest: () {
+        if (value != null) {
+          builder.text(value);
+        }
+      });
+    }
   }
   final ocsize = instance.ocsize;
-  final ocsizeSerialized = ocsize != null
-      ? ocsize == true
-          ? 'true'
-          : 'false'
-      : null;
+  final ocsizeSerialized = ocsize;
   if (ocsizeSerialized != null) {
-    builder.element('size', namespace: 'http://owncloud.org/ns', nest: () {
-      builder.text(ocsizeSerialized);
-    });
+    for (final value in ocsizeSerialized) {
+      builder.element('size', namespace: 'http://owncloud.org/ns', isSelfClosing: true, nest: () {
+        if (value != null) {
+          builder.text(value);
+        }
+      });
+    }
   }
   final ocpermissions = instance.ocpermissions;
-  final ocpermissionsSerialized = ocpermissions != null
-      ? ocpermissions == true
-          ? 'true'
-          : 'false'
-      : null;
+  final ocpermissionsSerialized = ocpermissions;
   if (ocpermissionsSerialized != null) {
-    builder.element('permissions', namespace: 'http://owncloud.org/ns', nest: () {
-      builder.text(ocpermissionsSerialized);
-    });
+    for (final value in ocpermissionsSerialized) {
+      builder.element('permissions', namespace: 'http://owncloud.org/ns', isSelfClosing: true, nest: () {
+        if (value != null) {
+          builder.text(value);
+        }
+      });
+    }
   }
   final ncnote = instance.ncnote;
-  final ncnoteSerialized = ncnote != null
-      ? ncnote == true
-          ? 'true'
-          : 'false'
-      : null;
+  final ncnoteSerialized = ncnote;
   if (ncnoteSerialized != null) {
-    builder.element('note', namespace: 'http://nextcloud.org/ns', nest: () {
-      builder.text(ncnoteSerialized);
-    });
+    for (final value in ncnoteSerialized) {
+      builder.element('note', namespace: 'http://nextcloud.org/ns', isSelfClosing: true, nest: () {
+        if (value != null) {
+          builder.text(value);
+        }
+      });
+    }
   }
   final ncdatafingerprint = instance.ncdatafingerprint;
-  final ncdatafingerprintSerialized = ncdatafingerprint != null
-      ? ncdatafingerprint == true
-          ? 'true'
-          : 'false'
-      : null;
+  final ncdatafingerprintSerialized = ncdatafingerprint;
   if (ncdatafingerprintSerialized != null) {
-    builder.element('data-fingerprint', namespace: 'http://nextcloud.org/ns', nest: () {
-      builder.text(ncdatafingerprintSerialized);
-    });
+    for (final value in ncdatafingerprintSerialized) {
+      builder.element('data-fingerprint', namespace: 'http://nextcloud.org/ns', isSelfClosing: true, nest: () {
+        if (value != null) {
+          builder.text(value);
+        }
+      });
+    }
   }
   final nchaspreview = instance.nchaspreview;
-  final nchaspreviewSerialized = nchaspreview != null
-      ? nchaspreview == true
-          ? 'true'
-          : 'false'
-      : null;
+  final nchaspreviewSerialized = nchaspreview;
   if (nchaspreviewSerialized != null) {
-    builder.element('has-preview', namespace: 'http://nextcloud.org/ns', nest: () {
-      builder.text(nchaspreviewSerialized);
-    });
+    for (final value in nchaspreviewSerialized) {
+      builder.element('has-preview', namespace: 'http://nextcloud.org/ns', isSelfClosing: true, nest: () {
+        if (value != null) {
+          builder.text(value);
+        }
+      });
+    }
   }
   final ncmounttype = instance.ncmounttype;
-  final ncmounttypeSerialized = ncmounttype != null
-      ? ncmounttype == true
-          ? 'true'
-          : 'false'
-      : null;
+  final ncmounttypeSerialized = ncmounttype;
   if (ncmounttypeSerialized != null) {
-    builder.element('mount-type', namespace: 'http://nextcloud.org/ns', nest: () {
-      builder.text(ncmounttypeSerialized);
-    });
+    for (final value in ncmounttypeSerialized) {
+      builder.element('mount-type', namespace: 'http://nextcloud.org/ns', isSelfClosing: true, nest: () {
+        if (value != null) {
+          builder.text(value);
+        }
+      });
+    }
   }
   final ncisencrypted = instance.ncisencrypted;
-  final ncisencryptedSerialized = ncisencrypted != null
-      ? ncisencrypted == true
-          ? 'true'
-          : 'false'
-      : null;
+  final ncisencryptedSerialized = ncisencrypted;
   if (ncisencryptedSerialized != null) {
-    builder.element('is-encrypted', namespace: 'http://nextcloud.org/ns', nest: () {
-      builder.text(ncisencryptedSerialized);
-    });
+    for (final value in ncisencryptedSerialized) {
+      builder.element('is-encrypted', namespace: 'http://nextcloud.org/ns', isSelfClosing: true, nest: () {
+        if (value != null) {
+          builder.text(value);
+        }
+      });
+    }
   }
   final ncmetadataetag = instance.ncmetadataetag;
-  final ncmetadataetagSerialized = ncmetadataetag != null
-      ? ncmetadataetag == true
-          ? 'true'
-          : 'false'
-      : null;
+  final ncmetadataetagSerialized = ncmetadataetag;
   if (ncmetadataetagSerialized != null) {
-    builder.element('metadata_etag', namespace: 'http://nextcloud.org/ns', nest: () {
-      builder.text(ncmetadataetagSerialized);
-    });
+    for (final value in ncmetadataetagSerialized) {
+      builder.element('metadata_etag', namespace: 'http://nextcloud.org/ns', isSelfClosing: true, nest: () {
+        if (value != null) {
+          builder.text(value);
+        }
+      });
+    }
   }
   final ncuploadtime = instance.ncuploadtime;
-  final ncuploadtimeSerialized = ncuploadtime != null
-      ? ncuploadtime == true
-          ? 'true'
-          : 'false'
-      : null;
+  final ncuploadtimeSerialized = ncuploadtime;
   if (ncuploadtimeSerialized != null) {
-    builder.element('upload_time', namespace: 'http://nextcloud.org/ns', nest: () {
-      builder.text(ncuploadtimeSerialized);
-    });
+    for (final value in ncuploadtimeSerialized) {
+      builder.element('upload_time', namespace: 'http://nextcloud.org/ns', isSelfClosing: true, nest: () {
+        if (value != null) {
+          builder.text(value);
+        }
+      });
+    }
   }
   final nccreationtime = instance.nccreationtime;
-  final nccreationtimeSerialized = nccreationtime != null
-      ? nccreationtime == true
-          ? 'true'
-          : 'false'
-      : null;
+  final nccreationtimeSerialized = nccreationtime;
   if (nccreationtimeSerialized != null) {
-    builder.element('creation_time', namespace: 'http://nextcloud.org/ns', nest: () {
-      builder.text(nccreationtimeSerialized);
-    });
+    for (final value in nccreationtimeSerialized) {
+      builder.element('creation_time', namespace: 'http://nextcloud.org/ns', isSelfClosing: true, nest: () {
+        if (value != null) {
+          builder.text(value);
+        }
+      });
+    }
   }
   final ncrichworkspace = instance.ncrichworkspace;
-  final ncrichworkspaceSerialized = ncrichworkspace != null
-      ? ncrichworkspace == true
-          ? 'true'
-          : 'false'
-      : null;
+  final ncrichworkspaceSerialized = ncrichworkspace;
   if (ncrichworkspaceSerialized != null) {
-    builder.element('rich-workspace', namespace: 'http://nextcloud.org/ns', nest: () {
-      builder.text(ncrichworkspaceSerialized);
-    });
+    for (final value in ncrichworkspaceSerialized) {
+      builder.element('rich-workspace', namespace: 'http://nextcloud.org/ns', isSelfClosing: true, nest: () {
+        if (value != null) {
+          builder.text(value);
+        }
+      });
+    }
   }
   final ocssharepermissions = instance.ocssharepermissions;
-  final ocssharepermissionsSerialized = ocssharepermissions != null
-      ? ocssharepermissions == true
-          ? 'true'
-          : 'false'
-      : null;
+  final ocssharepermissionsSerialized = ocssharepermissions;
   if (ocssharepermissionsSerialized != null) {
-    builder.element('share-permissions', namespace: 'http://open-collaboration-services.org/ns', nest: () {
-      builder.text(ocssharepermissionsSerialized);
-    });
+    for (final value in ocssharepermissionsSerialized) {
+      builder.element('share-permissions', namespace: 'http://open-collaboration-services.org/ns', isSelfClosing: true,
+          nest: () {
+        if (value != null) {
+          builder.text(value);
+        }
+      });
+    }
   }
   final ocmsharepermissions = instance.ocmsharepermissions;
-  final ocmsharepermissionsSerialized = ocmsharepermissions != null
-      ? ocmsharepermissions == true
-          ? 'true'
-          : 'false'
-      : null;
+  final ocmsharepermissionsSerialized = ocmsharepermissions;
   if (ocmsharepermissionsSerialized != null) {
-    builder.element('share-permissions', namespace: 'http://open-cloud-mesh.org/ns', nest: () {
-      builder.text(ocmsharepermissionsSerialized);
-    });
+    for (final value in ocmsharepermissionsSerialized) {
+      builder.element('share-permissions', namespace: 'http://open-cloud-mesh.org/ns', isSelfClosing: true, nest: () {
+        if (value != null) {
+          builder.text(value);
+        }
+      });
+    }
   }
 }
 
@@ -315,225 +316,119 @@ void _$WebDavPropfindPropBuildXmlElement(WebDavPropfindProp instance, XmlBuilder
 }
 
 WebDavPropfindProp _$WebDavPropfindPropFromXmlElement(XmlElement element) {
-  final davgetlastmodified = element.getElement('getlastmodified', namespace: 'DAV:')?.getText();
-  final davgetetag = element.getElement('getetag', namespace: 'DAV:')?.getText();
-  final davgetcontenttype = element.getElement('getcontenttype', namespace: 'DAV:')?.getText();
-  final davgetcontentlength = element.getElement('getcontentlength', namespace: 'DAV:')?.getText();
-  final davresourcetype = element.getElement('resourcetype', namespace: 'DAV:')?.getText();
-  final ocid = element.getElement('id', namespace: 'http://owncloud.org/ns')?.getText();
-  final ocfileid = element.getElement('fileid', namespace: 'http://owncloud.org/ns')?.getText();
-  final ocfavorite = element.getElement('favorite', namespace: 'http://owncloud.org/ns')?.getText();
-  final occommentshref = element.getElement('comments-href', namespace: 'http://owncloud.org/ns')?.getText();
-  final occommentscount = element.getElement('comments-count', namespace: 'http://owncloud.org/ns')?.getText();
-  final occommentsunread = element.getElement('comments-unread', namespace: 'http://owncloud.org/ns')?.getText();
-  final ocdownloadurl = element.getElement('downloadURL', namespace: 'http://owncloud.org/ns')?.getText();
-  final ocownerid = element.getElement('owner-id', namespace: 'http://owncloud.org/ns')?.getText();
-  final ocownerdisplayname = element.getElement('owner-display-name', namespace: 'http://owncloud.org/ns')?.getText();
-  final ocsize = element.getElement('size', namespace: 'http://owncloud.org/ns')?.getText();
-  final ocpermissions = element.getElement('permissions', namespace: 'http://owncloud.org/ns')?.getText();
-  final ncnote = element.getElement('note', namespace: 'http://nextcloud.org/ns')?.getText();
-  final ncdatafingerprint = element.getElement('data-fingerprint', namespace: 'http://nextcloud.org/ns')?.getText();
-  final nchaspreview = element.getElement('has-preview', namespace: 'http://nextcloud.org/ns')?.getText();
-  final ncmounttype = element.getElement('mount-type', namespace: 'http://nextcloud.org/ns')?.getText();
-  final ncisencrypted = element.getElement('is-encrypted', namespace: 'http://nextcloud.org/ns')?.getText();
-  final ncmetadataetag = element.getElement('metadata_etag', namespace: 'http://nextcloud.org/ns')?.getText();
-  final ncuploadtime = element.getElement('upload_time', namespace: 'http://nextcloud.org/ns')?.getText();
-  final nccreationtime = element.getElement('creation_time', namespace: 'http://nextcloud.org/ns')?.getText();
-  final ncrichworkspace = element.getElement('rich-workspace', namespace: 'http://nextcloud.org/ns')?.getText();
-  final ocssharepermissions =
-      element.getElement('share-permissions', namespace: 'http://open-collaboration-services.org/ns')?.getText();
-  final ocmsharepermissions =
-      element.getElement('share-permissions', namespace: 'http://open-cloud-mesh.org/ns')?.getText();
+  final davgetlastmodified =
+      element.getElements('getlastmodified', namespace: 'DAV:')?.map((e) => e.getText()).whereType<String>();
+  final davgetetag = element.getElements('getetag', namespace: 'DAV:')?.map((e) => e.getText()).whereType<String>();
+  final davgetcontenttype =
+      element.getElements('getcontenttype', namespace: 'DAV:')?.map((e) => e.getText()).whereType<String>();
+  final davgetcontentlength =
+      element.getElements('getcontentlength', namespace: 'DAV:')?.map((e) => e.getText()).whereType<String>();
+  final davresourcetype =
+      element.getElements('resourcetype', namespace: 'DAV:')?.map((e) => e.getText()).whereType<String>();
+  final ocid =
+      element.getElements('id', namespace: 'http://owncloud.org/ns')?.map((e) => e.getText()).whereType<String>();
+  final ocfileid =
+      element.getElements('fileid', namespace: 'http://owncloud.org/ns')?.map((e) => e.getText()).whereType<String>();
+  final ocfavorite =
+      element.getElements('favorite', namespace: 'http://owncloud.org/ns')?.map((e) => e.getText()).whereType<String>();
+  final occommentshref = element
+      .getElements('comments-href', namespace: 'http://owncloud.org/ns')
+      ?.map((e) => e.getText())
+      .whereType<String>();
+  final occommentscount = element
+      .getElements('comments-count', namespace: 'http://owncloud.org/ns')
+      ?.map((e) => e.getText())
+      .whereType<String>();
+  final occommentsunread = element
+      .getElements('comments-unread', namespace: 'http://owncloud.org/ns')
+      ?.map((e) => e.getText())
+      .whereType<String>();
+  final ocdownloadurl = element
+      .getElements('downloadURL', namespace: 'http://owncloud.org/ns')
+      ?.map((e) => e.getText())
+      .whereType<String>();
+  final ocownerid =
+      element.getElements('owner-id', namespace: 'http://owncloud.org/ns')?.map((e) => e.getText()).whereType<String>();
+  final ocownerdisplayname = element
+      .getElements('owner-display-name', namespace: 'http://owncloud.org/ns')
+      ?.map((e) => e.getText())
+      .whereType<String>();
+  final ocsize =
+      element.getElements('size', namespace: 'http://owncloud.org/ns')?.map((e) => e.getText()).whereType<String>();
+  final ocpermissions = element
+      .getElements('permissions', namespace: 'http://owncloud.org/ns')
+      ?.map((e) => e.getText())
+      .whereType<String>();
+  final ncnote =
+      element.getElements('note', namespace: 'http://nextcloud.org/ns')?.map((e) => e.getText()).whereType<String>();
+  final ncdatafingerprint = element
+      .getElements('data-fingerprint', namespace: 'http://nextcloud.org/ns')
+      ?.map((e) => e.getText())
+      .whereType<String>();
+  final nchaspreview = element
+      .getElements('has-preview', namespace: 'http://nextcloud.org/ns')
+      ?.map((e) => e.getText())
+      .whereType<String>();
+  final ncmounttype = element
+      .getElements('mount-type', namespace: 'http://nextcloud.org/ns')
+      ?.map((e) => e.getText())
+      .whereType<String>();
+  final ncisencrypted = element
+      .getElements('is-encrypted', namespace: 'http://nextcloud.org/ns')
+      ?.map((e) => e.getText())
+      .whereType<String>();
+  final ncmetadataetag = element
+      .getElements('metadata_etag', namespace: 'http://nextcloud.org/ns')
+      ?.map((e) => e.getText())
+      .whereType<String>();
+  final ncuploadtime = element
+      .getElements('upload_time', namespace: 'http://nextcloud.org/ns')
+      ?.map((e) => e.getText())
+      .whereType<String>();
+  final nccreationtime = element
+      .getElements('creation_time', namespace: 'http://nextcloud.org/ns')
+      ?.map((e) => e.getText())
+      .whereType<String>();
+  final ncrichworkspace = element
+      .getElements('rich-workspace', namespace: 'http://nextcloud.org/ns')
+      ?.map((e) => e.getText())
+      .whereType<String>();
+  final ocssharepermissions = element
+      .getElements('share-permissions', namespace: 'http://open-collaboration-services.org/ns')
+      ?.map((e) => e.getText())
+      .whereType<String>();
+  final ocmsharepermissions = element
+      .getElements('share-permissions', namespace: 'http://open-cloud-mesh.org/ns')
+      ?.map((e) => e.getText())
+      .whereType<String>();
   return WebDavPropfindProp(
-      davgetlastmodified: davgetlastmodified != null
-          ? davgetlastmodified == 'true' || davgetlastmodified == '1'
-              ? true
-              : davgetlastmodified == 'false' || davgetlastmodified == '0'
-                  ? false
-                  : throw FormatException('Invalid bool format', davgetlastmodified)
-          : null,
-      davgetetag: davgetetag != null
-          ? davgetetag == 'true' || davgetetag == '1'
-              ? true
-              : davgetetag == 'false' || davgetetag == '0'
-                  ? false
-                  : throw FormatException('Invalid bool format', davgetetag)
-          : null,
-      davgetcontenttype: davgetcontenttype != null
-          ? davgetcontenttype == 'true' || davgetcontenttype == '1'
-              ? true
-              : davgetcontenttype == 'false' || davgetcontenttype == '0'
-                  ? false
-                  : throw FormatException('Invalid bool format', davgetcontenttype)
-          : null,
-      davgetcontentlength: davgetcontentlength != null
-          ? davgetcontentlength == 'true' || davgetcontentlength == '1'
-              ? true
-              : davgetcontentlength == 'false' || davgetcontentlength == '0'
-                  ? false
-                  : throw FormatException('Invalid bool format', davgetcontentlength)
-          : null,
-      davresourcetype: davresourcetype != null
-          ? davresourcetype == 'true' || davresourcetype == '1'
-              ? true
-              : davresourcetype == 'false' || davresourcetype == '0'
-                  ? false
-                  : throw FormatException('Invalid bool format', davresourcetype)
-          : null,
-      ocid: ocid != null
-          ? ocid == 'true' || ocid == '1'
-              ? true
-              : ocid == 'false' || ocid == '0'
-                  ? false
-                  : throw FormatException('Invalid bool format', ocid)
-          : null,
-      ocfileid: ocfileid != null
-          ? ocfileid == 'true' || ocfileid == '1'
-              ? true
-              : ocfileid == 'false' || ocfileid == '0'
-                  ? false
-                  : throw FormatException('Invalid bool format', ocfileid)
-          : null,
-      ocfavorite: ocfavorite != null
-          ? ocfavorite == 'true' || ocfavorite == '1'
-              ? true
-              : ocfavorite == 'false' || ocfavorite == '0'
-                  ? false
-                  : throw FormatException('Invalid bool format', ocfavorite)
-          : null,
-      occommentshref: occommentshref != null
-          ? occommentshref == 'true' || occommentshref == '1'
-              ? true
-              : occommentshref == 'false' || occommentshref == '0'
-                  ? false
-                  : throw FormatException('Invalid bool format', occommentshref)
-          : null,
-      occommentscount: occommentscount != null
-          ? occommentscount == 'true' || occommentscount == '1'
-              ? true
-              : occommentscount == 'false' || occommentscount == '0'
-                  ? false
-                  : throw FormatException('Invalid bool format', occommentscount)
-          : null,
-      occommentsunread: occommentsunread != null
-          ? occommentsunread == 'true' || occommentsunread == '1'
-              ? true
-              : occommentsunread == 'false' || occommentsunread == '0'
-                  ? false
-                  : throw FormatException('Invalid bool format', occommentsunread)
-          : null,
-      ocdownloadurl: ocdownloadurl != null
-          ? ocdownloadurl == 'true' || ocdownloadurl == '1'
-              ? true
-              : ocdownloadurl == 'false' || ocdownloadurl == '0'
-                  ? false
-                  : throw FormatException('Invalid bool format', ocdownloadurl)
-          : null,
-      ocownerid: ocownerid != null
-          ? ocownerid == 'true' || ocownerid == '1'
-              ? true
-              : ocownerid == 'false' || ocownerid == '0'
-                  ? false
-                  : throw FormatException('Invalid bool format', ocownerid)
-          : null,
-      ocownerdisplayname: ocownerdisplayname != null
-          ? ocownerdisplayname == 'true' || ocownerdisplayname == '1'
-              ? true
-              : ocownerdisplayname == 'false' || ocownerdisplayname == '0'
-                  ? false
-                  : throw FormatException('Invalid bool format', ocownerdisplayname)
-          : null,
-      ocsize: ocsize != null
-          ? ocsize == 'true' || ocsize == '1'
-              ? true
-              : ocsize == 'false' || ocsize == '0'
-                  ? false
-                  : throw FormatException('Invalid bool format', ocsize)
-          : null,
-      ocpermissions: ocpermissions != null
-          ? ocpermissions == 'true' || ocpermissions == '1'
-              ? true
-              : ocpermissions == 'false' || ocpermissions == '0'
-                  ? false
-                  : throw FormatException('Invalid bool format', ocpermissions)
-          : null,
-      ncnote: ncnote != null
-          ? ncnote == 'true' || ncnote == '1'
-              ? true
-              : ncnote == 'false' || ncnote == '0'
-                  ? false
-                  : throw FormatException('Invalid bool format', ncnote)
-          : null,
-      ncdatafingerprint: ncdatafingerprint != null
-          ? ncdatafingerprint == 'true' || ncdatafingerprint == '1'
-              ? true
-              : ncdatafingerprint == 'false' || ncdatafingerprint == '0'
-                  ? false
-                  : throw FormatException('Invalid bool format', ncdatafingerprint)
-          : null,
-      nchaspreview: nchaspreview != null
-          ? nchaspreview == 'true' || nchaspreview == '1'
-              ? true
-              : nchaspreview == 'false' || nchaspreview == '0'
-                  ? false
-                  : throw FormatException('Invalid bool format', nchaspreview)
-          : null,
-      ncmounttype: ncmounttype != null
-          ? ncmounttype == 'true' || ncmounttype == '1'
-              ? true
-              : ncmounttype == 'false' || ncmounttype == '0'
-                  ? false
-                  : throw FormatException('Invalid bool format', ncmounttype)
-          : null,
-      ncisencrypted: ncisencrypted != null
-          ? ncisencrypted == 'true' || ncisencrypted == '1'
-              ? true
-              : ncisencrypted == 'false' || ncisencrypted == '0'
-                  ? false
-                  : throw FormatException('Invalid bool format', ncisencrypted)
-          : null,
-      ncmetadataetag: ncmetadataetag != null
-          ? ncmetadataetag == 'true' || ncmetadataetag == '1'
-              ? true
-              : ncmetadataetag == 'false' || ncmetadataetag == '0'
-                  ? false
-                  : throw FormatException('Invalid bool format', ncmetadataetag)
-          : null,
-      ncuploadtime: ncuploadtime != null
-          ? ncuploadtime == 'true' || ncuploadtime == '1'
-              ? true
-              : ncuploadtime == 'false' || ncuploadtime == '0'
-                  ? false
-                  : throw FormatException('Invalid bool format', ncuploadtime)
-          : null,
-      nccreationtime: nccreationtime != null
-          ? nccreationtime == 'true' || nccreationtime == '1'
-              ? true
-              : nccreationtime == 'false' || nccreationtime == '0'
-                  ? false
-                  : throw FormatException('Invalid bool format', nccreationtime)
-          : null,
-      ncrichworkspace: ncrichworkspace != null
-          ? ncrichworkspace == 'true' || ncrichworkspace == '1'
-              ? true
-              : ncrichworkspace == 'false' || ncrichworkspace == '0'
-                  ? false
-                  : throw FormatException('Invalid bool format', ncrichworkspace)
-          : null,
-      ocssharepermissions: ocssharepermissions != null
-          ? ocssharepermissions == 'true' || ocssharepermissions == '1'
-              ? true
-              : ocssharepermissions == 'false' || ocssharepermissions == '0'
-                  ? false
-                  : throw FormatException('Invalid bool format', ocssharepermissions)
-          : null,
-      ocmsharepermissions: ocmsharepermissions != null
-          ? ocmsharepermissions == 'true' || ocmsharepermissions == '1'
-              ? true
-              : ocmsharepermissions == 'false' || ocmsharepermissions == '0'
-                  ? false
-                  : throw FormatException('Invalid bool format', ocmsharepermissions)
-          : null);
+      davgetlastmodified: davgetlastmodified?.toList(),
+      davgetetag: davgetetag?.toList(),
+      davgetcontenttype: davgetcontenttype?.toList(),
+      davgetcontentlength: davgetcontentlength?.toList(),
+      davresourcetype: davresourcetype?.toList(),
+      ocid: ocid?.toList(),
+      ocfileid: ocfileid?.toList(),
+      ocfavorite: ocfavorite?.toList(),
+      occommentshref: occommentshref?.toList(),
+      occommentscount: occommentscount?.toList(),
+      occommentsunread: occommentsunread?.toList(),
+      ocdownloadurl: ocdownloadurl?.toList(),
+      ocownerid: ocownerid?.toList(),
+      ocownerdisplayname: ocownerdisplayname?.toList(),
+      ocsize: ocsize?.toList(),
+      ocpermissions: ocpermissions?.toList(),
+      ncnote: ncnote?.toList(),
+      ncdatafingerprint: ncdatafingerprint?.toList(),
+      nchaspreview: nchaspreview?.toList(),
+      ncmounttype: ncmounttype?.toList(),
+      ncisencrypted: ncisencrypted?.toList(),
+      ncmetadataetag: ncmetadataetag?.toList(),
+      ncuploadtime: ncuploadtime?.toList(),
+      nccreationtime: nccreationtime?.toList(),
+      ncrichworkspace: ncrichworkspace?.toList(),
+      ocssharepermissions: ocssharepermissions?.toList(),
+      ocmsharepermissions: ocmsharepermissions?.toList());
 }
 
 List<XmlAttribute> _$WebDavPropfindPropToXmlAttributes(WebDavPropfindProp instance,
@@ -546,339 +441,199 @@ List<XmlNode> _$WebDavPropfindPropToXmlChildren(WebDavPropfindProp instance,
     {Map<String, String?> namespaces = const {}}) {
   final children = <XmlNode>[];
   final davgetlastmodified = instance.davgetlastmodified;
-  final davgetlastmodifiedSerialized = davgetlastmodified != null
-      ? davgetlastmodified == true
-          ? 'true'
-          : 'false'
-      : null;
-  final davgetlastmodifiedConstructed = davgetlastmodifiedSerialized != null
-      ? XmlElement(XmlName('getlastmodified', namespaces['DAV:']), [], [XmlText(davgetlastmodifiedSerialized)])
-      : null;
+  final davgetlastmodifiedSerialized = davgetlastmodified;
+  final davgetlastmodifiedConstructed = davgetlastmodifiedSerialized
+      ?.map((e) => XmlElement(XmlName('getlastmodified', namespaces['DAV:']), [], e != null ? [XmlText(e)] : [], true));
   if (davgetlastmodifiedConstructed != null) {
-    children.add(davgetlastmodifiedConstructed);
+    children.addAll(davgetlastmodifiedConstructed);
   }
   final davgetetag = instance.davgetetag;
-  final davgetetagSerialized = davgetetag != null
-      ? davgetetag == true
-          ? 'true'
-          : 'false'
-      : null;
-  final davgetetagConstructed = davgetetagSerialized != null
-      ? XmlElement(XmlName('getetag', namespaces['DAV:']), [], [XmlText(davgetetagSerialized)])
-      : null;
+  final davgetetagSerialized = davgetetag;
+  final davgetetagConstructed = davgetetagSerialized
+      ?.map((e) => XmlElement(XmlName('getetag', namespaces['DAV:']), [], e != null ? [XmlText(e)] : [], true));
   if (davgetetagConstructed != null) {
-    children.add(davgetetagConstructed);
+    children.addAll(davgetetagConstructed);
   }
   final davgetcontenttype = instance.davgetcontenttype;
-  final davgetcontenttypeSerialized = davgetcontenttype != null
-      ? davgetcontenttype == true
-          ? 'true'
-          : 'false'
-      : null;
-  final davgetcontenttypeConstructed = davgetcontenttypeSerialized != null
-      ? XmlElement(XmlName('getcontenttype', namespaces['DAV:']), [], [XmlText(davgetcontenttypeSerialized)])
-      : null;
+  final davgetcontenttypeSerialized = davgetcontenttype;
+  final davgetcontenttypeConstructed = davgetcontenttypeSerialized
+      ?.map((e) => XmlElement(XmlName('getcontenttype', namespaces['DAV:']), [], e != null ? [XmlText(e)] : [], true));
   if (davgetcontenttypeConstructed != null) {
-    children.add(davgetcontenttypeConstructed);
+    children.addAll(davgetcontenttypeConstructed);
   }
   final davgetcontentlength = instance.davgetcontentlength;
-  final davgetcontentlengthSerialized = davgetcontentlength != null
-      ? davgetcontentlength == true
-          ? 'true'
-          : 'false'
-      : null;
-  final davgetcontentlengthConstructed = davgetcontentlengthSerialized != null
-      ? XmlElement(XmlName('getcontentlength', namespaces['DAV:']), [], [XmlText(davgetcontentlengthSerialized)])
-      : null;
+  final davgetcontentlengthSerialized = davgetcontentlength;
+  final davgetcontentlengthConstructed = davgetcontentlengthSerialized?.map(
+      (e) => XmlElement(XmlName('getcontentlength', namespaces['DAV:']), [], e != null ? [XmlText(e)] : [], true));
   if (davgetcontentlengthConstructed != null) {
-    children.add(davgetcontentlengthConstructed);
+    children.addAll(davgetcontentlengthConstructed);
   }
   final davresourcetype = instance.davresourcetype;
-  final davresourcetypeSerialized = davresourcetype != null
-      ? davresourcetype == true
-          ? 'true'
-          : 'false'
-      : null;
-  final davresourcetypeConstructed = davresourcetypeSerialized != null
-      ? XmlElement(XmlName('resourcetype', namespaces['DAV:']), [], [XmlText(davresourcetypeSerialized)])
-      : null;
+  final davresourcetypeSerialized = davresourcetype;
+  final davresourcetypeConstructed = davresourcetypeSerialized
+      ?.map((e) => XmlElement(XmlName('resourcetype', namespaces['DAV:']), [], e != null ? [XmlText(e)] : [], true));
   if (davresourcetypeConstructed != null) {
-    children.add(davresourcetypeConstructed);
+    children.addAll(davresourcetypeConstructed);
   }
   final ocid = instance.ocid;
-  final ocidSerialized = ocid != null
-      ? ocid == true
-          ? 'true'
-          : 'false'
-      : null;
-  final ocidConstructed = ocidSerialized != null
-      ? XmlElement(XmlName('id', namespaces['http://owncloud.org/ns']), [], [XmlText(ocidSerialized)])
-      : null;
+  final ocidSerialized = ocid;
+  final ocidConstructed = ocidSerialized?.map(
+      (e) => XmlElement(XmlName('id', namespaces['http://owncloud.org/ns']), [], e != null ? [XmlText(e)] : [], true));
   if (ocidConstructed != null) {
-    children.add(ocidConstructed);
+    children.addAll(ocidConstructed);
   }
   final ocfileid = instance.ocfileid;
-  final ocfileidSerialized = ocfileid != null
-      ? ocfileid == true
-          ? 'true'
-          : 'false'
-      : null;
-  final ocfileidConstructed = ocfileidSerialized != null
-      ? XmlElement(XmlName('fileid', namespaces['http://owncloud.org/ns']), [], [XmlText(ocfileidSerialized)])
-      : null;
+  final ocfileidSerialized = ocfileid;
+  final ocfileidConstructed = ocfileidSerialized?.map((e) =>
+      XmlElement(XmlName('fileid', namespaces['http://owncloud.org/ns']), [], e != null ? [XmlText(e)] : [], true));
   if (ocfileidConstructed != null) {
-    children.add(ocfileidConstructed);
+    children.addAll(ocfileidConstructed);
   }
   final ocfavorite = instance.ocfavorite;
-  final ocfavoriteSerialized = ocfavorite != null
-      ? ocfavorite == true
-          ? 'true'
-          : 'false'
-      : null;
-  final ocfavoriteConstructed = ocfavoriteSerialized != null
-      ? XmlElement(XmlName('favorite', namespaces['http://owncloud.org/ns']), [], [XmlText(ocfavoriteSerialized)])
-      : null;
+  final ocfavoriteSerialized = ocfavorite;
+  final ocfavoriteConstructed = ocfavoriteSerialized?.map((e) =>
+      XmlElement(XmlName('favorite', namespaces['http://owncloud.org/ns']), [], e != null ? [XmlText(e)] : [], true));
   if (ocfavoriteConstructed != null) {
-    children.add(ocfavoriteConstructed);
+    children.addAll(ocfavoriteConstructed);
   }
   final occommentshref = instance.occommentshref;
-  final occommentshrefSerialized = occommentshref != null
-      ? occommentshref == true
-          ? 'true'
-          : 'false'
-      : null;
-  final occommentshrefConstructed = occommentshrefSerialized != null
-      ? XmlElement(
-          XmlName('comments-href', namespaces['http://owncloud.org/ns']), [], [XmlText(occommentshrefSerialized)])
-      : null;
+  final occommentshrefSerialized = occommentshref;
+  final occommentshrefConstructed = occommentshrefSerialized?.map((e) => XmlElement(
+      XmlName('comments-href', namespaces['http://owncloud.org/ns']), [], e != null ? [XmlText(e)] : [], true));
   if (occommentshrefConstructed != null) {
-    children.add(occommentshrefConstructed);
+    children.addAll(occommentshrefConstructed);
   }
   final occommentscount = instance.occommentscount;
-  final occommentscountSerialized = occommentscount != null
-      ? occommentscount == true
-          ? 'true'
-          : 'false'
-      : null;
-  final occommentscountConstructed = occommentscountSerialized != null
-      ? XmlElement(
-          XmlName('comments-count', namespaces['http://owncloud.org/ns']), [], [XmlText(occommentscountSerialized)])
-      : null;
+  final occommentscountSerialized = occommentscount;
+  final occommentscountConstructed = occommentscountSerialized?.map((e) => XmlElement(
+      XmlName('comments-count', namespaces['http://owncloud.org/ns']), [], e != null ? [XmlText(e)] : [], true));
   if (occommentscountConstructed != null) {
-    children.add(occommentscountConstructed);
+    children.addAll(occommentscountConstructed);
   }
   final occommentsunread = instance.occommentsunread;
-  final occommentsunreadSerialized = occommentsunread != null
-      ? occommentsunread == true
-          ? 'true'
-          : 'false'
-      : null;
-  final occommentsunreadConstructed = occommentsunreadSerialized != null
-      ? XmlElement(
-          XmlName('comments-unread', namespaces['http://owncloud.org/ns']), [], [XmlText(occommentsunreadSerialized)])
-      : null;
+  final occommentsunreadSerialized = occommentsunread;
+  final occommentsunreadConstructed = occommentsunreadSerialized?.map((e) => XmlElement(
+      XmlName('comments-unread', namespaces['http://owncloud.org/ns']), [], e != null ? [XmlText(e)] : [], true));
   if (occommentsunreadConstructed != null) {
-    children.add(occommentsunreadConstructed);
+    children.addAll(occommentsunreadConstructed);
   }
   final ocdownloadurl = instance.ocdownloadurl;
-  final ocdownloadurlSerialized = ocdownloadurl != null
-      ? ocdownloadurl == true
-          ? 'true'
-          : 'false'
-      : null;
-  final ocdownloadurlConstructed = ocdownloadurlSerialized != null
-      ? XmlElement(XmlName('downloadURL', namespaces['http://owncloud.org/ns']), [], [XmlText(ocdownloadurlSerialized)])
-      : null;
+  final ocdownloadurlSerialized = ocdownloadurl;
+  final ocdownloadurlConstructed = ocdownloadurlSerialized?.map((e) => XmlElement(
+      XmlName('downloadURL', namespaces['http://owncloud.org/ns']), [], e != null ? [XmlText(e)] : [], true));
   if (ocdownloadurlConstructed != null) {
-    children.add(ocdownloadurlConstructed);
+    children.addAll(ocdownloadurlConstructed);
   }
   final ocownerid = instance.ocownerid;
-  final ocowneridSerialized = ocownerid != null
-      ? ocownerid == true
-          ? 'true'
-          : 'false'
-      : null;
-  final ocowneridConstructed = ocowneridSerialized != null
-      ? XmlElement(XmlName('owner-id', namespaces['http://owncloud.org/ns']), [], [XmlText(ocowneridSerialized)])
-      : null;
+  final ocowneridSerialized = ocownerid;
+  final ocowneridConstructed = ocowneridSerialized?.map((e) =>
+      XmlElement(XmlName('owner-id', namespaces['http://owncloud.org/ns']), [], e != null ? [XmlText(e)] : [], true));
   if (ocowneridConstructed != null) {
-    children.add(ocowneridConstructed);
+    children.addAll(ocowneridConstructed);
   }
   final ocownerdisplayname = instance.ocownerdisplayname;
-  final ocownerdisplaynameSerialized = ocownerdisplayname != null
-      ? ocownerdisplayname == true
-          ? 'true'
-          : 'false'
-      : null;
-  final ocownerdisplaynameConstructed = ocownerdisplaynameSerialized != null
-      ? XmlElement(XmlName('owner-display-name', namespaces['http://owncloud.org/ns']), [],
-          [XmlText(ocownerdisplaynameSerialized)])
-      : null;
+  final ocownerdisplaynameSerialized = ocownerdisplayname;
+  final ocownerdisplaynameConstructed = ocownerdisplaynameSerialized?.map((e) => XmlElement(
+      XmlName('owner-display-name', namespaces['http://owncloud.org/ns']), [], e != null ? [XmlText(e)] : [], true));
   if (ocownerdisplaynameConstructed != null) {
-    children.add(ocownerdisplaynameConstructed);
+    children.addAll(ocownerdisplaynameConstructed);
   }
   final ocsize = instance.ocsize;
-  final ocsizeSerialized = ocsize != null
-      ? ocsize == true
-          ? 'true'
-          : 'false'
-      : null;
-  final ocsizeConstructed = ocsizeSerialized != null
-      ? XmlElement(XmlName('size', namespaces['http://owncloud.org/ns']), [], [XmlText(ocsizeSerialized)])
-      : null;
+  final ocsizeSerialized = ocsize;
+  final ocsizeConstructed = ocsizeSerialized?.map((e) =>
+      XmlElement(XmlName('size', namespaces['http://owncloud.org/ns']), [], e != null ? [XmlText(e)] : [], true));
   if (ocsizeConstructed != null) {
-    children.add(ocsizeConstructed);
+    children.addAll(ocsizeConstructed);
   }
   final ocpermissions = instance.ocpermissions;
-  final ocpermissionsSerialized = ocpermissions != null
-      ? ocpermissions == true
-          ? 'true'
-          : 'false'
-      : null;
-  final ocpermissionsConstructed = ocpermissionsSerialized != null
-      ? XmlElement(XmlName('permissions', namespaces['http://owncloud.org/ns']), [], [XmlText(ocpermissionsSerialized)])
-      : null;
+  final ocpermissionsSerialized = ocpermissions;
+  final ocpermissionsConstructed = ocpermissionsSerialized?.map((e) => XmlElement(
+      XmlName('permissions', namespaces['http://owncloud.org/ns']), [], e != null ? [XmlText(e)] : [], true));
   if (ocpermissionsConstructed != null) {
-    children.add(ocpermissionsConstructed);
+    children.addAll(ocpermissionsConstructed);
   }
   final ncnote = instance.ncnote;
-  final ncnoteSerialized = ncnote != null
-      ? ncnote == true
-          ? 'true'
-          : 'false'
-      : null;
-  final ncnoteConstructed = ncnoteSerialized != null
-      ? XmlElement(XmlName('note', namespaces['http://nextcloud.org/ns']), [], [XmlText(ncnoteSerialized)])
-      : null;
+  final ncnoteSerialized = ncnote;
+  final ncnoteConstructed = ncnoteSerialized?.map((e) =>
+      XmlElement(XmlName('note', namespaces['http://nextcloud.org/ns']), [], e != null ? [XmlText(e)] : [], true));
   if (ncnoteConstructed != null) {
-    children.add(ncnoteConstructed);
+    children.addAll(ncnoteConstructed);
   }
   final ncdatafingerprint = instance.ncdatafingerprint;
-  final ncdatafingerprintSerialized = ncdatafingerprint != null
-      ? ncdatafingerprint == true
-          ? 'true'
-          : 'false'
-      : null;
-  final ncdatafingerprintConstructed = ncdatafingerprintSerialized != null
-      ? XmlElement(XmlName('data-fingerprint', namespaces['http://nextcloud.org/ns']), [],
-          [XmlText(ncdatafingerprintSerialized)])
-      : null;
+  final ncdatafingerprintSerialized = ncdatafingerprint;
+  final ncdatafingerprintConstructed = ncdatafingerprintSerialized?.map((e) => XmlElement(
+      XmlName('data-fingerprint', namespaces['http://nextcloud.org/ns']), [], e != null ? [XmlText(e)] : [], true));
   if (ncdatafingerprintConstructed != null) {
-    children.add(ncdatafingerprintConstructed);
+    children.addAll(ncdatafingerprintConstructed);
   }
   final nchaspreview = instance.nchaspreview;
-  final nchaspreviewSerialized = nchaspreview != null
-      ? nchaspreview == true
-          ? 'true'
-          : 'false'
-      : null;
-  final nchaspreviewConstructed = nchaspreviewSerialized != null
-      ? XmlElement(XmlName('has-preview', namespaces['http://nextcloud.org/ns']), [], [XmlText(nchaspreviewSerialized)])
-      : null;
+  final nchaspreviewSerialized = nchaspreview;
+  final nchaspreviewConstructed = nchaspreviewSerialized?.map((e) => XmlElement(
+      XmlName('has-preview', namespaces['http://nextcloud.org/ns']), [], e != null ? [XmlText(e)] : [], true));
   if (nchaspreviewConstructed != null) {
-    children.add(nchaspreviewConstructed);
+    children.addAll(nchaspreviewConstructed);
   }
   final ncmounttype = instance.ncmounttype;
-  final ncmounttypeSerialized = ncmounttype != null
-      ? ncmounttype == true
-          ? 'true'
-          : 'false'
-      : null;
-  final ncmounttypeConstructed = ncmounttypeSerialized != null
-      ? XmlElement(XmlName('mount-type', namespaces['http://nextcloud.org/ns']), [], [XmlText(ncmounttypeSerialized)])
-      : null;
+  final ncmounttypeSerialized = ncmounttype;
+  final ncmounttypeConstructed = ncmounttypeSerialized?.map((e) => XmlElement(
+      XmlName('mount-type', namespaces['http://nextcloud.org/ns']), [], e != null ? [XmlText(e)] : [], true));
   if (ncmounttypeConstructed != null) {
-    children.add(ncmounttypeConstructed);
+    children.addAll(ncmounttypeConstructed);
   }
   final ncisencrypted = instance.ncisencrypted;
-  final ncisencryptedSerialized = ncisencrypted != null
-      ? ncisencrypted == true
-          ? 'true'
-          : 'false'
-      : null;
-  final ncisencryptedConstructed = ncisencryptedSerialized != null
-      ? XmlElement(
-          XmlName('is-encrypted', namespaces['http://nextcloud.org/ns']), [], [XmlText(ncisencryptedSerialized)])
-      : null;
+  final ncisencryptedSerialized = ncisencrypted;
+  final ncisencryptedConstructed = ncisencryptedSerialized?.map((e) => XmlElement(
+      XmlName('is-encrypted', namespaces['http://nextcloud.org/ns']), [], e != null ? [XmlText(e)] : [], true));
   if (ncisencryptedConstructed != null) {
-    children.add(ncisencryptedConstructed);
+    children.addAll(ncisencryptedConstructed);
   }
   final ncmetadataetag = instance.ncmetadataetag;
-  final ncmetadataetagSerialized = ncmetadataetag != null
-      ? ncmetadataetag == true
-          ? 'true'
-          : 'false'
-      : null;
-  final ncmetadataetagConstructed = ncmetadataetagSerialized != null
-      ? XmlElement(
-          XmlName('metadata_etag', namespaces['http://nextcloud.org/ns']), [], [XmlText(ncmetadataetagSerialized)])
-      : null;
+  final ncmetadataetagSerialized = ncmetadataetag;
+  final ncmetadataetagConstructed = ncmetadataetagSerialized?.map((e) => XmlElement(
+      XmlName('metadata_etag', namespaces['http://nextcloud.org/ns']), [], e != null ? [XmlText(e)] : [], true));
   if (ncmetadataetagConstructed != null) {
-    children.add(ncmetadataetagConstructed);
+    children.addAll(ncmetadataetagConstructed);
   }
   final ncuploadtime = instance.ncuploadtime;
-  final ncuploadtimeSerialized = ncuploadtime != null
-      ? ncuploadtime == true
-          ? 'true'
-          : 'false'
-      : null;
-  final ncuploadtimeConstructed = ncuploadtimeSerialized != null
-      ? XmlElement(XmlName('upload_time', namespaces['http://nextcloud.org/ns']), [], [XmlText(ncuploadtimeSerialized)])
-      : null;
+  final ncuploadtimeSerialized = ncuploadtime;
+  final ncuploadtimeConstructed = ncuploadtimeSerialized?.map((e) => XmlElement(
+      XmlName('upload_time', namespaces['http://nextcloud.org/ns']), [], e != null ? [XmlText(e)] : [], true));
   if (ncuploadtimeConstructed != null) {
-    children.add(ncuploadtimeConstructed);
+    children.addAll(ncuploadtimeConstructed);
   }
   final nccreationtime = instance.nccreationtime;
-  final nccreationtimeSerialized = nccreationtime != null
-      ? nccreationtime == true
-          ? 'true'
-          : 'false'
-      : null;
-  final nccreationtimeConstructed = nccreationtimeSerialized != null
-      ? XmlElement(
-          XmlName('creation_time', namespaces['http://nextcloud.org/ns']), [], [XmlText(nccreationtimeSerialized)])
-      : null;
+  final nccreationtimeSerialized = nccreationtime;
+  final nccreationtimeConstructed = nccreationtimeSerialized?.map((e) => XmlElement(
+      XmlName('creation_time', namespaces['http://nextcloud.org/ns']), [], e != null ? [XmlText(e)] : [], true));
   if (nccreationtimeConstructed != null) {
-    children.add(nccreationtimeConstructed);
+    children.addAll(nccreationtimeConstructed);
   }
   final ncrichworkspace = instance.ncrichworkspace;
-  final ncrichworkspaceSerialized = ncrichworkspace != null
-      ? ncrichworkspace == true
-          ? 'true'
-          : 'false'
-      : null;
-  final ncrichworkspaceConstructed = ncrichworkspaceSerialized != null
-      ? XmlElement(
-          XmlName('rich-workspace', namespaces['http://nextcloud.org/ns']), [], [XmlText(ncrichworkspaceSerialized)])
-      : null;
+  final ncrichworkspaceSerialized = ncrichworkspace;
+  final ncrichworkspaceConstructed = ncrichworkspaceSerialized?.map((e) => XmlElement(
+      XmlName('rich-workspace', namespaces['http://nextcloud.org/ns']), [], e != null ? [XmlText(e)] : [], true));
   if (ncrichworkspaceConstructed != null) {
-    children.add(ncrichworkspaceConstructed);
+    children.addAll(ncrichworkspaceConstructed);
   }
   final ocssharepermissions = instance.ocssharepermissions;
-  final ocssharepermissionsSerialized = ocssharepermissions != null
-      ? ocssharepermissions == true
-          ? 'true'
-          : 'false'
-      : null;
-  final ocssharepermissionsConstructed = ocssharepermissionsSerialized != null
-      ? XmlElement(XmlName('share-permissions', namespaces['http://open-collaboration-services.org/ns']), [],
-          [XmlText(ocssharepermissionsSerialized)])
-      : null;
+  final ocssharepermissionsSerialized = ocssharepermissions;
+  final ocssharepermissionsConstructed = ocssharepermissionsSerialized?.map((e) => XmlElement(
+      XmlName('share-permissions', namespaces['http://open-collaboration-services.org/ns']),
+      [],
+      e != null ? [XmlText(e)] : [],
+      true));
   if (ocssharepermissionsConstructed != null) {
-    children.add(ocssharepermissionsConstructed);
+    children.addAll(ocssharepermissionsConstructed);
   }
   final ocmsharepermissions = instance.ocmsharepermissions;
-  final ocmsharepermissionsSerialized = ocmsharepermissions != null
-      ? ocmsharepermissions == true
-          ? 'true'
-          : 'false'
-      : null;
-  final ocmsharepermissionsConstructed = ocmsharepermissionsSerialized != null
-      ? XmlElement(XmlName('share-permissions', namespaces['http://open-cloud-mesh.org/ns']), [],
-          [XmlText(ocmsharepermissionsSerialized)])
-      : null;
+  final ocmsharepermissionsSerialized = ocmsharepermissions;
+  final ocmsharepermissionsConstructed = ocmsharepermissionsSerialized?.map((e) => XmlElement(
+      XmlName('share-permissions', namespaces['http://open-cloud-mesh.org/ns']),
+      [],
+      e != null ? [XmlText(e)] : [],
+      true));
   if (ocmsharepermissionsConstructed != null) {
-    children.add(ocmsharepermissionsConstructed);
+    children.addAll(ocmsharepermissionsConstructed);
   }
   return children;
 }

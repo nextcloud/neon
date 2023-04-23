@@ -38,7 +38,7 @@ Future run(final DockerImage image) async {
     test('List directory', () async {
       final responses = (await client.webdav.ls(
         '/',
-        prop: WebDavPropfindProp(
+        prop: WebDavPropfindProp.fromBools(
           nchaspreview: true,
           davgetcontenttype: true,
           davgetlastmodified: true,
@@ -90,7 +90,7 @@ Future run(final DockerImage image) async {
 
       final responses = (await client.webdav.ls(
         '/',
-        prop: WebDavPropfindProp(
+        prop: WebDavPropfindProp.fromBools(
           ocsize: true,
         ),
       ))
@@ -121,7 +121,7 @@ Future run(final DockerImage image) async {
 
       final props = (await client.webdav.ls(
         '/',
-        prop: WebDavPropfindProp(
+        prop: WebDavPropfindProp.fromBools(
           davgetlastmodified: true,
           nccreationtime: true,
         ),
@@ -210,7 +210,7 @@ Future run(final DockerImage image) async {
     test('Get file props', () async {
       final props = (await client.webdav.ls(
         'Nextcloud.png',
-        prop: WebDavPropfindProp(
+        prop: WebDavPropfindProp.fromBools(
           davgetlastmodified: true,
           davgetetag: true,
           davgetcontenttype: true,
@@ -281,7 +281,7 @@ Future run(final DockerImage image) async {
 
       final props = (await client.webdav.ls(
         'test',
-        prop: WebDavPropfindProp(
+        prop: WebDavPropfindProp.fromBools(
           davgetcontenttype: true,
           davgetlastmodified: true,
           davresourcetype: true,
@@ -315,7 +315,7 @@ Future run(final DockerImage image) async {
         WebDavOcFilterRules(
           ocfavorite: 1,
         ),
-        prop: WebDavPropfindProp(
+        prop: WebDavPropfindProp.fromBools(
           ocid: true,
           ocfavorite: true,
         ),
@@ -346,7 +346,7 @@ Future run(final DockerImage image) async {
 
       final props = (await client.webdav.ls(
         'test.txt',
-        prop: WebDavPropfindProp(
+        prop: WebDavPropfindProp.fromBools(
           ocfavorite: true,
           nccreationtime: true,
           ncuploadtime: true,
