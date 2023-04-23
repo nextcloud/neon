@@ -2,9 +2,9 @@ part of '../../neon.dart';
 
 final _cacheManager = DefaultCacheManager();
 
-abstract class NeonCachedImage extends StatelessWidget {
+abstract class NeonCachedImage extends StatefulWidget {
   const NeonCachedImage({
-    required this.future,
+    required this.getImageFile,
     this.isSvgHint = false,
     this.height,
     this.width,
@@ -14,7 +14,7 @@ abstract class NeonCachedImage extends StatelessWidget {
     super.key,
   });
 
-  final Future<File> future;
+  final Future<File> Function() getImageFile;
   final bool isSvgHint;
 
   final double? height;
@@ -25,48 +25,66 @@ abstract class NeonCachedImage extends StatelessWidget {
   final Color? iconColor;
 
   @override
-  Widget build(final BuildContext context) => FutureBuilder<File>(
-        future: future,
-        builder: (final context, final fileSnapshot) {
-          if (fileSnapshot.hasData) {
-            final content = fileSnapshot.data!.readAsBytesSync();
+  State<NeonCachedImage> createState() => _NeonCachedImageState();
+}
 
-            try {
-              // TODO: Is this safe enough?
-              if (isSvgHint || utf8.decode(content).contains('<svg')) {
-                return SvgPicture.memory(
-                  content,
-                  height: height,
-                  width: width,
-                  fit: fit ?? BoxFit.contain,
-                  color: svgColor,
-                );
+class _NeonCachedImageState extends State<NeonCachedImage> {
+  late Future<File> future = widget.getImageFile();
+
+  @override
+  Widget build(final BuildContext context) => Center(
+        child: FutureBuilder<File>(
+          future: future,
+          builder: (final context, final fileSnapshot) {
+            if (fileSnapshot.hasData) {
+              final content = fileSnapshot.data!.readAsBytesSync();
+
+              try {
+                // TODO: Is this safe enough?
+                if (widget.isSvgHint || utf8.decode(content).contains('<svg')) {
+                  return SvgPicture.memory(
+                    content,
+                    height: widget.height,
+                    width: widget.width,
+                    fit: widget.fit ?? BoxFit.contain,
+                    color: widget.svgColor,
+                  );
+                }
+              } catch (_) {
+                // If the data is not UTF-8
               }
-            } catch (_) {
-              // If the data is not UTF-8
-            }
 
-            return Image.memory(
-              content,
-              height: height,
-              width: width,
-              fit: fit,
-              gaplessPlayback: true,
+              return Image.memory(
+                content,
+                height: widget.height,
+                width: widget.width,
+                fit: widget.fit,
+                gaplessPlayback: true,
+              );
+            }
+            if (fileSnapshot.hasError) {
+              return NeonException(
+                fileSnapshot.error,
+                onRetry: () {
+                  setState(() {
+                    // ignore: discarded_futures
+                    future = widget.getImageFile();
+                  });
+                },
+                onlyIcon: true,
+                iconSize: widget.height != null && widget.width != null
+                    ? min(widget.height!, widget.width!)
+                    : widget.height ?? widget.width,
+                color: widget.iconColor ?? Colors.red,
+              );
+            }
+            return SizedBox(
+              width: widget.width,
+              child: NeonLinearProgressIndicator(
+                color: widget.iconColor,
+              ),
             );
-          }
-          if (fileSnapshot.hasError) {
-            return Icon(
-              Icons.error_outline,
-              size: height != null && width != null ? min(height!, width!) : height ?? width,
-              color: iconColor,
-            );
-          }
-          return SizedBox(
-            width: width,
-            child: NeonLinearProgressIndicator(
-              color: iconColor,
-            ),
-          );
-        },
+          },
+        ),
       );
 }

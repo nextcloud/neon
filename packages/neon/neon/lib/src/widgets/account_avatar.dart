@@ -14,6 +14,7 @@ class NeonAccountAvatar extends StatelessWidget {
   Widget build(final BuildContext context) {
     final isDark = Theme.of(context).brightness == Brightness.dark;
     final size = (kAvatarSize * MediaQuery.of(context).devicePixelRatio).toInt();
+    final userStatusBloc = Provider.of<AccountsBloc>(context, listen: false).getUserStatusBloc(account);
     return Stack(
       alignment: Alignment.center,
       children: [
@@ -40,7 +41,7 @@ class NeonAccountAvatar extends StatelessWidget {
           ),
         ),
         ResultBuilder<UserStatusBloc, NextcloudUserStatusStatus?>(
-          stream: Provider.of<AccountsBloc>(context, listen: false).getUserStatusBloc(account).userStatus,
+          stream: userStatusBloc.userStatus,
           builder: (final context, final userStatus) {
             final hasEmoji = userStatus.data?.icon != null;
             final factor = hasEmoji ? 2 : 3;
@@ -66,10 +67,11 @@ class NeonAccountAvatar extends StatelessWidget {
                       : userStatus.error != null &&
                               (userStatus.error is! NextcloudApiException ||
                                   (userStatus.error! as NextcloudApiException).statusCode != 404)
-                          ? Icon(
-                              Icons.error_outline,
-                              size: kAvatarSize / factor,
-                              color: Colors.red,
+                          ? NeonException(
+                              userStatus.error,
+                              onRetry: userStatusBloc.refresh,
+                              onlyIcon: true,
+                              iconSize: kAvatarSize / factor,
                             )
                           : hasEmoji
                               ? Text(

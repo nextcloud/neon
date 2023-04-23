@@ -482,10 +482,10 @@ class _HomePageState extends State<HomePage> {
                                                 const SizedBox(
                                                   width: 8,
                                                 ),
-                                                Icon(
-                                                  Icons.error_outline,
-                                                  size: 30,
-                                                  color: Theme.of(context).colorScheme.onPrimary,
+                                                NeonException(
+                                                  appImplementations.error,
+                                                  onRetry: _appsBloc.refresh,
+                                                  onlyIcon: true,
                                                 ),
                                               ],
                                               if (appImplementations.loading) ...[
@@ -563,10 +563,6 @@ class _HomePageState extends State<HomePage> {
                                         Expanded(
                                           child: Column(
                                             children: [
-                                              NeonException(
-                                                appImplementations.error,
-                                                onRetry: _appsBloc.refresh,
-                                              ),
                                               if (appImplementations.data != null) ...[
                                                 if (appImplementations.data!.isEmpty) ...[
                                                   Expanded(
