@@ -1,68 +1,44 @@
 // ignore_for_file: public_member_api_docs
 
+typedef ComparableGetter<T> = Comparable Function(T);
+
 class SortBox<T extends Enum, R> {
   SortBox(
     this._properties,
     this._secondaryBoxes,
   );
 
-  final Map<T, Comparable Function(R)> _properties;
+  final Map<T, ComparableGetter<R>> _properties;
   final Map<T, Box<T>> _secondaryBoxes;
 
-  List<R> sort(
-    final List<R> input,
-    final Box<T> box, {
-    final bool preventSecondarySort = false,
-  }) {
+  List<R> sort(final List<R> input, final Box<T> box) {
     if (input.length <= 1) {
       return input;
     }
 
-    final counters = <int, List<R>>{};
     final comparableGetter = _properties[box.property]!;
-
-    for (final item1 in input) {
-      var counter = 0;
-      for (final item2 in input) {
-        if (item2 != item1) {
-          final comparable1 = comparableGetter(item1);
-          final comparable2 = comparableGetter(item2);
-          counter += box.order == SortBoxOrder.descending
-              ? comparable1.compareTo(comparable2)
-              : comparable2.compareTo(comparable1);
-        }
-      }
-      if (counters[counter] == null) {
-        counters[counter] = [];
-      }
-      counters[counter]!.add(item1);
-    }
-
     final secondaryBox = _secondaryBoxes[box.property];
+    final comparableGetter2 = _properties[secondaryBox?.property];
 
-    final counterValues = counters.keys.toList()..sort((final a, final b) => b.compareTo(a));
-    if (counterValues.length == 1 && counterValues.first == 0) {
-      if (secondaryBox != null && !preventSecondarySort) {
-        return sort(
-          counters[0]!,
-          secondaryBox,
-          preventSecondarySort: true,
-        );
-      }
+    return input
+      ..sort(
+        (final item1, final item2) {
+          final first = _compare(item1, item2, box.order, comparableGetter);
 
-      return counters[0]!;
-    }
+          if (first == 0 && secondaryBox != null) {
+            return _compare(item1, item2, secondaryBox.order, comparableGetter2!);
+          }
 
-    final output = <R>[];
-    for (final counterValue in counterValues) {
-      var values = counters[counterValue]!;
-      if (secondaryBox != null) {
-        values = sort(values, secondaryBox);
-      }
-      output.addAll(values);
-    }
+          return first;
+        },
+      );
+  }
 
-    return output;
+  int _compare(final R item1, final R item2, final SortBoxOrder order, final ComparableGetter<R> getter) {
+    final comparable1 = getter(item1);
+    final comparable2 = getter(item2);
+
+    return order == SortBoxOrder.ascending ? comparable1.compareTo(comparable2) : comparable2.compareTo(comparable1);
   }
 }
 
