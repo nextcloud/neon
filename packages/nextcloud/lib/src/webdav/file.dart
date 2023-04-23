@@ -41,6 +41,9 @@ class WebDavFile {
   /// The unique id for the file within the instance
   late final String? fileId = props.ocfileid;
 
+  /// Whether this is a collection resource type
+  late final bool? isCollection = props.davresourcetype != null ? props.davresourcetype!.collection != null : null;
+
   /// Mime-type of the file
   late final String? mimeType = props.davgetcontenttype;
 
@@ -93,5 +96,5 @@ class WebDavFile {
   }();
 
   /// Returns if the file is a directory
-  late final bool isDirectory = path.endsWith('/');
+  late final bool isDirectory = (isCollection ?? false) || path.endsWith('/');
 }

@@ -128,7 +128,19 @@ class WebDavOcFilterFiles with _$WebDavOcFilterFilesXmlSerializableMixin {
   final WebDavPropfindProp prop;
 }
 
-// TODO: d:resourcetype
+@annotation.XmlSerializable(createMixin: true)
+@annotation.XmlRootElement(name: 'resourcetype', namespace: namespaceDav)
+class WebDavResourcetype with _$WebDavResourcetypeXmlSerializableMixin {
+  WebDavResourcetype({
+    required this.collection,
+  });
+
+  factory WebDavResourcetype.fromXmlElement(final XmlElement element) => _$WebDavResourcetypeFromXmlElement(element);
+
+  @annotation.XmlElement(name: 'collection', namespace: namespaceDav, isSelfClosing: true, includeIfNull: true)
+  final List<String?>? collection;
+}
+
 // TODO: oc:checksum
 // TODO: oc:tags
 // TODO: oc:systemtag

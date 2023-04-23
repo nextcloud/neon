@@ -12,6 +12,7 @@ class WebDavPropfindProp with _$WebDavPropfindPropXmlSerializableMixin {
     this.davgetetag,
     this.davgetcontenttype,
     this.davgetcontentlength,
+    this.davresourcetype,
     this.ocid,
     this.ocfileid,
     this.ocfavorite,
@@ -44,6 +45,8 @@ class WebDavPropfindProp with _$WebDavPropfindPropXmlSerializableMixin {
   bool? davgetcontenttype;
   @annotation.XmlElement(name: 'getcontentlength', namespace: namespaceDav, includeIfNull: false)
   bool? davgetcontentlength;
+  @annotation.XmlElement(name: 'resourcetype', namespace: namespaceDav, includeIfNull: false)
+  bool? davresourcetype;
   @annotation.XmlElement(name: 'id', namespace: namespaceOwncloud, includeIfNull: false)
   bool? ocid;
   @annotation.XmlElement(name: 'fileid', namespace: namespaceOwncloud, includeIfNull: false)
@@ -98,6 +101,7 @@ class WebDavProp with _$WebDavPropXmlSerializableMixin {
     this.davgetetag,
     this.davgetcontenttype,
     this.davgetcontentlength,
+    this.davresourcetype,
     this.ocid,
     this.ocfileid,
     this.ocfavorite,
@@ -130,6 +134,8 @@ class WebDavProp with _$WebDavPropXmlSerializableMixin {
   String? davgetcontenttype;
   @annotation.XmlElement(name: 'getcontentlength', namespace: namespaceDav, includeIfNull: false)
   int? davgetcontentlength;
+  @annotation.XmlElement(name: 'resourcetype', namespace: namespaceDav, includeIfNull: false)
+  WebDavResourcetype? davresourcetype;
   @annotation.XmlElement(name: 'id', namespace: namespaceOwncloud, includeIfNull: false)
   String? ocid;
   @annotation.XmlElement(name: 'fileid', namespace: namespaceOwncloud, includeIfNull: false)
@@ -184,6 +190,7 @@ class WebDavOcFilterRules with _$WebDavOcFilterRulesXmlSerializableMixin {
     this.davgetetag,
     this.davgetcontenttype,
     this.davgetcontentlength,
+    this.davresourcetype,
     this.ocid,
     this.ocfileid,
     this.ocfavorite,
@@ -216,6 +223,8 @@ class WebDavOcFilterRules with _$WebDavOcFilterRulesXmlSerializableMixin {
   String? davgetcontenttype;
   @annotation.XmlElement(name: 'getcontentlength', namespace: namespaceDav, includeIfNull: false)
   int? davgetcontentlength;
+  @annotation.XmlElement(name: 'resourcetype', namespace: namespaceDav, includeIfNull: false)
+  WebDavResourcetype? davresourcetype;
   @annotation.XmlElement(name: 'id', namespace: namespaceOwncloud, includeIfNull: false)
   String? ocid;
   @annotation.XmlElement(name: 'fileid', namespace: namespaceOwncloud, includeIfNull: false)

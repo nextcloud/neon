@@ -215,6 +215,7 @@ Future run(final DockerImage image) async {
           davgetetag: true,
           davgetcontenttype: true,
           davgetcontentlength: true,
+          davresourcetype: true,
           ocid: true,
           ocfileid: true,
           ocfavorite: true,
@@ -248,6 +249,7 @@ Future run(final DockerImage image) async {
       expect(props.davgetetag, isNotEmpty);
       expect(props.davgetcontenttype, 'image/png');
       expect(props.davgetcontentlength, 50598);
+      expect(props.davresourcetype!.collection, isNull);
       expect(props.ocid, isNotEmpty);
       expect(props.ocfileid, isNotEmpty);
       expect(props.ocfavorite, 0);
@@ -282,6 +284,7 @@ Future run(final DockerImage image) async {
         prop: WebDavPropfindProp(
           davgetcontenttype: true,
           davgetlastmodified: true,
+          davresourcetype: true,
           ocsize: true,
         ),
         depth: '0',
@@ -293,6 +296,7 @@ Future run(final DockerImage image) async {
           .prop;
       expect(props.davgetcontenttype, isNull);
       expectDateInReasonableTimeRange(webdavDateFormat.parseUtc(props.davgetlastmodified!), DateTime.now());
+      expect(props.davresourcetype!.collection, isNotNull);
       expect(props.ocsize, data.lengthInBytes);
     });
 

@@ -475,3 +475,73 @@ mixin _$WebDavOcFilterFilesXmlSerializableMixin {
   XmlElement toXmlElement({Map<String, String?> namespaces = const {}}) =>
       _$WebDavOcFilterFilesToXmlElement(this as WebDavOcFilterFiles, namespaces: namespaces);
 }
+
+void _$WebDavResourcetypeBuildXmlChildren(WebDavResourcetype instance, XmlBuilder builder,
+    {Map<String, String> namespaces = const {}}) {
+  final collection = instance.collection;
+  final collectionSerialized = collection;
+  if (collectionSerialized != null) {
+    for (final value in collectionSerialized) {
+      builder.element('collection', namespace: 'DAV:', isSelfClosing: true, nest: () {
+        if (value != null) {
+          builder.text(value);
+        }
+      });
+    }
+  }
+}
+
+void _$WebDavResourcetypeBuildXmlElement(WebDavResourcetype instance, XmlBuilder builder,
+    {Map<String, String> namespaces = const {}}) {
+  builder.element('resourcetype', namespace: 'DAV:', namespaces: namespaces, nest: () {
+    instance.buildXmlChildren(builder, namespaces: namespaces);
+  });
+}
+
+WebDavResourcetype _$WebDavResourcetypeFromXmlElement(XmlElement element) {
+  final collection = element.getElements('collection', namespace: 'DAV:')?.map((e) => e.getText()).whereType<String>();
+  return WebDavResourcetype(collection: collection?.toList());
+}
+
+List<XmlAttribute> _$WebDavResourcetypeToXmlAttributes(WebDavResourcetype instance,
+    {Map<String, String?> namespaces = const {}}) {
+  final attributes = <XmlAttribute>[];
+  return attributes;
+}
+
+List<XmlNode> _$WebDavResourcetypeToXmlChildren(WebDavResourcetype instance,
+    {Map<String, String?> namespaces = const {}}) {
+  final children = <XmlNode>[];
+  final collection = instance.collection;
+  final collectionSerialized = collection;
+  final collectionConstructed = collectionSerialized
+      ?.map((e) => XmlElement(XmlName('collection', namespaces['DAV:']), [], e != null ? [XmlText(e)] : [], true));
+  if (collectionConstructed != null) {
+    children.addAll(collectionConstructed);
+  }
+  return children;
+}
+
+XmlElement _$WebDavResourcetypeToXmlElement(WebDavResourcetype instance, {Map<String, String?> namespaces = const {}}) {
+  return XmlElement(
+      XmlName('resourcetype', namespaces['DAV:']),
+      [...namespaces.toXmlAttributes(), ...instance.toXmlAttributes(namespaces: namespaces)],
+      instance.toXmlChildren(namespaces: namespaces));
+}
+
+mixin _$WebDavResourcetypeXmlSerializableMixin {
+  void buildXmlChildren(XmlBuilder builder, {Map<String, String> namespaces = const {}}) =>
+      _$WebDavResourcetypeBuildXmlChildren(this as WebDavResourcetype, builder, namespaces: namespaces);
+
+  void buildXmlElement(XmlBuilder builder, {Map<String, String> namespaces = const {}}) =>
+      _$WebDavResourcetypeBuildXmlElement(this as WebDavResourcetype, builder, namespaces: namespaces);
+
+  List<XmlAttribute> toXmlAttributes({Map<String, String?> namespaces = const {}}) =>
+      _$WebDavResourcetypeToXmlAttributes(this as WebDavResourcetype, namespaces: namespaces);
+
+  List<XmlNode> toXmlChildren({Map<String, String?> namespaces = const {}}) =>
+      _$WebDavResourcetypeToXmlChildren(this as WebDavResourcetype, namespaces: namespaces);
+
+  XmlElement toXmlElement({Map<String, String?> namespaces = const {}}) =>
+      _$WebDavResourcetypeToXmlElement(this as WebDavResourcetype, namespaces: namespaces);
+}
