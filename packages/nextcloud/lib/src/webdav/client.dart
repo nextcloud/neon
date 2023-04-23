@@ -213,11 +213,13 @@ class WebDavClient {
   /// list the directories and files under given [remotePath].
   ///
   /// Optionally populates the given [prop]s on the returned files.
+  /// [depth] can be '0', '1' or 'infinity'.
   Future<WebDavMultistatus> ls(
     final String remotePath, {
     final WebDavPropfindProp? prop,
-    final int? depth,
+    final String? depth,
   }) async {
+    assert(depth == null || ['0', '1', 'infinity'].contains(depth), 'Depth has to be 0, 1 or infinity');
     final response = await _send(
       'PROPFIND',
       _constructPath(remotePath),
@@ -231,7 +233,7 @@ class WebDavClient {
       ),
       headers: {
         if (depth != null) ...{
-          'Depth': depth.toString(),
+          'Depth': depth,
         },
       },
     );
