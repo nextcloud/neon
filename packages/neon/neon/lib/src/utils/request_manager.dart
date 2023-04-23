@@ -14,6 +14,7 @@ class RequestManager {
     final Future<R> Function() call,
     final T Function(R) unwrap, {
     final bool disableTimeout = false,
+    final bool emitEmptyCache = false,
   }) async =>
       _wrap<T, R>(
         clientID,
@@ -24,6 +25,7 @@ class RequestManager {
         (final data) => json.encode(serializeNextcloud<R>(data)),
         (final data) => deserializeNextcloud<R>(json.decode(data)),
         disableTimeout,
+        emitEmptyCache,
         0,
       );
 
@@ -34,6 +36,7 @@ class RequestManager {
     final Future<WebDavMultistatus> Function() call,
     final T Function(WebDavMultistatus) unwrap, {
     final bool disableTimeout = false,
+    final bool emitEmptyCache = false,
   }) async =>
       _wrap<T, WebDavMultistatus>(
         clientID,
@@ -44,6 +47,7 @@ class RequestManager {
         (final data) => data.toXmlElement(namespaces: namespaces).toXmlString(),
         (final data) => WebDavMultistatus.fromXmlElement(xml.XmlDocument.parse(data).rootElement),
         disableTimeout,
+        emitEmptyCache,
         0,
       );
 
@@ -56,6 +60,7 @@ class RequestManager {
     final String Function(R) serialize,
     final R Function(String) deserialize,
     final bool disableTimeout,
+    final bool emitEmptyCache,
     final int retries,
   ) async {
     if (subject.valueOrNull?.data != null) {
@@ -73,21 +78,14 @@ class RequestManager {
 
     final key = '$clientID-$k';
 
-    if (cache != null && await cache!.has(key)) {
-      try {
-        subject.add(
-          Result(
-            unwrap(await compute(deserialize, (await cache!.get(key))!)),
-            null,
-            loading: true,
-            cached: true,
-          ),
-        );
-      } catch (e, s) {
-        debugPrint(e.toString());
-        debugPrint(s.toString());
-      }
-    }
+    await _emitCached(
+      key,
+      subject,
+      unwrap,
+      deserialize,
+      emitEmptyCache,
+      true,
+    );
 
     try {
       final response = await (disableTimeout ? call() : timeout(call));
@@ -107,28 +105,53 @@ class RequestManager {
           serialize,
           deserialize,
           disableTimeout,
+          emitEmptyCache,
           retries + 1,
         );
         return;
       }
-      if (cache != null && await cache!.has(key)) {
-        try {
-          subject.add(
-            Result(
-              unwrap(await compute(deserialize, (await cache!.get(key))!)),
-              null,
-              loading: false,
-              cached: true,
-            ),
-          );
-          return;
-        } catch (e, s) {
-          debugPrint(e.toString());
-          debugPrint(s.toString());
-        }
+      if (!(await _emitCached(
+        key,
+        subject,
+        unwrap,
+        deserialize,
+        emitEmptyCache,
+        false,
+      ))) {
+        subject.add(Result.error(e));
       }
-      subject.add(Result.error(e));
     }
+  }
+
+  Future<bool> _emitCached<T, R>(
+    final String key,
+    final BehaviorSubject<Result<T>> subject,
+    final T Function(R) unwrap,
+    final R Function(String) deserialize,
+    final bool emitEmptyCache,
+    final bool loading,
+  ) async {
+    T? cached;
+    try {
+      if (cache != null && await cache!.has(key)) {
+        cached = unwrap(await compute(deserialize, (await cache!.get(key))!));
+      }
+    } catch (e, s) {
+      debugPrint(e.toString());
+      debugPrint(s.toString());
+    }
+    if (cached != null || emitEmptyCache) {
+      subject.add(
+        Result(
+          cached,
+          null,
+          loading: loading,
+          cached: true,
+        ),
+      );
+      return true;
+    }
+    return false;
   }
 
   static Future<T> timeout<T>(
