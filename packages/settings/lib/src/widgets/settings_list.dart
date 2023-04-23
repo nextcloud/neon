@@ -10,7 +10,9 @@ class SettingsList extends StatelessWidget {
 
   @override
   Widget build(final BuildContext context) => Scrollbar(
+        interactive: true,
         child: ListView(
+          primary: true,
           padding: const EdgeInsets.all(20),
           children: categories.cast<Widget>().intersperse(const Divider()).toList(),
         ),
