@@ -85,6 +85,7 @@ class RequestManager {
       deserialize,
       emitEmptyCache,
       true,
+      null,
     );
 
     try {
@@ -117,6 +118,7 @@ class RequestManager {
         deserialize,
         emitEmptyCache,
         false,
+        e,
       ))) {
         subject.add(Result.error(e));
       }
@@ -130,6 +132,7 @@ class RequestManager {
     final R Function(String) deserialize,
     final bool emitEmptyCache,
     final bool loading,
+    final Object? error,
   ) async {
     T? cached;
     try {
@@ -144,7 +147,7 @@ class RequestManager {
       subject.add(
         Result(
           cached,
-          null,
+          error,
           loading: loading,
           cached: true,
         ),

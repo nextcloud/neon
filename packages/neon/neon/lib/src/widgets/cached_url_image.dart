@@ -10,7 +10,7 @@ class NeonCachedUrlImage extends NeonCachedImage {
     super.iconColor,
     super.key,
   }) : super(
-          future: _cacheManager.getSingleFile(url),
+          getImageFile: () => _cacheManager.getSingleFile(url),
           isSvgHint: Uri.parse(url).path.endsWith('.svg'),
         );
 }

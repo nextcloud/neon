@@ -15,7 +15,7 @@ class NeonCachedApiImage extends NeonCachedImage {
     super.iconColor,
     super.key,
   }) : super(
-          future: () async {
+          getImageFile: () async {
             final realKey = '${account.id}-$cacheKey';
             final cacheFile = await _cacheManager.getFileFromCache(realKey);
             if (cacheFile != null && cacheFile.validTill.isAfter(DateTime.now())) {
@@ -28,6 +28,6 @@ class NeonCachedApiImage extends NeonCachedImage {
               maxAge: const Duration(days: 7),
               eTag: etag,
             );
-          }(),
+          },
         );
 }

@@ -5,14 +5,16 @@ class NeonException extends StatelessWidget {
     this.exception, {
     required this.onRetry,
     this.onlyIcon = false,
-    this.iconSize = 30,
+    this.iconSize,
+    this.color,
     super.key,
   });
 
   final dynamic exception;
   final Function() onRetry;
   final bool onlyIcon;
-  final double iconSize;
+  final double? iconSize;
+  final Color? color;
 
   static void showSnackbar(final BuildContext context, final dynamic exception) {
     final details = _getExceptionDetails(context, exception);
@@ -41,8 +43,8 @@ class NeonException extends StatelessWidget {
 
               final errorIcon = Icon(
                 Icons.error_outline,
-                size: iconSize,
-                color: Colors.red,
+                size: iconSize ?? 30,
+                color: color ?? Colors.red,
               );
 
               if (onlyIcon) {
@@ -71,8 +73,8 @@ class NeonException extends StatelessWidget {
                       Flexible(
                         child: Text(
                           details.text,
-                          style: const TextStyle(
-                            color: Colors.red,
+                          style: TextStyle(
+                            color: color ?? Colors.red,
                           ),
                         ),
                       ),
