@@ -15,7 +15,7 @@ void main() {
       "@annotation.XmlElement(name: '$name', namespace: $namespaceVariable, includeIfNull: false,)\n  $type? $variable;",
     );
     findProps.add(
-      "@annotation.XmlElement(name: '$name', namespace: $namespaceVariable, includeIfNull: false,)\n  bool? $variable;",
+      "@annotation.XmlElement(name: '$name', namespace: $namespaceVariable, includeIfNull: true, isSelfClosing: true,)\n  List<String?>? $variable;",
     );
     variables.add(variable);
   }
@@ -27,9 +27,30 @@ void main() {
       "import 'package:xml_annotation/xml_annotation.dart' as annotation;",
       "part 'props.g.dart';",
       '',
-      ...generateClass('WebDavPropfindProp', 'prop', 'namespaceDav', findProps, variables),
-      ...generateClass('WebDavProp', 'prop', 'namespaceDav', valueProps, variables),
-      ...generateClass('WebDavOcFilterRules', 'filter-rules', 'namespaceOwncloud', valueProps, variables),
+      ...generateClass(
+        'WebDavPropfindProp',
+        'prop',
+        'namespaceDav',
+        findProps,
+        variables,
+        isPropfind: true,
+      ),
+      ...generateClass(
+        'WebDavProp',
+        'prop',
+        'namespaceDav',
+        valueProps,
+        variables,
+        isPropfind: false,
+      ),
+      ...generateClass(
+        'WebDavOcFilterRules',
+        'filter-rules',
+        'namespaceOwncloud',
+        valueProps,
+        variables,
+        isPropfind: false,
+      ),
       '',
     ].join('\n'),
   );
@@ -40,8 +61,9 @@ List<String> generateClass(
   final String elementName,
   final String namespace,
   final List<String> props,
-  final List<String> variables,
-) =>
+  final List<String> variables, {
+  required final bool isPropfind,
+}) =>
     [
       '@annotation.XmlSerializable(createMixin: true)',
       "@annotation.XmlRootElement(name: '$elementName', namespace: $namespace)",
@@ -49,6 +71,13 @@ List<String> generateClass(
       '  $name({',
       ...variables.map((final variable) => '    this.$variable,'),
       '  });',
+      '',
+      if (isPropfind) ...[
+        '  $name.fromBools({',
+        ...variables.map((final variable) => '    final bool $variable = false,'),
+        '  }) : ${variables.map((final variable) => '$variable = $variable ? [null] : null').join(', ')};',
+        '',
+      ],
       '  factory $name.fromXmlElement(final XmlElement element) => _\$${name}FromXmlElement(element);',
       ...props.map((final prop) => '\n  $prop'),
       '}',

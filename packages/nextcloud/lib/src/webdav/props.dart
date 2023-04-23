@@ -36,196 +36,280 @@ class WebDavPropfindProp with _$WebDavPropfindPropXmlSerializableMixin {
     this.ocssharepermissions,
     this.ocmsharepermissions,
   });
+
+  WebDavPropfindProp.fromBools({
+    final bool davgetlastmodified = false,
+    final bool davgetetag = false,
+    final bool davgetcontenttype = false,
+    final bool davgetcontentlength = false,
+    final bool davresourcetype = false,
+    final bool ocid = false,
+    final bool ocfileid = false,
+    final bool ocfavorite = false,
+    final bool occommentshref = false,
+    final bool occommentscount = false,
+    final bool occommentsunread = false,
+    final bool ocdownloadurl = false,
+    final bool ocownerid = false,
+    final bool ocownerdisplayname = false,
+    final bool ocsize = false,
+    final bool ocpermissions = false,
+    final bool ncnote = false,
+    final bool ncdatafingerprint = false,
+    final bool nchaspreview = false,
+    final bool ncmounttype = false,
+    final bool ncisencrypted = false,
+    final bool ncmetadataetag = false,
+    final bool ncuploadtime = false,
+    final bool nccreationtime = false,
+    final bool ncrichworkspace = false,
+    final bool ocssharepermissions = false,
+    final bool ocmsharepermissions = false,
+  })  : davgetlastmodified = davgetlastmodified ? [null] : null,
+        davgetetag = davgetetag ? [null] : null,
+        davgetcontenttype = davgetcontenttype ? [null] : null,
+        davgetcontentlength = davgetcontentlength ? [null] : null,
+        davresourcetype = davresourcetype ? [null] : null,
+        ocid = ocid ? [null] : null,
+        ocfileid = ocfileid ? [null] : null,
+        ocfavorite = ocfavorite ? [null] : null,
+        occommentshref = occommentshref ? [null] : null,
+        occommentscount = occommentscount ? [null] : null,
+        occommentsunread = occommentsunread ? [null] : null,
+        ocdownloadurl = ocdownloadurl ? [null] : null,
+        ocownerid = ocownerid ? [null] : null,
+        ocownerdisplayname = ocownerdisplayname ? [null] : null,
+        ocsize = ocsize ? [null] : null,
+        ocpermissions = ocpermissions ? [null] : null,
+        ncnote = ncnote ? [null] : null,
+        ncdatafingerprint = ncdatafingerprint ? [null] : null,
+        nchaspreview = nchaspreview ? [null] : null,
+        ncmounttype = ncmounttype ? [null] : null,
+        ncisencrypted = ncisencrypted ? [null] : null,
+        ncmetadataetag = ncmetadataetag ? [null] : null,
+        ncuploadtime = ncuploadtime ? [null] : null,
+        nccreationtime = nccreationtime ? [null] : null,
+        ncrichworkspace = ncrichworkspace ? [null] : null,
+        ocssharepermissions = ocssharepermissions ? [null] : null,
+        ocmsharepermissions = ocmsharepermissions ? [null] : null;
+
   factory WebDavPropfindProp.fromXmlElement(final XmlElement element) => _$WebDavPropfindPropFromXmlElement(element);
 
   @annotation.XmlElement(
     name: 'getlastmodified',
     namespace: namespaceDav,
-    includeIfNull: false,
+    includeIfNull: true,
+    isSelfClosing: true,
   )
-  bool? davgetlastmodified;
+  List<String?>? davgetlastmodified;
 
   @annotation.XmlElement(
     name: 'getetag',
     namespace: namespaceDav,
-    includeIfNull: false,
+    includeIfNull: true,
+    isSelfClosing: true,
   )
-  bool? davgetetag;
+  List<String?>? davgetetag;
 
   @annotation.XmlElement(
     name: 'getcontenttype',
     namespace: namespaceDav,
-    includeIfNull: false,
+    includeIfNull: true,
+    isSelfClosing: true,
   )
-  bool? davgetcontenttype;
+  List<String?>? davgetcontenttype;
 
   @annotation.XmlElement(
     name: 'getcontentlength',
     namespace: namespaceDav,
-    includeIfNull: false,
+    includeIfNull: true,
+    isSelfClosing: true,
   )
-  bool? davgetcontentlength;
+  List<String?>? davgetcontentlength;
 
   @annotation.XmlElement(
     name: 'resourcetype',
     namespace: namespaceDav,
-    includeIfNull: false,
+    includeIfNull: true,
+    isSelfClosing: true,
   )
-  bool? davresourcetype;
+  List<String?>? davresourcetype;
 
   @annotation.XmlElement(
     name: 'id',
     namespace: namespaceOwncloud,
-    includeIfNull: false,
+    includeIfNull: true,
+    isSelfClosing: true,
   )
-  bool? ocid;
+  List<String?>? ocid;
 
   @annotation.XmlElement(
     name: 'fileid',
     namespace: namespaceOwncloud,
-    includeIfNull: false,
+    includeIfNull: true,
+    isSelfClosing: true,
   )
-  bool? ocfileid;
+  List<String?>? ocfileid;
 
   @annotation.XmlElement(
     name: 'favorite',
     namespace: namespaceOwncloud,
-    includeIfNull: false,
+    includeIfNull: true,
+    isSelfClosing: true,
   )
-  bool? ocfavorite;
+  List<String?>? ocfavorite;
 
   @annotation.XmlElement(
     name: 'comments-href',
     namespace: namespaceOwncloud,
-    includeIfNull: false,
+    includeIfNull: true,
+    isSelfClosing: true,
   )
-  bool? occommentshref;
+  List<String?>? occommentshref;
 
   @annotation.XmlElement(
     name: 'comments-count',
     namespace: namespaceOwncloud,
-    includeIfNull: false,
+    includeIfNull: true,
+    isSelfClosing: true,
   )
-  bool? occommentscount;
+  List<String?>? occommentscount;
 
   @annotation.XmlElement(
     name: 'comments-unread',
     namespace: namespaceOwncloud,
-    includeIfNull: false,
+    includeIfNull: true,
+    isSelfClosing: true,
   )
-  bool? occommentsunread;
+  List<String?>? occommentsunread;
 
   @annotation.XmlElement(
     name: 'downloadURL',
     namespace: namespaceOwncloud,
-    includeIfNull: false,
+    includeIfNull: true,
+    isSelfClosing: true,
   )
-  bool? ocdownloadurl;
+  List<String?>? ocdownloadurl;
 
   @annotation.XmlElement(
     name: 'owner-id',
     namespace: namespaceOwncloud,
-    includeIfNull: false,
+    includeIfNull: true,
+    isSelfClosing: true,
   )
-  bool? ocownerid;
+  List<String?>? ocownerid;
 
   @annotation.XmlElement(
     name: 'owner-display-name',
     namespace: namespaceOwncloud,
-    includeIfNull: false,
+    includeIfNull: true,
+    isSelfClosing: true,
   )
-  bool? ocownerdisplayname;
+  List<String?>? ocownerdisplayname;
 
   @annotation.XmlElement(
     name: 'size',
     namespace: namespaceOwncloud,
-    includeIfNull: false,
+    includeIfNull: true,
+    isSelfClosing: true,
   )
-  bool? ocsize;
+  List<String?>? ocsize;
 
   @annotation.XmlElement(
     name: 'permissions',
     namespace: namespaceOwncloud,
-    includeIfNull: false,
+    includeIfNull: true,
+    isSelfClosing: true,
   )
-  bool? ocpermissions;
+  List<String?>? ocpermissions;
 
   @annotation.XmlElement(
     name: 'note',
     namespace: namespaceNextcloud,
-    includeIfNull: false,
+    includeIfNull: true,
+    isSelfClosing: true,
   )
-  bool? ncnote;
+  List<String?>? ncnote;
 
   @annotation.XmlElement(
     name: 'data-fingerprint',
     namespace: namespaceNextcloud,
-    includeIfNull: false,
+    includeIfNull: true,
+    isSelfClosing: true,
   )
-  bool? ncdatafingerprint;
+  List<String?>? ncdatafingerprint;
 
   @annotation.XmlElement(
     name: 'has-preview',
     namespace: namespaceNextcloud,
-    includeIfNull: false,
+    includeIfNull: true,
+    isSelfClosing: true,
   )
-  bool? nchaspreview;
+  List<String?>? nchaspreview;
 
   @annotation.XmlElement(
     name: 'mount-type',
     namespace: namespaceNextcloud,
-    includeIfNull: false,
+    includeIfNull: true,
+    isSelfClosing: true,
   )
-  bool? ncmounttype;
+  List<String?>? ncmounttype;
 
   @annotation.XmlElement(
     name: 'is-encrypted',
     namespace: namespaceNextcloud,
-    includeIfNull: false,
+    includeIfNull: true,
+    isSelfClosing: true,
   )
-  bool? ncisencrypted;
+  List<String?>? ncisencrypted;
 
   @annotation.XmlElement(
     name: 'metadata_etag',
     namespace: namespaceNextcloud,
-    includeIfNull: false,
+    includeIfNull: true,
+    isSelfClosing: true,
   )
-  bool? ncmetadataetag;
+  List<String?>? ncmetadataetag;
 
   @annotation.XmlElement(
     name: 'upload_time',
     namespace: namespaceNextcloud,
-    includeIfNull: false,
+    includeIfNull: true,
+    isSelfClosing: true,
   )
-  bool? ncuploadtime;
+  List<String?>? ncuploadtime;
 
   @annotation.XmlElement(
     name: 'creation_time',
     namespace: namespaceNextcloud,
-    includeIfNull: false,
+    includeIfNull: true,
+    isSelfClosing: true,
   )
-  bool? nccreationtime;
+  List<String?>? nccreationtime;
 
   @annotation.XmlElement(
     name: 'rich-workspace',
     namespace: namespaceNextcloud,
-    includeIfNull: false,
+    includeIfNull: true,
+    isSelfClosing: true,
   )
-  bool? ncrichworkspace;
+  List<String?>? ncrichworkspace;
 
   @annotation.XmlElement(
     name: 'share-permissions',
     namespace: namespaceOpenCollaborationServices,
-    includeIfNull: false,
+    includeIfNull: true,
+    isSelfClosing: true,
   )
-  bool? ocssharepermissions;
+  List<String?>? ocssharepermissions;
 
   @annotation.XmlElement(
     name: 'share-permissions',
     namespace: namespaceOpenCloudMesh,
-    includeIfNull: false,
+    includeIfNull: true,
+    isSelfClosing: true,
   )
-  bool? ocmsharepermissions;
+  List<String?>? ocmsharepermissions;
 }
 
 @annotation.XmlSerializable(createMixin: true)
@@ -260,6 +344,7 @@ class WebDavProp with _$WebDavPropXmlSerializableMixin {
     this.ocssharepermissions,
     this.ocmsharepermissions,
   });
+
   factory WebDavProp.fromXmlElement(final XmlElement element) => _$WebDavPropFromXmlElement(element);
 
   @annotation.XmlElement(
@@ -484,6 +569,7 @@ class WebDavOcFilterRules with _$WebDavOcFilterRulesXmlSerializableMixin {
     this.ocssharepermissions,
     this.ocmsharepermissions,
   });
+
   factory WebDavOcFilterRules.fromXmlElement(final XmlElement element) => _$WebDavOcFilterRulesFromXmlElement(element);
 
   @annotation.XmlElement(
