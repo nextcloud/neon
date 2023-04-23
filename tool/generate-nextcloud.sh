@@ -62,6 +62,7 @@ jq \
 (
   cd packages/nextcloud
   rm -rf .dart_tool/build
+  fvm dart run nextcloud:generate_props
   fvm dart pub run build_runner build --delete-conflicting-outputs
   # For some reason we need to fix and format twice, otherwise not everything gets fixed
   fvm dart fix --apply lib/src/nextcloud.openapi.dart

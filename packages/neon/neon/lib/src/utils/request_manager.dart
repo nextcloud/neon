@@ -14,8 +14,50 @@ class RequestManager {
     final Future<R> Function() call,
     final T Function(R) unwrap, {
     final bool disableTimeout = false,
-    final int retries = 0,
-  }) async {
+  }) async =>
+      _wrap<T, R>(
+        clientID,
+        k,
+        subject,
+        call,
+        unwrap,
+        (final data) => json.encode(serializeNextcloud<R>(data)),
+        (final data) => deserializeNextcloud<R>(json.decode(data)),
+        disableTimeout,
+        0,
+      );
+
+  Future wrapWebDav<T>(
+    final String clientID,
+    final String k,
+    final BehaviorSubject<Result<T>> subject,
+    final Future<WebDavMultistatus> Function() call,
+    final T Function(WebDavMultistatus) unwrap, {
+    final bool disableTimeout = false,
+  }) async =>
+      _wrap<T, WebDavMultistatus>(
+        clientID,
+        k,
+        subject,
+        call,
+        unwrap,
+        (final data) => data.toXmlElement(namespaces: namespaces).toXmlString(),
+        (final data) => WebDavMultistatus.fromXmlElement(xml.XmlDocument.parse(data).rootElement),
+        disableTimeout,
+        0,
+      );
+
+  Future _wrap<T, R>(
+    final String clientID,
+    final String k,
+    final BehaviorSubject<Result<T>> subject,
+    final Future<R> Function() call,
+    final T Function(R) unwrap,
+    final String Function(R) serialize,
+    final R Function(String) deserialize,
+    final bool disableTimeout,
+    final int retries,
+  ) async {
     if (subject.valueOrNull?.data != null) {
       subject.add(
         Result(
@@ -35,7 +77,7 @@ class RequestManager {
       try {
         subject.add(
           Result(
-            unwrap(deserializeNextcloud<R>(json.decode((await cache!.get(key))!))),
+            unwrap(await compute(deserialize, (await cache!.get(key))!)),
             null,
             loading: true,
             cached: true,
@@ -49,21 +91,23 @@ class RequestManager {
 
     try {
       final response = await (disableTimeout ? call() : timeout(call));
-      await cache?.set(key, json.encode(serializeNextcloud<R>(response)));
+      await cache?.set(key, await compute(serialize, response));
       subject.add(Result.success(unwrap(response)));
     } catch (e, s) {
       debugPrint(e.toString());
       debugPrint(s.toString());
       if (e is NextcloudApiException && e.statusCode >= 500 && retries < 3) {
         debugPrint('Retrying...');
-        await wrapNextcloud(
+        await _wrap(
           clientID,
           k,
           subject,
           call,
           unwrap,
-          disableTimeout: disableTimeout,
-          retries: retries + 1,
+          serialize,
+          deserialize,
+          disableTimeout,
+          retries + 1,
         );
         return;
       }
@@ -71,7 +115,7 @@ class RequestManager {
         try {
           subject.add(
             Result(
-              unwrap(deserializeNextcloud<R>(json.decode((await cache!.get(key))!))),
+              unwrap(await compute(deserialize, (await cache!.get(key))!)),
               null,
               loading: false,
               cached: true,

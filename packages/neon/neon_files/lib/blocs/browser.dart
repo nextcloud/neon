@@ -14,12 +14,14 @@ abstract class FilesBrowserBlocStates {
 
 class FilesBrowserBloc extends InteractiveBloc implements FilesBrowserBlocEvents, FilesBrowserBlocStates {
   FilesBrowserBloc(
+    this._requestManager,
     this.options,
     this.client,
   ) {
     unawaited(refresh());
   }
 
+  final RequestManager _requestManager;
   final FilesAppSpecificOptions options;
   final NextcloudClient client;
 
@@ -38,26 +40,23 @@ class FilesBrowserBloc extends InteractiveBloc implements FilesBrowserBlocEvents
 
   @override
   Future refresh() async {
-    // TODO: We have to do this manually, because we can't cache WebDAV stuff right now
-    try {
-      files.add(Result.loading());
-      final data = await client.webdav.ls(
+    await _requestManager.wrapWebDav<List<WebDavFile>>(
+      client.id,
+      'files-${path.value.join('/')}',
+      files,
+      () async => client.webdav.ls(
         path.value.join('/'),
-        props: {
-          WebDavProps.davContentType.name,
-          WebDavProps.davETag.name,
-          WebDavProps.davLastModified.name,
-          WebDavProps.ncHasPreview.name,
-          WebDavProps.ocSize.name,
-          WebDavProps.ocFavorite.name,
-        },
-      );
-      files.add(Result.success(data));
-    } catch (e, s) {
-      debugPrint(e.toString());
-      debugPrint(s.toString());
-      files.add(Result.error(e));
-    }
+        prop: WebDavPropfindProp(
+          davgetcontenttype: true,
+          davgetetag: true,
+          davgetlastmodified: true,
+          nchaspreview: true,
+          ocsize: true,
+          ocfavorite: true,
+        ),
+      ),
+      (final response) => response.toWebDavFiles(client.webdav),
+    );
   }
 
   @override

@@ -46,6 +46,7 @@ dependencies:
   webview_flutter: ^3.0.0
   window_manager: ^0.2.5
   xdg_directories: ^0.2.0+1
+  xml: ^6.2.2
 
 dev_dependencies:
   build_runner: ^2.1.7

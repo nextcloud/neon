@@ -41,6 +41,7 @@ import 'package:url_launcher/url_launcher_string.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 import 'package:window_manager/window_manager.dart';
 import 'package:xdg_directories/xdg_directories.dart' as xdg;
+import 'package:xml/xml.dart' as xml;
 
 export 'l10n/localizations.dart';
 export 'src/models/account.dart';

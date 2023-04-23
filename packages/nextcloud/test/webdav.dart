@@ -36,21 +36,23 @@ Future run(final DockerImage image) async {
     });
 
     test('List directory', () async {
-      final files = await client.webdav.ls(
+      final responses = (await client.webdav.ls(
         '/',
-        props: {
-          WebDavProps.ncHasPreview.name,
-          WebDavProps.davContentType.name,
-          WebDavProps.davLastModified.name,
-          WebDavProps.ocSize.name,
-        },
-      );
-      expect(files, hasLength(8));
-      final file = files.singleWhere((final f) => f.name == 'Nextcloud.png');
-      expect(file.hasPreview, isTrue);
-      expect(file.mimeType, 'image/png');
-      expect(file.lastModified!.isBefore(DateTime.now()), isTrue);
-      expect(file.size, 50598);
+        prop: WebDavPropfindProp(
+          nchaspreview: true,
+          davgetcontenttype: true,
+          davgetlastmodified: true,
+          ocsize: true,
+        ),
+      ))
+          .responses;
+      expect(responses, hasLength(9));
+      final props =
+          responses.singleWhere((final response) => response.href!.endsWith('/Nextcloud.png')).propstats.first.prop;
+      expect(props.nchaspreview, isTrue);
+      expect(props.davgetcontenttype, 'image/png');
+      expect(webdavDateFormat.parseUtc(props.davgetlastmodified!).isBefore(DateTime.now()), isTrue);
+      expect(props.ocsize, 50598);
     });
 
     test('Create directory', () async {
@@ -62,9 +64,9 @@ Future run(final DockerImage image) async {
       final response = await client.webdav.mkdirs('test/bla');
       expect(response!.statusCode, equals(201));
 
-      final files = await client.webdav.ls('/test');
-      expect(files, hasLength(1));
-      expect(files[0].path, '/test/bla/');
+      final responses = (await client.webdav.ls('/test')).responses;
+      expect(responses, hasLength(2));
+      expect(responses[1].href, endsWith('/test/bla/'));
     });
 
     test('Upload files', () async {
@@ -77,38 +79,57 @@ Future run(final DockerImage image) async {
       response = await client.webdav.upload(txtBytes, 'test.txt');
       expect(response.statusCode, equals(201));
 
-      final files = await client.webdav.ls(
+      final responses = (await client.webdav.ls(
         '/',
-        props: {
-          WebDavProps.ocSize.name,
-        },
+        prop: WebDavPropfindProp(
+          ocsize: true,
+        ),
+      ))
+          .responses;
+      expect(responses, hasLength(11));
+      expect(
+        responses.singleWhere((final response) => response.href!.endsWith('/test.png')).propstats.first.prop.ocsize,
+        pngBytes.lengthInBytes,
       );
-      expect(files, hasLength(10));
-      final pngFile = files.singleWhere((final f) => f.name == 'test.png');
-      final txtFile = files.singleWhere((final f) => f.name == 'test.txt');
-      expect(pngFile.size, pngBytes.lengthInBytes);
-      expect(txtFile.size, txtBytes.lengthInBytes);
+      expect(
+        responses.singleWhere((final response) => response.href!.endsWith('/test.txt')).propstats.first.prop.ocsize,
+        txtBytes.lengthInBytes,
+      );
     });
 
-    test('Upload file with modified time', () async {
+    test('Upload file', () async {
       final lastModified = DateTime.fromMillisecondsSinceEpoch(DateTime.now().millisecondsSinceEpoch ~/ 1000 * 1000);
+      final created = lastModified.subtract(const Duration(hours: 1));
       final txtBytes = File('test/files/test.txt').readAsBytesSync();
 
       final response = await client.webdav.upload(
         txtBytes,
         'test.txt',
         lastModified: lastModified,
+        created: created,
       );
       expect(response.statusCode, equals(201));
 
-      final files = await client.webdav.ls(
+      final props = (await client.webdav.ls(
         '/',
-        props: {
-          WebDavProps.davLastModified.name,
-        },
+        prop: WebDavPropfindProp(
+          davgetlastmodified: true,
+          nccreationtime: true,
+        ),
+      ))
+          .responses
+          .singleWhere((final response) => response.href!.endsWith('/test.txt'))
+          .propstats
+          .first
+          .prop;
+      expect(
+        webdavDateFormat.parseUtc(props.davgetlastmodified!).millisecondsSinceEpoch,
+        lastModified.millisecondsSinceEpoch,
       );
-      final txtFile = files.singleWhere((final f) => f.name == 'test.txt');
-      expect(txtFile.lastModified!.millisecondsSinceEpoch, lastModified.millisecondsSinceEpoch);
+      expect(
+        DateTime.fromMillisecondsSinceEpoch(props.nccreationtime! * 1000).millisecondsSinceEpoch,
+        created.millisecondsSinceEpoch,
+      );
     });
 
     test('Copy file', () async {
@@ -117,9 +138,9 @@ Future run(final DockerImage image) async {
         'test.png',
       );
       expect(response.statusCode, 201);
-      final files = await client.webdav.ls('/');
-      expect(files.where((final f) => f.name == 'Nextcloud.png'), hasLength(1));
-      expect(files.where((final f) => f.name == 'test.png'), hasLength(1));
+      final responses = (await client.webdav.ls('/')).responses;
+      expect(responses.where((final response) => response.href!.endsWith('/Nextcloud.png')), hasLength(1));
+      expect(responses.where((final response) => response.href!.endsWith('/test.png')), hasLength(1));
     });
 
     test('Copy file (overwrite fail)', () async {
@@ -150,9 +171,9 @@ Future run(final DockerImage image) async {
         'test.png',
       );
       expect(response.statusCode, 201);
-      final files = await client.webdav.ls('/');
-      expect(files.where((final f) => f.name == 'Nextcloud.png'), hasLength(0));
-      expect(files.where((final f) => f.name == 'test.png'), hasLength(1));
+      final responses = (await client.webdav.ls('/')).responses;
+      expect(responses.where((final response) => response.href!.endsWith('/Nextcloud.png')), hasLength(0));
+      expect(responses.where((final response) => response.href!.endsWith('/test.png')), hasLength(1));
     });
 
     test('Move file (overwrite fail)', () async {
@@ -178,19 +199,69 @@ Future run(final DockerImage image) async {
     });
 
     test('Get file props', () async {
-      final file = await client.webdav.getProps(
+      final props = (await client.webdav.ls(
         'Nextcloud.png',
-        props: {
-          WebDavProps.ncHasPreview.name,
-          WebDavProps.davContentType.name,
-          WebDavProps.davLastModified.name,
-          WebDavProps.ocSize.name,
-        },
-      );
-      expect(file.hasPreview, isTrue);
-      expect(file.mimeType, 'image/png');
-      expect(file.lastModified!.isBefore(DateTime.now()), isTrue);
-      expect(file.size, 50598);
+        prop: WebDavPropfindProp(
+          davgetlastmodified: true,
+          davgetetag: true,
+          davgetcontenttype: true,
+          davgetcontentlength: true,
+          ocid: true,
+          ocfileid: true,
+          ocfavorite: true,
+          occommentshref: true,
+          occommentscount: true,
+          occommentsunread: true,
+          ocdownloadurl: true,
+          ocownerid: true,
+          ocownerdisplayname: true,
+          ocsize: true,
+          ocpermissions: true,
+          ncnote: true,
+          ncdatafingerprint: true,
+          nchaspreview: true,
+          ncmounttype: true,
+          ncisencrypted: true,
+          ncmetadataetag: true,
+          ncuploadtime: true,
+          nccreationtime: true,
+          ncrichworkspace: true,
+          ocssharepermissions: true,
+          ocmsharepermissions: true,
+        ),
+        depth: 0,
+      ))
+          .responses
+          .single
+          .propstats
+          .first
+          .prop;
+      expect(webdavDateFormat.parseUtc(props.davgetlastmodified!).isBefore(DateTime.now()), isTrue);
+      expect(props.davgetetag, isNotEmpty);
+      expect(props.davgetcontenttype, 'image/png');
+      expect(props.davgetcontentlength, 50598);
+      expect(props.ocid, isNotEmpty);
+      expect(props.ocfileid, isNotEmpty);
+      expect(props.ocfavorite, 0);
+      expect(props.occommentshref, isNotEmpty);
+      expect(props.occommentscount, 0);
+      expect(props.occommentsunread, 0);
+      expect(props.ocdownloadurl, isNull);
+      expect(props.ocownerid, 'user1');
+      expect(props.ocownerdisplayname, 'User One');
+      expect(props.ocsize, 50598);
+      expect(props.ocpermissions, 'RGDNVW');
+      expect(props.ncnote, isNull);
+      expect(props.ncdatafingerprint, isNull);
+      expect(props.nchaspreview, isTrue);
+      expect(props.ncmounttype, isNull);
+      expect(props.ncisencrypted, isNull);
+      expect(props.ncmetadataetag, isNull);
+      expect(props.ncuploadtime, 0);
+      expect(props.nccreationtime, 0);
+      expect(props.ncrichworkspace, isNull);
+      expect(props.ocssharepermissions, 19);
+      expect(json.decode(props.ocmsharepermissions!), ['share', 'read', 'write']);
     });
 
     test('Get directory props', () async {
@@ -198,90 +269,86 @@ Future run(final DockerImage image) async {
       await client.webdav.mkdir('test');
       await client.webdav.upload(data, 'test/test.txt');
 
-      final file = await client.webdav.getProps(
+      final props = (await client.webdav.ls(
         'test',
-        props: {
-          WebDavProps.davResourceType.name,
-          WebDavProps.davContentType.name,
-          WebDavProps.davLastModified.name,
-          WebDavProps.ocSize.name,
-        },
-      );
-      expect(file.isDirectory, isTrue);
-      expect(file.name, 'test');
-      expect(file.mimeType, null);
-      expectDateInReasonableTimeRange(file.lastModified!, DateTime.now());
-      expect(file.size, data.lengthInBytes);
+        prop: WebDavPropfindProp(
+          davgetcontenttype: true,
+          davgetlastmodified: true,
+          ocsize: true,
+        ),
+        depth: 0,
+      ))
+          .responses
+          .single
+          .propstats
+          .first
+          .prop;
+      expect(props.davgetcontenttype, isNull);
+      expectDateInReasonableTimeRange(webdavDateFormat.parseUtc(props.davgetlastmodified!), DateTime.now());
+      expect(props.ocsize, data.lengthInBytes);
     });
 
     test('Filter files', () async {
       final response = await client.webdav.upload(Uint8List.fromList(utf8.encode('test')), 'test.txt');
       final id = response.headers['oc-fileid']!.first;
-      await client.webdav.updateProps('test.txt', {WebDavProps.ocFavorite.name: '1'});
-
-      final files = await client.webdav.filter(
-        '/',
-        {
-          WebDavProps.ocFavorite.name: '1',
-        },
-        props: {
-          WebDavProps.ocId.name,
-          WebDavProps.ocFavorite.name,
-        },
+      await client.webdav.updateProps(
+        'test.txt',
+        WebDavProp(
+          ocfavorite: 1,
+        ),
       );
-      expect(files, hasLength(1));
-      final file = files.singleWhere((final e) => e.name == 'test.txt');
-      expect(file.id, id);
-      expect(file.favorite, isTrue);
+
+      final responses = (await client.webdav.filter(
+        '/',
+        WebDavOcFilterRules(
+          ocfavorite: 1,
+        ),
+        prop: WebDavPropfindProp(
+          ocid: true,
+          ocfavorite: true,
+        ),
+      ))
+          .responses;
+      expect(responses, hasLength(1));
+      final props =
+          responses.singleWhere((final response) => response.href!.endsWith('/test.txt')).propstats.first.prop;
+      expect(props.ocid, id);
+      expect(props.ocfavorite, 1);
     });
 
     test('Set properties', () async {
       final createdDate = DateTime.utc(1971, 2);
-      final createdEpoch = createdDate.millisecondsSinceEpoch / 1000;
+      final createdEpoch = createdDate.millisecondsSinceEpoch ~/ 1000;
       final uploadTime = DateTime.now();
 
       await client.webdav.upload(Uint8List.fromList(utf8.encode('test')), 'test.txt');
 
-      final updated = await client.webdav.updateProps('test.txt', {
-        WebDavProps.ocFavorite.name: '1',
-        WebDavProps.ncCreationTime.name: '$createdEpoch',
-      });
+      final updated = await client.webdav.updateProps(
+        'test.txt',
+        WebDavProp(
+          ocfavorite: 1,
+          nccreationtime: createdEpoch,
+        ),
+      );
       expect(updated, isTrue);
 
-      final file = await client.webdav.getProps(
+      final props = (await client.webdav.ls(
         'test.txt',
-        props: {
-          WebDavProps.ocFavorite.name,
-          WebDavProps.ncCreationTime.name,
-          WebDavProps.ncUploadTime.name,
-        },
-      );
-      expect(file.favorite, isTrue);
-      expect(file.createdDate!.isAtSameMomentAs(createdDate), isTrue);
-      expectDateInReasonableTimeRange(file.uploadedDate!, uploadTime);
-    });
-
-    test('Set custom properties', () async {
-      client.webdav.registerNamespace('http://example.com/ns', 'test');
-
-      await client.webdav.upload(Uint8List.fromList(utf8.encode('test')), 'test.txt');
-
-      final updated = await client.webdav.updateProps('test.txt', {
-        'test:custom': 'test-custom-prop-value',
-      });
-      expect(updated, isTrue);
-
-      final file = await client.webdav.getProps(
-        'test.txt',
-        props: {
-          'test:custom',
-        },
-      );
-
-      expect(
-        file.getProp('test:custom')!.text,
-        'test-custom-prop-value',
-      );
+        prop: WebDavPropfindProp(
+          ocfavorite: true,
+          nccreationtime: true,
+          ncuploadtime: true,
+        ),
+        depth: 0,
+      ))
+          .responses
+          .single
+          .propstats
+          .first
+          .prop;
+      expect(props.ocfavorite, 1);
+      expect(DateTime.fromMillisecondsSinceEpoch(props.nccreationtime! * 1000).isAtSameMomentAs(createdDate), isTrue);
+      expectDateInReasonableTimeRange(DateTime.fromMillisecondsSinceEpoch(props.ncuploadtime! * 1000), uploadTime);
     });
   });
 }
