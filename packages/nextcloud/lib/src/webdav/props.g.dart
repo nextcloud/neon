@@ -52,6 +52,17 @@ void _$WebDavPropfindPropBuildXmlChildren(WebDavPropfindProp instance, XmlBuilde
       builder.text(davgetcontentlengthSerialized);
     });
   }
+  final davresourcetype = instance.davresourcetype;
+  final davresourcetypeSerialized = davresourcetype != null
+      ? davresourcetype == true
+          ? 'true'
+          : 'false'
+      : null;
+  if (davresourcetypeSerialized != null) {
+    builder.element('resourcetype', namespace: 'DAV:', nest: () {
+      builder.text(davresourcetypeSerialized);
+    });
+  }
   final ocid = instance.ocid;
   final ocidSerialized = ocid != null
       ? ocid == true
@@ -308,6 +319,7 @@ WebDavPropfindProp _$WebDavPropfindPropFromXmlElement(XmlElement element) {
   final davgetetag = element.getElement('getetag', namespace: 'DAV:')?.getText();
   final davgetcontenttype = element.getElement('getcontenttype', namespace: 'DAV:')?.getText();
   final davgetcontentlength = element.getElement('getcontentlength', namespace: 'DAV:')?.getText();
+  final davresourcetype = element.getElement('resourcetype', namespace: 'DAV:')?.getText();
   final ocid = element.getElement('id', namespace: 'http://owncloud.org/ns')?.getText();
   final ocfileid = element.getElement('fileid', namespace: 'http://owncloud.org/ns')?.getText();
   final ocfavorite = element.getElement('favorite', namespace: 'http://owncloud.org/ns')?.getText();
@@ -360,6 +372,13 @@ WebDavPropfindProp _$WebDavPropfindPropFromXmlElement(XmlElement element) {
               : davgetcontentlength == 'false' || davgetcontentlength == '0'
                   ? false
                   : throw FormatException('Invalid bool format', davgetcontentlength)
+          : null,
+      davresourcetype: davresourcetype != null
+          ? davresourcetype == 'true' || davresourcetype == '1'
+              ? true
+              : davresourcetype == 'false' || davresourcetype == '0'
+                  ? false
+                  : throw FormatException('Invalid bool format', davresourcetype)
           : null,
       ocid: ocid != null
           ? ocid == 'true' || ocid == '1'
@@ -573,6 +592,18 @@ List<XmlNode> _$WebDavPropfindPropToXmlChildren(WebDavPropfindProp instance,
       : null;
   if (davgetcontentlengthConstructed != null) {
     children.add(davgetcontentlengthConstructed);
+  }
+  final davresourcetype = instance.davresourcetype;
+  final davresourcetypeSerialized = davresourcetype != null
+      ? davresourcetype == true
+          ? 'true'
+          : 'false'
+      : null;
+  final davresourcetypeConstructed = davresourcetypeSerialized != null
+      ? XmlElement(XmlName('resourcetype', namespaces['DAV:']), [], [XmlText(davresourcetypeSerialized)])
+      : null;
+  if (davresourcetypeConstructed != null) {
+    children.add(davresourcetypeConstructed);
   }
   final ocid = instance.ocid;
   final ocidSerialized = ocid != null
@@ -906,6 +937,13 @@ void _$WebDavPropBuildXmlChildren(WebDavProp instance, XmlBuilder builder,
       builder.text(davgetcontentlengthSerialized);
     });
   }
+  final davresourcetype = instance.davresourcetype;
+  final davresourcetypeSerialized = davresourcetype;
+  if (davresourcetypeSerialized != null) {
+    builder.element('resourcetype', namespace: 'DAV:', nest: () {
+      davresourcetypeSerialized.buildXmlChildren(builder, namespaces: namespaces);
+    });
+  }
   final ocid = instance.ocid;
   final ocidSerialized = ocid;
   if (ocidSerialized != null) {
@@ -1077,6 +1115,7 @@ WebDavProp _$WebDavPropFromXmlElement(XmlElement element) {
   final davgetetag = element.getElement('getetag', namespace: 'DAV:')?.getText();
   final davgetcontenttype = element.getElement('getcontenttype', namespace: 'DAV:')?.getText();
   final davgetcontentlength = element.getElement('getcontentlength', namespace: 'DAV:')?.getText();
+  final davresourcetype = element.getElement('resourcetype', namespace: 'DAV:');
   final ocid = element.getElement('id', namespace: 'http://owncloud.org/ns')?.getText();
   final ocfileid = element.getElement('fileid', namespace: 'http://owncloud.org/ns')?.getText();
   final ocfavorite = element.getElement('favorite', namespace: 'http://owncloud.org/ns')?.getText();
@@ -1106,6 +1145,7 @@ WebDavProp _$WebDavPropFromXmlElement(XmlElement element) {
       davgetetag: davgetetag,
       davgetcontenttype: davgetcontenttype,
       davgetcontentlength: davgetcontentlength != null ? int.parse(davgetcontentlength) : null,
+      davresourcetype: davresourcetype != null ? WebDavResourcetype.fromXmlElement(davresourcetype) : null,
       ocid: ocid,
       ocfileid: ocfileid,
       ocfavorite: ocfavorite != null ? int.parse(ocfavorite) : null,
@@ -1174,6 +1214,17 @@ List<XmlNode> _$WebDavPropToXmlChildren(WebDavProp instance, {Map<String, String
       : null;
   if (davgetcontentlengthConstructed != null) {
     children.add(davgetcontentlengthConstructed);
+  }
+  final davresourcetype = instance.davresourcetype;
+  final davresourcetypeSerialized = davresourcetype;
+  final davresourcetypeConstructed = davresourcetypeSerialized != null
+      ? XmlElement(
+          XmlName('resourcetype', namespaces['DAV:']),
+          davresourcetypeSerialized.toXmlAttributes(namespaces: namespaces),
+          davresourcetypeSerialized.toXmlChildren(namespaces: namespaces))
+      : null;
+  if (davresourcetypeConstructed != null) {
+    children.add(davresourcetypeConstructed);
   }
   final ocid = instance.ocid;
   final ocidSerialized = ocid;
@@ -1423,6 +1474,13 @@ void _$WebDavOcFilterRulesBuildXmlChildren(WebDavOcFilterRules instance, XmlBuil
       builder.text(davgetcontentlengthSerialized);
     });
   }
+  final davresourcetype = instance.davresourcetype;
+  final davresourcetypeSerialized = davresourcetype;
+  if (davresourcetypeSerialized != null) {
+    builder.element('resourcetype', namespace: 'DAV:', nest: () {
+      davresourcetypeSerialized.buildXmlChildren(builder, namespaces: namespaces);
+    });
+  }
   final ocid = instance.ocid;
   final ocidSerialized = ocid;
   if (ocidSerialized != null) {
@@ -1595,6 +1653,7 @@ WebDavOcFilterRules _$WebDavOcFilterRulesFromXmlElement(XmlElement element) {
   final davgetetag = element.getElement('getetag', namespace: 'DAV:')?.getText();
   final davgetcontenttype = element.getElement('getcontenttype', namespace: 'DAV:')?.getText();
   final davgetcontentlength = element.getElement('getcontentlength', namespace: 'DAV:')?.getText();
+  final davresourcetype = element.getElement('resourcetype', namespace: 'DAV:');
   final ocid = element.getElement('id', namespace: 'http://owncloud.org/ns')?.getText();
   final ocfileid = element.getElement('fileid', namespace: 'http://owncloud.org/ns')?.getText();
   final ocfavorite = element.getElement('favorite', namespace: 'http://owncloud.org/ns')?.getText();
@@ -1624,6 +1683,7 @@ WebDavOcFilterRules _$WebDavOcFilterRulesFromXmlElement(XmlElement element) {
       davgetetag: davgetetag,
       davgetcontenttype: davgetcontenttype,
       davgetcontentlength: davgetcontentlength != null ? int.parse(davgetcontentlength) : null,
+      davresourcetype: davresourcetype != null ? WebDavResourcetype.fromXmlElement(davresourcetype) : null,
       ocid: ocid,
       ocfileid: ocfileid,
       ocfavorite: ocfavorite != null ? int.parse(ocfavorite) : null,
@@ -1694,6 +1754,17 @@ List<XmlNode> _$WebDavOcFilterRulesToXmlChildren(WebDavOcFilterRules instance,
       : null;
   if (davgetcontentlengthConstructed != null) {
     children.add(davgetcontentlengthConstructed);
+  }
+  final davresourcetype = instance.davresourcetype;
+  final davresourcetypeSerialized = davresourcetype;
+  final davresourcetypeConstructed = davresourcetypeSerialized != null
+      ? XmlElement(
+          XmlName('resourcetype', namespaces['DAV:']),
+          davresourcetypeSerialized.toXmlAttributes(namespaces: namespaces),
+          davresourcetypeSerialized.toXmlChildren(namespaces: namespaces))
+      : null;
+  if (davresourcetypeConstructed != null) {
+    children.add(davresourcetypeConstructed);
   }
   final ocid = instance.ocid;
   final ocidSerialized = ocid;

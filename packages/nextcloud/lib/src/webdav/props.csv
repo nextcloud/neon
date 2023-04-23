@@ -2,6 +2,7 @@ dav,getlastmodified,String
 dav,getetag,String
 dav,getcontenttype,String
 dav,getcontentlength,int
+dav,resourcetype,WebDavResourcetype
 oc,id,String
 oc,fileid,String
 oc,favorite,int
