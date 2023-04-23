@@ -55,6 +55,15 @@ Future run(final DockerImage image) async {
       expect(props.ocsize, 50598);
     });
 
+    test('List directory recursively', () async {
+      final responses = (await client.webdav.ls(
+        '/',
+        depth: 'infinity',
+      ))
+          .responses;
+      expect(responses, hasLength(37));
+    });
+
     test('Create directory', () async {
       final response = await client.webdav.mkdir('test');
       expect(response.statusCode, equals(201));
@@ -229,7 +238,6 @@ Future run(final DockerImage image) async {
           ocssharepermissions: true,
           ocmsharepermissions: true,
         ),
-        depth: 0,
       ))
           .responses
           .single
@@ -276,7 +284,7 @@ Future run(final DockerImage image) async {
           davgetlastmodified: true,
           ocsize: true,
         ),
-        depth: 0,
+        depth: '0',
       ))
           .responses
           .single
@@ -339,7 +347,6 @@ Future run(final DockerImage image) async {
           nccreationtime: true,
           ncuploadtime: true,
         ),
-        depth: 0,
       ))
           .responses
           .single
