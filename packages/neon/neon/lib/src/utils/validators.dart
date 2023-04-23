@@ -4,7 +4,6 @@ String? validateHttpUrl(
   final BuildContext context,
   final String? input, {
   final bool httpsOnly = false,
-  final bool allowEmptyScheme = false,
 }) {
   if (input == null || input == '') {
     return AppLocalizations.of(context).errorInvalidURL;
@@ -15,9 +14,7 @@ String? validateHttpUrl(
       return null;
     }
     if (uri.isScheme('http') && !httpsOnly) {
-      return null;
-    }
-    if (uri.isScheme('') && allowEmptyScheme) {
+      // TODO: Maybe make a better error message for http URLs if only https is allowed
       return null;
     }
   } catch (_) {}
