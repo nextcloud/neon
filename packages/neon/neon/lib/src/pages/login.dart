@@ -163,73 +163,77 @@ class _LoginPageState extends State<LoginPage> {
                             ),
                           )
                     : Center(
-                        child: ListView(
-                          shrinkWrap: true,
-                          padding: const EdgeInsets.symmetric(vertical: 40, horizontal: 20),
-                          children: [
-                            SizedBox(
-                              height: MediaQuery.of(context).size.height / 2,
-                              child: Column(
+                        child: Scrollbar(
+                          interactive: true,
+                          child: ListView(
+                            primary: true,
+                            shrinkWrap: true,
+                            padding: const EdgeInsets.symmetric(vertical: 40, horizontal: 20),
+                            children: [
+                              SizedBox(
+                                height: MediaQuery.of(context).size.height / 2,
+                                child: Column(
+                                  children: [
+                                    SvgPicture.asset(
+                                      'assets/logo.svg',
+                                      width: 100,
+                                      height: 100,
+                                    ),
+                                    Text(
+                                      Provider.of<Branding>(context, listen: false).name,
+                                      style: Theme.of(context).textTheme.titleLarge,
+                                    ),
+                                    const SizedBox(
+                                      height: 30,
+                                    ),
+                                    Text(AppLocalizations.of(context).loginWorksWith),
+                                    const SizedBox(
+                                      height: 20,
+                                    ),
+                                    const NextcloudLogo(),
+                                  ],
+                                ),
+                              ),
+                              Form(
+                                key: _formKey,
+                                child: TextFormField(
+                                  focusNode: _focusNode,
+                                  decoration: const InputDecoration(
+                                    hintText: 'https://...',
+                                  ),
+                                  keyboardType: TextInputType.url,
+                                  initialValue: widget.serverURL,
+                                  validator: (final input) => validateHttpUrl(context, input),
+                                  onFieldSubmitted: (final input) {
+                                    if (_formKey.currentState!.validate()) {
+                                      _loginBloc.setServerURL(input);
+                                    } else {
+                                      _focusNode.requestFocus();
+                                    }
+                                  },
+                                ),
+                              ),
+                              Column(
                                 children: [
-                                  SvgPicture.asset(
-                                    'assets/logo.svg',
-                                    width: 100,
-                                    height: 100,
+                                  NeonLinearProgressIndicator(
+                                    visible: serverConnectionStateSnapshot.data == ServerConnectionState.loading,
                                   ),
-                                  Text(
-                                    Provider.of<Branding>(context, listen: false).name,
-                                    style: Theme.of(context).textTheme.titleLarge,
-                                  ),
-                                  const SizedBox(
-                                    height: 30,
-                                  ),
-                                  Text(AppLocalizations.of(context).loginWorksWith),
-                                  const SizedBox(
-                                    height: 20,
-                                  ),
-                                  const NextcloudLogo(),
+                                  if (serverConnectionStateSnapshot.data == ServerConnectionState.unreachable) ...[
+                                    NeonException(
+                                      AppLocalizations.of(context).errorUnableToReachServer,
+                                      onRetry: _loginBloc.refresh,
+                                    ),
+                                  ],
+                                  if (serverConnectionStateSnapshot.data == ServerConnectionState.maintenanceMode) ...[
+                                    NeonException(
+                                      AppLocalizations.of(context).errorServerInMaintenanceMode,
+                                      onRetry: _loginBloc.refresh,
+                                    ),
+                                  ],
                                 ],
                               ),
-                            ),
-                            Form(
-                              key: _formKey,
-                              child: TextFormField(
-                                focusNode: _focusNode,
-                                decoration: const InputDecoration(
-                                  hintText: 'https://...',
-                                ),
-                                keyboardType: TextInputType.url,
-                                initialValue: widget.serverURL,
-                                validator: (final input) => validateHttpUrl(context, input),
-                                onFieldSubmitted: (final input) {
-                                  if (_formKey.currentState!.validate()) {
-                                    _loginBloc.setServerURL(input);
-                                  } else {
-                                    _focusNode.requestFocus();
-                                  }
-                                },
-                              ),
-                            ),
-                            Column(
-                              children: [
-                                NeonLinearProgressIndicator(
-                                  visible: serverConnectionStateSnapshot.data == ServerConnectionState.loading,
-                                ),
-                                if (serverConnectionStateSnapshot.data == ServerConnectionState.unreachable) ...[
-                                  NeonException(
-                                    AppLocalizations.of(context).errorUnableToReachServer,
-                                    onRetry: _loginBloc.refresh,
-                                  ),
-                                ],
-                                if (serverConnectionStateSnapshot.data == ServerConnectionState.maintenanceMode) ...[
-                                  NeonException(
-                                    AppLocalizations.of(context).errorServerInMaintenanceMode,
-                                    onRetry: _loginBloc.refresh,
-                                  ),
-                                ],
-                              ],
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
                       ),
               ),

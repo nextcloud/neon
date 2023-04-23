@@ -227,7 +227,9 @@ class _HomePageState extends State<HomePage> {
                                 children: [
                                   Expanded(
                                     child: Scrollbar(
+                                      interactive: true,
                                       child: ListView(
+                                        primary: true,
                                         // Needed for the drawer header to also render in the statusbar
                                         padding: EdgeInsets.zero,
                                         children: [
