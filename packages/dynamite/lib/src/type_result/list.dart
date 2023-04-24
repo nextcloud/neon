@@ -3,12 +3,10 @@ part of '../../dynamite.dart';
 class TypeResultList extends TypeResult {
   TypeResultList(
     super.name,
-    this.subType, {
-    this.fromContentString = false,
-  });
+    this.subType,
+  );
 
   final TypeResult subType;
-  final bool fromContentString;
 
   @override
   String serialize(final String object) => '$object.map((final e) => ${subType.serialize('e')})';

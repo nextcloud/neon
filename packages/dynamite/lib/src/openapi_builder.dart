@@ -780,10 +780,9 @@ class OpenAPIBuilder implements Builder {
                               if (dartParameterNullable) {
                                 code.write('if (${_toDartName(parameter.name)} != null) {');
                               }
-                              final isPlainList = result is TypeResultList && !result.fromContentString;
                               final value = result.encode(
                                 result.serialize(_toDartName(parameter.name)),
-                                onlyChildren: isPlainList && parameter.in_ == 'query',
+                                onlyChildren: result is TypeResultList && parameter.in_ == 'query',
                                 // Objects inside the query always have to be interpreted in some way
                                 mimeType: 'application/json',
                               );
@@ -798,7 +797,7 @@ class OpenAPIBuilder implements Builder {
                                   break;
                                 case 'query':
                                   code.write(
-                                    "queryParameters['${parameter.name}${isPlainList ? '[]' : ''}'] = $value;",
+                                    "queryParameters['${parameter.name}${result is TypeResultList ? '[]' : ''}'] = $value;",
                                   );
                                   break;
                                 case 'header':
@@ -1039,13 +1038,210 @@ class OpenAPIBuilder implements Builder {
             '$name,',
           ],
           '])',
-          r'final Serializers serializers = (_$serializers.toBuilder()..addPlugin(StandardJsonPlugin())).build();',
+          r'final Serializers serializers = (_$serializers.toBuilder()..addPlugin(StandardJsonPlugin())..addAll(const [',
+          if (state.hasContentString) ...[
+            r'_$ContentStringSerializer()',
+          ],
+          '])).build();',
           '',
           '// coverage:ignore-start',
           'T deserialize$prefix<T>(final Object data) => serializers.deserialize(data, specifiedType: FullType(T))! as T;',
           '',
           'Object? serialize$prefix<T>(final T data) => serializers.serialize(data, specifiedType: FullType(T));',
           '// coverage:ignore-end',
+        ]);
+      }
+
+      if (state.hasContentString) {
+        output.addAll([
+          Class(
+            (final b) => b
+              ..name = 'ContentString'
+              ..abstract = true
+              ..types.add(refer('T'))
+              ..implements.add(
+                refer(
+                  'Built<ContentString<T>, ContentStringBuilder<T>>',
+                ),
+              )
+              ..constructors.addAll([
+                Constructor(
+                  (final b) => b
+                    ..name = '_'
+                    ..constant = true,
+                ),
+                Constructor(
+                  (final b) => b
+                    ..factory = true
+                    ..lambda = true
+                    ..optionalParameters.add(
+                      Parameter(
+                        (final b) => b
+                          ..name = 'b'
+                          ..type = refer('void Function(ContentStringBuilder<T>)?'),
+                      ),
+                    )
+                    ..redirect = refer(r'_$ContentString<T>'),
+                ),
+              ])
+              ..methods.addAll([
+                Method(
+                  (final b) => b
+                    ..name = 'content'
+                    ..returns = refer('T')
+                    ..type = MethodType.getter
+                    ..docs.addAll(_descriptionToDocs('decoded contentString')),
+                ),
+                Method(
+                  (final b) => b
+                    ..static = true
+                    ..name = 'fromJson'
+                    ..lambda = true
+                    ..returns = refer('ContentString')
+                    ..requiredParameters.add(
+                      Parameter(
+                        (final b) => b
+                          ..name = 'json'
+                          ..type = refer('Object'),
+                      ),
+                    )
+                    ..body = const Code('serializers.deserializeWith(serializer, json)!'),
+                ),
+                Method(
+                  (final b) => b
+                    ..name = 'toJson'
+                    ..returns = refer('Map<String, dynamic>')
+                    ..lambda = true
+                    ..body = const Code('serializers.serializeWith(serializer, this)! as Map<String, dynamic>'),
+                ),
+                Method(
+                  (final b) => b
+                    ..name = 'serializer'
+                    ..returns = refer('Serializer<ContentString>')
+                    ..lambda = true
+                    ..static = true
+                    ..annotations.add(refer('BuiltValueSerializer').call([], {'custom': literalTrue}))
+                    ..body = const Code(r'_$ContentStringSerializer()')
+                    ..type = MethodType.getter,
+                ),
+              ]),
+          ).accept(emitter).toString(),
+          Class(
+            (final b) => b
+              ..name = r'_$ContentStringSerializer'
+              ..implements.add(refer('PrimitiveSerializer<ContentString<Object?>>'))
+              ..constructors.add(
+                Constructor(
+                  (final b) => b..constant = true,
+                ),
+              )
+              ..fields.addAll([
+                Field(
+                  (final b) => b
+                    ..name = 'types'
+                    ..modifier = FieldModifier.final$
+                    ..type = refer('Iterable<Type>')
+                    ..annotations.add(refer('override'))
+                    ..assignment = const Code(r'const [ContentString, _$ContentString]'),
+                ),
+                Field(
+                  (final b) => b
+                    ..name = 'wireName'
+                    ..modifier = FieldModifier.final$
+                    ..type = refer('String')
+                    ..annotations.add(refer('override'))
+                    ..assignment = literalString('ContentString').code,
+                ),
+              ])
+              ..methods.addAll([
+                Method((final b) {
+                  b
+                    ..name = 'serialize'
+                    ..returns = refer('Object')
+                    ..annotations.add(refer('override'))
+                    ..requiredParameters.addAll([
+                      Parameter(
+                        (final b) => b
+                          ..name = 'serializers'
+                          ..type = refer('Serializers'),
+                      ),
+                      Parameter(
+                        (final b) => b
+                          ..name = 'object'
+                          ..type = refer('ContentString<Object?>'),
+                      ),
+                    ])
+                    ..optionalParameters.add(
+                      Parameter(
+                        (final b) => b
+                          ..name = 'specifiedType'
+                          ..type = refer('FullType')
+                          ..named = true
+                          ..defaultTo = const Code('FullType.unspecified'),
+                      ),
+                    )
+                    ..body = Block.of([
+                      const Code(
+                        'final isUnderspecified = specifiedType.isUnspecified || specifiedType.parameters.isEmpty;',
+                      ),
+                      const Code('if (!isUnderspecified) serializers.expectBuilder(specifiedType);'),
+                      const Code(
+                        'final parameterT = isUnderspecified ? FullType.object : specifiedType.parameters[0];',
+                      ),
+                      const Code(''),
+                      const Code('final result = serializers.serialize(object.content, specifiedType: parameterT);'),
+                      const Code(''),
+                      const Code(r'return json.encode("$result");'),
+                    ]);
+                }),
+                Method((final b) {
+                  b
+                    ..name = 'deserialize'
+                    ..returns = refer('ContentString<Object?>')
+                    ..annotations.add(refer('override'))
+                    ..requiredParameters.addAll([
+                      Parameter(
+                        (final b) => b
+                          ..name = 'serializers'
+                          ..type = refer('Serializers'),
+                      ),
+                      Parameter(
+                        (final b) => b
+                          ..name = 'serialized'
+                          ..type = refer('Object?'),
+                      ),
+                    ])
+                    ..optionalParameters.add(
+                      Parameter(
+                        (final b) => b
+                          ..name = 'specifiedType'
+                          ..type = refer('FullType')
+                          ..named = true
+                          ..defaultTo = const Code('FullType.unspecified'),
+                      ),
+                    )
+                    ..body = Block.of([
+                      const Code(
+                        'final isUnderspecified = specifiedType.isUnspecified || specifiedType.parameters.isEmpty;',
+                      ),
+                      const Code('if (!isUnderspecified) serializers.expectBuilder(specifiedType);'),
+                      const Code(
+                        'final parameterT = isUnderspecified ? FullType.object : specifiedType.parameters[0];',
+                      ),
+                      const Code(''),
+                      const Code(
+                        'final result = isUnderspecified? ContentStringBuilder<Object?>(): serializers.newBuilder(specifiedType) as ContentStringBuilder<Object?>;',
+                      ),
+                      const Code(''),
+                      const Code(
+                        'result.content = serializers.deserialize(json.decode(serialized as String), specifiedType: parameterT);',
+                      ),
+                      const Code(''),
+                      const Code('return result.build();'),
+                    ]);
+                }),
+              ]),
+          ).accept(emitter).toString()
         ]);
       }
 
@@ -1060,12 +1256,6 @@ class OpenAPIBuilder implements Builder {
         ),
         RegExp(
           r'Map<String, dynamic> toJson\(\) => _\$.*ToJson\(this\);',
-        ),
-        RegExp(
-          r'factory .*\.fromJsonString\(String data\) => .*\.fromJson\(json\.decode\(data\)(?: as Map<String, dynamic>)?\);',
-        ),
-        RegExp(
-          r'static String toJsonString\(.* data\) => json\.encode\(data(?:\.toJson\(\))?\);',
         ),
         RegExp(
           r'dynamic toJson\(\) => _data;',
@@ -1255,6 +1445,7 @@ class State {
   final resolvedTypes = <String>[];
   final registeredJsonObjects = <String>[];
   final output = <Spec>[];
+  bool hasContentString = false;
 }
 
 TypeResult resolveObject(
@@ -1264,7 +1455,6 @@ TypeResult resolveObject(
   final Schema schema, {
   required final Map<String, String>? extraJsonSerializableValues,
   required final Map<String, Map<String, String>>? extraJsonKeyValues,
-  final bool fromContentString = false,
 }) {
   if (!state.resolvedTypes.contains('${state.prefix}$identifier')) {
     state.resolvedTypes.add('${state.prefix}$identifier');
@@ -1319,40 +1509,10 @@ TypeResult resolveObject(
               ),
               Method(
                 (final b) => b
-                  ..static = true
-                  ..name = 'fromJsonString'
-                  ..lambda = true
-                  ..returns = refer('${state.prefix}$identifier')
-                  ..requiredParameters.add(
-                    Parameter(
-                      (final b) => b
-                        ..name = 'data'
-                        ..type = refer('String'),
-                    ),
-                  )
-                  ..body = const Code('serializers.fromJson(serializer, data)!'),
-              ),
-              Method(
-                (final b) => b
                   ..name = 'toJson'
                   ..returns = refer('Map<String, dynamic>')
                   ..lambda = true
                   ..body = const Code('serializers.serializeWith(serializer, this)! as Map<String, dynamic>'),
-              ),
-              Method(
-                (final b) => b
-                  ..name = 'toJsonString'
-                  ..returns = refer('String?')
-                  ..lambda = true
-                  ..static = true
-                  ..requiredParameters.add(
-                    Parameter(
-                      (final b) => b
-                        ..name = 'data'
-                        ..type = refer(_makeNullable('${state.prefix}$identifier', true)),
-                    ),
-                  )
-                  ..body = const Code('data == null ? null : serializers.toJson(serializer, data)'),
               ),
               for (final propertyName in schema.properties!.keys) ...[
                 Method(
@@ -1381,7 +1541,6 @@ TypeResult resolveObject(
                       ..type = MethodType.getter
                       ..docs.addAll(_descriptionToDocs(propertySchema.description));
                     final hasDifferentName = _toDartName(propertyName) != propertyName;
-                    final isContentString = propertySchema.isContentString;
                     final hasExtraJsonKeyValues =
                         extraJsonKeyValues != null && extraJsonKeyValues.containsKey(propertyName);
 
@@ -1395,64 +1554,6 @@ TypeResult resolveObject(
                         },
                       },
                     };
-
-                    if (isContentString) {
-                      if (result is! TypeResultObject && result is! TypeResultList) {
-                        print("The content string $identifier.$propertyName can't be decoded automatically.");
-                      }
-
-                      var fromJson = '${result.name}.fromJsonString';
-                      var toJson = '${result.name}.toJsonString';
-                      if (result is TypeResultList) {
-                        fromJson = '_${_toDartName('${state.prefix}${identifier}FromJsonString')}';
-                        if (!state.resolvedTypes.contains(fromJson)) {
-                          state.resolvedTypes.add(fromJson);
-                          state.output.add(
-                            Method(
-                              (final b) => b
-                                ..name = fromJson
-                                ..returns = refer(result.name)
-                                ..lambda = true
-                                ..requiredParameters.addAll([
-                                  Parameter(
-                                    (final b) => b
-                                      ..name = 'data'
-                                      ..type = refer('String'),
-                                  ),
-                                ])
-                                ..body = Code('${result.deserialize(result.decode('data'))};'),
-                            ),
-                          );
-                        }
-                        toJson = '_${_toDartName('${state.prefix}${identifier}ToJsonString')}';
-                        if (!state.resolvedTypes.contains(toJson)) {
-                          state.resolvedTypes.add(toJson);
-                          state.output.add(
-                            Method(
-                              (final b) => b
-                                ..name = toJson
-                                ..returns = refer('String?')
-                                ..lambda = true
-                                ..requiredParameters.addAll([
-                                  Parameter(
-                                    (final b) => b
-                                      ..name = 'data'
-                                      ..type = refer(_makeNullable(result.name, true)),
-                                  ),
-                                ])
-                                ..body = Code(
-                                  'data == null ? null : ${result.encode(result.serialize('data'), mimeType: 'application/json')};',
-                                ),
-                            ),
-                          );
-                        }
-                      }
-
-                      arguments.addAll({
-                        'fromJson': refer(fromJson),
-                        'toJson': refer(toJson),
-                      });
-                    }
 
                     if (arguments.isNotEmpty) {
                       b.annotations.add(
@@ -1523,10 +1624,7 @@ TypeResult resolveObject(
       ),
     );
   }
-  return TypeResultObject(
-    '${state.prefix}$identifier',
-    fromContentString: fromContentString,
-  );
+  return TypeResultObject('${state.prefix}$identifier');
 }
 
 TypeResult resolveType(
@@ -1537,7 +1635,6 @@ TypeResult resolveType(
   final Map<String, String>? extraJsonSerializableValues,
   final Map<String, Map<String, String>>? extraJsonKeyValues,
   final bool ignoreEnum = false,
-  final bool fromContentString = false,
 }) {
   TypeResult? result;
   if (schema.ref == null && schema.ofs == null && schema.type == null) {
@@ -1551,7 +1648,6 @@ TypeResult resolveType(
       name,
       spec.components!.schemas![name]!,
       extraJsonSerializableValues: extraJsonSerializableValues,
-      fromContentString: fromContentString,
     );
   } else if (schema.ofs != null) {
     if (!state.resolvedTypes.contains('${state.prefix}$identifier')) {
@@ -1643,40 +1739,10 @@ TypeResult resolveType(
                 ),
                 Method(
                   (final b) => b
-                    ..static = true
-                    ..name = 'fromJsonString'
-                    ..lambda = true
-                    ..returns = refer('${state.prefix}$identifier')
-                    ..requiredParameters.add(
-                      Parameter(
-                        (final b) => b
-                          ..name = 'data'
-                          ..type = refer('String'),
-                      ),
-                    )
-                    ..body = const Code('serializers.fromJson(serializer, data)!'),
-                ),
-                Method(
-                  (final b) => b
                     ..name = 'toJson'
                     ..returns = refer('Map<String, dynamic>')
                     ..lambda = true
                     ..body = const Code('serializers.serializeWith(serializer, this)! as Map<String, dynamic>'),
-                ),
-                Method(
-                  (final b) => b
-                    ..name = 'toJsonString'
-                    ..returns = refer('String?')
-                    ..lambda = true
-                    ..static = true
-                    ..requiredParameters.add(
-                      Parameter(
-                        (final b) => b
-                          ..name = 'data'
-                          ..type = refer(_makeNullable('${state.prefix}$identifier', true)),
-                      ),
-                    )
-                    ..body = const Code('data == null ? null : serializers.toJson(serializer, data)'),
                 ),
                 Method(
                   (final b) => b
@@ -1825,6 +1891,18 @@ TypeResult resolveType(
     }
 
     result = TypeResultObject('${state.prefix}$identifier');
+  } else if (schema.isContentString) {
+    result = resolveType(
+      spec,
+      state,
+      identifier,
+      schema.contentSchema!,
+    );
+    //state.hasContentString = true;
+
+    //result = TypeResultObject('ContentString<${result.name}>');
+    print("Current ContentString support is limited and won't be decoded automatically. "
+        'See https://github.com/provokateurin/nextcloud-neon/issues/281 for further information.');
   } else {
     switch (schema.type) {
       case 'boolean':
@@ -1843,18 +1921,6 @@ TypeResult resolveType(
             break;
         }
 
-        if (schema.isContentString) {
-          result = resolveType(
-            spec,
-            state,
-            identifier,
-            schema.contentSchema!,
-            extraJsonSerializableValues: extraJsonSerializableValues,
-            fromContentString: true,
-          );
-          break;
-        }
-
         result = TypeResultBase('String');
         break;
       case 'array':
@@ -1869,7 +1935,6 @@ TypeResult resolveType(
           result = TypeResultList(
             'BuiltList<${subResult.name}>',
             subResult,
-            fromContentString: fromContentString,
           );
         } else {
           result = TypeResultList(
@@ -1919,7 +1984,6 @@ TypeResult resolveType(
           schema,
           extraJsonSerializableValues: extraJsonSerializableValues,
           extraJsonKeyValues: extraJsonKeyValues,
-          fromContentString: fromContentString,
         );
         break;
     }
