@@ -4,7 +4,7 @@ class TypeResultObject extends TypeResult {
   TypeResultObject(
     super.name, {
     this.fromContentString = false,
-  });
+  }) : assert(name != 'JsonObject' && name != 'Object' && name != 'dynamic', 'Use TypeResultBase instead');
 
   final bool fromContentString;
 
@@ -33,11 +33,11 @@ class TypeResultObject extends TypeResult {
   }
 
   @override
-  String deserialize(final String object) {
+  String deserialize(final String object, {final bool toBuilder = false}) {
     if (fromContentString) {
-      return '$name.fromJsonString($object as String)';
+      return '$name.fromJsonString($object as String)${toBuilder ? '.toBuilder()' : ''}';
     }
-    return '$name.fromJson($object as Map<String, dynamic>)';
+    return '$name.fromJson($object as Map<String, dynamic>)${toBuilder ? '.toBuilder()' : ''}';
   }
 
   @override

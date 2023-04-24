@@ -28,7 +28,8 @@ class TypeResultMap extends TypeResult {
   }
 
   @override
-  String deserialize(final String object) => '($object as Map<String, ${subType.name}>)';
+  String deserialize(final String object, {final bool toBuilder = false}) =>
+      '($object as BuiltMap<String, ${subType.name}>)${toBuilder ? '.toBuilder()' : ''}';
 
   @override
   String decode(final String object) => 'json.decode($object as String)';
