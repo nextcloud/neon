@@ -1,7 +1,14 @@
 part of '../../neon.dart';
 
-Future<AppLocalizations> appLocalizationsFromSystem() async {
-  final parts =
-      (await findSystemLocale()).split('_').map((final a) => a.split('.')).reduce((final a, final b) => [...a, ...b]);
-  return AppLocalizations.delegate.load(Locale(parts[0], parts.length > 1 ? parts[1] : null));
+/// Loads the [AppLocalizations] for the system [Locale].
+///
+/// When the system locale is not supported [fallbackLocale] will be used.
+Future<AppLocalizations> appLocalizationsFromSystem([final Locale fallbackLocale = const Locale('en', 'US')]) async {
+  final systemLocale = await findSystemLocale();
+  final parts = systemLocale.split('_').map((final a) => a.split('.')).reduce((final a, final b) => [...a, ...b]);
+  final locale = Locale(parts[0], parts.length > 1 ? parts[1] : null);
+
+  final isSupported = AppLocalizations.delegate.isSupported(locale);
+
+  return AppLocalizations.delegate.load(isSupported ? locale : fallbackLocale);
 }
