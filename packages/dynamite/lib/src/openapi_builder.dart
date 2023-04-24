@@ -65,6 +65,8 @@ class OpenAPIBuilder implements Builder {
         '',
         "import 'package:built_collection/built_collection.dart';",
         "import 'package:built_value/built_value.dart';",
+        "import 'package:built_value/serializer.dart';",
+        "import 'package:built_value/standard_json_plugin.dart';",
         "import 'package:cookie_jar/cookie_jar.dart';",
         "import 'package:universal_io/io.dart';",
         '',
@@ -1031,24 +1033,17 @@ class OpenAPIBuilder implements Builder {
 
       if (state.registeredJsonObjects.isNotEmpty) {
         output.addAll([
+          '@SerializersFor(const [',
+          for (final name in state.registeredJsonObjects) ...[
+            '$name,',
+          ],
+          '])',
+          r'final Serializers serializers = (_$serializers.toBuilder()..addPlugin(StandardJsonPlugin())).build();',
+          '',
           '// coverage:ignore-start',
-          'final _deserializers = <Type, dynamic Function(dynamic)>{',
-          for (final name in state.registeredJsonObjects) ...[
-            '$name: (final data) => ${TypeResultObject(name).deserialize('data')},',
-            'List<$name>: (final data) => ${TypeResultList('List<$name>', TypeResultObject(name)).deserialize('data')},',
-          ],
-          '};',
+          'T deserialize$prefix<T>(final Object data) => serializers.deserialize(data, specifiedType: FullType(T))! as T;',
           '',
-          'final _serializers = <Type, dynamic Function(dynamic)>{',
-          for (final name in state.registeredJsonObjects) ...[
-            '$name: (final data) => ${TypeResultObject(name).serialize('data')},',
-            'List<$name>: (final data) => ${TypeResultList('List<$name>', TypeResultObject(name)).serialize('data')},',
-          ],
-          '};',
-          '',
-          'T deserialize$prefix<T>(final dynamic data) => _deserializers[T]!(data) as T;',
-          '',
-          'dynamic serialize$prefix<T>(final T data) => _serializers[T]!(data);',
+          'Object? serialize$prefix<T>(final T data) => serializers.serialize(data, specifiedType: FullType(T));',
           '// coverage:ignore-end',
         ]);
       }
