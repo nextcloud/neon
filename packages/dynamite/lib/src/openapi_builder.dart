@@ -1312,7 +1312,7 @@ TypeResult resolveObject(
                     Parameter(
                       (final b) => b
                         ..name = 'json'
-                        ..type = refer('Map<String, dynamic>'),
+                        ..type = refer('Object'),
                     ),
                   )
                   ..body = const Code('serializers.deserializeWith(serializer, json)!'),
@@ -1520,174 +1520,261 @@ TypeResult resolveType(
             ),
           )
           .toList();
-      state.output.add(
+
+      final fields = <String, String>{};
+      for (final result in results) {
+        final dartName = _toDartName(result.name.replaceFirst(state.prefix, ''));
+        fields[result.name] = _toFieldName(dartName, result.name.replaceFirst(state.prefix, ''));
+      }
+
+      state.output.addAll([
         Class(
           (final b) {
-            final fields = <String, String>{};
-            for (final result in results) {
-              final dartName = _toDartName(result.name.replaceFirst(state.prefix, ''));
-              fields[result.name] = _toFieldName(dartName, result.name.replaceFirst(state.prefix, ''));
-            }
-
             b
               ..name = '${state.prefix}$identifier'
-              ..fields.addAll([
-                Field(
-                  (final b) {
-                    b
-                      ..name = '_data'
-                      ..type = refer('dynamic')
-                      ..modifier = FieldModifier.final$;
-                  },
+              ..abstract = true
+              ..implements.add(
+                refer(
+                  'Built<${state.prefix}$identifier, ${state.prefix}${identifier}Builder>',
                 ),
-                for (final result in results) ...[
-                  Field(
-                    (final b) {
-                      final s = schema.ofs![results.indexOf(result)];
-                      b
-                        ..name = fields[result.name]
-                        ..type = refer(_makeNullable(result.name, !(schema.allOf?.contains(s) ?? false)))
-                        ..modifier = FieldModifier.final$
-                        ..docs.addAll(_descriptionToDocs(s.description));
-                    },
-                  ),
-                ],
-              ])
+              )
               ..constructors.addAll([
                 Constructor(
                   (final b) => b
-                    ..requiredParameters.add(
+                    ..name = '_'
+                    ..constant = true,
+                ),
+                Constructor(
+                  (final b) => b
+                    ..factory = true
+                    ..lambda = true
+                    ..optionalParameters.add(
                       Parameter(
                         (final b) => b
-                          ..name = '_data'
-                          ..toThis = true,
+                          ..name = 'b'
+                          ..type = refer('void Function(${state.prefix}${identifier}Builder)?'),
                       ),
                     )
-                    ..optionalParameters.addAll([
-                      for (final result in results) ...[
-                        Parameter(
-                          (final b) => b
-                            ..name = fields[result.name]!
-                            ..toThis = true
-                            ..named = true
-                            ..required = schema.allOf != null,
-                        ),
-                      ],
-                    ]),
-                ),
-                Constructor(
-                  (final b) {
-                    b
-                      ..factory = true
-                      ..name = 'fromJson'
-                      ..requiredParameters.add(
-                        Parameter(
-                          (final b) => b
-                            ..name = 'data'
-                            ..type = refer('dynamic'),
-                        ),
-                      )
-                      ..body = Code(
-                        <String>[
-                          if (schema.allOf != null) ...[
-                            'return ${state.prefix}$identifier(',
-                            'data,',
-                            for (final result in results) ...[
-                              '${fields[result.name]!}: ${result.deserialize('data')},',
-                            ],
-                            ');',
-                          ] else ...[
-                            for (final result in results) ...[
-                              '${_makeNullable(result.name, true)} ${fields[result.name]!};',
-                            ],
-                            for (final result in results) ...[
-                              if (schema.discriminator != null) ...[
-                                "if (data['${schema.discriminator!.propertyName}'] == '${result.name.replaceFirst(state.prefix, '')}'",
-                                if (schema.discriminator!.mapping != null &&
-                                    schema.discriminator!.mapping!.isNotEmpty) ...[
-                                  for (final key in schema.discriminator!.mapping!.entries
-                                      .where(
-                                        (final entry) =>
-                                            entry.value.endsWith('/${result.name.replaceFirst(state.prefix, '')}'),
-                                      )
-                                      .map((final entry) => entry.key)) ...[
-                                    " ||  data['${schema.discriminator!.propertyName}'] == '$key'",
-                                  ],
-                                ],
-                                ') {',
-                              ],
-                              'try {',
-                              '${fields[result.name]!} = ${result.deserialize('data')};',
-                              '} catch (_) {',
-                              if (schema.discriminator != null) ...[
-                                'rethrow;',
-                              ],
-                              '}',
-                              if (schema.discriminator != null) ...[
-                                '}',
-                              ],
-                            ],
-                            if (schema.oneOf != null) ...[
-                              "assert([${fields.values.join(',')}].where((final x) => x != null).length >= 1, 'Need oneOf for \$data');",
-                            ],
-                            if (schema.anyOf != null) ...[
-                              "assert([${fields.values.join(',')}].where((final x) => x != null).length >= 1,  'Need anyOf for \$data');",
-                            ],
-                            'return ${state.prefix}$identifier(',
-                            'data,',
-                            for (final result in results) ...[
-                              '${fields[result.name]!}: ${fields[result.name]!},',
-                            ],
-                            ');',
-                          ],
-                        ].join(),
-                      );
-                  },
-                ),
-                Constructor(
-                  (final b) {
-                    b
-                      ..factory = true
-                      ..lambda = true
-                      ..name = 'fromJsonString'
-                      ..requiredParameters.add(
-                        Parameter(
-                          (final b) => b
-                            ..name = 'data'
-                            ..type = refer('String'),
-                        ),
-                      )
-                      ..body = Code('${state.prefix}$identifier.fromJson(json.decode(data))');
-                  },
+                    ..redirect = refer('_\$${state.prefix}$identifier'),
                 ),
               ])
               ..methods.addAll([
                 Method(
+                  (final b) {
+                    b
+                      ..name = 'data'
+                      ..returns = refer('JsonObject')
+                      ..type = MethodType.getter;
+                  },
+                ),
+                for (final result in results) ...[
+                  Method(
+                    (final b) {
+                      final s = schema.ofs![results.indexOf(result)];
+                      b
+                        ..name = fields[result.name]
+                        ..returns = refer(_makeNullable(result.name, !(schema.allOf?.contains(s) ?? false)))
+                        ..type = MethodType.getter
+                        ..docs.addAll(_descriptionToDocs(s.description));
+                    },
+                  ),
+                ],
+                Method(
+                  (final b) => b
+                    ..static = true
+                    ..name = 'fromJson'
+                    ..lambda = true
+                    ..returns = refer('${state.prefix}$identifier')
+                    ..requiredParameters.add(
+                      Parameter(
+                        (final b) => b
+                          ..name = 'json'
+                          ..type = refer('Object'),
+                      ),
+                    )
+                    ..body = const Code('serializers.deserializeWith(serializer, json)!'),
+                ),
+                Method(
+                  (final b) => b
+                    ..static = true
+                    ..name = 'fromJsonString'
+                    ..lambda = true
+                    ..returns = refer('${state.prefix}$identifier')
+                    ..requiredParameters.add(
+                      Parameter(
+                        (final b) => b
+                          ..name = 'data'
+                          ..type = refer('String'),
+                      ),
+                    )
+                    ..body = const Code('serializers.fromJson(serializer, data)!'),
+                ),
+                Method(
                   (final b) => b
                     ..name = 'toJson'
-                    ..returns = refer('dynamic')
+                    ..returns = refer('Map<String, dynamic>')
                     ..lambda = true
-                    ..body = const Code('_data'),
+                    ..body = const Code('serializers.serializeWith(serializer, this)! as Map<String, dynamic>'),
                 ),
                 Method(
                   (final b) => b
                     ..name = 'toJsonString'
-                    ..returns = refer('String')
+                    ..returns = refer('String?')
                     ..lambda = true
                     ..static = true
                     ..requiredParameters.add(
                       Parameter(
                         (final b) => b
                           ..name = 'data'
-                          ..type = refer('dynamic'),
+                          ..type = refer(_makeNullable('${state.prefix}$identifier', true)),
                       ),
                     )
-                    ..body = const Code('json.encode(data)'),
+                    ..body = const Code('data == null ? null : serializers.toJson(serializer, data)'),
+                ),
+                Method(
+                  (final b) => b
+                    ..name = 'serializer'
+                    ..returns = refer('Serializer<${state.prefix}$identifier>')
+                    ..lambda = true
+                    ..static = true
+                    ..annotations.add(refer('BuiltValueSerializer').call([], {'custom': refer('true')}))
+                    ..body = Code('_\$${state.prefix}${identifier}Serializer()')
+                    ..type = MethodType.getter,
                 ),
               ]);
           },
         ),
-      );
+        Class(
+          (final b) => b
+            ..name = '_\$${state.prefix}${identifier}Serializer'
+            ..implements.add(refer('PrimitiveSerializer<${state.prefix}$identifier>'))
+            ..fields.addAll([
+              Field(
+                (final b) => b
+                  ..name = 'types'
+                  ..modifier = FieldModifier.final$
+                  ..type = refer('Iterable<Type>')
+                  ..annotations.add(refer('override'))
+                  ..assignment = Code('const [${state.prefix}$identifier, _\$${state.prefix}$identifier]'),
+              ),
+              Field(
+                (final b) => b
+                  ..name = 'wireName'
+                  ..modifier = FieldModifier.final$
+                  ..type = refer('String')
+                  ..annotations.add(refer('override'))
+                  ..assignment = Code("r'${state.prefix}$identifier'"),
+              )
+            ])
+            ..methods.addAll([
+              Method((final b) {
+                b
+                  ..name = 'serialize'
+                  ..returns = refer('Object')
+                  ..annotations.add(refer('override'))
+                  ..requiredParameters.addAll([
+                    Parameter(
+                      (final b) => b
+                        ..name = 'serializers'
+                        ..type = refer('Serializers'),
+                    ),
+                    Parameter(
+                      (final b) => b
+                        ..name = 'object'
+                        ..type = refer('${state.prefix}$identifier'),
+                    ),
+                  ])
+                  ..optionalParameters.add(
+                    Parameter(
+                      (final b) => b
+                        ..name = 'specifiedType'
+                        ..type = refer('FullType')
+                        ..named = true
+                        ..defaultTo = const Code('FullType.unspecified'),
+                    ),
+                  )
+                  ..body = const Code('return object.data.value;');
+              }),
+              Method((final b) {
+                b
+                  ..name = 'deserialize'
+                  ..returns = refer('${state.prefix}$identifier')
+                  ..annotations.add(refer('override'))
+                  ..requiredParameters.addAll([
+                    Parameter(
+                      (final b) => b
+                        ..name = 'serializers'
+                        ..type = refer('Serializers'),
+                    ),
+                    Parameter(
+                      (final b) => b
+                        ..name = 'data'
+                        ..type = refer('Object'),
+                    ),
+                  ])
+                  ..optionalParameters.add(
+                    Parameter(
+                      (final b) => b
+                        ..name = 'specifiedType'
+                        ..type = refer('FullType')
+                        ..named = true
+                        ..defaultTo = const Code('FullType.unspecified'),
+                    ),
+                  )
+                  ..body = Code(
+                    <String>[
+                      'final result = new ${state.prefix}${identifier}Builder()',
+                      '..data = JsonObject(data);',
+                      if (schema.allOf != null) ...[
+                        for (final result in results) ...[
+                          'result.${fields[result.name]!} = ${result.deserialize('data', toBuilder: true)};',
+                        ],
+                      ] else ...[
+                        if (schema.discriminator != null) ...[
+                          'if (data is! Map<String, dynamic>) {',
+                          "throw StateError('discriminator is only supported for serializing Json like data.');",
+                          '}',
+                        ],
+                        for (final result in results) ...[
+                          if (schema.discriminator != null) ...[
+                            "if (data['${schema.discriminator!.propertyName}'] == '${result.name.replaceFirst(state.prefix, '')}'",
+                            if (schema.discriminator!.mapping != null && schema.discriminator!.mapping!.isNotEmpty) ...[
+                              for (final key in schema.discriminator!.mapping!.entries
+                                  .where(
+                                    (final entry) =>
+                                        entry.value.endsWith('/${result.name.replaceFirst(state.prefix, '')}'),
+                                  )
+                                  .map((final entry) => entry.key)) ...[
+                                " ||  data['${schema.discriminator!.propertyName}'] == '$key'",
+                              ],
+                              ') {',
+                            ],
+                          ],
+                          'try {',
+                          'result.${fields[result.name]!} = ${result.deserialize('data', toBuilder: true)};',
+                          '} catch (_) {',
+                          if (schema.discriminator != null) ...[
+                            'rethrow;',
+                          ],
+                          '}',
+                          if (schema.discriminator != null) ...[
+                            '}',
+                          ],
+                        ],
+                        if (schema.oneOf != null) ...[
+                          "assert([${fields.values.map((final e) => 'result._$e').join(',')}].where((final x) => x != null).length >= 1, 'Need oneOf for \${result._data}');",
+                        ],
+                        if (schema.anyOf != null) ...[
+                          "assert([${fields.values.map((final e) => 'result._$e').join(',')}].where((final x) => x != null).length >= 1, 'Need anyOf for \${result._data}');",
+                        ],
+                      ],
+                      'return result.build();',
+                    ].join(),
+                  );
+              }),
+            ]),
+        ),
+      ]);
     }
 
     result = TypeResultObject('${state.prefix}$identifier');
