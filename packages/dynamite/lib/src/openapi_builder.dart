@@ -892,22 +892,10 @@ class OpenAPIBuilder implements Builder {
                                 String? headersType;
                                 String? headersValue;
                                 if (response.headers != null) {
+                                  print('Current Header support is limited and decoding might not work automatically. '
+                                      'See https://github.com/provokateurin/nextcloud-neon/issues/281 for further information.');
                                   final identifier =
                                       '${tag != null ? _toDartName(tag, uppercaseFirstCharacter: true) : null}${_toDartName(operationId, uppercaseFirstCharacter: true)}Headers';
-                                  final headerParseFunctions = <String, String>{};
-                                  for (final headerName in response.headers!.keys) {
-                                    final functionIdentifier = '_${_toDartName('${identifier}Parse$headerName')}';
-                                    headerParseFunctions[headerName] = functionIdentifier;
-                                    final result = resolveType(
-                                      spec,
-                                      state,
-                                      identifier,
-                                      response.headers![headerName]!.schema!,
-                                    );
-                                    output.add(
-                                      '${result.name} $functionIdentifier(final Map data, final String key) => ${result.deserialize(result.decode('data[key]'))};',
-                                    );
-                                  }
                                   final result = resolveType(
                                     spec,
                                     state,
@@ -920,13 +908,6 @@ class OpenAPIBuilder implements Builder {
                                         },
                                       },
                                     ),
-                                    extraJsonKeyValues: {
-                                      for (final headerName in response.headers!.keys) ...{
-                                        headerName.toLowerCase(): {
-                                          'readValue': headerParseFunctions[headerName]!,
-                                        },
-                                      },
-                                    },
                                   );
                                   headersType = result.name;
                                   headersValue = result.deserialize('response.headers');
@@ -1449,9 +1430,8 @@ TypeResult resolveObject(
   final OpenAPI spec,
   final State state,
   final String identifier,
-  final Schema schema, {
-  required final Map<String, Map<String, String>>? extraJsonKeyValues,
-}) {
+  final Schema schema,
+) {
   if (!state.resolvedTypes.contains('${state.prefix}$identifier')) {
     state.resolvedTypes.add('${state.prefix}$identifier');
     state.registeredJsonObjects.add('${state.prefix}$identifier');
@@ -1535,24 +1515,12 @@ TypeResult resolveObject(
                       )
                       ..type = MethodType.getter
                       ..docs.addAll(_descriptionToDocs(propertySchema.description));
-                    final hasDifferentName = _toDartName(propertyName) != propertyName;
-                    final hasExtraJsonKeyValues =
-                        extraJsonKeyValues != null && extraJsonKeyValues.containsKey(propertyName);
 
-                    final arguments = <String, Expression>{
-                      if (hasDifferentName) ...{
-                        'wireName': literalString(propertyName),
-                      },
-                      if (hasExtraJsonKeyValues) ...{
-                        for (final key in extraJsonKeyValues[propertyName]!.keys) ...{
-                          key: refer(extraJsonKeyValues[propertyName]![key]!),
-                        },
-                      },
-                    };
-
-                    if (arguments.isNotEmpty) {
+                    if (_toDartName(propertyName) != propertyName) {
                       b.annotations.add(
-                        refer('BuiltValueField').call([], arguments),
+                        refer('BuiltValueField').call([], {
+                          'wireName': literalString(propertyName),
+                        }),
                       );
                     }
                   },
@@ -1627,7 +1595,6 @@ TypeResult resolveType(
   final State state,
   final String identifier,
   final Schema schema, {
-  final Map<String, Map<String, String>>? extraJsonKeyValues,
   final bool ignoreEnum = false,
 }) {
   TypeResult? result;
@@ -1972,7 +1939,6 @@ TypeResult resolveType(
           state,
           identifier,
           schema,
-          extraJsonKeyValues: extraJsonKeyValues,
         );
         break;
     }
