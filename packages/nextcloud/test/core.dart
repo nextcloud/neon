@@ -1,3 +1,4 @@
+import 'package:built_collection/built_collection.dart';
 import 'package:nextcloud/nextcloud.dart';
 import 'package:test/test.dart';
 
@@ -67,10 +68,10 @@ Future run(final DockerImage image) async {
         search: '',
         itemType: 'call',
         itemId: 'new',
-        shareTypes: [
+        shareTypes: BuiltList([
           ShareType.user.code,
           ShareType.group.code,
-        ],
+        ]),
       );
       expect(response.ocs.data, hasLength(3));
 
