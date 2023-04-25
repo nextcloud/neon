@@ -29,9 +29,7 @@ class NeonListView<T> extends StatelessWidget {
         onRefresh: onRefresh,
         child: Column(
           children: [
-            if (topFixedChildren != null) ...[
-              ...topFixedChildren!,
-            ],
+            ...?topFixedChildren,
             NeonLinearProgressIndicator(
               margin: const EdgeInsets.symmetric(
                 horizontal: 10,
@@ -47,9 +45,7 @@ class NeonListView<T> extends StatelessWidget {
                   key: scrollKey != null ? PageStorageKey<String>(scrollKey!) : null,
                   padding: withFloatingActionButton ? const EdgeInsets.only(bottom: 88) : null,
                   children: [
-                    if (topScrollingChildren != null) ...[
-                      ...topScrollingChildren!,
-                    ],
+                    ...?topScrollingChildren,
                     NeonException(
                       error,
                       onRetry: onRefresh,

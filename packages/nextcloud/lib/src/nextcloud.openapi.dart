@@ -106,9 +106,7 @@ class NextcloudClient {
     this.authentications = const [],
   }) {
     this.baseHeaders = {
-      if (baseHeaders != null) ...{
-        ...baseHeaders,
-      },
+      ...?baseHeaders,
     };
     this.httpClient = (httpClient ?? HttpClient())..userAgent = userAgent;
   }
