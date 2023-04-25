@@ -33,9 +33,7 @@ class OpenAPIBuilder implements Builder {
         if (spec.paths != null) ...{
           for (final pathItem in spec.paths!.values) ...{
             for (final operation in pathItem.operations.values) ...{
-              if (operation.tags != null) ...{
-                ...operation.tags!,
-              },
+              ...?operation.tags,
             },
           },
         },
@@ -518,9 +516,7 @@ class OpenAPIBuilder implements Builder {
                         ])
                         ..body = const Code('''
                         this.baseHeaders = {
-                          if (baseHeaders != null) ...{
-                            ...baseHeaders,
-                          },
+                          ...?baseHeaders,
                         };
                         this.httpClient = (httpClient ?? HttpClient())..userAgent = userAgent;
                       '''),
@@ -670,12 +666,7 @@ class OpenAPIBuilder implements Builder {
 
                             final acceptHeader = operation.responses?.values
                                 .map((final response) => response.content?.keys)
-                                .reduce(
-                                  (final a, final b) => [
-                                    ...a ?? [],
-                                    ...b ?? [],
-                                  ],
-                                )
+                                .reduce((final a, final b) => [...?a, ...?b])
                                 ?.toSet()
                                 .join(',');
                             final code = StringBuffer('''
