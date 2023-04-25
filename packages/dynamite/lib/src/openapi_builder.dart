@@ -1802,13 +1802,26 @@ TypeResult resolveType(
                         ],
                       ] else ...[
                         if (schema.discriminator != null) ...[
-                          'if (data is! Map<String, dynamic>) {',
-                          "throw StateError('discriminator is only supported for serializing Json like data.');",
+                          'if (data is! Iterable) {',
+                          r"throw StateError('Expected an Iterable but got ${data.runtimeType}');",
+                          '}',
+                          '',
+                          'String? discriminator;',
+                          '',
+                          'final iterator = data.iterator;',
+                          'while (iterator.moveNext()) {',
+                          'final key = iterator.current! as String;',
+                          'iterator.moveNext();',
+                          'final Object? value = iterator.current;',
+                          "if (key == '${schema.discriminator!.propertyName}') {",
+                          'discriminator = value! as String;',
+                          'break;',
+                          '}',
                           '}',
                         ],
                         for (final result in results) ...[
                           if (schema.discriminator != null) ...[
-                            "if (data['${schema.discriminator!.propertyName}'] == '${result.name.replaceFirst(state.prefix, '')}'",
+                            "if (discriminator == '${result.name.replaceFirst(state.prefix, '')}'",
                             if (schema.discriminator!.mapping != null && schema.discriminator!.mapping!.isNotEmpty) ...[
                               for (final key in schema.discriminator!.mapping!.entries
                                   .where(
@@ -1816,7 +1829,7 @@ TypeResult resolveType(
                                         entry.value.endsWith('/${result.name.replaceFirst(state.prefix, '')}'),
                                   )
                                   .map((final entry) => entry.key)) ...[
-                                " ||  data['${schema.discriminator!.propertyName}'] == '$key'",
+                                " ||  discriminator == '$key'",
                               ],
                               ') {',
                             ],
