@@ -644,8 +644,14 @@ class OpenAPIBuilder implements Builder {
                               if (operation.parameters != null) ...operation.parameters!,
                             ]..sort(
                                 (final a, final b) => sortRequiredElements(
-                                  (a.required ?? false) && a.schema?.default_ == null,
-                                  (b.required ?? false) && b.schema?.default_ == null,
+                                  _isDartParameterRequired(
+                                    a.required,
+                                    a.schema?.default_,
+                                  ),
+                                  _isDartParameterRequired(
+                                    b.required,
+                                    b.schema?.default_,
+                                  ),
                                 ),
                               );
                             b
@@ -706,7 +712,12 @@ class OpenAPIBuilder implements Builder {
                             }
 
                             for (final parameter in parameters) {
-                              final nullable = _isParameterNullable(
+                              final dartParameterNullable = _isDartParameterNullable(
+                                parameter.required,
+                                parameter.schema?.nullable,
+                                parameter.schema?.default_,
+                              );
+                              final dartParameterRequired = _isDartParameterRequired(
                                 parameter.required,
                                 parameter.schema?.default_,
                               );
@@ -755,12 +766,12 @@ class OpenAPIBuilder implements Builder {
                                     b
                                       ..named = true
                                       ..name = _toDartName(parameter.name)
-                                      ..required = (parameter.required ?? false) && defaultValueCode == null;
+                                      ..required = dartParameterRequired;
                                     if (parameter.schema != null) {
                                       b.type = refer(
                                         _makeNullable(
                                           result.name,
-                                          nullable,
+                                          dartParameterNullable,
                                         ),
                                       );
                                     }
@@ -771,7 +782,7 @@ class OpenAPIBuilder implements Builder {
                                 ),
                               );
 
-                              if (nullable) {
+                              if (dartParameterNullable) {
                                 code.write('if (${_toDartName(parameter.name)} != null) {');
                               }
                               final isPlainList = result is TypeResultList && !result.fromContentString;
@@ -806,7 +817,7 @@ class OpenAPIBuilder implements Builder {
                               if (defaultValueCode != null && parameter.in_ == 'query') {
                                 code.write('}');
                               }
-                              if (nullable) {
+                              if (dartParameterNullable) {
                                 code.write('}');
                               }
                             }
@@ -830,7 +841,12 @@ class OpenAPIBuilder implements Builder {
                                 switch (mimeType) {
                                   case 'application/json':
                                   case 'application/x-www-form-urlencoded':
-                                    final nullable = _isParameterNullable(
+                                    final dartParameterNullable = _isDartParameterNullable(
+                                      operation.requestBody!.required,
+                                      mediaType.schema?.nullable,
+                                      mediaType.schema?.default_,
+                                    );
+                                    final dartParameterRequired = _isDartParameterRequired(
                                       operation.requestBody!.required,
                                       mediaType.schema?.default_,
                                     );
@@ -838,19 +854,19 @@ class OpenAPIBuilder implements Builder {
                                       Parameter(
                                         (final b) => b
                                           ..name = parameterName
-                                          ..type = refer(_makeNullable(result.name, nullable))
+                                          ..type = refer(_makeNullable(result.name, dartParameterNullable))
                                           ..named = true
-                                          ..required = operation.requestBody!.required ?? false,
+                                          ..required = dartParameterRequired,
                                       ),
                                     );
 
-                                    if (nullable) {
+                                    if (dartParameterNullable) {
                                       code.write('if ($parameterName != null) {');
                                     }
                                     code.write(
                                       'body = Uint8List.fromList(utf8.encode(${result.encode(result.serialize(parameterName), mimeType: mimeType)}));',
                                     );
-                                    if (nullable) {
+                                    if (dartParameterNullable) {
                                       code.write('}');
                                     }
                                     break;
@@ -1180,7 +1196,18 @@ String _makeNullable(final String type, final bool nullable) => nullable && type
 
 String _toFieldName(final String dartName, final String type) => dartName == type ? '\$$dartName' : dartName;
 
-bool _isParameterNullable(final bool? required, final dynamic default_) => !(required ?? false) && default_ == null;
+bool _isDartParameterNullable(
+  final bool? required,
+  final bool? nullable,
+  final dynamic default_,
+) =>
+    (!(required ?? false) && default_ == null) || (nullable ?? false);
+
+bool _isDartParameterRequired(
+  final bool? required,
+  final dynamic default_,
+) =>
+    (required ?? false) && default_ == null;
 
 String _valueToEscapedValue(final TypeResult result, final dynamic value) {
   if (result is TypeResultBase && result.name == 'String') {
@@ -1242,8 +1269,14 @@ TypeResult resolveObject(
           final sortedParameterKeys = schema.properties!.keys.toList()
             ..sort(
               (final a, final b) => sortRequiredElements(
-                (schema.required ?? []).contains(a) && schema.properties![a]!.default_ == null,
-                (schema.required ?? []).contains(b) && schema.properties![b]!.default_ == null,
+                _isDartParameterRequired(
+                  schema.required?.contains(a),
+                  schema.properties![a]!.default_,
+                ),
+                _isDartParameterRequired(
+                  schema.required?.contains(b),
+                  schema.properties![b]!.default_,
+                ),
               ),
             );
           b
@@ -1277,8 +1310,10 @@ TypeResult resolveObject(
                               ..name = _toDartName(propertyName)
                               ..toThis = true
                               ..named = true
-                              ..required =
-                                  (schema.required ?? []).contains(propertyName) && propertySchema.default_ == null;
+                              ..required = _isDartParameterRequired(
+                                schema.required?.contains(propertyName),
+                                propertySchema.default_,
+                              );
                             if (propertySchema.default_ != null) {
                               final value = propertySchema.default_!.toString();
                               final result = resolveType(
@@ -1366,7 +1401,11 @@ TypeResult resolveObject(
                       ..type = refer(
                         _makeNullable(
                           result.name,
-                          !(schema.required ?? []).contains(propertyName),
+                          _isDartParameterNullable(
+                            schema.required?.contains(propertyName),
+                            propertySchema.nullable,
+                            propertySchema.default_,
+                          ),
                         ),
                       )
                       ..modifier = FieldModifier.final$
@@ -1580,7 +1619,7 @@ TypeResult resolveType(
                             ');',
                           ] else ...[
                             for (final result in results) ...[
-                              '${result.name}? ${fields[result.name]!};',
+                              '${_makeNullable(result.name, true)} ${fields[result.name]!};',
                             ],
                             for (final result in results) ...[
                               if (schema.discriminator != null) ...[
@@ -1703,9 +1742,7 @@ TypeResult resolveType(
           break;
         }
 
-        result = TypeResultBase(
-          'String',
-        );
+        result = TypeResultBase('String');
         break;
       case 'array':
         if (schema.items != null) {
@@ -1869,7 +1906,10 @@ TypeResult resolveType(
           ),
         );
       }
-      result = TypeResultEnum('${state.prefix}$identifier', result);
+      result = TypeResultEnum(
+        '${state.prefix}$identifier',
+        result,
+      );
     }
 
     return result;

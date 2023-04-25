@@ -29,7 +29,8 @@ Schema _$SchemaFromJson(Map<String, dynamic> json) {
       'discriminator',
       'pattern',
       'minLength',
-      'maxLength'
+      'maxLength',
+      'nullable'
     ],
   );
   return Schema(
@@ -57,6 +58,7 @@ Schema _$SchemaFromJson(Map<String, dynamic> json) {
     pattern: json['pattern'] as String?,
     minLength: json['minLength'] as int?,
     maxLength: json['maxLength'] as int?,
+    nullable: json['nullable'] as bool?,
   );
 }
 
@@ -89,5 +91,6 @@ Map<String, dynamic> _$SchemaToJson(Schema instance) {
   writeNotNull('pattern', instance.pattern);
   writeNotNull('minLength', instance.minLength);
   writeNotNull('maxLength', instance.maxLength);
+  writeNotNull('nullable', instance.nullable);
   return val;
 }
