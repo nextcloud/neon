@@ -26,6 +26,7 @@ class Schema {
     this.pattern,
     this.minLength,
     this.maxLength,
+    this.nullable,
   });
 
   factory Schema.fromJson(final Map<String, dynamic> json) => _$SchemaFromJson(json);
@@ -78,6 +79,8 @@ class Schema {
   final int? minLength;
 
   final int? maxLength;
+
+  final bool? nullable;
 
   bool get isContentString => type == 'string' && (contentMediaType?.isNotEmpty ?? false) && contentSchema != null;
 }
