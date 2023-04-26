@@ -97,6 +97,15 @@ class AccountsBloc extends Bloc implements AccountsBlocEvents, AccountsBlocState
     if (aa != null && aa.id == account.id) {
       setActiveAccount(as.isNotEmpty ? as[0] : null);
     }
+
+    unawaited(() async {
+      try {
+        await account.client.core.deleteAppPassword();
+      } catch (e, s) {
+        debugPrint(e.toString());
+        debugPrint(s.toString());
+      }
+    }());
   }
 
   @override
