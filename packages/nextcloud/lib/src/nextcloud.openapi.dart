@@ -433,6 +433,30 @@ class NextcloudCoreClient {
     }
     throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
   }
+
+  Future<dynamic> deleteAppPassword() async {
+    const path = '/ocs/v2.php/core/apppassword';
+    final queryParameters = <String, dynamic>{};
+    final headers = <String, String>{
+      'Accept': 'application/json',
+    };
+    Uint8List? body;
+    if (rootClient.authentications.map((final a) => a.id).contains('basic_auth')) {
+      headers.addAll(rootClient.authentications.singleWhere((final a) => a.id == 'basic_auth').headers);
+    } else {
+      throw Exception('Missing authentication for basic_auth');
+    }
+    final response = await rootClient.doRequest(
+      'delete',
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
+      headers,
+      body,
+    );
+    if (response.statusCode == 200) {
+      return;
+    }
+    throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
+  }
 }
 
 class NextcloudNewsClient {

@@ -1318,6 +1318,26 @@
           }
         }
       }
+    },
+    "/ocs/v2.php/core/apppassword": {
+      "delete": {
+        "tags": [
+          "core"
+        ],
+        "operationId": "delete-app-password",
+        "responses": {
+          "200": {
+            "description": "App password deleted successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
     }
   }
 }
