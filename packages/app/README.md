@@ -3,8 +3,8 @@
 A beautiful convergent cross-platform client for Nextcloud written in Flutter.
 
 ## Install
-You can build it yourself from source now, automatic build pipelines are being set up right now.  
-The app will be published on F-Droid and the Google Playstore later. See https://github.com/provokateurin/nextcloud-neon/issues/106 for the to-do list.
+You can build it yourself from source or download it from the automatic build pipelines.  
+The app will be published on F-Droid, the Google Playstore and Flathub later on. See https://github.com/provokateurin/nextcloud-neon/issues/106 for the to-do list.
 
 ## Screenshots
 
