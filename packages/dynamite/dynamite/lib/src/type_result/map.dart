@@ -3,10 +3,10 @@ part of '../../dynamite.dart';
 class TypeResultMap extends TypeResult {
   TypeResultMap(
     super.name,
-    this.subType,
-  );
+    final TypeResult subType,
+  ) : super(generics: [TypeResultBase('String'), subType]);
 
-  final TypeResult subType;
+  TypeResult get subType => generics[1];
 
   @override
   String serialize(final String object) => object;
@@ -29,7 +29,7 @@ class TypeResultMap extends TypeResult {
 
   @override
   String deserialize(final String object, {final bool toBuilder = false}) =>
-      '($object as BuiltMap<String, ${subType.name}>)${toBuilder ? '.toBuilder()' : ''}';
+      '($object as $className<String, ${subType.name}>)${toBuilder ? '.toBuilder()' : ''}';
 
   @override
   String decode(final String object) => 'json.decode($object as String)';

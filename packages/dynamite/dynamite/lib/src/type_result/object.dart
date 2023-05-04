@@ -1,8 +1,13 @@
 part of '../../dynamite.dart';
 
 class TypeResultObject extends TypeResult {
-  TypeResultObject(super.name)
-      : assert(name != 'JsonObject' && name != 'Object' && name != 'dynamic', 'Use TypeResultBase instead');
+  TypeResultObject(
+    super.className, {
+    super.generics,
+  }) : assert(
+          className != 'JsonObject' && className != 'Object' && className != 'dynamic',
+          'Use TypeResultBase instead',
+        );
 
   @override
   String serialize(final String object) => '$object.toJson()';

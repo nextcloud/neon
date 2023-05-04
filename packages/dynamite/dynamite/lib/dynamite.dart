@@ -9,6 +9,7 @@ import 'package:dynamite/src/models/open_api.dart';
 import 'package:dynamite/src/models/parameter.dart' as spec_parameter;
 import 'package:dynamite/src/models/path_item.dart';
 import 'package:dynamite/src/models/schema.dart';
+import 'package:intersperse/intersperse.dart';
 import 'package:path/path.dart' as p;
 
 part 'src/openapi_builder.dart';

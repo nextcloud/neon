@@ -1671,7 +1671,7 @@ TypeResult resolveType(
 
     result = TypeResultObject('${state.prefix}$identifier');
   } else if (schema.isContentString) {
-    result = resolveType(
+    final subResult = resolveType(
       spec,
       state,
       identifier,
@@ -1679,7 +1679,7 @@ TypeResult resolveType(
     );
     state.hasContentString = true;
 
-    result = TypeResultObject('ContentString<${result.name}>');
+    result = TypeResultObject('ContentString', generics: [subResult]);
   } else {
     switch (schema.type) {
       case 'boolean':
@@ -1709,12 +1709,12 @@ TypeResult resolveType(
             schema.items!,
           );
           result = TypeResultList(
-            'BuiltList<${subResult.name}>',
+            'BuiltList',
             subResult,
           );
         } else {
           result = TypeResultList(
-            'BuiltList<JsonObject>',
+            'BuiltList',
             TypeResultBase('JsonObject'),
           );
         }
@@ -1724,7 +1724,7 @@ TypeResult resolveType(
           if (schema.additionalProperties != null) {
             if (schema.additionalProperties is EmptySchema) {
               result = TypeResultMap(
-                'BuiltMap<String, Object?>',
+                'BuiltMap',
                 TypeResultBase('JsonObject'),
               );
             } else {
@@ -1735,8 +1735,8 @@ TypeResult resolveType(
                 schema.additionalProperties!,
               );
               result = TypeResultMap(
-                'BuiltMap<String, ${subResult.name}>',
-                TypeResultBase('JsonObject'),
+                'BuiltMap',
+                subResult,
               );
             }
             break;
@@ -1746,7 +1746,7 @@ TypeResult resolveType(
         }
         if (schema.properties!.isEmpty) {
           result = TypeResultMap(
-            'BuiltMap<String, Object?>',
+            'BuiltMap',
             TypeResultBase('JsonObject'),
           );
           break;
