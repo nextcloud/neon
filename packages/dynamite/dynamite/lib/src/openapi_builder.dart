@@ -68,7 +68,7 @@ class OpenAPIBuilder implements Builder {
         "import 'package:built_value/serializer.dart';",
         "import 'package:built_value/standard_json_plugin.dart';",
         "import 'package:cookie_jar/cookie_jar.dart';",
-        "import 'package:dynamite/content_string.dart';",
+        "import 'package:dynamite_runtime/content_string.dart';",
         "import 'package:universal_io/io.dart';",
         '',
         "export 'package:cookie_jar/cookie_jar.dart';",
