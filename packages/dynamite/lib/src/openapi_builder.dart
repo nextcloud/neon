@@ -68,6 +68,7 @@ class OpenAPIBuilder implements Builder {
         "import 'package:built_value/serializer.dart';",
         "import 'package:built_value/standard_json_plugin.dart';",
         "import 'package:cookie_jar/cookie_jar.dart';",
+        "import 'package:dynamite/content_string.dart';",
         "import 'package:universal_io/io.dart';",
         '',
         "export 'package:cookie_jar/cookie_jar.dart';",
@@ -1015,210 +1016,17 @@ class OpenAPIBuilder implements Builder {
             '$name,',
           ],
           '])',
-          r'final Serializers serializers = (_$serializers.toBuilder()..addPlugin(StandardJsonPlugin())..addAll(const [',
+          r'final Serializers serializers = (_$serializers.toBuilder()..addPlugin(StandardJsonPlugin())',
           if (state.hasContentString) ...[
-            r'_$ContentStringSerializer()',
+            '..addPlugin(const ContentStringPlugin())',
           ],
-          '])).build();',
+          ').build();',
           '',
           '// coverage:ignore-start',
           'T deserialize$prefix<T>(final Object data) => serializers.deserialize(data, specifiedType: FullType(T))! as T;',
           '',
           'Object? serialize$prefix<T>(final T data) => serializers.serialize(data, specifiedType: FullType(T));',
           '// coverage:ignore-end',
-        ]);
-      }
-
-      if (state.hasContentString) {
-        output.addAll([
-          Class(
-            (final b) => b
-              ..name = 'ContentString'
-              ..abstract = true
-              ..types.add(refer('T'))
-              ..implements.add(
-                refer(
-                  'Built<ContentString<T>, ContentStringBuilder<T>>',
-                ),
-              )
-              ..constructors.addAll([
-                Constructor(
-                  (final b) => b
-                    ..name = '_'
-                    ..constant = true,
-                ),
-                Constructor(
-                  (final b) => b
-                    ..factory = true
-                    ..lambda = true
-                    ..optionalParameters.add(
-                      Parameter(
-                        (final b) => b
-                          ..name = 'b'
-                          ..type = refer('void Function(ContentStringBuilder<T>)?'),
-                      ),
-                    )
-                    ..redirect = refer(r'_$ContentString<T>'),
-                ),
-              ])
-              ..methods.addAll([
-                Method(
-                  (final b) => b
-                    ..name = 'content'
-                    ..returns = refer('T')
-                    ..type = MethodType.getter
-                    ..docs.addAll(_descriptionToDocs('decoded contentString')),
-                ),
-                Method(
-                  (final b) => b
-                    ..static = true
-                    ..name = 'fromJson'
-                    ..lambda = true
-                    ..returns = refer('ContentString')
-                    ..requiredParameters.add(
-                      Parameter(
-                        (final b) => b
-                          ..name = 'json'
-                          ..type = refer('Object'),
-                      ),
-                    )
-                    ..body = const Code('serializers.deserializeWith(serializer, json)!'),
-                ),
-                Method(
-                  (final b) => b
-                    ..name = 'toJson'
-                    ..returns = refer('Map<String, dynamic>')
-                    ..lambda = true
-                    ..body = const Code('serializers.serializeWith(serializer, this)! as Map<String, dynamic>'),
-                ),
-                Method(
-                  (final b) => b
-                    ..name = 'serializer'
-                    ..returns = refer('Serializer<ContentString>')
-                    ..lambda = true
-                    ..static = true
-                    ..annotations.add(refer('BuiltValueSerializer').call([], {'custom': literalTrue}))
-                    ..body = const Code(r'_$ContentStringSerializer()')
-                    ..type = MethodType.getter,
-                ),
-              ]),
-          ).accept(emitter).toString(),
-          Class(
-            (final b) => b
-              ..name = r'_$ContentStringSerializer'
-              ..implements.add(refer('PrimitiveSerializer<ContentString<Object?>>'))
-              ..constructors.add(
-                Constructor(
-                  (final b) => b..constant = true,
-                ),
-              )
-              ..fields.addAll([
-                Field(
-                  (final b) => b
-                    ..name = 'types'
-                    ..modifier = FieldModifier.final$
-                    ..type = refer('Iterable<Type>')
-                    ..annotations.add(refer('override'))
-                    ..assignment = const Code(r'const [ContentString, _$ContentString]'),
-                ),
-                Field(
-                  (final b) => b
-                    ..name = 'wireName'
-                    ..modifier = FieldModifier.final$
-                    ..type = refer('String')
-                    ..annotations.add(refer('override'))
-                    ..assignment = literalString('ContentString').code,
-                ),
-              ])
-              ..methods.addAll([
-                Method((final b) {
-                  b
-                    ..name = 'serialize'
-                    ..returns = refer('Object')
-                    ..annotations.add(refer('override'))
-                    ..requiredParameters.addAll([
-                      Parameter(
-                        (final b) => b
-                          ..name = 'serializers'
-                          ..type = refer('Serializers'),
-                      ),
-                      Parameter(
-                        (final b) => b
-                          ..name = 'object'
-                          ..type = refer('ContentString<Object?>'),
-                      ),
-                    ])
-                    ..optionalParameters.add(
-                      Parameter(
-                        (final b) => b
-                          ..name = 'specifiedType'
-                          ..type = refer('FullType')
-                          ..named = true
-                          ..defaultTo = const Code('FullType.unspecified'),
-                      ),
-                    )
-                    ..body = Block.of([
-                      const Code(
-                        'final isUnderspecified = specifiedType.isUnspecified || specifiedType.parameters.isEmpty;',
-                      ),
-                      const Code('if (!isUnderspecified) serializers.expectBuilder(specifiedType);'),
-                      const Code(
-                        'final parameterT = isUnderspecified ? FullType.object : specifiedType.parameters[0];',
-                      ),
-                      const Code(''),
-                      const Code('final result = serializers.serialize(object.content, specifiedType: parameterT);'),
-                      const Code(''),
-                      const Code(r'return json.encode("$result");'),
-                    ]);
-                }),
-                Method((final b) {
-                  b
-                    ..name = 'deserialize'
-                    ..returns = refer('ContentString<Object?>')
-                    ..annotations.add(refer('override'))
-                    ..requiredParameters.addAll([
-                      Parameter(
-                        (final b) => b
-                          ..name = 'serializers'
-                          ..type = refer('Serializers'),
-                      ),
-                      Parameter(
-                        (final b) => b
-                          ..name = 'serialized'
-                          ..type = refer('Object?'),
-                      ),
-                    ])
-                    ..optionalParameters.add(
-                      Parameter(
-                        (final b) => b
-                          ..name = 'specifiedType'
-                          ..type = refer('FullType')
-                          ..named = true
-                          ..defaultTo = const Code('FullType.unspecified'),
-                      ),
-                    )
-                    ..body = Block.of([
-                      const Code(
-                        'final isUnderspecified = specifiedType.isUnspecified || specifiedType.parameters.isEmpty;',
-                      ),
-                      const Code('if (!isUnderspecified) serializers.expectBuilder(specifiedType);'),
-                      const Code(
-                        'final parameterT = isUnderspecified ? FullType.object : specifiedType.parameters[0];',
-                      ),
-                      const Code(''),
-                      const Code(
-                        'final result = isUnderspecified? ContentStringBuilder<Object?>(): serializers.newBuilder(specifiedType) as ContentStringBuilder<Object?>;',
-                      ),
-                      const Code(''),
-                      const Code(
-                        'result.content = serializers.deserialize(json.decode(serialized as String), specifiedType: parameterT);',
-                      ),
-                      const Code(''),
-                      const Code('return result.build();'),
-                    ]);
-                }),
-              ]),
-          ).accept(emitter).toString()
         ]);
       }
 
@@ -1869,11 +1677,9 @@ TypeResult resolveType(
       identifier,
       schema.contentSchema!,
     );
-    //state.hasContentString = true;
+    state.hasContentString = true;
 
-    //result = TypeResultObject('ContentString<${result.name}>');
-    print("Current ContentString support is limited and won't be decoded automatically. "
-        'See https://github.com/provokateurin/nextcloud-neon/issues/281 for further information.');
+    result = TypeResultObject('ContentString<${result.name}>');
   } else {
     switch (schema.type) {
       case 'boolean':
