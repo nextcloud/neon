@@ -6,6 +6,7 @@ class TypeResultObject extends TypeResult {
   TypeResultObject(
     super.className, {
     super.generics,
+    super.nullable,
   }) : assert(
           className != 'JsonObject' && className != 'Object' && className != 'dynamic',
           'Use TypeResultBase instead',
@@ -47,10 +48,10 @@ class TypeResultObject extends TypeResult {
   @override
   String deserialize(final String object, {final bool toBuilder = false}) {
     if (className == 'ContentString') {
-      return 'jsonSerializers.deserialize(messages, specifiedType: const $fullType)! as $name';
+      return 'jsonSerializers.deserialize(messages, specifiedType: const $fullType)! as $name${nullable ? '?' : ''}';
     }
 
-    return '$name.fromJson($object as Object)${toBuilder ? '.toBuilder()' : ''}';
+    return '$name.fromJson($object as Object${nullable ? '?' : ''})${nullable && toBuilder ? '?' : ''}${toBuilder ? '.toBuilder()' : ''}';
   }
 
   @override

@@ -1,7 +1,10 @@
 part of '../../dynamite.dart';
 
 class TypeResultBase extends TypeResult {
-  TypeResultBase(super.name);
+  TypeResultBase(
+    super.name, {
+    super.nullable,
+  });
 
   @override
   String? get _builderFactory => null;
@@ -20,9 +23,10 @@ class TypeResultBase extends TypeResult {
   @override
   String deserialize(final String object, {final bool toBuilder = false}) {
     if (name == 'JsonObject') {
-      return 'JsonObject($object)';
+      return 'JsonObject($object)${nullable ? '?' : ''}';
     }
-    return '($object as $name)';
+
+    return '($object as $name ${nullable ? '?' : ''})';
   }
 
   @override

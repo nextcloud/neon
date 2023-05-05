@@ -4,11 +4,14 @@ abstract class TypeResult {
   TypeResult(
     this.className, {
     this.generics = const [],
+    this.nullable = false,
   })  : assert(!className.contains('<'), 'Specifiy generics in the generics parameter.'),
         assert(!className.contains('?'), 'Nullability should not be specified in the type.');
 
   final String className;
   final List<TypeResult> generics;
+  final bool nullable;
+
   String get name {
     if (generics.isNotEmpty) {
       final buffer = StringBuffer('$className<')
@@ -54,4 +57,6 @@ abstract class TypeResult {
     final bool onlyChildren = false,
     final String? mimeType,
   });
+
+  String get nullableName => nullable ? '$name?' : name;
 }

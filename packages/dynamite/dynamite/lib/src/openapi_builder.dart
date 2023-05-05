@@ -725,6 +725,7 @@ class OpenAPIBuilder implements Builder {
                                   uppercaseFirstCharacter: true,
                                 ),
                                 parameter.schema!,
+                                nullable: dartParameterNullable,
                               );
 
                               state.resolvedTypeCombinations.add(result);
@@ -765,12 +766,7 @@ class OpenAPIBuilder implements Builder {
                                       ..name = _toDartName(parameter.name)
                                       ..required = dartParameterRequired;
                                     if (parameter.schema != null) {
-                                      b.type = refer(
-                                        _makeNullable(
-                                          result.name,
-                                          dartParameterNullable,
-                                        ),
-                                      );
+                                      b.type = refer(result.nullableName);
                                     }
                                     if (defaultValueCode != null) {
                                       b.defaultTo = Code(defaultValueCode);
@@ -827,21 +823,23 @@ class OpenAPIBuilder implements Builder {
 
                                 code.write("headers['Content-Type'] = '$mimeType';");
 
+                                final dartParameterNullable = _isDartParameterNullable(
+                                  operation.requestBody!.required,
+                                  mediaType.schema?.nullable,
+                                  mediaType.schema?.default_,
+                                );
+
                                 final result = resolveType(
                                   spec,
                                   state,
                                   _toDartName('$operationId-request-$mimeType', uppercaseFirstCharacter: true),
                                   mediaType.schema!,
+                                  nullable: dartParameterNullable,
                                 );
                                 final parameterName = _toDartName(result.name.replaceFirst(prefix, ''));
                                 switch (mimeType) {
                                   case 'application/json':
                                   case 'application/x-www-form-urlencoded':
-                                    final dartParameterNullable = _isDartParameterNullable(
-                                      operation.requestBody!.required,
-                                      mediaType.schema?.nullable,
-                                      mediaType.schema?.default_,
-                                    );
                                     final dartParameterRequired = _isDartParameterRequired(
                                       operation.requestBody!.required,
                                       mediaType.schema?.default_,
@@ -850,7 +848,7 @@ class OpenAPIBuilder implements Builder {
                                       Parameter(
                                         (final b) => b
                                           ..name = parameterName
-                                          ..type = refer(_makeNullable(result.name, dartParameterNullable))
+                                          ..type = refer(result.nullableName)
                                           ..named = true
                                           ..required = dartParameterRequired,
                                       ),
@@ -1159,8 +1157,6 @@ final _dartKeywords = [
 
 bool _isNonAlphaNumericString(final String input) => !RegExp(r'^[a-zA-Z0-9]$').hasMatch(input);
 
-String _makeNullable(final String type, final bool nullable) => nullable && type != 'dynamic' ? '$type?' : type;
-
 String _toFieldName(final String dartName, final String type) => dartName == type ? '\$$dartName' : dartName;
 
 bool _isDartParameterNullable(
@@ -1241,8 +1237,9 @@ TypeResult resolveObject(
   final OpenAPI spec,
   final State state,
   final String identifier,
-  final Schema schema,
-) {
+  final Schema schema, {
+  final bool nullable = false,
+}) {
   if (!state.resolvedTypes.contains('${state.prefix}$identifier')) {
     state.resolvedTypes.add('${state.prefix}$identifier');
     state.registeredJsonObjects.add('${state.prefix}$identifier');
@@ -1310,20 +1307,16 @@ TypeResult resolveObject(
                       state,
                       '${identifier}_${_toDartName(propertyName, uppercaseFirstCharacter: true)}',
                       propertySchema,
+                      nullable: _isDartParameterNullable(
+                        schema.required?.contains(propertyName),
+                        propertySchema.nullable,
+                        propertySchema.default_,
+                      ),
                     );
 
                     b
                       ..name = _toDartName(propertyName)
-                      ..returns = refer(
-                        _makeNullable(
-                          result.name,
-                          _isDartParameterNullable(
-                            schema.required?.contains(propertyName),
-                            propertySchema.nullable,
-                            propertySchema.default_,
-                          ),
-                        ),
-                      )
+                      ..returns = refer(result.nullableName)
                       ..type = MethodType.getter
                       ..docs.addAll(_descriptionToDocs(propertySchema.description));
 
@@ -1398,7 +1391,10 @@ TypeResult resolveObject(
       ),
     );
   }
-  return TypeResultObject('${state.prefix}$identifier');
+  return TypeResultObject(
+    '${state.prefix}$identifier',
+    nullable: nullable,
+  );
 }
 
 TypeResult resolveType(
@@ -1407,10 +1403,14 @@ TypeResult resolveType(
   final String identifier,
   final Schema schema, {
   final bool ignoreEnum = false,
+  final bool nullable = false,
 }) {
   TypeResult? result;
   if (schema.ref == null && schema.ofs == null && schema.type == null) {
-    return TypeResultBase('JsonObject');
+    return TypeResultBase(
+      'JsonObject',
+      nullable: nullable,
+    );
   }
   if (schema.ref != null) {
     final name = schema.ref!.split('/').last;
@@ -1419,6 +1419,7 @@ TypeResult resolveType(
       state,
       name,
       spec.components!.schemas![name]!,
+      nullable: nullable,
     );
   } else if (schema.ofs != null) {
     if (!state.resolvedTypes.contains('${state.prefix}$identifier')) {
@@ -1430,6 +1431,7 @@ TypeResult resolveType(
               state,
               '$identifier${schema.ofs!.indexOf(s)}',
               s,
+              nullable: !(schema.allOf?.contains(s) ?? false),
             ),
           )
           .toList();
@@ -1486,7 +1488,7 @@ TypeResult resolveType(
                       final s = schema.ofs![results.indexOf(result)];
                       b
                         ..name = fields[result.name]
-                        ..returns = refer(_makeNullable(result.name, !(schema.allOf?.contains(s) ?? false)))
+                        ..returns = refer(result.nullableName)
                         ..type = MethodType.getter
                         ..docs.addAll(_descriptionToDocs(s.description));
                     },
@@ -1673,7 +1675,10 @@ TypeResult resolveType(
       ]);
     }
 
-    result = TypeResultObject('${state.prefix}$identifier');
+    result = TypeResultObject(
+      '${state.prefix}$identifier',
+      nullable: nullable,
+    );
   } else if (schema.isContentString) {
     final subResult = resolveType(
       spec,
@@ -1682,26 +1687,45 @@ TypeResult resolveType(
       schema.contentSchema!,
     );
 
-    result = TypeResultObject('ContentString', generics: [subResult]);
+    result = TypeResultObject(
+      'ContentString',
+      generics: [subResult],
+      nullable: nullable,
+    );
   } else {
     switch (schema.type) {
       case 'boolean':
-        result = TypeResultBase('bool');
+        result = TypeResultBase(
+          'bool',
+          nullable: nullable,
+        );
         break;
       case 'integer':
-        result = TypeResultBase('int');
+        result = TypeResultBase(
+          'int',
+          nullable: nullable,
+        );
         break;
       case 'number':
-        result = TypeResultBase('num');
+        result = TypeResultBase(
+          'num',
+          nullable: nullable,
+        );
         break;
       case 'string':
         switch (schema.format) {
           case 'binary':
-            result = TypeResultBase('Uint8List');
+            result = TypeResultBase(
+              'Uint8List',
+              nullable: nullable,
+            );
             break;
         }
 
-        result = TypeResultBase('String');
+        result = TypeResultBase(
+          'String',
+          nullable: nullable,
+        );
         break;
       case 'array':
         if (schema.items != null) {
@@ -1714,11 +1738,13 @@ TypeResult resolveType(
           result = TypeResultList(
             'BuiltList',
             subResult,
+            nullable: nullable,
           );
         } else {
           result = TypeResultList(
             'BuiltList',
             TypeResultBase('JsonObject'),
+            nullable: nullable,
           );
         }
         break;
@@ -1729,6 +1755,7 @@ TypeResult resolveType(
               result = TypeResultMap(
                 'BuiltMap',
                 TypeResultBase('JsonObject'),
+                nullable: nullable,
               );
             } else {
               final subResult = resolveType(
@@ -1740,17 +1767,22 @@ TypeResult resolveType(
               result = TypeResultMap(
                 'BuiltMap',
                 subResult,
+                nullable: nullable,
               );
             }
             break;
           }
-          result = TypeResultBase('JsonObject');
+          result = TypeResultBase(
+            'JsonObject',
+            nullable: nullable,
+          );
           break;
         }
         if (schema.properties!.isEmpty) {
           result = TypeResultMap(
             'BuiltMap',
             TypeResultBase('JsonObject'),
+            nullable: nullable,
           );
           break;
         }
@@ -1760,6 +1792,7 @@ TypeResult resolveType(
           state,
           identifier,
           schema,
+          nullable: nullable,
         );
         break;
     }
@@ -1867,6 +1900,7 @@ TypeResult resolveType(
       result = TypeResultEnum(
         '${state.prefix}$identifier',
         result,
+        nullable: nullable,
       );
     }
 

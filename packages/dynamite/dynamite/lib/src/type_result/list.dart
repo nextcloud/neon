@@ -3,8 +3,9 @@ part of '../../dynamite.dart';
 class TypeResultList extends TypeResult {
   TypeResultList(
     super.name,
-    final TypeResult subType,
-  ) : super(generics: [subType]);
+    final TypeResult subType, {
+    super.nullable,
+  }) : super(generics: [subType]);
 
   TypeResult get subType => generics.first;
 

@@ -3,8 +3,9 @@ part of '../../dynamite.dart';
 class TypeResultEnum extends TypeResult {
   TypeResultEnum(
     super.name,
-    this.subType,
-  );
+    this.subType, {
+    super.nullable,
+  });
 
   final TypeResult subType;
 
