@@ -1016,11 +1016,9 @@ class OpenAPIBuilder implements Builder {
             '$name,',
           ],
           '])',
-          r'final Serializers serializers = (_$serializers.toBuilder()..addPlugin(StandardJsonPlugin())',
-          if (state.hasContentString) ...[
-            '..addPlugin(const ContentStringPlugin())',
-          ],
-          ').build();',
+          r'final Serializers serializers = _$serializers;',
+          '',
+          'final Serializers jsonSerializers = (serializers.toBuilder()..addPlugin(StandardJsonPlugin())).build();',
           '',
           '// coverage:ignore-start',
           'T deserialize$prefix<T>(final Object data) => serializers.deserialize(data, specifiedType: FullType(T))! as T;',
@@ -1288,14 +1286,14 @@ TypeResult resolveObject(
                         ..type = refer('Object'),
                     ),
                   )
-                  ..body = const Code('serializers.deserializeWith(serializer, json)!'),
+                  ..body = const Code('jsonSerializers.deserializeWith(serializer, json)!'),
               ),
               Method(
                 (final b) => b
                   ..name = 'toJson'
                   ..returns = refer('Map<String, dynamic>')
                   ..lambda = true
-                  ..body = const Code('serializers.serializeWith(serializer, this)! as Map<String, dynamic>'),
+                  ..body = const Code('jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>'),
               ),
               for (final propertyName in schema.properties!.keys) ...[
                 Method(
@@ -1501,14 +1499,14 @@ TypeResult resolveType(
                           ..type = refer('Object'),
                       ),
                     )
-                    ..body = const Code('serializers.deserializeWith(serializer, json)!'),
+                    ..body = const Code('jsonSerializers.deserializeWith(serializer, json)!'),
                 ),
                 Method(
                   (final b) => b
                     ..name = 'toJson'
                     ..returns = refer('Map<String, dynamic>')
                     ..lambda = true
-                    ..body = const Code('serializers.serializeWith(serializer, this)! as Map<String, dynamic>'),
+                    ..body = const Code('jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>'),
                 ),
                 Method(
                   (final b) => b
