@@ -4,6 +4,9 @@ class TypeResultBase extends TypeResult {
   TypeResultBase(super.name);
 
   @override
+  String? get _builderFactory => null;
+
+  @override
   String serialize(final String object) => object;
 
   @override

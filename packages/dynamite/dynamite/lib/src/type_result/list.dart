@@ -9,6 +9,9 @@ class TypeResultList extends TypeResult {
   TypeResult get subType => generics.first;
 
   @override
+  String? get _builderFactory => '..addBuilderFactory($fullType, ListBuilder<${subType.className}>.new)';
+
+  @override
   String serialize(final String object) => '$object.map((final e) => ${subType.serialize('e')})';
 
   @override

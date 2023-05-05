@@ -9,6 +9,9 @@ class TypeResultEnum extends TypeResult {
   final TypeResult subType;
 
   @override
+  String? get _builderFactory => null;
+
+  @override
   String serialize(final String object) => '$object.name';
 
   @override

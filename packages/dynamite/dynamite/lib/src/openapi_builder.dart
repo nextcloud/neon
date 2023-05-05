@@ -727,6 +727,8 @@ class OpenAPIBuilder implements Builder {
                                 parameter.schema!,
                               );
 
+                              state.resolvedTypeCombinations.add(result);
+
                               if (result.name == 'String') {
                                 if (parameter.schema?.pattern != null) {
                                   code.write('''
@@ -1016,7 +1018,11 @@ class OpenAPIBuilder implements Builder {
             '$name,',
           ],
           '])',
-          r'final Serializers serializers = _$serializers;',
+          r'final Serializers serializers = (_$serializers.toBuilder()',
+          for (final type in state.resolvedTypeCombinations) ...[
+            ...type.builderFactories,
+          ],
+          ').build();',
           '',
           'final Serializers jsonSerializers = (serializers.toBuilder()..addPlugin(StandardJsonPlugin())..addPlugin(const ContentStringPlugin())).build();',
           '',
@@ -1228,6 +1234,7 @@ class State {
   final resolvedTypes = <String>[];
   final registeredJsonObjects = <String>[];
   final output = <Spec>[];
+  final resolvedTypeCombinations = <TypeResult>[];
 }
 
 TypeResult resolveObject(

@@ -32,6 +32,17 @@ abstract class TypeResult {
     return 'FullType($className)';
   }
 
+  List<String> get builderFactories => [
+        for (final class_ in generics) ...[
+          ...class_.builderFactories,
+        ],
+        if (_builderFactory != null) ...[
+          _builderFactory!,
+        ],
+      ];
+
+  String? get _builderFactory;
+
   String serialize(final String object);
 
   String deserialize(final String object, {final bool toBuilder = false});

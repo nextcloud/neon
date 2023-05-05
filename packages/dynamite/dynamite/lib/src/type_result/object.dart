@@ -12,6 +12,9 @@ class TypeResultObject extends TypeResult {
         );
 
   @override
+  String? get _builderFactory => '..addBuilderFactory($fullType, $name.new)';
+
+  @override
   String serialize(final String object) {
     if (className == _contentString) {
       return 'jsonSerializers.serialize(messages, specifiedType: const $fullType)';
