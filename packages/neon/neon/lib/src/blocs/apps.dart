@@ -120,7 +120,7 @@ class AppsBloc extends InteractiveBloc implements AppsBlocEvents, AppsBlocStates
       'apps-apps',
       apps,
       () async => _account.client.core.getNavigationApps(),
-      (final response) => response.ocs.data,
+      (final response) => response.ocs.data.toList(),
     );
   }
 

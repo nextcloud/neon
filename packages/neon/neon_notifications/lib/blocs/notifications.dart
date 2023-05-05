@@ -52,7 +52,7 @@ class NotificationsBloc extends NotificationsBlocInterface implements Notificati
       'notifications-notifications',
       notifications,
       () async => _client.notifications.listNotifications(),
-      (final response) => response.ocs.data,
+      (final response) => response.ocs.data.toList(),
     );
   }
 
