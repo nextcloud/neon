@@ -5,27 +5,30 @@ void main() {
   group(TypeResultList, () {
     test('name', () {
       final subType = TypeResultBase('String');
-      final listType = TypeResultList('BuiltList', subType);
+      final type = TypeResultList('BuiltList', subType);
 
-      expect(listType.name, 'BuiltList<String>');
+      expect(type.name, 'BuiltList<String>');
+      expect(type.fullType, 'FullType(BuiltList, [FullType(String)])');
     });
   });
 
   group(TypeResultMap, () {
     test('name', () {
       final subType = TypeResultBase('int');
-      final listType = TypeResultMap('BuiltMap', subType);
+      final type = TypeResultMap('BuiltMap', subType);
 
-      expect(listType.name, 'BuiltMap<String, int>');
+      expect(type.name, 'BuiltMap<String, int>');
+      expect(type.fullType, 'FullType(BuiltMap, [FullType(String), FullType(int)])');
     });
   });
 
   group(TypeResultObject, () {
     test('name', () {
       final subType = TypeResultBase('String');
-      final listType = TypeResultObject('CustomType', generics: [subType]);
+      final type = TypeResultObject('CustomType', generics: [subType]);
 
-      expect(listType.name, 'CustomType<String>');
+      expect(type.name, 'CustomType<String>');
+      expect(type.fullType, 'FullType(CustomType, [FullType(String)])');
     });
   });
 
@@ -34,6 +37,7 @@ void main() {
       final type = TypeResultBase('String');
 
       expect(type.name, 'String');
+      expect(type.fullType, 'FullType(String)');
     });
   });
 }

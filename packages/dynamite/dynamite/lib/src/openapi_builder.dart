@@ -1018,7 +1018,7 @@ class OpenAPIBuilder implements Builder {
           '])',
           r'final Serializers serializers = _$serializers;',
           '',
-          'final Serializers jsonSerializers = (serializers.toBuilder()..addPlugin(StandardJsonPlugin())).build();',
+          'final Serializers jsonSerializers = (serializers.toBuilder()..addPlugin(StandardJsonPlugin())..addPlugin(const ContentStringPlugin())).build();',
           '',
           '// coverage:ignore-start',
           'T deserialize$prefix<T>(final Object data) => serializers.deserialize(data, specifiedType: FullType(T))! as T;',
@@ -1228,7 +1228,6 @@ class State {
   final resolvedTypes = <String>[];
   final registeredJsonObjects = <String>[];
   final output = <Spec>[];
-  bool hasContentString = false;
 }
 
 TypeResult resolveObject(
@@ -1675,7 +1674,6 @@ TypeResult resolveType(
       identifier,
       schema.contentSchema!,
     );
-    state.hasContentString = true;
 
     result = TypeResultObject('ContentString', generics: [subResult]);
   } else {

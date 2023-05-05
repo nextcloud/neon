@@ -1,5 +1,7 @@
 part of '../../dynamite.dart';
 
+const _contentString = 'ContentString';
+
 class TypeResultObject extends TypeResult {
   TypeResultObject(
     super.className, {
@@ -10,7 +12,13 @@ class TypeResultObject extends TypeResult {
         );
 
   @override
-  String serialize(final String object) => '$object.toJson()';
+  String serialize(final String object) {
+    if (className == _contentString) {
+      return 'jsonSerializers.serialize(messages, specifiedType: const $fullType)';
+    }
+
+    return '$object.toJson()';
+  }
 
   @override
   String encode(
@@ -18,6 +26,11 @@ class TypeResultObject extends TypeResult {
     final bool onlyChildren = false,
     final String? mimeType,
   }) {
+    if (className == _contentString) {
+      assert(mimeType == 'application/json', '$_contentString should have a mimeType of application/json');
+      return object;
+    }
+
     switch (mimeType) {
       case 'application/json':
         return 'json.encode($object)';
@@ -29,8 +42,13 @@ class TypeResultObject extends TypeResult {
   }
 
   @override
-  String deserialize(final String object, {final bool toBuilder = false}) =>
-      '$name.fromJson($object as Object)${toBuilder ? '.toBuilder()' : ''}';
+  String deserialize(final String object, {final bool toBuilder = false}) {
+    if (className == 'ContentString') {
+      return 'jsonSerializers.deserialize(messages, specifiedType: const $fullType)! as $name';
+    }
+
+    return '$name.fromJson($object as Object)${toBuilder ? '.toBuilder()' : ''}';
+  }
 
   @override
   String decode(final String object) => 'json.decode($object as String)';

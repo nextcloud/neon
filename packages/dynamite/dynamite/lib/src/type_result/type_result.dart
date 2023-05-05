@@ -20,6 +20,18 @@ abstract class TypeResult {
     return className;
   }
 
+  String get fullType {
+    if (generics.isNotEmpty) {
+      final buffer = StringBuffer('FullType($className, [')
+        ..writeAll(generics.map((final c) => c.fullType).intersperse(', '))
+        ..write('])');
+
+      return buffer.toString();
+    }
+
+    return 'FullType($className)';
+  }
+
   String serialize(final String object);
 
   String deserialize(final String object, {final bool toBuilder = false});
