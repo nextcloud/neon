@@ -460,6 +460,7 @@ class _HomePageState extends State<HomePage> {
                                               child: capabilities.data?.capabilities.theming?.logo != null
                                                   ? NeonCachedUrlImage(
                                                       url: capabilities.data!.capabilities.theming!.logo!,
+                                                      svgColor: Theme.of(context).iconTheme.color,
                                                     )
                                                   : null,
                                             )
