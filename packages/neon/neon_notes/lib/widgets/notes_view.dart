@@ -13,52 +13,31 @@ class NotesView extends StatelessWidget {
   @override
   Widget build(final BuildContext context) => ResultBuilder<List<NextcloudNotesNote>>(
         stream: bloc.notes,
-        builder: (final context, final notes) => Scaffold(
-          resizeToAvoidBottomInset: false,
-          floatingActionButton: FloatingActionButton(
-            onPressed: () async {
-              final result = await showDialog<List>(
-                context: context,
-                builder: (final context) => NotesCreateNoteDialog(
-                  bloc: bloc,
-                  category: category,
-                ),
-              );
-              if (result != null) {
-                bloc.createNote(
-                  title: result[0] as String,
-                  category: result[1] as String? ?? '',
-                );
-              }
-            },
-            child: const Icon(Icons.add),
-          ),
-          body: SortBoxBuilder<NotesSortProperty, NextcloudNotesNote>(
+        builder: (final context, final notes) => SortBoxBuilder<NotesSortProperty, NextcloudNotesNote>(
+          sortBox: notesSortBox,
+          sortPropertyOption: bloc.options.notesSortPropertyOption,
+          sortBoxOrderOption: bloc.options.notesSortBoxOrderOption,
+          input: category != null
+              ? notes.data?.where((final note) => note.favorite && note.category == category).toList()
+              : notes.data?.where((final note) => note.favorite).toList(),
+          builder: (final context, final sortedFavorites) => SortBoxBuilder<NotesSortProperty, NextcloudNotesNote>(
             sortBox: notesSortBox,
             sortPropertyOption: bloc.options.notesSortPropertyOption,
             sortBoxOrderOption: bloc.options.notesSortBoxOrderOption,
             input: category != null
-                ? notes.data?.where((final note) => note.favorite && note.category == category).toList()
-                : notes.data?.where((final note) => note.favorite).toList(),
-            builder: (final context, final sortedFavorites) => SortBoxBuilder<NotesSortProperty, NextcloudNotesNote>(
-              sortBox: notesSortBox,
-              sortPropertyOption: bloc.options.notesSortPropertyOption,
-              sortBoxOrderOption: bloc.options.notesSortBoxOrderOption,
-              input: category != null
-                  ? notes.data?.where((final note) => !note.favorite && note.category == category).toList()
-                  : notes.data?.where((final note) => !note.favorite).toList(),
-              builder: (final context, final sortedNonFavorites) => NeonListView<NextcloudNotesNote>(
-                scrollKey: 'notes-notes',
-                withFloatingActionButton: true,
-                items: [
-                  ...?sortedFavorites,
-                  ...?sortedNonFavorites,
-                ],
-                isLoading: notes.loading,
-                error: notes.error,
-                onRefresh: bloc.refresh,
-                builder: _buildNote,
-              ),
+                ? notes.data?.where((final note) => !note.favorite && note.category == category).toList()
+                : notes.data?.where((final note) => !note.favorite).toList(),
+            builder: (final context, final sortedNonFavorites) => NeonListView<NextcloudNotesNote>(
+              scrollKey: 'notes-notes',
+              withFloatingActionButton: true,
+              items: [
+                ...?sortedFavorites,
+                ...?sortedNonFavorites,
+              ],
+              isLoading: notes.loading,
+              error: notes.error,
+              onRefresh: bloc.refresh,
+              builder: _buildNote,
             ),
           ),
         ),

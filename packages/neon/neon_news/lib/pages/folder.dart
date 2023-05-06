@@ -20,5 +20,9 @@ class NewsFolderPage extends StatelessWidget {
           bloc: bloc,
           folder: folder,
         ),
+        floatingActionButton: NewsFeedFloatingActionButton(
+          bloc: bloc,
+          folderID: folder.id,
+        ),
       );
 }

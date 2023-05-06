@@ -29,73 +29,70 @@ class _NewsArticlesViewState extends State<NewsArticlesView> {
         stream: widget.newsBloc.feeds,
         builder: (final context, final feeds) => ResultBuilder<List<NextcloudNewsArticle>>(
           stream: widget.bloc.articles,
-          builder: (final context, final articles) => Scaffold(
-            resizeToAvoidBottomInset: false,
-            body: SortBoxBuilder<ArticlesSortProperty, NextcloudNewsArticle>(
-              sortBox: articlesSortBox,
-              sortPropertyOption: widget.newsBloc.options.articlesSortPropertyOption,
-              sortBoxOrderOption: widget.newsBloc.options.articlesSortBoxOrderOption,
-              input: articles.data,
-              builder: (final context, final sorted) => NeonListView<NextcloudNewsArticle>(
-                scrollKey: 'news-articles',
-                items: feeds.data == null ? null : sorted,
-                isLoading: articles.loading || feeds.loading,
-                error: articles.error ?? feeds.error,
-                onRefresh: () async {
-                  await Future.wait([
-                    widget.bloc.refresh(),
-                    widget.newsBloc.refresh(),
-                  ]);
-                },
-                builder: (final context, final article) => _buildArticle(
-                  context,
-                  article,
-                  feeds.data!.singleWhere((final feed) => feed.id == article.feedId),
-                ),
-                topFixedChildren: [
-                  StreamBuilder<FilterType>(
-                    stream: widget.bloc.filterType,
-                    builder: (final context, final selectedFilterTypeSnapshot) => Container(
-                      margin: const EdgeInsets.symmetric(horizontal: 15),
-                      child: DropdownButton<FilterType>(
-                        isExpanded: true,
-                        value: selectedFilterTypeSnapshot.data,
-                        items: [
-                          FilterType.all,
-                          FilterType.unread,
-                          if (widget.bloc.listType == null) ...[
-                            FilterType.starred,
-                          ],
-                        ].map<DropdownMenuItem<FilterType>>(
-                          (final a) {
-                            late final String label;
-                            switch (a) {
-                              case FilterType.all:
-                                label = AppLocalizations.of(context).newsFilterAll;
-                                break;
-                              case FilterType.unread:
-                                label = AppLocalizations.of(context).newsFilterUnread;
-                                break;
-                              case FilterType.starred:
-                                label = AppLocalizations.of(context).newsFilterStarred;
-                                break;
-                              default:
-                                throw Exception('FilterType $a should not be shown');
-                            }
-                            return DropdownMenuItem(
-                              value: a,
-                              child: Text(label),
-                            );
-                          },
-                        ).toList(),
-                        onChanged: (final value) {
-                          widget.bloc.setFilterType(value!);
+          builder: (final context, final articles) => SortBoxBuilder<ArticlesSortProperty, NextcloudNewsArticle>(
+            sortBox: articlesSortBox,
+            sortPropertyOption: widget.newsBloc.options.articlesSortPropertyOption,
+            sortBoxOrderOption: widget.newsBloc.options.articlesSortBoxOrderOption,
+            input: articles.data,
+            builder: (final context, final sorted) => NeonListView<NextcloudNewsArticle>(
+              scrollKey: 'news-articles',
+              items: feeds.data == null ? null : sorted,
+              isLoading: articles.loading || feeds.loading,
+              error: articles.error ?? feeds.error,
+              onRefresh: () async {
+                await Future.wait([
+                  widget.bloc.refresh(),
+                  widget.newsBloc.refresh(),
+                ]);
+              },
+              builder: (final context, final article) => _buildArticle(
+                context,
+                article,
+                feeds.data!.singleWhere((final feed) => feed.id == article.feedId),
+              ),
+              topFixedChildren: [
+                StreamBuilder<FilterType>(
+                  stream: widget.bloc.filterType,
+                  builder: (final context, final selectedFilterTypeSnapshot) => Container(
+                    margin: const EdgeInsets.symmetric(horizontal: 15),
+                    child: DropdownButton<FilterType>(
+                      isExpanded: true,
+                      value: selectedFilterTypeSnapshot.data,
+                      items: [
+                        FilterType.all,
+                        FilterType.unread,
+                        if (widget.bloc.listType == null) ...[
+                          FilterType.starred,
+                        ],
+                      ].map<DropdownMenuItem<FilterType>>(
+                        (final a) {
+                          late final String label;
+                          switch (a) {
+                            case FilterType.all:
+                              label = AppLocalizations.of(context).newsFilterAll;
+                              break;
+                            case FilterType.unread:
+                              label = AppLocalizations.of(context).newsFilterUnread;
+                              break;
+                            case FilterType.starred:
+                              label = AppLocalizations.of(context).newsFilterStarred;
+                              break;
+                            default:
+                              throw Exception('FilterType $a should not be shown');
+                          }
+                          return DropdownMenuItem(
+                            value: a,
+                            child: Text(label),
+                          );
                         },
-                      ),
+                      ).toList(),
+                      onChanged: (final value) {
+                        widget.bloc.setFilterType(value!);
+                      },
                     ),
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
           ),
         ),

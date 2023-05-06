@@ -31,6 +31,7 @@ part 'utils/category_color.dart';
 part 'utils/exception_handler.dart';
 part 'widgets/categories_view.dart';
 part 'widgets/category_select.dart';
+part 'widgets/notes_floating_action_button.dart';
 part 'widgets/notes_view.dart';
 
 class NotesApp extends AppImplementation<NotesBloc, NotesAppSpecificOptions> {

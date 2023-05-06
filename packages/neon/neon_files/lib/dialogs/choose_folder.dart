@@ -26,7 +26,6 @@ class FilesChooseFolderDialog extends StatelessWidget {
                   bloc: bloc,
                   filesBloc: filesBloc,
                   enableFileActions: false,
-                  enableCreateActions: false,
                   onlyShowDirectories: true,
                 ),
               ),

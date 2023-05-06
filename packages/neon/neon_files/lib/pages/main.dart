@@ -23,25 +23,39 @@ class _FilesMainPageState extends State<FilesMainPage> {
   }
 
   @override
-  Widget build(final BuildContext context) => FilesBrowserView(
-        bloc: widget.bloc.browser,
-        filesBloc: widget.bloc,
-        onPickFile: (final details) async {
-          final sizeWarning = widget.bloc.options.downloadSizeWarning.value;
-          if (sizeWarning != null && details.size > sizeWarning) {
-            // ignore: use_build_context_synchronously
-            if (!(await showConfirmationDialog(
-              context,
+  Widget build(final BuildContext context) => Scaffold(
+        body: FilesBrowserView(
+          bloc: widget.bloc.browser,
+          filesBloc: widget.bloc,
+          onPickFile: (final details) async {
+            final sizeWarning = widget.bloc.options.downloadSizeWarning.value;
+            if (sizeWarning != null && details.size > sizeWarning) {
               // ignore: use_build_context_synchronously
-              AppLocalizations.of(context).filesConfirmDownloadSizeWarning(
-                filesize(sizeWarning),
-                filesize(details.size),
-              ),
-            ))) {
-              return;
+              if (!(await showConfirmationDialog(
+                context,
+                // ignore: use_build_context_synchronously
+                AppLocalizations.of(context).filesConfirmDownloadSizeWarning(
+                  filesize(sizeWarning),
+                  filesize(details.size),
+                ),
+              ))) {
+                return;
+              }
             }
-          }
-          widget.bloc.openFile(details.path, details.etag!, details.mimeType);
-        },
+            widget.bloc.openFile(details.path, details.etag!, details.mimeType);
+          },
+        ),
+        floatingActionButton: FloatingActionButton(
+          onPressed: () async {
+            await showDialog(
+              context: context,
+              builder: (final context) => FilesChooseCreateDialog(
+                bloc: widget.bloc,
+                basePath: widget.bloc.browser.path.value,
+              ),
+            );
+          },
+          child: const Icon(Icons.add),
+        ),
       );
 }
