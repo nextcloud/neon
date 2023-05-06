@@ -6,8 +6,7 @@ abstract class NeonCachedImage extends StatefulWidget {
   const NeonCachedImage({
     required this.getImageFile,
     this.isSvgHint = false,
-    this.height,
-    this.width,
+    this.size,
     this.fit,
     this.svgColor,
     this.iconColor,
@@ -17,8 +16,7 @@ abstract class NeonCachedImage extends StatefulWidget {
   final Future<File> Function() getImageFile;
   final bool isSvgHint;
 
-  final double? height;
-  final double? width;
+  final Size? size;
   final BoxFit? fit;
 
   final Color? svgColor;
@@ -44,8 +42,8 @@ class _NeonCachedImageState extends State<NeonCachedImage> {
                 if (widget.isSvgHint || utf8.decode(content).contains('<svg')) {
                   return SvgPicture.memory(
                     content,
-                    height: widget.height,
-                    width: widget.width,
+                    height: widget.size?.height,
+                    width: widget.size?.width,
                     fit: widget.fit ?? BoxFit.contain,
                     color: widget.svgColor,
                   );
@@ -56,8 +54,8 @@ class _NeonCachedImageState extends State<NeonCachedImage> {
 
               return Image.memory(
                 content,
-                height: widget.height,
-                width: widget.width,
+                height: widget.size?.height,
+                width: widget.size?.width,
                 fit: widget.fit,
                 gaplessPlayback: true,
               );
@@ -72,14 +70,12 @@ class _NeonCachedImageState extends State<NeonCachedImage> {
                   });
                 },
                 onlyIcon: true,
-                iconSize: widget.height != null && widget.width != null
-                    ? min(widget.height!, widget.width!)
-                    : widget.height ?? widget.width,
+                iconSize: widget.size?.shortestSide,
                 color: widget.iconColor ?? Colors.red,
               );
             }
             return SizedBox(
-              width: widget.width,
+              width: widget.size?.width,
               child: NeonLinearProgressIndicator(
                 color: widget.iconColor,
               ),

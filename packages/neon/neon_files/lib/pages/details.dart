@@ -27,8 +27,10 @@ class FilesDetailsPage extends StatelessWidget {
                   bloc: bloc,
                   details: details,
                   color: Theme.of(context).colorScheme.onPrimary,
-                  width: MediaQuery.of(context).size.width.toInt(),
-                  height: MediaQuery.of(context).size.height ~/ 4,
+                  size: Size(
+                    MediaQuery.of(context).size.width,
+                    MediaQuery.of(context).size.height / 4,
+                  ),
                 ),
               ),
               DataTable(

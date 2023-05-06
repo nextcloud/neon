@@ -49,10 +49,7 @@ class NotesCategoriesView extends StatelessWidget {
                 size: 40,
                 color: NotesCategoryColor.compute(category.name),
               )
-            : const SizedBox(
-                height: 40,
-                width: 40,
-              ),
+            : const SizedBox.square(dimension: 40),
         onTap: () async {
           await Navigator.of(context).push(
             MaterialPageRoute(

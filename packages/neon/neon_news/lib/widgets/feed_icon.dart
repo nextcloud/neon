@@ -3,31 +3,29 @@ part of '../neon_news.dart';
 class NewsFeedIcon extends StatelessWidget {
   const NewsFeedIcon({
     required this.feed,
-    this.size = 48,
+    this.icon = 48,
     this.borderRadius,
     super.key,
   });
 
   final NextcloudNewsFeed feed;
-  final double size;
+  final double icon;
   final BorderRadius? borderRadius;
 
   @override
   Widget build(final BuildContext context) => NeonImageWrapper(
         color: Colors.white,
-        width: size,
-        height: size,
+        size: Size.square(icon),
         borderRadius: borderRadius,
         child: feed.faviconLink != null && feed.faviconLink != ''
             ? NeonCachedUrlImage(
                 url: feed.faviconLink!,
-                height: size,
-                width: size,
+                size: Size.square(icon),
                 iconColor: Theme.of(context).colorScheme.primary,
               )
             : Icon(
                 Icons.rss_feed,
-                size: size,
+                size: icon,
                 color: Theme.of(context).colorScheme.primary,
               ),
       );

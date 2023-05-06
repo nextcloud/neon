@@ -3,8 +3,7 @@ part of '../../neon.dart';
 class NeonCachedUrlImage extends NeonCachedImage {
   NeonCachedUrlImage({
     required final String url,
-    super.height,
-    super.width,
+    super.size,
     super.fit,
     super.svgColor,
     super.iconColor,
