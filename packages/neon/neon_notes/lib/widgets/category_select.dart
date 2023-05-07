@@ -71,21 +71,17 @@ class NotesCategorySelect extends StatelessWidget {
                 itemCount: options.length,
                 itemBuilder: (final context, final index) {
                   final option = options.elementAt(index);
-                  return InkWell(
+                  return ListTile(
+                    leading: Icon(
+                      MdiIcons.tag,
+                      color: option != '' ? NotesCategoryColor.compute(option) : null,
+                    ),
+                    title: Text(
+                      option != '' ? option : AppLocalizations.of(context).notesUncategorized,
+                    ),
                     onTap: () {
                       onSelected(option);
                     },
-                    child: Builder(
-                      builder: (final context) => ListTile(
-                        leading: Icon(
-                          MdiIcons.tag,
-                          color: option != '' ? NotesCategoryColor.compute(option) : null,
-                        ),
-                        title: Text(
-                          option != '' ? option : AppLocalizations.of(context).notesUncategorized,
-                        ),
-                      ),
-                    ),
                   );
                 },
               ),

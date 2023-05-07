@@ -36,6 +36,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get loginWorksWith => 'works with';
 
   @override
+  String get loginRestart => 'Restart login';
+
+  @override
   String get errorAccountAlreadyExists => 'The account you are trying to add already exists';
 
   @override
@@ -142,6 +145,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get settingsApps => 'Apps';
 
   @override
+  String get settingsAccount => 'Account';
+
+  @override
   String get settingsExport => 'Export settings';
 
   @override
@@ -151,7 +157,15 @@ class AppLocalizationsEn extends AppLocalizations {
   String get settingsImportWrongFileExtension => 'Settings import has wrong file extension (has to be .json.base64)';
 
   @override
+  String get settingsResetAll => 'Reset all settings';
+
+  @override
   String get settingsResetAllConfirmation => 'Do you want to reset all settings?';
+
+  @override
+  String settingsResetFor(String name) {
+    return 'Reset all settings for $name';
+  }
 
   @override
   String settingsResetForConfirmation(String name) {
@@ -271,6 +285,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get globalOptionsNavigationModeQuickBar => 'Quick bar';
 
   @override
+  String get accountOptionsRemove => 'Remove account';
+
+  @override
   String accountOptionsRemoveConfirm(String id) {
     return 'Are you sure you want to remove the account $id?';
   }
@@ -370,6 +387,11 @@ class AppLocalizationsEn extends AppLocalizations {
   }
 
   @override
+  String filesGoToPath(String path) {
+    return 'Go to /$path';
+  }
+
+  @override
   String get filesOptionsFilesSortPropertyName => 'Name';
 
   @override
@@ -454,6 +476,24 @@ class AppLocalizationsEn extends AppLocalizations {
   }
 
   @override
+  String get newsArticleStar => 'Star article';
+
+  @override
+  String get newsArticleUnstar => 'Unstar article';
+
+  @override
+  String get newsArticleMarkRead => 'Mark article as read';
+
+  @override
+  String get newsArticleMarkUnread => 'Mark article as unread';
+
+  @override
+  String get newsArticleOpenLink => 'Open in browser';
+
+  @override
+  String get newsArticleShare => 'Share';
+
+  @override
   String get newsShowFeedURL => 'Show URL';
 
   @override
@@ -461,6 +501,9 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get newsCopiedFeedURL => 'URL copied to clipboard';
+
+  @override
+  String get newsShowFeedErrorMessage => 'Show error message';
 
   @override
   String get newsCopyFeedErrorMessage => 'Copy error message';
@@ -547,9 +590,6 @@ class AppLocalizationsEn extends AppLocalizations {
   String get notesCategory => 'Category';
 
   @override
-  String get notesChangeCategory => 'Change category';
-
-  @override
   String get notesSetCategory => 'Set category';
 
   @override
@@ -567,10 +607,19 @@ class AppLocalizationsEn extends AppLocalizations {
   String get notesUncategorized => 'Uncategorized';
 
   @override
-  String get notesEdit => 'Edit';
+  String get notesShowEditor => 'Edit note';
 
   @override
-  String get notesPreview => 'Preview';
+  String get notesShowPreview => 'Preview note';
+
+  @override
+  String get notesStar => 'Star note';
+
+  @override
+  String get notesUnstar => 'Unstar note';
+
+  @override
+  String get notesChangeCategory => 'Change note category';
 
   @override
   String notesDeleteNoteConfirm(String name) {
@@ -615,4 +664,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get notificationsNextcloudAppNotImplementedYet => 'Sorry, this Nextcloud app has not been implemented yet';
+
+  @override
+  String get notificationsDismissAll => 'Dismiss all notifications';
 }

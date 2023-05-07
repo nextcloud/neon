@@ -63,7 +63,6 @@ class NewsFeedsView extends StatelessWidget {
           children: [
             if (feed.updateErrorCount > 0) ...[
               IconButton(
-                iconSize: 30,
                 onPressed: () async {
                   await showDialog(
                     context: context,
@@ -72,6 +71,8 @@ class NewsFeedsView extends StatelessWidget {
                     ),
                   );
                 },
+                tooltip: AppLocalizations.of(context).newsShowFeedErrorMessage,
+                iconSize: 30,
                 icon: Text(
                   feed.updateErrorCount.toString(),
                   style: const TextStyle(

@@ -31,6 +31,7 @@ class _NotificationsMainPageState extends State<NotificationsMainPage> {
             onPressed: () async {
               widget.bloc.deleteAllNotifications();
             },
+            tooltip: AppLocalizations.of(context).notificationsDismissAll,
             child: const Icon(MdiIcons.checkAll),
           ),
           body: NeonListView<NextcloudNotificationsNotification>(

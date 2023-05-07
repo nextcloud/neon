@@ -55,6 +55,7 @@ class _FilesMainPageState extends State<FilesMainPage> {
               ),
             );
           },
+          tooltip: AppLocalizations.of(context).filesUploadFiles,
           child: const Icon(Icons.add),
         ),
       );

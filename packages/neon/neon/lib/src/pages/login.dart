@@ -126,7 +126,7 @@ class _LoginPageState extends State<LoginPage> {
                 appBar: serverConnectionStateSnapshot.data == ServerConnectionState.success ||
                         (accountsSnapshot.data?.isNotEmpty ?? false)
                     ? AppBar(
-                        leading: IconButton(
+                        leading: BackButton(
                           onPressed: () {
                             if (accountsSnapshot.data?.isNotEmpty ?? false) {
                               Navigator.of(context).pop();
@@ -134,12 +134,12 @@ class _LoginPageState extends State<LoginPage> {
                               _loginBloc.setServerURL(null);
                             }
                           },
-                          icon: const Icon(Icons.arrow_back),
                         ),
                         actions: [
                           if (serverConnectionStateSnapshot.data != null) ...[
                             IconButton(
                               onPressed: _loginBloc.refresh,
+                              tooltip: AppLocalizations.of(context).loginRestart,
                               icon: const Icon(Icons.refresh),
                             ),
                           ],

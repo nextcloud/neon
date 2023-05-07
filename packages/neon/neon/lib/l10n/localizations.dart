@@ -119,6 +119,12 @@ abstract class AppLocalizations {
   /// **'works with'**
   String get loginWorksWith;
 
+  /// No description provided for @loginRestart.
+  ///
+  /// In en, this message translates to:
+  /// **'Restart login'**
+  String get loginRestart;
+
   /// No description provided for @errorAccountAlreadyExists.
   ///
   /// In en, this message translates to:
@@ -311,6 +317,12 @@ abstract class AppLocalizations {
   /// **'Apps'**
   String get settingsApps;
 
+  /// No description provided for @settingsAccount.
+  ///
+  /// In en, this message translates to:
+  /// **'Account'**
+  String get settingsAccount;
+
   /// No description provided for @settingsExport.
   ///
   /// In en, this message translates to:
@@ -329,11 +341,23 @@ abstract class AppLocalizations {
   /// **'Settings import has wrong file extension (has to be .json.base64)'**
   String get settingsImportWrongFileExtension;
 
+  /// No description provided for @settingsResetAll.
+  ///
+  /// In en, this message translates to:
+  /// **'Reset all settings'**
+  String get settingsResetAll;
+
   /// No description provided for @settingsResetAllConfirmation.
   ///
   /// In en, this message translates to:
   /// **'Do you want to reset all settings?'**
   String get settingsResetAllConfirmation;
+
+  /// No description provided for @settingsResetFor.
+  ///
+  /// In en, this message translates to:
+  /// **'Reset all settings for {name}'**
+  String settingsResetFor(String name);
 
   /// No description provided for @settingsResetForConfirmation.
   ///
@@ -563,6 +587,12 @@ abstract class AppLocalizations {
   /// **'Quick bar'**
   String get globalOptionsNavigationModeQuickBar;
 
+  /// No description provided for @accountOptionsRemove.
+  ///
+  /// In en, this message translates to:
+  /// **'Remove account'**
+  String get accountOptionsRemove;
+
   /// No description provided for @accountOptionsRemoveConfirm.
   ///
   /// In en, this message translates to:
@@ -737,6 +767,12 @@ abstract class AppLocalizations {
   /// **'Are you sure you want to download a file that is bigger than {warningSize} ({actualSize})?'**
   String filesConfirmDownloadSizeWarning(String warningSize, String actualSize);
 
+  /// No description provided for @filesGoToPath.
+  ///
+  /// In en, this message translates to:
+  /// **'Go to /{path}'**
+  String filesGoToPath(String path);
+
   /// No description provided for @filesOptionsFilesSortPropertyName.
   ///
   /// In en, this message translates to:
@@ -893,6 +929,42 @@ abstract class AppLocalizations {
   /// **'{count} unread'**
   String newsUnreadArticles(int count);
 
+  /// No description provided for @newsArticleStar.
+  ///
+  /// In en, this message translates to:
+  /// **'Star article'**
+  String get newsArticleStar;
+
+  /// No description provided for @newsArticleUnstar.
+  ///
+  /// In en, this message translates to:
+  /// **'Unstar article'**
+  String get newsArticleUnstar;
+
+  /// No description provided for @newsArticleMarkRead.
+  ///
+  /// In en, this message translates to:
+  /// **'Mark article as read'**
+  String get newsArticleMarkRead;
+
+  /// No description provided for @newsArticleMarkUnread.
+  ///
+  /// In en, this message translates to:
+  /// **'Mark article as unread'**
+  String get newsArticleMarkUnread;
+
+  /// No description provided for @newsArticleOpenLink.
+  ///
+  /// In en, this message translates to:
+  /// **'Open in browser'**
+  String get newsArticleOpenLink;
+
+  /// No description provided for @newsArticleShare.
+  ///
+  /// In en, this message translates to:
+  /// **'Share'**
+  String get newsArticleShare;
+
   /// No description provided for @newsShowFeedURL.
   ///
   /// In en, this message translates to:
@@ -910,6 +982,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'URL copied to clipboard'**
   String get newsCopiedFeedURL;
+
+  /// No description provided for @newsShowFeedErrorMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'Show error message'**
+  String get newsShowFeedErrorMessage;
 
   /// No description provided for @newsCopyFeedErrorMessage.
   ///
@@ -1079,12 +1157,6 @@ abstract class AppLocalizations {
   /// **'Category'**
   String get notesCategory;
 
-  /// No description provided for @notesChangeCategory.
-  ///
-  /// In en, this message translates to:
-  /// **'Change category'**
-  String get notesChangeCategory;
-
   /// No description provided for @notesSetCategory.
   ///
   /// In en, this message translates to:
@@ -1115,17 +1187,35 @@ abstract class AppLocalizations {
   /// **'Uncategorized'**
   String get notesUncategorized;
 
-  /// No description provided for @notesEdit.
+  /// No description provided for @notesShowEditor.
   ///
   /// In en, this message translates to:
-  /// **'Edit'**
-  String get notesEdit;
+  /// **'Edit note'**
+  String get notesShowEditor;
 
-  /// No description provided for @notesPreview.
+  /// No description provided for @notesShowPreview.
   ///
   /// In en, this message translates to:
-  /// **'Preview'**
-  String get notesPreview;
+  /// **'Preview note'**
+  String get notesShowPreview;
+
+  /// No description provided for @notesStar.
+  ///
+  /// In en, this message translates to:
+  /// **'Star note'**
+  String get notesStar;
+
+  /// No description provided for @notesUnstar.
+  ///
+  /// In en, this message translates to:
+  /// **'Unstar note'**
+  String get notesUnstar;
+
+  /// No description provided for @notesChangeCategory.
+  ///
+  /// In en, this message translates to:
+  /// **'Change note category'**
+  String get notesChangeCategory;
 
   /// No description provided for @notesDeleteNoteConfirm.
   ///
@@ -1210,6 +1300,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Sorry, this Nextcloud app has not been implemented yet'**
   String get notificationsNextcloudAppNotImplementedYet;
+
+  /// No description provided for @notificationsDismissAll.
+  ///
+  /// In en, this message translates to:
+  /// **'Dismiss all notifications'**
+  String get notificationsDismissAll;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

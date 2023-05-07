@@ -71,10 +71,6 @@ class NotesView extends StatelessWidget {
           ],
         ),
         trailing: IconButton(
-          icon: Icon(
-            note.favorite ? Icons.star : Icons.star_outline,
-            color: Theme.of(context).colorScheme.primary,
-          ),
           onPressed: () {
             bloc.updateNote(
               note.id,
@@ -82,6 +78,11 @@ class NotesView extends StatelessWidget {
               favorite: !note.favorite,
             );
           },
+          tooltip: note.favorite ? AppLocalizations.of(context).notesUnstar : AppLocalizations.of(context).notesStar,
+          icon: Icon(
+            note.favorite ? Icons.star : Icons.star_outline,
+            color: Theme.of(context).colorScheme.primary,
+          ),
         ),
         onTap: () async {
           await Navigator.of(context).push(

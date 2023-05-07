@@ -89,9 +89,6 @@ class _NotesNotePageState extends State<NotesNotePage> {
             ),
             actions: [
               IconButton(
-                icon: Icon(
-                  _showEditor ? Icons.visibility : Icons.edit,
-                ),
                 onPressed: () {
                   setState(() {
                     _showEditor = !_showEditor;
@@ -104,6 +101,12 @@ class _NotesNotePageState extends State<NotesNotePage> {
                     _titleFocusNode.unfocus();
                   }
                 },
+                tooltip: _showEditor
+                    ? AppLocalizations.of(context).notesShowPreview
+                    : AppLocalizations.of(context).notesShowEditor,
+                icon: Icon(
+                  _showEditor ? Icons.visibility : Icons.edit,
+                ),
               ),
               StreamBuilder(
                 stream: widget.bloc.category,
@@ -123,6 +126,7 @@ class _NotesNotePageState extends State<NotesNotePage> {
                         widget.bloc.updateCategory(result);
                       }
                     },
+                    tooltip: AppLocalizations.of(context).notesChangeCategory,
                     icon: Icon(
                       MdiIcons.tag,
                       color: category.isNotEmpty ? NotesCategoryColor.compute(category) : null,

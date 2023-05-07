@@ -25,6 +25,7 @@ class NextcloudAppSettingsPage extends StatelessWidget {
                   await appImplementation.options.reset();
                 }
               },
+              tooltip: AppLocalizations.of(context).settingsResetFor(appImplementation.name(context)),
               icon: const Icon(MdiIcons.cogRefresh),
             ),
           ],

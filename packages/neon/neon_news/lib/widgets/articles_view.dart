@@ -158,10 +158,6 @@ class _NewsArticlesViewState extends State<NewsArticlesView> {
           ],
         ),
         trailing: IconButton(
-          icon: Icon(
-            article.starred ? Icons.star : Icons.star_outline,
-            color: Theme.of(context).colorScheme.primary,
-          ),
           onPressed: () {
             if (article.starred) {
               widget.bloc.unstarArticle(article);
@@ -169,6 +165,13 @@ class _NewsArticlesViewState extends State<NewsArticlesView> {
               widget.bloc.starArticle(article);
             }
           },
+          tooltip: article.starred
+              ? AppLocalizations.of(context).newsArticleUnstar
+              : AppLocalizations.of(context).newsArticleStar,
+          icon: Icon(
+            article.starred ? Icons.star : Icons.star_outline,
+            color: Theme.of(context).colorScheme.primary,
+          ),
         ),
         onLongPress: () {
           if (article.unread) {
