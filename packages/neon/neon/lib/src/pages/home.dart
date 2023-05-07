@@ -19,6 +19,7 @@ class HomePage extends StatefulWidget {
 // ignore: prefer_mixin
 class _HomePageState extends State<HomePage> {
   final _scaffoldKey = GlobalKey<ScaffoldState>();
+  final drawerScrollController = ScrollController();
 
   late GlobalOptions _globalOptions;
   late AccountsBloc _accountsBloc;
@@ -178,6 +179,7 @@ class _HomePageState extends State<HomePage> {
   @override
   void dispose() {
     _capabilitiesBloc.dispose();
+    drawerScrollController.dispose();
     super.dispose();
   }
 
@@ -227,9 +229,10 @@ class _HomePageState extends State<HomePage> {
                                 children: [
                                   Expanded(
                                     child: Scrollbar(
+                                      controller: drawerScrollController,
                                       interactive: true,
                                       child: ListView(
-                                        primary: true,
+                                        controller: drawerScrollController,
                                         // Needed for the drawer header to also render in the statusbar
                                         padding: EdgeInsets.zero,
                                         children: [
