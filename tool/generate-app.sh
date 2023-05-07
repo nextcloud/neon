@@ -2,8 +2,6 @@
 set -euxo pipefail
 cd "$(dirname "$0")/.."
 
-color="#f37736"
-
 function export_mipmap_icon() {
     source="$1"
     name="$2"
@@ -25,10 +23,6 @@ function export_mipmap_icon_all() {
 
 (
   cd packages/app
-
-  # Neon logo
-  wget https://raw.githubusercontent.com/Templarian/MaterialDesign/master/svg/cable-data.svg -O assets/logo.svg
-  sed -i "s/<path /<path fill=\"$color\" /g" assets/logo.svg
 
   # Splash screens
   inkscape assets/logo.svg -o img/splash_icon.png -w 768 -h 768 # 768px at xxxhdpi is 192dp
