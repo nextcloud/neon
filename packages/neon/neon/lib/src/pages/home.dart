@@ -526,8 +526,7 @@ class _HomePageState extends State<HomePage> {
                                                   color: unreadCount > 0
                                                       ? Theme.of(context).colorScheme.primary
                                                       : Theme.of(context).colorScheme.onBackground,
-                                                  width: kAvatarSize * 2 / 3,
-                                                  height: kAvatarSize * 2 / 3,
+                                                  size: const Size.square(kAvatarSize * 2 / 3),
                                                 ),
                                                 onPressed: () async {
                                                   await _openNotifications(

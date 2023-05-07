@@ -5,8 +5,7 @@ class NeonAppImplementationIcon extends StatelessWidget {
     required this.appImplementation,
     this.unreadCount = 0,
     this.color,
-    this.width = kAvatarSize,
-    this.height = kAvatarSize,
+    this.size = const Size.square(kAvatarSize),
     super.key,
   });
 
@@ -16,9 +15,7 @@ class NeonAppImplementationIcon extends StatelessWidget {
 
   final Color? color;
 
-  final double width;
-
-  final double height;
+  final Size size;
 
   @override
   Widget build(final BuildContext context) => Stack(
@@ -28,8 +25,7 @@ class NeonAppImplementationIcon extends StatelessWidget {
             margin: const EdgeInsets.all(5),
             child: appImplementation.buildIcon(
               context,
-              height: height,
-              width: width,
+              size: size,
               color: color,
             ),
           ),

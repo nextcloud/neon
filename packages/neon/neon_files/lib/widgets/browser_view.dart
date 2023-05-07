@@ -252,9 +252,8 @@ class _FilesBrowserViewState extends State<FilesBrowserView> {
             ],
           ],
         ),
-        leading: SizedBox(
-          height: 40,
-          width: 40,
+        leading: SizedBox.square(
+          dimension: 40,
           child: Stack(
             children: [
               Center(
@@ -429,9 +428,8 @@ class _FilesBrowserViewState extends State<FilesBrowserView> {
                   }
                 },
               )
-            : const SizedBox(
-                width: 48,
-                height: 48,
+            : const SizedBox.square(
+                dimension: 48,
               ),
       );
 }

@@ -121,8 +121,7 @@ class _NewsArticlesViewState extends State<NewsArticlesView> {
             if (article.mediaThumbnail != null) ...[
               NeonCachedUrlImage(
                 url: article.mediaThumbnail!,
-                width: 100,
-                height: 50,
+                size: const Size(100, 50),
                 fit: BoxFit.cover,
               ),
             ],
@@ -138,7 +137,7 @@ class _NewsArticlesViewState extends State<NewsArticlesView> {
               ),
               child: NewsFeedIcon(
                 feed: feed,
-                size: 16,
+                icon: 16,
                 borderRadius: const BorderRadius.all(Radius.circular(2)),
               ),
             ),

@@ -15,40 +15,38 @@ class NeonAccountAvatar extends StatelessWidget {
     final isDark = Theme.of(context).brightness == Brightness.dark;
     final size = (kAvatarSize * MediaQuery.of(context).devicePixelRatio).toInt();
     final userStatusBloc = Provider.of<AccountsBloc>(context, listen: false).getUserStatusBloc(account);
-    return Stack(
-      alignment: Alignment.center,
-      children: [
-        CircleAvatar(
-          radius: kAvatarSize / 2,
-          child: ClipOval(
-            child: NeonCachedApiImage(
-              account: account,
-              cacheKey: 'avatar-${account.id}-${isDark ? 'dark' : 'light'}$size',
-              download: () async {
-                if (isDark) {
-                  return account.client.core.getDarkAvatar(
-                    userId: account.username,
-                    size: size,
-                  );
-                } else {
-                  return account.client.core.getAvatar(
-                    userId: account.username,
-                    size: size,
-                  );
-                }
-              },
+    return SizedBox.square(
+      dimension: kAvatarSize,
+      child: Stack(
+        alignment: Alignment.center,
+        children: [
+          CircleAvatar(
+            child: ClipOval(
+              child: NeonCachedApiImage(
+                account: account,
+                cacheKey: 'avatar-${account.id}-${isDark ? 'dark' : 'light'}$size',
+                download: () async {
+                  if (isDark) {
+                    return account.client.core.getDarkAvatar(
+                      userId: account.username,
+                      size: size,
+                    );
+                  } else {
+                    return account.client.core.getAvatar(
+                      userId: account.username,
+                      size: size,
+                    );
+                  }
+                },
+              ),
             ),
           ),
-        ),
-        ResultBuilder<UserStatusBloc, NextcloudUserStatusStatus?>(
-          stream: userStatusBloc.userStatus,
-          builder: (final context, final userStatus) {
-            final hasEmoji = userStatus.data?.icon != null;
-            final factor = hasEmoji ? 2 : 3;
-            return SizedBox(
-              height: kAvatarSize,
-              width: kAvatarSize,
-              child: Align(
+          ResultBuilder<UserStatusBloc, NextcloudUserStatusStatus?>(
+            stream: userStatusBloc.userStatus,
+            builder: (final context, final userStatus) {
+              final hasEmoji = userStatus.data?.icon != null;
+              final factor = hasEmoji ? 2 : 3;
+              return Align(
                 alignment: Alignment.bottomRight,
                 child: Container(
                   height: kAvatarSize / factor,
@@ -82,11 +80,11 @@ class NeonAccountAvatar extends StatelessWidget {
                                 )
                               : null,
                 ),
-              ),
-            );
-          },
-        ),
-      ],
+              );
+            },
+          ),
+        ],
+      ),
     );
   }
 

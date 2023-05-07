@@ -28,13 +28,11 @@ abstract class AppImplementation<T extends Bloc, R extends NextcloudAppSpecificO
 
   Widget buildIcon(
     final BuildContext context, {
-    final double height = 32,
-    final double width = 32,
+    final Size size = const Size.square(32),
     final Color? color,
   }) =>
-      SizedBox(
-        height: height,
-        width: width,
+      SizedBox.fromSize(
+        size: size,
         child: SvgPicture.asset(
           'assets/app.svg',
           package: 'neon_$id',

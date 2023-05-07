@@ -4,22 +4,19 @@ class NeonImageWrapper extends StatelessWidget {
   const NeonImageWrapper({
     required this.child,
     required this.color,
-    this.width,
-    this.height,
+    this.size,
     this.borderRadius,
     super.key,
   });
 
   final Widget child;
   final Color color;
-  final double? width;
-  final double? height;
+  final Size? size;
   final BorderRadius? borderRadius;
 
   @override
-  Widget build(final BuildContext context) => SizedBox(
-        width: width,
-        height: height,
+  Widget build(final BuildContext context) => SizedBox.fromSize(
+        size: size,
         child: ClipRRect(
           borderRadius: borderRadius ?? BorderRadius.zero,
           child: ColoredBox(

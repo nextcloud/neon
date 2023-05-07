@@ -4,8 +4,7 @@ class FilePreview extends StatelessWidget {
   const FilePreview({
     required this.bloc,
     required this.details,
-    this.width = 40,
-    this.height = 40,
+    this.size = const Size.square(40),
     this.color,
     this.borderRadius,
     this.withBackground = false,
@@ -17,18 +16,19 @@ class FilePreview extends StatelessWidget {
 
   final FilesBloc bloc;
   final FileDetails details;
-  final int width;
-  final int height;
+  final Size size;
   final Color? color;
   final BorderRadius? borderRadius;
   final bool withBackground;
 
+  int get width => size.width.toInt();
+  int get height => size.height.toInt();
+
   @override
   Widget build(final BuildContext context) {
     final color = this.color ?? Theme.of(context).colorScheme.primary;
-    return SizedBox(
-      width: width.toDouble(),
-      height: height.toDouble(),
+    return SizedBox.fromSize(
+      size: size,
       child: StreamBuilder<bool?>(
         stream: bloc.options.showPreviewsOption.stream,
         builder: (final context, final showPreviewsSnapshot) {
@@ -58,14 +58,14 @@ class FilePreview extends StatelessWidget {
             return Icon(
               MdiIcons.folder,
               color: color,
-              size: min(width.toDouble(), height.toDouble()),
+              size: size.shortestSide,
             );
           }
 
           return FileIcon(
             details.name,
             color: color,
-            size: min(width.toDouble(), height.toDouble()),
+            size: size.shortestSide,
           );
         },
       ),
