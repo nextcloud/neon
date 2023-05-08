@@ -137,7 +137,7 @@ class _NewsArticlesViewState extends State<NewsArticlesView> {
               ),
               child: NewsFeedIcon(
                 feed: feed,
-                icon: 16,
+                size: 16,
                 borderRadius: const BorderRadius.all(Radius.circular(2)),
               ),
             ),
