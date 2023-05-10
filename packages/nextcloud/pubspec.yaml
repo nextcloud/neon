@@ -2,13 +2,13 @@ name: nextcloud
 version: 1.0.0
 
 environment:
-  sdk: '>=2.19.0 <3.0.0'
+  sdk: '>=3.0.0 <4.0.0'
 
 dependencies:
   cookie_jar: ^4.0.2
   crypto: ^3.0.2
   crypton: ^2.0.5
-  intl: ^0.17.0
+  intl: ^0.18.0
   json_annotation: ^4.7.0
   version: ^3.0.2
   xml: ^6.1.0
