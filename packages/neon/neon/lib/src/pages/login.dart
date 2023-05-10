@@ -33,12 +33,26 @@ class _LoginPageState extends State<LoginPage> {
     }
 
     WidgetsBinding.instance.addPostFrameCallback((final _) {
+      if (Provider.of<NeonPlatform>(context, listen: false).canUseWebView) {
+        _webViewController = WebViewController()
+          // ignore: discarded_futures
+          ..setJavaScriptMode(JavaScriptMode.unrestricted)
+          // ignore: discarded_futures
+          ..enableZoom(false)
+          // ignore: discarded_futures
+          ..setUserAgent(userAgent(_packageInfo));
+      }
+
       _loginBloc.loginFlowInit.listen((final init) async {
-        if (init != null && !Provider.of<NeonPlatform>(context, listen: false).canUseWebView) {
-          await launchUrlString(
-            init.login,
-            mode: LaunchMode.externalApplication,
-          );
+        if (init != null) {
+          if (Provider.of<NeonPlatform>(context, listen: false).canUseWebView) {
+            await _webViewController!.loadRequest(Uri.parse(init.login));
+          } else {
+            await launchUrlString(
+              init.login,
+              mode: LaunchMode.externalApplication,
+            );
+          }
         }
       });
     });
@@ -134,18 +148,8 @@ class _LoginPageState extends State<LoginPage> {
                     : null,
                 body: serverConnectionStateSnapshot.data == ServerConnectionState.success
                     ? Provider.of<NeonPlatform>(context).canUseWebView
-                        ? WebView(
-                            javascriptMode: JavascriptMode.unrestricted,
-                            zoomEnabled: false,
-                            userAgent: userAgent(_packageInfo),
-                            onWebViewCreated: (final controller) async {
-                              _webViewController = controller;
-                              final url =
-                                  (await _loginBloc.loginFlowInit.firstWhere((final init) => init != null))!.login;
-                              if (mounted) {
-                                await _webViewController!.loadUrl(url);
-                              }
-                            },
+                        ? WebViewWidget(
+                            controller: _webViewController!,
                           )
                         : Center(
                             child: Column(
