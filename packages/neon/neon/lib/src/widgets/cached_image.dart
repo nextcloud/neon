@@ -45,7 +45,7 @@ class _NeonCachedImageState extends State<NeonCachedImage> {
                     height: widget.size?.height,
                     width: widget.size?.width,
                     fit: widget.fit ?? BoxFit.contain,
-                    color: widget.svgColor,
+                    colorFilter: widget.svgColor != null ? ColorFilter.mode(widget.svgColor!, BlendMode.srcIn) : null,
                   );
                 }
               } catch (_) {

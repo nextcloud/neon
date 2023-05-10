@@ -10,7 +10,7 @@ dependencies:
   collection: ^1.17.0
   file_icons:
     path: ../../file_icons
-  file_picker: ^4.6.1
+  file_picker: ^5.3.0
   filesize: ^2.0.1
   flutter:
     sdk: flutter

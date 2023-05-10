@@ -36,7 +36,7 @@ abstract class AppImplementation<T extends Bloc, R extends NextcloudAppSpecificO
         child: SvgPicture.asset(
           'assets/app.svg',
           package: 'neon_$id',
-          color: color ?? Theme.of(context).colorScheme.primary,
+          colorFilter: ColorFilter.mode(color ?? Theme.of(context).colorScheme.primary, BlendMode.srcIn),
         ),
       );
 

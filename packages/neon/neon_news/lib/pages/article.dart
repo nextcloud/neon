@@ -39,7 +39,21 @@ class _NewsArticlePageState extends State<NewsArticlePage> {
       }
     });
 
-    if (!widget.useWebView) {
+    if (widget.useWebView) {
+      _webviewController = WebViewController()
+        // ignore: discarded_futures
+        ..setJavaScriptMode(JavaScriptMode.unrestricted)
+        // ignore: discarded_futures
+        ..setNavigationDelegate(
+          NavigationDelegate(
+            onPageFinished: (final _) async {
+              await _startMarkAsReadTimer();
+            },
+          ),
+        )
+        // ignore: discarded_futures
+        ..loadRequest(Uri.parse(widget.url!));
+    } else {
       unawaited(_startMarkAsReadTimer());
     }
   }
@@ -149,15 +163,8 @@ class _NewsArticlePageState extends State<NewsArticlePage> {
             ],
           ),
           body: widget.useWebView
-              ? WebView(
-                  javascriptMode: JavascriptMode.unrestricted,
-                  onWebViewCreated: (final controller) async {
-                    _webviewController = controller;
-                    await controller.loadUrl(widget.url!);
-                  },
-                  onPageFinished: (final _) async {
-                    await _startMarkAsReadTimer();
-                  },
+              ? WebViewWidget(
+                  controller: _webviewController!,
                 )
               : SingleChildScrollView(
                   padding: const EdgeInsets.all(10),
