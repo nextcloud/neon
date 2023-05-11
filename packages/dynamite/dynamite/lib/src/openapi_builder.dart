@@ -892,22 +892,21 @@ class OpenAPIBuilder implements Builder {
                                 String? headersType;
                                 String? headersValue;
                                 if (response.headers != null) {
-                                  print('Current Header support is limited and decoding might not work automatically. '
-                                      'See https://github.com/provokateurin/nextcloud-neon/issues/281 for further information.');
                                   final identifier =
                                       '${tag != null ? _toDartName(tag, uppercaseFirstCharacter: true) : null}${_toDartName(operationId, uppercaseFirstCharacter: true)}Headers';
-                                  final result = resolveType(
+                                  final result = resolveObject(
                                     spec,
                                     state,
                                     identifier,
                                     Schema(
-                                      type: 'object',
-                                      properties: {
-                                        for (final headerName in response.headers!.keys) ...{
-                                          headerName.toLowerCase(): response.headers![headerName]!.schema!,
-                                        },
-                                      },
+                                      properties: response.headers!.map(
+                                        (final headerName, final value) => MapEntry(
+                                          headerName.toLowerCase(),
+                                          value.schema!,
+                                        ),
+                                      ),
                                     ),
+                                    isHeader: true,
                                   );
                                   headersType = result.name;
                                   headersValue = result.deserialize('response.headers');
@@ -1239,6 +1238,7 @@ TypeResult resolveObject(
   final String identifier,
   final Schema schema, {
   final bool nullable = false,
+  final bool isHeader = false,
 }) {
   if (!state.resolvedTypes.contains('${state.prefix}$identifier')) {
     state.resolvedTypes.add('${state.prefix}$identifier');
@@ -1330,15 +1330,22 @@ TypeResult resolveObject(
                   },
                 ),
               ],
-              Method(
-                (final b) => b
+              Method((final b) {
+                b
                   ..name = 'serializer'
                   ..returns = refer('Serializer<${state.prefix}$identifier>')
                   ..lambda = true
                   ..static = true
-                  ..body = Code("_\$${_toCamelCase('${state.prefix}$identifier')}Serializer")
-                  ..type = MethodType.getter,
-              ),
+                  ..body = Code(
+                    isHeader
+                        ? '_\$${state.prefix}${identifier}Serializer()'
+                        : "_\$${_toCamelCase('${state.prefix}$identifier')}Serializer",
+                  )
+                  ..type = MethodType.getter;
+                if (isHeader) {
+                  b.annotations.add(refer('BuiltValueSerializer').call([], {'custom': refer('true')}));
+                }
+              }),
             ]);
 
           final defaults = <String>[];
@@ -1390,6 +1397,136 @@ TypeResult resolveObject(
         },
       ),
     );
+    if (isHeader) {
+      state.output.add(
+        Class(
+          (final b) => b
+            ..name = '_\$${state.prefix}${identifier}Serializer'
+            ..implements.add(refer('StructuredSerializer<${state.prefix}$identifier>'))
+            ..fields.addAll([
+              Field(
+                (final b) => b
+                  ..name = 'types'
+                  ..modifier = FieldModifier.final$
+                  ..type = refer('Iterable<Type>')
+                  ..annotations.add(refer('override'))
+                  ..assignment = Code('const [${state.prefix}$identifier, _\$${state.prefix}$identifier]'),
+              ),
+              Field(
+                (final b) => b
+                  ..name = 'wireName'
+                  ..modifier = FieldModifier.final$
+                  ..type = refer('String')
+                  ..annotations.add(refer('override'))
+                  ..assignment = Code("r'${state.prefix}$identifier'"),
+              )
+            ])
+            ..methods.addAll([
+              Method((final b) {
+                b
+                  ..name = 'serialize'
+                  ..returns = refer('Iterable<Object?>')
+                  ..annotations.add(refer('override'))
+                  ..requiredParameters.addAll([
+                    Parameter(
+                      (final b) => b
+                        ..name = 'serializers'
+                        ..type = refer('Serializers'),
+                    ),
+                    Parameter(
+                      (final b) => b
+                        ..name = 'object'
+                        ..type = refer('${state.prefix}$identifier'),
+                    ),
+                  ])
+                  ..optionalParameters.add(
+                    Parameter(
+                      (final b) => b
+                        ..name = 'specifiedType'
+                        ..type = refer('FullType')
+                        ..named = true
+                        ..defaultTo = const Code('FullType.unspecified'),
+                    ),
+                  )
+                  ..body = const Code('throw UnimplementedError();');
+              }),
+              Method((final b) {
+                b
+                  ..name = 'deserialize'
+                  ..returns = refer('${state.prefix}$identifier')
+                  ..annotations.add(refer('override'))
+                  ..requiredParameters.addAll([
+                    Parameter(
+                      (final b) => b
+                        ..name = 'serializers'
+                        ..type = refer('Serializers'),
+                    ),
+                    Parameter(
+                      (final b) => b
+                        ..name = 'serialized'
+                        ..type = refer('Iterable<Object?>'),
+                    ),
+                  ])
+                  ..optionalParameters.add(
+                    Parameter(
+                      (final b) => b
+                        ..name = 'specifiedType'
+                        ..type = refer('FullType')
+                        ..named = true
+                        ..defaultTo = const Code('FullType.unspecified'),
+                    ),
+                  );
+                List<Code> deserializeProperty(final String propertyName) {
+                  final propertySchema = schema.properties![propertyName]!;
+                  final result = resolveType(
+                    spec,
+                    state,
+                    '${identifier}_${_toDartName(propertyName, uppercaseFirstCharacter: true)}',
+                    propertySchema,
+                    nullable: _isDartParameterNullable(
+                      schema.required?.contains(propertyName),
+                      propertySchema.nullable,
+                      propertySchema.default_,
+                    ),
+                  );
+
+                  return [
+                    Code("case '$propertyName':"),
+                    if (result.className != 'String') ...[
+                      Code(
+                        'result.${_toDartName(propertyName)} = ${result.deserialize('jsonDecode(value!)', toBuilder: true)};',
+                      ),
+                    ] else ...[
+                      Code(
+                        'result.${_toDartName(propertyName)} = value!;',
+                      ),
+                    ],
+                    const Code('break;'),
+                  ];
+                }
+
+                b.body = Block.of([
+                  Code('final result = new ${state.prefix}${identifier}Builder();'),
+                  const Code(''),
+                  const Code('final iterator = serialized.iterator;'),
+                  const Code('while (iterator.moveNext()) {'),
+                  const Code('final key = iterator.current! as String;'),
+                  const Code('iterator.moveNext();'),
+                  const Code('final value = iterator.current as String?;'),
+                  const Code('switch (key) {'),
+                  for (final propertyName in schema.properties!.keys) ...[
+                    ...deserializeProperty(propertyName),
+                  ],
+                  const Code('}'),
+                  const Code('}'),
+                  const Code(''),
+                  const Code('return result.build();'),
+                ]);
+              }),
+            ]),
+        ),
+      );
+    }
   }
   return TypeResultObject(
     '${state.prefix}$identifier',
