@@ -21,7 +21,7 @@ dependencies:
   flutter_native_splash: ^2.2.0+1
   flutter_svg: ^1.0.3
   http: ^0.13.4
-  intl: ^0.17.0
+  intl: any
   json_annotation: ^4.7.0
   material_design_icons_flutter: ^6.0.7096
   nextcloud:
