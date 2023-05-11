@@ -28,14 +28,8 @@ class _NeonAppState extends State<NeonApp> with WidgetsBindingObserver, tray.Tra
   late final _routerDelegate = AppRouter(
     navigatorKey: _navigatorKey,
     accountsBloc: _accountsBloc,
-    onThemeChanged: (final nextcloudTheme) {
-      setState(() {
-        _nextcloudTheme = nextcloudTheme;
-      });
-    },
   );
 
-  NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Theming? _nextcloudTheme;
   Rect? _lastBounds;
 
   @override
@@ -271,22 +265,25 @@ class _NeonAppState extends State<NeonApp> with WidgetsBindingObserver, tray.Tra
                 }
 
                 FlutterNativeSplash.remove();
-                return MaterialApp.router(
-                  localizationsDelegates: AppLocalizations.localizationsDelegates,
-                  supportedLocales: AppLocalizations.supportedLocales,
-                  themeMode: themeMode,
-                  theme: getThemeFromNextcloudTheme(
-                    _nextcloudTheme,
-                    Brightness.light,
-                    keepOriginalAccentColor: _nextcloudTheme == null || (themeKeepOriginalAccentColor ?? false),
+                return ValueListenableBuilder(
+                  valueListenable: themeNotifier,
+                  builder: (final context, final nextcloudTheme, final child) => MaterialApp.router(
+                    localizationsDelegates: AppLocalizations.localizationsDelegates,
+                    supportedLocales: AppLocalizations.supportedLocales,
+                    themeMode: themeMode,
+                    theme: getThemeFromNextcloudTheme(
+                      nextcloudTheme,
+                      Brightness.light,
+                      keepOriginalAccentColor: nextcloudTheme == null || (themeKeepOriginalAccentColor ?? false),
+                    ),
+                    darkTheme: getThemeFromNextcloudTheme(
+                      nextcloudTheme,
+                      Brightness.dark,
+                      keepOriginalAccentColor: nextcloudTheme == null || (themeKeepOriginalAccentColor ?? false),
+                      oledAsDark: themeOLEDAsDark,
+                    ),
+                    routerDelegate: _routerDelegate,
                   ),
-                  darkTheme: getThemeFromNextcloudTheme(
-                    _nextcloudTheme,
-                    Brightness.dark,
-                    oledAsDark: themeOLEDAsDark,
-                    keepOriginalAccentColor: _nextcloudTheme == null || (themeKeepOriginalAccentColor ?? false),
-                  ),
-                  routerDelegate: _routerDelegate,
                 );
               },
             ),
