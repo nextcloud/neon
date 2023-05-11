@@ -4,31 +4,21 @@ const themePrimaryColor = Color(0xFFF37736);
 
 ThemeData getThemeFromNextcloudTheme(
   final NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Theming? nextcloudTheme,
-  final ThemeMode themeMode,
-  final Brightness platformBrightness, {
-  required final bool oledAsDark,
+  final Brightness brightness, {
   required final bool keepOriginalAccentColor,
+  final bool oledAsDark = false,
 }) {
-  final primaryColor = nextcloudTheme?.color != null ? HexColor(nextcloudTheme!.color!) : themePrimaryColor;
-
-  late final Brightness selectBrightness;
-  switch (themeMode) {
-    case ThemeMode.system:
-      selectBrightness = platformBrightness;
-      break;
-    case ThemeMode.light:
-      selectBrightness = Brightness.light;
-      break;
-    case ThemeMode.dark:
-      selectBrightness = Brightness.dark;
-      break;
+  if (oledAsDark) {
+    assert(brightness == Brightness.dark, 'Brightness.dark is required for oledAsDark.');
   }
 
-  final oledBackgroundOverride = selectBrightness == Brightness.dark && oledAsDark ? Colors.black : null;
+  final primaryColor = nextcloudTheme?.color != null ? HexColor(nextcloudTheme!.color!) : themePrimaryColor;
+
+  final oledBackgroundOverride = oledAsDark ? Colors.black : null;
   final keepOriginalAccentColorOverride = keepOriginalAccentColor ? primaryColor : null;
   final colorScheme = ColorScheme.fromSeed(
     seedColor: primaryColor,
-    brightness: selectBrightness,
+    brightness: brightness,
   ).copyWith(
     background: oledBackgroundOverride,
     primary: keepOriginalAccentColorOverride,
@@ -37,7 +27,7 @@ ThemeData getThemeFromNextcloudTheme(
 
   final fillColor = MaterialStateProperty.resolveWith((final states) {
     if (states.contains(MaterialState.disabled)) {
-      return selectBrightness == Brightness.dark ? Colors.white38 : Colors.black38;
+      return brightness == Brightness.dark ? Colors.white38 : Colors.black38;
     }
 
     return colorScheme.primary;
@@ -62,7 +52,7 @@ ThemeData getThemeFromNextcloudTheme(
     ),
     popupMenuTheme: PopupMenuThemeData(
       // TODO: Only needed until M3 popup menus are implemented
-      color: selectBrightness == Brightness.dark
+      color: brightness == Brightness.dark
           ? oledAsDark
               ? const Color(0xFF202020)
               : const Color(0xFF404040)

@@ -36,15 +36,7 @@ class _NeonAppState extends State<NeonApp> with WidgetsBindingObserver, tray.Tra
   );
 
   NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Theming? _nextcloudTheme;
-  final _platformBrightness = BehaviorSubject<Brightness>.seeded(WidgetsBinding.instance.window.platformBrightness);
   Rect? _lastBounds;
-
-  @override
-  void didChangePlatformBrightness() {
-    _platformBrightness.add(WidgetsBinding.instance.window.platformBrightness);
-
-    super.didChangePlatformBrightness();
-  }
 
   @override
   void initState() {
@@ -260,42 +252,43 @@ class _NeonAppState extends State<NeonApp> with WidgetsBindingObserver, tray.Tra
     if (_platform.canUseWindowManager) {
       windowManager.removeListener(this);
     }
-    unawaited(_platformBrightness.close());
 
     super.dispose();
   }
 
   @override
-  Widget build(final BuildContext context) => StreamBuilder<Brightness>(
-        stream: _platformBrightness,
-        builder: (final context, final platformBrightnessSnapshot) => OptionBuilder(
-          option: widget.globalOptions.themeMode,
-          builder: (final context, final themeMode) => OptionBuilder(
-            option: widget.globalOptions.themeOLEDAsDark,
-            builder: (final context, final themeOLEDAsDark) => OptionBuilder(
-              option: widget.globalOptions.themeKeepOriginalAccentColor,
-              builder: (final context, final themeKeepOriginalAccentColor) => StreamBuilder<Account?>(
-                stream: widget.accountsBloc.activeAccount,
-                builder: (final context, final activeAccountSnapshot) {
-                  if (themeMode == null || !platformBrightnessSnapshot.hasData || themeOLEDAsDark == null) {
-                    return Container();
-                  }
+  Widget build(final BuildContext context) => OptionBuilder(
+        option: widget.globalOptions.themeMode,
+        builder: (final context, final themeMode) => OptionBuilder(
+          option: widget.globalOptions.themeOLEDAsDark,
+          builder: (final context, final themeOLEDAsDark) => OptionBuilder(
+            option: widget.globalOptions.themeKeepOriginalAccentColor,
+            builder: (final context, final themeKeepOriginalAccentColor) => StreamBuilder<Account?>(
+              stream: widget.accountsBloc.activeAccount,
+              builder: (final context, final activeAccountSnapshot) {
+                if (themeMode == null || themeOLEDAsDark == null) {
+                  return Container();
+                }
 
-                  FlutterNativeSplash.remove();
-                  return MaterialApp.router(
-                    localizationsDelegates: AppLocalizations.localizationsDelegates,
-                    supportedLocales: AppLocalizations.supportedLocales,
-                    theme: getThemeFromNextcloudTheme(
-                      _nextcloudTheme,
-                      themeMode,
-                      platformBrightnessSnapshot.data!,
-                      oledAsDark: themeOLEDAsDark,
-                      keepOriginalAccentColor: _nextcloudTheme == null || (themeKeepOriginalAccentColor ?? false),
-                    ),
-                    routerDelegate: _routerDelegate,
-                  );
-                },
-              ),
+                FlutterNativeSplash.remove();
+                return MaterialApp.router(
+                  localizationsDelegates: AppLocalizations.localizationsDelegates,
+                  supportedLocales: AppLocalizations.supportedLocales,
+                  themeMode: themeMode,
+                  theme: getThemeFromNextcloudTheme(
+                    _nextcloudTheme,
+                    Brightness.light,
+                    keepOriginalAccentColor: _nextcloudTheme == null || (themeKeepOriginalAccentColor ?? false),
+                  ),
+                  darkTheme: getThemeFromNextcloudTheme(
+                    _nextcloudTheme,
+                    Brightness.dark,
+                    oledAsDark: themeOLEDAsDark,
+                    keepOriginalAccentColor: _nextcloudTheme == null || (themeKeepOriginalAccentColor ?? false),
+                  ),
+                  routerDelegate: _routerDelegate,
+                );
+              },
             ),
           ),
         ),
