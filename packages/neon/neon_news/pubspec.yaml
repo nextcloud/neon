@@ -10,7 +10,7 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_html: ^3.0.0-alpha.6
-  html: ^0.15.2
+  html: ^0.15.3
   material_design_icons_flutter: ^6.0.7096
   neon:
     path: ../neon
@@ -23,7 +23,7 @@ dependencies:
   share_plus: ^7.0.0
   sort_box:
     path: ../../sort_box
-  url_launcher: ^6.1.10
+  url_launcher: ^6.1.11
   wakelock: ^0.6.2
   webview_flutter: ^4.2.0
 

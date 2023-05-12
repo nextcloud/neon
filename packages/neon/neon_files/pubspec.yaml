@@ -14,15 +14,15 @@ dependencies:
   filesize: ^2.0.1
   flutter:
     sdk: flutter
-  image_picker: ^0.8.7+1
+  image_picker: ^0.8.7+5
   intersperse: ^2.0.0
   material_design_icons_flutter: ^6.0.7096
   neon:
     path: ../neon
   nextcloud:
     path: ../../nextcloud
-  open_file: ^3.2.1
-  path: ^1.8.2
+  open_file: ^3.3.1
+  path: ^1.8.3
   provider: ^6.0.5
   queue: ^3.1.0+2
   rxdart: ^0.27.7
