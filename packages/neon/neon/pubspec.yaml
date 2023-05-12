@@ -3,30 +3,30 @@ version: 1.0.0
 publish_to: 'none'
 
 environment:
-  sdk: '>=2.19.0 <3.0.0'
-  flutter: '>=3.7.12'
+  sdk: '>=3.0.0 <4.0.0'
+  flutter: '>=3.10.0'
 
 dependencies:
   collection: ^1.16.0
   crypto: ^3.0.1
-  file_picker: ^4.6.1
+  file_picker: ^5.3.0
   filesize: ^2.0.1
   flutter:
     sdk: flutter
   flutter_cache_manager: ^3.3.0
-  flutter_file_dialog: ^2.3.0
-  flutter_local_notifications: ^12.0.2
+  flutter_file_dialog: ^3.0.0
+  flutter_local_notifications: ^14.0.0+1
   flutter_localizations:
     sdk: flutter
   flutter_native_splash: ^2.2.0+1
-  flutter_svg: ^1.0.3
+  flutter_svg: ^2.0.5
   http: ^0.13.4
-  intl: ^0.17.0
+  intl: ^0.18.0
   json_annotation: ^4.7.0
   material_design_icons_flutter: ^6.0.7096
   nextcloud:
     path: ../../nextcloud
-  package_info_plus: ^1.4.2
+  package_info_plus: ^4.0.0
   path: ^1.8.1
   path_provider: ^2.0.9
   permission_handler: ^10.0.0
@@ -41,11 +41,11 @@ dependencies:
   sqflite: ^2.0.2+1
   sqflite_common_ffi: ^2.1.1
   tray_manager: ^0.2.0
-  unifiedpush: ^4.0.1
+  unifiedpush: ^5.0.0
   url_launcher: ^6.0.18
-  webview_flutter: ^3.0.0
-  window_manager: ^0.2.5
-  xdg_directories: ^0.2.0+1
+  webview_flutter: ^4.2.0
+  window_manager: ^0.3.2
+  xdg_directories: ^1.0.0
   xml: ^6.2.2
 
 dev_dependencies:
@@ -55,6 +55,13 @@ dev_dependencies:
     git:
       url: https://github.com/stack11/dart_nit_picking
       ref: 0b2ee0d
+
+dependency_overrides:
+  wakelock_windows: # TODO: https://github.com/creativecreatorormaybenot/wakelock/pull/195
+    git:
+      url: https://github.com/creativecreatorormaybenot/wakelock
+      path: wakelock_windows
+      ref: 094b4a74c31e547c11525bcc050dbd06b02a1f67
 
 flutter:
   uses-material-design: true

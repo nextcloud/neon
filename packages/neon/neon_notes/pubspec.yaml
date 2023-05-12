@@ -3,8 +3,8 @@ version: 1.0.0
 publish_to: 'none'
 
 environment:
-  sdk: '>=2.19.0 <3.0.0'
-  flutter: '>=3.7.12'
+  sdk: '>=3.0.0 <4.0.0'
+  flutter: '>=3.10.0'
 
 dependencies:
   crypto: ^3.0.2
@@ -31,6 +31,13 @@ dev_dependencies:
     git:
       url: https://github.com/stack11/dart_nit_picking
       ref: 0b2ee0d
+
+dependency_overrides:
+  wakelock_windows: # TODO: https://github.com/creativecreatorormaybenot/wakelock/pull/195
+    git:
+      url: https://github.com/creativecreatorormaybenot/wakelock
+      path: wakelock_windows
+      ref: 094b4a74c31e547c11525bcc050dbd06b02a1f67
 
 flutter:
   uses-material-design: true
