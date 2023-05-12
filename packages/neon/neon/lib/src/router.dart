@@ -8,7 +8,6 @@ class AppRouter extends RouterDelegate<Account> with ChangeNotifier, PopNavigato
   });
 
   final AccountsBloc accountsBloc;
-  final _globalPopups = const GlobalPopups();
 
   @override
   final GlobalKey<NavigatorState> navigatorKey;
@@ -33,14 +32,9 @@ class AppRouter extends RouterDelegate<Account> with ChangeNotifier, PopNavigato
               name: 'home',
               child: Scaffold(
                 resizeToAvoidBottomInset: false,
-                body: Stack(
-                  children: [
-                    _globalPopups,
-                    HomePage(
-                      key: Key(currentConfiguration!.id),
-                      account: currentConfiguration!,
-                    ),
-                  ],
+                body: HomePage(
+                  key: Key(currentConfiguration!.id),
+                  account: currentConfiguration!,
                 ),
               ),
             ),

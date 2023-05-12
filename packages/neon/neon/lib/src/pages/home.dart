@@ -93,6 +93,8 @@ class _HomePageState extends State<HomePage> {
       }
     });
 
+    GlobalPopups().register(context);
+
     unawaited(_checkMaintenanceMode());
   }
 
