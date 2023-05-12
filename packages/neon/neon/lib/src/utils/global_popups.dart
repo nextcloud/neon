@@ -1,30 +1,25 @@
 part of '../../neon.dart';
 
-class GlobalPopups extends StatefulWidget {
-  const GlobalPopups({
-    super.key,
-  });
+class GlobalPopups {
+  factory GlobalPopups() => _instance ??= GlobalPopups._();
+  GlobalPopups._();
 
-  @override
-  State<GlobalPopups> createState() => _GlobalPopupsState();
-}
+  static GlobalPopups? _instance;
+  bool _registered = false;
 
-class _GlobalPopupsState extends State<GlobalPopups> {
-  late GlobalOptions _globalOptions;
-  late FirstLaunchBloc _firstLaunchBloc;
-  late NextPushBloc _nextPushBloc;
+  void register(final BuildContext context) {
+    if (_registered) {
+      return;
+    }
 
-  @override
-  void initState() {
-    super.initState();
+    final globalOptions = Provider.of<GlobalOptions>(context, listen: false);
+    final firstLaunchBloc = Provider.of<FirstLaunchBloc>(context, listen: false);
+    final nextPushBloc = Provider.of<NextPushBloc>(context, listen: false);
 
-    _globalOptions = Provider.of<GlobalOptions>(context, listen: false);
-    _firstLaunchBloc = Provider.of<FirstLaunchBloc>(context, listen: false);
-    _nextPushBloc = Provider.of<NextPushBloc>(context, listen: false);
-
-    _firstLaunchBloc.onFirstLaunch.listen((final _) async {
-      if (await _globalOptions.pushNotificationsEnabled.enabled.first) {
-        if (!mounted) {
+    firstLaunchBloc.onFirstLaunch.listen((final _) async {
+      if (await globalOptions.pushNotificationsEnabled.enabled.first) {
+        // ignore: use_build_context_synchronously
+        if (!context.mounted) {
           return;
         }
         ScaffoldMessenger.of(context).showSnackBar(
@@ -45,7 +40,7 @@ class _GlobalPopupsState extends State<GlobalPopups> {
       }
     });
 
-    _nextPushBloc.onNextPushSupported.listen((final _) async {
+    nextPushBloc.onNextPushSupported.listen((final _) async {
       await showDialog(
         context: context,
         builder: (final context) => AlertDialog(
@@ -72,8 +67,7 @@ class _GlobalPopupsState extends State<GlobalPopups> {
         ),
       );
     });
-  }
 
-  @override
-  Widget build(final BuildContext context) => Container();
+    _registered = true;
+  }
 }
