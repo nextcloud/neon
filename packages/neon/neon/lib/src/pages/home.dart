@@ -5,12 +5,10 @@ const kQuickBarWidth = kAvatarSize + 20;
 class HomePage extends StatefulWidget {
   const HomePage({
     required this.account,
-    required this.onThemeChanged,
     super.key,
   });
 
   final Account account;
-  final Function(NextcloudTheme? theme) onThemeChanged;
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -48,8 +46,6 @@ class _HomePageState extends State<HomePage> {
 
     _capabilitiesBloc.capabilities.listen((final result) async {
       if (result.data != null) {
-        widget.onThemeChanged(result.data!.capabilities.theming);
-
         // ignore cached version and prevent duplicate dialogs
         if (result.cached) {
           return;

@@ -5,11 +5,9 @@ class AppRouter extends RouterDelegate<Account> with ChangeNotifier, PopNavigato
   AppRouter({
     required this.navigatorKey,
     required this.accountsBloc,
-    required this.onThemeChanged,
   });
 
   final AccountsBloc accountsBloc;
-  final Function(NextcloudTheme? theme) onThemeChanged;
   final _globalPopups = const GlobalPopups();
 
   @override
@@ -41,7 +39,6 @@ class AppRouter extends RouterDelegate<Account> with ChangeNotifier, PopNavigato
                     HomePage(
                       key: Key(currentConfiguration!.id),
                       account: currentConfiguration!,
-                      onThemeChanged: onThemeChanged,
                     ),
                   ],
                 ),
