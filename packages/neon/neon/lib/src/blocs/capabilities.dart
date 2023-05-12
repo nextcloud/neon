@@ -15,7 +15,7 @@ class CapabilitiesBloc extends InteractiveBloc implements CapabilitiesBlocEvents
     this._client,
   ) {
     capabilities.listen((final value) {
-      themeNotifier.value = value.data!.capabilities.theming;
+      themeNotifier.value = value.data?.capabilities.theming;
     });
 
     unawaited(refresh());
