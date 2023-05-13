@@ -27,41 +27,17 @@ ThemeData getThemeFromNextcloudTheme(
     secondary: keepOriginalAccentColorOverride,
   );
 
-  final fillColor = MaterialStateProperty.resolveWith((final states) {
-    if (states.contains(MaterialState.disabled)) {
-      return brightness == Brightness.dark ? Colors.white38 : Colors.black38;
-    }
-
-    return colorScheme.primary;
-  });
-
   return ThemeData(
     useMaterial3: true,
     colorScheme: colorScheme,
     scaffoldBackgroundColor: colorScheme.background,
-    canvasColor: colorScheme.surface, // For Drawer
     cardColor: colorScheme.background, // For LicensePage
     snackBarTheme: const SnackBarThemeData(
       behavior: SnackBarBehavior.floating,
     ),
-    checkboxTheme: CheckboxThemeData(
-      fillColor: fillColor,
-      checkColor: MaterialStateProperty.resolveWith((final states) => colorScheme.onPrimary),
-    ),
     dividerTheme: const DividerThemeData(
       thickness: 1.5,
       space: 30,
-    ),
-    popupMenuTheme: PopupMenuThemeData(
-      // TODO: Only needed until M3 popup menus are implemented
-      color: brightness == Brightness.dark
-          ? oledAsDark
-              ? const Color(0xFF202020)
-              : const Color(0xFF404040)
-          : const Color(0xFFEAEAEA),
-    ),
-    radioTheme: RadioThemeData(
-      fillColor: fillColor,
     ),
   );
 }
