@@ -43,7 +43,7 @@ class _NewsAddFeedDialogState extends State<NewsAddFeedDialog> {
   }
 
   @override
-  Widget build(final BuildContext context) => ResultBuilder<NewsBloc, List<NextcloudNewsFolder>>(
+  Widget build(final BuildContext context) => ResultBuilder<List<NextcloudNewsFolder>>(
         stream: widget.bloc.folders,
         builder: (final context, final folders) => NeonDialog(
           title: Text(AppLocalizations.of(context).newsAddFeed),

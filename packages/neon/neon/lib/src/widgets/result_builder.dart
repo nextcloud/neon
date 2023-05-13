@@ -1,6 +1,6 @@
 part of '../../neon.dart';
 
-class ResultBuilder<T extends Bloc, R> extends StatelessWidget {
+class ResultBuilder<R> extends StatelessWidget {
   const ResultBuilder({
     required this.stream,
     required this.builder,

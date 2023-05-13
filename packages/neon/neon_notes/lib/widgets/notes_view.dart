@@ -11,7 +11,7 @@ class NotesView extends StatelessWidget {
   final String? category;
 
   @override
-  Widget build(final BuildContext context) => ResultBuilder<NotesBloc, List<NextcloudNotesNote>>(
+  Widget build(final BuildContext context) => ResultBuilder<List<NextcloudNotesNote>>(
         stream: bloc.notes,
         builder: (final context, final notes) => Scaffold(
           resizeToAvoidBottomInset: false,

@@ -181,11 +181,11 @@ class _HomePageState extends State<HomePage> {
   }
 
   @override
-  Widget build(final BuildContext context) => ResultBuilder<CapabilitiesBloc, Capabilities>(
+  Widget build(final BuildContext context) => ResultBuilder<Capabilities>(
         stream: _capabilitiesBloc.capabilities,
-        builder: (final context, final capabilities) => ResultBuilder<AppsBloc, List<AppImplementation>>(
+        builder: (final context, final capabilities) => ResultBuilder<List<AppImplementation>>(
           stream: _appsBloc.appImplementations,
-          builder: (final context, final appImplementations) => ResultBuilder<AppsBloc, NotificationsAppInterface?>(
+          builder: (final context, final appImplementations) => ResultBuilder<NotificationsAppInterface?>(
             stream: _appsBloc.notificationsAppImplementation,
             builder: (final context, final notificationsAppImplementation) => StreamBuilder<String?>(
               stream: _appsBloc.activeAppID,

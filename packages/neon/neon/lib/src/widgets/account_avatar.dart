@@ -41,7 +41,7 @@ class NeonAccountAvatar extends StatelessWidget {
               ),
             ),
           ),
-          ResultBuilder<UserStatusBloc, NextcloudUserStatusStatus?>(
+          ResultBuilder<NextcloudUserStatusStatus?>(
             stream: userStatusBloc.userStatus,
             builder: (final context, final userStatus) {
               final hasEmoji = userStatus.data?.icon != null;

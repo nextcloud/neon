@@ -34,7 +34,7 @@ class _FilesBrowserViewState extends State<FilesBrowserView> {
   }
 
   @override
-  Widget build(final BuildContext context) => ResultBuilder<FilesBrowserBloc, List<WebDavFile>>(
+  Widget build(final BuildContext context) => ResultBuilder<List<WebDavFile>>(
         stream: widget.bloc.files,
         builder: (final context, final files) => StreamBuilder<List<String>>(
           stream: widget.bloc.path,

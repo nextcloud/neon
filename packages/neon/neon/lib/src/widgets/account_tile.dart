@@ -38,7 +38,7 @@ class NeonAccountTile extends StatelessWidget {
           account: account,
         ),
       ),
-      title: ResultBuilder<UserDetailsBloc, NextcloudProvisioningApiUserDetails>(
+      title: ResultBuilder<NextcloudProvisioningApiUserDetails>(
         stream: userDetailsBloc.userDetails,
         builder: (final context, final userDetails) => Row(
           children: [

@@ -11,9 +11,9 @@ class NewsFeedsView extends StatelessWidget {
   final int? folderID;
 
   @override
-  Widget build(final BuildContext context) => ResultBuilder<NewsBloc, List<NextcloudNewsFolder>>(
+  Widget build(final BuildContext context) => ResultBuilder<List<NextcloudNewsFolder>>(
         stream: bloc.folders,
-        builder: (final context, final folders) => ResultBuilder<NewsBloc, List<NextcloudNewsFeed>>(
+        builder: (final context, final folders) => ResultBuilder<List<NextcloudNewsFeed>>(
           stream: bloc.feeds,
           builder: (final context, final feeds) => Scaffold(
             resizeToAvoidBottomInset: false,

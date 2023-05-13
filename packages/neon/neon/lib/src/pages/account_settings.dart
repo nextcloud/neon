@@ -50,7 +50,7 @@ class AccountSettingsPage extends StatelessWidget {
             ),
           ],
         ),
-        body: ResultBuilder<UserDetailsBloc, NextcloudProvisioningApiUserDetails>(
+        body: ResultBuilder<NextcloudProvisioningApiUserDetails>(
           stream: _userDetailsBloc.userDetails,
           builder: (final context, final userDetails) => SettingsList(
             categories: [

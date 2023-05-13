@@ -23,8 +23,7 @@ class _NotificationsMainPageState extends State<NotificationsMainPage> {
   }
 
   @override
-  Widget build(final BuildContext context) =>
-      ResultBuilder<NotificationsBloc, List<NextcloudNotificationsNotification>>(
+  Widget build(final BuildContext context) => ResultBuilder<List<NextcloudNotificationsNotification>>(
         stream: widget.bloc.notifications,
         builder: (final context, final notifications) => Scaffold(
           resizeToAvoidBottomInset: false,

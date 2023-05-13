@@ -25,9 +25,9 @@ class _NewsArticlesViewState extends State<NewsArticlesView> {
   }
 
   @override
-  Widget build(final BuildContext context) => ResultBuilder<NewsBloc, List<NextcloudNewsFeed>>(
+  Widget build(final BuildContext context) => ResultBuilder<List<NextcloudNewsFeed>>(
         stream: widget.newsBloc.feeds,
-        builder: (final context, final feeds) => ResultBuilder<NewsArticlesBloc, List<NextcloudNewsArticle>>(
+        builder: (final context, final feeds) => ResultBuilder<List<NextcloudNewsArticle>>(
           stream: widget.bloc.articles,
           builder: (final context, final articles) => Scaffold(
             resizeToAvoidBottomInset: false,

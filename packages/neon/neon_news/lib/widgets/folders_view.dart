@@ -23,9 +23,9 @@ class NewsFoldersView extends StatelessWidget {
           },
           child: const Icon(Icons.add),
         ),
-        body: ResultBuilder<NewsBloc, List<NextcloudNewsFolder>>(
+        body: ResultBuilder<List<NextcloudNewsFolder>>(
           stream: bloc.folders,
-          builder: (final context, final folders) => ResultBuilder<NewsBloc, List<NextcloudNewsFeed>>(
+          builder: (final context, final folders) => ResultBuilder<List<NextcloudNewsFeed>>(
             stream: bloc.feeds,
             builder: (final context, final feeds) => SortBoxBuilder<FoldersSortProperty, FolderFeedsWrapper>(
               sortBox: foldersSortBox,
