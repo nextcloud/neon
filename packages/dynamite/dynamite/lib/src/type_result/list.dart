@@ -3,15 +3,17 @@ part of '../../dynamite.dart';
 class TypeResultList extends TypeResult {
   TypeResultList(
     super.name,
-    this.subType, {
-    this.fromContentString = false,
-  });
+    final TypeResult subType, {
+    super.nullable,
+  }) : super(generics: [subType]);
 
-  final TypeResult subType;
-  final bool fromContentString;
+  TypeResult get subType => generics.first;
 
   @override
-  String serialize(final String object) => '$object.map((final e) => ${subType.serialize('e')}).toList()';
+  String? get _builderFactory => '..addBuilderFactory($fullType, ListBuilder<${subType.className}>.new)';
+
+  @override
+  String serialize(final String object) => '$object.map((final e) => ${subType.serialize('e')})';
 
   @override
   String encode(
@@ -20,7 +22,7 @@ class TypeResultList extends TypeResult {
     final String? mimeType,
   }) {
     if (onlyChildren) {
-      return '$object.map((final e) => ${subType.encode('e', mimeType: mimeType)}).toList()';
+      return '$object.map((final e) => ${subType.encode('e', mimeType: mimeType)})';
     }
 
     switch (mimeType) {
@@ -34,7 +36,8 @@ class TypeResultList extends TypeResult {
   }
 
   @override
-  String deserialize(final String object) => '($object as List).map((final e) => ${subType.deserialize('e')}).toList()';
+  String deserialize(final String object, {final bool toBuilder = false}) =>
+      '$name(($object as List).map((final e) => ${subType.deserialize('e')}))${toBuilder ? '.toBuilder()' : ''}';
 
   @override
   String decode(final String object) => 'json.decode($object as String)';

@@ -1,7 +1,13 @@
 part of '../../dynamite.dart';
 
 class TypeResultBase extends TypeResult {
-  TypeResultBase(super.name);
+  TypeResultBase(
+    super.name, {
+    super.nullable,
+  });
+
+  @override
+  String? get _builderFactory => null;
 
   @override
   String serialize(final String object) => object;
@@ -15,7 +21,13 @@ class TypeResultBase extends TypeResult {
       name == 'String' ? object : '$object.toString()';
 
   @override
-  String deserialize(final String object) => '($object as $name)';
+  String deserialize(final String object, {final bool toBuilder = false}) {
+    if (name == 'JsonObject') {
+      return 'JsonObject($object)${nullable ? '?' : ''}';
+    }
+
+    return '($object as $name ${nullable ? '?' : ''})';
+  }
 
   @override
   String decode(final String object) {
@@ -24,6 +36,8 @@ class TypeResultBase extends TypeResult {
         return '($object as String)';
       case 'int':
         return 'int.parse($object as String)';
+      case 'JsonObject':
+        return 'JsonObject($object)';
       default:
         throw Exception('Can not decode "$name" from String');
     }

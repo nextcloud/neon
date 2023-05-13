@@ -99,7 +99,7 @@ class NewsBloc extends InteractiveBloc implements NewsBlocEvents, NewsBlocStates
         'news-folders',
         folders,
         () async => client.news.listFolders(),
-        (final response) => response.folders,
+        (final response) => response.folders.toList(),
       ),
       requestManager.wrapNextcloud<List<NextcloudNewsFeed>, NextcloudNewsListFeeds>(
         client.id,
@@ -111,7 +111,7 @@ class NewsBloc extends InteractiveBloc implements NewsBlocEvents, NewsBlocStates
           if (response.newestItemId != null) {
             _newestItemId = response.newestItemId!;
           }
-          return response.feeds;
+          return response.feeds.toList();
         },
       ),
       mainArticlesBloc.reload(),

@@ -23,7 +23,7 @@ class RequestManager {
         call,
         unwrap,
         (final data) => json.encode(serializeNextcloud<R>(data)),
-        (final data) => deserializeNextcloud<R>(json.decode(data)),
+        (final data) => deserializeNextcloud<R>(json.decode(data) as Object),
         disableTimeout,
         emitEmptyCache,
         0,

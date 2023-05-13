@@ -122,9 +122,10 @@ Future run(final DockerImage image) async {
     test('Update settings', () async {
       var response = await client.notes.updateSettings(
         notesSettings: NextcloudNotesSettings(
-          notesPath: 'Test Notes',
-          fileSuffix: '.txt',
-          noteMode: NextcloudNotesSettings_NoteMode.preview,
+          (final b) => b
+            ..notesPath = 'Test Notes'
+            ..fileSuffix = '.txt'
+            ..noteMode = NextcloudNotesSettings_NoteMode.preview,
         ),
       );
       expect(response.notesPath, 'Test Notes');
