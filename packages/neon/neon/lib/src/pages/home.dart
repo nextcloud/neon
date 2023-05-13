@@ -176,7 +176,6 @@ class _HomePageState extends State<HomePage> {
 
   @override
   void dispose() {
-    _capabilitiesBloc.dispose();
     drawerScrollController.dispose();
     super.dispose();
   }
