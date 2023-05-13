@@ -63,12 +63,10 @@ class AccountsBloc extends Bloc implements AccountsBlocEvents, AccountsBlocState
   void dispose() {
     unawaited(activeAccount.close());
     unawaited(accounts.close());
-    for (final bloc in _userDetailsBlocs.values) {
-      bloc.dispose();
-    }
-    for (final bloc in _userStatusBlocs.values) {
-      bloc.dispose();
-    }
+    _appsBlocs.disposeAll();
+    _capabilitiesBlocs.disposeAll();
+    _userDetailsBlocs.disposeAll();
+    _userStatusBlocs.disposeAll();
     for (final options in _accountsOptions.values) {
       options.dispose();
     }
@@ -166,7 +164,9 @@ class AccountsBloc extends Bloc implements AccountsBlocEvents, AccountsBlocState
 
   CapabilitiesBloc getCapabilitiesBloc(final Account account) {
     if (_capabilitiesBlocs[account.id] != null) {
-      return _capabilitiesBlocs[account.id]!;
+      final bloc = _capabilitiesBlocs[account.id]!;
+      unawaited(bloc.refresh());
+      return bloc;
     }
 
     return _capabilitiesBlocs[account.id] = CapabilitiesBloc(

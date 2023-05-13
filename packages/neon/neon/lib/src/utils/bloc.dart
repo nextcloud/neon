@@ -40,3 +40,17 @@ abstract class InteractiveBloc extends Bloc {
     }
   }
 }
+
+extension DisposeableIterableBloc on Iterable<Bloc> {
+  void disposeAll() {
+    for (final bloc in this) {
+      bloc.dispose();
+    }
+  }
+}
+
+extension DisposeableMapBloc on Map<dynamic, Bloc> {
+  void disposeAll() {
+    values.disposeAll();
+  }
+}
