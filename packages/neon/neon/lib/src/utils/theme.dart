@@ -1,7 +1,5 @@
 part of '../../neon.dart';
 
-final themeNotifier = ValueNotifier<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Theming?>(null);
-
 const themePrimaryColor = Color(0xFFF37736);
 
 ThemeData getThemeFromNextcloudTheme(

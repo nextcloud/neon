@@ -7,7 +7,7 @@ class ResultBuilder<R> extends StatelessWidget {
     super.key,
   });
 
-  final BehaviorSubject<Result<R>> stream;
+  final BehaviorSubject<Result<R>>? stream;
 
   final Widget Function(BuildContext, Result<R>) builder;
 

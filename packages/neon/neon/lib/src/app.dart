@@ -265,25 +265,30 @@ class _NeonAppState extends State<NeonApp> with WidgetsBindingObserver, tray.Tra
                 }
 
                 FlutterNativeSplash.remove();
-                return ValueListenableBuilder(
-                  valueListenable: themeNotifier,
-                  builder: (final context, final nextcloudTheme, final child) => MaterialApp.router(
-                    localizationsDelegates: AppLocalizations.localizationsDelegates,
-                    supportedLocales: AppLocalizations.supportedLocales,
-                    themeMode: themeMode,
-                    theme: getThemeFromNextcloudTheme(
-                      nextcloudTheme,
-                      Brightness.light,
-                      keepOriginalAccentColor: nextcloudTheme == null || (themeKeepOriginalAccentColor ?? false),
-                    ),
-                    darkTheme: getThemeFromNextcloudTheme(
-                      nextcloudTheme,
-                      Brightness.dark,
-                      keepOriginalAccentColor: nextcloudTheme == null || (themeKeepOriginalAccentColor ?? false),
-                      oledAsDark: themeOLEDAsDark,
-                    ),
-                    routerDelegate: _routerDelegate,
-                  ),
+                return ResultBuilder<Capabilities?>(
+                  stream: activeAccountSnapshot.hasData
+                      ? widget.accountsBloc.getCapabilitiesBloc(activeAccountSnapshot.data!).capabilities
+                      : null,
+                  builder: (final context, final capabilitiesSnapshot) {
+                    final nextcloudTheme = capabilitiesSnapshot.data?.capabilities.theming;
+                    return MaterialApp.router(
+                      localizationsDelegates: AppLocalizations.localizationsDelegates,
+                      supportedLocales: AppLocalizations.supportedLocales,
+                      themeMode: themeMode,
+                      theme: getThemeFromNextcloudTheme(
+                        nextcloudTheme,
+                        Brightness.light,
+                        keepOriginalAccentColor: nextcloudTheme == null || (themeKeepOriginalAccentColor ?? false),
+                      ),
+                      darkTheme: getThemeFromNextcloudTheme(
+                        nextcloudTheme,
+                        Brightness.dark,
+                        keepOriginalAccentColor: nextcloudTheme == null || (themeKeepOriginalAccentColor ?? false),
+                        oledAsDark: themeOLEDAsDark,
+                      ),
+                      routerDelegate: _routerDelegate,
+                    );
+                  },
                 );
               },
             ),

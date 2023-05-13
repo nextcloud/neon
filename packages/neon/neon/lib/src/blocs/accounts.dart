@@ -164,9 +164,7 @@ class AccountsBloc extends Bloc implements AccountsBlocEvents, AccountsBlocState
 
   CapabilitiesBloc getCapabilitiesBloc(final Account account) {
     if (_capabilitiesBlocs[account.id] != null) {
-      final bloc = _capabilitiesBlocs[account.id]!;
-      unawaited(bloc.refresh());
-      return bloc;
+      return _capabilitiesBlocs[account.id]!;
     }
 
     return _capabilitiesBlocs[account.id] = CapabilitiesBloc(
