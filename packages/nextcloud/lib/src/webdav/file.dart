@@ -4,7 +4,6 @@ part of '../../nextcloud.dart';
 extension WebDavMultistatusFile on WebDavMultistatus {
   /// Convert the [WebDavMultistatus] into a [WebDavFile] for easier handling
   List<WebDavFile> toWebDavFiles(final WebDavClient client) => responses
-      .sublist(1)
       .where((final response) => response.href != null)
       .map(
         (final response) => WebDavFile(
