@@ -60,30 +60,22 @@ class _HomePageState extends State<HomePage> {
             ...appsResult.data!.map((final a) => a.id),
           ]) {
             try {
-              bool? supported;
-              switch (id) {
-                case 'core':
-                  supported = await widget.account.client.core.isSupported(result.data);
-                  break;
-                case 'news':
-                  supported = await widget.account.client.news.isSupported();
-                  break;
-                case 'notes':
-                  supported = await widget.account.client.notes.isSupported(result.data);
-                  break;
+              final (supported, _) = switch (id) {
+                'core' => await widget.account.client.core.isSupported(result.data),
+                'news' => await widget.account.client.news.isSupported(),
+                'notes' => await widget.account.client.notes.isSupported(result.data),
+                _ => (true, null),
+              };
+              if (supported || !mounted) {
+                return;
               }
-              if (!(supported ?? true)) {
-                if (!mounted) {
-                  return;
-                }
-                var name = AppLocalizations.of(context).appImplementationName(id);
-                if (name == '') {
-                  name = id;
-                }
-                await _showProblem(
-                  AppLocalizations.of(context).errorUnsupportedVersion(name),
-                );
+              var name = AppLocalizations.of(context).appImplementationName(id);
+              if (name == '') {
+                name = id;
               }
+              await _showProblem(
+                AppLocalizations.of(context).errorUnsupportedVersion(name),
+              );
             } catch (e, s) {
               debugPrint(e.toString());
               debugPrint(s.toString());
