@@ -18,8 +18,8 @@ Future run(final DockerImage image) async {
     tearDown(() => container.destroy());
 
     test('Is supported', () async {
-      final response = await client.notes.isSupported();
-      expect(response, isTrue);
+      final (supported, _) = await client.notes.isSupported();
+      expect(supported, isTrue);
     });
 
     test('Create note favorite', () async {
