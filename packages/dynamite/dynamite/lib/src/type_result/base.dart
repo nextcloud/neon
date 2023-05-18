@@ -26,7 +26,7 @@ class TypeResultBase extends TypeResult {
       return 'JsonObject($object)${nullable ? '?' : ''}';
     }
 
-    return '($object as $name ${nullable ? '?' : ''})';
+    return '($object as $nullableName)';
   }
 
   @override

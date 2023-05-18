@@ -13,19 +13,17 @@ class TypeResultEnum extends TypeResult {
   String? get _builderFactory => null;
 
   @override
-  String serialize(final String object) => '$object.name';
-
-  @override
   String encode(
     final String object, {
     final bool onlyChildren = false,
     final String? mimeType,
-  }) =>
-      subType.encode(object);
+  }) {
+    if (subType.name == 'String') {
+      return '$object.name';
+    }
 
-  @override
-  String deserialize(final String object, {final bool toBuilder = false}) =>
-      '$name.valueOf($object as ${subType.name})';
+    return super.encode(object, mimeType: mimeType);
+  }
 
   @override
   String decode(final String object) => subType.decode(object);
