@@ -1,4 +1,4 @@
-/workspace.xml
-/usage.statistics.xml
-/shelf/
-/libraries/
+*
+!/codeStyles
+!/runConfigurations
+!/.gitignore
