@@ -1,1 +1,5 @@
 include: package:nit_picking/flutter.yaml
+
+analyzer:
+  exclude:
+    - lib/l10n/**
