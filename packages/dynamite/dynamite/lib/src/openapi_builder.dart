@@ -726,7 +726,7 @@ class OpenAPIBuilder implements Builder {
                                 ),
                                 parameter.schema!,
                                 nullable: dartParameterNullable,
-                              );
+                              ).dartType;
 
                               state.resolvedTypeCombinations.add(result);
 

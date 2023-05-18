@@ -41,4 +41,7 @@ class TypeResultList extends TypeResult {
 
   @override
   String decode(final String object) => 'json.decode($object as String)';
+
+  @override
+  TypeResultList get dartType => TypeResultList('List', subType, nullable: nullable);
 }

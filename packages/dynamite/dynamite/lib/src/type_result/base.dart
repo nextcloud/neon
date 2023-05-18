@@ -42,4 +42,18 @@ class TypeResultBase extends TypeResult {
         throw Exception('Can not decode "$name" from String');
     }
   }
+
+  @override
+  TypeResultBase get dartType {
+    final String dartName;
+    switch (name) {
+      case 'JsonObject':
+        dartName = 'dynamic';
+        break;
+      default:
+        dartName = name;
+    }
+
+    return TypeResultBase(dartName, nullable: nullable);
+  }
 }

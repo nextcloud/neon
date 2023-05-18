@@ -37,4 +37,7 @@ class TypeResultMap extends TypeResult {
 
   @override
   String decode(final String object) => 'json.decode($object as String)';
+
+  @override
+  TypeResultMap get dartType => TypeResultMap('Map', subType, nullable: nullable);
 }

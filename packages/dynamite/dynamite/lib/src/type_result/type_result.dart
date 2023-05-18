@@ -59,4 +59,8 @@ abstract class TypeResult {
   });
 
   String get nullableName => nullable ? '$name?' : name;
+
+  /// Native dart type equivalent
+  // ignore: avoid_returning_this
+  TypeResult get dartType => this;
 }
