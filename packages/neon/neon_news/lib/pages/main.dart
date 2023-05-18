@@ -57,15 +57,15 @@ class _NewsMainPageState extends State<NewsMainPage> {
         items: [
           BottomNavigationBarItem(
             icon: const Icon(Icons.newspaper),
-            label: AppLocalizations.of(context).newsArticles,
+            label: AppLocalizations.of(context).articles,
           ),
           BottomNavigationBarItem(
             icon: const Icon(Icons.folder),
-            label: AppLocalizations.of(context).newsFolders,
+            label: AppLocalizations.of(context).folders,
           ),
           BottomNavigationBarItem(
             icon: const Icon(Icons.rss_feed),
-            label: AppLocalizations.of(context).newsFeeds,
+            label: AppLocalizations.of(context).feeds,
           ),
         ],
       ),

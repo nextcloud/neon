@@ -1,3 +1,86 @@
 {
-  "@@locale": "en"
+  "@@locale": "en",
+  "yes": "Yes",
+  "no": "No",
+  "delete": "Delete",
+  "rename": "Rename",
+  "move": "Move",
+  "copy": "Copy",
+  "disabled": "Disabled",
+  "general": "General",
+  "uploadFiles": "Upload files",
+  "uploadImages": "Upload images",
+  "uploadCamera": "Upload from camera",
+  "createFolder": "Create folder",
+  "folderName": "Folder name",
+  "renameFolder": "Rename folder",
+  "renameFile": "Rename file",
+  "details": "Details",
+  "detailsFileName": "File name",
+  "detailsFolderName": "Folder name",
+  "detailsParentFolder": "Parent folder",
+  "detailsFileSize": "File size",
+  "detailsFolderSize": "Folder size",
+  "detailsLastModified": "Last modified",
+  "detailsIsFavorite": "Is favorite",
+  "sync": "Sync",
+  "deleteFileConfirm": "Are you sure you want to delete the file '{name}'?",
+  "@deleteFileConfirm": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "deleteFolderConfirm": "Are you sure you want to delete the folder '{name}'?",
+  "@deleteFolderConfirm": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "chooseFolder": "Choose folder",
+  "addToFavorites": "Add to favorites",
+  "removeFromFavorites": "Remove from favorites",
+  "confirmUploadSizeWarning": "Are you sure you want to upload a file that is bigger than {warningSize} ({actualSize})?",
+  "@confirmUploadSizeWarning": {
+    "placeholders": {
+      "warningSize": {
+        "type": "String"
+      },
+      "actualSize": {
+        "type": "String"
+      }
+    }
+  },
+  "confirmDownloadSizeWarning": "Are you sure you want to download a file that is bigger than {warningSize} ({actualSize})?",
+  "@confirmDownloadSizeWarning": {
+    "placeholders": {
+      "warningSize": {
+        "type": "String"
+      },
+      "actualSize": {
+        "type": "String"
+      }
+    }
+  },
+  "goToPath": "Go to /{path}",
+  "@goToPath": {
+    "placeholders": {
+      "path": {
+        "type": "String"
+      }
+    }
+  },
+  "optionsFilesSortProperty": "How to sort files",
+  "optionsFilesSortPropertyName": "Name",
+  "optionsFilesSortPropertyModifiedDate": "Last modified",
+  "optionsFilesSortPropertySize": "Size",
+  "optionsFilesSortOrder": "Sort order of files",
+  "optionsShowPreviews": "Show previews for files",
+  "optionsUploadQueueParallelism": "Upload queue parallelism",
+  "optionsDownloadQueueParallelism": "Download queue parallelism",
+  "optionsUploadSizeWarning": "Upload size warning",
+  "optionsDownloadSizeWarning": "Download size warning"
 }

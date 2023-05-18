@@ -27,13 +27,13 @@ class _NewsFeedShowURLDialogState extends State<NewsFeedShowURLDialog> {
               if (mounted) {
                 ScaffoldMessenger.of(context).showSnackBar(
                   SnackBar(
-                    content: Text(AppLocalizations.of(context).newsCopiedFeedURL),
+                    content: Text(AppLocalizations.of(context).copiedFeedURL),
                   ),
                 );
                 Navigator.of(context).pop();
               }
             },
-            child: Text(AppLocalizations.of(context).newsCopyFeedURL),
+            child: Text(AppLocalizations.of(context).copyFeedURL),
           ),
           ElevatedButton(
             onPressed: () {

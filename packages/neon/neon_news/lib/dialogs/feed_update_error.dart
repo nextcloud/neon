@@ -27,13 +27,13 @@ class _NewsFeedUpdateErrorDialogState extends State<NewsFeedUpdateErrorDialog> {
               if (mounted) {
                 ScaffoldMessenger.of(context).showSnackBar(
                   SnackBar(
-                    content: Text(AppLocalizations.of(context).newsCopiedFeedErrorMessage),
+                    content: Text(AppLocalizations.of(context).copiedFeedErrorMessage),
                   ),
                 );
                 Navigator.of(context).pop();
               }
             },
-            child: Text(AppLocalizations.of(context).newsCopyFeedErrorMessage),
+            child: Text(AppLocalizations.of(context).copyFeedErrorMessage),
           ),
           ElevatedButton(
             onPressed: () {

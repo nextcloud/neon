@@ -11,6 +11,8 @@ abstract class AppImplementation<T extends Bloc, R extends NextcloudAppSpecificO
   }
 
   String get id;
+  LocalizationsDelegate get localizationsDelegate;
+  List<Locale> get supportedLocales;
   final RequestManager requestManager;
   final NeonPlatform platform;
 

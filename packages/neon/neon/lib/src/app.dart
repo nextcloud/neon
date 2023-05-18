@@ -22,9 +22,10 @@ class NeonApp extends StatefulWidget {
 class _NeonAppState extends State<NeonApp> with WidgetsBindingObserver, tray.TrayListener, WindowListener {
   final _appRegex = RegExp(r'^app_([a-z]+)$', multiLine: true);
   final _navigatorKey = GlobalKey<NavigatorState>();
-  late NeonPlatform _platform;
-  late GlobalOptions _globalOptions;
-  late AccountsBloc _accountsBloc;
+  late final List<AppImplementation> _appImplementations;
+  late final NeonPlatform _platform;
+  late final GlobalOptions _globalOptions;
+  late final AccountsBloc _accountsBloc;
   late final _routerDelegate = AppRouter(
     navigatorKey: _navigatorKey,
     accountsBloc: _accountsBloc,
@@ -36,6 +37,7 @@ class _NeonAppState extends State<NeonApp> with WidgetsBindingObserver, tray.Tra
   void initState() {
     super.initState();
 
+    _appImplementations = Provider.of<List<AppImplementation>>(context, listen: false);
     _platform = Provider.of<NeonPlatform>(context, listen: false);
     _globalOptions = Provider.of<GlobalOptions>(context, listen: false);
     _accountsBloc = Provider.of<AccountsBloc>(context, listen: false);
@@ -54,11 +56,10 @@ class _NeonAppState extends State<NeonApp> with WidgetsBindingObserver, tray.Tra
       if (!mounted) {
         return;
       }
-      final appImplementations = Provider.of<List<AppImplementation>>(context, listen: false);
       if (_platform.canUseQuickActions) {
         const quickActions = QuickActions();
         await quickActions.setShortcutItems(
-          appImplementations
+          _appImplementations
               .map(
                 (final app) => ShortcutItem(
                   type: 'app_${app.id}',
@@ -88,7 +89,7 @@ class _NeonAppState extends State<NeonApp> with WidgetsBindingObserver, tray.Tra
               await tray.trayManager.setContextMenu(
                 tray.Menu(
                   items: [
-                    for (final app in appImplementations) ...[
+                    for (final app in _appImplementations) ...[
                       tray.MenuItem(
                         key: 'app_${app.id}',
                         label: app.nameFromLocalization(localizations),
@@ -272,8 +273,16 @@ class _NeonAppState extends State<NeonApp> with WidgetsBindingObserver, tray.Tra
                   builder: (final context, final capabilitiesSnapshot) {
                     final nextcloudTheme = capabilitiesSnapshot.data?.capabilities.theming;
                     return MaterialApp.router(
-                      localizationsDelegates: AppLocalizations.localizationsDelegates,
-                      supportedLocales: AppLocalizations.supportedLocales,
+                      localizationsDelegates: [
+                        ..._appImplementations.map((final app) => app.localizationsDelegate),
+                        ...AppLocalizations.localizationsDelegates,
+                      ],
+                      supportedLocales: {
+                        ..._appImplementations
+                            .map((final app) => app.supportedLocales)
+                            .reduce((final value, final element) => [...value, ...element]),
+                        ...AppLocalizations.supportedLocales,
+                      },
                       themeMode: themeMode,
                       theme: getThemeFromNextcloudTheme(
                         nextcloudTheme,

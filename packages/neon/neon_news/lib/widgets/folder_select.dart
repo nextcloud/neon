@@ -15,12 +15,12 @@ class NewsFolderSelect extends StatelessWidget {
   @override
   Widget build(final BuildContext context) => DropdownButtonFormField<NextcloudNewsFolder>(
         decoration: InputDecoration(
-          hintText: AppLocalizations.of(context).newsFolder,
+          hintText: AppLocalizations.of(context).folder,
         ),
         value: value,
         items: [
           DropdownMenuItem(
-            child: Text(AppLocalizations.of(context).newsFolderRoot),
+            child: Text(AppLocalizations.of(context).folderRoot),
           ),
           ...folders.map(
             (final f) => DropdownMenuItem<NextcloudNewsFolder>(

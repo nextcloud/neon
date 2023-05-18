@@ -5,6 +5,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:neon/neon.dart';
+import 'package:neon_notifications/l10n/localizations.dart';
 import 'package:nextcloud/nextcloud.dart';
 import 'package:provider/provider.dart';
 import 'package:rxdart/rxdart.dart';
@@ -18,6 +19,12 @@ class NotificationsApp extends NotificationsAppInterface {
 
   @override
   String id = 'notifications';
+
+  @override
+  LocalizationsDelegate localizationsDelegate = AppLocalizations.delegate;
+
+  @override
+  List<Locale> supportedLocales = AppLocalizations.supportedLocales;
 
   @override
   NotificationsAppSpecificOptions buildOptions(final AppStorage storage) => NotificationsAppSpecificOptions(storage);

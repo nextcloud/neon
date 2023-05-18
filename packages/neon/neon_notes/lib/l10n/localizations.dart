@@ -88,6 +88,180 @@ abstract class AppLocalizations {
 
   /// A list of this localizations delegate's supported locales.
   static const List<Locale> supportedLocales = <Locale>[Locale('en')];
+
+  /// No description provided for @general.
+  ///
+  /// In en, this message translates to:
+  /// **'General'**
+  String get general;
+
+  /// No description provided for @note.
+  ///
+  /// In en, this message translates to:
+  /// **'Note'**
+  String get note;
+
+  /// No description provided for @notes.
+  ///
+  /// In en, this message translates to:
+  /// **'Notes'**
+  String get notes;
+
+  /// No description provided for @categories.
+  ///
+  /// In en, this message translates to:
+  /// **'Categories'**
+  String get categories;
+
+  /// No description provided for @createNote.
+  ///
+  /// In en, this message translates to:
+  /// **'Create note'**
+  String get createNote;
+
+  /// No description provided for @category.
+  ///
+  /// In en, this message translates to:
+  /// **'Category'**
+  String get category;
+
+  /// No description provided for @setCategory.
+  ///
+  /// In en, this message translates to:
+  /// **'Set category'**
+  String get setCategory;
+
+  /// No description provided for @noteTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Title'**
+  String get noteTitle;
+
+  /// No description provided for @noteChangedOnServer.
+  ///
+  /// In en, this message translates to:
+  /// **'The note has been changed on the server. Please refresh and try again'**
+  String get noteChangedOnServer;
+
+  /// No description provided for @notesInCategory.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} notes'**
+  String notesInCategory(int count);
+
+  /// No description provided for @uncategorized.
+  ///
+  /// In en, this message translates to:
+  /// **'Uncategorized'**
+  String get uncategorized;
+
+  /// No description provided for @showEditor.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit note'**
+  String get showEditor;
+
+  /// No description provided for @showPreview.
+  ///
+  /// In en, this message translates to:
+  /// **'Preview note'**
+  String get showPreview;
+
+  /// No description provided for @star.
+  ///
+  /// In en, this message translates to:
+  /// **'Star note'**
+  String get star;
+
+  /// No description provided for @unstar.
+  ///
+  /// In en, this message translates to:
+  /// **'Unstar note'**
+  String get unstar;
+
+  /// No description provided for @changeCategory.
+  ///
+  /// In en, this message translates to:
+  /// **'Change note category'**
+  String get changeCategory;
+
+  /// No description provided for @deleteNoteConfirm.
+  ///
+  /// In en, this message translates to:
+  /// **'Are you sure you want to delete the note \'{name}\'?'**
+  String deleteNoteConfirm(String name);
+
+  /// No description provided for @optionsDefaultCategory.
+  ///
+  /// In en, this message translates to:
+  /// **'Category to show by default'**
+  String get optionsDefaultCategory;
+
+  /// No description provided for @optionsDefaultNoteViewType.
+  ///
+  /// In en, this message translates to:
+  /// **'How to show note'**
+  String get optionsDefaultNoteViewType;
+
+  /// No description provided for @optionsDefaultNoteViewTypePreview.
+  ///
+  /// In en, this message translates to:
+  /// **'Preview'**
+  String get optionsDefaultNoteViewTypePreview;
+
+  /// No description provided for @optionsDefaultNoteViewTypeEdit.
+  ///
+  /// In en, this message translates to:
+  /// **'Editor'**
+  String get optionsDefaultNoteViewTypeEdit;
+
+  /// No description provided for @optionsNotesSortOrder.
+  ///
+  /// In en, this message translates to:
+  /// **'Sort order of notes'**
+  String get optionsNotesSortOrder;
+
+  /// No description provided for @optionsNotesSortProperty.
+  ///
+  /// In en, this message translates to:
+  /// **'How to sort notes'**
+  String get optionsNotesSortProperty;
+
+  /// No description provided for @optionsNotesSortPropertyLastModified.
+  ///
+  /// In en, this message translates to:
+  /// **'Last modified'**
+  String get optionsNotesSortPropertyLastModified;
+
+  /// No description provided for @optionsNotesSortPropertyAlphabetical.
+  ///
+  /// In en, this message translates to:
+  /// **'Alphabetical'**
+  String get optionsNotesSortPropertyAlphabetical;
+
+  /// No description provided for @optionsCategoriesSortOrder.
+  ///
+  /// In en, this message translates to:
+  /// **'Sort order of categories'**
+  String get optionsCategoriesSortOrder;
+
+  /// No description provided for @optionsCategoriesSortProperty.
+  ///
+  /// In en, this message translates to:
+  /// **'How to sort categories'**
+  String get optionsCategoriesSortProperty;
+
+  /// No description provided for @optionsCategoriesSortPropertyAlphabetical.
+  ///
+  /// In en, this message translates to:
+  /// **'Alphabetical'**
+  String get optionsCategoriesSortPropertyAlphabetical;
+
+  /// No description provided for @optionsCategoriesSortPropertyNotesCount.
+  ///
+  /// In en, this message translates to:
+  /// **'Count of notes'**
+  String get optionsCategoriesSortPropertyNotesCount;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

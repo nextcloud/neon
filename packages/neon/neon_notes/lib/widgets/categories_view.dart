@@ -41,8 +41,8 @@ class NotesCategoriesView extends StatelessWidget {
     final NoteCategory category,
   ) =>
       ListTile(
-        title: Text(category.name != '' ? category.name : AppLocalizations.of(context).notesUncategorized),
-        subtitle: Text(AppLocalizations.of(context).notesNotesInCategory(category.count)),
+        title: Text(category.name != '' ? category.name : AppLocalizations.of(context).uncategorized),
+        subtitle: Text(AppLocalizations.of(context).notesInCategory(category.count)),
         leading: category.name != ''
             ? Icon(
                 MdiIcons.tag,

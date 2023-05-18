@@ -42,7 +42,6 @@ import 'package:window_manager/window_manager.dart';
 import 'package:xdg_directories/xdg_directories.dart' as xdg;
 import 'package:xml/xml.dart' as xml;
 
-export 'l10n/localizations.dart';
 export 'src/models/account.dart';
 export 'src/models/push_notification.dart';
 

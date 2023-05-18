@@ -51,9 +51,8 @@ class NewsFeedsView extends StatelessWidget {
               ? Theme.of(context).textTheme.titleMedium!.copyWith(color: Theme.of(context).disabledColor)
               : null,
         ),
-        subtitle: feed.unreadCount! > 0
-            ? Text(AppLocalizations.of(context).newsUnreadArticles(feed.unreadCount!))
-            : Container(),
+        subtitle:
+            feed.unreadCount! > 0 ? Text(AppLocalizations.of(context).unreadArticles(feed.unreadCount!)) : Container(),
         leading: NewsFeedIcon(
           feed: feed,
           borderRadius: const BorderRadius.all(Radius.circular(8)),
@@ -71,7 +70,7 @@ class NewsFeedsView extends StatelessWidget {
                     ),
                   );
                 },
-                tooltip: AppLocalizations.of(context).newsShowFeedErrorMessage,
+                tooltip: AppLocalizations.of(context).showFeedErrorMessage,
                 iconSize: 30,
                 icon: Text(
                   feed.updateErrorCount.toString(),
@@ -85,7 +84,7 @@ class NewsFeedsView extends StatelessWidget {
               itemBuilder: (final context) => [
                 PopupMenuItem(
                   value: NewsFeedAction.showURL,
-                  child: Text(AppLocalizations.of(context).newsShowFeedURL),
+                  child: Text(AppLocalizations.of(context).showFeedURL),
                 ),
                 PopupMenuItem(
                   value: NewsFeedAction.delete,
@@ -117,7 +116,7 @@ class NewsFeedsView extends StatelessWidget {
                     if (await showConfirmationDialog(
                       context,
                       // ignore: use_build_context_synchronously
-                      AppLocalizations.of(context).newsRemoveFeedConfirm(feed.title),
+                      AppLocalizations.of(context).removeFeedConfirm(feed.title),
                     )) {
                       bloc.removeFeed(feed.id);
                     }
@@ -125,7 +124,7 @@ class NewsFeedsView extends StatelessWidget {
                   case NewsFeedAction.rename:
                     final result = await showRenameDialog(
                       context: context,
-                      title: AppLocalizations.of(context).newsRenameFeed,
+                      title: AppLocalizations.of(context).renameFeed,
                       value: feed.title,
                     );
                     if (result != null) {

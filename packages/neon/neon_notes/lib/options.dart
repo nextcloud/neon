@@ -18,26 +18,26 @@ class NotesAppSpecificOptions extends NextcloudAppSpecificOptions {
   }
 
   final generalCategory = OptionsCategory(
-    name: (final context) => AppLocalizations.of(context).optionsCategoryGeneral,
+    name: (final context) => AppLocalizations.of(context).general,
   );
 
   final notesCategory = OptionsCategory(
-    name: (final context) => AppLocalizations.of(context).notesNotes,
+    name: (final context) => AppLocalizations.of(context).notes,
   );
 
   final categoriesCategory = OptionsCategory(
-    name: (final context) => AppLocalizations.of(context).notesCategories,
+    name: (final context) => AppLocalizations.of(context).categories,
   );
 
   late final defaultCategoryOption = SelectOption<DefaultCategory>(
     storage: super.storage,
     category: generalCategory,
     key: 'default-category',
-    label: (final context) => AppLocalizations.of(context).notesOptionsDefaultCategory,
+    label: (final context) => AppLocalizations.of(context).optionsDefaultCategory,
     defaultValue: BehaviorSubject.seeded(DefaultCategory.notes),
     values: BehaviorSubject.seeded({
-      DefaultCategory.notes: (final context) => AppLocalizations.of(context).notesNotes,
-      DefaultCategory.categories: (final context) => AppLocalizations.of(context).notesCategories,
+      DefaultCategory.notes: (final context) => AppLocalizations.of(context).notes,
+      DefaultCategory.categories: (final context) => AppLocalizations.of(context).categories,
     }),
   );
 
@@ -45,12 +45,11 @@ class NotesAppSpecificOptions extends NextcloudAppSpecificOptions {
     storage: super.storage,
     category: generalCategory,
     key: 'default-note-view-type',
-    label: (final context) => AppLocalizations.of(context).notesOptionsDefaultNoteViewType,
+    label: (final context) => AppLocalizations.of(context).optionsDefaultNoteViewType,
     defaultValue: BehaviorSubject.seeded(DefaultNoteViewType.preview),
     values: BehaviorSubject.seeded({
-      DefaultNoteViewType.preview: (final context) =>
-          AppLocalizations.of(context).notesOptionsDefaultNoteViewTypePreview,
-      DefaultNoteViewType.edit: (final context) => AppLocalizations.of(context).notesOptionsDefaultNoteViewTypeEdit,
+      DefaultNoteViewType.preview: (final context) => AppLocalizations.of(context).optionsDefaultNoteViewTypePreview,
+      DefaultNoteViewType.edit: (final context) => AppLocalizations.of(context).optionsDefaultNoteViewTypeEdit,
     }),
   );
 
@@ -58,13 +57,13 @@ class NotesAppSpecificOptions extends NextcloudAppSpecificOptions {
     storage: super.storage,
     category: notesCategory,
     key: 'notes-sort-property',
-    label: (final context) => AppLocalizations.of(context).notesOptionsNotesSortProperty,
+    label: (final context) => AppLocalizations.of(context).optionsNotesSortProperty,
     defaultValue: BehaviorSubject.seeded(NotesSortProperty.lastModified),
     values: BehaviorSubject.seeded({
       NotesSortProperty.lastModified: (final context) =>
-          AppLocalizations.of(context).notesOptionsNotesSortPropertyLastModified,
+          AppLocalizations.of(context).optionsNotesSortPropertyLastModified,
       NotesSortProperty.alphabetical: (final context) =>
-          AppLocalizations.of(context).notesOptionsNotesSortPropertyAlphabetical,
+          AppLocalizations.of(context).optionsNotesSortPropertyAlphabetical,
     }),
   );
 
@@ -72,7 +71,7 @@ class NotesAppSpecificOptions extends NextcloudAppSpecificOptions {
     storage: super.storage,
     category: notesCategory,
     key: 'notes-sort-box-order',
-    label: (final context) => AppLocalizations.of(context).notesOptionsNotesSortOrder,
+    label: (final context) => AppLocalizations.of(context).optionsNotesSortOrder,
     defaultValue: BehaviorSubject.seeded(SortBoxOrder.descending),
     values: BehaviorSubject.seeded(sortBoxOrderOptionValues),
   );
@@ -81,13 +80,13 @@ class NotesAppSpecificOptions extends NextcloudAppSpecificOptions {
     storage: super.storage,
     category: categoriesCategory,
     key: 'categories-sort-property',
-    label: (final context) => AppLocalizations.of(context).notesOptionsCategoriesSortProperty,
+    label: (final context) => AppLocalizations.of(context).optionsCategoriesSortProperty,
     defaultValue: BehaviorSubject.seeded(CategoriesSortProperty.alphabetical),
     values: BehaviorSubject.seeded({
       CategoriesSortProperty.alphabetical: (final context) =>
-          AppLocalizations.of(context).notesOptionsCategoriesSortPropertyAlphabetical,
+          AppLocalizations.of(context).optionsCategoriesSortPropertyAlphabetical,
       CategoriesSortProperty.notesCount: (final context) =>
-          AppLocalizations.of(context).notesOptionsCategoriesSortPropertyNotesCount,
+          AppLocalizations.of(context).optionsCategoriesSortPropertyNotesCount,
     }),
   );
 
@@ -95,7 +94,7 @@ class NotesAppSpecificOptions extends NextcloudAppSpecificOptions {
     storage: super.storage,
     category: categoriesCategory,
     key: 'categories-sort-box-order',
-    label: (final context) => AppLocalizations.of(context).notesOptionsCategoriesSortOrder,
+    label: (final context) => AppLocalizations.of(context).optionsCategoriesSortOrder,
     defaultValue: BehaviorSubject.seeded(SortBoxOrder.ascending),
     values: BehaviorSubject.seeded(sortBoxOrderOptionValues),
   );

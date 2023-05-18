@@ -78,7 +78,7 @@ class NotesView extends StatelessWidget {
               favorite: !note.favorite,
             );
           },
-          tooltip: note.favorite ? AppLocalizations.of(context).notesUnstar : AppLocalizations.of(context).notesStar,
+          tooltip: note.favorite ? AppLocalizations.of(context).unstar : AppLocalizations.of(context).star,
           icon: Icon(
             note.favorite ? Icons.star : Icons.star_outline,
             color: Theme.of(context).colorScheme.primary,
@@ -102,7 +102,7 @@ class NotesView extends StatelessWidget {
         onLongPress: () async {
           final result = await showConfirmationDialog(
             context,
-            AppLocalizations.of(context).notesDeleteNoteConfirm(note.title),
+            AppLocalizations.of(context).deleteNoteConfirm(note.title),
           );
           if (result) {
             bloc.deleteNote(note.id);

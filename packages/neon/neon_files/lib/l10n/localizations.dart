@@ -88,6 +88,258 @@ abstract class AppLocalizations {
 
   /// A list of this localizations delegate's supported locales.
   static const List<Locale> supportedLocales = <Locale>[Locale('en')];
+
+  /// No description provided for @yes.
+  ///
+  /// In en, this message translates to:
+  /// **'Yes'**
+  String get yes;
+
+  /// No description provided for @no.
+  ///
+  /// In en, this message translates to:
+  /// **'No'**
+  String get no;
+
+  /// No description provided for @delete.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete'**
+  String get delete;
+
+  /// No description provided for @rename.
+  ///
+  /// In en, this message translates to:
+  /// **'Rename'**
+  String get rename;
+
+  /// No description provided for @move.
+  ///
+  /// In en, this message translates to:
+  /// **'Move'**
+  String get move;
+
+  /// No description provided for @copy.
+  ///
+  /// In en, this message translates to:
+  /// **'Copy'**
+  String get copy;
+
+  /// No description provided for @disabled.
+  ///
+  /// In en, this message translates to:
+  /// **'Disabled'**
+  String get disabled;
+
+  /// No description provided for @general.
+  ///
+  /// In en, this message translates to:
+  /// **'General'**
+  String get general;
+
+  /// No description provided for @uploadFiles.
+  ///
+  /// In en, this message translates to:
+  /// **'Upload files'**
+  String get uploadFiles;
+
+  /// No description provided for @uploadImages.
+  ///
+  /// In en, this message translates to:
+  /// **'Upload images'**
+  String get uploadImages;
+
+  /// No description provided for @uploadCamera.
+  ///
+  /// In en, this message translates to:
+  /// **'Upload from camera'**
+  String get uploadCamera;
+
+  /// No description provided for @createFolder.
+  ///
+  /// In en, this message translates to:
+  /// **'Create folder'**
+  String get createFolder;
+
+  /// No description provided for @folderName.
+  ///
+  /// In en, this message translates to:
+  /// **'Folder name'**
+  String get folderName;
+
+  /// No description provided for @renameFolder.
+  ///
+  /// In en, this message translates to:
+  /// **'Rename folder'**
+  String get renameFolder;
+
+  /// No description provided for @renameFile.
+  ///
+  /// In en, this message translates to:
+  /// **'Rename file'**
+  String get renameFile;
+
+  /// No description provided for @details.
+  ///
+  /// In en, this message translates to:
+  /// **'Details'**
+  String get details;
+
+  /// No description provided for @detailsFileName.
+  ///
+  /// In en, this message translates to:
+  /// **'File name'**
+  String get detailsFileName;
+
+  /// No description provided for @detailsFolderName.
+  ///
+  /// In en, this message translates to:
+  /// **'Folder name'**
+  String get detailsFolderName;
+
+  /// No description provided for @detailsParentFolder.
+  ///
+  /// In en, this message translates to:
+  /// **'Parent folder'**
+  String get detailsParentFolder;
+
+  /// No description provided for @detailsFileSize.
+  ///
+  /// In en, this message translates to:
+  /// **'File size'**
+  String get detailsFileSize;
+
+  /// No description provided for @detailsFolderSize.
+  ///
+  /// In en, this message translates to:
+  /// **'Folder size'**
+  String get detailsFolderSize;
+
+  /// No description provided for @detailsLastModified.
+  ///
+  /// In en, this message translates to:
+  /// **'Last modified'**
+  String get detailsLastModified;
+
+  /// No description provided for @detailsIsFavorite.
+  ///
+  /// In en, this message translates to:
+  /// **'Is favorite'**
+  String get detailsIsFavorite;
+
+  /// No description provided for @sync.
+  ///
+  /// In en, this message translates to:
+  /// **'Sync'**
+  String get sync;
+
+  /// No description provided for @deleteFileConfirm.
+  ///
+  /// In en, this message translates to:
+  /// **'Are you sure you want to delete the file \'{name}\'?'**
+  String deleteFileConfirm(String name);
+
+  /// No description provided for @deleteFolderConfirm.
+  ///
+  /// In en, this message translates to:
+  /// **'Are you sure you want to delete the folder \'{name}\'?'**
+  String deleteFolderConfirm(String name);
+
+  /// No description provided for @chooseFolder.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose folder'**
+  String get chooseFolder;
+
+  /// No description provided for @addToFavorites.
+  ///
+  /// In en, this message translates to:
+  /// **'Add to favorites'**
+  String get addToFavorites;
+
+  /// No description provided for @removeFromFavorites.
+  ///
+  /// In en, this message translates to:
+  /// **'Remove from favorites'**
+  String get removeFromFavorites;
+
+  /// No description provided for @confirmUploadSizeWarning.
+  ///
+  /// In en, this message translates to:
+  /// **'Are you sure you want to upload a file that is bigger than {warningSize} ({actualSize})?'**
+  String confirmUploadSizeWarning(String warningSize, String actualSize);
+
+  /// No description provided for @confirmDownloadSizeWarning.
+  ///
+  /// In en, this message translates to:
+  /// **'Are you sure you want to download a file that is bigger than {warningSize} ({actualSize})?'**
+  String confirmDownloadSizeWarning(String warningSize, String actualSize);
+
+  /// No description provided for @goToPath.
+  ///
+  /// In en, this message translates to:
+  /// **'Go to /{path}'**
+  String goToPath(String path);
+
+  /// No description provided for @optionsFilesSortProperty.
+  ///
+  /// In en, this message translates to:
+  /// **'How to sort files'**
+  String get optionsFilesSortProperty;
+
+  /// No description provided for @optionsFilesSortPropertyName.
+  ///
+  /// In en, this message translates to:
+  /// **'Name'**
+  String get optionsFilesSortPropertyName;
+
+  /// No description provided for @optionsFilesSortPropertyModifiedDate.
+  ///
+  /// In en, this message translates to:
+  /// **'Last modified'**
+  String get optionsFilesSortPropertyModifiedDate;
+
+  /// No description provided for @optionsFilesSortPropertySize.
+  ///
+  /// In en, this message translates to:
+  /// **'Size'**
+  String get optionsFilesSortPropertySize;
+
+  /// No description provided for @optionsFilesSortOrder.
+  ///
+  /// In en, this message translates to:
+  /// **'Sort order of files'**
+  String get optionsFilesSortOrder;
+
+  /// No description provided for @optionsShowPreviews.
+  ///
+  /// In en, this message translates to:
+  /// **'Show previews for files'**
+  String get optionsShowPreviews;
+
+  /// No description provided for @optionsUploadQueueParallelism.
+  ///
+  /// In en, this message translates to:
+  /// **'Upload queue parallelism'**
+  String get optionsUploadQueueParallelism;
+
+  /// No description provided for @optionsDownloadQueueParallelism.
+  ///
+  /// In en, this message translates to:
+  /// **'Download queue parallelism'**
+  String get optionsDownloadQueueParallelism;
+
+  /// No description provided for @optionsUploadSizeWarning.
+  ///
+  /// In en, this message translates to:
+  /// **'Upload size warning'**
+  String get optionsUploadSizeWarning;
+
+  /// No description provided for @optionsDownloadSizeWarning.
+  ///
+  /// In en, this message translates to:
+  /// **'Download size warning'**
+  String get optionsDownloadSizeWarning;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

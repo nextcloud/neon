@@ -88,6 +88,342 @@ abstract class AppLocalizations {
 
   /// A list of this localizations delegate's supported locales.
   static const List<Locale> supportedLocales = <Locale>[Locale('en')];
+
+  /// No description provided for @close.
+  ///
+  /// In en, this message translates to:
+  /// **'Close'**
+  String get close;
+
+  /// No description provided for @delete.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete'**
+  String get delete;
+
+  /// No description provided for @remove.
+  ///
+  /// In en, this message translates to:
+  /// **'Remove'**
+  String get remove;
+
+  /// No description provided for @rename.
+  ///
+  /// In en, this message translates to:
+  /// **'Rename'**
+  String get rename;
+
+  /// No description provided for @move.
+  ///
+  /// In en, this message translates to:
+  /// **'Move'**
+  String get move;
+
+  /// No description provided for @general.
+  ///
+  /// In en, this message translates to:
+  /// **'General'**
+  String get general;
+
+  /// No description provided for @addFeed.
+  ///
+  /// In en, this message translates to:
+  /// **'Add feed'**
+  String get addFeed;
+
+  /// No description provided for @folder.
+  ///
+  /// In en, this message translates to:
+  /// **'Folder'**
+  String get folder;
+
+  /// No description provided for @folderRoot.
+  ///
+  /// In en, this message translates to:
+  /// **'Root Folder'**
+  String get folderRoot;
+
+  /// No description provided for @createFolder.
+  ///
+  /// In en, this message translates to:
+  /// **'Create folder'**
+  String get createFolder;
+
+  /// No description provided for @createFolderName.
+  ///
+  /// In en, this message translates to:
+  /// **'Folder name'**
+  String get createFolderName;
+
+  /// No description provided for @deleteFolderConfirm.
+  ///
+  /// In en, this message translates to:
+  /// **'Are you sure you want to delete the folder \'{name}\'?'**
+  String deleteFolderConfirm(String name);
+
+  /// No description provided for @renameFolder.
+  ///
+  /// In en, this message translates to:
+  /// **'Rename folder'**
+  String get renameFolder;
+
+  /// No description provided for @removeFeedConfirm.
+  ///
+  /// In en, this message translates to:
+  /// **'Are you sure you want to remove the feed \'{name}\'?'**
+  String removeFeedConfirm(String name);
+
+  /// No description provided for @moveFeed.
+  ///
+  /// In en, this message translates to:
+  /// **'Move feed'**
+  String get moveFeed;
+
+  /// No description provided for @renameFeed.
+  ///
+  /// In en, this message translates to:
+  /// **'Rename feed'**
+  String get renameFeed;
+
+  /// No description provided for @articles.
+  ///
+  /// In en, this message translates to:
+  /// **'Articles'**
+  String get articles;
+
+  /// No description provided for @folders.
+  ///
+  /// In en, this message translates to:
+  /// **'Folders'**
+  String get folders;
+
+  /// No description provided for @feeds.
+  ///
+  /// In en, this message translates to:
+  /// **'Feeds'**
+  String get feeds;
+
+  /// No description provided for @filterAll.
+  ///
+  /// In en, this message translates to:
+  /// **'All'**
+  String get filterAll;
+
+  /// No description provided for @filterUnread.
+  ///
+  /// In en, this message translates to:
+  /// **'Unread'**
+  String get filterUnread;
+
+  /// No description provided for @filterStarred.
+  ///
+  /// In en, this message translates to:
+  /// **'Starred'**
+  String get filterStarred;
+
+  /// No description provided for @unreadArticles.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} unread'**
+  String unreadArticles(int count);
+
+  /// No description provided for @articleStar.
+  ///
+  /// In en, this message translates to:
+  /// **'Star article'**
+  String get articleStar;
+
+  /// No description provided for @articleUnstar.
+  ///
+  /// In en, this message translates to:
+  /// **'Unstar article'**
+  String get articleUnstar;
+
+  /// No description provided for @articleMarkRead.
+  ///
+  /// In en, this message translates to:
+  /// **'Mark article as read'**
+  String get articleMarkRead;
+
+  /// No description provided for @articleMarkUnread.
+  ///
+  /// In en, this message translates to:
+  /// **'Mark article as unread'**
+  String get articleMarkUnread;
+
+  /// No description provided for @articleOpenLink.
+  ///
+  /// In en, this message translates to:
+  /// **'Open in browser'**
+  String get articleOpenLink;
+
+  /// No description provided for @articleShare.
+  ///
+  /// In en, this message translates to:
+  /// **'Share'**
+  String get articleShare;
+
+  /// No description provided for @showFeedURL.
+  ///
+  /// In en, this message translates to:
+  /// **'Show URL'**
+  String get showFeedURL;
+
+  /// No description provided for @copyFeedURL.
+  ///
+  /// In en, this message translates to:
+  /// **'Copy URL'**
+  String get copyFeedURL;
+
+  /// No description provided for @copiedFeedURL.
+  ///
+  /// In en, this message translates to:
+  /// **'URL copied to clipboard'**
+  String get copiedFeedURL;
+
+  /// No description provided for @showFeedErrorMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'Show error message'**
+  String get showFeedErrorMessage;
+
+  /// No description provided for @copyFeedErrorMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'Copy error message'**
+  String get copyFeedErrorMessage;
+
+  /// No description provided for @copiedFeedErrorMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'Error message copied to clipboard'**
+  String get copiedFeedErrorMessage;
+
+  /// No description provided for @optionsDefaultCategory.
+  ///
+  /// In en, this message translates to:
+  /// **'Category to show by default'**
+  String get optionsDefaultCategory;
+
+  /// No description provided for @optionsArticleViewType.
+  ///
+  /// In en, this message translates to:
+  /// **'How to open article'**
+  String get optionsArticleViewType;
+
+  /// No description provided for @optionsArticleViewTypeDirect.
+  ///
+  /// In en, this message translates to:
+  /// **'Show text directly'**
+  String get optionsArticleViewTypeDirect;
+
+  /// No description provided for @optionsArticleViewTypeInternalBrowser.
+  ///
+  /// In en, this message translates to:
+  /// **'Open in internal browser'**
+  String get optionsArticleViewTypeInternalBrowser;
+
+  /// No description provided for @optionsArticleViewTypeExternalBrowser.
+  ///
+  /// In en, this message translates to:
+  /// **'Open in external browser'**
+  String get optionsArticleViewTypeExternalBrowser;
+
+  /// No description provided for @optionsArticleDisableMarkAsReadTimeout.
+  ///
+  /// In en, this message translates to:
+  /// **'Mark articles as read instantly'**
+  String get optionsArticleDisableMarkAsReadTimeout;
+
+  /// No description provided for @optionsDefaultArticlesFilter.
+  ///
+  /// In en, this message translates to:
+  /// **'Articles to show by default'**
+  String get optionsDefaultArticlesFilter;
+
+  /// No description provided for @optionsArticlesSortProperty.
+  ///
+  /// In en, this message translates to:
+  /// **'How to sort articles'**
+  String get optionsArticlesSortProperty;
+
+  /// No description provided for @optionsArticlesSortPropertyPublishDate.
+  ///
+  /// In en, this message translates to:
+  /// **'Publish date'**
+  String get optionsArticlesSortPropertyPublishDate;
+
+  /// No description provided for @optionsArticlesSortPropertyAlphabetical.
+  ///
+  /// In en, this message translates to:
+  /// **'Alphabetical'**
+  String get optionsArticlesSortPropertyAlphabetical;
+
+  /// No description provided for @optionsArticlesSortPropertyFeed.
+  ///
+  /// In en, this message translates to:
+  /// **'Feed'**
+  String get optionsArticlesSortPropertyFeed;
+
+  /// No description provided for @optionsArticlesSortOrder.
+  ///
+  /// In en, this message translates to:
+  /// **'Sort order of articles'**
+  String get optionsArticlesSortOrder;
+
+  /// No description provided for @optionsFeedsSortProperty.
+  ///
+  /// In en, this message translates to:
+  /// **'How to sort feeds'**
+  String get optionsFeedsSortProperty;
+
+  /// No description provided for @optionsFeedsSortPropertyAlphabetical.
+  ///
+  /// In en, this message translates to:
+  /// **'Alphabetical'**
+  String get optionsFeedsSortPropertyAlphabetical;
+
+  /// No description provided for @optionsFeedsSortPropertyUnreadCount.
+  ///
+  /// In en, this message translates to:
+  /// **'Unread count'**
+  String get optionsFeedsSortPropertyUnreadCount;
+
+  /// No description provided for @optionsFeedsSortOrder.
+  ///
+  /// In en, this message translates to:
+  /// **'Sort order of feeds'**
+  String get optionsFeedsSortOrder;
+
+  /// No description provided for @optionsFoldersSortProperty.
+  ///
+  /// In en, this message translates to:
+  /// **'How to sort folders'**
+  String get optionsFoldersSortProperty;
+
+  /// No description provided for @optionsFoldersSortPropertyAlphabetical.
+  ///
+  /// In en, this message translates to:
+  /// **'Alphabetical'**
+  String get optionsFoldersSortPropertyAlphabetical;
+
+  /// No description provided for @optionsFoldersSortPropertyUnreadCount.
+  ///
+  /// In en, this message translates to:
+  /// **'Unread count'**
+  String get optionsFoldersSortPropertyUnreadCount;
+
+  /// No description provided for @optionsFoldersSortOrder.
+  ///
+  /// In en, this message translates to:
+  /// **'Sort order of folders'**
+  String get optionsFoldersSortOrder;
+
+  /// No description provided for @optionsDefaultFolderViewType.
+  ///
+  /// In en, this message translates to:
+  /// **'What should be shown first when opening a folder'**
+  String get optionsDefaultFolderViewType;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

@@ -29,7 +29,7 @@ class _NotesCreateNoteDialogState extends State<NotesCreateNoteDialog> {
   Widget build(final BuildContext context) => ResultBuilder<List<NextcloudNotesNote>>(
         stream: widget.bloc.notes,
         builder: (final context, final notes) => NeonDialog(
-          title: Text(AppLocalizations.of(context).notesCreateNote),
+          title: Text(AppLocalizations.of(context).createNote),
           children: [
             Form(
               key: formKey,
@@ -40,7 +40,7 @@ class _NotesCreateNoteDialogState extends State<NotesCreateNoteDialog> {
                     autofocus: true,
                     controller: controller,
                     decoration: InputDecoration(
-                      hintText: AppLocalizations.of(context).notesNoteTitle,
+                      hintText: AppLocalizations.of(context).noteTitle,
                     ),
                     validator: (final input) => validateNotEmpty(context, input),
                     onFieldSubmitted: (final _) {
@@ -71,7 +71,7 @@ class _NotesCreateNoteDialogState extends State<NotesCreateNoteDialog> {
                   ],
                   ElevatedButton(
                     onPressed: submit,
-                    child: Text(AppLocalizations.of(context).notesCreateNote),
+                    child: Text(AppLocalizations.of(context).createNote),
                   ),
                 ],
               ),

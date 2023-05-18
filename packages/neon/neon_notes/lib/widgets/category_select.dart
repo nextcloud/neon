@@ -50,7 +50,7 @@ class NotesCategorySelect extends StatelessWidget {
           controller: textEditingController,
           focusNode: focusNode,
           decoration: InputDecoration(
-            hintText: AppLocalizations.of(context).notesCategory,
+            hintText: AppLocalizations.of(context).category,
           ),
           onFieldSubmitted: (final value) {
             onChanged(value);
@@ -77,7 +77,7 @@ class NotesCategorySelect extends StatelessWidget {
                       color: option != '' ? NotesCategoryColor.compute(option) : null,
                     ),
                     title: Text(
-                      option != '' ? option : AppLocalizations.of(context).notesUncategorized,
+                      option != '' ? option : AppLocalizations.of(context).uncategorized,
                     ),
                     onTap: () {
                       onSelected(option);

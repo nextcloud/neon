@@ -123,9 +123,8 @@ class _NewsArticlePageState extends State<NewsArticlePage> {
                         widget.bloc.starArticle();
                       }
                     },
-                    tooltip: starred
-                        ? AppLocalizations.of(context).newsArticleUnstar
-                        : AppLocalizations.of(context).newsArticleStar,
+                    tooltip:
+                        starred ? AppLocalizations.of(context).articleUnstar : AppLocalizations.of(context).articleStar,
                     icon: Icon(starred ? Icons.star : Icons.star_outline),
                   );
                 },
@@ -143,8 +142,8 @@ class _NewsArticlePageState extends State<NewsArticlePage> {
                       }
                     },
                     tooltip: unread
-                        ? AppLocalizations.of(context).newsArticleMarkRead
-                        : AppLocalizations.of(context).newsArticleMarkUnread,
+                        ? AppLocalizations.of(context).articleMarkRead
+                        : AppLocalizations.of(context).articleMarkUnread,
                     icon: Icon(unread ? MdiIcons.email : MdiIcons.emailMarkAsUnread),
                   );
                 },
@@ -157,14 +156,14 @@ class _NewsArticlePageState extends State<NewsArticlePage> {
                       mode: LaunchMode.externalApplication,
                     );
                   },
-                  tooltip: AppLocalizations.of(context).newsArticleOpenLink,
+                  tooltip: AppLocalizations.of(context).articleOpenLink,
                   icon: const Icon(Icons.open_in_new),
                 ),
                 IconButton(
                   onPressed: () async {
                     await Share.share(await _getURL());
                   },
-                  tooltip: AppLocalizations.of(context).newsArticleShare,
+                  tooltip: AppLocalizations.of(context).articleShare,
                   icon: const Icon(Icons.share),
                 ),
               ],

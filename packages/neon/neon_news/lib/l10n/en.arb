@@ -1,3 +1,80 @@
 {
-  "@@locale": "en"
+  "@@locale": "en",
+  "close": "Close",
+  "delete": "Delete",
+  "remove": "Remove",
+  "rename": "Rename",
+  "move": "Move",
+  "general": "General",
+  "addFeed": "Add feed",
+  "folder": "Folder",
+  "folderRoot": "Root Folder",
+  "createFolder": "Create folder",
+  "createFolderName": "Folder name",
+  "deleteFolderConfirm": "Are you sure you want to delete the folder '{name}'?",
+  "@deleteFolderConfirm": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "renameFolder": "Rename folder",
+  "removeFeedConfirm": "Are you sure you want to remove the feed '{name}'?",
+  "@removeFeedConfirm": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "moveFeed": "Move feed",
+  "renameFeed": "Rename feed",
+  "articles": "Articles",
+  "folders": "Folders",
+  "feeds": "Feeds",
+  "filterAll": "All",
+  "filterUnread": "Unread",
+  "filterStarred": "Starred",
+  "unreadArticles": "{count} unread",
+  "@unreadArticles": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "articleStar": "Star article",
+  "articleUnstar": "Unstar article",
+  "articleMarkRead": "Mark article as read",
+  "articleMarkUnread": "Mark article as unread",
+  "articleOpenLink": "Open in browser",
+  "articleShare": "Share",
+  "showFeedURL": "Show URL",
+  "copyFeedURL": "Copy URL",
+  "copiedFeedURL": "URL copied to clipboard",
+  "showFeedErrorMessage": "Show error message",
+  "copyFeedErrorMessage": "Copy error message",
+  "copiedFeedErrorMessage": "Error message copied to clipboard",
+  "optionsDefaultCategory": "Category to show by default",
+  "optionsArticleViewType": "How to open article",
+  "optionsArticleViewTypeDirect": "Show text directly",
+  "optionsArticleViewTypeInternalBrowser": "Open in internal browser",
+  "optionsArticleViewTypeExternalBrowser": "Open in external browser",
+  "optionsArticleDisableMarkAsReadTimeout": "Mark articles as read instantly",
+  "optionsDefaultArticlesFilter": "Articles to show by default",
+  "optionsArticlesSortProperty": "How to sort articles",
+  "optionsArticlesSortPropertyPublishDate": "Publish date",
+  "optionsArticlesSortPropertyAlphabetical": "Alphabetical",
+  "optionsArticlesSortPropertyFeed": "Feed",
+  "optionsArticlesSortOrder": "Sort order of articles",
+  "optionsFeedsSortProperty": "How to sort feeds",
+  "optionsFeedsSortPropertyAlphabetical": "Alphabetical",
+  "optionsFeedsSortPropertyUnreadCount": "Unread count",
+  "optionsFeedsSortOrder": "Sort order of feeds",
+  "optionsFoldersSortProperty": "How to sort folders",
+  "optionsFoldersSortPropertyAlphabetical": "Alphabetical",
+  "optionsFoldersSortPropertyUnreadCount": "Unread count",
+  "optionsFoldersSortOrder": "Sort order of folders",
+  "optionsDefaultFolderViewType": "What should be shown first when opening a folder"
 }

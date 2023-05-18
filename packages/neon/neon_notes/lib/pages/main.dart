@@ -52,11 +52,11 @@ class _NotesMainPageState extends State<NotesMainPage> {
         items: [
           BottomNavigationBarItem(
             icon: const Icon(Icons.note),
-            label: AppLocalizations.of(context).notesNotes,
+            label: AppLocalizations.of(context).notes,
           ),
           BottomNavigationBarItem(
             icon: const Icon(MdiIcons.tag),
-            label: AppLocalizations.of(context).notesCategories,
+            label: AppLocalizations.of(context).categories,
           ),
         ],
       ),

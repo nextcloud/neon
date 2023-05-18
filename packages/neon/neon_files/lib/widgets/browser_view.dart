@@ -156,7 +156,7 @@ class _FilesBrowserViewState extends State<FilesBrowserView> {
                                         horizontal: VisualDensity.minimumDensity,
                                         vertical: VisualDensity.minimumDensity,
                                       ),
-                                      tooltip: AppLocalizations.of(context).filesGoToPath(''),
+                                      tooltip: AppLocalizations.of(context).goToPath(''),
                                       icon: const Icon(
                                         Icons.house,
                                         size: 30,
@@ -170,7 +170,7 @@ class _FilesBrowserViewState extends State<FilesBrowserView> {
                                         builder: (final context) {
                                           final path = pathSnapshot.data!.sublist(0, i + 1);
                                           return Tooltip(
-                                            message: AppLocalizations.of(context).filesGoToPath(path.join('/')),
+                                            message: AppLocalizations.of(context).goToPath(path.join('/')),
                                             excludeFromSemantics: true,
                                             child: TextButton(
                                               onPressed: () {
@@ -178,8 +178,7 @@ class _FilesBrowserViewState extends State<FilesBrowserView> {
                                               },
                                               child: Text(
                                                 pathSnapshot.data![i],
-                                                semanticsLabel:
-                                                    AppLocalizations.of(context).filesGoToPath(path.join('/')),
+                                                semanticsLabel: AppLocalizations.of(context).goToPath(path.join('/')),
                                               ),
                                             ),
                                           );
@@ -297,14 +296,14 @@ class _FilesBrowserViewState extends State<FilesBrowserView> {
                       value: FilesFileAction.toggleFavorite,
                       child: Text(
                         details.isFavorite!
-                            ? AppLocalizations.of(context).filesRemoveFromFavorites
-                            : AppLocalizations.of(context).filesAddToFavorites,
+                            ? AppLocalizations.of(context).removeFromFavorites
+                            : AppLocalizations.of(context).addToFavorites,
                       ),
                     ),
                   ],
                   PopupMenuItem(
                     value: FilesFileAction.details,
-                    child: Text(AppLocalizations.of(context).filesDetails),
+                    child: Text(AppLocalizations.of(context).details),
                   ),
                   PopupMenuItem(
                     value: FilesFileAction.rename,
@@ -322,7 +321,7 @@ class _FilesBrowserViewState extends State<FilesBrowserView> {
                   if (!details.isDirectory) ...[
                     PopupMenuItem(
                       value: FilesFileAction.sync,
-                      child: Text(AppLocalizations.of(context).filesSync),
+                      child: Text(AppLocalizations.of(context).sync),
                     ),
                   ],
                   PopupMenuItem(
@@ -353,8 +352,8 @@ class _FilesBrowserViewState extends State<FilesBrowserView> {
                       final result = await showRenameDialog(
                         context: context,
                         title: details.isDirectory
-                            ? AppLocalizations.of(context).filesRenameFolder
-                            : AppLocalizations.of(context).filesRenameFile,
+                            ? AppLocalizations.of(context).renameFolder
+                            : AppLocalizations.of(context).renameFile,
                         value: details.name,
                       );
                       if (result != null) {
@@ -402,7 +401,7 @@ class _FilesBrowserViewState extends State<FilesBrowserView> {
                         if (!(await showConfirmationDialog(
                           context,
                           // ignore: use_build_context_synchronously
-                          AppLocalizations.of(context).filesConfirmDownloadSizeWarning(
+                          AppLocalizations.of(context).confirmDownloadSizeWarning(
                             filesize(sizeWarning),
                             filesize(details.size),
                           ),
@@ -418,9 +417,9 @@ class _FilesBrowserViewState extends State<FilesBrowserView> {
                         context,
                         details.isDirectory
                             // ignore: use_build_context_synchronously
-                            ? AppLocalizations.of(context).filesDeleteFolderConfirm(details.name)
+                            ? AppLocalizations.of(context).deleteFolderConfirm(details.name)
                             // ignore: use_build_context_synchronously
-                            : AppLocalizations.of(context).filesDeleteFileConfirm(details.name),
+                            : AppLocalizations.of(context).deleteFileConfirm(details.name),
                       )) {
                         widget.filesBloc.delete(details.path);
                       }

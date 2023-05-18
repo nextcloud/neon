@@ -1,3 +1,46 @@
 {
-  "@@locale": "en"
+  "@@locale": "en",
+  "general": "General",
+  "note": "Note",
+  "notes": "Notes",
+  "categories": "Categories",
+  "createNote": "Create note",
+  "category": "Category",
+  "setCategory": "Set category",
+  "noteTitle": "Title",
+  "noteChangedOnServer": "The note has been changed on the server. Please refresh and try again",
+  "notesInCategory": "{count} notes",
+  "@notesInCategory": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "uncategorized": "Uncategorized",
+  "showEditor": "Edit note",
+  "showPreview": "Preview note",
+  "star": "Star note",
+  "unstar": "Unstar note",
+  "changeCategory": "Change note category",
+  "deleteNoteConfirm": "Are you sure you want to delete the note '{name}'?",
+  "@deleteNoteConfirm": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "optionsDefaultCategory": "Category to show by default",
+  "optionsDefaultNoteViewType": "How to show note",
+  "optionsDefaultNoteViewTypePreview": "Preview",
+  "optionsDefaultNoteViewTypeEdit": "Editor",
+  "optionsNotesSortOrder": "Sort order of notes",
+  "optionsNotesSortProperty": "How to sort notes",
+  "optionsNotesSortPropertyLastModified": "Last modified",
+  "optionsNotesSortPropertyAlphabetical": "Alphabetical",
+  "optionsCategoriesSortOrder": "Sort order of categories",
+  "optionsCategoriesSortProperty": "How to sort categories",
+  "optionsCategoriesSortPropertyAlphabetical": "Alphabetical",
+  "optionsCategoriesSortPropertyNotesCount": "Count of notes"
 }

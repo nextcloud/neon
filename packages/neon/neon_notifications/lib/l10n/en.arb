@@ -1,3 +1,6 @@
 {
-  "@@locale": "en"
+  "@@locale": "en",
+  "close": "Close",
+  "nextcloudAppNotImplementedYet": "Sorry, this Nextcloud app has not been implemented yet",
+  "dismissAll": "Dismiss all notifications"
 }

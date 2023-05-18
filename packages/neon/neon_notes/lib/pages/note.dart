@@ -101,9 +101,8 @@ class _NotesNotePageState extends State<NotesNotePage> {
                     _titleFocusNode.unfocus();
                   }
                 },
-                tooltip: _showEditor
-                    ? AppLocalizations.of(context).notesShowPreview
-                    : AppLocalizations.of(context).notesShowEditor,
+                tooltip:
+                    _showEditor ? AppLocalizations.of(context).showPreview : AppLocalizations.of(context).showEditor,
                 icon: Icon(
                   _showEditor ? Icons.visibility : Icons.edit,
                 ),
@@ -126,7 +125,7 @@ class _NotesNotePageState extends State<NotesNotePage> {
                         widget.bloc.updateCategory(result);
                       }
                     },
-                    tooltip: AppLocalizations.of(context).notesChangeCategory,
+                    tooltip: AppLocalizations.of(context).changeCategory,
                     icon: Icon(
                       MdiIcons.tag,
                       color: category.isNotEmpty ? NotesCategoryColor.compute(category) : null,

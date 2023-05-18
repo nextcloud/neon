@@ -54,7 +54,7 @@ class NewsFoldersView extends StatelessWidget {
       ),
       subtitle: unreadCount > 0
           ? Text(
-              AppLocalizations.of(context).newsUnreadArticles(unreadCount),
+              AppLocalizations.of(context).unreadArticles(unreadCount),
             )
           : Container(),
       leading: SizedBox.square(
@@ -95,7 +95,7 @@ class NewsFoldersView extends StatelessWidget {
               if (await showConfirmationDialog(
                 context,
                 // ignore: use_build_context_synchronously
-                AppLocalizations.of(context).newsDeleteFolderConfirm(folderFeedsWrapper.folder.name),
+                AppLocalizations.of(context).deleteFolderConfirm(folderFeedsWrapper.folder.name),
               )) {
                 bloc.deleteFolder(folderFeedsWrapper.folder.id);
               }
@@ -103,7 +103,7 @@ class NewsFoldersView extends StatelessWidget {
             case NewsFolderAction.rename:
               final result = await showRenameDialog(
                 context: context,
-                title: AppLocalizations.of(context).newsRenameFolder,
+                title: AppLocalizations.of(context).renameFolder,
                 value: folderFeedsWrapper.folder.name,
               );
               if (result != null) {
