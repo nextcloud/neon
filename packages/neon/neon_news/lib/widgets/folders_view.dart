@@ -9,47 +9,32 @@ class NewsFoldersView extends StatelessWidget {
   final NewsBloc bloc;
 
   @override
-  Widget build(final BuildContext context) => Scaffold(
-        resizeToAvoidBottomInset: false,
-        floatingActionButton: FloatingActionButton(
-          onPressed: () async {
-            final result = await showDialog<String>(
-              context: context,
-              builder: (final context) => const NewsCreateFolderDialog(),
-            );
-            if (result != null) {
-              bloc.createFolder(result);
-            }
-          },
-          child: const Icon(Icons.add),
-        ),
-        body: ResultBuilder<List<NextcloudNewsFolder>>(
-          stream: bloc.folders,
-          builder: (final context, final folders) => ResultBuilder<List<NextcloudNewsFeed>>(
-            stream: bloc.feeds,
-            builder: (final context, final feeds) => SortBoxBuilder<FoldersSortProperty, FolderFeedsWrapper>(
-              sortBox: foldersSortBox,
-              sortPropertyOption: bloc.options.foldersSortPropertyOption,
-              sortBoxOrderOption: bloc.options.foldersSortBoxOrderOption,
-              input: feeds.data == null
-                  ? null
-                  : folders.data
-                      ?.map(
-                        (final folder) => FolderFeedsWrapper(
-                          folder,
-                          feeds.data!.where((final feed) => feed.folderId == folder.id).toList(),
-                        ),
-                      )
-                      .toList(),
-              builder: (final context, final sorted) => NeonListView<FolderFeedsWrapper>(
-                scrollKey: 'news-folders',
-                withFloatingActionButton: true,
-                items: sorted,
-                isLoading: feeds.loading || folders.loading,
-                error: feeds.error ?? folders.error,
-                onRefresh: bloc.refresh,
-                builder: _buildFolder,
-              ),
+  Widget build(final BuildContext context) => ResultBuilder<List<NextcloudNewsFolder>>(
+        stream: bloc.folders,
+        builder: (final context, final folders) => ResultBuilder<List<NextcloudNewsFeed>>(
+          stream: bloc.feeds,
+          builder: (final context, final feeds) => SortBoxBuilder<FoldersSortProperty, FolderFeedsWrapper>(
+            sortBox: foldersSortBox,
+            sortPropertyOption: bloc.options.foldersSortPropertyOption,
+            sortBoxOrderOption: bloc.options.foldersSortBoxOrderOption,
+            input: feeds.data == null
+                ? null
+                : folders.data
+                    ?.map(
+                      (final folder) => FolderFeedsWrapper(
+                        folder,
+                        feeds.data!.where((final feed) => feed.folderId == folder.id).toList(),
+                      ),
+                    )
+                    .toList(),
+            builder: (final context, final sorted) => NeonListView<FolderFeedsWrapper>(
+              scrollKey: 'news-folders',
+              withFloatingActionButton: true,
+              items: sorted,
+              isLoading: feeds.loading || folders.loading,
+              error: feeds.error ?? folders.error,
+              onRefresh: bloc.refresh,
+              builder: _buildFolder,
             ),
           ),
         ),

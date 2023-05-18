@@ -15,42 +15,24 @@ class NewsFeedsView extends StatelessWidget {
         stream: bloc.folders,
         builder: (final context, final folders) => ResultBuilder<List<NextcloudNewsFeed>>(
           stream: bloc.feeds,
-          builder: (final context, final feeds) => Scaffold(
-            resizeToAvoidBottomInset: false,
-            floatingActionButton: FloatingActionButton(
-              onPressed: () async {
-                final result = await showDialog<List>(
-                  context: context,
-                  builder: (final context) => NewsAddFeedDialog(
-                    bloc: bloc,
-                    folderID: folderID,
-                  ),
-                );
-                if (result != null) {
-                  bloc.addFeed(result[0] as String, result[1] as int?);
-                }
-              },
-              child: const Icon(Icons.add),
-            ),
-            body: SortBoxBuilder<FeedsSortProperty, NextcloudNewsFeed>(
-              sortBox: feedsSortBox,
-              sortPropertyOption: bloc.options.feedsSortPropertyOption,
-              sortBoxOrderOption: bloc.options.feedsSortBoxOrderOption,
-              input: folders.data == null
-                  ? null
-                  : feeds.data?.where((final f) => folderID == null || f.folderId == folderID).toList(),
-              builder: (final context, final sorted) => NeonListView<NextcloudNewsFeed>(
-                scrollKey: 'news-feeds',
-                withFloatingActionButton: true,
-                items: sorted,
-                isLoading: feeds.loading || folders.loading,
-                error: feeds.error ?? folders.error,
-                onRefresh: bloc.refresh,
-                builder: (final context, final feed) => _buildFeed(
-                  context,
-                  feed,
-                  folders.data!,
-                ),
+          builder: (final context, final feeds) => SortBoxBuilder<FeedsSortProperty, NextcloudNewsFeed>(
+            sortBox: feedsSortBox,
+            sortPropertyOption: bloc.options.feedsSortPropertyOption,
+            sortBoxOrderOption: bloc.options.feedsSortBoxOrderOption,
+            input: folders.data == null
+                ? null
+                : feeds.data?.where((final f) => folderID == null || f.folderId == folderID).toList(),
+            builder: (final context, final sorted) => NeonListView<NextcloudNewsFeed>(
+              scrollKey: 'news-feeds',
+              withFloatingActionButton: true,
+              items: sorted,
+              isLoading: feeds.loading || folders.loading,
+              error: feeds.error ?? folders.error,
+              onRefresh: bloc.refresh,
+              builder: (final context, final feed) => _buildFeed(
+                context,
+                feed,
+                folders.data!,
               ),
             ),
           ),

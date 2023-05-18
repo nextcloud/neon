@@ -30,12 +30,9 @@ class AppRouter extends RouterDelegate<Account> with ChangeNotifier, PopNavigato
           ] else ...[
             MaterialPage(
               name: 'home',
-              child: Scaffold(
-                resizeToAvoidBottomInset: false,
-                body: HomePage(
-                  key: Key(currentConfiguration!.id),
-                  account: currentConfiguration!,
-                ),
+              child: HomePage(
+                key: Key(currentConfiguration!.id),
+                account: currentConfiguration!,
               ),
             ),
           ],

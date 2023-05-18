@@ -20,5 +20,9 @@ class NotesCategoryPage extends StatelessWidget {
           bloc: bloc,
           category: category.name,
         ),
+        floatingActionButton: NotesFloatingActionButton(
+          bloc: bloc,
+          category: category.name,
+        ),
       );
 }
