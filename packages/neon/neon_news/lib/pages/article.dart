@@ -172,7 +172,6 @@ class _NewsArticlePageState extends State<NewsArticlePage> {
                     data: widget.bodyData,
                     onLinkTap: (
                       final url,
-                      final renderContext,
                       final attributes,
                       final element,
                     ) async {

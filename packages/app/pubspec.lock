@@ -229,10 +229,10 @@ packages:
     dependency: transitive
     description:
       name: flutter_html
-      sha256: "342c7908f0a67bcec62b6e0f7cf23e23bafe7f64693665dd35be98d5e783bdfd"
+      sha256: "850c07bc6c1ed060d3eb3e88469a598260a13eb45d8978b197c1348e0a2b101f"
       url: "https://pub.dev"
     source: hosted
-    version: "3.0.0-alpha.6"
+    version: "3.0.0-beta.1"
   flutter_local_notifications:
     dependency: transitive
     description:
@@ -274,10 +274,10 @@ packages:
     dependency: "direct main"
     description:
       name: flutter_native_splash
-      sha256: af665ef80a213a9ed502845a3d7a61b9acca4100ee7e9f067a7440bc3acd6730
+      sha256: "02df24aec455c26428dadc637f20d4c548bda23ee2179479a8e8c39f1ecb75b3"
       url: "https://pub.dev"
     source: hosted
-    version: "2.2.19"
+    version: "2.3.0"
   flutter_plugin_android_lifecycle:
     dependency: transitive
     description:
@@ -353,10 +353,10 @@ packages:
     dependency: transitive
     description:
       name: image_picker_android
-      sha256: "89ba2aa6904d8180ca44fd5f5014523f02319101904e3e571fbe792e395b77ed"
+      sha256: "364967c8d581f5d75fc05f6c79fcf1115e3c05db3d3eee1aaca52e0da3f7501c"
       url: "https://pub.dev"
     source: hosted
-    version: "0.8.6+14"
+    version: "0.8.6+15"
   image_picker_for_web:
     dependency: transitive
     description:
@@ -418,6 +418,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "4.8.1"
+  list_counter:
+    dependency: transitive
+    description:
+      name: list_counter
+      sha256: c447ae3dfcd1c55f0152867090e67e219d42fe6d4f2807db4bbe8b8d69912237
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.2"
   markdown:
     dependency: transitive
     description:
@@ -533,14 +541,6 @@ packages:
       url: "https://github.com/stack11/dart_nit_picking"
     source: git
     version: "0.0.0"
-  numerus:
-    dependency: transitive
-    description:
-      name: numerus
-      sha256: "436759d84f233b40107d0cc31cfa92d24e0960afeb2e506be70926d4cddffd9e"
-      url: "https://pub.dev"
-    source: hosted
-    version: "2.0.0"
   open_file:
     dependency: transitive
     description:
@@ -649,10 +649,10 @@ packages:
     dependency: transitive
     description:
       name: permission_handler_android
-      sha256: "8028362b40c4a45298f1cbfccd227c8dd6caf0e27088a69f2ba2ab15464159e2"
+      sha256: d8cc6a62ded6d0f49c6eac337e080b066ee3bce4d405bd9439a61e1f1927bfe8
       url: "https://pub.dev"
     source: hosted
-    version: "10.2.0"
+    version: "10.2.1"
   permission_handler_apple:
     dependency: transitive
     description:
@@ -892,10 +892,10 @@ packages:
     dependency: transitive
     description:
       name: sqflite
-      sha256: "3a82c9a216b46b88617e3714dd74227eaca20c501c4abcc213e56db26b9caa00"
+      sha256: b4d6710e1200e96845747e37338ea8a819a12b51689a3bcf31eff0003b37a0b9
       url: "https://pub.dev"
     source: hosted
-    version: "2.2.8+2"
+    version: "2.2.8+4"
   sqflite_common:
     dependency: transitive
     description:
@@ -1044,10 +1044,10 @@ packages:
     dependency: transitive
     description:
       name: url_launcher_android
-      sha256: "22f8db4a72be26e9e3a4aa3f194b1f7afbc76d20ec141f84be1d787db2155cbd"
+      sha256: "1a5848f598acc5b7d8f7c18b8cb834ab667e59a13edc3c93e9d09cf38cc6bc87"
       url: "https://pub.dev"
     source: hosted
-    version: "6.0.31"
+    version: "6.0.34"
   url_launcher_ios:
     dependency: transitive
     description:
