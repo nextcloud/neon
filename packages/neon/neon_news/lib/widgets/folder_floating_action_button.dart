@@ -19,6 +19,7 @@ class NewsFolderFloatingActionButton extends StatelessWidget {
             bloc.createFolder(result);
           }
         },
+        tooltip: AppLocalizations.of(context).filesCreateFolder,
         child: const Icon(Icons.add),
       );
 }

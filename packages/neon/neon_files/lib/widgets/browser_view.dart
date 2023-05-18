@@ -150,28 +150,47 @@ class _FilesBrowserViewState extends State<FilesBrowserView> {
                                 child: Wrap(
                                   crossAxisAlignment: WrapCrossAlignment.center,
                                   children: <Widget>[
-                                    SizedBox(
-                                      height: 40,
-                                      child: InkWell(
-                                        onTap: () {
-                                          widget.bloc.setPath([]);
-                                        },
-                                        child: const Icon(Icons.house),
+                                    IconButton(
+                                      padding: EdgeInsets.zero,
+                                      visualDensity: const VisualDensity(
+                                        horizontal: VisualDensity.minimumDensity,
+                                        vertical: VisualDensity.minimumDensity,
                                       ),
+                                      tooltip: AppLocalizations.of(context).filesGoToPath(''),
+                                      icon: const Icon(
+                                        Icons.house,
+                                        size: 30,
+                                      ),
+                                      onPressed: () {
+                                        widget.bloc.setPath([]);
+                                      },
                                     ),
                                     for (var i = 0; i < pathSnapshot.data!.length; i++) ...[
-                                      InkWell(
-                                        onTap: () {
-                                          widget.bloc.setPath(pathSnapshot.data!.sublist(0, i + 1));
+                                      Builder(
+                                        builder: (final context) {
+                                          final path = pathSnapshot.data!.sublist(0, i + 1);
+                                          return Tooltip(
+                                            message: AppLocalizations.of(context).filesGoToPath(path.join('/')),
+                                            excludeFromSemantics: true,
+                                            child: TextButton(
+                                              onPressed: () {
+                                                widget.bloc.setPath(path);
+                                              },
+                                              child: Text(
+                                                pathSnapshot.data![i],
+                                                semanticsLabel:
+                                                    AppLocalizations.of(context).filesGoToPath(path.join('/')),
+                                              ),
+                                            ),
+                                          );
                                         },
-                                        child: Text(pathSnapshot.data![i]),
                                       ),
                                     ],
                                   ]
                                       .intersperse(
                                         const Icon(
                                           Icons.keyboard_arrow_right,
-                                          size: 40,
+                                          size: 30,
                                         ),
                                       )
                                       .toList(),

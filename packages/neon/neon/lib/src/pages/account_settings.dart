@@ -33,6 +33,7 @@ class AccountSettingsPage extends StatelessWidget {
                   Navigator.of(context).pop();
                 }
               },
+              tooltip: AppLocalizations.of(context).accountOptionsRemove,
               icon: const Icon(MdiIcons.delete),
             ),
             IconButton(
@@ -46,6 +47,7 @@ class AccountSettingsPage extends StatelessWidget {
                   await _options.reset();
                 }
               },
+              tooltip: AppLocalizations.of(context).settingsResetFor(_name),
               icon: const Icon(MdiIcons.cogRefresh),
             ),
           ],

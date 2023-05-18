@@ -48,15 +48,26 @@ class NeonException extends StatelessWidget {
               );
 
               if (onlyIcon) {
-                return InkWell(
-                  child: errorIcon,
-                  onTap: () async {
-                    if (details.isUnauthorized) {
-                      await _openLoginPage(context);
-                    } else {
-                      onRetry();
-                    }
-                  },
+                return Semantics(
+                  tooltip: details.text,
+                  child: IconButton(
+                    icon: errorIcon,
+                    padding: EdgeInsets.zero,
+                    visualDensity: const VisualDensity(
+                      horizontal: VisualDensity.minimumDensity,
+                      vertical: VisualDensity.minimumDensity,
+                    ),
+                    tooltip: details.isUnauthorized
+                        ? AppLocalizations.of(context).loginAgain
+                        : AppLocalizations.of(context).retry,
+                    onPressed: () async {
+                      if (details.isUnauthorized) {
+                        await _openLoginPage(context);
+                      } else {
+                        onRetry();
+                      }
+                    },
+                  ),
                 );
               }
 

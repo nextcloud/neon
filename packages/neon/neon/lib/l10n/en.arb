@@ -10,6 +10,7 @@
   "loginOpenAgain": "Open again",
   "loginSwitchToBrowserWindow": "Please switch to the browser window that just opened and proceed there",
   "loginWorksWith": "works with",
+  "loginRestart": "Restart login",
   "errorAccountAlreadyExists": "The account you are trying to add already exists",
   "errorCredentialsForAccountNoLongerMatch": "The credentials for this account no longer match",
   "errorServerHadAProblemProcessingYourRequest": "The server had a problem while processing your request. You might want to try again",
@@ -63,10 +64,20 @@
   "nextPushSupportedInstall": "Install NextPush",
   "settings": "Settings",
   "settingsApps": "Apps",
+  "settingsAccount": "Account",
   "settingsExport": "Export settings",
   "settingsImport": "Import settings",
   "settingsImportWrongFileExtension": "Settings import has wrong file extension (has to be .json.base64)",
+  "settingsResetAll": "Reset all settings",
   "settingsResetAllConfirmation": "Do you want to reset all settings?",
+  "settingsResetFor": "Reset all settings for {name}",
+  "@settingsResetFor": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "settingsResetForConfirmation": "Do you want to reset all settings for {name}?",
   "@settingsResetForConfirmation": {
     "placeholders": {
@@ -112,6 +123,7 @@
   "globalOptionsNavigationModeDrawer": "Drawer",
   "globalOptionsNavigationModeDrawerAlwaysVisible": "Drawer always visible",
   "globalOptionsNavigationModeQuickBar": "Quick bar",
+  "accountOptionsRemove": "Remove account",
   "accountOptionsRemoveConfirm": "Are you sure you want to remove the account {id}?",
   "@accountOptionsRemoveConfirm": {
     "placeholders": {
@@ -195,6 +207,14 @@
       }
     }
   },
+  "filesGoToPath": "Go to /{path}",
+  "@filesGoToPath": {
+    "placeholders": {
+      "path": {
+        "type": "String"
+      }
+    }
+  },
   "filesOptionsFilesSortPropertyName": "Name",
   "filesOptionsFilesSortPropertyModifiedDate": "Last modified",
   "filesOptionsFilesSortPropertySize": "Size",
@@ -242,9 +262,16 @@
       }
     }
   },
+  "newsArticleStar": "Star article",
+  "newsArticleUnstar": "Unstar article",
+  "newsArticleMarkRead": "Mark article as read",
+  "newsArticleMarkUnread": "Mark article as unread",
+  "newsArticleOpenLink": "Open in browser",
+  "newsArticleShare": "Share",
   "newsShowFeedURL": "Show URL",
   "newsCopyFeedURL": "Copy URL",
   "newsCopiedFeedURL": "URL copied to clipboard",
+  "newsShowFeedErrorMessage": "Show error message",
   "newsCopyFeedErrorMessage": "Copy error message",
   "newsCopiedFeedErrorMessage": "Error message copied to clipboard",
   "newsOptionsDefaultCategory": "Category to show by default",
@@ -273,7 +300,6 @@
   "notesCategories": "Categories",
   "notesCreateNote": "Create note",
   "notesCategory": "Category",
-  "notesChangeCategory": "Change category",
   "notesSetCategory": "Set category",
   "notesNoteTitle": "Title",
   "notesNoteChangedOnServer": "The note has been changed on the server. Please refresh and try again",
@@ -286,8 +312,11 @@
     }
   },
   "notesUncategorized": "Uncategorized",
-  "notesEdit": "Edit",
-  "notesPreview": "Preview",
+  "notesShowEditor": "Edit note",
+  "notesShowPreview": "Preview note",
+  "notesStar": "Star note",
+  "notesUnstar": "Unstar note",
+  "notesChangeCategory": "Change note category",
   "notesDeleteNoteConfirm": "Are you sure you want to delete the note '{name}'?",
   "@notesDeleteNoteConfirm": {
     "placeholders": {
@@ -308,5 +337,6 @@
   "notesOptionsCategoriesSortProperty": "How to sort categories",
   "notesOptionsCategoriesSortPropertyAlphabetical": "Alphabetical",
   "notesOptionsCategoriesSortPropertyNotesCount": "Count of notes",
-  "notificationsNextcloudAppNotImplementedYet": "Sorry, this Nextcloud app has not been implemented yet"
+  "notificationsNextcloudAppNotImplementedYet": "Sorry, this Nextcloud app has not been implemented yet",
+  "notificationsDismissAll": "Dismiss all notifications"
 }

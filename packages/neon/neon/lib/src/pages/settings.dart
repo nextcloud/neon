@@ -35,6 +35,7 @@ class _SettingsPageState extends State<SettingsPage> {
                 }
               }
             },
+            tooltip: AppLocalizations.of(context).settingsResetAll,
             icon: const Icon(MdiIcons.cogRefresh),
           ),
         ],

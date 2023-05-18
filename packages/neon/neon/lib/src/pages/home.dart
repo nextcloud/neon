@@ -245,16 +245,14 @@ class _HomePageState extends State<HomePage> {
                                                             margin: const EdgeInsets.symmetric(
                                                               vertical: 5,
                                                             ),
-                                                            child: Tooltip(
-                                                              message: account.client.humanReadableID,
-                                                              child: IconButton(
-                                                                onPressed: () {
-                                                                  _accountsBloc.setActiveAccount(account);
-                                                                },
-                                                                icon: IntrinsicHeight(
-                                                                  child: NeonAccountAvatar(
-                                                                    account: account,
-                                                                  ),
+                                                            child: IconButton(
+                                                              onPressed: () {
+                                                                _accountsBloc.setActiveAccount(account);
+                                                              },
+                                                              tooltip: account.client.humanReadableID,
+                                                              icon: IntrinsicHeight(
+                                                                child: NeonAccountAvatar(
+                                                                  account: account,
                                                                 ),
                                                               ),
                                                             ),
@@ -358,17 +356,15 @@ class _HomePageState extends State<HomePage> {
                                                 builder: (final context, final unreadCounterSnapshot) {
                                                   final unreadCount = unreadCounterSnapshot.data ?? 0;
                                                   if (isQuickBar) {
-                                                    return Tooltip(
-                                                      message: appImplementation.name(context),
-                                                      child: IconButton(
-                                                        onPressed: () async {
-                                                          await _appsBloc.setActiveApp(appImplementation.id);
-                                                        },
-                                                        icon: NeonAppImplementationIcon(
-                                                          appImplementation: appImplementation,
-                                                          unreadCount: unreadCount,
-                                                          color: Theme.of(context).colorScheme.primary,
-                                                        ),
+                                                    return IconButton(
+                                                      onPressed: () async {
+                                                        await _appsBloc.setActiveApp(appImplementation.id);
+                                                      },
+                                                      tooltip: appImplementation.name(context),
+                                                      icon: NeonAppImplementationIcon(
+                                                        appImplementation: appImplementation,
+                                                        unreadCount: unreadCount,
+                                                        color: Theme.of(context).colorScheme.primary,
                                                       ),
                                                     );
                                                   }
@@ -413,11 +409,12 @@ class _HomePageState extends State<HomePage> {
                                   ),
                                   if (isQuickBar) ...[
                                     IconButton(
+                                      onPressed: _openSettings,
+                                      tooltip: AppLocalizations.of(context).settings,
                                       icon: Icon(
                                         Icons.settings,
                                         color: Theme.of(context).appBarTheme.foregroundColor,
                                       ),
-                                      onPressed: _openSettings,
                                     ),
                                   ] else ...[
                                     ListTile(
@@ -515,6 +512,15 @@ class _HomePageState extends State<HomePage> {
                                             final unreadCount = unreadCounterSnapshot.data ?? 0;
                                             return IconButton(
                                               key: Key('app-${notificationsAppImplementation.data!.id}'),
+                                              onPressed: () async {
+                                                await _openNotifications(
+                                                  notificationsAppImplementation.data!,
+                                                  accounts,
+                                                  account,
+                                                );
+                                              },
+                                              tooltip: AppLocalizations.of(context)
+                                                  .appImplementationName(notificationsAppImplementation.data!.id),
                                               icon: NeonAppImplementationIcon(
                                                 appImplementation: notificationsAppImplementation.data!,
                                                 unreadCount: unreadCount,
@@ -523,23 +529,11 @@ class _HomePageState extends State<HomePage> {
                                                     : Theme.of(context).colorScheme.onBackground,
                                                 size: const Size.square(kAvatarSize * 2 / 3),
                                               ),
-                                              onPressed: () async {
-                                                await _openNotifications(
-                                                  notificationsAppImplementation.data!,
-                                                  accounts,
-                                                  account,
-                                                );
-                                              },
                                             );
                                           },
                                         ),
                                       ],
                                       IconButton(
-                                        icon: IntrinsicWidth(
-                                          child: NeonAccountAvatar(
-                                            account: account,
-                                          ),
-                                        ),
                                         onPressed: () async {
                                           await Navigator.of(context).push(
                                             MaterialPageRoute(
@@ -550,6 +544,12 @@ class _HomePageState extends State<HomePage> {
                                             ),
                                           );
                                         },
+                                        tooltip: AppLocalizations.of(context).settingsAccount,
+                                        icon: IntrinsicWidth(
+                                          child: NeonAccountAvatar(
+                                            account: account,
+                                          ),
+                                        ),
                                       ),
                                     ],
                                   ),
