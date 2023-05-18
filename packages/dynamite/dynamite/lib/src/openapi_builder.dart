@@ -930,6 +930,8 @@ class OpenAPIBuilder implements Builder {
                                       ),
                                       mediaType.schema!,
                                     );
+                                    state.resolvedTypeCombinations.add(result);
+
                                     if (mimeType == '*/*' || mimeType.startsWith('image/')) {
                                       dataType = 'Uint8List';
                                       dataValue = 'response.body';
