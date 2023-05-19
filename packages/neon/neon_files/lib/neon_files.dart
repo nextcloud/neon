@@ -13,6 +13,7 @@ import 'package:image_picker/image_picker.dart';
 import 'package:intersperse/intersperse.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:neon/neon.dart';
+import 'package:neon_files/l10n/localizations.dart';
 import 'package:nextcloud/nextcloud.dart';
 import 'package:open_file/open_file.dart';
 import 'package:path/path.dart' as p;
@@ -42,6 +43,12 @@ class FilesApp extends AppImplementation<FilesBloc, FilesAppSpecificOptions> {
 
   @override
   String id = 'files';
+
+  @override
+  LocalizationsDelegate localizationsDelegate = AppLocalizations.delegate;
+
+  @override
+  List<Locale> supportedLocales = AppLocalizations.supportedLocales;
 
   @override
   FilesAppSpecificOptions buildOptions(final AppStorage storage) => FilesAppSpecificOptions(storage);

@@ -8,6 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:neon/neon.dart';
+import 'package:neon_notes/l10n/localizations.dart';
 import 'package:nextcloud/nextcloud.dart';
 import 'package:provider/provider.dart';
 import 'package:queue/queue.dart';
@@ -39,6 +40,12 @@ class NotesApp extends AppImplementation<NotesBloc, NotesAppSpecificOptions> {
 
   @override
   String id = 'notes';
+
+  @override
+  List<Locale> supportedLocales = AppLocalizations.supportedLocales;
+
+  @override
+  LocalizationsDelegate localizationsDelegate = AppLocalizations.delegate;
 
   @override
   NotesAppSpecificOptions buildOptions(final AppStorage storage) => NotesAppSpecificOptions(storage);

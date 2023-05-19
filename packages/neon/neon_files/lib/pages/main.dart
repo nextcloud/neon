@@ -34,7 +34,7 @@ class _FilesMainPageState extends State<FilesMainPage> {
               if (!(await showConfirmationDialog(
                 context,
                 // ignore: use_build_context_synchronously
-                AppLocalizations.of(context).filesConfirmDownloadSizeWarning(
+                AppLocalizations.of(context).downloadConfirmSizeWarning(
                   filesize(sizeWarning),
                   filesize(details.size),
                 ),
@@ -55,7 +55,7 @@ class _FilesMainPageState extends State<FilesMainPage> {
               ),
             );
           },
-          tooltip: AppLocalizations.of(context).filesUploadFiles,
+          tooltip: AppLocalizations.of(context).uploadFiles,
           child: const Icon(Icons.add),
         ),
       );

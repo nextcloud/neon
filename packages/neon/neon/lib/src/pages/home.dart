@@ -130,7 +130,7 @@ class _HomePageState extends State<HomePage> {
             onPressed: () {
               Navigator.of(context).pop();
             },
-            child: Text(AppLocalizations.of(context).close),
+            child: Text(AppLocalizations.of(context).actionClose),
           ),
         ],
       ),

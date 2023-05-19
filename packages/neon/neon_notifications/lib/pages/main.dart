@@ -95,7 +95,7 @@ class _NotificationsMainPageState extends State<NotificationsMainPage> {
           await showDialog(
             context: context,
             builder: (final context) => AlertDialog(
-              title: Text(AppLocalizations.of(context).notificationsNextcloudAppNotImplementedYet),
+              title: Text(AppLocalizations.of(context).notificationAppNotImplementedYet),
               actions: [
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(
@@ -105,7 +105,7 @@ class _NotificationsMainPageState extends State<NotificationsMainPage> {
                   onPressed: () {
                     Navigator.of(context).pop();
                   },
-                  child: Text(AppLocalizations.of(context).close),
+                  child: Text(AppLocalizations.of(context).actionClose),
                 ),
               ],
             ),

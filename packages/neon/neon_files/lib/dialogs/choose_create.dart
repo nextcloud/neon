@@ -36,7 +36,7 @@ class _FilesChooseCreateDialogState extends State<FilesChooseCreateDialog> {
         if (!(await showConfirmationDialog(
           context,
           // ignore: use_build_context_synchronously
-          AppLocalizations.of(context).filesConfirmUploadSizeWarning(
+          AppLocalizations.of(context).uploadConfirmSizeWarning(
             filesize(sizeWarning),
             filesize(stat.size),
           ),
@@ -56,7 +56,7 @@ class _FilesChooseCreateDialogState extends State<FilesChooseCreateDialog> {
               MdiIcons.filePlus,
               color: Theme.of(context).colorScheme.primary,
             ),
-            title: Text(AppLocalizations.of(context).filesUploadFiles),
+            title: Text(AppLocalizations.of(context).uploadFiles),
             onTap: () async {
               await uploadFromPick(FileType.any);
 
@@ -70,7 +70,7 @@ class _FilesChooseCreateDialogState extends State<FilesChooseCreateDialog> {
               MdiIcons.fileImagePlus,
               color: Theme.of(context).colorScheme.primary,
             ),
-            title: Text(AppLocalizations.of(context).filesUploadImages),
+            title: Text(AppLocalizations.of(context).uploadImages),
             onTap: () async {
               await uploadFromPick(FileType.image);
 
@@ -85,7 +85,7 @@ class _FilesChooseCreateDialogState extends State<FilesChooseCreateDialog> {
                 MdiIcons.cameraPlus,
                 color: Theme.of(context).colorScheme.primary,
               ),
-              title: Text(AppLocalizations.of(context).filesUploadCamera),
+              title: Text(AppLocalizations.of(context).uploadCamera),
               onTap: () async {
                 Navigator.of(context).pop();
 
@@ -102,7 +102,7 @@ class _FilesChooseCreateDialogState extends State<FilesChooseCreateDialog> {
               MdiIcons.folderPlus,
               color: Theme.of(context).colorScheme.primary,
             ),
-            title: Text(AppLocalizations.of(context).filesCreateFolder),
+            title: Text(AppLocalizations.of(context).folderCreate),
             onTap: () async {
               Navigator.of(context).pop();
 

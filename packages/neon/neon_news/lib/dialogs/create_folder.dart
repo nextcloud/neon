@@ -22,7 +22,7 @@ class _NewsCreateFolderDialogState extends State<NewsCreateFolderDialog> {
 
   @override
   Widget build(final BuildContext context) => NeonDialog(
-        title: Text(AppLocalizations.of(context).newsCreateFolder),
+        title: Text(AppLocalizations.of(context).folderCreate),
         children: [
           Form(
             key: formKey,
@@ -33,7 +33,7 @@ class _NewsCreateFolderDialogState extends State<NewsCreateFolderDialog> {
                   autofocus: true,
                   controller: controller,
                   decoration: InputDecoration(
-                    hintText: AppLocalizations.of(context).newsCreateFolderName,
+                    hintText: AppLocalizations.of(context).folderCreateName,
                   ),
                   validator: (final input) => validateNotEmpty(context, input),
                   onFieldSubmitted: (final _) {
@@ -42,7 +42,7 @@ class _NewsCreateFolderDialogState extends State<NewsCreateFolderDialog> {
                 ),
                 ElevatedButton(
                   onPressed: submit,
-                  child: Text(AppLocalizations.of(context).newsCreateFolder),
+                  child: Text(AppLocalizations.of(context).folderCreate),
                 ),
               ],
             ),

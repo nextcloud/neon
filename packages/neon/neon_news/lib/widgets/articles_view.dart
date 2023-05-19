@@ -69,13 +69,13 @@ class _NewsArticlesViewState extends State<NewsArticlesView> {
                           late final String label;
                           switch (a) {
                             case FilterType.all:
-                              label = AppLocalizations.of(context).newsFilterAll;
+                              label = AppLocalizations.of(context).articlesFilterAll;
                               break;
                             case FilterType.unread:
-                              label = AppLocalizations.of(context).newsFilterUnread;
+                              label = AppLocalizations.of(context).articlesFilterUnread;
                               break;
                             case FilterType.starred:
-                              label = AppLocalizations.of(context).newsFilterStarred;
+                              label = AppLocalizations.of(context).articlesFilterStarred;
                               break;
                             default:
                               throw Exception('FilterType $a should not be shown');
@@ -165,9 +165,8 @@ class _NewsArticlesViewState extends State<NewsArticlesView> {
               widget.bloc.starArticle(article);
             }
           },
-          tooltip: article.starred
-              ? AppLocalizations.of(context).newsArticleUnstar
-              : AppLocalizations.of(context).newsArticleStar,
+          tooltip:
+              article.starred ? AppLocalizations.of(context).articleUnstar : AppLocalizations.of(context).articleStar,
           icon: Icon(
             article.starred ? Icons.star : Icons.star_outline,
             color: Theme.of(context).colorScheme.primary,

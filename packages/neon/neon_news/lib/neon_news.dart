@@ -9,6 +9,7 @@ import 'package:html/dom.dart' as html_dom;
 import 'package:html/parser.dart' as html_parser;
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:neon/neon.dart';
+import 'package:neon_news/l10n/localizations.dart';
 import 'package:nextcloud/nextcloud.dart';
 import 'package:provider/provider.dart';
 import 'package:rxdart/rxdart.dart';
@@ -49,6 +50,12 @@ class NewsApp extends AppImplementation<NewsBloc, NewsAppSpecificOptions> {
 
   @override
   String id = 'news';
+
+  @override
+  LocalizationsDelegate localizationsDelegate = AppLocalizations.delegate;
+
+  @override
+  List<Locale> supportedLocales = AppLocalizations.supportedLocales;
 
   @override
   NewsAppSpecificOptions buildOptions(final AppStorage storage) => NewsAppSpecificOptions(storage, platform);
