@@ -18,8 +18,8 @@ Future run(final DockerImage image) async {
     tearDown(() => container.destroy());
 
     test('Is supported', () async {
-      final response = await client.core.isSupported();
-      expect(response, isTrue);
+      final (supported, _) = await client.core.isSupported();
+      expect(supported, isTrue);
     });
 
     test('Get status', () async {
@@ -27,8 +27,8 @@ Future run(final DockerImage image) async {
       expect(status.installed, true);
       expect(status.maintenance, false);
       expect(status.needsDbUpgrade, false);
-      expect(status.version, startsWith('26.0.1'));
-      expect(status.versionstring, '26.0.1');
+      expect(status.version, startsWith('$coreSupportedVersion.'));
+      expect(status.versionstring, startsWith('$coreSupportedVersion.'));
       expect(status.edition, '');
       expect(status.productname, 'Nextcloud');
       expect(status.extendedSupport, false);
@@ -36,8 +36,8 @@ Future run(final DockerImage image) async {
 
     test('Get capabilities', () async {
       final capabilities = await client.core.getCapabilities();
-      expect(capabilities.ocs.data.version.major.toString(), '26');
-      expect(capabilities.ocs.data.version.string, '26.0.1');
+      expect(capabilities.ocs.data.version.major, coreSupportedVersion);
+      expect(capabilities.ocs.data.version.string, startsWith('$coreSupportedVersion.'));
       expect(capabilities.ocs.data.capabilities.theming!.name, 'Nextcloud');
       expect(capabilities.ocs.data.capabilities.theming!.url, 'https://nextcloud.com');
       expect(capabilities.ocs.data.capabilities.theming!.slogan, 'a safe home for all your data');

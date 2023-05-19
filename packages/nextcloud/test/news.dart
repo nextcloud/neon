@@ -30,8 +30,8 @@ Future run(final DockerImage image) async {
         );
 
     test('Is supported', () async {
-      final response = await client.news.isSupported();
-      expect(response, isTrue);
+      final (supported, _) = await client.news.isSupported();
+      expect(supported, isTrue);
     });
 
     test('Add feed', () async {
