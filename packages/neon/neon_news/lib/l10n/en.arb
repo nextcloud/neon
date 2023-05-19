@@ -1,61 +1,61 @@
 {
   "@@locale": "en",
-  "close": "Close",
-  "delete": "Delete",
-  "remove": "Remove",
-  "rename": "Rename",
-  "move": "Move",
+  "actionClose": "Close",
+  "actionDelete": "Delete",
+  "actionRemove": "Remove",
+  "actionRename": "Rename",
+  "actionMove": "Move",
   "general": "General",
-  "addFeed": "Add feed",
   "folder": "Folder",
-  "folderRoot": "Root Folder",
-  "createFolder": "Create folder",
-  "createFolderName": "Folder name",
-  "deleteFolderConfirm": "Are you sure you want to delete the folder '{name}'?",
-  "@deleteFolderConfirm": {
-    "placeholders": {
-      "name": {
-        "type": "String"
-      }
-    }
-  },
-  "renameFolder": "Rename folder",
-  "removeFeedConfirm": "Are you sure you want to remove the feed '{name}'?",
-  "@removeFeedConfirm": {
-    "placeholders": {
-      "name": {
-        "type": "String"
-      }
-    }
-  },
-  "moveFeed": "Move feed",
-  "renameFeed": "Rename feed",
-  "articles": "Articles",
   "folders": "Folders",
+  "folderRoot": "Root Folder",
+  "folderCreate": "Create folder",
+  "folderCreateName": "Folder name",
+  "folderDeleteConfirm": "Are you sure you want to delete the folder '{name}'?",
+  "@folderDeleteConfirm": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "folderRename": "Rename folder",
   "feeds": "Feeds",
-  "filterAll": "All",
-  "filterUnread": "Unread",
-  "filterStarred": "Starred",
-  "unreadArticles": "{count} unread",
-  "@unreadArticles": {
+  "feedAdd": "Add feed",
+  "feedRemoveConfirm": "Are you sure you want to remove the feed '{name}'?",
+  "@feedRemoveConfirm": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "feedMove": "Move feed",
+  "feedRename": "Rename feed",
+  "feedShowURL": "Show URL",
+  "feedCopyURL": "Copy URL",
+  "feedCopiedURL": "URL copied to clipboard",
+  "feedShowErrorMessage": "Show error message",
+  "feedCopyErrorMessage": "Copy error message",
+  "feedCopiedErrorMessage": "Error message copied to clipboard",
+  "articles": "Articles",
+  "articlesUnread": "{count} unread",
+  "@articlesUnread": {
     "placeholders": {
       "count": {
         "type": "int"
       }
     }
   },
+  "articlesFilterAll": "All",
+  "articlesFilterUnread": "Unread",
+  "articlesFilterStarred": "Starred",
   "articleStar": "Star article",
   "articleUnstar": "Unstar article",
   "articleMarkRead": "Mark article as read",
   "articleMarkUnread": "Mark article as unread",
   "articleOpenLink": "Open in browser",
   "articleShare": "Share",
-  "showFeedURL": "Show URL",
-  "copyFeedURL": "Copy URL",
-  "copiedFeedURL": "URL copied to clipboard",
-  "showFeedErrorMessage": "Show error message",
-  "copyFeedErrorMessage": "Copy error message",
-  "copiedFeedErrorMessage": "Error message copied to clipboard",
   "optionsDefaultCategory": "Category to show by default",
   "optionsArticleViewType": "How to open article",
   "optionsArticleViewTypeDirect": "Show text directly",

@@ -89,53 +89,59 @@ abstract class AppLocalizations {
   /// A list of this localizations delegate's supported locales.
   static const List<Locale> supportedLocales = <Locale>[Locale('en')];
 
-  /// No description provided for @yes.
+  /// No description provided for @actionYes.
   ///
   /// In en, this message translates to:
   /// **'Yes'**
-  String get yes;
+  String get actionYes;
 
-  /// No description provided for @no.
+  /// No description provided for @actionNo.
   ///
   /// In en, this message translates to:
   /// **'No'**
-  String get no;
+  String get actionNo;
 
-  /// No description provided for @delete.
+  /// No description provided for @actionDelete.
   ///
   /// In en, this message translates to:
   /// **'Delete'**
-  String get delete;
+  String get actionDelete;
 
-  /// No description provided for @rename.
+  /// No description provided for @actionRename.
   ///
   /// In en, this message translates to:
   /// **'Rename'**
-  String get rename;
+  String get actionRename;
 
-  /// No description provided for @move.
+  /// No description provided for @actionMove.
   ///
   /// In en, this message translates to:
   /// **'Move'**
-  String get move;
+  String get actionMove;
 
-  /// No description provided for @copy.
+  /// No description provided for @actionCopy.
   ///
   /// In en, this message translates to:
   /// **'Copy'**
-  String get copy;
+  String get actionCopy;
 
-  /// No description provided for @disabled.
+  /// No description provided for @actionSync.
   ///
   /// In en, this message translates to:
-  /// **'Disabled'**
-  String get disabled;
+  /// **'Sync'**
+  String get actionSync;
 
   /// No description provided for @general.
   ///
   /// In en, this message translates to:
   /// **'General'**
   String get general;
+
+  /// No description provided for @goToPath.
+  ///
+  /// In en, this message translates to:
+  /// **'Go to /{path}'**
+  String goToPath(String path);
 
   /// No description provided for @uploadFiles.
   ///
@@ -155,11 +161,23 @@ abstract class AppLocalizations {
   /// **'Upload from camera'**
   String get uploadCamera;
 
-  /// No description provided for @createFolder.
+  /// No description provided for @uploadConfirmSizeWarning.
+  ///
+  /// In en, this message translates to:
+  /// **'Are you sure you want to upload a file that is bigger than {warningSize} ({actualSize})?'**
+  String uploadConfirmSizeWarning(String warningSize, String actualSize);
+
+  /// No description provided for @downloadConfirmSizeWarning.
+  ///
+  /// In en, this message translates to:
+  /// **'Are you sure you want to download a file that is bigger than {warningSize} ({actualSize})?'**
+  String downloadConfirmSizeWarning(String warningSize, String actualSize);
+
+  /// No description provided for @folderCreate.
   ///
   /// In en, this message translates to:
   /// **'Create folder'**
-  String get createFolder;
+  String get folderCreate;
 
   /// No description provided for @folderName.
   ///
@@ -167,17 +185,47 @@ abstract class AppLocalizations {
   /// **'Folder name'**
   String get folderName;
 
-  /// No description provided for @renameFolder.
+  /// No description provided for @folderRename.
   ///
   /// In en, this message translates to:
   /// **'Rename folder'**
-  String get renameFolder;
+  String get folderRename;
 
-  /// No description provided for @renameFile.
+  /// No description provided for @folderChoose.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose folder'**
+  String get folderChoose;
+
+  /// No description provided for @folderDeleteConfirm.
+  ///
+  /// In en, this message translates to:
+  /// **'Are you sure you want to delete the folder \'{name}\'?'**
+  String folderDeleteConfirm(String name);
+
+  /// No description provided for @fileRename.
   ///
   /// In en, this message translates to:
   /// **'Rename file'**
-  String get renameFile;
+  String get fileRename;
+
+  /// No description provided for @fileDeleteConfirm.
+  ///
+  /// In en, this message translates to:
+  /// **'Are you sure you want to delete the file \'{name}\'?'**
+  String fileDeleteConfirm(String name);
+
+  /// No description provided for @addToFavorites.
+  ///
+  /// In en, this message translates to:
+  /// **'Add to favorites'**
+  String get addToFavorites;
+
+  /// No description provided for @removeFromFavorites.
+  ///
+  /// In en, this message translates to:
+  /// **'Remove from favorites'**
+  String get removeFromFavorites;
 
   /// No description provided for @details.
   ///
@@ -226,60 +274,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Is favorite'**
   String get detailsIsFavorite;
-
-  /// No description provided for @sync.
-  ///
-  /// In en, this message translates to:
-  /// **'Sync'**
-  String get sync;
-
-  /// No description provided for @deleteFileConfirm.
-  ///
-  /// In en, this message translates to:
-  /// **'Are you sure you want to delete the file \'{name}\'?'**
-  String deleteFileConfirm(String name);
-
-  /// No description provided for @deleteFolderConfirm.
-  ///
-  /// In en, this message translates to:
-  /// **'Are you sure you want to delete the folder \'{name}\'?'**
-  String deleteFolderConfirm(String name);
-
-  /// No description provided for @chooseFolder.
-  ///
-  /// In en, this message translates to:
-  /// **'Choose folder'**
-  String get chooseFolder;
-
-  /// No description provided for @addToFavorites.
-  ///
-  /// In en, this message translates to:
-  /// **'Add to favorites'**
-  String get addToFavorites;
-
-  /// No description provided for @removeFromFavorites.
-  ///
-  /// In en, this message translates to:
-  /// **'Remove from favorites'**
-  String get removeFromFavorites;
-
-  /// No description provided for @confirmUploadSizeWarning.
-  ///
-  /// In en, this message translates to:
-  /// **'Are you sure you want to upload a file that is bigger than {warningSize} ({actualSize})?'**
-  String confirmUploadSizeWarning(String warningSize, String actualSize);
-
-  /// No description provided for @confirmDownloadSizeWarning.
-  ///
-  /// In en, this message translates to:
-  /// **'Are you sure you want to download a file that is bigger than {warningSize} ({actualSize})?'**
-  String confirmDownloadSizeWarning(String warningSize, String actualSize);
-
-  /// No description provided for @goToPath.
-  ///
-  /// In en, this message translates to:
-  /// **'Go to /{path}'**
-  String goToPath(String path);
 
   /// No description provided for @optionsFilesSortProperty.
   ///
@@ -340,6 +334,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Download size warning'**
   String get optionsDownloadSizeWarning;
+
+  /// No description provided for @optionsSizeWarningDisabled.
+  ///
+  /// In en, this message translates to:
+  /// **'Disabled'**
+  String get optionsSizeWarningDisabled;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

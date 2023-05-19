@@ -51,8 +51,9 @@ class FilesDetailsPage extends StatelessWidget {
                         : AppLocalizations.of(context).detailsFileSize: filesize(details.size, 1),
                     AppLocalizations.of(context).detailsLastModified: details.lastModified.toLocal().toIso8601String(),
                     if (details.isFavorite != null) ...{
-                      AppLocalizations.of(context).detailsIsFavorite:
-                          details.isFavorite! ? AppLocalizations.of(context).yes : AppLocalizations.of(context).no,
+                      AppLocalizations.of(context).detailsIsFavorite: details.isFavorite!
+                          ? AppLocalizations.of(context).actionYes
+                          : AppLocalizations.of(context).actionNo,
                     },
                   }.entries) ...[
                     DataRow(

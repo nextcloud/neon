@@ -307,26 +307,26 @@ class _FilesBrowserViewState extends State<FilesBrowserView> {
                   ),
                   PopupMenuItem(
                     value: FilesFileAction.rename,
-                    child: Text(AppLocalizations.of(context).rename),
+                    child: Text(AppLocalizations.of(context).actionRename),
                   ),
                   PopupMenuItem(
                     value: FilesFileAction.move,
-                    child: Text(AppLocalizations.of(context).move),
+                    child: Text(AppLocalizations.of(context).actionMove),
                   ),
                   PopupMenuItem(
                     value: FilesFileAction.copy,
-                    child: Text(AppLocalizations.of(context).copy),
+                    child: Text(AppLocalizations.of(context).actionCopy),
                   ),
                   // TODO: https://github.com/provokateurin/nextcloud-neon/issues/4
                   if (!details.isDirectory) ...[
                     PopupMenuItem(
                       value: FilesFileAction.sync,
-                      child: Text(AppLocalizations.of(context).sync),
+                      child: Text(AppLocalizations.of(context).actionSync),
                     ),
                   ],
                   PopupMenuItem(
                     value: FilesFileAction.delete,
-                    child: Text(AppLocalizations.of(context).delete),
+                    child: Text(AppLocalizations.of(context).actionDelete),
                   ),
                 ],
                 onSelected: (final action) async {
@@ -352,8 +352,8 @@ class _FilesBrowserViewState extends State<FilesBrowserView> {
                       final result = await showRenameDialog(
                         context: context,
                         title: details.isDirectory
-                            ? AppLocalizations.of(context).renameFolder
-                            : AppLocalizations.of(context).renameFile,
+                            ? AppLocalizations.of(context).folderRename
+                            : AppLocalizations.of(context).fileRename,
                         value: details.name,
                       );
                       if (result != null) {
@@ -401,7 +401,7 @@ class _FilesBrowserViewState extends State<FilesBrowserView> {
                         if (!(await showConfirmationDialog(
                           context,
                           // ignore: use_build_context_synchronously
-                          AppLocalizations.of(context).confirmDownloadSizeWarning(
+                          AppLocalizations.of(context).downloadConfirmSizeWarning(
                             filesize(sizeWarning),
                             filesize(details.size),
                           ),
@@ -417,9 +417,9 @@ class _FilesBrowserViewState extends State<FilesBrowserView> {
                         context,
                         details.isDirectory
                             // ignore: use_build_context_synchronously
-                            ? AppLocalizations.of(context).deleteFolderConfirm(details.name)
+                            ? AppLocalizations.of(context).folderDeleteConfirm(details.name)
                             // ignore: use_build_context_synchronously
-                            : AppLocalizations.of(context).deleteFileConfirm(details.name),
+                            : AppLocalizations.of(context).fileDeleteConfirm(details.name),
                       )) {
                         widget.filesBloc.delete(details.path);
                       }

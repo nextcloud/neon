@@ -1,70 +1,13 @@
 {
   "@@locale": "en",
-  "yes": "Yes",
-  "no": "No",
-  "delete": "Delete",
-  "rename": "Rename",
-  "move": "Move",
-  "copy": "Copy",
-  "disabled": "Disabled",
+  "actionYes": "Yes",
+  "actionNo": "No",
+  "actionDelete": "Delete",
+  "actionRename": "Rename",
+  "actionMove": "Move",
+  "actionCopy": "Copy",
+  "actionSync": "Sync",
   "general": "General",
-  "uploadFiles": "Upload files",
-  "uploadImages": "Upload images",
-  "uploadCamera": "Upload from camera",
-  "createFolder": "Create folder",
-  "folderName": "Folder name",
-  "renameFolder": "Rename folder",
-  "renameFile": "Rename file",
-  "details": "Details",
-  "detailsFileName": "File name",
-  "detailsFolderName": "Folder name",
-  "detailsParentFolder": "Parent folder",
-  "detailsFileSize": "File size",
-  "detailsFolderSize": "Folder size",
-  "detailsLastModified": "Last modified",
-  "detailsIsFavorite": "Is favorite",
-  "sync": "Sync",
-  "deleteFileConfirm": "Are you sure you want to delete the file '{name}'?",
-  "@deleteFileConfirm": {
-    "placeholders": {
-      "name": {
-        "type": "String"
-      }
-    }
-  },
-  "deleteFolderConfirm": "Are you sure you want to delete the folder '{name}'?",
-  "@deleteFolderConfirm": {
-    "placeholders": {
-      "name": {
-        "type": "String"
-      }
-    }
-  },
-  "chooseFolder": "Choose folder",
-  "addToFavorites": "Add to favorites",
-  "removeFromFavorites": "Remove from favorites",
-  "confirmUploadSizeWarning": "Are you sure you want to upload a file that is bigger than {warningSize} ({actualSize})?",
-  "@confirmUploadSizeWarning": {
-    "placeholders": {
-      "warningSize": {
-        "type": "String"
-      },
-      "actualSize": {
-        "type": "String"
-      }
-    }
-  },
-  "confirmDownloadSizeWarning": "Are you sure you want to download a file that is bigger than {warningSize} ({actualSize})?",
-  "@confirmDownloadSizeWarning": {
-    "placeholders": {
-      "warningSize": {
-        "type": "String"
-      },
-      "actualSize": {
-        "type": "String"
-      }
-    }
-  },
   "goToPath": "Go to /{path}",
   "@goToPath": {
     "placeholders": {
@@ -73,6 +16,62 @@
       }
     }
   },
+  "uploadFiles": "Upload files",
+  "uploadImages": "Upload images",
+  "uploadCamera": "Upload from camera",
+  "uploadConfirmSizeWarning": "Are you sure you want to upload a file that is bigger than {warningSize} ({actualSize})?",
+  "@uploadConfirmSizeWarning": {
+    "placeholders": {
+      "warningSize": {
+        "type": "String"
+      },
+      "actualSize": {
+        "type": "String"
+      }
+    }
+  },
+  "downloadConfirmSizeWarning": "Are you sure you want to download a file that is bigger than {warningSize} ({actualSize})?",
+  "@downloadConfirmSizeWarning": {
+    "placeholders": {
+      "warningSize": {
+        "type": "String"
+      },
+      "actualSize": {
+        "type": "String"
+      }
+    }
+  },
+  "folderCreate": "Create folder",
+  "folderName": "Folder name",
+  "folderRename": "Rename folder",
+  "folderChoose": "Choose folder",
+  "folderDeleteConfirm": "Are you sure you want to delete the folder '{name}'?",
+  "@folderDeleteConfirm": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "fileRename": "Rename file",
+  "fileDeleteConfirm": "Are you sure you want to delete the file '{name}'?",
+  "@fileDeleteConfirm": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "addToFavorites": "Add to favorites",
+  "removeFromFavorites": "Remove from favorites",
+  "details": "Details",
+  "detailsFileName": "File name",
+  "detailsFolderName": "Folder name",
+  "detailsParentFolder": "Parent folder",
+  "detailsFileSize": "File size",
+  "detailsFolderSize": "Folder size",
+  "detailsLastModified": "Last modified",
+  "detailsIsFavorite": "Is favorite",
   "optionsFilesSortProperty": "How to sort files",
   "optionsFilesSortPropertyName": "Name",
   "optionsFilesSortPropertyModifiedDate": "Last modified",
@@ -82,5 +81,6 @@
   "optionsUploadQueueParallelism": "Upload queue parallelism",
   "optionsDownloadQueueParallelism": "Download queue parallelism",
   "optionsUploadSizeWarning": "Upload size warning",
-  "optionsDownloadSizeWarning": "Download size warning"
+  "optionsDownloadSizeWarning": "Download size warning",
+  "optionsSizeWarningDisabled": "Disabled"
 }

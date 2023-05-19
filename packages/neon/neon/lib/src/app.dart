@@ -99,11 +99,11 @@ class _NeonAppState extends State<NeonApp> with WidgetsBindingObserver, tray.Tra
                     tray.MenuItem.separator(),
                     tray.MenuItem(
                       key: 'show_hide',
-                      label: localizations.showSlashHide,
+                      label: localizations.actionShowSlashHide,
                     ),
                     tray.MenuItem(
                       key: 'exit',
-                      label: localizations.exit,
+                      label: localizations.actionExit,
                     ),
                   ],
                 ),

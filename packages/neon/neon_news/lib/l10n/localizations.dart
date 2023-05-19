@@ -89,35 +89,35 @@ abstract class AppLocalizations {
   /// A list of this localizations delegate's supported locales.
   static const List<Locale> supportedLocales = <Locale>[Locale('en')];
 
-  /// No description provided for @close.
+  /// No description provided for @actionClose.
   ///
   /// In en, this message translates to:
   /// **'Close'**
-  String get close;
+  String get actionClose;
 
-  /// No description provided for @delete.
+  /// No description provided for @actionDelete.
   ///
   /// In en, this message translates to:
   /// **'Delete'**
-  String get delete;
+  String get actionDelete;
 
-  /// No description provided for @remove.
+  /// No description provided for @actionRemove.
   ///
   /// In en, this message translates to:
   /// **'Remove'**
-  String get remove;
+  String get actionRemove;
 
-  /// No description provided for @rename.
+  /// No description provided for @actionRename.
   ///
   /// In en, this message translates to:
   /// **'Rename'**
-  String get rename;
+  String get actionRename;
 
-  /// No description provided for @move.
+  /// No description provided for @actionMove.
   ///
   /// In en, this message translates to:
   /// **'Move'**
-  String get move;
+  String get actionMove;
 
   /// No description provided for @general.
   ///
@@ -125,71 +125,11 @@ abstract class AppLocalizations {
   /// **'General'**
   String get general;
 
-  /// No description provided for @addFeed.
-  ///
-  /// In en, this message translates to:
-  /// **'Add feed'**
-  String get addFeed;
-
   /// No description provided for @folder.
   ///
   /// In en, this message translates to:
   /// **'Folder'**
   String get folder;
-
-  /// No description provided for @folderRoot.
-  ///
-  /// In en, this message translates to:
-  /// **'Root Folder'**
-  String get folderRoot;
-
-  /// No description provided for @createFolder.
-  ///
-  /// In en, this message translates to:
-  /// **'Create folder'**
-  String get createFolder;
-
-  /// No description provided for @createFolderName.
-  ///
-  /// In en, this message translates to:
-  /// **'Folder name'**
-  String get createFolderName;
-
-  /// No description provided for @deleteFolderConfirm.
-  ///
-  /// In en, this message translates to:
-  /// **'Are you sure you want to delete the folder \'{name}\'?'**
-  String deleteFolderConfirm(String name);
-
-  /// No description provided for @renameFolder.
-  ///
-  /// In en, this message translates to:
-  /// **'Rename folder'**
-  String get renameFolder;
-
-  /// No description provided for @removeFeedConfirm.
-  ///
-  /// In en, this message translates to:
-  /// **'Are you sure you want to remove the feed \'{name}\'?'**
-  String removeFeedConfirm(String name);
-
-  /// No description provided for @moveFeed.
-  ///
-  /// In en, this message translates to:
-  /// **'Move feed'**
-  String get moveFeed;
-
-  /// No description provided for @renameFeed.
-  ///
-  /// In en, this message translates to:
-  /// **'Rename feed'**
-  String get renameFeed;
-
-  /// No description provided for @articles.
-  ///
-  /// In en, this message translates to:
-  /// **'Articles'**
-  String get articles;
 
   /// No description provided for @folders.
   ///
@@ -197,35 +137,131 @@ abstract class AppLocalizations {
   /// **'Folders'**
   String get folders;
 
+  /// No description provided for @folderRoot.
+  ///
+  /// In en, this message translates to:
+  /// **'Root Folder'**
+  String get folderRoot;
+
+  /// No description provided for @folderCreate.
+  ///
+  /// In en, this message translates to:
+  /// **'Create folder'**
+  String get folderCreate;
+
+  /// No description provided for @folderCreateName.
+  ///
+  /// In en, this message translates to:
+  /// **'Folder name'**
+  String get folderCreateName;
+
+  /// No description provided for @folderDeleteConfirm.
+  ///
+  /// In en, this message translates to:
+  /// **'Are you sure you want to delete the folder \'{name}\'?'**
+  String folderDeleteConfirm(String name);
+
+  /// No description provided for @folderRename.
+  ///
+  /// In en, this message translates to:
+  /// **'Rename folder'**
+  String get folderRename;
+
   /// No description provided for @feeds.
   ///
   /// In en, this message translates to:
   /// **'Feeds'**
   String get feeds;
 
-  /// No description provided for @filterAll.
+  /// No description provided for @feedAdd.
   ///
   /// In en, this message translates to:
-  /// **'All'**
-  String get filterAll;
+  /// **'Add feed'**
+  String get feedAdd;
 
-  /// No description provided for @filterUnread.
+  /// No description provided for @feedRemoveConfirm.
   ///
   /// In en, this message translates to:
-  /// **'Unread'**
-  String get filterUnread;
+  /// **'Are you sure you want to remove the feed \'{name}\'?'**
+  String feedRemoveConfirm(String name);
 
-  /// No description provided for @filterStarred.
+  /// No description provided for @feedMove.
   ///
   /// In en, this message translates to:
-  /// **'Starred'**
-  String get filterStarred;
+  /// **'Move feed'**
+  String get feedMove;
 
-  /// No description provided for @unreadArticles.
+  /// No description provided for @feedRename.
+  ///
+  /// In en, this message translates to:
+  /// **'Rename feed'**
+  String get feedRename;
+
+  /// No description provided for @feedShowURL.
+  ///
+  /// In en, this message translates to:
+  /// **'Show URL'**
+  String get feedShowURL;
+
+  /// No description provided for @feedCopyURL.
+  ///
+  /// In en, this message translates to:
+  /// **'Copy URL'**
+  String get feedCopyURL;
+
+  /// No description provided for @feedCopiedURL.
+  ///
+  /// In en, this message translates to:
+  /// **'URL copied to clipboard'**
+  String get feedCopiedURL;
+
+  /// No description provided for @feedShowErrorMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'Show error message'**
+  String get feedShowErrorMessage;
+
+  /// No description provided for @feedCopyErrorMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'Copy error message'**
+  String get feedCopyErrorMessage;
+
+  /// No description provided for @feedCopiedErrorMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'Error message copied to clipboard'**
+  String get feedCopiedErrorMessage;
+
+  /// No description provided for @articles.
+  ///
+  /// In en, this message translates to:
+  /// **'Articles'**
+  String get articles;
+
+  /// No description provided for @articlesUnread.
   ///
   /// In en, this message translates to:
   /// **'{count} unread'**
-  String unreadArticles(int count);
+  String articlesUnread(int count);
+
+  /// No description provided for @articlesFilterAll.
+  ///
+  /// In en, this message translates to:
+  /// **'All'**
+  String get articlesFilterAll;
+
+  /// No description provided for @articlesFilterUnread.
+  ///
+  /// In en, this message translates to:
+  /// **'Unread'**
+  String get articlesFilterUnread;
+
+  /// No description provided for @articlesFilterStarred.
+  ///
+  /// In en, this message translates to:
+  /// **'Starred'**
+  String get articlesFilterStarred;
 
   /// No description provided for @articleStar.
   ///
@@ -262,42 +298,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Share'**
   String get articleShare;
-
-  /// No description provided for @showFeedURL.
-  ///
-  /// In en, this message translates to:
-  /// **'Show URL'**
-  String get showFeedURL;
-
-  /// No description provided for @copyFeedURL.
-  ///
-  /// In en, this message translates to:
-  /// **'Copy URL'**
-  String get copyFeedURL;
-
-  /// No description provided for @copiedFeedURL.
-  ///
-  /// In en, this message translates to:
-  /// **'URL copied to clipboard'**
-  String get copiedFeedURL;
-
-  /// No description provided for @showFeedErrorMessage.
-  ///
-  /// In en, this message translates to:
-  /// **'Show error message'**
-  String get showFeedErrorMessage;
-
-  /// No description provided for @copyFeedErrorMessage.
-  ///
-  /// In en, this message translates to:
-  /// **'Copy error message'**
-  String get copyFeedErrorMessage;
-
-  /// No description provided for @copiedFeedErrorMessage.
-  ///
-  /// In en, this message translates to:
-  /// **'Error message copied to clipboard'**
-  String get copiedFeedErrorMessage;
 
   /// No description provided for @optionsDefaultCategory.
   ///

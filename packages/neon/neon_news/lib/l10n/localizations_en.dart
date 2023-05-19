@@ -5,79 +5,97 @@ class AppLocalizationsEn extends AppLocalizations {
   AppLocalizationsEn([String locale = 'en']) : super(locale);
 
   @override
-  String get close => 'Close';
+  String get actionClose => 'Close';
 
   @override
-  String get delete => 'Delete';
+  String get actionDelete => 'Delete';
 
   @override
-  String get remove => 'Remove';
+  String get actionRemove => 'Remove';
 
   @override
-  String get rename => 'Rename';
+  String get actionRename => 'Rename';
 
   @override
-  String get move => 'Move';
+  String get actionMove => 'Move';
 
   @override
   String get general => 'General';
 
   @override
-  String get addFeed => 'Add feed';
-
-  @override
   String get folder => 'Folder';
-
-  @override
-  String get folderRoot => 'Root Folder';
-
-  @override
-  String get createFolder => 'Create folder';
-
-  @override
-  String get createFolderName => 'Folder name';
-
-  @override
-  String deleteFolderConfirm(String name) {
-    return 'Are you sure you want to delete the folder \'$name\'?';
-  }
-
-  @override
-  String get renameFolder => 'Rename folder';
-
-  @override
-  String removeFeedConfirm(String name) {
-    return 'Are you sure you want to remove the feed \'$name\'?';
-  }
-
-  @override
-  String get moveFeed => 'Move feed';
-
-  @override
-  String get renameFeed => 'Rename feed';
-
-  @override
-  String get articles => 'Articles';
 
   @override
   String get folders => 'Folders';
 
   @override
+  String get folderRoot => 'Root Folder';
+
+  @override
+  String get folderCreate => 'Create folder';
+
+  @override
+  String get folderCreateName => 'Folder name';
+
+  @override
+  String folderDeleteConfirm(String name) {
+    return 'Are you sure you want to delete the folder \'$name\'?';
+  }
+
+  @override
+  String get folderRename => 'Rename folder';
+
+  @override
   String get feeds => 'Feeds';
 
   @override
-  String get filterAll => 'All';
+  String get feedAdd => 'Add feed';
 
   @override
-  String get filterUnread => 'Unread';
+  String feedRemoveConfirm(String name) {
+    return 'Are you sure you want to remove the feed \'$name\'?';
+  }
 
   @override
-  String get filterStarred => 'Starred';
+  String get feedMove => 'Move feed';
 
   @override
-  String unreadArticles(int count) {
+  String get feedRename => 'Rename feed';
+
+  @override
+  String get feedShowURL => 'Show URL';
+
+  @override
+  String get feedCopyURL => 'Copy URL';
+
+  @override
+  String get feedCopiedURL => 'URL copied to clipboard';
+
+  @override
+  String get feedShowErrorMessage => 'Show error message';
+
+  @override
+  String get feedCopyErrorMessage => 'Copy error message';
+
+  @override
+  String get feedCopiedErrorMessage => 'Error message copied to clipboard';
+
+  @override
+  String get articles => 'Articles';
+
+  @override
+  String articlesUnread(int count) {
     return '$count unread';
   }
+
+  @override
+  String get articlesFilterAll => 'All';
+
+  @override
+  String get articlesFilterUnread => 'Unread';
+
+  @override
+  String get articlesFilterStarred => 'Starred';
 
   @override
   String get articleStar => 'Star article';
@@ -96,24 +114,6 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get articleShare => 'Share';
-
-  @override
-  String get showFeedURL => 'Show URL';
-
-  @override
-  String get copyFeedURL => 'Copy URL';
-
-  @override
-  String get copiedFeedURL => 'URL copied to clipboard';
-
-  @override
-  String get showFeedErrorMessage => 'Show error message';
-
-  @override
-  String get copyFeedErrorMessage => 'Copy error message';
-
-  @override
-  String get copiedFeedErrorMessage => 'Error message copied to clipboard';
 
   @override
   String get optionsDefaultCategory => 'Category to show by default';

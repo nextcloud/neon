@@ -52,7 +52,7 @@ class NewsFeedsView extends StatelessWidget {
               : null,
         ),
         subtitle:
-            feed.unreadCount! > 0 ? Text(AppLocalizations.of(context).unreadArticles(feed.unreadCount!)) : Container(),
+            feed.unreadCount! > 0 ? Text(AppLocalizations.of(context).articlesUnread(feed.unreadCount!)) : Container(),
         leading: NewsFeedIcon(
           feed: feed,
           borderRadius: const BorderRadius.all(Radius.circular(8)),
@@ -70,7 +70,7 @@ class NewsFeedsView extends StatelessWidget {
                     ),
                   );
                 },
-                tooltip: AppLocalizations.of(context).showFeedErrorMessage,
+                tooltip: AppLocalizations.of(context).feedShowErrorMessage,
                 iconSize: 30,
                 icon: Text(
                   feed.updateErrorCount.toString(),
@@ -84,20 +84,20 @@ class NewsFeedsView extends StatelessWidget {
               itemBuilder: (final context) => [
                 PopupMenuItem(
                   value: NewsFeedAction.showURL,
-                  child: Text(AppLocalizations.of(context).showFeedURL),
+                  child: Text(AppLocalizations.of(context).feedShowURL),
                 ),
                 PopupMenuItem(
                   value: NewsFeedAction.delete,
-                  child: Text(AppLocalizations.of(context).delete),
+                  child: Text(AppLocalizations.of(context).actionDelete),
                 ),
                 PopupMenuItem(
                   value: NewsFeedAction.rename,
-                  child: Text(AppLocalizations.of(context).rename),
+                  child: Text(AppLocalizations.of(context).actionRename),
                 ),
                 if (folders.isNotEmpty) ...[
                   PopupMenuItem(
                     value: NewsFeedAction.move,
-                    child: Text(AppLocalizations.of(context).move),
+                    child: Text(AppLocalizations.of(context).actionMove),
                   ),
                 ],
               ],
@@ -116,7 +116,7 @@ class NewsFeedsView extends StatelessWidget {
                     if (await showConfirmationDialog(
                       context,
                       // ignore: use_build_context_synchronously
-                      AppLocalizations.of(context).removeFeedConfirm(feed.title),
+                      AppLocalizations.of(context).feedRemoveConfirm(feed.title),
                     )) {
                       bloc.removeFeed(feed.id);
                     }
@@ -124,7 +124,7 @@ class NewsFeedsView extends StatelessWidget {
                   case NewsFeedAction.rename:
                     final result = await showRenameDialog(
                       context: context,
-                      title: AppLocalizations.of(context).renameFeed,
+                      title: AppLocalizations.of(context).feedRename,
                       value: feed.title,
                     );
                     if (result != null) {

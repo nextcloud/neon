@@ -59,7 +59,7 @@ class _NotesSelectCategoryDialogState extends State<NotesSelectCategoryDialog> {
                   ],
                   ElevatedButton(
                     onPressed: submit,
-                    child: Text(AppLocalizations.of(context).setCategory),
+                    child: Text(AppLocalizations.of(context).noteSetCategory),
                   ),
                 ],
               ),

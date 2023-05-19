@@ -89,17 +89,17 @@ abstract class AppLocalizations {
   /// A list of this localizations delegate's supported locales.
   static const List<Locale> supportedLocales = <Locale>[Locale('en')];
 
+  /// No description provided for @errorChangedOnServer.
+  ///
+  /// In en, this message translates to:
+  /// **'The note has been changed on the server. Please refresh and try again'**
+  String get errorChangedOnServer;
+
   /// No description provided for @general.
   ///
   /// In en, this message translates to:
   /// **'General'**
   String get general;
-
-  /// No description provided for @note.
-  ///
-  /// In en, this message translates to:
-  /// **'Note'**
-  String get note;
 
   /// No description provided for @notes.
   ///
@@ -107,29 +107,17 @@ abstract class AppLocalizations {
   /// **'Notes'**
   String get notes;
 
-  /// No description provided for @categories.
+  /// No description provided for @note.
   ///
   /// In en, this message translates to:
-  /// **'Categories'**
-  String get categories;
+  /// **'Note'**
+  String get note;
 
-  /// No description provided for @createNote.
+  /// No description provided for @noteCreate.
   ///
   /// In en, this message translates to:
   /// **'Create note'**
-  String get createNote;
-
-  /// No description provided for @category.
-  ///
-  /// In en, this message translates to:
-  /// **'Category'**
-  String get category;
-
-  /// No description provided for @setCategory.
-  ///
-  /// In en, this message translates to:
-  /// **'Set category'**
-  String get setCategory;
+  String get noteCreate;
 
   /// No description provided for @noteTitle.
   ///
@@ -137,59 +125,71 @@ abstract class AppLocalizations {
   /// **'Title'**
   String get noteTitle;
 
-  /// No description provided for @noteChangedOnServer.
+  /// No description provided for @noteSetCategory.
   ///
   /// In en, this message translates to:
-  /// **'The note has been changed on the server. Please refresh and try again'**
-  String get noteChangedOnServer;
+  /// **'Set category'**
+  String get noteSetCategory;
 
-  /// No description provided for @notesInCategory.
-  ///
-  /// In en, this message translates to:
-  /// **'{count} notes'**
-  String notesInCategory(int count);
-
-  /// No description provided for @uncategorized.
-  ///
-  /// In en, this message translates to:
-  /// **'Uncategorized'**
-  String get uncategorized;
-
-  /// No description provided for @showEditor.
-  ///
-  /// In en, this message translates to:
-  /// **'Edit note'**
-  String get showEditor;
-
-  /// No description provided for @showPreview.
-  ///
-  /// In en, this message translates to:
-  /// **'Preview note'**
-  String get showPreview;
-
-  /// No description provided for @star.
-  ///
-  /// In en, this message translates to:
-  /// **'Star note'**
-  String get star;
-
-  /// No description provided for @unstar.
-  ///
-  /// In en, this message translates to:
-  /// **'Unstar note'**
-  String get unstar;
-
-  /// No description provided for @changeCategory.
+  /// No description provided for @noteChangeCategory.
   ///
   /// In en, this message translates to:
   /// **'Change note category'**
-  String get changeCategory;
+  String get noteChangeCategory;
 
-  /// No description provided for @deleteNoteConfirm.
+  /// No description provided for @noteShowEditor.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit note'**
+  String get noteShowEditor;
+
+  /// No description provided for @noteShowPreview.
+  ///
+  /// In en, this message translates to:
+  /// **'Preview note'**
+  String get noteShowPreview;
+
+  /// No description provided for @noteStar.
+  ///
+  /// In en, this message translates to:
+  /// **'Star note'**
+  String get noteStar;
+
+  /// No description provided for @noteUnstar.
+  ///
+  /// In en, this message translates to:
+  /// **'Unstar note'**
+  String get noteUnstar;
+
+  /// No description provided for @noteDeleteConfirm.
   ///
   /// In en, this message translates to:
   /// **'Are you sure you want to delete the note \'{name}\'?'**
-  String deleteNoteConfirm(String name);
+  String noteDeleteConfirm(String name);
+
+  /// No description provided for @categories.
+  ///
+  /// In en, this message translates to:
+  /// **'Categories'**
+  String get categories;
+
+  /// No description provided for @category.
+  ///
+  /// In en, this message translates to:
+  /// **'Category'**
+  String get category;
+
+  /// No description provided for @categoryNotesCount.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} notes'**
+  String categoryNotesCount(int count);
+
+  /// No description provided for @categoryUncategorized.
+  ///
+  /// In en, this message translates to:
+  /// **'Uncategorized'**
+  String get categoryUncategorized;
 
   /// No description provided for @optionsDefaultCategory.
   ///

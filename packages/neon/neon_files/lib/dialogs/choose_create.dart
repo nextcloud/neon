@@ -36,7 +36,7 @@ class _FilesChooseCreateDialogState extends State<FilesChooseCreateDialog> {
         if (!(await showConfirmationDialog(
           context,
           // ignore: use_build_context_synchronously
-          AppLocalizations.of(context).confirmUploadSizeWarning(
+          AppLocalizations.of(context).uploadConfirmSizeWarning(
             filesize(sizeWarning),
             filesize(stat.size),
           ),
@@ -102,7 +102,7 @@ class _FilesChooseCreateDialogState extends State<FilesChooseCreateDialog> {
               MdiIcons.folderPlus,
               color: Theme.of(context).colorScheme.primary,
             ),
-            title: Text(AppLocalizations.of(context).createFolder),
+            title: Text(AppLocalizations.of(context).folderCreate),
             onTap: () async {
               Navigator.of(context).pop();
 

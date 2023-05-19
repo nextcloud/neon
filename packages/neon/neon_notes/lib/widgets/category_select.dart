@@ -77,7 +77,7 @@ class NotesCategorySelect extends StatelessWidget {
                       color: option != '' ? NotesCategoryColor.compute(option) : null,
                     ),
                     title: Text(
-                      option != '' ? option : AppLocalizations.of(context).uncategorized,
+                      option != '' ? option : AppLocalizations.of(context).categoryUncategorized,
                     ),
                     onTap: () {
                       onSelected(option);

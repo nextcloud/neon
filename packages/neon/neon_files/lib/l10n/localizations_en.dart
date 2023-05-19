@@ -5,28 +5,33 @@ class AppLocalizationsEn extends AppLocalizations {
   AppLocalizationsEn([String locale = 'en']) : super(locale);
 
   @override
-  String get yes => 'Yes';
+  String get actionYes => 'Yes';
 
   @override
-  String get no => 'No';
+  String get actionNo => 'No';
 
   @override
-  String get delete => 'Delete';
+  String get actionDelete => 'Delete';
 
   @override
-  String get rename => 'Rename';
+  String get actionRename => 'Rename';
 
   @override
-  String get move => 'Move';
+  String get actionMove => 'Move';
 
   @override
-  String get copy => 'Copy';
+  String get actionCopy => 'Copy';
 
   @override
-  String get disabled => 'Disabled';
+  String get actionSync => 'Sync';
 
   @override
   String get general => 'General';
+
+  @override
+  String goToPath(String path) {
+    return 'Go to /$path';
+  }
 
   @override
   String get uploadFiles => 'Upload files';
@@ -38,16 +43,45 @@ class AppLocalizationsEn extends AppLocalizations {
   String get uploadCamera => 'Upload from camera';
 
   @override
-  String get createFolder => 'Create folder';
+  String uploadConfirmSizeWarning(String warningSize, String actualSize) {
+    return 'Are you sure you want to upload a file that is bigger than $warningSize ($actualSize)?';
+  }
+
+  @override
+  String downloadConfirmSizeWarning(String warningSize, String actualSize) {
+    return 'Are you sure you want to download a file that is bigger than $warningSize ($actualSize)?';
+  }
+
+  @override
+  String get folderCreate => 'Create folder';
 
   @override
   String get folderName => 'Folder name';
 
   @override
-  String get renameFolder => 'Rename folder';
+  String get folderRename => 'Rename folder';
 
   @override
-  String get renameFile => 'Rename file';
+  String get folderChoose => 'Choose folder';
+
+  @override
+  String folderDeleteConfirm(String name) {
+    return 'Are you sure you want to delete the folder \'$name\'?';
+  }
+
+  @override
+  String get fileRename => 'Rename file';
+
+  @override
+  String fileDeleteConfirm(String name) {
+    return 'Are you sure you want to delete the file \'$name\'?';
+  }
+
+  @override
+  String get addToFavorites => 'Add to favorites';
+
+  @override
+  String get removeFromFavorites => 'Remove from favorites';
 
   @override
   String get details => 'Details';
@@ -72,43 +106,6 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get detailsIsFavorite => 'Is favorite';
-
-  @override
-  String get sync => 'Sync';
-
-  @override
-  String deleteFileConfirm(String name) {
-    return 'Are you sure you want to delete the file \'$name\'?';
-  }
-
-  @override
-  String deleteFolderConfirm(String name) {
-    return 'Are you sure you want to delete the folder \'$name\'?';
-  }
-
-  @override
-  String get chooseFolder => 'Choose folder';
-
-  @override
-  String get addToFavorites => 'Add to favorites';
-
-  @override
-  String get removeFromFavorites => 'Remove from favorites';
-
-  @override
-  String confirmUploadSizeWarning(String warningSize, String actualSize) {
-    return 'Are you sure you want to upload a file that is bigger than $warningSize ($actualSize)?';
-  }
-
-  @override
-  String confirmDownloadSizeWarning(String warningSize, String actualSize) {
-    return 'Are you sure you want to download a file that is bigger than $warningSize ($actualSize)?';
-  }
-
-  @override
-  String goToPath(String path) {
-    return 'Go to /$path';
-  }
 
   @override
   String get optionsFilesSortProperty => 'How to sort files';
@@ -139,4 +136,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get optionsDownloadSizeWarning => 'Download size warning';
+
+  @override
+  String get optionsSizeWarningDisabled => 'Disabled';
 }

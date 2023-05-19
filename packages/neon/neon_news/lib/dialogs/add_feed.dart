@@ -46,7 +46,7 @@ class _NewsAddFeedDialogState extends State<NewsAddFeedDialog> {
   Widget build(final BuildContext context) => ResultBuilder<List<NextcloudNewsFolder>>(
         stream: widget.bloc.folders,
         builder: (final context, final folders) => NeonDialog(
-          title: Text(AppLocalizations.of(context).addFeed),
+          title: Text(AppLocalizations.of(context).feedAdd),
           children: [
             Form(
               key: formKey,
@@ -91,7 +91,7 @@ class _NewsAddFeedDialogState extends State<NewsAddFeedDialog> {
                   ],
                   ElevatedButton(
                     onPressed: folders.data != null ? submit : null,
-                    child: Text(AppLocalizations.of(context).addFeed),
+                    child: Text(AppLocalizations.of(context).feedAdd),
                   ),
                 ],
               ),

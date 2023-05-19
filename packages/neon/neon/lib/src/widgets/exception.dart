@@ -59,7 +59,7 @@ class NeonException extends StatelessWidget {
                     ),
                     tooltip: details.isUnauthorized
                         ? AppLocalizations.of(context).loginAgain
-                        : AppLocalizations.of(context).retry,
+                        : AppLocalizations.of(context).actionRetry,
                     onPressed: () async {
                       if (details.isUnauthorized) {
                         await _openLoginPage(context);
@@ -99,7 +99,7 @@ class NeonException extends StatelessWidget {
                   ] else ...[
                     ElevatedButton(
                       onPressed: onRetry,
-                      child: Text(AppLocalizations.of(context).retry),
+                      child: Text(AppLocalizations.of(context).actionRetry),
                     ),
                   ],
                 ],

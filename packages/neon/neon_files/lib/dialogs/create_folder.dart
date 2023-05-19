@@ -22,7 +22,7 @@ class _FilesCreateFolderDialogState extends State<FilesCreateFolderDialog> {
 
   @override
   Widget build(final BuildContext context) => NeonDialog(
-        title: Text(AppLocalizations.of(context).createFolder),
+        title: Text(AppLocalizations.of(context).folderCreate),
         children: [
           Form(
             key: formKey,
@@ -42,7 +42,7 @@ class _FilesCreateFolderDialogState extends State<FilesCreateFolderDialog> {
                 ),
                 ElevatedButton(
                   onPressed: submit,
-                  child: Text(AppLocalizations.of(context).createFolder),
+                  child: Text(AppLocalizations.of(context).folderCreate),
                 ),
               ],
             ),

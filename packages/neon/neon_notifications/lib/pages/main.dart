@@ -31,7 +31,7 @@ class _NotificationsMainPageState extends State<NotificationsMainPage> {
             onPressed: () async {
               widget.bloc.deleteAllNotifications();
             },
-            tooltip: AppLocalizations.of(context).dismissAll,
+            tooltip: AppLocalizations.of(context).notificationsDismissAll,
             child: const Icon(MdiIcons.checkAll),
           ),
           body: NeonListView<NextcloudNotificationsNotification>(
@@ -95,7 +95,7 @@ class _NotificationsMainPageState extends State<NotificationsMainPage> {
           await showDialog(
             context: context,
             builder: (final context) => AlertDialog(
-              title: Text(AppLocalizations.of(context).nextcloudAppNotImplementedYet),
+              title: Text(AppLocalizations.of(context).notificationAppNotImplementedYet),
               actions: [
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(
@@ -105,7 +105,7 @@ class _NotificationsMainPageState extends State<NotificationsMainPage> {
                   onPressed: () {
                     Navigator.of(context).pop();
                   },
-                  child: Text(AppLocalizations.of(context).close),
+                  child: Text(AppLocalizations.of(context).actionClose),
                 ),
               ],
             ),

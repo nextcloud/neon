@@ -90,22 +90,22 @@ class AppLocalizationsEn extends AppLocalizations {
   String get errorInvalidURL => 'Invalid URL provided';
 
   @override
-  String get yes => 'Yes';
+  String get actionYes => 'Yes';
 
   @override
-  String get no => 'No';
+  String get actionNo => 'No';
 
   @override
-  String get close => 'Close';
+  String get actionClose => 'Close';
 
   @override
-  String get retry => 'Retry';
+  String get actionRetry => 'Retry';
 
   @override
-  String get showSlashHide => 'Show/Hide';
+  String get actionShowSlashHide => 'Show/Hide';
 
   @override
-  String get exit => 'Exit';
+  String get actionExit => 'Exit';
 
   @override
   String get firstLaunchGoToSettingsToEnablePushNotifications => 'Go to the settings to enable push notifications';

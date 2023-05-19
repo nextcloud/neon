@@ -5,11 +5,11 @@ class AppLocalizationsEn extends AppLocalizations {
   AppLocalizationsEn([String locale = 'en']) : super(locale);
 
   @override
-  String get close => 'Close';
+  String get actionClose => 'Close';
 
   @override
-  String get nextcloudAppNotImplementedYet => 'Sorry, this Nextcloud app has not been implemented yet';
+  String get notificationsDismissAll => 'Dismiss all notifications';
 
   @override
-  String get dismissAll => 'Dismiss all notifications';
+  String get notificationAppNotImplementedYet => 'Sorry, this Nextcloud app has not been implemented yet';
 }

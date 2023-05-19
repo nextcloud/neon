@@ -51,7 +51,7 @@ class GlobalPopups {
               onPressed: () {
                 Navigator.of(context).pop();
               },
-              child: Text(AppLocalizations.of(context).no),
+              child: Text(AppLocalizations.of(context).actionNo),
             ),
             ElevatedButton(
               onPressed: () {

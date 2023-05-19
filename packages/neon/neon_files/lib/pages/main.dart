@@ -34,7 +34,7 @@ class _FilesMainPageState extends State<FilesMainPage> {
               if (!(await showConfirmationDialog(
                 context,
                 // ignore: use_build_context_synchronously
-                AppLocalizations.of(context).confirmDownloadSizeWarning(
+                AppLocalizations.of(context).downloadConfirmSizeWarning(
                   filesize(sizeWarning),
                   filesize(details.size),
                 ),

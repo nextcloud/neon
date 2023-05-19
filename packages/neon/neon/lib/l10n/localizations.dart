@@ -209,41 +209,41 @@ abstract class AppLocalizations {
   /// **'Invalid URL provided'**
   String get errorInvalidURL;
 
-  /// No description provided for @yes.
+  /// No description provided for @actionYes.
   ///
   /// In en, this message translates to:
   /// **'Yes'**
-  String get yes;
+  String get actionYes;
 
-  /// No description provided for @no.
+  /// No description provided for @actionNo.
   ///
   /// In en, this message translates to:
   /// **'No'**
-  String get no;
+  String get actionNo;
 
-  /// No description provided for @close.
+  /// No description provided for @actionClose.
   ///
   /// In en, this message translates to:
   /// **'Close'**
-  String get close;
+  String get actionClose;
 
-  /// No description provided for @retry.
+  /// No description provided for @actionRetry.
   ///
   /// In en, this message translates to:
   /// **'Retry'**
-  String get retry;
+  String get actionRetry;
 
-  /// No description provided for @showSlashHide.
+  /// No description provided for @actionShowSlashHide.
   ///
   /// In en, this message translates to:
   /// **'Show/Hide'**
-  String get showSlashHide;
+  String get actionShowSlashHide;
 
-  /// No description provided for @exit.
+  /// No description provided for @actionExit.
   ///
   /// In en, this message translates to:
   /// **'Exit'**
-  String get exit;
+  String get actionExit;
 
   /// No description provided for @firstLaunchGoToSettingsToEnablePushNotifications.
   ///

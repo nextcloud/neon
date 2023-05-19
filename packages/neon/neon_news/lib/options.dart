@@ -88,9 +88,9 @@ class NewsAppSpecificOptions extends NextcloudAppSpecificOptions {
     label: (final context) => AppLocalizations.of(context).optionsDefaultArticlesFilter,
     defaultValue: BehaviorSubject.seeded(FilterType.unread),
     values: BehaviorSubject.seeded({
-      FilterType.all: (final context) => AppLocalizations.of(context).filterAll,
-      FilterType.unread: (final context) => AppLocalizations.of(context).filterUnread,
-      FilterType.starred: (final context) => AppLocalizations.of(context).filterStarred,
+      FilterType.all: (final context) => AppLocalizations.of(context).articlesFilterAll,
+      FilterType.unread: (final context) => AppLocalizations.of(context).articlesFilterUnread,
+      FilterType.starred: (final context) => AppLocalizations.of(context).articlesFilterStarred,
     }),
   );
 

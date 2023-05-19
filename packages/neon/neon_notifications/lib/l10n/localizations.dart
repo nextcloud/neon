@@ -89,23 +89,23 @@ abstract class AppLocalizations {
   /// A list of this localizations delegate's supported locales.
   static const List<Locale> supportedLocales = <Locale>[Locale('en')];
 
-  /// No description provided for @close.
+  /// No description provided for @actionClose.
   ///
   /// In en, this message translates to:
   /// **'Close'**
-  String get close;
+  String get actionClose;
 
-  /// No description provided for @nextcloudAppNotImplementedYet.
-  ///
-  /// In en, this message translates to:
-  /// **'Sorry, this Nextcloud app has not been implemented yet'**
-  String get nextcloudAppNotImplementedYet;
-
-  /// No description provided for @dismissAll.
+  /// No description provided for @notificationsDismissAll.
   ///
   /// In en, this message translates to:
   /// **'Dismiss all notifications'**
-  String get dismissAll;
+  String get notificationsDismissAll;
+
+  /// No description provided for @notificationAppNotImplementedYet.
+  ///
+  /// In en, this message translates to:
+  /// **'Sorry, this Nextcloud app has not been implemented yet'**
+  String get notificationAppNotImplementedYet;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

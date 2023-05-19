@@ -29,7 +29,7 @@ class _NotesCreateNoteDialogState extends State<NotesCreateNoteDialog> {
   Widget build(final BuildContext context) => ResultBuilder<List<NextcloudNotesNote>>(
         stream: widget.bloc.notes,
         builder: (final context, final notes) => NeonDialog(
-          title: Text(AppLocalizations.of(context).createNote),
+          title: Text(AppLocalizations.of(context).noteCreate),
           children: [
             Form(
               key: formKey,
@@ -71,7 +71,7 @@ class _NotesCreateNoteDialogState extends State<NotesCreateNoteDialog> {
                   ],
                   ElevatedButton(
                     onPressed: submit,
-                    child: Text(AppLocalizations.of(context).createNote),
+                    child: Text(AppLocalizations.of(context).noteCreate),
                   ),
                 ],
               ),

@@ -5,59 +5,59 @@ class AppLocalizationsEn extends AppLocalizations {
   AppLocalizationsEn([String locale = 'en']) : super(locale);
 
   @override
-  String get general => 'General';
+  String get errorChangedOnServer => 'The note has been changed on the server. Please refresh and try again';
 
   @override
-  String get note => 'Note';
+  String get general => 'General';
 
   @override
   String get notes => 'Notes';
 
   @override
-  String get categories => 'Categories';
+  String get note => 'Note';
 
   @override
-  String get createNote => 'Create note';
-
-  @override
-  String get category => 'Category';
-
-  @override
-  String get setCategory => 'Set category';
+  String get noteCreate => 'Create note';
 
   @override
   String get noteTitle => 'Title';
 
   @override
-  String get noteChangedOnServer => 'The note has been changed on the server. Please refresh and try again';
+  String get noteSetCategory => 'Set category';
 
   @override
-  String notesInCategory(int count) {
+  String get noteChangeCategory => 'Change note category';
+
+  @override
+  String get noteShowEditor => 'Edit note';
+
+  @override
+  String get noteShowPreview => 'Preview note';
+
+  @override
+  String get noteStar => 'Star note';
+
+  @override
+  String get noteUnstar => 'Unstar note';
+
+  @override
+  String noteDeleteConfirm(String name) {
+    return 'Are you sure you want to delete the note \'$name\'?';
+  }
+
+  @override
+  String get categories => 'Categories';
+
+  @override
+  String get category => 'Category';
+
+  @override
+  String categoryNotesCount(int count) {
     return '$count notes';
   }
 
   @override
-  String get uncategorized => 'Uncategorized';
-
-  @override
-  String get showEditor => 'Edit note';
-
-  @override
-  String get showPreview => 'Preview note';
-
-  @override
-  String get star => 'Star note';
-
-  @override
-  String get unstar => 'Unstar note';
-
-  @override
-  String get changeCategory => 'Change note category';
-
-  @override
-  String deleteNoteConfirm(String name) {
-    return 'Are you sure you want to delete the note \'$name\'?';
-  }
+  String get categoryUncategorized => 'Uncategorized';
 
   @override
   String get optionsDefaultCategory => 'Category to show by default';

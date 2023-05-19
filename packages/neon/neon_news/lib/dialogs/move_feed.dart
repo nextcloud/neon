@@ -27,7 +27,7 @@ class _NewsMoveFeedDialogState extends State<NewsMoveFeedDialog> {
 
   @override
   Widget build(final BuildContext context) => NeonDialog(
-        title: Text(AppLocalizations.of(context).moveFeed),
+        title: Text(AppLocalizations.of(context).feedMove),
         children: [
           Form(
             key: formKey,
@@ -47,7 +47,7 @@ class _NewsMoveFeedDialogState extends State<NewsMoveFeedDialog> {
                 ),
                 ElevatedButton(
                   onPressed: submit,
-                  child: Text(AppLocalizations.of(context).moveFeed),
+                  child: Text(AppLocalizations.of(context).feedMove),
                 ),
               ],
             ),

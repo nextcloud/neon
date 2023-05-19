@@ -15,7 +15,7 @@ class FilesChooseFolderDialog extends StatelessWidget {
 
   @override
   Widget build(final BuildContext context) => AlertDialog(
-        title: Text(AppLocalizations.of(context).chooseFolder),
+        title: Text(AppLocalizations.of(context).folderChoose),
         contentPadding: EdgeInsets.zero,
         content: SizedBox(
           width: double.maxFinite,
@@ -47,13 +47,13 @@ class FilesChooseFolderDialog extends StatelessWidget {
                                   bloc.createFolder([...pathSnapshot.data!, ...result]);
                                 }
                               },
-                              child: Text(AppLocalizations.of(context).createFolder),
+                              child: Text(AppLocalizations.of(context).folderCreate),
                             ),
                             ElevatedButton(
                               onPressed: !(const ListEquality().equals(originalPath, pathSnapshot.data))
                                   ? () => Navigator.of(context).pop(pathSnapshot.data)
                                   : null,
-                              child: Text(AppLocalizations.of(context).chooseFolder),
+                              child: Text(AppLocalizations.of(context).folderChoose),
                             ),
                           ],
                         ),

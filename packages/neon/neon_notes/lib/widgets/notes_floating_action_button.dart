@@ -27,7 +27,7 @@ class NotesFloatingActionButton extends StatelessWidget {
             );
           }
         },
-        tooltip: AppLocalizations.of(context).createNote,
+        tooltip: AppLocalizations.of(context).noteCreate,
         child: const Icon(Icons.add),
       );
 }
