@@ -26,7 +26,7 @@ class TypeResultBase extends TypeResult {
       return 'JsonObject($object)${nullable ? '?' : ''}';
     }
 
-    return '($object as $name ${nullable ? '?' : ''})';
+    return '($object as $nullableName)';
   }
 
   @override
@@ -41,5 +41,19 @@ class TypeResultBase extends TypeResult {
       default:
         throw Exception('Can not decode "$name" from String');
     }
+  }
+
+  @override
+  TypeResultBase get dartType {
+    final String dartName;
+    switch (name) {
+      case 'JsonObject':
+        dartName = 'dynamic';
+        break;
+      default:
+        dartName = name;
+    }
+
+    return TypeResultBase(dartName, nullable: nullable);
   }
 }

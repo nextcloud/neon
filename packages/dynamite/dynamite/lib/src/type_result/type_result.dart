@@ -46,17 +46,42 @@ abstract class TypeResult {
 
   String? get _builderFactory;
 
-  String serialize(final String object);
+  /// Serializes the variable named [object].
+  ///
+  /// The serialized result is an [Object]?
+  String serialize(final String object) => 'jsonSerializers.serialize($object, specifiedType: const $fullType)';
 
-  String deserialize(final String object, {final bool toBuilder = false});
+  /// Deserializes the variable named [object].
+  ///
+  /// The serialized result will be of [name].
+  String deserialize(final String object) =>
+      '(jsonSerializers.deserialize($object, specifiedType: const $fullType)! as $name)';
 
-  String decode(final String object);
+  /// Decodes the variable named [object].
+  String decode(final String object) => 'json.decode($object as String)';
 
+  /// Encodes the variable named [object].
   String encode(
     final String object, {
     final bool onlyChildren = false,
     final String? mimeType,
-  });
+  }) {
+    final serialized = serialize(object);
 
+    switch (mimeType) {
+      case 'application/json':
+        return 'json.encode($serialized)';
+      case 'application/x-www-form-urlencoded':
+        return 'Uri(queryParameters: $serialized! as Map<String, dynamic>).query';
+      default:
+        throw Exception('Can not encode mime type "$mimeType"');
+    }
+  }
+
+  /// Nullable TypeName
   String get nullableName => nullable ? '$name?' : name;
+
+  /// Native dart type equivalent
+  // ignore: avoid_returning_this
+  TypeResult get dartType => this;
 }

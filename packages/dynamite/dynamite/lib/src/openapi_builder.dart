@@ -726,7 +726,7 @@ class OpenAPIBuilder implements Builder {
                                 ),
                                 parameter.schema!,
                                 nullable: dartParameterNullable,
-                              );
+                              ).dartType;
 
                               state.resolvedTypeCombinations.add(result);
 
@@ -779,7 +779,7 @@ class OpenAPIBuilder implements Builder {
                                 code.write('if (${_toDartName(parameter.name)} != null) {');
                               }
                               final value = result.encode(
-                                result.serialize(_toDartName(parameter.name)),
+                                _toDartName(parameter.name),
                                 onlyChildren: result is TypeResultList && parameter.in_ == 'query',
                                 // Objects inside the query always have to be interpreted in some way
                                 mimeType: 'application/json',
@@ -858,7 +858,7 @@ class OpenAPIBuilder implements Builder {
                                       code.write('if ($parameterName != null) {');
                                     }
                                     code.write(
-                                      'body = Uint8List.fromList(utf8.encode(${result.encode(result.serialize(parameterName), mimeType: mimeType)}));',
+                                      'body = Uint8List.fromList(utf8.encode(${result.encode(parameterName, mimeType: mimeType)}));',
                                     );
                                     if (dartParameterNullable) {
                                       code.write('}');
@@ -930,6 +930,8 @@ class OpenAPIBuilder implements Builder {
                                       ),
                                       mediaType.schema!,
                                     );
+                                    state.resolvedTypeCombinations.add(result);
+
                                     if (mimeType == '*/*' || mimeType.startsWith('image/')) {
                                       dataType = 'Uint8List';
                                       dataValue = 'response.body';
@@ -1493,9 +1495,13 @@ TypeResult resolveObject(
                   return [
                     Code("case '$propertyName':"),
                     if (result.className != 'String') ...[
-                      Code(
-                        'result.${_toDartName(propertyName)} = ${result.deserialize('jsonDecode(value!)', toBuilder: true)};',
-                      ),
+                      if (result is TypeResultBase || result is TypeResultEnum) ...[
+                        Code('result.${_toDartName(propertyName)} = ${result.deserialize(result.decode('value!'))};'),
+                      ] else ...[
+                        Code(
+                          'result.${_toDartName(propertyName)}.replace(${result.deserialize(result.decode('value!'))});',
+                        ),
+                      ],
                     ] else ...[
                       Code(
                         'result.${_toDartName(propertyName)} = value!;',
@@ -1512,7 +1518,7 @@ TypeResult resolveObject(
                   const Code('while (iterator.moveNext()) {'),
                   const Code('final key = iterator.current! as String;'),
                   const Code('iterator.moveNext();'),
-                  const Code('final value = iterator.current as String?;'),
+                  const Code('final value = iterator.current! as String;'),
                   const Code('switch (key) {'),
                   for (final propertyName in schema.properties!.keys) ...[
                     ...deserializeProperty(propertyName),
@@ -1749,7 +1755,11 @@ TypeResult resolveType(
                       '..data = JsonObject(data);',
                       if (schema.allOf != null) ...[
                         for (final result in results) ...[
-                          'result.${fields[result.name]!} = ${result.deserialize('data', toBuilder: true)};',
+                          if (result is TypeResultBase || result is TypeResultEnum) ...[
+                            'result.${fields[result.name]!} = ${result.deserialize('data')};',
+                          ] else ...[
+                            'result.${fields[result.name]!}.replace(${result.deserialize('data')});',
+                          ],
                         ],
                       ] else ...[
                         if (schema.discriminator != null) ...[
@@ -1786,7 +1796,11 @@ TypeResult resolveType(
                             ],
                           ],
                           'try {',
-                          'result.${fields[result.name]!} = ${result.deserialize('data', toBuilder: true)};',
+                          if (result is TypeResultBase || result is TypeResultEnum) ...[
+                            'result._${fields[result.name]!} = ${result.deserialize('data')};',
+                          ] else ...[
+                            'result._${fields[result.name]!} = ${result.deserialize('data')}.toBuilder();',
+                          ],
                           '} catch (_) {',
                           if (schema.discriminator != null) ...[
                             'rethrow;',

@@ -186,7 +186,10 @@ class NextcloudCoreClient {
       body,
     );
     if (response.statusCode == 200) {
-      return NextcloudCoreServerStatus.fromJson(json.decode(utf8.decode(response.body)) as Object);
+      return jsonSerializers.deserialize(
+        json.decode(utf8.decode(response.body)),
+        specifiedType: const FullType(NextcloudCoreServerStatus),
+      )! as NextcloudCoreServerStatus;
     }
     throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
   }
@@ -210,7 +213,10 @@ class NextcloudCoreClient {
       body,
     );
     if (response.statusCode == 200) {
-      return NextcloudCoreServerCapabilities.fromJson(json.decode(utf8.decode(response.body)) as Object);
+      return jsonSerializers.deserialize(
+        json.decode(utf8.decode(response.body)),
+        specifiedType: const FullType(NextcloudCoreServerCapabilities),
+      )! as NextcloudCoreServerCapabilities;
     }
     throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
   }
@@ -234,7 +240,10 @@ class NextcloudCoreClient {
       body,
     );
     if (response.statusCode == 200) {
-      return NextcloudCoreNavigationApps.fromJson(json.decode(utf8.decode(response.body)) as Object);
+      return jsonSerializers.deserialize(
+        json.decode(utf8.decode(response.body)),
+        specifiedType: const FullType(NextcloudCoreNavigationApps),
+      )! as NextcloudCoreNavigationApps;
     }
     throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
   }
@@ -253,7 +262,10 @@ class NextcloudCoreClient {
       body,
     );
     if (response.statusCode == 200) {
-      return NextcloudCoreLoginFlowInit.fromJson(json.decode(utf8.decode(response.body)) as Object);
+      return jsonSerializers.deserialize(
+        json.decode(utf8.decode(response.body)),
+        specifiedType: const FullType(NextcloudCoreLoginFlowInit),
+      )! as NextcloudCoreLoginFlowInit;
     }
     throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
   }
@@ -273,7 +285,10 @@ class NextcloudCoreClient {
       body,
     );
     if (response.statusCode == 200) {
-      return NextcloudCoreLoginFlowResult.fromJson(json.decode(utf8.decode(response.body)) as Object);
+      return jsonSerializers.deserialize(
+        json.decode(utf8.decode(response.body)),
+        specifiedType: const FullType(NextcloudCoreLoginFlowResult),
+      )! as NextcloudCoreLoginFlowResult;
     }
     throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
   }
@@ -389,7 +404,7 @@ class NextcloudCoreClient {
     required final String search,
     required final String itemType,
     required final String itemId,
-    required final BuiltList<int> shareTypes,
+    required final List<int> shareTypes,
     final String? sorter,
     final int limit = 10,
   }) async {
@@ -407,7 +422,7 @@ class NextcloudCoreClient {
     queryParameters['search'] = search;
     queryParameters['itemType'] = itemType;
     queryParameters['itemId'] = itemId;
-    queryParameters['shareTypes[]'] = shareTypes.map((final e) => e).map((final e) => e.toString());
+    queryParameters['shareTypes[]'] = shareTypes.map((final e) => e.toString());
     if (sorter != null) {
       queryParameters['sorter'] = sorter;
     }
@@ -421,7 +436,10 @@ class NextcloudCoreClient {
       body,
     );
     if (response.statusCode == 200) {
-      return NextcloudCoreAutocompleteResult.fromJson(json.decode(utf8.decode(response.body)) as Object);
+      return jsonSerializers.deserialize(
+        json.decode(utf8.decode(response.body)),
+        specifiedType: const FullType(NextcloudCoreAutocompleteResult),
+      )! as NextcloudCoreAutocompleteResult;
     }
     throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
   }
@@ -475,7 +493,10 @@ class NextcloudNewsClient {
       body,
     );
     if (response.statusCode == 200) {
-      return NextcloudNewsSupportedAPIVersions.fromJson(json.decode(utf8.decode(response.body)) as Object);
+      return jsonSerializers.deserialize(
+        json.decode(utf8.decode(response.body)),
+        specifiedType: const FullType(NextcloudNewsSupportedAPIVersions),
+      )! as NextcloudNewsSupportedAPIVersions;
     }
     throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
   }
@@ -499,7 +520,10 @@ class NextcloudNewsClient {
       body,
     );
     if (response.statusCode == 200) {
-      return NextcloudNewsListFolders.fromJson(json.decode(utf8.decode(response.body)) as Object);
+      return jsonSerializers.deserialize(
+        json.decode(utf8.decode(response.body)),
+        specifiedType: const FullType(NextcloudNewsListFolders),
+      )! as NextcloudNewsListFolders;
     }
     throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
   }
@@ -524,7 +548,10 @@ class NextcloudNewsClient {
       body,
     );
     if (response.statusCode == 200) {
-      return NextcloudNewsListFolders.fromJson(json.decode(utf8.decode(response.body)) as Object);
+      return jsonSerializers.deserialize(
+        json.decode(utf8.decode(response.body)),
+        specifiedType: const FullType(NextcloudNewsListFolders),
+      )! as NextcloudNewsListFolders;
     }
     throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
   }
@@ -625,7 +652,10 @@ class NextcloudNewsClient {
       body,
     );
     if (response.statusCode == 200) {
-      return NextcloudNewsListFeeds.fromJson(json.decode(utf8.decode(response.body)) as Object);
+      return jsonSerializers.deserialize(
+        json.decode(utf8.decode(response.body)),
+        specifiedType: const FullType(NextcloudNewsListFeeds),
+      )! as NextcloudNewsListFeeds;
     }
     throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
   }
@@ -656,7 +686,10 @@ class NextcloudNewsClient {
       body,
     );
     if (response.statusCode == 200) {
-      return NextcloudNewsListFeeds.fromJson(json.decode(utf8.decode(response.body)) as Object);
+      return jsonSerializers.deserialize(
+        json.decode(utf8.decode(response.body)),
+        specifiedType: const FullType(NextcloudNewsListFeeds),
+      )! as NextcloudNewsListFeeds;
     }
     throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
   }
@@ -811,7 +844,10 @@ class NextcloudNewsClient {
       body,
     );
     if (response.statusCode == 200) {
-      return NextcloudNewsListArticles.fromJson(json.decode(utf8.decode(response.body)) as Object);
+      return jsonSerializers.deserialize(
+        json.decode(utf8.decode(response.body)),
+        specifiedType: const FullType(NextcloudNewsListArticles),
+      )! as NextcloudNewsListArticles;
     }
     throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
   }
@@ -848,7 +884,10 @@ class NextcloudNewsClient {
       body,
     );
     if (response.statusCode == 200) {
-      return NextcloudNewsListArticles.fromJson(json.decode(utf8.decode(response.body)) as Object);
+      return jsonSerializers.deserialize(
+        json.decode(utf8.decode(response.body)),
+        specifiedType: const FullType(NextcloudNewsListArticles),
+      )! as NextcloudNewsListArticles;
     }
     throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
   }
@@ -995,9 +1034,10 @@ class NextcloudNotesClient {
       body,
     );
     if (response.statusCode == 200) {
-      return BuiltList<NextcloudNotesNote>(
-        (json.decode(utf8.decode(response.body)) as List).map((final e) => NextcloudNotesNote.fromJson(e as Object)),
-      );
+      return jsonSerializers.deserialize(
+        json.decode(utf8.decode(response.body)),
+        specifiedType: const FullType(BuiltList, [FullType(NextcloudNotesNote)]),
+      )! as BuiltList<NextcloudNotesNote>;
     }
     throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
   }
@@ -1042,7 +1082,10 @@ class NextcloudNotesClient {
       body,
     );
     if (response.statusCode == 200) {
-      return NextcloudNotesNote.fromJson(json.decode(utf8.decode(response.body)) as Object);
+      return jsonSerializers.deserialize(
+        json.decode(utf8.decode(response.body)),
+        specifiedType: const FullType(NextcloudNotesNote),
+      )! as NextcloudNotesNote;
     }
     throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
   }
@@ -1077,7 +1120,10 @@ class NextcloudNotesClient {
       body,
     );
     if (response.statusCode == 200) {
-      return NextcloudNotesNote.fromJson(json.decode(utf8.decode(response.body)) as Object);
+      return jsonSerializers.deserialize(
+        json.decode(utf8.decode(response.body)),
+        specifiedType: const FullType(NextcloudNotesNote),
+      )! as NextcloudNotesNote;
     }
     throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
   }
@@ -1128,7 +1174,10 @@ class NextcloudNotesClient {
       body,
     );
     if (response.statusCode == 200) {
-      return NextcloudNotesNote.fromJson(json.decode(utf8.decode(response.body)) as Object);
+      return jsonSerializers.deserialize(
+        json.decode(utf8.decode(response.body)),
+        specifiedType: const FullType(NextcloudNotesNote),
+      )! as NextcloudNotesNote;
     }
     throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
   }
@@ -1177,7 +1226,10 @@ class NextcloudNotesClient {
       body,
     );
     if (response.statusCode == 200) {
-      return NextcloudNotesSettings.fromJson(json.decode(utf8.decode(response.body)) as Object);
+      return jsonSerializers.deserialize(
+        json.decode(utf8.decode(response.body)),
+        specifiedType: const FullType(NextcloudNotesSettings),
+      )! as NextcloudNotesSettings;
     }
     throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
   }
@@ -1195,7 +1247,11 @@ class NextcloudNotesClient {
       throw Exception('Missing authentication for basic_auth');
     }
     headers['Content-Type'] = 'application/json';
-    body = Uint8List.fromList(utf8.encode(json.encode(notesSettings.toJson())));
+    body = Uint8List.fromList(
+      utf8.encode(
+        json.encode(jsonSerializers.serialize(notesSettings, specifiedType: const FullType(NextcloudNotesSettings))),
+      ),
+    );
     final response = await rootClient.doRequest(
       'put',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
@@ -1203,7 +1259,10 @@ class NextcloudNotesClient {
       body,
     );
     if (response.statusCode == 200) {
-      return NextcloudNotesSettings.fromJson(json.decode(utf8.decode(response.body)) as Object);
+      return jsonSerializers.deserialize(
+        json.decode(utf8.decode(response.body)),
+        specifiedType: const FullType(NextcloudNotesSettings),
+      )! as NextcloudNotesSettings;
     }
     throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
   }
@@ -1233,9 +1292,10 @@ class NextcloudNotificationsClient {
       body,
     );
     if (response.statusCode == 200) {
-      return NextcloudNotificationsListNotifications.fromJson(
-        json.decode(utf8.decode(response.body)) as Object,
-      );
+      return jsonSerializers.deserialize(
+        json.decode(utf8.decode(response.body)),
+        specifiedType: const FullType(NextcloudNotificationsListNotifications),
+      )! as NextcloudNotificationsListNotifications;
     }
     throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
   }
@@ -1284,9 +1344,10 @@ class NextcloudNotificationsClient {
       body,
     );
     if (response.statusCode == 200) {
-      return NextcloudNotificationsGetNotification.fromJson(
-        json.decode(utf8.decode(response.body)) as Object,
-      );
+      return jsonSerializers.deserialize(
+        json.decode(utf8.decode(response.body)),
+        specifiedType: const FullType(NextcloudNotificationsGetNotification),
+      )! as NextcloudNotificationsGetNotification;
     }
     throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
   }
@@ -1311,7 +1372,10 @@ class NextcloudNotificationsClient {
       body,
     );
     if (response.statusCode == 200) {
-      return NextcloudEmptyOCS.fromJson(json.decode(utf8.decode(response.body)) as Object);
+      return jsonSerializers.deserialize(
+        json.decode(utf8.decode(response.body)),
+        specifiedType: const FullType(NextcloudEmptyOCS),
+      )! as NextcloudEmptyOCS;
     }
     throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
   }
@@ -1342,9 +1406,10 @@ class NextcloudNotificationsClient {
       body,
     );
     if (response.statusCode == 201) {
-      return NextcloudNotificationsPushServerRegistration.fromJson(
-        json.decode(utf8.decode(response.body)) as Object,
-      );
+      return jsonSerializers.deserialize(
+        json.decode(utf8.decode(response.body)),
+        specifiedType: const FullType(NextcloudNotificationsPushServerRegistration),
+      )! as NextcloudNotificationsPushServerRegistration;
     }
     throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
   }
@@ -1401,7 +1466,10 @@ class NextcloudNotificationsClient {
       body,
     );
     if (response.statusCode == 200) {
-      return NextcloudEmptyOCS.fromJson(json.decode(utf8.decode(response.body)) as Object);
+      return jsonSerializers.deserialize(
+        json.decode(utf8.decode(response.body)),
+        specifiedType: const FullType(NextcloudEmptyOCS),
+      )! as NextcloudEmptyOCS;
     }
     throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
   }
@@ -1431,7 +1499,10 @@ class NextcloudProvisioningApiClient {
       body,
     );
     if (response.statusCode == 200) {
-      return NextcloudProvisioningApiUser.fromJson(json.decode(utf8.decode(response.body)) as Object);
+      return jsonSerializers.deserialize(
+        json.decode(utf8.decode(response.body)),
+        specifiedType: const FullType(NextcloudProvisioningApiUser),
+      )! as NextcloudProvisioningApiUser;
     }
     throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
   }
@@ -1456,7 +1527,10 @@ class NextcloudProvisioningApiClient {
       body,
     );
     if (response.statusCode == 200) {
-      return NextcloudProvisioningApiUser.fromJson(json.decode(utf8.decode(response.body)) as Object);
+      return jsonSerializers.deserialize(
+        json.decode(utf8.decode(response.body)),
+        specifiedType: const FullType(NextcloudProvisioningApiUser),
+      )! as NextcloudProvisioningApiUser;
     }
     throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
   }
@@ -1487,9 +1561,10 @@ class NextcloudUnifiedPushProviderClient {
       body,
     );
     if (response.statusCode == 200) {
-      return NextcloudUnifiedPushProviderCheckResponse200ApplicationJson.fromJson(
-        json.decode(utf8.decode(response.body)) as Object,
-      );
+      return jsonSerializers.deserialize(
+        json.decode(utf8.decode(response.body)),
+        specifiedType: const FullType(NextcloudUnifiedPushProviderCheckResponse200ApplicationJson),
+      )! as NextcloudUnifiedPushProviderCheckResponse200ApplicationJson;
     }
     throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
   }
@@ -1519,9 +1594,10 @@ class NextcloudUnifiedPushProviderClient {
       body,
     );
     if (response.statusCode == 200) {
-      return NextcloudUnifiedPushProviderSetKeepaliveResponse200ApplicationJson.fromJson(
-        json.decode(utf8.decode(response.body)) as Object,
-      );
+      return jsonSerializers.deserialize(
+        json.decode(utf8.decode(response.body)),
+        specifiedType: const FullType(NextcloudUnifiedPushProviderSetKeepaliveResponse200ApplicationJson),
+      )! as NextcloudUnifiedPushProviderSetKeepaliveResponse200ApplicationJson;
     }
     throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
   }
@@ -1549,9 +1625,10 @@ class NextcloudUnifiedPushProviderClient {
       body,
     );
     if (response.statusCode == 200) {
-      return NextcloudUnifiedPushProviderCreateDeviceResponse200ApplicationJson.fromJson(
-        json.decode(utf8.decode(response.body)) as Object,
-      );
+      return jsonSerializers.deserialize(
+        json.decode(utf8.decode(response.body)),
+        specifiedType: const FullType(NextcloudUnifiedPushProviderCreateDeviceResponse200ApplicationJson),
+      )! as NextcloudUnifiedPushProviderCreateDeviceResponse200ApplicationJson;
     }
     throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
   }
@@ -1581,9 +1658,10 @@ class NextcloudUnifiedPushProviderClient {
       body,
     );
     if (response.statusCode == 401) {
-      return NextcloudUnifiedPushProviderSyncDeviceResponse401ApplicationJson.fromJson(
-        json.decode(utf8.decode(response.body)) as Object,
-      );
+      return jsonSerializers.deserialize(
+        json.decode(utf8.decode(response.body)),
+        specifiedType: const FullType(NextcloudUnifiedPushProviderSyncDeviceResponse401ApplicationJson),
+      )! as NextcloudUnifiedPushProviderSyncDeviceResponse401ApplicationJson;
     }
     throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
   }
@@ -1611,9 +1689,10 @@ class NextcloudUnifiedPushProviderClient {
       body,
     );
     if (response.statusCode == 200) {
-      return NextcloudUnifiedPushProviderDeleteDeviceResponse200ApplicationJson.fromJson(
-        json.decode(utf8.decode(response.body)) as Object,
-      );
+      return jsonSerializers.deserialize(
+        json.decode(utf8.decode(response.body)),
+        specifiedType: const FullType(NextcloudUnifiedPushProviderDeleteDeviceResponse200ApplicationJson),
+      )! as NextcloudUnifiedPushProviderDeleteDeviceResponse200ApplicationJson;
     }
     throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
   }
@@ -1643,9 +1722,10 @@ class NextcloudUnifiedPushProviderClient {
       body,
     );
     if (response.statusCode == 200) {
-      return NextcloudUnifiedPushProviderCreateAppResponse200ApplicationJson.fromJson(
-        json.decode(utf8.decode(response.body)) as Object,
-      );
+      return jsonSerializers.deserialize(
+        json.decode(utf8.decode(response.body)),
+        specifiedType: const FullType(NextcloudUnifiedPushProviderCreateAppResponse200ApplicationJson),
+      )! as NextcloudUnifiedPushProviderCreateAppResponse200ApplicationJson;
     }
     throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
   }
@@ -1673,9 +1753,10 @@ class NextcloudUnifiedPushProviderClient {
       body,
     );
     if (response.statusCode == 200) {
-      return NextcloudUnifiedPushProviderDeleteAppResponse200ApplicationJson.fromJson(
-        json.decode(utf8.decode(response.body)) as Object,
-      );
+      return jsonSerializers.deserialize(
+        json.decode(utf8.decode(response.body)),
+        specifiedType: const FullType(NextcloudUnifiedPushProviderDeleteAppResponse200ApplicationJson),
+      )! as NextcloudUnifiedPushProviderDeleteAppResponse200ApplicationJson;
     }
     throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
   }
@@ -1703,9 +1784,10 @@ class NextcloudUnifiedPushProviderClient {
       body,
     );
     if (response.statusCode == 200) {
-      return NextcloudUnifiedPushProviderUnifiedpushDiscoveryResponse200ApplicationJson.fromJson(
-        json.decode(utf8.decode(response.body)) as Object,
-      );
+      return jsonSerializers.deserialize(
+        json.decode(utf8.decode(response.body)),
+        specifiedType: const FullType(NextcloudUnifiedPushProviderUnifiedpushDiscoveryResponse200ApplicationJson),
+      )! as NextcloudUnifiedPushProviderUnifiedpushDiscoveryResponse200ApplicationJson;
     }
     throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
   }
@@ -1731,9 +1813,10 @@ class NextcloudUnifiedPushProviderClient {
       body,
     );
     if (response.statusCode == 201) {
-      return NextcloudUnifiedPushProviderPushResponse201ApplicationJson.fromJson(
-        json.decode(utf8.decode(response.body)) as Object,
-      );
+      return jsonSerializers.deserialize(
+        json.decode(utf8.decode(response.body)),
+        specifiedType: const FullType(NextcloudUnifiedPushProviderPushResponse201ApplicationJson),
+      )! as NextcloudUnifiedPushProviderPushResponse201ApplicationJson;
     }
     throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
   }
@@ -1758,9 +1841,10 @@ class NextcloudUnifiedPushProviderClient {
       body,
     );
     if (response.statusCode == 200) {
-      return NextcloudUnifiedPushProviderGatewayMatrixDiscoveryResponse200ApplicationJson.fromJson(
-        json.decode(utf8.decode(response.body)) as Object,
-      );
+      return jsonSerializers.deserialize(
+        json.decode(utf8.decode(response.body)),
+        specifiedType: const FullType(NextcloudUnifiedPushProviderGatewayMatrixDiscoveryResponse200ApplicationJson),
+      )! as NextcloudUnifiedPushProviderGatewayMatrixDiscoveryResponse200ApplicationJson;
     }
     throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
   }
@@ -1785,9 +1869,10 @@ class NextcloudUnifiedPushProviderClient {
       body,
     );
     if (response.statusCode == 200) {
-      return NextcloudUnifiedPushProviderGatewayMatrixResponse200ApplicationJson.fromJson(
-        json.decode(utf8.decode(response.body)) as Object,
-      );
+      return jsonSerializers.deserialize(
+        json.decode(utf8.decode(response.body)),
+        specifiedType: const FullType(NextcloudUnifiedPushProviderGatewayMatrixResponse200ApplicationJson),
+      )! as NextcloudUnifiedPushProviderGatewayMatrixResponse200ApplicationJson;
     }
     throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
   }
@@ -1817,7 +1902,10 @@ class NextcloudUserStatusClient {
       body,
     );
     if (response.statusCode == 200) {
-      return NextcloudUserStatusGetPublicStatuses.fromJson(json.decode(utf8.decode(response.body)) as Object);
+      return jsonSerializers.deserialize(
+        json.decode(utf8.decode(response.body)),
+        specifiedType: const FullType(NextcloudUserStatusGetPublicStatuses),
+      )! as NextcloudUserStatusGetPublicStatuses;
     }
     throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
   }
@@ -1842,7 +1930,10 @@ class NextcloudUserStatusClient {
       body,
     );
     if (response.statusCode == 200) {
-      return NextcloudUserStatusGetPublicStatus.fromJson(json.decode(utf8.decode(response.body)) as Object);
+      return jsonSerializers.deserialize(
+        json.decode(utf8.decode(response.body)),
+        specifiedType: const FullType(NextcloudUserStatusGetPublicStatus),
+      )! as NextcloudUserStatusGetPublicStatus;
     }
     throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
   }
@@ -1866,7 +1957,10 @@ class NextcloudUserStatusClient {
       body,
     );
     if (response.statusCode == 200) {
-      return NextcloudUserStatusGetStatus.fromJson(json.decode(utf8.decode(response.body)) as Object);
+      return jsonSerializers.deserialize(
+        json.decode(utf8.decode(response.body)),
+        specifiedType: const FullType(NextcloudUserStatusGetStatus),
+      )! as NextcloudUserStatusGetStatus;
     }
     throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
   }
@@ -1891,7 +1985,10 @@ class NextcloudUserStatusClient {
       body,
     );
     if (response.statusCode == 200) {
-      return NextcloudUserStatusGetStatus.fromJson(json.decode(utf8.decode(response.body)) as Object);
+      return jsonSerializers.deserialize(
+        json.decode(utf8.decode(response.body)),
+        specifiedType: const FullType(NextcloudUserStatusGetStatus),
+      )! as NextcloudUserStatusGetStatus;
     }
     throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
   }
@@ -1922,7 +2019,10 @@ class NextcloudUserStatusClient {
       body,
     );
     if (response.statusCode == 200) {
-      return NextcloudUserStatusGetStatus.fromJson(json.decode(utf8.decode(response.body)) as Object);
+      return jsonSerializers.deserialize(
+        json.decode(utf8.decode(response.body)),
+        specifiedType: const FullType(NextcloudUserStatusGetStatus),
+      )! as NextcloudUserStatusGetStatus;
     }
     throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
   }
@@ -1959,7 +2059,10 @@ class NextcloudUserStatusClient {
       body,
     );
     if (response.statusCode == 200) {
-      return NextcloudUserStatusGetStatus.fromJson(json.decode(utf8.decode(response.body)) as Object);
+      return jsonSerializers.deserialize(
+        json.decode(utf8.decode(response.body)),
+        specifiedType: const FullType(NextcloudUserStatusGetStatus),
+      )! as NextcloudUserStatusGetStatus;
     }
     throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
   }
@@ -2005,9 +2108,10 @@ class NextcloudUserStatusClient {
       body,
     );
     if (response.statusCode == 200) {
-      return NextcloudUserStatusPredefinedStatuses.fromJson(
-        json.decode(utf8.decode(response.body)) as Object,
-      );
+      return jsonSerializers.deserialize(
+        json.decode(utf8.decode(response.body)),
+        specifiedType: const FullType(NextcloudUserStatusPredefinedStatuses),
+      )! as NextcloudUserStatusPredefinedStatuses;
     }
     throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
   }
@@ -2032,7 +2136,10 @@ class NextcloudUserStatusClient {
       body,
     );
     if (response.statusCode == 200) {
-      return NextcloudUserStatusHeartbeat.fromJson(json.decode(utf8.decode(response.body)) as Object);
+      return jsonSerializers.deserialize(
+        json.decode(utf8.decode(response.body)),
+        specifiedType: const FullType(NextcloudUserStatusHeartbeat),
+      )! as NextcloudUserStatusHeartbeat;
     }
     throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
   }
@@ -3148,10 +3255,10 @@ class _$NextcloudCoreNavigationApps_Ocs_Data_OrderSerializer
   }) {
     final result = NextcloudCoreNavigationApps_Ocs_Data_OrderBuilder()..data = JsonObject(data);
     try {
-      result.$int = data as int?;
+      result._$int = data as int?;
     } catch (_) {}
     try {
-      result.string = data as String?;
+      result._string = data as String?;
     } catch (_) {}
     assert([result._$int, result._string].where((final x) => x != null).isNotEmpty, 'Need oneOf for ${result._data}');
     return result.build();
@@ -3295,10 +3402,14 @@ class _$NextcloudCoreAutocompleteResult_Ocs_Data_StatusSerializer
   }) {
     final result = NextcloudCoreAutocompleteResult_Ocs_Data_StatusBuilder()..data = JsonObject(data);
     try {
-      result.builtListJsonObject = BuiltList<JsonObject>((data as List).map(JsonObject.new)).toBuilder();
+      result._builtListJsonObject = (jsonSerializers.deserialize(
+        data,
+        specifiedType: const FullType(BuiltList, [FullType(JsonObject)]),
+      )! as BuiltList<JsonObject>)
+          .toBuilder();
     } catch (_) {}
     try {
-      result.string = data as String?;
+      result._string = data as String?;
     } catch (_) {}
     assert(
       [result._builtListJsonObject, result._string].where((final x) => x != null).isNotEmpty,
@@ -4121,10 +4232,13 @@ class _$NextcloudUserStatusClearAt_TimeSerializer implements PrimitiveSerializer
   }) {
     final result = NextcloudUserStatusClearAt_TimeBuilder()..data = JsonObject(data);
     try {
-      result.userStatusClearAtTime0 = NextcloudUserStatusClearAt_Time0.valueOf(data as String);
+      result._userStatusClearAtTime0 = jsonSerializers.deserialize(
+        data,
+        specifiedType: const FullType(NextcloudUserStatusClearAt_Time0),
+      )! as NextcloudUserStatusClearAt_Time0;
     } catch (_) {}
     try {
-      result.$int = data as int?;
+      result._$int = data as int?;
     } catch (_) {}
     assert(
       [result._userStatusClearAtTime0, result._$int].where((final x) => x != null).isNotEmpty,
@@ -4194,10 +4308,14 @@ class _$NextcloudUserStatusPublicStatus_ClearAtSerializer
   }) {
     final result = NextcloudUserStatusPublicStatus_ClearAtBuilder()..data = JsonObject(data);
     try {
-      result.userStatusClearAt = NextcloudUserStatusClearAt.fromJson(data).toBuilder();
+      result._userStatusClearAt = (jsonSerializers.deserialize(
+        data,
+        specifiedType: const FullType(NextcloudUserStatusClearAt),
+      )! as NextcloudUserStatusClearAt)
+          .toBuilder();
     } catch (_) {}
     try {
-      result.$int = data as int?;
+      result._$int = data as int?;
     } catch (_) {}
     assert(
       [result._userStatusClearAt, result._$int].where((final x) => x != null).isNotEmpty,
@@ -4317,10 +4435,18 @@ class _$NextcloudUserStatusGetPublicStatus_Ocs_DataSerializer
   }) {
     final result = NextcloudUserStatusGetPublicStatus_Ocs_DataBuilder()..data = JsonObject(data);
     try {
-      result.builtListJsonObject = BuiltList<JsonObject>((data as List).map(JsonObject.new)).toBuilder();
+      result._builtListJsonObject = (jsonSerializers.deserialize(
+        data,
+        specifiedType: const FullType(BuiltList, [FullType(JsonObject)]),
+      )! as BuiltList<JsonObject>)
+          .toBuilder();
     } catch (_) {}
     try {
-      result.userStatusPublicStatus = NextcloudUserStatusPublicStatus.fromJson(data).toBuilder();
+      result._userStatusPublicStatus = (jsonSerializers.deserialize(
+        data,
+        specifiedType: const FullType(NextcloudUserStatusPublicStatus),
+      )! as NextcloudUserStatusPublicStatus)
+          .toBuilder();
     } catch (_) {}
     assert(
       [result._builtListJsonObject, result._userStatusPublicStatus].where((final x) => x != null).isNotEmpty,
@@ -4402,10 +4528,14 @@ class _$NextcloudUserStatusStatus_ClearAtSerializer implements PrimitiveSerializ
   }) {
     final result = NextcloudUserStatusStatus_ClearAtBuilder()..data = JsonObject(data);
     try {
-      result.userStatusClearAt = NextcloudUserStatusClearAt.fromJson(data).toBuilder();
+      result._userStatusClearAt = (jsonSerializers.deserialize(
+        data,
+        specifiedType: const FullType(NextcloudUserStatusClearAt),
+      )! as NextcloudUserStatusClearAt)
+          .toBuilder();
     } catch (_) {}
     try {
-      result.$int = data as int?;
+      result._$int = data as int?;
     } catch (_) {}
     assert(
       [result._userStatusClearAt, result._$int].where((final x) => x != null).isNotEmpty,
@@ -4475,10 +4605,18 @@ class _$NextcloudUserStatusGetStatus_Ocs_DataSerializer
   }) {
     final result = NextcloudUserStatusGetStatus_Ocs_DataBuilder()..data = JsonObject(data);
     try {
-      result.builtListJsonObject = BuiltList<JsonObject>((data as List).map(JsonObject.new)).toBuilder();
+      result._builtListJsonObject = (jsonSerializers.deserialize(
+        data,
+        specifiedType: const FullType(BuiltList, [FullType(JsonObject)]),
+      )! as BuiltList<JsonObject>)
+          .toBuilder();
     } catch (_) {}
     try {
-      result.userStatusStatus = NextcloudUserStatusStatus.fromJson(data).toBuilder();
+      result._userStatusStatus = (jsonSerializers.deserialize(
+        data,
+        specifiedType: const FullType(NextcloudUserStatusStatus),
+      )! as NextcloudUserStatusStatus)
+          .toBuilder();
     } catch (_) {}
     assert(
       [result._builtListJsonObject, result._userStatusStatus].where((final x) => x != null).isNotEmpty,
@@ -4561,10 +4699,14 @@ class _$NextcloudUserStatusPredefinedStatus_ClearAtSerializer
   }) {
     final result = NextcloudUserStatusPredefinedStatus_ClearAtBuilder()..data = JsonObject(data);
     try {
-      result.userStatusClearAt = NextcloudUserStatusClearAt.fromJson(data).toBuilder();
+      result._userStatusClearAt = (jsonSerializers.deserialize(
+        data,
+        specifiedType: const FullType(NextcloudUserStatusClearAt),
+      )! as NextcloudUserStatusClearAt)
+          .toBuilder();
     } catch (_) {}
     try {
-      result.$int = data as int?;
+      result._$int = data as int?;
     } catch (_) {}
     assert(
       [result._userStatusClearAt, result._$int].where((final x) => x != null).isNotEmpty,
@@ -4789,7 +4931,104 @@ abstract class NextcloudNotificationsNotificationDecryptedSubject
   NextcloudNotificationsNotificationDecryptedSubject,
 ])
 final Serializers serializers = (_$serializers.toBuilder()
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(int)]), ListBuilder<int>.new))
+      ..addBuilderFactory(const FullType(NextcloudCoreServerStatus), NextcloudCoreServerStatus.new)
+      ..addBuilderFactory(const FullType(NextcloudCoreServerCapabilities), NextcloudCoreServerCapabilities.new)
+      ..addBuilderFactory(const FullType(NextcloudCoreNavigationApps), NextcloudCoreNavigationApps.new)
+      ..addBuilderFactory(const FullType(NextcloudCoreLoginFlowInit), NextcloudCoreLoginFlowInit.new)
+      ..addBuilderFactory(const FullType(NextcloudCoreLoginFlowResult), NextcloudCoreLoginFlowResult.new)
+      ..addBuilderFactory(const FullType(List, [FullType(int)]), ListBuilder<int>.new)
+      ..addBuilderFactory(const FullType(NextcloudCoreAutocompleteResult), NextcloudCoreAutocompleteResult.new)
+      ..addBuilderFactory(const FullType(NextcloudNewsSupportedAPIVersions), NextcloudNewsSupportedAPIVersions.new)
+      ..addBuilderFactory(const FullType(NextcloudNewsListFolders), NextcloudNewsListFolders.new)
+      ..addBuilderFactory(const FullType(NextcloudNewsListFolders), NextcloudNewsListFolders.new)
+      ..addBuilderFactory(const FullType(NextcloudNewsListFeeds), NextcloudNewsListFeeds.new)
+      ..addBuilderFactory(const FullType(NextcloudNewsListFeeds), NextcloudNewsListFeeds.new)
+      ..addBuilderFactory(const FullType(NextcloudNewsListArticles), NextcloudNewsListArticles.new)
+      ..addBuilderFactory(const FullType(NextcloudNewsListArticles), NextcloudNewsListArticles.new)
+      ..addBuilderFactory(const FullType(NextcloudNotesNote), NextcloudNotesNote.new)
+      ..addBuilderFactory(
+        const FullType(BuiltList, [FullType(NextcloudNotesNote)]),
+        ListBuilder<NextcloudNotesNote>.new,
+      )
+      ..addBuilderFactory(const FullType(NextcloudNotesNote), NextcloudNotesNote.new)
+      ..addBuilderFactory(const FullType(NextcloudNotesNote), NextcloudNotesNote.new)
+      ..addBuilderFactory(const FullType(NextcloudNotesNote), NextcloudNotesNote.new)
+      ..addBuilderFactory(const FullType(NextcloudNotesSettings), NextcloudNotesSettings.new)
+      ..addBuilderFactory(const FullType(NextcloudNotesSettings), NextcloudNotesSettings.new)
+      ..addBuilderFactory(
+        const FullType(NextcloudNotificationsListNotifications),
+        NextcloudNotificationsListNotifications.new,
+      )
+      ..addBuilderFactory(
+        const FullType(NextcloudNotificationsGetNotification),
+        NextcloudNotificationsGetNotification.new,
+      )
+      ..addBuilderFactory(const FullType(NextcloudEmptyOCS), NextcloudEmptyOCS.new)
+      ..addBuilderFactory(
+        const FullType(NextcloudNotificationsPushServerRegistration),
+        NextcloudNotificationsPushServerRegistration.new,
+      )
+      ..addBuilderFactory(const FullType(NextcloudEmptyOCS), NextcloudEmptyOCS.new)
+      ..addBuilderFactory(const FullType(NextcloudProvisioningApiUser), NextcloudProvisioningApiUser.new)
+      ..addBuilderFactory(const FullType(NextcloudProvisioningApiUser), NextcloudProvisioningApiUser.new)
+      ..addBuilderFactory(
+        const FullType(NextcloudUnifiedPushProviderCheckResponse200ApplicationJson),
+        NextcloudUnifiedPushProviderCheckResponse200ApplicationJson.new,
+      )
+      ..addBuilderFactory(
+        const FullType(NextcloudUnifiedPushProviderSetKeepaliveResponse200ApplicationJson),
+        NextcloudUnifiedPushProviderSetKeepaliveResponse200ApplicationJson.new,
+      )
+      ..addBuilderFactory(
+        const FullType(NextcloudUnifiedPushProviderCreateDeviceResponse200ApplicationJson),
+        NextcloudUnifiedPushProviderCreateDeviceResponse200ApplicationJson.new,
+      )
+      ..addBuilderFactory(
+        const FullType(NextcloudUnifiedPushProviderSyncDeviceResponse401ApplicationJson),
+        NextcloudUnifiedPushProviderSyncDeviceResponse401ApplicationJson.new,
+      )
+      ..addBuilderFactory(
+        const FullType(NextcloudUnifiedPushProviderDeleteDeviceResponse200ApplicationJson),
+        NextcloudUnifiedPushProviderDeleteDeviceResponse200ApplicationJson.new,
+      )
+      ..addBuilderFactory(
+        const FullType(NextcloudUnifiedPushProviderCreateAppResponse200ApplicationJson),
+        NextcloudUnifiedPushProviderCreateAppResponse200ApplicationJson.new,
+      )
+      ..addBuilderFactory(
+        const FullType(NextcloudUnifiedPushProviderDeleteAppResponse200ApplicationJson),
+        NextcloudUnifiedPushProviderDeleteAppResponse200ApplicationJson.new,
+      )
+      ..addBuilderFactory(
+        const FullType(NextcloudUnifiedPushProviderUnifiedpushDiscoveryResponse200ApplicationJson),
+        NextcloudUnifiedPushProviderUnifiedpushDiscoveryResponse200ApplicationJson.new,
+      )
+      ..addBuilderFactory(
+        const FullType(NextcloudUnifiedPushProviderPushResponse201ApplicationJson),
+        NextcloudUnifiedPushProviderPushResponse201ApplicationJson.new,
+      )
+      ..addBuilderFactory(
+        const FullType(NextcloudUnifiedPushProviderGatewayMatrixDiscoveryResponse200ApplicationJson),
+        NextcloudUnifiedPushProviderGatewayMatrixDiscoveryResponse200ApplicationJson.new,
+      )
+      ..addBuilderFactory(
+        const FullType(NextcloudUnifiedPushProviderGatewayMatrixResponse200ApplicationJson),
+        NextcloudUnifiedPushProviderGatewayMatrixResponse200ApplicationJson.new,
+      )
+      ..addBuilderFactory(
+        const FullType(NextcloudUserStatusGetPublicStatuses),
+        NextcloudUserStatusGetPublicStatuses.new,
+      )
+      ..addBuilderFactory(const FullType(NextcloudUserStatusGetPublicStatus), NextcloudUserStatusGetPublicStatus.new)
+      ..addBuilderFactory(const FullType(NextcloudUserStatusGetStatus), NextcloudUserStatusGetStatus.new)
+      ..addBuilderFactory(const FullType(NextcloudUserStatusGetStatus), NextcloudUserStatusGetStatus.new)
+      ..addBuilderFactory(const FullType(NextcloudUserStatusGetStatus), NextcloudUserStatusGetStatus.new)
+      ..addBuilderFactory(const FullType(NextcloudUserStatusGetStatus), NextcloudUserStatusGetStatus.new)
+      ..addBuilderFactory(
+        const FullType(NextcloudUserStatusPredefinedStatuses),
+        NextcloudUserStatusPredefinedStatuses.new,
+      )
+      ..addBuilderFactory(const FullType(NextcloudUserStatusHeartbeat), NextcloudUserStatusHeartbeat.new))
     .build();
 
 final Serializers jsonSerializers = (serializers.toBuilder()
