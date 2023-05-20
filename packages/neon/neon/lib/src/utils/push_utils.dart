@@ -76,15 +76,43 @@ class PushUtils {
         final cache = Cache(platform);
         await cache.init();
 
-        NextcloudNotificationsNotification? notification;
         var accounts = <Account>[];
         Account? account;
+        NextcloudNotificationsNotification? notification;
+        AndroidBitmap<Object>? largeIconBitmap;
         try {
           accounts = loadAccounts(AppStorage('accounts', sharedPreferences));
           account = accounts.find(instance);
           if (account != null) {
             notification =
                 (await account.client.notifications.getNotification(id: pushNotification.subject.nid!)).ocs.data;
+            if (notification.icon?.endsWith('.svg') ?? false) {
+              // Only SVG icons are supported right now (should be most of them)
+
+              final cacheManager = DefaultCacheManager();
+              final file = await cacheManager.getSingleFile(notification.icon!);
+
+              final pictureInfo = await vg.loadPicture(SvgFileLoader(file), null);
+
+              const largeIconSize = 256;
+              final scale = min(largeIconSize / pictureInfo.size.width, largeIconSize / pictureInfo.size.height);
+              final scaledWidth = (pictureInfo.size.width * scale).toInt();
+              final scaledHeight = (pictureInfo.size.height * scale).toInt();
+
+              final recorder = PictureRecorder();
+              Canvas(recorder)
+                ..scale(scale)
+                ..drawPicture(pictureInfo.picture)
+                ..drawColor(themePrimaryColor, BlendMode.srcIn);
+
+              pictureInfo.picture.dispose();
+
+              final image = recorder.endRecording().toImageSync(scaledWidth, scaledHeight);
+              final bytes = await image.toByteData(format: ImageByteFormat.png);
+
+              final bitmap = await Bitmap.fromProvider(MemoryImage(bytes!.buffer.asUint8List()));
+              largeIconBitmap = ByteArrayAndroidBitmap(bitmap.buildHeaded());
+            }
           }
         } catch (e, s) {
           debugPrint(e.toString());
@@ -113,6 +141,7 @@ class PushUtils {
                 subText: accounts.length > 1 && account != null ? account.client.humanReadableID : null,
                 groupKey: 'app_$appID',
                 icon: '@mipmap/ic_launcher',
+                largeIcon: largeIconBitmap,
                 when: when?.millisecondsSinceEpoch,
                 color: themePrimaryColor,
                 category: pushNotification.type == 'voip' ? AndroidNotificationCategory.call : null,
