@@ -95,9 +95,8 @@ class PushUtils {
               final pictureInfo = await vg.loadPicture(SvgFileLoader(file), null);
 
               const largeIconSize = 256;
-              final scale = min(largeIconSize / pictureInfo.size.width, largeIconSize / pictureInfo.size.height);
-              final scaledWidth = (pictureInfo.size.width * scale).toInt();
-              final scaledHeight = (pictureInfo.size.height * scale).toInt();
+              final scale = largeIconSize / pictureInfo.size.longestSide;
+              final scaledSize = pictureInfo.size * scale;
 
               final recorder = PictureRecorder();
               Canvas(recorder)
@@ -107,7 +106,7 @@ class PushUtils {
 
               pictureInfo.picture.dispose();
 
-              final image = recorder.endRecording().toImageSync(scaledWidth, scaledHeight);
+              final image = recorder.endRecording().toImageSync(scaledSize.width.toInt(), scaledSize.height.toInt());
               final bytes = await image.toByteData(format: ImageByteFormat.png);
 
               final bitmap = await Bitmap.fromProvider(MemoryImage(bytes!.buffer.asUint8List()));
