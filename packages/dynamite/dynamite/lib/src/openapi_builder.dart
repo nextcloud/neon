@@ -1276,23 +1276,22 @@ TypeResult resolveObject(
                   )
                   ..redirect = refer('_\$${state.prefix}$identifier'),
               ),
-            ])
-            ..methods.addAll([
-              Method(
+              Constructor(
                 (final b) => b
-                  ..static = true
+                  ..factory = true
                   ..name = 'fromJson'
                   ..lambda = true
-                  ..returns = refer('${state.prefix}$identifier')
                   ..requiredParameters.add(
                     Parameter(
                       (final b) => b
                         ..name = 'json'
-                        ..type = refer('Object'),
+                        ..type = refer('Map<String, dynamic>'),
                     ),
                   )
                   ..body = const Code('jsonSerializers.deserializeWith(serializer, json)!'),
               ),
+            ])
+            ..methods.addAll([
               Method(
                 (final b) => b
                   ..name = 'toJson'
