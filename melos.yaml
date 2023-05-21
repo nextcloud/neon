@@ -1,0 +1,13 @@
+name: nextcloud-neon
+repository: https://github.com/provokateurin/nextcloud-neon
+
+sdkPath: .fvm/flutter_sdk
+
+packages:
+  - packages/*
+  - packages/dynamite/*
+  - packages/neon/*
+
+ide:
+  intellij:
+    enabled: false

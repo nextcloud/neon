@@ -13,16 +13,24 @@ dependencies:
   html: ^0.15.3
   material_design_icons_flutter: ^6.0.7096
   neon:
-    path: ../neon
+    git:
+      url: https://github.com/provokateurin/nextcloud-neon
+      path: packages/neon/neon
   nextcloud:
-    path: ../../nextcloud
+    git:
+      url: https://github.com/provokateurin/nextcloud-neon
+      path: packages/nextcloud
   provider: ^6.0.5
   rxdart: ^0.27.7
   settings:
-    path: ../../settings
+    git:
+      url: https://github.com/provokateurin/nextcloud-neon
+      path: packages/settings
   share_plus: ^7.0.0
   sort_box:
-    path: ../../sort_box
+    git:
+      url: https://github.com/provokateurin/nextcloud-neon
+      path: packages/sort_box
   url_launcher: ^6.1.11
   wakelock: ^0.6.2
   webview_flutter: ^4.2.0

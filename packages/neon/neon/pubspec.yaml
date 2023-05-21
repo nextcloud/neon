@@ -26,7 +26,9 @@ dependencies:
   json_annotation: ^4.8.1
   material_design_icons_flutter: ^6.0.7096
   nextcloud:
-    path: ../../nextcloud
+    git:
+      url: https://github.com/provokateurin/nextcloud-neon
+      path: packages/nextcloud
   package_info_plus: ^4.0.0
   path: ^1.8.3
   path_provider: ^2.0.15
@@ -35,10 +37,14 @@ dependencies:
   quick_actions: ^1.0.3
   rxdart: ^0.27.7
   settings:
-    path: ../../settings
+    git:
+      url: https://github.com/provokateurin/nextcloud-neon
+      path: packages/settings
   shared_preferences: ^2.1.1
   sort_box:
-    path: ../../sort_box
+    git:
+      url: https://github.com/provokateurin/nextcloud-neon
+      path: packages/sort_box
   sqflite: ^2.2.8+2
   sqflite_common_ffi: ^2.2.5
   tray_manager: ^0.2.0

@@ -12,7 +12,9 @@ dependencies:
   crypto: ^3.0.3
   crypton: ^2.0.5
   dynamite_runtime:
-    path: ../dynamite/dynamite_runtime
+    git:
+      url: https://github.com/provokateurin/nextcloud-neon
+      path: packages/dynamite/dynamite_runtime
   intl: ^0.18.0
   universal_io: ^2.2.0
   version: ^3.0.2
@@ -24,7 +26,9 @@ dev_dependencies:
   built_value_generator: ^8.5.0
   coverage: ^1.6.3
   dynamite:
-    path: ../dynamite/dynamite
+    git:
+      url: https://github.com/provokateurin/nextcloud-neon
+      path: packages/dynamite/dynamite
   nit_picking:
     git:
       url: https://github.com/stack11/dart_nit_picking
