@@ -141,6 +141,7 @@ class WebDavClient {
   Map<String, String>? _generateUploadHeaders({
     required final DateTime? lastModified,
     required final DateTime? created,
+    required final int? contentLength,
   }) {
     final headers = <String, String>{
       if (lastModified != null) ...{
@@ -148,6 +149,9 @@ class WebDavClient {
       },
       if (created != null) ...{
         'X-OC-CTime': (created.millisecondsSinceEpoch ~/ 1000).toString(),
+      },
+      if (contentLength != null) ...{
+        'Content-Length': contentLength.toString(),
       },
     };
     return headers.isNotEmpty ? headers : null;
@@ -168,6 +172,7 @@ class WebDavClient {
         headers: _generateUploadHeaders(
           lastModified: lastModified,
           created: created,
+          contentLength: localData.lengthInBytes,
         ),
       );
 
@@ -177,6 +182,7 @@ class WebDavClient {
     final String remotePath, {
     final DateTime? lastModified,
     final DateTime? created,
+    final int? contentLength,
   }) async =>
       _send(
         'PUT',
@@ -186,6 +192,7 @@ class WebDavClient {
         headers: _generateUploadHeaders(
           lastModified: lastModified,
           created: created,
+          contentLength: contentLength,
         ),
       );
 
