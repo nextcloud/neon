@@ -11,15 +11,25 @@ dependencies:
     sdk: flutter
   flutter_native_splash: ^2.2.19
   neon:
-    path: ../neon/neon
+    git:
+      url: https://github.com/provokateurin/nextcloud-neon
+      path: packages/neon/neon
   neon_files:
-    path: ../neon/neon_files
+    git:
+      url: https://github.com/provokateurin/nextcloud-neon
+      path: packages/neon/neon_files
   neon_news:
-    path: ../neon/neon_news
+    git:
+      url: https://github.com/provokateurin/nextcloud-neon
+      path: packages/neon/neon_news
   neon_notes:
-    path: ../neon/neon_notes
+    git:
+      url: https://github.com/provokateurin/nextcloud-neon
+      path: packages/neon/neon_notes
   neon_notifications:
-    path: ../neon/neon_notifications
+    git:
+      url: https://github.com/provokateurin/nextcloud-neon
+      path: packages/neon/neon_notifications
   shared_preferences: ^2.1.1
 
 dev_dependencies:
@@ -34,6 +44,26 @@ dev_dependencies:
       ref: 0b2ee0d
 
 dependency_overrides:
+  dynamite_runtime:
+    path: ../dynamite/dynamite_runtime
+  file_icons:
+    path: ../file_icons
+  neon:
+    path: ../neon/neon
+  neon_files:
+    path: ../neon/neon_files
+  neon_news:
+    path: ../neon/neon_news
+  neon_notes:
+    path: ../neon/neon_notes
+  neon_notifications:
+    path: ../neon/neon_notifications
+  nextcloud:
+    path: ../nextcloud
+  settings:
+    path: ../settings
+  sort_box:
+    path: ../sort_box
   wakelock_windows: # TODO: https://github.com/creativecreatorormaybenot/wakelock/pull/195
     git:
       url: https://github.com/creativecreatorormaybenot/wakelock
