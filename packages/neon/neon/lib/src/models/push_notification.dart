@@ -1,7 +1,4 @@
-import 'package:json_annotation/json_annotation.dart';
-import 'package:nextcloud/nextcloud.dart';
-
-part 'push_notification.g.dart';
+part of '../../neon.dart';
 
 @JsonSerializable()
 class PushNotification {

@@ -1,11 +1,4 @@
-import 'dart:convert';
-
-import 'package:crypto/crypto.dart';
-import 'package:json_annotation/json_annotation.dart';
-import 'package:nextcloud/nextcloud.dart';
-import 'package:package_info_plus/package_info_plus.dart';
-
-part 'account.g.dart';
+part of '../../neon.dart';
 
 Future<Account> getAccount(
   final PackageInfo packageInfo,
