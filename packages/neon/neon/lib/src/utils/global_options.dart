@@ -41,7 +41,7 @@ class GlobalOptions {
         // Only override the initial account if there already has been a value,
         // which means it's not the initial emit from rememberLastUsedAccount
         if (initialAccount.hasValue) {
-          await initialAccount.set((await initialAccount.values.first).keys.toList()[0]);
+          await initialAccount.set((await initialAccount.values.first).keys.first);
         }
       }
     });
