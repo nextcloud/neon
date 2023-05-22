@@ -9,7 +9,9 @@ environment:
 dependencies:
   collection: ^1.17.0
   file_icons:
-    path: ../../file_icons
+    git:
+      url: https://github.com/provokateurin/nextcloud-neon
+      path: packages/file_icons
   file_picker: ^5.3.0
   filesize: ^2.0.1
   flutter:
@@ -18,18 +20,27 @@ dependencies:
   intersperse: ^2.0.0
   material_design_icons_flutter: ^6.0.7096
   neon:
-    path: ../neon
+    git:
+      url: https://github.com/provokateurin/nextcloud-neon
+      path: packages/neon/neon
   nextcloud:
-    path: ../../nextcloud
+    git:
+      url: https://github.com/provokateurin/nextcloud-neon
+      path: packages/nextcloud
   open_file: ^3.3.1
   path: ^1.8.3
   provider: ^6.0.5
   queue: ^3.1.0+2
   rxdart: ^0.27.7
   settings:
-    path: ../../settings
+    git:
+      url: https://github.com/provokateurin/nextcloud-neon
+      path: packages/settings
+  share_plus: ^7.0.0
   sort_box:
-    path: ../../sort_box
+    git:
+      url: https://github.com/provokateurin/nextcloud-neon
+      path: packages/sort_box
 
 dev_dependencies:
   nit_picking:

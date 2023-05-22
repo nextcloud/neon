@@ -146,7 +146,7 @@ packages:
     source: hosted
     version: "0.7.8"
   dynamite_runtime:
-    dependency: transitive
+    dependency: "direct overridden"
     description:
       path: "../dynamite/dynamite_runtime"
       relative: true
@@ -177,7 +177,7 @@ packages:
     source: hosted
     version: "6.1.4"
   file_icons:
-    dependency: transitive
+    dependency: "direct overridden"
     description:
       path: "../file_icons"
       relative: true
@@ -534,7 +534,7 @@ packages:
     source: hosted
     version: "1.0.0"
   nextcloud:
-    dependency: transitive
+    dependency: "direct overridden"
     description:
       path: "../nextcloud"
       relative: true
@@ -790,7 +790,7 @@ packages:
     source: hosted
     version: "0.1.6"
   settings:
-    dependency: transitive
+    dependency: "direct overridden"
     description:
       path: "../settings"
       relative: true
@@ -882,7 +882,7 @@ packages:
     source: sdk
     version: "0.0.99"
   sort_box:
-    dependency: transitive
+    dependency: "direct overridden"
     description:
       path: "../sort_box"
       relative: true

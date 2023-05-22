@@ -15,6 +15,13 @@ dependencies:
       url: https://github.com/provokateurin/nextcloud-neon
       path: packages/nextcloud
       ref: $COMMIT
+
+dependency_overrides:
+  dynamite_runtime:
+    git:
+      url: https://github.com/provokateurin/nextcloud-neon
+      path: packages/dynamite/dynamite_runtime
+      ref: $COMMIT
 ```
 You can either remove the `ref` or use a commit hash. It's not recommended to remove it, because then the version will be updated very often.
 
