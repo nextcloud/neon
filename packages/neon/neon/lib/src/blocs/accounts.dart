@@ -28,6 +28,13 @@ class AccountsBloc extends Bloc implements AccountsBlocEvents, AccountsBlocState
         _globalOptions.updateAccounts(as);
         await _storage.setStringList(_keyAccounts, as.map((final a) => json.encode(a.toJson())).toList());
       });
+    activeAccount.listen((final aa) async {
+      if (aa != null) {
+        await _storage.setString(_keyLastUsedAccount, aa.id);
+      } else {
+        await _storage.remove(_keyLastUsedAccount);
+      }
+    });
 
     final as = accounts.value;
     if (_globalOptions.rememberLastUsedAccount.value && _storage.containsKey(_keyLastUsedAccount)) {
@@ -76,7 +83,8 @@ class AccountsBloc extends Bloc implements AccountsBlocEvents, AccountsBlocState
   BehaviorSubject<List<Account>> accounts = BehaviorSubject<List<Account>>.seeded([]);
 
   @override
-  BehaviorSubject<Account?> activeAccount = BehaviorSubject<Account?>.seeded(null);
+  BehaviorSubject<Account?> activeAccount = BehaviorSubject<Account?>.seeded(null)
+    ..distinct((final current, final next) => current?.id != next?.id);
 
   @override
   void addAccount(final Account account) {
@@ -92,8 +100,8 @@ class AccountsBloc extends Bloc implements AccountsBlocEvents, AccountsBlocState
 
     final as = accounts.value;
     final aa = activeAccount.valueOrNull;
-    if (aa != null && aa.id == account.id) {
-      setActiveAccount(as.isNotEmpty ? as[0] : null);
+    if (aa?.id == account.id) {
+      setActiveAccount(as.firstOrNull);
     }
 
     unawaited(() async {
@@ -108,20 +116,8 @@ class AccountsBloc extends Bloc implements AccountsBlocEvents, AccountsBlocState
 
   @override
   void setActiveAccount(final Account? account) {
-    if (account != null) {
-      if (activeAccount.value != account) {
-        unawaited(_storage.setString(_keyLastUsedAccount, account.id));
-        activeAccount.add(account);
-      }
-    } else {
-      final as = accounts.value;
-      if (as.isNotEmpty) {
-        setActiveAccount(as[0]);
-      } else {
-        unawaited(_storage.remove(_keyLastUsedAccount));
-        activeAccount.add(null);
-      }
-    }
+    final as = accounts.value;
+    activeAccount.add(account ?? as.firstOrNull);
   }
 
   @override
