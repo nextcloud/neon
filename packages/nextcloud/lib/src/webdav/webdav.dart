@@ -1,11 +1,5 @@
 // ignore_for_file: public_member_api_docs
-
-import 'package:intl/intl.dart';
-import 'package:nextcloud/src/webdav/props.dart';
-import 'package:xml/xml.dart';
-import 'package:xml_annotation/xml_annotation.dart' as annotation;
-
-part 'webdav.g.dart';
+part of '../../nextcloud.dart';
 
 /// Format used in WebDAV
 final webdavDateFormat = DateFormat('E, d MMM yyyy HH:mm:ss', 'en_US');

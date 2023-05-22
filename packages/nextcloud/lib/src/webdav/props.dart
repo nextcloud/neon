@@ -1,8 +1,5 @@
 // ignore_for_file: public_member_api_docs
-import 'package:nextcloud/src/webdav/webdav.dart';
-import 'package:xml/xml.dart';
-import 'package:xml_annotation/xml_annotation.dart' as annotation;
-part 'props.g.dart';
+part of '../../nextcloud.dart';
 
 @annotation.XmlSerializable(createMixin: true)
 @annotation.XmlRootElement(name: 'prop', namespace: namespaceDav)
