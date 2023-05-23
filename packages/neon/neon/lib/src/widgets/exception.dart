@@ -62,7 +62,7 @@ class NeonException extends StatelessWidget {
                         : AppLocalizations.of(context).actionRetry,
                     onPressed: () async {
                       if (details.isUnauthorized) {
-                        await _openLoginPage(context);
+                        _openLoginPage(context);
                       } else {
                         onRetry();
                       }
@@ -177,14 +177,10 @@ class NeonException extends StatelessWidget {
     );
   }
 
-  static Future _openLoginPage(final BuildContext context) async {
-    await Navigator.of(context).push(
-      MaterialPageRoute(
-        builder: (final context) => LoginPage(
-          serverURL: Provider.of<AccountsBloc>(context, listen: false).activeAccount.value!.serverURL,
-        ),
-      ),
-    );
+  static void _openLoginPage(final BuildContext context) {
+    LoginRoute(
+      server: Provider.of<AccountsBloc>(context, listen: false).activeAccount.value!.serverURL,
+    ).go(context);
   }
 }
 

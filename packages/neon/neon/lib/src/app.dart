@@ -295,7 +295,7 @@ class _NeonAppState extends State<NeonApp> with WidgetsBindingObserver, tray.Tra
                         keepOriginalAccentColor: nextcloudTheme == null || (themeKeepOriginalAccentColor ?? false),
                         oledAsDark: themeOLEDAsDark,
                       ),
-                      routerDelegate: _routerDelegate,
+                      routerConfig: _routerDelegate,
                     );
                   },
                 );
