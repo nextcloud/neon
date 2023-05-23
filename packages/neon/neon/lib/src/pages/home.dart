@@ -4,11 +4,8 @@ const kQuickBarWidth = kAvatarSize + 20;
 
 class HomePage extends StatefulWidget {
   const HomePage({
-    required this.account,
     super.key,
   });
-
-  final Account account;
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -19,6 +16,7 @@ class _HomePageState extends State<HomePage> {
   final _scaffoldKey = GlobalKey<ScaffoldState>();
   final drawerScrollController = ScrollController();
 
+  late Account _account;
   late GlobalOptions _globalOptions;
   late AccountsBloc _accountsBloc;
   late AppsBloc _appsBloc;
@@ -27,11 +25,11 @@ class _HomePageState extends State<HomePage> {
   @override
   void initState() {
     super.initState();
-
     _globalOptions = Provider.of<GlobalOptions>(context, listen: false);
     _accountsBloc = Provider.of<AccountsBloc>(context, listen: false);
-    _appsBloc = _accountsBloc.getAppsBloc(widget.account);
-    _capabilitiesBloc = _accountsBloc.getCapabilitiesBloc(widget.account);
+    _account = _accountsBloc.activeAccount.value!;
+    _appsBloc = _accountsBloc.getAppsBloc(_account);
+    _capabilitiesBloc = _accountsBloc.getCapabilitiesBloc(_account);
 
     _appsBloc.openNotifications.listen((final _) async {
       final notificationsAppImplementation = _appsBloc.notificationsAppImplementation.valueOrNull;
@@ -61,9 +59,9 @@ class _HomePageState extends State<HomePage> {
           ]) {
             try {
               final (supported, _) = switch (id) {
-                'core' => await widget.account.client.core.isSupported(result.data),
-                'news' => await widget.account.client.news.isSupported(),
-                'notes' => await widget.account.client.notes.isSupported(result.data),
+                'core' => await _account.client.core.isSupported(result.data),
+                'news' => await _account.client.news.isSupported(),
+                'notes' => await _account.client.notes.isSupported(result.data),
                 _ => (true, null),
               };
               if (supported || !mounted) {
@@ -92,7 +90,7 @@ class _HomePageState extends State<HomePage> {
 
   Future _checkMaintenanceMode() async {
     try {
-      final status = await widget.account.client.core.getStatus();
+      final status = await _account.client.core.getStatus();
       if (status.maintenance) {
         if (!mounted) {
           return;
@@ -207,7 +205,7 @@ class _HomePageState extends State<HomePage> {
                       builder: (final context) {
                         if (accountsSnapshot.hasData) {
                           final accounts = accountsSnapshot.data!;
-                          final account = accounts.find(widget.account.id)!;
+                          final account = accounts.find(_account.id)!;
 
                           final isQuickBar = navigationMode == NavigationMode.quickBar;
                           final drawer = Drawer(
@@ -303,7 +301,7 @@ class _HomePageState extends State<HomePage> {
                                                             dropdownColor: Theme.of(context).colorScheme.primary,
                                                             iconEnabledColor:
                                                                 Theme.of(context).colorScheme.onBackground,
-                                                            value: widget.account.id,
+                                                            value: _account.id,
                                                             items: accounts
                                                                 .map<DropdownMenuItem<String>>(
                                                                   (final account) => DropdownMenuItem<String>(

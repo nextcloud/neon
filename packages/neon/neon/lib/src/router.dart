@@ -33,7 +33,6 @@ class AppRouter extends RouterDelegate<Account> with ChangeNotifier, PopNavigato
               name: 'home',
               child: HomePage(
                 key: Key(currentConfiguration!.id),
-                account: currentConfiguration!,
               ),
             ),
           ],
