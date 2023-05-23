@@ -463,7 +463,7 @@ class NextcloudCoreClient {
       body,
     );
     if (response.statusCode == 200) {
-      return JsonObject(JsonObject(utf8.decode(response.body)));
+      return JsonObject(utf8.decode(response.body));
     }
     throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
   }

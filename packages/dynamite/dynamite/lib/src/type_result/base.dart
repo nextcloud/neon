@@ -21,13 +21,7 @@ class TypeResultBase extends TypeResult {
       name == 'String' ? object : '$object.toString()';
 
   @override
-  String deserialize(final String object, {final bool toBuilder = false}) {
-    if (name == 'JsonObject') {
-      return 'JsonObject($object)${nullable ? '?' : ''}';
-    }
-
-    return '($object as $nullableName)';
-  }
+  String deserialize(final String object, {final bool toBuilder = false}) => '($object as $nullableName)';
 
   @override
   String decode(final String object) {
