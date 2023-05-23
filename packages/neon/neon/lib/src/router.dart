@@ -1,6 +1,7 @@
-part of '../neon.dart';
-
 // ignore: prefer_mixin
+import 'package:flutter/material.dart';
+import 'package:neon/neon.dart';
+
 class AppRouter extends RouterDelegate<Account> with ChangeNotifier, PopNavigatorRouterDelegateMixin<Account> {
   AppRouter({
     required this.navigatorKey,
