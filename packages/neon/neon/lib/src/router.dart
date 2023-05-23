@@ -31,6 +31,59 @@ class AppRouter extends GoRouter {
         );
 }
 
+@immutable
+class AccountSettingsRoute extends GoRouteData {
+  const AccountSettingsRoute({
+    required this.accountid,
+  });
+
+  final String accountid;
+
+  @override
+  Widget build(final BuildContext context, final GoRouterState state) {
+    final bloc = Provider.of<AccountsBloc>(context, listen: false);
+    final account = bloc.accounts.value.find(accountid)!;
+
+    return AccountSettingsPage(
+      bloc: bloc,
+      account: account,
+    );
+  }
+}
+
+@TypedGoRoute<HomeRoute>(
+  path: '/',
+  name: 'home',
+  routes: [
+    TypedGoRoute<SettingsRoute>(
+      path: 'settings',
+      name: 'Settings',
+      routes: [
+        TypedGoRoute<NextcloudAppSettingsRoute>(
+          path: ':appid',
+          name: 'NextcloudAppSettings',
+        ),
+        TypedGoRoute<AccountSettingsRoute>(
+          path: 'account/:accountid',
+          name: 'AccountSettings',
+        ),
+      ],
+    )
+  ],
+)
+@immutable
+class HomeRoute extends GoRouteData {
+  const HomeRoute();
+
+  @override
+  Widget build(final BuildContext context, final GoRouterState state) {
+    final accountsBloc = Provider.of<AccountsBloc>(context, listen: false);
+    final account = accountsBloc.activeAccount.valueOrNull!;
+
+    return HomePage(key: Key(account.id));
+  }
+}
+
 @TypedGoRoute<LoginRoute>(
   path: '/login',
   name: 'login',
@@ -45,19 +98,27 @@ class LoginRoute extends GoRouteData {
   Widget build(final BuildContext context, final GoRouterState state) => LoginPage(serverURL: server);
 }
 
-@TypedGoRoute<HomeRoute>(
-  path: '/',
-  name: 'home',
-)
 @immutable
-class HomeRoute extends GoRouteData {
-  const HomeRoute();
+class NextcloudAppSettingsRoute extends GoRouteData {
+  const NextcloudAppSettingsRoute({
+    required this.appid,
+  });
+
+  final String appid;
 
   @override
   Widget build(final BuildContext context, final GoRouterState state) {
-    final accountsBloc = Provider.of<AccountsBloc>(context, listen: false);
-    final account = accountsBloc.activeAccount.valueOrNull!;
+    final appImplementations = Provider.of<List<AppImplementation>>(context, listen: false);
+    final appImplementation = appImplementations.firstWhere((final app) => app.id == appid);
 
-    return HomePage(key: Key(account.id));
+    return NextcloudAppSettingsPage(appImplementation: appImplementation);
   }
+}
+
+@immutable
+class SettingsRoute extends GoRouteData {
+  const SettingsRoute();
+
+  @override
+  Widget build(final BuildContext context, final GoRouterState state) => const SettingsPage();
 }

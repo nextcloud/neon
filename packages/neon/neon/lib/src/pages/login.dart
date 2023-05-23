@@ -73,7 +73,6 @@ class _LoginPageState extends State<LoginPage> {
 
           if (widget.serverURL != null) {
             _accountsBloc.updateAccount(account);
-            Navigator.of(context).pop();
           } else {
             final existingAccount = _accountsBloc.accounts.value.find(account.id);
             if (existingAccount != null) {
