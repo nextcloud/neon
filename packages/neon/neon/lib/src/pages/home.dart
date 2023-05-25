@@ -300,7 +300,7 @@ class _HomePageState extends State<HomePage> {
                                                             .toList(),
                                                         onChanged: (final id) {
                                                           if (id != null) {
-                                                            _accountsBloc.setActiveAccount(accounts.find(id));
+                                                            _accountsBloc.setActiveAccount(accounts.find(id)!);
                                                           }
                                                         },
                                                       ),

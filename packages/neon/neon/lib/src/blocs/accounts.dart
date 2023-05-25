@@ -2,15 +2,39 @@ part of 'blocs.dart';
 
 const _keyAccounts = 'accounts';
 
-abstract class AccountsBlocEvents {
+abstract interface class AccountsBlocEvents {
+  /// Logs in the given [account].
+  ///
+  /// It will also call [setActiveAccount] when no other accounts are registered in [AccountsBlocStates.accounts].
   void addAccount(final Account account);
+
+  /// Logs out the given [account].
+  ///
+  /// If [account] is the current [AccountsBlocStates.activeAccount] it will automatically activate the first one in [AccountsBlocStates.accounts].
+  /// It is not defined whether listeners of [AccountsBlocStates.accounts] or [AccountsBlocStates.activeAccount] are informed first.
   void removeAccount(final Account account);
+
+  /// Updates the given [account].
+  ///
+  /// It triggers an event in both [AccountsBlocStates.accounts] and [AccountsBlocStates.activeAccount] to inform all listeners.
   void updateAccount(final Account account);
-  void setActiveAccount(final Account? account);
+
+  /// Sets the active [account].
+  ///
+  /// It triggers an event in [AccountsBlocStates.activeAccount] to inform all listeners.
+  void setActiveAccount(final Account account);
 }
 
-abstract class AccountsBlocStates {
+abstract interface class AccountsBlocStates {
+  /// All registered accounts.
+  ///
+  /// An empty value represents a state where no account is logged in.
   BehaviorSubject<List<Account>> get accounts;
+
+  /// Currently active account.
+  ///
+  /// It should be ensured to only emit an event when it's value changes.
+  /// A null value represents a state where no user is logged in.
   BehaviorSubject<Account?> get activeAccount;
 }
 
@@ -111,7 +135,11 @@ class AccountsBloc extends Bloc implements AccountsBlocEvents, AccountsBlocState
     final as = accounts.value;
     final aa = activeAccount.valueOrNull;
     if (aa?.id == account.id) {
-      setActiveAccount(as.firstOrNull);
+      if (as.firstOrNull != null) {
+        setActiveAccount(as.first);
+      } else {
+        activeAccount.add(null);
+      }
     }
 
     unawaited(() async {
@@ -125,9 +153,8 @@ class AccountsBloc extends Bloc implements AccountsBlocEvents, AccountsBlocState
   }
 
   @override
-  void setActiveAccount(final Account? account) {
-    final as = accounts.value;
-    activeAccount.add(account ?? as.firstOrNull);
+  void setActiveAccount(final Account account) {
+    activeAccount.add(account);
   }
 
   @override
