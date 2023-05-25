@@ -1,4 +1,4 @@
-part of '../../neon.dart';
+part of 'blocs.dart';
 
 typedef NextcloudApp = NextcloudCoreNavigationApps_Ocs_Data;
 

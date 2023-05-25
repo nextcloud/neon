@@ -1,4 +1,4 @@
-part of '../../neon.dart';
+part of 'blocs.dart';
 
 abstract class LoginBlocEvents {
   void setServerURL(final String? url);

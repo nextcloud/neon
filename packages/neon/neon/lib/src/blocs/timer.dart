@@ -1,4 +1,4 @@
-part of '../../neon.dart';
+part of 'blocs.dart';
 
 abstract class TimerBlocEvents {
   /// Register a [callback] that will be called periodically.
