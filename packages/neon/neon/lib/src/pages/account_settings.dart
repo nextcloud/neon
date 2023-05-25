@@ -29,8 +29,6 @@ class AccountSettingsPage extends StatelessWidget {
                   AppLocalizations.of(context).accountOptionsRemoveConfirm(account.client.humanReadableID),
                 )) {
                   bloc.removeAccount(account);
-                  // ignore: use_build_context_synchronously
-                  Navigator.of(context).pop();
                 }
               },
               tooltip: AppLocalizations.of(context).accountOptionsRemove,

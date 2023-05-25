@@ -27,12 +27,8 @@ class GlobalPopups {
             content: Text(AppLocalizations.of(context).firstLaunchGoToSettingsToEnablePushNotifications),
             action: SnackBarAction(
               label: AppLocalizations.of(context).settings,
-              onPressed: () async {
-                await Navigator.of(context).push(
-                  MaterialPageRoute(
-                    builder: (final context) => const SettingsPage(),
-                  ),
-                );
+              onPressed: () {
+                const SettingsRoute().go(context);
               },
             ),
           ),

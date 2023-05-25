@@ -80,14 +80,8 @@ class _SettingsPageState extends State<SettingsPage> {
                           CustomSettingsTile(
                             leading: appImplementation.buildIcon(context),
                             title: Text(appImplementation.name(context)),
-                            onTap: () async {
-                              await Navigator.of(context).push(
-                                MaterialPageRoute(
-                                  builder: (final context) => NextcloudAppSettingsPage(
-                                    appImplementation: appImplementation,
-                                  ),
-                                ),
-                              );
+                            onTap: () {
+                              NextcloudAppSettingsRoute(appid: appImplementation.id).go(context);
                             },
                           ),
                         ],
@@ -181,26 +175,15 @@ class _SettingsPageState extends State<SettingsPage> {
                         for (final account in accountsSnapshot.data!) ...[
                           NeonAccountSettingsTile(
                             account: account,
-                            onTap: () async {
-                              await Navigator.of(context).push(
-                                MaterialPageRoute(
-                                  builder: (final context) => AccountSettingsPage(
-                                    bloc: accountsBloc,
-                                    account: account,
-                                  ),
-                                ),
-                              );
+                            onTap: () {
+                              AccountSettingsRoute(accountid: account.id).go(context);
                             },
                           ),
                         ],
                         CustomSettingsTile(
                           title: ElevatedButton.icon(
-                            onPressed: () async {
-                              await Navigator.of(context).push(
-                                MaterialPageRoute(
-                                  builder: (final context) => const LoginPage(),
-                                ),
-                              );
+                            onPressed: () {
+                              const LoginRoute().go(context);
                             },
                             icon: const Icon(MdiIcons.accountPlus),
                             label: Text(AppLocalizations.of(context).globalOptionsAccountsAdd),
