@@ -21,10 +21,6 @@ class AppRouter extends GoRouter {
               return const LoginRoute().location;
             }
 
-            if (state.location == const LoginRoute().location) {
-              return const HomeRoute().location;
-            }
-
             return null;
           },
           routes: $appRoutes,
