@@ -28,9 +28,17 @@ class AccountSettingsPage extends StatelessWidget {
                   // ignore: use_build_context_synchronously
                   AppLocalizations.of(context).accountOptionsRemoveConfirm(account.client.humanReadableID),
                 )) {
+                  final isActive = bloc.activeAccount.value == account;
+
                   bloc.removeAccount(account);
-                  // ignore: use_build_context_synchronously
-                  const HomeRoute().go(context);
+
+                  if (isActive) {
+                    // ignore: use_build_context_synchronously
+                    const HomeRoute().go(context);
+                  } else {
+                    // ignore: use_build_context_synchronously
+                    Navigator.of(context).pop();
+                  }
                 }
               },
               tooltip: AppLocalizations.of(context).accountOptionsRemove,
