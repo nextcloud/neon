@@ -22,9 +22,14 @@ RouteBase get $homeRoute => GoRouteData.$route(
           factory: $SettingsRouteExtension._fromState,
           routes: [
             GoRouteData.$route(
-              path: ':appid',
+              path: 'apps/:appid',
               name: 'NextcloudAppSettings',
               factory: $NextcloudAppSettingsRouteExtension._fromState,
+            ),
+            GoRouteData.$route(
+              path: 'account/add',
+              name: 'addAccount',
+              factory: $AddAccountRouteExtension._fromState,
             ),
             GoRouteData.$route(
               path: 'account/:accountid',
@@ -70,7 +75,21 @@ extension $NextcloudAppSettingsRouteExtension on NextcloudAppSettingsRoute {
       );
 
   String get location => GoRouteData.$location(
-        '/settings/${Uri.encodeComponent(appid)}',
+        '/settings/apps/${Uri.encodeComponent(appid)}',
+      );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) => context.pushReplacement(location);
+}
+
+extension $AddAccountRouteExtension on AddAccountRoute {
+  static AddAccountRoute _fromState(GoRouterState state) => const AddAccountRoute();
+
+  String get location => GoRouteData.$location(
+        '/settings/account/add',
       );
 
   void go(BuildContext context) => context.go(location);

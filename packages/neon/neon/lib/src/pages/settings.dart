@@ -183,7 +183,7 @@ class _SettingsPageState extends State<SettingsPage> {
                         CustomSettingsTile(
                           title: ElevatedButton.icon(
                             onPressed: () {
-                              const LoginRoute().go(context);
+                              const AddAccountRoute().go(context);
                             },
                             icon: const Icon(MdiIcons.accountPlus),
                             label: Text(AppLocalizations.of(context).globalOptionsAccountsAdd),

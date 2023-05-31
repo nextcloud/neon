@@ -1,5 +1,6 @@
 // ignore: prefer_mixin
-import 'package:flutter/material.dart';
+import 'package:flutter/foundation.dart';
+import 'package:flutter/widgets.dart';
 import 'package:go_router/go_router.dart';
 import 'package:neon/neon.dart';
 import 'package:provider/provider.dart';
@@ -11,18 +12,16 @@ class AppRouter extends GoRouter {
     required final GlobalKey<NavigatorState> navigatorKey,
     required final AccountsBloc accountsBloc,
   }) : super(
+          debugLogDiagnostics: kDebugMode,
           refreshListenable: StreamListenable.behaviorSubject(accountsBloc.activeAccount),
           navigatorKey: navigatorKey,
           initialLocation: const HomeRoute().location,
           redirect: (final context, final state) {
             final account = accountsBloc.activeAccount.valueOrNull;
 
+            // redirect to loginscreen when no account is logged in
             if (account == null) {
               return const LoginRoute().location;
-            }
-
-            if (state.location == const LoginRoute().location) {
-              return const HomeRoute().location;
             }
 
             return null;
@@ -60,8 +59,12 @@ class AccountSettingsRoute extends GoRouteData {
       name: 'Settings',
       routes: [
         TypedGoRoute<NextcloudAppSettingsRoute>(
-          path: ':appid',
+          path: 'apps/:appid',
           name: 'NextcloudAppSettings',
+        ),
+        TypedGoRoute<AddAccountRoute>(
+          path: 'account/add',
+          name: 'addAccount',
         ),
         TypedGoRoute<AccountSettingsRoute>(
           path: 'account/:accountid',
@@ -99,6 +102,14 @@ class LoginRoute extends GoRouteData {
 }
 
 @immutable
+class AddAccountRoute extends GoRouteData {
+  const AddAccountRoute();
+
+  @override
+  Widget build(final BuildContext context, final GoRouterState state) => const LoginPage();
+}
+
+@immutable
 class NextcloudAppSettingsRoute extends GoRouteData {
   const NextcloudAppSettingsRoute({
     required this.appid,
@@ -109,7 +120,7 @@ class NextcloudAppSettingsRoute extends GoRouteData {
   @override
   Widget build(final BuildContext context, final GoRouterState state) {
     final appImplementations = Provider.of<List<AppImplementation>>(context, listen: false);
-    final appImplementation = appImplementations.firstWhere((final app) => app.id == appid);
+    final appImplementation = appImplementations.find(appid)!;
 
     return NextcloudAppSettingsPage(appImplementation: appImplementation);
   }
