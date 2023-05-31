@@ -81,6 +81,7 @@ class Account {
         username: username,
         password: password,
         userAgentOverride: userAgent,
+        cookieJar: CookieJar(),
       );
 }
 
