@@ -225,7 +225,7 @@ class _HomePageState extends State<HomePage> {
                                                           },
                                                           tooltip: account.client.humanReadableID,
                                                           icon: IntrinsicHeight(
-                                                            child: NeonAccountAvatar(
+                                                            child: NeonUserAvatar(
                                                               account: account,
                                                             ),
                                                           ),
@@ -496,7 +496,7 @@ class _HomePageState extends State<HomePage> {
                           },
                           tooltip: AppLocalizations.of(context).settingsAccount,
                           icon: IntrinsicWidth(
-                            child: NeonAccountAvatar(
+                            child: NeonUserAvatar(
                               account: account,
                             ),
                           ),

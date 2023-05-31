@@ -34,7 +34,7 @@ class NeonAccountTile extends StatelessWidget {
             )
           : null,
       leading: IntrinsicWidth(
-        child: NeonAccountAvatar(
+        child: NeonUserAvatar(
           account: account,
         ),
       ),
