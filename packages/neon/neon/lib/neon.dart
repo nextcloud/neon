@@ -58,7 +58,7 @@ part 'src/blocs/next_push.dart';
 part 'src/blocs/push_notifications.dart';
 part 'src/blocs/timer.dart';
 part 'src/blocs/user_details.dart';
-part 'src/blocs/user_status.dart';
+part 'src/blocs/user_statuses.dart';
 part 'src/interfaces/notifications.dart';
 part 'src/pages/account_settings.dart';
 part 'src/pages/home.dart';
