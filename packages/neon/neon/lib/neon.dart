@@ -56,6 +56,7 @@ part 'src/blocs/first_launch.dart';
 part 'src/blocs/login.dart';
 part 'src/blocs/next_push.dart';
 part 'src/blocs/push_notifications.dart';
+part 'src/blocs/timer.dart';
 part 'src/blocs/user_details.dart';
 part 'src/blocs/user_status.dart';
 part 'src/interfaces/notifications.dart';
