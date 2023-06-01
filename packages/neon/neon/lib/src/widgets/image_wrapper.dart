@@ -15,14 +15,17 @@ class NeonImageWrapper extends StatelessWidget {
   final BorderRadius? borderRadius;
 
   @override
-  Widget build(final BuildContext context) => SizedBox.fromSize(
-        size: size,
-        child: ClipRRect(
-          borderRadius: borderRadius ?? BorderRadius.zero,
-          child: ColoredBox(
-            color: color,
-            child: Center(
-              child: child,
+  Widget build(final BuildContext context) => ClipRRect(
+        borderRadius: borderRadius ?? BorderRadius.zero,
+        child: ColorFiltered(
+          colorFilter: ColorFilter.mode(color, BlendMode.dstATop),
+          child: SizedBox.fromSize(
+            size: size,
+            child: ColoredBox(
+              color: Colors.transparent,
+              child: Center(
+                child: child,
+              ),
             ),
           ),
         ),
