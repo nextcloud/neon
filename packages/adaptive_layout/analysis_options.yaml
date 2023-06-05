@@ -1,0 +1,6 @@
+include: package:nit_picking/flutter.yaml
+
+linter:
+  rules:
+    prefer_final_parameters: false
+    prefer_expression_function_bodies: false
