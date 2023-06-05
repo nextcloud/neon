@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:crypto/crypto.dart';
+import 'package:flutter/foundation.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:nextcloud/nextcloud.dart';
 import 'package:package_info_plus/package_info_plus.dart';
@@ -39,6 +40,7 @@ String userAgent(final PackageInfo packageInfo) {
 }
 
 @JsonSerializable()
+@immutable
 class Account {
   Account({
     required this.serverURL,
@@ -46,7 +48,14 @@ class Account {
     required this.username,
     this.password,
     this.userAgent,
-  });
+  }) : _client = NextcloudClient(
+          serverURL,
+          loginName: loginName,
+          username: username,
+          password: password,
+          userAgentOverride: userAgent,
+          cookieJar: CookieJar(),
+        );
 
   factory Account.fromJson(final Map<String, dynamic> json) => _$AccountFromJson(json);
   Map<String, dynamic> toJson() => _$AccountToJson(this);
@@ -58,7 +67,6 @@ class Account {
   final String? userAgent;
 
   @override
-  // ignore: avoid_equals_and_hash_code_on_mutable_classes
   bool operator ==(final Object other) =>
       other is Account &&
       other.serverURL == serverURL &&
@@ -68,21 +76,13 @@ class Account {
       other.userAgent == userAgent;
 
   @override
-  // ignore: avoid_equals_and_hash_code_on_mutable_classes
   int get hashCode => serverURL.hashCode + username.hashCode;
 
   String get id => client.id;
 
-  NextcloudClient? _client;
+  final NextcloudClient _client;
 
-  NextcloudClient get client => _client ??= NextcloudClient(
-        serverURL,
-        loginName: loginName,
-        username: username,
-        password: password,
-        userAgentOverride: userAgent,
-        cookieJar: CookieJar(),
-      );
+  NextcloudClient get client => _client;
 }
 
 Map<String, String> _idCache = {};
