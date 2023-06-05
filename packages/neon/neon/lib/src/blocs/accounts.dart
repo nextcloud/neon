@@ -176,26 +176,65 @@ class AccountsBloc extends Bloc implements AccountsBlocEvents, AccountsBlocState
     setActiveAccount(account);
   }
 
-  AccountSpecificOptions getOptions(final Account account) => _accountsOptions[account.id] ??= AccountSpecificOptions(
+  /// The currently active account.
+  ///
+  /// Equivalent to activeAccount.value but throws a [StateError] when no user is logged in.
+  @visibleForTesting
+  Account get aa {
+    final aa = activeAccount.value;
+
+    if (aa == null) {
+      throw StateError('No user is logged in.');
+    }
+
+    return aa;
+  }
+
+  /// The options for the [activeAccount].
+  ///
+  /// Convenience method for [getOptionsFor] with the currently active account.
+  AccountSpecificOptions get activeOptions => getOptionsFor(aa);
+
+  /// The options for the specified [account].
+  ///
+  /// Use [activeOptions] to get them for the [activeAccount].
+  AccountSpecificOptions getOptionsFor(final Account account) =>
+      _accountsOptions[account.id] ??= AccountSpecificOptions(
         AppStorage('accounts-${account.id}', _sharedPreferences),
-        getAppsBloc(account),
+        getAppsBlocFor(account),
       );
 
-  AppsBloc getAppsBloc(final Account account) {
+  /// The appsBloc for the [activeAccount].
+  ///
+  /// Convenience method for [getAppsBlocFor] with the currently active account.
+  AppsBloc get activeAppsBloc => getAppsBlocFor(aa);
+
+  /// The appsBloc for the specified [account].
+  ///
+  /// Use [activeAppsBloc] to get them for the [activeAccount].
+  AppsBloc getAppsBlocFor(final Account account) {
     if (_appsBlocs[account.id] != null) {
       return _appsBlocs[account.id]!;
     }
 
     return _appsBlocs[account.id] = AppsBloc(
       _requestManager,
-      getCapabilitiesBloc(account),
+      getCapabilitiesBlocFor(account),
       this,
       account,
       _allAppImplementations,
     );
   }
 
-  CapabilitiesBloc getCapabilitiesBloc(final Account account) {
+  /// The capabilitiesBloc for the [activeAccount].
+  ///
+  /// Convenience method for [getCapabilitiesBlocFor] with the currently active account.
+  CapabilitiesBloc get activeCapabilitiesBloc => getCapabilitiesBlocFor(aa);
+
+  /// The capabilitiesBloc for the specified [account].
+  ///
+  /// Use [activeCapabilitiesBloc] to get them for the [activeAccount].
+  CapabilitiesBloc getCapabilitiesBlocFor(final Account account) {
     if (_capabilitiesBlocs[account.id] != null) {
       return _capabilitiesBlocs[account.id]!;
     }
@@ -206,7 +245,15 @@ class AccountsBloc extends Bloc implements AccountsBlocEvents, AccountsBlocState
     );
   }
 
-  UserDetailsBloc getUserDetailsBloc(final Account account) {
+  /// The userDetailsBloc for the [activeAccount].
+  ///
+  /// Convenience method for [getUserDetailsBlocFor] with the currently active account.
+  UserDetailsBloc get activeUerDetailsBloc => getUserDetailsBlocFor(aa);
+
+  /// The userDetailsBloc for the specified [account].
+  ///
+  /// Use [activeUerDetailsBloc] to get them for the [activeAccount].
+  UserDetailsBloc getUserDetailsBlocFor(final Account account) {
     if (_userDetailsBlocs[account.id] != null) {
       return _userDetailsBlocs[account.id]!;
     }
@@ -217,7 +264,15 @@ class AccountsBloc extends Bloc implements AccountsBlocEvents, AccountsBlocState
     );
   }
 
-  UserStatusesBloc getUserStatusesBloc(final Account account) {
+  /// The userStatusBloc for the [activeAccount].
+  ///
+  /// Convenience method for [getUserStatusesBlocFor] with the currently active account.
+  UserStatusesBloc get activeUserStatusesBloc => getUserStatusesBlocFor(aa);
+
+  /// The userStatusBloc for the specified [account].
+  ///
+  /// Use [activeUserStatusesBloc] to get them for the [activeAccount].
+  UserStatusesBloc getUserStatusesBlocFor(final Account account) {
     if (_userStatusesBlocs[account.id] != null) {
       return _userStatusesBlocs[account.id]!;
     }
@@ -229,6 +284,9 @@ class AccountsBloc extends Bloc implements AccountsBlocEvents, AccountsBlocState
   }
 }
 
+/// Get a list of logged in accounts from [storage].
+///
+/// It is not checked whether the stored information is still valid.
 List<Account> loadAccounts(final AppStorage storage) {
   if (storage.containsKey(_keyAccounts)) {
     return storage

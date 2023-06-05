@@ -24,7 +24,7 @@ class NeonUserAvatar extends StatefulWidget {
 }
 
 class _UserAvatarState extends State<NeonUserAvatar> {
-  late final _userStatusBloc = Provider.of<AccountsBloc>(context, listen: false).getUserStatusesBloc(widget.account);
+  late final _userStatusBloc = Provider.of<AccountsBloc>(context, listen: false).getUserStatusesBlocFor(widget.account);
   late double size;
 
   @override

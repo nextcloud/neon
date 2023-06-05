@@ -124,7 +124,7 @@ class _NeonAppState extends State<NeonApp> with WidgetsBindingObserver, tray.Tra
           }
           final app = Provider.of<List<AppImplementation>>(context, listen: false).find('notifications');
           if (app != null) {
-            await _accountsBloc.getAppsBloc(account).getAppBloc<NotificationsBlocInterface>(app).refresh();
+            await _accountsBloc.getAppsBlocFor(account).getAppBloc<NotificationsBlocInterface>(app).refresh();
           }
         };
         Global.onPushNotificationClicked = (final pushNotificationWithAccountID) async {
@@ -144,7 +144,7 @@ class _NeonAppState extends State<NeonApp> with WidgetsBindingObserver, tray.Tra
           if (app != null) {
             if (app.id != 'notifications') {
               _accountsBloc
-                  .getAppsBloc(account)
+                  .getAppsBlocFor(account)
                   .getAppBloc<NotificationsBlocInterface>(app)
                   .deleteNotification(pushNotificationWithAccountID.subject.nid!);
             }
@@ -211,7 +211,7 @@ class _NeonAppState extends State<NeonApp> with WidgetsBindingObserver, tray.Tra
   }
 
   Future _openAppFromExternal(final Account account, final String id) async {
-    await _accountsBloc.getAppsBloc(account).setActiveApp(id);
+    await _accountsBloc.getAppsBlocFor(account).setActiveApp(id);
     _navigatorKey.currentState!.popUntil((final route) => route.settings.name == 'home');
     await _showAndRestoreWindow();
   }
@@ -268,7 +268,7 @@ class _NeonAppState extends State<NeonApp> with WidgetsBindingObserver, tray.Tra
                 FlutterNativeSplash.remove();
                 return ResultBuilder<Capabilities?>(
                   stream: activeAccountSnapshot.hasData
-                      ? widget.accountsBloc.getCapabilitiesBloc(activeAccountSnapshot.data!).capabilities
+                      ? widget.accountsBloc.getCapabilitiesBlocFor(activeAccountSnapshot.data!).capabilities
                       : null,
                   builder: (final context, final capabilitiesSnapshot) {
                     final nextcloudTheme = capabilitiesSnapshot.data?.capabilities.theming;

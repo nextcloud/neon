@@ -33,7 +33,7 @@ class AppsBloc extends InteractiveBloc implements AppsBlocEvents, AppsBlocStates
 
     appImplementations.listen((final result) {
       if (result.data != null) {
-        final options = _accountsBloc.getOptions(_account);
+        final options = _accountsBloc.getOptionsFor(_account);
         unawaited(
           options.initialApp.stream.first.then((var initialApp) async {
             if (initialApp == null) {

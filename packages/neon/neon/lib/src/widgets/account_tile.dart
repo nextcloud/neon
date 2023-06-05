@@ -20,7 +20,7 @@ class NeonAccountTile extends StatelessWidget {
 
   @override
   Widget build(final BuildContext context) {
-    final userDetailsBloc = Provider.of<AccountsBloc>(context, listen: false).getUserDetailsBloc(account);
+    final userDetailsBloc = Provider.of<AccountsBloc>(context, listen: false).getUserDetailsBlocFor(account);
 
     return ListTile(
       textColor: textColor,

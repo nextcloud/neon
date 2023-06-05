@@ -91,7 +91,7 @@ class _NotificationsMainPageState extends State<NotificationsMainPage> {
         }
         if (app != null) {
           final accountsBloc = Provider.of<AccountsBloc>(context, listen: false);
-          await accountsBloc.getAppsBloc(accountsBloc.activeAccount.value!).setActiveApp(app.id);
+          await accountsBloc.activeAppsBloc.setActiveApp(app.id);
         } else {
           await showDialog(
             context: context,
