@@ -68,9 +68,13 @@ class NewsApp extends AppImplementation<NewsBloc, NewsAppSpecificOptions> {
       );
 
   @override
-  Widget buildPage(final BuildContext context, final AppsBloc appsBloc) => NewsMainPage(
-        bloc: appsBloc.getAppBloc(this),
-      );
+  Widget buildPage(final BuildContext context, final AppsBloc appsBloc) {
+    final bloc = Provider.of<NewsBloc>(context, listen: false);
+
+    return NewsMainPage(
+      bloc: bloc,
+    );
+  }
 
   @override
   BehaviorSubject<int> getUnreadCounter(final AppsBloc appsBloc) => appsBloc.getAppBloc<NewsBloc>(this).unreadCounter;

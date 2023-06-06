@@ -37,9 +37,13 @@ class NotificationsApp extends NotificationsAppInterface {
       );
 
   @override
-  Widget buildPage(final BuildContext context, final AppsBloc appsBloc) => NotificationsMainPage(
-        bloc: appsBloc.getAppBloc(this),
-      );
+  Widget buildPage(final BuildContext context, final AppsBloc appsBloc) {
+    final bloc = Provider.of<NotificationsBloc>(context, listen: false);
+
+    return NotificationsMainPage(
+      bloc: bloc,
+    );
+  }
 
   @override
   BehaviorSubject<int> getUnreadCounter(final AppsBloc appsBloc) =>
