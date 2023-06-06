@@ -133,7 +133,7 @@ class AppsBloc extends InteractiveBloc implements AppsBlocEvents, AppsBlocStates
       }
     } else if (appID == 'notifications') {
       openNotifications.add(null);
-    } else {
+    } else if (appID != null) {
       throw Exception('App $appID not found');
     }
   }
