@@ -58,13 +58,7 @@ class NotesApp extends AppImplementation<NotesBloc, NotesAppSpecificOptions> {
       );
 
   @override
-  Widget buildPage(final BuildContext context, final AppsBloc appsBloc) {
-    final bloc = Provider.of<NotesBloc>(context, listen: false);
-
-    return NotesMainPage(
-      bloc: bloc,
-    );
-  }
+  Widget buildPage(final BuildContext context, final AppsBloc appsBloc) => const NotesMainPage();
 
   @override
   BehaviorSubject<int>? getUnreadCounter(final AppsBloc appsBloc) => null;

@@ -2,34 +2,35 @@ part of '../neon_notifications.dart';
 
 class NotificationsMainPage extends StatefulWidget {
   const NotificationsMainPage({
-    required this.bloc,
     super.key,
   });
-
-  final NotificationsBloc bloc;
 
   @override
   State<NotificationsMainPage> createState() => _NotificationsMainPageState();
 }
 
 class _NotificationsMainPageState extends State<NotificationsMainPage> {
+  late NotificationsBloc bloc;
+
   @override
   void initState() {
     super.initState();
 
-    widget.bloc.errors.listen((final error) {
+    bloc = Provider.of<NotificationsBloc>(context, listen: false);
+
+    bloc.errors.listen((final error) {
       NeonException.showSnackbar(context, error);
     });
   }
 
   @override
   Widget build(final BuildContext context) => ResultBuilder<List<NextcloudNotificationsNotification>>(
-        stream: widget.bloc.notifications,
+        stream: bloc.notifications,
         builder: (final context, final notifications) => Scaffold(
           resizeToAvoidBottomInset: false,
           floatingActionButton: FloatingActionButton(
             onPressed: () async {
-              widget.bloc.deleteAllNotifications();
+              bloc.deleteAllNotifications();
             },
             tooltip: AppLocalizations.of(context).notificationsDismissAll,
             child: const Icon(MdiIcons.checkAll),
@@ -40,7 +41,7 @@ class _NotificationsMainPageState extends State<NotificationsMainPage> {
             items: notifications.data,
             isLoading: notifications.loading,
             error: notifications.error,
-            onRefresh: widget.bloc.refresh,
+            onRefresh: bloc.refresh,
             builder: _buildNotification,
           ),
         ),
@@ -113,7 +114,7 @@ class _NotificationsMainPageState extends State<NotificationsMainPage> {
         }
       },
       onLongPress: () {
-        widget.bloc.deleteNotification(notification.notificationId);
+        bloc.deleteNotification(notification.notificationId);
       },
     );
   }

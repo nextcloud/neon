@@ -2,24 +2,23 @@ part of '../neon_news.dart';
 
 class NewsMainPage extends StatefulWidget {
   const NewsMainPage({
-    required this.bloc,
     super.key,
   });
-
-  final NewsBloc bloc;
 
   @override
   State<NewsMainPage> createState() => _NewsMainPageState();
 }
 
 class _NewsMainPageState extends State<NewsMainPage> {
-  late int _index = widget.bloc.options.defaultCategoryOption.value.index;
+  late NewsBloc bloc;
+  late int _index = bloc.options.defaultCategoryOption.value.index;
 
   @override
   void initState() {
     super.initState();
+    final bloc = Provider.of<NewsBloc>(context, listen: false);
 
-    widget.bloc.errors.listen((final error) {
+    bloc.errors.listen((final error) {
       NeonException.showSnackbar(context, error);
     });
   }
@@ -28,21 +27,21 @@ class _NewsMainPageState extends State<NewsMainPage> {
   Widget build(final BuildContext context) {
     final views = [
       NewsArticlesView(
-        bloc: widget.bloc.mainArticlesBloc,
-        newsBloc: widget.bloc,
+        bloc: bloc.mainArticlesBloc,
+        newsBloc: bloc,
       ),
       NewsFoldersView(
-        bloc: widget.bloc,
+        bloc: bloc,
       ),
       NewsFeedsView(
-        bloc: widget.bloc,
+        bloc: bloc,
       ),
     ];
 
     final floatingActionButtons = [
       null,
-      NewsFolderFloatingActionButton(bloc: widget.bloc),
-      NewsFeedFloatingActionButton(bloc: widget.bloc),
+      NewsFolderFloatingActionButton(bloc: bloc),
+      NewsFeedFloatingActionButton(bloc: bloc),
     ];
 
     return Scaffold(
