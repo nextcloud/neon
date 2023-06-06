@@ -418,6 +418,105 @@ class _HomePageState extends State<HomePage> {
                                 ),
                               ),
                             );
+                            final appBar = AppBar(
+                              scrolledUnderElevation: navigationMode != NavigationMode.drawer ? 0 : null,
+                              automaticallyImplyLeading: navigationMode == NavigationMode.drawer,
+                              leadingWidth: isQuickBar ? kQuickBarWidth : null,
+                              leading: isQuickBar
+                                  ? Container(
+                                      padding: const EdgeInsets.all(5),
+                                      child: capabilities.data?.capabilities.theming?.logo != null
+                                          ? NeonCachedUrlImage(
+                                              url: capabilities.data!.capabilities.theming!.logo!,
+                                              svgColor: Theme.of(context).iconTheme.color,
+                                            )
+                                          : null,
+                                    )
+                                  : null,
+                              title: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Row(
+                                    children: [
+                                      if (appImplementations.data != null && activeAppIDSnapshot.hasData) ...[
+                                        Flexible(
+                                          child: Text(
+                                            appImplementations.data!.find(activeAppIDSnapshot.data!)!.name(context),
+                                          ),
+                                        ),
+                                      ],
+                                      if (appImplementations.error != null) ...[
+                                        const SizedBox(
+                                          width: 8,
+                                        ),
+                                        NeonException(
+                                          appImplementations.error,
+                                          onRetry: _appsBloc.refresh,
+                                          onlyIcon: true,
+                                        ),
+                                      ],
+                                      if (appImplementations.loading) ...[
+                                        const SizedBox(
+                                          width: 8,
+                                        ),
+                                        Expanded(
+                                          child: NeonLinearProgressIndicator(
+                                            color: Theme.of(context).appBarTheme.foregroundColor,
+                                          ),
+                                        ),
+                                      ],
+                                    ],
+                                  ),
+                                  if (accounts.length > 1) ...[
+                                    Text(
+                                      account.client.humanReadableID,
+                                      style: Theme.of(context).textTheme.bodySmall,
+                                    ),
+                                  ],
+                                ],
+                              ),
+                              actions: [
+                                if (notificationsAppImplementation.data != null) ...[
+                                  StreamBuilder<int>(
+                                    stream: notificationsAppImplementation.data!.getUnreadCounter(_appsBloc),
+                                    builder: (final context, final unreadCounterSnapshot) {
+                                      final unreadCount = unreadCounterSnapshot.data ?? 0;
+                                      return IconButton(
+                                        key: Key('app-${notificationsAppImplementation.data!.id}'),
+                                        onPressed: () async {
+                                          await _openNotifications(
+                                            notificationsAppImplementation.data!,
+                                            accounts,
+                                            account,
+                                          );
+                                        },
+                                        tooltip: AppLocalizations.of(context)
+                                            .appImplementationName(notificationsAppImplementation.data!.id),
+                                        icon: NeonAppImplementationIcon(
+                                          appImplementation: notificationsAppImplementation.data!,
+                                          unreadCount: unreadCount,
+                                          color: unreadCount > 0
+                                              ? Theme.of(context).colorScheme.primary
+                                              : Theme.of(context).colorScheme.onBackground,
+                                          size: const Size.square(kAvatarSize * 2 / 3),
+                                        ),
+                                      );
+                                    },
+                                  ),
+                                ],
+                                IconButton(
+                                  onPressed: () {
+                                    AccountSettingsRoute(accountid: account.id).go(context);
+                                  },
+                                  tooltip: AppLocalizations.of(context).settingsAccount,
+                                  icon: IntrinsicWidth(
+                                    child: NeonAccountAvatar(
+                                      account: account,
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            );
 
                             return Row(
                               children: [
@@ -429,107 +528,7 @@ class _HomePageState extends State<HomePage> {
                                     key: _scaffoldKey,
                                     resizeToAvoidBottomInset: false,
                                     drawer: navigationMode == NavigationMode.drawer ? drawer : null,
-                                    appBar: AppBar(
-                                      scrolledUnderElevation: navigationMode != NavigationMode.drawer ? 0 : null,
-                                      automaticallyImplyLeading: navigationMode == NavigationMode.drawer,
-                                      leadingWidth: isQuickBar ? kQuickBarWidth : null,
-                                      leading: isQuickBar
-                                          ? Container(
-                                              padding: const EdgeInsets.all(5),
-                                              child: capabilities.data?.capabilities.theming?.logo != null
-                                                  ? NeonCachedUrlImage(
-                                                      url: capabilities.data!.capabilities.theming!.logo!,
-                                                      svgColor: Theme.of(context).iconTheme.color,
-                                                    )
-                                                  : null,
-                                            )
-                                          : null,
-                                      title: Column(
-                                        crossAxisAlignment: CrossAxisAlignment.start,
-                                        children: [
-                                          Row(
-                                            children: [
-                                              if (appImplementations.data != null && activeAppIDSnapshot.hasData) ...[
-                                                Flexible(
-                                                  child: Text(
-                                                    appImplementations.data!
-                                                        .find(activeAppIDSnapshot.data!)!
-                                                        .name(context),
-                                                  ),
-                                                ),
-                                              ],
-                                              if (appImplementations.error != null) ...[
-                                                const SizedBox(
-                                                  width: 8,
-                                                ),
-                                                NeonException(
-                                                  appImplementations.error,
-                                                  onRetry: _appsBloc.refresh,
-                                                  onlyIcon: true,
-                                                ),
-                                              ],
-                                              if (appImplementations.loading) ...[
-                                                const SizedBox(
-                                                  width: 8,
-                                                ),
-                                                Expanded(
-                                                  child: NeonLinearProgressIndicator(
-                                                    color: Theme.of(context).appBarTheme.foregroundColor,
-                                                  ),
-                                                ),
-                                              ],
-                                            ],
-                                          ),
-                                          if (accounts.length > 1) ...[
-                                            Text(
-                                              account.client.humanReadableID,
-                                              style: Theme.of(context).textTheme.bodySmall,
-                                            ),
-                                          ],
-                                        ],
-                                      ),
-                                      actions: [
-                                        if (notificationsAppImplementation.data != null) ...[
-                                          StreamBuilder<int>(
-                                            stream: notificationsAppImplementation.data!.getUnreadCounter(_appsBloc),
-                                            builder: (final context, final unreadCounterSnapshot) {
-                                              final unreadCount = unreadCounterSnapshot.data ?? 0;
-                                              return IconButton(
-                                                key: Key('app-${notificationsAppImplementation.data!.id}'),
-                                                onPressed: () async {
-                                                  await _openNotifications(
-                                                    notificationsAppImplementation.data!,
-                                                    accounts,
-                                                    account,
-                                                  );
-                                                },
-                                                tooltip: AppLocalizations.of(context)
-                                                    .appImplementationName(notificationsAppImplementation.data!.id),
-                                                icon: NeonAppImplementationIcon(
-                                                  appImplementation: notificationsAppImplementation.data!,
-                                                  unreadCount: unreadCount,
-                                                  color: unreadCount > 0
-                                                      ? Theme.of(context).colorScheme.primary
-                                                      : Theme.of(context).colorScheme.onBackground,
-                                                  size: const Size.square(kAvatarSize * 2 / 3),
-                                                ),
-                                              );
-                                            },
-                                          ),
-                                        ],
-                                        IconButton(
-                                          onPressed: () {
-                                            AccountSettingsRoute(accountid: account.id).go(context);
-                                          },
-                                          tooltip: AppLocalizations.of(context).settingsAccount,
-                                          icon: IntrinsicWidth(
-                                            child: NeonAccountAvatar(
-                                              account: account,
-                                            ),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
+                                    appBar: appBar,
                                     body: Row(
                                       children: [
                                         if (navigationMode == NavigationMode.quickBar) ...[
