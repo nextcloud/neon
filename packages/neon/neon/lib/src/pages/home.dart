@@ -518,6 +518,42 @@ class _HomePageState extends State<HomePage> {
                               ],
                             );
 
+                            final body = Builder(
+                              builder: (final context) => Row(
+                                children: [
+                                  if (navigationMode == NavigationMode.quickBar) ...[
+                                    drawer,
+                                  ],
+                                  Expanded(
+                                    child: Column(
+                                      children: [
+                                        if (appImplementations.data != null) ...[
+                                          if (appImplementations.data!.isEmpty) ...[
+                                            Expanded(
+                                              child: Center(
+                                                child: Text(
+                                                  AppLocalizations.of(context).errorNoCompatibleNextcloudAppsFound,
+                                                  textAlign: TextAlign.center,
+                                                ),
+                                              ),
+                                            ),
+                                          ] else ...[
+                                            if (activeAppIDSnapshot.hasData) ...[
+                                              Expanded(
+                                                child: appImplementations.data!
+                                                    .find(activeAppIDSnapshot.data!)!
+                                                    .buildPage(context, _appsBloc),
+                                              ),
+                                            ],
+                                          ],
+                                        ],
+                                      ],
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            );
+
                             return Row(
                               children: [
                                 if (navigationMode == NavigationMode.drawerAlwaysVisible) ...[
@@ -529,40 +565,7 @@ class _HomePageState extends State<HomePage> {
                                     resizeToAvoidBottomInset: false,
                                     drawer: navigationMode == NavigationMode.drawer ? drawer : null,
                                     appBar: appBar,
-                                    body: Row(
-                                      children: [
-                                        if (navigationMode == NavigationMode.quickBar) ...[
-                                          drawer,
-                                        ],
-                                        Expanded(
-                                          child: Column(
-                                            children: [
-                                              if (appImplementations.data != null) ...[
-                                                if (appImplementations.data!.isEmpty) ...[
-                                                  Expanded(
-                                                    child: Center(
-                                                      child: Text(
-                                                        AppLocalizations.of(context)
-                                                            .errorNoCompatibleNextcloudAppsFound,
-                                                        textAlign: TextAlign.center,
-                                                      ),
-                                                    ),
-                                                  ),
-                                                ] else ...[
-                                                  if (activeAppIDSnapshot.hasData) ...[
-                                                    Expanded(
-                                                      child: appImplementations.data!
-                                                          .find(activeAppIDSnapshot.data!)!
-                                                          .buildPage(context, _appsBloc),
-                                                    ),
-                                                  ],
-                                                ],
-                                              ],
-                                            ],
-                                          ),
-                                        ),
-                                      ],
-                                    ),
+                                    body: body,
                                   ),
                                 ),
                               ],
