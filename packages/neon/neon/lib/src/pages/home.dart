@@ -150,7 +150,7 @@ class _HomePageState extends State<HomePage> {
               ],
             ),
           ),
-          body: app.buildPage(context, _appsBloc),
+          body: app.page,
         ),
       ),
     );
@@ -526,9 +526,7 @@ class _HomePageState extends State<HomePage> {
                                   ] else ...[
                                     if (activeAppIDSnapshot.hasData) ...[
                                       Expanded(
-                                        child: appImplementations.data!
-                                            .find(activeAppIDSnapshot.data!)!
-                                            .buildPage(context, _appsBloc),
+                                        child: appImplementations.data!.find(activeAppIDSnapshot.data!)!.page,
                                       ),
                                     ],
                                   ],

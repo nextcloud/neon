@@ -62,7 +62,7 @@ class FilesApp extends AppImplementation<FilesBloc, FilesAppSpecificOptions> {
       );
 
   @override
-  Widget buildPage(final BuildContext context, final AppsBloc appsBloc) => const FilesMainPage();
+  Widget get page => const FilesMainPage();
 
   @override
   BehaviorSubject<int>? getUnreadCounter(final AppsBloc appsBloc) => null;

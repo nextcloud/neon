@@ -37,7 +37,7 @@ class NotificationsApp extends NotificationsAppInterface {
       );
 
   @override
-  Widget buildPage(final BuildContext context, final AppsBloc appsBloc) => const NotificationsMainPage();
+  Widget get page => const NotificationsMainPage();
 
   @override
   BehaviorSubject<int> getUnreadCounter(final AppsBloc appsBloc) =>

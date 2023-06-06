@@ -30,7 +30,7 @@ abstract class AppImplementation<T extends Bloc, R extends NextcloudAppSpecificO
 
   BehaviorSubject<int>? getUnreadCounter(final AppsBloc appsBloc);
 
-  Widget buildPage(final BuildContext context, final AppsBloc appsBloc);
+  Widget get page;
 
   Widget buildIcon(
     final BuildContext context, {
