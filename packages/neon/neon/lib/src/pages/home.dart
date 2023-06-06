@@ -504,7 +504,7 @@ class _HomePageState extends State<HomePage> {
                       ],
                     );
 
-                    final body = Builder(
+                    Widget body = Builder(
                       builder: (final context) => Row(
                         children: [
                           if (navigationMode == NavigationMode.quickBar) ...[
@@ -539,6 +539,14 @@ class _HomePageState extends State<HomePage> {
                         ],
                       ),
                     );
+
+                    final appProviders = _appsBloc.getAppProviders();
+                    if (appProviders != null) {
+                      body = MultiProvider(
+                        providers: appProviders,
+                        child: body,
+                      );
+                    }
 
                     return WillPopScope(
                       onWillPop: () async {

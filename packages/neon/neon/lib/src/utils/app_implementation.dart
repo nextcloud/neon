@@ -24,6 +24,10 @@ abstract class AppImplementation<T extends Bloc, R extends NextcloudAppSpecificO
 
   T buildBloc(final NextcloudClient client);
 
+  Provider<T> blocProvider(final NextcloudClient client) => Provider<T>(
+        create: (final _) => buildBloc(client),
+      );
+
   BehaviorSubject<int>? getUnreadCounter(final AppsBloc appsBloc);
 
   Widget buildPage(final BuildContext context, final AppsBloc appsBloc);
