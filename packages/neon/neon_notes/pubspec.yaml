@@ -7,6 +7,7 @@ environment:
   flutter: '>=3.10.0'
 
 dependencies:
+  built_collection: ^5.1.1
   crypto: ^3.0.3
   flutter:
     sdk: flutter
