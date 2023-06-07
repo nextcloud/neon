@@ -495,10 +495,8 @@ class _HomePageState extends State<HomePage> {
                             AccountSettingsRoute(accountid: account.id).go(context);
                           },
                           tooltip: AppLocalizations.of(context).settingsAccount,
-                          icon: IntrinsicWidth(
-                            child: NeonUserAvatar(
-                              account: account,
-                            ),
+                          icon: NeonUserAvatar(
+                            account: account,
                           ),
                         ),
                       ],
