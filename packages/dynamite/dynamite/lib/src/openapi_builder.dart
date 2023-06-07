@@ -1228,10 +1228,10 @@ class State {
   State(this.prefix);
 
   final String prefix;
-  final resolvedTypes = <String>[];
-  final registeredJsonObjects = <String>[];
+  final resolvedTypes = <String>{};
+  final registeredJsonObjects = <String>{};
   final output = <Spec>[];
-  final resolvedTypeCombinations = <TypeResult>[];
+  final resolvedTypeCombinations = <TypeResult>{};
 }
 
 TypeResult resolveObject(
