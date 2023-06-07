@@ -33,10 +33,8 @@ class NeonAccountTile extends StatelessWidget {
               vertical: -4,
             )
           : null,
-      leading: IntrinsicWidth(
-        child: NeonUserAvatar(
-          account: account,
-        ),
+      leading: NeonUserAvatar(
+        account: account,
       ),
       title: ResultBuilder<NextcloudProvisioningApiUserDetails>(
         stream: userDetailsBloc.userDetails,

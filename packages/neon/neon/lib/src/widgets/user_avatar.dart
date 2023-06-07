@@ -25,6 +25,7 @@ class NeonUserAvatar extends StatefulWidget {
 
 class _UserAvatarState extends State<NeonUserAvatar> {
   late final _userStatusBloc = Provider.of<AccountsBloc>(context, listen: false).getUserStatusesBloc(widget.account);
+  late double size;
 
   @override
   void initState() {
@@ -34,47 +35,50 @@ class _UserAvatarState extends State<NeonUserAvatar> {
   }
 
   @override
-  Widget build(final BuildContext context) {
-    final isDark = Theme.of(context).brightness == Brightness.dark;
-    final size = (widget.size * MediaQuery.of(context).devicePixelRatio).toInt();
-    return Stack(
-      alignment: Alignment.center,
-      children: [
-        CircleAvatar(
-          radius: widget.size / 2,
-          child: ClipOval(
-            child: NeonCachedApiImage(
-              account: widget.account,
-              cacheKey: 'avatar-${widget.username}-${isDark ? 'dark' : 'light'}$size',
-              download: () async {
-                if (isDark) {
-                  return widget.account.client.core.getDarkAvatar(
-                    userId: widget.username,
-                    size: size,
-                  );
-                } else {
-                  return widget.account.client.core.getAvatar(
-                    userId: widget.username,
-                    size: size,
-                  );
-                }
-              },
-            ),
-          ),
-        ),
-        if (widget.showStatus) ...[
-          ResultBuilder<NextcloudUserStatusPublicStatus?>(
-            stream: _userStatusBloc.statuses.map((final statuses) => statuses[widget.username]),
-            builder: _userStatusIconBuilder,
-          ),
-        ],
-      ],
-    );
-  }
+  Widget build(final BuildContext context) => LayoutBuilder(
+        builder: (final context, final constraints) {
+          final isDark = Theme.of(context).brightness == Brightness.dark;
+          size = constraints.constrain(Size.square(widget.size)).shortestSide;
+          final pixelSize = (size * MediaQuery.of(context).devicePixelRatio).toInt();
+          return Stack(
+            alignment: Alignment.center,
+            children: [
+              CircleAvatar(
+                radius: size / 2,
+                child: ClipOval(
+                  child: NeonCachedApiImage(
+                    account: widget.account,
+                    cacheKey: 'avatar-${widget.username}-${isDark ? 'dark' : 'light'}$pixelSize',
+                    download: () async {
+                      if (isDark) {
+                        return widget.account.client.core.getDarkAvatar(
+                          userId: widget.username,
+                          size: pixelSize,
+                        );
+                      } else {
+                        return widget.account.client.core.getAvatar(
+                          userId: widget.username,
+                          size: pixelSize,
+                        );
+                      }
+                    },
+                  ),
+                ),
+              ),
+              if (widget.showStatus) ...[
+                ResultBuilder<NextcloudUserStatusPublicStatus?>(
+                  stream: _userStatusBloc.statuses.map((final statuses) => statuses[widget.username]),
+                  builder: _userStatusIconBuilder,
+                ),
+              ],
+            ],
+          );
+        },
+      );
 
   Widget _userStatusIconBuilder(final BuildContext context, final Result<NextcloudUserStatusPublicStatus?> result) {
     final hasEmoji = result.data?.icon != null;
-    final scaledSize = widget.size / (hasEmoji ? 2 : 3);
+    final scaledSize = size / (hasEmoji ? 2 : 3);
 
     Widget? child;
     Decoration? decoration;
@@ -104,7 +108,7 @@ class _UserAvatarState extends State<NeonUserAvatar> {
     }
 
     return SizedBox.square(
-      dimension: widget.size,
+      dimension: size,
       child: Align(
         alignment: Alignment.bottomRight,
         child: Container(
