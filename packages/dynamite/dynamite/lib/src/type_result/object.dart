@@ -2,6 +2,7 @@ part of 'type_result.dart';
 
 const _contentString = 'ContentString';
 
+@immutable
 class TypeResultObject extends TypeResult {
   TypeResultObject(
     super.className, {

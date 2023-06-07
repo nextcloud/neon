@@ -1,5 +1,6 @@
 part of 'type_result.dart';
 
+@immutable
 class TypeResultBase extends TypeResult {
   TypeResultBase(
     super.name, {

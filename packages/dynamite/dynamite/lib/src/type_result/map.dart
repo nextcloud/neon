@@ -1,5 +1,6 @@
 part of 'type_result.dart';
 
+@immutable
 class TypeResultMap extends TypeResult {
   TypeResultMap(
     super.name,
@@ -14,4 +15,15 @@ class TypeResultMap extends TypeResult {
 
   @override
   TypeResultMap get dartType => TypeResultMap('Map', subType, nullable: nullable);
+
+  @override
+  bool operator ==(final Object other) =>
+      other is TypeResultMap &&
+      other.className == className &&
+      other.generics == generics &&
+      other.nullable == nullable &&
+      other.subType == subType;
+
+  @override
+  int get hashCode => className.hashCode + generics.hashCode + nullable.hashCode + subType.hashCode;
 }
