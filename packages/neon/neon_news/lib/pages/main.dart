@@ -16,7 +16,7 @@ class _NewsMainPageState extends State<NewsMainPage> {
   @override
   void initState() {
     super.initState();
-    final bloc = Provider.of<NewsBloc>(context, listen: false);
+    bloc = Provider.of<NewsBloc>(context, listen: false);
 
     bloc.errors.listen((final error) {
       NeonException.showSnackbar(context, error);
