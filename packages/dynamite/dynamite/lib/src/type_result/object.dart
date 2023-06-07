@@ -1,4 +1,4 @@
-part of '../../dynamite.dart';
+part of 'type_result.dart';
 
 const _contentString = 'ContentString';
 

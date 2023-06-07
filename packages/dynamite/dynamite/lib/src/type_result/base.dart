@@ -1,4 +1,4 @@
-part of '../../dynamite.dart';
+part of 'type_result.dart';
 
 class TypeResultBase extends TypeResult {
   TypeResultBase(

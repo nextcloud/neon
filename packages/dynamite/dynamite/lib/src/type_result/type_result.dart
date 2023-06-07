@@ -1,4 +1,11 @@
-part of '../../dynamite.dart';
+import 'package:intersperse/intersperse.dart';
+import 'package:meta/meta.dart';
+
+part 'base.dart';
+part 'enum.dart';
+part 'list.dart';
+part 'map.dart';
+part 'object.dart';
 
 abstract class TypeResult {
   TypeResult(
