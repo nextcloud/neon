@@ -35,7 +35,9 @@ class _UserAvatarState extends State<NeonUserAvatar> {
   void initState() {
     super.initState();
 
-    unawaited(_userStatusBloc.load(widget.username));
+    if (widget.showStatus) {
+      unawaited(_userStatusBloc.load(widget.username));
+    }
   }
 
   @override
