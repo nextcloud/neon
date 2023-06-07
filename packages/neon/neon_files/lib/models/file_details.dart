@@ -1,7 +1,8 @@
 part of '../neon_files.dart';
 
+@immutable
 class FileDetails {
-  FileDetails({
+  const FileDetails({
     required this.path,
     required this.isDirectory,
     required this.size,
