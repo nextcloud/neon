@@ -28,8 +28,8 @@ class _HomePageState extends State<HomePage> {
     _globalOptions = Provider.of<GlobalOptions>(context, listen: false);
     _accountsBloc = Provider.of<AccountsBloc>(context, listen: false);
     _account = _accountsBloc.activeAccount.value!;
-    _appsBloc = _accountsBloc.getAppsBloc(_account);
-    _capabilitiesBloc = _accountsBloc.getCapabilitiesBloc(_account);
+    _appsBloc = _accountsBloc.activeAppsBloc;
+    _capabilitiesBloc = _accountsBloc.activeCapabilitiesBloc;
 
     _appsBloc.openNotifications.listen((final _) async {
       final notificationsAppImplementation = _appsBloc.notificationsAppImplementation.valueOrNull;
@@ -300,7 +300,7 @@ class _HomePageState extends State<HomePage> {
                                                             .toList(),
                                                         onChanged: (final id) {
                                                           if (id != null) {
-                                                            _accountsBloc.setActiveAccount(accounts.find(id));
+                                                            _accountsBloc.setActiveAccount(accounts.find(id)!);
                                                           }
                                                         },
                                                       ),

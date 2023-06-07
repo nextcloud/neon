@@ -1,16 +1,40 @@
-part of '../../neon.dart';
+part of 'blocs.dart';
 
 const _keyAccounts = 'accounts';
 
-abstract class AccountsBlocEvents {
+abstract interface class AccountsBlocEvents {
+  /// Logs in the given [account].
+  ///
+  /// It will also call [setActiveAccount] when no other accounts are registered in [AccountsBlocStates.accounts].
   void addAccount(final Account account);
+
+  /// Logs out the given [account].
+  ///
+  /// If [account] is the current [AccountsBlocStates.activeAccount] it will automatically activate the first one in [AccountsBlocStates.accounts].
+  /// It is not defined whether listeners of [AccountsBlocStates.accounts] or [AccountsBlocStates.activeAccount] are informed first.
   void removeAccount(final Account account);
+
+  /// Updates the given [account].
+  ///
+  /// It triggers an event in both [AccountsBlocStates.accounts] and [AccountsBlocStates.activeAccount] to inform all listeners.
   void updateAccount(final Account account);
-  void setActiveAccount(final Account? account);
+
+  /// Sets the active [account].
+  ///
+  /// It triggers an event in [AccountsBlocStates.activeAccount] to inform all listeners.
+  void setActiveAccount(final Account account);
 }
 
-abstract class AccountsBlocStates {
+abstract interface class AccountsBlocStates {
+  /// All registered accounts.
+  ///
+  /// An empty value represents a state where no account is logged in.
   BehaviorSubject<List<Account>> get accounts;
+
+  /// Currently active account.
+  ///
+  /// It should be ensured to only emit an event when it's value changes.
+  /// A null value represents a state where no user is logged in.
   BehaviorSubject<Account?> get activeAccount;
 }
 
@@ -111,7 +135,11 @@ class AccountsBloc extends Bloc implements AccountsBlocEvents, AccountsBlocState
     final as = accounts.value;
     final aa = activeAccount.valueOrNull;
     if (aa?.id == account.id) {
-      setActiveAccount(as.firstOrNull);
+      if (as.firstOrNull != null) {
+        setActiveAccount(as.first);
+      } else {
+        activeAccount.add(null);
+      }
     }
 
     unawaited(() async {
@@ -125,9 +153,8 @@ class AccountsBloc extends Bloc implements AccountsBlocEvents, AccountsBlocState
   }
 
   @override
-  void setActiveAccount(final Account? account) {
-    final as = accounts.value;
-    activeAccount.add(account ?? as.firstOrNull);
+  void setActiveAccount(final Account account) {
+    activeAccount.add(account);
   }
 
   @override
@@ -149,26 +176,65 @@ class AccountsBloc extends Bloc implements AccountsBlocEvents, AccountsBlocState
     setActiveAccount(account);
   }
 
-  AccountSpecificOptions getOptions(final Account account) => _accountsOptions[account.id] ??= AccountSpecificOptions(
+  /// The currently active account.
+  ///
+  /// Equivalent to activeAccount.value but throws a [StateError] when no user is logged in.
+  @visibleForTesting
+  Account get aa {
+    final aa = activeAccount.value;
+
+    if (aa == null) {
+      throw StateError('No user is logged in.');
+    }
+
+    return aa;
+  }
+
+  /// The options for the [activeAccount].
+  ///
+  /// Convenience method for [getOptionsFor] with the currently active account.
+  AccountSpecificOptions get activeOptions => getOptionsFor(aa);
+
+  /// The options for the specified [account].
+  ///
+  /// Use [activeOptions] to get them for the [activeAccount].
+  AccountSpecificOptions getOptionsFor(final Account account) =>
+      _accountsOptions[account.id] ??= AccountSpecificOptions(
         AppStorage('accounts-${account.id}', _sharedPreferences),
-        getAppsBloc(account),
+        getAppsBlocFor(account),
       );
 
-  AppsBloc getAppsBloc(final Account account) {
+  /// The appsBloc for the [activeAccount].
+  ///
+  /// Convenience method for [getAppsBlocFor] with the currently active account.
+  AppsBloc get activeAppsBloc => getAppsBlocFor(aa);
+
+  /// The appsBloc for the specified [account].
+  ///
+  /// Use [activeAppsBloc] to get them for the [activeAccount].
+  AppsBloc getAppsBlocFor(final Account account) {
     if (_appsBlocs[account.id] != null) {
       return _appsBlocs[account.id]!;
     }
 
     return _appsBlocs[account.id] = AppsBloc(
       _requestManager,
-      getCapabilitiesBloc(account),
+      getCapabilitiesBlocFor(account),
       this,
       account,
       _allAppImplementations,
     );
   }
 
-  CapabilitiesBloc getCapabilitiesBloc(final Account account) {
+  /// The capabilitiesBloc for the [activeAccount].
+  ///
+  /// Convenience method for [getCapabilitiesBlocFor] with the currently active account.
+  CapabilitiesBloc get activeCapabilitiesBloc => getCapabilitiesBlocFor(aa);
+
+  /// The capabilitiesBloc for the specified [account].
+  ///
+  /// Use [activeCapabilitiesBloc] to get them for the [activeAccount].
+  CapabilitiesBloc getCapabilitiesBlocFor(final Account account) {
     if (_capabilitiesBlocs[account.id] != null) {
       return _capabilitiesBlocs[account.id]!;
     }
@@ -179,7 +245,15 @@ class AccountsBloc extends Bloc implements AccountsBlocEvents, AccountsBlocState
     );
   }
 
-  UserDetailsBloc getUserDetailsBloc(final Account account) {
+  /// The userDetailsBloc for the [activeAccount].
+  ///
+  /// Convenience method for [getUserDetailsBlocFor] with the currently active account.
+  UserDetailsBloc get activeUerDetailsBloc => getUserDetailsBlocFor(aa);
+
+  /// The userDetailsBloc for the specified [account].
+  ///
+  /// Use [activeUerDetailsBloc] to get them for the [activeAccount].
+  UserDetailsBloc getUserDetailsBlocFor(final Account account) {
     if (_userDetailsBlocs[account.id] != null) {
       return _userDetailsBlocs[account.id]!;
     }
@@ -190,7 +264,15 @@ class AccountsBloc extends Bloc implements AccountsBlocEvents, AccountsBlocState
     );
   }
 
-  UserStatusesBloc getUserStatusesBloc(final Account account) {
+  /// The userStatusBloc for the [activeAccount].
+  ///
+  /// Convenience method for [getUserStatusesBlocFor] with the currently active account.
+  UserStatusesBloc get activeUserStatusesBloc => getUserStatusesBlocFor(aa);
+
+  /// The userStatusBloc for the specified [account].
+  ///
+  /// Use [activeUserStatusesBloc] to get them for the [activeAccount].
+  UserStatusesBloc getUserStatusesBlocFor(final Account account) {
     if (_userStatusesBlocs[account.id] != null) {
       return _userStatusesBlocs[account.id]!;
     }
@@ -202,6 +284,9 @@ class AccountsBloc extends Bloc implements AccountsBlocEvents, AccountsBlocState
   }
 }
 
+/// Get a list of logged in accounts from [storage].
+///
+/// It is not checked whether the stored information is still valid.
 List<Account> loadAccounts(final AppStorage storage) {
   if (storage.containsKey(_keyAccounts)) {
     return storage

@@ -1,4 +1,4 @@
-part of '../../neon.dart';
+part of 'blocs.dart';
 
 typedef Capabilities = NextcloudCoreServerCapabilities_Ocs_Data;
 typedef NextcloudTheme = NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Theming;

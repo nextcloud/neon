@@ -1,4 +1,4 @@
-part of '../../neon.dart';
+part of 'blocs.dart';
 
 abstract class UserStatusesBlocEvents {
   void load(final String username, {final bool force = false});

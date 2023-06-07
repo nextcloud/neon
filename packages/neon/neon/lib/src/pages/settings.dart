@@ -31,7 +31,7 @@ class _SettingsPageState extends State<SettingsPage> {
                 }
 
                 for (final account in accountsBloc.accounts.value) {
-                  await accountsBloc.getOptions(account).reset();
+                  await accountsBloc.getOptionsFor(account).reset();
                 }
               }
             },
@@ -52,7 +52,7 @@ class _SettingsPageState extends State<SettingsPage> {
             accountSpecificOptions: {
               if (accountsSnapshot.hasData) ...{
                 for (final account in accountsSnapshot.data!) ...{
-                  account: accountsBloc.getOptions(account).options,
+                  account: accountsBloc.getOptionsFor(account).options,
                 },
               },
             },
