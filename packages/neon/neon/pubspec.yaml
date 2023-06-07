@@ -64,6 +64,7 @@ dev_dependencies:
     git:
       url: https://github.com/stack11/dart_nit_picking
       ref: 0b2ee0d
+  test: ^1.24.3
 
 dependency_overrides:
   wakelock_windows: # TODO: https://github.com/creativecreatorormaybenot/wakelock/pull/195

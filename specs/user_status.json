@@ -267,47 +267,29 @@
         }
       },
       "Status": {
-        "type": "object",
-        "required": [
-          "userId",
-          "messageIsPredefined",
-          "status",
-          "statusIsUserDefined"
-        ],
-        "properties": {
-          "userId": {
-            "type": "string"
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PublicStatus"
           },
-          "message": {
-            "type": "string"
-          },
-          "messageId": {
-            "type": "string"
-          },
-          "messageIsPredefined": {
-            "type": "boolean"
-          },
-          "icon": {
-            "type": "string"
-          },
-          "clearAt": {
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/ClearAt"
+          {
+            "type": "object",
+            "required": [
+              "messageIsPredefined",
+              "statusIsUserDefined"
+            ],
+            "properties": {
+              "messageId": {
+                "type": "string"
               },
-              {
-                "type": "integer",
-                "description": "Time as unix timestamp"
+              "messageIsPredefined": {
+                "type": "boolean"
+              },
+              "statusIsUserDefined": {
+                "type": "boolean"
               }
-            ]
-          },
-          "status": {
-            "$ref": "#/components/schemas/Type"
-          },
-          "statusIsUserDefined": {
-            "type": "boolean"
+            }
           }
-        }
+        ]
       },
       "PublicStatus": {
         "type": "object",
@@ -358,7 +340,17 @@
                 "$ref": "#/components/schemas/OCSMeta"
               },
               "data": {
-                "$ref": "#/components/schemas/Status"
+                "oneOf": [
+                  {
+                    "type": "array",
+                    "items": {
+                      "type": "object"
+                    }
+                  },
+                  {
+                    "$ref": "#/components/schemas/Status"
+                  }
+                ]
               }
             }
           }

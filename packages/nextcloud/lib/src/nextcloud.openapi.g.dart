@@ -225,6 +225,7 @@ Serializers _$serializers = (Serializers().toBuilder()
       ..add(NextcloudUserStatusGetStatus_Ocs_Data.serializer)
       ..add(NextcloudUserStatusHeartbeat.serializer)
       ..add(NextcloudUserStatusHeartbeat_Ocs.serializer)
+      ..add(NextcloudUserStatusHeartbeat_Ocs_Data.serializer)
       ..add(NextcloudUserStatusPredefinedStatus.serializer)
       ..add(NextcloudUserStatusPredefinedStatus_ClearAt.serializer)
       ..add(NextcloudUserStatusPredefinedStatuses.serializer)
@@ -232,8 +233,9 @@ Serializers _$serializers = (Serializers().toBuilder()
       ..add(NextcloudUserStatusPublicStatus.serializer)
       ..add(NextcloudUserStatusPublicStatus_ClearAt.serializer)
       ..add(NextcloudUserStatusStatus.serializer)
-      ..add(NextcloudUserStatusStatus_ClearAt.serializer)
+      ..add(NextcloudUserStatusStatus1.serializer)
       ..add(NextcloudUserStatusType.serializer)
+      ..addBuilderFactory(const FullType(BuiltList, [FullType(JsonObject)]), () => ListBuilder<JsonObject>())
       ..addBuilderFactory(const FullType(BuiltList, [FullType(JsonObject)]), () => ListBuilder<JsonObject>())
       ..addBuilderFactory(const FullType(BuiltList, [FullType(JsonObject)]), () => ListBuilder<JsonObject>())
       ..addBuilderFactory(const FullType(BuiltList, [FullType(JsonObject)]), () => ListBuilder<JsonObject>())
@@ -548,7 +550,8 @@ Serializer<NextcloudUserStatusGetPublicStatus_Ocs> _$nextcloudUserStatusGetPubli
     _$NextcloudUserStatusGetPublicStatus_OcsSerializer();
 Serializer<NextcloudUserStatusGetPublicStatus> _$nextcloudUserStatusGetPublicStatusSerializer =
     _$NextcloudUserStatusGetPublicStatusSerializer();
-Serializer<NextcloudUserStatusStatus> _$nextcloudUserStatusStatusSerializer = _$NextcloudUserStatusStatusSerializer();
+Serializer<NextcloudUserStatusStatus1> _$nextcloudUserStatusStatus1Serializer =
+    _$NextcloudUserStatusStatus1Serializer();
 Serializer<NextcloudUserStatusGetStatus_Ocs> _$nextcloudUserStatusGetStatusOcsSerializer =
     _$NextcloudUserStatusGetStatus_OcsSerializer();
 Serializer<NextcloudUserStatusGetStatus> _$nextcloudUserStatusGetStatusSerializer =
@@ -7380,57 +7383,35 @@ class _$NextcloudUserStatusGetPublicStatusSerializer
   }
 }
 
-class _$NextcloudUserStatusStatusSerializer implements StructuredSerializer<NextcloudUserStatusStatus> {
+class _$NextcloudUserStatusStatus1Serializer implements StructuredSerializer<NextcloudUserStatusStatus1> {
   @override
-  final Iterable<Type> types = const [NextcloudUserStatusStatus, _$NextcloudUserStatusStatus];
+  final Iterable<Type> types = const [NextcloudUserStatusStatus1, _$NextcloudUserStatusStatus1];
   @override
-  final String wireName = 'NextcloudUserStatusStatus';
+  final String wireName = 'NextcloudUserStatusStatus1';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, NextcloudUserStatusStatus object,
+  Iterable<Object?> serialize(Serializers serializers, NextcloudUserStatusStatus1 object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
-      'userId',
-      serializers.serialize(object.userId, specifiedType: const FullType(String)),
       'messageIsPredefined',
       serializers.serialize(object.messageIsPredefined, specifiedType: const FullType(bool)),
-      'status',
-      serializers.serialize(object.status, specifiedType: const FullType(NextcloudUserStatusType)),
       'statusIsUserDefined',
       serializers.serialize(object.statusIsUserDefined, specifiedType: const FullType(bool)),
     ];
     Object? value;
-    value = object.message;
-    if (value != null) {
-      result
-        ..add('message')
-        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
-    }
     value = object.messageId;
     if (value != null) {
       result
         ..add('messageId')
         ..add(serializers.serialize(value, specifiedType: const FullType(String)));
     }
-    value = object.icon;
-    if (value != null) {
-      result
-        ..add('icon')
-        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
-    }
-    value = object.clearAt;
-    if (value != null) {
-      result
-        ..add('clearAt')
-        ..add(serializers.serialize(value, specifiedType: const FullType(NextcloudUserStatusStatus_ClearAt)));
-    }
     return result;
   }
 
   @override
-  NextcloudUserStatusStatus deserialize(Serializers serializers, Iterable<Object?> serialized,
+  NextcloudUserStatusStatus1 deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = NextcloudUserStatusStatusBuilder();
+    final result = NextcloudUserStatusStatus1Builder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -7438,28 +7419,11 @@ class _$NextcloudUserStatusStatusSerializer implements StructuredSerializer<Next
       iterator.moveNext();
       final Object? value = iterator.current;
       switch (key) {
-        case 'userId':
-          result.userId = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
-          break;
-        case 'message':
-          result.message = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
-          break;
         case 'messageId':
           result.messageId = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
           break;
         case 'messageIsPredefined':
           result.messageIsPredefined = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
-          break;
-        case 'icon':
-          result.icon = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
-          break;
-        case 'clearAt':
-          result.clearAt.replace(serializers.deserialize(value,
-              specifiedType: const FullType(NextcloudUserStatusStatus_ClearAt))! as NextcloudUserStatusStatus_ClearAt);
-          break;
-        case 'status':
-          result.status = serializers.deserialize(value, specifiedType: const FullType(NextcloudUserStatusType))!
-              as NextcloudUserStatusType;
           break;
         case 'statusIsUserDefined':
           result.statusIsUserDefined = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
@@ -7721,7 +7685,7 @@ class _$NextcloudUserStatusHeartbeat_OcsSerializer implements StructuredSerializ
       'meta',
       serializers.serialize(object.meta, specifiedType: const FullType(NextcloudOCSMeta)),
       'data',
-      serializers.serialize(object.data, specifiedType: const FullType(NextcloudUserStatusStatus)),
+      serializers.serialize(object.data, specifiedType: const FullType(NextcloudUserStatusHeartbeat_Ocs_Data)),
     ];
 
     return result;
@@ -7743,8 +7707,9 @@ class _$NextcloudUserStatusHeartbeat_OcsSerializer implements StructuredSerializ
               serializers.deserialize(value, specifiedType: const FullType(NextcloudOCSMeta))! as NextcloudOCSMeta);
           break;
         case 'data':
-          result.data.replace(serializers.deserialize(value, specifiedType: const FullType(NextcloudUserStatusStatus))!
-              as NextcloudUserStatusStatus);
+          result.data.replace(
+              serializers.deserialize(value, specifiedType: const FullType(NextcloudUserStatusHeartbeat_Ocs_Data))!
+                  as NextcloudUserStatusHeartbeat_Ocs_Data);
           break;
       }
     }
@@ -21799,120 +21764,110 @@ class NextcloudUserStatusGetPublicStatusBuilder
   }
 }
 
-class _$NextcloudUserStatusStatus_ClearAt extends NextcloudUserStatusStatus_ClearAt {
+class _$NextcloudUserStatusStatus1 extends NextcloudUserStatusStatus1 {
   @override
-  final JsonObject data;
+  final String? messageId;
   @override
-  final NextcloudUserStatusClearAt? userStatusClearAt;
+  final bool messageIsPredefined;
   @override
-  final int? $int;
+  final bool statusIsUserDefined;
 
-  factory _$NextcloudUserStatusStatus_ClearAt([void Function(NextcloudUserStatusStatus_ClearAtBuilder)? updates]) =>
-      (NextcloudUserStatusStatus_ClearAtBuilder()..update(updates))._build();
+  factory _$NextcloudUserStatusStatus1([void Function(NextcloudUserStatusStatus1Builder)? updates]) =>
+      (NextcloudUserStatusStatus1Builder()..update(updates))._build();
 
-  _$NextcloudUserStatusStatus_ClearAt._({required this.data, this.userStatusClearAt, this.$int}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(data, r'NextcloudUserStatusStatus_ClearAt', 'data');
+  _$NextcloudUserStatusStatus1._({this.messageId, required this.messageIsPredefined, required this.statusIsUserDefined})
+      : super._() {
+    BuiltValueNullFieldError.checkNotNull(messageIsPredefined, r'NextcloudUserStatusStatus1', 'messageIsPredefined');
+    BuiltValueNullFieldError.checkNotNull(statusIsUserDefined, r'NextcloudUserStatusStatus1', 'statusIsUserDefined');
   }
 
   @override
-  NextcloudUserStatusStatus_ClearAt rebuild(void Function(NextcloudUserStatusStatus_ClearAtBuilder) updates) =>
+  NextcloudUserStatusStatus1 rebuild(void Function(NextcloudUserStatusStatus1Builder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  NextcloudUserStatusStatus_ClearAtBuilder toBuilder() => NextcloudUserStatusStatus_ClearAtBuilder()..replace(this);
+  NextcloudUserStatusStatus1Builder toBuilder() => NextcloudUserStatusStatus1Builder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is NextcloudUserStatusStatus_ClearAt &&
-        data == other.data &&
-        userStatusClearAt == other.userStatusClearAt &&
-        $int == other.$int;
+    return other is NextcloudUserStatusStatus1 &&
+        messageId == other.messageId &&
+        messageIsPredefined == other.messageIsPredefined &&
+        statusIsUserDefined == other.statusIsUserDefined;
   }
 
   @override
   int get hashCode {
     var _$hash = 0;
-    _$hash = $jc(_$hash, data.hashCode);
-    _$hash = $jc(_$hash, userStatusClearAt.hashCode);
-    _$hash = $jc(_$hash, $int.hashCode);
+    _$hash = $jc(_$hash, messageId.hashCode);
+    _$hash = $jc(_$hash, messageIsPredefined.hashCode);
+    _$hash = $jc(_$hash, statusIsUserDefined.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
   }
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'NextcloudUserStatusStatus_ClearAt')
-          ..add('data', data)
-          ..add('userStatusClearAt', userStatusClearAt)
-          ..add('\$int', $int))
+    return (newBuiltValueToStringHelper(r'NextcloudUserStatusStatus1')
+          ..add('messageId', messageId)
+          ..add('messageIsPredefined', messageIsPredefined)
+          ..add('statusIsUserDefined', statusIsUserDefined))
         .toString();
   }
 }
 
-class NextcloudUserStatusStatus_ClearAtBuilder
-    implements Builder<NextcloudUserStatusStatus_ClearAt, NextcloudUserStatusStatus_ClearAtBuilder> {
-  _$NextcloudUserStatusStatus_ClearAt? _$v;
+class NextcloudUserStatusStatus1Builder
+    implements Builder<NextcloudUserStatusStatus1, NextcloudUserStatusStatus1Builder> {
+  _$NextcloudUserStatusStatus1? _$v;
 
-  JsonObject? _data;
-  JsonObject? get data => _$this._data;
-  set data(JsonObject? data) => _$this._data = data;
+  String? _messageId;
+  String? get messageId => _$this._messageId;
+  set messageId(String? messageId) => _$this._messageId = messageId;
 
-  NextcloudUserStatusClearAtBuilder? _userStatusClearAt;
-  NextcloudUserStatusClearAtBuilder get userStatusClearAt =>
-      _$this._userStatusClearAt ??= NextcloudUserStatusClearAtBuilder();
-  set userStatusClearAt(NextcloudUserStatusClearAtBuilder? userStatusClearAt) =>
-      _$this._userStatusClearAt = userStatusClearAt;
+  bool? _messageIsPredefined;
+  bool? get messageIsPredefined => _$this._messageIsPredefined;
+  set messageIsPredefined(bool? messageIsPredefined) => _$this._messageIsPredefined = messageIsPredefined;
 
-  int? _$int;
-  int? get $int => _$this._$int;
-  set $int(int? $int) => _$this._$int = $int;
+  bool? _statusIsUserDefined;
+  bool? get statusIsUserDefined => _$this._statusIsUserDefined;
+  set statusIsUserDefined(bool? statusIsUserDefined) => _$this._statusIsUserDefined = statusIsUserDefined;
 
-  NextcloudUserStatusStatus_ClearAtBuilder();
+  NextcloudUserStatusStatus1Builder();
 
-  NextcloudUserStatusStatus_ClearAtBuilder get _$this {
+  NextcloudUserStatusStatus1Builder get _$this {
     final $v = _$v;
     if ($v != null) {
-      _data = $v.data;
-      _userStatusClearAt = $v.userStatusClearAt?.toBuilder();
-      _$int = $v.$int;
+      _messageId = $v.messageId;
+      _messageIsPredefined = $v.messageIsPredefined;
+      _statusIsUserDefined = $v.statusIsUserDefined;
       _$v = null;
     }
     return this;
   }
 
   @override
-  void replace(NextcloudUserStatusStatus_ClearAt other) {
+  void replace(NextcloudUserStatusStatus1 other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$NextcloudUserStatusStatus_ClearAt;
+    _$v = other as _$NextcloudUserStatusStatus1;
   }
 
   @override
-  void update(void Function(NextcloudUserStatusStatus_ClearAtBuilder)? updates) {
+  void update(void Function(NextcloudUserStatusStatus1Builder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  NextcloudUserStatusStatus_ClearAt build() => _build();
+  NextcloudUserStatusStatus1 build() => _build();
 
-  _$NextcloudUserStatusStatus_ClearAt _build() {
-    _$NextcloudUserStatusStatus_ClearAt _$result;
-    try {
-      _$result = _$v ??
-          _$NextcloudUserStatusStatus_ClearAt._(
-              data: BuiltValueNullFieldError.checkNotNull(data, r'NextcloudUserStatusStatus_ClearAt', 'data'),
-              userStatusClearAt: _userStatusClearAt?.build(),
-              $int: $int);
-    } catch (_) {
-      late String _$failedField;
-      try {
-        _$failedField = 'userStatusClearAt';
-        _userStatusClearAt?.build();
-      } catch (e) {
-        throw BuiltValueNestedFieldError(r'NextcloudUserStatusStatus_ClearAt', _$failedField, e.toString());
-      }
-      rethrow;
-    }
+  _$NextcloudUserStatusStatus1 _build() {
+    final _$result = _$v ??
+        _$NextcloudUserStatusStatus1._(
+            messageId: messageId,
+            messageIsPredefined: BuiltValueNullFieldError.checkNotNull(
+                messageIsPredefined, r'NextcloudUserStatusStatus1', 'messageIsPredefined'),
+            statusIsUserDefined: BuiltValueNullFieldError.checkNotNull(
+                statusIsUserDefined, r'NextcloudUserStatusStatus1', 'statusIsUserDefined'));
     replace(_$result);
     return _$result;
   }
@@ -21920,39 +21875,22 @@ class NextcloudUserStatusStatus_ClearAtBuilder
 
 class _$NextcloudUserStatusStatus extends NextcloudUserStatusStatus {
   @override
-  final String userId;
+  final JsonObject data;
   @override
-  final String? message;
+  final NextcloudUserStatusPublicStatus userStatusPublicStatus;
   @override
-  final String? messageId;
-  @override
-  final bool messageIsPredefined;
-  @override
-  final String? icon;
-  @override
-  final NextcloudUserStatusStatus_ClearAt? clearAt;
-  @override
-  final NextcloudUserStatusType status;
-  @override
-  final bool statusIsUserDefined;
+  final NextcloudUserStatusStatus1 userStatusStatus1;
 
   factory _$NextcloudUserStatusStatus([void Function(NextcloudUserStatusStatusBuilder)? updates]) =>
       (NextcloudUserStatusStatusBuilder()..update(updates))._build();
 
   _$NextcloudUserStatusStatus._(
-      {required this.userId,
-      this.message,
-      this.messageId,
-      required this.messageIsPredefined,
-      this.icon,
-      this.clearAt,
-      required this.status,
-      required this.statusIsUserDefined})
+      {required this.data, required this.userStatusPublicStatus, required this.userStatusStatus1})
       : super._() {
-    BuiltValueNullFieldError.checkNotNull(userId, r'NextcloudUserStatusStatus', 'userId');
-    BuiltValueNullFieldError.checkNotNull(messageIsPredefined, r'NextcloudUserStatusStatus', 'messageIsPredefined');
-    BuiltValueNullFieldError.checkNotNull(status, r'NextcloudUserStatusStatus', 'status');
-    BuiltValueNullFieldError.checkNotNull(statusIsUserDefined, r'NextcloudUserStatusStatus', 'statusIsUserDefined');
+    BuiltValueNullFieldError.checkNotNull(data, r'NextcloudUserStatusStatus', 'data');
+    BuiltValueNullFieldError.checkNotNull(
+        userStatusPublicStatus, r'NextcloudUserStatusStatus', 'userStatusPublicStatus');
+    BuiltValueNullFieldError.checkNotNull(userStatusStatus1, r'NextcloudUserStatusStatus', 'userStatusStatus1');
   }
 
   @override
@@ -21966,27 +21904,17 @@ class _$NextcloudUserStatusStatus extends NextcloudUserStatusStatus {
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
     return other is NextcloudUserStatusStatus &&
-        userId == other.userId &&
-        message == other.message &&
-        messageId == other.messageId &&
-        messageIsPredefined == other.messageIsPredefined &&
-        icon == other.icon &&
-        clearAt == other.clearAt &&
-        status == other.status &&
-        statusIsUserDefined == other.statusIsUserDefined;
+        data == other.data &&
+        userStatusPublicStatus == other.userStatusPublicStatus &&
+        userStatusStatus1 == other.userStatusStatus1;
   }
 
   @override
   int get hashCode {
     var _$hash = 0;
-    _$hash = $jc(_$hash, userId.hashCode);
-    _$hash = $jc(_$hash, message.hashCode);
-    _$hash = $jc(_$hash, messageId.hashCode);
-    _$hash = $jc(_$hash, messageIsPredefined.hashCode);
-    _$hash = $jc(_$hash, icon.hashCode);
-    _$hash = $jc(_$hash, clearAt.hashCode);
-    _$hash = $jc(_$hash, status.hashCode);
-    _$hash = $jc(_$hash, statusIsUserDefined.hashCode);
+    _$hash = $jc(_$hash, data.hashCode);
+    _$hash = $jc(_$hash, userStatusPublicStatus.hashCode);
+    _$hash = $jc(_$hash, userStatusStatus1.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
   }
@@ -21994,14 +21922,9 @@ class _$NextcloudUserStatusStatus extends NextcloudUserStatusStatus {
   @override
   String toString() {
     return (newBuiltValueToStringHelper(r'NextcloudUserStatusStatus')
-          ..add('userId', userId)
-          ..add('message', message)
-          ..add('messageId', messageId)
-          ..add('messageIsPredefined', messageIsPredefined)
-          ..add('icon', icon)
-          ..add('clearAt', clearAt)
-          ..add('status', status)
-          ..add('statusIsUserDefined', statusIsUserDefined))
+          ..add('data', data)
+          ..add('userStatusPublicStatus', userStatusPublicStatus)
+          ..add('userStatusStatus1', userStatusStatus1))
         .toString();
   }
 }
@@ -22009,52 +21932,30 @@ class _$NextcloudUserStatusStatus extends NextcloudUserStatusStatus {
 class NextcloudUserStatusStatusBuilder implements Builder<NextcloudUserStatusStatus, NextcloudUserStatusStatusBuilder> {
   _$NextcloudUserStatusStatus? _$v;
 
-  String? _userId;
-  String? get userId => _$this._userId;
-  set userId(String? userId) => _$this._userId = userId;
+  JsonObject? _data;
+  JsonObject? get data => _$this._data;
+  set data(JsonObject? data) => _$this._data = data;
 
-  String? _message;
-  String? get message => _$this._message;
-  set message(String? message) => _$this._message = message;
+  NextcloudUserStatusPublicStatusBuilder? _userStatusPublicStatus;
+  NextcloudUserStatusPublicStatusBuilder get userStatusPublicStatus =>
+      _$this._userStatusPublicStatus ??= NextcloudUserStatusPublicStatusBuilder();
+  set userStatusPublicStatus(NextcloudUserStatusPublicStatusBuilder? userStatusPublicStatus) =>
+      _$this._userStatusPublicStatus = userStatusPublicStatus;
 
-  String? _messageId;
-  String? get messageId => _$this._messageId;
-  set messageId(String? messageId) => _$this._messageId = messageId;
-
-  bool? _messageIsPredefined;
-  bool? get messageIsPredefined => _$this._messageIsPredefined;
-  set messageIsPredefined(bool? messageIsPredefined) => _$this._messageIsPredefined = messageIsPredefined;
-
-  String? _icon;
-  String? get icon => _$this._icon;
-  set icon(String? icon) => _$this._icon = icon;
-
-  NextcloudUserStatusStatus_ClearAtBuilder? _clearAt;
-  NextcloudUserStatusStatus_ClearAtBuilder get clearAt =>
-      _$this._clearAt ??= NextcloudUserStatusStatus_ClearAtBuilder();
-  set clearAt(NextcloudUserStatusStatus_ClearAtBuilder? clearAt) => _$this._clearAt = clearAt;
-
-  NextcloudUserStatusType? _status;
-  NextcloudUserStatusType? get status => _$this._status;
-  set status(NextcloudUserStatusType? status) => _$this._status = status;
-
-  bool? _statusIsUserDefined;
-  bool? get statusIsUserDefined => _$this._statusIsUserDefined;
-  set statusIsUserDefined(bool? statusIsUserDefined) => _$this._statusIsUserDefined = statusIsUserDefined;
+  NextcloudUserStatusStatus1Builder? _userStatusStatus1;
+  NextcloudUserStatusStatus1Builder get userStatusStatus1 =>
+      _$this._userStatusStatus1 ??= NextcloudUserStatusStatus1Builder();
+  set userStatusStatus1(NextcloudUserStatusStatus1Builder? userStatusStatus1) =>
+      _$this._userStatusStatus1 = userStatusStatus1;
 
   NextcloudUserStatusStatusBuilder();
 
   NextcloudUserStatusStatusBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
-      _userId = $v.userId;
-      _message = $v.message;
-      _messageId = $v.messageId;
-      _messageIsPredefined = $v.messageIsPredefined;
-      _icon = $v.icon;
-      _clearAt = $v.clearAt?.toBuilder();
-      _status = $v.status;
-      _statusIsUserDefined = $v.statusIsUserDefined;
+      _data = $v.data;
+      _userStatusPublicStatus = $v.userStatusPublicStatus.toBuilder();
+      _userStatusStatus1 = $v.userStatusStatus1.toBuilder();
       _$v = null;
     }
     return this;
@@ -22079,21 +21980,16 @@ class NextcloudUserStatusStatusBuilder implements Builder<NextcloudUserStatusSta
     try {
       _$result = _$v ??
           _$NextcloudUserStatusStatus._(
-              userId: BuiltValueNullFieldError.checkNotNull(userId, r'NextcloudUserStatusStatus', 'userId'),
-              message: message,
-              messageId: messageId,
-              messageIsPredefined: BuiltValueNullFieldError.checkNotNull(
-                  messageIsPredefined, r'NextcloudUserStatusStatus', 'messageIsPredefined'),
-              icon: icon,
-              clearAt: _clearAt?.build(),
-              status: BuiltValueNullFieldError.checkNotNull(status, r'NextcloudUserStatusStatus', 'status'),
-              statusIsUserDefined: BuiltValueNullFieldError.checkNotNull(
-                  statusIsUserDefined, r'NextcloudUserStatusStatus', 'statusIsUserDefined'));
+              data: BuiltValueNullFieldError.checkNotNull(data, r'NextcloudUserStatusStatus', 'data'),
+              userStatusPublicStatus: userStatusPublicStatus.build(),
+              userStatusStatus1: userStatusStatus1.build());
     } catch (_) {
       late String _$failedField;
       try {
-        _$failedField = 'clearAt';
-        _clearAt?.build();
+        _$failedField = 'userStatusPublicStatus';
+        userStatusPublicStatus.build();
+        _$failedField = 'userStatusStatus1';
+        userStatusStatus1.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(r'NextcloudUserStatusStatus', _$failedField, e.toString());
       }
@@ -22881,11 +22777,136 @@ class NextcloudUserStatusPredefinedStatusesBuilder
   }
 }
 
+class _$NextcloudUserStatusHeartbeat_Ocs_Data extends NextcloudUserStatusHeartbeat_Ocs_Data {
+  @override
+  final JsonObject data;
+  @override
+  final BuiltList<JsonObject>? builtListJsonObject;
+  @override
+  final NextcloudUserStatusStatus? userStatusStatus;
+
+  factory _$NextcloudUserStatusHeartbeat_Ocs_Data(
+          [void Function(NextcloudUserStatusHeartbeat_Ocs_DataBuilder)? updates]) =>
+      (NextcloudUserStatusHeartbeat_Ocs_DataBuilder()..update(updates))._build();
+
+  _$NextcloudUserStatusHeartbeat_Ocs_Data._({required this.data, this.builtListJsonObject, this.userStatusStatus})
+      : super._() {
+    BuiltValueNullFieldError.checkNotNull(data, r'NextcloudUserStatusHeartbeat_Ocs_Data', 'data');
+  }
+
+  @override
+  NextcloudUserStatusHeartbeat_Ocs_Data rebuild(void Function(NextcloudUserStatusHeartbeat_Ocs_DataBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  NextcloudUserStatusHeartbeat_Ocs_DataBuilder toBuilder() =>
+      NextcloudUserStatusHeartbeat_Ocs_DataBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is NextcloudUserStatusHeartbeat_Ocs_Data &&
+        data == other.data &&
+        builtListJsonObject == other.builtListJsonObject &&
+        userStatusStatus == other.userStatusStatus;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, data.hashCode);
+    _$hash = $jc(_$hash, builtListJsonObject.hashCode);
+    _$hash = $jc(_$hash, userStatusStatus.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'NextcloudUserStatusHeartbeat_Ocs_Data')
+          ..add('data', data)
+          ..add('builtListJsonObject', builtListJsonObject)
+          ..add('userStatusStatus', userStatusStatus))
+        .toString();
+  }
+}
+
+class NextcloudUserStatusHeartbeat_Ocs_DataBuilder
+    implements Builder<NextcloudUserStatusHeartbeat_Ocs_Data, NextcloudUserStatusHeartbeat_Ocs_DataBuilder> {
+  _$NextcloudUserStatusHeartbeat_Ocs_Data? _$v;
+
+  JsonObject? _data;
+  JsonObject? get data => _$this._data;
+  set data(JsonObject? data) => _$this._data = data;
+
+  ListBuilder<JsonObject>? _builtListJsonObject;
+  ListBuilder<JsonObject> get builtListJsonObject => _$this._builtListJsonObject ??= ListBuilder<JsonObject>();
+  set builtListJsonObject(ListBuilder<JsonObject>? builtListJsonObject) =>
+      _$this._builtListJsonObject = builtListJsonObject;
+
+  NextcloudUserStatusStatusBuilder? _userStatusStatus;
+  NextcloudUserStatusStatusBuilder get userStatusStatus =>
+      _$this._userStatusStatus ??= NextcloudUserStatusStatusBuilder();
+  set userStatusStatus(NextcloudUserStatusStatusBuilder? userStatusStatus) =>
+      _$this._userStatusStatus = userStatusStatus;
+
+  NextcloudUserStatusHeartbeat_Ocs_DataBuilder();
+
+  NextcloudUserStatusHeartbeat_Ocs_DataBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _data = $v.data;
+      _builtListJsonObject = $v.builtListJsonObject?.toBuilder();
+      _userStatusStatus = $v.userStatusStatus?.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(NextcloudUserStatusHeartbeat_Ocs_Data other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$NextcloudUserStatusHeartbeat_Ocs_Data;
+  }
+
+  @override
+  void update(void Function(NextcloudUserStatusHeartbeat_Ocs_DataBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  NextcloudUserStatusHeartbeat_Ocs_Data build() => _build();
+
+  _$NextcloudUserStatusHeartbeat_Ocs_Data _build() {
+    _$NextcloudUserStatusHeartbeat_Ocs_Data _$result;
+    try {
+      _$result = _$v ??
+          _$NextcloudUserStatusHeartbeat_Ocs_Data._(
+              data: BuiltValueNullFieldError.checkNotNull(data, r'NextcloudUserStatusHeartbeat_Ocs_Data', 'data'),
+              builtListJsonObject: _builtListJsonObject?.build(),
+              userStatusStatus: _userStatusStatus?.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'builtListJsonObject';
+        _builtListJsonObject?.build();
+        _$failedField = 'userStatusStatus';
+        _userStatusStatus?.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(r'NextcloudUserStatusHeartbeat_Ocs_Data', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
 class _$NextcloudUserStatusHeartbeat_Ocs extends NextcloudUserStatusHeartbeat_Ocs {
   @override
   final NextcloudOCSMeta meta;
   @override
-  final NextcloudUserStatusStatus data;
+  final NextcloudUserStatusHeartbeat_Ocs_Data data;
 
   factory _$NextcloudUserStatusHeartbeat_Ocs([void Function(NextcloudUserStatusHeartbeat_OcsBuilder)? updates]) =>
       (NextcloudUserStatusHeartbeat_OcsBuilder()..update(updates))._build();
@@ -22934,9 +22955,10 @@ class NextcloudUserStatusHeartbeat_OcsBuilder
   NextcloudOCSMetaBuilder get meta => _$this._meta ??= NextcloudOCSMetaBuilder();
   set meta(NextcloudOCSMetaBuilder? meta) => _$this._meta = meta;
 
-  NextcloudUserStatusStatusBuilder? _data;
-  NextcloudUserStatusStatusBuilder get data => _$this._data ??= NextcloudUserStatusStatusBuilder();
-  set data(NextcloudUserStatusStatusBuilder? data) => _$this._data = data;
+  NextcloudUserStatusHeartbeat_Ocs_DataBuilder? _data;
+  NextcloudUserStatusHeartbeat_Ocs_DataBuilder get data =>
+      _$this._data ??= NextcloudUserStatusHeartbeat_Ocs_DataBuilder();
+  set data(NextcloudUserStatusHeartbeat_Ocs_DataBuilder? data) => _$this._data = data;
 
   NextcloudUserStatusHeartbeat_OcsBuilder();
 

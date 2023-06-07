@@ -74,7 +74,7 @@ class AccountsBloc extends Bloc implements AccountsBlocEvents, AccountsBlocState
   final _appsBlocs = <String, AppsBloc>{};
   final _capabilitiesBlocs = <String, CapabilitiesBloc>{};
   final _userDetailsBlocs = <String, UserDetailsBloc>{};
-  final _userStatusBlocs = <String, UserStatusBloc>{};
+  final _userStatusesBlocs = <String, UserStatusesBloc>{};
 
   @override
   void dispose() {
@@ -83,7 +83,7 @@ class AccountsBloc extends Bloc implements AccountsBlocEvents, AccountsBlocState
     _appsBlocs.disposeAll();
     _capabilitiesBlocs.disposeAll();
     _userDetailsBlocs.disposeAll();
-    _userStatusBlocs.disposeAll();
+    _userStatusesBlocs.disposeAll();
     for (final options in _accountsOptions.values) {
       options.dispose();
     }
@@ -190,12 +190,12 @@ class AccountsBloc extends Bloc implements AccountsBlocEvents, AccountsBlocState
     );
   }
 
-  UserStatusBloc getUserStatusBloc(final Account account) {
-    if (_userStatusBlocs[account.id] != null) {
-      return _userStatusBlocs[account.id]!;
+  UserStatusesBloc getUserStatusesBloc(final Account account) {
+    if (_userStatusesBlocs[account.id] != null) {
+      return _userStatusesBlocs[account.id]!;
     }
 
-    return _userStatusBlocs[account.id] = UserStatusBloc(
+    return _userStatusesBlocs[account.id] = UserStatusesBloc(
       _platform,
       account,
     );

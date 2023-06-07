@@ -4664,63 +4664,20 @@ abstract class NextcloudUserStatusGetPublicStatus
       _$nextcloudUserStatusGetPublicStatusSerializer;
 }
 
-abstract class NextcloudUserStatusStatus_ClearAt
-    implements Built<NextcloudUserStatusStatus_ClearAt, NextcloudUserStatusStatus_ClearAtBuilder> {
-  factory NextcloudUserStatusStatus_ClearAt([final void Function(NextcloudUserStatusStatus_ClearAtBuilder)? b]) =
-      _$NextcloudUserStatusStatus_ClearAt;
-  const NextcloudUserStatusStatus_ClearAt._();
+abstract class NextcloudUserStatusStatus1
+    implements Built<NextcloudUserStatusStatus1, NextcloudUserStatusStatus1Builder> {
+  factory NextcloudUserStatusStatus1([final void Function(NextcloudUserStatusStatus1Builder)? b]) =
+      _$NextcloudUserStatusStatus1;
+  const NextcloudUserStatusStatus1._();
 
-  JsonObject get data;
-  NextcloudUserStatusClearAt? get userStatusClearAt;
-
-  /// Time as unix timestamp
-  int? get $int;
-  static NextcloudUserStatusStatus_ClearAt fromJson(final Object json) =>
+  factory NextcloudUserStatusStatus1.fromJson(final Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
+
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  @BuiltValueSerializer(custom: true)
-  static Serializer<NextcloudUserStatusStatus_ClearAt> get serializer =>
-      _$NextcloudUserStatusStatus_ClearAtSerializer();
-}
-
-class _$NextcloudUserStatusStatus_ClearAtSerializer implements PrimitiveSerializer<NextcloudUserStatusStatus_ClearAt> {
-  @override
-  final Iterable<Type> types = const [NextcloudUserStatusStatus_ClearAt, _$NextcloudUserStatusStatus_ClearAt];
-
-  @override
-  final String wireName = 'NextcloudUserStatusStatus_ClearAt';
-
-  @override
-  Object serialize(
-    final Serializers serializers,
-    final NextcloudUserStatusStatus_ClearAt object, {
-    final FullType specifiedType = FullType.unspecified,
-  }) =>
-      object.data.value;
-
-  @override
-  NextcloudUserStatusStatus_ClearAt deserialize(
-    final Serializers serializers,
-    final Object data, {
-    final FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = NextcloudUserStatusStatus_ClearAtBuilder()..data = JsonObject(data);
-    try {
-      result._userStatusClearAt = (jsonSerializers.deserialize(
-        data,
-        specifiedType: const FullType(NextcloudUserStatusClearAt),
-      )! as NextcloudUserStatusClearAt)
-          .toBuilder();
-    } catch (_) {}
-    try {
-      result._$int = data as int?;
-    } catch (_) {}
-    assert(
-      [result._userStatusClearAt, result._$int].where((final x) => x != null).isNotEmpty,
-      'Need oneOf for ${result._data}',
-    );
-    return result.build();
-  }
+  String? get messageId;
+  bool get messageIsPredefined;
+  bool get statusIsUserDefined;
+  static Serializer<NextcloudUserStatusStatus1> get serializer => _$nextcloudUserStatusStatus1Serializer;
 }
 
 abstract class NextcloudUserStatusStatus implements Built<NextcloudUserStatusStatus, NextcloudUserStatusStatusBuilder> {
@@ -4728,19 +4685,51 @@ abstract class NextcloudUserStatusStatus implements Built<NextcloudUserStatusSta
       _$NextcloudUserStatusStatus;
   const NextcloudUserStatusStatus._();
 
-  factory NextcloudUserStatusStatus.fromJson(final Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
-
+  JsonObject get data;
+  NextcloudUserStatusPublicStatus get userStatusPublicStatus;
+  NextcloudUserStatusStatus1 get userStatusStatus1;
+  static NextcloudUserStatusStatus fromJson(final Object json) => jsonSerializers.deserializeWith(serializer, json)!;
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  String get userId;
-  String? get message;
-  String? get messageId;
-  bool get messageIsPredefined;
-  String? get icon;
-  NextcloudUserStatusStatus_ClearAt? get clearAt;
-  NextcloudUserStatusType get status;
-  bool get statusIsUserDefined;
-  static Serializer<NextcloudUserStatusStatus> get serializer => _$nextcloudUserStatusStatusSerializer;
+  @BuiltValueSerializer(custom: true)
+  static Serializer<NextcloudUserStatusStatus> get serializer => _$NextcloudUserStatusStatusSerializer();
+}
+
+class _$NextcloudUserStatusStatusSerializer implements PrimitiveSerializer<NextcloudUserStatusStatus> {
+  @override
+  final Iterable<Type> types = const [NextcloudUserStatusStatus, _$NextcloudUserStatusStatus];
+
+  @override
+  final String wireName = 'NextcloudUserStatusStatus';
+
+  @override
+  Object serialize(
+    final Serializers serializers,
+    final NextcloudUserStatusStatus object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) =>
+      object.data.value;
+
+  @override
+  NextcloudUserStatusStatus deserialize(
+    final Serializers serializers,
+    final Object data, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = NextcloudUserStatusStatusBuilder()..data = JsonObject(data);
+    result.userStatusPublicStatus.replace(
+      jsonSerializers.deserialize(
+        data,
+        specifiedType: const FullType(NextcloudUserStatusPublicStatus),
+      )! as NextcloudUserStatusPublicStatus,
+    );
+    result.userStatusStatus1.replace(
+      jsonSerializers.deserialize(
+        data,
+        specifiedType: const FullType(NextcloudUserStatusStatus1),
+      )! as NextcloudUserStatusStatus1,
+    );
+    return result.build();
+  }
 }
 
 abstract class NextcloudUserStatusGetStatus_Ocs_Data
@@ -4950,6 +4939,69 @@ abstract class NextcloudUserStatusPredefinedStatuses
       _$nextcloudUserStatusPredefinedStatusesSerializer;
 }
 
+abstract class NextcloudUserStatusHeartbeat_Ocs_Data
+    implements Built<NextcloudUserStatusHeartbeat_Ocs_Data, NextcloudUserStatusHeartbeat_Ocs_DataBuilder> {
+  factory NextcloudUserStatusHeartbeat_Ocs_Data([
+    final void Function(NextcloudUserStatusHeartbeat_Ocs_DataBuilder)? b,
+  ]) = _$NextcloudUserStatusHeartbeat_Ocs_Data;
+  const NextcloudUserStatusHeartbeat_Ocs_Data._();
+
+  JsonObject get data;
+  BuiltList<JsonObject>? get builtListJsonObject;
+  NextcloudUserStatusStatus? get userStatusStatus;
+  static NextcloudUserStatusHeartbeat_Ocs_Data fromJson(final Object json) =>
+      jsonSerializers.deserializeWith(serializer, json)!;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  @BuiltValueSerializer(custom: true)
+  static Serializer<NextcloudUserStatusHeartbeat_Ocs_Data> get serializer =>
+      _$NextcloudUserStatusHeartbeat_Ocs_DataSerializer();
+}
+
+class _$NextcloudUserStatusHeartbeat_Ocs_DataSerializer
+    implements PrimitiveSerializer<NextcloudUserStatusHeartbeat_Ocs_Data> {
+  @override
+  final Iterable<Type> types = const [NextcloudUserStatusHeartbeat_Ocs_Data, _$NextcloudUserStatusHeartbeat_Ocs_Data];
+
+  @override
+  final String wireName = 'NextcloudUserStatusHeartbeat_Ocs_Data';
+
+  @override
+  Object serialize(
+    final Serializers serializers,
+    final NextcloudUserStatusHeartbeat_Ocs_Data object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) =>
+      object.data.value;
+
+  @override
+  NextcloudUserStatusHeartbeat_Ocs_Data deserialize(
+    final Serializers serializers,
+    final Object data, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = NextcloudUserStatusHeartbeat_Ocs_DataBuilder()..data = JsonObject(data);
+    try {
+      result._builtListJsonObject = (jsonSerializers.deserialize(
+        data,
+        specifiedType: const FullType(BuiltList, [FullType(JsonObject)]),
+      )! as BuiltList<JsonObject>)
+          .toBuilder();
+    } catch (_) {}
+    try {
+      result._userStatusStatus = (jsonSerializers.deserialize(
+        data,
+        specifiedType: const FullType(NextcloudUserStatusStatus),
+      )! as NextcloudUserStatusStatus)
+          .toBuilder();
+    } catch (_) {}
+    assert(
+      [result._builtListJsonObject, result._userStatusStatus].where((final x) => x != null).isNotEmpty,
+      'Need oneOf for ${result._data}',
+    );
+    return result.build();
+  }
+}
+
 abstract class NextcloudUserStatusHeartbeat_Ocs
     implements Built<NextcloudUserStatusHeartbeat_Ocs, NextcloudUserStatusHeartbeat_OcsBuilder> {
   factory NextcloudUserStatusHeartbeat_Ocs([final void Function(NextcloudUserStatusHeartbeat_OcsBuilder)? b]) =
@@ -4961,7 +5013,7 @@ abstract class NextcloudUserStatusHeartbeat_Ocs
 
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   NextcloudOCSMeta get meta;
-  NextcloudUserStatusStatus get data;
+  NextcloudUserStatusHeartbeat_Ocs_Data get data;
   static Serializer<NextcloudUserStatusHeartbeat_Ocs> get serializer => _$nextcloudUserStatusHeartbeatOcsSerializer;
 }
 
@@ -5112,7 +5164,7 @@ abstract class NextcloudNotificationsNotificationDecryptedSubject
   NextcloudUserStatusGetPublicStatus_Ocs,
   NextcloudUserStatusGetStatus,
   NextcloudUserStatusGetStatus_Ocs,
-  NextcloudUserStatusStatus,
+  NextcloudUserStatusStatus1,
   NextcloudUserStatusPredefinedStatuses,
   NextcloudUserStatusPredefinedStatuses_Ocs,
   NextcloudUserStatusPredefinedStatus,

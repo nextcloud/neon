@@ -79,7 +79,11 @@ for PKG in ${PKGS}; do
         echo 'dart format --output=none --set-exit-if-changed --line-length 120 .'
         dart format --output=none --set-exit-if-changed --line-length 120 . || EXIT_CODE=$?
         ;;
-      test)
+      test_0)
+        echo 'flutter test'
+        flutter test || EXIT_CODE=$?
+        ;;
+      test_1)
         echo 'dart test'
         dart test || EXIT_CODE=$?
         ;;

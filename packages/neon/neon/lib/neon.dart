@@ -56,8 +56,9 @@ part 'src/blocs/first_launch.dart';
 part 'src/blocs/login.dart';
 part 'src/blocs/next_push.dart';
 part 'src/blocs/push_notifications.dart';
+part 'src/blocs/timer.dart';
 part 'src/blocs/user_details.dart';
-part 'src/blocs/user_status.dart';
+part 'src/blocs/user_statuses.dart';
 part 'src/interfaces/notifications.dart';
 part 'src/pages/account_settings.dart';
 part 'src/pages/home.dart';
@@ -92,7 +93,6 @@ part 'src/utils/storage.dart';
 part 'src/utils/stream_listenable.dart';
 part 'src/utils/theme.dart';
 part 'src/utils/validators.dart';
-part 'src/widgets/account_avatar.dart';
 part 'src/widgets/account_settings_tile.dart';
 part 'src/widgets/account_tile.dart';
 part 'src/widgets/app_implementation_icon.dart';
@@ -108,6 +108,7 @@ part 'src/widgets/nextcloud_logo.dart';
 part 'src/widgets/relative_time.dart';
 part 'src/widgets/result_builder.dart';
 part 'src/widgets/text_settings_tile.dart';
+part 'src/widgets/user_avatar.dart';
 
 Future runNeon({
   required final WidgetsBinding binding,
