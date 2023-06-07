@@ -150,7 +150,7 @@ class _HomePageState extends State<HomePage> {
               ],
             ),
           ),
-          body: app.buildPage(context, _appsBloc),
+          body: app.page,
         ),
       ),
     );
@@ -504,7 +504,7 @@ class _HomePageState extends State<HomePage> {
                       ],
                     );
 
-                    final body = Builder(
+                    Widget body = Builder(
                       builder: (final context) => Row(
                         children: [
                           if (navigationMode == NavigationMode.quickBar) ...[
@@ -526,9 +526,7 @@ class _HomePageState extends State<HomePage> {
                                   ] else ...[
                                     if (activeAppIDSnapshot.hasData) ...[
                                       Expanded(
-                                        child: appImplementations.data!
-                                            .find(activeAppIDSnapshot.data!)!
-                                            .buildPage(context, _appsBloc),
+                                        child: appImplementations.data!.find(activeAppIDSnapshot.data!)!.page,
                                       ),
                                     ],
                                   ],
@@ -539,6 +537,14 @@ class _HomePageState extends State<HomePage> {
                         ],
                       ),
                     );
+
+                    final appProviders = _appsBloc.getAppProviders();
+                    if (appProviders != null) {
+                      body = MultiProvider(
+                        providers: appProviders,
+                        child: body,
+                      );
+                    }
 
                     return WillPopScope(
                       onWillPop: () async {

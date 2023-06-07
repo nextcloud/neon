@@ -2,22 +2,22 @@ part of '../neon_files.dart';
 
 class FilesMainPage extends StatefulWidget {
   const FilesMainPage({
-    required this.bloc,
     super.key,
   });
-
-  final FilesBloc bloc;
 
   @override
   State<FilesMainPage> createState() => _FilesMainPageState();
 }
 
 class _FilesMainPageState extends State<FilesMainPage> {
+  late FilesBloc bloc;
+
   @override
   void initState() {
     super.initState();
+    bloc = Provider.of<FilesBloc>(context, listen: false);
 
-    widget.bloc.errors.listen((final error) {
+    bloc.errors.listen((final error) {
       NeonException.showSnackbar(context, error);
     });
   }
@@ -25,10 +25,10 @@ class _FilesMainPageState extends State<FilesMainPage> {
   @override
   Widget build(final BuildContext context) => Scaffold(
         body: FilesBrowserView(
-          bloc: widget.bloc.browser,
-          filesBloc: widget.bloc,
+          bloc: bloc.browser,
+          filesBloc: bloc,
           onPickFile: (final details) async {
-            final sizeWarning = widget.bloc.options.downloadSizeWarning.value;
+            final sizeWarning = bloc.options.downloadSizeWarning.value;
             if (sizeWarning != null && details.size > sizeWarning) {
               // ignore: use_build_context_synchronously
               if (!(await showConfirmationDialog(
@@ -42,7 +42,7 @@ class _FilesMainPageState extends State<FilesMainPage> {
                 return;
               }
             }
-            widget.bloc.openFile(details.path, details.etag!, details.mimeType);
+            bloc.openFile(details.path, details.etag!, details.mimeType);
           },
         ),
         floatingActionButton: FloatingActionButton(
@@ -50,8 +50,8 @@ class _FilesMainPageState extends State<FilesMainPage> {
             await showDialog(
               context: context,
               builder: (final context) => FilesChooseCreateDialog(
-                bloc: widget.bloc,
-                basePath: widget.bloc.browser.path.value,
+                bloc: bloc,
+                basePath: bloc.browser.path.value,
               ),
             );
           },
