@@ -11,6 +11,8 @@ class NeonUserAvatar extends StatefulWidget {
     final String? username,
     this.showStatus = true,
     this.size = kAvatarSize,
+    this.backgroundColor,
+    this.foregroundColor,
     super.key,
   }) : username = username ?? account.client.username!;
 
@@ -18,6 +20,8 @@ class NeonUserAvatar extends StatefulWidget {
   final String username;
   final bool showStatus;
   final double size;
+  final Color? backgroundColor;
+  final Color? foregroundColor;
 
   @override
   State<NeonUserAvatar> createState() => _UserAvatarState();
@@ -45,6 +49,7 @@ class _UserAvatarState extends State<NeonUserAvatar> {
             children: [
               CircleAvatar(
                 radius: size / 2,
+                backgroundColor: widget.backgroundColor,
                 child: ClipOval(
                   child: NeonCachedApiImage(
                     account: widget.account,
@@ -85,7 +90,7 @@ class _UserAvatarState extends State<NeonUserAvatar> {
     if (result.loading) {
       child = CircularProgressIndicator(
         strokeWidth: 1.5,
-        color: Theme.of(context).colorScheme.onPrimary,
+        color: widget.foregroundColor ?? Theme.of(context).colorScheme.onPrimary,
       );
     } else if (result.error != null) {
       child = Icon(
