@@ -44,12 +44,8 @@ if [[ "$target" == "linux/arm64" ]] || [[ "$target" == "linux/amd64" ]]; then
   -f "tool/build/Dockerfile.$os" \
   ./tool/build
 
-  paths=()
-  for path in packages/{app,file_icons,nextcloud,settings,sort_box} packages/neon/*; do
-    paths+=("$path/lib" "$path/pubspec.yaml")
-  done
   run_args=()
-  for path in ${paths[*]} "packages/file_icons/fonts" packages/neon/neon{,_files,_news,_notes,_notifications}/assets "packages/app/build" "packages/app/linux"; do
+  for path in packages/{app,file_icons,nextcloud,settings,sort_box}/{lib,pubspec.yaml} packages/neon/*/{assets,lib,pubspec.yaml,pubspec_overrides.yaml} packages/file_icons/fonts packages/nextcloud/pubspec_overrides.yaml packages/app/{pubspec_overrides.yaml,assets,build,linux}; do
     run_args+=(-v "$(pwd)/$path:/src/$path")
   done
   mkdir -p "packages/app/build"
