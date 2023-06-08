@@ -132,25 +132,30 @@ class _HomePageState extends State<HomePage> {
     final List<Account> accounts,
     final Account account,
   ) async {
+    final page = Scaffold(
+      resizeToAvoidBottomInset: false,
+      appBar: AppBar(
+        title: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(app.name(context)),
+            if (accounts.length > 1) ...[
+              Text(
+                account.client.humanReadableID,
+                style: Theme.of(context).textTheme.bodySmall,
+              ),
+            ],
+          ],
+        ),
+      ),
+      body: app.page,
+    );
+
     await Navigator.of(context).push(
       MaterialPageRoute(
-        builder: (final context) => Scaffold(
-          resizeToAvoidBottomInset: false,
-          appBar: AppBar(
-            title: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(app.name(context)),
-                if (accounts.length > 1) ...[
-                  Text(
-                    account.client.humanReadableID,
-                    style: Theme.of(context).textTheme.bodySmall,
-                  ),
-                ],
-              ],
-            ),
-          ),
-          body: app.page,
+        builder: (final context) => Provider<NotificationsBlocInterface>(
+          create: (final context) => app.getBloc(account),
+          child: page,
         ),
       ),
     );
