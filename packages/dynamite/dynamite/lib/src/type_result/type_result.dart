@@ -1,5 +1,13 @@
-part of '../../dynamite.dart';
+import 'package:intersperse/intersperse.dart';
+import 'package:meta/meta.dart';
 
+part 'base.dart';
+part 'enum.dart';
+part 'list.dart';
+part 'map.dart';
+part 'object.dart';
+
+@immutable
 abstract class TypeResult {
   TypeResult(
     this.className, {
@@ -84,4 +92,11 @@ abstract class TypeResult {
   /// Native dart type equivalent
   // ignore: avoid_returning_this
   TypeResult get dartType => this;
+
+  @override
+  bool operator ==(final Object other) =>
+      other is TypeResult && other.className == className && other.generics == generics && other.nullable == nullable;
+
+  @override
+  int get hashCode => className.hashCode + generics.hashCode + nullable.hashCode;
 }

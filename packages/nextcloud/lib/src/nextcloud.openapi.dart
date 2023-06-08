@@ -5182,10 +5182,7 @@ final Serializers serializers = (_$serializers.toBuilder()
       ..addBuilderFactory(const FullType(NextcloudCoreAutocompleteResult), NextcloudCoreAutocompleteResult.new)
       ..addBuilderFactory(const FullType(NextcloudNewsSupportedAPIVersions), NextcloudNewsSupportedAPIVersions.new)
       ..addBuilderFactory(const FullType(NextcloudNewsListFolders), NextcloudNewsListFolders.new)
-      ..addBuilderFactory(const FullType(NextcloudNewsListFolders), NextcloudNewsListFolders.new)
       ..addBuilderFactory(const FullType(NextcloudNewsListFeeds), NextcloudNewsListFeeds.new)
-      ..addBuilderFactory(const FullType(NextcloudNewsListFeeds), NextcloudNewsListFeeds.new)
-      ..addBuilderFactory(const FullType(NextcloudNewsListArticles), NextcloudNewsListArticles.new)
       ..addBuilderFactory(const FullType(NextcloudNewsListArticles), NextcloudNewsListArticles.new)
       ..addBuilderFactory(const FullType(NextcloudNotesNote), NextcloudNotesNote.new)
       ..addBuilderFactory(
@@ -5193,9 +5190,6 @@ final Serializers serializers = (_$serializers.toBuilder()
         ListBuilder<NextcloudNotesNote>.new,
       )
       ..addBuilderFactory(const FullType(NextcloudNotesNote), NextcloudNotesNote.new)
-      ..addBuilderFactory(const FullType(NextcloudNotesNote), NextcloudNotesNote.new)
-      ..addBuilderFactory(const FullType(NextcloudNotesNote), NextcloudNotesNote.new)
-      ..addBuilderFactory(const FullType(NextcloudNotesSettings), NextcloudNotesSettings.new)
       ..addBuilderFactory(const FullType(NextcloudNotesSettings), NextcloudNotesSettings.new)
       ..addBuilderFactory(
         const FullType(NextcloudNotificationsListNotifications),
@@ -5210,8 +5204,6 @@ final Serializers serializers = (_$serializers.toBuilder()
         const FullType(NextcloudNotificationsPushServerRegistration),
         NextcloudNotificationsPushServerRegistration.new,
       )
-      ..addBuilderFactory(const FullType(NextcloudEmptyOCS), NextcloudEmptyOCS.new)
-      ..addBuilderFactory(const FullType(NextcloudProvisioningApiUser), NextcloudProvisioningApiUser.new)
       ..addBuilderFactory(const FullType(NextcloudProvisioningApiUser), NextcloudProvisioningApiUser.new)
       ..addBuilderFactory(
         const FullType(NextcloudUnifiedPushProviderCheckResponse200ApplicationJson),
@@ -5262,9 +5254,6 @@ final Serializers serializers = (_$serializers.toBuilder()
         NextcloudUserStatusGetPublicStatuses.new,
       )
       ..addBuilderFactory(const FullType(NextcloudUserStatusGetPublicStatus), NextcloudUserStatusGetPublicStatus.new)
-      ..addBuilderFactory(const FullType(NextcloudUserStatusGetStatus), NextcloudUserStatusGetStatus.new)
-      ..addBuilderFactory(const FullType(NextcloudUserStatusGetStatus), NextcloudUserStatusGetStatus.new)
-      ..addBuilderFactory(const FullType(NextcloudUserStatusGetStatus), NextcloudUserStatusGetStatus.new)
       ..addBuilderFactory(const FullType(NextcloudUserStatusGetStatus), NextcloudUserStatusGetStatus.new)
       ..addBuilderFactory(
         const FullType(NextcloudUserStatusPredefinedStatuses),

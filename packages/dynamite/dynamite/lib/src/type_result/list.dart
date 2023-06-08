@@ -1,5 +1,6 @@
-part of '../../dynamite.dart';
+part of 'type_result.dart';
 
+@immutable
 class TypeResultList extends TypeResult {
   TypeResultList(
     super.name,
@@ -27,4 +28,15 @@ class TypeResultList extends TypeResult {
 
   @override
   TypeResultList get dartType => TypeResultList('List', subType, nullable: nullable);
+
+  @override
+  bool operator ==(final Object other) =>
+      other is TypeResultList &&
+      other.className == className &&
+      other.generics == generics &&
+      other.nullable == nullable &&
+      other.subType == subType;
+
+  @override
+  int get hashCode => className.hashCode + generics.hashCode + nullable.hashCode + subType.hashCode;
 }
