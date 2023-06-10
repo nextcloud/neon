@@ -528,13 +528,10 @@ class _HomePageState extends State<HomePage> {
                       ),
                     );
 
-                    final appProviders = _appsBloc.getAppProviders();
-                    if (appProviders != null) {
-                      body = MultiProvider(
-                        providers: appProviders,
-                        child: body,
-                      );
-                    }
+                    body = MultiProvider(
+                      providers: _appsBloc.appBlocProviders,
+                      child: body,
+                    );
 
                     return WillPopScope(
                       onWillPop: () async {

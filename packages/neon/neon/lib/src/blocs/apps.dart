@@ -145,7 +145,6 @@ class AppsBloc extends InteractiveBloc implements AppsBlocEvents, AppsBlocStates
     return _blocs[appImplementation.id] = appImplementation.buildBloc(_account.client) as T;
   }
 
-  List<Provider>? getAppProviders() => appImplementations.valueOrNull?.data
-      ?.map((final appImplementation) => appImplementation.blocProvider(_account.client))
-      .toList();
+  List<Provider> get appBlocProviders =>
+      _allAppImplementations.map((final appImplementation) => appImplementation.blocProvider(_account.client)).toList();
 }
