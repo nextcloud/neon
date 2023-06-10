@@ -171,17 +171,9 @@ class _HomePageState extends State<HomePage> {
             stream: _appsBloc.notificationsAppImplementation,
             builder: (final context, final notificationsAppImplementation) => StreamBuilder<String?>(
               stream: _appsBloc.activeAppID,
-              builder: (
-                final context,
-                final activeAppIDSnapshot,
-              ) =>
-                  StreamBuilder<List<Account>>(
+              builder: (final context, final activeAppIDSnapshot) => StreamBuilder<List<Account>>(
                 stream: _accountsBloc.accounts,
-                builder: (
-                  final context,
-                  final accountsSnapshot,
-                ) =>
-                    OptionBuilder<NavigationMode>(
+                builder: (final context, final accountsSnapshot) => OptionBuilder<NavigationMode>(
                   option: _globalOptions.navigationMode,
                   builder: (final context, final navigationMode) {
                     final accounts = accountsSnapshot.data;
