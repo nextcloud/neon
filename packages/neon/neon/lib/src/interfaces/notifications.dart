@@ -1,7 +1,7 @@
 part of '../../neon.dart';
 
-abstract class NotificationsAppInterface
-    extends AppImplementation<NotificationsBlocInterface, NotificationsOptionsInterface> {
+abstract interface class NotificationsAppInterface<T extends NotificationsBlocInterface,
+    R extends NotificationsOptionsInterface> extends AppImplementation<T, R> {
   NotificationsAppInterface(
     super.sharedPreferences,
     super.requestManager,
@@ -9,13 +9,13 @@ abstract class NotificationsAppInterface
   );
 }
 
-abstract class NotificationsBlocInterface extends InteractiveBloc {
+abstract interface class NotificationsBlocInterface extends InteractiveBloc {
   NotificationsBlocInterface(this.options);
 
   final NotificationsOptionsInterface options;
   void deleteNotification(final int id);
 }
 
-abstract class NotificationsOptionsInterface extends NextcloudAppSpecificOptions {
+abstract interface class NotificationsOptionsInterface extends NextcloudAppSpecificOptions {
   NotificationsOptionsInterface(super.storage);
 }

@@ -1,20 +1,21 @@
 part of '../neon_notifications.dart';
 
-abstract class NotificationsBlocEvents {
+abstract interface class NotificationsBlocEvents {
   void deleteNotification(final int id);
 
   void deleteAllNotifications();
 }
 
-abstract class NotificationsBlocStates {
+abstract interface class NotificationsBlocStates {
   BehaviorSubject<Result<List<NextcloudNotificationsNotification>>> get notifications;
 
   BehaviorSubject<int> get unreadCounter;
 }
 
-class NotificationsBloc extends NotificationsBlocInterface implements NotificationsBlocEvents, NotificationsBlocStates {
+class NotificationsBloc extends InteractiveBloc
+    implements NotificationsBlocInterface, NotificationsBlocEvents, NotificationsBlocStates {
   NotificationsBloc(
-    super.options,
+    this.options,
     this._requestManager,
     this._client,
   ) {
@@ -27,6 +28,8 @@ class NotificationsBloc extends NotificationsBlocInterface implements Notificati
     unawaited(refresh());
   }
 
+  @override
+  final NotificationsAppSpecificOptions options;
   final RequestManager _requestManager;
   final NextcloudClient _client;
 
