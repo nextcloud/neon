@@ -193,12 +193,7 @@ Future runNeon({
           create: (final _) => branding,
         ),
       ],
-      child: NeonApp(
-        accountsBloc: accountsBloc,
-        sharedPreferences: sharedPreferences,
-        platform: platform,
-        globalOptions: globalOptions,
-      ),
+      child: const NeonApp(),
     ),
   );
 }

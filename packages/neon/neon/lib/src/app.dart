@@ -2,17 +2,8 @@ part of '../../neon.dart';
 
 class NeonApp extends StatefulWidget {
   const NeonApp({
-    required this.accountsBloc,
-    required this.sharedPreferences,
-    required this.platform,
-    required this.globalOptions,
     super.key,
   });
-
-  final AccountsBloc accountsBloc;
-  final SharedPreferences sharedPreferences;
-  final NeonPlatform platform;
-  final GlobalOptions globalOptions;
 
   @override
   State<NeonApp> createState() => _NeonAppState();
@@ -253,13 +244,13 @@ class _NeonAppState extends State<NeonApp> with WidgetsBindingObserver, tray.Tra
 
   @override
   Widget build(final BuildContext context) => OptionBuilder(
-        option: widget.globalOptions.themeMode,
+        option: _globalOptions.themeMode,
         builder: (final context, final themeMode) => OptionBuilder(
-          option: widget.globalOptions.themeOLEDAsDark,
+          option: _globalOptions.themeOLEDAsDark,
           builder: (final context, final themeOLEDAsDark) => OptionBuilder(
-            option: widget.globalOptions.themeKeepOriginalAccentColor,
+            option: _globalOptions.themeKeepOriginalAccentColor,
             builder: (final context, final themeKeepOriginalAccentColor) => StreamBuilder<Account?>(
-              stream: widget.accountsBloc.activeAccount,
+              stream: _accountsBloc.activeAccount,
               builder: (final context, final activeAccountSnapshot) {
                 if (themeMode == null || themeOLEDAsDark == null) {
                   return Container();
@@ -268,7 +259,7 @@ class _NeonAppState extends State<NeonApp> with WidgetsBindingObserver, tray.Tra
                 FlutterNativeSplash.remove();
                 return ResultBuilder<Capabilities?>(
                   stream: activeAccountSnapshot.hasData
-                      ? widget.accountsBloc.getCapabilitiesBlocFor(activeAccountSnapshot.data!).capabilities
+                      ? _accountsBloc.getCapabilitiesBlocFor(activeAccountSnapshot.data!).capabilities
                       : null,
                   builder: (final context, final capabilitiesSnapshot) {
                     final nextcloudTheme = capabilitiesSnapshot.data?.capabilities.theming;
