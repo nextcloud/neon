@@ -46,10 +46,15 @@ class FilesDetailsPage extends StatelessWidget {
                         : AppLocalizations.of(context).detailsFileName: details.name,
                     AppLocalizations.of(context).detailsParentFolder:
                         details.path.length == 1 ? '/' : details.path.sublist(0, details.path.length - 1).join('/'),
-                    details.isDirectory
-                        ? AppLocalizations.of(context).detailsFolderSize
-                        : AppLocalizations.of(context).detailsFileSize: filesize(details.size, 1),
-                    AppLocalizations.of(context).detailsLastModified: details.lastModified.toLocal().toIso8601String(),
+                    if (details.size != null) ...{
+                      details.isDirectory
+                          ? AppLocalizations.of(context).detailsFolderSize
+                          : AppLocalizations.of(context).detailsFileSize: filesize(details.size, 1),
+                    },
+                    if (details.lastModified != null) ...{
+                      AppLocalizations.of(context).detailsLastModified:
+                          details.lastModified!.toLocal().toIso8601String(),
+                    },
                     if (details.isFavorite != null) ...{
                       AppLocalizations.of(context).detailsIsFavorite: details.isFavorite!
                           ? AppLocalizations.of(context).actionYes

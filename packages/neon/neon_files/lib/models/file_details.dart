@@ -19,13 +19,13 @@ class FileDetails {
 
   final bool isDirectory;
 
-  final int size;
+  final int? size;
 
   final String? etag;
 
   final String? mimeType;
 
-  final DateTime lastModified;
+  final DateTime? lastModified;
 
   final bool? hasPreview;
 

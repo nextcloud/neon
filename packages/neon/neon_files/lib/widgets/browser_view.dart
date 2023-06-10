@@ -116,12 +116,12 @@ class _FilesBrowserViewState extends State<FilesBrowserView> {
                                               isDirectory: matchingUploadTasks.isEmpty && file.isDirectory,
                                               size: matchingUploadTasks.isNotEmpty
                                                   ? matchingUploadTasks.first.size
-                                                  : file.size!,
+                                                  : file.size,
                                               etag: matchingUploadTasks.isNotEmpty ? null : file.etag,
                                               mimeType: matchingUploadTasks.isNotEmpty ? null : file.mimeType,
                                               lastModified: matchingUploadTasks.isNotEmpty
                                                   ? matchingUploadTasks.first.lastModified
-                                                  : file.lastModified!,
+                                                  : file.lastModified,
                                               hasPreview: matchingUploadTasks.isNotEmpty ? null : file.hasPreview,
                                               isFavorite: matchingUploadTasks.isNotEmpty ? null : file.favorite,
                                             ),
@@ -235,10 +235,12 @@ class _FilesBrowserViewState extends State<FilesBrowserView> {
         ),
         subtitle: Row(
           children: [
-            RelativeTime(
-              date: details.lastModified,
-            ),
-            if (details.size > 0) ...[
+            if (details.lastModified != null) ...[
+              RelativeTime(
+                date: details.lastModified!,
+              ),
+            ],
+            if (details.size != null && details.size! > 0) ...[
               const SizedBox(
                 width: 10,
               ),
@@ -396,7 +398,7 @@ class _FilesBrowserViewState extends State<FilesBrowserView> {
                       break;
                     case FilesFileAction.sync:
                       final sizeWarning = widget.bloc.options.downloadSizeWarning.value;
-                      if (sizeWarning != null && details.size > sizeWarning) {
+                      if (sizeWarning != null && details.size != null && details.size! > sizeWarning) {
                         // ignore: use_build_context_synchronously
                         if (!(await showConfirmationDialog(
                           context,
