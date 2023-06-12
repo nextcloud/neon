@@ -22,10 +22,19 @@ abstract class AppImplementation<T extends Bloc, R extends NextcloudAppSpecificO
   late final R options;
   R buildOptions(final AppStorage storage);
 
+  final Map<String, T> blocs = {};
+
+  T getBloc(final Account account) => blocs[account.id] ??= buildBloc(account.client);
+
   T buildBloc(final NextcloudClient client);
 
-  Provider<T> blocProvider(final NextcloudClient client) => Provider<T>(
-        create: (final _) => buildBloc(client),
+  Provider<T> get blocProvider => Provider<T>(
+        create: (final context) {
+          final accountsBloc = Provider.of<AccountsBloc>(context, listen: false);
+          final account = accountsBloc.activeAccount.value!;
+
+          return getBloc(account);
+        },
       );
 
   BehaviorSubject<int>? getUnreadCounter(final AppsBloc appsBloc);
