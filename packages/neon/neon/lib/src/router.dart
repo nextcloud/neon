@@ -44,7 +44,6 @@ class AccountSettingsRoute extends GoRouteData {
     final account = bloc.accounts.value.find(accountid)!;
 
     return AccountSettingsPage(
-      bloc: bloc,
       account: account,
     );
   }
