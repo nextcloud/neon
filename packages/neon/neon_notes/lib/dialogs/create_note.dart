@@ -2,12 +2,10 @@ part of '../neon_notes.dart';
 
 class NotesCreateNoteDialog extends StatefulWidget {
   const NotesCreateNoteDialog({
-    required this.bloc,
     this.category,
     super.key,
   });
 
-  final NotesBloc bloc;
   final String? category;
 
   @override
@@ -17,7 +15,16 @@ class NotesCreateNoteDialog extends StatefulWidget {
 class _NotesCreateNoteDialogState extends State<NotesCreateNoteDialog> {
   final formKey = GlobalKey<FormState>();
   final controller = TextEditingController();
+  late NotesBloc bloc;
+
   String? selectedCategory;
+
+  @override
+  void initState() {
+    bloc = Provider.of<NotesBloc>(context, listen: false);
+
+    super.initState();
+  }
 
   void submit() {
     if (formKey.currentState!.validate()) {
@@ -27,7 +34,7 @@ class _NotesCreateNoteDialogState extends State<NotesCreateNoteDialog> {
 
   @override
   Widget build(final BuildContext context) => ResultBuilder<List<NextcloudNotesNote>>(
-        stream: widget.bloc.notes,
+        stream: bloc.notes,
         builder: (final context, final notes) => NeonDialog(
           title: Text(AppLocalizations.of(context).noteCreate),
           children: [
@@ -51,7 +58,7 @@ class _NotesCreateNoteDialogState extends State<NotesCreateNoteDialog> {
                     Center(
                       child: NeonException(
                         notes.error,
-                        onRetry: widget.bloc.refresh,
+                        onRetry: bloc.refresh,
                       ),
                     ),
                     Center(

@@ -2,12 +2,10 @@ part of '../neon_notes.dart';
 
 class NotesSelectCategoryDialog extends StatefulWidget {
   const NotesSelectCategoryDialog({
-    required this.bloc,
     this.initialCategory,
     super.key,
   });
 
-  final NotesBloc bloc;
   final String? initialCategory;
 
   @override
@@ -16,8 +14,16 @@ class NotesSelectCategoryDialog extends StatefulWidget {
 
 class _NotesSelectCategoryDialogState extends State<NotesSelectCategoryDialog> {
   final formKey = GlobalKey<FormState>();
+  late NotesBloc bloc;
 
   String? selectedCategory;
+
+  @override
+  void initState() {
+    bloc = Provider.of<NotesBloc>(context, listen: false);
+
+    super.initState();
+  }
 
   void submit() {
     if (formKey.currentState!.validate()) {
@@ -27,7 +33,7 @@ class _NotesSelectCategoryDialogState extends State<NotesSelectCategoryDialog> {
 
   @override
   Widget build(final BuildContext context) => ResultBuilder<List<NextcloudNotesNote>>(
-        stream: widget.bloc.notes,
+        stream: bloc.notes,
         builder: (final context, final notes) => NeonDialog(
           title: Text(AppLocalizations.of(context).category),
           children: [
@@ -39,7 +45,7 @@ class _NotesSelectCategoryDialogState extends State<NotesSelectCategoryDialog> {
                   Center(
                     child: NeonException(
                       notes.error,
-                      onRetry: widget.bloc.refresh,
+                      onRetry: bloc.refresh,
                     ),
                   ),
                   Center(

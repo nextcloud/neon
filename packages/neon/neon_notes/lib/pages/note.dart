@@ -3,18 +3,17 @@ part of '../neon_notes.dart';
 class NotesNotePage extends StatefulWidget {
   const NotesNotePage({
     required this.bloc,
-    required this.notesBloc,
     super.key,
   });
 
   final NotesNoteBloc bloc;
-  final NotesBloc notesBloc;
 
   @override
   State<NotesNotePage> createState() => _NotesNotePageState();
 }
 
 class _NotesNotePageState extends State<NotesNotePage> {
+  late NotesBloc notesBloc;
   late final _contentController = TextEditingController()..text = widget.bloc.initialContent;
   late final _titleController = TextEditingController()..text = widget.bloc.initialTitle;
   final _contentFocusNode = FocusNode();
@@ -31,6 +30,8 @@ class _NotesNotePageState extends State<NotesNotePage> {
   @override
   void initState() {
     super.initState();
+
+    notesBloc = Provider.of<NotesBloc>(context, listen: false);
 
     widget.bloc.errors.listen((final error) {
       handleNotesException(context, error);
@@ -118,7 +119,6 @@ class _NotesNotePageState extends State<NotesNotePage> {
                       final result = await showDialog<String>(
                         context: context,
                         builder: (final context) => NotesSelectCategoryDialog(
-                          bloc: widget.notesBloc,
                           initialCategory: category,
                         ),
                       );

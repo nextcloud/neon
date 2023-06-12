@@ -26,17 +26,13 @@ class _NotesMainPageState extends State<NotesMainPage> {
 
   @override
   Widget build(final BuildContext context) {
-    final views = [
-      NotesView(
-        bloc: bloc,
-      ),
-      NotesCategoriesView(
-        bloc: bloc,
-      ),
+    const views = [
+      NotesView(),
+      NotesCategoriesView(),
     ];
 
-    final floatingActionButtons = [
-      NotesFloatingActionButton(bloc: bloc),
+    const floatingActionButtons = [
+      NotesFloatingActionButton(),
       null,
     ];
 
