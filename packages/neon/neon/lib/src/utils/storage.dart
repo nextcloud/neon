@@ -1,6 +1,6 @@
 part of '../../neon.dart';
 
-class AppStorage extends SettingsStorage {
+class AppStorage implements SettingsStorage {
   AppStorage(
     this._id,
     this._sharedPreferences,
