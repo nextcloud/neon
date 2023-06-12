@@ -2,12 +2,10 @@ part of '../neon_news.dart';
 
 class NewsAddFeedDialog extends StatefulWidget {
   const NewsAddFeedDialog({
-    required this.bloc,
     this.folderID,
     super.key,
   });
 
-  final NewsBloc bloc;
   final int? folderID;
 
   @override
@@ -17,6 +15,7 @@ class NewsAddFeedDialog extends StatefulWidget {
 class _NewsAddFeedDialogState extends State<NewsAddFeedDialog> {
   final formKey = GlobalKey<FormState>();
   final controller = TextEditingController();
+  late NewsBloc bloc;
 
   NextcloudNewsFolder? folder;
 
@@ -30,6 +29,7 @@ class _NewsAddFeedDialogState extends State<NewsAddFeedDialog> {
   void initState() {
     super.initState();
 
+    bloc = Provider.of<NewsBloc>(context, listen: false);
     unawaited(
       Clipboard.getData(Clipboard.kTextPlain).then((final clipboardContent) {
         if (clipboardContent != null && clipboardContent.text != null) {
@@ -44,7 +44,7 @@ class _NewsAddFeedDialogState extends State<NewsAddFeedDialog> {
 
   @override
   Widget build(final BuildContext context) => ResultBuilder<List<NextcloudNewsFolder>>(
-        stream: widget.bloc.folders,
+        stream: bloc.folders,
         builder: (final context, final folders) => NeonDialog(
           title: Text(AppLocalizations.of(context).feedAdd),
           children: [
@@ -69,7 +69,7 @@ class _NewsAddFeedDialogState extends State<NewsAddFeedDialog> {
                     Center(
                       child: NeonException(
                         folders.error,
-                        onRetry: widget.bloc.refresh,
+                        onRetry: bloc.refresh,
                       ),
                     ),
                     Center(

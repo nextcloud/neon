@@ -3,7 +3,6 @@ part of '../neon_news.dart';
 class NewsArticlePage extends StatefulWidget {
   const NewsArticlePage({
     required this.bloc,
-    required this.articlesBloc,
     required this.useWebView,
     this.bodyData,
     this.url,
@@ -12,7 +11,6 @@ class NewsArticlePage extends StatefulWidget {
         assert(!useWebView || url != null, 'url has to be set when using a WebView');
 
   final NewsArticleBloc bloc;
-  final NewsArticlesBloc articlesBloc;
   final bool useWebView;
   final String? bodyData;
   final String? url;
@@ -22,12 +20,16 @@ class NewsArticlePage extends StatefulWidget {
 }
 
 class _NewsArticlePageState extends State<NewsArticlePage> {
+  late NewsArticlesBloc articlesBloc;
+
   WebViewController? _webviewController;
   Timer? _markAsReadTimer;
 
   @override
   void initState() {
     super.initState();
+
+    articlesBloc = Provider.of<NewsBloc>(context, listen: false).mainArticlesBloc;
 
     widget.bloc.errors.listen((final error) {
       NeonException.showSnackbar(context, error);
@@ -67,7 +69,7 @@ class _NewsArticlePageState extends State<NewsArticlePage> {
 
   Future _startMarkAsReadTimer() async {
     if (await widget.bloc.unread.first) {
-      if (widget.articlesBloc.options.articleDisableMarkAsReadTimeoutOption.value) {
+      if (articlesBloc.options.articleDisableMarkAsReadTimeoutOption.value) {
         widget.bloc.markArticleAsRead();
       } else {
         _markAsReadTimer = Timer(const Duration(seconds: 3), () async {

@@ -2,49 +2,52 @@ part of '../neon_news.dart';
 
 class NewsFoldersView extends StatelessWidget {
   const NewsFoldersView({
-    required this.bloc,
     super.key,
   });
 
-  final NewsBloc bloc;
-
   @override
-  Widget build(final BuildContext context) => ResultBuilder<List<NextcloudNewsFolder>>(
-        stream: bloc.folders,
-        builder: (final context, final folders) => ResultBuilder<List<NextcloudNewsFeed>>(
-          stream: bloc.feeds,
-          builder: (final context, final feeds) => SortBoxBuilder<FoldersSortProperty, FolderFeedsWrapper>(
-            sortBox: foldersSortBox,
-            sortPropertyOption: bloc.options.foldersSortPropertyOption,
-            sortBoxOrderOption: bloc.options.foldersSortBoxOrderOption,
-            input: feeds.data == null
-                ? null
-                : folders.data
-                    ?.map(
-                      (final folder) => FolderFeedsWrapper(
-                        folder,
-                        feeds.data!.where((final feed) => feed.folderId == folder.id).toList(),
-                      ),
-                    )
-                    .toList(),
-            builder: (final context, final sorted) => NeonListView<FolderFeedsWrapper>(
-              scrollKey: 'news-folders',
-              withFloatingActionButton: true,
-              items: sorted,
-              isLoading: feeds.loading || folders.loading,
-              error: feeds.error ?? folders.error,
-              onRefresh: bloc.refresh,
-              builder: _buildFolder,
-            ),
+  Widget build(final BuildContext context) {
+    final bloc = Provider.of<NewsBloc>(context, listen: false);
+
+    return ResultBuilder<List<NextcloudNewsFolder>>(
+      stream: bloc.folders,
+      builder: (final context, final folders) => ResultBuilder<List<NextcloudNewsFeed>>(
+        stream: bloc.feeds,
+        builder: (final context, final feeds) => SortBoxBuilder<FoldersSortProperty, FolderFeedsWrapper>(
+          sortBox: foldersSortBox,
+          sortPropertyOption: bloc.options.foldersSortPropertyOption,
+          sortBoxOrderOption: bloc.options.foldersSortBoxOrderOption,
+          input: feeds.data == null
+              ? null
+              : folders.data
+                  ?.map(
+                    (final folder) => FolderFeedsWrapper(
+                      folder,
+                      feeds.data!.where((final feed) => feed.folderId == folder.id).toList(),
+                    ),
+                  )
+                  .toList(),
+          builder: (final context, final sorted) => NeonListView<FolderFeedsWrapper>(
+            scrollKey: 'news-folders',
+            withFloatingActionButton: true,
+            items: sorted,
+            isLoading: feeds.loading || folders.loading,
+            error: feeds.error ?? folders.error,
+            onRefresh: bloc.refresh,
+            builder: _buildFolder,
           ),
         ),
-      );
+      ),
+    );
+  }
 
   Widget _buildFolder(
     final BuildContext context,
     final FolderFeedsWrapper folderFeedsWrapper,
   ) {
+    final bloc = Provider.of<NewsBloc>(context, listen: false);
     final unreadCount = feedsUnreadCountSum(folderFeedsWrapper.feeds);
+
     return ListTile(
       title: Text(
         folderFeedsWrapper.folder.name,
@@ -122,7 +125,6 @@ class NewsFoldersView extends StatelessWidget {
         await Navigator.of(context).push(
           MaterialPageRoute(
             builder: (final context) => NewsFolderPage(
-              bloc: bloc,
               folder: folderFeedsWrapper.folder,
             ),
           ),

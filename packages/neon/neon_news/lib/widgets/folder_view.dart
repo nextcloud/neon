@@ -2,12 +2,10 @@ part of '../neon_news.dart';
 
 class NewsFolderView extends StatefulWidget {
   const NewsFolderView({
-    required this.bloc,
     required this.folder,
     super.key,
   });
 
-  final NewsBloc bloc;
   final NextcloudNewsFolder folder;
 
   @override
@@ -15,8 +13,16 @@ class NewsFolderView extends StatefulWidget {
 }
 
 class _NewsFolderViewState extends State<NewsFolderView> {
-  late final option = widget.bloc.options.defaultFolderViewTypeOption;
+  late NewsBloc bloc;
+  late final option = bloc.options.defaultFolderViewTypeOption;
   late DefaultFolderViewType _viewType = option.value;
+
+  @override
+  void initState() {
+    bloc = Provider.of<NewsBloc>(context, listen: false);
+
+    super.initState();
+  }
 
   @override
   Widget build(final BuildContext context) => Column(
@@ -45,17 +51,15 @@ class _NewsFolderViewState extends State<NewsFolderView> {
             child: _viewType == DefaultFolderViewType.articles
                 ? NewsArticlesView(
                     bloc: NewsArticlesBloc(
-                      widget.bloc,
-                      widget.bloc.options,
-                      widget.bloc.requestManager,
-                      widget.bloc.client,
+                      bloc,
+                      bloc.options,
+                      bloc.requestManager,
+                      bloc.client,
                       id: widget.folder.id,
                       listType: ListType.folder,
                     ),
-                    newsBloc: widget.bloc,
                   )
                 : NewsFeedsView(
-                    bloc: widget.bloc,
                     folderID: widget.folder.id,
                   ),
           ),

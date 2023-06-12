@@ -2,12 +2,10 @@ part of '../neon_news.dart';
 
 class NewsFolderPage extends StatelessWidget {
   const NewsFolderPage({
-    required this.bloc,
     required this.folder,
     super.key,
   });
 
-  final NewsBloc bloc;
   final NextcloudNewsFolder folder;
 
   @override
@@ -17,11 +15,9 @@ class NewsFolderPage extends StatelessWidget {
           title: Text(folder.name),
         ),
         body: NewsFolderView(
-          bloc: bloc,
           folder: folder,
         ),
         floatingActionButton: NewsFeedFloatingActionButton(
-          bloc: bloc,
           folderID: folder.id,
         ),
       );

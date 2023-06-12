@@ -25,23 +25,16 @@ class _NewsMainPageState extends State<NewsMainPage> {
 
   @override
   Widget build(final BuildContext context) {
-    final views = [
-      NewsArticlesView(
-        bloc: bloc.mainArticlesBloc,
-        newsBloc: bloc,
-      ),
-      NewsFoldersView(
-        bloc: bloc,
-      ),
-      NewsFeedsView(
-        bloc: bloc,
-      ),
+    const views = [
+      NewsArticlesView(),
+      NewsFoldersView(),
+      NewsFeedsView(),
     ];
 
-    final floatingActionButtons = [
+    const floatingActionButtons = [
       null,
-      NewsFolderFloatingActionButton(bloc: bloc),
-      NewsFeedFloatingActionButton(bloc: bloc),
+      NewsFolderFloatingActionButton(),
+      NewsFeedFloatingActionButton(),
     ];
 
     return Scaffold(

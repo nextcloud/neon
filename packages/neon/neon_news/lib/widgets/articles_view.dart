@@ -2,37 +2,41 @@ part of '../neon_news.dart';
 
 class NewsArticlesView extends StatefulWidget {
   const NewsArticlesView({
-    required this.bloc,
-    required this.newsBloc,
+    this.bloc,
     super.key,
   });
 
-  final NewsArticlesBloc bloc;
-  final NewsBloc newsBloc;
+  final NewsArticlesBloc? bloc;
 
   @override
   State<NewsArticlesView> createState() => _NewsArticlesViewState();
 }
 
 class _NewsArticlesViewState extends State<NewsArticlesView> {
+  late NewsBloc newsBloc;
+  late NewsArticlesBloc bloc;
+
   @override
   void initState() {
     super.initState();
 
-    widget.bloc.errors.listen((final error) {
+    newsBloc = Provider.of<NewsBloc>(context, listen: false);
+    bloc = widget.bloc ?? newsBloc.mainArticlesBloc;
+
+    bloc.errors.listen((final error) {
       NeonException.showSnackbar(context, error);
     });
   }
 
   @override
   Widget build(final BuildContext context) => ResultBuilder<List<NextcloudNewsFeed>>(
-        stream: widget.newsBloc.feeds,
+        stream: newsBloc.feeds,
         builder: (final context, final feeds) => ResultBuilder<List<NextcloudNewsArticle>>(
-          stream: widget.bloc.articles,
+          stream: bloc.articles,
           builder: (final context, final articles) => SortBoxBuilder<ArticlesSortProperty, NextcloudNewsArticle>(
             sortBox: articlesSortBox,
-            sortPropertyOption: widget.newsBloc.options.articlesSortPropertyOption,
-            sortBoxOrderOption: widget.newsBloc.options.articlesSortBoxOrderOption,
+            sortPropertyOption: newsBloc.options.articlesSortPropertyOption,
+            sortBoxOrderOption: newsBloc.options.articlesSortBoxOrderOption,
             input: articles.data,
             builder: (final context, final sorted) => NeonListView<NextcloudNewsArticle>(
               scrollKey: 'news-articles',
@@ -41,8 +45,8 @@ class _NewsArticlesViewState extends State<NewsArticlesView> {
               error: articles.error ?? feeds.error,
               onRefresh: () async {
                 await Future.wait([
-                  widget.bloc.refresh(),
-                  widget.newsBloc.refresh(),
+                  bloc.refresh(),
+                  newsBloc.refresh(),
                 ]);
               },
               builder: (final context, final article) => _buildArticle(
@@ -52,7 +56,7 @@ class _NewsArticlesViewState extends State<NewsArticlesView> {
               ),
               topFixedChildren: [
                 StreamBuilder<FilterType>(
-                  stream: widget.bloc.filterType,
+                  stream: bloc.filterType,
                   builder: (final context, final selectedFilterTypeSnapshot) => Container(
                     margin: const EdgeInsets.symmetric(horizontal: 15),
                     child: DropdownButton<FilterType>(
@@ -61,7 +65,7 @@ class _NewsArticlesViewState extends State<NewsArticlesView> {
                       items: [
                         FilterType.all,
                         FilterType.unread,
-                        if (widget.bloc.listType == null) ...[
+                        if (bloc.listType == null) ...[
                           FilterType.starred,
                         ],
                       ].map<DropdownMenuItem<FilterType>>(
@@ -87,7 +91,7 @@ class _NewsArticlesViewState extends State<NewsArticlesView> {
                         },
                       ).toList(),
                       onChanged: (final value) {
-                        widget.bloc.setFilterType(value!);
+                        bloc.setFilterType(value!);
                       },
                     ),
                   ),
@@ -160,9 +164,9 @@ class _NewsArticlesViewState extends State<NewsArticlesView> {
         trailing: IconButton(
           onPressed: () {
             if (article.starred) {
-              widget.bloc.unstarArticle(article);
+              bloc.unstarArticle(article);
             } else {
-              widget.bloc.starArticle(article);
+              bloc.starArticle(article);
             }
           },
           tooltip:
@@ -174,13 +178,13 @@ class _NewsArticlesViewState extends State<NewsArticlesView> {
         ),
         onLongPress: () {
           if (article.unread) {
-            widget.bloc.markArticleAsRead(article);
+            bloc.markArticleAsRead(article);
           } else {
-            widget.bloc.markArticleAsUnread(article);
+            bloc.markArticleAsUnread(article);
           }
         },
         onTap: () async {
-          final viewType = widget.newsBloc.options.articleViewTypeOption.value;
+          final viewType = newsBloc.options.articleViewTypeOption.value;
           String? bodyData;
           try {
             bodyData = _fixArticleBody(article.body);
@@ -195,10 +199,9 @@ class _NewsArticlesViewState extends State<NewsArticlesView> {
                 builder: (final context) => NewsArticlePage(
                   bloc: NewsArticleBloc(
                     Provider.of<AccountsBloc>(context, listen: false).activeAccount.value!.client,
-                    widget.bloc,
+                    bloc,
                     article,
                   ),
-                  articlesBloc: widget.bloc,
                   useWebView: false,
                   bodyData: bodyData,
                   url: article.url,
@@ -213,10 +216,9 @@ class _NewsArticlesViewState extends State<NewsArticlesView> {
                 builder: (final context) => NewsArticlePage(
                   bloc: NewsArticleBloc(
                     Provider.of<AccountsBloc>(context, listen: false).activeAccount.value!.client,
-                    widget.bloc,
+                    bloc,
                     article,
                   ),
-                  articlesBloc: widget.bloc,
                   useWebView: true,
                   url: article.url,
                 ),
@@ -224,7 +226,7 @@ class _NewsArticlesViewState extends State<NewsArticlesView> {
             );
           } else {
             if (article.unread) {
-              widget.bloc.markArticleAsRead(article);
+              bloc.markArticleAsRead(article);
             }
             if (article.url != null) {
               await launchUrlString(
