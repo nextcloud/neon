@@ -21,7 +21,7 @@ class _NotesCreateNoteDialogState extends State<NotesCreateNoteDialog> {
 
   void submit() {
     if (formKey.currentState!.validate()) {
-      Navigator.of(context).pop([controller.text, widget.category ?? selectedCategory]);
+      Navigator.of(context).pop((controller.text, widget.category ?? selectedCategory));
     }
   }
 

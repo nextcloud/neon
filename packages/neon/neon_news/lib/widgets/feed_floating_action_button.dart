@@ -13,7 +13,7 @@ class NewsFeedFloatingActionButton extends StatelessWidget {
   @override
   Widget build(final BuildContext context) => FloatingActionButton(
         onPressed: () async {
-          final result = await showDialog<List>(
+          final result = await showDialog<(String, int?)>(
             context: context,
             builder: (final context) => NewsAddFeedDialog(
               bloc: bloc,
@@ -21,7 +21,8 @@ class NewsFeedFloatingActionButton extends StatelessWidget {
             ),
           );
           if (result != null) {
-            bloc.addFeed(result[0] as String, result[1] as int?);
+            final (url, folderId) = result;
+            bloc.addFeed(url, folderId);
           }
         },
         tooltip: AppLocalizations.of(context).feedAdd,

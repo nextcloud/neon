@@ -22,7 +22,7 @@ class _NewsAddFeedDialogState extends State<NewsAddFeedDialog> {
 
   void submit() {
     if (formKey.currentState!.validate()) {
-      Navigator.of(context).pop([controller.text, widget.folderID ?? folder?.id]);
+      Navigator.of(context).pop((controller.text, widget.folderID ?? folder?.id));
     }
   }
 
