@@ -25,8 +25,6 @@ class _FilesMainPageState extends State<FilesMainPage> {
   @override
   Widget build(final BuildContext context) => Scaffold(
         body: FilesBrowserView(
-          bloc: bloc.browser,
-          filesBloc: bloc,
           onPickFile: (final details) async {
             final sizeWarning = bloc.options.downloadSizeWarning.value;
             if (sizeWarning != null && details.size > sizeWarning) {
@@ -50,7 +48,6 @@ class _FilesMainPageState extends State<FilesMainPage> {
             await showDialog(
               context: context,
               builder: (final context) => FilesChooseCreateDialog(
-                bloc: bloc,
                 basePath: bloc.browser.path.value,
               ),
             );

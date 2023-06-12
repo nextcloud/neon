@@ -2,7 +2,6 @@ part of '../neon_files.dart';
 
 class FilePreview extends StatelessWidget {
   const FilePreview({
-    required this.bloc,
     required this.details,
     this.size = const Size.square(40),
     this.color,
@@ -14,7 +13,6 @@ class FilePreview extends StatelessWidget {
           'withBackground needs to be true when borderRadius is set',
         );
 
-  final FilesBloc bloc;
   final FileDetails details;
   final Size size;
   final Color? color;
@@ -26,7 +24,9 @@ class FilePreview extends StatelessWidget {
 
   @override
   Widget build(final BuildContext context) {
+    final bloc = Provider.of<FilesBloc>(context, listen: false);
     final color = this.color ?? Theme.of(context).colorScheme.primary;
+
     return SizedBox.fromSize(
       size: size,
       child: StreamBuilder<bool?>(

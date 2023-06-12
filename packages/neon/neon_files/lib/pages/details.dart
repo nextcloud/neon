@@ -2,12 +2,10 @@ part of '../neon_files.dart';
 
 class FilesDetailsPage extends StatelessWidget {
   const FilesDetailsPage({
-    required this.bloc,
     required this.details,
     super.key,
   });
 
-  final FilesBloc bloc;
   final FileDetails details;
 
   @override
@@ -24,7 +22,6 @@ class FilesDetailsPage extends StatelessWidget {
               ColoredBox(
                 color: Theme.of(context).colorScheme.primary,
                 child: FilePreview(
-                  bloc: bloc,
                   details: details,
                   color: Theme.of(context).colorScheme.onPrimary,
                   size: Size(

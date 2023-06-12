@@ -2,8 +2,6 @@ part of '../neon_files.dart';
 
 class FilesBrowserView extends StatefulWidget {
   const FilesBrowserView({
-    required this.bloc,
-    required this.filesBloc,
     this.onPickFile,
     this.enableFileActions = true,
     this.onlyShowDirectories = false,
@@ -11,8 +9,6 @@ class FilesBrowserView extends StatefulWidget {
     // ignore: prefer_asserts_with_message
   }) : assert((onPickFile == null) == onlyShowDirectories);
 
-  final FilesBrowserBloc bloc;
-  final FilesBloc filesBloc;
   final Function(FileDetails)? onPickFile;
   final bool enableFileActions;
   final bool onlyShowDirectories;
@@ -22,24 +18,30 @@ class FilesBrowserView extends StatefulWidget {
 }
 
 class _FilesBrowserViewState extends State<FilesBrowserView> {
+  late FilesBrowserBloc bloc;
+  late FilesBloc filesBloc;
+
   @override
   void initState() {
     super.initState();
 
-    widget.bloc.errors.listen((final error) {
+    filesBloc = Provider.of<FilesBloc>(context, listen: false);
+    bloc = filesBloc.browser;
+
+    bloc.errors.listen((final error) {
       NeonException.showSnackbar(context, error);
     });
   }
 
   @override
   Widget build(final BuildContext context) => ResultBuilder<List<WebDavFile>>(
-        stream: widget.bloc.files,
+        stream: bloc.files,
         builder: (final context, final files) => StreamBuilder<List<String>>(
-          stream: widget.bloc.path,
+          stream: bloc.path,
           builder: (final context, final pathSnapshot) => StreamBuilder<List<UploadTask>>(
-            stream: widget.filesBloc.uploadTasks,
+            stream: filesBloc.uploadTasks,
             builder: (final context, final uploadTasksSnapshot) => StreamBuilder<List<DownloadTask>>(
-              stream: widget.filesBloc.downloadTasks,
+              stream: filesBloc.downloadTasks,
               builder: (final context, final downloadTasksSnapshot) => !pathSnapshot.hasData ||
                       !uploadTasksSnapshot.hasData ||
                       !downloadTasksSnapshot.hasData
@@ -48,15 +50,15 @@ class _FilesBrowserViewState extends State<FilesBrowserView> {
                       onBackButtonPressed: () async {
                         final path = pathSnapshot.data!;
                         if (path.isNotEmpty) {
-                          widget.bloc.setPath(path.sublist(0, path.length - 1));
+                          bloc.setPath(path.sublist(0, path.length - 1));
                           return true;
                         }
                         return false;
                       },
                       child: SortBoxBuilder<FilesSortProperty, WebDavFile>(
                         sortBox: filesSortBox,
-                        sortPropertyOption: widget.bloc.options.filesSortPropertyOption,
-                        sortBoxOrderOption: widget.bloc.options.filesSortBoxOrderOption,
+                        sortPropertyOption: bloc.options.filesSortPropertyOption,
+                        sortBoxOrderOption: bloc.options.filesSortBoxOrderOption,
                         input: files.data,
                         builder: (final context, final sorted) => NeonListView<Widget>(
                           scrollKey: 'files-${pathSnapshot.data!.join('/')}',
@@ -112,7 +114,7 @@ class _FilesBrowserViewState extends State<FilesBrowserView> {
                                           builder: (final context, final downloadTaskProgressSnapshot) => _buildFile(
                                             context: context,
                                             details: FileDetails(
-                                              path: [...widget.bloc.path.value, file.name],
+                                              path: [...bloc.path.value, file.name],
                                               isDirectory: matchingUploadTasks.isEmpty && file.isDirectory,
                                               size: matchingUploadTasks.isNotEmpty
                                                   ? matchingUploadTasks.first.size
@@ -138,7 +140,7 @@ class _FilesBrowserViewState extends State<FilesBrowserView> {
                           ],
                           isLoading: files.loading,
                           error: files.error,
-                          onRefresh: widget.bloc.refresh,
+                          onRefresh: bloc.refresh,
                           builder: (final context, final widget) => widget,
                           topScrollingChildren: [
                             Align(
@@ -162,7 +164,7 @@ class _FilesBrowserViewState extends State<FilesBrowserView> {
                                         size: 30,
                                       ),
                                       onPressed: () {
-                                        widget.bloc.setPath([]);
+                                        bloc.setPath([]);
                                       },
                                     ),
                                     for (var i = 0; i < pathSnapshot.data!.length; i++) ...[
@@ -174,7 +176,7 @@ class _FilesBrowserViewState extends State<FilesBrowserView> {
                                             excludeFromSemantics: true,
                                             child: TextButton(
                                               onPressed: () {
-                                                widget.bloc.setPath(path);
+                                                bloc.setPath(path);
                                               },
                                               child: Text(
                                                 pathSnapshot.data![i],
@@ -206,7 +208,7 @@ class _FilesBrowserViewState extends State<FilesBrowserView> {
       );
 
   bool _pathMatchesFile(final List<String> path, final String name) => const ListEquality().equals(
-        [...widget.bloc.path.value, name],
+        [...bloc.path.value, name],
         path,
       );
 
@@ -221,7 +223,7 @@ class _FilesBrowserViewState extends State<FilesBrowserView> {
         onTap: details.isDirectory || details.etag != null
             ? () async {
                 if (details.isDirectory) {
-                  widget.bloc.setPath(details.path);
+                  bloc.setPath(details.path);
                 } else {
                   if (widget.onPickFile != null) {
                     widget.onPickFile!.call(details);
@@ -269,7 +271,6 @@ class _FilesBrowserViewState extends State<FilesBrowserView> {
                         ],
                       )
                     : FilePreview(
-                        bloc: widget.filesBloc,
                         details: details,
                         withBackground: true,
                         borderRadius: const BorderRadius.all(Radius.circular(8)),
@@ -333,16 +334,15 @@ class _FilesBrowserViewState extends State<FilesBrowserView> {
                   switch (action) {
                     case FilesFileAction.toggleFavorite:
                       if (details.isFavorite ?? false) {
-                        widget.filesBloc.removeFavorite(details.path);
+                        filesBloc.removeFavorite(details.path);
                       } else {
-                        widget.filesBloc.addFavorite(details.path);
+                        filesBloc.addFavorite(details.path);
                       }
                       break;
                     case FilesFileAction.details:
                       await Navigator.of(context).push(
                         MaterialPageRoute(
                           builder: (final context) => FilesDetailsPage(
-                            bloc: widget.filesBloc,
                             details: details,
                           ),
                         ),
@@ -357,45 +357,41 @@ class _FilesBrowserViewState extends State<FilesBrowserView> {
                         value: details.name,
                       );
                       if (result != null) {
-                        widget.filesBloc.rename(details.path, result);
+                        filesBloc.rename(details.path, result);
                       }
                       break;
                     case FilesFileAction.move:
-                      final b = widget.filesBloc.getNewFilesBrowserBloc();
+                      final b = filesBloc.getNewFilesBrowserBloc();
                       final originalPath = details.path.sublist(0, details.path.length - 1);
                       b.setPath(originalPath);
                       final result = await showDialog<List<String>?>(
                         context: context,
                         builder: (final context) => FilesChooseFolderDialog(
-                          bloc: b,
-                          filesBloc: widget.filesBloc,
                           originalPath: originalPath,
                         ),
                       );
                       b.dispose();
                       if (result != null) {
-                        widget.filesBloc.move(details.path, result..add(details.name));
+                        filesBloc.move(details.path, result..add(details.name));
                       }
                       break;
                     case FilesFileAction.copy:
-                      final b = widget.filesBloc.getNewFilesBrowserBloc();
+                      final b = filesBloc.getNewFilesBrowserBloc();
                       final originalPath = details.path.sublist(0, details.path.length - 1);
                       b.setPath(originalPath);
                       final result = await showDialog<List<String>?>(
                         context: context,
                         builder: (final context) => FilesChooseFolderDialog(
-                          bloc: b,
-                          filesBloc: widget.filesBloc,
                           originalPath: originalPath,
                         ),
                       );
                       b.dispose();
                       if (result != null) {
-                        widget.filesBloc.copy(details.path, result..add(details.name));
+                        filesBloc.copy(details.path, result..add(details.name));
                       }
                       break;
                     case FilesFileAction.sync:
-                      final sizeWarning = widget.bloc.options.downloadSizeWarning.value;
+                      final sizeWarning = bloc.options.downloadSizeWarning.value;
                       if (sizeWarning != null && details.size > sizeWarning) {
                         // ignore: use_build_context_synchronously
                         if (!(await showConfirmationDialog(
@@ -409,7 +405,7 @@ class _FilesBrowserViewState extends State<FilesBrowserView> {
                           return;
                         }
                       }
-                      widget.filesBloc.syncFile(details.path);
+                      filesBloc.syncFile(details.path);
                       break;
                     case FilesFileAction.delete:
                       // ignore: use_build_context_synchronously
@@ -421,7 +417,7 @@ class _FilesBrowserViewState extends State<FilesBrowserView> {
                             // ignore: use_build_context_synchronously
                             : AppLocalizations.of(context).fileDeleteConfirm(details.name),
                       )) {
-                        widget.filesBloc.delete(details.path);
+                        filesBloc.delete(details.path);
                       }
                       break;
                   }

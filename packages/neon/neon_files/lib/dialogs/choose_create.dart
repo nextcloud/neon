@@ -2,12 +2,10 @@ part of '../neon_files.dart';
 
 class FilesChooseCreateDialog extends StatefulWidget {
   const FilesChooseCreateDialog({
-    required this.bloc,
     required this.basePath,
     super.key,
   });
 
-  final FilesBloc bloc;
   final List<String> basePath;
 
   @override
@@ -15,6 +13,15 @@ class FilesChooseCreateDialog extends StatefulWidget {
 }
 
 class _FilesChooseCreateDialogState extends State<FilesChooseCreateDialog> {
+  late FilesBloc filesBloc;
+
+  @override
+  void initState() {
+    filesBloc = Provider.of<FilesBloc>(context, listen: false);
+
+    super.initState();
+  }
+
   Future uploadFromPick(final FileType type) async {
     final result = await FilePicker.platform.pickFiles(
       allowMultiple: true,
@@ -28,7 +35,7 @@ class _FilesChooseCreateDialogState extends State<FilesChooseCreateDialog> {
   }
 
   Future upload(final File file) async {
-    final sizeWarning = widget.bloc.options.uploadSizeWarning.value;
+    final sizeWarning = filesBloc.options.uploadSizeWarning.value;
     if (sizeWarning != null) {
       final stat = file.statSync();
       if (stat.size > sizeWarning) {
@@ -45,7 +52,7 @@ class _FilesChooseCreateDialogState extends State<FilesChooseCreateDialog> {
         }
       }
     }
-    widget.bloc.uploadFile([...widget.basePath, p.basename(file.path)], file.path);
+    filesBloc.uploadFile([...widget.basePath, p.basename(file.path)], file.path);
   }
 
   @override
@@ -111,7 +118,7 @@ class _FilesChooseCreateDialogState extends State<FilesChooseCreateDialog> {
                 builder: (final context) => const FilesCreateFolderDialog(),
               );
               if (result != null) {
-                widget.bloc.browser.createFolder([...widget.basePath, ...result]);
+                filesBloc.browser.createFolder([...widget.basePath, ...result]);
               }
             },
           ),
