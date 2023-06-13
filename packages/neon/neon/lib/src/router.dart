@@ -119,7 +119,7 @@ class NextcloudAppSettingsRoute extends GoRouteData {
 
   @override
   Widget build(final BuildContext context, final GoRouterState state) {
-    final appImplementations = Provider.of<List<AppImplementation>>(context, listen: false);
+    final appImplementations = Provider.of<Iterable<AppImplementation>>(context, listen: false);
     final appImplementation = appImplementations.find(appid)!;
 
     return NextcloudAppSettingsPage(appImplementation: appImplementation);

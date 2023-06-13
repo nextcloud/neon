@@ -51,7 +51,7 @@ abstract class AppImplementation<T extends Bloc, R extends NextcloudAppSpecificO
   }
 }
 
-extension AppImplementationFind on List<AppImplementation> {
+extension AppImplementationFind on Iterable<AppImplementation> {
   AppImplementation? find(final String appID) {
     for (final app in this) {
       if (app.id == appID) {

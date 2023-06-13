@@ -103,7 +103,7 @@ extension NextcloudClientHelpers on NextcloudClient {
   }
 }
 
-extension AccountFind on List<Account> {
+extension AccountFind on Iterable<Account> {
   Account? find(final String accountID) {
     for (final account in this) {
       if (account.id == accountID) {

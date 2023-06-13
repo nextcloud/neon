@@ -14,7 +14,7 @@ class _SettingsPageState extends State<SettingsPage> {
   Widget build(final BuildContext context) {
     final globalOptions = Provider.of<GlobalOptions>(context);
     final accountsBloc = Provider.of<AccountsBloc>(context, listen: false);
-    final appImplementations = Provider.of<List<AppImplementation>>(context);
+    final appImplementations = Provider.of<Iterable<AppImplementation>>(context);
     return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
