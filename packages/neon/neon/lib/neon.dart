@@ -102,15 +102,16 @@ part 'src/widgets/text_settings_tile.dart';
 part 'src/widgets/user_avatar.dart';
 
 Future runNeon({
-  required final WidgetsBinding binding,
-  required final List<AppImplementation> Function(SharedPreferences, RequestManager, NeonPlatform)
+  required final Iterable<AppImplementation> Function(SharedPreferences, RequestManager, NeonPlatform)
       getAppImplementations,
   required final Branding branding,
+  final WidgetsBinding? bindingOverride,
   final SharedPreferences? sharedPreferencesOverride,
   final Account? account,
   final bool firstLaunchDisabled = false,
   final bool nextPushDisabled = false,
 }) async {
+  final binding = bindingOverride ?? WidgetsFlutterBinding.ensureInitialized();
   FlutterNativeSplash.preserve(widgetsBinding: binding);
 
   final sharedPreferences = sharedPreferencesOverride ?? await SharedPreferences.getInstance();
@@ -183,7 +184,7 @@ Future runNeon({
         Provider<NextPushBloc>(
           create: (final _) => nextPushBloc,
         ),
-        Provider<List<AppImplementation>>(
+        Provider<Iterable<AppImplementation>>(
           create: (final _) => allAppImplementations,
         ),
         Provider<PackageInfo>(

@@ -22,7 +22,7 @@ class NeonApp extends StatefulWidget {
 class _NeonAppState extends State<NeonApp> with WidgetsBindingObserver, tray.TrayListener, WindowListener {
   final _appRegex = RegExp(r'^app_([a-z]+)$', multiLine: true);
   final _navigatorKey = GlobalKey<NavigatorState>();
-  late final List<AppImplementation> _appImplementations;
+  late final Iterable<AppImplementation> _appImplementations;
   late final NeonPlatform _platform;
   late final GlobalOptions _globalOptions;
   late final AccountsBloc _accountsBloc;
@@ -37,7 +37,7 @@ class _NeonAppState extends State<NeonApp> with WidgetsBindingObserver, tray.Tra
   void initState() {
     super.initState();
 
-    _appImplementations = Provider.of<List<AppImplementation>>(context, listen: false);
+    _appImplementations = Provider.of<Iterable<AppImplementation>>(context, listen: false);
     _platform = Provider.of<NeonPlatform>(context, listen: false);
     _globalOptions = Provider.of<GlobalOptions>(context, listen: false);
     _accountsBloc = Provider.of<AccountsBloc>(context, listen: false);
@@ -122,13 +122,13 @@ class _NeonAppState extends State<NeonApp> with WidgetsBindingObserver, tray.Tra
           if (account == null) {
             return;
           }
-          final app = Provider.of<List<AppImplementation>>(context, listen: false).find('notifications');
+          final app = Provider.of<Iterable<AppImplementation>>(context, listen: false).find('notifications');
           if (app != null) {
             await _accountsBloc.getAppsBlocFor(account).getAppBloc<NotificationsBlocInterface>(app).refresh();
           }
         };
         Global.onPushNotificationClicked = (final pushNotificationWithAccountID) async {
-          final allAppImplementations = Provider.of<List<AppImplementation>>(context, listen: false);
+          final allAppImplementations = Provider.of<Iterable<AppImplementation>>(context, listen: false);
 
           final app = (pushNotificationWithAccountID.subject.app != null
                   ? allAppImplementations.find(pushNotificationWithAccountID.subject.app!)

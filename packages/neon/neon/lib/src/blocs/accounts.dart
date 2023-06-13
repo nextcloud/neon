@@ -91,7 +91,7 @@ class AccountsBloc extends Bloc implements AccountsBlocEvents, AccountsBlocState
   late final AppStorage _storage = AppStorage('accounts', _sharedPreferences);
   final SharedPreferences _sharedPreferences;
   final GlobalOptions _globalOptions;
-  final List<AppImplementation> _allAppImplementations;
+  final Iterable<AppImplementation> _allAppImplementations;
   final _keyLastUsedAccount = 'last-used-account';
 
   final _accountsOptions = <String, AccountSpecificOptions>{};

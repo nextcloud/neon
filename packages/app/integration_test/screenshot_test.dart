@@ -93,9 +93,9 @@ Future runTestApp(
   final Account? account,
 }) async {
   await runNeon(
-    binding: binding,
     getAppImplementations: getAppImplementations,
     branding: getNeonBranding(),
+    bindingOverride: binding,
     sharedPreferencesOverride: MemorySharedPreferences(),
     account: account,
     firstLaunchDisabled: true,

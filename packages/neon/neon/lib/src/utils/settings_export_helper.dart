@@ -8,7 +8,7 @@ class SettingsExportHelper {
   });
 
   final GlobalOptions globalOptions;
-  final List<AppImplementation> appImplementations;
+  final Iterable<AppImplementation> appImplementations;
   final Map<Account, List<Option>> accountSpecificOptions;
 
   Future applyFromJson(final Map<String, dynamic> data) async {

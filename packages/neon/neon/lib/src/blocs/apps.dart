@@ -9,7 +9,7 @@ abstract class AppsBlocEvents {
 abstract class AppsBlocStates {
   BehaviorSubject<Result<List<NextcloudApp>>> get apps;
 
-  BehaviorSubject<Result<List<AppImplementation>>> get appImplementations;
+  BehaviorSubject<Result<Iterable<AppImplementation>>> get appImplementations;
 
   BehaviorSubject<Result<NotificationsAppInterface?>> get notificationsAppImplementation;
 
@@ -28,7 +28,7 @@ class AppsBloc extends InteractiveBloc implements AppsBlocEvents, AppsBlocStates
   ) {
     apps.listen((final result) {
       appImplementations
-          .add(result.transform((final data) => _filteredAppImplementations(data.map((final a) => a.id).toList())));
+          .add(result.transform((final data) => _filteredAppImplementations(data.map((final a) => a.id))));
     });
 
     appImplementations.listen((final result) {
@@ -42,7 +42,7 @@ class AppsBloc extends InteractiveBloc implements AppsBlocEvents, AppsBlocStates
               } else if (result.data!.isNotEmpty) {
                 // This should never happen, because the files app is always installed and can not be removed, but just in
                 // case this changes at a later point.
-                initialApp = result.data![0].id;
+                initialApp = result.data!.first.id;
               }
             }
             if (!activeAppID.hasValue) {
@@ -73,14 +73,14 @@ class AppsBloc extends InteractiveBloc implements AppsBlocEvents, AppsBlocStates
     return null;
   }
 
-  List<AppImplementation> _filteredAppImplementations(final List<String> appIds) =>
-      _allAppImplementations.where((final a) => appIds.contains(a.id)).toList();
+  Iterable<AppImplementation> _filteredAppImplementations(final Iterable<String> appIds) =>
+      _allAppImplementations.where((final a) => appIds.contains(a.id));
 
   final RequestManager _requestManager;
   final CapabilitiesBloc _capabilitiesBloc;
   final AccountsBloc _accountsBloc;
   final Account _account;
-  final List<AppImplementation> _allAppImplementations;
+  final Iterable<AppImplementation> _allAppImplementations;
 
   final Map<String, Bloc> _blocs = {};
 
@@ -100,8 +100,8 @@ class AppsBloc extends InteractiveBloc implements AppsBlocEvents, AppsBlocStates
   BehaviorSubject<String?> activeAppID = BehaviorSubject<String?>();
 
   @override
-  BehaviorSubject<Result<List<AppImplementation<Bloc, NextcloudAppSpecificOptions>>>> appImplementations =
-      BehaviorSubject<Result<List<AppImplementation>>>();
+  BehaviorSubject<Result<Iterable<AppImplementation<Bloc, NextcloudAppSpecificOptions>>>> appImplementations =
+      BehaviorSubject<Result<Iterable<AppImplementation>>>();
 
   @override
   BehaviorSubject<Result<List<NextcloudApp>>> apps = BehaviorSubject<Result<List<NextcloudApp>>>();
