@@ -147,7 +147,7 @@ jobs:
 #      - name: Build
 #        env:
 #          FLUTTER_VERSION: ${{ needs.setup.outputs.flutter_version }}
-#        run: ./tool/build-neon.sh linux/arm64 --build-number="${{ needs.setup.outputs.build_number }}"
+#        run: ./tool/build-app.sh linux/arm64 --build-number="${{ needs.setup.outputs.build_number }}"
 #
 #      - uses: actions/upload-artifact@v3
 #        with:

@@ -2,7 +2,7 @@
 set -euxo pipefail
 
 if [ ! -f /.dockerenv ]; then
-  echo "This script needs to run in a specific docker container, use the build-neon.sh script"
+  echo "This script needs to run in a specific docker container, use the build-app.sh script"
   exit 1
 fi
 
