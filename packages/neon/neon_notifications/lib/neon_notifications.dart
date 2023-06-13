@@ -14,7 +14,8 @@ part 'blocs/notifications.dart';
 part 'options.dart';
 part 'pages/main.dart';
 
-class NotificationsApp extends NotificationsAppInterface {
+class NotificationsApp extends AppImplementation<NotificationsBloc, NotificationsAppSpecificOptions>
+    implements NotificationsAppInterface<NotificationsBloc, NotificationsAppSpecificOptions> {
   NotificationsApp(super.sharedPreferences, super.requestManager, super.platform);
 
   @override

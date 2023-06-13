@@ -82,8 +82,6 @@ class AppsBloc extends InteractiveBloc implements AppsBlocEvents, AppsBlocStates
   final Account _account;
   final Iterable<AppImplementation> _allAppImplementations;
 
-  final Map<String, Bloc> _blocs = {};
-
   @override
   void dispose() {
     unawaited(apps.close());
@@ -91,8 +89,11 @@ class AppsBloc extends InteractiveBloc implements AppsBlocEvents, AppsBlocStates
     unawaited(notificationsAppImplementation.close());
     unawaited(activeAppID.close());
     unawaited(openNotifications.close());
-    for (final key in _blocs.keys) {
-      _blocs[key]!.dispose();
+
+    for (final app in _allAppImplementations) {
+      for (final bloc in app.blocs.values) {
+        bloc.dispose();
+      }
     }
   }
 
@@ -137,15 +138,8 @@ class AppsBloc extends InteractiveBloc implements AppsBlocEvents, AppsBlocStates
     }
   }
 
-  T getAppBloc<T extends Bloc>(final AppImplementation appImplementation) {
-    if (_blocs[appImplementation.id] != null) {
-      return _blocs[appImplementation.id]! as T;
-    }
+  T getAppBloc<T extends Bloc>(final AppImplementation appImplementation) => appImplementation.getBloc(_account) as T;
 
-    return _blocs[appImplementation.id] = appImplementation.buildBloc(_account.client) as T;
-  }
-
-  List<Provider>? getAppProviders() => appImplementations.valueOrNull?.data
-      ?.map((final appImplementation) => appImplementation.blocProvider(_account.client))
-      .toList();
+  List<Provider> get appBlocProviders =>
+      _allAppImplementations.map((final appImplementation) => appImplementation.blocProvider).toList();
 }

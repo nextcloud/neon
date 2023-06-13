@@ -132,25 +132,30 @@ class _HomePageState extends State<HomePage> {
     final List<Account> accounts,
     final Account account,
   ) async {
+    final page = Scaffold(
+      resizeToAvoidBottomInset: false,
+      appBar: AppBar(
+        title: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(app.name(context)),
+            if (accounts.length > 1) ...[
+              Text(
+                account.client.humanReadableID,
+                style: Theme.of(context).textTheme.bodySmall,
+              ),
+            ],
+          ],
+        ),
+      ),
+      body: app.page,
+    );
+
     await Navigator.of(context).push(
       MaterialPageRoute(
-        builder: (final context) => Scaffold(
-          resizeToAvoidBottomInset: false,
-          appBar: AppBar(
-            title: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(app.name(context)),
-                if (accounts.length > 1) ...[
-                  Text(
-                    account.client.humanReadableID,
-                    style: Theme.of(context).textTheme.bodySmall,
-                  ),
-                ],
-              ],
-            ),
-          ),
-          body: app.page,
+        builder: (final context) => Provider<NotificationsBlocInterface>(
+          create: (final context) => app.getBloc(account),
+          child: page,
         ),
       ),
     );
@@ -171,17 +176,9 @@ class _HomePageState extends State<HomePage> {
             stream: _appsBloc.notificationsAppImplementation,
             builder: (final context, final notificationsAppImplementation) => StreamBuilder<String?>(
               stream: _appsBloc.activeAppID,
-              builder: (
-                final context,
-                final activeAppIDSnapshot,
-              ) =>
-                  StreamBuilder<List<Account>>(
+              builder: (final context, final activeAppIDSnapshot) => StreamBuilder<List<Account>>(
                 stream: _accountsBloc.accounts,
-                builder: (
-                  final context,
-                  final accountsSnapshot,
-                ) =>
-                    OptionBuilder<NavigationMode>(
+                builder: (final context, final accountsSnapshot) => OptionBuilder<NavigationMode>(
                   option: _globalOptions.navigationMode,
                   builder: (final context, final navigationMode) {
                     final accounts = accountsSnapshot.data;
@@ -536,13 +533,10 @@ class _HomePageState extends State<HomePage> {
                       ),
                     );
 
-                    final appProviders = _appsBloc.getAppProviders();
-                    if (appProviders != null) {
-                      body = MultiProvider(
-                        providers: appProviders,
-                        child: body,
-                      );
-                    }
+                    body = MultiProvider(
+                      providers: _appsBloc.appBlocProviders,
+                      child: body,
+                    );
 
                     return WillPopScope(
                       onWillPop: () async {
