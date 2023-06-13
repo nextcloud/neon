@@ -2,8 +2,8 @@ part of '../neon_news.dart';
 
 final foldersSortBox = SortBox<FoldersSortProperty, FolderFeedsWrapper>(
   {
-    FoldersSortProperty.alphabetical: (final folderFeedsWrapper) => folderFeedsWrapper.folder.name.toLowerCase(),
-    FoldersSortProperty.unreadCount: (final folderFeedsWrapper) => folderFeedsWrapper.feedsUnreadCountSum,
+    FoldersSortProperty.alphabetical: (final folderFeedsWrapper) => folderFeedsWrapper.$1.name.toLowerCase(),
+    FoldersSortProperty.unreadCount: (final folderFeedsWrapper) => folderFeedsWrapper.$3,
   },
   {
     FoldersSortProperty.alphabetical: Box(FoldersSortProperty.unreadCount, SortBoxOrder.descending),
@@ -11,13 +11,4 @@ final foldersSortBox = SortBox<FoldersSortProperty, FolderFeedsWrapper>(
   },
 );
 
-class FolderFeedsWrapper {
-  FolderFeedsWrapper(
-    this.folder,
-    this.feeds,
-  );
-
-  final NextcloudNewsFolder folder;
-  final List<NextcloudNewsFeed> feeds;
-  int get feedsUnreadCountSum => feeds.fold(0, (final a, final b) => a + b.unreadCount!);
-}
+typedef FolderFeedsWrapper = (NextcloudNewsFolder folder, List<NextcloudNewsFeed> feeds, int unreadCount);
