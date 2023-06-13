@@ -1,6 +1,6 @@
 part of '../../settings.dart';
 
-abstract class SettingsStorage {
+abstract interface class SettingsStorage {
   String? getString(final String key);
 
   Future setString(final String key, final String value);
