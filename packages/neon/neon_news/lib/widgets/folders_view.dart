@@ -19,14 +19,13 @@ class NewsFoldersView extends StatelessWidget {
             sortBoxOrderOption: bloc.options.foldersSortBoxOrderOption,
             input: feeds.data == null
                 ? null
-                : folders.data
-                    ?.map(
-                      (final folder) => FolderFeedsWrapper(
-                        folder,
-                        feeds.data!.where((final feed) => feed.folderId == folder.id).toList(),
-                      ),
-                    )
-                    .toList(),
+                : folders.data?.map((final folder) {
+                    final feedsInFolder = feeds.data!.where((final feed) => feed.folderId == folder.id);
+                    final feedCount = feedsInFolder.length;
+                    final unreadCount = feedsInFolder.fold(0, (final a, final b) => a + b.unreadCount!);
+
+                    return (folder, feedCount, unreadCount);
+                  }).toList(),
             builder: (final context, final sorted) => NeonListView<FolderFeedsWrapper>(
               scrollKey: 'news-folders',
               withFloatingActionButton: true,
@@ -44,10 +43,10 @@ class NewsFoldersView extends StatelessWidget {
     final BuildContext context,
     final FolderFeedsWrapper folderFeedsWrapper,
   ) {
-    final unreadCount = feedsUnreadCountSum(folderFeedsWrapper.feeds);
+    final (folder, feedCount, unreadCount) = folderFeedsWrapper;
     return ListTile(
       title: Text(
-        folderFeedsWrapper.folder.name,
+        folder.name,
         style: unreadCount == 0
             ? Theme.of(context).textTheme.titleMedium!.copyWith(color: Theme.of(context).disabledColor)
             : null,
@@ -68,7 +67,7 @@ class NewsFoldersView extends StatelessWidget {
             ),
             Center(
               child: Text(
-                folderFeedsWrapper.feeds.length.toString(),
+                feedCount.toString(),
                 style: TextStyle(
                   color: Theme.of(context).colorScheme.onPrimary,
                 ),
@@ -95,19 +94,19 @@ class NewsFoldersView extends StatelessWidget {
               if (await showConfirmationDialog(
                 context,
                 // ignore: use_build_context_synchronously
-                AppLocalizations.of(context).folderDeleteConfirm(folderFeedsWrapper.folder.name),
+                AppLocalizations.of(context).folderDeleteConfirm(folder.name),
               )) {
-                bloc.deleteFolder(folderFeedsWrapper.folder.id);
+                bloc.deleteFolder(folder.id);
               }
               break;
             case NewsFolderAction.rename:
               final result = await showRenameDialog(
                 context: context,
                 title: AppLocalizations.of(context).folderRename,
-                value: folderFeedsWrapper.folder.name,
+                value: folder.name,
               );
               if (result != null) {
-                bloc.renameFolder(folderFeedsWrapper.folder.id, result);
+                bloc.renameFolder(folder.id, result);
               }
               break;
           }
@@ -115,7 +114,7 @@ class NewsFoldersView extends StatelessWidget {
       ),
       onLongPress: () {
         if (unreadCount > 0) {
-          bloc.markFolderAsRead(folderFeedsWrapper.folder.id);
+          bloc.markFolderAsRead(folder.id);
         }
       },
       onTap: () async {
@@ -123,7 +122,7 @@ class NewsFoldersView extends StatelessWidget {
           MaterialPageRoute(
             builder: (final context) => NewsFolderPage(
               bloc: bloc,
-              folder: folderFeedsWrapper.folder,
+              folder: folder,
             ),
           ),
         );
