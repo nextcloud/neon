@@ -11,4 +11,4 @@ final foldersSortBox = SortBox<FoldersSortProperty, FolderFeedsWrapper>(
   },
 );
 
-typedef FolderFeedsWrapper = (NextcloudNewsFolder folder, List<NextcloudNewsFeed> feeds, int unreadCount);
+typedef FolderFeedsWrapper = (NextcloudNewsFolder folder, int feedCount, int unreadCount);

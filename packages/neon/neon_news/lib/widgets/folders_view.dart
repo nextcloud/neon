@@ -20,10 +20,11 @@ class NewsFoldersView extends StatelessWidget {
             input: feeds.data == null
                 ? null
                 : folders.data?.map((final folder) {
-                    final feedsInFolder = feeds.data!.where((final feed) => feed.folderId == folder.id).toList();
+                    final feedsInFolder = feeds.data!.where((final feed) => feed.folderId == folder.id);
+                    final feedCount = feedsInFolder.length;
                     final unreadCount = feedsInFolder.fold(0, (final a, final b) => a + b.unreadCount!);
 
-                    return (folder, feedsInFolder, unreadCount);
+                    return (folder, feedCount, unreadCount);
                   }).toList(),
             builder: (final context, final sorted) => NeonListView<FolderFeedsWrapper>(
               scrollKey: 'news-folders',
@@ -42,7 +43,7 @@ class NewsFoldersView extends StatelessWidget {
     final BuildContext context,
     final FolderFeedsWrapper folderFeedsWrapper,
   ) {
-    final (folder, feeds, unreadCount) = folderFeedsWrapper;
+    final (folder, feedCount, unreadCount) = folderFeedsWrapper;
     return ListTile(
       title: Text(
         folder.name,
@@ -66,7 +67,7 @@ class NewsFoldersView extends StatelessWidget {
             ),
             Center(
               child: Text(
-                feeds.length.toString(),
+                feedCount.toString(),
                 style: TextStyle(
                   color: Theme.of(context).colorScheme.onPrimary,
                 ),
