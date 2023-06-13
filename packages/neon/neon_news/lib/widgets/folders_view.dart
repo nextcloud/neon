@@ -44,7 +44,7 @@ class NewsFoldersView extends StatelessWidget {
     final BuildContext context,
     final FolderFeedsWrapper folderFeedsWrapper,
   ) {
-    final unreadCount = feedsUnreadCountSum(folderFeedsWrapper.feeds);
+    final unreadCount = folderFeedsWrapper.feedsUnreadCountSum;
     return ListTile(
       title: Text(
         folderFeedsWrapper.folder.name,
