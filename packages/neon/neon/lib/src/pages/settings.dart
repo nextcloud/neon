@@ -206,11 +206,7 @@ class _SettingsPageState extends State<SettingsPage> {
                           showLicensePage(
                             context: context,
                             applicationName: branding.name,
-                            applicationIcon: SvgPicture.asset(
-                              'assets/logo.svg',
-                              width: 100,
-                              height: 100,
-                            ),
+                            applicationIcon: branding.logo,
                             applicationLegalese: branding.legalese,
                             applicationVersion: Provider.of<PackageInfo>(context, listen: false).version,
                           );
