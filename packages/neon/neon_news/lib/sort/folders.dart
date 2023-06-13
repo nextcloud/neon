@@ -21,9 +21,4 @@ class FolderFeedsWrapper {
   final List<NextcloudNewsFeed> feeds;
 }
 
-int feedsUnreadCountSum(final List<NextcloudNewsFeed> feeds) => [
-      0, // Fixes error when no feeds are in the folder
-      ...feeds.map((final f) => f.unreadCount!),
-    ].reduce(
-      (final a, final b) => a + b,
-    );
+int feedsUnreadCountSum(final List<NextcloudNewsFeed> feeds) => feeds.fold(0, (final a, final b) => a + b.unreadCount!);
