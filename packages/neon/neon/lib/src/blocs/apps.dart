@@ -138,7 +138,8 @@ class AppsBloc extends InteractiveBloc implements AppsBlocEvents, AppsBlocStates
     }
   }
 
-  T getAppBloc<T extends Bloc>(final AppImplementation appImplementation) => appImplementation.getBloc(_account) as T;
+  T getAppBloc<T extends Bloc>(final AppImplementation<T, dynamic> appImplementation) =>
+      appImplementation.getBloc(_account);
 
   List<Provider> get appBlocProviders =>
       _allAppImplementations.map((final appImplementation) => appImplementation.blocProvider).toList();
