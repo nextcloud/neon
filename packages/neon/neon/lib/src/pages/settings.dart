@@ -36,7 +36,7 @@ class _SettingsPageState extends State<SettingsPage> {
               }
             },
             tooltip: AppLocalizations.of(context).settingsResetAll,
-            icon: const Icon(MdiIcons.cogRefresh),
+            icon: Icon(MdiIcons.cogRefresh),
           ),
         ],
       ),
@@ -185,7 +185,7 @@ class _SettingsPageState extends State<SettingsPage> {
                             onPressed: () {
                               const AddAccountRoute().go(context);
                             },
-                            icon: const Icon(MdiIcons.accountPlus),
+                            icon: Icon(MdiIcons.accountPlus),
                             label: Text(AppLocalizations.of(context).globalOptionsAccountsAdd),
                           ),
                         )

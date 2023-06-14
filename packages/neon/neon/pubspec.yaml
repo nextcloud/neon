@@ -25,7 +25,7 @@ dependencies:
   http: ^0.13.6
   intl: ^0.18.0
   json_annotation: ^4.8.1
-  material_design_icons_flutter: ^6.0.7096
+  material_design_icons_flutter: ^7.0.7296
   nextcloud:
     git:
       url: https://github.com/provokateurin/nextcloud-neon
