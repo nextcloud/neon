@@ -24,7 +24,6 @@ class NeonAppImplementationIcon extends StatelessWidget {
           Container(
             margin: const EdgeInsets.all(5),
             child: appImplementation.buildIcon(
-              context,
               size: size,
               color: color,
             ),

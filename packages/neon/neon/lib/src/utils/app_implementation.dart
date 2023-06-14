@@ -41,17 +41,18 @@ abstract class AppImplementation<T extends Bloc, R extends NextcloudAppSpecificO
 
   Widget get page;
 
-  Widget buildIcon(
-    final BuildContext context, {
+  Widget buildIcon({
     final Size size = const Size.square(32),
     final Color? color,
   }) =>
-      SizedBox.fromSize(
-        size: size,
-        child: SvgPicture.asset(
-          'assets/app.svg',
-          package: 'neon_$id',
-          colorFilter: ColorFilter.mode(color ?? Theme.of(context).colorScheme.primary, BlendMode.srcIn),
+      Builder(
+        builder: (final context) => SizedBox.fromSize(
+          size: size,
+          child: SvgPicture.asset(
+            'assets/app.svg',
+            package: 'neon_$id',
+            colorFilter: ColorFilter.mode(color ?? Theme.of(context).colorScheme.primary, BlendMode.srcIn),
+          ),
         ),
       );
 

@@ -78,7 +78,7 @@ class _SettingsPageState extends State<SettingsPage> {
                       for (final appImplementation in appImplementations) ...[
                         if (appImplementation.options.options.isNotEmpty) ...[
                           CustomSettingsTile(
-                            leading: appImplementation.buildIcon(context),
+                            leading: appImplementation.buildIcon(),
                             title: Text(appImplementation.name(context)),
                             onTap: () {
                               NextcloudAppSettingsRoute(appid: appImplementation.id).go(context);

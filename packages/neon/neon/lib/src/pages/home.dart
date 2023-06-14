@@ -356,7 +356,7 @@ class _HomePageState extends State<HomePage> {
                                                     ],
                                                   ],
                                                 ),
-                                                leading: appImplementation.buildIcon(context),
+                                                leading: appImplementation.buildIcon(),
                                                 minLeadingWidth: 0,
                                                 onTap: () async {
                                                   await _appsBloc.setActiveApp(appImplementation.id);
