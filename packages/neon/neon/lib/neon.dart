@@ -25,6 +25,8 @@ import 'package:neon/src/blocs/blocs.dart';
 import 'package:neon/src/models/account.dart';
 import 'package:neon/src/models/push_notification.dart';
 import 'package:neon/src/router.dart';
+import 'package:neon/src/widgets/drawer.dart';
+import 'package:neon/src/widgets/drawer_destination.dart';
 import 'package:nextcloud/nextcloud.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:path/path.dart' as p;
