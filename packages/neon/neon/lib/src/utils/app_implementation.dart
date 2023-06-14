@@ -41,6 +41,18 @@ abstract class AppImplementation<T extends Bloc, R extends NextcloudAppSpecificO
 
   Widget get page;
 
+  NeonNavigationDestination destination(final BuildContext context) {
+    final accountsBloc = Provider.of<AccountsBloc>(context, listen: false);
+    final account = accountsBloc.activeAccount.value!;
+    final bloc = getBloc(account);
+
+    return NeonNavigationDestination(
+      label: name(context),
+      icon: buildIcon,
+      notificationCount: getUnreadCounter(bloc),
+    );
+  }
+
   Widget buildIcon({
     final Size size = const Size.square(32),
     final Color? color,
