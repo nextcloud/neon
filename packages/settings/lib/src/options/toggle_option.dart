@@ -9,7 +9,7 @@ class ToggleOption extends Option<bool> {
     super.category,
     super.enabled,
   }) {
-    stream = BehaviorSubject.seeded(storage.getBool(key) ?? defaultValue.value);
+    stream = BehaviorSubject.seeded(storage.getBool(key) ?? defaultValue);
   }
 
   @override

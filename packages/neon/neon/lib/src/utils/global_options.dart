@@ -124,7 +124,7 @@ class GlobalOptions {
     storage: _storage,
     key: 'theme-mode',
     label: (final context) => AppLocalizations.of(context).globalOptionsThemeMode,
-    defaultValue: BehaviorSubject.seeded(ThemeMode.system),
+    defaultValue: ThemeMode.system,
     values: BehaviorSubject.seeded({
       ThemeMode.light: (final context) => AppLocalizations.of(context).globalOptionsThemeModeLight,
       ThemeMode.dark: (final context) => AppLocalizations.of(context).globalOptionsThemeModeDark,
@@ -136,7 +136,7 @@ class GlobalOptions {
     storage: _storage,
     key: 'theme-oled-as-dark',
     label: (final context) => AppLocalizations.of(context).globalOptionsThemeOLEDAsDark,
-    defaultValue: BehaviorSubject.seeded(false),
+    defaultValue: false,
     enabled: _themeOLEDAsDarkEnabledSubject,
   );
 
@@ -144,14 +144,14 @@ class GlobalOptions {
     storage: _storage,
     key: 'theme-keep-original-accent-color',
     label: (final context) => AppLocalizations.of(context).globalOptionsThemeKeepOriginalAccentColor,
-    defaultValue: BehaviorSubject.seeded(false),
+    defaultValue: false,
   );
 
   late final pushNotificationsEnabled = ToggleOption(
     storage: _storage,
     key: 'push-notifications-enabled',
     label: (final context) => AppLocalizations.of(context).globalOptionsPushNotificationsEnabled,
-    defaultValue: BehaviorSubject.seeded(false),
+    defaultValue: false,
     enabled: _pushNotificationsEnabledEnabledSubject,
   );
 
@@ -159,7 +159,7 @@ class GlobalOptions {
     storage: _storage,
     key: 'push-notifications-distributor',
     label: (final context) => AppLocalizations.of(context).globalOptionsPushNotificationsDistributor,
-    defaultValue: BehaviorSubject.seeded(null),
+    defaultValue: null,
     values: _pushNotificationsDistributorsSubject,
     enabled: pushNotificationsEnabled.stream,
   );
@@ -168,14 +168,14 @@ class GlobalOptions {
     storage: _storage,
     key: 'startup-minimized',
     label: (final context) => AppLocalizations.of(context).globalOptionsStartupMinimized,
-    defaultValue: BehaviorSubject.seeded(false),
+    defaultValue: false,
   );
 
   late final startupMinimizeInsteadOfExit = ToggleOption(
     storage: _storage,
     key: 'startup-minimize-instead-of-exit',
     label: (final context) => AppLocalizations.of(context).globalOptionsStartupMinimizeInsteadOfExit,
-    defaultValue: BehaviorSubject.seeded(false),
+    defaultValue: false,
   );
 
   // TODO: Autostart option
@@ -184,14 +184,14 @@ class GlobalOptions {
     storage: _storage,
     key: 'systemtray-enabled',
     label: (final context) => AppLocalizations.of(context).globalOptionsSystemTrayEnabled,
-    defaultValue: BehaviorSubject.seeded(false),
+    defaultValue: false,
   );
 
   late final systemTrayHideToTrayWhenMinimized = ToggleOption(
     storage: _storage,
     key: 'systemtray-hide-to-tray-when-minimized',
     label: (final context) => AppLocalizations.of(context).globalOptionsSystemTrayHideToTrayWhenMinimized,
-    defaultValue: BehaviorSubject.seeded(true),
+    defaultValue: true,
     enabled: systemTrayEnabled.stream,
   );
 
@@ -199,14 +199,14 @@ class GlobalOptions {
     storage: _storage,
     key: 'remember-last-used-account',
     label: (final context) => AppLocalizations.of(context).globalOptionsAccountsRememberLastUsedAccount,
-    defaultValue: BehaviorSubject.seeded(true),
+    defaultValue: true,
   );
 
   late final initialAccount = SelectOption<String?>(
     storage: _storage,
     key: 'initial-account',
     label: (final context) => AppLocalizations.of(context).globalOptionsAccountsInitialAccount,
-    defaultValue: BehaviorSubject.seeded(null),
+    defaultValue: null,
     values: _accountsIDsSubject,
     enabled: _initialAccountEnabledSubject,
   );
@@ -215,9 +215,7 @@ class GlobalOptions {
     storage: _storage,
     key: 'navigation-mode',
     label: (final context) => AppLocalizations.of(context).globalOptionsNavigationMode,
-    defaultValue: BehaviorSubject.seeded(
-      Platform.isAndroid || Platform.isIOS ? NavigationMode.drawer : NavigationMode.drawerAlwaysVisible,
-    ),
+    defaultValue: Platform.isAndroid || Platform.isIOS ? NavigationMode.drawer : NavigationMode.drawerAlwaysVisible,
     values: BehaviorSubject.seeded({
       NavigationMode.drawer: (final context) => AppLocalizations.of(context).globalOptionsNavigationModeDrawer,
       if (!Platform.isAndroid && !Platform.isIOS) ...{

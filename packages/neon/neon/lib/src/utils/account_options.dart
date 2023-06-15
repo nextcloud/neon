@@ -42,7 +42,7 @@ class AccountSpecificOptions {
     storage: _storage,
     key: 'initial-app',
     label: (final context) => AppLocalizations.of(context).accountOptionsInitialApp,
-    defaultValue: BehaviorSubject.seeded(null),
+    defaultValue: null,
     values: _appIDsSubject,
   );
 }

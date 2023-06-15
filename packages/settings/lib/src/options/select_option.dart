@@ -19,7 +19,7 @@ class SelectOption<T> extends Option<T> {
         if (valueStr != null) {
           initialValue = _fromString(vs, valueStr);
         }
-        stream.add(initialValue ?? await defaultValue.first);
+        stream.add(initialValue ?? defaultValue);
       }),
     );
   }

@@ -12,13 +12,11 @@ class OptionBuilder<T> extends StatelessWidget {
 
   @override
   Widget build(final BuildContext context) => StreamBuilder<T?>(
-        stream: option.defaultValue,
-        builder: (final context, final defaultValueSnapshot) => StreamBuilder<T?>(
-          stream: option.stream,
-          builder: (final context, final valueSnapshot) => builder(
-            context,
-            valueSnapshot.data ?? defaultValueSnapshot.data,
-          ),
+        stream: option.stream,
+        initialData: option.defaultValue,
+        builder: (final context, final valueSnapshot) => builder(
+          context,
+          valueSnapshot.data,
         ),
       );
 }

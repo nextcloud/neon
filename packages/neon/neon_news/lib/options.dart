@@ -56,7 +56,7 @@ class NewsAppSpecificOptions extends NextcloudAppSpecificOptions {
     category: generalCategory,
     key: 'default-category',
     label: (final context) => AppLocalizations.of(context).optionsDefaultCategory,
-    defaultValue: BehaviorSubject.seeded(DefaultCategory.articles),
+    defaultValue: DefaultCategory.articles,
     values: BehaviorSubject.seeded({
       DefaultCategory.articles: (final context) => AppLocalizations.of(context).articles,
       DefaultCategory.folders: (final context) => AppLocalizations.of(context).folders,
@@ -69,7 +69,7 @@ class NewsAppSpecificOptions extends NextcloudAppSpecificOptions {
     category: articlesCategory,
     key: 'article-view-type',
     label: (final context) => AppLocalizations.of(context).optionsArticleViewType,
-    defaultValue: BehaviorSubject.seeded(ArticleViewType.direct),
+    defaultValue: ArticleViewType.direct,
     values: _articleViewTypeValuesSubject,
   );
 
@@ -78,7 +78,7 @@ class NewsAppSpecificOptions extends NextcloudAppSpecificOptions {
     category: articlesCategory,
     key: 'article-disable-mark-as-read-timeout',
     label: (final context) => AppLocalizations.of(context).optionsArticleDisableMarkAsReadTimeout,
-    defaultValue: BehaviorSubject.seeded(false),
+    defaultValue: false,
   );
 
   late final defaultArticlesFilterOption = SelectOption<FilterType>(
@@ -86,7 +86,7 @@ class NewsAppSpecificOptions extends NextcloudAppSpecificOptions {
     category: articlesCategory,
     key: 'default-articles-filter',
     label: (final context) => AppLocalizations.of(context).optionsDefaultArticlesFilter,
-    defaultValue: BehaviorSubject.seeded(FilterType.unread),
+    defaultValue: FilterType.unread,
     values: BehaviorSubject.seeded({
       FilterType.all: (final context) => AppLocalizations.of(context).articlesFilterAll,
       FilterType.unread: (final context) => AppLocalizations.of(context).articlesFilterUnread,
@@ -99,7 +99,7 @@ class NewsAppSpecificOptions extends NextcloudAppSpecificOptions {
     category: articlesCategory,
     key: 'articles-sort-property',
     label: (final context) => AppLocalizations.of(context).optionsArticlesSortProperty,
-    defaultValue: BehaviorSubject.seeded(ArticlesSortProperty.publishDate),
+    defaultValue: ArticlesSortProperty.publishDate,
     values: BehaviorSubject.seeded({
       ArticlesSortProperty.publishDate: (final context) =>
           AppLocalizations.of(context).optionsArticlesSortPropertyPublishDate,
@@ -114,7 +114,7 @@ class NewsAppSpecificOptions extends NextcloudAppSpecificOptions {
     category: articlesCategory,
     key: 'articles-sort-box-order',
     label: (final context) => AppLocalizations.of(context).optionsArticlesSortOrder,
-    defaultValue: BehaviorSubject.seeded(SortBoxOrder.descending),
+    defaultValue: SortBoxOrder.descending,
     values: BehaviorSubject.seeded(sortBoxOrderOptionValues),
   );
 
@@ -123,7 +123,7 @@ class NewsAppSpecificOptions extends NextcloudAppSpecificOptions {
     category: foldersCategory,
     key: 'folders-sort-property',
     label: (final context) => AppLocalizations.of(context).optionsFoldersSortProperty,
-    defaultValue: BehaviorSubject.seeded(FoldersSortProperty.alphabetical),
+    defaultValue: FoldersSortProperty.alphabetical,
     values: BehaviorSubject.seeded({
       FoldersSortProperty.alphabetical: (final context) =>
           AppLocalizations.of(context).optionsFoldersSortPropertyAlphabetical,
@@ -137,7 +137,7 @@ class NewsAppSpecificOptions extends NextcloudAppSpecificOptions {
     category: foldersCategory,
     key: 'folders-sort-box-order',
     label: (final context) => AppLocalizations.of(context).optionsFoldersSortOrder,
-    defaultValue: BehaviorSubject.seeded(SortBoxOrder.ascending),
+    defaultValue: SortBoxOrder.ascending,
     values: BehaviorSubject.seeded(sortBoxOrderOptionValues),
   );
 
@@ -146,7 +146,7 @@ class NewsAppSpecificOptions extends NextcloudAppSpecificOptions {
     category: foldersCategory,
     key: 'default-folder-view-type',
     label: (final context) => AppLocalizations.of(context).optionsDefaultFolderViewType,
-    defaultValue: BehaviorSubject.seeded(DefaultFolderViewType.articles),
+    defaultValue: DefaultFolderViewType.articles,
     values: BehaviorSubject.seeded({
       DefaultFolderViewType.articles: (final context) => AppLocalizations.of(context).articles,
       DefaultFolderViewType.feeds: (final context) => AppLocalizations.of(context).feeds,
@@ -158,7 +158,7 @@ class NewsAppSpecificOptions extends NextcloudAppSpecificOptions {
     category: feedsCategory,
     key: 'feeds-sort-property',
     label: (final context) => AppLocalizations.of(context).optionsFeedsSortProperty,
-    defaultValue: BehaviorSubject.seeded(FeedsSortProperty.alphabetical),
+    defaultValue: FeedsSortProperty.alphabetical,
     values: BehaviorSubject.seeded({
       FeedsSortProperty.alphabetical: (final context) =>
           AppLocalizations.of(context).optionsFeedsSortPropertyAlphabetical,
@@ -172,7 +172,7 @@ class NewsAppSpecificOptions extends NextcloudAppSpecificOptions {
     category: feedsCategory,
     key: 'feeds-sort-box-order',
     label: (final context) => AppLocalizations.of(context).optionsFeedsSortOrder,
-    defaultValue: BehaviorSubject.seeded(SortBoxOrder.ascending),
+    defaultValue: SortBoxOrder.ascending,
     values: BehaviorSubject.seeded(sortBoxOrderOptionValues),
   );
 }
