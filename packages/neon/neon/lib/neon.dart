@@ -24,6 +24,7 @@ import 'package:neon/l10n/localizations.dart';
 import 'package:neon/src/blocs/blocs.dart';
 import 'package:neon/src/models/account.dart';
 import 'package:neon/src/models/push_notification.dart';
+import 'package:neon/src/pages/no_apps.dart';
 import 'package:neon/src/router.dart';
 import 'package:neon/src/widgets/drawer.dart';
 import 'package:neon/src/widgets/drawer_destination.dart';

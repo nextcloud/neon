@@ -277,28 +277,17 @@ class _HomePageState extends State<HomePage> {
                     );
 
                     Widget body = Builder(
-                      builder: (final context) => Column(
-                        children: [
-                          if (appImplementations.data != null) ...[
-                            if (appImplementations.data!.isEmpty) ...[
-                              Expanded(
-                                child: Center(
-                                  child: Text(
-                                    AppLocalizations.of(context).errorNoCompatibleNextcloudAppsFound,
-                                    textAlign: TextAlign.center,
-                                  ),
-                                ),
-                              ),
-                            ] else ...[
-                              if (activeAppIDSnapshot.hasData) ...[
-                                Expanded(
-                                  child: appImplementations.data!.find(activeAppIDSnapshot.data!)!.page,
-                                ),
-                              ],
-                            ],
-                          ],
-                        ],
-                      ),
+                      builder: (final context) {
+                        if (appImplementations.data == null) {
+                          return const SizedBox.shrink();
+                        }
+
+                        if (appImplementations.data!.isEmpty) {
+                          return const NoAppsPage();
+                        }
+
+                        return appImplementations.data!.find(activeAppIDSnapshot.data!)!.page;
+                      },
                     );
 
                     body = MultiProvider(
