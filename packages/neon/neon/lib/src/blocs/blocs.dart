@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:convert';
 
 import 'package:flutter/foundation.dart';
+import 'package:neon/l10n/localizations.dart';
 import 'package:neon/neon.dart';
 import 'package:nextcloud/nextcloud.dart';
 import 'package:package_info_plus/package_info_plus.dart';
@@ -14,6 +15,7 @@ import 'package:window_manager/window_manager.dart';
 part 'accounts.dart';
 part 'apps.dart';
 part 'capabilities.dart';
+part 'error.dart';
 part 'first_launch.dart';
 part 'login.dart';
 part 'next_push.dart';

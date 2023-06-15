@@ -50,6 +50,8 @@ class AppsBloc extends InteractiveBloc implements AppsBlocEvents, AppsBlocStates
             }
           }),
         );
+
+        unawaited(_checkCompatibility());
       }
     });
 
@@ -59,9 +61,49 @@ class AppsBloc extends InteractiveBloc implements AppsBlocEvents, AppsBlocStates
           (final data) => data.capabilities.notifications != null ? _findAppImplementation('notifications') : null,
         ),
       );
+
+      unawaited(_checkCompatibility());
     });
 
     unawaited(refresh());
+  }
+
+  Future<void> _checkCompatibility() async {
+    final apps = appImplementations.valueOrNull;
+    final capabilities = _capabilitiesBloc.capabilities.valueOrNull;
+
+    if (capabilities == null || apps == null) {
+      return;
+    }
+
+    final appIds = {
+      'core',
+      ...apps.data!.map((final a) => a.id),
+    };
+
+    final notSupported = <(String, Object?)>{};
+
+    for (final id in appIds) {
+      try {
+        final (supported, minVersion) = switch (id) {
+          'core' => await _account.client.core.isSupported(capabilities.data),
+          'news' => await _account.client.news.isSupported(),
+          'notes' => await _account.client.notes.isSupported(capabilities.data),
+          _ => (true, null),
+        };
+
+        if (!supported) {
+          notSupported.add((id, minVersion));
+        }
+      } catch (e, s) {
+        debugPrint(e.toString());
+        debugPrint(s.toString());
+      }
+    }
+
+    if (notSupported.isNotEmpty) {
+      ErrorBloc().addVersionErrors(notSupported);
+    }
   }
 
   T? _findAppImplementation<T extends AppImplementation>(final String id) {
