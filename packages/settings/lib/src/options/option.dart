@@ -10,13 +10,12 @@ abstract class Option<T> {
     required this.defaultValue,
     this.category,
     final BehaviorSubject<bool>? enabled,
-  })  : enabled = enabled ?? BehaviorSubject<bool>.seeded(true),
-        assert(defaultValue.hasValue, 'When using defaultValue the stream has to be seeded');
+  }) : enabled = enabled ?? BehaviorSubject<bool>.seeded(true);
 
   final SettingsStorage storage;
   final String key;
   final LabelBuilder label;
-  final BehaviorSubject<T> defaultValue;
+  final T defaultValue;
   final OptionsCategory? category;
   final BehaviorSubject<bool> enabled;
 
@@ -26,7 +25,7 @@ abstract class Option<T> {
       return stream.value;
     }
 
-    return defaultValue.value;
+    return defaultValue;
   }
 
   bool get hasValue {
@@ -38,7 +37,7 @@ abstract class Option<T> {
   }
 
   Future reset() async {
-    await set(defaultValue.value);
+    await set(defaultValue);
   }
 
   void dispose() {

@@ -25,7 +25,7 @@ class FilesAppSpecificOptions extends NextcloudAppSpecificOptions {
     category: generalCategory,
     key: 'files-sort-property',
     label: (final context) => AppLocalizations.of(context).optionsFilesSortProperty,
-    defaultValue: BehaviorSubject.seeded(FilesSortProperty.name),
+    defaultValue: FilesSortProperty.name,
     values: BehaviorSubject.seeded({
       FilesSortProperty.name: (final context) => AppLocalizations.of(context).optionsFilesSortPropertyName,
       FilesSortProperty.modifiedDate: (final context) =>
@@ -39,7 +39,7 @@ class FilesAppSpecificOptions extends NextcloudAppSpecificOptions {
     category: generalCategory,
     key: 'files-sort-box-order',
     label: (final context) => AppLocalizations.of(context).optionsFilesSortOrder,
-    defaultValue: BehaviorSubject.seeded(SortBoxOrder.ascending),
+    defaultValue: SortBoxOrder.ascending,
     values: BehaviorSubject.seeded(sortBoxOrderOptionValues),
   );
 
@@ -48,7 +48,7 @@ class FilesAppSpecificOptions extends NextcloudAppSpecificOptions {
     category: generalCategory,
     key: 'show-previews',
     label: (final context) => AppLocalizations.of(context).optionsShowPreviews,
-    defaultValue: BehaviorSubject.seeded(true),
+    defaultValue: true,
   );
 
   late final uploadQueueParallelism = SelectOption<int>(
@@ -56,7 +56,7 @@ class FilesAppSpecificOptions extends NextcloudAppSpecificOptions {
     category: generalCategory,
     key: 'upload-queue-parallelism',
     label: (final context) => AppLocalizations.of(context).optionsUploadQueueParallelism,
-    defaultValue: BehaviorSubject.seeded(4),
+    defaultValue: 4,
     values: BehaviorSubject.seeded({
       for (var i = 1; i <= 16; i = i * 2) ...{
         i: (final _) => i.toString(),
@@ -69,7 +69,7 @@ class FilesAppSpecificOptions extends NextcloudAppSpecificOptions {
     category: generalCategory,
     key: 'download-queue-parallelism',
     label: (final context) => AppLocalizations.of(context).optionsDownloadQueueParallelism,
-    defaultValue: BehaviorSubject.seeded(4),
+    defaultValue: 4,
     values: BehaviorSubject.seeded({
       for (var i = 1; i <= 16; i = i * 2) ...{
         i: (final _) => i.toString(),
@@ -99,7 +99,7 @@ class FilesAppSpecificOptions extends NextcloudAppSpecificOptions {
     category: generalCategory,
     key: 'upload-size-warning',
     label: (final context) => AppLocalizations.of(context).optionsUploadSizeWarning,
-    defaultValue: BehaviorSubject.seeded(_mb(10)),
+    defaultValue: _mb(10),
     values: BehaviorSubject.seeded(_sizeWarningValues),
   );
 
@@ -108,7 +108,7 @@ class FilesAppSpecificOptions extends NextcloudAppSpecificOptions {
     category: generalCategory,
     key: 'download-size-warning',
     label: (final context) => AppLocalizations.of(context).optionsDownloadSizeWarning,
-    defaultValue: BehaviorSubject.seeded(_mb(10)),
+    defaultValue: _mb(10),
     values: BehaviorSubject.seeded(_sizeWarningValues),
   );
 }
