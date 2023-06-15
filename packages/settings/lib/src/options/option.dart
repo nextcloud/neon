@@ -10,20 +10,15 @@ abstract class Option<T> {
     required this.defaultValue,
     this.category,
     final BehaviorSubject<bool>? enabled,
-  }) : assert(defaultValue.hasValue, 'When using defaultValue the stream has to be seeded') {
-    if (enabled != null) {
-      this.enabled = enabled;
-    } else {
-      this.enabled = BehaviorSubject<bool>.seeded(true);
-    }
-  }
+  })  : enabled = enabled ?? BehaviorSubject<bool>.seeded(true),
+        assert(defaultValue.hasValue, 'When using defaultValue the stream has to be seeded');
 
   final SettingsStorage storage;
   final String key;
   final LabelBuilder label;
   final BehaviorSubject<T> defaultValue;
   final OptionsCategory? category;
-  late final BehaviorSubject<bool> enabled;
+  final BehaviorSubject<bool> enabled;
 
   late BehaviorSubject<T> stream;
   T get value {
