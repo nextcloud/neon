@@ -42,7 +42,7 @@ class AccountSettingsPage extends StatelessWidget {
                 }
               },
               tooltip: AppLocalizations.of(context).accountOptionsRemove,
-              icon: const Icon(MdiIcons.delete),
+              icon: Icon(MdiIcons.delete),
             ),
             IconButton(
               onPressed: () async {
@@ -56,7 +56,7 @@ class AccountSettingsPage extends StatelessWidget {
                 }
               },
               tooltip: AppLocalizations.of(context).settingsResetFor(_name),
-              icon: const Icon(MdiIcons.cogRefresh),
+              icon: Icon(MdiIcons.cogRefresh),
             ),
           ],
         ),
