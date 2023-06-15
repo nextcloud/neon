@@ -71,5 +71,5 @@ class NewsApp extends AppImplementation<NewsBloc, NewsAppSpecificOptions> {
   Widget get page => const NewsMainPage();
 
   @override
-  BehaviorSubject<int> getUnreadCounter(final AppsBloc appsBloc) => appsBloc.getAppBloc<NewsBloc>(this).unreadCounter;
+  BehaviorSubject<int> getUnreadCounter(final NewsBloc bloc) => bloc.unreadCounter;
 }

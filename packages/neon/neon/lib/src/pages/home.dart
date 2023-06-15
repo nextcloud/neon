@@ -461,7 +461,8 @@ class _HomePageState extends State<HomePage> {
                       actions: [
                         if (notificationsAppImplementation.data != null) ...[
                           StreamBuilder<int>(
-                            stream: notificationsAppImplementation.data!.getUnreadCounter(_appsBloc),
+                            stream: notificationsAppImplementation.data!
+                                .getUnreadCounter(notificationsAppImplementation.data!.getBloc(account)),
                             builder: (final context, final unreadCounterSnapshot) {
                               final unreadCount = unreadCounterSnapshot.data ?? 0;
                               return IconButton(

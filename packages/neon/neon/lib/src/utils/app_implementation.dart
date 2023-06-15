@@ -37,7 +37,7 @@ abstract class AppImplementation<T extends Bloc, R extends NextcloudAppSpecificO
         },
       );
 
-  BehaviorSubject<int>? getUnreadCounter(final AppsBloc appsBloc);
+  BehaviorSubject<int>? getUnreadCounter(final T bloc) => null;
 
   Widget get page;
 
