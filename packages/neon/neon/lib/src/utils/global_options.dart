@@ -224,6 +224,7 @@ class GlobalOptions {
         NavigationMode.drawerAlwaysVisible: (final context) =>
             AppLocalizations.of(context).globalOptionsNavigationModeDrawerAlwaysVisible,
       },
+      // ignore: deprecated_member_use_from_same_package
       NavigationMode.quickBar: (final context) => AppLocalizations.of(context).globalOptionsNavigationModeQuickBar,
     }),
   );
@@ -232,5 +233,6 @@ class GlobalOptions {
 enum NavigationMode {
   drawer,
   drawerAlwaysVisible,
+  @Deprecated("The new design won't use this anymore")
   quickBar,
 }

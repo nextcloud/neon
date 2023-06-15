@@ -41,6 +41,5 @@ class NotificationsApp extends AppImplementation<NotificationsBloc, Notification
   Widget get page => const NotificationsMainPage();
 
   @override
-  BehaviorSubject<int> getUnreadCounter(final AppsBloc appsBloc) =>
-      appsBloc.getAppBloc<NotificationsBloc>(this).unreadCounter;
+  BehaviorSubject<int> getUnreadCounter(final NotificationsBloc bloc) => bloc.unreadCounter;
 }

@@ -187,235 +187,11 @@ class _HomePageState extends State<HomePage> {
                       return const Scaffold();
                     }
 
-                    final isQuickBar = navigationMode == NavigationMode.quickBar;
-                    final drawer = Builder(
-                      builder: (final context) => Drawer(
-                        width: isQuickBar ? kQuickBarWidth : null,
-                        child: Container(
-                          padding: isQuickBar ? const EdgeInsets.all(5) : null,
-                          child: Column(
-                            children: [
-                              Expanded(
-                                child: Scrollbar(
-                                  controller: drawerScrollController,
-                                  interactive: true,
-                                  child: ListView(
-                                    controller: drawerScrollController,
-                                    // Needed for the drawer header to also render in the statusbar
-                                    padding: EdgeInsets.zero,
-                                    children: [
-                                      Builder(
-                                        builder: (final context) {
-                                          if (accountsSnapshot.hasData) {
-                                            if (isQuickBar) {
-                                              return Column(
-                                                children: [
-                                                  if (accounts.length != 1) ...[
-                                                    for (final account in accounts) ...[
-                                                      Container(
-                                                        margin: const EdgeInsets.symmetric(
-                                                          vertical: 5,
-                                                        ),
-                                                        child: IconButton(
-                                                          onPressed: () {
-                                                            _accountsBloc.setActiveAccount(account);
-                                                          },
-                                                          tooltip: account.client.humanReadableID,
-                                                          icon: IntrinsicHeight(
-                                                            child: NeonUserAvatar(
-                                                              account: account,
-                                                            ),
-                                                          ),
-                                                        ),
-                                                      ),
-                                                    ],
-                                                    Container(
-                                                      margin: const EdgeInsets.only(
-                                                        top: 10,
-                                                      ),
-                                                      child: Divider(
-                                                        height: 5,
-                                                        color: Theme.of(context).appBarTheme.foregroundColor,
-                                                      ),
-                                                    ),
-                                                  ],
-                                                ],
-                                              );
-                                            }
-                                            return DrawerHeader(
-                                              decoration: BoxDecoration(
-                                                color: Theme.of(context).colorScheme.primary,
-                                              ),
-                                              child: Column(
-                                                crossAxisAlignment: CrossAxisAlignment.start,
-                                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                                children: [
-                                                  if (capabilities.data != null) ...[
-                                                    if (capabilities.data!.capabilities.theming?.name != null) ...[
-                                                      Text(
-                                                        capabilities.data!.capabilities.theming!.name!,
-                                                        style: DefaultTextStyle.of(context).style.copyWith(
-                                                              color: Theme.of(context).appBarTheme.foregroundColor,
-                                                            ),
-                                                      ),
-                                                    ],
-                                                    if (capabilities.data!.capabilities.theming?.logo != null) ...[
-                                                      Flexible(
-                                                        child: NeonCachedUrlImage(
-                                                          url: capabilities.data!.capabilities.theming!.logo!,
-                                                        ),
-                                                      ),
-                                                    ],
-                                                  ] else ...[
-                                                    NeonException(
-                                                      capabilities.error,
-                                                      onRetry: _capabilitiesBloc.refresh,
-                                                    ),
-                                                    NeonLinearProgressIndicator(
-                                                      visible: capabilities.loading,
-                                                    ),
-                                                  ],
-                                                  if (accounts.length != 1) ...[
-                                                    DropdownButtonHideUnderline(
-                                                      child: DropdownButton<String>(
-                                                        isExpanded: true,
-                                                        dropdownColor: Theme.of(context).colorScheme.primary,
-                                                        iconEnabledColor: Theme.of(context).colorScheme.onBackground,
-                                                        value: _account.id,
-                                                        items: accounts
-                                                            .map<DropdownMenuItem<String>>(
-                                                              (final account) => DropdownMenuItem<String>(
-                                                                value: account.id,
-                                                                child: NeonAccountTile(
-                                                                  account: account,
-                                                                  dense: true,
-                                                                  textColor:
-                                                                      Theme.of(context).appBarTheme.foregroundColor,
-                                                                ),
-                                                              ),
-                                                            )
-                                                            .toList(),
-                                                        onChanged: (final id) {
-                                                          if (id != null) {
-                                                            _accountsBloc.setActiveAccount(accounts.find(id)!);
-                                                          }
-                                                        },
-                                                      ),
-                                                    ),
-                                                  ],
-                                                ],
-                                              ),
-                                            );
-                                          }
-                                          return Container();
-                                        },
-                                      ),
-                                      NeonException(
-                                        appImplementations.error,
-                                        onlyIcon: isQuickBar,
-                                        onRetry: _appsBloc.refresh,
-                                      ),
-                                      NeonLinearProgressIndicator(
-                                        visible: appImplementations.loading,
-                                      ),
-                                      if (appImplementations.data != null) ...[
-                                        for (final appImplementation in appImplementations.data!) ...[
-                                          StreamBuilder<int>(
-                                            stream: appImplementation.getUnreadCounter(_appsBloc) ??
-                                                BehaviorSubject<int>.seeded(0),
-                                            builder: (final context, final unreadCounterSnapshot) {
-                                              final unreadCount = unreadCounterSnapshot.data ?? 0;
-                                              if (isQuickBar) {
-                                                return IconButton(
-                                                  onPressed: () async {
-                                                    await _appsBloc.setActiveApp(appImplementation.id);
-                                                  },
-                                                  tooltip: appImplementation.name(context),
-                                                  icon: NeonAppImplementationIcon(
-                                                    appImplementation: appImplementation,
-                                                    unreadCount: unreadCount,
-                                                    color: Theme.of(context).colorScheme.primary,
-                                                  ),
-                                                );
-                                              }
-                                              return ListTile(
-                                                key: Key('app-${appImplementation.id}'),
-                                                title: Row(
-                                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                                  children: [
-                                                    Text(appImplementation.name(context)),
-                                                    if (unreadCount > 0) ...[
-                                                      Text(
-                                                        unreadCount.toString(),
-                                                        style: TextStyle(
-                                                          color: Theme.of(context).colorScheme.primary,
-                                                          fontWeight: FontWeight.bold,
-                                                          fontSize: 14,
-                                                        ),
-                                                      ),
-                                                    ],
-                                                  ],
-                                                ),
-                                                leading: appImplementation.buildIcon(context),
-                                                minLeadingWidth: 0,
-                                                onTap: () async {
-                                                  await _appsBloc.setActiveApp(appImplementation.id);
+                    final drawerAlwaysVisible = navigationMode == NavigationMode.drawerAlwaysVisible;
 
-                                                  if (!mounted) {
-                                                    return;
-                                                  }
-                                                  Scaffold.maybeOf(context)?.closeDrawer();
-                                                },
-                                              );
-                                            },
-                                          ),
-                                        ],
-                                      ],
-                                    ],
-                                  ),
-                                ),
-                              ),
-                              if (isQuickBar) ...[
-                                IconButton(
-                                  onPressed: () => const SettingsRoute().go(context),
-                                  tooltip: AppLocalizations.of(context).settings,
-                                  icon: Icon(
-                                    Icons.settings,
-                                    color: Theme.of(context).appBarTheme.foregroundColor,
-                                  ),
-                                ),
-                              ] else ...[
-                                ListTile(
-                                  key: const Key('settings'),
-                                  title: Text(AppLocalizations.of(context).settings),
-                                  leading: const Icon(Icons.settings),
-                                  minLeadingWidth: 0,
-                                  onTap: () async {
-                                    Scaffold.maybeOf(context)?.closeDrawer();
-                                    const SettingsRoute().go(context);
-                                  },
-                                ),
-                              ],
-                            ],
-                          ),
-                        ),
-                      ),
-                    );
+                    const drawer = NeonDrawer();
                     final appBar = AppBar(
-                      scrolledUnderElevation: navigationMode != NavigationMode.drawer ? 0 : null,
-                      automaticallyImplyLeading: navigationMode == NavigationMode.drawer,
-                      leadingWidth: isQuickBar ? kQuickBarWidth : null,
-                      leading: isQuickBar
-                          ? Container(
-                              padding: const EdgeInsets.all(5),
-                              child: capabilities.data?.capabilities.theming?.logo != null
-                                  ? NeonCachedUrlImage(
-                                      url: capabilities.data!.capabilities.theming!.logo!,
-                                      svgColor: Theme.of(context).iconTheme.color,
-                                    )
-                                  : null,
-                            )
-                          : null,
+                      automaticallyImplyLeading: !drawerAlwaysVisible,
                       title: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
@@ -461,7 +237,8 @@ class _HomePageState extends State<HomePage> {
                       actions: [
                         if (notificationsAppImplementation.data != null) ...[
                           StreamBuilder<int>(
-                            stream: notificationsAppImplementation.data!.getUnreadCounter(_appsBloc),
+                            stream: notificationsAppImplementation.data!
+                                .getUnreadCounter(notificationsAppImplementation.data!.getBloc(account)),
                             builder: (final context, final unreadCounterSnapshot) {
                               final unreadCount = unreadCounterSnapshot.data ?? 0;
                               return IconButton(
@@ -500,43 +277,51 @@ class _HomePageState extends State<HomePage> {
                     );
 
                     Widget body = Builder(
-                      builder: (final context) => Row(
+                      builder: (final context) => Column(
                         children: [
-                          if (navigationMode == NavigationMode.quickBar) ...[
-                            drawer,
-                          ],
-                          Expanded(
-                            child: Column(
-                              children: [
-                                if (appImplementations.data != null) ...[
-                                  if (appImplementations.data!.isEmpty) ...[
-                                    Expanded(
-                                      child: Center(
-                                        child: Text(
-                                          AppLocalizations.of(context).errorNoCompatibleNextcloudAppsFound,
-                                          textAlign: TextAlign.center,
-                                        ),
-                                      ),
-                                    ),
-                                  ] else ...[
-                                    if (activeAppIDSnapshot.hasData) ...[
-                                      Expanded(
-                                        child: appImplementations.data!.find(activeAppIDSnapshot.data!)!.page,
-                                      ),
-                                    ],
-                                  ],
-                                ],
+                          if (appImplementations.data != null) ...[
+                            if (appImplementations.data!.isEmpty) ...[
+                              Expanded(
+                                child: Center(
+                                  child: Text(
+                                    AppLocalizations.of(context).errorNoCompatibleNextcloudAppsFound,
+                                    textAlign: TextAlign.center,
+                                  ),
+                                ),
+                              ),
+                            ] else ...[
+                              if (activeAppIDSnapshot.hasData) ...[
+                                Expanded(
+                                  child: appImplementations.data!.find(activeAppIDSnapshot.data!)!.page,
+                                ),
                               ],
-                            ),
-                          ),
+                            ],
+                          ],
                         ],
                       ),
                     );
 
                     body = MultiProvider(
                       providers: _appsBloc.appBlocProviders,
-                      child: body,
+                      child: Scaffold(
+                        key: _scaffoldKey,
+                        resizeToAvoidBottomInset: false,
+                        drawer: !drawerAlwaysVisible ? drawer : null,
+                        appBar: appBar,
+                        body: body,
+                      ),
                     );
+
+                    if (drawerAlwaysVisible) {
+                      body = Row(
+                        children: [
+                          drawer,
+                          Expanded(
+                            child: body,
+                          ),
+                        ],
+                      );
+                    }
 
                     return WillPopScope(
                       onWillPop: () async {
@@ -548,22 +333,7 @@ class _HomePageState extends State<HomePage> {
                         _scaffoldKey.currentState!.openDrawer();
                         return false;
                       },
-                      child: Row(
-                        children: [
-                          if (navigationMode == NavigationMode.drawerAlwaysVisible) ...[
-                            drawer,
-                          ],
-                          Expanded(
-                            child: Scaffold(
-                              key: _scaffoldKey,
-                              resizeToAvoidBottomInset: false,
-                              drawer: navigationMode == NavigationMode.drawer ? drawer : null,
-                              appBar: appBar,
-                              body: body,
-                            ),
-                          ),
-                        ],
-                      ),
+                      child: body,
                     );
                   },
                 ),

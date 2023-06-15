@@ -74,7 +74,6 @@ class _NotificationsMainPageState extends State<NotificationsMainPage> {
       ),
       leading: app != null
           ? app.buildIcon(
-              context,
               size: const Size.square(40),
             )
           : SizedBox.fromSize(
