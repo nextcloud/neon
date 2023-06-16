@@ -1,4 +1,5 @@
 // ignore_for_file: public_member_api_docs
+// coverage:ignore-file
 
 import 'package:intl/intl.dart';
 import 'package:nextcloud/src/webdav/props.dart';
@@ -78,9 +79,6 @@ class WebDavPropertyupdate with _$WebDavPropertyupdateXmlSerializableMixin {
     required this.set,
   });
 
-  factory WebDavPropertyupdate.fromXmlElement(final XmlElement element) =>
-      _$WebDavPropertyupdateFromXmlElement(element);
-
   @annotation.XmlElement(name: 'set', namespace: namespaceDav)
   final WebDavSet set;
 }
@@ -95,7 +93,7 @@ class WebDavSet with _$WebDavSetXmlSerializableMixin {
   factory WebDavSet.fromXmlElement(final XmlElement element) => _$WebDavSetFromXmlElement(element);
 
   @annotation.XmlElement(name: 'prop', namespace: namespaceDav)
-  final WebDavProp prop;
+  final WebDavProp prop; // coverage:ignore-line
 }
 
 @annotation.XmlSerializable(createMixin: true)
@@ -104,8 +102,6 @@ class WebDavPropfind with _$WebDavPropfindXmlSerializableMixin {
   WebDavPropfind({
     required this.prop,
   });
-
-  factory WebDavPropfind.fromXmlElement(final XmlElement element) => _$WebDavPropfindFromXmlElement(element);
 
   @annotation.XmlElement(name: 'prop', namespace: namespaceDav)
   final WebDavPropfindProp prop;
@@ -118,8 +114,6 @@ class WebDavOcFilterFiles with _$WebDavOcFilterFilesXmlSerializableMixin {
     required this.filterRules,
     required this.prop,
   });
-
-  factory WebDavOcFilterFiles.fromXmlElement(final XmlElement element) => _$WebDavOcFilterFilesFromXmlElement(element);
 
   @annotation.XmlElement(name: 'filter-rules', namespace: namespaceOwncloud)
   final WebDavOcFilterRules filterRules;

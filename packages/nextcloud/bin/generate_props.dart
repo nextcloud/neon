@@ -22,6 +22,7 @@ void main() {
   File('lib/src/webdav/props.dart').writeAsStringSync(
     [
       '// ignore_for_file: public_member_api_docs',
+      '// coverage:ignore-file',
       "import 'package:nextcloud/src/webdav/webdav.dart';",
       "import 'package:xml/xml.dart';",
       "import 'package:xml_annotation/xml_annotation.dart' as annotation;",
