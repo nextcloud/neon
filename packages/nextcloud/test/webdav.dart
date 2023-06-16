@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'dart:io';
 import 'dart:typed_data';
 
+import 'package:crypto/crypto.dart';
 import 'package:nextcloud/nextcloud.dart';
 import 'package:test/test.dart';
 
@@ -139,6 +140,18 @@ Future run(final DockerImage image) async {
         DateTime.fromMillisecondsSinceEpoch(props.nccreationtime! * 1000).millisecondsSinceEpoch,
         created.millisecondsSinceEpoch,
       );
+    });
+
+    test('Download file', () async {
+      final response = await client.webdav.download('Nextcloud.png');
+      expect(sha1.convert(response).toString(), '5ab8040bc0e9a3c47f45abd8a6d44f6e381ba6ed');
+    });
+
+    test('Delete file', () async {
+      final response = await client.webdav.delete('Nextcloud.png');
+      expect(response.statusCode, 204);
+      final responses = (await client.webdav.ls('/')).responses;
+      expect(responses.where((final response) => response.href!.endsWith('/Nextcloud.png')), hasLength(0));
     });
 
     test('Copy file', () async {
