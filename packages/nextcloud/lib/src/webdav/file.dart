@@ -71,11 +71,12 @@ class WebDavFile {
 
   /// Upload date of the file
   late final DateTime? uploadedDate =
-      props.ncuploadtime != null ? DateTime.fromMillisecondsSinceEpoch(props.ncuploadtime! * 1000) : null;
+      props.ncuploadtime != null ? DateTime.fromMillisecondsSinceEpoch(props.ncuploadtime! * 1000, isUtc: true) : null;
 
   /// Creation date of the file as provided by uploader
-  late final DateTime? createdDate =
-      props.nccreationtime != null ? DateTime.fromMillisecondsSinceEpoch(props.nccreationtime! * 1000) : null;
+  late final DateTime? createdDate = props.nccreationtime != null
+      ? DateTime.fromMillisecondsSinceEpoch(props.nccreationtime! * 1000, isUtc: true)
+      : null;
 
   /// Whether this file is marked as favorite
   late final bool? favorite = props.ocfavorite == null ? null : props.ocfavorite == 1;
