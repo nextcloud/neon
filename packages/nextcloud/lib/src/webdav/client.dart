@@ -164,16 +164,12 @@ class WebDavClient {
     final DateTime? lastModified,
     final DateTime? created,
   }) =>
-      _send(
-        'PUT',
-        _constructPath(remotePath),
-        [200, 201, 204],
-        data: Stream.value(localData),
-        headers: _generateUploadHeaders(
-          lastModified: lastModified,
-          created: created,
-          contentLength: localData.lengthInBytes,
-        ),
+      uploadStream(
+        Stream.value(localData),
+        remotePath,
+        lastModified: lastModified,
+        created: created,
+        contentLength: localData.lengthInBytes,
       );
 
   /// upload a new file with [localData] as content to [remotePath]
@@ -197,15 +193,8 @@ class WebDavClient {
       );
 
   /// download [remotePath] and store the response file contents to String
-  Future<Uint8List> download(final String remotePath) async => Uint8List.fromList(
-        (await (await _send(
-          'GET',
-          _constructPath(remotePath),
-          [200],
-        ))
-                .join())
-            .codeUnits,
-      );
+  Future<Uint8List> download(final String remotePath) async =>
+      Uint8List.fromList((await (await downloadStream(remotePath)).join()).codeUnits);
 
   /// download [remotePath] and store the response file contents to ByteStream
   Future<HttpClientResponse> downloadStream(final String remotePath) async => _send(
