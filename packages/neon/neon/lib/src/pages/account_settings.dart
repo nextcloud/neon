@@ -60,7 +60,7 @@ class AccountSettingsPage extends StatelessWidget {
             ),
           ],
         ),
-        body: ResultBuilder<NextcloudProvisioningApiUserDetails>(
+        body: ResultBuilder<NextcloudProvisioningApiUserDetails>.behaviorSubject(
           stream: _userDetailsBloc.userDetails,
           builder: (final context, final userDetails) => SettingsList(
             categories: [
@@ -92,7 +92,7 @@ class AccountSettingsPage extends StatelessWidget {
                           onRetry: _userDetailsBloc.refresh,
                         ),
                         NeonLinearProgressIndicator(
-                          visible: userDetails.loading,
+                          visible: userDetails.isLoading,
                         ),
                       ],
                     ),

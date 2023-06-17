@@ -45,12 +45,12 @@ class _HomePageState extends State<HomePage> {
     _capabilitiesBloc.capabilities.listen((final result) async {
       if (result.data != null) {
         // ignore cached version and prevent duplicate dialogs
-        if (result.cached) {
+        if (result.isCached) {
           return;
         }
         _appsBloc.appImplementations.listen((final appsResult) async {
           // ignore cached version and prevent duplicate dialogs
-          if (appsResult.data == null || appsResult.cached) {
+          if (appsResult.data == null || appsResult.isCached) {
             return;
           }
           for (final id in [
@@ -168,11 +168,12 @@ class _HomePageState extends State<HomePage> {
   }
 
   @override
-  Widget build(final BuildContext context) => ResultBuilder<Capabilities>(
+  Widget build(final BuildContext context) => ResultBuilder<Capabilities>.behaviorSubject(
         stream: _capabilitiesBloc.capabilities,
-        builder: (final context, final capabilities) => ResultBuilder<Iterable<AppImplementation>>(
+        builder: (final context, final capabilities) => ResultBuilder<Iterable<AppImplementation>>.behaviorSubject(
           stream: _appsBloc.appImplementations,
-          builder: (final context, final appImplementations) => ResultBuilder<NotificationsAppInterface?>(
+          builder: (final context, final appImplementations) =>
+              ResultBuilder<NotificationsAppInterface?>.behaviorSubject(
             stream: _appsBloc.notificationsAppImplementation,
             builder: (final context, final notificationsAppImplementation) => StreamBuilder<String?>(
               stream: _appsBloc.activeAppID,
@@ -204,7 +205,7 @@ class _HomePageState extends State<HomePage> {
                                   ),
                                 ),
                               ],
-                              if (appImplementations.error != null) ...[
+                              if (appImplementations.hasError) ...[
                                 const SizedBox(
                                   width: 8,
                                 ),
@@ -214,7 +215,7 @@ class _HomePageState extends State<HomePage> {
                                   onlyIcon: true,
                                 ),
                               ],
-                              if (appImplementations.loading) ...[
+                              if (appImplementations.isLoading) ...[
                                 const SizedBox(
                                   width: 8,
                                 ),

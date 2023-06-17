@@ -9,7 +9,7 @@ class NotesCategoriesView extends StatelessWidget {
   final NotesBloc bloc;
 
   @override
-  Widget build(final BuildContext context) => ResultBuilder<List<NextcloudNotesNote>>(
+  Widget build(final BuildContext context) => ResultBuilder<List<NextcloudNotesNote>>.behaviorSubject(
         stream: bloc.notes,
         builder: (final context, final notes) => SortBoxBuilder<CategoriesSortProperty, NoteCategory>(
           sortBox: categoriesSortBox,
@@ -28,7 +28,7 @@ class NotesCategoriesView extends StatelessWidget {
           builder: (final context, final sorted) => NeonListView<NoteCategory>(
             scrollKey: 'notes-categories',
             items: sorted,
-            isLoading: notes.loading,
+            isLoading: notes.isLoading,
             error: notes.error,
             onRefresh: bloc.refresh,
             builder: _buildCategory,

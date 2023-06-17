@@ -24,7 +24,7 @@ class _NotificationsMainPageState extends State<NotificationsMainPage> {
   }
 
   @override
-  Widget build(final BuildContext context) => ResultBuilder<List<NextcloudNotificationsNotification>>(
+  Widget build(final BuildContext context) => ResultBuilder<List<NextcloudNotificationsNotification>>.behaviorSubject(
         stream: bloc.notifications,
         builder: (final context, final notifications) => Scaffold(
           resizeToAvoidBottomInset: false,
@@ -39,7 +39,7 @@ class _NotificationsMainPageState extends State<NotificationsMainPage> {
             scrollKey: 'notifications-notifications',
             withFloatingActionButton: true,
             items: notifications.data,
-            isLoading: notifications.loading,
+            isLoading: notifications.isLoading,
             error: notifications.error,
             onRefresh: bloc.refresh,
             builder: _buildNotification,

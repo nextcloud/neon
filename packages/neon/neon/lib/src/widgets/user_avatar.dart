@@ -74,7 +74,7 @@ class _UserAvatarState extends State<NeonUserAvatar> {
               ),
               if (widget.showStatus) ...[
                 ResultBuilder<NextcloudUserStatusPublicStatus?>(
-                  stream: _userStatusBloc.statuses.map((final statuses) => statuses[widget.username]),
+                  stream: _userStatusBloc.statuses.mapNotNull((final statuses) => statuses[widget.username]),
                   builder: _userStatusIconBuilder,
                 ),
               ],
@@ -89,12 +89,12 @@ class _UserAvatarState extends State<NeonUserAvatar> {
 
     Widget? child;
     Decoration? decoration;
-    if (result.loading) {
+    if (result.isLoading) {
       child = CircularProgressIndicator(
         strokeWidth: 1.5,
         color: widget.foregroundColor ?? Theme.of(context).colorScheme.onPrimary,
       );
-    } else if (result.error != null) {
+    } else if (result.hasError) {
       child = Icon(
         Icons.error_outline,
         size: scaledSize,
