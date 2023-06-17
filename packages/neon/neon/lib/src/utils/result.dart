@@ -1,14 +1,15 @@
 part of '../../neon.dart';
 
+@immutable
 class Result<T> {
-  Result(
+  const Result(
     this.data,
     this.error, {
     required this.loading,
     required this.cached,
   });
 
-  factory Result.loading() => Result(
+  factory Result.loading() => const Result(
         null,
         null,
         loading: true,
