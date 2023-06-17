@@ -11,7 +11,7 @@ RUN ./occ app:disable password_policy
 RUN OC_PASS="user1" ./occ user:add --password-from-env --display-name "User One" user1
 RUN OC_PASS="user2" ./occ user:add --password-from-env --display-name "User Two" user2
 
-RUN ./occ app:install news # 21.1.0
+RUN ./occ app:install news --force --allow-unstable # 21.2.0
 RUN ./occ app:install notes # 4.7.1
 RUN ./occ app:install uppush # 1.3.0
 
