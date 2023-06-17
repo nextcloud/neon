@@ -1,7 +1,7 @@
 part of '../nextcloud.dart';
 
 /// Version of core/Server supported
-const coreSupportedVersion = 26;
+const coreSupportedVersion = 27;
 
 /// API version of the news app supported
 const newsSupportedVersion = 'v1-3';

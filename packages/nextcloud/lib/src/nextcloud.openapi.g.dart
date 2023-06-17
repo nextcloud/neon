@@ -3757,6 +3757,12 @@ class _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_UserStatusSerializ
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[];
     Object? value;
+    value = object.restore;
+    if (value != null) {
+      result
+        ..add('restore')
+        ..add(serializers.serialize(value, specifiedType: const FullType(bool)));
+    }
     value = object.enabled;
     if (value != null) {
       result
@@ -3784,6 +3790,9 @@ class _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_UserStatusSerializ
       iterator.moveNext();
       final Object? value = iterator.current;
       switch (key) {
+        case 'restore':
+          result.restore = serializers.deserialize(value, specifiedType: const FullType(bool)) as bool?;
+          break;
         case 'enabled':
           result.enabled = serializers.deserialize(value, specifiedType: const FullType(bool)) as bool?;
           break;
@@ -6109,6 +6118,8 @@ class _$NextcloudProvisioningApiUserDetailsSerializer
       serializers.serialize(object.additionalMail, specifiedType: const FullType(BuiltList, [FullType(String)])),
       'additional_mailScope',
       serializers.serialize(object.additionalMailScope, specifiedType: const FullType(BuiltList, [FullType(String)])),
+      'displayname',
+      serializers.serialize(object.displayname, specifiedType: const FullType(String)),
       'displaynameScope',
       serializers.serialize(object.displaynameScope, specifiedType: const FullType(String)),
       'phone',
@@ -6160,6 +6171,8 @@ class _$NextcloudProvisioningApiUserDetailsSerializer
       'backendCapabilities',
       serializers.serialize(object.backendCapabilities,
           specifiedType: const FullType(NextcloudProvisioningApiUserDetails_BackendCapabilities)),
+      'display-name',
+      serializers.serialize(object.displayName, specifiedType: const FullType(String)),
     ];
     Object? value;
     value = object.enabled;
@@ -6180,22 +6193,10 @@ class _$NextcloudProvisioningApiUserDetailsSerializer
         ..add('email')
         ..add(serializers.serialize(value, specifiedType: const FullType(String)));
     }
-    value = object.displayname;
-    if (value != null) {
-      result
-        ..add('displayname')
-        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
-    }
     value = object.notifyEmail;
     if (value != null) {
       result
         ..add('notify_email')
-        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
-    }
-    value = object.displayName;
-    if (value != null) {
-      result
-        ..add('display-name')
         ..add(serializers.serialize(value, specifiedType: const FullType(String)));
     }
     return result;
@@ -6254,7 +6255,7 @@ class _$NextcloudProvisioningApiUserDetailsSerializer
               specifiedType: const FullType(BuiltList, [FullType(String)]))! as BuiltList<Object?>);
           break;
         case 'displayname':
-          result.displayname = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          result.displayname = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
           break;
         case 'displaynameScope':
           result.displaynameScope = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
@@ -6338,7 +6339,7 @@ class _$NextcloudProvisioningApiUserDetailsSerializer
               as NextcloudProvisioningApiUserDetails_BackendCapabilities);
           break;
         case 'display-name':
-          result.displayName = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          result.displayName = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
           break;
       }
     }
@@ -13537,6 +13538,8 @@ class NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_ThemingBuilder
 class _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_UserStatus
     extends NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_UserStatus {
   @override
+  final bool? restore;
+  @override
   final bool? enabled;
   @override
   final bool? supportsEmoji;
@@ -13545,7 +13548,8 @@ class _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_UserStatus
           [void Function(NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_UserStatusBuilder)? updates]) =>
       (NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_UserStatusBuilder()..update(updates))._build();
 
-  _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_UserStatus._({this.enabled, this.supportsEmoji}) : super._();
+  _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_UserStatus._({this.restore, this.enabled, this.supportsEmoji})
+      : super._();
 
   @override
   NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_UserStatus rebuild(
@@ -13560,6 +13564,7 @@ class _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_UserStatus
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
     return other is NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_UserStatus &&
+        restore == other.restore &&
         enabled == other.enabled &&
         supportsEmoji == other.supportsEmoji;
   }
@@ -13567,6 +13572,7 @@ class _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_UserStatus
   @override
   int get hashCode {
     var _$hash = 0;
+    _$hash = $jc(_$hash, restore.hashCode);
     _$hash = $jc(_$hash, enabled.hashCode);
     _$hash = $jc(_$hash, supportsEmoji.hashCode);
     _$hash = $jf(_$hash);
@@ -13576,6 +13582,7 @@ class _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_UserStatus
   @override
   String toString() {
     return (newBuiltValueToStringHelper(r'NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_UserStatus')
+          ..add('restore', restore)
           ..add('enabled', enabled)
           ..add('supportsEmoji', supportsEmoji))
         .toString();
@@ -13587,6 +13594,10 @@ class NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_UserStatusBuilder
         Builder<NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_UserStatus,
             NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_UserStatusBuilder> {
   _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_UserStatus? _$v;
+
+  bool? _restore;
+  bool? get restore => _$this._restore;
+  set restore(bool? restore) => _$this._restore = restore;
 
   bool? _enabled;
   bool? get enabled => _$this._enabled;
@@ -13601,6 +13612,7 @@ class NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_UserStatusBuilder
   NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_UserStatusBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
+      _restore = $v.restore;
       _enabled = $v.enabled;
       _supportsEmoji = $v.supportsEmoji;
       _$v = null;
@@ -13625,7 +13637,7 @@ class NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_UserStatusBuilder
   _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_UserStatus _build() {
     final _$result = _$v ??
         _$NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_UserStatus._(
-            enabled: enabled, supportsEmoji: supportsEmoji);
+            restore: restore, enabled: enabled, supportsEmoji: supportsEmoji);
     replace(_$result);
     return _$result;
   }
@@ -18682,7 +18694,7 @@ class _$NextcloudProvisioningApiUserDetails extends NextcloudProvisioningApiUser
   @override
   final BuiltList<String> additionalMailScope;
   @override
-  final String? displayname;
+  final String displayname;
   @override
   final String displaynameScope;
   @override
@@ -18736,7 +18748,7 @@ class _$NextcloudProvisioningApiUserDetails extends NextcloudProvisioningApiUser
   @override
   final NextcloudProvisioningApiUserDetails_BackendCapabilities backendCapabilities;
   @override
-  final String? displayName;
+  final String displayName;
 
   factory _$NextcloudProvisioningApiUserDetails([void Function(NextcloudProvisioningApiUserDetailsBuilder)? updates]) =>
       (NextcloudProvisioningApiUserDetailsBuilder()..update(updates))._build();
@@ -18754,7 +18766,7 @@ class _$NextcloudProvisioningApiUserDetails extends NextcloudProvisioningApiUser
       required this.emailScope,
       required this.additionalMail,
       required this.additionalMailScope,
-      this.displayname,
+      required this.displayname,
       required this.displaynameScope,
       required this.phone,
       required this.phoneScope,
@@ -18781,7 +18793,7 @@ class _$NextcloudProvisioningApiUserDetails extends NextcloudProvisioningApiUser
       required this.locale,
       this.notifyEmail,
       required this.backendCapabilities,
-      this.displayName})
+      required this.displayName})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(id, r'NextcloudProvisioningApiUserDetails', 'id');
     BuiltValueNullFieldError.checkNotNull(lastLogin, r'NextcloudProvisioningApiUserDetails', 'lastLogin');
@@ -18793,6 +18805,7 @@ class _$NextcloudProvisioningApiUserDetails extends NextcloudProvisioningApiUser
     BuiltValueNullFieldError.checkNotNull(additionalMail, r'NextcloudProvisioningApiUserDetails', 'additionalMail');
     BuiltValueNullFieldError.checkNotNull(
         additionalMailScope, r'NextcloudProvisioningApiUserDetails', 'additionalMailScope');
+    BuiltValueNullFieldError.checkNotNull(displayname, r'NextcloudProvisioningApiUserDetails', 'displayname');
     BuiltValueNullFieldError.checkNotNull(displaynameScope, r'NextcloudProvisioningApiUserDetails', 'displaynameScope');
     BuiltValueNullFieldError.checkNotNull(phone, r'NextcloudProvisioningApiUserDetails', 'phone');
     BuiltValueNullFieldError.checkNotNull(phoneScope, r'NextcloudProvisioningApiUserDetails', 'phoneScope');
@@ -18821,6 +18834,7 @@ class _$NextcloudProvisioningApiUserDetails extends NextcloudProvisioningApiUser
     BuiltValueNullFieldError.checkNotNull(locale, r'NextcloudProvisioningApiUserDetails', 'locale');
     BuiltValueNullFieldError.checkNotNull(
         backendCapabilities, r'NextcloudProvisioningApiUserDetails', 'backendCapabilities');
+    BuiltValueNullFieldError.checkNotNull(displayName, r'NextcloudProvisioningApiUserDetails', 'displayName');
   }
 
   @override
@@ -19223,7 +19237,8 @@ class NextcloudProvisioningApiUserDetailsBuilder
                   emailScope, r'NextcloudProvisioningApiUserDetails', 'emailScope'),
               additionalMail: additionalMail.build(),
               additionalMailScope: additionalMailScope.build(),
-              displayname: displayname,
+              displayname: BuiltValueNullFieldError.checkNotNull(
+                  displayname, r'NextcloudProvisioningApiUserDetails', 'displayname'),
               displaynameScope: BuiltValueNullFieldError.checkNotNull(
                   displaynameScope, r'NextcloudProvisioningApiUserDetails', 'displaynameScope'),
               phone: BuiltValueNullFieldError.checkNotNull(phone, r'NextcloudProvisioningApiUserDetails', 'phone'),
@@ -19243,8 +19258,7 @@ class NextcloudProvisioningApiUserDetailsBuilder
                   twitterScope, r'NextcloudProvisioningApiUserDetails', 'twitterScope'),
               organisation: BuiltValueNullFieldError.checkNotNull(
                   organisation, r'NextcloudProvisioningApiUserDetails', 'organisation'),
-              organisationScope: BuiltValueNullFieldError.checkNotNull(
-                  organisationScope, r'NextcloudProvisioningApiUserDetails', 'organisationScope'),
+              organisationScope: BuiltValueNullFieldError.checkNotNull(organisationScope, r'NextcloudProvisioningApiUserDetails', 'organisationScope'),
               role: BuiltValueNullFieldError.checkNotNull(role, r'NextcloudProvisioningApiUserDetails', 'role'),
               roleScope: BuiltValueNullFieldError.checkNotNull(roleScope, r'NextcloudProvisioningApiUserDetails', 'roleScope'),
               headline: BuiltValueNullFieldError.checkNotNull(headline, r'NextcloudProvisioningApiUserDetails', 'headline'),
@@ -19260,7 +19274,7 @@ class NextcloudProvisioningApiUserDetailsBuilder
               locale: BuiltValueNullFieldError.checkNotNull(locale, r'NextcloudProvisioningApiUserDetails', 'locale'),
               notifyEmail: notifyEmail,
               backendCapabilities: backendCapabilities.build(),
-              displayName: displayName);
+              displayName: BuiltValueNullFieldError.checkNotNull(displayName, r'NextcloudProvisioningApiUserDetails', 'displayName'));
     } catch (_) {
       late String _$failedField;
       try {

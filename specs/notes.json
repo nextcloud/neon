@@ -2,7 +2,7 @@
   "openapi": "3.1.0",
   "info": {
     "title": "Notes",
-    "version": "4.7.1",
+    "version": "4.8.0",
     "description": "Distraction-free notes and writing",
     "license": {
       "name": "agpl",

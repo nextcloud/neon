@@ -3196,6 +3196,7 @@ abstract class NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_UserStatus
       jsonSerializers.deserializeWith(serializer, json)!;
 
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  bool? get restore;
   bool? get enabled;
   @BuiltValueField(wireName: 'supports_emoji')
   bool? get supportsEmoji;
@@ -4015,7 +4016,7 @@ abstract class NextcloudProvisioningApiUserDetails
   BuiltList<String> get additionalMail;
   @BuiltValueField(wireName: 'additional_mailScope')
   BuiltList<String> get additionalMailScope;
-  String? get displayname;
+  String get displayname;
   String get displaynameScope;
   String get phone;
   String get phoneScope;
@@ -4046,7 +4047,7 @@ abstract class NextcloudProvisioningApiUserDetails
   String? get notifyEmail;
   NextcloudProvisioningApiUserDetails_BackendCapabilities get backendCapabilities;
   @BuiltValueField(wireName: 'display-name')
-  String? get displayName;
+  String get displayName;
   static Serializer<NextcloudProvisioningApiUserDetails> get serializer =>
       _$nextcloudProvisioningApiUserDetailsSerializer;
 }

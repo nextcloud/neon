@@ -47,7 +47,7 @@ Future run(final DockerImage image) async {
         ),
       ))
           .responses;
-      expect(responses, hasLength(9));
+      expect(responses, hasLength(10));
       final props =
           responses.singleWhere((final response) => response.href!.endsWith('/Nextcloud.png')).propstats.first.prop;
       expect(props.nchaspreview, isTrue);
@@ -62,7 +62,7 @@ Future run(final DockerImage image) async {
         depth: 'infinity',
       ))
           .responses;
-      expect(responses, hasLength(37));
+      expect(responses, hasLength(48));
     });
 
     test('Create directory', () async {
@@ -96,7 +96,7 @@ Future run(final DockerImage image) async {
         ),
       ))
           .responses;
-      expect(responses, hasLength(11));
+      expect(responses, hasLength(12));
       expect(
         responses.singleWhere((final response) => response.href!.endsWith('/test.png')).propstats.first.prop.ocsize,
         pngBytes.lengthInBytes,

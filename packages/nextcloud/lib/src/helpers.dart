@@ -14,12 +14,6 @@ NextcloudNotificationsNotificationDecryptedSubject decryptPushNotificationSubjec
       json.decode(privateKey.decrypt(subject)) as Map<String, dynamic>,
     );
 
-extension UserDetailsDisplayName on openapi.NextcloudProvisioningApiUserDetails {
-  /// This is used to work around an API change that wasn't made for every endpoint
-  /// See https://github.com/nextcloud/server/commit/5086335643b6181284ee50f57b95525002842992
-  String? getDisplayName() => displayname ?? displayName;
-}
-
 /// See https://github.com/nextcloud/news/blob/4a107b3d53c4fe651ac704251b99e04a53cd587f/lib/Db/ListType.php
 enum NewsListType {
   feed(0),
