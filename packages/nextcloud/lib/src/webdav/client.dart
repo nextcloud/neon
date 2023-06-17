@@ -65,7 +65,7 @@ class WebDavClient {
               part = part.substring(1);
             }
             while (part.endsWith('/')) {
-              part = part.substring(0, part.length - 1);
+              part = part.substring(0, part.length - 1); // coverage:ignore-line
             }
             return part;
           })
@@ -116,7 +116,7 @@ class WebDavClient {
       return null;
     }
     if (remotePath.trim().startsWith('/')) {
-      dirs[0] = '/${dirs[0]}';
+      dirs[0] = '/${dirs[0]}'; // coverage:ignore-line
     }
     final prevPath = StringBuffer();
     late HttpClientResponse response;
@@ -245,11 +245,13 @@ class WebDavClient {
       },
     );
     if (response.statusCode == 301) {
+      // coverage:ignore-start
       return ls(
         response.headers['location']!.first,
         prop: prop,
         depth: depth,
       );
+      // coverage:ignore-end
     }
     return _parseResponse(response);
   }
@@ -272,7 +274,7 @@ class WebDavClient {
           utf8.encode(
             WebDavOcFilterFiles(
               filterRules: filterRules,
-              prop: prop ?? WebDavPropfindProp(),
+              prop: prop ?? WebDavPropfindProp(), // coverage:ignore-line
             ).toXmlElement(namespaces: namespaces).toXmlString(),
           ),
         ),

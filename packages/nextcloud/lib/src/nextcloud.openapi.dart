@@ -204,7 +204,7 @@ class NextcloudCoreClient {
     if (rootClient.authentications.map((final a) => a.id).contains('basic_auth')) {
       headers.addAll(rootClient.authentications.singleWhere((final a) => a.id == 'basic_auth').headers);
     } else {
-      throw Exception('Missing authentication for basic_auth');
+      throw Exception('Missing authentication for basic_auth'); // coverage:ignore-line
     }
     final response = await rootClient.doRequest(
       'get',
@@ -231,7 +231,7 @@ class NextcloudCoreClient {
     if (rootClient.authentications.map((final a) => a.id).contains('basic_auth')) {
       headers.addAll(rootClient.authentications.singleWhere((final a) => a.id == 'basic_auth').headers);
     } else {
-      throw Exception('Missing authentication for basic_auth');
+      throw Exception('Missing authentication for basic_auth'); // coverage:ignore-line
     }
     final response = await rootClient.doRequest(
       'get',
@@ -310,7 +310,7 @@ class NextcloudCoreClient {
     if (rootClient.authentications.map((final a) => a.id).contains('basic_auth')) {
       headers.addAll(rootClient.authentications.singleWhere((final a) => a.id == 'basic_auth').headers);
     } else {
-      throw Exception('Missing authentication for basic_auth');
+      throw Exception('Missing authentication for basic_auth'); // coverage:ignore-line
     }
     if (file != '') {
       queryParameters['file'] = file;
@@ -355,7 +355,7 @@ class NextcloudCoreClient {
     if (rootClient.authentications.map((final a) => a.id).contains('basic_auth')) {
       headers.addAll(rootClient.authentications.singleWhere((final a) => a.id == 'basic_auth').headers);
     } else {
-      throw Exception('Missing authentication for basic_auth');
+      throw Exception('Missing authentication for basic_auth'); // coverage:ignore-line
     }
     path = path.replaceAll('{userId}', Uri.encodeQueryComponent(userId));
     path = path.replaceAll('{size}', Uri.encodeQueryComponent(size.toString()));
@@ -384,7 +384,7 @@ class NextcloudCoreClient {
     if (rootClient.authentications.map((final a) => a.id).contains('basic_auth')) {
       headers.addAll(rootClient.authentications.singleWhere((final a) => a.id == 'basic_auth').headers);
     } else {
-      throw Exception('Missing authentication for basic_auth');
+      throw Exception('Missing authentication for basic_auth'); // coverage:ignore-line
     }
     path = path.replaceAll('{userId}', Uri.encodeQueryComponent(userId));
     path = path.replaceAll('{size}', Uri.encodeQueryComponent(size.toString()));
@@ -417,7 +417,7 @@ class NextcloudCoreClient {
     if (rootClient.authentications.map((final a) => a.id).contains('basic_auth')) {
       headers.addAll(rootClient.authentications.singleWhere((final a) => a.id == 'basic_auth').headers);
     } else {
-      throw Exception('Missing authentication for basic_auth');
+      throw Exception('Missing authentication for basic_auth'); // coverage:ignore-line
     }
     queryParameters['search'] = search;
     queryParameters['itemType'] = itemType;
@@ -454,7 +454,7 @@ class NextcloudCoreClient {
     if (rootClient.authentications.map((final a) => a.id).contains('basic_auth')) {
       headers.addAll(rootClient.authentications.singleWhere((final a) => a.id == 'basic_auth').headers);
     } else {
-      throw Exception('Missing authentication for basic_auth');
+      throw Exception('Missing authentication for basic_auth'); // coverage:ignore-line
     }
     final response = await rootClient.doRequest(
       'delete',
@@ -484,7 +484,7 @@ class NextcloudNewsClient {
     if (rootClient.authentications.map((final a) => a.id).contains('basic_auth')) {
       headers.addAll(rootClient.authentications.singleWhere((final a) => a.id == 'basic_auth').headers);
     } else {
-      throw Exception('Missing authentication for basic_auth');
+      throw Exception('Missing authentication for basic_auth'); // coverage:ignore-line
     }
     final response = await rootClient.doRequest(
       'get',
@@ -511,7 +511,7 @@ class NextcloudNewsClient {
     if (rootClient.authentications.map((final a) => a.id).contains('basic_auth')) {
       headers.addAll(rootClient.authentications.singleWhere((final a) => a.id == 'basic_auth').headers);
     } else {
-      throw Exception('Missing authentication for basic_auth');
+      throw Exception('Missing authentication for basic_auth'); // coverage:ignore-line
     }
     final response = await rootClient.doRequest(
       'get',
@@ -538,7 +538,7 @@ class NextcloudNewsClient {
     if (rootClient.authentications.map((final a) => a.id).contains('basic_auth')) {
       headers.addAll(rootClient.authentications.singleWhere((final a) => a.id == 'basic_auth').headers);
     } else {
-      throw Exception('Missing authentication for basic_auth');
+      throw Exception('Missing authentication for basic_auth'); // coverage:ignore-line
     }
     queryParameters['name'] = name;
     final response = await rootClient.doRequest(
@@ -567,7 +567,7 @@ class NextcloudNewsClient {
     if (rootClient.authentications.map((final a) => a.id).contains('basic_auth')) {
       headers.addAll(rootClient.authentications.singleWhere((final a) => a.id == 'basic_auth').headers);
     } else {
-      throw Exception('Missing authentication for basic_auth');
+      throw Exception('Missing authentication for basic_auth'); // coverage:ignore-line
     }
     path = path.replaceAll('{folderId}', Uri.encodeQueryComponent(folderId.toString()));
     queryParameters['name'] = name;
@@ -591,7 +591,7 @@ class NextcloudNewsClient {
     if (rootClient.authentications.map((final a) => a.id).contains('basic_auth')) {
       headers.addAll(rootClient.authentications.singleWhere((final a) => a.id == 'basic_auth').headers);
     } else {
-      throw Exception('Missing authentication for basic_auth');
+      throw Exception('Missing authentication for basic_auth'); // coverage:ignore-line
     }
     path = path.replaceAll('{folderId}', Uri.encodeQueryComponent(folderId.toString()));
     final response = await rootClient.doRequest(
@@ -617,7 +617,7 @@ class NextcloudNewsClient {
     if (rootClient.authentications.map((final a) => a.id).contains('basic_auth')) {
       headers.addAll(rootClient.authentications.singleWhere((final a) => a.id == 'basic_auth').headers);
     } else {
-      throw Exception('Missing authentication for basic_auth');
+      throw Exception('Missing authentication for basic_auth'); // coverage:ignore-line
     }
     path = path.replaceAll('{folderId}', Uri.encodeQueryComponent(folderId.toString()));
     queryParameters['newestItemId'] = newestItemId.toString();
@@ -643,7 +643,7 @@ class NextcloudNewsClient {
     if (rootClient.authentications.map((final a) => a.id).contains('basic_auth')) {
       headers.addAll(rootClient.authentications.singleWhere((final a) => a.id == 'basic_auth').headers);
     } else {
-      throw Exception('Missing authentication for basic_auth');
+      throw Exception('Missing authentication for basic_auth'); // coverage:ignore-line
     }
     final response = await rootClient.doRequest(
       'get',
@@ -673,7 +673,7 @@ class NextcloudNewsClient {
     if (rootClient.authentications.map((final a) => a.id).contains('basic_auth')) {
       headers.addAll(rootClient.authentications.singleWhere((final a) => a.id == 'basic_auth').headers);
     } else {
-      throw Exception('Missing authentication for basic_auth');
+      throw Exception('Missing authentication for basic_auth'); // coverage:ignore-line
     }
     queryParameters['url'] = url;
     if (folderId != null) {
@@ -702,7 +702,7 @@ class NextcloudNewsClient {
     if (rootClient.authentications.map((final a) => a.id).contains('basic_auth')) {
       headers.addAll(rootClient.authentications.singleWhere((final a) => a.id == 'basic_auth').headers);
     } else {
-      throw Exception('Missing authentication for basic_auth');
+      throw Exception('Missing authentication for basic_auth'); // coverage:ignore-line
     }
     path = path.replaceAll('{feedId}', Uri.encodeQueryComponent(feedId.toString()));
     final response = await rootClient.doRequest(
@@ -728,7 +728,7 @@ class NextcloudNewsClient {
     if (rootClient.authentications.map((final a) => a.id).contains('basic_auth')) {
       headers.addAll(rootClient.authentications.singleWhere((final a) => a.id == 'basic_auth').headers);
     } else {
-      throw Exception('Missing authentication for basic_auth');
+      throw Exception('Missing authentication for basic_auth'); // coverage:ignore-line
     }
     path = path.replaceAll('{feedId}', Uri.encodeQueryComponent(feedId.toString()));
     if (folderId != null) {
@@ -757,7 +757,7 @@ class NextcloudNewsClient {
     if (rootClient.authentications.map((final a) => a.id).contains('basic_auth')) {
       headers.addAll(rootClient.authentications.singleWhere((final a) => a.id == 'basic_auth').headers);
     } else {
-      throw Exception('Missing authentication for basic_auth');
+      throw Exception('Missing authentication for basic_auth'); // coverage:ignore-line
     }
     path = path.replaceAll('{feedId}', Uri.encodeQueryComponent(feedId.toString()));
     queryParameters['feedTitle'] = feedTitle;
@@ -784,7 +784,7 @@ class NextcloudNewsClient {
     if (rootClient.authentications.map((final a) => a.id).contains('basic_auth')) {
       headers.addAll(rootClient.authentications.singleWhere((final a) => a.id == 'basic_auth').headers);
     } else {
-      throw Exception('Missing authentication for basic_auth');
+      throw Exception('Missing authentication for basic_auth'); // coverage:ignore-line
     }
     path = path.replaceAll('{feedId}', Uri.encodeQueryComponent(feedId.toString()));
     queryParameters['newestItemId'] = newestItemId.toString();
@@ -817,7 +817,7 @@ class NextcloudNewsClient {
     if (rootClient.authentications.map((final a) => a.id).contains('basic_auth')) {
       headers.addAll(rootClient.authentications.singleWhere((final a) => a.id == 'basic_auth').headers);
     } else {
-      throw Exception('Missing authentication for basic_auth');
+      throw Exception('Missing authentication for basic_auth'); // coverage:ignore-line
     }
     if (type != 3) {
       queryParameters['type'] = type.toString();
@@ -866,7 +866,7 @@ class NextcloudNewsClient {
     if (rootClient.authentications.map((final a) => a.id).contains('basic_auth')) {
       headers.addAll(rootClient.authentications.singleWhere((final a) => a.id == 'basic_auth').headers);
     } else {
-      throw Exception('Missing authentication for basic_auth');
+      throw Exception('Missing authentication for basic_auth'); // coverage:ignore-line
     }
     if (type != 3) {
       queryParameters['type'] = type.toString();
@@ -900,7 +900,7 @@ class NextcloudNewsClient {
     if (rootClient.authentications.map((final a) => a.id).contains('basic_auth')) {
       headers.addAll(rootClient.authentications.singleWhere((final a) => a.id == 'basic_auth').headers);
     } else {
-      throw Exception('Missing authentication for basic_auth');
+      throw Exception('Missing authentication for basic_auth'); // coverage:ignore-line
     }
     path = path.replaceAll('{itemId}', Uri.encodeQueryComponent(itemId.toString()));
     final response = await rootClient.doRequest(
@@ -923,7 +923,7 @@ class NextcloudNewsClient {
     if (rootClient.authentications.map((final a) => a.id).contains('basic_auth')) {
       headers.addAll(rootClient.authentications.singleWhere((final a) => a.id == 'basic_auth').headers);
     } else {
-      throw Exception('Missing authentication for basic_auth');
+      throw Exception('Missing authentication for basic_auth'); // coverage:ignore-line
     }
     path = path.replaceAll('{itemId}', Uri.encodeQueryComponent(itemId.toString()));
     final response = await rootClient.doRequest(
@@ -946,7 +946,7 @@ class NextcloudNewsClient {
     if (rootClient.authentications.map((final a) => a.id).contains('basic_auth')) {
       headers.addAll(rootClient.authentications.singleWhere((final a) => a.id == 'basic_auth').headers);
     } else {
-      throw Exception('Missing authentication for basic_auth');
+      throw Exception('Missing authentication for basic_auth'); // coverage:ignore-line
     }
     path = path.replaceAll('{itemId}', Uri.encodeQueryComponent(itemId.toString()));
     final response = await rootClient.doRequest(
@@ -969,7 +969,7 @@ class NextcloudNewsClient {
     if (rootClient.authentications.map((final a) => a.id).contains('basic_auth')) {
       headers.addAll(rootClient.authentications.singleWhere((final a) => a.id == 'basic_auth').headers);
     } else {
-      throw Exception('Missing authentication for basic_auth');
+      throw Exception('Missing authentication for basic_auth'); // coverage:ignore-line
     }
     path = path.replaceAll('{itemId}', Uri.encodeQueryComponent(itemId.toString()));
     final response = await rootClient.doRequest(
@@ -1007,7 +1007,7 @@ class NextcloudNotesClient {
     if (rootClient.authentications.map((final a) => a.id).contains('basic_auth')) {
       headers.addAll(rootClient.authentications.singleWhere((final a) => a.id == 'basic_auth').headers);
     } else {
-      throw Exception('Missing authentication for basic_auth');
+      throw Exception('Missing authentication for basic_auth'); // coverage:ignore-line
     }
     if (category != null) {
       queryParameters['category'] = category;
@@ -1058,7 +1058,7 @@ class NextcloudNotesClient {
     if (rootClient.authentications.map((final a) => a.id).contains('basic_auth')) {
       headers.addAll(rootClient.authentications.singleWhere((final a) => a.id == 'basic_auth').headers);
     } else {
-      throw Exception('Missing authentication for basic_auth');
+      throw Exception('Missing authentication for basic_auth'); // coverage:ignore-line
     }
     if (category != '') {
       queryParameters['category'] = category;
@@ -1104,7 +1104,7 @@ class NextcloudNotesClient {
     if (rootClient.authentications.map((final a) => a.id).contains('basic_auth')) {
       headers.addAll(rootClient.authentications.singleWhere((final a) => a.id == 'basic_auth').headers);
     } else {
-      throw Exception('Missing authentication for basic_auth');
+      throw Exception('Missing authentication for basic_auth'); // coverage:ignore-line
     }
     path = path.replaceAll('{id}', Uri.encodeQueryComponent(id.toString()));
     if (exclude != '') {
@@ -1146,7 +1146,7 @@ class NextcloudNotesClient {
     if (rootClient.authentications.map((final a) => a.id).contains('basic_auth')) {
       headers.addAll(rootClient.authentications.singleWhere((final a) => a.id == 'basic_auth').headers);
     } else {
-      throw Exception('Missing authentication for basic_auth');
+      throw Exception('Missing authentication for basic_auth'); // coverage:ignore-line
     }
     path = path.replaceAll('{id}', Uri.encodeQueryComponent(id.toString()));
     if (content != null) {
@@ -1192,7 +1192,7 @@ class NextcloudNotesClient {
     if (rootClient.authentications.map((final a) => a.id).contains('basic_auth')) {
       headers.addAll(rootClient.authentications.singleWhere((final a) => a.id == 'basic_auth').headers);
     } else {
-      throw Exception('Missing authentication for basic_auth');
+      throw Exception('Missing authentication for basic_auth'); // coverage:ignore-line
     }
     path = path.replaceAll('{id}', Uri.encodeQueryComponent(id.toString()));
     final response = await rootClient.doRequest(
@@ -1217,7 +1217,7 @@ class NextcloudNotesClient {
     if (rootClient.authentications.map((final a) => a.id).contains('basic_auth')) {
       headers.addAll(rootClient.authentications.singleWhere((final a) => a.id == 'basic_auth').headers);
     } else {
-      throw Exception('Missing authentication for basic_auth');
+      throw Exception('Missing authentication for basic_auth'); // coverage:ignore-line
     }
     final response = await rootClient.doRequest(
       'get',
@@ -1244,7 +1244,7 @@ class NextcloudNotesClient {
     if (rootClient.authentications.map((final a) => a.id).contains('basic_auth')) {
       headers.addAll(rootClient.authentications.singleWhere((final a) => a.id == 'basic_auth').headers);
     } else {
-      throw Exception('Missing authentication for basic_auth');
+      throw Exception('Missing authentication for basic_auth'); // coverage:ignore-line
     }
     headers['Content-Type'] = 'application/json';
     body = Uint8List.fromList(
@@ -1283,7 +1283,7 @@ class NextcloudNotificationsClient {
     if (rootClient.authentications.map((final a) => a.id).contains('basic_auth')) {
       headers.addAll(rootClient.authentications.singleWhere((final a) => a.id == 'basic_auth').headers);
     } else {
-      throw Exception('Missing authentication for basic_auth');
+      throw Exception('Missing authentication for basic_auth'); // coverage:ignore-line
     }
     final response = await rootClient.doRequest(
       'get',
@@ -1310,7 +1310,7 @@ class NextcloudNotificationsClient {
     if (rootClient.authentications.map((final a) => a.id).contains('basic_auth')) {
       headers.addAll(rootClient.authentications.singleWhere((final a) => a.id == 'basic_auth').headers);
     } else {
-      throw Exception('Missing authentication for basic_auth');
+      throw Exception('Missing authentication for basic_auth'); // coverage:ignore-line
     }
     final response = await rootClient.doRequest(
       'delete',
@@ -1334,7 +1334,7 @@ class NextcloudNotificationsClient {
     if (rootClient.authentications.map((final a) => a.id).contains('basic_auth')) {
       headers.addAll(rootClient.authentications.singleWhere((final a) => a.id == 'basic_auth').headers);
     } else {
-      throw Exception('Missing authentication for basic_auth');
+      throw Exception('Missing authentication for basic_auth'); // coverage:ignore-line
     }
     path = path.replaceAll('{id}', Uri.encodeQueryComponent(id.toString()));
     final response = await rootClient.doRequest(
@@ -1362,7 +1362,7 @@ class NextcloudNotificationsClient {
     if (rootClient.authentications.map((final a) => a.id).contains('basic_auth')) {
       headers.addAll(rootClient.authentications.singleWhere((final a) => a.id == 'basic_auth').headers);
     } else {
-      throw Exception('Missing authentication for basic_auth');
+      throw Exception('Missing authentication for basic_auth'); // coverage:ignore-line
     }
     path = path.replaceAll('{id}', Uri.encodeQueryComponent(id.toString()));
     final response = await rootClient.doRequest(
@@ -1394,7 +1394,7 @@ class NextcloudNotificationsClient {
     if (rootClient.authentications.map((final a) => a.id).contains('basic_auth')) {
       headers.addAll(rootClient.authentications.singleWhere((final a) => a.id == 'basic_auth').headers);
     } else {
-      throw Exception('Missing authentication for basic_auth');
+      throw Exception('Missing authentication for basic_auth'); // coverage:ignore-line
     }
     queryParameters['pushTokenHash'] = pushTokenHash;
     queryParameters['devicePublicKey'] = devicePublicKey;
@@ -1424,7 +1424,7 @@ class NextcloudNotificationsClient {
     if (rootClient.authentications.map((final a) => a.id).contains('basic_auth')) {
       headers.addAll(rootClient.authentications.singleWhere((final a) => a.id == 'basic_auth').headers);
     } else {
-      throw Exception('Missing authentication for basic_auth');
+      throw Exception('Missing authentication for basic_auth'); // coverage:ignore-line
     }
     final response = await rootClient.doRequest(
       'delete',
@@ -1452,7 +1452,7 @@ class NextcloudNotificationsClient {
     if (rootClient.authentications.map((final a) => a.id).contains('basic_auth')) {
       headers.addAll(rootClient.authentications.singleWhere((final a) => a.id == 'basic_auth').headers);
     } else {
-      throw Exception('Missing authentication for basic_auth');
+      throw Exception('Missing authentication for basic_auth'); // coverage:ignore-line
     }
     path = path.replaceAll('{userId}', Uri.encodeQueryComponent(userId));
     queryParameters['shortMessage'] = shortMessage;
@@ -1490,7 +1490,7 @@ class NextcloudProvisioningApiClient {
     if (rootClient.authentications.map((final a) => a.id).contains('basic_auth')) {
       headers.addAll(rootClient.authentications.singleWhere((final a) => a.id == 'basic_auth').headers);
     } else {
-      throw Exception('Missing authentication for basic_auth');
+      throw Exception('Missing authentication for basic_auth'); // coverage:ignore-line
     }
     final response = await rootClient.doRequest(
       'get',
@@ -1517,7 +1517,7 @@ class NextcloudProvisioningApiClient {
     if (rootClient.authentications.map((final a) => a.id).contains('basic_auth')) {
       headers.addAll(rootClient.authentications.singleWhere((final a) => a.id == 'basic_auth').headers);
     } else {
-      throw Exception('Missing authentication for basic_auth');
+      throw Exception('Missing authentication for basic_auth'); // coverage:ignore-line
     }
     path = path.replaceAll('{userId}', Uri.encodeQueryComponent(userId));
     final response = await rootClient.doRequest(
@@ -1552,7 +1552,7 @@ class NextcloudUnifiedPushProviderClient {
     if (rootClient.authentications.map((final a) => a.id).contains('basic_auth')) {
       headers.addAll(rootClient.authentications.singleWhere((final a) => a.id == 'basic_auth').headers);
     } else {
-      throw Exception('Missing authentication for basic_auth');
+      throw Exception('Missing authentication for basic_auth'); // coverage:ignore-line
     }
     final response = await rootClient.doRequest(
       'get',
@@ -1584,7 +1584,7 @@ class NextcloudUnifiedPushProviderClient {
     if (rootClient.authentications.map((final a) => a.id).contains('basic_auth')) {
       headers.addAll(rootClient.authentications.singleWhere((final a) => a.id == 'basic_auth').headers);
     } else {
-      throw Exception('Missing authentication for basic_auth');
+      throw Exception('Missing authentication for basic_auth'); // coverage:ignore-line
     }
     queryParameters['keepalive'] = keepalive.toString();
     final response = await rootClient.doRequest(
@@ -1615,7 +1615,7 @@ class NextcloudUnifiedPushProviderClient {
     if (rootClient.authentications.map((final a) => a.id).contains('basic_auth')) {
       headers.addAll(rootClient.authentications.singleWhere((final a) => a.id == 'basic_auth').headers);
     } else {
-      throw Exception('Missing authentication for basic_auth');
+      throw Exception('Missing authentication for basic_auth'); // coverage:ignore-line
     }
     queryParameters['deviceName'] = deviceName;
     final response = await rootClient.doRequest(
@@ -1648,7 +1648,7 @@ class NextcloudUnifiedPushProviderClient {
     if (rootClient.authentications.map((final a) => a.id).contains('basic_auth')) {
       headers.addAll(rootClient.authentications.singleWhere((final a) => a.id == 'basic_auth').headers);
     } else {
-      throw Exception('Missing authentication for basic_auth');
+      throw Exception('Missing authentication for basic_auth'); // coverage:ignore-line
     }
     path = path.replaceAll('{deviceId}', Uri.encodeQueryComponent(deviceId));
     final response = await rootClient.doRequest(
@@ -1679,7 +1679,7 @@ class NextcloudUnifiedPushProviderClient {
     if (rootClient.authentications.map((final a) => a.id).contains('basic_auth')) {
       headers.addAll(rootClient.authentications.singleWhere((final a) => a.id == 'basic_auth').headers);
     } else {
-      throw Exception('Missing authentication for basic_auth');
+      throw Exception('Missing authentication for basic_auth'); // coverage:ignore-line
     }
     path = path.replaceAll('{deviceId}', Uri.encodeQueryComponent(deviceId));
     final response = await rootClient.doRequest(
@@ -1711,7 +1711,7 @@ class NextcloudUnifiedPushProviderClient {
     if (rootClient.authentications.map((final a) => a.id).contains('basic_auth')) {
       headers.addAll(rootClient.authentications.singleWhere((final a) => a.id == 'basic_auth').headers);
     } else {
-      throw Exception('Missing authentication for basic_auth');
+      throw Exception('Missing authentication for basic_auth'); // coverage:ignore-line
     }
     queryParameters['deviceId'] = deviceId;
     queryParameters['appName'] = appName;
@@ -1743,7 +1743,7 @@ class NextcloudUnifiedPushProviderClient {
     if (rootClient.authentications.map((final a) => a.id).contains('basic_auth')) {
       headers.addAll(rootClient.authentications.singleWhere((final a) => a.id == 'basic_auth').headers);
     } else {
-      throw Exception('Missing authentication for basic_auth');
+      throw Exception('Missing authentication for basic_auth'); // coverage:ignore-line
     }
     path = path.replaceAll('{token}', Uri.encodeQueryComponent(token));
     final response = await rootClient.doRequest(
@@ -1774,7 +1774,7 @@ class NextcloudUnifiedPushProviderClient {
     if (rootClient.authentications.map((final a) => a.id).contains('basic_auth')) {
       headers.addAll(rootClient.authentications.singleWhere((final a) => a.id == 'basic_auth').headers);
     } else {
-      throw Exception('Missing authentication for basic_auth');
+      throw Exception('Missing authentication for basic_auth'); // coverage:ignore-line
     }
     path = path.replaceAll('{token}', Uri.encodeQueryComponent(token));
     final response = await rootClient.doRequest(
@@ -1803,7 +1803,7 @@ class NextcloudUnifiedPushProviderClient {
     if (rootClient.authentications.map((final a) => a.id).contains('basic_auth')) {
       headers.addAll(rootClient.authentications.singleWhere((final a) => a.id == 'basic_auth').headers);
     } else {
-      throw Exception('Missing authentication for basic_auth');
+      throw Exception('Missing authentication for basic_auth'); // coverage:ignore-line
     }
     path = path.replaceAll('{token}', Uri.encodeQueryComponent(token));
     final response = await rootClient.doRequest(
@@ -1832,7 +1832,7 @@ class NextcloudUnifiedPushProviderClient {
     if (rootClient.authentications.map((final a) => a.id).contains('basic_auth')) {
       headers.addAll(rootClient.authentications.singleWhere((final a) => a.id == 'basic_auth').headers);
     } else {
-      throw Exception('Missing authentication for basic_auth');
+      throw Exception('Missing authentication for basic_auth'); // coverage:ignore-line
     }
     final response = await rootClient.doRequest(
       'get',
@@ -1860,7 +1860,7 @@ class NextcloudUnifiedPushProviderClient {
     if (rootClient.authentications.map((final a) => a.id).contains('basic_auth')) {
       headers.addAll(rootClient.authentications.singleWhere((final a) => a.id == 'basic_auth').headers);
     } else {
-      throw Exception('Missing authentication for basic_auth');
+      throw Exception('Missing authentication for basic_auth'); // coverage:ignore-line
     }
     final response = await rootClient.doRequest(
       'post',
@@ -1893,7 +1893,7 @@ class NextcloudUserStatusClient {
     if (rootClient.authentications.map((final a) => a.id).contains('basic_auth')) {
       headers.addAll(rootClient.authentications.singleWhere((final a) => a.id == 'basic_auth').headers);
     } else {
-      throw Exception('Missing authentication for basic_auth');
+      throw Exception('Missing authentication for basic_auth'); // coverage:ignore-line
     }
     final response = await rootClient.doRequest(
       'get',
@@ -1920,7 +1920,7 @@ class NextcloudUserStatusClient {
     if (rootClient.authentications.map((final a) => a.id).contains('basic_auth')) {
       headers.addAll(rootClient.authentications.singleWhere((final a) => a.id == 'basic_auth').headers);
     } else {
-      throw Exception('Missing authentication for basic_auth');
+      throw Exception('Missing authentication for basic_auth'); // coverage:ignore-line
     }
     path = path.replaceAll('{userId}', Uri.encodeQueryComponent(userId));
     final response = await rootClient.doRequest(
@@ -1948,7 +1948,7 @@ class NextcloudUserStatusClient {
     if (rootClient.authentications.map((final a) => a.id).contains('basic_auth')) {
       headers.addAll(rootClient.authentications.singleWhere((final a) => a.id == 'basic_auth').headers);
     } else {
-      throw Exception('Missing authentication for basic_auth');
+      throw Exception('Missing authentication for basic_auth'); // coverage:ignore-line
     }
     final response = await rootClient.doRequest(
       'get',
@@ -1975,7 +1975,7 @@ class NextcloudUserStatusClient {
     if (rootClient.authentications.map((final a) => a.id).contains('basic_auth')) {
       headers.addAll(rootClient.authentications.singleWhere((final a) => a.id == 'basic_auth').headers);
     } else {
-      throw Exception('Missing authentication for basic_auth');
+      throw Exception('Missing authentication for basic_auth'); // coverage:ignore-line
     }
     queryParameters['statusType'] = statusType.name;
     final response = await rootClient.doRequest(
@@ -2006,7 +2006,7 @@ class NextcloudUserStatusClient {
     if (rootClient.authentications.map((final a) => a.id).contains('basic_auth')) {
       headers.addAll(rootClient.authentications.singleWhere((final a) => a.id == 'basic_auth').headers);
     } else {
-      throw Exception('Missing authentication for basic_auth');
+      throw Exception('Missing authentication for basic_auth'); // coverage:ignore-line
     }
     queryParameters['messageId'] = messageId;
     if (clearAt != null) {
@@ -2041,7 +2041,7 @@ class NextcloudUserStatusClient {
     if (rootClient.authentications.map((final a) => a.id).contains('basic_auth')) {
       headers.addAll(rootClient.authentications.singleWhere((final a) => a.id == 'basic_auth').headers);
     } else {
-      throw Exception('Missing authentication for basic_auth');
+      throw Exception('Missing authentication for basic_auth'); // coverage:ignore-line
     }
     if (statusIcon != null) {
       queryParameters['statusIcon'] = statusIcon;
@@ -2075,7 +2075,7 @@ class NextcloudUserStatusClient {
     if (rootClient.authentications.map((final a) => a.id).contains('basic_auth')) {
       headers.addAll(rootClient.authentications.singleWhere((final a) => a.id == 'basic_auth').headers);
     } else {
-      throw Exception('Missing authentication for basic_auth');
+      throw Exception('Missing authentication for basic_auth'); // coverage:ignore-line
     }
     final response = await rootClient.doRequest(
       'delete',
@@ -2099,7 +2099,7 @@ class NextcloudUserStatusClient {
     if (rootClient.authentications.map((final a) => a.id).contains('basic_auth')) {
       headers.addAll(rootClient.authentications.singleWhere((final a) => a.id == 'basic_auth').headers);
     } else {
-      throw Exception('Missing authentication for basic_auth');
+      throw Exception('Missing authentication for basic_auth'); // coverage:ignore-line
     }
     final response = await rootClient.doRequest(
       'get',
@@ -2126,7 +2126,7 @@ class NextcloudUserStatusClient {
     if (rootClient.authentications.map((final a) => a.id).contains('basic_auth')) {
       headers.addAll(rootClient.authentications.singleWhere((final a) => a.id == 'basic_auth').headers);
     } else {
-      throw Exception('Missing authentication for basic_auth');
+      throw Exception('Missing authentication for basic_auth'); // coverage:ignore-line
     }
     queryParameters['status'] = status.name;
     final response = await rootClient.doRequest(

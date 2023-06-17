@@ -701,7 +701,7 @@ class OpenAPIBuilder implements Builder {
                             if (securityRequirements.isNotEmpty && !isOptionalSecurity) {
                               code.write('''
                                 {
-                                  throw Exception('Missing authentication for ${securityRequirements.map((final r) => r.keys.single).join(' or ')}');
+                                  throw Exception('Missing authentication for ${securityRequirements.map((final r) => r.keys.single).join(' or ')}'); // coverage:ignore-line
                                 }
                               ''');
                             }
