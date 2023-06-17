@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:collection/collection.dart';
 import 'package:crypto/crypto.dart';
 import 'package:flutter/foundation.dart';
 import 'package:json_annotation/json_annotation.dart';
@@ -104,13 +105,5 @@ extension NextcloudClientHelpers on NextcloudClient {
 }
 
 extension AccountFind on Iterable<Account> {
-  Account? find(final String accountID) {
-    for (final account in this) {
-      if (account.id == accountID) {
-        return account;
-      }
-    }
-
-    return null;
-  }
+  Account? find(final String accountID) => firstWhereOrNull((final account) => account.id == accountID);
 }
