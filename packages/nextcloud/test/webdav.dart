@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'dart:io';
 import 'dart:typed_data';
 
+import 'package:crypto/crypto.dart';
 import 'package:nextcloud/nextcloud.dart';
 import 'package:test/test.dart';
 
@@ -141,6 +142,18 @@ Future run(final DockerImage image) async {
       );
     });
 
+    test('Download file', () async {
+      final response = await client.webdav.download('Nextcloud.png');
+      expect(sha1.convert(response).toString(), '5ab8040bc0e9a3c47f45abd8a6d44f6e381ba6ed');
+    });
+
+    test('Delete file', () async {
+      final response = await client.webdav.delete('Nextcloud.png');
+      expect(response.statusCode, 204);
+      final responses = (await client.webdav.ls('/')).responses;
+      expect(responses.where((final response) => response.href!.endsWith('/Nextcloud.png')), hasLength(0));
+    });
+
     test('Copy file', () async {
       final response = await client.webdav.copy(
         'Nextcloud.png',
@@ -208,7 +221,7 @@ Future run(final DockerImage image) async {
     });
 
     test('Get file props', () async {
-      final props = (await client.webdav.ls(
+      final response = (await client.webdav.ls(
         'Nextcloud.png',
         prop: WebDavPropfindProp.fromBools(
           davgetlastmodified: true,
@@ -240,38 +253,54 @@ Future run(final DockerImage image) async {
           ocmsharepermissions: true,
         ),
       ))
-          .responses
-          .single
-          .propstats
-          .first
-          .prop;
-      expect(webdavDateFormat.parseUtc(props.davgetlastmodified!).isBefore(DateTime.now()), isTrue);
-      expect(props.davgetetag, isNotEmpty);
-      expect(props.davgetcontenttype, 'image/png');
-      expect(props.davgetcontentlength, 50598);
-      expect(props.davresourcetype!.collection, isNull);
-      expect(props.ocid, isNotEmpty);
-      expect(props.ocfileid, isNotEmpty);
-      expect(props.ocfavorite, 0);
-      expect(props.occommentshref, isNotEmpty);
-      expect(props.occommentscount, 0);
-      expect(props.occommentsunread, 0);
-      expect(props.ocdownloadurl, isNull);
-      expect(props.ocownerid, 'user1');
-      expect(props.ocownerdisplayname, 'User One');
-      expect(props.ocsize, 50598);
-      expect(props.ocpermissions, 'RGDNVW');
-      expect(props.ncnote, isNull);
-      expect(props.ncdatafingerprint, isNull);
-      expect(props.nchaspreview, isTrue);
-      expect(props.ncmounttype, isNull);
-      expect(props.ncisencrypted, isNull);
-      expect(props.ncmetadataetag, isNull);
-      expect(props.ncuploadtime, 0);
-      expect(props.nccreationtime, 0);
-      expect(props.ncrichworkspace, isNull);
-      expect(props.ocssharepermissions, 19);
-      expect(json.decode(props.ocmsharepermissions!), ['share', 'read', 'write']);
+          .toWebDavFiles(client.webdav)
+          .single;
+
+      expect(response.path, '/Nextcloud.png');
+      expect(response.id, isNotEmpty);
+      expect(response.fileId, isNotEmpty);
+      expect(response.isCollection, isFalse);
+      expect(response.mimeType, 'image/png');
+      expect(response.etag, isNotEmpty);
+      expect(response.size, 50598);
+      expect(response.ownerId, 'user1');
+      expect(response.ownerDisplay, 'User One');
+      expect(response.lastModified!.isBefore(DateTime.now()), isTrue);
+      expect(response.isDirectory, isFalse);
+      expect(response.uploadedDate, DateTime.utc(1970));
+      expect(response.createdDate, DateTime.utc(1970));
+      expect(response.favorite, isFalse);
+      expect(response.hasPreview, isTrue);
+      expect(response.name, 'Nextcloud.png');
+      expect(response.isDirectory, isFalse);
+
+      expect(webdavDateFormat.parseUtc(response.props.davgetlastmodified!).isBefore(DateTime.now()), isTrue);
+      expect(response.props.davgetetag, isNotEmpty);
+      expect(response.props.davgetcontenttype, 'image/png');
+      expect(response.props.davgetcontentlength, 50598);
+      expect(response.props.davresourcetype!.collection, isNull);
+      expect(response.props.ocid, isNotEmpty);
+      expect(response.props.ocfileid, isNotEmpty);
+      expect(response.props.ocfavorite, 0);
+      expect(response.props.occommentshref, isNotEmpty);
+      expect(response.props.occommentscount, 0);
+      expect(response.props.occommentsunread, 0);
+      expect(response.props.ocdownloadurl, isNull);
+      expect(response.props.ocownerid, 'user1');
+      expect(response.props.ocownerdisplayname, 'User One');
+      expect(response.props.ocsize, 50598);
+      expect(response.props.ocpermissions, 'RGDNVW');
+      expect(response.props.ncnote, isNull);
+      expect(response.props.ncdatafingerprint, isNull);
+      expect(response.props.nchaspreview, isTrue);
+      expect(response.props.ncmounttype, isNull);
+      expect(response.props.ncisencrypted, isNull);
+      expect(response.props.ncmetadataetag, isNull);
+      expect(response.props.ncuploadtime, 0);
+      expect(response.props.nccreationtime, 0);
+      expect(response.props.ncrichworkspace, isNull);
+      expect(response.props.ocssharepermissions, 19);
+      expect(json.decode(response.props.ocmsharepermissions!), ['share', 'read', 'write']);
     });
 
     test('Get directory props', () async {
@@ -279,7 +308,7 @@ Future run(final DockerImage image) async {
       await client.webdav.mkdir('test');
       await client.webdav.upload(data, 'test/test.txt');
 
-      final props = (await client.webdav.ls(
+      final response = (await client.webdav.ls(
         'test',
         prop: WebDavPropfindProp.fromBools(
           davgetcontenttype: true,
@@ -289,15 +318,21 @@ Future run(final DockerImage image) async {
         ),
         depth: '0',
       ))
-          .responses
-          .single
-          .propstats
-          .first
-          .prop;
-      expect(props.davgetcontenttype, isNull);
-      expectDateInReasonableTimeRange(webdavDateFormat.parseUtc(props.davgetlastmodified!), DateTime.now());
-      expect(props.davresourcetype!.collection, isNotNull);
-      expect(props.ocsize, data.lengthInBytes);
+          .toWebDavFiles(client.webdav)
+          .single;
+
+      expect(response.path, '/test/');
+      expect(response.isCollection, isTrue);
+      expect(response.mimeType, isNull);
+      expect(response.size, data.lengthInBytes);
+      expectDateInReasonableTimeRange(response.lastModified!, DateTime.now());
+      expect(response.name, 'test');
+      expect(response.isDirectory, isTrue);
+
+      expect(response.props.davgetcontenttype, isNull);
+      expectDateInReasonableTimeRange(webdavDateFormat.parseUtc(response.props.davgetlastmodified!), DateTime.now());
+      expect(response.props.davresourcetype!.collection, isNotNull);
+      expect(response.props.ocsize, data.lengthInBytes);
     });
 
     test('Filter files', () async {

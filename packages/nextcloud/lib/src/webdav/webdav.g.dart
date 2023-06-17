@@ -289,7 +289,7 @@ void _$WebDavSetBuildXmlChildren(WebDavSet instance, XmlBuilder builder, {Map<St
 }
 
 void _$WebDavSetBuildXmlElement(WebDavSet instance, XmlBuilder builder, {Map<String, String> namespaces = const {}}) {
-  builder.element('propertyupdate', namespace: 'DAV:', namespaces: namespaces, nest: () {
+  builder.element('set', namespace: 'DAV:', namespaces: namespaces, nest: () {
     instance.buildXmlChildren(builder, namespaces: namespaces);
   });
 }
@@ -316,7 +316,7 @@ List<XmlNode> _$WebDavSetToXmlChildren(WebDavSet instance, {Map<String, String?>
 
 XmlElement _$WebDavSetToXmlElement(WebDavSet instance, {Map<String, String?> namespaces = const {}}) {
   return XmlElement(
-      XmlName('propertyupdate', namespaces['DAV:']),
+      XmlName('set', namespaces['DAV:']),
       [...namespaces.toXmlAttributes(), ...instance.toXmlAttributes(namespaces: namespaces)],
       instance.toXmlChildren(namespaces: namespaces));
 }

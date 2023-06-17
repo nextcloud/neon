@@ -84,7 +84,7 @@ class WebDavPropertyupdate with _$WebDavPropertyupdateXmlSerializableMixin {
 }
 
 @annotation.XmlSerializable(createMixin: true)
-@annotation.XmlRootElement(name: 'propertyupdate', namespace: namespaceDav)
+@annotation.XmlRootElement(name: 'set', namespace: namespaceDav)
 class WebDavSet with _$WebDavSetXmlSerializableMixin {
   WebDavSet({
     required this.prop,
