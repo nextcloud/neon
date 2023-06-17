@@ -2,7 +2,7 @@
   "openapi": "3.1.0",
   "info": {
     "title": "Nextcloud",
-    "version": "26.0.1",
+    "version": "27.0.0",
     "description": "All supported Nextcloud APIs in one",
     "license": {
       "name": "agpl",
@@ -755,6 +755,9 @@
                         "type": "object",
                         "additionalProperties": true,
                         "properties": {
+                          "restore": {
+                            "type": "boolean"
+                          },
                           "enabled": {
                             "type": "boolean"
                           },
@@ -1507,6 +1510,8 @@
           "emailScope",
           "additional_mail",
           "additional_mailScope",
+          "display-name",
+          "displayname",
           "displaynameScope",
           "phone",
           "phoneScope",

@@ -43,7 +43,7 @@ class NeonAccountTile extends StatelessWidget {
             if (userDetails.data != null) ...[
               Flexible(
                 child: Text(
-                  userDetails.data!.getDisplayName()!,
+                  userDetails.data!.displayname,
                   style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                         color: textColor,
                       ),

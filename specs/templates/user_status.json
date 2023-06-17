@@ -2,7 +2,7 @@
   "openapi": "3.1.0",
   "info": {
     "title": "User status",
-    "version": "1.6.0",
+    "version": "1.7.0",
     "description": "User status",
     "license": {
       "name": "agpl",
@@ -215,6 +215,36 @@
     "/ocs/v2.php/apps/user_status/api/v1/user_status/message": {
       "delete": {
         "operationId": "userstatus-clearmessage-TODO",
+        "tags": [
+          "user_status"
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ocs/v2.php/apps/user_status/api/v1/user_status/revert/{messageId}": {
+      "parameters": [
+        {
+          "name": "messageId",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "delete": {
+        "operationId": "userstatus-revertstatus-TODO",
         "tags": [
           "user_status"
         ],
