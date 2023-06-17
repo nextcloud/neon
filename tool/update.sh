@@ -29,7 +29,7 @@ elif [ -d "external/nextcloud-$1" ]; then
       if [[ "$1" == "server" ]]; then
         sed -i "s/FROM nextcloud:.*/FROM nextcloud:$latest_version/" ../../tool/Dockerfile.dev
       else
-        sed -i "s/RUN \.\/occ app:install $1 .*/RUN .\/occ app:install $1 # $latest_version/" ../../tool/Dockerfile.dev
+        sed -i "s/RUN \.\/occ app:install $1 .*/RUN .\/occ app:install $1 --force --allow-unstable # $latest_version/" ../../tool/Dockerfile.dev
       fi
     )
 else
