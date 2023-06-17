@@ -72,6 +72,14 @@ Serializers _$_serializers = (Serializers().toBuilder()
       ..add(CoreServerCapabilities_Ocs_Data_Capabilities_WeatherStatus.serializer)
       ..add(CoreServerCapabilities_Ocs_Data_Version.serializer)
       ..add(CoreServerStatus.serializer)
+      ..add(CoreUnifiedSearchProvider.serializer)
+      ..add(CoreUnifiedSearchProvidersResponse200ApplicationJson.serializer)
+      ..add(CoreUnifiedSearchProvidersResponse200ApplicationJson_Ocs.serializer)
+      ..add(CoreUnifiedSearchResponse200ApplicationJson.serializer)
+      ..add(CoreUnifiedSearchResponse200ApplicationJson_Ocs.serializer)
+      ..add(CoreUnifiedSearchResult.serializer)
+      ..add(CoreUnifiedSearchResultEntry.serializer)
+      ..add(CoreUnifiedSearchResult_Cursor.serializer)
       ..addBuilderFactory(const FullType(BuiltList, [FullType(CoreAutocompleteResult_Ocs_Data)]),
           () => ListBuilder<CoreAutocompleteResult_Ocs_Data>())
       ..addBuilderFactory(const FullType(BuiltList, [FullType(CoreNavigationApps_Ocs_Data)]),
@@ -79,8 +87,13 @@ Serializers _$_serializers = (Serializers().toBuilder()
       ..addBuilderFactory(
           const FullType(BuiltList, [FullType(CoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes)]),
           () => ListBuilder<CoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes>())
+      ..addBuilderFactory(const FullType(BuiltList, [FullType(CoreUnifiedSearchProvider)]),
+          () => ListBuilder<CoreUnifiedSearchProvider>())
+      ..addBuilderFactory(const FullType(BuiltList, [FullType(CoreUnifiedSearchResultEntry)]),
+          () => ListBuilder<CoreUnifiedSearchResultEntry>())
       ..addBuilderFactory(const FullType(BuiltList, [FullType(JsonObject)]), () => ListBuilder<JsonObject>())
       ..addBuilderFactory(const FullType(BuiltList, [FullType(JsonObject)]), () => ListBuilder<JsonObject>())
+      ..addBuilderFactory(const FullType(BuiltList, [FullType(String)]), () => ListBuilder<String>())
       ..addBuilderFactory(const FullType(BuiltList, [FullType(String)]), () => ListBuilder<String>())
       ..addBuilderFactory(const FullType(BuiltList, [FullType(String)]), () => ListBuilder<String>())
       ..addBuilderFactory(const FullType(BuiltList, [FullType(String)]), () => ListBuilder<String>())
@@ -247,6 +260,20 @@ Serializer<CoreAutocompleteResult_Ocs_Data> _$coreAutocompleteResultOcsDataSeria
     _$CoreAutocompleteResult_Ocs_DataSerializer();
 Serializer<CoreAutocompleteResult_Ocs> _$coreAutocompleteResultOcsSerializer = _$CoreAutocompleteResult_OcsSerializer();
 Serializer<CoreAutocompleteResult> _$coreAutocompleteResultSerializer = _$CoreAutocompleteResultSerializer();
+Serializer<CoreUnifiedSearchProvider> _$coreUnifiedSearchProviderSerializer = _$CoreUnifiedSearchProviderSerializer();
+Serializer<CoreUnifiedSearchProvidersResponse200ApplicationJson_Ocs>
+    _$coreUnifiedSearchProvidersResponse200ApplicationJsonOcsSerializer =
+    _$CoreUnifiedSearchProvidersResponse200ApplicationJson_OcsSerializer();
+Serializer<CoreUnifiedSearchProvidersResponse200ApplicationJson>
+    _$coreUnifiedSearchProvidersResponse200ApplicationJsonSerializer =
+    _$CoreUnifiedSearchProvidersResponse200ApplicationJsonSerializer();
+Serializer<CoreUnifiedSearchResultEntry> _$coreUnifiedSearchResultEntrySerializer =
+    _$CoreUnifiedSearchResultEntrySerializer();
+Serializer<CoreUnifiedSearchResult> _$coreUnifiedSearchResultSerializer = _$CoreUnifiedSearchResultSerializer();
+Serializer<CoreUnifiedSearchResponse200ApplicationJson_Ocs> _$coreUnifiedSearchResponse200ApplicationJsonOcsSerializer =
+    _$CoreUnifiedSearchResponse200ApplicationJson_OcsSerializer();
+Serializer<CoreUnifiedSearchResponse200ApplicationJson> _$coreUnifiedSearchResponse200ApplicationJsonSerializer =
+    _$CoreUnifiedSearchResponse200ApplicationJsonSerializer();
 Serializer<CoreEmptyOCS_Ocs> _$coreEmptyOCSOcsSerializer = _$CoreEmptyOCS_OcsSerializer();
 Serializer<CoreEmptyOCS> _$coreEmptyOCSSerializer = _$CoreEmptyOCSSerializer();
 
@@ -4287,6 +4314,374 @@ class _$CoreAutocompleteResultSerializer implements StructuredSerializer<CoreAut
         case 'ocs':
           result.ocs.replace(serializers.deserialize(value, specifiedType: const FullType(CoreAutocompleteResult_Ocs))!
               as CoreAutocompleteResult_Ocs);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$CoreUnifiedSearchProviderSerializer implements StructuredSerializer<CoreUnifiedSearchProvider> {
+  @override
+  final Iterable<Type> types = const [CoreUnifiedSearchProvider, _$CoreUnifiedSearchProvider];
+  @override
+  final String wireName = 'CoreUnifiedSearchProvider';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, CoreUnifiedSearchProvider object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'id',
+      serializers.serialize(object.id, specifiedType: const FullType(String)),
+      'name',
+      serializers.serialize(object.name, specifiedType: const FullType(String)),
+      'order',
+      serializers.serialize(object.order, specifiedType: const FullType(int)),
+    ];
+
+    return result;
+  }
+
+  @override
+  CoreUnifiedSearchProvider deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = CoreUnifiedSearchProviderBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'id':
+          result.id = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'name':
+          result.name = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'order':
+          result.order = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$CoreUnifiedSearchProvidersResponse200ApplicationJson_OcsSerializer
+    implements StructuredSerializer<CoreUnifiedSearchProvidersResponse200ApplicationJson_Ocs> {
+  @override
+  final Iterable<Type> types = const [
+    CoreUnifiedSearchProvidersResponse200ApplicationJson_Ocs,
+    _$CoreUnifiedSearchProvidersResponse200ApplicationJson_Ocs
+  ];
+  @override
+  final String wireName = 'CoreUnifiedSearchProvidersResponse200ApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, CoreUnifiedSearchProvidersResponse200ApplicationJson_Ocs object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(CoreOCSMeta)),
+      'data',
+      serializers.serialize(object.data,
+          specifiedType: const FullType(BuiltList, [FullType(CoreUnifiedSearchProvider)])),
+    ];
+
+    return result;
+  }
+
+  @override
+  CoreUnifiedSearchProvidersResponse200ApplicationJson_Ocs deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = CoreUnifiedSearchProvidersResponse200ApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta
+              .replace(serializers.deserialize(value, specifiedType: const FullType(CoreOCSMeta))! as CoreOCSMeta);
+          break;
+        case 'data':
+          result.data.replace(serializers.deserialize(value,
+              specifiedType: const FullType(BuiltList, [FullType(CoreUnifiedSearchProvider)]))! as BuiltList<Object?>);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$CoreUnifiedSearchProvidersResponse200ApplicationJsonSerializer
+    implements StructuredSerializer<CoreUnifiedSearchProvidersResponse200ApplicationJson> {
+  @override
+  final Iterable<Type> types = const [
+    CoreUnifiedSearchProvidersResponse200ApplicationJson,
+    _$CoreUnifiedSearchProvidersResponse200ApplicationJson
+  ];
+  @override
+  final String wireName = 'CoreUnifiedSearchProvidersResponse200ApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, CoreUnifiedSearchProvidersResponse200ApplicationJson object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(object.ocs,
+          specifiedType: const FullType(CoreUnifiedSearchProvidersResponse200ApplicationJson_Ocs)),
+    ];
+
+    return result;
+  }
+
+  @override
+  CoreUnifiedSearchProvidersResponse200ApplicationJson deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = CoreUnifiedSearchProvidersResponse200ApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(CoreUnifiedSearchProvidersResponse200ApplicationJson_Ocs))!
+              as CoreUnifiedSearchProvidersResponse200ApplicationJson_Ocs);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$CoreUnifiedSearchResultEntrySerializer implements StructuredSerializer<CoreUnifiedSearchResultEntry> {
+  @override
+  final Iterable<Type> types = const [CoreUnifiedSearchResultEntry, _$CoreUnifiedSearchResultEntry];
+  @override
+  final String wireName = 'CoreUnifiedSearchResultEntry';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, CoreUnifiedSearchResultEntry object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'thumbnailUrl',
+      serializers.serialize(object.thumbnailUrl, specifiedType: const FullType(String)),
+      'title',
+      serializers.serialize(object.title, specifiedType: const FullType(String)),
+      'subline',
+      serializers.serialize(object.subline, specifiedType: const FullType(String)),
+      'resourceUrl',
+      serializers.serialize(object.resourceUrl, specifiedType: const FullType(String)),
+      'icon',
+      serializers.serialize(object.icon, specifiedType: const FullType(String)),
+      'rounded',
+      serializers.serialize(object.rounded, specifiedType: const FullType(bool)),
+      'attributes',
+      serializers.serialize(object.attributes, specifiedType: const FullType(BuiltList, [FullType(String)])),
+    ];
+
+    return result;
+  }
+
+  @override
+  CoreUnifiedSearchResultEntry deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = CoreUnifiedSearchResultEntryBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'thumbnailUrl':
+          result.thumbnailUrl = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'title':
+          result.title = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'subline':
+          result.subline = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'resourceUrl':
+          result.resourceUrl = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'icon':
+          result.icon = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'rounded':
+          result.rounded = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+          break;
+        case 'attributes':
+          result.attributes.replace(serializers.deserialize(value,
+              specifiedType: const FullType(BuiltList, [FullType(String)]))! as BuiltList<Object?>);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$CoreUnifiedSearchResultSerializer implements StructuredSerializer<CoreUnifiedSearchResult> {
+  @override
+  final Iterable<Type> types = const [CoreUnifiedSearchResult, _$CoreUnifiedSearchResult];
+  @override
+  final String wireName = 'CoreUnifiedSearchResult';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, CoreUnifiedSearchResult object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'name',
+      serializers.serialize(object.name, specifiedType: const FullType(String)),
+      'isPaginated',
+      serializers.serialize(object.isPaginated, specifiedType: const FullType(bool)),
+      'entries',
+      serializers.serialize(object.entries,
+          specifiedType: const FullType(BuiltList, [FullType(CoreUnifiedSearchResultEntry)])),
+    ];
+    Object? value;
+    value = object.cursor;
+    if (value != null) {
+      result
+        ..add('cursor')
+        ..add(serializers.serialize(value, specifiedType: const FullType(CoreUnifiedSearchResult_Cursor)));
+    }
+    return result;
+  }
+
+  @override
+  CoreUnifiedSearchResult deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = CoreUnifiedSearchResultBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'name':
+          result.name = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'isPaginated':
+          result.isPaginated = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+          break;
+        case 'entries':
+          result.entries.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(BuiltList, [FullType(CoreUnifiedSearchResultEntry)]))!
+              as BuiltList<Object?>);
+          break;
+        case 'cursor':
+          result.cursor.replace(serializers.deserialize(value,
+              specifiedType: const FullType(CoreUnifiedSearchResult_Cursor))! as CoreUnifiedSearchResult_Cursor);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$CoreUnifiedSearchResponse200ApplicationJson_OcsSerializer
+    implements StructuredSerializer<CoreUnifiedSearchResponse200ApplicationJson_Ocs> {
+  @override
+  final Iterable<Type> types = const [
+    CoreUnifiedSearchResponse200ApplicationJson_Ocs,
+    _$CoreUnifiedSearchResponse200ApplicationJson_Ocs
+  ];
+  @override
+  final String wireName = 'CoreUnifiedSearchResponse200ApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, CoreUnifiedSearchResponse200ApplicationJson_Ocs object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(CoreOCSMeta)),
+      'data',
+      serializers.serialize(object.data, specifiedType: const FullType(CoreUnifiedSearchResult)),
+    ];
+
+    return result;
+  }
+
+  @override
+  CoreUnifiedSearchResponse200ApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = CoreUnifiedSearchResponse200ApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta
+              .replace(serializers.deserialize(value, specifiedType: const FullType(CoreOCSMeta))! as CoreOCSMeta);
+          break;
+        case 'data':
+          result.data.replace(serializers.deserialize(value, specifiedType: const FullType(CoreUnifiedSearchResult))!
+              as CoreUnifiedSearchResult);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$CoreUnifiedSearchResponse200ApplicationJsonSerializer
+    implements StructuredSerializer<CoreUnifiedSearchResponse200ApplicationJson> {
+  @override
+  final Iterable<Type> types = const [
+    CoreUnifiedSearchResponse200ApplicationJson,
+    _$CoreUnifiedSearchResponse200ApplicationJson
+  ];
+  @override
+  final String wireName = 'CoreUnifiedSearchResponse200ApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, CoreUnifiedSearchResponse200ApplicationJson object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(object.ocs, specifiedType: const FullType(CoreUnifiedSearchResponse200ApplicationJson_Ocs)),
+    ];
+
+    return result;
+  }
+
+  @override
+  CoreUnifiedSearchResponse200ApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = CoreUnifiedSearchResponse200ApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(CoreUnifiedSearchResponse200ApplicationJson_Ocs))!
+              as CoreUnifiedSearchResponse200ApplicationJson_Ocs);
           break;
       }
     }
@@ -12013,6 +12408,1044 @@ class CoreAutocompleteResultBuilder implements Builder<CoreAutocompleteResult, C
         ocs.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(r'CoreAutocompleteResult', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+class _$CoreUnifiedSearchProvider extends CoreUnifiedSearchProvider {
+  @override
+  final String id;
+  @override
+  final String name;
+  @override
+  final int order;
+
+  factory _$CoreUnifiedSearchProvider([void Function(CoreUnifiedSearchProviderBuilder)? updates]) =>
+      (CoreUnifiedSearchProviderBuilder()..update(updates))._build();
+
+  _$CoreUnifiedSearchProvider._({required this.id, required this.name, required this.order}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(id, r'CoreUnifiedSearchProvider', 'id');
+    BuiltValueNullFieldError.checkNotNull(name, r'CoreUnifiedSearchProvider', 'name');
+    BuiltValueNullFieldError.checkNotNull(order, r'CoreUnifiedSearchProvider', 'order');
+  }
+
+  @override
+  CoreUnifiedSearchProvider rebuild(void Function(CoreUnifiedSearchProviderBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  CoreUnifiedSearchProviderBuilder toBuilder() => CoreUnifiedSearchProviderBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is CoreUnifiedSearchProvider && id == other.id && name == other.name && order == other.order;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, id.hashCode);
+    _$hash = $jc(_$hash, name.hashCode);
+    _$hash = $jc(_$hash, order.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'CoreUnifiedSearchProvider')
+          ..add('id', id)
+          ..add('name', name)
+          ..add('order', order))
+        .toString();
+  }
+}
+
+class CoreUnifiedSearchProviderBuilder implements Builder<CoreUnifiedSearchProvider, CoreUnifiedSearchProviderBuilder> {
+  _$CoreUnifiedSearchProvider? _$v;
+
+  String? _id;
+  String? get id => _$this._id;
+  set id(String? id) => _$this._id = id;
+
+  String? _name;
+  String? get name => _$this._name;
+  set name(String? name) => _$this._name = name;
+
+  int? _order;
+  int? get order => _$this._order;
+  set order(int? order) => _$this._order = order;
+
+  CoreUnifiedSearchProviderBuilder();
+
+  CoreUnifiedSearchProviderBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _id = $v.id;
+      _name = $v.name;
+      _order = $v.order;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(CoreUnifiedSearchProvider other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$CoreUnifiedSearchProvider;
+  }
+
+  @override
+  void update(void Function(CoreUnifiedSearchProviderBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  CoreUnifiedSearchProvider build() => _build();
+
+  _$CoreUnifiedSearchProvider _build() {
+    final _$result = _$v ??
+        _$CoreUnifiedSearchProvider._(
+            id: BuiltValueNullFieldError.checkNotNull(id, r'CoreUnifiedSearchProvider', 'id'),
+            name: BuiltValueNullFieldError.checkNotNull(name, r'CoreUnifiedSearchProvider', 'name'),
+            order: BuiltValueNullFieldError.checkNotNull(order, r'CoreUnifiedSearchProvider', 'order'));
+    replace(_$result);
+    return _$result;
+  }
+}
+
+class _$CoreUnifiedSearchProvidersResponse200ApplicationJson_Ocs
+    extends CoreUnifiedSearchProvidersResponse200ApplicationJson_Ocs {
+  @override
+  final CoreOCSMeta meta;
+  @override
+  final BuiltList<CoreUnifiedSearchProvider> data;
+
+  factory _$CoreUnifiedSearchProvidersResponse200ApplicationJson_Ocs(
+          [void Function(CoreUnifiedSearchProvidersResponse200ApplicationJson_OcsBuilder)? updates]) =>
+      (CoreUnifiedSearchProvidersResponse200ApplicationJson_OcsBuilder()..update(updates))._build();
+
+  _$CoreUnifiedSearchProvidersResponse200ApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(meta, r'CoreUnifiedSearchProvidersResponse200ApplicationJson_Ocs', 'meta');
+    BuiltValueNullFieldError.checkNotNull(data, r'CoreUnifiedSearchProvidersResponse200ApplicationJson_Ocs', 'data');
+  }
+
+  @override
+  CoreUnifiedSearchProvidersResponse200ApplicationJson_Ocs rebuild(
+          void Function(CoreUnifiedSearchProvidersResponse200ApplicationJson_OcsBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  CoreUnifiedSearchProvidersResponse200ApplicationJson_OcsBuilder toBuilder() =>
+      CoreUnifiedSearchProvidersResponse200ApplicationJson_OcsBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is CoreUnifiedSearchProvidersResponse200ApplicationJson_Ocs &&
+        meta == other.meta &&
+        data == other.data;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, meta.hashCode);
+    _$hash = $jc(_$hash, data.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'CoreUnifiedSearchProvidersResponse200ApplicationJson_Ocs')
+          ..add('meta', meta)
+          ..add('data', data))
+        .toString();
+  }
+}
+
+class CoreUnifiedSearchProvidersResponse200ApplicationJson_OcsBuilder
+    implements
+        Builder<CoreUnifiedSearchProvidersResponse200ApplicationJson_Ocs,
+            CoreUnifiedSearchProvidersResponse200ApplicationJson_OcsBuilder> {
+  _$CoreUnifiedSearchProvidersResponse200ApplicationJson_Ocs? _$v;
+
+  CoreOCSMetaBuilder? _meta;
+  CoreOCSMetaBuilder get meta => _$this._meta ??= CoreOCSMetaBuilder();
+  set meta(CoreOCSMetaBuilder? meta) => _$this._meta = meta;
+
+  ListBuilder<CoreUnifiedSearchProvider>? _data;
+  ListBuilder<CoreUnifiedSearchProvider> get data => _$this._data ??= ListBuilder<CoreUnifiedSearchProvider>();
+  set data(ListBuilder<CoreUnifiedSearchProvider>? data) => _$this._data = data;
+
+  CoreUnifiedSearchProvidersResponse200ApplicationJson_OcsBuilder();
+
+  CoreUnifiedSearchProvidersResponse200ApplicationJson_OcsBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _meta = $v.meta.toBuilder();
+      _data = $v.data.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(CoreUnifiedSearchProvidersResponse200ApplicationJson_Ocs other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$CoreUnifiedSearchProvidersResponse200ApplicationJson_Ocs;
+  }
+
+  @override
+  void update(void Function(CoreUnifiedSearchProvidersResponse200ApplicationJson_OcsBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  CoreUnifiedSearchProvidersResponse200ApplicationJson_Ocs build() => _build();
+
+  _$CoreUnifiedSearchProvidersResponse200ApplicationJson_Ocs _build() {
+    _$CoreUnifiedSearchProvidersResponse200ApplicationJson_Ocs _$result;
+    try {
+      _$result =
+          _$v ?? _$CoreUnifiedSearchProvidersResponse200ApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'meta';
+        meta.build();
+        _$failedField = 'data';
+        data.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'CoreUnifiedSearchProvidersResponse200ApplicationJson_Ocs', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+class _$CoreUnifiedSearchProvidersResponse200ApplicationJson
+    extends CoreUnifiedSearchProvidersResponse200ApplicationJson {
+  @override
+  final CoreUnifiedSearchProvidersResponse200ApplicationJson_Ocs ocs;
+
+  factory _$CoreUnifiedSearchProvidersResponse200ApplicationJson(
+          [void Function(CoreUnifiedSearchProvidersResponse200ApplicationJsonBuilder)? updates]) =>
+      (CoreUnifiedSearchProvidersResponse200ApplicationJsonBuilder()..update(updates))._build();
+
+  _$CoreUnifiedSearchProvidersResponse200ApplicationJson._({required this.ocs}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(ocs, r'CoreUnifiedSearchProvidersResponse200ApplicationJson', 'ocs');
+  }
+
+  @override
+  CoreUnifiedSearchProvidersResponse200ApplicationJson rebuild(
+          void Function(CoreUnifiedSearchProvidersResponse200ApplicationJsonBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  CoreUnifiedSearchProvidersResponse200ApplicationJsonBuilder toBuilder() =>
+      CoreUnifiedSearchProvidersResponse200ApplicationJsonBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is CoreUnifiedSearchProvidersResponse200ApplicationJson && ocs == other.ocs;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, ocs.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'CoreUnifiedSearchProvidersResponse200ApplicationJson')..add('ocs', ocs))
+        .toString();
+  }
+}
+
+class CoreUnifiedSearchProvidersResponse200ApplicationJsonBuilder
+    implements
+        Builder<CoreUnifiedSearchProvidersResponse200ApplicationJson,
+            CoreUnifiedSearchProvidersResponse200ApplicationJsonBuilder> {
+  _$CoreUnifiedSearchProvidersResponse200ApplicationJson? _$v;
+
+  CoreUnifiedSearchProvidersResponse200ApplicationJson_OcsBuilder? _ocs;
+  CoreUnifiedSearchProvidersResponse200ApplicationJson_OcsBuilder get ocs =>
+      _$this._ocs ??= CoreUnifiedSearchProvidersResponse200ApplicationJson_OcsBuilder();
+  set ocs(CoreUnifiedSearchProvidersResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+
+  CoreUnifiedSearchProvidersResponse200ApplicationJsonBuilder();
+
+  CoreUnifiedSearchProvidersResponse200ApplicationJsonBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _ocs = $v.ocs.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(CoreUnifiedSearchProvidersResponse200ApplicationJson other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$CoreUnifiedSearchProvidersResponse200ApplicationJson;
+  }
+
+  @override
+  void update(void Function(CoreUnifiedSearchProvidersResponse200ApplicationJsonBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  CoreUnifiedSearchProvidersResponse200ApplicationJson build() => _build();
+
+  _$CoreUnifiedSearchProvidersResponse200ApplicationJson _build() {
+    _$CoreUnifiedSearchProvidersResponse200ApplicationJson _$result;
+    try {
+      _$result = _$v ?? _$CoreUnifiedSearchProvidersResponse200ApplicationJson._(ocs: ocs.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'ocs';
+        ocs.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'CoreUnifiedSearchProvidersResponse200ApplicationJson', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+class _$CoreUnifiedSearchCursor extends CoreUnifiedSearchCursor {
+  @override
+  final JsonObject data;
+  @override
+  final int? $int;
+  @override
+  final String? string;
+
+  factory _$CoreUnifiedSearchCursor([void Function(CoreUnifiedSearchCursorBuilder)? updates]) =>
+      (CoreUnifiedSearchCursorBuilder()..update(updates))._build();
+
+  _$CoreUnifiedSearchCursor._({required this.data, this.$int, this.string}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(data, r'CoreUnifiedSearchCursor', 'data');
+  }
+
+  @override
+  CoreUnifiedSearchCursor rebuild(void Function(CoreUnifiedSearchCursorBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  CoreUnifiedSearchCursorBuilder toBuilder() => CoreUnifiedSearchCursorBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is CoreUnifiedSearchCursor && data == other.data && $int == other.$int && string == other.string;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, data.hashCode);
+    _$hash = $jc(_$hash, $int.hashCode);
+    _$hash = $jc(_$hash, string.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'CoreUnifiedSearchCursor')
+          ..add('data', data)
+          ..add('\$int', $int)
+          ..add('string', string))
+        .toString();
+  }
+}
+
+class CoreUnifiedSearchCursorBuilder implements Builder<CoreUnifiedSearchCursor, CoreUnifiedSearchCursorBuilder> {
+  _$CoreUnifiedSearchCursor? _$v;
+
+  JsonObject? _data;
+  JsonObject? get data => _$this._data;
+  set data(JsonObject? data) => _$this._data = data;
+
+  int? _$int;
+  int? get $int => _$this._$int;
+  set $int(int? $int) => _$this._$int = $int;
+
+  String? _string;
+  String? get string => _$this._string;
+  set string(String? string) => _$this._string = string;
+
+  CoreUnifiedSearchCursorBuilder();
+
+  CoreUnifiedSearchCursorBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _data = $v.data;
+      _$int = $v.$int;
+      _string = $v.string;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(CoreUnifiedSearchCursor other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$CoreUnifiedSearchCursor;
+  }
+
+  @override
+  void update(void Function(CoreUnifiedSearchCursorBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  CoreUnifiedSearchCursor build() => _build();
+
+  _$CoreUnifiedSearchCursor _build() {
+    final _$result = _$v ??
+        _$CoreUnifiedSearchCursor._(
+            data: BuiltValueNullFieldError.checkNotNull(data, r'CoreUnifiedSearchCursor', 'data'),
+            $int: $int,
+            string: string);
+    replace(_$result);
+    return _$result;
+  }
+}
+
+class _$CoreUnifiedSearchResultEntry extends CoreUnifiedSearchResultEntry {
+  @override
+  final String thumbnailUrl;
+  @override
+  final String title;
+  @override
+  final String subline;
+  @override
+  final String resourceUrl;
+  @override
+  final String icon;
+  @override
+  final bool rounded;
+  @override
+  final BuiltList<String> attributes;
+
+  factory _$CoreUnifiedSearchResultEntry([void Function(CoreUnifiedSearchResultEntryBuilder)? updates]) =>
+      (CoreUnifiedSearchResultEntryBuilder()..update(updates))._build();
+
+  _$CoreUnifiedSearchResultEntry._(
+      {required this.thumbnailUrl,
+      required this.title,
+      required this.subline,
+      required this.resourceUrl,
+      required this.icon,
+      required this.rounded,
+      required this.attributes})
+      : super._() {
+    BuiltValueNullFieldError.checkNotNull(thumbnailUrl, r'CoreUnifiedSearchResultEntry', 'thumbnailUrl');
+    BuiltValueNullFieldError.checkNotNull(title, r'CoreUnifiedSearchResultEntry', 'title');
+    BuiltValueNullFieldError.checkNotNull(subline, r'CoreUnifiedSearchResultEntry', 'subline');
+    BuiltValueNullFieldError.checkNotNull(resourceUrl, r'CoreUnifiedSearchResultEntry', 'resourceUrl');
+    BuiltValueNullFieldError.checkNotNull(icon, r'CoreUnifiedSearchResultEntry', 'icon');
+    BuiltValueNullFieldError.checkNotNull(rounded, r'CoreUnifiedSearchResultEntry', 'rounded');
+    BuiltValueNullFieldError.checkNotNull(attributes, r'CoreUnifiedSearchResultEntry', 'attributes');
+  }
+
+  @override
+  CoreUnifiedSearchResultEntry rebuild(void Function(CoreUnifiedSearchResultEntryBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  CoreUnifiedSearchResultEntryBuilder toBuilder() => CoreUnifiedSearchResultEntryBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is CoreUnifiedSearchResultEntry &&
+        thumbnailUrl == other.thumbnailUrl &&
+        title == other.title &&
+        subline == other.subline &&
+        resourceUrl == other.resourceUrl &&
+        icon == other.icon &&
+        rounded == other.rounded &&
+        attributes == other.attributes;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, thumbnailUrl.hashCode);
+    _$hash = $jc(_$hash, title.hashCode);
+    _$hash = $jc(_$hash, subline.hashCode);
+    _$hash = $jc(_$hash, resourceUrl.hashCode);
+    _$hash = $jc(_$hash, icon.hashCode);
+    _$hash = $jc(_$hash, rounded.hashCode);
+    _$hash = $jc(_$hash, attributes.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'CoreUnifiedSearchResultEntry')
+          ..add('thumbnailUrl', thumbnailUrl)
+          ..add('title', title)
+          ..add('subline', subline)
+          ..add('resourceUrl', resourceUrl)
+          ..add('icon', icon)
+          ..add('rounded', rounded)
+          ..add('attributes', attributes))
+        .toString();
+  }
+}
+
+class CoreUnifiedSearchResultEntryBuilder
+    implements Builder<CoreUnifiedSearchResultEntry, CoreUnifiedSearchResultEntryBuilder> {
+  _$CoreUnifiedSearchResultEntry? _$v;
+
+  String? _thumbnailUrl;
+  String? get thumbnailUrl => _$this._thumbnailUrl;
+  set thumbnailUrl(String? thumbnailUrl) => _$this._thumbnailUrl = thumbnailUrl;
+
+  String? _title;
+  String? get title => _$this._title;
+  set title(String? title) => _$this._title = title;
+
+  String? _subline;
+  String? get subline => _$this._subline;
+  set subline(String? subline) => _$this._subline = subline;
+
+  String? _resourceUrl;
+  String? get resourceUrl => _$this._resourceUrl;
+  set resourceUrl(String? resourceUrl) => _$this._resourceUrl = resourceUrl;
+
+  String? _icon;
+  String? get icon => _$this._icon;
+  set icon(String? icon) => _$this._icon = icon;
+
+  bool? _rounded;
+  bool? get rounded => _$this._rounded;
+  set rounded(bool? rounded) => _$this._rounded = rounded;
+
+  ListBuilder<String>? _attributes;
+  ListBuilder<String> get attributes => _$this._attributes ??= ListBuilder<String>();
+  set attributes(ListBuilder<String>? attributes) => _$this._attributes = attributes;
+
+  CoreUnifiedSearchResultEntryBuilder();
+
+  CoreUnifiedSearchResultEntryBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _thumbnailUrl = $v.thumbnailUrl;
+      _title = $v.title;
+      _subline = $v.subline;
+      _resourceUrl = $v.resourceUrl;
+      _icon = $v.icon;
+      _rounded = $v.rounded;
+      _attributes = $v.attributes.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(CoreUnifiedSearchResultEntry other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$CoreUnifiedSearchResultEntry;
+  }
+
+  @override
+  void update(void Function(CoreUnifiedSearchResultEntryBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  CoreUnifiedSearchResultEntry build() => _build();
+
+  _$CoreUnifiedSearchResultEntry _build() {
+    _$CoreUnifiedSearchResultEntry _$result;
+    try {
+      _$result = _$v ??
+          _$CoreUnifiedSearchResultEntry._(
+              thumbnailUrl:
+                  BuiltValueNullFieldError.checkNotNull(thumbnailUrl, r'CoreUnifiedSearchResultEntry', 'thumbnailUrl'),
+              title: BuiltValueNullFieldError.checkNotNull(title, r'CoreUnifiedSearchResultEntry', 'title'),
+              subline: BuiltValueNullFieldError.checkNotNull(subline, r'CoreUnifiedSearchResultEntry', 'subline'),
+              resourceUrl:
+                  BuiltValueNullFieldError.checkNotNull(resourceUrl, r'CoreUnifiedSearchResultEntry', 'resourceUrl'),
+              icon: BuiltValueNullFieldError.checkNotNull(icon, r'CoreUnifiedSearchResultEntry', 'icon'),
+              rounded: BuiltValueNullFieldError.checkNotNull(rounded, r'CoreUnifiedSearchResultEntry', 'rounded'),
+              attributes: attributes.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'attributes';
+        attributes.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(r'CoreUnifiedSearchResultEntry', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+class _$CoreUnifiedSearchResult_Cursor extends CoreUnifiedSearchResult_Cursor {
+  @override
+  final JsonObject data;
+  @override
+  final int? $int;
+  @override
+  final String? string;
+
+  factory _$CoreUnifiedSearchResult_Cursor([void Function(CoreUnifiedSearchResult_CursorBuilder)? updates]) =>
+      (CoreUnifiedSearchResult_CursorBuilder()..update(updates))._build();
+
+  _$CoreUnifiedSearchResult_Cursor._({required this.data, this.$int, this.string}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(data, r'CoreUnifiedSearchResult_Cursor', 'data');
+  }
+
+  @override
+  CoreUnifiedSearchResult_Cursor rebuild(void Function(CoreUnifiedSearchResult_CursorBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  CoreUnifiedSearchResult_CursorBuilder toBuilder() => CoreUnifiedSearchResult_CursorBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is CoreUnifiedSearchResult_Cursor &&
+        data == other.data &&
+        $int == other.$int &&
+        string == other.string;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, data.hashCode);
+    _$hash = $jc(_$hash, $int.hashCode);
+    _$hash = $jc(_$hash, string.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'CoreUnifiedSearchResult_Cursor')
+          ..add('data', data)
+          ..add('\$int', $int)
+          ..add('string', string))
+        .toString();
+  }
+}
+
+class CoreUnifiedSearchResult_CursorBuilder
+    implements Builder<CoreUnifiedSearchResult_Cursor, CoreUnifiedSearchResult_CursorBuilder> {
+  _$CoreUnifiedSearchResult_Cursor? _$v;
+
+  JsonObject? _data;
+  JsonObject? get data => _$this._data;
+  set data(JsonObject? data) => _$this._data = data;
+
+  int? _$int;
+  int? get $int => _$this._$int;
+  set $int(int? $int) => _$this._$int = $int;
+
+  String? _string;
+  String? get string => _$this._string;
+  set string(String? string) => _$this._string = string;
+
+  CoreUnifiedSearchResult_CursorBuilder();
+
+  CoreUnifiedSearchResult_CursorBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _data = $v.data;
+      _$int = $v.$int;
+      _string = $v.string;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(CoreUnifiedSearchResult_Cursor other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$CoreUnifiedSearchResult_Cursor;
+  }
+
+  @override
+  void update(void Function(CoreUnifiedSearchResult_CursorBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  CoreUnifiedSearchResult_Cursor build() => _build();
+
+  _$CoreUnifiedSearchResult_Cursor _build() {
+    final _$result = _$v ??
+        _$CoreUnifiedSearchResult_Cursor._(
+            data: BuiltValueNullFieldError.checkNotNull(data, r'CoreUnifiedSearchResult_Cursor', 'data'),
+            $int: $int,
+            string: string);
+    replace(_$result);
+    return _$result;
+  }
+}
+
+class _$CoreUnifiedSearchResult extends CoreUnifiedSearchResult {
+  @override
+  final String name;
+  @override
+  final bool isPaginated;
+  @override
+  final BuiltList<CoreUnifiedSearchResultEntry> entries;
+  @override
+  final CoreUnifiedSearchResult_Cursor? cursor;
+
+  factory _$CoreUnifiedSearchResult([void Function(CoreUnifiedSearchResultBuilder)? updates]) =>
+      (CoreUnifiedSearchResultBuilder()..update(updates))._build();
+
+  _$CoreUnifiedSearchResult._({required this.name, required this.isPaginated, required this.entries, this.cursor})
+      : super._() {
+    BuiltValueNullFieldError.checkNotNull(name, r'CoreUnifiedSearchResult', 'name');
+    BuiltValueNullFieldError.checkNotNull(isPaginated, r'CoreUnifiedSearchResult', 'isPaginated');
+    BuiltValueNullFieldError.checkNotNull(entries, r'CoreUnifiedSearchResult', 'entries');
+  }
+
+  @override
+  CoreUnifiedSearchResult rebuild(void Function(CoreUnifiedSearchResultBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  CoreUnifiedSearchResultBuilder toBuilder() => CoreUnifiedSearchResultBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is CoreUnifiedSearchResult &&
+        name == other.name &&
+        isPaginated == other.isPaginated &&
+        entries == other.entries &&
+        cursor == other.cursor;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, name.hashCode);
+    _$hash = $jc(_$hash, isPaginated.hashCode);
+    _$hash = $jc(_$hash, entries.hashCode);
+    _$hash = $jc(_$hash, cursor.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'CoreUnifiedSearchResult')
+          ..add('name', name)
+          ..add('isPaginated', isPaginated)
+          ..add('entries', entries)
+          ..add('cursor', cursor))
+        .toString();
+  }
+}
+
+class CoreUnifiedSearchResultBuilder implements Builder<CoreUnifiedSearchResult, CoreUnifiedSearchResultBuilder> {
+  _$CoreUnifiedSearchResult? _$v;
+
+  String? _name;
+  String? get name => _$this._name;
+  set name(String? name) => _$this._name = name;
+
+  bool? _isPaginated;
+  bool? get isPaginated => _$this._isPaginated;
+  set isPaginated(bool? isPaginated) => _$this._isPaginated = isPaginated;
+
+  ListBuilder<CoreUnifiedSearchResultEntry>? _entries;
+  ListBuilder<CoreUnifiedSearchResultEntry> get entries =>
+      _$this._entries ??= ListBuilder<CoreUnifiedSearchResultEntry>();
+  set entries(ListBuilder<CoreUnifiedSearchResultEntry>? entries) => _$this._entries = entries;
+
+  CoreUnifiedSearchResult_CursorBuilder? _cursor;
+  CoreUnifiedSearchResult_CursorBuilder get cursor => _$this._cursor ??= CoreUnifiedSearchResult_CursorBuilder();
+  set cursor(CoreUnifiedSearchResult_CursorBuilder? cursor) => _$this._cursor = cursor;
+
+  CoreUnifiedSearchResultBuilder();
+
+  CoreUnifiedSearchResultBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _name = $v.name;
+      _isPaginated = $v.isPaginated;
+      _entries = $v.entries.toBuilder();
+      _cursor = $v.cursor?.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(CoreUnifiedSearchResult other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$CoreUnifiedSearchResult;
+  }
+
+  @override
+  void update(void Function(CoreUnifiedSearchResultBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  CoreUnifiedSearchResult build() => _build();
+
+  _$CoreUnifiedSearchResult _build() {
+    _$CoreUnifiedSearchResult _$result;
+    try {
+      _$result = _$v ??
+          _$CoreUnifiedSearchResult._(
+              name: BuiltValueNullFieldError.checkNotNull(name, r'CoreUnifiedSearchResult', 'name'),
+              isPaginated:
+                  BuiltValueNullFieldError.checkNotNull(isPaginated, r'CoreUnifiedSearchResult', 'isPaginated'),
+              entries: entries.build(),
+              cursor: _cursor?.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'entries';
+        entries.build();
+        _$failedField = 'cursor';
+        _cursor?.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(r'CoreUnifiedSearchResult', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+class _$CoreUnifiedSearchResponse200ApplicationJson_Ocs extends CoreUnifiedSearchResponse200ApplicationJson_Ocs {
+  @override
+  final CoreOCSMeta meta;
+  @override
+  final CoreUnifiedSearchResult data;
+
+  factory _$CoreUnifiedSearchResponse200ApplicationJson_Ocs(
+          [void Function(CoreUnifiedSearchResponse200ApplicationJson_OcsBuilder)? updates]) =>
+      (CoreUnifiedSearchResponse200ApplicationJson_OcsBuilder()..update(updates))._build();
+
+  _$CoreUnifiedSearchResponse200ApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(meta, r'CoreUnifiedSearchResponse200ApplicationJson_Ocs', 'meta');
+    BuiltValueNullFieldError.checkNotNull(data, r'CoreUnifiedSearchResponse200ApplicationJson_Ocs', 'data');
+  }
+
+  @override
+  CoreUnifiedSearchResponse200ApplicationJson_Ocs rebuild(
+          void Function(CoreUnifiedSearchResponse200ApplicationJson_OcsBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  CoreUnifiedSearchResponse200ApplicationJson_OcsBuilder toBuilder() =>
+      CoreUnifiedSearchResponse200ApplicationJson_OcsBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is CoreUnifiedSearchResponse200ApplicationJson_Ocs && meta == other.meta && data == other.data;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, meta.hashCode);
+    _$hash = $jc(_$hash, data.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'CoreUnifiedSearchResponse200ApplicationJson_Ocs')
+          ..add('meta', meta)
+          ..add('data', data))
+        .toString();
+  }
+}
+
+class CoreUnifiedSearchResponse200ApplicationJson_OcsBuilder
+    implements
+        Builder<CoreUnifiedSearchResponse200ApplicationJson_Ocs,
+            CoreUnifiedSearchResponse200ApplicationJson_OcsBuilder> {
+  _$CoreUnifiedSearchResponse200ApplicationJson_Ocs? _$v;
+
+  CoreOCSMetaBuilder? _meta;
+  CoreOCSMetaBuilder get meta => _$this._meta ??= CoreOCSMetaBuilder();
+  set meta(CoreOCSMetaBuilder? meta) => _$this._meta = meta;
+
+  CoreUnifiedSearchResultBuilder? _data;
+  CoreUnifiedSearchResultBuilder get data => _$this._data ??= CoreUnifiedSearchResultBuilder();
+  set data(CoreUnifiedSearchResultBuilder? data) => _$this._data = data;
+
+  CoreUnifiedSearchResponse200ApplicationJson_OcsBuilder();
+
+  CoreUnifiedSearchResponse200ApplicationJson_OcsBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _meta = $v.meta.toBuilder();
+      _data = $v.data.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(CoreUnifiedSearchResponse200ApplicationJson_Ocs other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$CoreUnifiedSearchResponse200ApplicationJson_Ocs;
+  }
+
+  @override
+  void update(void Function(CoreUnifiedSearchResponse200ApplicationJson_OcsBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  CoreUnifiedSearchResponse200ApplicationJson_Ocs build() => _build();
+
+  _$CoreUnifiedSearchResponse200ApplicationJson_Ocs _build() {
+    _$CoreUnifiedSearchResponse200ApplicationJson_Ocs _$result;
+    try {
+      _$result = _$v ?? _$CoreUnifiedSearchResponse200ApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'meta';
+        meta.build();
+        _$failedField = 'data';
+        data.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'CoreUnifiedSearchResponse200ApplicationJson_Ocs', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+class _$CoreUnifiedSearchResponse200ApplicationJson extends CoreUnifiedSearchResponse200ApplicationJson {
+  @override
+  final CoreUnifiedSearchResponse200ApplicationJson_Ocs ocs;
+
+  factory _$CoreUnifiedSearchResponse200ApplicationJson(
+          [void Function(CoreUnifiedSearchResponse200ApplicationJsonBuilder)? updates]) =>
+      (CoreUnifiedSearchResponse200ApplicationJsonBuilder()..update(updates))._build();
+
+  _$CoreUnifiedSearchResponse200ApplicationJson._({required this.ocs}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(ocs, r'CoreUnifiedSearchResponse200ApplicationJson', 'ocs');
+  }
+
+  @override
+  CoreUnifiedSearchResponse200ApplicationJson rebuild(
+          void Function(CoreUnifiedSearchResponse200ApplicationJsonBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  CoreUnifiedSearchResponse200ApplicationJsonBuilder toBuilder() =>
+      CoreUnifiedSearchResponse200ApplicationJsonBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is CoreUnifiedSearchResponse200ApplicationJson && ocs == other.ocs;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, ocs.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'CoreUnifiedSearchResponse200ApplicationJson')..add('ocs', ocs)).toString();
+  }
+}
+
+class CoreUnifiedSearchResponse200ApplicationJsonBuilder
+    implements
+        Builder<CoreUnifiedSearchResponse200ApplicationJson, CoreUnifiedSearchResponse200ApplicationJsonBuilder> {
+  _$CoreUnifiedSearchResponse200ApplicationJson? _$v;
+
+  CoreUnifiedSearchResponse200ApplicationJson_OcsBuilder? _ocs;
+  CoreUnifiedSearchResponse200ApplicationJson_OcsBuilder get ocs =>
+      _$this._ocs ??= CoreUnifiedSearchResponse200ApplicationJson_OcsBuilder();
+  set ocs(CoreUnifiedSearchResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+
+  CoreUnifiedSearchResponse200ApplicationJsonBuilder();
+
+  CoreUnifiedSearchResponse200ApplicationJsonBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _ocs = $v.ocs.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(CoreUnifiedSearchResponse200ApplicationJson other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$CoreUnifiedSearchResponse200ApplicationJson;
+  }
+
+  @override
+  void update(void Function(CoreUnifiedSearchResponse200ApplicationJsonBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  CoreUnifiedSearchResponse200ApplicationJson build() => _build();
+
+  _$CoreUnifiedSearchResponse200ApplicationJson _build() {
+    _$CoreUnifiedSearchResponse200ApplicationJson _$result;
+    try {
+      _$result = _$v ?? _$CoreUnifiedSearchResponse200ApplicationJson._(ocs: ocs.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'ocs';
+        ocs.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(r'CoreUnifiedSearchResponse200ApplicationJson', _$failedField, e.toString());
       }
       rethrow;
     }
