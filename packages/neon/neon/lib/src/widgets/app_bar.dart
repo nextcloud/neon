@@ -31,14 +31,14 @@ class NeonAppBar extends StatelessWidget implements PreferredSizeWidget {
             children: [
               Row(
                 children: [
-                  if (appImplementations.data != null && activeAppIDSnapshot.hasData) ...[
+                  if (appImplementations.hasData && activeAppIDSnapshot.hasData) ...[
                     Flexible(
                       child: Text(
-                        appImplementations.data!.find(activeAppIDSnapshot.data!)!.name(context),
+                        appImplementations.requireData.find(activeAppIDSnapshot.data!)!.name(context),
                       ),
                     ),
                   ],
-                  if (appImplementations.error != null) ...[
+                  if (appImplementations.hasError) ...[
                     const SizedBox(
                       width: 8,
                     ),
@@ -113,7 +113,7 @@ class _NotificationIconButtonState extends State<NotificationIconButton> {
 
     notificationSubscription = _appsBloc.openNotifications.listen((final _) async {
       final notificationsAppImplementation = _appsBloc.notificationsAppImplementation.valueOrNull;
-      if (notificationsAppImplementation != null) {
+      if (notificationsAppImplementation != null && notificationsAppImplementation.hasData) {
         await _openNotifications(notificationsAppImplementation.data!);
       }
     });
@@ -163,23 +163,25 @@ class _NotificationIconButtonState extends State<NotificationIconButton> {
   Widget build(final BuildContext context) => ResultBuilder<NotificationsAppInterface?>.behaviorSubject(
         stream: _appsBloc.notificationsAppImplementation,
         builder: (final context, final notificationsAppImplementation) {
-          if (notificationsAppImplementation.data == null) {
+          if (!notificationsAppImplementation.hasData) {
             return const SizedBox.shrink();
           }
 
+          final notificationsImplementationData = notificationsAppImplementation.data!;
+          final notificationBloc = notificationsImplementationData.getBloc(_account);
+
           return StreamBuilder<int>(
-            stream: notificationsAppImplementation.data!
-                .getUnreadCounter(notificationsAppImplementation.data!.getBloc(_account)),
+            stream: notificationsImplementationData.getUnreadCounter(notificationBloc),
             builder: (final context, final unreadCounterSnapshot) {
               final unreadCount = unreadCounterSnapshot.data ?? 0;
               return IconButton(
-                key: Key('app-${notificationsAppImplementation.data!.id}'),
+                key: Key('app-${notificationsImplementationData.id}'),
                 onPressed: () async {
-                  await _openNotifications(notificationsAppImplementation.data!);
+                  await _openNotifications(notificationsImplementationData);
                 },
-                tooltip: AppLocalizations.of(context).appImplementationName(notificationsAppImplementation.data!.id),
+                tooltip: AppLocalizations.of(context).appImplementationName(notificationsImplementationData.id),
                 icon: NeonAppImplementationIcon(
-                  appImplementation: notificationsAppImplementation.data!,
+                  appImplementation: notificationsImplementationData,
                   unreadCount: unreadCount,
                   color: unreadCount > 0
                       ? Theme.of(context).colorScheme.primary
