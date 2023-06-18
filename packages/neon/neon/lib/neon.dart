@@ -26,6 +26,7 @@ import 'package:neon/src/blocs/blocs.dart';
 import 'package:neon/src/models/account.dart';
 import 'package:neon/src/models/push_notification.dart';
 import 'package:neon/src/router.dart';
+import 'package:neon/src/widgets/app_bar.dart';
 import 'package:neon/src/widgets/drawer.dart';
 import 'package:neon/src/widgets/drawer_destination.dart';
 import 'package:nextcloud/nextcloud.dart';
