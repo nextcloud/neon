@@ -1,5 +1,6 @@
 /.dart_tool/
 /pubspec.lock
+packages/**/coverage
 
 # Melos reccomends not adding them to vcs but we need them as we don't use melos in CI
 # **/pubspec_overrides.yaml
