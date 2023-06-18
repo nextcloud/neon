@@ -51,6 +51,17 @@ class Result<T> {
 
   bool get hasError => error != null;
 
+  bool get hasData => data != null;
+  bool get hasUncachedData => hasData && !isCached;
+
+  T get requireData {
+    if (hasData) {
+      return data!;
+    }
+
+    throw StateError('Result has no data');
+  }
+
   @override
   bool operator ==(final Object other) =>
       other is Result && other.isLoading == isLoading && other.data == data && other.error == error;

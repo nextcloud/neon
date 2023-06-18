@@ -36,10 +36,10 @@
     }
   },
   "errorUnableToOpenFile": "Unable to open the file",
-  "errorUnsupportedVersion": "Sorry, this Nextcloud {name} version is not supported.",
+  "errorUnsupportedVersion": "Sorry, the version of the following apps on your Nextcloud instance are not supported. \n {unsupported} \n Please contact your administrator to resolve the issues.",
   "@errorUnsupportedVersion" : {
     "placeholders": {
-      "name": {
+      "unsupported": {
         "type": "String"
       }
     }
