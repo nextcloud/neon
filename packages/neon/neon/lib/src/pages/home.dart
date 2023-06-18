@@ -11,16 +11,13 @@ class HomePage extends StatefulWidget {
   State<HomePage> createState() => _HomePageState();
 }
 
-// ignore: prefer_mixin
 class _HomePageState extends State<HomePage> {
   final _scaffoldKey = GlobalKey<ScaffoldState>();
-  final drawerScrollController = ScrollController();
 
   late Account _account;
   late GlobalOptions _globalOptions;
   late AccountsBloc _accountsBloc;
   late AppsBloc _appsBloc;
-  late CapabilitiesBloc _capabilitiesBloc;
 
   @override
   void initState() {
@@ -29,7 +26,6 @@ class _HomePageState extends State<HomePage> {
     _accountsBloc = Provider.of<AccountsBloc>(context, listen: false);
     _account = _accountsBloc.activeAccount.value!;
     _appsBloc = _accountsBloc.activeAppsBloc;
-    _capabilitiesBloc = _accountsBloc.activeCapabilitiesBloc;
 
     _appsBloc.appVersions.listen((final values) {
       if (values == null || !mounted) {
@@ -98,100 +94,78 @@ class _HomePageState extends State<HomePage> {
   }
 
   @override
-  void dispose() {
-    drawerScrollController.dispose();
-    super.dispose();
-  }
+  Widget build(final BuildContext context) => ResultBuilder<Iterable<AppImplementation>>.behaviorSubject(
+        stream: _appsBloc.appImplementations,
+        builder: (final context, final appImplementations) => StreamBuilder<String?>(
+          stream: _appsBloc.activeAppID,
+          builder: (final context, final activeAppIDSnapshot) => OptionBuilder<NavigationMode>(
+            option: _globalOptions.navigationMode,
+            builder: (final context, final navigationMode) {
+              final drawerAlwaysVisible = navigationMode == NavigationMode.drawerAlwaysVisible;
 
-  @override
-  Widget build(final BuildContext context) => ResultBuilder<Capabilities>.behaviorSubject(
-        stream: _capabilitiesBloc.capabilities,
-        builder: (final context, final capabilities) => ResultBuilder<Iterable<AppImplementation>>.behaviorSubject(
-          stream: _appsBloc.appImplementations,
-          builder: (final context, final appImplementations) =>
-              ResultBuilder<NotificationsAppInterface?>.behaviorSubject(
-            stream: _appsBloc.notificationsAppImplementation,
-            builder: (final context, final notificationsAppImplementation) => StreamBuilder<String?>(
-              stream: _appsBloc.activeAppID,
-              builder: (final context, final activeAppIDSnapshot) => StreamBuilder<List<Account>>(
-                stream: _accountsBloc.accounts,
-                builder: (final context, final accountsSnapshot) => OptionBuilder<NavigationMode>(
-                  option: _globalOptions.navigationMode,
-                  builder: (final context, final navigationMode) {
-                    final accounts = accountsSnapshot.data;
-                    final account = accounts?.find(_account.id);
-                    if (accounts == null || account == null) {
-                      return const Scaffold();
-                    }
+              const drawer = NeonDrawer();
+              const appBar = NeonAppBar();
 
-                    final drawerAlwaysVisible = navigationMode == NavigationMode.drawerAlwaysVisible;
-
-                    const drawer = NeonDrawer();
-                    const appBar = NeonAppBar();
-
-                    Widget body = Builder(
-                      builder: (final context) => Column(
-                        children: [
-                          if (appImplementations.data != null) ...[
-                            if (appImplementations.data!.isEmpty) ...[
-                              Expanded(
-                                child: Center(
-                                  child: Text(
-                                    AppLocalizations.of(context).errorNoCompatibleNextcloudAppsFound,
-                                    textAlign: TextAlign.center,
-                                  ),
-                                ),
-                              ),
-                            ] else ...[
-                              if (activeAppIDSnapshot.hasData) ...[
-                                Expanded(
-                                  child: appImplementations.data!.find(activeAppIDSnapshot.data!)!.page,
-                                ),
-                              ],
-                            ],
-                          ],
-                        ],
-                      ),
-                    );
-
-                    body = MultiProvider(
-                      providers: _appsBloc.appBlocProviders,
-                      child: Scaffold(
-                        key: _scaffoldKey,
-                        resizeToAvoidBottomInset: false,
-                        drawer: !drawerAlwaysVisible ? drawer : null,
-                        appBar: appBar,
-                        body: body,
-                      ),
-                    );
-
-                    if (drawerAlwaysVisible) {
-                      body = Row(
-                        children: [
-                          drawer,
+              Widget body = Builder(
+                builder: (final context) => Column(
+                  children: [
+                    if (appImplementations.data != null) ...[
+                      if (appImplementations.data!.isEmpty) ...[
+                        Expanded(
+                          child: Center(
+                            child: Text(
+                              AppLocalizations.of(context).errorNoCompatibleNextcloudAppsFound,
+                              textAlign: TextAlign.center,
+                            ),
+                          ),
+                        ),
+                      ] else ...[
+                        if (activeAppIDSnapshot.hasData) ...[
                           Expanded(
-                            child: body,
+                            child: appImplementations.data!.find(activeAppIDSnapshot.data!)!.page,
                           ),
                         ],
-                      );
-                    }
-
-                    return WillPopScope(
-                      onWillPop: () async {
-                        if (_scaffoldKey.currentState!.isDrawerOpen) {
-                          Navigator.pop(context);
-                          return true;
-                        }
-
-                        _scaffoldKey.currentState!.openDrawer();
-                        return false;
-                      },
-                      child: body,
-                    );
-                  },
+                      ],
+                    ],
+                  ],
                 ),
-              ),
-            ),
+              );
+
+              body = MultiProvider(
+                providers: _appsBloc.appBlocProviders,
+                child: Scaffold(
+                  key: _scaffoldKey,
+                  resizeToAvoidBottomInset: false,
+                  drawer: !drawerAlwaysVisible ? drawer : null,
+                  appBar: appBar,
+                  body: body,
+                ),
+              );
+
+              if (drawerAlwaysVisible) {
+                body = Row(
+                  children: [
+                    drawer,
+                    Expanded(
+                      child: body,
+                    ),
+                  ],
+                );
+              }
+
+              return WillPopScope(
+                onWillPop: () async {
+                  if (_scaffoldKey.currentState!.isDrawerOpen) {
+                    Navigator.pop(context);
+                    return true;
+                  }
+
+                  _scaffoldKey.currentState!.openDrawer();
+                  return false;
+                },
+                child: body,
+              );
+            },
           ),
         ),
       );
