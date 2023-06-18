@@ -19,15 +19,15 @@ class NeonDrawer extends StatelessWidget {
     final accountsBloc = Provider.of<AccountsBloc>(context, listen: false);
     final appsBloc = accountsBloc.activeAppsBloc;
 
-    return StreamBuilder(
+    return ResultBuilder.behaviorSubject(
       stream: appsBloc.appImplementations,
       builder: (final context, final snapshot) {
-        if (snapshot.data?.data == null) {
-          return Container();
+        if (!snapshot.hasData) {
+          return const SizedBox.shrink();
         }
 
         return _NeonDrawer(
-          apps: snapshot.data!.data!,
+          apps: snapshot.requireData,
         );
       },
     );
@@ -176,19 +176,19 @@ class NeonDrawerHeader extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            if (capabilities.data != null) ...[
-              if (capabilities.data!.capabilities.theming?.name != null) ...[
+            if (capabilities.hasData) ...[
+              if (capabilities.requireData.capabilities.theming?.name != null) ...[
                 Text(
-                  capabilities.data!.capabilities.theming!.name!,
+                  capabilities.requireData.capabilities.theming!.name!,
                   style: DefaultTextStyle.of(context).style.copyWith(
                         color: Theme.of(context).appBarTheme.foregroundColor,
                       ),
                 ),
               ],
-              if (capabilities.data!.capabilities.theming?.logo != null) ...[
+              if (capabilities.requireData.capabilities.theming?.logo != null) ...[
                 Flexible(
                   child: NeonCachedUrlImage(
-                    url: capabilities.data!.capabilities.theming!.logo!,
+                    url: capabilities.requireData.capabilities.theming!.logo!,
                   ),
                 ),
               ],
