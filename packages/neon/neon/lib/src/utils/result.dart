@@ -1,43 +1,71 @@
 part of '../../neon.dart';
 
+@immutable
 class Result<T> {
-  Result(
+  const Result(
     this.data,
     this.error, {
-    required this.loading,
-    required this.cached,
+    required this.isLoading,
+    required this.isCached,
   });
 
-  factory Result.loading() => Result(
+  factory Result.loading() => const Result(
         null,
         null,
-        loading: true,
-        cached: false,
+        isLoading: true,
+        isCached: false,
       );
 
   factory Result.success(final T data) => Result(
         data,
         null,
-        loading: false,
-        cached: false,
+        isLoading: false,
+        isCached: false,
       );
 
   factory Result.error(final Object error) => Result(
         null,
         error,
-        loading: false,
-        cached: false,
+        isLoading: false,
+        isCached: false,
       );
 
   final T? data;
   final Object? error;
-  final bool loading;
-  final bool cached;
+  final bool isLoading;
+  final bool isCached;
 
   Result<R> transform<R>(final R? Function(T data) call) => Result(
         data != null ? call(data as T) : null,
         error,
-        loading: loading,
-        cached: cached,
+        isLoading: isLoading,
+        isCached: isCached,
       );
+
+  Result<T> asLoading() => Result(
+        data,
+        error,
+        isLoading: true,
+        isCached: isCached,
+      );
+
+  bool get hasError => error != null;
+
+  bool get hasData => data != null;
+  bool get hasUncachedData => hasData && !isCached;
+
+  T get requireData {
+    if (hasData) {
+      return data!;
+    }
+
+    throw StateError('Result has no data');
+  }
+
+  @override
+  bool operator ==(final Object other) =>
+      other is Result && other.isLoading == isLoading && other.data == data && other.error == error;
+
+  @override
+  int get hashCode => Object.hash(data, error, isLoading, isCached);
 }

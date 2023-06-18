@@ -36,7 +36,7 @@ class NeonAccountTile extends StatelessWidget {
       leading: NeonUserAvatar(
         account: account,
       ),
-      title: ResultBuilder<NextcloudProvisioningApiUserDetails>(
+      title: ResultBuilder<NextcloudProvisioningApiUserDetails>.behaviorSubject(
         stream: userDetailsBloc.userDetails,
         builder: (final context, final userDetails) => Row(
           children: [
@@ -51,7 +51,7 @@ class NeonAccountTile extends StatelessWidget {
                 ),
               ),
             ],
-            if (userDetails.loading) ...[
+            if (userDetails.isLoading) ...[
               const SizedBox(
                 width: 5,
               ),
@@ -61,7 +61,7 @@ class NeonAccountTile extends StatelessWidget {
                 ),
               ),
             ],
-            if (userDetails.error != null) ...[
+            if (userDetails.hasError) ...[
               const SizedBox(
                 width: 5,
               ),

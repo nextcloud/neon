@@ -42,45 +42,26 @@ class _HomePageState extends State<HomePage> {
       }
     });
 
-    _capabilitiesBloc.capabilities.listen((final result) async {
-      if (result.data != null) {
-        // ignore cached version and prevent duplicate dialogs
-        if (result.cached) {
-          return;
-        }
-        _appsBloc.appImplementations.listen((final appsResult) async {
-          // ignore cached version and prevent duplicate dialogs
-          if (appsResult.data == null || appsResult.cached) {
-            return;
-          }
-          for (final id in [
-            'core',
-            ...appsResult.data!.map((final a) => a.id),
-          ]) {
-            try {
-              final (supported, _) = switch (id) {
-                'core' => await _account.client.core.isSupported(result.data),
-                'news' => await _account.client.news.isSupported(),
-                'notes' => await _account.client.notes.isSupported(result.data),
-                _ => (true, null),
-              };
-              if (supported || !mounted) {
-                return;
-              }
-              var name = AppLocalizations.of(context).appImplementationName(id);
-              if (name == '') {
-                name = id;
-              }
-              await _showProblem(
-                AppLocalizations.of(context).errorUnsupportedVersion(name),
-              );
-            } catch (e, s) {
-              debugPrint(e.toString());
-              debugPrint(s.toString());
-            }
-          }
-        });
+    _appsBloc.appVersions.listen((final values) {
+      if (values == null || !mounted) {
+        return;
       }
+
+      final l10n = AppLocalizations.of(context);
+
+      final buffer = StringBuffer()..writeln();
+
+      for (final error in values) {
+        final (appId, minVersion) = error;
+        final appName = l10n.appImplementationName(appId);
+
+        if (appName.isNotEmpty && minVersion != null) {
+          buffer.writeln('- $appName $minVersion');
+        }
+      }
+
+      final message = l10n.errorUnsupportedVersion(buffer.toString());
+      unawaited(_showProblem(message));
     });
 
     GlobalPopups().register(context);
@@ -168,11 +149,12 @@ class _HomePageState extends State<HomePage> {
   }
 
   @override
-  Widget build(final BuildContext context) => ResultBuilder<Capabilities>(
+  Widget build(final BuildContext context) => ResultBuilder<Capabilities>.behaviorSubject(
         stream: _capabilitiesBloc.capabilities,
-        builder: (final context, final capabilities) => ResultBuilder<Iterable<AppImplementation>>(
+        builder: (final context, final capabilities) => ResultBuilder<Iterable<AppImplementation>>.behaviorSubject(
           stream: _appsBloc.appImplementations,
-          builder: (final context, final appImplementations) => ResultBuilder<NotificationsAppInterface?>(
+          builder: (final context, final appImplementations) =>
+              ResultBuilder<NotificationsAppInterface?>.behaviorSubject(
             stream: _appsBloc.notificationsAppImplementation,
             builder: (final context, final notificationsAppImplementation) => StreamBuilder<String?>(
               stream: _appsBloc.activeAppID,
@@ -204,7 +186,7 @@ class _HomePageState extends State<HomePage> {
                                   ),
                                 ),
                               ],
-                              if (appImplementations.error != null) ...[
+                              if (appImplementations.hasError) ...[
                                 const SizedBox(
                                   width: 8,
                                 ),
@@ -214,7 +196,7 @@ class _HomePageState extends State<HomePage> {
                                   onlyIcon: true,
                                 ),
                               ],
-                              if (appImplementations.loading) ...[
+                              if (appImplementations.isLoading) ...[
                                 const SizedBox(
                                   width: 8,
                                 ),

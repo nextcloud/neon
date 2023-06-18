@@ -262,7 +262,7 @@ class _NeonAppState extends State<NeonApp> with WidgetsBindingObserver, tray.Tra
                 }
 
                 FlutterNativeSplash.remove();
-                return ResultBuilder<Capabilities?>(
+                return ResultBuilder<Capabilities?>.behaviorSubject(
                   stream: activeAccountSnapshot.hasData
                       ? _accountsBloc.getCapabilitiesBlocFor(activeAccountSnapshot.data!).capabilities
                       : null,

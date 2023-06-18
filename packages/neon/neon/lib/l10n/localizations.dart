@@ -194,8 +194,8 @@ abstract class AppLocalizations {
   /// No description provided for @errorUnsupportedVersion.
   ///
   /// In en, this message translates to:
-  /// **'Sorry, this Nextcloud {name} version is not supported.'**
-  String errorUnsupportedVersion(String name);
+  /// **'Sorry, the version of the following apps on your Nextcloud instance are not supported. \n {unsupported} \n Please contact your administrator to resolve the issues.'**
+  String errorUnsupportedVersion(String unsupported);
 
   /// No description provided for @errorEmptyField.
   ///

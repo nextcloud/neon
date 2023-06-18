@@ -1,28 +1,51 @@
 part of '../../neon.dart';
 
-class ResultBuilder<R> extends StatelessWidget {
+typedef ResultWidgetBuilder<T> = Widget Function(BuildContext context, Result<T> snapshot);
+
+class ResultBuilder<T> extends StreamBuilderBase<Result<T>, Result<T>> {
   const ResultBuilder({
-    required this.stream,
     required this.builder,
+    this.initialData,
+    super.stream,
     super.key,
   });
 
-  final Stream<Result<R>?>? stream;
+  ResultBuilder.behaviorSubject({
+    required this.builder,
+    BehaviorSubject<Result<T>>? super.stream,
+    super.key,
+  }) : initialData = stream?.valueOrNull;
 
-  final Widget Function(BuildContext, Result<R>) builder;
+  final ResultWidgetBuilder<T> builder;
+  final Result<T>? initialData;
 
   @override
-  Widget build(final BuildContext context) => StreamBuilder(
-        stream: stream,
-        builder: (final context, final snapshot) {
-          if (snapshot.hasError) {
-            return builder(context, Result.error(snapshot.error!));
-          }
-          if (snapshot.hasData) {
-            return builder(context, snapshot.data!);
-          }
+  Result<T> initial() => initialData?.asLoading() ?? Result<T>.loading();
 
-          return builder(context, Result.loading());
-        },
-      );
+  @override
+  Result<T> afterData(final Result<T> current, final Result<T> data) {
+    // prevent rebuild when only the cache state cahnges
+    if (current == data) {
+      return current;
+    }
+
+    return data;
+  }
+
+  @override
+  Result<T> afterError(final Result<T> current, final Object error, final StackTrace stackTrace) {
+    if (current.hasError) {
+      return current;
+    }
+
+    return Result(
+      current.data,
+      error,
+      isLoading: false,
+      isCached: false,
+    );
+  }
+
+  @override
+  Widget build(final BuildContext context, final Result<T> currentSummary) => builder(context, currentSummary);
 }

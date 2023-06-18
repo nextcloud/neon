@@ -26,7 +26,7 @@ class _NotesSelectCategoryDialogState extends State<NotesSelectCategoryDialog> {
   }
 
   @override
-  Widget build(final BuildContext context) => ResultBuilder<List<NextcloudNotesNote>>(
+  Widget build(final BuildContext context) => ResultBuilder<List<NextcloudNotesNote>>.behaviorSubject(
         stream: widget.bloc.notes,
         builder: (final context, final notes) => NeonDialog(
           title: Text(AppLocalizations.of(context).category),
@@ -44,7 +44,7 @@ class _NotesSelectCategoryDialogState extends State<NotesSelectCategoryDialog> {
                   ),
                   Center(
                     child: NeonLinearProgressIndicator(
-                      visible: notes.loading,
+                      visible: notes.isLoading,
                     ),
                   ),
                   if (notes.data != null) ...[

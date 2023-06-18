@@ -11,7 +11,7 @@ class NotesView extends StatelessWidget {
   final String? category;
 
   @override
-  Widget build(final BuildContext context) => ResultBuilder<List<NextcloudNotesNote>>(
+  Widget build(final BuildContext context) => ResultBuilder<List<NextcloudNotesNote>>.behaviorSubject(
         stream: bloc.notes,
         builder: (final context, final notes) => SortBoxBuilder<NotesSortProperty, NextcloudNotesNote>(
           sortBox: notesSortBox,
@@ -34,7 +34,7 @@ class NotesView extends StatelessWidget {
                 ...?sortedFavorites,
                 ...?sortedNonFavorites,
               ],
-              isLoading: notes.loading,
+              isLoading: notes.isLoading,
               error: notes.error,
               onRefresh: bloc.refresh,
               builder: _buildNote,

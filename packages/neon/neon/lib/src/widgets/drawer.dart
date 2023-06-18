@@ -166,7 +166,7 @@ class NeonDrawerHeader extends StatelessWidget {
       },
     );
 
-    return ResultBuilder<Capabilities>(
+    return ResultBuilder<Capabilities>.behaviorSubject(
       stream: capabilitiesBloc.capabilities,
       builder: (final context, final capabilities) => DrawerHeader(
         decoration: BoxDecoration(
@@ -198,7 +198,7 @@ class NeonDrawerHeader extends StatelessWidget {
                 onRetry: capabilitiesBloc.refresh,
               ),
               NeonLinearProgressIndicator(
-                visible: capabilities.loading,
+                visible: capabilities.isLoading,
               ),
             ],
             accountSelecor,

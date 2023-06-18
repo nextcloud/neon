@@ -16,6 +16,8 @@ abstract class AppsBlocStates {
   BehaviorSubject<String?> get activeAppID;
 
   BehaviorSubject get openNotifications;
+
+  BehaviorSubject<Iterable<(String, Object?)>?> get appVersions;
 }
 
 class AppsBloc extends InteractiveBloc implements AppsBlocEvents, AppsBlocStates {
@@ -50,6 +52,8 @@ class AppsBloc extends InteractiveBloc implements AppsBlocEvents, AppsBlocStates
             }
           }),
         );
+
+        unawaited(_checkCompatibility());
       }
     });
 
@@ -59,9 +63,50 @@ class AppsBloc extends InteractiveBloc implements AppsBlocEvents, AppsBlocStates
           (final data) => data.capabilities.notifications != null ? _findAppImplementation('notifications') : null,
         ),
       );
+
+      unawaited(_checkCompatibility());
     });
 
     unawaited(refresh());
+  }
+
+  Future<void> _checkCompatibility() async {
+    final apps = appImplementations.valueOrNull;
+    final capabilities = _capabilitiesBloc.capabilities.valueOrNull;
+
+    // ignore cached data
+    if (capabilities == null || apps == null || !capabilities.hasUncachedData || !apps.hasUncachedData) {
+      return;
+    }
+
+    final appIds = {
+      'core',
+      ...apps.requireData.map((final a) => a.id),
+    };
+
+    final notSupported = <(String, Object?)>[];
+
+    for (final id in appIds) {
+      try {
+        final (supported, minVersion) = switch (id) {
+          'core' => await _account.client.core.isSupported(capabilities.requireData),
+          'news' => await _account.client.news.isSupported(),
+          'notes' => await _account.client.notes.isSupported(capabilities.requireData),
+          _ => (true, null),
+        };
+
+        if (!supported) {
+          notSupported.add((id, minVersion));
+        }
+      } catch (e, s) {
+        debugPrint(e.toString());
+        debugPrint(s.toString());
+      }
+    }
+
+    if (notSupported.isNotEmpty) {
+      appVersions.add(notSupported);
+    }
   }
 
   T? _findAppImplementation<T extends AppImplementation>(final String id) {
@@ -89,6 +134,7 @@ class AppsBloc extends InteractiveBloc implements AppsBlocEvents, AppsBlocStates
     unawaited(notificationsAppImplementation.close());
     unawaited(activeAppID.close());
     unawaited(openNotifications.close());
+    unawaited(appVersions.close());
 
     for (final app in _allAppImplementations) {
       for (final bloc in app.blocs.values) {
@@ -113,6 +159,9 @@ class AppsBloc extends InteractiveBloc implements AppsBlocEvents, AppsBlocStates
 
   @override
   BehaviorSubject openNotifications = BehaviorSubject();
+
+  @override
+  BehaviorSubject<List<(String, Object?)>?> appVersions = BehaviorSubject();
 
   @override
   Future refresh() async {

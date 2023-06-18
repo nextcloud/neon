@@ -25,9 +25,9 @@ class _NewsArticlesViewState extends State<NewsArticlesView> {
   }
 
   @override
-  Widget build(final BuildContext context) => ResultBuilder<List<NextcloudNewsFeed>>(
+  Widget build(final BuildContext context) => ResultBuilder<List<NextcloudNewsFeed>>.behaviorSubject(
         stream: widget.newsBloc.feeds,
-        builder: (final context, final feeds) => ResultBuilder<List<NextcloudNewsArticle>>(
+        builder: (final context, final feeds) => ResultBuilder<List<NextcloudNewsArticle>>.behaviorSubject(
           stream: widget.bloc.articles,
           builder: (final context, final articles) => SortBoxBuilder<ArticlesSortProperty, NextcloudNewsArticle>(
             sortBox: articlesSortBox,
@@ -37,7 +37,7 @@ class _NewsArticlesViewState extends State<NewsArticlesView> {
             builder: (final context, final sorted) => NeonListView<NextcloudNewsArticle>(
               scrollKey: 'news-articles',
               items: feeds.data == null ? null : sorted,
-              isLoading: articles.loading || feeds.loading,
+              isLoading: articles.isLoading || feeds.isLoading,
               error: articles.error ?? feeds.error,
               onRefresh: () async {
                 await Future.wait([

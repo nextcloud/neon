@@ -68,8 +68,8 @@ class RequestManager {
         Result(
           subject.value.data,
           null,
-          loading: true,
-          cached: true,
+          isLoading: true,
+          isCached: true,
         ),
       );
     } else {
@@ -148,8 +148,8 @@ class RequestManager {
         Result(
           cached,
           error,
-          loading: loading,
-          cached: true,
+          isLoading: loading,
+          isCached: true,
         ),
       );
       return true;
