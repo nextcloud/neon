@@ -31,17 +31,6 @@ class _HomePageState extends State<HomePage> {
     _appsBloc = _accountsBloc.activeAppsBloc;
     _capabilitiesBloc = _accountsBloc.activeCapabilitiesBloc;
 
-    _appsBloc.openNotifications.listen((final _) async {
-      final notificationsAppImplementation = _appsBloc.notificationsAppImplementation.valueOrNull;
-      if (notificationsAppImplementation != null) {
-        await _openNotifications(
-          notificationsAppImplementation.data!,
-          _accountsBloc.accounts.value,
-          _accountsBloc.activeAccount.value!,
-        );
-      }
-    });
-
     _appsBloc.appVersions.listen((final values) {
       if (values == null || !mounted) {
         return;
@@ -108,40 +97,6 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  Future _openNotifications(
-    final NotificationsAppInterface app,
-    final List<Account> accounts,
-    final Account account,
-  ) async {
-    final page = Scaffold(
-      resizeToAvoidBottomInset: false,
-      appBar: AppBar(
-        title: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(app.name(context)),
-            if (accounts.length > 1) ...[
-              Text(
-                account.client.humanReadableID,
-                style: Theme.of(context).textTheme.bodySmall,
-              ),
-            ],
-          ],
-        ),
-      ),
-      body: app.page,
-    );
-
-    await Navigator.of(context).push(
-      MaterialPageRoute(
-        builder: (final context) => Provider<NotificationsBlocInterface>(
-          create: (final context) => app.getBloc(account),
-          child: page,
-        ),
-      ),
-    );
-  }
-
   @override
   void dispose() {
     drawerScrollController.dispose();
@@ -172,91 +127,7 @@ class _HomePageState extends State<HomePage> {
                     final drawerAlwaysVisible = navigationMode == NavigationMode.drawerAlwaysVisible;
 
                     const drawer = NeonDrawer();
-                    final appBar = AppBar(
-                      automaticallyImplyLeading: !drawerAlwaysVisible,
-                      title: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Row(
-                            children: [
-                              if (appImplementations.data != null && activeAppIDSnapshot.hasData) ...[
-                                Flexible(
-                                  child: Text(
-                                    appImplementations.data!.find(activeAppIDSnapshot.data!)!.name(context),
-                                  ),
-                                ),
-                              ],
-                              if (appImplementations.hasError) ...[
-                                const SizedBox(
-                                  width: 8,
-                                ),
-                                NeonException(
-                                  appImplementations.error,
-                                  onRetry: _appsBloc.refresh,
-                                  onlyIcon: true,
-                                ),
-                              ],
-                              if (appImplementations.isLoading) ...[
-                                const SizedBox(
-                                  width: 8,
-                                ),
-                                Expanded(
-                                  child: NeonLinearProgressIndicator(
-                                    color: Theme.of(context).appBarTheme.foregroundColor,
-                                  ),
-                                ),
-                              ],
-                            ],
-                          ),
-                          if (accounts.length > 1) ...[
-                            Text(
-                              account.client.humanReadableID,
-                              style: Theme.of(context).textTheme.bodySmall,
-                            ),
-                          ],
-                        ],
-                      ),
-                      actions: [
-                        if (notificationsAppImplementation.data != null) ...[
-                          StreamBuilder<int>(
-                            stream: notificationsAppImplementation.data!
-                                .getUnreadCounter(notificationsAppImplementation.data!.getBloc(account)),
-                            builder: (final context, final unreadCounterSnapshot) {
-                              final unreadCount = unreadCounterSnapshot.data ?? 0;
-                              return IconButton(
-                                key: Key('app-${notificationsAppImplementation.data!.id}'),
-                                onPressed: () async {
-                                  await _openNotifications(
-                                    notificationsAppImplementation.data!,
-                                    accounts,
-                                    account,
-                                  );
-                                },
-                                tooltip: AppLocalizations.of(context)
-                                    .appImplementationName(notificationsAppImplementation.data!.id),
-                                icon: NeonAppImplementationIcon(
-                                  appImplementation: notificationsAppImplementation.data!,
-                                  unreadCount: unreadCount,
-                                  color: unreadCount > 0
-                                      ? Theme.of(context).colorScheme.primary
-                                      : Theme.of(context).colorScheme.onBackground,
-                                  size: const Size.square(kAvatarSize * 2 / 3),
-                                ),
-                              );
-                            },
-                          ),
-                        ],
-                        IconButton(
-                          onPressed: () {
-                            AccountSettingsRoute(accountid: account.id).go(context);
-                          },
-                          tooltip: AppLocalizations.of(context).settingsAccount,
-                          icon: NeonUserAvatar(
-                            account: account,
-                          ),
-                        ),
-                      ],
-                    );
+                    const appBar = NeonAppBar();
 
                     Widget body = Builder(
                       builder: (final context) => Column(
