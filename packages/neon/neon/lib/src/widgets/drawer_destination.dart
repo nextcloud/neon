@@ -35,7 +35,7 @@ extension NavigationRailDestinationExtension on NavigationRailDestination {
       builder: (final context, final snapshot) {
         final colorScheme = Theme.of(context).colorScheme;
 
-        final color = snapshot.data! > 0 ? colorScheme.primary : colorScheme.onBackground;
+        final color = snapshot.requireData > 0 ? colorScheme.primary : colorScheme.onBackground;
         const size = Size.square(kAvatarSize * 2 / 3);
 
         final icon = Container(
@@ -43,7 +43,7 @@ extension NavigationRailDestinationExtension on NavigationRailDestination {
           child: neonDestination.icon(size: size, color: color),
         );
 
-        if (snapshot.data! <= 0) {
+        if (snapshot.requireData <= 0) {
           return icon;
         }
 
@@ -55,7 +55,7 @@ extension NavigationRailDestinationExtension on NavigationRailDestination {
             );
 
             return Text(
-              snapshot.data!.toString(),
+              snapshot.requireData.toString(),
               style: style,
             );
           },
@@ -87,7 +87,7 @@ extension NavigationDrawerDestinationExtension on NavigationDrawerDestination {
       builder: (final context, final snapshot) {
         final label = Text(neonDestination.label);
 
-        if (snapshot.data! <= 0) {
+        if (snapshot.requireData <= 0) {
           return label;
         }
 
@@ -102,7 +102,7 @@ extension NavigationDrawerDestinationExtension on NavigationDrawerDestination {
               );
 
               return Text(
-                snapshot.data!.toString(),
+                snapshot.requireData.toString(),
                 style: style,
               );
             },

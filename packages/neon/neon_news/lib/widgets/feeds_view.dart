@@ -19,9 +19,9 @@ class NewsFeedsView extends StatelessWidget {
             sortBox: feedsSortBox,
             sortPropertyOption: bloc.options.feedsSortPropertyOption,
             sortBoxOrderOption: bloc.options.feedsSortBoxOrderOption,
-            input: folders.data == null
-                ? null
-                : feeds.data?.where((final f) => folderID == null || f.folderId == folderID).toList(),
+            input: folders.hasData
+                ? feeds.data?.where((final f) => folderID == null || f.folderId == folderID).toList()
+                : null,
             builder: (final context, final sorted) => NeonListView<NextcloudNewsFeed>(
               scrollKey: 'news-feeds',
               withFloatingActionButton: true,
@@ -32,7 +32,7 @@ class NewsFeedsView extends StatelessWidget {
               builder: (final context, final feed) => _buildFeed(
                 context,
                 feed,
-                folders.data!,
+                folders.requireData,
               ),
             ),
           ),

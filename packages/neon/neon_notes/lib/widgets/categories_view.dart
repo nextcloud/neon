@@ -21,7 +21,7 @@ class NotesCategoriesView extends StatelessWidget {
               .map(
                 (final category) => NoteCategory(
                   category,
-                  notes.data!.where((final note) => note.category == category).length,
+                  notes.requireData.where((final note) => note.category == category).length,
                 ),
               )
               .toList(),

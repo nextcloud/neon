@@ -137,7 +137,7 @@ class _LoginPageState extends State<LoginPage> {
                           },
                         ),
                         actions: [
-                          if (serverConnectionStateSnapshot.data != null) ...[
+                          if (serverConnectionStateSnapshot.hasData) ...[
                             IconButton(
                               onPressed: _loginBloc.refresh,
                               tooltip: AppLocalizations.of(context).loginRestart,

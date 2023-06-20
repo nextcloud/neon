@@ -44,7 +44,7 @@ class FilesChooseFolderDialog extends StatelessWidget {
                                   builder: (final context) => const FilesCreateFolderDialog(),
                                 );
                                 if (result != null) {
-                                  bloc.createFolder([...pathSnapshot.data!, ...result]);
+                                  bloc.createFolder([...pathSnapshot.requireData, ...result]);
                                 }
                               },
                               child: Text(AppLocalizations.of(context).folderCreate),

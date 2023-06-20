@@ -40,10 +40,10 @@ class NeonAccountTile extends StatelessWidget {
         stream: userDetailsBloc.userDetails,
         builder: (final context, final userDetails) => Row(
           children: [
-            if (userDetails.data != null) ...[
+            if (userDetails.hasData) ...[
               Flexible(
                 child: Text(
-                  userDetails.data!.displayname,
+                  userDetails.requireData.displayname,
                   style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                         color: textColor,
                       ),
