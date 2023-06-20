@@ -1268,9 +1268,9 @@ packages:
     dependency: "direct overridden"
     description:
       path: wakelock_windows
-      ref: "094b4a74c31e547c11525bcc050dbd06b02a1f67"
-      resolved-ref: "094b4a74c31e547c11525bcc050dbd06b02a1f67"
-      url: "https://github.com/creativecreatorormaybenot/wakelock"
+      ref: "269e1dba6bca6975a0bc44da6a42e56ca7428da9"
+      resolved-ref: "269e1dba6bca6975a0bc44da6a42e56ca7428da9"
+      url: "https://github.com/fikretonuresen/wakelock"
     source: git
     version: "0.2.2"
   webdriver:
