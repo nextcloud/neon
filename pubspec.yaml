@@ -6,4 +6,3 @@ environment:
 dev_dependencies:
   fvm: ^2.4.1
   melos: ^3.1.0
-  mono_repo: ^6.5.6
