@@ -12,10 +12,10 @@ if [[ "$1" == "flutter" ]]; then
   dart_version_next_major=$(( dart_version_major + 1 ))
   find ./packages -name "pubspec.yaml" -exec sed -i "s/flutter: '>=.*'/flutter: '>=$flutter_version'/" {} \;
   find ./packages -name "pubspec.yaml" -exec sed -i "s/sdk: '>=.* <.*'/sdk: '>=$dart_version_major.$dart_version_minor.0 <$dart_version_next_major.0.0'/" {} \;
-  fvm exec mono_repo pub get
+  melos exec flutter pub get
 elif [[ "$1" == "dependencies" ]]; then
-    fvm exec mono_repo pub upgrade --major-versions
-    fvm exec mono_repo pub upgrade
+    melos exec flutter pub upgrade --major-versions
+    melos exec flutter pub upgrade
 elif [ -d "external/nextcloud-$1" ]; then
     (
       cd "external/nextcloud-$1"

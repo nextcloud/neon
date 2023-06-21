@@ -10,6 +10,6 @@ dependency_overrides:
     path: ../../sort_box
   wakelock_windows:
     git:
-      url: https://github.com/creativecreatorormaybenot/wakelock
-      ref: 094b4a74c31e547c11525bcc050dbd06b02a1f67
+      url: https://github.com/fikretonuresen/wakelock
+      ref: 269e1dba6bca6975a0bc44da6a42e56ca7428da9
       path: wakelock_windows
