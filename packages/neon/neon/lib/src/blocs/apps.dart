@@ -3,7 +3,7 @@ part of 'blocs.dart';
 typedef NextcloudApp = NextcloudCoreNavigationApps_Ocs_Data;
 
 abstract class AppsBlocEvents {
-  void setActiveApp(final String? appID);
+  void setActiveApp(final String appID);
 }
 
 abstract class AppsBlocStates {
@@ -13,7 +13,7 @@ abstract class AppsBlocStates {
 
   BehaviorSubject<Result<NotificationsAppInterface?>> get notificationsAppImplementation;
 
-  BehaviorSubject<String?> get activeAppID;
+  BehaviorSubject<String> get activeAppID;
 
   BehaviorSubject get openNotifications;
 
@@ -48,7 +48,7 @@ class AppsBloc extends InteractiveBloc implements AppsBlocEvents, AppsBlocStates
               }
             }
             if (!activeAppID.hasValue) {
-              await setActiveApp(initialApp);
+              await setActiveApp(initialApp!);
             }
           }),
         );
@@ -144,7 +144,7 @@ class AppsBloc extends InteractiveBloc implements AppsBlocEvents, AppsBlocStates
   }
 
   @override
-  BehaviorSubject<String?> activeAppID = BehaviorSubject<String?>();
+  BehaviorSubject<String> activeAppID = BehaviorSubject<String>();
 
   @override
   BehaviorSubject<Result<Iterable<AppImplementation<Bloc, NextcloudAppSpecificOptions>>>> appImplementations =
@@ -175,15 +175,16 @@ class AppsBloc extends InteractiveBloc implements AppsBlocEvents, AppsBlocStates
   }
 
   @override
-  Future setActiveApp(final String? appID) async {
-    if (appID != null &&
-        (await appImplementations.firstWhere((final a) => a.hasData)).requireData.tryFind(appID) != null) {
+  Future setActiveApp(final String appID) async {
+    final apps = await appImplementations.firstWhere((final a) => a.hasData);
+    if (apps.requireData.tryFind(appID) != null) {
+      // TODO: make activeAppID distinct
       if (activeAppID.valueOrNull != appID) {
         activeAppID.add(appID);
       }
     } else if (appID == 'notifications') {
       openNotifications.add(null);
-    } else if (appID != null) {
+    } else {
       throw Exception('App $appID not found');
     }
   }

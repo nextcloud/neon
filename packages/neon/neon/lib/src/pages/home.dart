@@ -100,7 +100,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(final BuildContext context) => ResultBuilder<Iterable<AppImplementation>>.behaviorSubject(
         stream: _appsBloc.appImplementations,
-        builder: (final context, final appImplementations) => StreamBuilder<String?>(
+        builder: (final context, final appImplementations) => StreamBuilder<String>(
           stream: _appsBloc.activeAppID,
           builder: (final context, final activeAppIDSnapshot) => OptionBuilder<NavigationMode>(
             option: _globalOptions.navigationMode,
@@ -126,7 +126,7 @@ class _HomePageState extends State<HomePage> {
                       ] else ...[
                         if (activeAppIDSnapshot.hasData) ...[
                           Expanded(
-                            child: appImplementations.data!.find(activeAppIDSnapshot.data!).page,
+                            child: appImplementations.requireData.find(activeAppIDSnapshot.requireData).page,
                           ),
                         ],
                       ],
