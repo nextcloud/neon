@@ -18,6 +18,7 @@ class _HomePageState extends State<HomePage> {
   late GlobalOptions _globalOptions;
   late AccountsBloc _accountsBloc;
   late AppsBloc _appsBloc;
+  late StreamSubscription _versionCheckSubscription;
 
   @override
   void initState() {
@@ -27,7 +28,7 @@ class _HomePageState extends State<HomePage> {
     _account = _accountsBloc.activeAccount.value!;
     _appsBloc = _accountsBloc.activeAppsBloc;
 
-    _appsBloc.appVersions.listen((final values) {
+    _versionCheckSubscription = _appsBloc.appVersions.listen((final values) {
       if (values == null || !mounted) {
         return;
       }
@@ -54,13 +55,16 @@ class _HomePageState extends State<HomePage> {
     unawaited(_checkMaintenanceMode());
   }
 
+  @override
+  void dispose() {
+    unawaited(_versionCheckSubscription.cancel());
+    super.dispose();
+  }
+
   Future _checkMaintenanceMode() async {
     try {
       final status = await _account.client.core.getStatus();
-      if (status.maintenance) {
-        if (!mounted) {
-          return;
-        }
+      if (status.maintenance && mounted) {
         await _showProblem(
           AppLocalizations.of(context).errorServerInMaintenanceMode,
         );
