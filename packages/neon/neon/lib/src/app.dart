@@ -196,13 +196,10 @@ class _NeonAppState extends State<NeonApp> with WidgetsBindingObserver, tray.Tra
       exit(0);
     }
 
-    final matches = _appRegex.allMatches(shortcutType).toList();
-    if (matches.isNotEmpty) {
-      final activeAccount = _accountsBloc.activeAccount.valueOrNull;
-      if (activeAccount == null) {
-        return;
-      }
-      await _openAppFromExternal(activeAccount, matches[0].group(1)!);
+    final matches = _appRegex.allMatches(shortcutType);
+    final activeAccount = _accountsBloc.activeAccount.valueOrNull;
+    if (matches.isNotEmpty && activeAccount != null) {
+      await _openAppFromExternal(activeAccount, matches.first.group(1)!);
     }
   }
 

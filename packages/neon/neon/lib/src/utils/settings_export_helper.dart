@@ -33,7 +33,7 @@ class SettingsExportHelper {
 
     final accountsData = data['accounts'] as Map<String, dynamic>;
     for (final accountId in accountsData.keys) {
-      final account = accountSpecificOptions.keys.toList().find(accountId);
+      final account = accountSpecificOptions.keys.find(accountId);
       if (account == null) {
         return;
       }

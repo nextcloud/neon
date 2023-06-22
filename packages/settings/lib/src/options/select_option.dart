@@ -25,9 +25,9 @@ class SelectOption<T> extends Option<T> {
   }
 
   T? _fromString(final Map<T, LabelBuilder> vs, final String? valueStr) {
-    final v = vs.keys.where((final e) => e.toString() == valueStr).toList();
+    final v = vs.keys.where((final e) => e.toString() == valueStr);
     if (v.length == 1) {
-      return v[0];
+      return v.first;
     }
     return null;
   }
