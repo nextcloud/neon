@@ -8,14 +8,12 @@ export 'package:cookie_jar/cookie_jar.dart';
 
 extension DynamiteHttpClientResponseBody on HttpClientResponse {
   Future<Uint8List> get bodyBytes async {
-    final chunks = await toList();
-    if (chunks.isEmpty) {
-      return Uint8List(0);
-    }
-    return Uint8List.fromList(chunks.reduce((final value, final element) => [...value, ...element]));
+    final data = await expand((final element) => element).toList();
+
+    return Uint8List.fromList(data);
   }
 
-  Future<String> get body async => utf8.decode(await bodyBytes);
+  Future<String> get body => transform(utf8.decoder).join();
 }
 
 class DynamiteResponse<T, U> {
