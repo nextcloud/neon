@@ -109,13 +109,13 @@ class _NeonAppState extends State<NeonApp> with WidgetsBindingObserver, tray.Tra
       if (_platform.canUsePushNotifications) {
         final localNotificationsPlugin = await PushUtils.initLocalNotifications();
         Global.onPushNotificationReceived = (final accountID) async {
-          final account = _accountsBloc.accounts.value.find(accountID);
+          final account = _accountsBloc.accounts.value.tryFind(accountID);
           if (account == null) {
             return;
           }
 
           final allAppImplementations = Provider.of<Iterable<AppImplementation>>(context, listen: false);
-          final app = allAppImplementations.find('notifications') as NotificationsAppInterface?;
+          final app = allAppImplementations.tryFind('notifications') as NotificationsAppInterface?;
 
           if (app == null) {
             return;
@@ -124,7 +124,7 @@ class _NeonAppState extends State<NeonApp> with WidgetsBindingObserver, tray.Tra
           await _accountsBloc.getAppsBlocFor(account).getAppBloc<NotificationsBlocInterface>(app).refresh();
         };
         Global.onPushNotificationClicked = (final pushNotificationWithAccountID) async {
-          final account = _accountsBloc.accounts.value.find(pushNotificationWithAccountID.accountID);
+          final account = _accountsBloc.accounts.value.tryFind(pushNotificationWithAccountID.accountID);
           if (account == null) {
             return;
           }
@@ -132,7 +132,7 @@ class _NeonAppState extends State<NeonApp> with WidgetsBindingObserver, tray.Tra
 
           final allAppImplementations = Provider.of<Iterable<AppImplementation>>(context, listen: false);
 
-          final notificationsApp = allAppImplementations.find('notifications') as NotificationsAppInterface?;
+          final notificationsApp = allAppImplementations.tryFind('notifications') as NotificationsAppInterface?;
           if (notificationsApp != null) {
             _accountsBloc
                 .getAppsBlocFor(account)
@@ -140,7 +140,7 @@ class _NeonAppState extends State<NeonApp> with WidgetsBindingObserver, tray.Tra
                 .deleteNotification(pushNotificationWithAccountID.subject.nid!);
           }
 
-          final app = allAppImplementations.find(pushNotificationWithAccountID.subject.app!) ?? notificationsApp;
+          final app = allAppImplementations.tryFind(pushNotificationWithAccountID.subject.app) ?? notificationsApp;
           if (app == null) {
             return;
           }

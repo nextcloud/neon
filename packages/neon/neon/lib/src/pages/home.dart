@@ -126,7 +126,7 @@ class _HomePageState extends State<HomePage> {
                       ] else ...[
                         if (activeAppIDSnapshot.hasData) ...[
                           Expanded(
-                            child: appImplementations.data!.find(activeAppIDSnapshot.data!)!.page,
+                            child: appImplementations.data!.find(activeAppIDSnapshot.data!).page,
                           ),
                         ],
                       ],

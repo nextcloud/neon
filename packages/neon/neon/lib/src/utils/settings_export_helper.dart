@@ -20,7 +20,7 @@ class SettingsExportHelper {
 
     final appImplementationsData = data['apps'] as Map<String, dynamic>;
     for (final appId in appImplementationsData.keys) {
-      final app = appImplementations.find(appId);
+      final app = appImplementations.tryFind(appId);
       if (app == null) {
         return;
       }
@@ -33,7 +33,7 @@ class SettingsExportHelper {
 
     final accountsData = data['accounts'] as Map<String, dynamic>;
     for (final accountId in accountsData.keys) {
-      final account = accountSpecificOptions.keys.find(accountId);
+      final account = accountSpecificOptions.keys.tryFind(accountId);
       if (account == null) {
         return;
       }

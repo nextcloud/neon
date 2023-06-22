@@ -82,7 +82,7 @@ class PushUtils {
         AndroidBitmap<Object>? largeIconBitmap;
         try {
           accounts = loadAccounts(AppStorage('accounts', sharedPreferences));
-          account = accounts.find(instance);
+          account = accounts.tryFind(instance);
           if (account != null) {
             notification =
                 (await account.client.notifications.getNotification(id: pushNotification.subject.nid!)).ocs.data;

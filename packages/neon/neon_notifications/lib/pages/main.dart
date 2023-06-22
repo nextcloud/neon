@@ -51,7 +51,7 @@ class _NotificationsMainPageState extends State<NotificationsMainPage> {
     final BuildContext context,
     final NextcloudNotificationsNotification notification,
   ) {
-    final app = Provider.of<Iterable<AppImplementation>>(context, listen: false).find(notification.app);
+    final app = Provider.of<Iterable<AppImplementation>>(context, listen: false).tryFind(notification.app);
 
     return ListTile(
       title: Text(notification.subject),

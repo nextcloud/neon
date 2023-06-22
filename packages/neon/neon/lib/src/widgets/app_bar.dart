@@ -34,7 +34,7 @@ class NeonAppBar extends StatelessWidget implements PreferredSizeWidget {
                   if (appImplementations.hasData && activeAppIDSnapshot.hasData) ...[
                     Flexible(
                       child: Text(
-                        appImplementations.requireData.find(activeAppIDSnapshot.data!)!.name(context),
+                        appImplementations.requireData.find(activeAppIDSnapshot.data!).name(context),
                       ),
                     ),
                   ],

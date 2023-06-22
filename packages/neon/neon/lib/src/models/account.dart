@@ -105,5 +105,6 @@ extension NextcloudClientHelpers on NextcloudClient {
 }
 
 extension AccountFind on Iterable<Account> {
-  Account? find(final String accountID) => firstWhereOrNull((final account) => account.id == accountID);
+  Account? tryFind(final String? accountID) => firstWhereOrNull((final account) => account.id == accountID);
+  Account find(final String accountID) => firstWhere((final account) => account.id == accountID);
 }
