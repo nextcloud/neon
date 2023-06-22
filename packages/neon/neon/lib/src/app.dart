@@ -273,7 +273,7 @@ class _NeonAppState extends State<NeonApp> with WidgetsBindingObserver, tray.Tra
                       supportedLocales: {
                         ..._appImplementations
                             .map((final app) => app.supportedLocales)
-                            .reduce((final value, final element) => [...value, ...element]),
+                            .expand((final element) => element),
                         ...AppLocalizations.supportedLocales,
                       },
                       themeMode: themeMode,
