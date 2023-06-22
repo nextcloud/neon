@@ -23,18 +23,18 @@ class NeonAppBar extends StatelessWidget implements PreferredSizeWidget {
 
     return ResultBuilder<Iterable<AppImplementation>>.behaviorSubject(
       stream: appsBloc.appImplementations,
-      builder: (final context, final appImplementations) => StreamBuilder<String?>(
-        stream: appsBloc.activeAppID,
-        builder: (final context, final activeAppIDSnapshot) => AppBar(
+      builder: (final context, final appImplementations) => StreamBuilder<AppImplementation>(
+        stream: appsBloc.activeApp,
+        builder: (final context, final activeAppSnapshot) => AppBar(
           title: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Row(
                 children: [
-                  if (appImplementations.hasData && activeAppIDSnapshot.hasData) ...[
+                  if (activeAppSnapshot.hasData) ...[
                     Flexible(
                       child: Text(
-                        appImplementations.requireData.find(activeAppIDSnapshot.data!)!.name(context),
+                        activeAppSnapshot.requireData.name(context),
                       ),
                     ),
                   ],

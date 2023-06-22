@@ -41,7 +41,7 @@ class AccountSettingsRoute extends GoRouteData {
   @override
   Widget build(final BuildContext context, final GoRouterState state) {
     final bloc = Provider.of<AccountsBloc>(context, listen: false);
-    final account = bloc.accounts.value.find(accountid)!;
+    final account = bloc.accounts.value.find(accountid);
 
     return AccountSettingsPage(
       bloc: bloc,
@@ -120,7 +120,7 @@ class NextcloudAppSettingsRoute extends GoRouteData {
   @override
   Widget build(final BuildContext context, final GoRouterState state) {
     final appImplementations = Provider.of<Iterable<AppImplementation>>(context, listen: false);
-    final appImplementation = appImplementations.find(appid)!;
+    final appImplementation = appImplementations.tryFind(appid)!;
 
     return NextcloudAppSettingsPage(appImplementation: appImplementation);
   }

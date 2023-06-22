@@ -65,7 +65,7 @@ class AccountsBloc extends Bloc implements AccountsBlocEvents, AccountsBlocState
     if (_globalOptions.rememberLastUsedAccount.value && _storage.containsKey(_keyLastUsedAccount)) {
       final lastUsedAccountID = _storage.getString(_keyLastUsedAccount);
       if (lastUsedAccountID != null) {
-        final aa = as.find(lastUsedAccountID);
+        final aa = as.tryFind(lastUsedAccountID);
         if (aa != null) {
           setActiveAccount(aa);
         }
@@ -74,7 +74,7 @@ class AccountsBloc extends Bloc implements AccountsBlocEvents, AccountsBlocState
 
     unawaited(
       _globalOptions.initialAccount.stream.first.then((final lastAccount) {
-        final account = lastAccount != null ? as.find(lastAccount) : null;
+        final account = as.tryFind(lastAccount);
         if (activeAccount.valueOrNull == null) {
           if (account != null) {
             setActiveAccount(account);

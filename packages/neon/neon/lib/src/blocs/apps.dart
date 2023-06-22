@@ -3,7 +3,7 @@ part of 'blocs.dart';
 typedef NextcloudApp = NextcloudCoreNavigationApps_Ocs_Data;
 
 abstract class AppsBlocEvents {
-  void setActiveApp(final String? appID);
+  void setActiveApp(final String appID);
 }
 
 abstract class AppsBlocStates {
@@ -13,7 +13,7 @@ abstract class AppsBlocStates {
 
   BehaviorSubject<Result<NotificationsAppInterface?>> get notificationsAppImplementation;
 
-  BehaviorSubject<String?> get activeAppID;
+  BehaviorSubject<AppImplementation> get activeApp;
 
   BehaviorSubject get openNotifications;
 
@@ -39,7 +39,7 @@ class AppsBloc extends InteractiveBloc implements AppsBlocEvents, AppsBlocStates
         unawaited(
           options.initialApp.stream.first.then((var initialApp) async {
             if (initialApp == null) {
-              if (result.requireData.find('files') != null) {
+              if (result.requireData.tryFind('files') != null) {
                 initialApp = 'files';
               } else if (result.requireData.isNotEmpty) {
                 // This should never happen, because the files app is always installed and can not be removed, but just in
@@ -47,7 +47,7 @@ class AppsBloc extends InteractiveBloc implements AppsBlocEvents, AppsBlocStates
                 initialApp = result.requireData.first.id;
               }
             }
-            if (!activeAppID.hasValue) {
+            if (!activeApp.hasValue && initialApp != null) {
               await setActiveApp(initialApp);
             }
           }),
@@ -132,7 +132,7 @@ class AppsBloc extends InteractiveBloc implements AppsBlocEvents, AppsBlocStates
     unawaited(apps.close());
     unawaited(appImplementations.close());
     unawaited(notificationsAppImplementation.close());
-    unawaited(activeAppID.close());
+    unawaited(activeApp.close());
     unawaited(openNotifications.close());
     unawaited(appVersions.close());
 
@@ -144,7 +144,7 @@ class AppsBloc extends InteractiveBloc implements AppsBlocEvents, AppsBlocStates
   }
 
   @override
-  BehaviorSubject<String?> activeAppID = BehaviorSubject<String?>();
+  BehaviorSubject<AppImplementation> activeApp = BehaviorSubject<AppImplementation>();
 
   @override
   BehaviorSubject<Result<Iterable<AppImplementation<Bloc, NextcloudAppSpecificOptions>>>> appImplementations =
@@ -175,15 +175,19 @@ class AppsBloc extends InteractiveBloc implements AppsBlocEvents, AppsBlocStates
   }
 
   @override
-  Future setActiveApp(final String? appID) async {
-    if (appID != null &&
-        (await appImplementations.firstWhere((final a) => a.hasData)).requireData.find(appID) != null) {
-      if (activeAppID.valueOrNull != appID) {
-        activeAppID.add(appID);
-      }
-    } else if (appID == 'notifications') {
+  Future setActiveApp(final String appID) async {
+    if (appID == 'notifications') {
       openNotifications.add(null);
-    } else if (appID != null) {
+      return;
+    }
+
+    final apps = await appImplementations.firstWhere((final a) => a.hasData);
+    final app = apps.requireData.tryFind(appID);
+    if (app != null) {
+      if (activeApp.valueOrNull?.id != appID) {
+        activeApp.add(app);
+      }
+    } else {
       throw Exception('App $appID not found');
     }
   }

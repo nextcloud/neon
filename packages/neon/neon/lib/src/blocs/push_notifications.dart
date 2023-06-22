@@ -52,7 +52,7 @@ class PushNotificationsBloc extends Bloc implements PushNotificationsBlocEvents,
   Future _setupUnifiedPush() async {
     await UnifiedPush.initialize(
       onNewEndpoint: (final endpoint, final instance) async {
-        final account = _accountsBloc.accounts.value.find(instance);
+        final account = _accountsBloc.accounts.value.tryFind(instance);
         if (account == null) {
           debugPrint('Account for $instance not found, can not process endpoint');
           return;
