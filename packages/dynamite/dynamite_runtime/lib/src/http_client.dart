@@ -14,6 +14,17 @@ extension DynamiteHttpClientResponseBody on HttpClientResponse {
   }
 
   Future<String> get body => transform(utf8.decoder).join();
+
+  Future<dynamic> get jsonBody => transform(utf8.decoder).transform(json.decoder).first;
+
+  Map<String, String> get responseHeaders {
+    final responseHeaders = <String, String>{};
+    headers.forEach((final name, final values) {
+      responseHeaders[name] = values.last;
+    });
+
+    return responseHeaders;
+  }
 }
 
 class DynamiteResponse<T, U> {
@@ -30,8 +41,8 @@ class DynamiteResponse<T, U> {
   String toString() => 'DynamiteResponse(data: $data, headers: $headers)';
 }
 
-class RawResponse {
-  RawResponse(
+class DynamiteApiException implements Exception {
+  DynamiteApiException(
     this.statusCode,
     this.headers,
     this.body,
@@ -41,22 +52,10 @@ class RawResponse {
 
   final Map<String, String> headers;
 
-  final Uint8List body;
+  final String body;
 
   @override
-  String toString() => 'RawResponse(statusCode: $statusCode, headers: $headers, body: ${utf8.decode(body)})';
-}
-
-class DynamiteApiException extends RawResponse implements Exception {
-  DynamiteApiException(
-    super.statusCode,
-    super.headers,
-    super.body,
-  );
-
-  @override
-  String toString() =>
-      'DynamiteApiException(statusCode: ${super.statusCode}, headers: ${super.headers}, body: ${utf8.decode(super.body)})';
+  String toString() => 'DynamiteApiException(statusCode: $statusCode, headers: $headers, body: $body)';
 }
 
 abstract class DynamiteAuthentication {
@@ -85,29 +84,24 @@ class DynamiteHttpBasicAuthentication extends DynamiteAuthentication {
 class DynamiteClient {
   DynamiteClient(
     this.baseURL, {
-    final Map<String, String>? baseHeaders,
+    this.baseHeaders,
     final String? userAgent,
     final HttpClient? httpClient,
     this.cookieJar,
     this.authentications = const [],
-  }) {
-    this.baseHeaders = {
-      ...?baseHeaders,
-    };
-    this.httpClient = (httpClient ?? HttpClient())..userAgent = userAgent;
-  }
+  }) : httpClient = (httpClient ?? HttpClient())..userAgent = userAgent;
 
   final String baseURL;
 
-  late final Map<String, String> baseHeaders;
+  final Map<String, String>? baseHeaders;
 
-  late final HttpClient httpClient;
+  final HttpClient httpClient;
 
   final CookieJar? cookieJar;
 
   final List<DynamiteAuthentication> authentications;
 
-  Future<RawResponse> doRequest(
+  Future<HttpClientResponse> doRequest(
     final String method,
     final String path,
     final Map<String, String> headers,
@@ -115,7 +109,7 @@ class DynamiteClient {
   ) async {
     final uri = Uri.parse('$baseURL$path');
     final request = await httpClient.openUrl(method, uri);
-    for (final header in {...baseHeaders, ...headers}.entries) {
+    for (final header in {...?baseHeaders, ...headers}.entries) {
       request.headers.add(header.key, header.value);
     }
     if (body != null) {
@@ -129,14 +123,7 @@ class DynamiteClient {
     if (cookieJar != null) {
       await cookieJar!.saveFromResponse(uri, response.cookies);
     }
-    final responseHeaders = <String, String>{};
-    response.headers.forEach((final name, final values) {
-      responseHeaders[name] = values.last;
-    });
-    return RawResponse(
-      response.statusCode,
-      responseHeaders,
-      await response.bodyBytes,
-    );
+
+    return response;
   }
 }

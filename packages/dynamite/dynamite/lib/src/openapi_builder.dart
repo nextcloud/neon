@@ -69,6 +69,7 @@ class OpenAPIBuilder implements Builder {
         "import 'package:built_value/standard_json_plugin.dart';",
         "import 'package:dynamite_runtime/content_string.dart';",
         "import 'package:dynamite_runtime/http_client.dart';",
+        "import 'package:universal_io/io.dart';",
         '',
         "export 'package:dynamite_runtime/http_client.dart';",
         '',
@@ -113,37 +114,51 @@ class OpenAPIBuilder implements Builder {
           (final b) => b
             ..name = '${prefix}ApiException'
             ..extend = refer('DynamiteApiException')
-            ..constructors.addAll(
-              [
-                Constructor(
-                  (final b) => b
-                    ..requiredParameters.addAll(
-                      ['statusCode', 'headers', 'body'].map(
-                        (final name) => Parameter(
-                          (final b) => b
-                            ..name = name
-                            ..toSuper = true,
-                        ),
+            ..constructors.add(
+              Constructor(
+                (final b) => b
+                  ..requiredParameters.addAll(
+                    ['statusCode', 'headers', 'body'].map(
+                      (final name) => Parameter(
+                        (final b) => b
+                          ..name = name
+                          ..toSuper = true,
                       ),
                     ),
-                ),
-                Constructor(
-                  (final b) => b
-                    ..name = 'fromResponse'
-                    ..factory = true
-                    ..lambda = true
-                    ..requiredParameters.add(
-                      Parameter(
-                        (final b) => b
-                          ..name = 'response'
-                          ..type = refer('RawResponse'),
-                      ),
-                    )
-                    ..body = Code('${prefix}ApiException(response.statusCode, response.headers, response.body,)'),
-                ),
-              ],
+                  ),
+              ),
             )
-            ..methods.add(
+            ..methods.addAll([
+              Method(
+                (final b) => b
+                  ..name = 'fromResponse'
+                  ..returns = refer('Future<${prefix}ApiException>')
+                  ..static = true
+                  ..modifier = MethodModifier.async
+                  ..requiredParameters.add(
+                    Parameter(
+                      (final b) => b
+                        ..name = 'response'
+                        ..type = refer('HttpClientResponse'),
+                    ),
+                  )
+                  ..body = Block.of([
+                    const Code('final data = await response.bodyBytes;'),
+                    const Code(''),
+                    const Code('String body;'),
+                    const Code('try {'),
+                    const Code('body = utf8.decode(data);'),
+                    const Code('} on FormatException {'),
+                    const Code("body = 'binary';"),
+                    const Code('}'),
+                    const Code(''),
+                    Code('return ${prefix}ApiException('),
+                    const Code('response.statusCode,'),
+                    const Code('response.responseHeaders,'),
+                    const Code('body,'),
+                    const Code(');'),
+                  ]),
+              ),
               Method(
                 (final b) => b
                   ..name = 'toString'
@@ -151,10 +166,10 @@ class OpenAPIBuilder implements Builder {
                   ..annotations.add(refer('override'))
                   ..lambda = true
                   ..body = Code(
-                    "'${prefix}ApiException(statusCode: \${super.statusCode}, headers: \${super.headers}, body: \${utf8.decode(super.body)})'",
+                    "'${prefix}ApiException(statusCode: \$statusCode, headers: \$headers, body: \$body)'",
                   ),
               ),
-            ),
+            ]),
         ).accept(emitter).toString(),
       ];
 
@@ -715,16 +730,21 @@ class OpenAPIBuilder implements Builder {
 
                                     if (mimeType == '*/*' || mimeType.startsWith('image/')) {
                                       dataType = 'Uint8List';
-                                      dataValue = 'response.body';
+                                      dataValue = 'response.bodyBytes';
                                     } else if (mimeType.startsWith('text/')) {
                                       dataType = 'String';
-                                      dataValue = 'utf8.decode(response.body)';
+                                      dataValue = 'await response.body';
                                     } else if (mimeType == 'application/json') {
                                       dataType = result.name;
                                       if (result.name == 'dynamic') {
                                         dataValue = '';
+                                      } else if (result.name == 'String') {
+                                        // avoid unnecessary_await_in_return lint
+                                        dataValue = 'response.body';
+                                      } else if (result is TypeResultEnum || result is TypeResultBase) {
+                                        dataValue = result.deserialize(result.decode('await response.body'));
                                       } else {
-                                        dataValue = result.deserialize(result.decode('utf8.decode(response.body)'));
+                                        dataValue = result.deserialize('await response.jsonBody');
                                       }
                                     } else {
                                       throw Exception('Can not parse mime type "$mimeType"');
@@ -751,7 +771,7 @@ class OpenAPIBuilder implements Builder {
                                 code.write('}');
                               }
                               code.write(
-                                'throw ${prefix}ApiException.fromResponse(response); // coverage:ignore-line\n',
+                                'throw await ${prefix}ApiException.fromResponse(response); // coverage:ignore-line\n',
                               );
                             } else {
                               b.returns = refer('Future');

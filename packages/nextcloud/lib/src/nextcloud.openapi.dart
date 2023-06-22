@@ -10,6 +10,7 @@ import 'package:built_value/serializer.dart';
 import 'package:built_value/standard_json_plugin.dart';
 import 'package:dynamite_runtime/content_string.dart';
 import 'package:dynamite_runtime/http_client.dart';
+import 'package:universal_io/io.dart';
 
 export 'package:dynamite_runtime/http_client.dart';
 
@@ -32,15 +33,25 @@ class NextcloudApiException extends DynamiteApiException {
     super.body,
   );
 
-  factory NextcloudApiException.fromResponse(final RawResponse response) => NextcloudApiException(
-        response.statusCode,
-        response.headers,
-        response.body,
-      );
+  static Future<NextcloudApiException> fromResponse(final HttpClientResponse response) async {
+    final data = await response.bodyBytes;
+
+    String body;
+    try {
+      body = utf8.decode(data);
+    } on FormatException {
+      body = 'binary';
+    }
+
+    return NextcloudApiException(
+      response.statusCode,
+      response.responseHeaders,
+      body,
+    );
+  }
 
   @override
-  String toString() =>
-      'NextcloudApiException(statusCode: ${super.statusCode}, headers: ${super.headers}, body: ${utf8.decode(super.body)})';
+  String toString() => 'NextcloudApiException(statusCode: $statusCode, headers: $headers, body: $body)';
 }
 
 class NextcloudHttpBasicAuthentication extends DynamiteAuthentication {
@@ -100,11 +111,11 @@ class NextcloudCoreClient {
     );
     if (response.statusCode == 200) {
       return jsonSerializers.deserialize(
-        json.decode(utf8.decode(response.body)),
+        await response.jsonBody,
         specifiedType: const FullType(NextcloudCoreServerStatus),
       )! as NextcloudCoreServerStatus;
     }
-    throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
+    throw await NextcloudApiException.fromResponse(response); // coverage:ignore-line
   }
 
   Future<NextcloudCoreServerCapabilities> getCapabilities() async {
@@ -127,11 +138,11 @@ class NextcloudCoreClient {
     );
     if (response.statusCode == 200) {
       return jsonSerializers.deserialize(
-        json.decode(utf8.decode(response.body)),
+        await response.jsonBody,
         specifiedType: const FullType(NextcloudCoreServerCapabilities),
       )! as NextcloudCoreServerCapabilities;
     }
-    throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
+    throw await NextcloudApiException.fromResponse(response); // coverage:ignore-line
   }
 
   Future<NextcloudCoreNavigationApps> getNavigationApps() async {
@@ -154,11 +165,11 @@ class NextcloudCoreClient {
     );
     if (response.statusCode == 200) {
       return jsonSerializers.deserialize(
-        json.decode(utf8.decode(response.body)),
+        await response.jsonBody,
         specifiedType: const FullType(NextcloudCoreNavigationApps),
       )! as NextcloudCoreNavigationApps;
     }
-    throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
+    throw await NextcloudApiException.fromResponse(response); // coverage:ignore-line
   }
 
   Future<NextcloudCoreLoginFlowInit> initLoginFlow() async {
@@ -176,11 +187,11 @@ class NextcloudCoreClient {
     );
     if (response.statusCode == 200) {
       return jsonSerializers.deserialize(
-        json.decode(utf8.decode(response.body)),
+        await response.jsonBody,
         specifiedType: const FullType(NextcloudCoreLoginFlowInit),
       )! as NextcloudCoreLoginFlowInit;
     }
-    throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
+    throw await NextcloudApiException.fromResponse(response); // coverage:ignore-line
   }
 
   Future<NextcloudCoreLoginFlowResult> getLoginFlowResult({required final String token}) async {
@@ -199,11 +210,11 @@ class NextcloudCoreClient {
     );
     if (response.statusCode == 200) {
       return jsonSerializers.deserialize(
-        json.decode(utf8.decode(response.body)),
+        await response.jsonBody,
         specifiedType: const FullType(NextcloudCoreLoginFlowResult),
       )! as NextcloudCoreLoginFlowResult;
     }
-    throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
+    throw await NextcloudApiException.fromResponse(response); // coverage:ignore-line
   }
 
   Future<Uint8List> getPreview({
@@ -250,9 +261,9 @@ class NextcloudCoreClient {
       body,
     );
     if (response.statusCode == 200) {
-      return response.body;
+      return response.bodyBytes;
     }
-    throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
+    throw await NextcloudApiException.fromResponse(response); // coverage:ignore-line
   }
 
   Future<Uint8List> getDarkAvatar({
@@ -279,9 +290,9 @@ class NextcloudCoreClient {
       body,
     );
     if (response.statusCode == 200) {
-      return response.body;
+      return response.bodyBytes;
     }
-    throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
+    throw await NextcloudApiException.fromResponse(response); // coverage:ignore-line
   }
 
   Future<Uint8List> getAvatar({
@@ -308,9 +319,9 @@ class NextcloudCoreClient {
       body,
     );
     if (response.statusCode == 200) {
-      return response.body;
+      return response.bodyBytes;
     }
-    throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
+    throw await NextcloudApiException.fromResponse(response); // coverage:ignore-line
   }
 
   Future<NextcloudCoreAutocompleteResult> autocomplete({
@@ -350,11 +361,11 @@ class NextcloudCoreClient {
     );
     if (response.statusCode == 200) {
       return jsonSerializers.deserialize(
-        json.decode(utf8.decode(response.body)),
+        await response.jsonBody,
         specifiedType: const FullType(NextcloudCoreAutocompleteResult),
       )! as NextcloudCoreAutocompleteResult;
     }
-    throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
+    throw await NextcloudApiException.fromResponse(response); // coverage:ignore-line
   }
 
   Future<JsonObject> deleteAppPassword() async {
@@ -376,9 +387,9 @@ class NextcloudCoreClient {
       body,
     );
     if (response.statusCode == 200) {
-      return JsonObject(utf8.decode(response.body));
+      return JsonObject(await response.body);
     }
-    throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
+    throw await NextcloudApiException.fromResponse(response); // coverage:ignore-line
   }
 }
 
@@ -407,11 +418,11 @@ class NextcloudNewsClient {
     );
     if (response.statusCode == 200) {
       return jsonSerializers.deserialize(
-        json.decode(utf8.decode(response.body)),
+        await response.jsonBody,
         specifiedType: const FullType(NextcloudNewsSupportedAPIVersions),
       )! as NextcloudNewsSupportedAPIVersions;
     }
-    throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
+    throw await NextcloudApiException.fromResponse(response); // coverage:ignore-line
   }
 
   Future<NextcloudNewsListFolders> listFolders() async {
@@ -434,11 +445,11 @@ class NextcloudNewsClient {
     );
     if (response.statusCode == 200) {
       return jsonSerializers.deserialize(
-        json.decode(utf8.decode(response.body)),
+        await response.jsonBody,
         specifiedType: const FullType(NextcloudNewsListFolders),
       )! as NextcloudNewsListFolders;
     }
-    throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
+    throw await NextcloudApiException.fromResponse(response); // coverage:ignore-line
   }
 
   Future<NextcloudNewsListFolders> createFolder({required final String name}) async {
@@ -462,11 +473,11 @@ class NextcloudNewsClient {
     );
     if (response.statusCode == 200) {
       return jsonSerializers.deserialize(
-        json.decode(utf8.decode(response.body)),
+        await response.jsonBody,
         specifiedType: const FullType(NextcloudNewsListFolders),
       )! as NextcloudNewsListFolders;
     }
-    throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
+    throw await NextcloudApiException.fromResponse(response); // coverage:ignore-line
   }
 
   Future renameFolder({
@@ -493,7 +504,7 @@ class NextcloudNewsClient {
     if (response.statusCode == 200) {
       return;
     }
-    throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
+    throw await NextcloudApiException.fromResponse(response); // coverage:ignore-line
   }
 
   Future deleteFolder({required final int folderId}) async {
@@ -516,7 +527,7 @@ class NextcloudNewsClient {
     if (response.statusCode == 200) {
       return;
     }
-    throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
+    throw await NextcloudApiException.fromResponse(response); // coverage:ignore-line
   }
 
   Future markFolderAsRead({
@@ -543,7 +554,7 @@ class NextcloudNewsClient {
     if (response.statusCode == 200) {
       return;
     }
-    throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
+    throw await NextcloudApiException.fromResponse(response); // coverage:ignore-line
   }
 
   Future<NextcloudNewsListFeeds> listFeeds() async {
@@ -566,11 +577,11 @@ class NextcloudNewsClient {
     );
     if (response.statusCode == 200) {
       return jsonSerializers.deserialize(
-        json.decode(utf8.decode(response.body)),
+        await response.jsonBody,
         specifiedType: const FullType(NextcloudNewsListFeeds),
       )! as NextcloudNewsListFeeds;
     }
-    throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
+    throw await NextcloudApiException.fromResponse(response); // coverage:ignore-line
   }
 
   Future<NextcloudNewsListFeeds> addFeed({
@@ -600,11 +611,11 @@ class NextcloudNewsClient {
     );
     if (response.statusCode == 200) {
       return jsonSerializers.deserialize(
-        json.decode(utf8.decode(response.body)),
+        await response.jsonBody,
         specifiedType: const FullType(NextcloudNewsListFeeds),
       )! as NextcloudNewsListFeeds;
     }
-    throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
+    throw await NextcloudApiException.fromResponse(response); // coverage:ignore-line
   }
 
   Future deleteFeed({required final int feedId}) async {
@@ -627,7 +638,7 @@ class NextcloudNewsClient {
     if (response.statusCode == 200) {
       return;
     }
-    throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
+    throw await NextcloudApiException.fromResponse(response); // coverage:ignore-line
   }
 
   Future moveFeed({
@@ -656,7 +667,7 @@ class NextcloudNewsClient {
     if (response.statusCode == 200) {
       return;
     }
-    throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
+    throw await NextcloudApiException.fromResponse(response); // coverage:ignore-line
   }
 
   Future renameFeed({
@@ -683,7 +694,7 @@ class NextcloudNewsClient {
     if (response.statusCode == 200) {
       return;
     }
-    throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
+    throw await NextcloudApiException.fromResponse(response); // coverage:ignore-line
   }
 
   Future markFeedAsRead({
@@ -710,7 +721,7 @@ class NextcloudNewsClient {
     if (response.statusCode == 200) {
       return;
     }
-    throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
+    throw await NextcloudApiException.fromResponse(response); // coverage:ignore-line
   }
 
   Future<NextcloudNewsListArticles> listArticles({
@@ -758,11 +769,11 @@ class NextcloudNewsClient {
     );
     if (response.statusCode == 200) {
       return jsonSerializers.deserialize(
-        json.decode(utf8.decode(response.body)),
+        await response.jsonBody,
         specifiedType: const FullType(NextcloudNewsListArticles),
       )! as NextcloudNewsListArticles;
     }
-    throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
+    throw await NextcloudApiException.fromResponse(response); // coverage:ignore-line
   }
 
   Future<NextcloudNewsListArticles> listUpdatedArticles({
@@ -798,11 +809,11 @@ class NextcloudNewsClient {
     );
     if (response.statusCode == 200) {
       return jsonSerializers.deserialize(
-        json.decode(utf8.decode(response.body)),
+        await response.jsonBody,
         specifiedType: const FullType(NextcloudNewsListArticles),
       )! as NextcloudNewsListArticles;
     }
-    throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
+    throw await NextcloudApiException.fromResponse(response); // coverage:ignore-line
   }
 
   Future markArticleAsRead({required final int itemId}) async {
@@ -825,7 +836,7 @@ class NextcloudNewsClient {
     if (response.statusCode == 200) {
       return;
     }
-    throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
+    throw await NextcloudApiException.fromResponse(response); // coverage:ignore-line
   }
 
   Future markArticleAsUnread({required final int itemId}) async {
@@ -848,7 +859,7 @@ class NextcloudNewsClient {
     if (response.statusCode == 200) {
       return;
     }
-    throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
+    throw await NextcloudApiException.fromResponse(response); // coverage:ignore-line
   }
 
   Future starArticle({required final int itemId}) async {
@@ -871,7 +882,7 @@ class NextcloudNewsClient {
     if (response.statusCode == 200) {
       return;
     }
-    throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
+    throw await NextcloudApiException.fromResponse(response); // coverage:ignore-line
   }
 
   Future unstarArticle({required final int itemId}) async {
@@ -894,7 +905,7 @@ class NextcloudNewsClient {
     if (response.statusCode == 200) {
       return;
     }
-    throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
+    throw await NextcloudApiException.fromResponse(response); // coverage:ignore-line
   }
 }
 
@@ -948,11 +959,11 @@ class NextcloudNotesClient {
     );
     if (response.statusCode == 200) {
       return jsonSerializers.deserialize(
-        json.decode(utf8.decode(response.body)),
+        await response.jsonBody,
         specifiedType: const FullType(BuiltList, [FullType(NextcloudNotesNote)]),
       )! as BuiltList<NextcloudNotesNote>;
     }
-    throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
+    throw await NextcloudApiException.fromResponse(response); // coverage:ignore-line
   }
 
   Future<NextcloudNotesNote> createNote({
@@ -995,12 +1006,10 @@ class NextcloudNotesClient {
       body,
     );
     if (response.statusCode == 200) {
-      return jsonSerializers.deserialize(
-        json.decode(utf8.decode(response.body)),
-        specifiedType: const FullType(NextcloudNotesNote),
-      )! as NextcloudNotesNote;
+      return jsonSerializers.deserialize(await response.jsonBody, specifiedType: const FullType(NextcloudNotesNote))!
+          as NextcloudNotesNote;
     }
-    throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
+    throw await NextcloudApiException.fromResponse(response); // coverage:ignore-line
   }
 
   Future<NextcloudNotesNote> getNote({
@@ -1033,12 +1042,10 @@ class NextcloudNotesClient {
       body,
     );
     if (response.statusCode == 200) {
-      return jsonSerializers.deserialize(
-        json.decode(utf8.decode(response.body)),
-        specifiedType: const FullType(NextcloudNotesNote),
-      )! as NextcloudNotesNote;
+      return jsonSerializers.deserialize(await response.jsonBody, specifiedType: const FullType(NextcloudNotesNote))!
+          as NextcloudNotesNote;
     }
-    throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
+    throw await NextcloudApiException.fromResponse(response); // coverage:ignore-line
   }
 
   Future<NextcloudNotesNote> updateNote({
@@ -1087,12 +1094,10 @@ class NextcloudNotesClient {
       body,
     );
     if (response.statusCode == 200) {
-      return jsonSerializers.deserialize(
-        json.decode(utf8.decode(response.body)),
-        specifiedType: const FullType(NextcloudNotesNote),
-      )! as NextcloudNotesNote;
+      return jsonSerializers.deserialize(await response.jsonBody, specifiedType: const FullType(NextcloudNotesNote))!
+          as NextcloudNotesNote;
     }
-    throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
+    throw await NextcloudApiException.fromResponse(response); // coverage:ignore-line
   }
 
   Future<String> deleteNote({required final int id}) async {
@@ -1115,9 +1120,9 @@ class NextcloudNotesClient {
       body,
     );
     if (response.statusCode == 200) {
-      return utf8.decode(response.body);
+      return response.body;
     }
-    throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
+    throw await NextcloudApiException.fromResponse(response); // coverage:ignore-line
   }
 
   Future<NextcloudNotesSettings> getSettings() async {
@@ -1140,11 +1145,11 @@ class NextcloudNotesClient {
     );
     if (response.statusCode == 200) {
       return jsonSerializers.deserialize(
-        json.decode(utf8.decode(response.body)),
+        await response.jsonBody,
         specifiedType: const FullType(NextcloudNotesSettings),
       )! as NextcloudNotesSettings;
     }
-    throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
+    throw await NextcloudApiException.fromResponse(response); // coverage:ignore-line
   }
 
   Future<NextcloudNotesSettings> updateSettings({required final NextcloudNotesSettings notesSettings}) async {
@@ -1173,11 +1178,11 @@ class NextcloudNotesClient {
     );
     if (response.statusCode == 200) {
       return jsonSerializers.deserialize(
-        json.decode(utf8.decode(response.body)),
+        await response.jsonBody,
         specifiedType: const FullType(NextcloudNotesSettings),
       )! as NextcloudNotesSettings;
     }
-    throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
+    throw await NextcloudApiException.fromResponse(response); // coverage:ignore-line
   }
 }
 
@@ -1206,11 +1211,11 @@ class NextcloudNotificationsClient {
     );
     if (response.statusCode == 200) {
       return jsonSerializers.deserialize(
-        json.decode(utf8.decode(response.body)),
+        await response.jsonBody,
         specifiedType: const FullType(NextcloudNotificationsListNotifications),
       )! as NextcloudNotificationsListNotifications;
     }
-    throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
+    throw await NextcloudApiException.fromResponse(response); // coverage:ignore-line
   }
 
   Future<String> deleteAllNotifications() async {
@@ -1232,9 +1237,9 @@ class NextcloudNotificationsClient {
       body,
     );
     if (response.statusCode == 200) {
-      return utf8.decode(response.body);
+      return response.body;
     }
-    throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
+    throw await NextcloudApiException.fromResponse(response); // coverage:ignore-line
   }
 
   Future<NextcloudNotificationsGetNotification> getNotification({required final int id}) async {
@@ -1258,11 +1263,11 @@ class NextcloudNotificationsClient {
     );
     if (response.statusCode == 200) {
       return jsonSerializers.deserialize(
-        json.decode(utf8.decode(response.body)),
+        await response.jsonBody,
         specifiedType: const FullType(NextcloudNotificationsGetNotification),
       )! as NextcloudNotificationsGetNotification;
     }
-    throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
+    throw await NextcloudApiException.fromResponse(response); // coverage:ignore-line
   }
 
   Future<NextcloudEmptyOCS> deleteNotification({required final int id}) async {
@@ -1285,12 +1290,10 @@ class NextcloudNotificationsClient {
       body,
     );
     if (response.statusCode == 200) {
-      return jsonSerializers.deserialize(
-        json.decode(utf8.decode(response.body)),
-        specifiedType: const FullType(NextcloudEmptyOCS),
-      )! as NextcloudEmptyOCS;
+      return jsonSerializers.deserialize(await response.jsonBody, specifiedType: const FullType(NextcloudEmptyOCS))!
+          as NextcloudEmptyOCS;
     }
-    throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
+    throw await NextcloudApiException.fromResponse(response); // coverage:ignore-line
   }
 
   Future<NextcloudNotificationsPushServerRegistration> registerDevice({
@@ -1320,11 +1323,11 @@ class NextcloudNotificationsClient {
     );
     if (response.statusCode == 201) {
       return jsonSerializers.deserialize(
-        json.decode(utf8.decode(response.body)),
+        await response.jsonBody,
         specifiedType: const FullType(NextcloudNotificationsPushServerRegistration),
       )! as NextcloudNotificationsPushServerRegistration;
     }
-    throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
+    throw await NextcloudApiException.fromResponse(response); // coverage:ignore-line
   }
 
   Future<String> removeDevice() async {
@@ -1346,9 +1349,9 @@ class NextcloudNotificationsClient {
       body,
     );
     if (response.statusCode == 202) {
-      return utf8.decode(response.body);
+      return response.body;
     }
-    throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
+    throw await NextcloudApiException.fromResponse(response); // coverage:ignore-line
   }
 
   Future<NextcloudEmptyOCS> sendAdminNotification({
@@ -1379,12 +1382,10 @@ class NextcloudNotificationsClient {
       body,
     );
     if (response.statusCode == 200) {
-      return jsonSerializers.deserialize(
-        json.decode(utf8.decode(response.body)),
-        specifiedType: const FullType(NextcloudEmptyOCS),
-      )! as NextcloudEmptyOCS;
+      return jsonSerializers.deserialize(await response.jsonBody, specifiedType: const FullType(NextcloudEmptyOCS))!
+          as NextcloudEmptyOCS;
     }
-    throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
+    throw await NextcloudApiException.fromResponse(response); // coverage:ignore-line
   }
 }
 
@@ -1413,11 +1414,11 @@ class NextcloudProvisioningApiClient {
     );
     if (response.statusCode == 200) {
       return jsonSerializers.deserialize(
-        json.decode(utf8.decode(response.body)),
+        await response.jsonBody,
         specifiedType: const FullType(NextcloudProvisioningApiUser),
       )! as NextcloudProvisioningApiUser;
     }
-    throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
+    throw await NextcloudApiException.fromResponse(response); // coverage:ignore-line
   }
 
   Future<NextcloudProvisioningApiUser> getUser({required final String userId}) async {
@@ -1441,11 +1442,11 @@ class NextcloudProvisioningApiClient {
     );
     if (response.statusCode == 200) {
       return jsonSerializers.deserialize(
-        json.decode(utf8.decode(response.body)),
+        await response.jsonBody,
         specifiedType: const FullType(NextcloudProvisioningApiUser),
       )! as NextcloudProvisioningApiUser;
     }
-    throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
+    throw await NextcloudApiException.fromResponse(response); // coverage:ignore-line
   }
 }
 
@@ -1475,11 +1476,11 @@ class NextcloudUnifiedPushProviderClient {
     );
     if (response.statusCode == 200) {
       return jsonSerializers.deserialize(
-        json.decode(utf8.decode(response.body)),
+        await response.jsonBody,
         specifiedType: const FullType(NextcloudUnifiedPushProviderCheckResponse200ApplicationJson),
       )! as NextcloudUnifiedPushProviderCheckResponse200ApplicationJson;
     }
-    throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
+    throw await NextcloudApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Set keepalive interval
@@ -1508,11 +1509,11 @@ class NextcloudUnifiedPushProviderClient {
     );
     if (response.statusCode == 200) {
       return jsonSerializers.deserialize(
-        json.decode(utf8.decode(response.body)),
+        await response.jsonBody,
         specifiedType: const FullType(NextcloudUnifiedPushProviderSetKeepaliveResponse200ApplicationJson),
       )! as NextcloudUnifiedPushProviderSetKeepaliveResponse200ApplicationJson;
     }
-    throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
+    throw await NextcloudApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Request to create a new deviceId
@@ -1539,11 +1540,11 @@ class NextcloudUnifiedPushProviderClient {
     );
     if (response.statusCode == 200) {
       return jsonSerializers.deserialize(
-        json.decode(utf8.decode(response.body)),
+        await response.jsonBody,
         specifiedType: const FullType(NextcloudUnifiedPushProviderCreateDeviceResponse200ApplicationJson),
       )! as NextcloudUnifiedPushProviderCreateDeviceResponse200ApplicationJson;
     }
-    throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
+    throw await NextcloudApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Request to get push messages
@@ -1572,11 +1573,11 @@ class NextcloudUnifiedPushProviderClient {
     );
     if (response.statusCode == 401) {
       return jsonSerializers.deserialize(
-        json.decode(utf8.decode(response.body)),
+        await response.jsonBody,
         specifiedType: const FullType(NextcloudUnifiedPushProviderSyncDeviceResponse401ApplicationJson),
       )! as NextcloudUnifiedPushProviderSyncDeviceResponse401ApplicationJson;
     }
-    throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
+    throw await NextcloudApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Delete a device
@@ -1603,11 +1604,11 @@ class NextcloudUnifiedPushProviderClient {
     );
     if (response.statusCode == 200) {
       return jsonSerializers.deserialize(
-        json.decode(utf8.decode(response.body)),
+        await response.jsonBody,
         specifiedType: const FullType(NextcloudUnifiedPushProviderDeleteDeviceResponse200ApplicationJson),
       )! as NextcloudUnifiedPushProviderDeleteDeviceResponse200ApplicationJson;
     }
-    throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
+    throw await NextcloudApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Create an authorization token for a new 3rd party service
@@ -1636,11 +1637,11 @@ class NextcloudUnifiedPushProviderClient {
     );
     if (response.statusCode == 200) {
       return jsonSerializers.deserialize(
-        json.decode(utf8.decode(response.body)),
+        await response.jsonBody,
         specifiedType: const FullType(NextcloudUnifiedPushProviderCreateAppResponse200ApplicationJson),
       )! as NextcloudUnifiedPushProviderCreateAppResponse200ApplicationJson;
     }
-    throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
+    throw await NextcloudApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Delete an authorization token
@@ -1667,11 +1668,11 @@ class NextcloudUnifiedPushProviderClient {
     );
     if (response.statusCode == 200) {
       return jsonSerializers.deserialize(
-        json.decode(utf8.decode(response.body)),
+        await response.jsonBody,
         specifiedType: const FullType(NextcloudUnifiedPushProviderDeleteAppResponse200ApplicationJson),
       )! as NextcloudUnifiedPushProviderDeleteAppResponse200ApplicationJson;
     }
-    throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
+    throw await NextcloudApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Unifiedpush discovery Following specifications
@@ -1698,11 +1699,11 @@ class NextcloudUnifiedPushProviderClient {
     );
     if (response.statusCode == 200) {
       return jsonSerializers.deserialize(
-        json.decode(utf8.decode(response.body)),
+        await response.jsonBody,
         specifiedType: const FullType(NextcloudUnifiedPushProviderUnifiedpushDiscoveryResponse200ApplicationJson),
       )! as NextcloudUnifiedPushProviderUnifiedpushDiscoveryResponse200ApplicationJson;
     }
-    throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
+    throw await NextcloudApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Receive notifications from 3rd parties
@@ -1727,11 +1728,11 @@ class NextcloudUnifiedPushProviderClient {
     );
     if (response.statusCode == 201) {
       return jsonSerializers.deserialize(
-        json.decode(utf8.decode(response.body)),
+        await response.jsonBody,
         specifiedType: const FullType(NextcloudUnifiedPushProviderPushResponse201ApplicationJson),
       )! as NextcloudUnifiedPushProviderPushResponse201ApplicationJson;
     }
-    throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
+    throw await NextcloudApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Matrix Gateway discovery
@@ -1755,11 +1756,11 @@ class NextcloudUnifiedPushProviderClient {
     );
     if (response.statusCode == 200) {
       return jsonSerializers.deserialize(
-        json.decode(utf8.decode(response.body)),
+        await response.jsonBody,
         specifiedType: const FullType(NextcloudUnifiedPushProviderGatewayMatrixDiscoveryResponse200ApplicationJson),
       )! as NextcloudUnifiedPushProviderGatewayMatrixDiscoveryResponse200ApplicationJson;
     }
-    throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
+    throw await NextcloudApiException.fromResponse(response); // coverage:ignore-line
   }
 
   /// Matrix Gateway
@@ -1783,11 +1784,11 @@ class NextcloudUnifiedPushProviderClient {
     );
     if (response.statusCode == 200) {
       return jsonSerializers.deserialize(
-        json.decode(utf8.decode(response.body)),
+        await response.jsonBody,
         specifiedType: const FullType(NextcloudUnifiedPushProviderGatewayMatrixResponse200ApplicationJson),
       )! as NextcloudUnifiedPushProviderGatewayMatrixResponse200ApplicationJson;
     }
-    throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
+    throw await NextcloudApiException.fromResponse(response); // coverage:ignore-line
   }
 }
 
@@ -1816,11 +1817,11 @@ class NextcloudUserStatusClient {
     );
     if (response.statusCode == 200) {
       return jsonSerializers.deserialize(
-        json.decode(utf8.decode(response.body)),
+        await response.jsonBody,
         specifiedType: const FullType(NextcloudUserStatusGetPublicStatuses),
       )! as NextcloudUserStatusGetPublicStatuses;
     }
-    throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
+    throw await NextcloudApiException.fromResponse(response); // coverage:ignore-line
   }
 
   Future<NextcloudUserStatusGetPublicStatus> getPublicStatus({required final String userId}) async {
@@ -1844,11 +1845,11 @@ class NextcloudUserStatusClient {
     );
     if (response.statusCode == 200) {
       return jsonSerializers.deserialize(
-        json.decode(utf8.decode(response.body)),
+        await response.jsonBody,
         specifiedType: const FullType(NextcloudUserStatusGetPublicStatus),
       )! as NextcloudUserStatusGetPublicStatus;
     }
-    throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
+    throw await NextcloudApiException.fromResponse(response); // coverage:ignore-line
   }
 
   Future<NextcloudUserStatusGetStatus> getStatus() async {
@@ -1871,11 +1872,11 @@ class NextcloudUserStatusClient {
     );
     if (response.statusCode == 200) {
       return jsonSerializers.deserialize(
-        json.decode(utf8.decode(response.body)),
+        await response.jsonBody,
         specifiedType: const FullType(NextcloudUserStatusGetStatus),
       )! as NextcloudUserStatusGetStatus;
     }
-    throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
+    throw await NextcloudApiException.fromResponse(response); // coverage:ignore-line
   }
 
   Future<NextcloudUserStatusGetStatus> setStatus({required final NextcloudUserStatusType statusType}) async {
@@ -1899,11 +1900,11 @@ class NextcloudUserStatusClient {
     );
     if (response.statusCode == 200) {
       return jsonSerializers.deserialize(
-        json.decode(utf8.decode(response.body)),
+        await response.jsonBody,
         specifiedType: const FullType(NextcloudUserStatusGetStatus),
       )! as NextcloudUserStatusGetStatus;
     }
-    throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
+    throw await NextcloudApiException.fromResponse(response); // coverage:ignore-line
   }
 
   Future<NextcloudUserStatusGetStatus> setPredefinedMessage({
@@ -1933,11 +1934,11 @@ class NextcloudUserStatusClient {
     );
     if (response.statusCode == 200) {
       return jsonSerializers.deserialize(
-        json.decode(utf8.decode(response.body)),
+        await response.jsonBody,
         specifiedType: const FullType(NextcloudUserStatusGetStatus),
       )! as NextcloudUserStatusGetStatus;
     }
-    throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
+    throw await NextcloudApiException.fromResponse(response); // coverage:ignore-line
   }
 
   Future<NextcloudUserStatusGetStatus> setCustomMessage({
@@ -1973,11 +1974,11 @@ class NextcloudUserStatusClient {
     );
     if (response.statusCode == 200) {
       return jsonSerializers.deserialize(
-        json.decode(utf8.decode(response.body)),
+        await response.jsonBody,
         specifiedType: const FullType(NextcloudUserStatusGetStatus),
       )! as NextcloudUserStatusGetStatus;
     }
-    throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
+    throw await NextcloudApiException.fromResponse(response); // coverage:ignore-line
   }
 
   Future clearMessage() async {
@@ -1999,7 +2000,7 @@ class NextcloudUserStatusClient {
     if (response.statusCode == 200) {
       return;
     }
-    throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
+    throw await NextcloudApiException.fromResponse(response); // coverage:ignore-line
   }
 
   Future<NextcloudUserStatusPredefinedStatuses> getPredefinedStatuses() async {
@@ -2022,11 +2023,11 @@ class NextcloudUserStatusClient {
     );
     if (response.statusCode == 200) {
       return jsonSerializers.deserialize(
-        json.decode(utf8.decode(response.body)),
+        await response.jsonBody,
         specifiedType: const FullType(NextcloudUserStatusPredefinedStatuses),
       )! as NextcloudUserStatusPredefinedStatuses;
     }
-    throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
+    throw await NextcloudApiException.fromResponse(response); // coverage:ignore-line
   }
 
   Future<NextcloudUserStatusHeartbeat> heartbeat({required final NextcloudUserStatusType status}) async {
@@ -2050,11 +2051,11 @@ class NextcloudUserStatusClient {
     );
     if (response.statusCode == 200) {
       return jsonSerializers.deserialize(
-        json.decode(utf8.decode(response.body)),
+        await response.jsonBody,
         specifiedType: const FullType(NextcloudUserStatusHeartbeat),
       )! as NextcloudUserStatusHeartbeat;
     }
-    throw NextcloudApiException.fromResponse(response); // coverage:ignore-line
+    throw await NextcloudApiException.fromResponse(response); // coverage:ignore-line
   }
 }
 
