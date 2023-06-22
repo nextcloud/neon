@@ -8,58 +8,24 @@ import 'package:built_value/built_value.dart';
 import 'package:built_value/json_object.dart';
 import 'package:built_value/serializer.dart';
 import 'package:built_value/standard_json_plugin.dart';
-import 'package:cookie_jar/cookie_jar.dart';
 import 'package:dynamite_runtime/content_string.dart';
-import 'package:universal_io/io.dart';
+import 'package:dynamite_runtime/http_client.dart';
 
-export 'package:cookie_jar/cookie_jar.dart';
+export 'package:dynamite_runtime/http_client.dart';
 
 part 'nextcloud.openapi.g.dart';
 
-extension NextcloudHttpClientResponseBody on HttpClientResponse {
-  Future<Uint8List> get bodyBytes async {
-    final chunks = await toList();
-    if (chunks.isEmpty) {
-      return Uint8List(0);
-    }
-    return Uint8List.fromList(chunks.reduce((final value, final element) => [...value, ...element]));
-  }
-
-  Future<String> get body async => utf8.decode(await bodyBytes);
-}
-
-class NextcloudResponse<T, U> {
+class NextcloudResponse<T, U> extends DynamiteResponse<T, U> {
   NextcloudResponse(
-    this.data,
-    this.headers,
+    super.data,
+    super.headers,
   );
-
-  final T data;
-
-  final U headers;
 
   @override
   String toString() => 'NextcloudResponse(data: $data, headers: $headers)';
 }
 
-class RawResponse {
-  RawResponse(
-    this.statusCode,
-    this.headers,
-    this.body,
-  );
-
-  final int statusCode;
-
-  final Map<String, String> headers;
-
-  final Uint8List body;
-
-  @override
-  String toString() => 'RawResponse(statusCode: $statusCode, headers: $headers, body: ${utf8.decode(body)})';
-}
-
-class NextcloudApiException extends RawResponse implements Exception {
+class NextcloudApiException extends DynamiteApiException {
   NextcloudApiException(
     super.statusCode,
     super.headers,
@@ -77,12 +43,7 @@ class NextcloudApiException extends RawResponse implements Exception {
       'NextcloudApiException(statusCode: ${super.statusCode}, headers: ${super.headers}, body: ${utf8.decode(super.body)})';
 }
 
-abstract class NextcloudAuthentication {
-  String get id;
-  Map<String, String> get headers;
-}
-
-class NextcloudHttpBasicAuthentication extends NextcloudAuthentication {
+class NextcloudHttpBasicAuthentication extends DynamiteAuthentication {
   NextcloudHttpBasicAuthentication({
     required this.username,
     required this.password,
@@ -100,63 +61,15 @@ class NextcloudHttpBasicAuthentication extends NextcloudAuthentication {
       };
 }
 
-class NextcloudClient {
+class NextcloudClient extends DynamiteClient {
   NextcloudClient(
-    this.baseURL, {
-    final Map<String, String>? baseHeaders,
-    final String? userAgent,
-    final HttpClient? httpClient,
-    this.cookieJar,
-    this.authentications = const [],
-  }) {
-    this.baseHeaders = {
-      ...?baseHeaders,
-    };
-    this.httpClient = (httpClient ?? HttpClient())..userAgent = userAgent;
-  }
-
-  final String baseURL;
-
-  late final Map<String, String> baseHeaders;
-
-  late final HttpClient httpClient;
-
-  final CookieJar? cookieJar;
-
-  final List<NextcloudAuthentication> authentications;
-
-  Future<RawResponse> doRequest(
-    final String method,
-    final String path,
-    final Map<String, String> headers,
-    final Uint8List? body,
-  ) async {
-    final uri = Uri.parse('$baseURL$path');
-    final request = await httpClient.openUrl(method, uri);
-    for (final header in {...baseHeaders, ...headers}.entries) {
-      request.headers.add(header.key, header.value);
-    }
-    if (body != null) {
-      request.add(body.toList());
-    }
-    if (cookieJar != null) {
-      request.cookies.addAll(await cookieJar!.loadForRequest(uri));
-    }
-
-    final response = await request.close();
-    if (cookieJar != null) {
-      await cookieJar!.saveFromResponse(uri, response.cookies);
-    }
-    final responseHeaders = <String, String>{};
-    response.headers.forEach((final name, final values) {
-      responseHeaders[name] = values.last;
-    });
-    return RawResponse(
-      response.statusCode,
-      responseHeaders,
-      await response.bodyBytes,
-    );
-  }
+    super.baseURL, {
+    super.baseHeaders,
+    super.userAgent,
+    super.httpClient,
+    super.cookieJar,
+    super.authentications,
+  });
 
   NextcloudCoreClient get core => NextcloudCoreClient(this);
   NextcloudNewsClient get news => NextcloudNewsClient(this);
