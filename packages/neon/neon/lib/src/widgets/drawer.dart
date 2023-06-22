@@ -61,7 +61,7 @@ class __NeonDrawerState extends State<_NeonDrawer> with SingleTickerProviderStat
     _appsBloc = _accountsBloc.activeAppsBloc;
 
     _apps = widget.apps.toList();
-    _activeApp = _apps.indexWhere((final app) => app.id == _appsBloc.activeAppID.valueOrNull);
+    _activeApp = _apps.indexWhere((final app) => app.id == _appsBloc.activeApp.valueOrNull?.id);
 
     _tabController = TabController(
       vsync: this,

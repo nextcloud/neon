@@ -100,9 +100,9 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(final BuildContext context) => ResultBuilder<Iterable<AppImplementation>>.behaviorSubject(
         stream: _appsBloc.appImplementations,
-        builder: (final context, final appImplementations) => StreamBuilder<String>(
-          stream: _appsBloc.activeAppID,
-          builder: (final context, final activeAppIDSnapshot) => OptionBuilder<NavigationMode>(
+        builder: (final context, final appImplementations) => StreamBuilder<AppImplementation>(
+          stream: _appsBloc.activeApp,
+          builder: (final context, final activeAppSnapshot) => OptionBuilder<NavigationMode>(
             option: _globalOptions.navigationMode,
             builder: (final context, final navigationMode) {
               final drawerAlwaysVisible = navigationMode == NavigationMode.drawerAlwaysVisible;
@@ -124,9 +124,9 @@ class _HomePageState extends State<HomePage> {
                           ),
                         ),
                       ] else ...[
-                        if (activeAppIDSnapshot.hasData) ...[
+                        if (activeAppSnapshot.hasData) ...[
                           Expanded(
-                            child: appImplementations.requireData.find(activeAppIDSnapshot.requireData).page,
+                            child: activeAppSnapshot.requireData.page,
                           ),
                         ],
                       ],

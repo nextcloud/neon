@@ -13,7 +13,7 @@ abstract class AppsBlocStates {
 
   BehaviorSubject<Result<NotificationsAppInterface?>> get notificationsAppImplementation;
 
-  BehaviorSubject<String> get activeAppID;
+  BehaviorSubject<AppImplementation> get activeApp;
 
   BehaviorSubject get openNotifications;
 
@@ -47,8 +47,8 @@ class AppsBloc extends InteractiveBloc implements AppsBlocEvents, AppsBlocStates
                 initialApp = result.requireData.first.id;
               }
             }
-            if (!activeAppID.hasValue) {
-              await setActiveApp(initialApp!);
+            if (!activeApp.hasValue && initialApp != null) {
+              await setActiveApp(initialApp);
             }
           }),
         );
@@ -132,7 +132,7 @@ class AppsBloc extends InteractiveBloc implements AppsBlocEvents, AppsBlocStates
     unawaited(apps.close());
     unawaited(appImplementations.close());
     unawaited(notificationsAppImplementation.close());
-    unawaited(activeAppID.close());
+    unawaited(activeApp.close());
     unawaited(openNotifications.close());
     unawaited(appVersions.close());
 
@@ -144,7 +144,7 @@ class AppsBloc extends InteractiveBloc implements AppsBlocEvents, AppsBlocStates
   }
 
   @override
-  BehaviorSubject<String> activeAppID = BehaviorSubject<String>();
+  BehaviorSubject<AppImplementation> activeApp = BehaviorSubject<AppImplementation>();
 
   @override
   BehaviorSubject<Result<Iterable<AppImplementation<Bloc, NextcloudAppSpecificOptions>>>> appImplementations =
@@ -176,14 +176,17 @@ class AppsBloc extends InteractiveBloc implements AppsBlocEvents, AppsBlocStates
 
   @override
   Future setActiveApp(final String appID) async {
-    final apps = await appImplementations.firstWhere((final a) => a.hasData);
-    if (apps.requireData.tryFind(appID) != null) {
-      // TODO: make activeAppID distinct
-      if (activeAppID.valueOrNull != appID) {
-        activeAppID.add(appID);
-      }
-    } else if (appID == 'notifications') {
+    if (appID == 'notifications') {
       openNotifications.add(null);
+      return;
+    }
+
+    final apps = await appImplementations.firstWhere((final a) => a.hasData);
+    final app = apps.requireData.tryFind(appID);
+    if (app != null) {
+      if (activeApp.valueOrNull?.id != appID) {
+        activeApp.add(app);
+      }
     } else {
       throw Exception('App $appID not found');
     }
