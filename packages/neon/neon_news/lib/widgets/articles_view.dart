@@ -36,7 +36,7 @@ class _NewsArticlesViewState extends State<NewsArticlesView> {
             input: articles.data,
             builder: (final context, final sorted) => NeonListView<NextcloudNewsArticle>(
               scrollKey: 'news-articles',
-              items: feeds.data == null ? null : sorted,
+              items: feeds.hasData ? sorted : null,
               isLoading: articles.isLoading || feeds.isLoading,
               error: articles.error ?? feeds.error,
               onRefresh: () async {
@@ -48,7 +48,7 @@ class _NewsArticlesViewState extends State<NewsArticlesView> {
               builder: (final context, final article) => _buildArticle(
                 context,
                 article,
-                feeds.data!.singleWhere((final feed) => feed.id == article.feedId),
+                feeds.requireData.singleWhere((final feed) => feed.id == article.feedId),
               ),
               topFixedChildren: [
                 StreamBuilder<FilterType>(

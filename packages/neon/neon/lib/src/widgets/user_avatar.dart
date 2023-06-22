@@ -107,7 +107,7 @@ class _UserAvatarState extends State<NeonUserAvatar> {
           fontSize: 16,
         ),
       );
-    } else if (result.data != null) {
+    } else if (result.hasData) {
       decoration = BoxDecoration(
         shape: BoxShape.circle,
         color: _userStatusToColor(result.data!.status),

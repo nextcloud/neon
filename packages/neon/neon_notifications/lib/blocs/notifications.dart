@@ -20,8 +20,8 @@ class NotificationsBloc extends InteractiveBloc
     this._client,
   ) {
     notifications.listen((final result) {
-      if (result.data != null) {
-        unreadCounter.add(result.data!.length);
+      if (result.hasData) {
+        unreadCounter.add(result.requireData.length);
       }
     });
 

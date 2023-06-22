@@ -109,8 +109,8 @@ class _HomePageState extends State<HomePage> {
               Widget body = Builder(
                 builder: (final context) => Column(
                   children: [
-                    if (appImplementations.data != null) ...[
-                      if (appImplementations.data!.isEmpty) ...[
+                    if (appImplementations.hasData) ...[
+                      if (appImplementations.requireData.isEmpty) ...[
                         Expanded(
                           child: Center(
                             child: Text(

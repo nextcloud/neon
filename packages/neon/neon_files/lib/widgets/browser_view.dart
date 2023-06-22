@@ -46,7 +46,7 @@ class _FilesBrowserViewState extends State<FilesBrowserView> {
                   ? Container()
                   : BackButtonListener(
                       onBackButtonPressed: () async {
-                        final path = pathSnapshot.data!;
+                        final path = pathSnapshot.requireData;
                         if (path.isNotEmpty) {
                           widget.bloc.setPath(path.sublist(0, path.length - 1));
                           return true;
@@ -59,12 +59,12 @@ class _FilesBrowserViewState extends State<FilesBrowserView> {
                         sortBoxOrderOption: widget.bloc.options.filesSortBoxOrderOption,
                         input: files.data,
                         builder: (final context, final sorted) => NeonListView<Widget>(
-                          scrollKey: 'files-${pathSnapshot.data!.join('/')}',
+                          scrollKey: 'files-${pathSnapshot.requireData.join('/')}',
                           withFloatingActionButton: true,
                           items: [
                             for (final uploadTask in sorted == null
                                 ? <UploadTask>[]
-                                : uploadTasksSnapshot.data!.where(
+                                : uploadTasksSnapshot.requireData.where(
                                     (final task) =>
                                         sorted.where((final file) => _pathMatchesFile(task.path, file.name)).isEmpty,
                                   )) ...[
@@ -95,9 +95,9 @@ class _FilesBrowserViewState extends State<FilesBrowserView> {
                                 if (!widget.onlyShowDirectories || file.isDirectory) ...[
                                   Builder(
                                     builder: (final context) {
-                                      final matchingUploadTasks = uploadTasksSnapshot.data!
+                                      final matchingUploadTasks = uploadTasksSnapshot.requireData
                                           .where((final task) => _pathMatchesFile(task.path, file.name));
-                                      final matchingDownloadTasks = downloadTasksSnapshot.data!
+                                      final matchingDownloadTasks = downloadTasksSnapshot.requireData
                                           .where((final task) => _pathMatchesFile(task.path, file.name));
 
                                       return StreamBuilder<int?>(
@@ -165,10 +165,10 @@ class _FilesBrowserViewState extends State<FilesBrowserView> {
                                         widget.bloc.setPath([]);
                                       },
                                     ),
-                                    for (var i = 0; i < pathSnapshot.data!.length; i++) ...[
+                                    for (var i = 0; i < pathSnapshot.requireData.length; i++) ...[
                                       Builder(
                                         builder: (final context) {
-                                          final path = pathSnapshot.data!.sublist(0, i + 1);
+                                          final path = pathSnapshot.requireData.sublist(0, i + 1);
                                           return Tooltip(
                                             message: AppLocalizations.of(context).goToPath(path.join('/')),
                                             excludeFromSemantics: true,
@@ -177,7 +177,7 @@ class _FilesBrowserViewState extends State<FilesBrowserView> {
                                                 widget.bloc.setPath(path);
                                               },
                                               child: Text(
-                                                pathSnapshot.data![i],
+                                                pathSnapshot.requireData[i],
                                                 semanticsLabel: AppLocalizations.of(context).goToPath(path.join('/')),
                                               ),
                                             ),

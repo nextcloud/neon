@@ -77,9 +77,9 @@ class _NewsAddFeedDialogState extends State<NewsAddFeedDialog> {
                         visible: folders.isLoading,
                       ),
                     ),
-                    if (folders.data != null) ...[
+                    if (folders.hasData) ...[
                       NewsFolderSelect(
-                        folders: folders.data!,
+                        folders: folders.requireData,
                         value: folder,
                         onChanged: (final f) {
                           setState(() {
@@ -90,7 +90,7 @@ class _NewsAddFeedDialogState extends State<NewsAddFeedDialog> {
                     ],
                   ],
                   ElevatedButton(
-                    onPressed: folders.data != null ? submit : null,
+                    onPressed: folders.hasData ? submit : null,
                     child: Text(AppLocalizations.of(context).feedAdd),
                   ),
                 ],

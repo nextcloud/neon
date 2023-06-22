@@ -51,7 +51,7 @@ class _SettingsPageState extends State<SettingsPage> {
             appImplementations: appImplementations,
             accountSpecificOptions: {
               if (accountsSnapshot.hasData) ...{
-                for (final account in accountsSnapshot.data!) ...{
+                for (final account in accountsSnapshot.requireData) ...{
                   account: accountsBloc.getOptionsFor(account).options,
                 },
               },
@@ -114,8 +114,8 @@ class _SettingsPageState extends State<SettingsPage> {
                     SettingsCategory(
                       title: Text(AppLocalizations.of(context).optionsCategoryPushNotifications),
                       tiles: [
-                        if (pushNotificationsEnabledEnabledSnapshot.data != null &&
-                            !pushNotificationsEnabledEnabledSnapshot.data!) ...[
+                        if (pushNotificationsEnabledEnabledSnapshot.hasData &&
+                            !pushNotificationsEnabledEnabledSnapshot.requireData) ...[
                           NeonTextSettingsTile(
                             text: AppLocalizations.of(context).globalOptionsPushNotificationsEnabledDisabledNotice,
                             style: const TextStyle(
@@ -164,7 +164,7 @@ class _SettingsPageState extends State<SettingsPage> {
                     SettingsCategory(
                       title: Text(AppLocalizations.of(context).optionsCategoryAccounts),
                       tiles: [
-                        if (accountsSnapshot.data!.length > 1) ...[
+                        if (accountsSnapshot.requireData.length > 1) ...[
                           CheckBoxSettingsTile(
                             option: globalOptions.rememberLastUsedAccount,
                           ),
@@ -172,7 +172,7 @@ class _SettingsPageState extends State<SettingsPage> {
                             option: globalOptions.initialAccount,
                           ),
                         ],
-                        for (final account in accountsSnapshot.data!) ...[
+                        for (final account in accountsSnapshot.requireData) ...[
                           NeonAccountSettingsTile(
                             account: account,
                             onTap: () {

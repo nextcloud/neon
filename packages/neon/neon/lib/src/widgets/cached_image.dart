@@ -35,7 +35,7 @@ class _NeonCachedImageState extends State<NeonCachedImage> {
           future: future,
           builder: (final context, final fileSnapshot) {
             if (fileSnapshot.hasData) {
-              final content = fileSnapshot.data!.readAsBytesSync();
+              final content = fileSnapshot.requireData.readAsBytesSync();
 
               try {
                 // TODO: Is this safe enough?

@@ -17,15 +17,15 @@ class NewsFoldersView extends StatelessWidget {
             sortBox: foldersSortBox,
             sortPropertyOption: bloc.options.foldersSortPropertyOption,
             sortBoxOrderOption: bloc.options.foldersSortBoxOrderOption,
-            input: feeds.data == null
-                ? null
-                : folders.data?.map((final folder) {
-                    final feedsInFolder = feeds.data!.where((final feed) => feed.folderId == folder.id);
+            input: feeds.hasData
+                ? folders.data?.map((final folder) {
+                    final feedsInFolder = feeds.requireData.where((final feed) => feed.folderId == folder.id);
                     final feedCount = feedsInFolder.length;
                     final unreadCount = feedsInFolder.fold(0, (final a, final b) => a + b.unreadCount!);
 
                     return (folder, feedCount, unreadCount);
-                  }).toList(),
+                  }).toList()
+                : null,
             builder: (final context, final sorted) => NeonListView<FolderFeedsWrapper>(
               scrollKey: 'news-folders',
               withFloatingActionButton: true,

@@ -36,7 +36,7 @@ class Result<T> {
   final bool isCached;
 
   Result<R> transform<R>(final R? Function(T data) call) => Result(
-        data != null ? call(data as T) : null,
+        hasData ? call(data as T) : null,
         error,
         isLoading: isLoading,
         isCached: isCached,

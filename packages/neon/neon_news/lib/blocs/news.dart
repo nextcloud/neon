@@ -35,9 +35,10 @@ class NewsBloc extends InteractiveBloc implements NewsBlocEvents, NewsBlocStates
     this.client,
   ) {
     mainArticlesBloc.articles.listen((final result) {
-      if (result.data != null) {
+      if (result.hasData) {
         final type = mainArticlesBloc.filterType.valueOrNull;
-        unreadCounter.add(result.data!.where((final a) => type == FilterType.starred ? a.starred : a.unread).length);
+        unreadCounter
+            .add(result.requireData.where((final a) => type == FilterType.starred ? a.starred : a.unread).length);
       }
     });
 

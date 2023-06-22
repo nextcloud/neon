@@ -63,7 +63,7 @@ class RequestManager {
     final bool emitEmptyCache,
     final int retries,
   ) async {
-    if (subject.valueOrNull?.data != null) {
+    if (subject.valueOrNull?.hasData ?? false) {
       subject.add(
         Result(
           subject.value.data,

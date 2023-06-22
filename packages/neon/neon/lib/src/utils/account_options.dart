@@ -6,10 +6,10 @@ class AccountSpecificOptions {
     this._appsBloc,
   ) {
     _appsBloc.appImplementations.listen((final result) {
-      if (result.data != null) {
+      if (result.hasData) {
         _appIDsSubject.add({
           null: (final context) => AppLocalizations.of(context).accountOptionsAutomatic,
-          for (final app in result.data!) ...{
+          for (final app in result.requireData) ...{
             app.id: app.name,
           },
         });
