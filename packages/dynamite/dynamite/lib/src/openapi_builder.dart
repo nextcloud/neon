@@ -67,48 +67,14 @@ class OpenAPIBuilder implements Builder {
         "import 'package:built_value/json_object.dart';",
         "import 'package:built_value/serializer.dart';",
         "import 'package:built_value/standard_json_plugin.dart';",
-        "import 'package:cookie_jar/cookie_jar.dart';",
         "import 'package:dynamite_runtime/content_string.dart';",
+        "import 'package:dynamite_runtime/http_client.dart';",
         "import 'package:universal_io/io.dart';",
         '',
-        "export 'package:cookie_jar/cookie_jar.dart';",
+        "export 'package:dynamite_runtime/http_client.dart';",
         '',
         "part '${p.basename(outputId.changeExtension('.g.dart').path)}';",
         '',
-        Extension(
-          (final b) => b
-            ..name = '${prefix}HttpClientResponseBody'
-            ..on = refer('HttpClientResponse')
-            ..methods.addAll([
-              Method(
-                (final b) => b
-                  ..name = 'bodyBytes'
-                  ..returns = refer('Future<Uint8List>')
-                  ..type = MethodType.getter
-                  ..modifier = MethodModifier.async
-                  ..body = const Code(
-                    '''
-                  final chunks = await toList();
-                  if (chunks.isEmpty) {
-                    return Uint8List(0);
-                  }
-                  return Uint8List.fromList(chunks.reduce((final value, final element) => [...value, ...element]));
-                    ''',
-                  ),
-              ),
-              Method(
-                (final b) => b
-                  ..name = 'body'
-                  ..returns = refer('Future<String>')
-                  ..type = MethodType.getter
-                  ..modifier = MethodModifier.async
-                  ..lambda = true
-                  ..body = const Code(
-                    'utf8.decode(await bodyBytes)',
-                  ),
-              ),
-            ]),
-        ).accept(emitter).toString(),
         Class(
           (final b) => b
             ..name = '${prefix}Response'
@@ -116,20 +82,7 @@ class OpenAPIBuilder implements Builder {
               refer('T'),
               refer('U'),
             ])
-            ..fields.addAll([
-              Field(
-                (final b) => b
-                  ..name = 'data'
-                  ..type = refer('T')
-                  ..modifier = FieldModifier.final$,
-              ),
-              Field(
-                (final b) => b
-                  ..name = 'headers'
-                  ..type = refer('U')
-                  ..modifier = FieldModifier.final$,
-              ),
-            ])
+            ..extend = refer('DynamiteResponse<T, U>')
             ..constructors.add(
               Constructor(
                 (final b) => b
@@ -138,7 +91,7 @@ class OpenAPIBuilder implements Builder {
                       (final name) => Parameter(
                         (final b) => b
                           ..name = name
-                          ..toThis = true,
+                          ..toSuper = true,
                       ),
                     ),
                   ),
@@ -159,27 +112,8 @@ class OpenAPIBuilder implements Builder {
         ).accept(emitter).toString(),
         Class(
           (final b) => b
-            ..name = 'RawResponse'
-            ..fields.addAll([
-              Field(
-                (final b) => b
-                  ..name = 'statusCode'
-                  ..type = refer('int')
-                  ..modifier = FieldModifier.final$,
-              ),
-              Field(
-                (final b) => b
-                  ..name = 'headers'
-                  ..type = refer('Map<String, String>')
-                  ..modifier = FieldModifier.final$,
-              ),
-              Field(
-                (final b) => b
-                  ..name = 'body'
-                  ..type = refer('Uint8List')
-                  ..modifier = FieldModifier.final$,
-              ),
-            ])
+            ..name = '${prefix}ApiException'
+            ..extend = refer('DynamiteApiException')
             ..constructors.add(
               Constructor(
                 (final b) => b
@@ -188,61 +122,43 @@ class OpenAPIBuilder implements Builder {
                       (final name) => Parameter(
                         (final b) => b
                           ..name = name
-                          ..toThis = true,
+                          ..toSuper = true,
                       ),
                     ),
                   ),
               ),
             )
-            ..methods.add(
+            ..methods.addAll([
               Method(
                 (final b) => b
-                  ..name = 'toString'
-                  ..returns = refer('String')
-                  ..annotations.add(refer('override'))
-                  ..lambda = true
-                  ..body = const Code(
-                    r"'RawResponse(statusCode: $statusCode, headers: $headers, body: ${utf8.decode(body)})'",
-                  ),
-              ),
-            ),
-        ).accept(emitter).toString(),
-        Class(
-          (final b) => b
-            ..name = '${prefix}ApiException'
-            ..extend = refer('RawResponse')
-            ..implements.add(refer('Exception'))
-            ..constructors.addAll(
-              [
-                Constructor(
-                  (final b) => b
-                    ..requiredParameters.addAll(
-                      ['statusCode', 'headers', 'body'].map(
-                        (final name) => Parameter(
-                          (final b) => b
-                            ..name = name
-                            ..toSuper = true,
-                        ),
-                      ),
+                  ..name = 'fromResponse'
+                  ..returns = refer('Future<${prefix}ApiException>')
+                  ..static = true
+                  ..modifier = MethodModifier.async
+                  ..requiredParameters.add(
+                    Parameter(
+                      (final b) => b
+                        ..name = 'response'
+                        ..type = refer('HttpClientResponse'),
                     ),
-                ),
-                Constructor(
-                  (final b) => b
-                    ..name = 'fromResponse'
-                    ..factory = true
-                    ..lambda = true
-                    ..requiredParameters.add(
-                      Parameter(
-                        (final b) => b
-                          ..name = 'response'
-                          ..type = refer('RawResponse'),
-                      ),
-                    )
-                    ..body = Code('${prefix}ApiException(response.statusCode, response.headers, response.body,)'),
-                ),
-              ],
-            )
-            ..methods.add(
+                  )
+                  ..body = Block.of([
+                    const Code('final data = await response.bodyBytes;'),
+                    const Code(''),
+                    const Code('String body;'),
+                    const Code('try {'),
+                    const Code('body = utf8.decode(data);'),
+                    const Code('} on FormatException {'),
+                    const Code("body = 'binary';"),
+                    const Code('}'),
+                    const Code(''),
+                    Code('return ${prefix}ApiException('),
+                    const Code('response.statusCode,'),
+                    const Code('response.responseHeaders,'),
+                    const Code('body,'),
+                    const Code(');'),
+                  ]),
+              ),
               Method(
                 (final b) => b
                   ..name = 'toString'
@@ -250,32 +166,11 @@ class OpenAPIBuilder implements Builder {
                   ..annotations.add(refer('override'))
                   ..lambda = true
                   ..body = Code(
-                    "'${prefix}ApiException(statusCode: \${super.statusCode}, headers: \${super.headers}, body: \${utf8.decode(super.body)})'",
+                    "'${prefix}ApiException(statusCode: \$statusCode, headers: \$headers, body: \$body)'",
                   ),
               ),
-            ),
+            ]),
         ).accept(emitter).toString(),
-        if (hasAnySecurity) ...[
-          Class(
-            (final b) => b
-              ..name = '${prefix}Authentication'
-              ..abstract = true
-              ..methods.addAll([
-                Method(
-                  (final b) => b
-                    ..name = 'id'
-                    ..type = MethodType.getter
-                    ..returns = refer('String'),
-                ),
-                Method(
-                  (final b) => b
-                    ..name = 'headers'
-                    ..type = MethodType.getter
-                    ..returns = refer('Map<String, String>'),
-                ),
-              ]),
-          ).accept(emitter).toString(),
-        ],
       ];
 
       if (spec.components?.securitySchemes != null) {
@@ -291,7 +186,7 @@ class OpenAPIBuilder implements Builder {
                         final fields = ['username', 'password'];
                         b
                           ..name = '${prefix}HttpBasicAuthentication'
-                          ..extend = refer('${prefix}Authentication')
+                          ..extend = refer('DynamiteAuthentication')
                           ..constructors.add(
                             Constructor(
                               (final b) => b
@@ -352,7 +247,7 @@ class OpenAPIBuilder implements Builder {
                       (final b) {
                         b
                           ..name = '${prefix}HttpBearerAuthentication'
-                          ..extend = refer('${prefix}Authentication')
+                          ..extend = refer('DynamiteAuthentication')
                           ..constructors.add(
                             Constructor(
                               (final b) => b
@@ -437,42 +332,7 @@ class OpenAPIBuilder implements Builder {
             (final b) {
               if (isRootClient) {
                 b
-                  ..fields.addAll([
-                    Field(
-                      (final b) => b
-                        ..name = 'baseURL'
-                        ..type = refer('String')
-                        ..modifier = FieldModifier.final$,
-                    ),
-                    Field(
-                      (final b) => b
-                        ..name = 'baseHeaders'
-                        ..type = refer('Map<String, String>')
-                        ..modifier = FieldModifier.final$
-                        ..late = true,
-                    ),
-                    Field(
-                      (final b) => b
-                        ..name = 'httpClient'
-                        ..type = refer('HttpClient')
-                        ..modifier = FieldModifier.final$
-                        ..late = true,
-                    ),
-                    Field(
-                      (final b) => b
-                        ..name = 'cookieJar'
-                        ..type = refer('CookieJar?')
-                        ..modifier = FieldModifier.final$,
-                    ),
-                    if (hasAnySecurity) ...[
-                      Field(
-                        (final b) => b
-                          ..name = 'authentications'
-                          ..type = refer('List<${prefix}Authentication>')
-                          ..modifier = FieldModifier.final$,
-                      ),
-                    ],
-                  ])
+                  ..extend = refer('DynamiteClient')
                   ..constructors.add(
                     Constructor(
                       (final b) => b
@@ -480,109 +340,45 @@ class OpenAPIBuilder implements Builder {
                           Parameter(
                             (final b) => b
                               ..name = 'baseURL'
-                              ..toThis = true,
+                              ..toSuper = true,
                           ),
                         )
                         ..optionalParameters.addAll([
                           Parameter(
                             (final b) => b
                               ..name = 'baseHeaders'
-                              ..type = refer('Map<String, String>?')
+                              ..toSuper = true
                               ..named = true,
                           ),
                           Parameter(
                             (final b) => b
                               ..name = 'userAgent'
-                              ..type = refer('String?')
+                              ..toSuper = true
                               ..named = true,
                           ),
                           Parameter(
                             (final b) => b
                               ..name = 'httpClient'
-                              ..type = refer('HttpClient?')
+                              ..toSuper = true
                               ..named = true,
                           ),
                           Parameter(
                             (final b) => b
                               ..name = 'cookieJar'
-                              ..toThis = true
+                              ..toSuper = true
                               ..named = true,
                           ),
                           if (hasAnySecurity) ...[
                             Parameter(
                               (final b) => b
                                 ..name = 'authentications'
-                                ..toThis = true
-                                ..named = true
-                                ..defaultTo = const Code('const []'),
+                                ..toSuper = true
+                                ..named = true,
                             ),
                           ],
-                        ])
-                        ..body = const Code('''
-                        this.baseHeaders = {
-                          ...?baseHeaders,
-                        };
-                        this.httpClient = (httpClient ?? HttpClient())..userAgent = userAgent;
-                      '''),
+                        ]),
                     ),
-                  )
-                  ..methods.addAll([
-                    Method(
-                      (final b) => b
-                        ..name = 'doRequest'
-                        ..returns = refer('Future<RawResponse>')
-                        ..modifier = MethodModifier.async
-                        ..requiredParameters.addAll([
-                          Parameter(
-                            (final b) => b
-                              ..name = 'method'
-                              ..type = refer('String'),
-                          ),
-                          Parameter(
-                            (final b) => b
-                              ..name = 'path'
-                              ..type = refer('String'),
-                          ),
-                          Parameter(
-                            (final b) => b
-                              ..name = 'headers'
-                              ..type = refer('Map<String, String>'),
-                          ),
-                          Parameter(
-                            (final b) => b
-                              ..name = 'body'
-                              ..type = refer('Uint8List?'),
-                          ),
-                        ])
-                        ..body = const Code(r'''
-                        final uri = Uri.parse('$baseURL$path');
-                        final request = await httpClient.openUrl(method, uri);
-                        for (final header in {...baseHeaders, ...headers}.entries) {
-                          request.headers.add(header.key, header.value);
-                        }
-                        if (body != null) {
-                          request.add(body.toList());
-                        }
-                        if (cookieJar != null) {
-                          request.cookies.addAll(await cookieJar!.loadForRequest(uri));
-                        }
-
-                        final response = await request.close();
-                        if (cookieJar != null) {
-                          await cookieJar!.saveFromResponse(uri, response.cookies);
-                        }
-                        final responseHeaders = <String, String>{};
-                        response.headers.forEach((final name, final values) {
-                          responseHeaders[name] = values.last;
-                        });
-                        return RawResponse(
-                          response.statusCode,
-                          responseHeaders,
-                          await response.bodyBytes,
-                        );
-                      '''),
-                    ),
-                  ]);
+                  );
               } else {
                 b
                   ..fields.add(
@@ -934,16 +730,21 @@ class OpenAPIBuilder implements Builder {
 
                                     if (mimeType == '*/*' || mimeType.startsWith('image/')) {
                                       dataType = 'Uint8List';
-                                      dataValue = 'response.body';
+                                      dataValue = 'response.bodyBytes';
                                     } else if (mimeType.startsWith('text/')) {
                                       dataType = 'String';
-                                      dataValue = 'utf8.decode(response.body)';
+                                      dataValue = 'await response.body';
                                     } else if (mimeType == 'application/json') {
                                       dataType = result.name;
                                       if (result.name == 'dynamic') {
                                         dataValue = '';
+                                      } else if (result.name == 'String') {
+                                        // avoid unnecessary_await_in_return lint
+                                        dataValue = 'response.body';
+                                      } else if (result is TypeResultEnum || result is TypeResultBase) {
+                                        dataValue = result.deserialize(result.decode('await response.body'));
                                       } else {
-                                        dataValue = result.deserialize(result.decode('utf8.decode(response.body)'));
+                                        dataValue = result.deserialize('await response.jsonBody');
                                       }
                                     } else {
                                       throw Exception('Can not parse mime type "$mimeType"');
@@ -970,7 +771,7 @@ class OpenAPIBuilder implements Builder {
                                 code.write('}');
                               }
                               code.write(
-                                'throw ${prefix}ApiException.fromResponse(response); // coverage:ignore-line\n',
+                                'throw await ${prefix}ApiException.fromResponse(response); // coverage:ignore-line\n',
                               );
                             } else {
                               b.returns = refer('Future');

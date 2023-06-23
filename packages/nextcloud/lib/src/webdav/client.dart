@@ -29,7 +29,7 @@ class WebDavClient {
       ..persistentConnection = true;
     for (final header in {
       HttpHeaders.contentTypeHeader: 'application/xml',
-      ...rootClient.baseHeaders,
+      ...?rootClient.baseHeaders,
       if (headers != null) ...headers,
       if (rootClient.authentications.isNotEmpty) ...rootClient.authentications.first.headers,
     }.entries) {
@@ -43,11 +43,7 @@ class WebDavClient {
     final response = await request.close();
 
     if (!expectedCodes.contains(response.statusCode)) {
-      throw NextcloudApiException(
-        response.statusCode,
-        {}, // TODO
-        await response.bodyBytes,
-      );
+      throw await NextcloudApiException.fromResponse(response);
     }
 
     return response;
