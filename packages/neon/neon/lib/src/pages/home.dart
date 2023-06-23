@@ -98,79 +98,81 @@ class _HomePageState extends State<HomePage> {
   }
 
   @override
-  Widget build(final BuildContext context) => ResultBuilder<Iterable<AppImplementation>>.behaviorSubject(
-        stream: _appsBloc.appImplementations,
-        builder: (final context, final appImplementations) => StreamBuilder<AppImplementation>(
+  Widget build(final BuildContext context) {
+    const drawer = NeonDrawer();
+    const appBar = NeonAppBar();
+
+    final appView = ResultBuilder<Iterable<AppImplementation>>.behaviorSubject(
+      stream: _appsBloc.appImplementations,
+      builder: (final context, final appImplementations) {
+        if (!appImplementations.hasData) {
+          return const SizedBox();
+        }
+
+        if (appImplementations.requireData.isEmpty) {
+          return Center(
+            child: Text(
+              AppLocalizations.of(context).errorNoCompatibleNextcloudAppsFound,
+              textAlign: TextAlign.center,
+            ),
+          );
+        }
+
+        return StreamBuilder<AppImplementation>(
           stream: _appsBloc.activeApp,
-          builder: (final context, final activeAppSnapshot) => OptionBuilder<NavigationMode>(
-            option: _globalOptions.navigationMode,
-            builder: (final context, final navigationMode) {
-              final drawerAlwaysVisible = navigationMode == NavigationMode.drawerAlwaysVisible;
+          builder: (final context, final activeAppIDSnapshot) {
+            if (!activeAppIDSnapshot.hasData) {
+              return const SizedBox();
+            }
 
-              const drawer = NeonDrawer();
-              const appBar = NeonAppBar();
+            return activeAppIDSnapshot.requireData.page;
+          },
+        );
+      },
+    );
 
-              Widget body = Builder(
-                builder: (final context) => Column(
-                  children: [
-                    if (appImplementations.hasData) ...[
-                      if (appImplementations.requireData.isEmpty) ...[
-                        Expanded(
-                          child: Center(
-                            child: Text(
-                              AppLocalizations.of(context).errorNoCompatibleNextcloudAppsFound,
-                              textAlign: TextAlign.center,
-                            ),
-                          ),
-                        ),
-                      ] else ...[
-                        if (activeAppSnapshot.hasData) ...[
-                          Expanded(
-                            child: activeAppSnapshot.requireData.page,
-                          ),
-                        ],
-                      ],
-                    ],
-                  ],
-                ),
-              );
+    final body = OptionBuilder<NavigationMode>(
+      option: _globalOptions.navigationMode,
+      builder: (final context, final navigationMode) {
+        final drawerAlwaysVisible = navigationMode == NavigationMode.drawerAlwaysVisible;
 
-              body = MultiProvider(
-                providers: _appsBloc.appBlocProviders,
-                child: Scaffold(
-                  key: _scaffoldKey,
-                  resizeToAvoidBottomInset: false,
-                  drawer: !drawerAlwaysVisible ? drawer : null,
-                  appBar: appBar,
-                  body: body,
-                ),
-              );
+        final body = Scaffold(
+          key: _scaffoldKey,
+          resizeToAvoidBottomInset: false,
+          drawer: !drawerAlwaysVisible ? drawer : null,
+          appBar: appBar,
+          body: appView,
+        );
 
-              if (drawerAlwaysVisible) {
-                body = Row(
-                  children: [
-                    drawer,
-                    Expanded(
-                      child: body,
-                    ),
-                  ],
-                );
-              }
-
-              return WillPopScope(
-                onWillPop: () async {
-                  if (_scaffoldKey.currentState!.isDrawerOpen) {
-                    Navigator.pop(context);
-                    return true;
-                  }
-
-                  _scaffoldKey.currentState!.openDrawer();
-                  return false;
-                },
+        if (drawerAlwaysVisible) {
+          return Row(
+            children: [
+              drawer,
+              Expanded(
                 child: body,
-              );
-            },
-          ),
-        ),
-      );
+              ),
+            ],
+          );
+        }
+
+        return body;
+      },
+    );
+
+    return WillPopScope(
+      onWillPop: () async {
+        if (_scaffoldKey.currentState!.isDrawerOpen) {
+          Navigator.pop(context);
+          return true;
+        }
+
+        _scaffoldKey.currentState!.openDrawer();
+        return false;
+      },
+      child: MultiProvider(
+        providers: _appsBloc.appBlocProviders,
+        child: body,
+      ),
+    );
+  }
 }
