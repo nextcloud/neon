@@ -37,7 +37,4 @@ function export_mipmap_icon_all() {
   wait
 
   fvm dart run flutter_native_splash:create
-  fvm flutter gen-l10n
 )
-
-./tool/format.sh

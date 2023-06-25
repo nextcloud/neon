@@ -33,8 +33,8 @@ copy_nextcloud_app_svg notifications external/nextcloud-notifications
   # Nextcloud logo
   wget https://raw.githubusercontent.com/nextcloud/promo/master/nextcloud-logo-inverted.svg -O assets/logo_nextcloud.svg
 
-  fvm dart run build_runner build --delete-conflicting-outputs
-  fvm flutter gen-l10n
+  melos run generate:neon:build_runner
+  melos run generate:neon:l10n
 )
 
-./tool/format.sh
+melos run format
