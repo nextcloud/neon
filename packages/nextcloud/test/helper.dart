@@ -47,7 +47,7 @@ class DockerContainer {
       );
 
   Future<String> collectLogs() async {
-    final apacheLogs = (await runExecutableArguments(
+    final serverLogs = (await runExecutableArguments(
       'docker',
       [
         'logs',
@@ -68,7 +68,7 @@ class DockerContainer {
     ))
         .stdout as String;
 
-    return '$apacheLogs\n\n$nextcloudLogs';
+    return '$serverLogs\n\n$nextcloudLogs';
   }
 }
 
@@ -138,9 +138,7 @@ Future<TestNextcloudClient> getTestClient(
     try {
       await client.core.getStatus();
       break;
-    } catch (_) {
-      await Future.delayed(const Duration(milliseconds: 100));
-    }
+    } catch (_) {}
   }
 
   return client;
@@ -196,8 +194,6 @@ Future<DockerImage> getDockerImage() async {
       '-',
       '../../tool',
     ],
-    stdout: stdout,
-    stderr: stderr,
     stdin: inputStream.stream,
   );
   inputStream.add(utf8.encode(File('../../tool/Dockerfile.dev').readAsStringSync()));

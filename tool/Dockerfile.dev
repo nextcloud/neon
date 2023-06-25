@@ -1,7 +1,5 @@
-FROM nextcloud:27.0.0
+FROM nextcloud:27.0.0-fpm-alpine
 WORKDIR /usr/src/nextcloud
-RUN chown -R www-data:www-data .
-USER www-data
 
 RUN ./occ maintenance:install --admin-pass admin --admin-email admin@example.com
 RUN ./occ config:system:set allow_local_remote_servers --value=true
@@ -16,8 +14,9 @@ RUN ./occ app:install notes --force --allow-unstable # 4.8.0
 RUN ./occ app:install uppush --force --allow-unstable # 1.4.0
 
 RUN ./occ app:enable password_policy
-# TODO: This stopped working randomly with apache not being able to bind to the port during build. Must be some docker changes?
-#RUN (bash /entrypoint.sh apache2-foreground &) && \
-#    until curl -s -o /dev/null http://localhost/status.php; do true; done && \
-#    for user in admin user1 user2; do curl -u "$user:$user" -H "ocs-apirequest: true" -s -o /dev/null http://localhost/ocs/v2.php/cloud/user; done
+RUN (sh /entrypoint.sh php -S 0.0.0.0:8080 &) && \
+    until curl -s -o /dev/null http://localhost:8080/status.php; do true; done && \
+    for user in admin user1 user2; do curl -u "$user:$user" -H "ocs-apirequest: true" -s -o /dev/null http://localhost:8080/ocs/v2.php/cloud/user; done
 COPY --chown=www-data:www-data overlay /usr/src/nextcloud/
+
+CMD ["php", "-S", "0.0.0.0:80"]
