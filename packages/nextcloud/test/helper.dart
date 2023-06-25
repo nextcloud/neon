@@ -47,7 +47,7 @@ class DockerContainer {
       );
 
   Future<String> collectLogs() async {
-    final apacheLogs = (await runExecutableArguments(
+    final serverLogs = (await runExecutableArguments(
       'docker',
       [
         'logs',
@@ -68,7 +68,7 @@ class DockerContainer {
     ))
         .stdout as String;
 
-    return '$apacheLogs\n\n$nextcloudLogs';
+    return '$serverLogs\n\n$nextcloudLogs';
   }
 }
 
