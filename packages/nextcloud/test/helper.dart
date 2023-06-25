@@ -194,8 +194,6 @@ Future<DockerImage> getDockerImage() async {
       '-',
       '../../tool',
     ],
-    stdout: stdout,
-    stderr: stderr,
     stdin: inputStream.stream,
   );
   inputStream.add(utf8.encode(File('../../tool/Dockerfile.dev').readAsStringSync()));
