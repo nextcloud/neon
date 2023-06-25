@@ -138,9 +138,7 @@ Future<TestNextcloudClient> getTestClient(
     try {
       await client.core.getStatus();
       break;
-    } catch (_) {
-      await Future.delayed(const Duration(milliseconds: 100));
-    }
+    } catch (_) {}
   }
 
   return client;
