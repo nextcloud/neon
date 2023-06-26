@@ -5,6 +5,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_html/flutter_html.dart';
+import 'package:go_router/go_router.dart';
 import 'package:html/dom.dart' as html_dom;
 import 'package:html/parser.dart' as html_parser;
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
@@ -16,6 +17,7 @@ import 'package:neon/sort_box.dart';
 import 'package:neon/utils.dart';
 import 'package:neon/widgets.dart';
 import 'package:neon_news/l10n/localizations.dart';
+import 'package:neon_news/routes.dart';
 import 'package:nextcloud/nextcloud.dart';
 import 'package:provider/provider.dart';
 import 'package:rxdart/rxdart.dart';
@@ -53,7 +55,9 @@ class NewsApp extends AppImplementation<NewsBloc, NewsAppSpecificOptions> {
   NewsApp(super.sharedPreferences, super.requestManager, super.platform);
 
   @override
-  String id = 'news';
+  String id = appId;
+
+  static const String appId = 'news';
 
   @override
   LocalizationsDelegate localizationsDelegate = AppLocalizations.delegate;
@@ -73,6 +77,9 @@ class NewsApp extends AppImplementation<NewsBloc, NewsAppSpecificOptions> {
 
   @override
   Widget get page => const NewsMainPage();
+
+  @override
+  RouteBase get route => $newsAppRoute;
 
   @override
   BehaviorSubject<int> getUnreadCounter(final NewsBloc bloc) => bloc.unreadCounter;
