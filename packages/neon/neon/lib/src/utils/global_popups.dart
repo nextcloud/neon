@@ -1,10 +1,16 @@
 part of '../../neon.dart';
 
 class GlobalPopups {
-  factory GlobalPopups() => _instance ??= GlobalPopups._();
+  factory GlobalPopups() => instance ??= GlobalPopups._();
+
+  @visibleForTesting
+  factory GlobalPopups.mocked(final GlobalPopups mock) => instance ??= mock;
+
   GlobalPopups._();
 
-  static GlobalPopups? _instance;
+  @visibleForTesting
+  static GlobalPopups? instance;
+
   bool _registered = false;
 
   void register(final BuildContext context) {
