@@ -9,6 +9,7 @@ import 'package:file_icons/file_icons.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:filesize/filesize.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:intersperse/intersperse.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
@@ -21,6 +22,7 @@ import 'package:neon/theme.dart';
 import 'package:neon/utils.dart';
 import 'package:neon/widgets.dart';
 import 'package:neon_files/l10n/localizations.dart';
+import 'package:neon_files/routes.dart';
 import 'package:nextcloud/nextcloud.dart';
 import 'package:open_file/open_file.dart';
 import 'package:path/path.dart' as p;
@@ -47,7 +49,9 @@ class FilesApp extends AppImplementation<FilesBloc, FilesAppSpecificOptions> {
   FilesApp(super.sharedPreferences, super.requestManager, super.platform);
 
   @override
-  String id = 'files';
+  String id = appId;
+
+  static const String appId = 'files';
 
   @override
   LocalizationsDelegate localizationsDelegate = AppLocalizations.delegate;
@@ -68,4 +72,7 @@ class FilesApp extends AppImplementation<FilesBloc, FilesAppSpecificOptions> {
 
   @override
   Widget get page => const FilesMainPage();
+
+  @override
+  RouteBase get route => $filesAppRoute;
 }
