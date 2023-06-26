@@ -20,7 +20,7 @@ class AppRouter extends GoRouter {
     required final AccountsBloc accountsBloc,
   }) : super(
           debugLogDiagnostics: kDebugMode,
-          refreshListenable: StreamListenable.behaviorSubject(accountsBloc.activeAccount),
+          refreshListenable: StreamListenable(accountsBloc.activeAccount),
           navigatorKey: navigatorKey,
           initialLocation: const HomeRoute().location,
           redirect: (final context, final state) {

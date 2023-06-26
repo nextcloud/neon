@@ -9,32 +9,36 @@ import 'package:rxdart/rxdart.dart';
 /// Objects need to be manually disposed.
 class StreamListenable extends ChangeNotifier {
   /// Listenable Stream
-  ///
-  /// Implementation for all types of [Stream]s.
-  /// For an implementation tailored towards [BehaviorSubject] have a look at [StreamListenable.behaviorSubject].
   StreamListenable(final Stream<dynamic> stream) {
-    notifyListeners();
-
-    _subscription = stream.asBroadcastStream().listen((final value) {
+    if (stream is! BehaviorSubject) {
       notifyListeners();
-    });
+    }
+
+    addSubscription(stream);
   }
 
-  /// Listenable BehaviorSubject
+  /// Listenable for multiple Streams.
   ///
-  /// Implementation for a [BehaviorSubject]. It ensures to not unececcary notify listeners.
-  /// For an implementation tailored towards otnher kinds of [Stream] have a look at [StreamListenable].
-  StreamListenable.behaviorSubject(final BehaviorSubject<dynamic> subject) {
-    _subscription = subject.listen((final value) {
-      notifyListeners();
-    });
+  /// Notifies it's listeners on every event emitted by any of the streams.
+  StreamListenable.multiListenable(final Iterable<Stream<dynamic>> streams) {
+    streams.forEach(addSubscription);
   }
 
-  late final StreamSubscription<dynamic> _subscription;
+  void addSubscription(final Stream<dynamic> stream) {
+    _subscriptions.add(
+      stream.asBroadcastStream().listen((final _) {
+        notifyListeners();
+      }),
+    );
+  }
+
+  final List<StreamSubscription<dynamic>> _subscriptions = [];
 
   @override
   void dispose() {
-    unawaited(_subscription.cancel());
+    for (final subscription in _subscriptions) {
+      unawaited(subscription.cancel());
+    }
 
     super.dispose();
   }
