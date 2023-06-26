@@ -95,7 +95,7 @@ class RequestManager {
     } catch (e, s) {
       debugPrint(e.toString());
       debugPrint(s.toString());
-      if (e is NextcloudApiException && e.statusCode >= 500 && retries < 3) {
+      if (e is DynamiteApiException && e.statusCode >= 500 && retries < 3) {
         debugPrint('Retrying...');
         await _wrap(
           clientID,

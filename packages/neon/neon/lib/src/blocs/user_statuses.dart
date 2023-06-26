@@ -63,7 +63,7 @@ class UserStatusesBloc extends InteractiveBloc implements UserStatusesBlocEvents
 
       _updateStatus(username, Result.success(data));
     } catch (e, s) {
-      if (e is NextcloudApiException && (e.statusCode == 404 || e.statusCode == 204)) {
+      if (e is DynamiteApiException && (e.statusCode == 404 || e.statusCode == 204)) {
         _updateStatus(username, Result.success(null));
         return;
       }
