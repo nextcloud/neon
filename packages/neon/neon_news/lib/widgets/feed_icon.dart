@@ -13,20 +13,24 @@ class NewsFeedIcon extends StatelessWidget {
   final BorderRadius? borderRadius;
 
   @override
-  Widget build(final BuildContext context) => NeonImageWrapper(
-        color: Colors.white,
-        size: Size.square(size),
-        borderRadius: borderRadius,
-        child: feed.faviconLink != null && feed.faviconLink != ''
-            ? NeonCachedUrlImage(
-                url: feed.faviconLink!,
-                size: Size.square(size),
-                iconColor: Theme.of(context).colorScheme.primary,
-              )
-            : Icon(
-                Icons.rss_feed,
-                size: size,
-                color: Theme.of(context).colorScheme.primary,
-              ),
-      );
+  Widget build(final BuildContext context) {
+    final faviconLink = feed.faviconLink;
+
+    return NeonImageWrapper(
+      color: Colors.white,
+      size: Size.square(size),
+      borderRadius: borderRadius,
+      child: faviconLink != null && faviconLink.isNotEmpty
+          ? NeonCachedUrlImage(
+              url: faviconLink,
+              size: Size.square(size),
+              iconColor: Theme.of(context).colorScheme.primary,
+            )
+          : Icon(
+              Icons.rss_feed,
+              size: size,
+              color: Theme.of(context).colorScheme.primary,
+            ),
+    );
+  }
 }

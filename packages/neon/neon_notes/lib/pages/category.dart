@@ -14,7 +14,7 @@ class NotesCategoryPage extends StatelessWidget {
   Widget build(final BuildContext context) => Scaffold(
         resizeToAvoidBottomInset: false,
         appBar: AppBar(
-          title: Text(category.name != '' ? category.name : AppLocalizations.of(context).categoryUncategorized),
+          title: Text(category.name.isNotEmpty ? category.name : AppLocalizations.of(context).categoryUncategorized),
         ),
         body: NotesView(
           bloc: bloc,

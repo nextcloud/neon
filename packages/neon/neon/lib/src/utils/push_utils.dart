@@ -121,7 +121,7 @@ class PushUtils {
         if (notification?.shouldNotify ?? true) {
           final appID = notification?.app ?? pushNotification.subject.app ?? 'nextcloud';
           String? appName = localizations.appImplementationName(appID);
-          if (appName == '') {
+          if (appName.isEmpty) {
             debugPrint('Missing app name for $appID');
             appName = null;
           }

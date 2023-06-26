@@ -35,7 +35,7 @@ class NotesCategorySelect extends StatelessWidget {
             ..._categories,
           ];
 
-          if (value.text == '') {
+          if (value.text.isEmpty) {
             return categories;
           }
           return categories.where((final category) => category.toLowerCase().contains(value.text.toLowerCase()));
@@ -74,10 +74,10 @@ class NotesCategorySelect extends StatelessWidget {
                   return ListTile(
                     leading: Icon(
                       MdiIcons.tag,
-                      color: option != '' ? NotesCategoryColor.compute(option) : null,
+                      color: option.isNotEmpty ? NotesCategoryColor.compute(option) : null,
                     ),
                     title: Text(
-                      option != '' ? option : AppLocalizations.of(context).categoryUncategorized,
+                      option.isNotEmpty ? option : AppLocalizations.of(context).categoryUncategorized,
                     ),
                     onTap: () {
                       onSelected(option);
