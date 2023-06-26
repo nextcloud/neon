@@ -81,6 +81,21 @@ class DynamiteHttpBasicAuthentication extends DynamiteAuthentication {
       };
 }
 
+class DynamiteHttpBearerAuthentication extends DynamiteAuthentication {
+  DynamiteHttpBearerAuthentication({
+    required this.token,
+  });
+
+  final String token;
+
+  @override
+  String get id => 'bearer';
+  @override
+  Map<String, String> get headers => {
+        'Authorization': 'Bearer $token',
+      };
+}
+
 class DynamiteClient {
   DynamiteClient(
     this.baseURL, {
