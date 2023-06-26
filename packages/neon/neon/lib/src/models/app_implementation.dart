@@ -1,6 +1,7 @@
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:go_router/go_router.dart';
 import 'package:neon/l10n/localizations.dart';
 import 'package:neon/src/bloc/bloc.dart';
 import 'package:neon/src/blocs/accounts.dart';
@@ -66,6 +67,34 @@ abstract class AppImplementation<T extends Bloc, R extends NextcloudAppOptions> 
       icon: buildIcon,
       notificationCount: getUnreadCounter(bloc),
     );
+  }
+
+  /// Main branch displayed ini the home page.
+  ///
+  /// There's usually no need to override this.
+  StatefulShellBranch get mainBranch => StatefulShellBranch(
+        routes: [
+          route,
+        ],
+      );
+
+  /// Route for the app.
+  ///
+  /// All pages of the app must be specified as subroutes.
+  /// If this is not [GoRoute] an inital route name must be specified by overriding [initialRouteName].
+  RouteBase get route => throw UnimplementedError();
+
+  /// Name of the initial route for this app.
+  ///
+  /// Subclasses that don't provide a [GoRoute] for [route] must ovveride this.
+  String get initialRouteName {
+    final route = this.route;
+
+    if (route is GoRoute && route.name != null) {
+      return route.name!;
+    }
+
+    throw FlutterError('No name for the initial route provided.');
   }
 
   Widget buildIcon({
