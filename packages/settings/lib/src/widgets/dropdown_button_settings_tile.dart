@@ -42,12 +42,12 @@ class DropdownButtonSettingsTile<T> extends InputSettingsTile<SelectOption<T>> {
                           child: DropdownButton<T>(
                             isExpanded: true,
                             value: value,
-                            items: valuesSnapshot.data!.keys
+                            items: valuesSnapshot.requireData.keys
                                 .map(
                                   (final k) => DropdownMenuItem(
                                     value: k,
                                     child: Text(
-                                      valuesSnapshot.data![k]!(context),
+                                      valuesSnapshot.requireData[k]!(context),
                                       overflow: TextOverflow.ellipsis,
                                     ),
                                   ),

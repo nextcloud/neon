@@ -18,7 +18,7 @@ class CheckBoxSettingsTile extends InputSettingsTile<ToggleOption> {
                     : CheckboxListTile(
                         title: Text(option.label(context)),
                         value: value,
-                        onChanged: enabledSnapshot.data!
+                        onChanged: enabledSnapshot.requireData
                             ? (final value) async {
                                 await option.set(value!);
                               }
