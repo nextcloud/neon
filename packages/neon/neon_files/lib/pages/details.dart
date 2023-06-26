@@ -35,9 +35,9 @@ class FilesDetailsPage extends StatelessWidget {
               ),
               DataTable(
                 headingRowHeight: 0,
-                columns: [
-                  DataColumn(label: Container()),
-                  DataColumn(label: Container()),
+                columns: const [
+                  DataColumn(label: SizedBox()),
+                  DataColumn(label: SizedBox()),
                 ],
                 rows: [
                   for (final entry in {

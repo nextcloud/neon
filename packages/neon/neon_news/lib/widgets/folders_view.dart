@@ -55,7 +55,7 @@ class NewsFoldersView extends StatelessWidget {
           ? Text(
               AppLocalizations.of(context).articlesUnread(unreadCount),
             )
-          : Container(),
+          : null,
       leading: SizedBox.square(
         dimension: 48,
         child: Stack(

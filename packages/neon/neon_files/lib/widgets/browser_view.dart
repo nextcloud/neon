@@ -43,7 +43,7 @@ class _FilesBrowserViewState extends State<FilesBrowserView> {
               builder: (final context, final downloadTasksSnapshot) => !pathSnapshot.hasData ||
                       !uploadTasksSnapshot.hasData ||
                       !downloadTasksSnapshot.hasData
-                  ? Container()
+                  ? const SizedBox()
                   : BackButtonListener(
                       onBackButtonPressed: () async {
                         final path = pathSnapshot.requireData;
@@ -72,7 +72,7 @@ class _FilesBrowserViewState extends State<FilesBrowserView> {
                                 stream: uploadTask.progress,
                                 builder: (final context, final uploadTaskProgressSnapshot) =>
                                     !uploadTaskProgressSnapshot.hasData
-                                        ? Container()
+                                        ? const SizedBox()
                                         : _buildFile(
                                             context: context,
                                             details: FileDetails(

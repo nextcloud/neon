@@ -14,7 +14,7 @@ class NeonTextSettingsTile extends SettingsTile {
   final TextStyle? style;
 
   @override
-  Widget build(final BuildContext context) => Container(
+  Widget build(final BuildContext context) => Padding(
         padding: const EdgeInsets.symmetric(
           horizontal: 16,
         ),

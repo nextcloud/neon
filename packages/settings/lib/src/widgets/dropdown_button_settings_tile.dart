@@ -34,7 +34,7 @@ class DropdownButtonSettingsTile<T> extends InputSettingsTile<SelectOption<T>> {
                       : Theme.of(context).textTheme.titleMedium!.copyWith(color: Theme.of(context).disabledColor),
                 ),
                 trailing: valuesSnapshot.hasData
-                    ? Container(
+                    ? ConstrainedBox(
                         constraints: BoxConstraints(
                           maxWidth: constraints.maxWidth * 0.5,
                         ),
