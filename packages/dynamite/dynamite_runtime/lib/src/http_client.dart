@@ -59,7 +59,8 @@ class DynamiteApiException implements Exception {
 }
 
 abstract class DynamiteAuthentication {
-  String get id;
+  String get type;
+  String get scheme;
   Map<String, String> get headers;
 }
 
@@ -74,10 +75,33 @@ class DynamiteHttpBasicAuthentication extends DynamiteAuthentication {
   final String password;
 
   @override
-  String get id => 'basic_auth';
+  String type = 'http';
+
+  @override
+  String scheme = 'basic';
+
   @override
   Map<String, String> get headers => {
         'Authorization': 'Basic ${base64.encode(utf8.encode('$username:$password'))}',
+      };
+}
+
+class DynamiteHttpBearerAuthentication extends DynamiteAuthentication {
+  DynamiteHttpBearerAuthentication({
+    required this.token,
+  });
+
+  final String token;
+
+  @override
+  String type = 'http';
+
+  @override
+  String scheme = 'bearer';
+
+  @override
+  Map<String, String> get headers => {
+        'Authorization': 'Bearer $token',
       };
 }
 

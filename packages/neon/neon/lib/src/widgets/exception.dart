@@ -127,7 +127,7 @@ class NeonException extends StatelessWidget {
       );
     }
 
-    if (exception is NextcloudApiException) {
+    if (exception is DynamiteApiException) {
       if (exception.statusCode == 401) {
         return _ExceptionDetails(
           text: AppLocalizations.of(context).errorCredentialsForAccountNoLongerMatch,

@@ -22,7 +22,7 @@ class NextcloudClient extends openapi.NextcloudClient {
           userAgent: userAgentOverride ?? appType.userAgent,
           authentications: [
             if (loginName != null && password != null) ...[
-              openapi.NextcloudHttpBasicAuthentication(
+              openapi.DynamiteHttpBasicAuthentication(
                 username: loginName,
                 password: password,
               ),

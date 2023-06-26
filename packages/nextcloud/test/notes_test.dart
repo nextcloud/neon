@@ -96,7 +96,7 @@ Future run(final DockerImage image) async {
           title: 'c',
           ifMatch: '"${response.etag}"',
         ),
-        throwsA(predicate((final e) => (e! as NextcloudApiException).statusCode == 412)),
+        throwsA(predicate((final e) => (e! as DynamiteApiException).statusCode == 412)),
       );
     });
 
