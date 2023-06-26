@@ -74,8 +74,8 @@ class NewsFeedsView extends StatelessWidget {
                 iconSize: 30,
                 icon: Text(
                   feed.updateErrorCount.toString(),
-                  style: const TextStyle(
-                    color: Colors.red,
+                  style: TextStyle(
+                    color: Theme.of(context).colorScheme.error,
                   ),
                 ),
               ),

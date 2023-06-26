@@ -118,10 +118,10 @@ class _SettingsPageState extends State<SettingsPage> {
                             !pushNotificationsEnabledEnabledSnapshot.requireData) ...[
                           NeonTextSettingsTile(
                             text: AppLocalizations.of(context).globalOptionsPushNotificationsEnabledDisabledNotice,
-                            style: const TextStyle(
+                            style: TextStyle(
                               fontWeight: FontWeight.w600,
                               fontStyle: FontStyle.italic,
-                              color: Colors.red,
+                              color: Theme.of(context).colorScheme.error,
                             ),
                           ),
                         ],

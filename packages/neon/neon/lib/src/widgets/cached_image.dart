@@ -71,7 +71,7 @@ class _NeonCachedImageState extends State<NeonCachedImage> {
                 },
                 onlyIcon: true,
                 iconSize: widget.size?.shortestSide,
-                color: widget.iconColor ?? Colors.red,
+                color: widget.iconColor ?? Theme.of(context).colorScheme.error,
               );
             }
             return SizedBox(

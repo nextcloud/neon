@@ -77,6 +77,8 @@ class _HomePageState extends State<HomePage> {
   }
 
   Future _showProblem(final String title) async {
+    final colorScheme = Theme.of(context).colorScheme;
+
     await showDialog(
       context: context,
       builder: (final context) => AlertDialog(
@@ -84,8 +86,8 @@ class _HomePageState extends State<HomePage> {
         actions: [
           ElevatedButton(
             style: ElevatedButton.styleFrom(
-              backgroundColor: Colors.red,
-              foregroundColor: Theme.of(context).colorScheme.onPrimary,
+              backgroundColor: colorScheme.error,
+              foregroundColor: colorScheme.onError,
             ),
             onPressed: () {
               Navigator.of(context).pop();
