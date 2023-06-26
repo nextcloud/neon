@@ -353,9 +353,10 @@ class OpenAPIBuilder implements Builder {
                               if (requirement.keys.isEmpty) {
                                 continue;
                               }
+                              final securityScheme = spec.components!.securitySchemes![requirement.keys.single]!;
                               code.write('''
-                                if (${isRootClient ? '' : 'rootClient.'}authentications.map((final a) => a.id).contains('${requirement.keys.single}')) {
-                                  headers.addAll(${isRootClient ? '' : 'rootClient.'}authentications.singleWhere((final a) => a.id == '${requirement.keys.single}').headers);
+                                if (${isRootClient ? '' : 'rootClient.'}authentications.where((final a) => a.type == '${securityScheme.type}' && a.scheme == '${securityScheme.scheme}').isNotEmpty) {
+                                  headers.addAll(${isRootClient ? '' : 'rootClient.'}authentications.singleWhere((final a) => a.type == '${securityScheme.type}' && a.scheme == '${securityScheme.scheme}').headers);
                                 }
                               ''');
                               if (!isOptionalSecurity ||
