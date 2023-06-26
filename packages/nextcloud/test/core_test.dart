@@ -123,7 +123,7 @@ Future run(final DockerImage image) async {
       await client.core.deleteAppPassword();
       expect(
         () => client.core.getCapabilities(),
-        throwsA(predicate((final e) => (e! as NextcloudApiException).statusCode == 401)),
+        throwsA(predicate((final e) => (e! as DynamiteApiException).statusCode == 401)),
       );
     });
   });
