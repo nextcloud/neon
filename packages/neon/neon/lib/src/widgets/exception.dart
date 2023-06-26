@@ -25,7 +25,7 @@ class NeonException extends StatelessWidget {
         action: details.isUnauthorized
             ? SnackBarAction(
                 label: AppLocalizations.of(context).loginAgain,
-                onPressed: () async => _openLoginPage(context),
+                onPressed: () => _openLoginPage(context),
               )
             : null,
       ),
@@ -33,80 +33,71 @@ class NeonException extends StatelessWidget {
   }
 
   @override
-  Widget build(final BuildContext context) => exception == null
-      ? Container()
-      : Container(
-          padding: !onlyIcon ? const EdgeInsets.all(5) : null,
-          child: Builder(
-            builder: (final context) {
-              final details = _getExceptionDetails(context, exception);
+  Widget build(final BuildContext context) {
+    if (exception == null) {
+      return const SizedBox();
+    }
 
-              final errorIcon = Icon(
-                Icons.error_outline,
-                size: iconSize ?? 30,
-                color: color ?? Colors.red,
-              );
+    final details = _getExceptionDetails(context, exception);
+    final color = this.color ?? Theme.of(context).colorScheme.error;
 
-              if (onlyIcon) {
-                return Semantics(
-                  tooltip: details.text,
-                  child: IconButton(
-                    icon: errorIcon,
-                    padding: EdgeInsets.zero,
-                    visualDensity: const VisualDensity(
-                      horizontal: VisualDensity.minimumDensity,
-                      vertical: VisualDensity.minimumDensity,
-                    ),
-                    tooltip: details.isUnauthorized
-                        ? AppLocalizations.of(context).loginAgain
-                        : AppLocalizations.of(context).actionRetry,
-                    onPressed: () async {
-                      if (details.isUnauthorized) {
-                        _openLoginPage(context);
-                      } else {
-                        onRetry();
-                      }
-                    },
-                  ),
-                );
-              }
+    final errorIcon = Icon(
+      Icons.error_outline,
+      size: iconSize ?? 30,
+      color: color,
+    );
 
-              return Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      errorIcon,
-                      const SizedBox(
-                        width: 10,
-                      ),
-                      Flexible(
-                        child: Text(
-                          details.text,
-                          style: TextStyle(
-                            color: color ?? Colors.red,
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                  if (details.isUnauthorized) ...[
-                    ElevatedButton(
-                      onPressed: () async => _openLoginPage(context),
-                      child: Text(AppLocalizations.of(context).loginAgain),
-                    ),
-                  ] else ...[
-                    ElevatedButton(
-                      onPressed: onRetry,
-                      child: Text(AppLocalizations.of(context).actionRetry),
-                    ),
-                  ],
-                ],
-              );
-            },
+    final message =
+        details.isUnauthorized ? AppLocalizations.of(context).loginAgain : AppLocalizations.of(context).actionRetry;
+
+    final onPressed = details.isUnauthorized ? () => _openLoginPage(context) : onRetry;
+
+    if (onlyIcon) {
+      return Semantics(
+        tooltip: details.text,
+        child: IconButton(
+          icon: errorIcon,
+          padding: EdgeInsets.zero,
+          visualDensity: const VisualDensity(
+            horizontal: VisualDensity.minimumDensity,
+            vertical: VisualDensity.minimumDensity,
           ),
-        );
+          tooltip: message,
+          onPressed: onPressed,
+        ),
+      );
+    }
+
+    return Padding(
+      padding: const EdgeInsets.all(5),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              errorIcon,
+              const SizedBox(
+                width: 10,
+              ),
+              Flexible(
+                child: Text(
+                  details.text,
+                  style: TextStyle(
+                    color: color,
+                  ),
+                ),
+              ),
+            ],
+          ),
+          ElevatedButton(
+            onPressed: onPressed,
+            child: Text(message),
+          ),
+        ],
+      ),
+    );
+  }
 
   static _ExceptionDetails _getExceptionDetails(final BuildContext context, final dynamic exception) {
     if (exception is String) {
