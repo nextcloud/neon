@@ -50,27 +50,22 @@ class AppsBloc extends InteractiveBloc implements AppsBlocEvents, AppsBlocStates
     });
 
     appImplementations.listen((final result) {
-      if (result.hasData) {
-        final options = _accountsBloc.getOptionsFor(_account);
-        unawaited(
-          options.initialApp.stream.first.then((var initialApp) async {
-            if (initialApp == null) {
-              if (result.requireData.tryFind('files') != null) {
-                initialApp = 'files';
-              } else if (result.requireData.isNotEmpty) {
-                // This should never happen, because the files app is always installed and can not be removed, but just in
-                // case this changes at a later point.
-                initialApp = result.requireData.first.id;
-              }
-            }
-            if (!activeApp.hasValue && initialApp != null) {
-              await setActiveApp(initialApp);
-            }
-          }),
-        );
-
-        unawaited(_checkCompatibility());
+      if (!result.hasData) {
+        return;
       }
+
+      final options = _accountsBloc.getOptionsFor(_account);
+      unawaited(
+        options.initialApp.stream.first.then((var initialApp) async {
+          initialApp ??= _getInitialAppFallback();
+
+          if (!activeApp.hasValue && initialApp != null) {
+            await setActiveApp(initialApp);
+          }
+        }),
+      );
+
+      unawaited(_checkCompatibility());
     });
 
     _capabilitiesBloc.capabilities.listen((final result) {
@@ -84,6 +79,25 @@ class AppsBloc extends InteractiveBloc implements AppsBlocEvents, AppsBlocStates
     });
 
     unawaited(refresh());
+  }
+
+  /// Determines the appid of initial app.
+  ///
+  /// It requires [appImplementations] to have both a value and data.
+  ///
+  /// The files app is always installed and can not be removed so it will be used, but in the
+  /// case this changes at a later point the first supported app will be returned.
+  ///
+  /// Returns null when no app is supported by the server.
+  String? _getInitialAppFallback() {
+    final supportedApps = appImplementations.value.requireData;
+    if (supportedApps.tryFind('files') != null) {
+      return 'files';
+    } else if (supportedApps.isNotEmpty) {
+      return supportedApps.first.id;
+    }
+
+    return null;
   }
 
   Future<void> _checkCompatibility() async {
