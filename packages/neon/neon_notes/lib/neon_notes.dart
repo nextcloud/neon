@@ -7,6 +7,7 @@ import 'package:built_collection/built_collection.dart';
 import 'package:crypto/crypto.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
+import 'package:go_router/go_router.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:neon/blocs.dart';
 import 'package:neon/models.dart';
@@ -16,6 +17,7 @@ import 'package:neon/sort_box.dart';
 import 'package:neon/utils.dart';
 import 'package:neon/widgets.dart';
 import 'package:neon_notes/l10n/localizations.dart';
+import 'package:neon_notes/routes.dart';
 import 'package:nextcloud/nextcloud.dart';
 import 'package:provider/provider.dart';
 import 'package:queue/queue.dart';
@@ -44,7 +46,9 @@ class NotesApp extends AppImplementation<NotesBloc, NotesAppSpecificOptions> {
   NotesApp(super.sharedPreferences, super.requestManager, super.platform);
 
   @override
-  String id = 'notes';
+  String id = appId;
+
+  static const String appId = 'notes';
 
   @override
   List<Locale> supportedLocales = AppLocalizations.supportedLocales;
@@ -64,4 +68,7 @@ class NotesApp extends AppImplementation<NotesBloc, NotesAppSpecificOptions> {
 
   @override
   Widget get page => const NotesMainPage();
+
+  @override
+  RouteBase get route => $notesAppRoute;
 }
