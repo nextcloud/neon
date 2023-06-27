@@ -1,7 +1,8 @@
 part of '../../neon.dart';
 
+@immutable
 class Branding {
-  Branding({
+  const Branding({
     required this.name,
     required this.logo,
     this.legalese,
