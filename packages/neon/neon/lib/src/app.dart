@@ -254,10 +254,6 @@ class _NeonAppState extends State<NeonApp> with WidgetsBindingObserver, tray.Tra
             builder: (final context, final themeKeepOriginalAccentColor) => StreamBuilder<Account?>(
               stream: _accountsBloc.activeAccount,
               builder: (final context, final activeAccountSnapshot) {
-                if (themeMode == null || themeOLEDAsDark == null) {
-                  return Container();
-                }
-
                 FlutterNativeSplash.remove();
                 return ResultBuilder<Capabilities?>.behaviorSubject(
                   stream: activeAccountSnapshot.hasData
@@ -280,12 +276,12 @@ class _NeonAppState extends State<NeonApp> with WidgetsBindingObserver, tray.Tra
                       theme: getThemeFromNextcloudTheme(
                         nextcloudTheme,
                         Brightness.light,
-                        keepOriginalAccentColor: nextcloudTheme == null || (themeKeepOriginalAccentColor ?? false),
+                        keepOriginalAccentColor: nextcloudTheme == null || themeKeepOriginalAccentColor,
                       ),
                       darkTheme: getThemeFromNextcloudTheme(
                         nextcloudTheme,
                         Brightness.dark,
-                        keepOriginalAccentColor: nextcloudTheme == null || (themeKeepOriginalAccentColor ?? false),
+                        keepOriginalAccentColor: nextcloudTheme == null || themeKeepOriginalAccentColor,
                         oledAsDark: themeOLEDAsDark,
                       ),
                       routerConfig: _routerDelegate,

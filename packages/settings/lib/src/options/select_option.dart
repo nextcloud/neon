@@ -9,8 +9,7 @@ class SelectOption<T> extends Option<T> {
     required this.values,
     super.category,
     super.enabled,
-  }) {
-    stream = BehaviorSubject();
+  }) : super(stream: BehaviorSubject()) {
     unawaited(
       values.first.then((final vs) async {
         final valueStr = storage.getString(key);
