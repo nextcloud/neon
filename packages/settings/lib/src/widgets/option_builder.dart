@@ -1,22 +1,23 @@
 part of '../../settings.dart';
 
-class OptionBuilder<T> extends StatelessWidget {
-  const OptionBuilder({
+typedef OptionBuilderFunction<T> = Widget Function(BuildContext context, T snapshot);
+
+class OptionBuilder<T> extends StreamBuilderBase<T, T> {
+  OptionBuilder({
     required this.option,
     required this.builder,
     super.key,
-  });
+  }) : super(stream: option.stream);
 
   final Option<T> option;
-  final Widget Function(BuildContext context, T? data) builder;
+  final OptionBuilderFunction<T> builder;
 
   @override
-  Widget build(final BuildContext context) => StreamBuilder<T?>(
-        stream: option.stream,
-        initialData: option.defaultValue,
-        builder: (final context, final valueSnapshot) => builder(
-          context,
-          valueSnapshot.data,
-        ),
-      );
+  T afterData(final T current, final T data) => data;
+
+  @override
+  T initial() => option.defaultValue;
+
+  @override
+  Widget build(final BuildContext context, final T currentSummary) => builder(context, currentSummary);
 }

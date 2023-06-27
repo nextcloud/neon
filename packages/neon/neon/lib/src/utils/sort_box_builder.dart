@@ -21,12 +21,10 @@ class SortBoxBuilder<T extends Enum, R> extends StatelessWidget {
         option: sortPropertyOption,
         builder: (final context, final property) => OptionBuilder<SortBoxOrder>(
           option: sortBoxOrderOption,
-          builder: (final context, final order) => property == null || order == null
-              ? Container()
-              : builder(
-                  context,
-                  input == null ? null : sortBox.sort(input!, Box(property, order)),
-                ),
+          builder: (final context, final order) => builder(
+            context,
+            input == null ? null : sortBox.sort(input!, Box(property, order)),
+          ),
         ),
       );
 }
