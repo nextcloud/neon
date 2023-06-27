@@ -2,12 +2,14 @@ part of '../../settings.dart';
 
 class OptionDisableException implements Exception {}
 
+@immutable
 abstract class Option<T> {
   Option({
     required this.storage,
     required this.key,
     required this.label,
     required this.defaultValue,
+    required this.stream,
     this.category,
     final BehaviorSubject<bool>? enabled,
   }) : enabled = enabled ?? BehaviorSubject<bool>.seeded(true);
@@ -18,8 +20,8 @@ abstract class Option<T> {
   final T defaultValue;
   final OptionsCategory? category;
   final BehaviorSubject<bool> enabled;
+  final BehaviorSubject<T> stream;
 
-  late BehaviorSubject<T> stream;
   T get value {
     if (hasValue) {
       return stream.value;
