@@ -54,7 +54,7 @@ class NotesView extends StatelessWidget {
             RelativeTime(
               date: DateTime.fromMillisecondsSinceEpoch(note.modified * 1000),
             ),
-            if (note.category != '') ...[
+            if (note.category.isNotEmpty) ...[
               const SizedBox(
                 width: 8,
               ),

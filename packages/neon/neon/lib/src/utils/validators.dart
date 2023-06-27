@@ -5,7 +5,7 @@ String? validateHttpUrl(
   final String? input, {
   final bool httpsOnly = false,
 }) {
-  if (input == null || input == '') {
+  if (input == null || input.isEmpty) {
     return AppLocalizations.of(context).errorInvalidURL;
   }
   try {
@@ -22,7 +22,7 @@ String? validateHttpUrl(
 }
 
 String? validateNotEmpty(final BuildContext context, final String? input) {
-  if (input == null || input == '') {
+  if (input == null || input.isEmpty) {
     return AppLocalizations.of(context).errorEmptyField;
   }
 

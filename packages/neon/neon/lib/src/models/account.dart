@@ -34,7 +34,7 @@ Future<Account> getAccount(
 
 String userAgent(final PackageInfo packageInfo) {
   var buildNumber = packageInfo.buildNumber;
-  if (buildNumber == '') {
+  if (buildNumber.isEmpty) {
     buildNumber = '1';
   }
   return 'Neon ${packageInfo.version}+$buildNumber';
