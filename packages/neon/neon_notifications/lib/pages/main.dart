@@ -92,6 +92,8 @@ class _NotificationsMainPageState extends State<NotificationsMainPage> {
           final accountsBloc = Provider.of<AccountsBloc>(context, listen: false);
           await accountsBloc.activeAppsBloc.setActiveApp(app.id);
         } else {
+          final colorScheme = Theme.of(context).colorScheme;
+
           await showDialog(
             context: context,
             builder: (final context) => AlertDialog(
@@ -99,8 +101,8 @@ class _NotificationsMainPageState extends State<NotificationsMainPage> {
               actions: [
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.red,
-                    foregroundColor: Theme.of(context).colorScheme.onPrimary,
+                    backgroundColor: colorScheme.error,
+                    foregroundColor: colorScheme.onError,
                   ),
                   onPressed: () {
                     Navigator.of(context).pop();
