@@ -12,7 +12,7 @@ class CheckBoxSettingsTile extends InputSettingsTile<ToggleOption> {
         builder: (final context, final value) => StreamBuilder<bool>(
           stream: option.enabled,
           builder: (final context, final enabledSnapshot) => !enabledSnapshot.hasData
-              ? Container()
+              ? const SizedBox()
               : CheckboxListTile(
                   title: Text(option.label(context)),
                   value: value,

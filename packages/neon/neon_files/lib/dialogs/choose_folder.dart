@@ -58,7 +58,7 @@ class FilesChooseFolderDialog extends StatelessWidget {
                           ],
                         ),
                       )
-                    : Container(),
+                    : const SizedBox(),
               ),
             ],
           ),
