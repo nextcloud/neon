@@ -51,11 +51,7 @@ class NewsFoldersView extends StatelessWidget {
             ? Theme.of(context).textTheme.titleMedium!.copyWith(color: Theme.of(context).disabledColor)
             : null,
       ),
-      subtitle: unreadCount > 0
-          ? Text(
-              AppLocalizations.of(context).articlesUnread(unreadCount),
-            )
-          : null,
+      subtitle: unreadCount > 0 ? Text(AppLocalizations.of(context).articlesUnread(unreadCount)) : const SizedBox(),
       leading: SizedBox.square(
         dimension: 48,
         child: Stack(

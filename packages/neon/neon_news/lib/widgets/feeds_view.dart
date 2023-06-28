@@ -51,7 +51,9 @@ class NewsFeedsView extends StatelessWidget {
               ? Theme.of(context).textTheme.titleMedium!.copyWith(color: Theme.of(context).disabledColor)
               : null,
         ),
-        subtitle: feed.unreadCount! > 0 ? Text(AppLocalizations.of(context).articlesUnread(feed.unreadCount!)) : null,
+        subtitle: feed.unreadCount! > 0
+            ? Text(AppLocalizations.of(context).articlesUnread(feed.unreadCount!))
+            : const SizedBox(),
         leading: NewsFeedIcon(
           feed: feed,
           borderRadius: const BorderRadius.all(Radius.circular(8)),
