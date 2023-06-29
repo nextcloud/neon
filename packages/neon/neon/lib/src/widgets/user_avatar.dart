@@ -53,7 +53,7 @@ class _UserAvatarState extends State<NeonUserAvatar> {
                 radius: size / 2,
                 backgroundColor: widget.backgroundColor,
                 child: ClipOval(
-                  child: NeonCachedApiImage(
+                  child: NeonCachedImage.api(
                     account: widget.account,
                     cacheKey: 'avatar-${widget.username}-${isDark ? 'dark' : 'light'}$pixelSize',
                     download: () async {
