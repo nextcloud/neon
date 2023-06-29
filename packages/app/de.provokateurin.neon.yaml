@@ -33,8 +33,20 @@ modules:
       - type: file
         path: assets/logo.svg
       - type: file
+        only-arches: [x86_64]
         path: build/linux/x64/release/bundle/nextcloud-neon
       - type: dir
+        only-arches: [x86_64]
         path: build/linux/x64/release/bundle/lib/
       - type: dir
+        only-arches: [x86_64]
         path: build/linux/x64/release/bundle/data/
+      - type: file
+        only-arches: [aarch64]
+        path: build/linux/arm64/release/bundle/nextcloud-neon
+      - type: dir
+        only-arches: [aarch64]
+        path: build/linux/arm64/release/bundle/lib/
+      - type: dir
+        only-arches: [aarch64]
+        path: build/linux/arm64/release/bundle/data/
