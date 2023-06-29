@@ -7,12 +7,12 @@ typedef APIImageDownloader = Future<Uint8List> Function();
 class NeonCachedImage extends StatefulWidget {
   const NeonCachedImage._({
     required this.getImageFile,
+    required Key super.key,
     this.isSvgHint = false,
     this.size,
     this.fit,
     this.svgColor,
     this.iconColor,
-    super.key,
   });
 
   factory NeonCachedImage.url({
@@ -33,7 +33,7 @@ class NeonCachedImage extends StatefulWidget {
         fit: fit,
         svgColor: svgColor,
         iconColor: iconColor,
-        key: key,
+        key: key ?? Key(url),
       );
 
   factory NeonCachedImage.api({
@@ -46,34 +46,35 @@ class NeonCachedImage extends StatefulWidget {
     final Color? svgColor,
     final Color? iconColor,
     final Key? key,
-  }) =>
-      NeonCachedImage._(
-        getImageFile: () async {
-          final realKey = '${account.id}-$cacheKey';
-          final cacheFile = await _cacheManager.getFileFromCache(realKey);
-          if (cacheFile != null && cacheFile.validTill.isAfter(DateTime.now())) {
-            return cacheFile.file.readAsBytes();
-          }
+  }) {
+    final realKey = '${account.id}-$cacheKey';
+    return NeonCachedImage._(
+      getImageFile: () async {
+        final cacheFile = await _cacheManager.getFileFromCache(realKey);
+        if (cacheFile != null && cacheFile.validTill.isAfter(DateTime.now())) {
+          return cacheFile.file.readAsBytes();
+        }
 
-          final file = await download();
+        final file = await download();
 
-          unawaited(
-            _cacheManager.putFile(
-              realKey,
-              file,
-              maxAge: const Duration(days: 7),
-              eTag: etag,
-            ),
-          );
+        unawaited(
+          _cacheManager.putFile(
+            realKey,
+            file,
+            maxAge: const Duration(days: 7),
+            eTag: etag,
+          ),
+        );
 
-          return file;
-        },
-        size: size,
-        fit: fit,
-        svgColor: svgColor,
-        iconColor: iconColor,
-        key: key,
-      );
+        return file;
+      },
+      size: size,
+      fit: fit,
+      svgColor: svgColor,
+      iconColor: iconColor,
+      key: key ?? Key(realKey),
+    );
+  }
 
   final Future<Uint8List> Function() getImageFile;
   final bool isSvgHint;
