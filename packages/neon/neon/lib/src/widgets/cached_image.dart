@@ -27,46 +27,34 @@ abstract class NeonCachedImage extends StatefulWidget {
 }
 
 class _NeonCachedImageState extends State<NeonCachedImage> {
-  late Future<File> future = widget.getImageFile();
+  Future<Uint8List> _readImage() async {
+    final file = await widget.getImageFile();
+    return file.readAsBytes();
+  }
+
+  late Future<Uint8List> _future = _readImage();
 
   @override
   Widget build(final BuildContext context) => Center(
-        child: FutureBuilder<File>(
-          future: future,
+        child: FutureBuilder<Uint8List>(
+          future: _future,
           builder: (final context, final fileSnapshot) {
-            if (fileSnapshot.hasData) {
-              final content = fileSnapshot.requireData.readAsBytesSync();
-
-              try {
-                // TODO: Is this safe enough?
-                if (widget.isSvgHint || utf8.decode(content).contains('<svg')) {
-                  return SvgPicture.memory(
-                    content,
-                    height: widget.size?.height,
-                    width: widget.size?.width,
-                    fit: widget.fit ?? BoxFit.contain,
-                    colorFilter: widget.svgColor != null ? ColorFilter.mode(widget.svgColor!, BlendMode.srcIn) : null,
-                  );
-                }
-              } catch (_) {
-                // If the data is not UTF-8
-              }
-
-              return Image.memory(
-                content,
-                height: widget.size?.height,
+            if (!fileSnapshot.hasData) {
+              return SizedBox(
                 width: widget.size?.width,
-                fit: widget.fit,
-                gaplessPlayback: true,
+                child: NeonLinearProgressIndicator(
+                  color: widget.iconColor,
+                ),
               );
             }
+
             if (fileSnapshot.hasError) {
               return NeonException(
                 fileSnapshot.error,
                 onRetry: () {
                   setState(() {
                     // ignore: discarded_futures
-                    future = widget.getImageFile();
+                    _future = _readImage();
                   });
                 },
                 onlyIcon: true,
@@ -74,11 +62,30 @@ class _NeonCachedImageState extends State<NeonCachedImage> {
                 color: widget.iconColor ?? Theme.of(context).colorScheme.error,
               );
             }
-            return SizedBox(
+
+            final content = fileSnapshot.requireData;
+
+            try {
+              // TODO: Is this safe enough?
+              if (widget.isSvgHint || utf8.decode(content).contains('<svg')) {
+                return SvgPicture.memory(
+                  content,
+                  height: widget.size?.height,
+                  width: widget.size?.width,
+                  fit: widget.fit ?? BoxFit.contain,
+                  colorFilter: widget.svgColor != null ? ColorFilter.mode(widget.svgColor!, BlendMode.srcIn) : null,
+                );
+              }
+            } catch (_) {
+              // If the data is not UTF-8
+            }
+
+            return Image.memory(
+              content,
+              height: widget.size?.height,
               width: widget.size?.width,
-              child: NeonLinearProgressIndicator(
-                color: widget.iconColor,
-              ),
+              fit: widget.fit,
+              gaplessPlayback: true,
             );
           },
         ),
