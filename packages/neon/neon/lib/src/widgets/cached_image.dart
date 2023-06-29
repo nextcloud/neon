@@ -24,7 +24,10 @@ class NeonCachedImage extends StatefulWidget {
     final Key? key,
   }) =>
       NeonCachedImage._(
-        getImageFile: () async => _cacheManager.getSingleFile(url),
+        getImageFile: () async {
+          final file = await _cacheManager.getSingleFile(url);
+          return file.readAsBytes();
+        },
         isSvgHint: Uri.parse(url).path.endsWith('.svg'),
         size: size,
         fit: fit,
@@ -49,16 +52,21 @@ class NeonCachedImage extends StatefulWidget {
           final realKey = '${account.id}-$cacheKey';
           final cacheFile = await _cacheManager.getFileFromCache(realKey);
           if (cacheFile != null && cacheFile.validTill.isAfter(DateTime.now())) {
-            return cacheFile.file;
+            return cacheFile.file.readAsBytes();
           }
 
-          // TODO: don't await the image being written to disk
-          return _cacheManager.putFile(
-            realKey,
-            await download(),
-            maxAge: const Duration(days: 7),
-            eTag: etag,
+          final file = await download();
+
+          unawaited(
+            _cacheManager.putFile(
+              realKey,
+              file,
+              maxAge: const Duration(days: 7),
+              eTag: etag,
+            ),
           );
+
+          return file;
         },
         size: size,
         fit: fit,
@@ -67,7 +75,7 @@ class NeonCachedImage extends StatefulWidget {
         key: key,
       );
 
-  final Future<File> Function() getImageFile;
+  final Future<Uint8List> Function() getImageFile;
   final bool isSvgHint;
 
   final Size? size;
@@ -81,12 +89,7 @@ class NeonCachedImage extends StatefulWidget {
 }
 
 class _NeonCachedImageState extends State<NeonCachedImage> {
-  Future<Uint8List> _readImage() async {
-    final file = await widget.getImageFile();
-    return file.readAsBytes();
-  }
-
-  late Future<Uint8List> _future = _readImage();
+  late Future<Uint8List> _future = widget.getImageFile();
 
   @override
   Widget build(final BuildContext context) => Center(
@@ -108,7 +111,7 @@ class _NeonCachedImageState extends State<NeonCachedImage> {
                 onRetry: () {
                   setState(() {
                     // ignore: discarded_futures
-                    _future = _readImage();
+                    _future = widget.getImageFile();
                   });
                 },
                 onlyIcon: true,
