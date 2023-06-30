@@ -1,6 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
 import 'package:go_router/go_router.dart';
+import 'package:meta/meta.dart';
 import 'package:neon/src/blocs/accounts.dart';
 import 'package:neon/src/models/account.dart';
 import 'package:neon/src/models/app_implementation.dart';
@@ -14,6 +15,7 @@ import 'package:provider/provider.dart';
 
 part 'router.g.dart';
 
+@internal
 class AppRouter extends GoRouter {
   AppRouter({
     required final GlobalKey<NavigatorState> navigatorKey,
