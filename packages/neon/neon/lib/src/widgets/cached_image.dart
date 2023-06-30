@@ -1,12 +1,12 @@
 part of '../../neon.dart';
 
-final _cacheManager = DefaultCacheManager();
-
-typedef APIImageDownloader = Future<Uint8List> Function();
+typedef CacheReviver = FutureOr<Uint8List?> Function(CacheManager cacheManager);
+typedef ImageDownloader = FutureOr<Uint8List> Function();
+typedef CacheWriter = Future<void> Function(CacheManager cacheManager, Uint8List image);
 
 class NeonCachedImage extends StatefulWidget {
-  const NeonCachedImage._({
-    required this.getImageFile,
+  const NeonCachedImage({
+    required this.image,
     required Key super.key,
     this.isSvgHint = false,
     this.size,
@@ -15,68 +15,36 @@ class NeonCachedImage extends StatefulWidget {
     this.iconColor,
   });
 
-  factory NeonCachedImage.url({
+  NeonCachedImage.url({
     required final String url,
-    final Size? size,
-    final BoxFit? fit,
-    final Color? svgColor,
-    final Color? iconColor,
     final Key? key,
-  }) =>
-      NeonCachedImage._(
-        getImageFile: () async {
-          final file = await _cacheManager.getSingleFile(url);
-          return file.readAsBytes();
-        },
-        isSvgHint: Uri.parse(url).path.endsWith('.svg'),
-        size: size,
-        fit: fit,
-        svgColor: svgColor,
-        iconColor: iconColor,
-        key: key ?? Key(url),
-      );
+    this.isSvgHint = false,
+    this.size,
+    this.fit,
+    this.svgColor,
+    this.iconColor,
+  })  : image = _getImageFromUrl(url),
+        super(key: key ?? Key(url));
 
-  factory NeonCachedImage.api({
-    required final Account account,
+  NeonCachedImage.custom({
+    required final ImageDownloader getImage,
     required final String cacheKey,
-    required final APIImageDownloader download,
-    final String? etag,
-    final Size? size,
-    final BoxFit? fit,
-    final Color? svgColor,
-    final Color? iconColor,
-    final Key? key,
-  }) {
-    final realKey = '${account.id}-$cacheKey';
-    return NeonCachedImage._(
-      getImageFile: () async {
-        final cacheFile = await _cacheManager.getFileFromCache(realKey);
-        if (cacheFile != null && cacheFile.validTill.isAfter(DateTime.now())) {
-          return cacheFile.file.readAsBytes();
-        }
+    final CacheReviver? reviver,
+    final CacheWriter? writeCache,
+    this.isSvgHint = false,
+    this.size,
+    this.fit,
+    this.svgColor,
+    this.iconColor,
+  })  : image = _customImageGetter(
+          reviver,
+          getImage,
+          writeCache,
+          cacheKey,
+        ),
+        super(key: Key(cacheKey));
 
-        final file = await download();
-
-        unawaited(
-          _cacheManager.putFile(
-            realKey,
-            file,
-            maxAge: const Duration(days: 7),
-            eTag: etag,
-          ),
-        );
-
-        return file;
-      },
-      size: size,
-      fit: fit,
-      svgColor: svgColor,
-      iconColor: iconColor,
-      key: key ?? Key(realKey),
-    );
-  }
-
-  final Future<Uint8List> Function() getImageFile;
+  final Future<Uint8List> image;
   final bool isSvgHint;
 
   final Size? size;
@@ -85,17 +53,60 @@ class NeonCachedImage extends StatefulWidget {
   final Color? svgColor;
   final Color? iconColor;
 
+  static Future<Uint8List> _getImageFromUrl(final String url) async {
+    final file = await _cacheManager.getSingleFile(url);
+    return file.readAsBytes();
+  }
+
+  static Future<Uint8List> _customImageGetter(
+    final CacheReviver? checkCache,
+    final ImageDownloader getImage,
+    final CacheWriter? writeCache,
+    final String cacheKey,
+  ) async {
+    final cached = await checkCache?.call(_cacheManager) ?? await _defaultCacheReviver(cacheKey);
+    if (cached != null) {
+      return cached;
+    }
+
+    final data = await getImage();
+
+    unawaited(writeCache?.call(_cacheManager, data) ?? _defaultCacheWriter(data, cacheKey));
+
+    return data;
+  }
+
+  static Future<Uint8List?> _defaultCacheReviver(final String cacheKey) async {
+    final cacheFile = await _cacheManager.getFileFromCache(cacheKey);
+    if (cacheFile != null && cacheFile.validTill.isAfter(DateTime.now())) {
+      return cacheFile.file.readAsBytes();
+    }
+
+    return null;
+  }
+
+  static Future<void> _defaultCacheWriter(
+    final Uint8List data,
+    final String cacheKey,
+  ) async {
+    await _cacheManager.putFile(
+      cacheKey,
+      data,
+      maxAge: const Duration(days: 7),
+    );
+  }
+
+  static final _cacheManager = DefaultCacheManager();
+
   @override
   State<NeonCachedImage> createState() => _NeonCachedImageState();
 }
 
 class _NeonCachedImageState extends State<NeonCachedImage> {
-  late Future<Uint8List> _future = widget.getImageFile();
-
   @override
   Widget build(final BuildContext context) => Center(
         child: FutureBuilder<Uint8List>(
-          future: _future,
+          future: widget.image,
           builder: (final context, final fileSnapshot) {
             if (!fileSnapshot.hasData) {
               return SizedBox(
@@ -110,10 +121,7 @@ class _NeonCachedImageState extends State<NeonCachedImage> {
               return NeonException(
                 fileSnapshot.error,
                 onRetry: () {
-                  setState(() {
-                    // ignore: discarded_futures
-                    _future = widget.getImageFile();
-                  });
+                  setState(() {});
                 },
                 onlyIcon: true,
                 iconSize: widget.size?.shortestSide,
