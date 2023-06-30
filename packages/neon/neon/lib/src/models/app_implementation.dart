@@ -82,7 +82,7 @@ abstract class AppImplementation<T extends Bloc, R extends NextcloudAppOptions> 
   ///
   /// All pages of the app must be specified as subroutes.
   /// If this is not [GoRoute] an inital route name must be specified by overriding [initialRouteName].
-  RouteBase get route => throw UnimplementedError();
+  RouteBase get route;
 
   /// Name of the initial route for this app.
   ///
