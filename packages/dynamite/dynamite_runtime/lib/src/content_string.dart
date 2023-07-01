@@ -1,5 +1,3 @@
-// ignore_for_file: avoid_equals_and_hash_code_on_mutable_classes
-
 import 'dart:convert';
 
 import 'package:built_value/built_value.dart';
