@@ -11,23 +11,23 @@ class NotesView extends StatelessWidget {
   final String? category;
 
   @override
-  Widget build(final BuildContext context) => ResultBuilder<List<NextcloudNotesNote>>.behaviorSubject(
+  Widget build(final BuildContext context) => ResultBuilder<List<NotesNote>>.behaviorSubject(
         stream: bloc.notes,
-        builder: (final context, final notes) => SortBoxBuilder<NotesSortProperty, NextcloudNotesNote>(
+        builder: (final context, final notes) => SortBoxBuilder<NotesSortProperty, NotesNote>(
           sortBox: notesSortBox,
           sortPropertyOption: bloc.options.notesSortPropertyOption,
           sortBoxOrderOption: bloc.options.notesSortBoxOrderOption,
           input: category != null
               ? notes.data?.where((final note) => note.favorite && note.category == category).toList()
               : notes.data?.where((final note) => note.favorite).toList(),
-          builder: (final context, final sortedFavorites) => SortBoxBuilder<NotesSortProperty, NextcloudNotesNote>(
+          builder: (final context, final sortedFavorites) => SortBoxBuilder<NotesSortProperty, NotesNote>(
             sortBox: notesSortBox,
             sortPropertyOption: bloc.options.notesSortPropertyOption,
             sortBoxOrderOption: bloc.options.notesSortBoxOrderOption,
             input: category != null
                 ? notes.data?.where((final note) => !note.favorite && note.category == category).toList()
                 : notes.data?.where((final note) => !note.favorite).toList(),
-            builder: (final context, final sortedNonFavorites) => NeonListView<NextcloudNotesNote>(
+            builder: (final context, final sortedNonFavorites) => NeonListView<NotesNote>(
               scrollKey: 'notes-notes',
               withFloatingActionButton: true,
               items: [
@@ -45,7 +45,7 @@ class NotesView extends StatelessWidget {
 
   Widget _buildNote(
     final BuildContext context,
-    final NextcloudNotesNote note,
+    final NotesNote note,
   ) =>
       ListTile(
         title: Text(note.title),

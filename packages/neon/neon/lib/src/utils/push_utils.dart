@@ -78,7 +78,7 @@ class PushUtils {
 
         var accounts = <Account>[];
         Account? account;
-        NextcloudNotificationsNotification? notification;
+        NotificationsNotification? notification;
         AndroidBitmap<Object>? largeIconBitmap;
         try {
           accounts = loadAccounts(AppStorage('accounts', sharedPreferences));

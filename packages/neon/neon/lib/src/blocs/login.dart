@@ -9,9 +9,9 @@ abstract class LoginBlocStates {
 
   BehaviorSubject<ServerConnectionState?> get serverConnectionState;
 
-  BehaviorSubject<NextcloudCoreLoginFlowInit?> get loginFlowInit;
+  BehaviorSubject<CoreLoginFlowInit?> get loginFlowInit;
 
-  BehaviorSubject<NextcloudCoreLoginFlowResult?> get loginFlowResult;
+  BehaviorSubject<CoreLoginFlowResult?> get loginFlowResult;
 }
 
 class LoginBloc extends InteractiveBloc implements LoginBlocEvents, LoginBlocStates {
@@ -31,12 +31,10 @@ class LoginBloc extends InteractiveBloc implements LoginBlocEvents, LoginBlocSta
   }
 
   @override
-  BehaviorSubject<NextcloudCoreLoginFlowInit?> loginFlowInit =
-      BehaviorSubject<NextcloudCoreLoginFlowInit?>.seeded(null);
+  BehaviorSubject<CoreLoginFlowInit?> loginFlowInit = BehaviorSubject<CoreLoginFlowInit?>.seeded(null);
 
   @override
-  BehaviorSubject<NextcloudCoreLoginFlowResult?> loginFlowResult =
-      BehaviorSubject<NextcloudCoreLoginFlowResult?>.seeded(null);
+  BehaviorSubject<CoreLoginFlowResult?> loginFlowResult = BehaviorSubject<CoreLoginFlowResult?>.seeded(null);
 
   @override
   BehaviorSubject<ServerConnectionState?> serverConnectionState = BehaviorSubject<ServerConnectionState?>.seeded(null);

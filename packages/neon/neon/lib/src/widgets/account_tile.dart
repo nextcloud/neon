@@ -36,7 +36,7 @@ class NeonAccountTile extends StatelessWidget {
       leading: NeonUserAvatar(
         account: account,
       ),
-      title: ResultBuilder<NextcloudProvisioningApiUserDetails>.behaviorSubject(
+      title: ResultBuilder<ProvisioningApiUserDetails>.behaviorSubject(
         stream: userDetailsBloc.userDetails,
         builder: (final context, final userDetails) => Row(
           children: [

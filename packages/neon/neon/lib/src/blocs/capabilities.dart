@@ -1,7 +1,7 @@
 part of 'blocs.dart';
 
-typedef Capabilities = NextcloudCoreServerCapabilities_Ocs_Data;
-typedef NextcloudTheme = NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Theming;
+typedef Capabilities = CoreServerCapabilities_Ocs_Data;
+typedef NextcloudTheme = CoreServerCapabilities_Ocs_Data_Capabilities_Theming;
 
 abstract class CapabilitiesBlocEvents {}
 
@@ -31,7 +31,7 @@ class CapabilitiesBloc extends InteractiveBloc implements CapabilitiesBlocEvents
 
   @override
   Future refresh() async {
-    await _requestManager.wrapNextcloud<NextcloudCoreServerCapabilities_Ocs_Data, NextcloudCoreServerCapabilities>(
+    await _requestManager.wrapNextcloud<CoreServerCapabilities_Ocs_Data, CoreServerCapabilities>(
       _client.id,
       'capabilities',
       capabilities,

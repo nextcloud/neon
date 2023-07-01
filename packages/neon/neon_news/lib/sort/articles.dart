@@ -1,6 +1,6 @@
 part of '../neon_news.dart';
 
-final articlesSortBox = SortBox<ArticlesSortProperty, NextcloudNewsArticle>(
+final articlesSortBox = SortBox<ArticlesSortProperty, NewsArticle>(
   {
     ArticlesSortProperty.publishDate: (final article) => article.pubDate,
     ArticlesSortProperty.alphabetical: (final article) => article.title.toLowerCase(),

@@ -8,7 +8,7 @@ class NewsFeedIcon extends StatelessWidget {
     super.key,
   });
 
-  final NextcloudNewsFeed feed;
+  final NewsFeed feed;
   final double size;
   final BorderRadius? borderRadius;
 

@@ -6,7 +6,7 @@ class NewsFeedShowURLDialog extends StatefulWidget {
     super.key,
   });
 
-  final NextcloudNewsFeed feed;
+  final NewsFeed feed;
 
   @override
   State<NewsFeedShowURLDialog> createState() => _NewsFeedShowURLDialogState();
