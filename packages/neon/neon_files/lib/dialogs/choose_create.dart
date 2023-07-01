@@ -32,10 +32,8 @@ class _FilesChooseCreateDialogState extends State<FilesChooseCreateDialog> {
     if (sizeWarning != null) {
       final stat = file.statSync();
       if (stat.size > sizeWarning) {
-        // ignore: use_build_context_synchronously
         if (!(await showConfirmationDialog(
           context,
-          // ignore: use_build_context_synchronously
           AppLocalizations.of(context).uploadConfirmSizeWarning(
             filesize(sizeWarning),
             filesize(stat.size),

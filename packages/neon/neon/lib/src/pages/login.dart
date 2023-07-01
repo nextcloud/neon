@@ -84,8 +84,10 @@ class _LoginPageState extends State<LoginPage> {
               ..addAccount(account)
               ..setActiveAccount(account);
           }
-          // ignore: use_build_context_synchronously
-          const HomeRoute().go(context);
+
+          if (mounted) {
+            const HomeRoute().go(context);
+          }
         } catch (e, s) {
           debugPrint(e.toString());
           debugPrint(s.toString());

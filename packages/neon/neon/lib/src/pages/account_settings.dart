@@ -22,21 +22,22 @@ class AccountSettingsPage extends StatelessWidget {
           actions: [
             IconButton(
               onPressed: () async {
-                // ignore: use_build_context_synchronously
                 if (await showConfirmationDialog(
                   context,
-                  // ignore: use_build_context_synchronously
                   AppLocalizations.of(context).accountOptionsRemoveConfirm(account.client.humanReadableID),
                 )) {
                   final isActive = bloc.activeAccount.value == account;
 
                   bloc.removeAccount(account);
 
+                  // ignore: use_build_context_synchronously
+                  if (!context.mounted) {
+                    return;
+                  }
+
                   if (isActive) {
-                    // ignore: use_build_context_synchronously
                     const HomeRoute().go(context);
                   } else {
-                    // ignore: use_build_context_synchronously
                     Navigator.of(context).pop();
                   }
                 }
@@ -46,10 +47,8 @@ class AccountSettingsPage extends StatelessWidget {
             ),
             IconButton(
               onPressed: () async {
-                // ignore: use_build_context_synchronously
                 if (await showConfirmationDialog(
                   context,
-                  // ignore: use_build_context_synchronously
                   AppLocalizations.of(context).settingsResetForConfirmation(_name),
                 )) {
                   await _options.reset();

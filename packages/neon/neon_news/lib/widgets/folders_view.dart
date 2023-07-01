@@ -86,10 +86,8 @@ class NewsFoldersView extends StatelessWidget {
         onSelected: (final action) async {
           switch (action) {
             case NewsFolderAction.delete:
-              // ignore: use_build_context_synchronously
               if (await showConfirmationDialog(
                 context,
-                // ignore: use_build_context_synchronously
                 AppLocalizations.of(context).folderDeleteConfirm(folder.name),
               )) {
                 bloc.deleteFolder(folder.id);

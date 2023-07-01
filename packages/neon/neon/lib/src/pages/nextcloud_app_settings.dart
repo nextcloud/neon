@@ -16,10 +16,8 @@ class NextcloudAppSettingsPage extends StatelessWidget {
           actions: [
             IconButton(
               onPressed: () async {
-                // ignore: use_build_context_synchronously
                 if (await showConfirmationDialog(
                   context,
-                  // ignore: use_build_context_synchronously
                   AppLocalizations.of(context).settingsResetForConfirmation(appImplementation.name(context)),
                 )) {
                   await appImplementation.options.reset();

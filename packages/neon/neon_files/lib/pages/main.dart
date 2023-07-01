@@ -30,10 +30,8 @@ class _FilesMainPageState extends State<FilesMainPage> {
           onPickFile: (final details) async {
             final sizeWarning = bloc.options.downloadSizeWarning.value;
             if (sizeWarning != null && details.size != null && details.size! > sizeWarning) {
-              // ignore: use_build_context_synchronously
               if (!(await showConfirmationDialog(
                 context,
-                // ignore: use_build_context_synchronously
                 AppLocalizations.of(context).downloadConfirmSizeWarning(
                   filesize(sizeWarning),
                   filesize(details.size),

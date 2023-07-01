@@ -113,10 +113,8 @@ class NewsFeedsView extends StatelessWidget {
                     );
                     break;
                   case NewsFeedAction.delete:
-                    // ignore: use_build_context_synchronously
                     if (await showConfirmationDialog(
                       context,
-                      // ignore: use_build_context_synchronously
                       AppLocalizations.of(context).feedRemoveConfirm(feed.title),
                     )) {
                       bloc.removeFeed(feed.id);
