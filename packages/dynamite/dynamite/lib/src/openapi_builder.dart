@@ -202,7 +202,7 @@ class OpenAPIBuilder implements Builder {
               if (isRootClient) {
                 b
                   ..extend = refer('DynamiteClient')
-                  ..constructors.add(
+                  ..constructors.addAll([
                     Constructor(
                       (final b) => b
                         ..requiredParameters.add(
@@ -247,7 +247,29 @@ class OpenAPIBuilder implements Builder {
                           ],
                         ]),
                     ),
-                  );
+                    Constructor(
+                      (final b) => b
+                        ..name = 'fromClient'
+                        ..requiredParameters.add(
+                          Parameter(
+                            (final b) => b
+                              ..name = 'client'
+                              ..type = refer('DynamiteClient'),
+                          ),
+                        )
+                        ..initializers.add(
+                          const Code('''
+                            super(
+                              client.baseURL,
+                              baseHeaders: client.baseHeaders,
+                              httpClient: client.httpClient,
+                              cookieJar: client.cookieJar,
+                              authentications: client.authentications,
+                            )
+                          '''),
+                        ),
+                    ),
+                  ]);
               } else {
                 b
                   ..fields.add(
