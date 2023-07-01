@@ -43,7 +43,7 @@ class _UserAvatarState extends State<NeonUserAvatar> {
   @override
   Widget build(final BuildContext context) => LayoutBuilder(
         builder: (final context, final constraints) {
-          final isDark = Theme.of(context).brightness == Brightness.dark;
+          final brightness = Theme.of(context).brightness;
           size = constraints.constrain(Size.square(widget.size)).shortestSide;
           final pixelSize = (size * MediaQuery.of(context).devicePixelRatio).toInt();
           return Stack(
@@ -53,11 +53,10 @@ class _UserAvatarState extends State<NeonUserAvatar> {
                 radius: size / 2,
                 backgroundColor: widget.backgroundColor,
                 child: ClipOval(
-                  child: NeonCachedApiImage(
-                    account: widget.account,
-                    cacheKey: 'avatar-${widget.username}-${isDark ? 'dark' : 'light'}$pixelSize',
-                    download: () async {
-                      if (isDark) {
+                  child: NeonCachedImage.custom(
+                    cacheKey: '${widget.account.id}-avatar-${widget.username}-$brightness$pixelSize',
+                    getImage: () async {
+                      if (brightness == Brightness.dark) {
                         return widget.account.client.core.getDarkAvatar(
                           userId: widget.username,
                           size: pixelSize,
