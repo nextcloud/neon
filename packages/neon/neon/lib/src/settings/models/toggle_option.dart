@@ -1,4 +1,5 @@
-part of '../../settings.dart';
+import 'package:neon/src/settings/models/option.dart';
+import 'package:rxdart/rxdart.dart';
 
 class ToggleOption extends Option<bool> {
   ToggleOption({

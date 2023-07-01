@@ -1,4 +1,5 @@
-part of '../../settings.dart';
+import 'package:flutter/widgets.dart';
+import 'package:neon/src/settings/models/option.dart';
 
 typedef OptionBuilderFunction<T> = Widget Function(BuildContext context, T snapshot);
 

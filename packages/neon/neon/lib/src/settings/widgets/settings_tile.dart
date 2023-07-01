@@ -1,4 +1,5 @@
-part of '../../settings.dart';
+import 'package:flutter/widgets.dart';
+import 'package:neon/src/settings/models/option.dart';
 
 abstract class SettingsTile extends StatelessWidget {
   const SettingsTile({

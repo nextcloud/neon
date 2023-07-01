@@ -1,5 +1,15 @@
-import 'package:settings/settings.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+
+abstract interface class SettingsStorage {
+  String? getString(final String key);
+
+  Future setString(final String key, final String value);
+
+  bool? getBool(final String key);
+
+  // ignore: avoid_positional_boolean_parameters
+  Future setBool(final String key, final bool value);
+}
 
 class AppStorage implements SettingsStorage {
   AppStorage(

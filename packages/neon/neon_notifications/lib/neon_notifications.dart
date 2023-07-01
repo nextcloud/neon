@@ -7,6 +7,7 @@ import 'package:material_design_icons_flutter/material_design_icons_flutter.dart
 import 'package:neon/blocs.dart';
 import 'package:neon/interfaces.dart';
 import 'package:neon/models.dart';
+import 'package:neon/settings.dart';
 import 'package:neon/utils.dart';
 import 'package:neon/widgets.dart';
 import 'package:neon_notifications/l10n/localizations.dart';

@@ -1,6 +1,6 @@
 import 'package:neon/src/bloc/bloc.dart';
+import 'package:neon/src/settings/models/nextcloud_app_options.dart';
 import 'package:neon/src/utils/app_implementation.dart';
-import 'package:neon/src/utils/nextcloud_app_specific_options.dart';
 
 abstract interface class NotificationsAppInterface<T extends NotificationsBlocInterface,
     R extends NotificationsOptionsInterface> extends AppImplementation<T, R> {
@@ -18,6 +18,6 @@ abstract interface class NotificationsBlocInterface extends InteractiveBloc {
   void deleteNotification(final int id);
 }
 
-abstract interface class NotificationsOptionsInterface extends NextcloudAppSpecificOptions {
+abstract interface class NotificationsOptionsInterface extends NextcloudAppOptions {
   NotificationsOptionsInterface(super.storage);
 }

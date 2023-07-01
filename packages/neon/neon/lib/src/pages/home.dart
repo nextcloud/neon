@@ -6,6 +6,7 @@ import 'package:neon/src/bloc/result_builder.dart';
 import 'package:neon/src/blocs/accounts.dart';
 import 'package:neon/src/blocs/apps.dart';
 import 'package:neon/src/models/account.dart';
+import 'package:neon/src/settings/widgets/option_builder.dart';
 import 'package:neon/src/utils/app_implementation.dart';
 import 'package:neon/src/utils/global_options.dart';
 import 'package:neon/src/utils/global_options.dart' as global_options;
@@ -15,7 +16,6 @@ import 'package:neon/src/widgets/drawer.dart';
 import 'package:neon/src/widgets/exception.dart';
 import 'package:neon/src/widgets/user_avatar.dart';
 import 'package:provider/provider.dart';
-import 'package:settings/settings.dart';
 
 const kQuickBarWidth = kAvatarSize + 20;
 

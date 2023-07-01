@@ -1,5 +1,5 @@
 import 'package:neon/l10n/localizations.dart';
-import 'package:settings/settings.dart';
+import 'package:neon/src/settings/widgets/label_builder.dart';
 import 'package:sort_box/sort_box.dart';
 
 final sortBoxOrderOptionValues = <SortBoxOrder, LabelBuilder>{

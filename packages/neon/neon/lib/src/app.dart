@@ -13,6 +13,7 @@ import 'package:neon/src/models/account.dart';
 import 'package:neon/src/models/push_notification.dart';
 import 'package:neon/src/platform/platform.dart';
 import 'package:neon/src/router.dart';
+import 'package:neon/src/settings/widgets/option_builder.dart';
 import 'package:neon/src/utils/app_implementation.dart';
 import 'package:neon/src/utils/global.dart';
 import 'package:neon/src/utils/global_options.dart';
@@ -21,7 +22,6 @@ import 'package:neon/src/utils/push_utils.dart';
 import 'package:neon/src/utils/theme.dart';
 import 'package:provider/provider.dart';
 import 'package:quick_actions/quick_actions.dart';
-import 'package:settings/settings.dart';
 import 'package:tray_manager/tray_manager.dart' as tray;
 import 'package:window_manager/window_manager.dart';
 

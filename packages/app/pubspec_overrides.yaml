@@ -1,4 +1,4 @@
-# melos_managed_dependency_overrides: dynamite_runtime,file_icons,neon,neon_files,neon_news,neon_notes,neon_notifications,nextcloud,settings,sort_box,wakelock_windows
+# melos_managed_dependency_overrides: dynamite_runtime,file_icons,neon,neon_files,neon_news,neon_notes,neon_notifications,nextcloud,sort_box,wakelock_windows
 dependency_overrides:
   dynamite_runtime:
     path: ../dynamite/dynamite_runtime
@@ -16,8 +16,6 @@ dependency_overrides:
     path: ../neon/neon_notifications
   nextcloud:
     path: ../nextcloud
-  settings:
-    path: ../settings
   sort_box:
     path: ../sort_box
   wakelock_windows:

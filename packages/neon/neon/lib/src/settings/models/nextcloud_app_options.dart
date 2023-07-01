@@ -1,8 +1,9 @@
-import 'package:neon/src/utils/storage.dart';
-import 'package:settings/settings.dart';
+import 'package:neon/src/settings/models/option.dart';
+import 'package:neon/src/settings/models/options_category.dart';
+import 'package:neon/src/settings/models/storage.dart';
 
-abstract class NextcloudAppSpecificOptions {
-  NextcloudAppSpecificOptions(this.storage);
+abstract class NextcloudAppOptions {
+  NextcloudAppOptions(this.storage);
 
   final AppStorage storage;
   late final List<OptionsCategory> categories;

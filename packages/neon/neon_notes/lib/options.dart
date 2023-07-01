@@ -1,6 +1,6 @@
 part of 'neon_notes.dart';
 
-class NotesAppSpecificOptions extends NextcloudAppSpecificOptions {
+class NotesAppSpecificOptions extends NextcloudAppOptions {
   NotesAppSpecificOptions(super.storage) {
     super.categories = [
       generalCategory,

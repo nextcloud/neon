@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:settings/settings.dart';
+import 'package:neon/src/settings/widgets/settings_tile.dart';
 
-class NeonTextSettingsTile extends SettingsTile {
-  const NeonTextSettingsTile({
+class TextSettingsTile extends SettingsTile {
+  const TextSettingsTile({
     required this.text,
     this.style,
     super.key,

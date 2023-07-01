@@ -1,4 +1,6 @@
-part of '../../settings.dart';
+import 'package:flutter/material.dart';
+import 'package:intersperse/intersperse.dart';
+import 'package:neon/src/settings/widgets/settings_category.dart';
 
 class SettingsList extends StatelessWidget {
   const SettingsList({

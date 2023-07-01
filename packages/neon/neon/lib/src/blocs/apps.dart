@@ -7,8 +7,8 @@ import 'package:neon/src/blocs/accounts.dart';
 import 'package:neon/src/blocs/capabilities.dart';
 import 'package:neon/src/interfaces/notifications.dart';
 import 'package:neon/src/models/account.dart';
+import 'package:neon/src/settings/models/nextcloud_app_options.dart';
 import 'package:neon/src/utils/app_implementation.dart';
-import 'package:neon/src/utils/nextcloud_app_specific_options.dart';
 import 'package:neon/src/utils/request_manager.dart';
 import 'package:nextcloud/nextcloud.dart';
 import 'package:provider/provider.dart';
@@ -161,7 +161,7 @@ class AppsBloc extends InteractiveBloc implements AppsBlocEvents, AppsBlocStates
   BehaviorSubject<AppImplementation> activeApp = BehaviorSubject<AppImplementation>();
 
   @override
-  BehaviorSubject<Result<Iterable<AppImplementation<Bloc, NextcloudAppSpecificOptions>>>> appImplementations =
+  BehaviorSubject<Result<Iterable<AppImplementation<Bloc, NextcloudAppOptions>>>> appImplementations =
       BehaviorSubject<Result<Iterable<AppImplementation>>>();
 
   @override

@@ -1,4 +1,7 @@
-part of '../../settings.dart';
+import 'package:flutter/material.dart';
+import 'package:neon/src/settings/models/toggle_option.dart';
+import 'package:neon/src/settings/widgets/option_builder.dart';
+import 'package:neon/src/settings/widgets/settings_tile.dart';
 
 class CheckBoxSettingsTile extends InputSettingsTile<ToggleOption> {
   const CheckBoxSettingsTile({

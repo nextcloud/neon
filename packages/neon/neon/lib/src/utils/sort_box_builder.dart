@@ -1,5 +1,6 @@
 import 'package:flutter/widgets.dart';
-import 'package:settings/settings.dart';
+import 'package:neon/src/settings/models/select_option.dart';
+import 'package:neon/src/settings/widgets/option_builder.dart';
 import 'package:sort_box/sort_box.dart';
 
 class SortBoxBuilder<T extends Enum, R> extends StatelessWidget {

@@ -2,9 +2,11 @@ import 'dart:async';
 
 import 'package:neon/l10n/localizations.dart';
 import 'package:neon/src/blocs/apps.dart';
-import 'package:neon/src/utils/storage.dart';
+import 'package:neon/src/settings/models/option.dart';
+import 'package:neon/src/settings/models/select_option.dart';
+import 'package:neon/src/settings/models/storage.dart';
+import 'package:neon/src/settings/widgets/label_builder.dart';
 import 'package:rxdart/rxdart.dart';
-import 'package:settings/settings.dart';
 
 class AccountSpecificOptions {
   AccountSpecificOptions(

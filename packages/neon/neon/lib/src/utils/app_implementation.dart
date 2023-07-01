@@ -6,16 +6,16 @@ import 'package:neon/src/bloc/bloc.dart';
 import 'package:neon/src/blocs/accounts.dart';
 import 'package:neon/src/models/account.dart';
 import 'package:neon/src/platform/platform.dart';
-import 'package:neon/src/utils/nextcloud_app_specific_options.dart';
+import 'package:neon/src/settings/models/nextcloud_app_options.dart';
+import 'package:neon/src/settings/models/storage.dart';
 import 'package:neon/src/utils/request_manager.dart';
-import 'package:neon/src/utils/storage.dart';
 import 'package:neon/src/widgets/drawer_destination.dart';
 import 'package:nextcloud/nextcloud.dart';
 import 'package:provider/provider.dart';
 import 'package:rxdart/rxdart.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-abstract class AppImplementation<T extends Bloc, R extends NextcloudAppSpecificOptions> {
+abstract class AppImplementation<T extends Bloc, R extends NextcloudAppOptions> {
   AppImplementation(
     final SharedPreferences sharedPreferences,
     this.requestManager,

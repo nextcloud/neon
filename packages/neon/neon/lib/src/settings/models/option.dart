@@ -1,4 +1,10 @@
-part of '../../settings.dart';
+import 'dart:async';
+
+import 'package:meta/meta.dart';
+import 'package:neon/src/settings/models/options_category.dart';
+import 'package:neon/src/settings/models/storage.dart';
+import 'package:neon/src/settings/widgets/label_builder.dart';
+import 'package:rxdart/rxdart.dart';
 
 class OptionDisableException implements Exception {}
 

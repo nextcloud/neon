@@ -1,4 +1,8 @@
-part of '../../settings.dart';
+import 'package:flutter/material.dart';
+import 'package:neon/src/settings/models/select_option.dart';
+import 'package:neon/src/settings/widgets/label_builder.dart';
+import 'package:neon/src/settings/widgets/option_builder.dart';
+import 'package:neon/src/settings/widgets/settings_tile.dart';
 
 class DropdownButtonSettingsTile<T> extends InputSettingsTile<SelectOption<T>> {
   const DropdownButtonSettingsTile({
