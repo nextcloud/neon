@@ -1,15 +1,15 @@
 import 'dart:async';
 
 import 'package:flutter/foundation.dart';
+import 'package:neon/src/bloc/bloc.dart';
+import 'package:neon/src/bloc/result.dart';
 import 'package:neon/src/blocs/accounts.dart';
 import 'package:neon/src/blocs/capabilities.dart';
 import 'package:neon/src/interfaces/notifications.dart';
 import 'package:neon/src/models/account.dart';
 import 'package:neon/src/utils/app_implementation.dart';
-import 'package:neon/src/utils/bloc.dart';
 import 'package:neon/src/utils/nextcloud_app_specific_options.dart';
 import 'package:neon/src/utils/request_manager.dart';
-import 'package:neon/src/utils/result.dart';
 import 'package:nextcloud/nextcloud.dart';
 import 'package:provider/provider.dart';
 import 'package:rxdart/rxdart.dart';

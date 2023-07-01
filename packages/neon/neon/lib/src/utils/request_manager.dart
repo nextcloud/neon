@@ -1,8 +1,8 @@
 import 'dart:convert';
 
 import 'package:flutter/foundation.dart';
+import 'package:neon/src/bloc/result.dart';
 import 'package:neon/src/platform/platform.dart';
-import 'package:neon/src/utils/result.dart';
 import 'package:nextcloud/nextcloud.dart';
 import 'package:path/path.dart' as p;
 import 'package:rxdart/rxdart.dart';

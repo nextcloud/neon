@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:neon/l10n/localizations.dart';
+import 'package:neon/src/bloc/result_builder.dart';
 import 'package:neon/src/blocs/accounts.dart';
 import 'package:neon/src/blocs/apps.dart';
 import 'package:neon/src/models/account.dart';
@@ -12,7 +13,6 @@ import 'package:neon/src/utils/global_popups.dart';
 import 'package:neon/src/widgets/app_bar.dart';
 import 'package:neon/src/widgets/drawer.dart';
 import 'package:neon/src/widgets/exception.dart';
-import 'package:neon/src/widgets/result_builder.dart';
 import 'package:neon/src/widgets/user_avatar.dart';
 import 'package:provider/provider.dart';
 import 'package:settings/settings.dart';

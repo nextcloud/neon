@@ -2,11 +2,11 @@ import 'dart:async';
 import 'dart:convert';
 
 import 'package:flutter/foundation.dart';
+import 'package:neon/src/bloc/bloc.dart';
 import 'package:neon/src/blocs/accounts.dart';
 import 'package:neon/src/models/account.dart';
 import 'package:neon/src/models/push_notification.dart';
 import 'package:neon/src/platform/platform.dart';
-import 'package:neon/src/utils/bloc.dart';
 import 'package:neon/src/utils/global_options.dart';
 import 'package:neon/src/utils/push_utils.dart';
 import 'package:neon/src/utils/storage.dart';

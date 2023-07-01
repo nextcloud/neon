@@ -4,11 +4,11 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:neon/src/bloc/result.dart';
+import 'package:neon/src/bloc/result_builder.dart';
 import 'package:neon/src/blocs/accounts.dart';
 import 'package:neon/src/models/account.dart';
-import 'package:neon/src/utils/result.dart';
 import 'package:neon/src/widgets/cached_image.dart';
-import 'package:neon/src/widgets/result_builder.dart';
 import 'package:nextcloud/nextcloud.dart';
 import 'package:provider/provider.dart';
 import 'package:rxdart/rxdart.dart';

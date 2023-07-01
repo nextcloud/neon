@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:meta/meta.dart';
 import 'package:neon/l10n/localizations.dart';
+import 'package:neon/src/bloc/result_builder.dart';
 import 'package:neon/src/blocs/accounts.dart';
 import 'package:neon/src/blocs/apps.dart';
 import 'package:neon/src/blocs/capabilities.dart';
@@ -14,7 +15,6 @@ import 'package:neon/src/widgets/cached_image.dart';
 import 'package:neon/src/widgets/drawer_destination.dart';
 import 'package:neon/src/widgets/exception.dart';
 import 'package:neon/src/widgets/linear_progress_indicator.dart';
-import 'package:neon/src/widgets/result_builder.dart';
 import 'package:provider/provider.dart';
 
 @internal
