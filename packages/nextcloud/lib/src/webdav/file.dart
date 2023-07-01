@@ -1,4 +1,6 @@
-part of '../../nextcloud.dart';
+import 'package:nextcloud/src/webdav/client.dart';
+import 'package:nextcloud/src/webdav/props.dart';
+import 'package:nextcloud/src/webdav/webdav.dart';
 
 // ignore: public_member_api_docs
 extension WebDavMultistatusFile on WebDavMultistatus {

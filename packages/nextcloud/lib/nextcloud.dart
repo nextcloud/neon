@@ -1,24 +1,17 @@
-library nextcloud;
-
-import 'dart:convert';
-import 'dart:typed_data';
-
-import 'package:crypto/crypto.dart';
-import 'package:nextcloud/nextcloud.dart';
-import 'package:nextcloud/src/nextcloud.openapi.dart' as openapi;
-import 'package:universal_io/io.dart';
-import 'package:version/version.dart';
-import 'package:xml/xml.dart' as xml;
-
 export 'package:crypton/crypton.dart' show RSAKeypair, RSAPrivateKey, RSAPublicKey;
 
-export 'src/nextcloud.openapi.dart' hide NextcloudClient;
+export 'src/api/core.openapi.dart';
+export 'src/api/news.openapi.dart';
+export 'src/api/notes.openapi.dart';
+export 'src/api/notifications.openapi.dart';
+export 'src/api/provisioning_api.openapi.dart';
+export 'src/api/uppush.openapi.dart';
+export 'src/api/user_status.openapi.dart';
+export 'src/app_type.dart';
+export 'src/client.dart';
+export 'src/helpers.dart';
+export 'src/version_supported.dart';
+export 'src/webdav/client.dart';
+export 'src/webdav/file.dart';
 export 'src/webdav/props.dart';
 export 'src/webdav/webdav.dart';
-
-part 'src/app_type.dart';
-part 'src/client.dart';
-part 'src/helpers.dart';
-part 'src/version_supported.dart';
-part 'src/webdav/client.dart';
-part 'src/webdav/file.dart';

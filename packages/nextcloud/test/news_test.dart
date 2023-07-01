@@ -20,12 +20,12 @@ Future run(final DockerImage image) async {
     });
     tearDown(() => container.destroy());
 
-    Future<NextcloudNewsListFeeds> addWikipediaFeed([final int? folderID]) => client.news.addFeed(
+    Future<NewsListFeeds> addWikipediaFeed([final int? folderID]) => client.news.addFeed(
           url: wikipediaFeedURL,
           folderId: folderID,
         );
 
-    Future<NextcloudNewsListFeeds> addNasaFeed() => client.news.addFeed(
+    Future<NewsListFeeds> addNasaFeed() => client.news.addFeed(
           url: nasaFeedURL,
         );
 

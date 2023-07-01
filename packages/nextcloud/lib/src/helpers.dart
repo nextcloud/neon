@@ -1,16 +1,20 @@
 // ignore_for_file: public_member_api_docs
 
-part of '../nextcloud.dart';
+import 'dart:convert';
+
+import 'package:crypto/crypto.dart';
+import 'package:crypton/crypton.dart';
+import 'package:nextcloud/src/api/notifications.openapi.dart';
 
 /// Generates the push token hash which is just sha512
 String generatePushTokenHash(final String pushToken) => sha512.convert(utf8.encode(pushToken)).toString();
 
 /// Decrypts the subject of a push notification
-NextcloudNotificationsNotificationDecryptedSubject decryptPushNotificationSubject(
+NotificationsNotificationDecryptedSubject decryptPushNotificationSubject(
   final RSAPrivateKey privateKey,
   final String subject,
 ) =>
-    NextcloudNotificationsNotificationDecryptedSubject.fromJson(
+    NotificationsNotificationDecryptedSubject.fromJson(
       json.decode(privateKey.decrypt(subject)) as Map<String, dynamic>,
     );
 

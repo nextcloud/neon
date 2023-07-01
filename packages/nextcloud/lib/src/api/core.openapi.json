@@ -1,7 +1,7 @@
 {
   "openapi": "3.1.0",
   "info": {
-    "title": "Core",
+    "title": "core",
     "version": "27.0.0",
     "description": "Core functionality of Nextcloud",
     "license": {
@@ -27,7 +27,6 @@
       "basic_auth": []
     }
   ],
-  "tags": [],
   "components": {
     "schemas": {
       "OCSMeta": {
@@ -982,9 +981,6 @@
     "/status.php": {
       "get": {
         "operationId": "get-status",
-        "tags": [
-          "core"
-        ],
         "security": [],
         "responses": {
           "200": {
@@ -1003,9 +999,6 @@
     "/ocs/v2.php/cloud/capabilities": {
       "get": {
         "operationId": "get-capabilities",
-        "tags": [
-          "core"
-        ],
         "responses": {
           "200": {
             "description": "Capabilities of the Nextcloud instance",
@@ -1023,9 +1016,6 @@
     "/ocs/v2.php/core/navigation/apps": {
       "get": {
         "operationId": "get-navigation-apps",
-        "tags": [
-          "core"
-        ],
         "responses": {
           "200": {
             "description": "Navigation apps of the Nextcloud instance",
@@ -1043,9 +1033,6 @@
     "/index.php/login/v2": {
       "post": {
         "operationId": "init-login-flow",
-        "tags": [
-          "core"
-        ],
         "security": [],
         "responses": {
           "200": {
@@ -1064,9 +1051,6 @@
     "/index.php/login/v2/poll": {
       "post": {
         "operationId": "get-login-flow-result",
-        "tags": [
-          "core"
-        ],
         "security": [],
         "parameters": [
           {
@@ -1151,9 +1135,6 @@
       ],
       "get": {
         "operationId": "get-preview",
-        "tags": [
-          "core"
-        ],
         "responses": {
           "200": {
             "description": "Preview image of a file",
@@ -1190,9 +1171,6 @@
       ],
       "get": {
         "operationId": "get-dark-avatar",
-        "tags": [
-          "core"
-        ],
         "responses": {
           "200": {
             "description": "",
@@ -1229,9 +1207,6 @@
       ],
       "get": {
         "operationId": "get-avatar",
-        "tags": [
-          "core"
-        ],
         "responses": {
           "200": {
             "description": "",
@@ -1250,9 +1225,6 @@
     "/ocs/v2.php/core/autocomplete/get": {
       "get": {
         "operationId": "autocomplete",
-        "tags": [
-          "core"
-        ],
         "parameters": [
           {
             "name": "search",
@@ -1324,9 +1296,6 @@
     },
     "/ocs/v2.php/core/apppassword": {
       "delete": {
-        "tags": [
-          "core"
-        ],
         "operationId": "delete-app-password",
         "responses": {
           "200": {

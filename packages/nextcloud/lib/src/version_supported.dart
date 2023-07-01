@@ -1,4 +1,7 @@
-part of '../nextcloud.dart';
+import 'package:nextcloud/src/api/core.openapi.dart';
+import 'package:nextcloud/src/api/news.openapi.dart';
+import 'package:nextcloud/src/api/notes.openapi.dart';
+import 'package:version/version.dart';
 
 /// Version of core/Server supported
 const coreSupportedVersion = 27;
@@ -10,21 +13,18 @@ const newsSupportedVersion = 'v1-3';
 const notesSupportedVersion = 1;
 
 // ignore: public_member_api_docs
-extension CoreVersionSupported on NextcloudCoreClient {
+extension CoreVersionSupported on CoreClient {
   /// Check if the core/Server version is supported by this client
   ///
   /// Also returns the supported version number
-  Future<(bool, int)> isSupported([
-    final NextcloudCoreServerCapabilities_Ocs_Data? capabilities,
-  ]) async =>
-      (
-        (capabilities ?? (await getCapabilities()).ocs.data).version.major == coreSupportedVersion,
+  Future<(bool, int)> isSupported(final CoreServerCapabilities_Ocs_Data capabilities) async => (
+        capabilities.version.major == coreSupportedVersion,
         coreSupportedVersion,
       );
 }
 
 // ignore: public_member_api_docs
-extension NewsVersionSupported on NextcloudNewsClient {
+extension NewsVersionSupported on NewsClient {
   /// Check if the news app version is supported by this client
   ///
   /// Also returns the supported API version number
@@ -38,15 +38,12 @@ extension NewsVersionSupported on NextcloudNewsClient {
 }
 
 // ignore: public_member_api_docs
-extension NotesVersionSupported on NextcloudNotesClient {
+extension NotesVersionSupported on NotesClient {
   /// Check if the notes app version is supported by this client
   ///
   /// Also returns the supported API version number
-  Future<(bool, int)> isSupported([final NextcloudCoreServerCapabilities_Ocs_Data? capabilities]) async => (
-        (capabilities ?? (await rootClient.core.getCapabilities()).ocs.data)
-                .capabilities
-                .notes
-                ?.apiVersion
+  Future<(bool, int)> isSupported(final CoreServerCapabilities_Ocs_Data capabilities) async => (
+        capabilities.capabilities.notes?.apiVersion
                 ?.map(Version.parse)
                 .where((final version) => version.major == notesSupportedVersion)
                 .isNotEmpty ??
