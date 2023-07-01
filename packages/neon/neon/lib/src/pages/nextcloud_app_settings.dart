@@ -1,4 +1,9 @@
-part of '../../neon.dart';
+import 'package:flutter/material.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+import 'package:neon/l10n/localizations.dart';
+import 'package:neon/src/utils/app_implementation.dart';
+import 'package:neon/src/utils/confirmation_dialog.dart';
+import 'package:settings/settings.dart';
 
 class NextcloudAppSettingsPage extends StatelessWidget {
   const NextcloudAppSettingsPage({

@@ -1,4 +1,19 @@
-part of '../../neon.dart';
+import 'package:flutter/material.dart';
+import 'package:neon/l10n/localizations.dart';
+import 'package:neon/src/blocs/accounts.dart';
+import 'package:neon/src/blocs/login.dart';
+import 'package:neon/src/models/account.dart';
+import 'package:neon/src/platform/platform.dart';
+import 'package:neon/src/router.dart';
+import 'package:neon/src/utils/branding.dart';
+import 'package:neon/src/utils/validators.dart';
+import 'package:neon/src/widgets/exception.dart';
+import 'package:neon/src/widgets/linear_progress_indicator.dart';
+import 'package:neon/src/widgets/nextcloud_logo.dart';
+import 'package:package_info_plus/package_info_plus.dart';
+import 'package:provider/provider.dart';
+import 'package:url_launcher/url_launcher_string.dart';
+import 'package:webview_flutter/webview_flutter.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({
@@ -13,7 +28,7 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  WebViewController? _webViewController;
+  late WebViewController? _webViewController;
   final _formKey = GlobalKey<FormState>();
   final _focusNode = FocusNode();
   late final PackageInfo _packageInfo;

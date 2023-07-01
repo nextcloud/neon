@@ -1,4 +1,11 @@
-part of 'blocs.dart';
+import 'dart:async';
+
+import 'package:neon/src/models/account.dart';
+import 'package:neon/src/utils/bloc.dart';
+import 'package:neon/src/utils/request_manager.dart';
+import 'package:neon/src/utils/result.dart';
+import 'package:nextcloud/nextcloud.dart';
+import 'package:rxdart/rxdart.dart';
 
 abstract class UserDetailsBlocEvents {}
 

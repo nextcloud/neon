@@ -1,4 +1,5 @@
-part of '../../neon.dart';
+import 'package:flutter/widgets.dart';
+import 'package:neon/l10n/localizations.dart';
 
 String? validateHttpUrl(
   final BuildContext context,

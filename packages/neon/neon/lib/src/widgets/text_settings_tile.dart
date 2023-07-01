@@ -1,4 +1,5 @@
-part of '../../neon.dart';
+import 'package:flutter/material.dart';
+import 'package:settings/settings.dart';
 
 class NeonTextSettingsTile extends SettingsTile {
   const NeonTextSettingsTile({

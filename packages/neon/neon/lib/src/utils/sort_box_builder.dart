@@ -1,4 +1,6 @@
-part of '../../neon.dart';
+import 'package:flutter/widgets.dart';
+import 'package:settings/settings.dart';
+import 'package:sort_box/sort_box.dart';
 
 class SortBoxBuilder<T extends Enum, R> extends StatelessWidget {
   const SortBoxBuilder({

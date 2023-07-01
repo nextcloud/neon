@@ -1,4 +1,6 @@
-part of '../../neon.dart';
+import 'package:flutter/widgets.dart';
+import 'package:neon/src/utils/result.dart';
+import 'package:rxdart/rxdart.dart';
 
 typedef ResultWidgetBuilder<T> = Widget Function(BuildContext context, Result<T> snapshot);
 

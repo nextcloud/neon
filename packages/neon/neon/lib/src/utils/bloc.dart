@@ -1,4 +1,7 @@
-part of '../../neon.dart';
+import 'dart:async';
+
+import 'package:flutter/foundation.dart';
+import 'package:neon/src/utils/request_manager.dart';
 
 abstract class Bloc {
   void dispose();

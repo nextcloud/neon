@@ -1,4 +1,11 @@
-part of '../../neon.dart';
+import 'package:flutter/material.dart';
+import 'package:neon/l10n/localizations.dart';
+import 'package:neon/src/blocs/first_launch.dart';
+import 'package:neon/src/blocs/next_push.dart';
+import 'package:neon/src/router.dart';
+import 'package:neon/src/utils/global_options.dart';
+import 'package:provider/provider.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 
 class GlobalPopups {
   factory GlobalPopups() => instance ??= GlobalPopups._();

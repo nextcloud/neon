@@ -1,4 +1,8 @@
-part of 'blocs.dart';
+import 'dart:async';
+import 'dart:ui';
+
+import 'package:meta/meta.dart';
+import 'package:neon/src/utils/bloc.dart';
 
 abstract class TimerBlocEvents {
   /// Register a [callback] that will be called periodically.

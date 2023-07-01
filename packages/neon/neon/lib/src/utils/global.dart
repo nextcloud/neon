@@ -1,4 +1,4 @@
-part of '../../neon.dart';
+import 'package:neon/src/models/push_notification.dart';
 
 class Global {
   static Function(String accountID)? onPushNotificationReceived;

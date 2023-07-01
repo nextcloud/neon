@@ -1,4 +1,5 @@
-part of '../../neon.dart';
+import 'package:neon/src/utils/storage.dart';
+import 'package:settings/settings.dart';
 
 abstract class NextcloudAppSpecificOptions {
   NextcloudAppSpecificOptions(this.storage);

@@ -1,7 +1,17 @@
 // ignore_for_file: use_late_for_private_fields_and_variables
 // ^ This is a really strange false positive, it goes of at a very random place without any meaning. Hopefully fixed soon?
 
-part of '../../neon.dart';
+import 'dart:async';
+
+import 'package:flutter/material.dart';
+import 'package:neon/src/blocs/accounts.dart';
+import 'package:neon/src/models/account.dart';
+import 'package:neon/src/utils/result.dart';
+import 'package:neon/src/widgets/cached_image.dart';
+import 'package:neon/src/widgets/result_builder.dart';
+import 'package:nextcloud/nextcloud.dart';
+import 'package:provider/provider.dart';
+import 'package:rxdart/rxdart.dart';
 
 const kAvatarSize = 40.0;
 

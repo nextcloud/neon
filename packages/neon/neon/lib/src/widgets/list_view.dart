@@ -1,4 +1,6 @@
-part of '../../neon.dart';
+import 'package:flutter/material.dart';
+import 'package:neon/src/widgets/exception.dart';
+import 'package:neon/src/widgets/linear_progress_indicator.dart';
 
 class NeonListView<T> extends StatelessWidget {
   const NeonListView({

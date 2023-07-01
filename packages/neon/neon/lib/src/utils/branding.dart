@@ -1,4 +1,4 @@
-part of '../../neon.dart';
+import 'package:flutter/widgets.dart';
 
 @immutable
 class Branding {

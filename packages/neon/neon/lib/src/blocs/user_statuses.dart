@@ -1,4 +1,14 @@
-part of 'blocs.dart';
+import 'dart:async';
+
+import 'package:flutter/foundation.dart';
+import 'package:neon/src/blocs/timer.dart';
+import 'package:neon/src/models/account.dart';
+import 'package:neon/src/platform/platform.dart';
+import 'package:neon/src/utils/bloc.dart';
+import 'package:neon/src/utils/result.dart';
+import 'package:nextcloud/nextcloud.dart';
+import 'package:rxdart/rxdart.dart';
+import 'package:window_manager/window_manager.dart';
 
 abstract class UserStatusesBlocEvents {
   void load(final String username, {final bool force = false});

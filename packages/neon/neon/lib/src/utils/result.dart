@@ -1,4 +1,4 @@
-part of '../../neon.dart';
+import 'package:meta/meta.dart';
 
 @immutable
 class Result<T> {

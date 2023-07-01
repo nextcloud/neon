@@ -1,4 +1,16 @@
-part of '../../neon.dart';
+import 'package:filesize/filesize.dart';
+import 'package:flutter/material.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+import 'package:neon/l10n/localizations.dart';
+import 'package:neon/src/blocs/accounts.dart';
+import 'package:neon/src/models/account.dart';
+import 'package:neon/src/router.dart';
+import 'package:neon/src/utils/confirmation_dialog.dart';
+import 'package:neon/src/widgets/exception.dart';
+import 'package:neon/src/widgets/linear_progress_indicator.dart';
+import 'package:neon/src/widgets/result_builder.dart';
+import 'package:nextcloud/nextcloud.dart';
+import 'package:settings/settings.dart';
 
 class AccountSettingsPage extends StatelessWidget {
   AccountSettingsPage({

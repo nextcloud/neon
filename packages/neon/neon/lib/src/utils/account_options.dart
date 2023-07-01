@@ -1,4 +1,10 @@
-part of '../../neon.dart';
+import 'dart:async';
+
+import 'package:neon/l10n/localizations.dart';
+import 'package:neon/src/blocs/apps.dart';
+import 'package:neon/src/utils/storage.dart';
+import 'package:rxdart/rxdart.dart';
+import 'package:settings/settings.dart';
 
 class AccountSpecificOptions {
   AccountSpecificOptions(

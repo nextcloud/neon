@@ -1,4 +1,5 @@
-part of '../../neon.dart';
+import 'package:settings/settings.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class AppStorage implements SettingsStorage {
   AppStorage(

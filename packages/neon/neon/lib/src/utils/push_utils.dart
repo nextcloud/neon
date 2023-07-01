@@ -1,4 +1,24 @@
-part of '../../neon.dart';
+import 'dart:convert';
+import 'dart:ui';
+
+import 'package:bitmap/bitmap.dart';
+import 'package:crypto/crypto.dart';
+import 'package:flutter/foundation.dart';
+import 'package:flutter/widgets.dart';
+import 'package:flutter_cache_manager/flutter_cache_manager.dart';
+import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+import 'package:flutter_svg/flutter_svg.dart' show SvgFileLoader, vg;
+import 'package:neon/src/blocs/accounts.dart';
+import 'package:neon/src/models/account.dart';
+import 'package:neon/src/models/push_notification.dart';
+import 'package:neon/src/platform/platform.dart';
+import 'package:neon/src/utils/global.dart';
+import 'package:neon/src/utils/localizations.dart';
+import 'package:neon/src/utils/request_manager.dart';
+import 'package:neon/src/utils/storage.dart';
+import 'package:neon/src/utils/theme.dart';
+import 'package:nextcloud/nextcloud.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class PushUtils {
   static Future<RSAKeypair> loadRSAKeypair(final AppStorage storage) async {

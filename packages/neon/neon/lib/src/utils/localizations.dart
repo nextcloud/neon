@@ -1,4 +1,7 @@
-part of '../../neon.dart';
+import 'dart:ui';
+
+import 'package:intl/intl_standalone.dart';
+import 'package:neon/l10n/localizations.dart';
 
 /// Loads the [AppLocalizations] for the system [Locale].
 ///

@@ -1,4 +1,8 @@
-part of 'blocs.dart';
+import 'dart:async';
+
+import 'package:neon/src/utils/bloc.dart';
+import 'package:rxdart/rxdart.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 abstract class FirstLaunchBlocEvents {}
 

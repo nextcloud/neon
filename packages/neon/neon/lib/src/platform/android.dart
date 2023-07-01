@@ -1,4 +1,8 @@
-part of '../../neon.dart';
+import 'package:neon/src/platform/platform.dart';
+import 'package:neon/src/utils/exceptions.dart';
+import 'package:path/path.dart' as p;
+import 'package:path_provider/path_provider.dart';
+import 'package:permission_handler/permission_handler.dart';
 
 class AndroidNeonPlatform extends NeonPlatform {
   AndroidNeonPlatform()

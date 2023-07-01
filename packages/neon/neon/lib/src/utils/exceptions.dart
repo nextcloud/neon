@@ -1,4 +1,4 @@
-part of '../../neon.dart';
+import 'package:permission_handler/permission_handler.dart';
 
 class MissingPermissionException implements Exception {
   MissingPermissionException(this.permission);

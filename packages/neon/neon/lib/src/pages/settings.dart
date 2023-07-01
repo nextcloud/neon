@@ -1,4 +1,26 @@
-part of '../../neon.dart';
+import 'dart:convert';
+import 'dart:typed_data';
+
+import 'package:file_picker/file_picker.dart';
+import 'package:flutter/material.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+import 'package:neon/l10n/localizations.dart';
+import 'package:neon/src/blocs/accounts.dart';
+import 'package:neon/src/models/account.dart';
+import 'package:neon/src/platform/platform.dart';
+import 'package:neon/src/router.dart';
+import 'package:neon/src/utils/app_implementation.dart';
+import 'package:neon/src/utils/branding.dart';
+import 'package:neon/src/utils/confirmation_dialog.dart';
+import 'package:neon/src/utils/global_options.dart';
+import 'package:neon/src/utils/save_file.dart';
+import 'package:neon/src/utils/settings_export_helper.dart';
+import 'package:neon/src/widgets/account_settings_tile.dart';
+import 'package:neon/src/widgets/exception.dart';
+import 'package:neon/src/widgets/text_settings_tile.dart';
+import 'package:package_info_plus/package_info_plus.dart';
+import 'package:provider/provider.dart';
+import 'package:settings/settings.dart';
 
 class SettingsPage extends StatefulWidget {
   const SettingsPage({

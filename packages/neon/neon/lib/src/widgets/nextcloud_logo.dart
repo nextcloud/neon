@@ -1,4 +1,5 @@
-part of '../../neon.dart';
+import 'package:flutter/widgets.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class NextcloudLogo extends StatelessWidget {
   const NextcloudLogo({

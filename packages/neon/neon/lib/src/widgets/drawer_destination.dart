@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:neon/neon.dart';
+import 'package:neon/src/widgets/user_avatar.dart';
 import 'package:rxdart/subjects.dart';
 
 typedef DestinationIconBuilder = Widget Function({Size size, Color color});

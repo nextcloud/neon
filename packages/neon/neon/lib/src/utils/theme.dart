@@ -1,4 +1,6 @@
-part of '../../neon.dart';
+import 'package:flutter/material.dart';
+import 'package:neon/src/utils/hex_color.dart';
+import 'package:nextcloud/nextcloud.dart';
 
 const themePrimaryColor = Color(0xFFF37736);
 
