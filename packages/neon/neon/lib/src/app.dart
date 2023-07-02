@@ -1,4 +1,29 @@
-part of '../../neon.dart';
+import 'dart:async';
+import 'dart:convert';
+import 'dart:io';
+
+import 'package:flutter/material.dart';
+import 'package:flutter_native_splash/flutter_native_splash.dart';
+import 'package:neon/l10n/localizations.dart';
+import 'package:neon/src/bloc/result_builder.dart';
+import 'package:neon/src/blocs/accounts.dart';
+import 'package:neon/src/blocs/capabilities.dart';
+import 'package:neon/src/models/account.dart';
+import 'package:neon/src/models/app_implementation.dart';
+import 'package:neon/src/models/notifications_interface.dart';
+import 'package:neon/src/models/push_notification.dart';
+import 'package:neon/src/platform/platform.dart';
+import 'package:neon/src/router.dart';
+import 'package:neon/src/settings/widgets/option_builder.dart';
+import 'package:neon/src/utils/global.dart';
+import 'package:neon/src/utils/global_options.dart';
+import 'package:neon/src/utils/localizations.dart';
+import 'package:neon/src/utils/push_utils.dart';
+import 'package:neon/src/utils/theme.dart';
+import 'package:provider/provider.dart';
+import 'package:quick_actions/quick_actions.dart';
+import 'package:tray_manager/tray_manager.dart' as tray;
+import 'package:window_manager/window_manager.dart';
 
 class NeonApp extends StatefulWidget {
   const NeonApp({

@@ -1,7 +1,15 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
 import 'package:go_router/go_router.dart';
-import 'package:neon/neon.dart';
+import 'package:neon/src/blocs/accounts.dart';
+import 'package:neon/src/models/account.dart';
+import 'package:neon/src/models/app_implementation.dart';
+import 'package:neon/src/pages/account_settings.dart';
+import 'package:neon/src/pages/home.dart';
+import 'package:neon/src/pages/login.dart';
+import 'package:neon/src/pages/nextcloud_app_settings.dart';
+import 'package:neon/src/pages/settings.dart';
+import 'package:neon/src/utils/stream_listenable.dart';
 import 'package:provider/provider.dart';
 
 part 'router.g.dart';

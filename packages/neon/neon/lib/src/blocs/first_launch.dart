@@ -1,4 +1,9 @@
-part of 'blocs.dart';
+import 'dart:async';
+
+import 'package:meta/meta.dart';
+import 'package:neon/src/bloc/bloc.dart';
+import 'package:rxdart/rxdart.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 abstract class FirstLaunchBlocEvents {}
 
@@ -6,6 +11,7 @@ abstract class FirstLaunchBlocStates {
   BehaviorSubject get onFirstLaunch;
 }
 
+@internal
 class FirstLaunchBloc extends Bloc implements FirstLaunchBlocEvents, FirstLaunchBlocStates {
   FirstLaunchBloc(
     this._sharedPreferences, {

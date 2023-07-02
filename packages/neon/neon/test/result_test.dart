@@ -1,4 +1,4 @@
-import 'package:neon/neon.dart';
+import 'package:neon/blocs.dart';
 import 'package:test/test.dart';
 
 void main() {

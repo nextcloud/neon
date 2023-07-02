@@ -1,4 +1,13 @@
-part of '../../neon.dart';
+import 'dart:convert';
+
+import 'package:flutter/foundation.dart';
+import 'package:neon/src/bloc/result.dart';
+import 'package:neon/src/platform/platform.dart';
+import 'package:nextcloud/nextcloud.dart';
+import 'package:path/path.dart' as p;
+import 'package:rxdart/rxdart.dart';
+import 'package:sqflite/sqflite.dart';
+import 'package:xml/xml.dart' as xml;
 
 class RequestManager {
   RequestManager([

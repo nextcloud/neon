@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:neon/neon.dart';
+import 'package:meta/meta.dart';
+import 'package:neon/src/widgets/user_avatar.dart';
 import 'package:rxdart/subjects.dart';
 
+@internal
 typedef DestinationIconBuilder = Widget Function({Size size, Color color});
 
+@internal
 class NeonNavigationDestination {
   const NeonNavigationDestination({
     required this.label,
@@ -18,6 +21,7 @@ class NeonNavigationDestination {
   final BehaviorSubject<int>? notificationCount;
 }
 
+@internal
 extension NavigationDestinationExtension on NavigationDestination {
   static NavigationDestination fromNeonDestination(final NeonNavigationDestination neonDestination) =>
       NavigationDestination(
@@ -27,6 +31,7 @@ extension NavigationDestinationExtension on NavigationDestination {
       );
 }
 
+@internal
 extension NavigationRailDestinationExtension on NavigationRailDestination {
   static NavigationRailDestination fromNeonDestination(final NeonNavigationDestination neonDestination) {
     final iconWIdget = StreamBuilder(
@@ -79,6 +84,7 @@ extension NavigationRailDestinationExtension on NavigationRailDestination {
   }
 }
 
+@internal
 extension NavigationDrawerDestinationExtension on NavigationDrawerDestination {
   static NavigationDrawerDestination fromNeonDestination(final NeonNavigationDestination neonDestination) {
     final labelWidget = StreamBuilder(
@@ -129,6 +135,7 @@ extension NavigationDrawerDestinationExtension on NavigationDrawerDestination {
   }
 }
 
+@internal
 extension TabExtension on Tab {
   static Tab fromNeonDestination(final NeonNavigationDestination neonDestination) => Tab(
         text: neonDestination.label,

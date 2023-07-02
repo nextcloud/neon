@@ -89,8 +89,6 @@ class NotesView extends StatelessWidget {
             MaterialPageRoute(
               builder: (final context) => NotesNotePage(
                 bloc: NotesNoteBloc(
-                  bloc.options,
-                  Provider.of<AccountsBloc>(context, listen: false).activeAccount.value!.client,
                   bloc,
                   note,
                 ),

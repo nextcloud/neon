@@ -14,8 +14,6 @@ abstract class NotesNoteBlocStates {
 
 class NotesNoteBloc extends InteractiveBloc implements NotesNoteBlocEvents, NotesNoteBlocStates {
   NotesNoteBloc(
-    this.options,
-    this._client,
     this._notesBloc,
     final NotesNote note,
   ) {
@@ -45,8 +43,7 @@ class NotesNoteBloc extends InteractiveBloc implements NotesNoteBlocEvents, Note
     });
   }
 
-  final NotesAppSpecificOptions options;
-  final NextcloudClient _client;
+  late final NotesAppSpecificOptions options = _notesBloc.options;
   final NotesBloc _notesBloc;
   final _updateQueue = Queue();
 
@@ -70,7 +67,7 @@ class NotesNoteBloc extends InteractiveBloc implements NotesNoteBlocEvents, Note
   @override
   void updateCategory(final String category) {
     _wrapAction(
-      (final etag) async => _client.notes.updateNote(
+      (final etag) async => _notesBloc.client.notes.updateNote(
         id: id,
         category: category,
         ifMatch: '"$etag"',
@@ -81,7 +78,7 @@ class NotesNoteBloc extends InteractiveBloc implements NotesNoteBlocEvents, Note
   @override
   void updateContent(final String content) {
     _wrapAction(
-      (final etag) async => _client.notes.updateNote(
+      (final etag) async => _notesBloc.client.notes.updateNote(
         id: id,
         content: content,
         ifMatch: '"$etag"',
@@ -92,7 +89,7 @@ class NotesNoteBloc extends InteractiveBloc implements NotesNoteBlocEvents, Note
   @override
   void updateTitle(final String title) {
     _wrapAction(
-      (final etag) async => _client.notes.updateNote(
+      (final etag) async => _notesBloc.client.notes.updateNote(
         id: id,
         title: title,
         ifMatch: '"$etag"',

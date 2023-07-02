@@ -1,5 +1,15 @@
-part of '../../neon.dart';
+import 'dart:async';
 
+import 'package:meta/meta.dart';
+import 'package:neon/l10n/localizations.dart';
+import 'package:neon/src/blocs/apps.dart';
+import 'package:neon/src/settings/models/option.dart';
+import 'package:neon/src/settings/models/select_option.dart';
+import 'package:neon/src/settings/models/storage.dart';
+import 'package:neon/src/settings/widgets/label_builder.dart';
+import 'package:rxdart/rxdart.dart';
+
+@internal
 class AccountSpecificOptions {
   AccountSpecificOptions(
     this._storage,

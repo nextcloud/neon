@@ -1,4 +1,12 @@
-part of '../../neon.dart';
+import 'dart:async';
+import 'dart:convert';
+import 'dart:typed_data';
+
+import 'package:flutter/material.dart';
+import 'package:flutter_cache_manager/flutter_cache_manager.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:neon/src/widgets/exception.dart';
+import 'package:neon/src/widgets/linear_progress_indicator.dart';
 
 typedef CacheReviver = FutureOr<Uint8List?> Function(CacheManager cacheManager);
 typedef ImageDownloader = FutureOr<Uint8List> Function();

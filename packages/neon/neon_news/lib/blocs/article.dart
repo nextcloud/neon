@@ -18,7 +18,6 @@ abstract class NewsArticleBlocStates {
 
 class NewsArticleBloc extends InteractiveBloc implements NewsArticleBlocEvents, NewsArticleBlocStates {
   NewsArticleBloc(
-    this._client,
     this._newsArticlesBloc,
     final NewsArticle article,
   ) {
@@ -27,7 +26,6 @@ class NewsArticleBloc extends InteractiveBloc implements NewsArticleBlocEvents, 
     starred.add(article.starred);
   }
 
-  final NextcloudClient _client;
   final NewsArticlesBloc _newsArticlesBloc;
 
   late final int _id;
@@ -51,7 +49,7 @@ class NewsArticleBloc extends InteractiveBloc implements NewsArticleBlocEvents, 
   @override
   void markArticleAsRead() {
     _wrapArticleAction(() async {
-      await _client.news.markArticleAsRead(itemId: _id);
+      await _newsArticlesBloc.client.news.markArticleAsRead(itemId: _id);
       unread.add(false);
     });
   }
@@ -59,7 +57,7 @@ class NewsArticleBloc extends InteractiveBloc implements NewsArticleBlocEvents, 
   @override
   void markArticleAsUnread() {
     _wrapArticleAction(() async {
-      await _client.news.markArticleAsUnread(itemId: _id);
+      await _newsArticlesBloc.client.news.markArticleAsUnread(itemId: _id);
       unread.add(true);
     });
   }
@@ -67,7 +65,7 @@ class NewsArticleBloc extends InteractiveBloc implements NewsArticleBlocEvents, 
   @override
   void starArticle() {
     _wrapArticleAction(() async {
-      await _client.news.starArticle(itemId: _id);
+      await _newsArticlesBloc.client.news.starArticle(itemId: _id);
       starred.add(true);
     });
   }
@@ -75,7 +73,7 @@ class NewsArticleBloc extends InteractiveBloc implements NewsArticleBlocEvents, 
   @override
   void unstarArticle() {
     _wrapArticleAction(() async {
-      await _client.news.unstarArticle(itemId: _id);
+      await _newsArticlesBloc.client.news.unstarArticle(itemId: _id);
       starred.add(false);
     });
   }

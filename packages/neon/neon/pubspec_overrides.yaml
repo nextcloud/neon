@@ -1,11 +1,9 @@
-# melos_managed_dependency_overrides: dynamite_runtime,nextcloud,settings,sort_box,wakelock_windows
+# melos_managed_dependency_overrides: dynamite_runtime,nextcloud,sort_box,wakelock_windows
 dependency_overrides:
   dynamite_runtime:
     path: ../../dynamite/dynamite_runtime
   nextcloud:
     path: ../../nextcloud
-  settings:
-    path: ../../settings
   sort_box:
     path: ../../sort_box
   wakelock_windows:

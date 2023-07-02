@@ -1,4 +1,12 @@
-part of 'blocs.dart';
+import 'dart:async';
+
+import 'package:meta/meta.dart';
+import 'package:neon/src/bloc/bloc.dart';
+import 'package:neon/src/bloc/result.dart';
+import 'package:neon/src/models/account.dart';
+import 'package:neon/src/utils/request_manager.dart';
+import 'package:nextcloud/nextcloud.dart';
+import 'package:rxdart/rxdart.dart';
 
 typedef Capabilities = CoreServerCapabilities_Ocs_Data;
 typedef NextcloudTheme = CoreServerCapabilities_Ocs_Data_Capabilities_Theming;
@@ -9,6 +17,7 @@ abstract class CapabilitiesBlocStates {
   BehaviorSubject<Result<Capabilities>> get capabilities;
 }
 
+@internal
 class CapabilitiesBloc extends InteractiveBloc implements CapabilitiesBlocEvents, CapabilitiesBlocStates {
   CapabilitiesBloc(
     this._requestManager,

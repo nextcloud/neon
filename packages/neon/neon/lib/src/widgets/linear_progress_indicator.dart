@@ -1,4 +1,4 @@
-part of '../../neon.dart';
+import 'package:flutter/material.dart';
 
 class NeonLinearProgressIndicator extends StatelessWidget {
   const NeonLinearProgressIndicator({

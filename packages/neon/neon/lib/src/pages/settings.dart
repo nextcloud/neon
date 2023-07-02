@@ -1,4 +1,31 @@
-part of '../../neon.dart';
+import 'dart:convert';
+import 'dart:typed_data';
+
+import 'package:file_picker/file_picker.dart';
+import 'package:flutter/material.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+import 'package:neon/l10n/localizations.dart';
+import 'package:neon/src/blocs/accounts.dart';
+import 'package:neon/src/models/account.dart';
+import 'package:neon/src/models/app_implementation.dart';
+import 'package:neon/src/models/branding.dart';
+import 'package:neon/src/platform/platform.dart';
+import 'package:neon/src/router.dart';
+import 'package:neon/src/settings/widgets/account_settings_tile.dart';
+import 'package:neon/src/settings/widgets/checkbox_settings_tile.dart';
+import 'package:neon/src/settings/widgets/custom_settings_tile.dart';
+import 'package:neon/src/settings/widgets/dropdown_button_settings_tile.dart';
+import 'package:neon/src/settings/widgets/settings_category.dart';
+import 'package:neon/src/settings/widgets/settings_list.dart';
+import 'package:neon/src/settings/widgets/settings_tile.dart';
+import 'package:neon/src/settings/widgets/text_settings_tile.dart';
+import 'package:neon/src/utils/confirmation_dialog.dart';
+import 'package:neon/src/utils/global_options.dart';
+import 'package:neon/src/utils/save_file.dart';
+import 'package:neon/src/utils/settings_export_helper.dart';
+import 'package:neon/src/widgets/exception.dart';
+import 'package:package_info_plus/package_info_plus.dart';
+import 'package:provider/provider.dart';
 
 class SettingsPage extends StatefulWidget {
   const SettingsPage({
@@ -115,7 +142,7 @@ class _SettingsPageState extends State<SettingsPage> {
                       tiles: [
                         if (pushNotificationsEnabledEnabledSnapshot.hasData &&
                             !pushNotificationsEnabledEnabledSnapshot.requireData) ...[
-                          NeonTextSettingsTile(
+                          TextSettingsTile(
                             text: AppLocalizations.of(context).globalOptionsPushNotificationsEnabledDisabledNotice,
                             style: TextStyle(
                               fontWeight: FontWeight.w600,
@@ -172,7 +199,7 @@ class _SettingsPageState extends State<SettingsPage> {
                           ),
                         ],
                         for (final account in accountsSnapshot.requireData) ...[
-                          NeonAccountSettingsTile(
+                          AccountSettingsTile(
                             account: account,
                             onTap: () {
                               AccountSettingsRoute(accountid: account.id).go(context);

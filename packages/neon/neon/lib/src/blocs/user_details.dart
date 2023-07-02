@@ -1,4 +1,12 @@
-part of 'blocs.dart';
+import 'dart:async';
+
+import 'package:meta/meta.dart';
+import 'package:neon/src/bloc/bloc.dart';
+import 'package:neon/src/bloc/result.dart';
+import 'package:neon/src/models/account.dart';
+import 'package:neon/src/utils/request_manager.dart';
+import 'package:nextcloud/nextcloud.dart';
+import 'package:rxdart/rxdart.dart';
 
 abstract class UserDetailsBlocEvents {}
 
@@ -6,6 +14,7 @@ abstract class UserDetailsBlocStates {
   BehaviorSubject<Result<ProvisioningApiUserDetails>> get userDetails;
 }
 
+@internal
 class UserDetailsBloc extends InteractiveBloc implements UserDetailsBlocEvents, UserDetailsBlocStates {
   UserDetailsBloc(
     this._requestManager,

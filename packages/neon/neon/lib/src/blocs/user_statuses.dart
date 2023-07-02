@@ -1,4 +1,15 @@
-part of 'blocs.dart';
+import 'dart:async';
+
+import 'package:flutter/foundation.dart';
+import 'package:meta/meta.dart';
+import 'package:neon/src/bloc/bloc.dart';
+import 'package:neon/src/bloc/result.dart';
+import 'package:neon/src/blocs/timer.dart';
+import 'package:neon/src/models/account.dart';
+import 'package:neon/src/platform/platform.dart';
+import 'package:nextcloud/nextcloud.dart';
+import 'package:rxdart/rxdart.dart';
+import 'package:window_manager/window_manager.dart';
 
 abstract class UserStatusesBlocEvents {
   void load(final String username, {final bool force = false});
@@ -8,6 +19,7 @@ abstract class UserStatusesBlocStates {
   BehaviorSubject<Map<String, Result<UserStatusPublicStatus?>>> get statuses;
 }
 
+@internal
 class UserStatusesBloc extends InteractiveBloc implements UserStatusesBlocEvents, UserStatusesBlocStates {
   UserStatusesBloc(
     this._platform,

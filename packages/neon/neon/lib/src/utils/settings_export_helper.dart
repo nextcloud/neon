@@ -1,5 +1,10 @@
-part of '../../neon.dart';
+import 'package:meta/meta.dart';
+import 'package:neon/src/models/account.dart';
+import 'package:neon/src/models/app_implementation.dart';
+import 'package:neon/src/settings/models/option.dart';
+import 'package:neon/src/utils/global_options.dart';
 
+@internal
 class SettingsExportHelper {
   SettingsExportHelper({
     required this.globalOptions,

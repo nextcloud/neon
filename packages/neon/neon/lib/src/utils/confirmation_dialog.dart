@@ -1,4 +1,5 @@
-part of '../../neon.dart';
+import 'package:flutter/material.dart';
+import 'package:neon/l10n/localizations.dart';
 
 Future<bool> showConfirmationDialog(final BuildContext context, final String title) async =>
     await showDialog<bool>(

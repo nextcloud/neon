@@ -1,5 +1,9 @@
-part of '../../neon.dart';
+import 'package:flutter/widgets.dart';
+import 'package:meta/meta.dart';
+import 'package:neon/src/models/app_implementation.dart';
+import 'package:neon/src/widgets/user_avatar.dart';
 
+@internal
 class NeonAppImplementationIcon extends StatelessWidget {
   const NeonAppImplementationIcon({
     required this.appImplementation,

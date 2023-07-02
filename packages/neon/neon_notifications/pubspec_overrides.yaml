@@ -1,4 +1,4 @@
-# melos_managed_dependency_overrides: dynamite_runtime,neon,nextcloud,settings,sort_box
+# melos_managed_dependency_overrides: dynamite_runtime,neon,nextcloud,sort_box
 dependency_overrides:
   dynamite_runtime:
     path: ../../dynamite/dynamite_runtime
@@ -6,7 +6,5 @@ dependency_overrides:
     path: ../neon
   nextcloud:
     path: ../../nextcloud
-  settings:
-    path: ../../settings
   sort_box:
     path: ../../sort_box

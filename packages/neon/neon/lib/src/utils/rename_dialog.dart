@@ -1,4 +1,6 @@
-part of '../../neon.dart';
+import 'package:flutter/material.dart';
+import 'package:neon/src/utils/validators.dart';
+import 'package:neon/src/widgets/dialog.dart';
 
 Future<String?> showRenameDialog({
   required final BuildContext context,

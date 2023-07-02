@@ -1,7 +1,23 @@
-part of '../../neon.dart';
+import 'dart:async';
+import 'dart:io';
+
+import 'package:flutter/material.dart';
+import 'package:meta/meta.dart';
+import 'package:neon/l10n/localizations.dart';
+import 'package:neon/src/models/account.dart';
+import 'package:neon/src/settings/models/option.dart';
+import 'package:neon/src/settings/models/select_option.dart';
+import 'package:neon/src/settings/models/storage.dart';
+import 'package:neon/src/settings/models/toggle_option.dart';
+import 'package:neon/src/settings/widgets/label_builder.dart';
+import 'package:package_info_plus/package_info_plus.dart';
+import 'package:permission_handler/permission_handler.dart';
+import 'package:rxdart/rxdart.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 const unifiedPushNextPushID = 'org.unifiedpush.distributor.nextpush';
 
+@internal
 class GlobalOptions {
   GlobalOptions(
     this._sharedPreferences,

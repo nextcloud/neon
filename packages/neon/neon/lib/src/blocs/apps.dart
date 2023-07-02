@@ -1,4 +1,19 @@
-part of 'blocs.dart';
+import 'dart:async';
+
+import 'package:flutter/foundation.dart';
+import 'package:meta/meta.dart';
+import 'package:neon/src/bloc/bloc.dart';
+import 'package:neon/src/bloc/result.dart';
+import 'package:neon/src/blocs/accounts.dart';
+import 'package:neon/src/blocs/capabilities.dart';
+import 'package:neon/src/models/account.dart';
+import 'package:neon/src/models/app_implementation.dart';
+import 'package:neon/src/models/notifications_interface.dart';
+import 'package:neon/src/settings/models/nextcloud_app_options.dart';
+import 'package:neon/src/utils/request_manager.dart';
+import 'package:nextcloud/nextcloud.dart';
+import 'package:provider/provider.dart';
+import 'package:rxdart/rxdart.dart';
 
 typedef NextcloudApp = CoreNavigationApps_Ocs_Data;
 
@@ -20,6 +35,7 @@ abstract class AppsBlocStates {
   BehaviorSubject<Iterable<(String, Object?)>?> get appVersions;
 }
 
+@internal
 class AppsBloc extends InteractiveBloc implements AppsBlocEvents, AppsBlocStates {
   AppsBloc(
     this._requestManager,
@@ -147,7 +163,7 @@ class AppsBloc extends InteractiveBloc implements AppsBlocEvents, AppsBlocStates
   BehaviorSubject<AppImplementation> activeApp = BehaviorSubject<AppImplementation>();
 
   @override
-  BehaviorSubject<Result<Iterable<AppImplementation<Bloc, NextcloudAppSpecificOptions>>>> appImplementations =
+  BehaviorSubject<Result<Iterable<AppImplementation<Bloc, NextcloudAppOptions>>>> appImplementations =
       BehaviorSubject<Result<Iterable<AppImplementation>>>();
 
   @override

@@ -1,4 +1,4 @@
-part of '../../neon.dart';
+import 'dart:ui';
 
 class HexColor extends Color {
   HexColor(final String hexColor) : super(_parse(hexColor));
