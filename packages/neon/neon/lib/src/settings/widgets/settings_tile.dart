@@ -1,12 +1,15 @@
 import 'package:flutter/widgets.dart';
+import 'package:meta/meta.dart';
 import 'package:neon/src/settings/models/option.dart';
 
+@internal
 abstract class SettingsTile extends StatelessWidget {
   const SettingsTile({
     super.key,
   });
 }
 
+@internal
 abstract class InputSettingsTile<T extends Option> extends SettingsTile {
   const InputSettingsTile({
     required this.option,

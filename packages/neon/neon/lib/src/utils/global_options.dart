@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:meta/meta.dart';
 import 'package:neon/l10n/localizations.dart';
 import 'package:neon/src/models/account.dart';
 import 'package:neon/src/settings/models/option.dart';
@@ -16,6 +17,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 const unifiedPushNextPushID = 'org.unifiedpush.distributor.nextpush';
 
+@internal
 class GlobalOptions {
   GlobalOptions(
     this._sharedPreferences,

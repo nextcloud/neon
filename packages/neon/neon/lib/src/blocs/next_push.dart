@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/foundation.dart';
+import 'package:meta/meta.dart';
 import 'package:neon/src/bloc/bloc.dart';
 import 'package:neon/src/blocs/accounts.dart';
 import 'package:neon/src/models/account.dart';
@@ -13,6 +14,7 @@ abstract class NextPushBlocStates {
   BehaviorSubject get onNextPushSupported;
 }
 
+@internal
 class NextPushBloc extends Bloc implements NextPushBlocEvents, NextPushBlocStates {
   NextPushBloc(
     this._accountsBloc,

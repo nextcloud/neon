@@ -1,10 +1,12 @@
 import 'dart:io';
 
+import 'package:meta/meta.dart';
 import 'package:neon/src/platform/platform.dart';
 import 'package:path/path.dart' as p;
 import 'package:sqflite_common_ffi/sqflite_ffi.dart';
 import 'package:xdg_directories/xdg_directories.dart' as xdg;
 
+@internal
 class LinuxNeonPlatform extends NeonPlatform {
   LinuxNeonPlatform()
       : super(

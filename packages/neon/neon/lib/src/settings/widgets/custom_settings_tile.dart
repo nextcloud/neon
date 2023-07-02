@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:meta/meta.dart';
 import 'package:neon/src/settings/widgets/settings_tile.dart';
 
+@internal
 class CustomSettingsTile extends SettingsTile {
   const CustomSettingsTile({
     this.title,

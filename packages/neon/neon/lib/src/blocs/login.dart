@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/foundation.dart';
+import 'package:meta/meta.dart';
 import 'package:neon/src/bloc/bloc.dart';
 import 'package:neon/src/models/account.dart';
 import 'package:nextcloud/nextcloud.dart';
@@ -21,6 +22,7 @@ abstract class LoginBlocStates {
   BehaviorSubject<CoreLoginFlowResult?> get loginFlowResult;
 }
 
+@internal
 class LoginBloc extends InteractiveBloc implements LoginBlocEvents, LoginBlocStates {
   LoginBloc(this._packageInfo);
 

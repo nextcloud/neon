@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:meta/meta.dart';
 import 'package:neon/src/settings/models/select_option.dart';
 import 'package:neon/src/settings/widgets/label_builder.dart';
 import 'package:neon/src/settings/widgets/option_builder.dart';
 import 'package:neon/src/settings/widgets/settings_tile.dart';
 
+@internal
 class DropdownButtonSettingsTile<T> extends InputSettingsTile<SelectOption<T>> {
   const DropdownButtonSettingsTile({
     required super.option,

@@ -1,11 +1,12 @@
-import 'package:flutter/foundation.dart';
 import 'package:json_annotation/json_annotation.dart';
+import 'package:meta/meta.dart';
 import 'package:nextcloud/nextcloud.dart';
 
 part 'push_notification.g.dart';
 
 @JsonSerializable()
 @immutable
+@internal
 class PushNotification {
   const PushNotification({
     required this.accountID,

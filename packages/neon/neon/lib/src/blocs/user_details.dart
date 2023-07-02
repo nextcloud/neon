@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:meta/meta.dart';
 import 'package:neon/src/bloc/bloc.dart';
 import 'package:neon/src/bloc/result.dart';
 import 'package:neon/src/models/account.dart';
@@ -13,6 +14,7 @@ abstract class UserDetailsBlocStates {
   BehaviorSubject<Result<ProvisioningApiUserDetails>> get userDetails;
 }
 
+@internal
 class UserDetailsBloc extends InteractiveBloc implements UserDetailsBlocEvents, UserDetailsBlocStates {
   UserDetailsBloc(
     this._requestManager,

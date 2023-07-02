@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/foundation.dart';
+import 'package:meta/meta.dart';
 import 'package:neon/src/bloc/bloc.dart';
 import 'package:neon/src/bloc/result.dart';
 import 'package:neon/src/blocs/accounts.dart';
@@ -34,6 +35,7 @@ abstract class AppsBlocStates {
   BehaviorSubject<Iterable<(String, Object?)>?> get appVersions;
 }
 
+@internal
 class AppsBloc extends InteractiveBloc implements AppsBlocEvents, AppsBlocStates {
   AppsBloc(
     this._requestManager,

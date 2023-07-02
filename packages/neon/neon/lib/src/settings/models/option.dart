@@ -6,9 +6,11 @@ import 'package:neon/src/settings/models/storage.dart';
 import 'package:neon/src/settings/widgets/label_builder.dart';
 import 'package:rxdart/rxdart.dart';
 
+@internal
 class OptionDisableException implements Exception {}
 
 @immutable
+@internal
 abstract class Option<T> {
   Option({
     required this.storage,

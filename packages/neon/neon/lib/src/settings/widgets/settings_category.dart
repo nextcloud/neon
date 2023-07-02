@@ -1,7 +1,9 @@
 import 'package:flutter/widgets.dart';
 import 'package:intersperse/intersperse.dart';
+import 'package:meta/meta.dart';
 import 'package:neon/src/settings/widgets/settings_tile.dart';
 
+@internal
 class SettingsCategory extends StatelessWidget {
   const SettingsCategory({
     required this.tiles,

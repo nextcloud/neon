@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:convert';
 
 import 'package:flutter/foundation.dart';
+import 'package:meta/meta.dart';
 import 'package:neon/src/bloc/bloc.dart';
 import 'package:neon/src/blocs/accounts.dart';
 import 'package:neon/src/models/account.dart';
@@ -20,6 +21,7 @@ abstract class PushNotificationsBlocStates {
   Stream<PushNotification> get notifications;
 }
 
+@internal
 class PushNotificationsBloc extends Bloc implements PushNotificationsBlocEvents, PushNotificationsBlocStates {
   PushNotificationsBloc(
     this._accountsBloc,

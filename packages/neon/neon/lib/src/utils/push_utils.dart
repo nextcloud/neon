@@ -8,6 +8,7 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_cache_manager/flutter_cache_manager.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:flutter_svg/flutter_svg.dart' show SvgFileLoader, vg;
+import 'package:meta/meta.dart';
 import 'package:neon/src/blocs/accounts.dart';
 import 'package:neon/src/models/account.dart';
 import 'package:neon/src/models/push_notification.dart';
@@ -20,6 +21,7 @@ import 'package:neon/src/utils/theme.dart';
 import 'package:nextcloud/nextcloud.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+@internal
 class PushUtils {
   static Future<RSAKeypair> loadRSAKeypair(final AppStorage storage) async {
     const keyDevicePrivateKey = 'device-private-key';
