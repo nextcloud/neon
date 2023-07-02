@@ -21,43 +21,43 @@ Future run(final DockerImage image) async {
     tearDown(() => container.destroy());
 
     test('Is installed', () async {
-      final response = await client.unifiedPushProvider.check();
+      final response = await client.uppush.check();
       expect(response.success, isTrue);
     });
 
     test('Set keepalive', () async {
-      final response = await client.unifiedPushProvider.setKeepalive(keepalive: 10);
+      final response = await client.uppush.setKeepalive(keepalive: 10);
       expect(response.success, isTrue);
     });
 
     test('Create device', () async {
-      final response = await client.unifiedPushProvider.createDevice(deviceName: 'Test');
+      final response = await client.uppush.createDevice(deviceName: 'Test');
       expect(response.success, isTrue);
       expect(response.deviceId, isNotEmpty);
     });
 
     test('Delete device', () async {
-      final deviceId = (await client.unifiedPushProvider.createDevice(deviceName: 'Test')).deviceId;
+      final deviceId = (await client.uppush.createDevice(deviceName: 'Test')).deviceId;
 
-      final response = await client.unifiedPushProvider.deleteDevice(deviceId: deviceId);
+      final response = await client.uppush.deleteDevice(deviceId: deviceId);
       expect(response.success, isTrue);
     });
 
     test('Create app', () async {
-      final deviceId = (await client.unifiedPushProvider.createDevice(deviceName: 'Test')).deviceId;
+      final deviceId = (await client.uppush.createDevice(deviceName: 'Test')).deviceId;
 
-      final response = await client.unifiedPushProvider.createApp(deviceId: deviceId, appName: 'Test');
+      final response = await client.uppush.createApp(deviceId: deviceId, appName: 'Test');
       expect(response.success, isTrue);
       expect(response.token, isNotEmpty);
     });
 
     test('UnifiedPush discovery', () async {
-      final response = await client.unifiedPushProvider.unifiedpushDiscovery(token: 'example');
+      final response = await client.uppush.unifiedpushDiscovery(token: 'example');
       expect(response.unifiedpush.version, 1);
     });
 
     test('Matrix gateway discovery', () async {
-      final response = await client.unifiedPushProvider.gatewayMatrixDiscovery();
+      final response = await client.uppush.gatewayMatrixDiscovery();
       expect(response.unifiedpush.gateway, 'matrix');
     });
 

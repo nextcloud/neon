@@ -10,7 +10,7 @@ PushNotification _$PushNotificationFromJson(Map<String, dynamic> json) => PushNo
       accountID: json['accountID'] as String,
       priority: json['priority'] as String,
       type: json['type'] as String,
-      subject: NextcloudNotificationsNotificationDecryptedSubject.fromJson(json['subject'] as Map<String, dynamic>),
+      subject: NotificationsNotificationDecryptedSubject.fromJson(json['subject'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$PushNotificationToJson(PushNotification instance) => <String, dynamic>{

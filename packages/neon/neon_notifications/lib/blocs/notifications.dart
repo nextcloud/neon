@@ -7,7 +7,7 @@ abstract interface class NotificationsBlocEvents {
 }
 
 abstract interface class NotificationsBlocStates {
-  BehaviorSubject<Result<List<NextcloudNotificationsNotification>>> get notifications;
+  BehaviorSubject<Result<List<NotificationsNotification>>> get notifications;
 
   BehaviorSubject<int> get unreadCounter;
 }
@@ -41,16 +41,15 @@ class NotificationsBloc extends InteractiveBloc
   }
 
   @override
-  BehaviorSubject<Result<List<NextcloudNotificationsNotification>>> notifications =
-      BehaviorSubject<Result<List<NextcloudNotificationsNotification>>>();
+  BehaviorSubject<Result<List<NotificationsNotification>>> notifications =
+      BehaviorSubject<Result<List<NotificationsNotification>>>();
 
   @override
   BehaviorSubject<int> unreadCounter = BehaviorSubject<int>();
 
   @override
   Future refresh() async {
-    await _requestManager
-        .wrapNextcloud<List<NextcloudNotificationsNotification>, NextcloudNotificationsListNotifications>(
+    await _requestManager.wrapNextcloud<List<NotificationsNotification>, NotificationsListNotifications>(
       _client.id,
       'notifications-notifications',
       notifications,

@@ -1,7 +1,7 @@
 {
   "openapi": "3.1.0",
   "info": {
-    "title": "News",
+    "title": "news",
     "version": "21.2.0",
     "description": "An RSS/Atom feed reader",
     "license": {
@@ -27,7 +27,6 @@
       "basic_auth": []
     }
   ],
-  "tags": [],
   "components": {
     "schemas": {
       "OCSMeta": {
@@ -313,9 +312,6 @@
     "/index.php/apps/news/api": {
       "get": {
         "operationId": "get-supported-api-versions",
-        "tags": [
-          "news"
-        ],
         "responses": {
           "200": {
             "description": "",
@@ -333,9 +329,6 @@
     "/index.php/apps/news/api/v1-3/folders": {
       "get": {
         "operationId": "list-folders",
-        "tags": [
-          "news"
-        ],
         "responses": {
           "200": {
             "description": "",
@@ -351,9 +344,6 @@
       },
       "post": {
         "operationId": "create-folder",
-        "tags": [
-          "news"
-        ],
         "parameters": [
           {
             "name": "name",
@@ -391,9 +381,6 @@
       ],
       "put": {
         "operationId": "rename-folder",
-        "tags": [
-          "news"
-        ],
         "parameters": [
           {
             "name": "name",
@@ -412,9 +399,6 @@
       },
       "delete": {
         "operationId": "delete-folder",
-        "tags": [
-          "news"
-        ],
         "responses": {
           "200": {
             "description": ""
@@ -436,9 +420,6 @@
       ],
       "post": {
         "operationId": "mark-folder-as-read",
-        "tags": [
-          "news"
-        ],
         "parameters": [
           {
             "name": "newestItemId",
@@ -460,9 +441,6 @@
     "/index.php/apps/news/api/v1-3/feeds": {
       "get": {
         "operationId": "list-feeds",
-        "tags": [
-          "news"
-        ],
         "responses": {
           "200": {
             "description": "",
@@ -478,9 +456,6 @@
       },
       "post": {
         "operationId": "add-feed",
-        "tags": [
-          "news"
-        ],
         "parameters": [
           {
             "name": "url",
@@ -526,9 +501,6 @@
       ],
       "delete": {
         "operationId": "delete-feed",
-        "tags": [
-          "news"
-        ],
         "responses": {
           "200": {
             "description": ""
@@ -549,9 +521,6 @@
       ],
       "post": {
         "operationId": "move-feed",
-        "tags": [
-          "news"
-        ],
         "parameters": [
           {
             "name": "folderId",
@@ -582,9 +551,6 @@
       ],
       "post": {
         "operationId": "rename-feed",
-        "tags": [
-          "news"
-        ],
         "parameters": [
           {
             "name": "feedTitle",
@@ -615,9 +581,6 @@
       ],
       "post": {
         "operationId": "mark-feed-as-read",
-        "tags": [
-          "news"
-        ],
         "parameters": [
           {
             "name": "newestItemId",
@@ -638,9 +601,6 @@
     "/index.php/apps/news/api/v1-3/items": {
       "get": {
         "operationId": "list-articles",
-        "tags": [
-          "news"
-        ],
         "parameters": [
           {
             "name": "type",
@@ -714,9 +674,6 @@
     "/index.php/apps/news/api/v1-3/items/updated": {
       "get": {
         "operationId": "list-updated-articles",
-        "tags": [
-          "news"
-        ],
         "parameters": [
           {
             "name": "type",
@@ -773,9 +730,6 @@
       ],
       "post": {
         "operationId": "mark-article-as-read",
-        "tags": [
-          "news"
-        ],
         "responses": {
           "200": {
             "description": ""
@@ -796,9 +750,6 @@
       ],
       "post": {
         "operationId": "mark-article-as-unread",
-        "tags": [
-          "news"
-        ],
         "responses": {
           "200": {
             "description": ""
@@ -819,9 +770,6 @@
       ],
       "post": {
         "operationId": "star-article",
-        "tags": [
-          "news"
-        ],
         "responses": {
           "200": {
             "description": ""
@@ -842,9 +790,6 @@
       ],
       "post": {
         "operationId": "unstar-article",
-        "tags": [
-          "news"
-        ],
         "responses": {
           "200": {
             "description": ""

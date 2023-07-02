@@ -28,60 +28,60 @@ Future run(final DockerImage image) async {
         expect(status.message, isNotNull);
       }
 
-      final meeting = response.ocs.data.singleWhere((final s) => s.id == 'meeting').clearAt!.userStatusClearAt!;
-      expect(meeting.type, NextcloudUserStatusClearAt_Type.period);
+      final meeting = response.ocs.data.singleWhere((final s) => s.id == 'meeting').clearAt!.clearAt!;
+      expect(meeting.type, UserStatusClearAt_Type.period);
       expect(meeting.time.$int, 3600);
 
-      final commuting = response.ocs.data.singleWhere((final s) => s.id == 'commuting').clearAt!.userStatusClearAt!;
-      expect(commuting.type, NextcloudUserStatusClearAt_Type.period);
+      final commuting = response.ocs.data.singleWhere((final s) => s.id == 'commuting').clearAt!.clearAt!;
+      expect(commuting.type, UserStatusClearAt_Type.period);
       expect(commuting.time.$int, 1800);
 
-      final remoteWork = response.ocs.data.singleWhere((final s) => s.id == 'remote-work').clearAt!.userStatusClearAt!;
-      expect(remoteWork.type, NextcloudUserStatusClearAt_Type.endOf);
-      expect(remoteWork.time.userStatusClearAtTime0, NextcloudUserStatusClearAt_Time0.day);
+      final remoteWork = response.ocs.data.singleWhere((final s) => s.id == 'remote-work').clearAt!.clearAt!;
+      expect(remoteWork.type, UserStatusClearAt_Type.endOf);
+      expect(remoteWork.time.clearAtTime0, UserStatusClearAt_Time0.day);
 
-      final sickLeave = response.ocs.data.singleWhere((final s) => s.id == 'sick-leave').clearAt!.userStatusClearAt!;
-      expect(sickLeave.type, NextcloudUserStatusClearAt_Type.endOf);
-      expect(sickLeave.time.userStatusClearAtTime0, NextcloudUserStatusClearAt_Time0.day);
+      final sickLeave = response.ocs.data.singleWhere((final s) => s.id == 'sick-leave').clearAt!.clearAt!;
+      expect(sickLeave.type, UserStatusClearAt_Type.endOf);
+      expect(sickLeave.time.clearAtTime0, UserStatusClearAt_Time0.day);
 
       final vacationing = response.ocs.data.singleWhere((final s) => s.id == 'vacationing').clearAt;
       expect(vacationing, null);
     });
 
     test('Set status', () async {
-      final response = await client.userStatus.setStatus(statusType: NextcloudUserStatusType.online);
+      final response = await client.userStatus.setStatus(statusType: UserStatusType.online);
 
-      expect(response.ocs.data.userStatusStatus!.userStatusPublicStatus.userId, 'user1');
-      expect(response.ocs.data.userStatusStatus!.userStatusPublicStatus.message, null);
-      expect(response.ocs.data.userStatusStatus!.userStatusStatus1.messageId, null);
-      expect(response.ocs.data.userStatusStatus!.userStatusStatus1.messageIsPredefined, false);
-      expect(response.ocs.data.userStatusStatus!.userStatusPublicStatus.icon, null);
-      expect(response.ocs.data.userStatusStatus!.userStatusPublicStatus.clearAt, null);
-      expect(response.ocs.data.userStatusStatus!.userStatusPublicStatus.status, NextcloudUserStatusType.online);
-      expect(response.ocs.data.userStatusStatus!.userStatusStatus1.statusIsUserDefined, true);
+      expect(response.ocs.data.status!.publicStatus.userId, 'user1');
+      expect(response.ocs.data.status!.publicStatus.message, null);
+      expect(response.ocs.data.status!.status1.messageId, null);
+      expect(response.ocs.data.status!.status1.messageIsPredefined, false);
+      expect(response.ocs.data.status!.publicStatus.icon, null);
+      expect(response.ocs.data.status!.publicStatus.clearAt, null);
+      expect(response.ocs.data.status!.publicStatus.status, UserStatusType.online);
+      expect(response.ocs.data.status!.status1.statusIsUserDefined, true);
     });
 
     test('Get status', () async {
       // There seems to be a bug in Nextcloud which makes getting the status fail before it has been set once.
       // The error message from Nextcloud is "Could not create folder"
-      await client.userStatus.setStatus(statusType: NextcloudUserStatusType.online);
+      await client.userStatus.setStatus(statusType: UserStatusType.online);
 
       final response = await client.userStatus.getStatus();
-      expect(response.ocs.data.userStatusStatus!.userStatusPublicStatus.userId, 'user1');
-      expect(response.ocs.data.userStatusStatus!.userStatusPublicStatus.message, null);
-      expect(response.ocs.data.userStatusStatus!.userStatusStatus1.messageId, null);
-      expect(response.ocs.data.userStatusStatus!.userStatusStatus1.messageIsPredefined, false);
-      expect(response.ocs.data.userStatusStatus!.userStatusPublicStatus.icon, null);
-      expect(response.ocs.data.userStatusStatus!.userStatusPublicStatus.clearAt, null);
-      expect(response.ocs.data.userStatusStatus!.userStatusPublicStatus.status, NextcloudUserStatusType.online);
-      expect(response.ocs.data.userStatusStatus!.userStatusStatus1.statusIsUserDefined, true);
+      expect(response.ocs.data.status!.publicStatus.userId, 'user1');
+      expect(response.ocs.data.status!.publicStatus.message, null);
+      expect(response.ocs.data.status!.status1.messageId, null);
+      expect(response.ocs.data.status!.status1.messageIsPredefined, false);
+      expect(response.ocs.data.status!.publicStatus.icon, null);
+      expect(response.ocs.data.status!.publicStatus.clearAt, null);
+      expect(response.ocs.data.status!.publicStatus.status, UserStatusType.online);
+      expect(response.ocs.data.status!.status1.statusIsUserDefined, true);
     });
 
     test('Find all statuses', () async {
       var response = await client.userStatus.getPublicStatuses();
       expect(response.ocs.data, hasLength(0));
 
-      await client.userStatus.setStatus(statusType: NextcloudUserStatusType.online);
+      await client.userStatus.setStatus(statusType: UserStatusType.online);
 
       response = await client.userStatus.getPublicStatuses();
       expect(response.ocs.data, hasLength(1));
@@ -89,19 +89,19 @@ Future run(final DockerImage image) async {
       expect(response.ocs.data[0].message, null);
       expect(response.ocs.data[0].icon, null);
       expect(response.ocs.data[0].clearAt, null);
-      expect(response.ocs.data[0].status, NextcloudUserStatusType.online);
+      expect(response.ocs.data[0].status, UserStatusType.online);
     });
 
     test('Find status', () async {
       // Same as getting status
-      await client.userStatus.setStatus(statusType: NextcloudUserStatusType.online);
+      await client.userStatus.setStatus(statusType: UserStatusType.online);
 
       final response = await client.userStatus.getPublicStatus(userId: 'user1');
-      expect(response.ocs.data.userStatusPublicStatus!.userId, 'user1');
-      expect(response.ocs.data.userStatusPublicStatus!.message, null);
-      expect(response.ocs.data.userStatusPublicStatus!.icon, null);
-      expect(response.ocs.data.userStatusPublicStatus!.clearAt, null);
-      expect(response.ocs.data.userStatusPublicStatus!.status, NextcloudUserStatusType.online);
+      expect(response.ocs.data.publicStatus!.userId, 'user1');
+      expect(response.ocs.data.publicStatus!.message, null);
+      expect(response.ocs.data.publicStatus!.icon, null);
+      expect(response.ocs.data.publicStatus!.clearAt, null);
+      expect(response.ocs.data.publicStatus!.status, UserStatusType.online);
     });
 
     test('Set predefined message', () async {
@@ -110,14 +110,14 @@ Future run(final DockerImage image) async {
         messageId: 'meeting',
         clearAt: clearAt,
       );
-      expect(response.ocs.data.userStatusStatus!.userStatusPublicStatus.userId, 'user1');
-      expect(response.ocs.data.userStatusStatus!.userStatusPublicStatus.message, null);
-      expect(response.ocs.data.userStatusStatus!.userStatusStatus1.messageId, 'meeting');
-      expect(response.ocs.data.userStatusStatus!.userStatusStatus1.messageIsPredefined, true);
-      expect(response.ocs.data.userStatusStatus!.userStatusPublicStatus.icon, null);
-      expect(response.ocs.data.userStatusStatus!.userStatusPublicStatus.clearAt!.$int, clearAt);
-      expect(response.ocs.data.userStatusStatus!.userStatusPublicStatus.status, NextcloudUserStatusType.offline);
-      expect(response.ocs.data.userStatusStatus!.userStatusStatus1.statusIsUserDefined, false);
+      expect(response.ocs.data.status!.publicStatus.userId, 'user1');
+      expect(response.ocs.data.status!.publicStatus.message, null);
+      expect(response.ocs.data.status!.status1.messageId, 'meeting');
+      expect(response.ocs.data.status!.status1.messageIsPredefined, true);
+      expect(response.ocs.data.status!.publicStatus.icon, null);
+      expect(response.ocs.data.status!.publicStatus.clearAt!.$int, clearAt);
+      expect(response.ocs.data.status!.publicStatus.status, UserStatusType.offline);
+      expect(response.ocs.data.status!.status1.statusIsUserDefined, false);
     });
 
     test('Set custom message', () async {
@@ -127,14 +127,14 @@ Future run(final DockerImage image) async {
         message: 'bla',
         clearAt: clearAt,
       );
-      expect(response.ocs.data.userStatusStatus!.userStatusPublicStatus.userId, 'user1');
-      expect(response.ocs.data.userStatusStatus!.userStatusPublicStatus.message, 'bla');
-      expect(response.ocs.data.userStatusStatus!.userStatusStatus1.messageId, null);
-      expect(response.ocs.data.userStatusStatus!.userStatusStatus1.messageIsPredefined, false);
-      expect(response.ocs.data.userStatusStatus!.userStatusPublicStatus.icon, '😀');
-      expect(response.ocs.data.userStatusStatus!.userStatusPublicStatus.clearAt!.$int, clearAt);
-      expect(response.ocs.data.userStatusStatus!.userStatusPublicStatus.status, NextcloudUserStatusType.offline);
-      expect(response.ocs.data.userStatusStatus!.userStatusStatus1.statusIsUserDefined, false);
+      expect(response.ocs.data.status!.publicStatus.userId, 'user1');
+      expect(response.ocs.data.status!.publicStatus.message, 'bla');
+      expect(response.ocs.data.status!.status1.messageId, null);
+      expect(response.ocs.data.status!.status1.messageIsPredefined, false);
+      expect(response.ocs.data.status!.publicStatus.icon, '😀');
+      expect(response.ocs.data.status!.publicStatus.clearAt!.$int, clearAt);
+      expect(response.ocs.data.status!.publicStatus.status, UserStatusType.offline);
+      expect(response.ocs.data.status!.status1.statusIsUserDefined, false);
     });
 
     test('Clear message', () async {
@@ -147,26 +147,26 @@ Future run(final DockerImage image) async {
       await client.userStatus.clearMessage();
 
       final response = await client.userStatus.getStatus();
-      expect(response.ocs.data.userStatusStatus!.userStatusPublicStatus.userId, 'user1');
-      expect(response.ocs.data.userStatusStatus!.userStatusPublicStatus.message, null);
-      expect(response.ocs.data.userStatusStatus!.userStatusStatus1.messageId, null);
-      expect(response.ocs.data.userStatusStatus!.userStatusStatus1.messageIsPredefined, false);
-      expect(response.ocs.data.userStatusStatus!.userStatusPublicStatus.icon, null);
-      expect(response.ocs.data.userStatusStatus!.userStatusPublicStatus.clearAt, null);
-      expect(response.ocs.data.userStatusStatus!.userStatusPublicStatus.status, NextcloudUserStatusType.offline);
-      expect(response.ocs.data.userStatusStatus!.userStatusStatus1.statusIsUserDefined, false);
+      expect(response.ocs.data.status!.publicStatus.userId, 'user1');
+      expect(response.ocs.data.status!.publicStatus.message, null);
+      expect(response.ocs.data.status!.status1.messageId, null);
+      expect(response.ocs.data.status!.status1.messageIsPredefined, false);
+      expect(response.ocs.data.status!.publicStatus.icon, null);
+      expect(response.ocs.data.status!.publicStatus.clearAt, null);
+      expect(response.ocs.data.status!.publicStatus.status, UserStatusType.offline);
+      expect(response.ocs.data.status!.status1.statusIsUserDefined, false);
     });
 
     test('Heartbeat', () async {
-      final response = await client.userStatus.heartbeat(status: NextcloudUserStatusType.online);
-      expect(response.ocs.data.userStatusStatus!.userStatusPublicStatus.userId, 'user1');
-      expect(response.ocs.data.userStatusStatus!.userStatusPublicStatus.message, null);
-      expect(response.ocs.data.userStatusStatus!.userStatusStatus1.messageId, null);
-      expect(response.ocs.data.userStatusStatus!.userStatusStatus1.messageIsPredefined, false);
-      expect(response.ocs.data.userStatusStatus!.userStatusPublicStatus.icon, null);
-      expect(response.ocs.data.userStatusStatus!.userStatusPublicStatus.clearAt, null);
-      expect(response.ocs.data.userStatusStatus!.userStatusPublicStatus.status, NextcloudUserStatusType.online);
-      expect(response.ocs.data.userStatusStatus!.userStatusStatus1.statusIsUserDefined, false);
+      final response = await client.userStatus.heartbeat(status: UserStatusType.online);
+      expect(response.ocs.data.status!.publicStatus.userId, 'user1');
+      expect(response.ocs.data.status!.publicStatus.message, null);
+      expect(response.ocs.data.status!.status1.messageId, null);
+      expect(response.ocs.data.status!.status1.messageIsPredefined, false);
+      expect(response.ocs.data.status!.publicStatus.icon, null);
+      expect(response.ocs.data.status!.publicStatus.clearAt, null);
+      expect(response.ocs.data.status!.publicStatus.status, UserStatusType.online);
+      expect(response.ocs.data.status!.status1.statusIsUserDefined, false);
     });
   });
 }

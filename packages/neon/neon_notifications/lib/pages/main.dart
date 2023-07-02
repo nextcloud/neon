@@ -24,7 +24,7 @@ class _NotificationsMainPageState extends State<NotificationsMainPage> {
   }
 
   @override
-  Widget build(final BuildContext context) => ResultBuilder<List<NextcloudNotificationsNotification>>.behaviorSubject(
+  Widget build(final BuildContext context) => ResultBuilder<List<NotificationsNotification>>.behaviorSubject(
         stream: bloc.notifications,
         builder: (final context, final notifications) => Scaffold(
           resizeToAvoidBottomInset: false,
@@ -35,7 +35,7 @@ class _NotificationsMainPageState extends State<NotificationsMainPage> {
             tooltip: AppLocalizations.of(context).notificationsDismissAll,
             child: Icon(MdiIcons.checkAll),
           ),
-          body: NeonListView<NextcloudNotificationsNotification>(
+          body: NeonListView<NotificationsNotification>(
             scrollKey: 'notifications-notifications',
             withFloatingActionButton: true,
             items: notifications.data,
@@ -49,7 +49,7 @@ class _NotificationsMainPageState extends State<NotificationsMainPage> {
 
   Widget _buildNotification(
     final BuildContext context,
-    final NextcloudNotificationsNotification notification,
+    final NotificationsNotification notification,
   ) {
     final app = Provider.of<Iterable<AppImplementation>>(context, listen: false).tryFind(notification.app);
 

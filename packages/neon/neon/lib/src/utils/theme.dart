@@ -3,7 +3,7 @@ part of '../../neon.dart';
 const themePrimaryColor = Color(0xFFF37736);
 
 ThemeData getThemeFromNextcloudTheme(
-  final NextcloudCoreServerCapabilities_Ocs_Data_Capabilities_Theming? nextcloudTheme,
+  final CoreServerCapabilities_Ocs_Data_Capabilities_Theming? nextcloudTheme,
   final Brightness brightness, {
   required final bool keepOriginalAccentColor,
   final bool oledAsDark = false,

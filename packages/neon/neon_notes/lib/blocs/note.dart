@@ -17,7 +17,7 @@ class NotesNoteBloc extends InteractiveBloc implements NotesNoteBlocEvents, Note
     this.options,
     this._client,
     this._notesBloc,
-    final NextcloudNotesNote note,
+    final NotesNote note,
   ) {
     _emitNote(note);
     id = note.id;
@@ -25,13 +25,13 @@ class NotesNoteBloc extends InteractiveBloc implements NotesNoteBlocEvents, Note
     initialTitle = note.title;
   }
 
-  void _emitNote(final NextcloudNotesNote note) {
+  void _emitNote(final NotesNote note) {
     category.add(note.category);
     _etag = note.etag;
   }
 
   // ignore: avoid_void_async
-  void _wrapAction(final Future<NextcloudNotesNote> Function(String etag) call) async {
+  void _wrapAction(final Future<NotesNote> Function(String etag) call) async {
     await _updateQueue.add(() async {
       try {
         final data = await call(_etag);

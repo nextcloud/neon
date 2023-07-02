@@ -3,7 +3,7 @@ part of 'blocs.dart';
 abstract class UserDetailsBlocEvents {}
 
 abstract class UserDetailsBlocStates {
-  BehaviorSubject<Result<NextcloudProvisioningApiUserDetails>> get userDetails;
+  BehaviorSubject<Result<ProvisioningApiUserDetails>> get userDetails;
 }
 
 class UserDetailsBloc extends InteractiveBloc implements UserDetailsBlocEvents, UserDetailsBlocStates {
@@ -24,12 +24,12 @@ class UserDetailsBloc extends InteractiveBloc implements UserDetailsBlocEvents, 
   }
 
   @override
-  BehaviorSubject<Result<NextcloudProvisioningApiUserDetails>> userDetails =
-      BehaviorSubject<Result<NextcloudProvisioningApiUserDetails>>();
+  BehaviorSubject<Result<ProvisioningApiUserDetails>> userDetails =
+      BehaviorSubject<Result<ProvisioningApiUserDetails>>();
 
   @override
   Future refresh() async {
-    await _requestManager.wrapNextcloud<NextcloudProvisioningApiUserDetails, NextcloudProvisioningApiUser>(
+    await _requestManager.wrapNextcloud<ProvisioningApiUserDetails, ProvisioningApiUser>(
       _client.id,
       'user-details',
       userDetails,

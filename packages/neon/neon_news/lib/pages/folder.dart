@@ -8,7 +8,7 @@ class NewsFolderPage extends StatelessWidget {
   });
 
   final NewsBloc bloc;
-  final NextcloudNewsFolder folder;
+  final NewsFolder folder;
 
   @override
   Widget build(final BuildContext context) => Scaffold(

@@ -19,7 +19,7 @@ abstract class NotesBlocEvents {
 }
 
 abstract class NotesBlocStates {
-  BehaviorSubject<Result<List<NextcloudNotesNote>>> get notes;
+  BehaviorSubject<Result<List<NotesNote>>> get notes;
 }
 
 class NotesBloc extends InteractiveBloc implements NotesBlocEvents, NotesBlocStates {
@@ -42,16 +42,16 @@ class NotesBloc extends InteractiveBloc implements NotesBlocEvents, NotesBlocSta
   }
 
   @override
-  BehaviorSubject<Result<List<NextcloudNotesNote>>> notes = BehaviorSubject<Result<List<NextcloudNotesNote>>>();
+  BehaviorSubject<Result<List<NotesNote>>> notes = BehaviorSubject<Result<List<NotesNote>>>();
 
   @override
   Future refresh() async {
-    await requestManager.wrapNextcloud<List<NextcloudNotesNote>, BuiltList>(
+    await requestManager.wrapNextcloud<List<NotesNote>, BuiltList>(
       client.id,
       'notes-notes',
       notes,
       () async => client.notes.getNotes(),
-      List<NextcloudNotesNote>.from,
+      List<NotesNote>.from,
     );
   }
 

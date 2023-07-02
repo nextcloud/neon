@@ -18,7 +18,7 @@ Future run(final DockerImage image) async {
     tearDown(() => container.destroy());
 
     test('Is supported', () async {
-      final (supported, _) = await client.notes.isSupported();
+      final (supported, _) = await client.notes.isSupported((await client.core.getCapabilities()).ocs.data);
       expect(supported, isTrue);
     });
 
@@ -116,26 +116,26 @@ Future run(final DockerImage image) async {
       final response = await client.notes.getSettings();
       expect(response.notesPath, 'Notes');
       expect(response.fileSuffix, '.md');
-      expect(response.noteMode, NextcloudNotesSettings_NoteMode.rich);
+      expect(response.noteMode, NotesSettings_NoteMode.rich);
     });
 
     test('Update settings', () async {
       var response = await client.notes.updateSettings(
-        notesSettings: NextcloudNotesSettings(
+        settings: NotesSettings(
           (final b) => b
             ..notesPath = 'Test Notes'
             ..fileSuffix = '.txt'
-            ..noteMode = NextcloudNotesSettings_NoteMode.preview,
+            ..noteMode = NotesSettings_NoteMode.preview,
         ),
       );
       expect(response.notesPath, 'Test Notes');
       expect(response.fileSuffix, '.txt');
-      expect(response.noteMode, NextcloudNotesSettings_NoteMode.preview);
+      expect(response.noteMode, NotesSettings_NoteMode.preview);
 
       response = await client.notes.getSettings();
       expect(response.notesPath, 'Test Notes');
       expect(response.fileSuffix, '.txt');
-      expect(response.noteMode, NextcloudNotesSettings_NoteMode.preview);
+      expect(response.noteMode, NotesSettings_NoteMode.preview);
     });
   });
 }

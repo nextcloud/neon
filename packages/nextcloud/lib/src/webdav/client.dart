@@ -1,4 +1,11 @@
-part of '../../nextcloud.dart';
+import 'dart:convert';
+import 'dart:typed_data';
+
+import 'package:dynamite_runtime/http_client.dart';
+import 'package:nextcloud/src/webdav/props.dart';
+import 'package:nextcloud/src/webdav/webdav.dart';
+import 'package:universal_io/io.dart';
+import 'package:xml/xml.dart' as xml;
 
 /// WebDavClient class
 class WebDavClient {
@@ -9,7 +16,7 @@ class WebDavClient {
   );
 
   // ignore: public_member_api_docs
-  final NextcloudClient rootClient;
+  final DynamiteClient rootClient;
 
   /// Base path used on the server
   final String basePath;
@@ -43,7 +50,11 @@ class WebDavClient {
     final response = await request.close();
 
     if (!expectedCodes.contains(response.statusCode)) {
-      throw await NextcloudApiException.fromResponse(response);
+      throw DynamiteApiException(
+        response.statusCode,
+        response.responseHeaders,
+        utf8.decode(await response.bodyBytes),
+      );
     }
 
     return response;

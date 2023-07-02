@@ -57,13 +57,13 @@ abstract class TypeResult {
   /// Serializes the variable named [object].
   ///
   /// The serialized result is an [Object]?
-  String serialize(final String object) => 'jsonSerializers.serialize($object, specifiedType: const $fullType)';
+  String serialize(final String object) => '_jsonSerializers.serialize($object, specifiedType: const $fullType)';
 
   /// Deserializes the variable named [object].
   ///
   /// The serialized result will be of [name].
   String deserialize(final String object) =>
-      '(jsonSerializers.deserialize($object, specifiedType: const $fullType)! as $name)';
+      '(_jsonSerializers.deserialize($object, specifiedType: const $fullType)! as $name)';
 
   /// Decodes the variable named [object].
   String decode(final String object) => 'json.decode($object as String)';

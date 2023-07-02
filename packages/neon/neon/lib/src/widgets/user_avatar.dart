@@ -72,7 +72,7 @@ class _UserAvatarState extends State<NeonUserAvatar> {
                 ),
               ),
               if (widget.showStatus) ...[
-                ResultBuilder<NextcloudUserStatusPublicStatus?>(
+                ResultBuilder<UserStatusPublicStatus?>(
                   stream: _userStatusBloc.statuses.mapNotNull((final statuses) => statuses[widget.username]),
                   builder: _userStatusIconBuilder,
                 ),
@@ -82,7 +82,7 @@ class _UserAvatarState extends State<NeonUserAvatar> {
         },
       );
 
-  Widget _userStatusIconBuilder(final BuildContext context, final Result<NextcloudUserStatusPublicStatus?> result) {
+  Widget _userStatusIconBuilder(final BuildContext context, final Result<UserStatusPublicStatus?> result) {
     final hasEmoji = result.data?.icon != null;
     final scaledSize = size / (hasEmoji ? 2 : 3);
 
@@ -127,10 +127,10 @@ class _UserAvatarState extends State<NeonUserAvatar> {
     );
   }
 
-  Color? _userStatusToColor(final NextcloudUserStatusType userStatusType) => switch (userStatusType) {
-        NextcloudUserStatusType.online => const Color(0xFF49B382),
-        NextcloudUserStatusType.away => const Color(0xFFF4A331),
-        NextcloudUserStatusType.dnd => const Color(0xFFED484C),
+  Color? _userStatusToColor(final UserStatusType userStatusType) => switch (userStatusType) {
+        UserStatusType.online => const Color(0xFF49B382),
+        UserStatusType.away => const Color(0xFFF4A331),
+        UserStatusType.dnd => const Color(0xFFED484C),
         _ => null,
       };
 }

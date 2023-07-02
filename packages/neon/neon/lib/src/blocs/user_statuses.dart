@@ -5,7 +5,7 @@ abstract class UserStatusesBlocEvents {
 }
 
 abstract class UserStatusesBlocStates {
-  BehaviorSubject<Map<String, Result<NextcloudUserStatusPublicStatus?>>> get statuses;
+  BehaviorSubject<Map<String, Result<UserStatusPublicStatus?>>> get statuses;
 }
 
 class UserStatusesBloc extends InteractiveBloc implements UserStatusesBlocEvents, UserStatusesBlocStates {
@@ -29,8 +29,8 @@ class UserStatusesBloc extends InteractiveBloc implements UserStatusesBlocEvents
   }
 
   @override
-  BehaviorSubject<Map<String, Result<NextcloudUserStatusPublicStatus?>>> statuses =
-      BehaviorSubject<Map<String, Result<NextcloudUserStatusPublicStatus?>>>();
+  BehaviorSubject<Map<String, Result<UserStatusPublicStatus?>>> statuses =
+      BehaviorSubject<Map<String, Result<UserStatusPublicStatus?>>>();
 
   @override
   Future refresh() async {
@@ -48,17 +48,17 @@ class UserStatusesBloc extends InteractiveBloc implements UserStatusesBlocEvents
     try {
       _updateStatus(username, Result.loading());
 
-      NextcloudUserStatusPublicStatus? data;
+      UserStatusPublicStatus? data;
       if (_account.username == username) {
         final isAway =
             _platform.canUseWindowManager && (!(await windowManager.isFocused()) || !(await windowManager.isVisible()));
         final response = await _account.client.userStatus.heartbeat(
-          status: isAway ? NextcloudUserStatusType.away : NextcloudUserStatusType.online,
+          status: isAway ? UserStatusType.away : UserStatusType.online,
         );
-        data = response.ocs.data.userStatusStatus?.userStatusPublicStatus;
+        data = response.ocs.data.status?.publicStatus;
       } else {
         final response = await _account.client.userStatus.getPublicStatus(userId: username);
-        data = response.ocs.data.userStatusPublicStatus;
+        data = response.ocs.data.publicStatus;
       }
 
       _updateStatus(username, Result.success(data));
@@ -73,10 +73,10 @@ class UserStatusesBloc extends InteractiveBloc implements UserStatusesBlocEvents
     }
   }
 
-  Map<String, Result<NextcloudUserStatusPublicStatus?>> get _statuses =>
-      statuses.valueOrNull ?? <String, Result<NextcloudUserStatusPublicStatus?>>{};
+  Map<String, Result<UserStatusPublicStatus?>> get _statuses =>
+      statuses.valueOrNull ?? <String, Result<UserStatusPublicStatus?>>{};
 
-  void _updateStatus(final String username, final Result<NextcloudUserStatusPublicStatus?> result) {
+  void _updateStatus(final String username, final Result<UserStatusPublicStatus?> result) {
     statuses.add({
       ..._statuses,
       username: result,

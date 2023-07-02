@@ -8,7 +8,7 @@ class NewsFolderView extends StatefulWidget {
   });
 
   final NewsBloc bloc;
-  final NextcloudNewsFolder folder;
+  final NewsFolder folder;
 
   @override
   State<NewsFolderView> createState() => _NewsFolderViewState();

@@ -23,5 +23,5 @@ class PushNotification {
 
   final String type;
 
-  final NextcloudNotificationsNotificationDecryptedSubject subject;
+  final NotificationsNotificationDecryptedSubject subject;
 }

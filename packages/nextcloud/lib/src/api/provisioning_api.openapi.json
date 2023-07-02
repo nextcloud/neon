@@ -1,7 +1,7 @@
 {
   "openapi": "3.1.0",
   "info": {
-    "title": "Provisioning API",
+    "title": "provisioning_api",
     "version": "1.17.0",
     "description": "This application enables a set of APIs that external systems can use to manage users, groups and apps.",
     "license": {
@@ -27,7 +27,6 @@
       "basic_auth": []
     }
   ],
-  "tags": [],
   "components": {
     "schemas": {
       "OCSMeta": {
@@ -323,9 +322,6 @@
     "/ocs/v2.php/cloud/user": {
       "get": {
         "operationId": "get-current-user",
-        "tags": [
-          "provisioning_api"
-        ],
         "responses": {
           "200": {
             "description": "",
@@ -353,9 +349,6 @@
       ],
       "get": {
         "operationId": "get-user",
-        "tags": [
-          "provisioning_api"
-        ],
         "responses": {
           "200": {
             "description": "",

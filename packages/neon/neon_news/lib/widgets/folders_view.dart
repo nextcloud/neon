@@ -9,9 +9,9 @@ class NewsFoldersView extends StatelessWidget {
   final NewsBloc bloc;
 
   @override
-  Widget build(final BuildContext context) => ResultBuilder<List<NextcloudNewsFolder>>.behaviorSubject(
+  Widget build(final BuildContext context) => ResultBuilder<List<NewsFolder>>.behaviorSubject(
         stream: bloc.folders,
-        builder: (final context, final folders) => ResultBuilder<List<NextcloudNewsFeed>>.behaviorSubject(
+        builder: (final context, final folders) => ResultBuilder<List<NewsFeed>>.behaviorSubject(
           stream: bloc.feeds,
           builder: (final context, final feeds) => SortBoxBuilder<FoldersSortProperty, FolderFeedsWrapper>(
             sortBox: foldersSortBox,

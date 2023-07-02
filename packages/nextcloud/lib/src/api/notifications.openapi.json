@@ -1,7 +1,7 @@
 {
   "openapi": "3.1.0",
   "info": {
-    "title": "Notifications",
+    "title": "notifications",
     "version": "2.15.0",
     "description": "This app provides a backend and frontend for the notification API available in Nextcloud.",
     "license": {
@@ -27,7 +27,6 @@
       "basic_auth": []
     }
   ],
-  "tags": [],
   "components": {
     "schemas": {
       "OCSMeta": {
@@ -299,9 +298,6 @@
     "/ocs/v2.php/apps/notifications/api/v2/notifications": {
       "get": {
         "operationId": "list-notifications",
-        "tags": [
-          "notifications"
-        ],
         "responses": {
           "200": {
             "description": "",
@@ -317,9 +313,6 @@
       },
       "delete": {
         "operationId": "delete-all-notifications",
-        "tags": [
-          "notifications"
-        ],
         "responses": {
           "200": {
             "description": "",
@@ -347,9 +340,6 @@
       ],
       "get": {
         "operationId": "get-notification",
-        "tags": [
-          "notifications"
-        ],
         "responses": {
           "200": {
             "description": "",
@@ -365,9 +355,6 @@
       },
       "delete": {
         "operationId": "delete-notification",
-        "tags": [
-          "notifications"
-        ],
         "responses": {
           "200": {
             "description": "",
@@ -385,9 +372,6 @@
     "/ocs/v2.php/apps/notifications/api/v2/push": {
       "post": {
         "operationId": "register-device",
-        "tags": [
-          "notifications"
-        ],
         "parameters": [
           {
             "name": "pushTokenHash",
@@ -430,9 +414,6 @@
       },
       "delete": {
         "operationId": "remove-device",
-        "tags": [
-          "notifications"
-        ],
         "responses": {
           "202": {
             "description": "",
@@ -460,9 +441,6 @@
       ],
       "post": {
         "operationId": "send-admin-notification",
-        "tags": [
-          "notifications"
-        ],
         "parameters": [
           {
             "name": "shortMessage",

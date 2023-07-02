@@ -1,7 +1,7 @@
 {
   "openapi": "3.1.0",
   "info": {
-    "title": "Notes",
+    "title": "notes",
     "version": "4.8.0",
     "description": "Distraction-free notes and writing",
     "license": {
@@ -27,7 +27,6 @@
       "basic_auth": []
     }
   ],
-  "tags": [],
   "components": {
     "schemas": {
       "OCSMeta": {
@@ -160,9 +159,6 @@
     "/index.php/apps/notes/api/v1/notes": {
       "get": {
         "operationId": "get-notes",
-        "tags": [
-          "notes"
-        ],
         "parameters": [
           {
             "name": "category",
@@ -233,9 +229,6 @@
       },
       "post": {
         "operationId": "create-note",
-        "tags": [
-          "notes"
-        ],
         "parameters": [
           {
             "name": "category",
@@ -310,9 +303,6 @@
       ],
       "get": {
         "operationId": "get-note",
-        "tags": [
-          "notes"
-        ],
         "parameters": [
           {
             "name": "exclude",
@@ -346,9 +336,6 @@
       },
       "put": {
         "operationId": "update-note",
-        "tags": [
-          "notes"
-        ],
         "parameters": [
           {
             "name": "content",
@@ -414,9 +401,6 @@
       },
       "delete": {
         "operationId": "delete-note",
-        "tags": [
-          "notes"
-        ],
         "responses": {
           "200": {
             "description": "",
@@ -434,9 +418,6 @@
     "/index.php/apps/notes/api/v1/settings": {
       "get": {
         "operationId": "get-settings",
-        "tags": [
-          "notes"
-        ],
         "responses": {
           "200": {
             "description": "",
@@ -452,9 +433,6 @@
       },
       "put": {
         "operationId": "update-settings",
-        "tags": [
-          "notes"
-        ],
         "requestBody": {
           "required": true,
           "content": {

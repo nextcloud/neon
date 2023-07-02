@@ -7,8 +7,8 @@ class NewsMoveFeedDialog extends StatefulWidget {
     super.key,
   });
 
-  final List<NextcloudNewsFolder> folders;
-  final NextcloudNewsFeed feed;
+  final List<NewsFolder> folders;
+  final NewsFeed feed;
 
   @override
   State<NewsMoveFeedDialog> createState() => _NewsMoveFeedDialogState();
@@ -17,7 +17,7 @@ class NewsMoveFeedDialog extends StatefulWidget {
 class _NewsMoveFeedDialogState extends State<NewsMoveFeedDialog> {
   final formKey = GlobalKey<FormState>();
 
-  NextcloudNewsFolder? folder;
+  NewsFolder? folder;
 
   void submit() {
     if (formKey.currentState!.validate()) {
