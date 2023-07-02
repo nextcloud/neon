@@ -194,7 +194,6 @@ class _NewsArticlesViewState extends State<NewsArticlesView> {
               MaterialPageRoute(
                 builder: (final context) => NewsArticlePage(
                   bloc: NewsArticleBloc(
-                    Provider.of<AccountsBloc>(context, listen: false).activeAccount.value!.client,
                     widget.bloc,
                     article,
                   ),
@@ -212,7 +211,6 @@ class _NewsArticlesViewState extends State<NewsArticlesView> {
               MaterialPageRoute(
                 builder: (final context) => NewsArticlePage(
                   bloc: NewsArticleBloc(
-                    Provider.of<AccountsBloc>(context, listen: false).activeAccount.value!.client,
                     widget.bloc,
                     article,
                   ),
