@@ -68,19 +68,103 @@ class NeonAppBar extends StatelessWidget implements PreferredSizeWidget {
               ],
             ],
           ),
-          actions: [
-            const NotificationIconButton(),
-            IconButton(
-              onPressed: () {
-                AccountSettingsRoute(accountid: account.id).go(context);
-              },
-              tooltip: AppLocalizations.of(context).settingsAccount,
-              icon: NeonUserAvatar(
-                account: account,
-              ),
-            ),
+          actions: const [
+            NotificationIconButton(),
+            AccountSwitcherButton(),
           ],
         ),
+      ),
+    );
+  }
+}
+
+@internal
+class AccountSwitcherButton extends StatelessWidget {
+  const AccountSwitcherButton({
+    super.key,
+  });
+
+  Future<void> _onPressed(final BuildContext context) async {
+    final accountsBloc = Provider.of<AccountsBloc>(context, listen: false);
+    final accounts = accountsBloc.accounts.value;
+    final aa = accountsBloc.activeAccount.value!;
+
+    await showDialog(
+      context: context,
+      builder: (final context) {
+        final accountList = <Widget>[];
+
+        for (final account in accounts) {
+          if (account.id == aa.id) {
+            continue;
+          }
+
+          final tile = NeonAccountTile(
+            account: account,
+            onTap: () {
+              accountsBloc.setActiveAccount(account);
+              Navigator.of(context).pop();
+            },
+          );
+
+          accountList.add(tile);
+        }
+
+        final body = Column(
+          children: [
+            NeonAccountTile(
+              account: aa,
+              trailing: const Icon(Icons.check_circle),
+              onTap: Navigator.of(context).pop,
+            ),
+            const Divider(),
+            if (accountList.isNotEmpty) ...[
+              SingleChildScrollView(
+                child: ListBody(children: accountList.toList()),
+              ),
+              const Divider(),
+            ],
+            ListTile(
+              leading: const Icon(Icons.person_add),
+              title: Text(AppLocalizations.of(context).globalOptionsAccountsAdd),
+              onTap: () {
+                Navigator.of(context).pop();
+                const AddAccountRoute().push(context);
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.settings),
+              title: Text(AppLocalizations.of(context).settings),
+              onTap: () {
+                Navigator.of(context).pop();
+                const SettingsRoute().push(context);
+              },
+            )
+          ],
+        );
+
+        return Dialog(
+          child: Padding(
+            padding: const EdgeInsets.all(24),
+            child: IntrinsicHeight(
+              child: body,
+            ),
+          ),
+        );
+      },
+    );
+  }
+
+  @override
+  Widget build(final BuildContext context) {
+    final accountsBloc = Provider.of<AccountsBloc>(context, listen: false);
+    final account = accountsBloc.activeAccount.value!;
+
+    return IconButton(
+      onPressed: () async => _onPressed(context),
+      tooltip: AppLocalizations.of(context).settingsAccount,
+      icon: NeonUserAvatar(
+        account: account,
       ),
     );
   }
