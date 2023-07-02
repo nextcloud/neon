@@ -5,7 +5,6 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:neon/blocs.dart';
-import 'package:neon/interfaces.dart';
 import 'package:neon/models.dart';
 import 'package:neon/settings.dart';
 import 'package:neon/utils.dart';

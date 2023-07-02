@@ -1,5 +1,3 @@
-export 'package:neon/src/utils/app_implementation.dart';
-export 'package:neon/src/utils/branding.dart';
 export 'package:neon/src/utils/confirmation_dialog.dart';
 export 'package:neon/src/utils/exceptions.dart';
 export 'package:neon/src/utils/hex_color.dart';

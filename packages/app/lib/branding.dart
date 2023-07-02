@@ -1,5 +1,5 @@
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:neon/utils.dart';
+import 'package:neon/models.dart';
 
 Branding getNeonBranding() => Branding(
       name: 'Nextcloud Neon',

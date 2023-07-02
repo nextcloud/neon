@@ -7,6 +7,8 @@ import 'package:material_design_icons_flutter/material_design_icons_flutter.dart
 import 'package:neon/l10n/localizations.dart';
 import 'package:neon/src/blocs/accounts.dart';
 import 'package:neon/src/models/account.dart';
+import 'package:neon/src/models/app_implementation.dart';
+import 'package:neon/src/models/branding.dart';
 import 'package:neon/src/platform/platform.dart';
 import 'package:neon/src/router.dart';
 import 'package:neon/src/settings/widgets/account_settings_tile.dart';
@@ -17,8 +19,6 @@ import 'package:neon/src/settings/widgets/settings_category.dart';
 import 'package:neon/src/settings/widgets/settings_list.dart';
 import 'package:neon/src/settings/widgets/settings_tile.dart';
 import 'package:neon/src/settings/widgets/text_settings_tile.dart';
-import 'package:neon/src/utils/app_implementation.dart';
-import 'package:neon/src/utils/branding.dart';
 import 'package:neon/src/utils/confirmation_dialog.dart';
 import 'package:neon/src/utils/global_options.dart';
 import 'package:neon/src/utils/save_file.dart';

@@ -1,6 +1,6 @@
 import 'package:neon/src/bloc/bloc.dart';
+import 'package:neon/src/models/app_implementation.dart';
 import 'package:neon/src/settings/models/nextcloud_app_options.dart';
-import 'package:neon/src/utils/app_implementation.dart';
 
 abstract interface class NotificationsAppInterface<T extends NotificationsBlocInterface,
     R extends NotificationsOptionsInterface> extends AppImplementation<T, R> {
