@@ -622,7 +622,9 @@ class OpenAPIBuilder implements Builder {
                                     );
                                     state.resolvedTypeCombinations.add(result);
 
-                                    if (mimeType == '*/*' || mimeType.startsWith('image/')) {
+                                    if (mimeType == '*/*' ||
+                                        mimeType == 'application/octet-stream' ||
+                                        mimeType.startsWith('image/')) {
                                       dataType = 'Uint8List';
                                       dataValue = 'response.bodyBytes';
                                     } else if (mimeType.startsWith('text/')) {
