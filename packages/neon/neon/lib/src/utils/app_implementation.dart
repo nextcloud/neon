@@ -39,6 +39,10 @@ abstract class AppImplementation<T extends Bloc, R extends NextcloudAppSpecificO
 
   BehaviorSubject<int>? getUnreadCounter(final T bloc) => null;
 
+  /// Main view of the app.
+  ///
+  /// It is encuraged to use an [AdaptiveLayout] to adapt the page to different
+  /// screen sizes and layouts.
   Widget get page;
 
   NeonNavigationDestination destination(final BuildContext context) {

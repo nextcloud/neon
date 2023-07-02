@@ -15,7 +15,6 @@ class _HomePageState extends State<HomePage> {
   final _scaffoldKey = GlobalKey<ScaffoldState>();
 
   late Account _account;
-  late GlobalOptions _globalOptions;
   late AccountsBloc _accountsBloc;
   late AppsBloc _appsBloc;
   late StreamSubscription _versionCheckSubscription;
@@ -23,7 +22,6 @@ class _HomePageState extends State<HomePage> {
   @override
   void initState() {
     super.initState();
-    _globalOptions = Provider.of<GlobalOptions>(context, listen: false);
     _accountsBloc = Provider.of<AccountsBloc>(context, listen: false);
     _account = _accountsBloc.activeAccount.value!;
     _appsBloc = _accountsBloc.activeAppsBloc;
@@ -101,9 +99,6 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(final BuildContext context) {
-    const drawer = NeonDrawer();
-    const appBar = NeonAppBar();
-
     final appView = ResultBuilder<Iterable<AppImplementation>>.behaviorSubject(
       stream: _appsBloc.appImplementations,
       builder: (final context, final appImplementations) {
@@ -127,38 +122,62 @@ class _HomePageState extends State<HomePage> {
               return const SizedBox();
             }
 
-            return activeAppIDSnapshot.requireData.page;
+            final view = activeAppIDSnapshot.requireData.page;
+
+            final topNavigation = SlotLayout(
+              config: {
+                Breakpoints.standard: SlotLayout.from(
+                  key: const Key('Standard topNavigation'),
+                  builder: (final _) => const SizedBox(
+                    height: kToolbarHeight,
+                    child: NeonAppBar(),
+                  ),
+                ),
+                Breakpoints.large: SlotLayout.from(
+                  key: const Key('Large topNavigation'),
+                  builder: (final _) => const NeonTabBar(),
+                ),
+                if (view is AdaptiveLayout) ...{
+                  ...?view.topNavigation?.config,
+                },
+              },
+            );
+
+            if (view is! AdaptiveLayout) {
+              final body = SlotLayout(
+                config: {
+                  Breakpoints.standard: SlotLayout.from(
+                    key: const Key('Standard body'),
+                    builder: (final _) => view,
+                  ),
+                },
+              );
+              return AdaptiveLayout(
+                topNavigation: topNavigation,
+                body: body,
+              );
+            }
+
+            return AdaptiveLayout(
+              topNavigation: topNavigation,
+              primaryNavigation: view.primaryNavigation,
+              secondaryNavigation: view.secondaryNavigation,
+              bottomNavigation: view.bottomNavigation,
+              body: view.body,
+              secondaryBody: view.secondaryBody,
+              bodyRatio: view.bodyRatio,
+              internalAnimations: view.internalAnimations,
+              bodyOrientation: view.bodyOrientation,
+            );
           },
         );
       },
     );
 
-    final body = OptionBuilder<NavigationMode>(
-      option: _globalOptions.navigationMode,
-      builder: (final context, final navigationMode) {
-        final drawerAlwaysVisible = navigationMode == NavigationMode.drawerAlwaysVisible;
-
-        final body = Scaffold(
-          key: _scaffoldKey,
-          resizeToAvoidBottomInset: false,
-          drawer: !drawerAlwaysVisible ? drawer : null,
-          appBar: appBar,
-          body: appView,
-        );
-
-        if (drawerAlwaysVisible) {
-          return Row(
-            children: [
-              drawer,
-              Expanded(
-                child: body,
-              ),
-            ],
-          );
-        }
-
-        return body;
-      },
+    final body = Scaffold(
+      key: _scaffoldKey,
+      drawer: const NeonDrawer(),
+      body: appView,
     );
 
     return WillPopScope(
