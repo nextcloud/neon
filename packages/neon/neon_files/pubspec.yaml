@@ -33,10 +33,6 @@ dependencies:
   queue: ^3.1.0+2
   rxdart: ^0.27.7
   share_plus: ^7.0.0
-  sort_box:
-    git:
-      url: https://github.com/provokateurin/nextcloud-neon
-      path: packages/sort_box
 
 dev_dependencies:
   nit_picking:

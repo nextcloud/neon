@@ -24,10 +24,6 @@ dependencies:
   provider: ^6.0.5
   queue: ^3.1.0+2
   rxdart: ^0.27.7
-  sort_box:
-    git:
-      url: https://github.com/provokateurin/nextcloud-neon
-      path: packages/sort_box
   url_launcher: ^6.1.11
   wakelock: ^0.6.2
 
