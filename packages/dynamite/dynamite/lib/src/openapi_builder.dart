@@ -603,6 +603,7 @@ class OpenAPIBuilder implements Builder {
 
                                 String? dataType;
                                 String? dataValue;
+                                bool? dataNeedsAwait;
                                 if (response.content != null) {
                                   if (response.content!.length > 1) {
                                     throw Exception('Can not work with multiple mime types right now');
@@ -625,20 +626,24 @@ class OpenAPIBuilder implements Builder {
                                     if (mimeType == '*/*' || mimeType.startsWith('image/')) {
                                       dataType = 'Uint8List';
                                       dataValue = 'response.bodyBytes';
+                                      dataNeedsAwait = true;
                                     } else if (mimeType.startsWith('text/')) {
                                       dataType = 'String';
-                                      dataValue = 'await response.body';
+                                      dataValue = 'response.body';
+                                      dataNeedsAwait = true;
                                     } else if (mimeType == 'application/json') {
                                       dataType = result.name;
                                       if (result.name == 'dynamic') {
                                         dataValue = '';
                                       } else if (result.name == 'String') {
-                                        // avoid unnecessary_await_in_return lint
                                         dataValue = 'response.body';
+                                        dataNeedsAwait = true;
                                       } else if (result is TypeResultEnum || result is TypeResultBase) {
                                         dataValue = result.deserialize(result.decode('await response.body'));
+                                        dataNeedsAwait = false;
                                       } else {
                                         dataValue = result.deserialize('await response.jsonBody');
+                                        dataNeedsAwait = false;
                                       }
                                     } else {
                                       throw Exception('Can not parse mime type "$mimeType"');
@@ -649,7 +654,7 @@ class OpenAPIBuilder implements Builder {
                                 if (headersType != null && dataType != null) {
                                   b.returns = refer('Future<${classPrefix}Response<$dataType, $headersType>>');
                                   code.write(
-                                    'return ${classPrefix}Response<$dataType, $headersType>($dataValue, $headersValue,);',
+                                    'return ${classPrefix}Response<$dataType, $headersType>(${dataNeedsAwait ?? false ? 'await ' : ''}$dataValue, $headersValue,);',
                                   );
                                 } else if (headersType != null) {
                                   b.returns = refer('Future<$headersType>');
