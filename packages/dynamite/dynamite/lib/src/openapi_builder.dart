@@ -598,7 +598,7 @@ class OpenAPIBuilder implements Builder {
                                     isHeader: true,
                                   );
                                   headersType = result.name;
-                                  headersValue = result.deserialize('response.headers');
+                                  headersValue = result.deserialize('response.responseHeaders');
                                 }
 
                                 String? dataType;
