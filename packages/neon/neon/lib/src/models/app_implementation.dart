@@ -86,6 +86,11 @@ abstract class AppImplementation<T extends Bloc, R extends NextcloudAppOptions> 
   void dispose() {
     options.dispose();
   }
+
+  /// A custom theme that will be injected into the widget tree.
+  ///
+  /// You can later acess it through `Theme.of(context).extension<ThemeName>()`.
+  ThemeExtension? theme;
 }
 
 extension AppImplementationFind on Iterable<AppImplementation> {

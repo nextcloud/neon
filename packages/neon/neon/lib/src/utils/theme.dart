@@ -7,40 +7,79 @@ import 'package:nextcloud/nextcloud.dart';
 const themePrimaryColor = Color(0xFFF37736);
 
 @internal
-ThemeData getThemeFromNextcloudTheme(
-  final CoreServerCapabilities_Ocs_Data_Capabilities_Theming? nextcloudTheme,
-  final Brightness brightness, {
-  required final bool keepOriginalAccentColor,
-  final bool oledAsDark = false,
-}) {
-  if (oledAsDark) {
-    assert(brightness == Brightness.dark, 'Brightness.dark is required for oledAsDark.');
+@immutable
+class AppTheme {
+  AppTheme(
+    this.nextcloudTheme, {
+    final bool keepOriginalAccentColor = false,
+    this.oledAsDark = false,
+    this.appThemes,
+  }) : keepOriginalAccentColor = nextcloudTheme == null || keepOriginalAccentColor;
+
+  final CoreServerCapabilities_Ocs_Data_Capabilities_Theming? nextcloudTheme;
+  final bool keepOriginalAccentColor;
+  final bool oledAsDark;
+  final Iterable<ThemeExtension>? appThemes;
+
+  late final _primaryColor = nextcloudTheme?.color != null ? HexColor(nextcloudTheme!.color!) : themePrimaryColor;
+  late final _keepOriginalAccentColorOverride = keepOriginalAccentColor ? _primaryColor : null;
+
+  ColorScheme _buildColorScheme(final Brightness brightness) {
+    final oledBackgroundOverride = oledAsDark && brightness == Brightness.dark ? Colors.black : null;
+
+    return ColorScheme.fromSeed(
+      seedColor: _primaryColor,
+      brightness: brightness,
+    ).copyWith(
+      background: oledBackgroundOverride,
+      primary: _keepOriginalAccentColorOverride,
+      secondary: _keepOriginalAccentColorOverride,
+    );
   }
 
-  final primaryColor = nextcloudTheme?.color != null ? HexColor(nextcloudTheme!.color!) : themePrimaryColor;
+  ThemeData _getTheme(final Brightness brightness) {
+    final colorScheme = _buildColorScheme(brightness);
 
-  final oledBackgroundOverride = oledAsDark ? Colors.black : null;
-  final keepOriginalAccentColorOverride = keepOriginalAccentColor ? primaryColor : null;
-  final colorScheme = ColorScheme.fromSeed(
-    seedColor: primaryColor,
-    brightness: brightness,
-  ).copyWith(
-    background: oledBackgroundOverride,
-    primary: keepOriginalAccentColorOverride,
-    secondary: keepOriginalAccentColorOverride,
+    return ThemeData(
+      useMaterial3: true,
+      colorScheme: colorScheme,
+      scaffoldBackgroundColor: colorScheme.background,
+      cardColor: colorScheme.background, // For LicensePage
+      snackBarTheme: _snackBarTheme,
+      dividerTheme: _dividerTheme,
+      extensions: [
+        const NeonTheme(),
+        ...?appThemes,
+      ],
+    );
+  }
+
+  ThemeData get lightTheme => _getTheme(Brightness.light);
+  ThemeData get darkTheme => _getTheme(Brightness.dark);
+
+  static const _snackBarTheme = SnackBarThemeData(
+    behavior: SnackBarBehavior.floating,
   );
 
-  return ThemeData(
-    useMaterial3: true,
-    colorScheme: colorScheme,
-    scaffoldBackgroundColor: colorScheme.background,
-    cardColor: colorScheme.background, // For LicensePage
-    snackBarTheme: const SnackBarThemeData(
-      behavior: SnackBarBehavior.floating,
-    ),
-    dividerTheme: const DividerThemeData(
-      thickness: 1.5,
-      space: 30,
-    ),
+  static const _dividerTheme = DividerThemeData(
+    thickness: 1.5,
+    space: 30,
   );
+}
+
+@internal
+@immutable
+class NeonTheme extends ThemeExtension<NeonTheme> {
+  const NeonTheme();
+
+  @override
+  NeonTheme copyWith() => const NeonTheme();
+
+  @override
+  NeonTheme lerp(final NeonTheme? other, final double t) {
+    if (other is! NeonTheme) {
+      return this;
+    }
+    return const NeonTheme();
+  }
 }
