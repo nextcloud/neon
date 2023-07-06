@@ -287,6 +287,9 @@ class _NeonAppState extends State<NeonApp> with WidgetsBindingObserver, tray.Tra
                   builder: (final context, final capabilitiesSnapshot) {
                     final nextcloudTheme = capabilitiesSnapshot.data?.capabilities.theming;
                     return MaterialApp.router(
+                      color: WidgetsBinding.instance.platformDispatcher.platformBrightness == Brightness.light
+                          ? Colors.white
+                          : Colors.black,
                       localizationsDelegates: [
                         ..._appImplementations.map((final app) => app.localizationsDelegate),
                         ...AppLocalizations.localizationsDelegates,
