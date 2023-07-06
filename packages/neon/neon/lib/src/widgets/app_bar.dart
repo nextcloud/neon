@@ -80,9 +80,7 @@ class NeonAppBar extends StatelessWidget implements PreferredSizeWidget {
           actions: [
             const NotificationIconButton(),
             IconButton(
-              onPressed: () {
-                AccountSettingsRoute(accountid: account.id).go(context);
-              },
+              onPressed: () async => AccountSettingsRoute(accountid: account.id).push(context),
               tooltip: AppLocalizations.of(context).settingsAccount,
               icon: NeonUserAvatar(
                 account: account,

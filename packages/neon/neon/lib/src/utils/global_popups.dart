@@ -42,9 +42,7 @@ class GlobalPopups {
             content: Text(AppLocalizations.of(context).firstLaunchGoToSettingsToEnablePushNotifications),
             action: SnackBarAction(
               label: AppLocalizations.of(context).settings,
-              onPressed: () {
-                const SettingsRoute().go(context);
-              },
+              onPressed: () => const SettingsRoute().push(context),
             ),
           ),
         );

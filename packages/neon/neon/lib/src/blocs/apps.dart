@@ -9,6 +9,7 @@ import 'package:neon/src/blocs/capabilities.dart';
 import 'package:neon/src/models/account.dart';
 import 'package:neon/src/models/app_implementation.dart';
 import 'package:neon/src/models/notifications_interface.dart';
+import 'package:neon/src/router.dart';
 import 'package:neon/src/settings/models/nextcloud_app_options.dart';
 import 'package:neon/src/utils/request_manager.dart';
 import 'package:nextcloud/nextcloud.dart';
@@ -43,6 +44,7 @@ class AppsBloc extends InteractiveBloc implements AppsBlocEvents, AppsBlocStates
     this._accountsBloc,
     this._account,
     this._allAppImplementations,
+    this._router,
   ) {
     apps.listen((final result) {
       appImplementations
@@ -156,6 +158,7 @@ class AppsBloc extends InteractiveBloc implements AppsBlocEvents, AppsBlocStates
   final AccountsBloc _accountsBloc;
   final Account _account;
   final Iterable<AppImplementation> _allAppImplementations;
+  final AppRouter _router;
 
   @override
   void dispose() {
@@ -216,6 +219,11 @@ class AppsBloc extends InteractiveBloc implements AppsBlocEvents, AppsBlocStates
     if (app != null) {
       if (activeApp.valueOrNull?.id != appID) {
         activeApp.add(app);
+
+        // avoid inactive accounts calling the navigator with a potentially unsupported app.
+        if (_accountsBloc.activeAccount.value?.id == _account.id) {
+          _router.goNamed(app.initialRouteName);
+        }
       }
     } else {
       throw Exception('App $appID not found');

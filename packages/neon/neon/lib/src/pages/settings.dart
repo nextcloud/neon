@@ -106,9 +106,7 @@ class _SettingsPageState extends State<SettingsPage> {
                           CustomSettingsTile(
                             leading: appImplementation.buildIcon(),
                             title: Text(appImplementation.name(context)),
-                            onTap: () {
-                              NextcloudAppSettingsRoute(appid: appImplementation.id).go(context);
-                            },
+                            onTap: () async => NextcloudAppSettingsRoute(appid: appImplementation.id).push(context),
                           ),
                         ],
                       ],
@@ -201,16 +199,12 @@ class _SettingsPageState extends State<SettingsPage> {
                         for (final account in accountsSnapshot.requireData) ...[
                           AccountSettingsTile(
                             account: account,
-                            onTap: () {
-                              AccountSettingsRoute(accountid: account.id).go(context);
-                            },
+                            onTap: () async => AccountSettingsRoute(accountid: account.id).push(context),
                           ),
                         ],
                         CustomSettingsTile(
                           title: ElevatedButton.icon(
-                            onPressed: () {
-                              const AddAccountRoute().go(context);
-                            },
+                            onPressed: () async => const AddAccountRoute().push(context),
                             icon: Icon(MdiIcons.accountPlus),
                             label: Text(AppLocalizations.of(context).globalOptionsAccountsAdd),
                           ),

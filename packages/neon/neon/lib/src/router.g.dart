@@ -9,36 +9,13 @@ part of 'router.dart';
 List<RouteBase> get $appRoutes => [
       $homeRoute,
       $loginRoute,
+      $settingsRoute,
     ];
 
 RouteBase get $homeRoute => GoRouteData.$route(
       path: '/',
       name: 'home',
       factory: $HomeRouteExtension._fromState,
-      routes: [
-        GoRouteData.$route(
-          path: 'settings',
-          name: 'Settings',
-          factory: $SettingsRouteExtension._fromState,
-          routes: [
-            GoRouteData.$route(
-              path: 'apps/:appid',
-              name: 'NextcloudAppSettings',
-              factory: $NextcloudAppSettingsRouteExtension._fromState,
-            ),
-            GoRouteData.$route(
-              path: 'account/add',
-              name: 'addAccount',
-              factory: $AddAccountRouteExtension._fromState,
-            ),
-            GoRouteData.$route(
-              path: 'account/:accountid',
-              name: 'AccountSettings',
-              factory: $AccountSettingsRouteExtension._fromState,
-            ),
-          ],
-        ),
-      ],
     );
 
 extension $HomeRouteExtension on HomeRoute {
@@ -54,6 +31,54 @@ extension $HomeRouteExtension on HomeRoute {
 
   void pushReplacement(BuildContext context) => context.pushReplacement(location);
 }
+
+RouteBase get $loginRoute => GoRouteData.$route(
+      path: '/login',
+      name: 'login',
+      factory: $LoginRouteExtension._fromState,
+    );
+
+extension $LoginRouteExtension on LoginRoute {
+  static LoginRoute _fromState(GoRouterState state) => LoginRoute(
+        server: state.queryParameters['server'],
+      );
+
+  String get location => GoRouteData.$location(
+        '/login',
+        queryParams: {
+          if (server != null) 'server': server,
+        },
+      );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) => context.pushReplacement(location);
+}
+
+RouteBase get $settingsRoute => GoRouteData.$route(
+      path: '/settings',
+      name: 'Settings',
+      factory: $SettingsRouteExtension._fromState,
+      routes: [
+        GoRouteData.$route(
+          path: 'apps/:appid',
+          name: 'NextcloudAppSettings',
+          factory: $NextcloudAppSettingsRouteExtension._fromState,
+        ),
+        GoRouteData.$route(
+          path: 'account/add',
+          name: 'addAccount',
+          factory: $AddAccountRouteExtension._fromState,
+        ),
+        GoRouteData.$route(
+          path: 'account/:accountid',
+          name: 'AccountSettings',
+          factory: $AccountSettingsRouteExtension._fromState,
+        ),
+      ],
+    );
 
 extension $SettingsRouteExtension on SettingsRoute {
   static SettingsRoute _fromState(GoRouterState state) => const SettingsRoute();
@@ -106,31 +131,6 @@ extension $AccountSettingsRouteExtension on AccountSettingsRoute {
 
   String get location => GoRouteData.$location(
         '/settings/account/${Uri.encodeComponent(accountid)}',
-      );
-
-  void go(BuildContext context) => context.go(location);
-
-  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
-
-  void pushReplacement(BuildContext context) => context.pushReplacement(location);
-}
-
-RouteBase get $loginRoute => GoRouteData.$route(
-      path: '/login',
-      name: 'login',
-      factory: $LoginRouteExtension._fromState,
-    );
-
-extension $LoginRouteExtension on LoginRoute {
-  static LoginRoute _fromState(GoRouterState state) => LoginRoute(
-        server: state.queryParameters['server'],
-      );
-
-  String get location => GoRouteData.$location(
-        '/login',
-        queryParams: {
-          if (server != null) 'server': server,
-        },
       );
 
   void go(BuildContext context) => context.go(location);

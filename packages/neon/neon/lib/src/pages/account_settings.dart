@@ -5,7 +5,6 @@ import 'package:neon/l10n/localizations.dart';
 import 'package:neon/src/bloc/result_builder.dart';
 import 'package:neon/src/blocs/accounts.dart';
 import 'package:neon/src/models/account.dart';
-import 'package:neon/src/router.dart';
 import 'package:neon/src/settings/widgets/custom_settings_tile.dart';
 import 'package:neon/src/settings/widgets/dropdown_button_settings_tile.dart';
 import 'package:neon/src/settings/widgets/settings_category.dart';
@@ -41,20 +40,7 @@ class AccountSettingsPage extends StatelessWidget {
                   context,
                   AppLocalizations.of(context).accountOptionsRemoveConfirm(account.client.humanReadableID),
                 )) {
-                  final isActive = bloc.activeAccount.value == account;
-
                   bloc.removeAccount(account);
-
-                  // ignore: use_build_context_synchronously
-                  if (!context.mounted) {
-                    return;
-                  }
-
-                  if (isActive) {
-                    const HomeRoute().go(context);
-                  } else {
-                    Navigator.of(context).pop();
-                  }
                 }
               },
               tooltip: AppLocalizations.of(context).accountOptionsRemove,

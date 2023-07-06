@@ -37,15 +37,12 @@ class NeonApp extends StatefulWidget {
 // ignore: prefer_mixin
 class _NeonAppState extends State<NeonApp> with WidgetsBindingObserver, tray.TrayListener, WindowListener {
   final _appRegex = RegExp(r'^app_([a-z]+)$', multiLine: true);
-  final _navigatorKey = GlobalKey<NavigatorState>();
+  late final GlobalKey<NavigatorState> _navigatorKey;
   late final Iterable<AppImplementation> _appImplementations;
   late final NeonPlatform _platform;
   late final GlobalOptions _globalOptions;
   late final AccountsBloc _accountsBloc;
-  late final _routerDelegate = AppRouter(
-    navigatorKey: _navigatorKey,
-    accountsBloc: _accountsBloc,
-  );
+  late final AppRouter _routerDelegate;
 
   Rect? _lastBounds;
 
@@ -57,6 +54,9 @@ class _NeonAppState extends State<NeonApp> with WidgetsBindingObserver, tray.Tra
     _platform = Provider.of<NeonPlatform>(context, listen: false);
     _globalOptions = Provider.of<GlobalOptions>(context, listen: false);
     _accountsBloc = Provider.of<AccountsBloc>(context, listen: false);
+
+    _routerDelegate = _accountsBloc.router;
+    _navigatorKey = _routerDelegate.navigatorKey;
 
     WidgetsBinding.instance.addObserver(this);
     if (_platform.canUseSystemTray) {

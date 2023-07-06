@@ -21,8 +21,11 @@ const kQuickBarWidth = kAvatarSize + 20;
 
 class HomePage extends StatefulWidget {
   const HomePage({
+    this.appView,
     super.key,
   });
+
+  final Widget? appView;
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -121,34 +124,26 @@ class _HomePageState extends State<HomePage> {
     const drawer = NeonDrawer();
     const appBar = NeonAppBar();
 
-    final appView = ResultBuilder<Iterable<AppImplementation>>.behaviorSubject(
-      stream: _appsBloc.appImplementations,
-      builder: (final context, final appImplementations) {
-        if (!appImplementations.hasData) {
-          return const SizedBox();
-        }
-
-        if (appImplementations.requireData.isEmpty) {
-          return Center(
-            child: Text(
-              AppLocalizations.of(context).errorNoCompatibleNextcloudAppsFound,
-              textAlign: TextAlign.center,
-            ),
-          );
-        }
-
-        return StreamBuilder<AppImplementation>(
-          stream: _appsBloc.activeApp,
-          builder: (final context, final activeAppIDSnapshot) {
-            if (!activeAppIDSnapshot.hasData) {
+    final appView = widget.appView ??
+        ResultBuilder<Iterable<AppImplementation>>.behaviorSubject(
+          stream: _appsBloc.appImplementations,
+          builder: (final context, final appImplementations) {
+            if (!appImplementations.hasData) {
               return const SizedBox();
             }
 
-            return activeAppIDSnapshot.requireData.page;
+            if (appImplementations.requireData.isEmpty) {
+              return Center(
+                child: Text(
+                  AppLocalizations.of(context).errorNoCompatibleNextcloudAppsFound,
+                  textAlign: TextAlign.center,
+                ),
+              );
+            }
+
+            return const SizedBox();
           },
         );
-      },
-    );
 
     final body = OptionBuilder<global_options.NavigationMode>(
       option: _globalOptions.navigationMode,

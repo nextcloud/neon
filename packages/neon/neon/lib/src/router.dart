@@ -18,8 +18,9 @@ part 'router.g.dart';
 @internal
 class AppRouter extends GoRouter {
   AppRouter({
-    required final GlobalKey<NavigatorState> navigatorKey,
+    required this.navigatorKey,
     required final AccountsBloc accountsBloc,
+    required final Iterable<AppImplementation> appImplementations,
   }) : super(
           debugLogDiagnostics: kDebugMode,
           refreshListenable: StreamListenable(accountsBloc.activeAccount),
@@ -35,8 +36,30 @@ class AppRouter extends GoRouter {
 
             return null;
           },
-          routes: $appRoutes,
+          routes: [
+            StatefulShellRoute.indexedStack(
+              branches: appImplementations.map((final a) => a.mainBranch).toList(),
+              builder: _mainViewBuilder,
+            ),
+            ...$appRoutes,
+          ],
         );
+
+  final GlobalKey<NavigatorState> navigatorKey;
+}
+
+Widget _mainViewBuilder(
+  final BuildContext context,
+  final GoRouterState state, [
+  final StatefulNavigationShell? navigationShell,
+]) {
+  final accountsBloc = Provider.of<AccountsBloc>(context, listen: false);
+  final account = accountsBloc.activeAccount.valueOrNull!;
+
+  return HomePage(
+    appView: navigationShell,
+    key: Key(account.id),
+  );
 }
 
 @immutable
@@ -62,38 +85,14 @@ class AccountSettingsRoute extends GoRouteData {
 @TypedGoRoute<HomeRoute>(
   path: '/',
   name: 'home',
-  routes: [
-    TypedGoRoute<SettingsRoute>(
-      path: 'settings',
-      name: 'Settings',
-      routes: [
-        TypedGoRoute<NextcloudAppSettingsRoute>(
-          path: 'apps/:appid',
-          name: 'NextcloudAppSettings',
-        ),
-        TypedGoRoute<AddAccountRoute>(
-          path: 'account/add',
-          name: 'addAccount',
-        ),
-        TypedGoRoute<AccountSettingsRoute>(
-          path: 'account/:accountid',
-          name: 'AccountSettings',
-        ),
-      ],
-    )
-  ],
 )
 @immutable
+@internal
 class HomeRoute extends GoRouteData {
   const HomeRoute();
 
   @override
-  Widget build(final BuildContext context, final GoRouterState state) {
-    final accountsBloc = Provider.of<AccountsBloc>(context, listen: false);
-    final account = accountsBloc.activeAccount.valueOrNull!;
-
-    return HomePage(key: Key(account.id));
-  }
+  Widget build(final BuildContext context, final GoRouterState state) => _mainViewBuilder(context, state);
 }
 
 @TypedGoRoute<LoginRoute>(
@@ -135,6 +134,24 @@ class NextcloudAppSettingsRoute extends GoRouteData {
   }
 }
 
+@TypedGoRoute<SettingsRoute>(
+  path: '/settings',
+  name: 'Settings',
+  routes: [
+    TypedGoRoute<NextcloudAppSettingsRoute>(
+      path: 'apps/:appid',
+      name: 'NextcloudAppSettings',
+    ),
+    TypedGoRoute<AddAccountRoute>(
+      path: 'account/add',
+      name: 'addAccount',
+    ),
+    TypedGoRoute<AccountSettingsRoute>(
+      path: 'account/:accountid',
+      name: 'AccountSettings',
+    ),
+  ],
+)
 @immutable
 class SettingsRoute extends GoRouteData {
   const SettingsRoute();

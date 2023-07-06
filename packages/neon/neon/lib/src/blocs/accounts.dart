@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'dart:convert';
 
-import 'package:flutter/foundation.dart';
+import 'package:flutter/widgets.dart';
 import 'package:neon/src/bloc/bloc.dart';
 import 'package:neon/src/blocs/apps.dart';
 import 'package:neon/src/blocs/capabilities.dart';
@@ -10,6 +10,7 @@ import 'package:neon/src/blocs/user_statuses.dart';
 import 'package:neon/src/models/account.dart';
 import 'package:neon/src/models/app_implementation.dart';
 import 'package:neon/src/platform/platform.dart';
+import 'package:neon/src/router.dart';
 import 'package:neon/src/settings/models/storage.dart';
 import 'package:neon/src/utils/account_options.dart';
 import 'package:neon/src/utils/global_options.dart';
@@ -63,6 +64,11 @@ class AccountsBloc extends Bloc implements AccountsBlocEvents, AccountsBlocState
     this._globalOptions,
     this._allAppImplementations,
   ) {
+    router = AppRouter(
+      navigatorKey: GlobalKey<NavigatorState>(),
+      accountsBloc: this,
+      appImplementations: _allAppImplementations,
+    );
     accounts
       ..add(loadAccounts(_storage))
       ..listen((final as) async {
@@ -109,6 +115,7 @@ class AccountsBloc extends Bloc implements AccountsBlocEvents, AccountsBlocState
   final SharedPreferences _sharedPreferences;
   final GlobalOptions _globalOptions;
   final Iterable<AppImplementation> _allAppImplementations;
+  late final AppRouter router;
   final _keyLastUsedAccount = 'last-used-account';
 
   final _accountsOptions = <String, AccountSpecificOptions>{};
@@ -134,8 +141,7 @@ class AccountsBloc extends Bloc implements AccountsBlocEvents, AccountsBlocState
   BehaviorSubject<List<Account>> accounts = BehaviorSubject<List<Account>>.seeded([]);
 
   @override
-  BehaviorSubject<Account?> activeAccount = BehaviorSubject<Account?>.seeded(null)
-    ..distinct((final current, final next) => current?.id != next?.id);
+  BehaviorSubject<Account?> activeAccount = BehaviorSubject<Account?>.seeded(null);
 
   @override
   void addAccount(final Account account) {
@@ -154,6 +160,9 @@ class AccountsBloc extends Bloc implements AccountsBlocEvents, AccountsBlocState
     if (aa?.id == account.id) {
       if (as.firstOrNull != null) {
         setActiveAccount(as.first);
+
+        final activeApp = getAppsBlocFor(as.first).activeApp.value.initialRouteName;
+        router.goNamed(activeApp);
       } else {
         activeAccount.add(null);
       }
@@ -171,7 +180,13 @@ class AccountsBloc extends Bloc implements AccountsBlocEvents, AccountsBlocState
 
   @override
   void setActiveAccount(final Account account) {
-    activeAccount.add(account);
+    if (activeAccount.valueOrNull?.id != account.id) {
+      if (activeAccount.valueOrNull == null) {
+        router.go(const HomeRoute().location);
+      }
+
+      activeAccount.add(account);
+    }
   }
 
   @override
@@ -240,6 +255,7 @@ class AccountsBloc extends Bloc implements AccountsBlocEvents, AccountsBlocState
       this,
       account,
       _allAppImplementations,
+      router,
     );
   }
 

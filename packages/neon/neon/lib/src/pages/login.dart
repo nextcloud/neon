@@ -5,7 +5,6 @@ import 'package:neon/src/blocs/login.dart';
 import 'package:neon/src/models/account.dart';
 import 'package:neon/src/models/branding.dart';
 import 'package:neon/src/platform/platform.dart';
-import 'package:neon/src/router.dart';
 import 'package:neon/src/utils/validators.dart';
 import 'package:neon/src/widgets/exception.dart';
 import 'package:neon/src/widgets/linear_progress_indicator.dart';
@@ -98,10 +97,6 @@ class _LoginPageState extends State<LoginPage> {
             _accountsBloc
               ..addAccount(account)
               ..setActiveAccount(account);
-          }
-
-          if (mounted) {
-            const HomeRoute().go(context);
           }
         } catch (e, s) {
           debugPrint(e.toString());

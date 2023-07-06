@@ -60,7 +60,7 @@ class __NeonDrawerState extends State<_NeonDrawer> with SingleTickerProviderStat
   late AppsBloc _appsBloc;
   late List<AppImplementation> _apps;
 
-  int _activeApp = 0;
+  late int _activeApp;
 
   @override
   void initState() {
@@ -89,7 +89,7 @@ class __NeonDrawerState extends State<_NeonDrawer> with SingleTickerProviderStat
 
     // selected item is not a registered app like the SettingsPage
     if (index >= _apps.length) {
-      const SettingsRoute().go(context);
+      unawaited(const SettingsRoute().push(context));
       return;
     }
 
