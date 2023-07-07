@@ -10,8 +10,6 @@ class FileListTile extends StatelessWidget {
   const FileListTile({
     required this.context,
     required this.details,
-    required this.uploadProgress,
-    required this.downloadProgress,
     this.enableFileActions = true,
     this.onPickFile,
     super.key,
@@ -19,22 +17,8 @@ class FileListTile extends StatelessWidget {
 
   final BuildContext context;
   final FileDetails details;
-  final double? uploadProgress;
-  final double? downloadProgress;
   final bool enableFileActions;
   final Function(FileDetails)? onPickFile;
-
-  bool get _isUploading => uploadProgress != null;
-
-  bool get _hasProgress => uploadProgress != null || downloadProgress != null;
-
-  double? get _progress {
-    if (!_hasProgress) {
-      return null;
-    }
-
-    return (uploadProgress ?? downloadProgress)!;
-  }
 
   @override
   Widget build(final BuildContext context) {
@@ -79,12 +63,9 @@ class FileListTile extends StatelessWidget {
         ],
       ),
       leading: _FileIcon(
-        hasProgress: _hasProgress,
-        isUploading: _isUploading,
-        progress: _progress,
         details: details,
       ),
-      trailing: !_hasProgress && enableFileActions
+      trailing: !details.isLoading && enableFileActions
           ? FileActions(details: details)
           : const SizedBox.square(
               dimension: 48,
@@ -96,14 +77,8 @@ class FileListTile extends StatelessWidget {
 class _FileIcon extends StatelessWidget {
   const _FileIcon({
     required this.details,
-    required this.hasProgress,
-    required this.isUploading,
-    this.progress,
   });
 
-  final bool hasProgress;
-  final bool isUploading;
-  final double? progress;
   final FileDetails details;
 
   @override
@@ -111,17 +86,20 @@ class _FileIcon extends StatelessWidget {
     final bloc = Provider.of<FilesBloc>(context);
 
     Widget icon = Center(
-      child: hasProgress
-          ? Column(
-              children: [
-                Icon(
-                  isUploading ? MdiIcons.upload : MdiIcons.download,
-                  color: Theme.of(context).colorScheme.primary,
-                ),
-                LinearProgressIndicator(
-                  value: progress,
-                ),
-              ],
+      child: details.isLoading
+          ? StreamBuilder<double>(
+              stream: details.progress,
+              builder: (final context, final progress) => Column(
+                children: [
+                  Icon(
+                    details.isUploading ? MdiIcons.upload : MdiIcons.download,
+                    color: Theme.of(context).colorScheme.primary,
+                  ),
+                  LinearProgressIndicator(
+                    value: progress.data,
+                  ),
+                ],
+              ),
             )
           : FilePreview(
               bloc: bloc,

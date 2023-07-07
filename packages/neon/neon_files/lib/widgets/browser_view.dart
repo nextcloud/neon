@@ -68,21 +68,13 @@ class _FilesBrowserViewState extends State<FilesBrowserView> {
                                     (final task) =>
                                         sorted.where((final file) => _pathMatchesFile(task.path, file.name)).isEmpty,
                                   )) ...[
-                              StreamBuilder<double>(
-                                stream: uploadTask.progress,
-                                builder: (final context, final uploadTaskProgressSnapshot) =>
-                                    !uploadTaskProgressSnapshot.hasData
-                                        ? const SizedBox()
-                                        : FileListTile(
-                                            context: context,
-                                            details: FileDetails.fromUploadTask(
-                                              task: uploadTask,
-                                            ),
-                                            uploadProgress: uploadTaskProgressSnapshot.data,
-                                            downloadProgress: null,
-                                            enableFileActions: widget.enableFileActions,
-                                            onPickFile: widget.onPickFile,
-                                          ),
+                              FileListTile(
+                                context: context,
+                                details: FileDetails.fromUploadTask(
+                                  task: uploadTask,
+                                ),
+                                enableFileActions: widget.enableFileActions,
+                                onPickFile: widget.onPickFile,
                               ),
                             ],
                             if (sorted != null) ...[
@@ -91,39 +83,32 @@ class _FilesBrowserViewState extends State<FilesBrowserView> {
                                   Builder(
                                     builder: (final context) {
                                       final matchingUploadTasks = uploadTasksSnapshot.requireData
-                                          .where((final task) => _pathMatchesFile(task.path, file.name));
+                                          .firstWhereOrNull((final task) => _pathMatchesFile(task.path, file.name));
                                       final matchingDownloadTasks = downloadTasksSnapshot.requireData
-                                          .where((final task) => _pathMatchesFile(task.path, file.name));
+                                          .firstWhereOrNull((final task) => _pathMatchesFile(task.path, file.name));
 
-                                      return StreamBuilder<double?>(
-                                        stream:
-                                            matchingUploadTasks.isNotEmpty ? matchingUploadTasks.first.progress : null,
-                                        builder: (final context, final uploadTaskProgressSnapshot) =>
-                                            StreamBuilder<double?>(
-                                          stream: matchingDownloadTasks.isNotEmpty
-                                              ? matchingDownloadTasks.first.progress
-                                              : null,
-                                          builder: (final context, final downloadTaskProgressSnapshot) {
-                                            final path = widget.bloc.path.value;
-                                            final details = matchingUploadTasks.isEmpty
-                                                ? FileDetails.fromWebDav(
-                                                    file: file,
-                                                    path: path,
-                                                  )
-                                                : FileDetails.fromUploadTask(
-                                                    task: matchingUploadTasks.first,
-                                                  );
+                                      final FileDetails details;
+                                      if (matchingDownloadTasks != null) {
+                                        details = FileDetails.fromDownloadTask(
+                                          task: matchingDownloadTasks,
+                                          file: file,
+                                        );
+                                      } else if (matchingUploadTasks != null) {
+                                        details = FileDetails.fromUploadTask(
+                                          task: matchingUploadTasks,
+                                        );
+                                      } else {
+                                        details = FileDetails.fromWebDav(
+                                          file: file,
+                                          path: widget.bloc.path.value,
+                                        );
+                                      }
 
-                                            return FileListTile(
-                                              context: context,
-                                              details: details,
-                                              uploadProgress: uploadTaskProgressSnapshot.data,
-                                              downloadProgress: downloadTaskProgressSnapshot.data,
-                                              enableFileActions: widget.enableFileActions,
-                                              onPickFile: widget.onPickFile,
-                                            );
-                                          },
-                                        ),
+                                      return FileListTile(
+                                        context: context,
+                                        details: details,
+                                        enableFileActions: widget.enableFileActions,
+                                        onPickFile: widget.onPickFile,
                                       );
                                     },
                                   ),
