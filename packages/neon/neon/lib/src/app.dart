@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
 
+import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:neon/l10n/localizations.dart';
@@ -285,7 +286,13 @@ class _NeonAppState extends State<NeonApp> with WidgetsBindingObserver, tray.Tra
                       ? _accountsBloc.getCapabilitiesBlocFor(activeAccountSnapshot.data!).capabilities
                       : null,
                   builder: (final context, final capabilitiesSnapshot) {
-                    final nextcloudTheme = capabilitiesSnapshot.data?.capabilities.theming;
+                    final appTheme = AppTheme(
+                      capabilitiesSnapshot.data?.capabilities.theming,
+                      keepOriginalAccentColor: themeKeepOriginalAccentColor,
+                      oledAsDark: themeOLEDAsDark,
+                      appThemes: _appImplementations.map((final a) => a.theme).whereNotNull(),
+                    );
+
                     return MaterialApp.router(
                       localizationsDelegates: [
                         ..._appImplementations.map((final app) => app.localizationsDelegate),
@@ -298,17 +305,8 @@ class _NeonAppState extends State<NeonApp> with WidgetsBindingObserver, tray.Tra
                         ...AppLocalizations.supportedLocales,
                       },
                       themeMode: themeMode,
-                      theme: getThemeFromNextcloudTheme(
-                        nextcloudTheme,
-                        Brightness.light,
-                        keepOriginalAccentColor: nextcloudTheme == null || themeKeepOriginalAccentColor,
-                      ),
-                      darkTheme: getThemeFromNextcloudTheme(
-                        nextcloudTheme,
-                        Brightness.dark,
-                        keepOriginalAccentColor: nextcloudTheme == null || themeKeepOriginalAccentColor,
-                        oledAsDark: themeOLEDAsDark,
-                      ),
+                      theme: appTheme.lightTheme,
+                      darkTheme: appTheme.darkTheme,
                       routerConfig: _routerDelegate,
                     );
                   },
