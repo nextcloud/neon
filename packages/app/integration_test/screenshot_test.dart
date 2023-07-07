@@ -9,7 +9,7 @@ import 'package:integration_test/integration_test.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:neon/models.dart';
 import 'package:neon/neon.dart';
-import 'package:neon_files/neon_files.dart';
+import 'package:neon_files/widgets/actions.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class MemorySharedPreferences implements SharedPreferences {

@@ -73,7 +73,7 @@ class _FilesBrowserViewState extends State<FilesBrowserView> {
                                 builder: (final context, final uploadTaskProgressSnapshot) =>
                                     !uploadTaskProgressSnapshot.hasData
                                         ? const SizedBox()
-                                        : _buildFile(
+                                        : FileListTile(
                                             context: context,
                                             details: FileDetails(
                                               path: uploadTask.path,
@@ -87,6 +87,8 @@ class _FilesBrowserViewState extends State<FilesBrowserView> {
                                             ),
                                             uploadProgress: uploadTaskProgressSnapshot.data,
                                             downloadProgress: null,
+                                            enableFileActions: widget.enableFileActions,
+                                            onPickFile: widget.onPickFile,
                                           ),
                               ),
                             ],
@@ -101,15 +103,14 @@ class _FilesBrowserViewState extends State<FilesBrowserView> {
                                           .where((final task) => _pathMatchesFile(task.path, file.name));
 
                                       return StreamBuilder<int?>(
-                                        stream: matchingUploadTasks.isNotEmpty
-                                            ? matchingUploadTasks.first.progress
-                                            : Stream.value(null),
+                                        stream:
+                                            matchingUploadTasks.isNotEmpty ? matchingUploadTasks.first.progress : null,
                                         builder: (final context, final uploadTaskProgressSnapshot) =>
                                             StreamBuilder<int?>(
                                           stream: matchingDownloadTasks.isNotEmpty
                                               ? matchingDownloadTasks.first.progress
-                                              : Stream.value(null),
-                                          builder: (final context, final downloadTaskProgressSnapshot) => _buildFile(
+                                              : null,
+                                          builder: (final context, final downloadTaskProgressSnapshot) => FileListTile(
                                             context: context,
                                             details: FileDetails(
                                               path: [...widget.bloc.path.value, file.name],
@@ -127,6 +128,8 @@ class _FilesBrowserViewState extends State<FilesBrowserView> {
                                             ),
                                             uploadProgress: uploadTaskProgressSnapshot.data,
                                             downloadProgress: downloadTaskProgressSnapshot.data,
+                                            enableFileActions: widget.enableFileActions,
+                                            onPickFile: widget.onPickFile,
                                           ),
                                         ),
                                       );
@@ -209,233 +212,4 @@ class _FilesBrowserViewState extends State<FilesBrowserView> {
         [...widget.bloc.path.value, name],
         path,
       );
-
-  Widget _buildFile({
-    required final BuildContext context,
-    required final FileDetails details,
-    required final int? uploadProgress,
-    required final int? downloadProgress,
-  }) =>
-      ListTile(
-        // When the ETag is null it means we are uploading this file right now
-        onTap: details.isDirectory || details.etag != null
-            ? () async {
-                if (details.isDirectory) {
-                  widget.bloc.setPath(details.path);
-                } else {
-                  if (widget.onPickFile != null) {
-                    widget.onPickFile!.call(details);
-                  }
-                }
-              }
-            : null,
-        title: Text(
-          details.name,
-          overflow: TextOverflow.ellipsis,
-        ),
-        subtitle: Row(
-          children: [
-            if (details.lastModified != null) ...[
-              RelativeTime(
-                date: details.lastModified!,
-              ),
-            ],
-            if (details.size != null && details.size! > 0) ...[
-              const SizedBox(
-                width: 10,
-              ),
-              Text(
-                filesize(details.size, 1),
-                style: DefaultTextStyle.of(context).style.copyWith(
-                      color: Colors.grey,
-                    ),
-              ),
-            ],
-          ],
-        ),
-        leading: SizedBox.square(
-          dimension: 40,
-          child: Stack(
-            children: [
-              Center(
-                child: uploadProgress != null || downloadProgress != null
-                    ? Column(
-                        children: [
-                          Icon(
-                            uploadProgress != null ? MdiIcons.upload : MdiIcons.download,
-                            color: Theme.of(context).colorScheme.primary,
-                          ),
-                          LinearProgressIndicator(
-                            value: (uploadProgress ?? downloadProgress)! / 100,
-                          ),
-                        ],
-                      )
-                    : FilePreview(
-                        bloc: widget.filesBloc,
-                        details: details,
-                        withBackground: true,
-                        borderRadius: const BorderRadius.all(Radius.circular(8)),
-                      ),
-              ),
-              if (details.isFavorite ?? false) ...[
-                const Align(
-                  alignment: Alignment.bottomRight,
-                  child: Icon(
-                    Icons.star,
-                    size: 14,
-                    color: NcColors.starredColor,
-                  ),
-                ),
-              ],
-            ],
-          ),
-        ),
-        trailing: uploadProgress == null && downloadProgress == null && widget.enableFileActions
-            ? PopupMenuButton<FilesFileAction>(
-                itemBuilder: (final context) => [
-                  if (details.isFavorite != null) ...[
-                    PopupMenuItem(
-                      value: FilesFileAction.toggleFavorite,
-                      child: Text(
-                        details.isFavorite!
-                            ? AppLocalizations.of(context).removeFromFavorites
-                            : AppLocalizations.of(context).addToFavorites,
-                      ),
-                    ),
-                  ],
-                  PopupMenuItem(
-                    value: FilesFileAction.details,
-                    child: Text(AppLocalizations.of(context).details),
-                  ),
-                  PopupMenuItem(
-                    value: FilesFileAction.rename,
-                    child: Text(AppLocalizations.of(context).actionRename),
-                  ),
-                  PopupMenuItem(
-                    value: FilesFileAction.move,
-                    child: Text(AppLocalizations.of(context).actionMove),
-                  ),
-                  PopupMenuItem(
-                    value: FilesFileAction.copy,
-                    child: Text(AppLocalizations.of(context).actionCopy),
-                  ),
-                  // TODO: https://github.com/nextcloud/neon/issues/4
-                  if (!details.isDirectory) ...[
-                    PopupMenuItem(
-                      value: FilesFileAction.sync,
-                      child: Text(AppLocalizations.of(context).actionSync),
-                    ),
-                  ],
-                  PopupMenuItem(
-                    value: FilesFileAction.delete,
-                    child: Text(AppLocalizations.of(context).actionDelete),
-                  ),
-                ],
-                onSelected: (final action) async {
-                  switch (action) {
-                    case FilesFileAction.toggleFavorite:
-                      if (details.isFavorite ?? false) {
-                        widget.filesBloc.removeFavorite(details.path);
-                      } else {
-                        widget.filesBloc.addFavorite(details.path);
-                      }
-                      break;
-                    case FilesFileAction.details:
-                      await Navigator.of(context).push(
-                        MaterialPageRoute(
-                          builder: (final context) => FilesDetailsPage(
-                            bloc: widget.filesBloc,
-                            details: details,
-                          ),
-                        ),
-                      );
-                      break;
-                    case FilesFileAction.rename:
-                      final result = await showRenameDialog(
-                        context: context,
-                        title: details.isDirectory
-                            ? AppLocalizations.of(context).folderRename
-                            : AppLocalizations.of(context).fileRename,
-                        value: details.name,
-                      );
-                      if (result != null) {
-                        widget.filesBloc.rename(details.path, result);
-                      }
-                      break;
-                    case FilesFileAction.move:
-                      final b = widget.filesBloc.getNewFilesBrowserBloc();
-                      final originalPath = details.path.sublist(0, details.path.length - 1);
-                      b.setPath(originalPath);
-                      final result = await showDialog<List<String>?>(
-                        context: context,
-                        builder: (final context) => FilesChooseFolderDialog(
-                          bloc: b,
-                          filesBloc: widget.filesBloc,
-                          originalPath: originalPath,
-                        ),
-                      );
-                      b.dispose();
-                      if (result != null) {
-                        widget.filesBloc.move(details.path, result..add(details.name));
-                      }
-                      break;
-                    case FilesFileAction.copy:
-                      final b = widget.filesBloc.getNewFilesBrowserBloc();
-                      final originalPath = details.path.sublist(0, details.path.length - 1);
-                      b.setPath(originalPath);
-                      final result = await showDialog<List<String>?>(
-                        context: context,
-                        builder: (final context) => FilesChooseFolderDialog(
-                          bloc: b,
-                          filesBloc: widget.filesBloc,
-                          originalPath: originalPath,
-                        ),
-                      );
-                      b.dispose();
-                      if (result != null) {
-                        widget.filesBloc.copy(details.path, result..add(details.name));
-                      }
-                      break;
-                    case FilesFileAction.sync:
-                      final sizeWarning = widget.bloc.options.downloadSizeWarning.value;
-                      if (sizeWarning != null && details.size != null && details.size! > sizeWarning) {
-                        if (!(await showConfirmationDialog(
-                          context,
-                          AppLocalizations.of(context).downloadConfirmSizeWarning(
-                            filesize(sizeWarning),
-                            filesize(details.size),
-                          ),
-                        ))) {
-                          return;
-                        }
-                      }
-                      widget.filesBloc.syncFile(details.path);
-                      break;
-                    case FilesFileAction.delete:
-                      if (await showConfirmationDialog(
-                        context,
-                        details.isDirectory
-                            ? AppLocalizations.of(context).folderDeleteConfirm(details.name)
-                            : AppLocalizations.of(context).fileDeleteConfirm(details.name),
-                      )) {
-                        widget.filesBloc.delete(details.path);
-                      }
-                      break;
-                  }
-                },
-              )
-            : const SizedBox.square(
-                dimension: 48,
-              ),
-      );
-}
-
-enum FilesFileAction {
-  toggleFavorite,
-  details,
-  rename,
-  move,
-  copy,
-  sync,
-  delete,
 }
