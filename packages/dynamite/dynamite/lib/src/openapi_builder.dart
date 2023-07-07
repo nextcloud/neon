@@ -356,40 +356,37 @@ class OpenAPIBuilder implements Builder {
                               b.annotations.add(refer('Deprecated').call([refer("''")]));
                             }
 
-                            final acceptHeader = operation.responses?.values
-                                .map((final response) => response.content?.keys)
-                                .reduce((final a, final b) => [...?a, ...?b])
-                                ?.toSet()
+                            final acceptHeader = (operation.responses?.values
+                                        .map((final response) => response.content?.keys)
+                                        .whereNotNull()
+                                        .expand((final element) => element)
+                                        .toSet() ??
+                                    {})
                                 .join(',');
                             final code = StringBuffer('''
                             var path = '$path';
                             final queryParameters = <String, dynamic>{};
-                            final headers = <String, String>{${acceptHeader != null ? "'Accept': '$acceptHeader'," : ''}};
+                            final headers = <String, String>{${acceptHeader.isNotEmpty ? "'Accept': '$acceptHeader'," : ''}};
                             Uint8List? body;
                           ''');
 
-                            final securityRequirements =
-                                (operation.security ?? spec.security) ?? <Map<String, List<String>>>[];
-                            final isOptionalSecurity =
-                                securityRequirements.where((final requirement) => requirement.keys.isEmpty).isNotEmpty;
+                            final security = operation.security ?? spec.security ?? [];
+                            final securityRequirements = security.where((final requirement) => requirement.isNotEmpty);
+                            final isOptionalSecurity = securityRequirements.length != security.length;
                             for (final requirement in securityRequirements) {
-                              if (requirement.keys.isEmpty) {
-                                continue;
-                              }
                               final securityScheme = spec.components!.securitySchemes![requirement.keys.single]!;
                               code.write('''
                                 if (${isRootClient ? '' : 'rootClient.'}authentications.where((final a) => a.type == '${securityScheme.type}' && a.scheme == '${securityScheme.scheme}').isNotEmpty) {
                                   headers.addAll(${isRootClient ? '' : 'rootClient.'}authentications.singleWhere((final a) => a.type == '${securityScheme.type}' && a.scheme == '${securityScheme.scheme}').headers);
                                 }
                               ''');
-                              if (!isOptionalSecurity ||
-                                  securityRequirements.indexOf(requirement) != securityRequirements.length - 1) {
+                              if (securityRequirements.last != requirement) {
                                 code.write('else');
                               }
                             }
                             if (securityRequirements.isNotEmpty && !isOptionalSecurity) {
                               code.write('''
-                                {
+                                else {
                                   throw Exception('Missing authentication for ${securityRequirements.map((final r) => r.keys.single).join(' or ')}'); // coverage:ignore-line
                                 }
                               ''');
