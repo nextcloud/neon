@@ -1,11 +1,10 @@
 import 'dart:async';
 
 import 'package:flutter/foundation.dart';
+import 'package:neon/neon.dart';
 import 'package:neon/src/bloc/bloc.dart';
 import 'package:neon/src/bloc/result.dart';
-import 'package:neon/src/models/account.dart';
 import 'package:nextcloud/nextcloud.dart';
-import 'package:package_info_plus/package_info_plus.dart';
 import 'package:rxdart/rxdart.dart';
 
 abstract class LoginFlowBlocEvents {}
@@ -17,18 +16,14 @@ abstract class LoginFlowBlocStates {
 }
 
 class LoginFlowBloc extends InteractiveBloc implements LoginFlowBlocEvents, LoginFlowBlocStates {
-  LoginFlowBloc(
-    this._packageInfo,
-    this.serverURL,
-  ) {
+  LoginFlowBloc(this.serverURL) {
     unawaited(refresh());
   }
 
-  final PackageInfo _packageInfo;
   final String serverURL;
   late final _client = NextcloudClient(
     serverURL,
-    userAgentOverride: userAgent(_packageInfo),
+    userAgentOverride: neonUserAgent,
   );
   final _resultController = StreamController<CoreLoginFlowResult>();
 

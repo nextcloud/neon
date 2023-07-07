@@ -1,11 +1,11 @@
 import 'dart:async';
 
 import 'package:flutter/foundation.dart';
+import 'package:neon/neon.dart';
 import 'package:neon/src/bloc/bloc.dart';
 import 'package:neon/src/bloc/result.dart';
 import 'package:neon/src/models/account.dart';
 import 'package:nextcloud/nextcloud.dart';
-import 'package:package_info_plus/package_info_plus.dart';
 import 'package:rxdart/rxdart.dart';
 
 abstract interface class LoginCheckAccountBlocEvents {}
@@ -18,7 +18,6 @@ abstract interface class LoginCheckAccountBlocStates {
 class LoginCheckAccountBloc extends InteractiveBloc
     implements LoginCheckAccountBlocEvents, LoginCheckAccountBlocStates {
   LoginCheckAccountBloc(
-    this._packageInfo,
     this.serverURL,
     this.loginName,
     this.password,
@@ -26,7 +25,6 @@ class LoginCheckAccountBloc extends InteractiveBloc
     unawaited(refresh());
   }
 
-  final PackageInfo _packageInfo;
   final String serverURL;
   final String loginName;
   final String password;
@@ -48,7 +46,7 @@ class LoginCheckAccountBloc extends InteractiveBloc
         serverURL,
         loginName: loginName,
         password: password,
-        userAgentOverride: userAgent(_packageInfo),
+        userAgentOverride: neonUserAgent,
       );
 
       final response = await client.provisioningApi.getCurrentUser();
@@ -58,7 +56,7 @@ class LoginCheckAccountBloc extends InteractiveBloc
         loginName: loginName,
         username: response.ocs.data.id,
         password: password,
-        userAgent: userAgent(_packageInfo),
+        userAgent: neonUserAgent,
       );
 
       state.add(Result.success(account));

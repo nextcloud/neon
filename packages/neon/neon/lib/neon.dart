@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
+import 'package:meta/meta.dart';
 import 'package:neon/src/app.dart';
 import 'package:neon/src/blocs/accounts.dart';
 import 'package:neon/src/blocs/first_launch.dart';
@@ -16,6 +17,9 @@ import 'package:neon/src/utils/request_manager.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+
+@internal
+late final String neonUserAgent;
 
 Future runNeon({
   required final Iterable<AppImplementation> Function(SharedPreferences, RequestManager, NeonPlatform)
@@ -39,6 +43,11 @@ Future runNeon({
   final allAppImplementations = getAppImplementations(sharedPreferences, requestManager, platform);
 
   final packageInfo = await PackageInfo.fromPlatform();
+  var buildNumber = packageInfo.buildNumber;
+  if (buildNumber.isEmpty) {
+    buildNumber = '1';
+  }
+  neonUserAgent = 'Neon ${packageInfo.version}+$buildNumber';
 
   final globalOptions = GlobalOptions(
     sharedPreferences,

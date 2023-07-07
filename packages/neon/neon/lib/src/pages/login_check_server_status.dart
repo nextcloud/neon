@@ -8,8 +8,6 @@ import 'package:neon/src/widgets/exception.dart';
 import 'package:neon/src/widgets/linear_progress_indicator.dart';
 import 'package:neon/src/widgets/validation_tile.dart';
 import 'package:nextcloud/nextcloud.dart';
-import 'package:package_info_plus/package_info_plus.dart';
-import 'package:provider/provider.dart';
 
 class LoginCheckServerStatusPage extends StatefulWidget {
   const LoginCheckServerStatusPage({
@@ -30,7 +28,7 @@ class _LoginCheckServerStatusPageState extends State<LoginCheckServerStatusPage>
   void initState() {
     super.initState();
 
-    bloc = LoginCheckServerStatusBloc(Provider.of<PackageInfo>(context, listen: false), widget.serverURL);
+    bloc = LoginCheckServerStatusBloc(widget.serverURL);
   }
 
   @override

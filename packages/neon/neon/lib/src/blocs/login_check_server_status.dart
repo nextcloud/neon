@@ -1,11 +1,10 @@
 import 'dart:async';
 
 import 'package:flutter/foundation.dart';
+import 'package:neon/neon.dart';
 import 'package:neon/src/bloc/bloc.dart';
 import 'package:neon/src/bloc/result.dart';
-import 'package:neon/src/models/account.dart';
 import 'package:nextcloud/nextcloud.dart';
-import 'package:package_info_plus/package_info_plus.dart';
 import 'package:rxdart/rxdart.dart';
 
 abstract interface class LoginCheckServerStatusBlocEvents {}
@@ -17,14 +16,10 @@ abstract interface class LoginCheckServerStatusBlocStates {
 
 class LoginCheckServerStatusBloc extends InteractiveBloc
     implements LoginCheckServerStatusBlocEvents, LoginCheckServerStatusBlocStates {
-  LoginCheckServerStatusBloc(
-    this._packageInfo,
-    this.serverURL,
-  ) {
+  LoginCheckServerStatusBloc(this.serverURL) {
     unawaited(refresh());
   }
 
-  final PackageInfo _packageInfo;
   final String serverURL;
 
   @override
@@ -42,7 +37,7 @@ class LoginCheckServerStatusBloc extends InteractiveBloc
     try {
       final client = NextcloudClient(
         serverURL,
-        userAgentOverride: userAgent(_packageInfo),
+        userAgentOverride: neonUserAgent,
       );
 
       final status = await client.core.getStatus();

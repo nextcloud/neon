@@ -5,8 +5,6 @@ import 'package:neon/src/blocs/login_flow.dart';
 import 'package:neon/src/router.dart';
 import 'package:neon/src/widgets/exception.dart';
 import 'package:neon/src/widgets/linear_progress_indicator.dart';
-import 'package:package_info_plus/package_info_plus.dart';
-import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
 class LoginFlowPage extends StatefulWidget {
@@ -28,7 +26,7 @@ class _LoginFlowPageState extends State<LoginFlowPage> {
   void initState() {
     super.initState();
 
-    bloc = LoginFlowBloc(Provider.of<PackageInfo>(context, listen: false), widget.serverURL);
+    bloc = LoginFlowBloc(widget.serverURL);
 
     bloc.init.listen((final result) async {
       if (result.hasData) {

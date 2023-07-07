@@ -11,7 +11,6 @@ import 'package:neon/src/widgets/account_tile.dart';
 import 'package:neon/src/widgets/exception.dart';
 import 'package:neon/src/widgets/linear_progress_indicator.dart';
 import 'package:neon/src/widgets/validation_tile.dart';
-import 'package:package_info_plus/package_info_plus.dart';
 import 'package:provider/provider.dart';
 
 class LoginCheckAccountPage extends StatefulWidget {
@@ -38,7 +37,6 @@ class _LoginCheckAccountPageState extends State<LoginCheckAccountPage> {
     super.initState();
 
     bloc = LoginCheckAccountBloc(
-      Provider.of<PackageInfo>(context, listen: false),
       widget.serverURL,
       widget.loginName,
       widget.password,
