@@ -7,6 +7,9 @@ import 'package:neon/src/models/app_implementation.dart';
 import 'package:neon/src/pages/account_settings.dart';
 import 'package:neon/src/pages/home.dart';
 import 'package:neon/src/pages/login.dart';
+import 'package:neon/src/pages/login_check_account.dart';
+import 'package:neon/src/pages/login_check_server_status.dart';
+import 'package:neon/src/pages/login_flow.dart';
 import 'package:neon/src/pages/nextcloud_app_settings.dart';
 import 'package:neon/src/pages/settings.dart';
 import 'package:neon/src/utils/stream_listenable.dart';
@@ -27,7 +30,7 @@ class AppRouter extends GoRouter {
             final account = accountsBloc.activeAccount.valueOrNull;
 
             // redirect to loginscreen when no account is logged in
-            if (account == null) {
+            if (account == null && !state.location.startsWith(const LoginRoute().location)) {
               return const LoginRoute().location;
             }
 
@@ -97,15 +100,75 @@ class HomeRoute extends GoRouteData {
 @TypedGoRoute<LoginRoute>(
   path: '/login',
   name: 'login',
+  routes: [
+    TypedGoRoute<LoginFlowRoute>(
+      path: 'flow/:serverURL',
+      name: 'loginFlow',
+    ),
+    TypedGoRoute<LoginCheckServerStatusRoute>(
+      path: 'check/server/:serverURL',
+      name: 'checkServerStatus',
+    ),
+    TypedGoRoute<LoginCheckAccountRoute>(
+      path: 'check/account/:serverURL/:loginName/:password',
+      name: 'checkAccount',
+    ),
+  ],
 )
 @immutable
 class LoginRoute extends GoRouteData {
-  const LoginRoute({this.server});
+  const LoginRoute({this.serverURL});
 
-  final String? server;
+  final String? serverURL;
 
   @override
-  Widget build(final BuildContext context, final GoRouterState state) => LoginPage(serverURL: server);
+  Widget build(final BuildContext context, final GoRouterState state) => LoginPage(serverURL: serverURL);
+}
+
+@immutable
+class LoginFlowRoute extends GoRouteData {
+  const LoginFlowRoute({
+    required this.serverURL,
+  });
+
+  final String serverURL;
+
+  @override
+  Widget build(final BuildContext context, final GoRouterState state) => LoginFlowPage(serverURL: serverURL);
+}
+
+@immutable
+class LoginCheckServerStatusRoute extends GoRouteData {
+  const LoginCheckServerStatusRoute({
+    required this.serverURL,
+  });
+
+  final String serverURL;
+
+  @override
+  Widget build(final BuildContext context, final GoRouterState state) => LoginCheckServerStatusPage(
+        serverURL: serverURL,
+      );
+}
+
+@immutable
+class LoginCheckAccountRoute extends GoRouteData {
+  const LoginCheckAccountRoute({
+    required this.serverURL,
+    required this.loginName,
+    required this.password,
+  });
+
+  final String serverURL;
+  final String loginName;
+  final String password;
+
+  @override
+  Widget build(final BuildContext context, final GoRouterState state) => LoginCheckAccountPage(
+        serverURL: serverURL,
+        loginName: loginName,
+        password: password,
+      );
 }
 
 @immutable

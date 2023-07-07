@@ -119,18 +119,85 @@ RouteBase get $loginRoute => GoRouteData.$route(
       path: '/login',
       name: 'login',
       factory: $LoginRouteExtension._fromState,
+      routes: [
+        GoRouteData.$route(
+          path: 'flow/:serverURL',
+          name: 'loginFlow',
+          factory: $LoginFlowRouteExtension._fromState,
+        ),
+        GoRouteData.$route(
+          path: 'check/server/:serverURL',
+          name: 'checkServerStatus',
+          factory: $LoginCheckServerStatusRouteExtension._fromState,
+        ),
+        GoRouteData.$route(
+          path: 'check/account/:serverURL/:loginName/:password',
+          name: 'checkAccount',
+          factory: $LoginCheckAccountRouteExtension._fromState,
+        ),
+      ],
     );
 
 extension $LoginRouteExtension on LoginRoute {
   static LoginRoute _fromState(GoRouterState state) => LoginRoute(
-        server: state.queryParameters['server'],
+        serverURL: state.queryParameters['server-u-r-l'],
       );
 
   String get location => GoRouteData.$location(
         '/login',
         queryParams: {
-          if (server != null) 'server': server,
+          if (serverURL != null) 'server-u-r-l': serverURL,
         },
+      );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) => context.pushReplacement(location);
+}
+
+extension $LoginFlowRouteExtension on LoginFlowRoute {
+  static LoginFlowRoute _fromState(GoRouterState state) => LoginFlowRoute(
+        serverURL: state.pathParameters['serverURL']!,
+      );
+
+  String get location => GoRouteData.$location(
+        '/login/flow/${Uri.encodeComponent(serverURL)}',
+      );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) => context.pushReplacement(location);
+}
+
+extension $LoginCheckServerStatusRouteExtension on LoginCheckServerStatusRoute {
+  static LoginCheckServerStatusRoute _fromState(GoRouterState state) => LoginCheckServerStatusRoute(
+        serverURL: state.pathParameters['serverURL']!,
+      );
+
+  String get location => GoRouteData.$location(
+        '/login/check/server/${Uri.encodeComponent(serverURL)}',
+      );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) => context.pushReplacement(location);
+}
+
+extension $LoginCheckAccountRouteExtension on LoginCheckAccountRoute {
+  static LoginCheckAccountRoute _fromState(GoRouterState state) => LoginCheckAccountRoute(
+        serverURL: state.pathParameters['serverURL']!,
+        loginName: state.pathParameters['loginName']!,
+        password: state.pathParameters['password']!,
+      );
+
+  String get location => GoRouteData.$location(
+        '/login/check/account/${Uri.encodeComponent(serverURL)}/${Uri.encodeComponent(loginName)}/${Uri.encodeComponent(password)}',
       );
 
   void go(BuildContext context) => context.go(location);

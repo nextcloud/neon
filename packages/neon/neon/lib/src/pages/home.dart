@@ -63,7 +63,7 @@ class _HomePageState extends State<HomePage> {
         }
       }
 
-      final message = l10n.errorUnsupportedVersion(buffer.toString());
+      final message = l10n.errorUnsupportedAppVersions(buffer.toString());
       unawaited(_showProblem(message));
     });
 

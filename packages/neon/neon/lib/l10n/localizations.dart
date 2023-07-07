@@ -125,11 +125,47 @@ abstract class AppLocalizations {
   /// **'Restart login'**
   String get loginRestart;
 
-  /// No description provided for @errorAccountAlreadyExists.
+  /// No description provided for @loginCheckingServerVersion.
   ///
   /// In en, this message translates to:
-  /// **'The account you are trying to add already exists'**
-  String get errorAccountAlreadyExists;
+  /// **'Checking server version'**
+  String get loginCheckingServerVersion;
+
+  /// No description provided for @loginSupportedServerVersion.
+  ///
+  /// In en, this message translates to:
+  /// **'Supported server version: {version}'**
+  String loginSupportedServerVersion(String version);
+
+  /// No description provided for @loginUnsupportedServerVersion.
+  ///
+  /// In en, this message translates to:
+  /// **'Unsupported server version: {version}'**
+  String loginUnsupportedServerVersion(String version);
+
+  /// No description provided for @loginCheckingMaintenanceMode.
+  ///
+  /// In en, this message translates to:
+  /// **'Checking maintenance mode'**
+  String get loginCheckingMaintenanceMode;
+
+  /// No description provided for @loginMaintenanceModeEnabled.
+  ///
+  /// In en, this message translates to:
+  /// **'Maintenance mode enabled'**
+  String get loginMaintenanceModeEnabled;
+
+  /// No description provided for @loginMaintenanceModeDisabled.
+  ///
+  /// In en, this message translates to:
+  /// **'Maintenance mode disabled'**
+  String get loginMaintenanceModeDisabled;
+
+  /// No description provided for @loginCheckingAccount.
+  ///
+  /// In en, this message translates to:
+  /// **'Checking account'**
+  String get loginCheckingAccount;
 
   /// No description provided for @errorCredentialsForAccountNoLongerMatch.
   ///
@@ -191,11 +227,11 @@ abstract class AppLocalizations {
   /// **'Unable to open the file'**
   String get errorUnableToOpenFile;
 
-  /// No description provided for @errorUnsupportedVersion.
+  /// No description provided for @errorUnsupportedAppVersions.
   ///
   /// In en, this message translates to:
-  /// **'Sorry, the version of the following apps on your Nextcloud instance are not supported. \n {unsupported} \n Please contact your administrator to resolve the issues.'**
-  String errorUnsupportedVersion(String unsupported);
+  /// **'Sorry, the version of the following apps on your Nextcloud instance are not supported. \n {names} \n Please contact your administrator to resolve the issues.'**
+  String errorUnsupportedAppVersions(String names);
 
   /// No description provided for @errorEmptyField.
   ///
@@ -244,6 +280,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Exit'**
   String get actionExit;
+
+  /// No description provided for @actionContinue.
+  ///
+  /// In en, this message translates to:
+  /// **'Continue'**
+  String get actionContinue;
 
   /// No description provided for @firstLaunchGoToSettingsToEnablePushNotifications.
   ///

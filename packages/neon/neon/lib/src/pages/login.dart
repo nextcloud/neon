@@ -1,19 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:neon/l10n/localizations.dart';
-import 'package:neon/src/blocs/accounts.dart';
-import 'package:neon/src/blocs/login.dart';
-import 'package:neon/src/models/account.dart';
 import 'package:neon/src/models/branding.dart';
-import 'package:neon/src/platform/platform.dart';
 import 'package:neon/src/router.dart';
 import 'package:neon/src/utils/validators.dart';
-import 'package:neon/src/widgets/exception.dart';
-import 'package:neon/src/widgets/linear_progress_indicator.dart';
 import 'package:neon/src/widgets/nextcloud_logo.dart';
-import 'package:package_info_plus/package_info_plus.dart';
 import 'package:provider/provider.dart';
-import 'package:url_launcher/url_launcher_string.dart';
-import 'package:webview_flutter/webview_flutter.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({
@@ -28,231 +19,94 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  late WebViewController? _webViewController;
   final _formKey = GlobalKey<FormState>();
   final _focusNode = FocusNode();
-  late final PackageInfo _packageInfo;
-  late final AccountsBloc _accountsBloc;
-  late final LoginBloc _loginBloc;
 
   @override
   void initState() {
     super.initState();
 
-    _packageInfo = Provider.of<PackageInfo>(context, listen: false);
-    _accountsBloc = Provider.of<AccountsBloc>(context, listen: false);
-    _loginBloc = LoginBloc(_packageInfo);
-
     if (widget.serverURL != null) {
-      _loginBloc.setServerURL(widget.serverURL);
-    }
-
-    WidgetsBinding.instance.addPostFrameCallback((final _) {
-      if (Provider.of<NeonPlatform>(context, listen: false).canUseWebView) {
-        _webViewController = WebViewController()
-          // ignore: discarded_futures
-          ..setJavaScriptMode(JavaScriptMode.unrestricted)
-          // ignore: discarded_futures
-          ..enableZoom(false)
-          // ignore: discarded_futures
-          ..setUserAgent(userAgent(_packageInfo));
-      }
-
-      _loginBloc.loginFlowInit.listen((final init) async {
-        if (init != null) {
-          if (Provider.of<NeonPlatform>(context, listen: false).canUseWebView) {
-            await _webViewController!.loadRequest(Uri.parse(init.login));
-          } else {
-            await launchUrlString(
-              init.login,
-              mode: LaunchMode.externalApplication,
-            );
-          }
-        }
+      WidgetsBinding.instance.addPostFrameCallback((final _) async {
+        await _beginLoginFlow(widget.serverURL!);
       });
-    });
-
-    _loginBloc.loginFlowResult.listen((final result) async {
-      if (result != null) {
-        try {
-          final account = await getAccount(
-            _packageInfo,
-            result.server,
-            result.loginName,
-            result.appPassword,
-          );
-
-          if (!mounted) {
-            return;
-          }
-
-          if (widget.serverURL != null) {
-            _accountsBloc.updateAccount(account);
-          } else {
-            final existingAccount = _accountsBloc.accounts.value.tryFind(account.id);
-            if (existingAccount != null) {
-              NeonException.showSnackbar(context, AppLocalizations.of(context).errorAccountAlreadyExists);
-              await _loginBloc.refresh();
-              return;
-            }
-            _accountsBloc
-              ..addAccount(account)
-              ..setActiveAccount(account);
-          }
-
-          if (mounted) {
-            const HomeRoute().go(context);
-          }
-        } catch (e, s) {
-          debugPrint(e.toString());
-          debugPrint(s.toString());
-          NeonException.showSnackbar(context, e);
-          await _loginBloc.refresh();
-        }
-      }
-    });
+    }
   }
 
   @override
   void dispose() {
-    _loginBloc.dispose();
+    _focusNode.dispose();
     super.dispose();
   }
 
+  Future _beginLoginFlow(final String serverURL) async {
+    final result = await LoginCheckServerStatusRoute(serverURL: serverURL).push<bool>(context);
+    if ((result ?? false) && mounted) {
+      // This needs be done, otherwise the context is dirty after returning from the previously pushed route
+      WidgetsBinding.instance.addPostFrameCallback((final _) async {
+        await LoginFlowRoute(serverURL: serverURL).push(context);
+      });
+    }
+  }
+
   @override
-  Widget build(final BuildContext context) => StreamBuilder<List<Account>>(
-        stream: _accountsBloc.accounts,
-        builder: (final context, final accountsSnapshot) => BackButtonListener(
-          onBackButtonPressed: () async {
-            if (accountsSnapshot.data?.isNotEmpty ?? false) {
-              return false;
-            }
-
-            if ((await _loginBloc.serverURL.first) == null) {
-              return false;
-            }
-
-            _loginBloc.setServerURL(null);
-            return true;
-          },
-          child: StreamBuilder<String?>(
-            stream: _loginBloc.serverURL,
-            builder: (final context, final serverURLSnapshot) => StreamBuilder<ServerConnectionState?>(
-              stream: _loginBloc.serverConnectionState,
-              builder: (final context, final serverConnectionStateSnapshot) => Scaffold(
-                resizeToAvoidBottomInset: true,
-                appBar: serverConnectionStateSnapshot.data == ServerConnectionState.success ||
-                        (accountsSnapshot.data?.isNotEmpty ?? false)
-                    ? AppBar(
-                        leading: BackButton(
-                          onPressed: () {
-                            if (accountsSnapshot.data?.isNotEmpty ?? false) {
-                              Navigator.of(context).pop();
-                            } else {
-                              _loginBloc.setServerURL(null);
-                            }
-                          },
-                        ),
-                        actions: [
-                          if (serverConnectionStateSnapshot.hasData) ...[
-                            IconButton(
-                              onPressed: _loginBloc.refresh,
-                              tooltip: AppLocalizations.of(context).loginRestart,
-                              icon: const Icon(Icons.refresh),
-                            ),
-                          ],
-                        ],
-                      )
-                    : null,
-                body: serverConnectionStateSnapshot.data == ServerConnectionState.success
-                    ? Provider.of<NeonPlatform>(context).canUseWebView
-                        ? WebViewWidget(
-                            controller: _webViewController!,
-                          )
-                        : Center(
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Text(AppLocalizations.of(context).loginSwitchToBrowserWindow),
-                                const SizedBox(
-                                  height: 10,
-                                ),
-                                ElevatedButton(
-                                  onPressed: _loginBloc.refresh,
-                                  child: Text(AppLocalizations.of(context).loginOpenAgain),
-                                ),
-                              ],
-                            ),
-                          )
-                    : Builder(
-                        builder: (final context) {
-                          final branding = Provider.of<Branding>(context, listen: false);
-                          return Center(
-                            child: Scrollbar(
-                              interactive: true,
-                              child: SingleChildScrollView(
-                                padding: const EdgeInsets.symmetric(vertical: 40, horizontal: 20),
-                                primary: true,
-                                child: Column(
-                                  children: [
-                                    branding.logo,
-                                    Text(
-                                      branding.name,
-                                      style: Theme.of(context).textTheme.titleLarge,
-                                    ),
-                                    const SizedBox(
-                                      height: 30,
-                                    ),
-                                    Text(AppLocalizations.of(context).loginWorksWith),
-                                    const SizedBox(
-                                      height: 20,
-                                    ),
-                                    const NextcloudLogo(),
-                                    Form(
-                                      key: _formKey,
-                                      child: TextFormField(
-                                        focusNode: _focusNode,
-                                        decoration: const InputDecoration(
-                                          hintText: 'https://...',
-                                        ),
-                                        keyboardType: TextInputType.url,
-                                        initialValue: widget.serverURL,
-                                        validator: (final input) => validateHttpUrl(context, input),
-                                        onFieldSubmitted: (final input) {
-                                          if (_formKey.currentState!.validate()) {
-                                            _loginBloc.setServerURL(input);
-                                          } else {
-                                            _focusNode.requestFocus();
-                                          }
-                                        },
-                                      ),
-                                    ),
-                                    NeonLinearProgressIndicator(
-                                      visible: serverConnectionStateSnapshot.data == ServerConnectionState.loading,
-                                    ),
-                                    if (serverConnectionStateSnapshot.data == ServerConnectionState.unreachable) ...[
-                                      NeonException(
-                                        AppLocalizations.of(context).errorUnableToReachServer,
-                                        onRetry: _loginBloc.refresh,
-                                      ),
-                                    ],
-                                    if (serverConnectionStateSnapshot.data ==
-                                        ServerConnectionState.maintenanceMode) ...[
-                                      NeonException(
-                                        AppLocalizations.of(context).errorServerInMaintenanceMode,
-                                        onRetry: _loginBloc.refresh,
-                                      ),
-                                    ],
-                                  ],
-                                ),
-                              ),
-                            ),
-                          );
-                        },
+  Widget build(final BuildContext context) {
+    final branding = Provider.of<Branding>(context, listen: false);
+    return Scaffold(
+      resizeToAvoidBottomInset: true,
+      appBar: AppBar(
+        leading: Navigator.of(context).canPop() ? const CloseButton() : null,
+      ),
+      body: Center(
+        child: ConstrainedBox(
+          constraints: const BoxConstraints(
+            maxWidth: 640,
+          ),
+          child: Scrollbar(
+            interactive: true,
+            child: SingleChildScrollView(
+              padding: const EdgeInsets.symmetric(vertical: 40, horizontal: 20),
+              primary: true,
+              child: Column(
+                children: [
+                  branding.logo,
+                  Text(
+                    branding.name,
+                    style: Theme.of(context).textTheme.titleLarge,
+                  ),
+                  const SizedBox(
+                    height: 30,
+                  ),
+                  Text(AppLocalizations.of(context).loginWorksWith),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  const NextcloudLogo(),
+                  Form(
+                    key: _formKey,
+                    child: TextFormField(
+                      focusNode: _focusNode,
+                      decoration: const InputDecoration(
+                        hintText: 'https://...',
                       ),
+                      keyboardType: TextInputType.url,
+                      initialValue: widget.serverURL,
+                      validator: (final input) => validateHttpUrl(context, input),
+                      onFieldSubmitted: (final input) async {
+                        if (_formKey.currentState!.validate()) {
+                          await _beginLoginFlow(input);
+                        } else {
+                          _focusNode.requestFocus();
+                        }
+                      },
+                    ),
+                  ),
+                ],
               ),
             ),
           ),
         ),
-      );
+      ),
+    );
+  }
 }

@@ -9,29 +9,6 @@ import 'package:package_info_plus/package_info_plus.dart';
 
 part 'account.g.dart';
 
-Future<Account> getAccount(
-  final PackageInfo packageInfo,
-  final String serverURL,
-  final String loginName,
-  final String password,
-) async {
-  final username = (await NextcloudClient(
-    serverURL,
-    loginName: loginName,
-    password: password,
-  ).provisioningApi.getCurrentUser())
-      .ocs
-      .data
-      .id;
-  return Account(
-    serverURL: serverURL,
-    loginName: loginName,
-    username: username,
-    password: password,
-    userAgent: userAgent(packageInfo),
-  );
-}
-
 String userAgent(final PackageInfo packageInfo) {
   var buildNumber = packageInfo.buildNumber;
   if (buildNumber.isEmpty) {
