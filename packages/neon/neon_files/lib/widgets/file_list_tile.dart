@@ -19,8 +19,8 @@ class FileListTile extends StatelessWidget {
 
   final BuildContext context;
   final FileDetails details;
-  final int? uploadProgress;
-  final int? downloadProgress;
+  final double? uploadProgress;
+  final double? downloadProgress;
   final bool enableFileActions;
   final Function(FileDetails)? onPickFile;
 
@@ -33,7 +33,7 @@ class FileListTile extends StatelessWidget {
       return null;
     }
 
-    return (uploadProgress ?? downloadProgress)! / 100;
+    return (uploadProgress ?? downloadProgress)!;
   }
 
   @override

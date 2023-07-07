@@ -11,7 +11,9 @@ class UploadTask {
   final int size;
   final DateTime lastModified;
 
-  final _streamController = StreamController<int>();
+  final _streamController = StreamController<double>();
+
+  /// Upload progress in percent [0, 1].
   late final progress = _streamController.stream.asBroadcastStream();
 
   Future execute(final NextcloudClient client, final Stream<List<int>> stream) async {
@@ -19,7 +21,7 @@ class UploadTask {
     await client.webdav.putStream(
       stream.map((final chunk) {
         uploaded += chunk.length;
-        _streamController.add((uploaded / size * 100).toInt());
+        _streamController.add(uploaded / size);
 
         return Uint8List.fromList(chunk);
       }),

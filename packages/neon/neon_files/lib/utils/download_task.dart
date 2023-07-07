@@ -7,7 +7,9 @@ class DownloadTask {
 
   final List<String> path;
 
-  final _streamController = StreamController<int>();
+  final _streamController = StreamController<double>();
+
+  /// Upload progress in percent [0, 1].
   late final progress = _streamController.stream.asBroadcastStream();
 
   Future execute(final NextcloudClient client, final IOSink sink) async {
@@ -20,7 +22,7 @@ class DownloadTask {
       sink.add(chunk);
 
       downloaded += chunk.length;
-      _streamController.add((downloaded / response.contentLength * 100).toInt());
+      _streamController.add(downloaded / response.contentLength);
 
       if (downloaded >= response.contentLength) {
         completer.complete();

@@ -68,7 +68,7 @@ class _FilesBrowserViewState extends State<FilesBrowserView> {
                                     (final task) =>
                                         sorted.where((final file) => _pathMatchesFile(task.path, file.name)).isEmpty,
                                   )) ...[
-                              StreamBuilder<int>(
+                              StreamBuilder<double>(
                                 stream: uploadTask.progress,
                                 builder: (final context, final uploadTaskProgressSnapshot) =>
                                     !uploadTaskProgressSnapshot.hasData
@@ -95,11 +95,11 @@ class _FilesBrowserViewState extends State<FilesBrowserView> {
                                       final matchingDownloadTasks = downloadTasksSnapshot.requireData
                                           .where((final task) => _pathMatchesFile(task.path, file.name));
 
-                                      return StreamBuilder<int?>(
+                                      return StreamBuilder<double?>(
                                         stream:
                                             matchingUploadTasks.isNotEmpty ? matchingUploadTasks.first.progress : null,
                                         builder: (final context, final uploadTaskProgressSnapshot) =>
-                                            StreamBuilder<int?>(
+                                            StreamBuilder<double?>(
                                           stream: matchingDownloadTasks.isNotEmpty
                                               ? matchingDownloadTasks.first.progress
                                               : null,
