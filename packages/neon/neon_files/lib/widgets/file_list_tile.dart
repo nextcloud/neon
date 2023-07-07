@@ -84,7 +84,7 @@ class FileListTile extends StatelessWidget {
         progress: _progress,
         details: details,
       ),
-      trailing: _hasProgress && enableFileActions
+      trailing: !_hasProgress && enableFileActions
           ? FileActions(details: details)
           : const SizedBox.square(
               dimension: 48,

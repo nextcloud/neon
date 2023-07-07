@@ -75,15 +75,8 @@ class _FilesBrowserViewState extends State<FilesBrowserView> {
                                         ? const SizedBox()
                                         : FileListTile(
                                             context: context,
-                                            details: FileDetails(
-                                              path: uploadTask.path,
-                                              isDirectory: false,
-                                              size: uploadTask.size,
-                                              etag: null,
-                                              mimeType: null,
-                                              lastModified: uploadTask.lastModified,
-                                              hasPreview: null,
-                                              isFavorite: null,
+                                            details: FileDetails.fromUploadTask(
+                                              task: uploadTask,
                                             ),
                                             uploadProgress: uploadTaskProgressSnapshot.data,
                                             downloadProgress: null,
@@ -110,27 +103,26 @@ class _FilesBrowserViewState extends State<FilesBrowserView> {
                                           stream: matchingDownloadTasks.isNotEmpty
                                               ? matchingDownloadTasks.first.progress
                                               : null,
-                                          builder: (final context, final downloadTaskProgressSnapshot) => FileListTile(
-                                            context: context,
-                                            details: FileDetails(
-                                              path: [...widget.bloc.path.value, file.name],
-                                              isDirectory: matchingUploadTasks.isEmpty && file.isDirectory,
-                                              size: matchingUploadTasks.isNotEmpty
-                                                  ? matchingUploadTasks.first.size
-                                                  : file.size,
-                                              etag: matchingUploadTasks.isNotEmpty ? null : file.etag,
-                                              mimeType: matchingUploadTasks.isNotEmpty ? null : file.mimeType,
-                                              lastModified: matchingUploadTasks.isNotEmpty
-                                                  ? matchingUploadTasks.first.lastModified
-                                                  : file.lastModified,
-                                              hasPreview: matchingUploadTasks.isNotEmpty ? null : file.hasPreview,
-                                              isFavorite: matchingUploadTasks.isNotEmpty ? null : file.favorite,
-                                            ),
-                                            uploadProgress: uploadTaskProgressSnapshot.data,
-                                            downloadProgress: downloadTaskProgressSnapshot.data,
-                                            enableFileActions: widget.enableFileActions,
-                                            onPickFile: widget.onPickFile,
-                                          ),
+                                          builder: (final context, final downloadTaskProgressSnapshot) {
+                                            final path = widget.bloc.path.value;
+                                            final details = matchingUploadTasks.isEmpty
+                                                ? FileDetails.fromWebDav(
+                                                    file: file,
+                                                    path: path,
+                                                  )
+                                                : FileDetails.fromUploadTask(
+                                                    task: matchingUploadTasks.first,
+                                                  );
+
+                                            return FileListTile(
+                                              context: context,
+                                              details: details,
+                                              uploadProgress: uploadTaskProgressSnapshot.data,
+                                              downloadProgress: downloadTaskProgressSnapshot.data,
+                                              enableFileActions: widget.enableFileActions,
+                                              onPickFile: widget.onPickFile,
+                                            );
+                                          },
                                         ),
                                       );
                                     },
