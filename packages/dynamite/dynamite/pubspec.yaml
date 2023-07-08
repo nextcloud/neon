@@ -8,6 +8,7 @@ dependencies:
   build: ^2.4.0
   built_value: ^8.5.0
   code_builder: ^4.4.0
+  collection: ^1.17.2
   dart_style: ^2.3.1
   intersperse: ^2.0.0
   json_annotation: ^4.8.1

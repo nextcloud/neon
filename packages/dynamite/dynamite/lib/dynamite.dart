@@ -4,6 +4,7 @@ import 'dart:convert';
 
 import 'package:build/build.dart';
 import 'package:code_builder/code_builder.dart';
+import 'package:collection/collection.dart';
 import 'package:dart_style/dart_style.dart';
 import 'package:dynamite/src/models/open_api.dart';
 import 'package:dynamite/src/models/parameter.dart' as spec_parameter;
