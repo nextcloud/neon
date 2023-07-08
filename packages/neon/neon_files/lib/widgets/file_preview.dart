@@ -37,31 +37,34 @@ class FilePreview extends StatelessWidget {
             );
           }
 
-          return OptionBuilder<bool>(
-            option: bloc.options.showPreviewsOption,
-            builder: (final context, final showPreviewsSnapshot) {
-              if (showPreviewsSnapshot && (details.hasPreview ?? false)) {
+          return ValueListenableBuilder<bool>(
+            valueListenable: bloc.options.showPreviewsOption,
+            builder: (final context, final showPreviews, final child) {
+              if (showPreviews && (details.hasPreview ?? false)) {
                 final account = Provider.of<AccountsBloc>(context, listen: false).activeAccount.value!;
-                final child = FilePreviewImage(
+                final preview = FilePreviewImage(
                   account: account,
                   file: details,
                   size: size,
                 );
+
                 if (withBackground) {
                   return NeonImageWrapper(
                     borderRadius: borderRadius,
-                    child: child,
+                    child: preview,
                   );
                 }
-                return child;
+
+                return preview;
               }
 
-              return FileIcon(
-                details.name,
-                color: color,
-                size: size.shortestSide,
-              );
+              return child!;
             },
+            child: FileIcon(
+              details.name,
+              color: color,
+              size: size.shortestSide,
+            ),
           );
         },
       ),

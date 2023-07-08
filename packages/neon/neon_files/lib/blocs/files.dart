@@ -33,12 +33,8 @@ class FilesBloc extends InteractiveBloc implements FilesBlocEvents, FilesBlocSta
     this._requestManager,
     this._platform,
   ) {
-    options.uploadQueueParallelism.stream.listen((final value) {
-      _uploadQueue.parallel = value;
-    });
-    options.downloadQueueParallelism.stream.listen((final value) {
-      _downloadQueue.parallel = value;
-    });
+    options.uploadQueueParallelism.addListener(_uploadParalelismListener);
+    options.downloadQueueParallelism.addListener(_downloadParalelismListener);
   }
 
   final FilesAppSpecificOptions options;
@@ -56,6 +52,9 @@ class FilesBloc extends InteractiveBloc implements FilesBlocEvents, FilesBlocSta
     _downloadQueue.dispose();
     unawaited(uploadTasks.close());
     unawaited(downloadTasks.close());
+
+    options.uploadQueueParallelism.removeListener(_uploadParalelismListener);
+    options.downloadQueueParallelism.removeListener(_downloadParalelismListener);
   }
 
   @override
@@ -196,4 +195,12 @@ class FilesBloc extends InteractiveBloc implements FilesBlocEvents, FilesBlocSta
   }
 
   FilesBrowserBloc getNewFilesBrowserBloc() => FilesBrowserBloc(_requestManager, options, client);
+
+  void _downloadParalelismListener() {
+    _downloadQueue.parallel = options.downloadQueueParallelism.value;
+  }
+
+  void _uploadParalelismListener() {
+    _uploadQueue.parallel = options.uploadQueueParallelism.value;
+  }
 }

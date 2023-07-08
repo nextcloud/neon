@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:meta/meta.dart';
 import 'package:neon/src/settings/models/toggle_option.dart';
-import 'package:neon/src/settings/widgets/option_builder.dart';
 import 'package:neon/src/settings/widgets/settings_tile.dart';
 
 @internal
@@ -12,21 +11,16 @@ class CheckBoxSettingsTile extends InputSettingsTile<ToggleOption> {
   });
 
   @override
-  Widget build(final BuildContext context) => OptionBuilder<bool>(
-        option: option,
-        builder: (final context, final value) => StreamBuilder<bool>(
-          stream: option.enabled,
-          builder: (final context, final enabledSnapshot) => !enabledSnapshot.hasData
-              ? const SizedBox()
-              : CheckboxListTile(
-                  title: Text(option.label(context)),
-                  value: value,
-                  onChanged: enabledSnapshot.requireData
-                      ? (final value) async {
-                          await option.set(value!);
-                        }
-                      : null,
-                ),
+  Widget build(final BuildContext context) => ValueListenableBuilder(
+        valueListenable: option,
+        builder: (final context, final value, final child) => CheckboxListTile.adaptive(
+          enabled: option.enabled,
+          title: child,
+          value: value,
+          onChanged: (final value) {
+            option.value = value!;
+          },
         ),
+        child: Text(option.label(context)),
       );
 }

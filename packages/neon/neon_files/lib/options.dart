@@ -26,12 +26,12 @@ class FilesAppSpecificOptions extends NextcloudAppOptions {
     key: 'files-sort-property',
     label: (final context) => AppLocalizations.of(context).optionsFilesSortProperty,
     defaultValue: FilesSortProperty.name,
-    values: BehaviorSubject.seeded({
+    values: {
       FilesSortProperty.name: (final context) => AppLocalizations.of(context).optionsFilesSortPropertyName,
       FilesSortProperty.modifiedDate: (final context) =>
           AppLocalizations.of(context).optionsFilesSortPropertyModifiedDate,
       FilesSortProperty.size: (final context) => AppLocalizations.of(context).optionsFilesSortPropertySize,
-    }),
+    },
   );
 
   late final filesSortBoxOrderOption = SelectOption<SortBoxOrder>(
@@ -40,7 +40,7 @@ class FilesAppSpecificOptions extends NextcloudAppOptions {
     key: 'files-sort-box-order',
     label: (final context) => AppLocalizations.of(context).optionsFilesSortOrder,
     defaultValue: SortBoxOrder.ascending,
-    values: BehaviorSubject.seeded(sortBoxOrderOptionValues),
+    values: sortBoxOrderOptionValues,
   );
 
   late final showPreviewsOption = ToggleOption(
@@ -57,11 +57,11 @@ class FilesAppSpecificOptions extends NextcloudAppOptions {
     key: 'upload-queue-parallelism',
     label: (final context) => AppLocalizations.of(context).optionsUploadQueueParallelism,
     defaultValue: 4,
-    values: BehaviorSubject.seeded({
+    values: {
       for (var i = 1; i <= 16; i = i * 2) ...{
         i: (final _) => i.toString(),
       },
-    }),
+    },
   );
 
   late final downloadQueueParallelism = SelectOption<int>(
@@ -70,11 +70,11 @@ class FilesAppSpecificOptions extends NextcloudAppOptions {
     key: 'download-queue-parallelism',
     label: (final context) => AppLocalizations.of(context).optionsDownloadQueueParallelism,
     defaultValue: 4,
-    values: BehaviorSubject.seeded({
+    values: {
       for (var i = 1; i <= 16; i = i * 2) ...{
         i: (final _) => i.toString(),
       },
-    }),
+    },
   );
 
   late final _sizeWarningValues = <int?, String Function(BuildContext)>{
@@ -100,7 +100,7 @@ class FilesAppSpecificOptions extends NextcloudAppOptions {
     key: 'upload-size-warning',
     label: (final context) => AppLocalizations.of(context).optionsUploadSizeWarning,
     defaultValue: _mb(10),
-    values: BehaviorSubject.seeded(_sizeWarningValues),
+    values: _sizeWarningValues,
   );
 
   late final downloadSizeWarning = SelectOption<int?>(
@@ -109,7 +109,7 @@ class FilesAppSpecificOptions extends NextcloudAppOptions {
     key: 'download-size-warning',
     label: (final context) => AppLocalizations.of(context).optionsDownloadSizeWarning,
     defaultValue: _mb(10),
-    values: BehaviorSubject.seeded(_sizeWarningValues),
+    values: _sizeWarningValues,
   );
 }
 

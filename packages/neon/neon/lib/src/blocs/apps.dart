@@ -49,21 +49,16 @@ class AppsBloc extends InteractiveBloc implements AppsBlocEvents, AppsBlocStates
           .add(result.transform((final data) => _filteredAppImplementations(data.map((final a) => a.id))));
     });
 
-    appImplementations.listen((final result) {
+    appImplementations.listen((final result) async {
       if (!result.hasData) {
         return;
       }
 
       final options = _accountsBloc.getOptionsFor(_account);
-      unawaited(
-        options.initialApp.stream.first.then((var initialApp) async {
-          initialApp ??= _getInitialAppFallback();
-
-          if (!activeApp.hasValue && initialApp != null) {
-            await setActiveApp(initialApp);
-          }
-        }),
-      );
+      final initialApp = options.initialApp.value ?? _getInitialAppFallback();
+      if (!activeApp.hasValue && initialApp != null) {
+        await setActiveApp(initialApp);
+      }
 
       unawaited(_checkCompatibility());
     });

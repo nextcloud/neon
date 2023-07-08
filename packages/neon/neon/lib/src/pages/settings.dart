@@ -64,14 +64,14 @@ class _SettingsPageState extends State<SettingsPage> {
         IconButton(
           onPressed: () async {
             if (await showConfirmationDialog(context, AppLocalizations.of(context).settingsResetAllConfirmation)) {
-              await globalOptions.reset();
+              globalOptions.reset();
 
               for (final appImplementation in appImplementations) {
-                await appImplementation.options.reset();
+                appImplementation.options.reset();
               }
 
               for (final account in accountsBloc.accounts.value) {
-                await accountsBloc.getOptionsFor(account).reset();
+                accountsBloc.getOptionsFor(account).reset();
               }
             }
           },
@@ -88,12 +88,12 @@ class _SettingsPageState extends State<SettingsPage> {
         final accountsSnapshot,
       ) {
         final platform = Provider.of<NeonPlatform>(context, listen: false);
-        return StreamBuilder<bool>(
-          stream: globalOptions.pushNotificationsEnabled.enabled,
-          initialData: globalOptions.pushNotificationsEnabled.enabled.valueOrNull,
+        return ValueListenableBuilder<bool>(
+          valueListenable: globalOptions.pushNotificationsEnabled,
           builder: (
             final context,
-            final pushNotificationsEnabledEnabledSnapshot,
+            final _,
+            final __,
           ) =>
               SettingsList(
             initialCategory: widget.initialCategory?.name,
@@ -144,8 +144,7 @@ class _SettingsPageState extends State<SettingsPage> {
                   title: Text(AppLocalizations.of(context).optionsCategoryPushNotifications),
                   key: ValueKey(SettingsCageories.pushNotifications.name),
                   tiles: [
-                    if (pushNotificationsEnabledEnabledSnapshot.hasData &&
-                        !pushNotificationsEnabledEnabledSnapshot.requireData) ...[
+                    if (!globalOptions.pushNotificationsEnabled.enabled) ...[
                       TextSettingsTile(
                         text: AppLocalizations.of(context).globalOptionsPushNotificationsEnabledDisabledNotice,
                         style: TextStyle(

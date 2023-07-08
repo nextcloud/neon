@@ -27,19 +27,15 @@ class NextPushBloc extends Bloc implements NextPushBlocEvents, NextPushBlocState
     Rx.merge([
       _globalOptions.pushNotificationsEnabled.stream,
       _globalOptions.pushNotificationsDistributor.stream,
-      _globalOptions.pushNotificationsDistributor.values,
       _accountsBloc.accounts,
     ]).debounceTime(const Duration(milliseconds: 100)).listen((final _) async {
-      if (!_globalOptions.pushNotificationsEnabled.enabled.hasValue ||
-          !_globalOptions.pushNotificationsEnabled.enabled.value ||
-          !_globalOptions.pushNotificationsEnabled.hasValue ||
-          !_globalOptions.pushNotificationsEnabled.value) {
+      if (!_globalOptions.pushNotificationsEnabled.enabled || !_globalOptions.pushNotificationsEnabled.value) {
         return;
       }
       if (_globalOptions.pushNotificationsDistributor.value != null) {
         return;
       }
-      if (_globalOptions.pushNotificationsDistributor.values.value.containsKey(unifiedPushNextPushID)) {
+      if (_globalOptions.pushNotificationsDistributor.values.containsKey(unifiedPushNextPushID)) {
         // NextPush is already installed
         return;
       }

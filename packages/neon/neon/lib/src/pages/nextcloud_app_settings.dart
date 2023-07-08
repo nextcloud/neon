@@ -30,7 +30,7 @@ class NextcloudAppSettingsPage extends StatelessWidget {
               context,
               AppLocalizations.of(context).settingsResetForConfirmation(appImplementation.name(context)),
             )) {
-              await appImplementation.options.reset();
+              appImplementation.options.reset();
             }
           },
           tooltip: AppLocalizations.of(context).settingsResetFor(appImplementation.name(context)),
