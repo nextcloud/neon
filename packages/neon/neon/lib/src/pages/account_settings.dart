@@ -66,7 +66,7 @@ class AccountSettingsPage extends StatelessWidget {
                   context,
                   AppLocalizations.of(context).settingsResetForConfirmation(_name),
                 )) {
-                  await _options.reset();
+                  _options.reset();
                 }
               },
               tooltip: AppLocalizations.of(context).settingsResetFor(_name),

@@ -31,9 +31,8 @@ class GlobalPopups {
     final firstLaunchBloc = Provider.of<FirstLaunchBloc>(context, listen: false);
     final nextPushBloc = Provider.of<NextPushBloc>(context, listen: false);
 
-    firstLaunchBloc.onFirstLaunch.listen((final _) async {
-      if (await globalOptions.pushNotificationsEnabled.enabled.first) {
-        // ignore: use_build_context_synchronously
+    firstLaunchBloc.onFirstLaunch.listen((final _) {
+      if (globalOptions.pushNotificationsEnabled.enabled) {
         if (!context.mounted) {
           return;
         }

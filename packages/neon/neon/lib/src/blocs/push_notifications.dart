@@ -32,16 +32,22 @@ class PushNotificationsBloc extends Bloc implements PushNotificationsBlocEvents,
     if (_platform.canUsePushNotifications) {
       unawaited(UnifiedPush.getDistributors().then(_globalOptions.updateDistributors));
 
-      _globalOptions.pushNotificationsEnabled.stream.listen((final enabled) async {
-        if (enabled != _pushNotificationsEnabled) {
-          _pushNotificationsEnabled = enabled;
-          if (enabled) {
-            // We just use a single RSA keypair for all accounts
-            _keypair = await PushUtils.loadRSAKeypair(_storage);
-            await _setupUnifiedPush();
-          }
-        }
-      });
+      _globalOptions.pushNotificationsEnabled.addListener(_pushNotificationsEnabledListener);
+    }
+  }
+
+  Future<void> _pushNotificationsEnabledListener() async {
+    final enabled = _globalOptions.pushNotificationsEnabled.value;
+    if (enabled != _pushNotificationsEnabled) {
+      _pushNotificationsEnabled = enabled;
+      if (enabled) {
+        // We just use a single RSA keypair for all accounts
+        _keypair = await PushUtils.loadRSAKeypair(_storage);
+        await _setupUnifiedPush();
+      } else {
+        _globalOptions.pushNotificationsDistributor.removeListener(_distributorListener);
+        unawaited(_accountsListener?.cancel());
+      }
     }
   }
 
@@ -54,10 +60,13 @@ class PushNotificationsBloc extends Bloc implements PushNotificationsBlocEvents,
   bool? _pushNotificationsEnabled;
 
   final _notificationsController = StreamController<PushNotification>();
+  StreamSubscription? _accountsListener;
 
   @override
   void dispose() {
     unawaited(_notificationsController.close());
+    unawaited(_accountsListener?.cancel());
+    _globalOptions.pushNotificationsEnabled.removeListener(_pushNotificationsEnabledListener);
   }
 
   @override
@@ -96,23 +105,25 @@ class PushNotificationsBloc extends Bloc implements PushNotificationsBlocEvents,
       onMessage: PushUtils.onMessage,
     );
 
-    _globalOptions.pushNotificationsDistributor.stream.listen((final distributor) async {
-      final disabled = distributor == null;
-      final sameDistributor = distributor == await UnifiedPush.getDistributor();
-      final accounts = _accountsBloc.accounts.value;
-      if (disabled || !sameDistributor) {
-        await _unregisterUnifiedPushInstances(accounts);
-      }
-      if (!disabled && !sameDistributor) {
-        debugPrint('UnifiedPush distributor changed to $distributor');
-        await UnifiedPush.saveDistributor(distributor);
-      }
-      if (!disabled) {
-        await _registerUnifiedPushInstances(accounts);
-      }
-    });
+    _globalOptions.pushNotificationsDistributor.addListener(_distributorListener);
+    _accountsListener = _accountsBloc.accounts.listen(_registerUnifiedPushInstances);
+  }
 
-    _accountsBloc.accounts.listen(_registerUnifiedPushInstances);
+  Future<void> _distributorListener() async {
+    final distributor = _globalOptions.pushNotificationsDistributor.value;
+    final disabled = distributor == null;
+    final sameDistributor = distributor == await UnifiedPush.getDistributor();
+    final accounts = _accountsBloc.accounts.value;
+    if (disabled || !sameDistributor) {
+      await _unregisterUnifiedPushInstances(accounts);
+    }
+    if (!disabled && !sameDistributor) {
+      debugPrint('UnifiedPush distributor changed to $distributor');
+      await UnifiedPush.saveDistributor(distributor);
+    }
+    if (!disabled) {
+      await _registerUnifiedPushInstances(accounts);
+    }
   }
 
   Future _unregisterUnifiedPushInstances(final List<Account> accounts) async {

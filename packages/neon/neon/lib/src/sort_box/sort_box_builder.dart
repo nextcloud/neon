@@ -1,6 +1,5 @@
 import 'package:flutter/widgets.dart';
 import 'package:neon/src/settings/models/select_option.dart';
-import 'package:neon/src/settings/widgets/option_builder.dart';
 import 'package:sort_box/sort_box.dart';
 
 class SortBoxBuilder<T extends Enum, R> extends StatelessWidget {
@@ -25,11 +24,11 @@ class SortBoxBuilder<T extends Enum, R> extends StatelessWidget {
       return builder(context, null);
     }
 
-    return OptionBuilder<T>(
-      option: sortPropertyOption,
-      builder: (final context, final property) => OptionBuilder<SortBoxOrder>(
-        option: sortBoxOrderOption,
-        builder: (final context, final order) {
+    return ValueListenableBuilder<T>(
+      valueListenable: sortPropertyOption,
+      builder: (final context, final property, final _) => ValueListenableBuilder<SortBoxOrder>(
+        valueListenable: sortBoxOrderOption,
+        builder: (final context, final order, final _) {
           final box = Box(property, order);
 
           return builder(context, sortBox.sort(input!, box));

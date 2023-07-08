@@ -15,7 +15,6 @@ import 'package:neon/src/models/notifications_interface.dart';
 import 'package:neon/src/models/push_notification.dart';
 import 'package:neon/src/platform/platform.dart';
 import 'package:neon/src/router.dart';
-import 'package:neon/src/settings/widgets/option_builder.dart';
 import 'package:neon/src/theme/neon.dart';
 import 'package:neon/src/theme/theme.dart';
 import 'package:neon/src/utils/global.dart';
@@ -102,8 +101,8 @@ class _NeonAppState extends State<NeonApp> with WidgetsBindingObserver, tray.Tra
       }
 
       if (_platform.canUseSystemTray) {
-        _globalOptions.systemTrayEnabled.stream.listen((final enabled) async {
-          if (enabled) {
+        _globalOptions.systemTrayEnabled.addListener(() async {
+          if (_globalOptions.systemTrayEnabled.value) {
             // TODO: This works on Linux, but maybe not on macOS or Windows
             await tray.trayManager.setIcon('assets/logo.svg');
             if (mounted) {
@@ -275,13 +274,13 @@ class _NeonAppState extends State<NeonApp> with WidgetsBindingObserver, tray.Tra
   }
 
   @override
-  Widget build(final BuildContext context) => OptionBuilder(
-        option: _globalOptions.themeMode,
-        builder: (final context, final themeMode) => OptionBuilder(
-          option: _globalOptions.themeOLEDAsDark,
-          builder: (final context, final themeOLEDAsDark) => OptionBuilder(
-            option: _globalOptions.themeKeepOriginalAccentColor,
-            builder: (final context, final themeKeepOriginalAccentColor) => StreamBuilder<Account?>(
+  Widget build(final BuildContext context) => ValueListenableBuilder(
+        valueListenable: _globalOptions.themeMode,
+        builder: (final context, final themeMode, final _) => ValueListenableBuilder(
+          valueListenable: _globalOptions.themeOLEDAsDark,
+          builder: (final context, final themeOLEDAsDark, final _) => ValueListenableBuilder(
+            valueListenable: _globalOptions.themeKeepOriginalAccentColor,
+            builder: (final context, final themeKeepOriginalAccentColor, final _) => StreamBuilder<Account?>(
               stream: _accountsBloc.activeAccount,
               builder: (final context, final activeAccountSnapshot) {
                 FlutterNativeSplash.remove();

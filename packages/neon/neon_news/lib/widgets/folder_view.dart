@@ -26,11 +26,11 @@ class _NewsFolderViewState extends State<NewsFolderView> {
             child: DropdownButton<DefaultFolderViewType>(
               isExpanded: true,
               value: _viewType,
-              items: option.values.value.keys
+              items: option.values.keys
                   .map(
                     (final key) => DropdownMenuItem<DefaultFolderViewType>(
                       value: key,
-                      child: Text(option.values.value[key]!(context)),
+                      child: Text(option.values[key]!(context)),
                     ),
                   )
                   .toList(),

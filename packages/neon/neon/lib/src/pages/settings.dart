@@ -50,14 +50,14 @@ class _SettingsPageState extends State<SettingsPage> {
           IconButton(
             onPressed: () async {
               if (await showConfirmationDialog(context, AppLocalizations.of(context).settingsResetAllConfirmation)) {
-                await globalOptions.reset();
+                globalOptions.reset();
 
                 for (final appImplementation in appImplementations) {
-                  await appImplementation.options.reset();
+                  appImplementation.options.reset();
                 }
 
                 for (final account in accountsBloc.accounts.value) {
-                  await accountsBloc.getOptionsFor(account).reset();
+                  accountsBloc.getOptionsFor(account).reset();
                 }
               }
             },
@@ -90,11 +90,12 @@ class _SettingsPageState extends State<SettingsPage> {
               final context,
               final activeAccountSnapshot,
             ) =>
-                StreamBuilder<bool>(
-              stream: globalOptions.pushNotificationsEnabled.enabled,
+                ValueListenableBuilder<bool>(
+              valueListenable: globalOptions.pushNotificationsEnabled,
               builder: (
                 final context,
-                final pushNotificationsEnabledEnabledSnapshot,
+                final pushNotificationsEnabledEnabled,
+                final _,
               ) =>
                   SettingsList(
                 categories: [
@@ -140,8 +141,7 @@ class _SettingsPageState extends State<SettingsPage> {
                     SettingsCategory(
                       title: Text(AppLocalizations.of(context).optionsCategoryPushNotifications),
                       tiles: [
-                        if (pushNotificationsEnabledEnabledSnapshot.hasData &&
-                            !pushNotificationsEnabledEnabledSnapshot.requireData) ...[
+                        if (!pushNotificationsEnabledEnabled) ...[
                           TextSettingsTile(
                             text: AppLocalizations.of(context).globalOptionsPushNotificationsEnabledDisabledNotice,
                             style: TextStyle(

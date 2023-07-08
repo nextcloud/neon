@@ -49,25 +49,24 @@ class AppsBloc extends InteractiveBloc implements AppsBlocEvents, AppsBlocStates
           .add(result.transform((final data) => _filteredAppImplementations(data.map((final a) => a.id))));
     });
 
-    appImplementations.listen((final result) {
+    appImplementations.listen((final result) async {
       if (result.hasData) {
         final options = _accountsBloc.getOptionsFor(_account);
-        unawaited(
-          options.initialApp.stream.first.then((var initialApp) async {
-            if (initialApp == null) {
-              if (result.requireData.tryFind('files') != null) {
-                initialApp = 'files';
-              } else if (result.requireData.isNotEmpty) {
-                // This should never happen, because the files app is always installed and can not be removed, but just in
-                // case this changes at a later point.
-                initialApp = result.requireData.first.id;
-              }
-            }
-            if (!activeApp.hasValue && initialApp != null) {
-              await setActiveApp(initialApp);
-            }
-          }),
-        );
+
+        var initialApp = options.initialApp.value;
+        if (initialApp == null) {
+          if (result.requireData.tryFind('files') != null) {
+            initialApp = 'files';
+          } else if (result.requireData.isNotEmpty) {
+            // This should never happen, because the files app is always installed and can not be removed, but just in
+            // case this changes at a later point.
+            initialApp = result.requireData.first.id;
+          }
+        }
+
+        if (!activeApp.hasValue && initialApp != null) {
+          await setActiveApp(initialApp);
+        }
 
         unawaited(_checkCompatibility());
       }
