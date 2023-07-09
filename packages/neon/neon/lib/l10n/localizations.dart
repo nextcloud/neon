@@ -119,11 +119,17 @@ abstract class AppLocalizations {
   /// **'works with'**
   String get loginWorksWith;
 
-  /// No description provided for @loginRestart.
+  /// No description provided for @loginUsingQrcode.
   ///
   /// In en, this message translates to:
-  /// **'Restart login'**
-  String get loginRestart;
+  /// **'Login using a QR code'**
+  String get loginUsingQrcode;
+
+  /// No description provided for @loginUsingServerAddress.
+  ///
+  /// In en, this message translates to:
+  /// **'Login using the server address'**
+  String get loginUsingServerAddress;
 
   /// No description provided for @loginCheckingServerVersion.
   ///
@@ -244,6 +250,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Invalid URL provided'**
   String get errorInvalidURL;
+
+  /// No description provided for @errorInvalidQrcode.
+  ///
+  /// In en, this message translates to:
+  /// **'Invalid QR-Code provided'**
+  String get errorInvalidQrcode;
 
   /// No description provided for @actionYes.
   ///

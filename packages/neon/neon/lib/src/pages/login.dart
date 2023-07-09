@@ -1,10 +1,14 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:neon/l10n/localizations.dart';
+import 'package:neon/src/platform/platform.dart';
 import 'package:neon/src/router.dart';
 import 'package:neon/src/theme/branding.dart';
 import 'package:neon/src/theme/dialog.dart';
 import 'package:neon/src/utils/validators.dart';
 import 'package:neon/src/widgets/nextcloud_logo.dart';
+import 'package:provider/provider.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({
@@ -52,6 +56,8 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(final BuildContext context) {
     final branding = Branding.of(context);
+    final platform = Provider.of<NeonPlatform>(context, listen: false);
+
     return Scaffold(
       resizeToAvoidBottomInset: true,
       appBar: AppBar(
@@ -72,7 +78,7 @@ class _LoginPageState extends State<LoginPage> {
                     style: Theme.of(context).textTheme.titleLarge,
                   ),
                   const SizedBox(
-                    height: 30,
+                    height: 20,
                   ),
                   if (branding.showLoginWithNextcloud) ...[
                     Text(AppLocalizations.of(context).loginWorksWith),
@@ -81,6 +87,32 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                   ],
                   const NextcloudLogo(),
+                  const SizedBox(
+                    height: 40,
+                  ),
+                  if (platform.canUseCamera) ...[
+                    ExcludeSemantics(
+                      child: Center(
+                        child: Text(AppLocalizations.of(context).loginUsingQrcode),
+                      ),
+                    ),
+                    IconButton(
+                      tooltip: AppLocalizations.of(context).loginUsingQrcode,
+                      icon: const Icon(
+                        Icons.qr_code_scanner,
+                        size: 50,
+                      ),
+                      onPressed: () => unawaited(const LoginQrcodeRoute().push(context)),
+                    ),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    ExcludeSemantics(
+                      child: Center(
+                        child: Text(AppLocalizations.of(context).loginUsingServerAddress),
+                      ),
+                    ),
+                  ],
                   Form(
                     key: _formKey,
                     child: TextFormField(

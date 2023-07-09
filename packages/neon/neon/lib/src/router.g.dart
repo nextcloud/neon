@@ -126,6 +126,11 @@ RouteBase get $loginRoute => GoRouteData.$route(
           factory: $LoginFlowRouteExtension._fromState,
         ),
         GoRouteData.$route(
+          path: 'qrcode',
+          name: 'loginQrcode',
+          factory: $LoginQrcodeRouteExtension._fromState,
+        ),
+        GoRouteData.$route(
           path: 'check/server/:serverURL',
           name: 'checkServerStatus',
           factory: $LoginCheckServerStatusRouteExtension._fromState,
@@ -164,6 +169,20 @@ extension $LoginFlowRouteExtension on LoginFlowRoute {
 
   String get location => GoRouteData.$location(
         '/login/flow/${Uri.encodeComponent(serverURL)}',
+      );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) => context.pushReplacement(location);
+}
+
+extension $LoginQrcodeRouteExtension on LoginQrcodeRoute {
+  static LoginQrcodeRoute _fromState(GoRouterState state) => const LoginQrcodeRoute();
+
+  String get location => GoRouteData.$location(
+        '/login/qrcode',
       );
 
   void go(BuildContext context) => context.go(location);

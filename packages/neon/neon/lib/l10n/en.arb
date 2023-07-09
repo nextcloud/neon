@@ -10,7 +10,8 @@
   "loginOpenAgain": "Open again",
   "loginSwitchToBrowserWindow": "Please switch to the browser window that just opened and proceed there",
   "loginWorksWith": "works with",
-  "loginRestart": "Restart login",
+  "loginUsingQrcode": "Login using a QR code",
+  "loginUsingServerAddress": "Login using the server address",
   "loginCheckingServerVersion": "Checking server version",
   "loginSupportedServerVersion": "Supported server version: {version}",
   "@loginSupportedServerVersion": {
@@ -66,6 +67,7 @@
   },
   "errorEmptyField": "This field can not be empty",
   "errorInvalidURL": "Invalid URL provided",
+  "errorInvalidQrcode": "Invalid QR-Code provided",
   "actionYes": "Yes",
   "actionNo": "No",
   "actionClose": "Close",

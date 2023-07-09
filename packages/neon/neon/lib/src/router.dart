@@ -10,6 +10,7 @@ import 'package:neon/src/pages/login.dart';
 import 'package:neon/src/pages/login_check_account.dart';
 import 'package:neon/src/pages/login_check_server_status.dart';
 import 'package:neon/src/pages/login_flow.dart';
+import 'package:neon/src/pages/login_qrcode.dart';
 import 'package:neon/src/pages/nextcloud_app_settings.dart';
 import 'package:neon/src/pages/settings.dart';
 import 'package:neon/src/utils/stream_listenable.dart';
@@ -105,6 +106,10 @@ class HomeRoute extends GoRouteData {
       path: 'flow/:serverURL',
       name: 'loginFlow',
     ),
+    TypedGoRoute<LoginQrcodeRoute>(
+      path: 'qrcode',
+      name: 'loginQrcode',
+    ),
     TypedGoRoute<LoginCheckServerStatusRoute>(
       path: 'check/server/:serverURL',
       name: 'checkServerStatus',
@@ -135,6 +140,14 @@ class LoginFlowRoute extends GoRouteData {
 
   @override
   Widget build(final BuildContext context, final GoRouterState state) => LoginFlowPage(serverURL: serverURL);
+}
+
+@immutable
+class LoginQrcodeRoute extends GoRouteData {
+  const LoginQrcodeRoute();
+
+  @override
+  Widget build(final BuildContext context, final GoRouterState state) => const LoginQrcodePage();
 }
 
 @immutable

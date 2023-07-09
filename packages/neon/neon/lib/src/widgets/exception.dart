@@ -128,6 +128,12 @@ class NeonException extends StatelessWidget {
       );
     }
 
+    if (exception is InvalidQrcodeException) {
+      return _ExceptionDetails(
+        text: AppLocalizations.of(context).errorInvalidQrcode,
+      );
+    }
+
     if (exception is DynamiteApiException) {
       if (exception.statusCode == 401) {
         return _ExceptionDetails(
