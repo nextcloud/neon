@@ -131,6 +131,11 @@ RouteBase get $loginRoute => GoRouteData.$route(
           factory: $LoginQrcodeRouteExtension._fromState,
         ),
         GoRouteData.$route(
+          path: 'qrcode/intermediate/:serverURL/:loginName/:password',
+          name: 'loginQrcodeIntermediate',
+          factory: $LoginQrcodeIntermediateRouteExtension._fromState,
+        ),
+        GoRouteData.$route(
           path: 'check/server/:serverURL',
           name: 'checkServerStatus',
           factory: $LoginCheckServerStatusRouteExtension._fromState,
@@ -183,6 +188,24 @@ extension $LoginQrcodeRouteExtension on LoginQrcodeRoute {
 
   String get location => GoRouteData.$location(
         '/login/qrcode',
+      );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) => context.pushReplacement(location);
+}
+
+extension $LoginQrcodeIntermediateRouteExtension on LoginQrcodeIntermediateRoute {
+  static LoginQrcodeIntermediateRoute _fromState(GoRouterState state) => LoginQrcodeIntermediateRoute(
+        serverURL: state.pathParameters['serverURL']!,
+        loginName: state.pathParameters['loginName']!,
+        password: state.pathParameters['password']!,
+      );
+
+  String get location => GoRouteData.$location(
+        '/login/qrcode/intermediate/${Uri.encodeComponent(serverURL)}/${Uri.encodeComponent(loginName)}/${Uri.encodeComponent(password)}',
       );
 
   void go(BuildContext context) => context.go(location);
