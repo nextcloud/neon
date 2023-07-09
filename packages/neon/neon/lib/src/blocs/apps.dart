@@ -105,9 +105,9 @@ class AppsBloc extends InteractiveBloc implements AppsBlocEvents, AppsBlocStates
     for (final id in appIds) {
       try {
         final (supported, minVersion) = switch (id) {
-          'core' => await _account.client.core.isSupported(capabilities.requireData),
+          'core' => _account.client.core.isSupported(capabilities.requireData),
           'news' => await _account.client.news.isSupported(),
-          'notes' => await _account.client.notes.isSupported(capabilities.requireData),
+          'notes' => _account.client.notes.isSupported(capabilities.requireData),
           _ => (true, null),
         };
 

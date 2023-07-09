@@ -48,7 +48,11 @@ class AppTheme {
       snackBarTheme: _snackBarTheme,
       dividerTheme: _dividerTheme,
       extensions: [
-        const NeonTheme(),
+        const NeonTheme(
+          tabletLayout: BoxConstraints(
+            maxWidth: 640,
+          ),
+        ),
         ...?appThemes,
       ],
     );
@@ -70,16 +74,27 @@ class AppTheme {
 @internal
 @immutable
 class NeonTheme extends ThemeExtension<NeonTheme> {
-  const NeonTheme();
+  const NeonTheme({
+    required this.tabletLayout,
+  });
+
+  final BoxConstraints? tabletLayout;
 
   @override
-  NeonTheme copyWith() => const NeonTheme();
+  NeonTheme copyWith({
+    final BoxConstraints? tabletLayout,
+  }) =>
+      NeonTheme(
+        tabletLayout: tabletLayout ?? this.tabletLayout,
+      );
 
   @override
   NeonTheme lerp(final NeonTheme? other, final double t) {
     if (other is! NeonTheme) {
       return this;
     }
-    return const NeonTheme();
+    return NeonTheme(
+      tabletLayout: BoxConstraints.lerp(tabletLayout, other.tabletLayout, t),
+    );
   }
 }

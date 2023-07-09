@@ -18,7 +18,7 @@ Future run(final DockerImage image) async {
     tearDown(() => container.destroy());
 
     test('Is supported', () async {
-      final (supported, _) = await client.notes.isSupported((await client.core.getCapabilities()).ocs.data);
+      final (supported, _) = client.notes.isSupported((await client.core.getCapabilities()).ocs.data);
       expect(supported, isTrue);
     });
 

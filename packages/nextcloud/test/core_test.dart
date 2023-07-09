@@ -17,9 +17,14 @@ Future run(final DockerImage image) async {
     });
     tearDown(() => container.destroy());
 
-    test('Is supported', () async {
-      final (supported, _) = await client.core.isSupported((await client.core.getCapabilities()).ocs.data);
+    test('Is supported from capabilities', () async {
+      final (supported, _) = client.core.isSupported((await client.core.getCapabilities()).ocs.data);
       expect(supported, isTrue);
+    });
+
+    test('Is supported from status', () async {
+      final status = await client.core.getStatus();
+      expect(status.isSupported, isTrue);
     });
 
     test('Get status', () async {

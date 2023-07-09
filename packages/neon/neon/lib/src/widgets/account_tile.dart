@@ -18,6 +18,7 @@ class NeonAccountTile extends StatelessWidget {
     this.onTap,
     this.textColor,
     this.dense = false,
+    this.showStatus = true,
     super.key,
   });
 
@@ -27,6 +28,7 @@ class NeonAccountTile extends StatelessWidget {
   final VoidCallback? onTap;
   final Color? textColor;
   final bool dense;
+  final bool showStatus;
 
   @override
   Widget build(final BuildContext context) {
@@ -45,6 +47,7 @@ class NeonAccountTile extends StatelessWidget {
           : null,
       leading: NeonUserAvatar(
         account: account,
+        showStatus: showStatus,
       ),
       title: ResultBuilder<ProvisioningApiUserDetails>.behaviorSubject(
         stream: userDetailsBloc.userDetails,

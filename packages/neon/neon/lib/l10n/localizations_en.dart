@@ -39,7 +39,29 @@ class AppLocalizationsEn extends AppLocalizations {
   String get loginRestart => 'Restart login';
 
   @override
-  String get errorAccountAlreadyExists => 'The account you are trying to add already exists';
+  String get loginCheckingServerVersion => 'Checking server version';
+
+  @override
+  String loginSupportedServerVersion(String version) {
+    return 'Supported server version: $version';
+  }
+
+  @override
+  String loginUnsupportedServerVersion(String version) {
+    return 'Unsupported server version: $version';
+  }
+
+  @override
+  String get loginCheckingMaintenanceMode => 'Checking maintenance mode';
+
+  @override
+  String get loginMaintenanceModeEnabled => 'Maintenance mode enabled';
+
+  @override
+  String get loginMaintenanceModeDisabled => 'Maintenance mode disabled';
+
+  @override
+  String get loginCheckingAccount => 'Checking account';
 
   @override
   String get errorCredentialsForAccountNoLongerMatch => 'The credentials for this account no longer match';
@@ -79,8 +101,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get errorUnableToOpenFile => 'Unable to open the file';
 
   @override
-  String errorUnsupportedVersion(String unsupported) {
-    return 'Sorry, the version of the following apps on your Nextcloud instance are not supported. \n $unsupported \n Please contact your administrator to resolve the issues.';
+  String errorUnsupportedAppVersions(String names) {
+    return 'Sorry, the version of the following apps on your Nextcloud instance are not supported. \n $names \n Please contact your administrator to resolve the issues.';
   }
 
   @override
@@ -106,6 +128,9 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get actionExit => 'Exit';
+
+  @override
+  String get actionContinue => 'Continue';
 
   @override
   String get firstLaunchGoToSettingsToEnablePushNotifications => 'Go to the settings to enable push notifications';

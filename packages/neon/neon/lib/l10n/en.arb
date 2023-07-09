@@ -11,7 +11,27 @@
   "loginSwitchToBrowserWindow": "Please switch to the browser window that just opened and proceed there",
   "loginWorksWith": "works with",
   "loginRestart": "Restart login",
-  "errorAccountAlreadyExists": "The account you are trying to add already exists",
+  "loginCheckingServerVersion": "Checking server version",
+  "loginSupportedServerVersion": "Supported server version: {version}",
+  "@loginSupportedServerVersion": {
+    "placeholders": {
+      "version": {
+        "type": "String"
+      }
+    }
+  },
+  "loginUnsupportedServerVersion": "Unsupported server version: {version}",
+  "@loginUnsupportedServerVersion": {
+    "placeholders": {
+      "version": {
+        "type": "String"
+      }
+    }
+  },
+  "loginCheckingMaintenanceMode": "Checking maintenance mode",
+  "loginMaintenanceModeEnabled": "Maintenance mode enabled",
+  "loginMaintenanceModeDisabled": "Maintenance mode disabled",
+  "loginCheckingAccount": "Checking account",
   "errorCredentialsForAccountNoLongerMatch": "The credentials for this account no longer match",
   "errorServerHadAProblemProcessingYourRequest": "The server had a problem while processing your request. You might want to try again",
   "errorSomethingWentWrongTryAgainLater": "Something went wrong. Please try again later",
@@ -36,10 +56,10 @@
     }
   },
   "errorUnableToOpenFile": "Unable to open the file",
-  "errorUnsupportedVersion": "Sorry, the version of the following apps on your Nextcloud instance are not supported. \n {unsupported} \n Please contact your administrator to resolve the issues.",
-  "@errorUnsupportedVersion" : {
+  "errorUnsupportedAppVersions": "Sorry, the version of the following apps on your Nextcloud instance are not supported. \n {names} \n Please contact your administrator to resolve the issues.",
+  "@errorUnsupportedAppVersions" : {
     "placeholders": {
-      "unsupported": {
+      "names": {
         "type": "String"
       }
     }
@@ -52,6 +72,7 @@
   "actionRetry": "Retry",
   "actionShowSlashHide": "Show/Hide",
   "actionExit": "Exit",
+  "actionContinue": "Continue",
   "firstLaunchGoToSettingsToEnablePushNotifications": "Go to the settings to enable push notifications",
   "nextPushSupported": "NextPush is supported!",
   "nextPushSupportedText": "NextPush is a FOSS way of receiving push notifications using the UnifiedPush protocol via a Nextcloud instance.\nYou can install NextPush from the F-Droid app store.",
