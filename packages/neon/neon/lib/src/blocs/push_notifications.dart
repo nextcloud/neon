@@ -36,28 +36,11 @@ class PushNotificationsBloc extends Bloc implements PushNotificationsBlocEvents,
     }
   }
 
-  Future<void> _pushNotificationsEnabledListener() async {
-    final enabled = _globalOptions.pushNotificationsEnabled.value;
-    if (enabled != _pushNotificationsEnabled) {
-      _pushNotificationsEnabled = enabled;
-      if (enabled) {
-        // We just use a single RSA keypair for all accounts
-        _keypair = await PushUtils.loadRSAKeypair(_storage);
-        await _setupUnifiedPush();
-      } else {
-        _globalOptions.pushNotificationsDistributor.removeListener(_distributorListener);
-        unawaited(_accountsListener?.cancel());
-      }
-    }
-  }
-
   final AccountsBloc _accountsBloc;
   final NeonPlatform _platform;
   final SharedPreferences _sharedPreferences;
   late final _storage = AppStorage('notifications', _sharedPreferences);
   final GlobalOptions _globalOptions;
-  late RSAKeypair _keypair;
-  bool? _pushNotificationsEnabled;
 
   final _notificationsController = StreamController<PushNotification>();
   StreamSubscription? _accountsListener;
@@ -74,7 +57,22 @@ class PushNotificationsBloc extends Bloc implements PushNotificationsBlocEvents,
 
   String _keyLastEndpoint(final Account account) => 'last-endpoint-${account.id}';
 
+  Future<void> _pushNotificationsEnabledListener() async {
+    if (_globalOptions.pushNotificationsEnabled.value) {
+      await _setupUnifiedPush();
+
+      _globalOptions.pushNotificationsDistributor.addListener(_distributorListener);
+      _accountsListener = _accountsBloc.accounts.listen(_registerUnifiedPushInstances);
+    } else {
+      _globalOptions.pushNotificationsDistributor.removeListener(_distributorListener);
+      unawaited(_accountsListener?.cancel());
+    }
+  }
+
   Future _setupUnifiedPush() async {
+    // We just use a single RSA keypair for all accounts
+    final keypair = await PushUtils.loadRSAKeypair(_storage);
+
     await UnifiedPush.initialize(
       onNewEndpoint: (final endpoint, final instance) async {
         final account = _accountsBloc.accounts.value.tryFind(instance);
@@ -92,7 +90,7 @@ class PushNotificationsBloc extends Bloc implements PushNotificationsBlocEvents,
 
         final subscription = await account.client.notifications.registerDevice(
           pushTokenHash: generatePushTokenHash(endpoint),
-          devicePublicKey: _keypair.publicKey.toFormattedPEM(),
+          devicePublicKey: keypair.publicKey.toFormattedPEM(),
           proxyServer: '$endpoint#', // This is a hack to make the Nextcloud server directly push to the endpoint
         );
 
@@ -104,9 +102,6 @@ class PushNotificationsBloc extends Bloc implements PushNotificationsBlocEvents,
       },
       onMessage: PushUtils.onMessage,
     );
-
-    _globalOptions.pushNotificationsDistributor.addListener(_distributorListener);
-    _accountsListener = _accountsBloc.accounts.listen(_registerUnifiedPushInstances);
   }
 
   Future<void> _distributorListener() async {
