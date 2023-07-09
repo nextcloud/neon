@@ -3,6 +3,7 @@ import 'package:neon/l10n/localizations.dart';
 import 'package:neon/src/bloc/result.dart';
 import 'package:neon/src/bloc/result_builder.dart';
 import 'package:neon/src/blocs/login_check_server_status.dart';
+import 'package:neon/src/utils/theme.dart';
 import 'package:neon/src/widgets/exception.dart';
 import 'package:neon/src/widgets/linear_progress_indicator.dart';
 import 'package:neon/src/widgets/validation_tile.dart';
@@ -45,9 +46,7 @@ class _LoginCheckServerStatusPageState extends State<LoginCheckServerStatusPage>
           child: Padding(
             padding: const EdgeInsets.all(10),
             child: ConstrainedBox(
-              constraints: const BoxConstraints(
-                maxWidth: 640,
-              ),
+              constraints: Theme.of(context).extension<NeonTheme>()?.tabletLayout ?? const BoxConstraints(),
               child: ResultBuilder.behaviorSubject(
                 stream: bloc.state,
                 builder: (final context, final state) => Column(

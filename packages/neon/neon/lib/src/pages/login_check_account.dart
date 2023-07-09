@@ -6,6 +6,7 @@ import 'package:neon/src/blocs/accounts.dart';
 import 'package:neon/src/blocs/login_check_account.dart';
 import 'package:neon/src/models/account.dart';
 import 'package:neon/src/router.dart';
+import 'package:neon/src/utils/theme.dart';
 import 'package:neon/src/widgets/account_tile.dart';
 import 'package:neon/src/widgets/exception.dart';
 import 'package:neon/src/widgets/linear_progress_indicator.dart';
@@ -57,9 +58,7 @@ class _LoginCheckAccountPageState extends State<LoginCheckAccountPage> {
           child: Padding(
             padding: const EdgeInsets.all(10),
             child: ConstrainedBox(
-              constraints: const BoxConstraints(
-                maxWidth: 640,
-              ),
+              constraints: Theme.of(context).extension<NeonTheme>()?.tabletLayout ?? const BoxConstraints(),
               child: ResultBuilder.behaviorSubject(
                 stream: bloc.state,
                 builder: (final context, final state) => Column(

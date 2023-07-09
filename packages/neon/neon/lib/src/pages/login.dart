@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:neon/l10n/localizations.dart';
 import 'package:neon/src/models/branding.dart';
 import 'package:neon/src/router.dart';
+import 'package:neon/src/utils/theme.dart';
 import 'package:neon/src/utils/validators.dart';
 import 'package:neon/src/widgets/nextcloud_logo.dart';
 import 'package:provider/provider.dart';
@@ -59,9 +60,7 @@ class _LoginPageState extends State<LoginPage> {
       ),
       body: Center(
         child: ConstrainedBox(
-          constraints: const BoxConstraints(
-            maxWidth: 640,
-          ),
+          constraints: Theme.of(context).extension<NeonTheme>()?.tabletLayout ?? const BoxConstraints(),
           child: Scrollbar(
             interactive: true,
             child: SingleChildScrollView(
