@@ -8,6 +8,7 @@ import 'package:neon/src/settings/widgets/checkbox_settings_tile.dart';
 import 'package:neon/src/settings/widgets/dropdown_button_settings_tile.dart';
 import 'package:neon/src/settings/widgets/settings_category.dart';
 import 'package:neon/src/settings/widgets/settings_list.dart';
+import 'package:neon/src/theme/dialog.dart';
 import 'package:neon/src/utils/confirmation_dialog.dart';
 
 class NextcloudAppSettingsPage extends StatelessWidget {
@@ -19,53 +20,62 @@ class NextcloudAppSettingsPage extends StatelessWidget {
   final AppImplementation appImplementation;
 
   @override
-  Widget build(final BuildContext context) => Scaffold(
-        resizeToAvoidBottomInset: false,
-        appBar: AppBar(
-          title: Text(appImplementation.name(context)),
-          actions: [
-            IconButton(
-              onPressed: () async {
-                if (await showConfirmationDialog(
-                  context,
-                  AppLocalizations.of(context).settingsResetForConfirmation(appImplementation.name(context)),
-                )) {
-                  await appImplementation.options.reset();
-                }
-              },
-              tooltip: AppLocalizations.of(context).settingsResetFor(appImplementation.name(context)),
-              icon: Icon(MdiIcons.cogRefresh),
+  Widget build(final BuildContext context) {
+    final appBar = AppBar(
+      title: Text(appImplementation.name(context)),
+      actions: [
+        IconButton(
+          onPressed: () async {
+            if (await showConfirmationDialog(
+              context,
+              AppLocalizations.of(context).settingsResetForConfirmation(appImplementation.name(context)),
+            )) {
+              await appImplementation.options.reset();
+            }
+          },
+          tooltip: AppLocalizations.of(context).settingsResetFor(appImplementation.name(context)),
+          icon: Icon(MdiIcons.cogRefresh),
+        ),
+      ],
+    );
+
+    final body = SettingsList(
+      categories: [
+        for (final category in [...appImplementation.options.categories, null]) ...[
+          if (appImplementation.options.options.where((final option) => option.category == category).isNotEmpty) ...[
+            SettingsCategory(
+              title: Text(
+                category != null ? category.name(context) : AppLocalizations.of(context).optionsCategoryOther,
+              ),
+              tiles: [
+                for (final option
+                    in appImplementation.options.options.where((final option) => option.category == category)) ...[
+                  if (option is ToggleOption) ...[
+                    CheckBoxSettingsTile(
+                      option: option,
+                    ),
+                  ] else if (option is SelectOption) ...[
+                    DropdownButtonSettingsTile(
+                      option: option,
+                    ),
+                  ],
+                ],
+              ],
             ),
           ],
+        ],
+      ],
+    );
+
+    return Scaffold(
+      resizeToAvoidBottomInset: false,
+      appBar: appBar,
+      body: Center(
+        child: ConstrainedBox(
+          constraints: NeonDialogTheme.of(context).constraints,
+          child: body,
         ),
-        body: SettingsList(
-          categories: [
-            for (final category in [...appImplementation.options.categories, null]) ...[
-              if (appImplementation.options.options
-                  .where((final option) => option.category == category)
-                  .isNotEmpty) ...[
-                SettingsCategory(
-                  title: Text(
-                    category != null ? category.name(context) : AppLocalizations.of(context).optionsCategoryOther,
-                  ),
-                  tiles: [
-                    for (final option
-                        in appImplementation.options.options.where((final option) => option.category == category)) ...[
-                      if (option is ToggleOption) ...[
-                        CheckBoxSettingsTile(
-                          option: option,
-                        ),
-                      ] else if (option is SelectOption) ...[
-                        DropdownButtonSettingsTile(
-                          option: option,
-                        ),
-                      ],
-                    ],
-                  ],
-                ),
-              ],
-            ],
-          ],
-        ),
-      );
+      ),
+    );
+  }
 }
