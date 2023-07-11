@@ -155,11 +155,12 @@ Future<DockerContainer> getDockerContainer(final DockerImage image) async {
         'run',
         '--rm',
         '-d',
-        '-p',
-        '$port:80',
-        '--add-host',
-        'host.docker.internal:host-gateway',
+        '--net',
+        'host',
         image,
+        'php',
+        '-S',
+        '0.0.0.0:$port',
       ],
     );
     // 125 means the docker run command itself has failed which indicated the port is already used
