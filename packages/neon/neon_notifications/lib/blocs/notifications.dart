@@ -26,15 +26,18 @@ class NotificationsBloc extends InteractiveBloc
     });
 
     unawaited(refresh());
+    _timer = TimerBloc().registerTimer(const Duration(seconds: 30), refresh);
   }
 
   @override
   final NotificationsAppSpecificOptions options;
   final RequestManager _requestManager;
   final NextcloudClient _client;
+  late final NeonTimer _timer;
 
   @override
   void dispose() {
+    _timer.cancel();
     unawaited(notifications.close());
     unawaited(unreadCounter.close());
     super.dispose();
