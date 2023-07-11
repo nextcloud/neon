@@ -60,7 +60,7 @@ class _LoginPageState extends State<LoginPage> {
       ),
       body: Center(
         child: ConstrainedBox(
-          constraints: Theme.of(context).extension<NeonTheme>()?.tabletLayout ?? const BoxConstraints(),
+          constraints: NeonDialogTheme.of(context).constraints,
           child: Scrollbar(
             interactive: true,
             child: SingleChildScrollView(

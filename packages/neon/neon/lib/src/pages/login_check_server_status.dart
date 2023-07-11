@@ -44,7 +44,7 @@ class _LoginCheckServerStatusPageState extends State<LoginCheckServerStatusPage>
           child: Padding(
             padding: const EdgeInsets.all(10),
             child: ConstrainedBox(
-              constraints: Theme.of(context).extension<NeonTheme>()?.tabletLayout ?? const BoxConstraints(),
+              constraints: NeonDialogTheme.of(context).constraints,
               child: ResultBuilder.behaviorSubject(
                 stream: bloc.state,
                 builder: (final context, final state) => Column(
