@@ -54,13 +54,12 @@ class _NeonDrawer extends StatefulWidget {
   State<_NeonDrawer> createState() => __NeonDrawerState();
 }
 
-class __NeonDrawerState extends State<_NeonDrawer> with SingleTickerProviderStateMixin {
-  late TabController _tabController;
+class __NeonDrawerState extends State<_NeonDrawer> {
   late AccountsBloc _accountsBloc;
   late AppsBloc _appsBloc;
   late List<AppImplementation> _apps;
 
-  int _activeApp = 0;
+  late int _activeApp;
 
   @override
   void initState() {
@@ -71,17 +70,6 @@ class __NeonDrawerState extends State<_NeonDrawer> with SingleTickerProviderStat
 
     _apps = widget.apps.toList();
     _activeApp = _apps.indexWhere((final app) => app.id == _appsBloc.activeApp.valueOrNull?.id);
-
-    _tabController = TabController(
-      vsync: this,
-      length: widget.apps.length,
-    );
-  }
-
-  @override
-  void dispose() {
-    _tabController.dispose();
-    super.dispose();
   }
 
   void onAppChange(final int index) {
