@@ -82,6 +82,7 @@
   "settings": "Settings",
   "settingsApps": "Apps",
   "settingsAccount": "Account",
+  "settingsAccountManage": "Manage accounts",
   "settingsExport": "Export settings",
   "settingsImport": "Import settings",
   "settingsImportWrongFileExtension": "Settings import has wrong file extension (has to be .json.base64)",
