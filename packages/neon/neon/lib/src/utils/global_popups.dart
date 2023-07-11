@@ -3,6 +3,7 @@ import 'package:meta/meta.dart';
 import 'package:neon/l10n/localizations.dart';
 import 'package:neon/src/blocs/first_launch.dart';
 import 'package:neon/src/blocs/next_push.dart';
+import 'package:neon/src/pages/settings.dart';
 import 'package:neon/src/router.dart';
 import 'package:neon/src/utils/global_options.dart';
 import 'package:provider/provider.dart';
@@ -43,7 +44,7 @@ class GlobalPopups {
             action: SnackBarAction(
               label: AppLocalizations.of(context).settings,
               onPressed: () {
-                const SettingsRoute().go(context);
+                const SettingsRoute(initialCategory: SettingsCageories.pushNotifications).go(context);
               },
             ),
           ),
