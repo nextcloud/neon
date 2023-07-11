@@ -71,13 +71,21 @@ extension $HomeRouteExtension on HomeRoute {
   Future<T?> push<T>(BuildContext context) => context.push<T>(location);
 
   void pushReplacement(BuildContext context) => context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
 }
 
 extension $SettingsRouteExtension on SettingsRoute {
-  static SettingsRoute _fromState(GoRouterState state) => const SettingsRoute();
+  static SettingsRoute _fromState(GoRouterState state) => SettingsRoute(
+        initialCategory:
+            _$convertMapValue('initial-category', state.queryParameters, _$SettingsCageoriesEnumMap._$fromName),
+      );
 
   String get location => GoRouteData.$location(
         '/settings',
+        queryParams: {
+          if (initialCategory != null) 'initial-category': _$SettingsCageoriesEnumMap[initialCategory!],
+        },
       );
 
   void go(BuildContext context) => context.go(location);
@@ -85,7 +93,20 @@ extension $SettingsRouteExtension on SettingsRoute {
   Future<T?> push<T>(BuildContext context) => context.push<T>(location);
 
   void pushReplacement(BuildContext context) => context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
 }
+
+const _$SettingsCageoriesEnumMap = {
+  SettingsCageories.apps: 'apps',
+  SettingsCageories.theme: 'theme',
+  SettingsCageories.navigation: 'navigation',
+  SettingsCageories.pushNotifications: 'push-notifications',
+  SettingsCageories.startup: 'startup',
+  SettingsCageories.systemTray: 'system-tray',
+  SettingsCageories.accounts: 'accounts',
+  SettingsCageories.other: 'other',
+};
 
 extension $NextcloudAppSettingsRouteExtension on NextcloudAppSettingsRoute {
   static NextcloudAppSettingsRoute _fromState(GoRouterState state) => NextcloudAppSettingsRoute(
@@ -101,6 +122,8 @@ extension $NextcloudAppSettingsRouteExtension on NextcloudAppSettingsRoute {
   Future<T?> push<T>(BuildContext context) => context.push<T>(location);
 
   void pushReplacement(BuildContext context) => context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
 }
 
 extension $_AddAccountRouteExtension on _AddAccountRoute {
@@ -115,6 +138,8 @@ extension $_AddAccountRouteExtension on _AddAccountRoute {
   Future<T?> push<T>(BuildContext context) => context.push<T>(location);
 
   void pushReplacement(BuildContext context) => context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
 }
 
 extension $_AddAccountFlowRouteExtension on _AddAccountFlowRoute {
@@ -206,6 +231,21 @@ extension $AccountSettingsRouteExtension on AccountSettingsRoute {
   Future<T?> push<T>(BuildContext context) => context.push<T>(location);
 
   void pushReplacement(BuildContext context) => context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
+}
+
+T? _$convertMapValue<T>(
+  String key,
+  Map<String, String> map,
+  T Function(String) converter,
+) {
+  final value = map[key];
+  return value == null ? null : converter(value);
+}
+
+extension<T extends Enum> on Map<T, String> {
+  T _$fromName(String value) => entries.singleWhere((element) => element.value == value).key;
 }
 
 RouteBase get $loginRoute => GoRouteData.$route(
@@ -244,6 +284,8 @@ extension $LoginRouteExtension on LoginRoute {
   Future<T?> push<T>(BuildContext context) => context.push<T>(location);
 
   void pushReplacement(BuildContext context) => context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
 }
 
 extension $LoginFlowRouteExtension on LoginFlowRoute {
@@ -277,6 +319,8 @@ extension $LoginQrcodeRouteExtension on LoginQrcodeRoute {
   Future<T?> push<T>(BuildContext context) => context.push<T>(location);
 
   void pushReplacement(BuildContext context) => context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
 }
 
 extension $LoginCheckServerStatusRouteExtension on LoginCheckServerStatusRoute {
@@ -296,6 +340,8 @@ extension $LoginCheckServerStatusRouteExtension on LoginCheckServerStatusRoute {
   Future<T?> push<T>(BuildContext context) => context.push<T>(location);
 
   void pushReplacement(BuildContext context) => context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
 }
 
 extension $LoginCheckAccountRouteExtension on LoginCheckAccountRoute {
@@ -319,4 +365,6 @@ extension $LoginCheckAccountRouteExtension on LoginCheckAccountRoute {
   Future<T?> push<T>(BuildContext context) => context.push<T>(location);
 
   void pushReplacement(BuildContext context) => context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
 }

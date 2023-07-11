@@ -40,6 +40,7 @@ dependencies:
   provider: ^6.0.5
   quick_actions: ^1.0.3
   rxdart: ^0.27.7
+  scrollable_positioned_list: ^0.3.8
   shared_preferences: ^2.1.1
   sort_box:
     git:

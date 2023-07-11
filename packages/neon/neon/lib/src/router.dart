@@ -367,8 +367,11 @@ class NextcloudAppSettingsRoute extends GoRouteData {
 
 @immutable
 class SettingsRoute extends GoRouteData {
-  const SettingsRoute();
+  const SettingsRoute({this.initialCategory});
+
+  /// The initial category to show.
+  final SettingsCageories? initialCategory;
 
   @override
-  Widget build(final BuildContext context, final GoRouterState state) => const SettingsPage();
+  Widget build(final BuildContext context, final GoRouterState state) => SettingsPage(initialCategory: initialCategory);
 }
