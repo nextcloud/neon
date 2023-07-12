@@ -61,7 +61,6 @@ class _LoginPageState extends State<LoginPage> {
         child: ConstrainedBox(
           constraints: NeonDialogTheme.of(context).constraints,
           child: Scrollbar(
-            interactive: true,
             child: SingleChildScrollView(
               padding: const EdgeInsets.symmetric(vertical: 40, horizontal: 20),
               primary: true,

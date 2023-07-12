@@ -41,7 +41,6 @@ class NeonListView<T> extends StatelessWidget {
             ),
             Expanded(
               child: Scrollbar(
-                interactive: true,
                 child: ListView(
                   primary: true,
                   key: scrollKey != null ? PageStorageKey<String>(scrollKey!) : null,

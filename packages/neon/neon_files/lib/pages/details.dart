@@ -17,7 +17,6 @@ class FilesDetailsPage extends StatelessWidget {
           title: Text(details.name),
         ),
         body: Scrollbar(
-          interactive: true,
           child: ListView(
             primary: true,
             children: [

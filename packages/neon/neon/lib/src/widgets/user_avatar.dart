@@ -8,6 +8,7 @@ import 'package:neon/src/bloc/result.dart';
 import 'package:neon/src/bloc/result_builder.dart';
 import 'package:neon/src/blocs/accounts.dart';
 import 'package:neon/src/models/account.dart';
+import 'package:neon/src/theme/colors.dart';
 import 'package:neon/src/widgets/cached_image.dart';
 import 'package:nextcloud/nextcloud.dart';
 import 'package:provider/provider.dart';
@@ -119,7 +120,7 @@ class _UserAvatarState extends State<NeonUserAvatar> {
     } else if (result.hasData) {
       decoration = BoxDecoration(
         shape: BoxShape.circle,
-        color: _userStatusToColor(result.data!.status),
+        color: result.data!.status.color,
       );
     }
 
@@ -136,11 +137,4 @@ class _UserAvatarState extends State<NeonUserAvatar> {
       ),
     );
   }
-
-  Color? _userStatusToColor(final UserStatusType userStatusType) => switch (userStatusType) {
-        UserStatusType.online => const Color(0xFF49B382),
-        UserStatusType.away => const Color(0xFFF4A331),
-        UserStatusType.dnd => const Color(0xFFED484C),
-        _ => null,
-      };
 }

@@ -47,6 +47,7 @@ class AppTheme {
       cardColor: colorScheme.background, // For LicensePage
       snackBarTheme: _snackBarTheme,
       dividerTheme: _dividerTheme,
+      scrollbarTheme: _scrollbarTheme,
       extensions: [
         neonTheme,
         ...?appThemes,
@@ -64,5 +65,9 @@ class AppTheme {
   static const _dividerTheme = DividerThemeData(
     thickness: 1.5,
     space: 30,
+  );
+
+  static const _scrollbarTheme = ScrollbarThemeData(
+    interactive: true,
   );
 }
