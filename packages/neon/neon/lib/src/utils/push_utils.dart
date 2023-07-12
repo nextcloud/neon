@@ -14,10 +14,10 @@ import 'package:neon/src/models/account.dart';
 import 'package:neon/src/models/push_notification.dart';
 import 'package:neon/src/platform/platform.dart';
 import 'package:neon/src/settings/models/storage.dart';
+import 'package:neon/src/theme/colors.dart';
 import 'package:neon/src/utils/global.dart';
 import 'package:neon/src/utils/localizations.dart';
 import 'package:neon/src/utils/request_manager.dart';
-import 'package:neon/src/utils/theme.dart';
 import 'package:nextcloud/nextcloud.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -124,7 +124,7 @@ class PushUtils {
               Canvas(recorder)
                 ..scale(scale)
                 ..drawPicture(pictureInfo.picture)
-                ..drawColor(themePrimaryColor, BlendMode.srcIn);
+                ..drawColor(NcColors.primary, BlendMode.srcIn);
 
               pictureInfo.picture.dispose();
 
@@ -164,7 +164,7 @@ class PushUtils {
                 icon: '@mipmap/ic_launcher',
                 largeIcon: largeIconBitmap,
                 when: when?.millisecondsSinceEpoch,
-                color: themePrimaryColor,
+                color: NcColors.primary,
                 category: pushNotification.type == 'voip' ? AndroidNotificationCategory.call : null,
                 importance: Importance.max,
                 priority: pushNotification.priority == 'high'

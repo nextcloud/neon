@@ -3,7 +3,7 @@ import 'package:neon/l10n/localizations.dart';
 import 'package:neon/src/bloc/result.dart';
 import 'package:neon/src/bloc/result_builder.dart';
 import 'package:neon/src/blocs/login_check_server_status.dart';
-import 'package:neon/src/utils/theme.dart';
+import 'package:neon/src/theme/dialog.dart';
 import 'package:neon/src/widgets/exception.dart';
 import 'package:neon/src/widgets/linear_progress_indicator.dart';
 import 'package:neon/src/widgets/validation_tile.dart';
