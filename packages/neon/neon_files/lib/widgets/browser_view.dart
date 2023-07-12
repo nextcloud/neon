@@ -283,7 +283,7 @@ class _FilesBrowserViewState extends State<FilesBrowserView> {
                   child: Icon(
                     Icons.star,
                     size: 14,
-                    color: Colors.yellow,
+                    color: NcColors.starredColor,
                   ),
                 ),
               ],

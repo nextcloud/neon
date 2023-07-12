@@ -17,7 +17,6 @@ class NewsFeedIcon extends StatelessWidget {
     final faviconLink = feed.faviconLink;
 
     return NeonImageWrapper(
-      color: Colors.white,
       size: Size.square(size),
       borderRadius: borderRadius,
       child: faviconLink != null && faviconLink.isNotEmpty

@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-
-import 'package:meta/meta.dart';
 import 'package:nextcloud/nextcloud.dart';
 
 /// [Color] constants which represent Nextcloud's
@@ -16,10 +14,24 @@ abstract final class NcColors {
   ///
   /// This color is only used at the users discretion.
   static const Color oledBackground = Colors.black;
+
+  /// Color of a starred item.
+  static const Color starredColor = Colors.yellow;
+
+  /// Color used to emphasise declining actions.
+  ///
+  /// Usually used in conjunction with [NcColors.accept].
+  static const Color decline = Colors.red;
+
+  /// Color used to emphasise accepting actions.
+  ///
+  /// Usually used in conjunction with [NcColors.decline].
+  static const Color accept = Colors.green;
 }
 
-@internal
+/// [UserStatusType] color mapping.
 extension UserStatusTypeColors on UserStatusType {
+  /// The color for the user status.
   Color? get color => switch (this) {
         UserStatusType.online => const Color(0xFF49B382),
         UserStatusType.away => const Color(0xFFF4A331),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:neon/l10n/localizations.dart';
+import 'package:neon/theme.dart';
 
 Future<bool> showConfirmationDialog(final BuildContext context, final String title) async =>
     await showDialog<bool>(
@@ -10,7 +11,7 @@ Future<bool> showConfirmationDialog(final BuildContext context, final String tit
         actions: [
           ElevatedButton(
             style: ElevatedButton.styleFrom(
-              backgroundColor: Colors.red,
+              backgroundColor: NcColors.decline,
               foregroundColor: Theme.of(context).colorScheme.onPrimary,
             ),
             onPressed: () {
@@ -20,7 +21,7 @@ Future<bool> showConfirmationDialog(final BuildContext context, final String tit
           ),
           ElevatedButton(
             style: ElevatedButton.styleFrom(
-              backgroundColor: Colors.green,
+              backgroundColor: NcColors.accept,
               foregroundColor: Theme.of(context).colorScheme.onPrimary,
             ),
             onPressed: () {
