@@ -41,8 +41,8 @@ class SelectOption<T> extends Option<T> {
 
   @override
   set value(final T value) {
-    unawaited(storage.setString(key, value.toString()));
     super.value = value;
+    unawaited(storage.setString(key, serialize()));
   }
 
   /// A collection of different values this can have.
@@ -60,8 +60,8 @@ class SelectOption<T> extends Option<T> {
   }
 
   @override
-  String? serialize() => value?.toString();
+  String serialize() => value.toString();
 
   @override
-  T? deserialize(final dynamic data) => _fromString(_values, data as String?);
+  T deserialize(final Object data) => _fromString(_values, data as String)!;
 }
