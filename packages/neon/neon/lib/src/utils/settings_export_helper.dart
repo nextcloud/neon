@@ -54,7 +54,11 @@ class SettingsExportHelper {
     for (final optionKey in data.keys) {
       for (final option in options) {
         if (option.key == optionKey) {
-          option.value = await option.deserialize(data[optionKey]);
+          final Object? value = data[optionKey];
+
+          if (value != null) {
+            option.value = await option.deserialize(value);
+          }
         }
       }
     }
