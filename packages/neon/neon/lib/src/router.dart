@@ -17,7 +17,6 @@ import 'package:neon/src/pages/login_flow.dart';
 import 'package:neon/src/pages/login_qrcode.dart';
 import 'package:neon/src/pages/nextcloud_app_settings.dart';
 import 'package:neon/src/pages/settings.dart';
-import 'package:neon/src/utils/login_qrcode.dart';
 import 'package:neon/src/utils/stream_listenable.dart';
 import 'package:provider/provider.dart';
 
@@ -36,8 +35,8 @@ class AppRouter extends GoRouter {
             final loginQrcode = LoginQrcode.tryParse(state.location);
             if (loginQrcode != null) {
               return LoginCheckServerStatusRoute.withCredentials(
-                serverUrl: loginQrcode.server,
-                loginName: loginQrcode.user,
+                serverUrl: loginQrcode.serverURL,
+                loginName: loginQrcode.username,
                 password: loginQrcode.password,
               ).location;
             }

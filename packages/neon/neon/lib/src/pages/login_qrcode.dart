@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_zxing/flutter_zxing.dart';
+import 'package:neon/src/models/account.dart';
 import 'package:neon/src/router.dart';
 import 'package:neon/src/utils/exceptions.dart';
-import 'package:neon/src/utils/login_qrcode.dart';
 import 'package:neon/src/widgets/exception.dart';
 
 class LoginQrcodePage extends StatefulWidget {
@@ -41,8 +41,8 @@ class _LoginQrcodePageState extends State<LoginQrcodePage> {
               }
 
               LoginCheckServerStatusRoute.withCredentials(
-                serverUrl: match.server,
-                loginName: match.user,
+                serverUrl: match.serverURL,
+                loginName: match.username,
                 password: match.password,
               ).pushReplacement(context);
             } catch (e, s) {
