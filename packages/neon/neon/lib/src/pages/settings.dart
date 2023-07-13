@@ -208,9 +208,7 @@ class _SettingsPageState extends State<SettingsPage> {
                         ],
                         CustomSettingsTile(
                           title: ElevatedButton.icon(
-                            onPressed: () {
-                              const AddAccountRoute().go(context);
-                            },
+                            onPressed: () async => const LoginRoute().push(context),
                             icon: Icon(MdiIcons.accountPlus),
                             label: Text(AppLocalizations.of(context).globalOptionsAccountsAdd),
                           ),

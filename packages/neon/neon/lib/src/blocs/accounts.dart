@@ -207,6 +207,9 @@ class AccountsBloc extends Bloc implements AccountsBlocEvents, AccountsBlocState
     return aa;
   }
 
+  /// Whether accounts are logged in.
+  bool get hasAccounts => activeAccount.value != null;
+
   /// The options for the [activeAccount].
   ///
   /// Convenience method for [getOptionsFor] with the currently active account.

@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_zxing/flutter_zxing.dart';
 import 'package:neon/src/router.dart';
@@ -41,7 +39,12 @@ class _LoginQrcodePageState extends State<LoginQrcodePage> {
               if (match == null) {
                 throw InvalidQrcodeException();
               }
-              await processLoginQrcode(context, match);
+
+              LoginCheckServerStatusRoute.withCredentials(
+                serverUrl: match.server,
+                loginName: match.user,
+                password: match.password,
+              ).pushReplacement(context);
             } catch (e, s) {
               if (_lastErrorURL != url) {
                 debugPrint(e.toString());
@@ -54,53 +57,4 @@ class _LoginQrcodePageState extends State<LoginQrcodePage> {
           },
         ),
       );
-}
-
-class LoginQrcodeIntermediatePage extends StatefulWidget {
-  const LoginQrcodeIntermediatePage({
-    required this.serverURL,
-    required this.loginName,
-    required this.password,
-    super.key,
-  });
-
-  final String serverURL;
-  final String loginName;
-  final String password;
-
-  @override
-  State<LoginQrcodeIntermediatePage> createState() => _LoginQrcodeIntermediatePageState();
-}
-
-class _LoginQrcodeIntermediatePageState extends State<LoginQrcodeIntermediatePage> {
-  @override
-  void initState() {
-    super.initState();
-    WidgetsBinding.instance.addPostFrameCallback((final _) {
-      unawaited(
-        processLoginQrcode(
-          context,
-          LoginQrcode(
-            server: widget.serverURL,
-            user: widget.loginName,
-            password: widget.password,
-          ),
-        ),
-      );
-    });
-  }
-
-  @override
-  Widget build(final BuildContext context) => const SizedBox();
-}
-
-Future processLoginQrcode(final BuildContext context, final LoginQrcode qrcode) async {
-  final result = await LoginCheckServerStatusRoute(serverURL: qrcode.server).push<bool>(context);
-  if ((result ?? false) && context.mounted) {
-    LoginCheckAccountRoute(
-      serverURL: qrcode.server,
-      loginName: qrcode.user,
-      password: qrcode.password,
-    ).pushReplacement(context);
-  }
 }

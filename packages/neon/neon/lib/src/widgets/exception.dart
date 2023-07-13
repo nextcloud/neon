@@ -185,9 +185,11 @@ class NeonException extends StatelessWidget {
   }
 
   static void _openLoginPage(final BuildContext context) {
-    LoginRoute(
-      serverURL: Provider.of<AccountsBloc>(context, listen: false).activeAccount.value!.serverURL,
-    ).go(context);
+    unawaited(
+      LoginCheckServerStatusRoute(
+        serverUrl: Provider.of<AccountsBloc>(context, listen: false).activeAccount.value!.serverURL,
+      ).push(context),
+    );
   }
 }
 
