@@ -49,7 +49,6 @@ class FilePreview extends StatelessWidget {
                 );
                 if (withBackground) {
                   return NeonImageWrapper(
-                    color: Colors.white,
                     borderRadius: borderRadius,
                     child: child,
                   );

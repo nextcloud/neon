@@ -14,7 +14,6 @@ class SettingsList extends StatelessWidget {
 
   @override
   Widget build(final BuildContext context) => Scrollbar(
-        interactive: true,
         child: ListView(
           primary: true,
           padding: const EdgeInsets.all(20),

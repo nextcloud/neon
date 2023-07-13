@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class NeonImageWrapper extends StatelessWidget {
   const NeonImageWrapper({
     required this.child,
-    required this.color,
+    this.color = Colors.white,
     this.size,
     this.borderRadius,
     super.key,
@@ -16,7 +16,7 @@ class NeonImageWrapper extends StatelessWidget {
 
   @override
   Widget build(final BuildContext context) => ClipRRect(
-        borderRadius: borderRadius ?? BorderRadius.zero,
+        borderRadius: borderRadius,
         child: ColorFiltered(
           colorFilter: ColorFilter.mode(color, BlendMode.dstATop),
           child: SizedBox.fromSize(

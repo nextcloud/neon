@@ -5,6 +5,6 @@ import 'package:neon/neon.dart';
 Future main() async {
   await runNeon(
     getAppImplementations: getAppImplementations,
-    branding: getNeonBranding(),
+    theme: neonTheme,
   );
 }

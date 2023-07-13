@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:neon/l10n/localizations.dart';
-import 'package:neon/src/models/branding.dart';
 import 'package:neon/src/router.dart';
-import 'package:neon/src/utils/theme.dart';
+import 'package:neon/src/theme/branding.dart';
+import 'package:neon/src/theme/dialog.dart';
 import 'package:neon/src/utils/validators.dart';
 import 'package:neon/src/widgets/nextcloud_logo.dart';
-import 'package:provider/provider.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({
@@ -52,7 +51,7 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   Widget build(final BuildContext context) {
-    final branding = Provider.of<Branding>(context, listen: false);
+    final branding = Branding.of(context);
     return Scaffold(
       resizeToAvoidBottomInset: true,
       appBar: AppBar(
@@ -62,7 +61,6 @@ class _LoginPageState extends State<LoginPage> {
         child: ConstrainedBox(
           constraints: NeonDialogTheme.of(context).constraints,
           child: Scrollbar(
-            interactive: true,
             child: SingleChildScrollView(
               padding: const EdgeInsets.symmetric(vertical: 40, horizontal: 20),
               primary: true,
@@ -76,10 +74,12 @@ class _LoginPageState extends State<LoginPage> {
                   const SizedBox(
                     height: 30,
                   ),
-                  Text(AppLocalizations.of(context).loginWorksWith),
-                  const SizedBox(
-                    height: 20,
-                  ),
+                  if (branding.showLoginWithNextcloud) ...[
+                    Text(AppLocalizations.of(context).loginWorksWith),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                  ],
                   const NextcloudLogo(),
                   Form(
                     key: _formKey,

@@ -6,7 +6,7 @@ import 'package:neon/src/blocs/accounts.dart';
 import 'package:neon/src/blocs/login_check_account.dart';
 import 'package:neon/src/models/account.dart';
 import 'package:neon/src/router.dart';
-import 'package:neon/src/utils/theme.dart';
+import 'package:neon/src/theme/dialog.dart';
 import 'package:neon/src/widgets/account_tile.dart';
 import 'package:neon/src/widgets/exception.dart';
 import 'package:neon/src/widgets/linear_progress_indicator.dart';

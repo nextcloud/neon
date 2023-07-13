@@ -16,11 +16,12 @@ import 'package:neon/src/models/push_notification.dart';
 import 'package:neon/src/platform/platform.dart';
 import 'package:neon/src/router.dart';
 import 'package:neon/src/settings/widgets/option_builder.dart';
+import 'package:neon/src/theme/neon.dart';
+import 'package:neon/src/theme/theme.dart';
 import 'package:neon/src/utils/global.dart';
 import 'package:neon/src/utils/global_options.dart';
 import 'package:neon/src/utils/localizations.dart';
 import 'package:neon/src/utils/push_utils.dart';
-import 'package:neon/src/utils/theme.dart';
 import 'package:provider/provider.dart';
 import 'package:quick_actions/quick_actions.dart';
 import 'package:tray_manager/tray_manager.dart' as tray;
@@ -28,8 +29,11 @@ import 'package:window_manager/window_manager.dart';
 
 class NeonApp extends StatefulWidget {
   const NeonApp({
+    required this.neonTheme,
     super.key,
   });
+
+  final NeonTheme neonTheme;
 
   @override
   State<NeonApp> createState() => _NeonAppState();
@@ -291,6 +295,7 @@ class _NeonAppState extends State<NeonApp> with WidgetsBindingObserver, tray.Tra
                       keepOriginalAccentColor: themeKeepOriginalAccentColor,
                       oledAsDark: themeOLEDAsDark,
                       appThemes: _appImplementations.map((final a) => a.theme).whereNotNull(),
+                      neonTheme: widget.neonTheme,
                     );
 
                     return MaterialApp.router(
