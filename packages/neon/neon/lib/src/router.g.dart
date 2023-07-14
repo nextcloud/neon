@@ -326,12 +326,16 @@ extension $LoginQrcodeRouteExtension on LoginQrcodeRoute {
 extension $LoginCheckServerStatusRouteExtension on LoginCheckServerStatusRoute {
   static LoginCheckServerStatusRoute _fromState(GoRouterState state) => LoginCheckServerStatusRoute(
         serverUrl: state.queryParameters['server-url']!,
+        loginName: state.queryParameters['login-name'],
+        password: state.queryParameters['password'],
       );
 
   String get location => GoRouteData.$location(
         '/login/check/server',
         queryParams: {
           'server-url': serverUrl,
+          if (loginName != null) 'login-name': loginName,
+          if (password != null) 'password': password,
         },
       );
 
