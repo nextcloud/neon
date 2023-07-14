@@ -1,0 +1,5 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+# https://github.com/hyiso/commitlint/issues/6
+sed "s/^fixup! //" < "$1" | dart run commitlint_cli
