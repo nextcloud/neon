@@ -1277,10 +1277,10 @@ packages:
     dependency: transitive
     description:
       name: unifiedpush_android
-      sha256: "6a81d05ea62084deed46a68a010d78081eee2ded66f056b1f729c77a0c61327a"
+      sha256: "559124eb1d6bcc5d8f422c8b9a942e52cc704858e6f0afad4c449feef654f1a3"
       url: "https://pub.dev"
     source: hosted
-    version: "2.1.1"
+    version: "2.1.2"
   unifiedpush_platform_interface:
     dependency: transitive
     description:
