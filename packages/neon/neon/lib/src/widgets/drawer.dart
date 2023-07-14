@@ -7,10 +7,8 @@ import 'package:neon/src/bloc/result_builder.dart';
 import 'package:neon/src/blocs/accounts.dart';
 import 'package:neon/src/blocs/apps.dart';
 import 'package:neon/src/blocs/capabilities.dart';
-import 'package:neon/src/models/account.dart';
 import 'package:neon/src/models/app_implementation.dart';
 import 'package:neon/src/router.dart';
-import 'package:neon/src/widgets/account_tile.dart';
 import 'package:neon/src/widgets/cached_image.dart';
 import 'package:neon/src/widgets/drawer_destination.dart';
 import 'package:neon/src/widgets/exception.dart';
@@ -54,13 +52,12 @@ class _NeonDrawer extends StatefulWidget {
   State<_NeonDrawer> createState() => __NeonDrawerState();
 }
 
-class __NeonDrawerState extends State<_NeonDrawer> with SingleTickerProviderStateMixin {
-  late TabController _tabController;
+class __NeonDrawerState extends State<_NeonDrawer> {
   late AccountsBloc _accountsBloc;
   late AppsBloc _appsBloc;
   late List<AppImplementation> _apps;
 
-  int _activeApp = 0;
+  late int _activeApp;
 
   @override
   void initState() {
@@ -71,17 +68,6 @@ class __NeonDrawerState extends State<_NeonDrawer> with SingleTickerProviderStat
 
     _apps = widget.apps.toList();
     _activeApp = _apps.indexWhere((final app) => app.id == _appsBloc.activeApp.valueOrNull?.id);
-
-    _tabController = TabController(
-      vsync: this,
-      length: widget.apps.length,
-    );
-  }
-
-  @override
-  void dispose() {
-    _tabController.dispose();
-    super.dispose();
   }
 
   void onAppChange(final int index) {
@@ -135,85 +121,57 @@ class NeonDrawerHeader extends StatelessWidget {
     final accountsBloc = Provider.of<AccountsBloc>(context, listen: false);
     final capabilitiesBloc = accountsBloc.activeCapabilitiesBloc;
 
-    final accountSelecor = StreamBuilder<List<Account>>(
-      stream: accountsBloc.accounts,
-      builder: (final context, final accountsSnapshot) {
-        final accounts = accountsSnapshot.data;
-        if (accounts == null || accounts.length <= 1) {
-          return const SizedBox.shrink();
+    final branding = ResultBuilder<Capabilities>.behaviorSubject(
+      stream: capabilitiesBloc.capabilities,
+      builder: (final context, final capabilities) {
+        if (!capabilities.hasData) {
+          return NeonLinearProgressIndicator(
+            visible: capabilities.isLoading,
+          );
         }
 
-        final items = accounts.map((final account) {
-          final child = NeonAccountTile(
-            account: account,
-            dense: true,
-            textColor: Theme.of(context).appBarTheme.foregroundColor,
+        if (capabilities.hasError) {
+          return NeonException(
+            capabilities.error,
+            onRetry: capabilitiesBloc.refresh,
           );
+        }
 
-          return DropdownMenuItem(
-            value: account,
-            child: child,
-          );
-        }).toList();
+        final theme = capabilities.requireData.capabilities.theming;
 
-        return DropdownButtonHideUnderline(
-          child: DropdownButton(
-            isExpanded: true,
-            dropdownColor: Theme.of(context).colorScheme.primary,
-            iconEnabledColor: Theme.of(context).colorScheme.onBackground,
-            value: accountsBloc.activeAccount.value,
-            items: items,
-            onChanged: (final account) {
-              if (account == null) {
-                return;
-              }
+        if (theme == null) {
+          return const SizedBox();
+        }
 
-              accountsBloc.setActiveAccount(account);
-            },
-          ),
+        return Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            if (theme.name != null) ...[
+              Text(
+                theme.name!,
+                style: DefaultTextStyle.of(context).style.copyWith(
+                      color: Theme.of(context).appBarTheme.foregroundColor,
+                    ),
+              ),
+            ],
+            if (theme.logo != null) ...[
+              Flexible(
+                child: NeonCachedImage.url(
+                  url: theme.logo!,
+                ),
+              ),
+            ],
+          ],
         );
       },
     );
 
-    return ResultBuilder<Capabilities>.behaviorSubject(
-      stream: capabilitiesBloc.capabilities,
-      builder: (final context, final capabilities) => DrawerHeader(
-        decoration: BoxDecoration(
-          color: Theme.of(context).colorScheme.primary,
-        ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            if (capabilities.hasData) ...[
-              if (capabilities.requireData.capabilities.theming?.name != null) ...[
-                Text(
-                  capabilities.requireData.capabilities.theming!.name!,
-                  style: DefaultTextStyle.of(context).style.copyWith(
-                        color: Theme.of(context).appBarTheme.foregroundColor,
-                      ),
-                ),
-              ],
-              if (capabilities.requireData.capabilities.theming?.logo != null) ...[
-                Flexible(
-                  child: NeonCachedImage.url(
-                    url: capabilities.requireData.capabilities.theming!.logo!,
-                  ),
-                ),
-              ],
-            ] else ...[
-              NeonException(
-                capabilities.error,
-                onRetry: capabilitiesBloc.refresh,
-              ),
-              NeonLinearProgressIndicator(
-                visible: capabilities.isLoading,
-              ),
-            ],
-            accountSelecor,
-          ],
-        ),
+    return DrawerHeader(
+      decoration: BoxDecoration(
+        color: Theme.of(context).colorScheme.primary,
       ),
+      child: branding,
     );
   }
 }

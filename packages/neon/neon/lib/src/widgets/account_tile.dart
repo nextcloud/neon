@@ -49,6 +49,7 @@ class NeonAccountTile extends StatelessWidget {
         account: account,
         showStatus: showStatus,
       ),
+      trailing: trailing,
       title: ResultBuilder<ProvisioningApiUserDetails>.behaviorSubject(
         stream: userDetailsBloc.userDetails,
         builder: (final context, final userDetails) => Row(

@@ -10,13 +10,14 @@ import 'package:neon/src/settings/widgets/custom_settings_tile.dart';
 import 'package:neon/src/settings/widgets/dropdown_button_settings_tile.dart';
 import 'package:neon/src/settings/widgets/settings_category.dart';
 import 'package:neon/src/settings/widgets/settings_list.dart';
+import 'package:neon/src/theme/dialog.dart';
 import 'package:neon/src/utils/confirmation_dialog.dart';
 import 'package:neon/src/widgets/exception.dart';
 import 'package:neon/src/widgets/linear_progress_indicator.dart';
 import 'package:nextcloud/nextcloud.dart';
 
 class AccountSettingsPage extends StatelessWidget {
-  AccountSettingsPage({
+  const AccountSettingsPage({
     required this.bloc,
     required this.account,
     super.key,
@@ -25,104 +26,115 @@ class AccountSettingsPage extends StatelessWidget {
   final AccountsBloc bloc;
   final Account account;
 
-  late final _options = bloc.getOptionsFor(account);
-  late final _userDetailsBloc = bloc.getUserDetailsBlocFor(account);
-  late final _name = account.client.humanReadableID;
-
   @override
-  Widget build(final BuildContext context) => Scaffold(
-        resizeToAvoidBottomInset: false,
-        appBar: AppBar(
-          title: Text(_name),
-          actions: [
-            IconButton(
-              onPressed: () async {
-                if (await showConfirmationDialog(
-                  context,
-                  AppLocalizations.of(context).accountOptionsRemoveConfirm(account.client.humanReadableID),
-                )) {
-                  final isActive = bloc.activeAccount.value == account;
+  Widget build(final BuildContext context) {
+    final options = bloc.getOptionsFor(account);
+    final userDetailsBloc = bloc.getUserDetailsBlocFor(account);
+    final name = account.client.humanReadableID;
 
-                  bloc.removeAccount(account);
+    final appBar = AppBar(
+      title: Text(name),
+      actions: [
+        IconButton(
+          onPressed: () async {
+            if (await showConfirmationDialog(
+              context,
+              AppLocalizations.of(context).accountOptionsRemoveConfirm(account.client.humanReadableID),
+            )) {
+              final isActive = bloc.activeAccount.value == account;
 
-                  // ignore: use_build_context_synchronously
-                  if (!context.mounted) {
-                    return;
-                  }
+              bloc.removeAccount(account);
 
-                  if (isActive) {
-                    const HomeRoute().go(context);
-                  } else {
-                    Navigator.of(context).pop();
-                  }
-                }
-              },
-              tooltip: AppLocalizations.of(context).accountOptionsRemove,
-              icon: Icon(MdiIcons.delete),
-            ),
-            IconButton(
-              onPressed: () async {
-                if (await showConfirmationDialog(
-                  context,
-                  AppLocalizations.of(context).settingsResetForConfirmation(_name),
-                )) {
-                  await _options.reset();
-                }
-              },
-              tooltip: AppLocalizations.of(context).settingsResetFor(_name),
-              icon: Icon(MdiIcons.cogRefresh),
-            ),
-          ],
+              // ignore: use_build_context_synchronously
+              if (!context.mounted) {
+                return;
+              }
+
+              if (isActive) {
+                const HomeRoute().go(context);
+              } else {
+                Navigator.of(context).pop();
+              }
+            }
+          },
+          tooltip: AppLocalizations.of(context).accountOptionsRemove,
+          icon: Icon(MdiIcons.delete),
         ),
-        body: ResultBuilder<ProvisioningApiUserDetails>.behaviorSubject(
-          stream: _userDetailsBloc.userDetails,
-          builder: (final context, final userDetails) => SettingsList(
-            categories: [
-              SettingsCategory(
-                title: Text(AppLocalizations.of(context).accountOptionsCategoryStorageInfo),
-                tiles: [
-                  CustomSettingsTile(
-                    title: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        if (userDetails.hasData) ...[
-                          LinearProgressIndicator(
-                            value: userDetails.requireData.quota.relative / 100,
-                            backgroundColor: Theme.of(context).colorScheme.primary.withOpacity(0.3),
-                          ),
-                          const SizedBox(
-                            height: 10,
-                          ),
-                          Text(
-                            AppLocalizations.of(context).accountOptionsQuotaUsedOf(
-                              filesize(userDetails.requireData.quota.used, 1),
-                              filesize(userDetails.requireData.quota.total, 1),
-                              userDetails.requireData.quota.relative.toString(),
-                            ),
-                          ),
-                        ],
-                        NeonException(
-                          userDetails.error,
-                          onRetry: _userDetailsBloc.refresh,
+        IconButton(
+          onPressed: () async {
+            if (await showConfirmationDialog(
+              context,
+              AppLocalizations.of(context).settingsResetForConfirmation(name),
+            )) {
+              await options.reset();
+            }
+          },
+          tooltip: AppLocalizations.of(context).settingsResetFor(name),
+          icon: Icon(MdiIcons.cogRefresh),
+        ),
+      ],
+    );
+
+    final body = ResultBuilder<ProvisioningApiUserDetails>.behaviorSubject(
+      stream: userDetailsBloc.userDetails,
+      builder: (final context, final userDetails) => SettingsList(
+        categories: [
+          SettingsCategory(
+            title: Text(AppLocalizations.of(context).accountOptionsCategoryStorageInfo),
+            tiles: [
+              CustomSettingsTile(
+                title: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    if (userDetails.hasData) ...[
+                      LinearProgressIndicator(
+                        value: userDetails.requireData.quota.relative / 100,
+                        backgroundColor: Theme.of(context).colorScheme.primary.withOpacity(0.3),
+                      ),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      Text(
+                        AppLocalizations.of(context).accountOptionsQuotaUsedOf(
+                          filesize(userDetails.requireData.quota.used, 1),
+                          filesize(userDetails.requireData.quota.total, 1),
+                          userDetails.requireData.quota.relative.toString(),
                         ),
-                        NeonLinearProgressIndicator(
-                          visible: userDetails.isLoading,
-                        ),
-                      ],
+                      ),
+                    ],
+                    NeonException(
+                      userDetails.error,
+                      onRetry: userDetailsBloc.refresh,
                     ),
-                  ),
-                ],
-              ),
-              SettingsCategory(
-                title: Text(AppLocalizations.of(context).optionsCategoryGeneral),
-                tiles: [
-                  DropdownButtonSettingsTile(
-                    option: _options.initialApp,
-                  ),
-                ],
+                    NeonLinearProgressIndicator(
+                      visible: userDetails.isLoading,
+                    ),
+                  ],
+                ),
               ),
             ],
           ),
+          SettingsCategory(
+            title: Text(AppLocalizations.of(context).optionsCategoryGeneral),
+            tiles: [
+              DropdownButtonSettingsTile(
+                option: options.initialApp,
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
+
+    return Scaffold(
+      resizeToAvoidBottomInset: false,
+      appBar: appBar,
+      body: Center(
+        child: ConstrainedBox(
+          constraints: NeonDialogTheme.of(context).constraints,
+          child: body,
         ),
-      );
+      ),
+    );
+  }
 }

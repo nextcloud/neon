@@ -9,7 +9,7 @@ import 'package:neon/src/blocs/apps.dart';
 import 'package:neon/src/models/account.dart';
 import 'package:neon/src/models/app_implementation.dart';
 import 'package:neon/src/models/notifications_interface.dart';
-import 'package:neon/src/router.dart';
+import 'package:neon/src/widgets/account_switcher.dart';
 import 'package:neon/src/widgets/app_implementation_icon.dart';
 import 'package:neon/src/widgets/exception.dart';
 import 'package:neon/src/widgets/linear_progress_indicator.dart';
@@ -77,17 +77,9 @@ class NeonAppBar extends StatelessWidget implements PreferredSizeWidget {
               ],
             ],
           ),
-          actions: [
-            const NotificationIconButton(),
-            IconButton(
-              onPressed: () {
-                AccountSettingsRoute(accountid: account.id).go(context);
-              },
-              tooltip: AppLocalizations.of(context).settingsAccount,
-              icon: NeonUserAvatar(
-                account: account,
-              ),
-            ),
+          actions: const [
+            NotificationIconButton(),
+            AccountSwitcherButton(),
           ],
         ),
       ),
