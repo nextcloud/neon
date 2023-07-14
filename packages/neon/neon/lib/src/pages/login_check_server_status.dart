@@ -3,6 +3,7 @@ import 'package:neon/l10n/localizations.dart';
 import 'package:neon/src/bloc/result.dart';
 import 'package:neon/src/bloc/result_builder.dart';
 import 'package:neon/src/blocs/login_check_server_status.dart';
+import 'package:neon/src/router.dart';
 import 'package:neon/src/theme/dialog.dart';
 import 'package:neon/src/widgets/exception.dart';
 import 'package:neon/src/widgets/linear_progress_indicator.dart';
@@ -13,9 +14,19 @@ class LoginCheckServerStatusPage extends StatefulWidget {
   const LoginCheckServerStatusPage({
     required this.serverURL,
     super.key,
+  })  : loginName = null,
+        password = null;
+
+  const LoginCheckServerStatusPage.withCredentials({
+    required this.serverURL,
+    required String this.loginName,
+    required String this.password,
+    super.key,
   });
 
   final String serverURL;
+  final String? loginName;
+  final String? password;
 
   @override
   State<LoginCheckServerStatusPage> createState() => _LoginCheckServerStatusPageState();
@@ -47,34 +58,48 @@ class _LoginCheckServerStatusPageState extends State<LoginCheckServerStatusPage>
               constraints: NeonDialogTheme.of(context).constraints,
               child: ResultBuilder.behaviorSubject(
                 stream: bloc.state,
-                builder: (final context, final state) => Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    NeonLinearProgressIndicator(
-                      visible: state.isLoading,
-                    ),
-                    NeonException(
-                      state.error,
-                      onRetry: bloc.refresh,
-                    ),
-                    _buildServerVersionTile(state),
-                    _buildMaintenanceModeTile(state),
-                    Align(
-                      alignment: Alignment.bottomRight,
-                      child: ElevatedButton(
-                        onPressed: state.hasData && state.requireData.isSupported && !state.requireData.maintenance
-                            ? () => Navigator.of(context).pop(true)
-                            : null,
-                        child: Text(AppLocalizations.of(context).actionContinue),
+                builder: (final context, final state) {
+                  final success = state.hasData && state.requireData.isSupported && !state.requireData.maintenance;
+
+                  return Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      NeonLinearProgressIndicator(
+                        visible: state.isLoading,
                       ),
-                    ),
-                  ],
-                ),
+                      NeonException(
+                        state.error,
+                        onRetry: bloc.refresh,
+                      ),
+                      _buildServerVersionTile(state),
+                      _buildMaintenanceModeTile(state),
+                      Align(
+                        alignment: Alignment.bottomRight,
+                        child: ElevatedButton(
+                          onPressed: success ? _onContinue : null,
+                          child: Text(AppLocalizations.of(context).actionContinue),
+                        ),
+                      ),
+                    ],
+                  );
+                },
               ),
             ),
           ),
         ),
       );
+
+  void _onContinue() {
+    if (widget.loginName != null) {
+      LoginCheckAccountRoute(
+        serverUrl: widget.serverURL,
+        loginName: widget.loginName!,
+        password: widget.password!,
+      ).pushReplacement(context);
+    } else {
+      LoginFlowRoute(serverUrl: widget.serverURL).pushReplacement(context);
+    }
+  }
 
   Widget _buildServerVersionTile(final Result<CoreServerStatus> result) {
     if (!result.hasData) {

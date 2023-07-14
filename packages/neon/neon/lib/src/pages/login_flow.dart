@@ -39,7 +39,7 @@ class _LoginFlowPageState extends State<LoginFlowPage> {
 
     bloc.result.listen((final result) {
       LoginCheckAccountRoute(
-        serverURL: result.server,
+        serverUrl: result.server,
         loginName: result.loginName,
         password: result.appPassword,
       ).pushReplacement(context);
@@ -56,29 +56,32 @@ class _LoginFlowPageState extends State<LoginFlowPage> {
   Widget build(final BuildContext context) => Scaffold(
         appBar: AppBar(),
         body: Center(
-          child: ResultBuilder.behaviorSubject(
-            stream: bloc.init,
-            builder: (final context, final init) => Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                NeonLinearProgressIndicator(
-                  visible: init.isLoading,
-                ),
-                NeonException(
-                  init.error,
-                  onRetry: bloc.refresh,
-                ),
-                if (init.hasData) ...[
-                  Text(AppLocalizations.of(context).loginSwitchToBrowserWindow),
-                  const SizedBox(
-                    height: 10,
+          child: Padding(
+            padding: const EdgeInsets.all(24),
+            child: ResultBuilder.behaviorSubject(
+              stream: bloc.init,
+              builder: (final context, final init) => Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  NeonLinearProgressIndicator(
+                    visible: init.isLoading,
                   ),
-                  ElevatedButton(
-                    onPressed: bloc.refresh,
-                    child: Text(AppLocalizations.of(context).loginOpenAgain),
+                  NeonException(
+                    init.error,
+                    onRetry: bloc.refresh,
                   ),
+                  if (init.hasData) ...[
+                    Text(AppLocalizations.of(context).loginSwitchToBrowserWindow),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    ElevatedButton(
+                      onPressed: bloc.refresh,
+                      child: Text(AppLocalizations.of(context).loginOpenAgain),
+                    ),
+                  ],
                 ],
-              ],
+              ),
             ),
           ),
         ),

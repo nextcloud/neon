@@ -128,6 +128,12 @@ class NeonException extends StatelessWidget {
       );
     }
 
+    if (exception is InvalidQrcodeException) {
+      return _ExceptionDetails(
+        text: AppLocalizations.of(context).errorInvalidQrcode,
+      );
+    }
+
     if (exception is DynamiteApiException) {
       if (exception.statusCode == 401) {
         return _ExceptionDetails(
@@ -179,9 +185,11 @@ class NeonException extends StatelessWidget {
   }
 
   static void _openLoginPage(final BuildContext context) {
-    LoginRoute(
-      serverURL: Provider.of<AccountsBloc>(context, listen: false).activeAccount.value!.serverURL,
-    ).go(context);
+    unawaited(
+      LoginCheckServerStatusRoute(
+        serverUrl: Provider.of<AccountsBloc>(context, listen: false).activeAccount.value!.serverURL,
+      ).push(context),
+    );
   }
 }
 
