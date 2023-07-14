@@ -1,0 +1,22 @@
+name: Conventional commits
+on:
+  pull_request:
+
+jobs:
+  conventional-commits:
+    name: Conventional commits
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+          ref: ${{ github.head_ref }}
+
+      - name: Install dart
+        uses: dart-lang/setup-dart@v1
+      - name: Install commitlint_cli
+        run: dart pub get
+
+      - name: Lint conventional commits
+        run: dart run commitlint_cli --from="origin/${{ github.base_ref }}" --to="${{ github.head_ref }}"
