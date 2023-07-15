@@ -1,53 +1,41 @@
+import 'dart:async';
 import 'dart:io';
 
+import 'package:meta/meta.dart';
 import 'package:neon/src/platform/android.dart';
 import 'package:neon/src/platform/linux.dart';
 
 Future<NeonPlatform> getNeonPlatform() async {
-  NeonPlatform? platform;
+  final NeonPlatform platform;
   if (Platform.isAndroid) {
-    platform = AndroidNeonPlatform();
-  }
-  if (Platform.isLinux) {
-    platform = LinuxNeonPlatform();
-  }
-
-  if (platform == null) {
+    platform = const AndroidNeonPlatform();
+  } else if (Platform.isLinux) {
+    platform = const LinuxNeonPlatform();
+  } else {
     throw UnimplementedError('No implementation for platform ${Platform.operatingSystem} found');
   }
 
-  await platform.init?.call();
+  await platform.init.call();
   return platform;
 }
 
-abstract class NeonPlatform {
-  NeonPlatform({
-    required this.canUseWebView,
-    required this.canUseQuickActions,
-    required this.canUseSystemTray,
-    required this.canUseWindowManager,
-    required this.canUseCamera,
-    required this.canUsePushNotifications,
-    required this.getApplicationCachePath,
-    required this.getUserAccessibleAppDataPath,
-    this.init,
-  });
+@immutable
+abstract interface class NeonPlatform {
+  abstract final bool canUseWebView;
 
-  final bool canUseWebView;
+  abstract final bool canUseQuickActions;
 
-  final bool canUseQuickActions;
+  abstract final bool canUseSystemTray;
 
-  final bool canUseSystemTray;
+  abstract final bool canUseWindowManager;
 
-  final bool canUseWindowManager;
+  abstract final bool canUseCamera;
 
-  final bool canUseCamera;
+  abstract final bool canUsePushNotifications;
 
-  final bool canUsePushNotifications;
+  FutureOr<String> getApplicationCachePath();
 
-  final Future<String> Function() getApplicationCachePath;
+  FutureOr<String> getUserAccessibleAppDataPath();
 
-  final Future<String> Function() getUserAccessibleAppDataPath;
-
-  final Future Function()? init;
+  FutureOr init();
 }

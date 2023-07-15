@@ -6,24 +6,41 @@ import 'package:path/path.dart' as p;
 import 'package:sqflite_common_ffi/sqflite_ffi.dart';
 import 'package:xdg_directories/xdg_directories.dart' as xdg;
 
+@immutable
 @internal
-class LinuxNeonPlatform extends NeonPlatform {
-  LinuxNeonPlatform()
-      : super(
-          canUseWebView: false,
-          canUseQuickActions: false,
-          canUseSystemTray: true,
-          canUseWindowManager: true,
-          canUseCamera: false,
-          canUsePushNotifications: false,
-          getApplicationCachePath: () async => p.join(
-            xdg.cacheHome.absolute.path,
-            'de.provokateurin.neon',
-          ),
-          getUserAccessibleAppDataPath: () async => p.join(Platform.environment['HOME']!, 'Neon'),
-          init: () async {
-            sqfliteFfiInit();
-            databaseFactory = databaseFactoryFfi;
-          },
-        );
+class LinuxNeonPlatform implements NeonPlatform {
+  const LinuxNeonPlatform();
+
+  @override
+  bool get canUseWebView => false;
+
+  @override
+  bool get canUseQuickActions => false;
+
+  @override
+  bool get canUseSystemTray => true;
+
+  @override
+  bool get canUseWindowManager => true;
+
+  @override
+  bool get canUseCamera => false;
+
+  @override
+  bool get canUsePushNotifications => false;
+
+  @override
+  String getApplicationCachePath() => p.join(
+        xdg.cacheHome.absolute.path,
+        'de.provokateurin.neon',
+      );
+
+  @override
+  String getUserAccessibleAppDataPath() => p.join(Platform.environment['HOME']!, 'Neon');
+
+  @override
+  void init() {
+    sqfliteFfiInit();
+    databaseFactory = databaseFactoryFfi;
+  }
 }
