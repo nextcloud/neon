@@ -9,9 +9,9 @@ abstract class NextcloudAppOptions {
   late final List<OptionsCategory> categories;
   late final List<Option> options;
 
-  Future reset() async {
+  void reset() {
     for (final option in options) {
-      await option.reset();
+      option.reset();
     }
   }
 

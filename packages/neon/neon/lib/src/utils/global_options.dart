@@ -9,10 +9,8 @@ import 'package:neon/src/settings/models/option.dart';
 import 'package:neon/src/settings/models/select_option.dart';
 import 'package:neon/src/settings/models/storage.dart';
 import 'package:neon/src/settings/models/toggle_option.dart';
-import 'package:neon/src/settings/widgets/label_builder.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:permission_handler/permission_handler.dart';
-import 'package:rxdart/rxdart.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 const unifiedPushNextPushID = 'org.unifiedpush.distributor.nextpush';
@@ -23,54 +21,38 @@ class GlobalOptions {
     this._sharedPreferences,
     this._packageInfo,
   ) {
-    themeMode.stream.listen((final value) {
-      _themeOLEDAsDarkEnabledSubject.add(value != ThemeMode.light);
-    });
+    pushNotificationsEnabled.addListener(_pushNotificationsEnabledListener);
+    rememberLastUsedAccount.addListener(_rememberLastUsedAccountListener);
+  }
 
-    _pushNotificationsDistributorsSubject.listen((final distributors) async {
-      final allowed = distributors.isNotEmpty;
-      _pushNotificationsEnabledEnabledSubject.add(allowed);
-      if (!allowed) {
-        await pushNotificationsEnabled.set(false);
-      }
-    });
+  void _rememberLastUsedAccountListener() {
+    initialAccount.enabled = !rememberLastUsedAccount.value;
+    if (rememberLastUsedAccount.value) {
+      initialAccount.value = null;
+    } else {
+      // Only override the initial account if there already has been a value,
+      // which means it's not the initial emit from rememberLastUsedAccount
+      initialAccount.value = initialAccount.values.keys.first;
+    }
+  }
 
-    pushNotificationsEnabled.stream.listen((final enabled) async {
-      if (enabled) {
-        final response = await Permission.notification.request();
-        if (response.isPermanentlyDenied) {
-          _pushNotificationsEnabledEnabledSubject.add(false);
-        }
-        if (!response.isGranted) {
-          await pushNotificationsEnabled.set(false);
-        }
-      } else {
-        await pushNotificationsDistributor.set(null);
+  Future<void> _pushNotificationsEnabledListener() async {
+    if (pushNotificationsEnabled.value) {
+      final response = await Permission.notification.request();
+      if (response.isPermanentlyDenied) {
+        pushNotificationsEnabled.enabled = false;
       }
-    });
-
-    rememberLastUsedAccount.stream.listen((final remember) async {
-      _initialAccountEnabledSubject.add(!remember);
-      if (remember) {
-        await initialAccount.set(null);
-      } else {
-        // Only override the initial account if there already has been a value,
-        // which means it's not the initial emit from rememberLastUsedAccount
-        if (initialAccount.hasValue) {
-          await initialAccount.set((await initialAccount.values.first).keys.first);
-        }
+      if (!response.isGranted) {
+        pushNotificationsEnabled.value = false;
       }
-    });
+    } else {
+      pushNotificationsDistributor.value = null;
+    }
   }
 
   final SharedPreferences _sharedPreferences;
   late final AppStorage _storage = AppStorage('global', _sharedPreferences);
   final PackageInfo _packageInfo;
-  final _themeOLEDAsDarkEnabledSubject = BehaviorSubject<bool>();
-  final _pushNotificationsEnabledEnabledSubject = BehaviorSubject<bool>();
-  final _pushNotificationsDistributorsSubject = BehaviorSubject<Map<String?, LabelBuilder>>();
-  final _accountsIDsSubject = BehaviorSubject<Map<String?, LabelBuilder>>();
-  final _initialAccountEnabledSubject = BehaviorSubject<bool>();
 
   late final _distributorsMap = <String, String Function(BuildContext)>{
     _packageInfo.packageName: (final context) =>
@@ -103,37 +85,44 @@ class GlobalOptions {
     navigationMode,
   ];
 
-  Future reset() async {
+  void reset() {
     for (final option in options) {
-      await option.reset();
+      option.reset();
     }
   }
 
   void dispose() {
-    unawaited(_accountsIDsSubject.close());
-    unawaited(_themeOLEDAsDarkEnabledSubject.close());
     for (final option in options) {
       option.dispose();
     }
+
+    pushNotificationsEnabled.removeListener(_pushNotificationsEnabledListener);
+    rememberLastUsedAccount.removeListener(_rememberLastUsedAccountListener);
   }
 
   void updateAccounts(final List<Account> accounts) {
     if (accounts.isEmpty) {
       return;
     }
-    _accountsIDsSubject.add({
+    initialAccount.values = {
       for (final account in accounts) ...{
         account.id: (final context) => account.client.humanReadableID,
       },
-    });
+    };
   }
 
   Future updateDistributors(final List<String> distributors) async {
-    _pushNotificationsDistributorsSubject.add({
+    pushNotificationsDistributor.values = {
       for (final distributor in distributors) ...{
         distributor: _distributorsMap[distributor] ?? (final _) => distributor,
       },
-    });
+    };
+
+    final allowed = distributors.isNotEmpty;
+    pushNotificationsEnabled.enabled = allowed;
+    if (!allowed) {
+      pushNotificationsEnabled.value = false;
+    }
   }
 
   late final themeMode = SelectOption<ThemeMode>(
@@ -141,11 +130,11 @@ class GlobalOptions {
     key: 'theme-mode',
     label: (final context) => AppLocalizations.of(context).globalOptionsThemeMode,
     defaultValue: ThemeMode.system,
-    values: BehaviorSubject.seeded({
+    values: {
       ThemeMode.light: (final context) => AppLocalizations.of(context).globalOptionsThemeModeLight,
       ThemeMode.dark: (final context) => AppLocalizations.of(context).globalOptionsThemeModeDark,
       ThemeMode.system: (final context) => AppLocalizations.of(context).globalOptionsThemeModeAutomatic,
-    }),
+    },
   );
 
   late final themeOLEDAsDark = ToggleOption(
@@ -153,7 +142,6 @@ class GlobalOptions {
     key: 'theme-oled-as-dark',
     label: (final context) => AppLocalizations.of(context).globalOptionsThemeOLEDAsDark,
     defaultValue: false,
-    enabled: _themeOLEDAsDarkEnabledSubject,
   );
 
   late final themeKeepOriginalAccentColor = ToggleOption(
@@ -168,16 +156,15 @@ class GlobalOptions {
     key: 'push-notifications-enabled',
     label: (final context) => AppLocalizations.of(context).globalOptionsPushNotificationsEnabled,
     defaultValue: false,
-    enabled: _pushNotificationsEnabledEnabledSubject,
   );
 
-  late final pushNotificationsDistributor = SelectOption<String?>(
+  late final pushNotificationsDistributor = SelectOption<String?>.depend(
     storage: _storage,
     key: 'push-notifications-distributor',
     label: (final context) => AppLocalizations.of(context).globalOptionsPushNotificationsDistributor,
     defaultValue: null,
-    values: _pushNotificationsDistributorsSubject,
-    enabled: pushNotificationsEnabled.stream,
+    values: {},
+    enabled: pushNotificationsEnabled,
   );
 
   late final startupMinimized = ToggleOption(
@@ -203,12 +190,12 @@ class GlobalOptions {
     defaultValue: false,
   );
 
-  late final systemTrayHideToTrayWhenMinimized = ToggleOption(
+  late final systemTrayHideToTrayWhenMinimized = ToggleOption.depend(
     storage: _storage,
     key: 'systemtray-hide-to-tray-when-minimized',
     label: (final context) => AppLocalizations.of(context).globalOptionsSystemTrayHideToTrayWhenMinimized,
     defaultValue: true,
-    enabled: systemTrayEnabled.stream,
+    enabled: systemTrayEnabled,
   );
 
   late final rememberLastUsedAccount = ToggleOption(
@@ -223,8 +210,7 @@ class GlobalOptions {
     key: 'initial-account',
     label: (final context) => AppLocalizations.of(context).globalOptionsAccountsInitialAccount,
     defaultValue: null,
-    values: _accountsIDsSubject,
-    enabled: _initialAccountEnabledSubject,
+    values: {},
   );
 
   late final navigationMode = SelectOption<NavigationMode>(
@@ -232,7 +218,7 @@ class GlobalOptions {
     key: 'navigation-mode',
     label: (final context) => AppLocalizations.of(context).globalOptionsNavigationMode,
     defaultValue: Platform.isAndroid || Platform.isIOS ? NavigationMode.drawer : NavigationMode.drawerAlwaysVisible,
-    values: BehaviorSubject.seeded({
+    values: {
       NavigationMode.drawer: (final context) => AppLocalizations.of(context).globalOptionsNavigationModeDrawer,
       if (!Platform.isAndroid && !Platform.isIOS) ...{
         NavigationMode.drawerAlwaysVisible: (final context) =>
@@ -240,7 +226,7 @@ class GlobalOptions {
       },
       // ignore: deprecated_member_use_from_same_package
       NavigationMode.quickBar: (final context) => AppLocalizations.of(context).globalOptionsNavigationModeQuickBar,
-    }),
+    },
   );
 }
 

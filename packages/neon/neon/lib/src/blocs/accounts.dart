@@ -89,18 +89,14 @@ class AccountsBloc extends Bloc implements AccountsBlocEvents, AccountsBlocState
       }
     }
 
-    unawaited(
-      _globalOptions.initialAccount.stream.first.then((final lastAccount) {
-        final account = as.tryFind(lastAccount);
-        if (activeAccount.valueOrNull == null) {
-          if (account != null) {
-            setActiveAccount(account);
-          } else if (as.isNotEmpty) {
-            setActiveAccount(as.first);
-          }
-        }
-      }),
-    );
+    final account = as.tryFind(_globalOptions.initialAccount.value);
+    if (activeAccount.valueOrNull == null) {
+      if (account != null) {
+        setActiveAccount(account);
+      } else if (as.isNotEmpty) {
+        setActiveAccount(as.first);
+      }
+    }
   }
 
   final RequestManager _requestManager;

@@ -7,7 +7,6 @@ import 'package:neon/src/blocs/accounts.dart';
 import 'package:neon/src/blocs/apps.dart';
 import 'package:neon/src/models/account.dart';
 import 'package:neon/src/models/app_implementation.dart';
-import 'package:neon/src/settings/widgets/option_builder.dart';
 import 'package:neon/src/utils/global_options.dart';
 import 'package:neon/src/utils/global_options.dart' as global_options;
 import 'package:neon/src/utils/global_popups.dart';
@@ -150,9 +149,9 @@ class _HomePageState extends State<HomePage> {
       },
     );
 
-    final body = OptionBuilder<global_options.NavigationMode>(
-      option: _globalOptions.navigationMode,
-      builder: (final context, final navigationMode) {
+    final body = ValueListenableBuilder<global_options.NavigationMode>(
+      valueListenable: _globalOptions.navigationMode,
+      builder: (final context, final navigationMode, final _) {
         final drawerAlwaysVisible = navigationMode == global_options.NavigationMode.drawerAlwaysVisible;
 
         final body = Scaffold(

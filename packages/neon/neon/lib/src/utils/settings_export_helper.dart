@@ -54,7 +54,11 @@ class SettingsExportHelper {
     for (final optionKey in data.keys) {
       for (final option in options) {
         if (option.key == optionKey) {
-          await option.set(await option.deserialize(data[optionKey]));
+          final Object? value = data[optionKey];
+
+          if (value != null) {
+            option.value = await option.deserialize(value);
+          }
         }
       }
     }
@@ -63,7 +67,7 @@ class SettingsExportHelper {
   Map<String, dynamic> toJsonExport() => {
         'global': {
           for (final option in globalOptions.options) ...{
-            if (option.enabled.value) ...{
+            if (option.enabled) ...{
               option.key: option.serialize(),
             },
           },
@@ -72,7 +76,7 @@ class SettingsExportHelper {
           for (final appImplementation in appImplementations) ...{
             appImplementation.id: {
               for (final option in appImplementation.options.options) ...{
-                if (option.enabled.value) ...{
+                if (option.enabled) ...{
                   option.key: option.serialize(),
                 },
               },
@@ -83,7 +87,7 @@ class SettingsExportHelper {
           for (final account in accountSpecificOptions.keys) ...{
             account.id: {
               for (final option in accountSpecificOptions[account]!) ...{
-                if (option.enabled.value) ...{
+                if (option.enabled) ...{
                   option.key: option.serialize(),
                 },
               },
