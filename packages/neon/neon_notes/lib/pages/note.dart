@@ -43,7 +43,7 @@ class _NotesNotePageState extends State<NotesNotePage> {
 
     WidgetsBinding.instance.addPostFrameCallback((final _) async {
       if (Provider.of<NeonPlatform>(context, listen: false).canUseWakelock) {
-        await Wakelock.enable();
+        await WakelockPlus.enable();
       }
       if (widget.bloc.options.defaultNoteViewTypeOption.value == DefaultNoteViewType.edit ||
           widget.bloc.initialContent.isEmpty) {
@@ -66,7 +66,7 @@ class _NotesNotePageState extends State<NotesNotePage> {
   Widget build(final BuildContext context) => BackButtonListener(
         onBackButtonPressed: () async {
           if (Provider.of<NeonPlatform>(context, listen: false).canUseWakelock) {
-            await Wakelock.disable();
+            await WakelockPlus.disable();
           }
           return false;
         },

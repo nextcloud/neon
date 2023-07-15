@@ -23,7 +23,7 @@ import 'package:provider/provider.dart';
 import 'package:queue/queue.dart';
 import 'package:rxdart/rxdart.dart';
 import 'package:url_launcher/url_launcher_string.dart';
-import 'package:wakelock/wakelock.dart';
+import 'package:wakelock_plus/wakelock_plus.dart';
 
 part 'blocs/note.dart';
 part 'blocs/notes.dart';

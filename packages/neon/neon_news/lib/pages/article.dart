@@ -35,7 +35,7 @@ class _NewsArticlePageState extends State<NewsArticlePage> {
 
     WidgetsBinding.instance.addPostFrameCallback((final _) async {
       if (Provider.of<NeonPlatform>(context, listen: false).canUseWakelock) {
-        await Wakelock.enable();
+        await WakelockPlus.enable();
       }
     });
 
@@ -103,7 +103,7 @@ class _NewsArticlePageState extends State<NewsArticlePage> {
           }
 
           if (mounted && Provider.of<NeonPlatform>(context, listen: false).canUseWakelock) {
-            await Wakelock.disable();
+            await WakelockPlus.disable();
           }
           return false;
         },
