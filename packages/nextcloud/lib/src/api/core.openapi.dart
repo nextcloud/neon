@@ -360,6 +360,91 @@ class CoreClient extends DynamiteClient {
     }
     throw await CoreApiException.fromResponse(response); // coverage:ignore-line
   }
+
+  /// Get the providers for unified search
+  Future<CoreUnifiedSearchProvidersResponse200ApplicationJson> unifiedSearchProviders({final String from = ''}) async {
+    const path = '/ocs/v2.php/search/providers';
+    final queryParameters = <String, dynamic>{};
+    final headers = <String, String>{
+      'Accept': 'application/json',
+    };
+    Uint8List? body;
+    if (authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
+      headers.addAll(authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
+    } else {
+      throw Exception('Missing authentication for basic_auth'); // coverage:ignore-line
+    }
+    if (from != '') {
+      queryParameters['from'] = from;
+    }
+    final response = await doRequest(
+      'get',
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
+      headers,
+      body,
+    );
+    if (response.statusCode == 200) {
+      return _jsonSerializers.deserialize(
+        await response.jsonBody,
+        specifiedType: const FullType(CoreUnifiedSearchProvidersResponse200ApplicationJson),
+      )! as CoreUnifiedSearchProvidersResponse200ApplicationJson;
+    }
+    throw await CoreApiException.fromResponse(response); // coverage:ignore-line
+  }
+
+  /// Search
+  Future<CoreUnifiedSearchResponse200ApplicationJson> unifiedSearch({
+    required final String providerId,
+    final String term = '',
+    final int? sortOrder,
+    final int? limit,
+    final ContentString<CoreUnifiedSearchCursor>? cursor,
+    final String from = '',
+  }) async {
+    var path = '/ocs/v2.php/search/providers/{providerId}/search';
+    final queryParameters = <String, dynamic>{};
+    final headers = <String, String>{
+      'Accept': 'application/json',
+    };
+    Uint8List? body;
+    if (authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
+      headers.addAll(authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
+    } else {
+      throw Exception('Missing authentication for basic_auth'); // coverage:ignore-line
+    }
+    path = path.replaceAll('{providerId}', Uri.encodeQueryComponent(providerId));
+    if (term != '') {
+      queryParameters['term'] = term;
+    }
+    if (sortOrder != null) {
+      queryParameters['sortOrder'] = sortOrder.toString();
+    }
+    if (limit != null) {
+      queryParameters['limit'] = limit.toString();
+    }
+    if (cursor != null) {
+      queryParameters['cursor'] = _jsonSerializers.serialize(
+        cursor,
+        specifiedType: const FullType(ContentString, [FullType(CoreUnifiedSearchCursor)]),
+      );
+    }
+    if (from != '') {
+      queryParameters['from'] = from;
+    }
+    final response = await doRequest(
+      'get',
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
+      headers,
+      body,
+    );
+    if (response.statusCode == 200) {
+      return _jsonSerializers.deserialize(
+        await response.jsonBody,
+        specifiedType: const FullType(CoreUnifiedSearchResponse200ApplicationJson),
+      )! as CoreUnifiedSearchResponse200ApplicationJson;
+    }
+    throw await CoreApiException.fromResponse(response); // coverage:ignore-line
+  }
 }
 
 abstract class CoreServerStatus implements Built<CoreServerStatus, CoreServerStatusBuilder> {
@@ -1711,6 +1796,222 @@ abstract class CoreAutocompleteResult implements Built<CoreAutocompleteResult, C
   static Serializer<CoreAutocompleteResult> get serializer => _$coreAutocompleteResultSerializer;
 }
 
+abstract class CoreUnifiedSearchProvider implements Built<CoreUnifiedSearchProvider, CoreUnifiedSearchProviderBuilder> {
+  factory CoreUnifiedSearchProvider([final void Function(CoreUnifiedSearchProviderBuilder)? b]) =
+      _$CoreUnifiedSearchProvider;
+  const CoreUnifiedSearchProvider._();
+
+  factory CoreUnifiedSearchProvider.fromJson(final Map<String, dynamic> json) =>
+      _jsonSerializers.deserializeWith(serializer, json)!;
+
+  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  String get id;
+  String get name;
+  int get order;
+  static Serializer<CoreUnifiedSearchProvider> get serializer => _$coreUnifiedSearchProviderSerializer;
+}
+
+abstract class CoreUnifiedSearchProvidersResponse200ApplicationJson_Ocs
+    implements
+        Built<CoreUnifiedSearchProvidersResponse200ApplicationJson_Ocs,
+            CoreUnifiedSearchProvidersResponse200ApplicationJson_OcsBuilder> {
+  factory CoreUnifiedSearchProvidersResponse200ApplicationJson_Ocs([
+    final void Function(CoreUnifiedSearchProvidersResponse200ApplicationJson_OcsBuilder)? b,
+  ]) = _$CoreUnifiedSearchProvidersResponse200ApplicationJson_Ocs;
+  const CoreUnifiedSearchProvidersResponse200ApplicationJson_Ocs._();
+
+  factory CoreUnifiedSearchProvidersResponse200ApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+      _jsonSerializers.deserializeWith(serializer, json)!;
+
+  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  CoreOCSMeta get meta;
+  BuiltList<CoreUnifiedSearchProvider> get data;
+  static Serializer<CoreUnifiedSearchProvidersResponse200ApplicationJson_Ocs> get serializer =>
+      _$coreUnifiedSearchProvidersResponse200ApplicationJsonOcsSerializer;
+}
+
+abstract class CoreUnifiedSearchProvidersResponse200ApplicationJson
+    implements
+        Built<CoreUnifiedSearchProvidersResponse200ApplicationJson,
+            CoreUnifiedSearchProvidersResponse200ApplicationJsonBuilder> {
+  factory CoreUnifiedSearchProvidersResponse200ApplicationJson([
+    final void Function(CoreUnifiedSearchProvidersResponse200ApplicationJsonBuilder)? b,
+  ]) = _$CoreUnifiedSearchProvidersResponse200ApplicationJson;
+  const CoreUnifiedSearchProvidersResponse200ApplicationJson._();
+
+  factory CoreUnifiedSearchProvidersResponse200ApplicationJson.fromJson(final Map<String, dynamic> json) =>
+      _jsonSerializers.deserializeWith(serializer, json)!;
+
+  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  CoreUnifiedSearchProvidersResponse200ApplicationJson_Ocs get ocs;
+  static Serializer<CoreUnifiedSearchProvidersResponse200ApplicationJson> get serializer =>
+      _$coreUnifiedSearchProvidersResponse200ApplicationJsonSerializer;
+}
+
+abstract class CoreUnifiedSearchCursor implements Built<CoreUnifiedSearchCursor, CoreUnifiedSearchCursorBuilder> {
+  factory CoreUnifiedSearchCursor([final void Function(CoreUnifiedSearchCursorBuilder)? b]) = _$CoreUnifiedSearchCursor;
+  const CoreUnifiedSearchCursor._();
+
+  JsonObject get data;
+  int? get $int;
+  String? get string;
+  static CoreUnifiedSearchCursor fromJson(final Object json) => _jsonSerializers.deserializeWith(serializer, json)!;
+  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  @BuiltValueSerializer(custom: true)
+  static Serializer<CoreUnifiedSearchCursor> get serializer => _$CoreUnifiedSearchCursorSerializer();
+}
+
+class _$CoreUnifiedSearchCursorSerializer implements PrimitiveSerializer<CoreUnifiedSearchCursor> {
+  @override
+  final Iterable<Type> types = const [CoreUnifiedSearchCursor, _$CoreUnifiedSearchCursor];
+
+  @override
+  final String wireName = 'CoreUnifiedSearchCursor';
+
+  @override
+  Object serialize(
+    final Serializers serializers,
+    final CoreUnifiedSearchCursor object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) =>
+      object.data.value;
+
+  @override
+  CoreUnifiedSearchCursor deserialize(
+    final Serializers serializers,
+    final Object data, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = CoreUnifiedSearchCursorBuilder()..data = JsonObject(data);
+    try {
+      result._$int = data as int?;
+    } catch (_) {}
+    try {
+      result._string = data as String?;
+    } catch (_) {}
+    assert([result._$int, result._string].where((final x) => x != null).isNotEmpty, 'Need oneOf for ${result._data}');
+    return result.build();
+  }
+}
+
+abstract class CoreUnifiedSearchResultEntry
+    implements Built<CoreUnifiedSearchResultEntry, CoreUnifiedSearchResultEntryBuilder> {
+  factory CoreUnifiedSearchResultEntry([final void Function(CoreUnifiedSearchResultEntryBuilder)? b]) =
+      _$CoreUnifiedSearchResultEntry;
+  const CoreUnifiedSearchResultEntry._();
+
+  factory CoreUnifiedSearchResultEntry.fromJson(final Map<String, dynamic> json) =>
+      _jsonSerializers.deserializeWith(serializer, json)!;
+
+  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  String get thumbnailUrl;
+  String get title;
+  String get subline;
+  String get resourceUrl;
+  String get icon;
+  bool get rounded;
+  BuiltList<String> get attributes;
+  static Serializer<CoreUnifiedSearchResultEntry> get serializer => _$coreUnifiedSearchResultEntrySerializer;
+}
+
+abstract class CoreUnifiedSearchResult_Cursor
+    implements Built<CoreUnifiedSearchResult_Cursor, CoreUnifiedSearchResult_CursorBuilder> {
+  factory CoreUnifiedSearchResult_Cursor([final void Function(CoreUnifiedSearchResult_CursorBuilder)? b]) =
+      _$CoreUnifiedSearchResult_Cursor;
+  const CoreUnifiedSearchResult_Cursor._();
+
+  JsonObject get data;
+  int? get $int;
+  String? get string;
+  static CoreUnifiedSearchResult_Cursor fromJson(final Object json) =>
+      _jsonSerializers.deserializeWith(serializer, json)!;
+  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  @BuiltValueSerializer(custom: true)
+  static Serializer<CoreUnifiedSearchResult_Cursor> get serializer => _$CoreUnifiedSearchResult_CursorSerializer();
+}
+
+class _$CoreUnifiedSearchResult_CursorSerializer implements PrimitiveSerializer<CoreUnifiedSearchResult_Cursor> {
+  @override
+  final Iterable<Type> types = const [CoreUnifiedSearchResult_Cursor, _$CoreUnifiedSearchResult_Cursor];
+
+  @override
+  final String wireName = 'CoreUnifiedSearchResult_Cursor';
+
+  @override
+  Object serialize(
+    final Serializers serializers,
+    final CoreUnifiedSearchResult_Cursor object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) =>
+      object.data.value;
+
+  @override
+  CoreUnifiedSearchResult_Cursor deserialize(
+    final Serializers serializers,
+    final Object data, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = CoreUnifiedSearchResult_CursorBuilder()..data = JsonObject(data);
+    try {
+      result._$int = data as int?;
+    } catch (_) {}
+    try {
+      result._string = data as String?;
+    } catch (_) {}
+    assert([result._$int, result._string].where((final x) => x != null).isNotEmpty, 'Need oneOf for ${result._data}');
+    return result.build();
+  }
+}
+
+abstract class CoreUnifiedSearchResult implements Built<CoreUnifiedSearchResult, CoreUnifiedSearchResultBuilder> {
+  factory CoreUnifiedSearchResult([final void Function(CoreUnifiedSearchResultBuilder)? b]) = _$CoreUnifiedSearchResult;
+  const CoreUnifiedSearchResult._();
+
+  factory CoreUnifiedSearchResult.fromJson(final Map<String, dynamic> json) =>
+      _jsonSerializers.deserializeWith(serializer, json)!;
+
+  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  String get name;
+  bool get isPaginated;
+  BuiltList<CoreUnifiedSearchResultEntry> get entries;
+  CoreUnifiedSearchResult_Cursor? get cursor;
+  static Serializer<CoreUnifiedSearchResult> get serializer => _$coreUnifiedSearchResultSerializer;
+}
+
+abstract class CoreUnifiedSearchResponse200ApplicationJson_Ocs
+    implements
+        Built<CoreUnifiedSearchResponse200ApplicationJson_Ocs, CoreUnifiedSearchResponse200ApplicationJson_OcsBuilder> {
+  factory CoreUnifiedSearchResponse200ApplicationJson_Ocs([
+    final void Function(CoreUnifiedSearchResponse200ApplicationJson_OcsBuilder)? b,
+  ]) = _$CoreUnifiedSearchResponse200ApplicationJson_Ocs;
+  const CoreUnifiedSearchResponse200ApplicationJson_Ocs._();
+
+  factory CoreUnifiedSearchResponse200ApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+      _jsonSerializers.deserializeWith(serializer, json)!;
+
+  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  CoreOCSMeta get meta;
+  CoreUnifiedSearchResult get data;
+  static Serializer<CoreUnifiedSearchResponse200ApplicationJson_Ocs> get serializer =>
+      _$coreUnifiedSearchResponse200ApplicationJsonOcsSerializer;
+}
+
+abstract class CoreUnifiedSearchResponse200ApplicationJson
+    implements Built<CoreUnifiedSearchResponse200ApplicationJson, CoreUnifiedSearchResponse200ApplicationJsonBuilder> {
+  factory CoreUnifiedSearchResponse200ApplicationJson([
+    final void Function(CoreUnifiedSearchResponse200ApplicationJsonBuilder)? b,
+  ]) = _$CoreUnifiedSearchResponse200ApplicationJson;
+  const CoreUnifiedSearchResponse200ApplicationJson._();
+
+  factory CoreUnifiedSearchResponse200ApplicationJson.fromJson(final Map<String, dynamic> json) =>
+      _jsonSerializers.deserializeWith(serializer, json)!;
+
+  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  CoreUnifiedSearchResponse200ApplicationJson_Ocs get ocs;
+  static Serializer<CoreUnifiedSearchResponse200ApplicationJson> get serializer =>
+      _$coreUnifiedSearchResponse200ApplicationJsonSerializer;
+}
+
 abstract class CoreEmptyOCS_Ocs implements Built<CoreEmptyOCS_Ocs, CoreEmptyOCS_OcsBuilder> {
   factory CoreEmptyOCS_Ocs([final void Function(CoreEmptyOCS_OcsBuilder)? b]) = _$CoreEmptyOCS_Ocs;
   const CoreEmptyOCS_Ocs._();
@@ -1797,6 +2098,13 @@ abstract class CoreEmptyOCS implements Built<CoreEmptyOCS, CoreEmptyOCSBuilder> 
   CoreAutocompleteResult,
   CoreAutocompleteResult_Ocs,
   CoreAutocompleteResult_Ocs_Data,
+  CoreUnifiedSearchProvidersResponse200ApplicationJson,
+  CoreUnifiedSearchProvidersResponse200ApplicationJson_Ocs,
+  CoreUnifiedSearchProvider,
+  CoreUnifiedSearchResponse200ApplicationJson,
+  CoreUnifiedSearchResponse200ApplicationJson_Ocs,
+  CoreUnifiedSearchResult,
+  CoreUnifiedSearchResultEntry,
   CoreEmptyOCS,
   CoreEmptyOCS_Ocs,
 ])
@@ -1807,7 +2115,20 @@ final Serializers _serializers = (_$_serializers.toBuilder()
       ..addBuilderFactory(const FullType(CoreLoginFlowInit), CoreLoginFlowInit.new)
       ..addBuilderFactory(const FullType(CoreLoginFlowResult), CoreLoginFlowResult.new)
       ..addBuilderFactory(const FullType(List, [FullType(int)]), ListBuilder<int>.new)
-      ..addBuilderFactory(const FullType(CoreAutocompleteResult), CoreAutocompleteResult.new))
+      ..addBuilderFactory(const FullType(CoreAutocompleteResult), CoreAutocompleteResult.new)
+      ..addBuilderFactory(
+        const FullType(CoreUnifiedSearchProvidersResponse200ApplicationJson),
+        CoreUnifiedSearchProvidersResponse200ApplicationJson.new,
+      )
+      ..addBuilderFactory(const FullType(CoreUnifiedSearchCursor), CoreUnifiedSearchCursor.new)
+      ..addBuilderFactory(
+        const FullType(ContentString, [FullType(CoreUnifiedSearchCursor)]),
+        ContentString<CoreUnifiedSearchCursor>.new,
+      )
+      ..addBuilderFactory(
+        const FullType(CoreUnifiedSearchResponse200ApplicationJson),
+        CoreUnifiedSearchResponse200ApplicationJson.new,
+      ))
     .build();
 
 Serializers get coreSerializers => _serializers;

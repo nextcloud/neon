@@ -131,5 +131,27 @@ Future run(final DockerImage image) async {
         throwsA(predicate((final e) => (e! as DynamiteApiException).statusCode == 401)),
       );
     });
+
+    test('Unified search providers', () async {
+      final response = await client.core.unifiedSearchProviders();
+      expect(response.ocs.data, hasLength(13));
+    });
+
+    test('Unified search', () async {
+      final response = await client.core.unifiedSearch(
+        providerId: 'settings',
+        term: 'Personal info',
+      );
+      expect(response.ocs.data.name, 'Settings');
+      expect(response.ocs.data.isPaginated, isFalse);
+      expect(response.ocs.data.entries, hasLength(1));
+      expect(response.ocs.data.entries.single.thumbnailUrl, isEmpty);
+      expect(response.ocs.data.entries.single.title, 'Personal info');
+      expect(response.ocs.data.entries.single.subline, isEmpty);
+      expect(response.ocs.data.entries.single.resourceUrl, isNotEmpty);
+      expect(response.ocs.data.entries.single.icon, 'icon-settings-dark');
+      expect(response.ocs.data.entries.single.rounded, isFalse);
+      expect(response.ocs.data.entries.single.attributes, isEmpty);
+    });
   });
 }

@@ -968,6 +968,99 @@
             }
           }
         }
+      },
+      "UnifiedSearchProvider": {
+        "type": "object",
+        "required": [
+          "id",
+          "name",
+          "order"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "order": {
+            "type": "integer",
+            "format": "int64"
+          }
+        }
+      },
+      "UnifiedSearchResult": {
+        "type": "object",
+        "required": [
+          "name",
+          "isPaginated",
+          "entries",
+          "cursor"
+        ],
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "isPaginated": {
+            "type": "boolean"
+          },
+          "entries": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/UnifiedSearchResultEntry"
+            }
+          },
+          "cursor": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "type": "integer",
+                "format": "int64"
+              },
+              {
+                "type": "string"
+              }
+            ]
+          }
+        }
+      },
+      "UnifiedSearchResultEntry": {
+        "type": "object",
+        "required": [
+          "thumbnailUrl",
+          "title",
+          "subline",
+          "resourceUrl",
+          "icon",
+          "rounded",
+          "attributes"
+        ],
+        "properties": {
+          "thumbnailUrl": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "subline": {
+            "type": "string"
+          },
+          "resourceUrl": {
+            "type": "string"
+          },
+          "icon": {
+            "type": "string"
+          },
+          "rounded": {
+            "type": "boolean"
+          },
+          "attributes": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
       }
     },
     "securitySchemes": {
@@ -1304,6 +1397,168 @@
               "application/json": {
                 "schema": {
                   "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ocs/v2.php/search/providers": {
+      "get": {
+        "operationId": "unified-search-providers",
+        "summary": "Get the providers for unified search",
+        "parameters": [
+          {
+            "name": "from",
+            "in": "query",
+            "description": "the url the user is currently at",
+            "schema": {
+              "type": "string",
+              "default": ""
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "ocs"
+                  ],
+                  "properties": {
+                    "ocs": {
+                      "type": "object",
+                      "required": [
+                        "meta",
+                        "data"
+                      ],
+                      "properties": {
+                        "meta": {
+                          "$ref": "#/components/schemas/OCSMeta"
+                        },
+                        "data": {
+                          "type": "array",
+                          "items": {
+                            "$ref": "#/components/schemas/UnifiedSearchProvider"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ocs/v2.php/search/providers/{providerId}/search": {
+      "get": {
+        "operationId": "unified-search",
+        "summary": "Search",
+        "parameters": [
+          {
+            "name": "term",
+            "in": "query",
+            "description": "Term to search",
+            "schema": {
+              "type": "string",
+              "default": ""
+            }
+          },
+          {
+            "name": "sortOrder",
+            "in": "query",
+            "description": "Order of entries",
+            "schema": {
+              "type": "integer",
+              "format": "int64",
+              "nullable": true
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Maximum amount of entries",
+            "schema": {
+              "type": "integer",
+              "format": "int64",
+              "nullable": true
+            }
+          },
+          {
+            "name": "cursor",
+            "in": "query",
+            "description": "Offset for searching",
+            "schema": {
+              "type": "string",
+              "nullable": true,
+              "contentMediaType": "application/json",
+              "contentSchema": {
+                "nullable": true,
+                "description": "Offset for searching",
+                "oneOf": [
+                  {
+                    "type": "integer",
+                    "format": "int64"
+                  },
+                  {
+                    "type": "string"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "name": "from",
+            "in": "query",
+            "description": "The current user URL",
+            "schema": {
+              "type": "string",
+              "default": ""
+            }
+          },
+          {
+            "name": "providerId",
+            "in": "path",
+            "description": "ID of the provider",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Search entries returned",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "ocs"
+                  ],
+                  "properties": {
+                    "ocs": {
+                      "type": "object",
+                      "required": [
+                        "meta",
+                        "data"
+                      ],
+                      "properties": {
+                        "meta": {
+                          "$ref": "#/components/schemas/OCSMeta"
+                        },
+                        "data": {
+                          "$ref": "#/components/schemas/UnifiedSearchResult"
+                        }
+                      }
+                    }
+                  }
                 }
               }
             }
