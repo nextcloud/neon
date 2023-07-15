@@ -41,9 +41,9 @@ class _NotesNotePageState extends State<NotesNotePage> {
     _contentController.addListener(() => _contentStreamController.add(_contentController.text));
     _titleController.addListener(() => _titleStreamController.add(_titleController.text));
 
-    WidgetsBinding.instance.addPostFrameCallback((final _) async {
+    WidgetsBinding.instance.addPostFrameCallback((final _) {
       if (Provider.of<NeonPlatform>(context, listen: false).canUseWakelock) {
-        await WakelockPlus.enable();
+        unawaited(WakelockPlus.enable());
       }
       if (widget.bloc.options.defaultNoteViewTypeOption.value == DefaultNoteViewType.edit ||
           widget.bloc.initialContent.isEmpty) {
@@ -66,7 +66,7 @@ class _NotesNotePageState extends State<NotesNotePage> {
   Widget build(final BuildContext context) => BackButtonListener(
         onBackButtonPressed: () async {
           if (Provider.of<NeonPlatform>(context, listen: false).canUseWakelock) {
-            await WakelockPlus.disable();
+            unawaited(WakelockPlus.disable());
           }
           return false;
         },

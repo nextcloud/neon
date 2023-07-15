@@ -33,9 +33,9 @@ class _NewsArticlePageState extends State<NewsArticlePage> {
       NeonException.showSnackbar(context, error);
     });
 
-    WidgetsBinding.instance.addPostFrameCallback((final _) async {
+    WidgetsBinding.instance.addPostFrameCallback((final _) {
       if (Provider.of<NeonPlatform>(context, listen: false).canUseWakelock) {
-        await WakelockPlus.enable();
+        unawaited(WakelockPlus.enable());
       }
     });
 
@@ -103,7 +103,7 @@ class _NewsArticlePageState extends State<NewsArticlePage> {
           }
 
           if (mounted && Provider.of<NeonPlatform>(context, listen: false).canUseWakelock) {
-            await WakelockPlus.disable();
+            unawaited(WakelockPlus.disable());
           }
           return false;
         },
