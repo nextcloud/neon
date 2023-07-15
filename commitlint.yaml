@@ -2,7 +2,7 @@ include: package:commitlint_cli/commitlint.yaml
 
 rules:
   scope-empty:
-    - 2
+    - 1
     - never
   scope-enum:
     - 2
