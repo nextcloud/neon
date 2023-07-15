@@ -1,6 +1,9 @@
-import 'package:flutter/widgets.dart';
+import 'dart:async';
 
-class RelativeTime extends StatelessWidget {
+import 'package:flutter/widgets.dart';
+import 'package:neon/src/utils/relative_time.dart';
+
+class RelativeTime extends StatefulWidget {
   const RelativeTime({
     required this.date,
     this.style,
@@ -10,40 +13,33 @@ class RelativeTime extends StatelessWidget {
   final DateTime date;
   final TextStyle? style;
 
-  static String format(final DateTime date) {
-    final now = DateTime.now();
-    var diff = now.difference(date.toLocal());
-    final text = StringBuffer();
+  @override
+  State<RelativeTime> createState() => _RelativeTimeState();
+}
 
-    // Sometimes something can be messed up...
-    if (diff.isNegative) {
-      if (diff.inMinutes >= 1) {
-        text.write('-');
-      }
-      diff = Duration(microseconds: -diff.inMicroseconds);
-    }
+class _RelativeTimeState extends State<RelativeTime> {
+  late final Timer timer;
 
-    if (diff.inMinutes < 1) {
-      text.write('now');
-    } else if (diff.inHours < 1) {
-      text.write('${diff.inMinutes}m');
-    } else if (diff.inDays < 1) {
-      text.write('${diff.inHours}h');
-    } else if (diff.inDays < 365) {
-      text.write('${diff.inDays}d');
-    } else {
-      text.write('${diff.inDays ~/ 365}y');
-    }
+  @override
+  void initState() {
+    timer = Timer.periodic(
+      const Duration(minutes: 1),
+      (final _) => setState(() {}),
+    );
 
-    return text.toString();
+    super.initState();
   }
 
   @override
-  Widget build(final BuildContext context) => StreamBuilder(
-        stream: Stream.periodic(const Duration(minutes: 1)),
-        builder: (final context, final _) => Text(
-          format(date),
-          style: style,
-        ),
+  void dispose() {
+    timer.cancel();
+
+    super.dispose();
+  }
+
+  @override
+  Widget build(final BuildContext context) => Text(
+        widget.date.formatRelative(),
+        style: widget.style,
       );
 }
