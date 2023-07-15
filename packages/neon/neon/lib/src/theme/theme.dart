@@ -16,14 +16,14 @@ class AppTheme {
     this.appThemes,
   }) : keepOriginalAccentColor = nextcloudTheme == null || keepOriginalAccentColor;
 
-  final CoreServerCapabilities_Ocs_Data_Capabilities_Theming? nextcloudTheme;
+  final CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Theming? nextcloudTheme;
   final bool keepOriginalAccentColor;
   final bool oledAsDark;
   final Iterable<ThemeExtension>? appThemes;
   final NeonTheme neonTheme;
 
   ColorScheme _buildColorScheme(final Brightness brightness) {
-    final primary = nextcloudTheme?.color != null ? HexColor(nextcloudTheme!.color!) : neonTheme.colorScheme.primary;
+    final primary = nextcloudTheme?.color != null ? HexColor(nextcloudTheme!.color) : neonTheme.colorScheme.primary;
     final keepOriginalAccentColorOverride = keepOriginalAccentColor ? primary : null;
     final oledBackgroundOverride = oledAsDark && brightness == Brightness.dark ? NcColors.oledBackground : null;
 

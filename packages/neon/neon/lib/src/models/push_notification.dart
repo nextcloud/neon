@@ -24,5 +24,5 @@ class PushNotification {
 
   final String type;
 
-  final NotificationsNotificationDecryptedSubject subject;
+  final NotificationsDecryptedSubject subject;
 }

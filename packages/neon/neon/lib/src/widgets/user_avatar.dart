@@ -68,22 +68,24 @@ class _UserAvatarState extends State<NeonUserAvatar> {
                     cacheKey: '${widget.account.id}-avatar-${widget.username}-$brightness$pixelSize',
                     getImage: () async {
                       if (brightness == Brightness.dark) {
-                        return widget.account.client.core.getDarkAvatar(
+                        return (await widget.account.client.core.avatar.getAvatarDark(
                           userId: widget.username,
                           size: pixelSize,
-                        );
+                        ))
+                            .data;
                       } else {
-                        return widget.account.client.core.getAvatar(
+                        return (await widget.account.client.core.avatar.getAvatar(
                           userId: widget.username,
                           size: pixelSize,
-                        );
+                        ))
+                            .data;
                       }
                     },
                   ),
                 ),
               ),
               if (widget.showStatus) ...[
-                ResultBuilder<UserStatusPublicStatus?>(
+                ResultBuilder<UserStatusPublic?>(
                   stream: _userStatusBloc.statuses.mapNotNull((final statuses) => statuses[widget.username]),
                   builder: _userStatusIconBuilder,
                 ),
@@ -93,7 +95,7 @@ class _UserAvatarState extends State<NeonUserAvatar> {
         },
       );
 
-  Widget _userStatusIconBuilder(final BuildContext context, final Result<UserStatusPublicStatus?> result) {
+  Widget _userStatusIconBuilder(final BuildContext context, final Result<UserStatusPublic?> result) {
     final hasEmoji = result.data?.icon != null;
     final scaledSize = size / (hasEmoji ? 2 : 3);
 
@@ -120,7 +122,7 @@ class _UserAvatarState extends State<NeonUserAvatar> {
     } else if (result.hasData) {
       decoration = BoxDecoration(
         shape: BoxShape.circle,
-        color: result.data!.status.color,
+        color: result.data!.color,
       );
     }
 

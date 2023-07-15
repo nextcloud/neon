@@ -103,7 +103,7 @@ class FilePreviewImage extends NeonCachedImage {
     required final int width,
     required final int height,
   }) : super.custom(
-          getImage: () async => account.client.core.getPreview(
+          getImage: () async => account.client.core.preview.getPreview(
             file: path,
             x: width,
             y: height,

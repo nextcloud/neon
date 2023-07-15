@@ -29,13 +29,13 @@ abstract final class NcColors {
   static const Color accept = Colors.green;
 }
 
-/// [UserStatusType] color mapping.
-extension UserStatusTypeColors on UserStatusType {
+/// [UserStatusPublic] status color mapping.
+extension UserStatusTypeColors on UserStatusPublic {
   /// The color for the user status.
-  Color? get color => switch (this) {
-        UserStatusType.online => const Color(0xFF49B382),
-        UserStatusType.away => const Color(0xFFF4A331),
-        UserStatusType.dnd => const Color(0xFFED484C),
+  Color? get color => switch (status) {
+        'online' => const Color(0xFF49B382),
+        'away' => const Color(0xFFF4A331),
+        'dnd' => const Color(0xFFED484C),
         _ => null,
       };
 }

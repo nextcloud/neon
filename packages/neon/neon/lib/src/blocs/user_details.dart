@@ -38,11 +38,12 @@ class UserDetailsBloc extends InteractiveBloc implements UserDetailsBlocEvents, 
 
   @override
   Future refresh() async {
-    await _requestManager.wrapNextcloud<ProvisioningApiUserDetails, ProvisioningApiUser>(
+    await _requestManager
+        .wrapNextcloud<ProvisioningApiUserDetails, ProvisioningApiUsersGetCurrentUserResponse200ApplicationJson>(
       _account.id,
       'user-details',
       userDetails,
-      () async => _account.client.provisioningApi.getCurrentUser(),
+      () async => _account.client.provisioningApi.users.getCurrentUser(),
       (final response) => response.ocs.data,
     );
   }

@@ -6,13 +6,13 @@ import 'package:neon/l10n/localizations.dart';
 import 'package:neon/src/bloc/result_builder.dart';
 import 'package:neon/src/blocs/accounts.dart';
 import 'package:neon/src/blocs/apps.dart';
-import 'package:neon/src/blocs/capabilities.dart';
 import 'package:neon/src/models/app_implementation.dart';
 import 'package:neon/src/router.dart';
 import 'package:neon/src/widgets/cached_image.dart';
 import 'package:neon/src/widgets/drawer_destination.dart';
 import 'package:neon/src/widgets/exception.dart';
 import 'package:neon/src/widgets/linear_progress_indicator.dart';
+import 'package:nextcloud/nextcloud.dart';
 import 'package:provider/provider.dart';
 
 @internal
@@ -121,7 +121,7 @@ class NeonDrawerHeader extends StatelessWidget {
     final accountsBloc = Provider.of<AccountsBloc>(context, listen: false);
     final capabilitiesBloc = accountsBloc.activeCapabilitiesBloc;
 
-    final branding = ResultBuilder<Capabilities>.behaviorSubject(
+    final branding = ResultBuilder<CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data>.behaviorSubject(
       stream: capabilitiesBloc.capabilities,
       builder: (final context, final capabilities) {
         if (!capabilities.hasData) {
@@ -147,21 +147,17 @@ class NeonDrawerHeader extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            if (theme.name != null) ...[
-              Text(
-                theme.name!,
-                style: DefaultTextStyle.of(context).style.copyWith(
-                      color: Theme.of(context).appBarTheme.foregroundColor,
-                    ),
+            Text(
+              theme.name,
+              style: DefaultTextStyle.of(context).style.copyWith(
+                    color: Theme.of(context).appBarTheme.foregroundColor,
+                  ),
+            ),
+            Flexible(
+              child: NeonCachedImage.url(
+                url: theme.logo,
               ),
-            ],
-            if (theme.logo != null) ...[
-              Flexible(
-                child: NeonCachedImage.url(
-                  url: theme.logo!,
-                ),
-              ),
-            ],
+            ),
           ],
         );
       },

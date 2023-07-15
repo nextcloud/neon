@@ -16,8 +16,6 @@ import 'package:nextcloud/nextcloud.dart';
 import 'package:provider/provider.dart';
 import 'package:rxdart/rxdart.dart';
 
-typedef NextcloudApp = CoreNavigationApps_Ocs_Data;
-
 abstract class AppsBlocEvents {
   /// Sets the active app using the [appID].
   ///
@@ -27,7 +25,7 @@ abstract class AppsBlocEvents {
 }
 
 abstract class AppsBlocStates {
-  BehaviorSubject<Result<List<NextcloudApp>>> get apps;
+  BehaviorSubject<Result<List<CoreNavigationEntry>>> get apps;
 
   BehaviorSubject<Result<Iterable<AppImplementation>>> get appImplementations;
 
@@ -181,7 +179,7 @@ class AppsBloc extends InteractiveBloc implements AppsBlocEvents, AppsBlocStates
       BehaviorSubject<Result<Iterable<AppImplementation>>>();
 
   @override
-  BehaviorSubject<Result<List<NextcloudApp>>> apps = BehaviorSubject<Result<List<NextcloudApp>>>();
+  BehaviorSubject<Result<List<CoreNavigationEntry>>> apps = BehaviorSubject<Result<List<CoreNavigationEntry>>>();
 
   @override
   BehaviorSubject<Result<NotificationsAppInterface?>> notificationsAppImplementation =
@@ -195,11 +193,12 @@ class AppsBloc extends InteractiveBloc implements AppsBlocEvents, AppsBlocStates
 
   @override
   Future refresh() async {
-    await _requestManager.wrapNextcloud<List<NextcloudApp>, CoreNavigationApps>(
+    await _requestManager
+        .wrapNextcloud<List<CoreNavigationEntry>, CoreNavigationGetAppsNavigationResponse200ApplicationJson>(
       _account.id,
       'apps-apps',
       apps,
-      () async => _account.client.core.getNavigationApps(),
+      () async => _account.client.core.navigation.getAppsNavigation(),
       (final response) => response.ocs.data.toList(),
     );
   }

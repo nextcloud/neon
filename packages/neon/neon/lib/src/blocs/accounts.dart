@@ -157,7 +157,7 @@ class AccountsBloc extends Bloc implements AccountsBlocEvents, AccountsBlocState
 
     unawaited(() async {
       try {
-        await account.client.core.deleteAppPassword();
+        await account.client.core.appPassword.deleteAppPassword();
       } catch (e, s) {
         debugPrint(e.toString());
         debugPrint(s.toString());
