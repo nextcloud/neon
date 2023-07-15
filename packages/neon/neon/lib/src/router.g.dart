@@ -159,6 +159,8 @@ extension $_AddAccountFlowRouteExtension on _AddAccountFlowRoute {
   Future<T?> push<T>(BuildContext context) => context.push<T>(location);
 
   void pushReplacement(BuildContext context) => context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
 }
 
 extension $_AddAccountQrcodeRouteExtension on _AddAccountQrcodeRoute {
@@ -173,6 +175,8 @@ extension $_AddAccountQrcodeRouteExtension on _AddAccountQrcodeRoute {
   Future<T?> push<T>(BuildContext context) => context.push<T>(location);
 
   void pushReplacement(BuildContext context) => context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
 }
 
 extension $_AddAccountCheckServerStatusRouteExtension on _AddAccountCheckServerStatusRoute {
@@ -192,6 +196,8 @@ extension $_AddAccountCheckServerStatusRouteExtension on _AddAccountCheckServerS
   Future<T?> push<T>(BuildContext context) => context.push<T>(location);
 
   void pushReplacement(BuildContext context) => context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
 }
 
 extension $_AddAccountCheckAccountRouteExtension on _AddAccountCheckAccountRoute {
@@ -215,6 +221,8 @@ extension $_AddAccountCheckAccountRouteExtension on _AddAccountCheckAccountRoute
   Future<T?> push<T>(BuildContext context) => context.push<T>(location);
 
   void pushReplacement(BuildContext context) => context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
 }
 
 extension $AccountSettingsRouteExtension on AccountSettingsRoute {
@@ -305,6 +313,8 @@ extension $LoginFlowRouteExtension on LoginFlowRoute {
   Future<T?> push<T>(BuildContext context) => context.push<T>(location);
 
   void pushReplacement(BuildContext context) => context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
 }
 
 extension $LoginQrcodeRouteExtension on LoginQrcodeRoute {
@@ -326,12 +336,16 @@ extension $LoginQrcodeRouteExtension on LoginQrcodeRoute {
 extension $LoginCheckServerStatusRouteExtension on LoginCheckServerStatusRoute {
   static LoginCheckServerStatusRoute _fromState(GoRouterState state) => LoginCheckServerStatusRoute(
         serverUrl: state.queryParameters['server-url']!,
+        loginName: state.queryParameters['login-name'],
+        password: state.queryParameters['password'],
       );
 
   String get location => GoRouteData.$location(
         '/login/check/server',
         queryParams: {
           'server-url': serverUrl,
+          if (loginName != null) 'login-name': loginName,
+          if (password != null) 'password': password,
         },
       );
 

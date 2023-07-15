@@ -208,8 +208,9 @@ class LoginQrcodeRoute extends GoRouteData {
 class LoginCheckServerStatusRoute extends GoRouteData {
   const LoginCheckServerStatusRoute({
     required this.serverUrl,
-  })  : loginName = null,
-        password = null;
+    this.loginName,
+    this.password,
+  });
 
   const LoginCheckServerStatusRoute.withCredentials({
     required this.serverUrl,
@@ -303,6 +304,7 @@ class _AddAccountFlowRoute extends LoginFlowRoute {
   const _AddAccountFlowRoute({
     required super.serverUrl,
   });
+
   @override
   String get serverUrl => super.serverUrl;
 }
