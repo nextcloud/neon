@@ -1,4 +1,4 @@
-# melos_managed_dependency_overrides: dynamite_runtime,file_icons,neon,neon_files,neon_news,neon_notes,neon_notifications,nextcloud,sort_box,wakelock_windows
+# melos_managed_dependency_overrides: dynamite_runtime,file_icons,neon,neon_files,neon_news,neon_notes,neon_notifications,nextcloud,sort_box
 dependency_overrides:
   dynamite_runtime:
     path: ../dynamite/dynamite_runtime
@@ -18,8 +18,3 @@ dependency_overrides:
     path: ../nextcloud
   sort_box:
     path: ../sort_box
-  wakelock_windows:
-    git:
-      url: https://github.com/fikretonuresen/wakelock
-      ref: 269e1dba6bca6975a0bc44da6a42e56ca7428da9
-      path: wakelock_windows

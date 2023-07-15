@@ -11,7 +11,6 @@ import 'package:go_router/go_router.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:neon/blocs.dart';
 import 'package:neon/models.dart';
-import 'package:neon/platform.dart';
 import 'package:neon/settings.dart';
 import 'package:neon/sort_box.dart';
 import 'package:neon/utils.dart';
@@ -23,7 +22,7 @@ import 'package:provider/provider.dart';
 import 'package:queue/queue.dart';
 import 'package:rxdart/rxdart.dart';
 import 'package:url_launcher/url_launcher_string.dart';
-import 'package:wakelock/wakelock.dart';
+import 'package:wakelock_plus/wakelock_plus.dart';
 
 part 'blocs/note.dart';
 part 'blocs/notes.dart';

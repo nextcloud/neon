@@ -25,7 +25,7 @@ dependencies:
   rxdart: ^0.27.7
   share_plus: ^7.0.0
   url_launcher: ^6.1.11
-  wakelock: ^0.6.2
+  wakelock_plus: ^1.1.1
   webview_flutter: ^4.2.0
 
 dev_dependencies:
@@ -35,13 +35,6 @@ dev_dependencies:
     git:
       url: https://github.com/stack11/dart_nit_picking
       ref: 0b2ee0d
-
-dependency_overrides:
-  wakelock_windows: # TODO: https://github.com/creativecreatorormaybenot/wakelock/pull/195
-    git:
-      url: https://github.com/fikretonuresen/wakelock
-      path: wakelock_windows
-      ref: 269e1dba6bca6975a0bc44da6a42e56ca7428da9
 
 flutter:
   uses-material-design: true

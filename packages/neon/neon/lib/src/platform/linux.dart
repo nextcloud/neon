@@ -11,7 +11,6 @@ class LinuxNeonPlatform extends NeonPlatform {
   LinuxNeonPlatform()
       : super(
           canUseWebView: false,
-          canUseWakelock: false,
           canUseQuickActions: false,
           canUseSystemTray: true,
           canUseWindowManager: true,
