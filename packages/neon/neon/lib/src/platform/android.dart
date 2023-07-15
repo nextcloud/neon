@@ -5,22 +5,44 @@ import 'package:path/path.dart' as p;
 import 'package:path_provider/path_provider.dart';
 import 'package:permission_handler/permission_handler.dart';
 
+@immutable
 @internal
-class AndroidNeonPlatform extends NeonPlatform {
-  AndroidNeonPlatform()
-      : super(
-          canUseWebView: true,
-          canUseQuickActions: true,
-          canUseSystemTray: false,
-          canUseWindowManager: false,
-          canUseCamera: true,
-          canUsePushNotifications: true,
-          getApplicationCachePath: () async => (await getTemporaryDirectory()).absolute.path,
-          getUserAccessibleAppDataPath: () async {
-            if (!await Permission.storage.request().isGranted) {
-              throw MissingPermissionException(Permission.storage);
-            }
-            return p.join((await getExternalStorageDirectory())!.path);
-          },
-        );
+class AndroidNeonPlatform implements NeonPlatform {
+  const AndroidNeonPlatform();
+
+  @override
+  bool get canUseCamera => true;
+
+  @override
+  bool get canUsePushNotifications => true;
+
+  @override
+  bool get canUseQuickActions => true;
+
+  @override
+  bool get canUseSystemTray => false;
+
+  @override
+  bool get canUseWebView => true;
+
+  @override
+  bool get canUseWindowManager => false;
+
+  @override
+  Future<String> getApplicationCachePath() async {
+    final tempDir = await getTemporaryDirectory();
+    return tempDir.absolute.path;
+  }
+
+  @override
+  Future<String> getUserAccessibleAppDataPath() async {
+    if (!await Permission.storage.request().isGranted) {
+      throw MissingPermissionException(Permission.storage);
+    }
+
+    return p.join((await getExternalStorageDirectory())!.path);
+  }
+
+  @override
+  void init() {}
 }
