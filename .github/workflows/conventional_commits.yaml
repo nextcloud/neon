@@ -11,7 +11,6 @@ jobs:
         uses: actions/checkout@v3
         with:
           fetch-depth: 0
-          ref: ${{ github.head_ref }}
 
       - name: Install dart
         uses: dart-lang/setup-dart@v1
@@ -19,4 +18,4 @@ jobs:
         run: dart pub get
 
       - name: Lint conventional commits
-        run: dart run commitlint_cli --from="origin/${{ github.base_ref }}" --to="${{ github.head_ref }}"
+        run: dart run commitlint_cli --from=${{ github.event.pull_request.head.sha }}~${{ github.event.pull_request.commits }} --to=${{ github.event.pull_request.head.sha }}
