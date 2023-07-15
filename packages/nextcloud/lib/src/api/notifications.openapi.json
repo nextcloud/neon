@@ -24,11 +24,45 @@
   ],
   "security": [
     {
+      "bearer": []
+    },
+    {
       "basic_auth": []
     }
   ],
+  "tags": [],
   "components": {
     "schemas": {
+      "Capabilities": {
+        "type": "object",
+        "required": ["notifications"],
+        "properties": {
+          "notifications": {
+            "type": "object",
+            "additionalProperties": true,
+            "properties": {
+              "ocs-endpoints": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "push": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "admin-notifications": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      },
       "OCSMeta": {
         "type": "object",
         "required": [
@@ -291,6 +325,10 @@
       "basic_auth": {
         "type": "http",
         "scheme": "basic"
+      },
+      "bearer": {
+        "type": "http",
+        "scheme": "bearer"
       }
     }
   },
@@ -313,6 +351,11 @@
       },
       "delete": {
         "operationId": "delete-all-notifications",
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -355,6 +398,11 @@
       },
       "delete": {
         "operationId": "delete-notification",
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -372,6 +420,11 @@
     "/ocs/v2.php/apps/notifications/api/v2/push": {
       "post": {
         "operationId": "register-device",
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
         "parameters": [
           {
             "name": "pushTokenHash",
@@ -414,6 +467,11 @@
       },
       "delete": {
         "operationId": "remove-device",
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
         "responses": {
           "202": {
             "description": "",
@@ -440,6 +498,11 @@
         }
       ],
       "post": {
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
         "operationId": "send-admin-notification",
         "parameters": [
           {

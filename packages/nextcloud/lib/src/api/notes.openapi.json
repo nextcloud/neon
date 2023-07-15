@@ -27,8 +27,30 @@
       "basic_auth": []
     }
   ],
+  "tags": [],
   "components": {
     "schemas": {
+      "Capabilities": {
+        "type": "object",
+        "required": ["notes"],
+        "properties": {
+          "notes": {
+            "type": "object",
+            "additionalProperties": true,
+            "properties": {
+              "api_version": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "version": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      },
       "OCSMeta": {
         "type": "object",
         "required": [
