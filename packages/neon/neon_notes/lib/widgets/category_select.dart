@@ -11,14 +11,19 @@ class NotesCategorySelect extends StatelessWidget {
     if (initialValue != null) {
       onChanged(initialValue!);
     }
+
+    categories.sort();
+
+    // After sorting the empty category '' should be at the first place
+    if (!categories.first.isNotEmpty) {
+      categories.insert(0, '');
+    }
   }
 
   final List<String> categories;
   final String? initialValue;
   final Function(String category) onChanged;
   final Function() onSubmitted;
-
-  late final _categories = categories..sort((final a, final b) => a.compareTo(b));
 
   @override
   Widget build(final BuildContext context) => Autocomplete<String>(
@@ -28,13 +33,6 @@ class NotesCategorySelect extends StatelessWidget {
               )
             : null,
         optionsBuilder: (final value) {
-          final categories = [
-            if (!_categories.contains('')) ...{
-              '',
-            },
-            ..._categories,
-          ];
-
           if (value.text.isEmpty) {
             return categories;
           }
