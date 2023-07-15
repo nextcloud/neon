@@ -10,7 +10,6 @@ class AndroidNeonPlatform extends NeonPlatform {
   AndroidNeonPlatform()
       : super(
           canUseWebView: true,
-          canUseWakelock: true,
           canUseQuickActions: true,
           canUseSystemTray: false,
           canUseWindowManager: false,

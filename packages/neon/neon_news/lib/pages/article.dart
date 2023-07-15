@@ -34,9 +34,7 @@ class _NewsArticlePageState extends State<NewsArticlePage> {
     });
 
     WidgetsBinding.instance.addPostFrameCallback((final _) {
-      if (Provider.of<NeonPlatform>(context, listen: false).canUseWakelock) {
-        unawaited(WakelockPlus.enable());
-      }
+      unawaited(WakelockPlus.enable());
     });
 
     if (widget.useWebView) {
@@ -102,9 +100,8 @@ class _NewsArticlePageState extends State<NewsArticlePage> {
             return true;
           }
 
-          if (mounted && Provider.of<NeonPlatform>(context, listen: false).canUseWakelock) {
-            unawaited(WakelockPlus.disable());
-          }
+          unawaited(WakelockPlus.disable());
+
           return false;
         },
         child: Scaffold(

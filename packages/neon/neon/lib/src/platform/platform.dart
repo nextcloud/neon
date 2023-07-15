@@ -23,7 +23,6 @@ Future<NeonPlatform> getNeonPlatform() async {
 abstract class NeonPlatform {
   NeonPlatform({
     required this.canUseWebView,
-    required this.canUseWakelock,
     required this.canUseQuickActions,
     required this.canUseSystemTray,
     required this.canUseWindowManager,
@@ -35,8 +34,6 @@ abstract class NeonPlatform {
   });
 
   final bool canUseWebView;
-
-  final bool canUseWakelock;
 
   final bool canUseQuickActions;
 

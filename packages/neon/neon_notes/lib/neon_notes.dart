@@ -11,7 +11,6 @@ import 'package:go_router/go_router.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:neon/blocs.dart';
 import 'package:neon/models.dart';
-import 'package:neon/platform.dart';
 import 'package:neon/settings.dart';
 import 'package:neon/sort_box.dart';
 import 'package:neon/utils.dart';
