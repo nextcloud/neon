@@ -144,7 +144,7 @@ Future<TestNextcloudClient> getTestClient(
   return client;
 }
 
-Future<DockerContainer> getDockerContainer(final DockerImage image) async {
+Future<DockerContainer> getDockerContainer(final DockerImage image, {final bool useApache = false}) async {
   late ProcessResult result;
   late int port;
   while (true) {
@@ -155,12 +155,16 @@ Future<DockerContainer> getDockerContainer(final DockerImage image) async {
         'run',
         '--rm',
         '-d',
-        '--net',
-        'host',
+        '--add-host',
+        'host.docker.internal:host-gateway',
+        '-p',
+        '$port:80',
         image,
-        'php',
-        '-S',
-        '0.0.0.0:$port',
+        if (!useApache) ...[
+          'php',
+          '-S',
+          '0.0.0.0:80',
+        ],
       ],
     );
     // 125 means the docker run command itself has failed which indicated the port is already used
