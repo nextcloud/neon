@@ -26,6 +26,9 @@ Serializer<NotificationsPushServerRegistration_Ocs> _$notificationsPushServerReg
     _$NotificationsPushServerRegistration_OcsSerializer();
 Serializer<NotificationsPushServerRegistration> _$notificationsPushServerRegistrationSerializer =
     _$NotificationsPushServerRegistrationSerializer();
+Serializer<NotificationsCapabilities_Notifications> _$notificationsCapabilitiesNotificationsSerializer =
+    _$NotificationsCapabilities_NotificationsSerializer();
+Serializer<NotificationsCapabilities> _$notificationsCapabilitiesSerializer = _$NotificationsCapabilitiesSerializer();
 Serializer<NotificationsNotificationDecryptedSubject> _$notificationsNotificationDecryptedSubjectSerializer =
     _$NotificationsNotificationDecryptedSubjectSerializer();
 
@@ -694,6 +697,113 @@ class _$NotificationsPushServerRegistrationSerializer
           result.ocs.replace(
               serializers.deserialize(value, specifiedType: const FullType(NotificationsPushServerRegistration_Ocs))!
                   as NotificationsPushServerRegistration_Ocs);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$NotificationsCapabilities_NotificationsSerializer
+    implements StructuredSerializer<NotificationsCapabilities_Notifications> {
+  @override
+  final Iterable<Type> types = const [
+    NotificationsCapabilities_Notifications,
+    _$NotificationsCapabilities_Notifications
+  ];
+  @override
+  final String wireName = 'NotificationsCapabilities_Notifications';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, NotificationsCapabilities_Notifications object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[];
+    Object? value;
+    value = object.ocsEndpoints;
+    if (value != null) {
+      result
+        ..add('ocs-endpoints')
+        ..add(serializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(String)])));
+    }
+    value = object.push;
+    if (value != null) {
+      result
+        ..add('push')
+        ..add(serializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(String)])));
+    }
+    value = object.adminNotifications;
+    if (value != null) {
+      result
+        ..add('admin-notifications')
+        ..add(serializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(String)])));
+    }
+    return result;
+  }
+
+  @override
+  NotificationsCapabilities_Notifications deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = NotificationsCapabilities_NotificationsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'ocs-endpoints':
+          result.ocsEndpoints.replace(serializers.deserialize(value,
+              specifiedType: const FullType(BuiltList, [FullType(String)]))! as BuiltList<Object?>);
+          break;
+        case 'push':
+          result.push.replace(serializers.deserialize(value,
+              specifiedType: const FullType(BuiltList, [FullType(String)]))! as BuiltList<Object?>);
+          break;
+        case 'admin-notifications':
+          result.adminNotifications.replace(serializers.deserialize(value,
+              specifiedType: const FullType(BuiltList, [FullType(String)]))! as BuiltList<Object?>);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$NotificationsCapabilitiesSerializer implements StructuredSerializer<NotificationsCapabilities> {
+  @override
+  final Iterable<Type> types = const [NotificationsCapabilities, _$NotificationsCapabilities];
+  @override
+  final String wireName = 'NotificationsCapabilities';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, NotificationsCapabilities object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'notifications',
+      serializers.serialize(object.notifications,
+          specifiedType: const FullType(NotificationsCapabilities_Notifications)),
+    ];
+
+    return result;
+  }
+
+  @override
+  NotificationsCapabilities deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = NotificationsCapabilitiesBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'notifications':
+          result.notifications.replace(
+              serializers.deserialize(value, specifiedType: const FullType(NotificationsCapabilities_Notifications))!
+                  as NotificationsCapabilities_Notifications);
           break;
       }
     }
@@ -2229,6 +2339,219 @@ class NotificationsPushServerRegistrationBuilder
         ocs.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(r'NotificationsPushServerRegistration', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+class _$NotificationsCapabilities_Notifications extends NotificationsCapabilities_Notifications {
+  @override
+  final BuiltList<String>? ocsEndpoints;
+  @override
+  final BuiltList<String>? push;
+  @override
+  final BuiltList<String>? adminNotifications;
+
+  factory _$NotificationsCapabilities_Notifications(
+          [void Function(NotificationsCapabilities_NotificationsBuilder)? updates]) =>
+      (NotificationsCapabilities_NotificationsBuilder()..update(updates))._build();
+
+  _$NotificationsCapabilities_Notifications._({this.ocsEndpoints, this.push, this.adminNotifications}) : super._();
+
+  @override
+  NotificationsCapabilities_Notifications rebuild(
+          void Function(NotificationsCapabilities_NotificationsBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  NotificationsCapabilities_NotificationsBuilder toBuilder() =>
+      NotificationsCapabilities_NotificationsBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is NotificationsCapabilities_Notifications &&
+        ocsEndpoints == other.ocsEndpoints &&
+        push == other.push &&
+        adminNotifications == other.adminNotifications;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, ocsEndpoints.hashCode);
+    _$hash = $jc(_$hash, push.hashCode);
+    _$hash = $jc(_$hash, adminNotifications.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'NotificationsCapabilities_Notifications')
+          ..add('ocsEndpoints', ocsEndpoints)
+          ..add('push', push)
+          ..add('adminNotifications', adminNotifications))
+        .toString();
+  }
+}
+
+class NotificationsCapabilities_NotificationsBuilder
+    implements Builder<NotificationsCapabilities_Notifications, NotificationsCapabilities_NotificationsBuilder> {
+  _$NotificationsCapabilities_Notifications? _$v;
+
+  ListBuilder<String>? _ocsEndpoints;
+  ListBuilder<String> get ocsEndpoints => _$this._ocsEndpoints ??= ListBuilder<String>();
+  set ocsEndpoints(ListBuilder<String>? ocsEndpoints) => _$this._ocsEndpoints = ocsEndpoints;
+
+  ListBuilder<String>? _push;
+  ListBuilder<String> get push => _$this._push ??= ListBuilder<String>();
+  set push(ListBuilder<String>? push) => _$this._push = push;
+
+  ListBuilder<String>? _adminNotifications;
+  ListBuilder<String> get adminNotifications => _$this._adminNotifications ??= ListBuilder<String>();
+  set adminNotifications(ListBuilder<String>? adminNotifications) => _$this._adminNotifications = adminNotifications;
+
+  NotificationsCapabilities_NotificationsBuilder();
+
+  NotificationsCapabilities_NotificationsBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _ocsEndpoints = $v.ocsEndpoints?.toBuilder();
+      _push = $v.push?.toBuilder();
+      _adminNotifications = $v.adminNotifications?.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(NotificationsCapabilities_Notifications other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$NotificationsCapabilities_Notifications;
+  }
+
+  @override
+  void update(void Function(NotificationsCapabilities_NotificationsBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  NotificationsCapabilities_Notifications build() => _build();
+
+  _$NotificationsCapabilities_Notifications _build() {
+    _$NotificationsCapabilities_Notifications _$result;
+    try {
+      _$result = _$v ??
+          _$NotificationsCapabilities_Notifications._(
+              ocsEndpoints: _ocsEndpoints?.build(),
+              push: _push?.build(),
+              adminNotifications: _adminNotifications?.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'ocsEndpoints';
+        _ocsEndpoints?.build();
+        _$failedField = 'push';
+        _push?.build();
+        _$failedField = 'adminNotifications';
+        _adminNotifications?.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(r'NotificationsCapabilities_Notifications', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+class _$NotificationsCapabilities extends NotificationsCapabilities {
+  @override
+  final NotificationsCapabilities_Notifications notifications;
+
+  factory _$NotificationsCapabilities([void Function(NotificationsCapabilitiesBuilder)? updates]) =>
+      (NotificationsCapabilitiesBuilder()..update(updates))._build();
+
+  _$NotificationsCapabilities._({required this.notifications}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(notifications, r'NotificationsCapabilities', 'notifications');
+  }
+
+  @override
+  NotificationsCapabilities rebuild(void Function(NotificationsCapabilitiesBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  NotificationsCapabilitiesBuilder toBuilder() => NotificationsCapabilitiesBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is NotificationsCapabilities && notifications == other.notifications;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, notifications.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'NotificationsCapabilities')..add('notifications', notifications)).toString();
+  }
+}
+
+class NotificationsCapabilitiesBuilder implements Builder<NotificationsCapabilities, NotificationsCapabilitiesBuilder> {
+  _$NotificationsCapabilities? _$v;
+
+  NotificationsCapabilities_NotificationsBuilder? _notifications;
+  NotificationsCapabilities_NotificationsBuilder get notifications =>
+      _$this._notifications ??= NotificationsCapabilities_NotificationsBuilder();
+  set notifications(NotificationsCapabilities_NotificationsBuilder? notifications) =>
+      _$this._notifications = notifications;
+
+  NotificationsCapabilitiesBuilder();
+
+  NotificationsCapabilitiesBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _notifications = $v.notifications.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(NotificationsCapabilities other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$NotificationsCapabilities;
+  }
+
+  @override
+  void update(void Function(NotificationsCapabilitiesBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  NotificationsCapabilities build() => _build();
+
+  _$NotificationsCapabilities _build() {
+    _$NotificationsCapabilities _$result;
+    try {
+      _$result = _$v ?? _$NotificationsCapabilities._(notifications: notifications.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'notifications';
+        notifications.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(r'NotificationsCapabilities', _$failedField, e.toString());
       }
       rethrow;
     }

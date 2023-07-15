@@ -73,115 +73,270 @@ class UserStatusClient extends DynamiteClient {
           authentications: client.authentications,
         );
 
-  Future<UserStatusGetPublicStatuses> getPublicStatuses() async {
-    const path = '/ocs/v2.php/apps/user_status/api/v1/statuses';
-    final queryParameters = <String, dynamic>{};
-    final headers = <String, String>{
-      'Accept': 'application/json',
-    };
-    Uint8List? body;
-    if (authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers.addAll(authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
-    } else {
-      throw Exception('Missing authentication for basic_auth'); // coverage:ignore-line
-    }
-    final response = await doRequest(
-      'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
-      headers,
-      body,
-    );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(UserStatusGetPublicStatuses),
-      )! as UserStatusGetPublicStatuses;
-    }
-    throw await UserStatusApiException.fromResponse(response); // coverage:ignore-line
-  }
+  UserStatusHeartbeatClient get heartbeat => UserStatusHeartbeatClient(this);
+  UserStatusPredefinedStatusClient get predefinedStatus => UserStatusPredefinedStatusClient(this);
+  UserStatusStatusesClient get statuses => UserStatusStatusesClient(this);
+  UserStatusUserStatusClient get userStatus => UserStatusUserStatusClient(this);
+}
 
-  Future<UserStatusGetPublicStatus> getPublicStatus({required final String userId}) async {
-    var path = '/ocs/v2.php/apps/user_status/api/v1/statuses/{userId}';
-    final queryParameters = <String, dynamic>{};
-    final headers = <String, String>{
-      'Accept': 'application/json',
-    };
-    Uint8List? body;
-    if (authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers.addAll(authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
-    } else {
-      throw Exception('Missing authentication for basic_auth'); // coverage:ignore-line
-    }
-    path = path.replaceAll('{userId}', Uri.encodeQueryComponent(userId));
-    final response = await doRequest(
-      'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
-      headers,
-      body,
-    );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(
-        await response.jsonBody,
-        specifiedType: const FullType(UserStatusGetPublicStatus),
-      )! as UserStatusGetPublicStatus;
-    }
-    throw await UserStatusApiException.fromResponse(response); // coverage:ignore-line
-  }
+class UserStatusHeartbeatClient {
+  UserStatusHeartbeatClient(this.rootClient);
 
-  Future<UserStatusGetStatus> getStatus() async {
-    const path = '/ocs/v2.php/apps/user_status/api/v1/user_status';
-    final queryParameters = <String, dynamic>{};
-    final headers = <String, String>{
-      'Accept': 'application/json',
-    };
-    Uint8List? body;
-    if (authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers.addAll(authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
-    } else {
-      throw Exception('Missing authentication for basic_auth'); // coverage:ignore-line
-    }
-    final response = await doRequest(
-      'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
-      headers,
-      body,
-    );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(await response.jsonBody, specifiedType: const FullType(UserStatusGetStatus))!
-          as UserStatusGetStatus;
-    }
-    throw await UserStatusApiException.fromResponse(response); // coverage:ignore-line
-  }
+  final UserStatusClient rootClient;
 
-  Future<UserStatusGetStatus> setStatus({required final UserStatusType statusType}) async {
-    const path = '/ocs/v2.php/apps/user_status/api/v1/user_status/status';
+  /// Keep the status alive
+  Future<UserStatusHeartbeatHeartbeatResponse200ApplicationJson> heartbeat({
+    required final String status,
+    final String oCSAPIRequest = 'true',
+  }) async {
+    const path = '/ocs/v2.php/apps/user_status/api/v1/heartbeat';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
     Uint8List? body;
-    if (authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers.addAll(authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
+    if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+      headers.addAll(
+        rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
+      );
+    } else if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
+      headers
+          .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
     } else {
-      throw Exception('Missing authentication for basic_auth'); // coverage:ignore-line
+      throw Exception('Missing authentication for bearer_auth or basic_auth'); // coverage:ignore-line
     }
-    queryParameters['statusType'] = statusType.name;
-    final response = await doRequest(
+    queryParameters['status'] = status;
+    headers['OCS-APIRequest'] = oCSAPIRequest;
+    final response = await rootClient.doRequest(
       'put',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
       headers,
       body,
     );
     if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(await response.jsonBody, specifiedType: const FullType(UserStatusGetStatus))!
-          as UserStatusGetStatus;
+      return _jsonSerializers.deserialize(
+        await response.jsonBody,
+        specifiedType: const FullType(UserStatusHeartbeatHeartbeatResponse200ApplicationJson),
+      )! as UserStatusHeartbeatHeartbeatResponse200ApplicationJson;
+    }
+    throw await UserStatusApiException.fromResponse(response); // coverage:ignore-line
+  }
+}
+
+class UserStatusPredefinedStatusClient {
+  UserStatusPredefinedStatusClient(this.rootClient);
+
+  final UserStatusClient rootClient;
+
+  /// Get all predefined messages
+  Future<UserStatusPredefinedStatusFindAllResponse200ApplicationJson> findAll({
+    final String oCSAPIRequest = 'true',
+  }) async {
+    const path = '/ocs/v2.php/apps/user_status/api/v1/predefined_statuses';
+    final queryParameters = <String, dynamic>{};
+    final headers = <String, String>{
+      'Accept': 'application/json',
+    };
+    Uint8List? body;
+    if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+      headers.addAll(
+        rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
+      );
+    } else if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
+      headers
+          .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
+    } else {
+      throw Exception('Missing authentication for bearer_auth or basic_auth'); // coverage:ignore-line
+    }
+    headers['OCS-APIRequest'] = oCSAPIRequest;
+    final response = await rootClient.doRequest(
+      'get',
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
+      headers,
+      body,
+    );
+    if (response.statusCode == 200) {
+      return _jsonSerializers.deserialize(
+        await response.jsonBody,
+        specifiedType: const FullType(UserStatusPredefinedStatusFindAllResponse200ApplicationJson),
+      )! as UserStatusPredefinedStatusFindAllResponse200ApplicationJson;
+    }
+    throw await UserStatusApiException.fromResponse(response); // coverage:ignore-line
+  }
+}
+
+class UserStatusStatusesClient {
+  UserStatusStatusesClient(this.rootClient);
+
+  final UserStatusClient rootClient;
+
+  /// Find statuses of users
+  Future<UserStatusStatusesFindAllResponse200ApplicationJson> findAll({
+    final int? limit,
+    final int? offset,
+    final String oCSAPIRequest = 'true',
+  }) async {
+    const path = '/ocs/v2.php/apps/user_status/api/v1/statuses';
+    final queryParameters = <String, dynamic>{};
+    final headers = <String, String>{
+      'Accept': 'application/json',
+    };
+    Uint8List? body;
+    if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+      headers.addAll(
+        rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
+      );
+    } else if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
+      headers
+          .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
+    } else {
+      throw Exception('Missing authentication for bearer_auth or basic_auth'); // coverage:ignore-line
+    }
+    if (limit != null) {
+      queryParameters['limit'] = limit.toString();
+    }
+    if (offset != null) {
+      queryParameters['offset'] = offset.toString();
+    }
+    headers['OCS-APIRequest'] = oCSAPIRequest;
+    final response = await rootClient.doRequest(
+      'get',
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
+      headers,
+      body,
+    );
+    if (response.statusCode == 200) {
+      return _jsonSerializers.deserialize(
+        await response.jsonBody,
+        specifiedType: const FullType(UserStatusStatusesFindAllResponse200ApplicationJson),
+      )! as UserStatusStatusesFindAllResponse200ApplicationJson;
     }
     throw await UserStatusApiException.fromResponse(response); // coverage:ignore-line
   }
 
-  Future<UserStatusGetStatus> setPredefinedMessage({
+  /// Find the status of a user
+  Future<UserStatusStatusesFindResponse200ApplicationJson> find({
+    required final String userId,
+    final String oCSAPIRequest = 'true',
+  }) async {
+    var path = '/ocs/v2.php/apps/user_status/api/v1/statuses/{userId}';
+    final queryParameters = <String, dynamic>{};
+    final headers = <String, String>{
+      'Accept': 'application/json',
+    };
+    Uint8List? body;
+    if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+      headers.addAll(
+        rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
+      );
+    } else if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
+      headers
+          .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
+    } else {
+      throw Exception('Missing authentication for bearer_auth or basic_auth'); // coverage:ignore-line
+    }
+    path = path.replaceAll('{userId}', Uri.encodeQueryComponent(userId));
+    headers['OCS-APIRequest'] = oCSAPIRequest;
+    final response = await rootClient.doRequest(
+      'get',
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
+      headers,
+      body,
+    );
+    if (response.statusCode == 200) {
+      return _jsonSerializers.deserialize(
+        await response.jsonBody,
+        specifiedType: const FullType(UserStatusStatusesFindResponse200ApplicationJson),
+      )! as UserStatusStatusesFindResponse200ApplicationJson;
+    }
+    throw await UserStatusApiException.fromResponse(response); // coverage:ignore-line
+  }
+}
+
+class UserStatusUserStatusClient {
+  UserStatusUserStatusClient(this.rootClient);
+
+  final UserStatusClient rootClient;
+
+  /// Get the status of the current user
+  Future<UserStatusUserStatusGetStatusResponse200ApplicationJson> getStatus({
+    final String oCSAPIRequest = 'true',
+  }) async {
+    const path = '/ocs/v2.php/apps/user_status/api/v1/user_status';
+    final queryParameters = <String, dynamic>{};
+    final headers = <String, String>{
+      'Accept': 'application/json',
+    };
+    Uint8List? body;
+    if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+      headers.addAll(
+        rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
+      );
+    } else if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
+      headers
+          .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
+    } else {
+      throw Exception('Missing authentication for bearer_auth or basic_auth'); // coverage:ignore-line
+    }
+    headers['OCS-APIRequest'] = oCSAPIRequest;
+    final response = await rootClient.doRequest(
+      'get',
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
+      headers,
+      body,
+    );
+    if (response.statusCode == 200) {
+      return _jsonSerializers.deserialize(
+        await response.jsonBody,
+        specifiedType: const FullType(UserStatusUserStatusGetStatusResponse200ApplicationJson),
+      )! as UserStatusUserStatusGetStatusResponse200ApplicationJson;
+    }
+    throw await UserStatusApiException.fromResponse(response); // coverage:ignore-line
+  }
+
+  /// Update the status type of the current user
+  Future<UserStatusUserStatusSetStatusResponse200ApplicationJson> setStatus({
+    required final String statusType,
+    final String oCSAPIRequest = 'true',
+  }) async {
+    const path = '/ocs/v2.php/apps/user_status/api/v1/user_status/status';
+    final queryParameters = <String, dynamic>{};
+    final headers = <String, String>{
+      'Accept': 'application/json',
+    };
+    Uint8List? body;
+    if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+      headers.addAll(
+        rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
+      );
+    } else if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
+      headers
+          .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
+    } else {
+      throw Exception('Missing authentication for bearer_auth or basic_auth'); // coverage:ignore-line
+    }
+    queryParameters['statusType'] = statusType;
+    headers['OCS-APIRequest'] = oCSAPIRequest;
+    final response = await rootClient.doRequest(
+      'put',
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
+      headers,
+      body,
+    );
+    if (response.statusCode == 200) {
+      return _jsonSerializers.deserialize(
+        await response.jsonBody,
+        specifiedType: const FullType(UserStatusUserStatusSetStatusResponse200ApplicationJson),
+      )! as UserStatusUserStatusSetStatusResponse200ApplicationJson;
+    }
+    throw await UserStatusApiException.fromResponse(response); // coverage:ignore-line
+  }
+
+  /// Set the message to a predefined message for the current user
+  Future<UserStatusUserStatusSetPredefinedMessageResponse200ApplicationJson> setPredefinedMessage({
     required final String messageId,
     final int? clearAt,
+    final String oCSAPIRequest = 'true',
   }) async {
     const path = '/ocs/v2.php/apps/user_status/api/v1/user_status/message/predefined';
     final queryParameters = <String, dynamic>{};
@@ -189,32 +344,42 @@ class UserStatusClient extends DynamiteClient {
       'Accept': 'application/json',
     };
     Uint8List? body;
-    if (authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers.addAll(authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
+    if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+      headers.addAll(
+        rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
+      );
+    } else if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
+      headers
+          .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
     } else {
-      throw Exception('Missing authentication for basic_auth'); // coverage:ignore-line
+      throw Exception('Missing authentication for bearer_auth or basic_auth'); // coverage:ignore-line
     }
     queryParameters['messageId'] = messageId;
     if (clearAt != null) {
       queryParameters['clearAt'] = clearAt.toString();
     }
-    final response = await doRequest(
+    headers['OCS-APIRequest'] = oCSAPIRequest;
+    final response = await rootClient.doRequest(
       'put',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
       headers,
       body,
     );
     if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(await response.jsonBody, specifiedType: const FullType(UserStatusGetStatus))!
-          as UserStatusGetStatus;
+      return _jsonSerializers.deserialize(
+        await response.jsonBody,
+        specifiedType: const FullType(UserStatusUserStatusSetPredefinedMessageResponse200ApplicationJson),
+      )! as UserStatusUserStatusSetPredefinedMessageResponse200ApplicationJson;
     }
     throw await UserStatusApiException.fromResponse(response); // coverage:ignore-line
   }
 
-  Future<UserStatusGetStatus> setCustomMessage({
+  /// Set the message to a custom message for the current user
+  Future<UserStatusUserStatusSetCustomMessageResponse200ApplicationJson> setCustomMessage({
     final String? statusIcon,
     final String? message,
     final int? clearAt,
+    final String oCSAPIRequest = 'true',
   }) async {
     const path = '/ocs/v2.php/apps/user_status/api/v1/user_status/message/custom';
     final queryParameters = <String, dynamic>{};
@@ -222,10 +387,15 @@ class UserStatusClient extends DynamiteClient {
       'Accept': 'application/json',
     };
     Uint8List? body;
-    if (authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers.addAll(authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
+    if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+      headers.addAll(
+        rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
+      );
+    } else if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
+      headers
+          .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
     } else {
-      throw Exception('Missing authentication for basic_auth'); // coverage:ignore-line
+      throw Exception('Missing authentication for bearer_auth or basic_auth'); // coverage:ignore-line
     }
     if (statusIcon != null) {
       queryParameters['statusIcon'] = statusIcon;
@@ -236,55 +406,9 @@ class UserStatusClient extends DynamiteClient {
     if (clearAt != null) {
       queryParameters['clearAt'] = clearAt.toString();
     }
-    final response = await doRequest(
+    headers['OCS-APIRequest'] = oCSAPIRequest;
+    final response = await rootClient.doRequest(
       'put',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
-      headers,
-      body,
-    );
-    if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(await response.jsonBody, specifiedType: const FullType(UserStatusGetStatus))!
-          as UserStatusGetStatus;
-    }
-    throw await UserStatusApiException.fromResponse(response); // coverage:ignore-line
-  }
-
-  Future clearMessage() async {
-    const path = '/ocs/v2.php/apps/user_status/api/v1/user_status/message';
-    final queryParameters = <String, dynamic>{};
-    final headers = <String, String>{};
-    Uint8List? body;
-    if (authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers.addAll(authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
-    } else {
-      throw Exception('Missing authentication for basic_auth'); // coverage:ignore-line
-    }
-    final response = await doRequest(
-      'delete',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
-      headers,
-      body,
-    );
-    if (response.statusCode == 200) {
-      return;
-    }
-    throw await UserStatusApiException.fromResponse(response); // coverage:ignore-line
-  }
-
-  Future<UserStatusPredefinedStatuses> getPredefinedStatuses() async {
-    const path = '/ocs/v2.php/apps/user_status/api/v1/predefined_statuses';
-    final queryParameters = <String, dynamic>{};
-    final headers = <String, String>{
-      'Accept': 'application/json',
-    };
-    Uint8List? body;
-    if (authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers.addAll(authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
-    } else {
-      throw Exception('Missing authentication for basic_auth'); // coverage:ignore-line
-    }
-    final response = await doRequest(
-      'get',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
       headers,
       body,
@@ -292,34 +416,82 @@ class UserStatusClient extends DynamiteClient {
     if (response.statusCode == 200) {
       return _jsonSerializers.deserialize(
         await response.jsonBody,
-        specifiedType: const FullType(UserStatusPredefinedStatuses),
-      )! as UserStatusPredefinedStatuses;
+        specifiedType: const FullType(UserStatusUserStatusSetCustomMessageResponse200ApplicationJson),
+      )! as UserStatusUserStatusSetCustomMessageResponse200ApplicationJson;
     }
     throw await UserStatusApiException.fromResponse(response); // coverage:ignore-line
   }
 
-  Future<UserStatusHeartbeat> heartbeat({required final UserStatusType status}) async {
-    const path = '/ocs/v2.php/apps/user_status/api/v1/heartbeat';
+  /// Clear the message of the current user
+  Future<UserStatusUserStatusClearMessageResponse200ApplicationJson> clearMessage({
+    final String oCSAPIRequest = 'true',
+  }) async {
+    const path = '/ocs/v2.php/apps/user_status/api/v1/user_status/message';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
     Uint8List? body;
-    if (authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers.addAll(authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
+    if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+      headers.addAll(
+        rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
+      );
+    } else if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
+      headers
+          .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
     } else {
-      throw Exception('Missing authentication for basic_auth'); // coverage:ignore-line
+      throw Exception('Missing authentication for bearer_auth or basic_auth'); // coverage:ignore-line
     }
-    queryParameters['status'] = status.name;
-    final response = await doRequest(
-      'put',
+    headers['OCS-APIRequest'] = oCSAPIRequest;
+    final response = await rootClient.doRequest(
+      'delete',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
       headers,
       body,
     );
     if (response.statusCode == 200) {
-      return _jsonSerializers.deserialize(await response.jsonBody, specifiedType: const FullType(UserStatusHeartbeat))!
-          as UserStatusHeartbeat;
+      return _jsonSerializers.deserialize(
+        await response.jsonBody,
+        specifiedType: const FullType(UserStatusUserStatusClearMessageResponse200ApplicationJson),
+      )! as UserStatusUserStatusClearMessageResponse200ApplicationJson;
+    }
+    throw await UserStatusApiException.fromResponse(response); // coverage:ignore-line
+  }
+
+  /// Revert the status to the previous status
+  Future<UserStatusUserStatusRevertStatusResponse200ApplicationJson> revertStatus({
+    required final String messageId,
+    final String oCSAPIRequest = 'true',
+  }) async {
+    var path = '/ocs/v2.php/apps/user_status/api/v1/user_status/revert/{messageId}';
+    final queryParameters = <String, dynamic>{};
+    final headers = <String, String>{
+      'Accept': 'application/json',
+    };
+    Uint8List? body;
+    if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+      headers.addAll(
+        rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
+      );
+    } else if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
+      headers
+          .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
+    } else {
+      throw Exception('Missing authentication for bearer_auth or basic_auth'); // coverage:ignore-line
+    }
+    path = path.replaceAll('{messageId}', Uri.encodeQueryComponent(messageId));
+    headers['OCS-APIRequest'] = oCSAPIRequest;
+    final response = await rootClient.doRequest(
+      'delete',
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
+      headers,
+      body,
+    );
+    if (response.statusCode == 200) {
+      return _jsonSerializers.deserialize(
+        await response.jsonBody,
+        specifiedType: const FullType(UserStatusUserStatusRevertStatusResponse200ApplicationJson),
+      )! as UserStatusUserStatusRevertStatusResponse200ApplicationJson;
     }
     throw await UserStatusApiException.fromResponse(response); // coverage:ignore-line
   }
@@ -341,6 +513,118 @@ abstract class UserStatusOCSMeta implements Built<UserStatusOCSMeta, UserStatusO
   static Serializer<UserStatusOCSMeta> get serializer => _$userStatusOCSMetaSerializer;
 }
 
+abstract class UserStatusPublic implements Built<UserStatusPublic, UserStatusPublicBuilder> {
+  factory UserStatusPublic([final void Function(UserStatusPublicBuilder)? b]) = _$UserStatusPublic;
+  const UserStatusPublic._();
+
+  factory UserStatusPublic.fromJson(final Map<String, dynamic> json) =>
+      _jsonSerializers.deserializeWith(serializer, json)!;
+
+  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  String get userId;
+  String? get message;
+  String? get icon;
+  int? get clearAt;
+  String get status;
+  static Serializer<UserStatusPublic> get serializer => _$userStatusPublicSerializer;
+}
+
+abstract class UserStatusPrivate1 implements Built<UserStatusPrivate1, UserStatusPrivate1Builder> {
+  factory UserStatusPrivate1([final void Function(UserStatusPrivate1Builder)? b]) = _$UserStatusPrivate1;
+  const UserStatusPrivate1._();
+
+  factory UserStatusPrivate1.fromJson(final Map<String, dynamic> json) =>
+      _jsonSerializers.deserializeWith(serializer, json)!;
+
+  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  String? get messageId;
+  bool get messageIsPredefined;
+  bool get statusIsUserDefined;
+  static Serializer<UserStatusPrivate1> get serializer => _$userStatusPrivate1Serializer;
+}
+
+abstract class UserStatusPrivate implements Built<UserStatusPrivate, UserStatusPrivateBuilder> {
+  factory UserStatusPrivate([final void Function(UserStatusPrivateBuilder)? b]) = _$UserStatusPrivate;
+  const UserStatusPrivate._();
+
+  JsonObject get data;
+  UserStatusPublic get public;
+  UserStatusPrivate1 get private1;
+  static UserStatusPrivate fromJson(final Object json) => _jsonSerializers.deserializeWith(serializer, json)!;
+  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  @BuiltValueSerializer(custom: true)
+  static Serializer<UserStatusPrivate> get serializer => _$UserStatusPrivateSerializer();
+}
+
+class _$UserStatusPrivateSerializer implements PrimitiveSerializer<UserStatusPrivate> {
+  @override
+  final Iterable<Type> types = const [UserStatusPrivate, _$UserStatusPrivate];
+
+  @override
+  final String wireName = 'UserStatusPrivate';
+
+  @override
+  Object serialize(
+    final Serializers serializers,
+    final UserStatusPrivate object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) =>
+      object.data.value;
+
+  @override
+  UserStatusPrivate deserialize(
+    final Serializers serializers,
+    final Object data, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = UserStatusPrivateBuilder()..data = JsonObject(data);
+    result.public.replace(
+      _jsonSerializers.deserialize(data, specifiedType: const FullType(UserStatusPublic))! as UserStatusPublic,
+    );
+    result.private1.replace(
+      _jsonSerializers.deserialize(data, specifiedType: const FullType(UserStatusPrivate1))! as UserStatusPrivate1,
+    );
+    return result.build();
+  }
+}
+
+abstract class UserStatusHeartbeatHeartbeatResponse200ApplicationJson_Ocs
+    implements
+        Built<UserStatusHeartbeatHeartbeatResponse200ApplicationJson_Ocs,
+            UserStatusHeartbeatHeartbeatResponse200ApplicationJson_OcsBuilder> {
+  factory UserStatusHeartbeatHeartbeatResponse200ApplicationJson_Ocs([
+    final void Function(UserStatusHeartbeatHeartbeatResponse200ApplicationJson_OcsBuilder)? b,
+  ]) = _$UserStatusHeartbeatHeartbeatResponse200ApplicationJson_Ocs;
+  const UserStatusHeartbeatHeartbeatResponse200ApplicationJson_Ocs._();
+
+  factory UserStatusHeartbeatHeartbeatResponse200ApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+      _jsonSerializers.deserializeWith(serializer, json)!;
+
+  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  UserStatusOCSMeta get meta;
+  UserStatusPrivate get data;
+  static Serializer<UserStatusHeartbeatHeartbeatResponse200ApplicationJson_Ocs> get serializer =>
+      _$userStatusHeartbeatHeartbeatResponse200ApplicationJsonOcsSerializer;
+}
+
+abstract class UserStatusHeartbeatHeartbeatResponse200ApplicationJson
+    implements
+        Built<UserStatusHeartbeatHeartbeatResponse200ApplicationJson,
+            UserStatusHeartbeatHeartbeatResponse200ApplicationJsonBuilder> {
+  factory UserStatusHeartbeatHeartbeatResponse200ApplicationJson([
+    final void Function(UserStatusHeartbeatHeartbeatResponse200ApplicationJsonBuilder)? b,
+  ]) = _$UserStatusHeartbeatHeartbeatResponse200ApplicationJson;
+  const UserStatusHeartbeatHeartbeatResponse200ApplicationJson._();
+
+  factory UserStatusHeartbeatHeartbeatResponse200ApplicationJson.fromJson(final Map<String, dynamic> json) =>
+      _jsonSerializers.deserializeWith(serializer, json)!;
+
+  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  UserStatusHeartbeatHeartbeatResponse200ApplicationJson_Ocs get ocs;
+  static Serializer<UserStatusHeartbeatHeartbeatResponse200ApplicationJson> get serializer =>
+      _$userStatusHeartbeatHeartbeatResponse200ApplicationJsonSerializer;
+}
+
 class UserStatusClearAt_Type extends EnumClass {
   const UserStatusClearAt_Type._(super.name);
 
@@ -354,16 +638,16 @@ class UserStatusClearAt_Type extends EnumClass {
   static Serializer<UserStatusClearAt_Type> get serializer => _$userStatusClearAtTypeSerializer;
 }
 
-class UserStatusClearAt_Time0 extends EnumClass {
-  const UserStatusClearAt_Time0._(super.name);
+class UserStatusClearAtTimeType extends EnumClass {
+  const UserStatusClearAtTimeType._(super.name);
 
-  static const UserStatusClearAt_Time0 day = _$userStatusClearAtTime0Day;
+  static const UserStatusClearAtTimeType day = _$userStatusClearAtTimeTypeDay;
 
-  static const UserStatusClearAt_Time0 week = _$userStatusClearAtTime0Week;
+  static const UserStatusClearAtTimeType week = _$userStatusClearAtTimeTypeWeek;
 
-  static BuiltSet<UserStatusClearAt_Time0> get values => _$userStatusClearAtTime0Values;
-  static UserStatusClearAt_Time0 valueOf(final String name) => _$valueOfUserStatusClearAt_Time0(name);
-  static Serializer<UserStatusClearAt_Time0> get serializer => _$userStatusClearAtTime0Serializer;
+  static BuiltSet<UserStatusClearAtTimeType> get values => _$userStatusClearAtTimeTypeValues;
+  static UserStatusClearAtTimeType valueOf(final String name) => _$valueOfUserStatusClearAtTimeType(name);
+  static Serializer<UserStatusClearAtTimeType> get serializer => _$userStatusClearAtTimeTypeSerializer;
 }
 
 abstract class UserStatusClearAt_Time implements Built<UserStatusClearAt_Time, UserStatusClearAt_TimeBuilder> {
@@ -371,10 +655,8 @@ abstract class UserStatusClearAt_Time implements Built<UserStatusClearAt_Time, U
   const UserStatusClearAt_Time._();
 
   JsonObject get data;
-  UserStatusClearAt_Time0? get clearAtTime0;
-
-  /// Time offset in seconds
   int? get $int;
+  UserStatusClearAtTimeType? get clearAtTimeType;
   static UserStatusClearAt_Time fromJson(final Object json) => _jsonSerializers.deserializeWith(serializer, json)!;
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   @BuiltValueSerializer(custom: true)
@@ -404,16 +686,16 @@ class _$UserStatusClearAt_TimeSerializer implements PrimitiveSerializer<UserStat
   }) {
     final result = UserStatusClearAt_TimeBuilder()..data = JsonObject(data);
     try {
-      result._clearAtTime0 = _jsonSerializers.deserialize(
-        data,
-        specifiedType: const FullType(UserStatusClearAt_Time0),
-      )! as UserStatusClearAt_Time0;
-    } catch (_) {}
-    try {
       result._$int = data as int?;
     } catch (_) {}
+    try {
+      result._clearAtTimeType = _jsonSerializers.deserialize(
+        data,
+        specifiedType: const FullType(UserStatusClearAtTimeType),
+      )! as UserStatusClearAtTimeType;
+    } catch (_) {}
     assert(
-      [result._clearAtTime0, result._$int].where((final x) => x != null).isNotEmpty,
+      [result._$int, result._clearAtTimeType].where((final x) => x != null).isNotEmpty,
       'Need oneOf for ${result._data}',
     );
     return result.build();
@@ -433,625 +715,585 @@ abstract class UserStatusClearAt implements Built<UserStatusClearAt, UserStatusC
   static Serializer<UserStatusClearAt> get serializer => _$userStatusClearAtSerializer;
 }
 
-abstract class UserStatusPublicStatus_ClearAt
-    implements Built<UserStatusPublicStatus_ClearAt, UserStatusPublicStatus_ClearAtBuilder> {
-  factory UserStatusPublicStatus_ClearAt([final void Function(UserStatusPublicStatus_ClearAtBuilder)? b]) =
-      _$UserStatusPublicStatus_ClearAt;
-  const UserStatusPublicStatus_ClearAt._();
-
-  JsonObject get data;
-  UserStatusClearAt? get clearAt;
-
-  /// Time as unix timestamp
-  int? get $int;
-  static UserStatusPublicStatus_ClearAt fromJson(final Object json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  @BuiltValueSerializer(custom: true)
-  static Serializer<UserStatusPublicStatus_ClearAt> get serializer => _$UserStatusPublicStatus_ClearAtSerializer();
-}
-
-class _$UserStatusPublicStatus_ClearAtSerializer implements PrimitiveSerializer<UserStatusPublicStatus_ClearAt> {
-  @override
-  final Iterable<Type> types = const [UserStatusPublicStatus_ClearAt, _$UserStatusPublicStatus_ClearAt];
-
-  @override
-  final String wireName = 'UserStatusPublicStatus_ClearAt';
-
-  @override
-  Object serialize(
-    final Serializers serializers,
-    final UserStatusPublicStatus_ClearAt object, {
-    final FullType specifiedType = FullType.unspecified,
-  }) =>
-      object.data.value;
-
-  @override
-  UserStatusPublicStatus_ClearAt deserialize(
-    final Serializers serializers,
-    final Object data, {
-    final FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = UserStatusPublicStatus_ClearAtBuilder()..data = JsonObject(data);
-    try {
-      result._clearAt =
-          (_jsonSerializers.deserialize(data, specifiedType: const FullType(UserStatusClearAt))! as UserStatusClearAt)
-              .toBuilder();
-    } catch (_) {}
-    try {
-      result._$int = data as int?;
-    } catch (_) {}
-    assert([result._clearAt, result._$int].where((final x) => x != null).isNotEmpty, 'Need oneOf for ${result._data}');
-    return result.build();
-  }
-}
-
-class UserStatusType extends EnumClass {
-  const UserStatusType._(super.name);
-
-  static const UserStatusType online = _$userStatusTypeOnline;
-
-  static const UserStatusType offline = _$userStatusTypeOffline;
-
-  static const UserStatusType dnd = _$userStatusTypeDnd;
-
-  static const UserStatusType away = _$userStatusTypeAway;
-
-  static const UserStatusType invisible = _$userStatusTypeInvisible;
-
-  static BuiltSet<UserStatusType> get values => _$userStatusTypeValues;
-  static UserStatusType valueOf(final String name) => _$valueOfUserStatusType(name);
-  static Serializer<UserStatusType> get serializer => _$userStatusTypeSerializer;
-}
-
-abstract class UserStatusPublicStatus implements Built<UserStatusPublicStatus, UserStatusPublicStatusBuilder> {
-  factory UserStatusPublicStatus([final void Function(UserStatusPublicStatusBuilder)? b]) = _$UserStatusPublicStatus;
-  const UserStatusPublicStatus._();
-
-  factory UserStatusPublicStatus.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
-
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  String get userId;
-  String? get message;
-  String? get icon;
-  UserStatusPublicStatus_ClearAt? get clearAt;
-  UserStatusType get status;
-  static Serializer<UserStatusPublicStatus> get serializer => _$userStatusPublicStatusSerializer;
-}
-
-abstract class UserStatusGetPublicStatuses_Ocs
-    implements Built<UserStatusGetPublicStatuses_Ocs, UserStatusGetPublicStatuses_OcsBuilder> {
-  factory UserStatusGetPublicStatuses_Ocs([final void Function(UserStatusGetPublicStatuses_OcsBuilder)? b]) =
-      _$UserStatusGetPublicStatuses_Ocs;
-  const UserStatusGetPublicStatuses_Ocs._();
-
-  factory UserStatusGetPublicStatuses_Ocs.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
-
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  UserStatusOCSMeta get meta;
-  BuiltList<UserStatusPublicStatus> get data;
-  static Serializer<UserStatusGetPublicStatuses_Ocs> get serializer => _$userStatusGetPublicStatusesOcsSerializer;
-}
-
-abstract class UserStatusGetPublicStatuses
-    implements Built<UserStatusGetPublicStatuses, UserStatusGetPublicStatusesBuilder> {
-  factory UserStatusGetPublicStatuses([final void Function(UserStatusGetPublicStatusesBuilder)? b]) =
-      _$UserStatusGetPublicStatuses;
-  const UserStatusGetPublicStatuses._();
-
-  factory UserStatusGetPublicStatuses.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
-
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  UserStatusGetPublicStatuses_Ocs get ocs;
-  static Serializer<UserStatusGetPublicStatuses> get serializer => _$userStatusGetPublicStatusesSerializer;
-}
-
-abstract class UserStatusGetPublicStatus_Ocs_Data
-    implements Built<UserStatusGetPublicStatus_Ocs_Data, UserStatusGetPublicStatus_Ocs_DataBuilder> {
-  factory UserStatusGetPublicStatus_Ocs_Data([final void Function(UserStatusGetPublicStatus_Ocs_DataBuilder)? b]) =
-      _$UserStatusGetPublicStatus_Ocs_Data;
-  const UserStatusGetPublicStatus_Ocs_Data._();
-
-  JsonObject get data;
-  BuiltList<JsonObject>? get builtListJsonObject;
-  UserStatusPublicStatus? get publicStatus;
-  static UserStatusGetPublicStatus_Ocs_Data fromJson(final Object json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  @BuiltValueSerializer(custom: true)
-  static Serializer<UserStatusGetPublicStatus_Ocs_Data> get serializer =>
-      _$UserStatusGetPublicStatus_Ocs_DataSerializer();
-}
-
-class _$UserStatusGetPublicStatus_Ocs_DataSerializer
-    implements PrimitiveSerializer<UserStatusGetPublicStatus_Ocs_Data> {
-  @override
-  final Iterable<Type> types = const [UserStatusGetPublicStatus_Ocs_Data, _$UserStatusGetPublicStatus_Ocs_Data];
-
-  @override
-  final String wireName = 'UserStatusGetPublicStatus_Ocs_Data';
-
-  @override
-  Object serialize(
-    final Serializers serializers,
-    final UserStatusGetPublicStatus_Ocs_Data object, {
-    final FullType specifiedType = FullType.unspecified,
-  }) =>
-      object.data.value;
-
-  @override
-  UserStatusGetPublicStatus_Ocs_Data deserialize(
-    final Serializers serializers,
-    final Object data, {
-    final FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = UserStatusGetPublicStatus_Ocs_DataBuilder()..data = JsonObject(data);
-    try {
-      result._builtListJsonObject = (_jsonSerializers.deserialize(
-        data,
-        specifiedType: const FullType(BuiltList, [FullType(JsonObject)]),
-      )! as BuiltList<JsonObject>)
-          .toBuilder();
-    } catch (_) {}
-    try {
-      result._publicStatus = (_jsonSerializers.deserialize(data, specifiedType: const FullType(UserStatusPublicStatus))!
-              as UserStatusPublicStatus)
-          .toBuilder();
-    } catch (_) {}
-    assert(
-      [result._builtListJsonObject, result._publicStatus].where((final x) => x != null).isNotEmpty,
-      'Need oneOf for ${result._data}',
-    );
-    return result.build();
-  }
-}
-
-abstract class UserStatusGetPublicStatus_Ocs
-    implements Built<UserStatusGetPublicStatus_Ocs, UserStatusGetPublicStatus_OcsBuilder> {
-  factory UserStatusGetPublicStatus_Ocs([final void Function(UserStatusGetPublicStatus_OcsBuilder)? b]) =
-      _$UserStatusGetPublicStatus_Ocs;
-  const UserStatusGetPublicStatus_Ocs._();
-
-  factory UserStatusGetPublicStatus_Ocs.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
-
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  UserStatusOCSMeta get meta;
-  UserStatusGetPublicStatus_Ocs_Data get data;
-  static Serializer<UserStatusGetPublicStatus_Ocs> get serializer => _$userStatusGetPublicStatusOcsSerializer;
-}
-
-abstract class UserStatusGetPublicStatus implements Built<UserStatusGetPublicStatus, UserStatusGetPublicStatusBuilder> {
-  factory UserStatusGetPublicStatus([final void Function(UserStatusGetPublicStatusBuilder)? b]) =
-      _$UserStatusGetPublicStatus;
-  const UserStatusGetPublicStatus._();
-
-  factory UserStatusGetPublicStatus.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
-
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  UserStatusGetPublicStatus_Ocs get ocs;
-  static Serializer<UserStatusGetPublicStatus> get serializer => _$userStatusGetPublicStatusSerializer;
-}
-
-abstract class UserStatusStatus1 implements Built<UserStatusStatus1, UserStatusStatus1Builder> {
-  factory UserStatusStatus1([final void Function(UserStatusStatus1Builder)? b]) = _$UserStatusStatus1;
-  const UserStatusStatus1._();
-
-  factory UserStatusStatus1.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
-
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  String? get messageId;
-  bool get messageIsPredefined;
-  bool get statusIsUserDefined;
-  static Serializer<UserStatusStatus1> get serializer => _$userStatusStatus1Serializer;
-}
-
-abstract class UserStatusStatus implements Built<UserStatusStatus, UserStatusStatusBuilder> {
-  factory UserStatusStatus([final void Function(UserStatusStatusBuilder)? b]) = _$UserStatusStatus;
-  const UserStatusStatus._();
-
-  JsonObject get data;
-  UserStatusPublicStatus get publicStatus;
-  UserStatusStatus1 get status1;
-  static UserStatusStatus fromJson(final Object json) => _jsonSerializers.deserializeWith(serializer, json)!;
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  @BuiltValueSerializer(custom: true)
-  static Serializer<UserStatusStatus> get serializer => _$UserStatusStatusSerializer();
-}
-
-class _$UserStatusStatusSerializer implements PrimitiveSerializer<UserStatusStatus> {
-  @override
-  final Iterable<Type> types = const [UserStatusStatus, _$UserStatusStatus];
-
-  @override
-  final String wireName = 'UserStatusStatus';
-
-  @override
-  Object serialize(
-    final Serializers serializers,
-    final UserStatusStatus object, {
-    final FullType specifiedType = FullType.unspecified,
-  }) =>
-      object.data.value;
-
-  @override
-  UserStatusStatus deserialize(
-    final Serializers serializers,
-    final Object data, {
-    final FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = UserStatusStatusBuilder()..data = JsonObject(data);
-    result.publicStatus.replace(
-      _jsonSerializers.deserialize(
-        data,
-        specifiedType: const FullType(UserStatusPublicStatus),
-      )! as UserStatusPublicStatus,
-    );
-    result.status1.replace(
-      _jsonSerializers.deserialize(data, specifiedType: const FullType(UserStatusStatus1))! as UserStatusStatus1,
-    );
-    return result.build();
-  }
-}
-
-abstract class UserStatusGetStatus_Ocs_Data
-    implements Built<UserStatusGetStatus_Ocs_Data, UserStatusGetStatus_Ocs_DataBuilder> {
-  factory UserStatusGetStatus_Ocs_Data([final void Function(UserStatusGetStatus_Ocs_DataBuilder)? b]) =
-      _$UserStatusGetStatus_Ocs_Data;
-  const UserStatusGetStatus_Ocs_Data._();
-
-  JsonObject get data;
-  BuiltList<JsonObject>? get builtListJsonObject;
-  UserStatusStatus? get status;
-  static UserStatusGetStatus_Ocs_Data fromJson(final Object json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  @BuiltValueSerializer(custom: true)
-  static Serializer<UserStatusGetStatus_Ocs_Data> get serializer => _$UserStatusGetStatus_Ocs_DataSerializer();
-}
-
-class _$UserStatusGetStatus_Ocs_DataSerializer implements PrimitiveSerializer<UserStatusGetStatus_Ocs_Data> {
-  @override
-  final Iterable<Type> types = const [UserStatusGetStatus_Ocs_Data, _$UserStatusGetStatus_Ocs_Data];
-
-  @override
-  final String wireName = 'UserStatusGetStatus_Ocs_Data';
-
-  @override
-  Object serialize(
-    final Serializers serializers,
-    final UserStatusGetStatus_Ocs_Data object, {
-    final FullType specifiedType = FullType.unspecified,
-  }) =>
-      object.data.value;
-
-  @override
-  UserStatusGetStatus_Ocs_Data deserialize(
-    final Serializers serializers,
-    final Object data, {
-    final FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = UserStatusGetStatus_Ocs_DataBuilder()..data = JsonObject(data);
-    try {
-      result._builtListJsonObject = (_jsonSerializers.deserialize(
-        data,
-        specifiedType: const FullType(BuiltList, [FullType(JsonObject)]),
-      )! as BuiltList<JsonObject>)
-          .toBuilder();
-    } catch (_) {}
-    try {
-      result._status =
-          (_jsonSerializers.deserialize(data, specifiedType: const FullType(UserStatusStatus))! as UserStatusStatus)
-              .toBuilder();
-    } catch (_) {}
-    assert(
-      [result._builtListJsonObject, result._status].where((final x) => x != null).isNotEmpty,
-      'Need oneOf for ${result._data}',
-    );
-    return result.build();
-  }
-}
-
-abstract class UserStatusGetStatus_Ocs implements Built<UserStatusGetStatus_Ocs, UserStatusGetStatus_OcsBuilder> {
-  factory UserStatusGetStatus_Ocs([final void Function(UserStatusGetStatus_OcsBuilder)? b]) = _$UserStatusGetStatus_Ocs;
-  const UserStatusGetStatus_Ocs._();
-
-  factory UserStatusGetStatus_Ocs.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
-
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  UserStatusOCSMeta get meta;
-  UserStatusGetStatus_Ocs_Data get data;
-  static Serializer<UserStatusGetStatus_Ocs> get serializer => _$userStatusGetStatusOcsSerializer;
-}
-
-abstract class UserStatusGetStatus implements Built<UserStatusGetStatus, UserStatusGetStatusBuilder> {
-  factory UserStatusGetStatus([final void Function(UserStatusGetStatusBuilder)? b]) = _$UserStatusGetStatus;
-  const UserStatusGetStatus._();
-
-  factory UserStatusGetStatus.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
-
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  UserStatusGetStatus_Ocs get ocs;
-  static Serializer<UserStatusGetStatus> get serializer => _$userStatusGetStatusSerializer;
-}
-
-abstract class UserStatusPredefinedStatus_ClearAt
-    implements Built<UserStatusPredefinedStatus_ClearAt, UserStatusPredefinedStatus_ClearAtBuilder> {
-  factory UserStatusPredefinedStatus_ClearAt([final void Function(UserStatusPredefinedStatus_ClearAtBuilder)? b]) =
-      _$UserStatusPredefinedStatus_ClearAt;
-  const UserStatusPredefinedStatus_ClearAt._();
-
-  JsonObject get data;
-  UserStatusClearAt? get clearAt;
-
-  /// Time as unix timestamp
-  int? get $int;
-  static UserStatusPredefinedStatus_ClearAt fromJson(final Object json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  @BuiltValueSerializer(custom: true)
-  static Serializer<UserStatusPredefinedStatus_ClearAt> get serializer =>
-      _$UserStatusPredefinedStatus_ClearAtSerializer();
-}
-
-class _$UserStatusPredefinedStatus_ClearAtSerializer
-    implements PrimitiveSerializer<UserStatusPredefinedStatus_ClearAt> {
-  @override
-  final Iterable<Type> types = const [UserStatusPredefinedStatus_ClearAt, _$UserStatusPredefinedStatus_ClearAt];
-
-  @override
-  final String wireName = 'UserStatusPredefinedStatus_ClearAt';
-
-  @override
-  Object serialize(
-    final Serializers serializers,
-    final UserStatusPredefinedStatus_ClearAt object, {
-    final FullType specifiedType = FullType.unspecified,
-  }) =>
-      object.data.value;
-
-  @override
-  UserStatusPredefinedStatus_ClearAt deserialize(
-    final Serializers serializers,
-    final Object data, {
-    final FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = UserStatusPredefinedStatus_ClearAtBuilder()..data = JsonObject(data);
-    try {
-      result._clearAt =
-          (_jsonSerializers.deserialize(data, specifiedType: const FullType(UserStatusClearAt))! as UserStatusClearAt)
-              .toBuilder();
-    } catch (_) {}
-    try {
-      result._$int = data as int?;
-    } catch (_) {}
-    assert([result._clearAt, result._$int].where((final x) => x != null).isNotEmpty, 'Need oneOf for ${result._data}');
-    return result.build();
-  }
-}
-
-abstract class UserStatusPredefinedStatus
-    implements Built<UserStatusPredefinedStatus, UserStatusPredefinedStatusBuilder> {
-  factory UserStatusPredefinedStatus([final void Function(UserStatusPredefinedStatusBuilder)? b]) =
-      _$UserStatusPredefinedStatus;
-  const UserStatusPredefinedStatus._();
-
-  factory UserStatusPredefinedStatus.fromJson(final Map<String, dynamic> json) =>
+abstract class UserStatusPredefined implements Built<UserStatusPredefined, UserStatusPredefinedBuilder> {
+  factory UserStatusPredefined([final void Function(UserStatusPredefinedBuilder)? b]) = _$UserStatusPredefined;
+  const UserStatusPredefined._();
+
+  factory UserStatusPredefined.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
 
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   String get id;
   String get icon;
   String get message;
-  UserStatusPredefinedStatus_ClearAt? get clearAt;
-  static Serializer<UserStatusPredefinedStatus> get serializer => _$userStatusPredefinedStatusSerializer;
+  UserStatusClearAt? get clearAt;
+  bool? get visible;
+  static Serializer<UserStatusPredefined> get serializer => _$userStatusPredefinedSerializer;
 }
 
-abstract class UserStatusPredefinedStatuses_Ocs
-    implements Built<UserStatusPredefinedStatuses_Ocs, UserStatusPredefinedStatuses_OcsBuilder> {
-  factory UserStatusPredefinedStatuses_Ocs([final void Function(UserStatusPredefinedStatuses_OcsBuilder)? b]) =
-      _$UserStatusPredefinedStatuses_Ocs;
-  const UserStatusPredefinedStatuses_Ocs._();
+abstract class UserStatusPredefinedStatusFindAllResponse200ApplicationJson_Ocs
+    implements
+        Built<UserStatusPredefinedStatusFindAllResponse200ApplicationJson_Ocs,
+            UserStatusPredefinedStatusFindAllResponse200ApplicationJson_OcsBuilder> {
+  factory UserStatusPredefinedStatusFindAllResponse200ApplicationJson_Ocs([
+    final void Function(UserStatusPredefinedStatusFindAllResponse200ApplicationJson_OcsBuilder)? b,
+  ]) = _$UserStatusPredefinedStatusFindAllResponse200ApplicationJson_Ocs;
+  const UserStatusPredefinedStatusFindAllResponse200ApplicationJson_Ocs._();
 
-  factory UserStatusPredefinedStatuses_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory UserStatusPredefinedStatusFindAllResponse200ApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
 
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   UserStatusOCSMeta get meta;
-  BuiltList<UserStatusPredefinedStatus> get data;
-  static Serializer<UserStatusPredefinedStatuses_Ocs> get serializer => _$userStatusPredefinedStatusesOcsSerializer;
+  BuiltList<UserStatusPredefined> get data;
+  static Serializer<UserStatusPredefinedStatusFindAllResponse200ApplicationJson_Ocs> get serializer =>
+      _$userStatusPredefinedStatusFindAllResponse200ApplicationJsonOcsSerializer;
 }
 
-abstract class UserStatusPredefinedStatuses
-    implements Built<UserStatusPredefinedStatuses, UserStatusPredefinedStatusesBuilder> {
-  factory UserStatusPredefinedStatuses([final void Function(UserStatusPredefinedStatusesBuilder)? b]) =
-      _$UserStatusPredefinedStatuses;
-  const UserStatusPredefinedStatuses._();
+abstract class UserStatusPredefinedStatusFindAllResponse200ApplicationJson
+    implements
+        Built<UserStatusPredefinedStatusFindAllResponse200ApplicationJson,
+            UserStatusPredefinedStatusFindAllResponse200ApplicationJsonBuilder> {
+  factory UserStatusPredefinedStatusFindAllResponse200ApplicationJson([
+    final void Function(UserStatusPredefinedStatusFindAllResponse200ApplicationJsonBuilder)? b,
+  ]) = _$UserStatusPredefinedStatusFindAllResponse200ApplicationJson;
+  const UserStatusPredefinedStatusFindAllResponse200ApplicationJson._();
 
-  factory UserStatusPredefinedStatuses.fromJson(final Map<String, dynamic> json) =>
+  factory UserStatusPredefinedStatusFindAllResponse200ApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
 
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  UserStatusPredefinedStatuses_Ocs get ocs;
-  static Serializer<UserStatusPredefinedStatuses> get serializer => _$userStatusPredefinedStatusesSerializer;
+  UserStatusPredefinedStatusFindAllResponse200ApplicationJson_Ocs get ocs;
+  static Serializer<UserStatusPredefinedStatusFindAllResponse200ApplicationJson> get serializer =>
+      _$userStatusPredefinedStatusFindAllResponse200ApplicationJsonSerializer;
 }
 
-abstract class UserStatusHeartbeat_Ocs_Data
-    implements Built<UserStatusHeartbeat_Ocs_Data, UserStatusHeartbeat_Ocs_DataBuilder> {
-  factory UserStatusHeartbeat_Ocs_Data([final void Function(UserStatusHeartbeat_Ocs_DataBuilder)? b]) =
-      _$UserStatusHeartbeat_Ocs_Data;
-  const UserStatusHeartbeat_Ocs_Data._();
+abstract class UserStatusStatusesFindAllResponse200ApplicationJson_Ocs
+    implements
+        Built<UserStatusStatusesFindAllResponse200ApplicationJson_Ocs,
+            UserStatusStatusesFindAllResponse200ApplicationJson_OcsBuilder> {
+  factory UserStatusStatusesFindAllResponse200ApplicationJson_Ocs([
+    final void Function(UserStatusStatusesFindAllResponse200ApplicationJson_OcsBuilder)? b,
+  ]) = _$UserStatusStatusesFindAllResponse200ApplicationJson_Ocs;
+  const UserStatusStatusesFindAllResponse200ApplicationJson_Ocs._();
+
+  factory UserStatusStatusesFindAllResponse200ApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+      _jsonSerializers.deserializeWith(serializer, json)!;
+
+  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  UserStatusOCSMeta get meta;
+  BuiltList<UserStatusPublic> get data;
+  static Serializer<UserStatusStatusesFindAllResponse200ApplicationJson_Ocs> get serializer =>
+      _$userStatusStatusesFindAllResponse200ApplicationJsonOcsSerializer;
+}
+
+abstract class UserStatusStatusesFindAllResponse200ApplicationJson
+    implements
+        Built<UserStatusStatusesFindAllResponse200ApplicationJson,
+            UserStatusStatusesFindAllResponse200ApplicationJsonBuilder> {
+  factory UserStatusStatusesFindAllResponse200ApplicationJson([
+    final void Function(UserStatusStatusesFindAllResponse200ApplicationJsonBuilder)? b,
+  ]) = _$UserStatusStatusesFindAllResponse200ApplicationJson;
+  const UserStatusStatusesFindAllResponse200ApplicationJson._();
+
+  factory UserStatusStatusesFindAllResponse200ApplicationJson.fromJson(final Map<String, dynamic> json) =>
+      _jsonSerializers.deserializeWith(serializer, json)!;
+
+  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  UserStatusStatusesFindAllResponse200ApplicationJson_Ocs get ocs;
+  static Serializer<UserStatusStatusesFindAllResponse200ApplicationJson> get serializer =>
+      _$userStatusStatusesFindAllResponse200ApplicationJsonSerializer;
+}
+
+abstract class UserStatusStatusesFindResponse200ApplicationJson_Ocs
+    implements
+        Built<UserStatusStatusesFindResponse200ApplicationJson_Ocs,
+            UserStatusStatusesFindResponse200ApplicationJson_OcsBuilder> {
+  factory UserStatusStatusesFindResponse200ApplicationJson_Ocs([
+    final void Function(UserStatusStatusesFindResponse200ApplicationJson_OcsBuilder)? b,
+  ]) = _$UserStatusStatusesFindResponse200ApplicationJson_Ocs;
+  const UserStatusStatusesFindResponse200ApplicationJson_Ocs._();
+
+  factory UserStatusStatusesFindResponse200ApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+      _jsonSerializers.deserializeWith(serializer, json)!;
+
+  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  UserStatusOCSMeta get meta;
+  UserStatusPublic get data;
+  static Serializer<UserStatusStatusesFindResponse200ApplicationJson_Ocs> get serializer =>
+      _$userStatusStatusesFindResponse200ApplicationJsonOcsSerializer;
+}
+
+abstract class UserStatusStatusesFindResponse200ApplicationJson
+    implements
+        Built<UserStatusStatusesFindResponse200ApplicationJson,
+            UserStatusStatusesFindResponse200ApplicationJsonBuilder> {
+  factory UserStatusStatusesFindResponse200ApplicationJson([
+    final void Function(UserStatusStatusesFindResponse200ApplicationJsonBuilder)? b,
+  ]) = _$UserStatusStatusesFindResponse200ApplicationJson;
+  const UserStatusStatusesFindResponse200ApplicationJson._();
+
+  factory UserStatusStatusesFindResponse200ApplicationJson.fromJson(final Map<String, dynamic> json) =>
+      _jsonSerializers.deserializeWith(serializer, json)!;
+
+  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  UserStatusStatusesFindResponse200ApplicationJson_Ocs get ocs;
+  static Serializer<UserStatusStatusesFindResponse200ApplicationJson> get serializer =>
+      _$userStatusStatusesFindResponse200ApplicationJsonSerializer;
+}
+
+abstract class UserStatusUserStatusGetStatusResponse200ApplicationJson_Ocs
+    implements
+        Built<UserStatusUserStatusGetStatusResponse200ApplicationJson_Ocs,
+            UserStatusUserStatusGetStatusResponse200ApplicationJson_OcsBuilder> {
+  factory UserStatusUserStatusGetStatusResponse200ApplicationJson_Ocs([
+    final void Function(UserStatusUserStatusGetStatusResponse200ApplicationJson_OcsBuilder)? b,
+  ]) = _$UserStatusUserStatusGetStatusResponse200ApplicationJson_Ocs;
+  const UserStatusUserStatusGetStatusResponse200ApplicationJson_Ocs._();
+
+  factory UserStatusUserStatusGetStatusResponse200ApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+      _jsonSerializers.deserializeWith(serializer, json)!;
+
+  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  UserStatusOCSMeta get meta;
+  UserStatusPrivate get data;
+  static Serializer<UserStatusUserStatusGetStatusResponse200ApplicationJson_Ocs> get serializer =>
+      _$userStatusUserStatusGetStatusResponse200ApplicationJsonOcsSerializer;
+}
+
+abstract class UserStatusUserStatusGetStatusResponse200ApplicationJson
+    implements
+        Built<UserStatusUserStatusGetStatusResponse200ApplicationJson,
+            UserStatusUserStatusGetStatusResponse200ApplicationJsonBuilder> {
+  factory UserStatusUserStatusGetStatusResponse200ApplicationJson([
+    final void Function(UserStatusUserStatusGetStatusResponse200ApplicationJsonBuilder)? b,
+  ]) = _$UserStatusUserStatusGetStatusResponse200ApplicationJson;
+  const UserStatusUserStatusGetStatusResponse200ApplicationJson._();
+
+  factory UserStatusUserStatusGetStatusResponse200ApplicationJson.fromJson(final Map<String, dynamic> json) =>
+      _jsonSerializers.deserializeWith(serializer, json)!;
+
+  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  UserStatusUserStatusGetStatusResponse200ApplicationJson_Ocs get ocs;
+  static Serializer<UserStatusUserStatusGetStatusResponse200ApplicationJson> get serializer =>
+      _$userStatusUserStatusGetStatusResponse200ApplicationJsonSerializer;
+}
+
+abstract class UserStatusUserStatusSetStatusResponse200ApplicationJson_Ocs
+    implements
+        Built<UserStatusUserStatusSetStatusResponse200ApplicationJson_Ocs,
+            UserStatusUserStatusSetStatusResponse200ApplicationJson_OcsBuilder> {
+  factory UserStatusUserStatusSetStatusResponse200ApplicationJson_Ocs([
+    final void Function(UserStatusUserStatusSetStatusResponse200ApplicationJson_OcsBuilder)? b,
+  ]) = _$UserStatusUserStatusSetStatusResponse200ApplicationJson_Ocs;
+  const UserStatusUserStatusSetStatusResponse200ApplicationJson_Ocs._();
+
+  factory UserStatusUserStatusSetStatusResponse200ApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+      _jsonSerializers.deserializeWith(serializer, json)!;
+
+  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  UserStatusOCSMeta get meta;
+  UserStatusPrivate get data;
+  static Serializer<UserStatusUserStatusSetStatusResponse200ApplicationJson_Ocs> get serializer =>
+      _$userStatusUserStatusSetStatusResponse200ApplicationJsonOcsSerializer;
+}
+
+abstract class UserStatusUserStatusSetStatusResponse200ApplicationJson
+    implements
+        Built<UserStatusUserStatusSetStatusResponse200ApplicationJson,
+            UserStatusUserStatusSetStatusResponse200ApplicationJsonBuilder> {
+  factory UserStatusUserStatusSetStatusResponse200ApplicationJson([
+    final void Function(UserStatusUserStatusSetStatusResponse200ApplicationJsonBuilder)? b,
+  ]) = _$UserStatusUserStatusSetStatusResponse200ApplicationJson;
+  const UserStatusUserStatusSetStatusResponse200ApplicationJson._();
+
+  factory UserStatusUserStatusSetStatusResponse200ApplicationJson.fromJson(final Map<String, dynamic> json) =>
+      _jsonSerializers.deserializeWith(serializer, json)!;
+
+  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  UserStatusUserStatusSetStatusResponse200ApplicationJson_Ocs get ocs;
+  static Serializer<UserStatusUserStatusSetStatusResponse200ApplicationJson> get serializer =>
+      _$userStatusUserStatusSetStatusResponse200ApplicationJsonSerializer;
+}
+
+abstract class UserStatusUserStatusSetPredefinedMessageResponse200ApplicationJson_Ocs
+    implements
+        Built<UserStatusUserStatusSetPredefinedMessageResponse200ApplicationJson_Ocs,
+            UserStatusUserStatusSetPredefinedMessageResponse200ApplicationJson_OcsBuilder> {
+  factory UserStatusUserStatusSetPredefinedMessageResponse200ApplicationJson_Ocs([
+    final void Function(UserStatusUserStatusSetPredefinedMessageResponse200ApplicationJson_OcsBuilder)? b,
+  ]) = _$UserStatusUserStatusSetPredefinedMessageResponse200ApplicationJson_Ocs;
+  const UserStatusUserStatusSetPredefinedMessageResponse200ApplicationJson_Ocs._();
+
+  factory UserStatusUserStatusSetPredefinedMessageResponse200ApplicationJson_Ocs.fromJson(
+    final Map<String, dynamic> json,
+  ) =>
+      _jsonSerializers.deserializeWith(serializer, json)!;
+
+  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  UserStatusOCSMeta get meta;
+  UserStatusPrivate get data;
+  static Serializer<UserStatusUserStatusSetPredefinedMessageResponse200ApplicationJson_Ocs> get serializer =>
+      _$userStatusUserStatusSetPredefinedMessageResponse200ApplicationJsonOcsSerializer;
+}
+
+abstract class UserStatusUserStatusSetPredefinedMessageResponse200ApplicationJson
+    implements
+        Built<UserStatusUserStatusSetPredefinedMessageResponse200ApplicationJson,
+            UserStatusUserStatusSetPredefinedMessageResponse200ApplicationJsonBuilder> {
+  factory UserStatusUserStatusSetPredefinedMessageResponse200ApplicationJson([
+    final void Function(UserStatusUserStatusSetPredefinedMessageResponse200ApplicationJsonBuilder)? b,
+  ]) = _$UserStatusUserStatusSetPredefinedMessageResponse200ApplicationJson;
+  const UserStatusUserStatusSetPredefinedMessageResponse200ApplicationJson._();
+
+  factory UserStatusUserStatusSetPredefinedMessageResponse200ApplicationJson.fromJson(
+    final Map<String, dynamic> json,
+  ) =>
+      _jsonSerializers.deserializeWith(serializer, json)!;
+
+  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  UserStatusUserStatusSetPredefinedMessageResponse200ApplicationJson_Ocs get ocs;
+  static Serializer<UserStatusUserStatusSetPredefinedMessageResponse200ApplicationJson> get serializer =>
+      _$userStatusUserStatusSetPredefinedMessageResponse200ApplicationJsonSerializer;
+}
+
+abstract class UserStatusUserStatusSetCustomMessageResponse200ApplicationJson_Ocs
+    implements
+        Built<UserStatusUserStatusSetCustomMessageResponse200ApplicationJson_Ocs,
+            UserStatusUserStatusSetCustomMessageResponse200ApplicationJson_OcsBuilder> {
+  factory UserStatusUserStatusSetCustomMessageResponse200ApplicationJson_Ocs([
+    final void Function(UserStatusUserStatusSetCustomMessageResponse200ApplicationJson_OcsBuilder)? b,
+  ]) = _$UserStatusUserStatusSetCustomMessageResponse200ApplicationJson_Ocs;
+  const UserStatusUserStatusSetCustomMessageResponse200ApplicationJson_Ocs._();
+
+  factory UserStatusUserStatusSetCustomMessageResponse200ApplicationJson_Ocs.fromJson(
+    final Map<String, dynamic> json,
+  ) =>
+      _jsonSerializers.deserializeWith(serializer, json)!;
+
+  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  UserStatusOCSMeta get meta;
+  UserStatusPrivate get data;
+  static Serializer<UserStatusUserStatusSetCustomMessageResponse200ApplicationJson_Ocs> get serializer =>
+      _$userStatusUserStatusSetCustomMessageResponse200ApplicationJsonOcsSerializer;
+}
+
+abstract class UserStatusUserStatusSetCustomMessageResponse200ApplicationJson
+    implements
+        Built<UserStatusUserStatusSetCustomMessageResponse200ApplicationJson,
+            UserStatusUserStatusSetCustomMessageResponse200ApplicationJsonBuilder> {
+  factory UserStatusUserStatusSetCustomMessageResponse200ApplicationJson([
+    final void Function(UserStatusUserStatusSetCustomMessageResponse200ApplicationJsonBuilder)? b,
+  ]) = _$UserStatusUserStatusSetCustomMessageResponse200ApplicationJson;
+  const UserStatusUserStatusSetCustomMessageResponse200ApplicationJson._();
+
+  factory UserStatusUserStatusSetCustomMessageResponse200ApplicationJson.fromJson(final Map<String, dynamic> json) =>
+      _jsonSerializers.deserializeWith(serializer, json)!;
+
+  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  UserStatusUserStatusSetCustomMessageResponse200ApplicationJson_Ocs get ocs;
+  static Serializer<UserStatusUserStatusSetCustomMessageResponse200ApplicationJson> get serializer =>
+      _$userStatusUserStatusSetCustomMessageResponse200ApplicationJsonSerializer;
+}
+
+abstract class UserStatusUserStatusClearMessageResponse200ApplicationJson_Ocs
+    implements
+        Built<UserStatusUserStatusClearMessageResponse200ApplicationJson_Ocs,
+            UserStatusUserStatusClearMessageResponse200ApplicationJson_OcsBuilder> {
+  factory UserStatusUserStatusClearMessageResponse200ApplicationJson_Ocs([
+    final void Function(UserStatusUserStatusClearMessageResponse200ApplicationJson_OcsBuilder)? b,
+  ]) = _$UserStatusUserStatusClearMessageResponse200ApplicationJson_Ocs;
+  const UserStatusUserStatusClearMessageResponse200ApplicationJson_Ocs._();
+
+  factory UserStatusUserStatusClearMessageResponse200ApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+      _jsonSerializers.deserializeWith(serializer, json)!;
+
+  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  UserStatusOCSMeta get meta;
+  JsonObject get data;
+  static Serializer<UserStatusUserStatusClearMessageResponse200ApplicationJson_Ocs> get serializer =>
+      _$userStatusUserStatusClearMessageResponse200ApplicationJsonOcsSerializer;
+}
+
+abstract class UserStatusUserStatusClearMessageResponse200ApplicationJson
+    implements
+        Built<UserStatusUserStatusClearMessageResponse200ApplicationJson,
+            UserStatusUserStatusClearMessageResponse200ApplicationJsonBuilder> {
+  factory UserStatusUserStatusClearMessageResponse200ApplicationJson([
+    final void Function(UserStatusUserStatusClearMessageResponse200ApplicationJsonBuilder)? b,
+  ]) = _$UserStatusUserStatusClearMessageResponse200ApplicationJson;
+  const UserStatusUserStatusClearMessageResponse200ApplicationJson._();
+
+  factory UserStatusUserStatusClearMessageResponse200ApplicationJson.fromJson(final Map<String, dynamic> json) =>
+      _jsonSerializers.deserializeWith(serializer, json)!;
+
+  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  UserStatusUserStatusClearMessageResponse200ApplicationJson_Ocs get ocs;
+  static Serializer<UserStatusUserStatusClearMessageResponse200ApplicationJson> get serializer =>
+      _$userStatusUserStatusClearMessageResponse200ApplicationJsonSerializer;
+}
+
+abstract class UserStatusUserStatusRevertStatusResponse200ApplicationJson_Ocs_Data
+    implements
+        Built<UserStatusUserStatusRevertStatusResponse200ApplicationJson_Ocs_Data,
+            UserStatusUserStatusRevertStatusResponse200ApplicationJson_Ocs_DataBuilder> {
+  factory UserStatusUserStatusRevertStatusResponse200ApplicationJson_Ocs_Data([
+    final void Function(UserStatusUserStatusRevertStatusResponse200ApplicationJson_Ocs_DataBuilder)? b,
+  ]) = _$UserStatusUserStatusRevertStatusResponse200ApplicationJson_Ocs_Data;
+  const UserStatusUserStatusRevertStatusResponse200ApplicationJson_Ocs_Data._();
 
   JsonObject get data;
-  BuiltList<JsonObject>? get builtListJsonObject;
-  UserStatusStatus? get status;
-  static UserStatusHeartbeat_Ocs_Data fromJson(final Object json) =>
+  UserStatusPrivate? get private;
+  JsonObject? get jsonObject;
+  static UserStatusUserStatusRevertStatusResponse200ApplicationJson_Ocs_Data fromJson(final Object json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   @BuiltValueSerializer(custom: true)
-  static Serializer<UserStatusHeartbeat_Ocs_Data> get serializer => _$UserStatusHeartbeat_Ocs_DataSerializer();
+  static Serializer<UserStatusUserStatusRevertStatusResponse200ApplicationJson_Ocs_Data> get serializer =>
+      _$UserStatusUserStatusRevertStatusResponse200ApplicationJson_Ocs_DataSerializer();
 }
 
-class _$UserStatusHeartbeat_Ocs_DataSerializer implements PrimitiveSerializer<UserStatusHeartbeat_Ocs_Data> {
+class _$UserStatusUserStatusRevertStatusResponse200ApplicationJson_Ocs_DataSerializer
+    implements PrimitiveSerializer<UserStatusUserStatusRevertStatusResponse200ApplicationJson_Ocs_Data> {
   @override
-  final Iterable<Type> types = const [UserStatusHeartbeat_Ocs_Data, _$UserStatusHeartbeat_Ocs_Data];
+  final Iterable<Type> types = const [
+    UserStatusUserStatusRevertStatusResponse200ApplicationJson_Ocs_Data,
+    _$UserStatusUserStatusRevertStatusResponse200ApplicationJson_Ocs_Data
+  ];
 
   @override
-  final String wireName = 'UserStatusHeartbeat_Ocs_Data';
+  final String wireName = 'UserStatusUserStatusRevertStatusResponse200ApplicationJson_Ocs_Data';
 
   @override
   Object serialize(
     final Serializers serializers,
-    final UserStatusHeartbeat_Ocs_Data object, {
+    final UserStatusUserStatusRevertStatusResponse200ApplicationJson_Ocs_Data object, {
     final FullType specifiedType = FullType.unspecified,
   }) =>
       object.data.value;
 
   @override
-  UserStatusHeartbeat_Ocs_Data deserialize(
+  UserStatusUserStatusRevertStatusResponse200ApplicationJson_Ocs_Data deserialize(
     final Serializers serializers,
     final Object data, {
     final FullType specifiedType = FullType.unspecified,
   }) {
-    final result = UserStatusHeartbeat_Ocs_DataBuilder()..data = JsonObject(data);
+    final result = UserStatusUserStatusRevertStatusResponse200ApplicationJson_Ocs_DataBuilder()
+      ..data = JsonObject(data);
     try {
-      result._builtListJsonObject = (_jsonSerializers.deserialize(
-        data,
-        specifiedType: const FullType(BuiltList, [FullType(JsonObject)]),
-      )! as BuiltList<JsonObject>)
-          .toBuilder();
-    } catch (_) {}
-    try {
-      result._status =
-          (_jsonSerializers.deserialize(data, specifiedType: const FullType(UserStatusStatus))! as UserStatusStatus)
+      result._private =
+          (_jsonSerializers.deserialize(data, specifiedType: const FullType(UserStatusPrivate))! as UserStatusPrivate)
               .toBuilder();
     } catch (_) {}
+    try {
+      result._jsonObject = data as JsonObject?;
+    } catch (_) {}
     assert(
-      [result._builtListJsonObject, result._status].where((final x) => x != null).isNotEmpty,
+      [result._private, result._jsonObject].where((final x) => x != null).isNotEmpty,
       'Need oneOf for ${result._data}',
     );
     return result.build();
   }
 }
 
-abstract class UserStatusHeartbeat_Ocs implements Built<UserStatusHeartbeat_Ocs, UserStatusHeartbeat_OcsBuilder> {
-  factory UserStatusHeartbeat_Ocs([final void Function(UserStatusHeartbeat_OcsBuilder)? b]) = _$UserStatusHeartbeat_Ocs;
-  const UserStatusHeartbeat_Ocs._();
+abstract class UserStatusUserStatusRevertStatusResponse200ApplicationJson_Ocs
+    implements
+        Built<UserStatusUserStatusRevertStatusResponse200ApplicationJson_Ocs,
+            UserStatusUserStatusRevertStatusResponse200ApplicationJson_OcsBuilder> {
+  factory UserStatusUserStatusRevertStatusResponse200ApplicationJson_Ocs([
+    final void Function(UserStatusUserStatusRevertStatusResponse200ApplicationJson_OcsBuilder)? b,
+  ]) = _$UserStatusUserStatusRevertStatusResponse200ApplicationJson_Ocs;
+  const UserStatusUserStatusRevertStatusResponse200ApplicationJson_Ocs._();
 
-  factory UserStatusHeartbeat_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory UserStatusUserStatusRevertStatusResponse200ApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
 
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   UserStatusOCSMeta get meta;
-  UserStatusHeartbeat_Ocs_Data get data;
-  static Serializer<UserStatusHeartbeat_Ocs> get serializer => _$userStatusHeartbeatOcsSerializer;
+  UserStatusUserStatusRevertStatusResponse200ApplicationJson_Ocs_Data get data;
+  static Serializer<UserStatusUserStatusRevertStatusResponse200ApplicationJson_Ocs> get serializer =>
+      _$userStatusUserStatusRevertStatusResponse200ApplicationJsonOcsSerializer;
 }
 
-abstract class UserStatusHeartbeat implements Built<UserStatusHeartbeat, UserStatusHeartbeatBuilder> {
-  factory UserStatusHeartbeat([final void Function(UserStatusHeartbeatBuilder)? b]) = _$UserStatusHeartbeat;
-  const UserStatusHeartbeat._();
+abstract class UserStatusUserStatusRevertStatusResponse200ApplicationJson
+    implements
+        Built<UserStatusUserStatusRevertStatusResponse200ApplicationJson,
+            UserStatusUserStatusRevertStatusResponse200ApplicationJsonBuilder> {
+  factory UserStatusUserStatusRevertStatusResponse200ApplicationJson([
+    final void Function(UserStatusUserStatusRevertStatusResponse200ApplicationJsonBuilder)? b,
+  ]) = _$UserStatusUserStatusRevertStatusResponse200ApplicationJson;
+  const UserStatusUserStatusRevertStatusResponse200ApplicationJson._();
 
-  factory UserStatusHeartbeat.fromJson(final Map<String, dynamic> json) =>
+  factory UserStatusUserStatusRevertStatusResponse200ApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
 
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  UserStatusHeartbeat_Ocs get ocs;
-  static Serializer<UserStatusHeartbeat> get serializer => _$userStatusHeartbeatSerializer;
+  UserStatusUserStatusRevertStatusResponse200ApplicationJson_Ocs get ocs;
+  static Serializer<UserStatusUserStatusRevertStatusResponse200ApplicationJson> get serializer =>
+      _$userStatusUserStatusRevertStatusResponse200ApplicationJsonSerializer;
 }
 
-abstract class UserStatusEmptyOCS_Ocs implements Built<UserStatusEmptyOCS_Ocs, UserStatusEmptyOCS_OcsBuilder> {
-  factory UserStatusEmptyOCS_Ocs([final void Function(UserStatusEmptyOCS_OcsBuilder)? b]) = _$UserStatusEmptyOCS_Ocs;
-  const UserStatusEmptyOCS_Ocs._();
+abstract class UserStatusCapabilities_UserStatus
+    implements Built<UserStatusCapabilities_UserStatus, UserStatusCapabilities_UserStatusBuilder> {
+  factory UserStatusCapabilities_UserStatus([final void Function(UserStatusCapabilities_UserStatusBuilder)? b]) =
+      _$UserStatusCapabilities_UserStatus;
+  const UserStatusCapabilities_UserStatus._();
 
-  factory UserStatusEmptyOCS_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory UserStatusCapabilities_UserStatus.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
 
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  UserStatusOCSMeta get meta;
-  BuiltList<JsonObject> get data;
-  static Serializer<UserStatusEmptyOCS_Ocs> get serializer => _$userStatusEmptyOCSOcsSerializer;
+  bool get enabled;
+  bool get restore;
+  @BuiltValueField(wireName: 'supports_emoji')
+  bool get supportsEmoji;
+  static Serializer<UserStatusCapabilities_UserStatus> get serializer => _$userStatusCapabilitiesUserStatusSerializer;
 }
 
-abstract class UserStatusEmptyOCS implements Built<UserStatusEmptyOCS, UserStatusEmptyOCSBuilder> {
-  factory UserStatusEmptyOCS([final void Function(UserStatusEmptyOCSBuilder)? b]) = _$UserStatusEmptyOCS;
-  const UserStatusEmptyOCS._();
+abstract class UserStatusCapabilities implements Built<UserStatusCapabilities, UserStatusCapabilitiesBuilder> {
+  factory UserStatusCapabilities([final void Function(UserStatusCapabilitiesBuilder)? b]) = _$UserStatusCapabilities;
+  const UserStatusCapabilities._();
 
-  factory UserStatusEmptyOCS.fromJson(final Map<String, dynamic> json) =>
+  factory UserStatusCapabilities.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
 
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  UserStatusEmptyOCS_Ocs get ocs;
-  static Serializer<UserStatusEmptyOCS> get serializer => _$userStatusEmptyOCSSerializer;
+  @BuiltValueField(wireName: 'user_status')
+  UserStatusCapabilities_UserStatus get userStatus;
+  static Serializer<UserStatusCapabilities> get serializer => _$userStatusCapabilitiesSerializer;
 }
 
 final Serializers _serializers = (Serializers().toBuilder()
-      ..addBuilderFactory(const FullType(UserStatusGetPublicStatuses), UserStatusGetPublicStatuses.new)
-      ..add(UserStatusGetPublicStatuses.serializer)
-      ..addBuilderFactory(const FullType(UserStatusGetPublicStatuses_Ocs), UserStatusGetPublicStatuses_Ocs.new)
-      ..add(UserStatusGetPublicStatuses_Ocs.serializer)
+      ..addBuilderFactory(
+        const FullType(UserStatusHeartbeatHeartbeatResponse200ApplicationJson),
+        UserStatusHeartbeatHeartbeatResponse200ApplicationJson.new,
+      )
+      ..add(UserStatusHeartbeatHeartbeatResponse200ApplicationJson.serializer)
+      ..addBuilderFactory(
+        const FullType(UserStatusHeartbeatHeartbeatResponse200ApplicationJson_Ocs),
+        UserStatusHeartbeatHeartbeatResponse200ApplicationJson_Ocs.new,
+      )
+      ..add(UserStatusHeartbeatHeartbeatResponse200ApplicationJson_Ocs.serializer)
       ..addBuilderFactory(const FullType(UserStatusOCSMeta), UserStatusOCSMeta.new)
       ..add(UserStatusOCSMeta.serializer)
-      ..addBuilderFactory(const FullType(UserStatusPublicStatus), UserStatusPublicStatus.new)
-      ..add(UserStatusPublicStatus.serializer)
-      ..addBuilderFactory(const FullType(UserStatusPublicStatus_ClearAt), UserStatusPublicStatus_ClearAt.new)
-      ..add(UserStatusPublicStatus_ClearAt.serializer)
+      ..addBuilderFactory(const FullType(UserStatusPrivate), UserStatusPrivate.new)
+      ..add(UserStatusPrivate.serializer)
+      ..addBuilderFactory(const FullType(UserStatusPublic), UserStatusPublic.new)
+      ..add(UserStatusPublic.serializer)
+      ..addBuilderFactory(const FullType(UserStatusPrivate1), UserStatusPrivate1.new)
+      ..add(UserStatusPrivate1.serializer)
+      ..addBuilderFactory(
+        const FullType(UserStatusPredefinedStatusFindAllResponse200ApplicationJson),
+        UserStatusPredefinedStatusFindAllResponse200ApplicationJson.new,
+      )
+      ..add(UserStatusPredefinedStatusFindAllResponse200ApplicationJson.serializer)
+      ..addBuilderFactory(
+        const FullType(UserStatusPredefinedStatusFindAllResponse200ApplicationJson_Ocs),
+        UserStatusPredefinedStatusFindAllResponse200ApplicationJson_Ocs.new,
+      )
+      ..add(UserStatusPredefinedStatusFindAllResponse200ApplicationJson_Ocs.serializer)
+      ..addBuilderFactory(const FullType(UserStatusPredefined), UserStatusPredefined.new)
+      ..add(UserStatusPredefined.serializer)
       ..addBuilderFactory(const FullType(UserStatusClearAt), UserStatusClearAt.new)
       ..add(UserStatusClearAt.serializer)
       ..add(UserStatusClearAt_Type.serializer)
       ..addBuilderFactory(const FullType(UserStatusClearAt_Time), UserStatusClearAt_Time.new)
       ..add(UserStatusClearAt_Time.serializer)
-      ..add(UserStatusClearAt_Time0.serializer)
-      ..add(UserStatusType.serializer)
+      ..add(UserStatusClearAtTimeType.serializer)
       ..addBuilderFactory(
-        const FullType(BuiltList, [FullType(UserStatusPublicStatus)]),
-        ListBuilder<UserStatusPublicStatus>.new,
+        const FullType(BuiltList, [FullType(UserStatusPredefined)]),
+        ListBuilder<UserStatusPredefined>.new,
       )
-      ..addBuilderFactory(const FullType(UserStatusGetPublicStatus), UserStatusGetPublicStatus.new)
-      ..add(UserStatusGetPublicStatus.serializer)
-      ..addBuilderFactory(const FullType(UserStatusGetPublicStatus_Ocs), UserStatusGetPublicStatus_Ocs.new)
-      ..add(UserStatusGetPublicStatus_Ocs.serializer)
-      ..addBuilderFactory(const FullType(UserStatusGetPublicStatus_Ocs_Data), UserStatusGetPublicStatus_Ocs_Data.new)
-      ..add(UserStatusGetPublicStatus_Ocs_Data.serializer)
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(JsonObject)]), ListBuilder<JsonObject>.new)
-      ..addBuilderFactory(const FullType(UserStatusGetStatus), UserStatusGetStatus.new)
-      ..add(UserStatusGetStatus.serializer)
-      ..addBuilderFactory(const FullType(UserStatusGetStatus_Ocs), UserStatusGetStatus_Ocs.new)
-      ..add(UserStatusGetStatus_Ocs.serializer)
-      ..addBuilderFactory(const FullType(UserStatusGetStatus_Ocs_Data), UserStatusGetStatus_Ocs_Data.new)
-      ..add(UserStatusGetStatus_Ocs_Data.serializer)
-      ..addBuilderFactory(const FullType(UserStatusStatus), UserStatusStatus.new)
-      ..add(UserStatusStatus.serializer)
-      ..addBuilderFactory(const FullType(UserStatusStatus1), UserStatusStatus1.new)
-      ..add(UserStatusStatus1.serializer)
-      ..addBuilderFactory(const FullType(UserStatusPredefinedStatuses), UserStatusPredefinedStatuses.new)
-      ..add(UserStatusPredefinedStatuses.serializer)
-      ..addBuilderFactory(const FullType(UserStatusPredefinedStatuses_Ocs), UserStatusPredefinedStatuses_Ocs.new)
-      ..add(UserStatusPredefinedStatuses_Ocs.serializer)
-      ..addBuilderFactory(const FullType(UserStatusPredefinedStatus), UserStatusPredefinedStatus.new)
-      ..add(UserStatusPredefinedStatus.serializer)
-      ..addBuilderFactory(const FullType(UserStatusPredefinedStatus_ClearAt), UserStatusPredefinedStatus_ClearAt.new)
-      ..add(UserStatusPredefinedStatus_ClearAt.serializer)
       ..addBuilderFactory(
-        const FullType(BuiltList, [FullType(UserStatusPredefinedStatus)]),
-        ListBuilder<UserStatusPredefinedStatus>.new,
+        const FullType(UserStatusStatusesFindAllResponse200ApplicationJson),
+        UserStatusStatusesFindAllResponse200ApplicationJson.new,
       )
-      ..addBuilderFactory(const FullType(UserStatusHeartbeat), UserStatusHeartbeat.new)
-      ..add(UserStatusHeartbeat.serializer)
-      ..addBuilderFactory(const FullType(UserStatusHeartbeat_Ocs), UserStatusHeartbeat_Ocs.new)
-      ..add(UserStatusHeartbeat_Ocs.serializer)
-      ..addBuilderFactory(const FullType(UserStatusHeartbeat_Ocs_Data), UserStatusHeartbeat_Ocs_Data.new)
-      ..add(UserStatusHeartbeat_Ocs_Data.serializer)
-      ..addBuilderFactory(const FullType(UserStatusEmptyOCS), UserStatusEmptyOCS.new)
-      ..add(UserStatusEmptyOCS.serializer)
-      ..addBuilderFactory(const FullType(UserStatusEmptyOCS_Ocs), UserStatusEmptyOCS_Ocs.new)
-      ..add(UserStatusEmptyOCS_Ocs.serializer))
+      ..add(UserStatusStatusesFindAllResponse200ApplicationJson.serializer)
+      ..addBuilderFactory(
+        const FullType(UserStatusStatusesFindAllResponse200ApplicationJson_Ocs),
+        UserStatusStatusesFindAllResponse200ApplicationJson_Ocs.new,
+      )
+      ..add(UserStatusStatusesFindAllResponse200ApplicationJson_Ocs.serializer)
+      ..addBuilderFactory(const FullType(BuiltList, [FullType(UserStatusPublic)]), ListBuilder<UserStatusPublic>.new)
+      ..addBuilderFactory(
+        const FullType(UserStatusStatusesFindResponse200ApplicationJson),
+        UserStatusStatusesFindResponse200ApplicationJson.new,
+      )
+      ..add(UserStatusStatusesFindResponse200ApplicationJson.serializer)
+      ..addBuilderFactory(
+        const FullType(UserStatusStatusesFindResponse200ApplicationJson_Ocs),
+        UserStatusStatusesFindResponse200ApplicationJson_Ocs.new,
+      )
+      ..add(UserStatusStatusesFindResponse200ApplicationJson_Ocs.serializer)
+      ..addBuilderFactory(
+        const FullType(UserStatusUserStatusGetStatusResponse200ApplicationJson),
+        UserStatusUserStatusGetStatusResponse200ApplicationJson.new,
+      )
+      ..add(UserStatusUserStatusGetStatusResponse200ApplicationJson.serializer)
+      ..addBuilderFactory(
+        const FullType(UserStatusUserStatusGetStatusResponse200ApplicationJson_Ocs),
+        UserStatusUserStatusGetStatusResponse200ApplicationJson_Ocs.new,
+      )
+      ..add(UserStatusUserStatusGetStatusResponse200ApplicationJson_Ocs.serializer)
+      ..addBuilderFactory(
+        const FullType(UserStatusUserStatusSetStatusResponse200ApplicationJson),
+        UserStatusUserStatusSetStatusResponse200ApplicationJson.new,
+      )
+      ..add(UserStatusUserStatusSetStatusResponse200ApplicationJson.serializer)
+      ..addBuilderFactory(
+        const FullType(UserStatusUserStatusSetStatusResponse200ApplicationJson_Ocs),
+        UserStatusUserStatusSetStatusResponse200ApplicationJson_Ocs.new,
+      )
+      ..add(UserStatusUserStatusSetStatusResponse200ApplicationJson_Ocs.serializer)
+      ..addBuilderFactory(
+        const FullType(UserStatusUserStatusSetPredefinedMessageResponse200ApplicationJson),
+        UserStatusUserStatusSetPredefinedMessageResponse200ApplicationJson.new,
+      )
+      ..add(UserStatusUserStatusSetPredefinedMessageResponse200ApplicationJson.serializer)
+      ..addBuilderFactory(
+        const FullType(UserStatusUserStatusSetPredefinedMessageResponse200ApplicationJson_Ocs),
+        UserStatusUserStatusSetPredefinedMessageResponse200ApplicationJson_Ocs.new,
+      )
+      ..add(UserStatusUserStatusSetPredefinedMessageResponse200ApplicationJson_Ocs.serializer)
+      ..addBuilderFactory(
+        const FullType(UserStatusUserStatusSetCustomMessageResponse200ApplicationJson),
+        UserStatusUserStatusSetCustomMessageResponse200ApplicationJson.new,
+      )
+      ..add(UserStatusUserStatusSetCustomMessageResponse200ApplicationJson.serializer)
+      ..addBuilderFactory(
+        const FullType(UserStatusUserStatusSetCustomMessageResponse200ApplicationJson_Ocs),
+        UserStatusUserStatusSetCustomMessageResponse200ApplicationJson_Ocs.new,
+      )
+      ..add(UserStatusUserStatusSetCustomMessageResponse200ApplicationJson_Ocs.serializer)
+      ..addBuilderFactory(
+        const FullType(UserStatusUserStatusClearMessageResponse200ApplicationJson),
+        UserStatusUserStatusClearMessageResponse200ApplicationJson.new,
+      )
+      ..add(UserStatusUserStatusClearMessageResponse200ApplicationJson.serializer)
+      ..addBuilderFactory(
+        const FullType(UserStatusUserStatusClearMessageResponse200ApplicationJson_Ocs),
+        UserStatusUserStatusClearMessageResponse200ApplicationJson_Ocs.new,
+      )
+      ..add(UserStatusUserStatusClearMessageResponse200ApplicationJson_Ocs.serializer)
+      ..addBuilderFactory(
+        const FullType(UserStatusUserStatusRevertStatusResponse200ApplicationJson),
+        UserStatusUserStatusRevertStatusResponse200ApplicationJson.new,
+      )
+      ..add(UserStatusUserStatusRevertStatusResponse200ApplicationJson.serializer)
+      ..addBuilderFactory(
+        const FullType(UserStatusUserStatusRevertStatusResponse200ApplicationJson_Ocs),
+        UserStatusUserStatusRevertStatusResponse200ApplicationJson_Ocs.new,
+      )
+      ..add(UserStatusUserStatusRevertStatusResponse200ApplicationJson_Ocs.serializer)
+      ..addBuilderFactory(
+        const FullType(UserStatusUserStatusRevertStatusResponse200ApplicationJson_Ocs_Data),
+        UserStatusUserStatusRevertStatusResponse200ApplicationJson_Ocs_Data.new,
+      )
+      ..add(UserStatusUserStatusRevertStatusResponse200ApplicationJson_Ocs_Data.serializer)
+      ..addBuilderFactory(const FullType(UserStatusCapabilities), UserStatusCapabilities.new)
+      ..add(UserStatusCapabilities.serializer)
+      ..addBuilderFactory(const FullType(UserStatusCapabilities_UserStatus), UserStatusCapabilities_UserStatus.new)
+      ..add(UserStatusCapabilities_UserStatus.serializer))
     .build();
 
 Serializers get userStatusSerializers => _serializers;

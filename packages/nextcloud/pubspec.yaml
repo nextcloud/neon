@@ -15,6 +15,7 @@ dependencies:
       url: https://github.com/provokateurin/nextcloud-neon
       path: packages/dynamite/dynamite_runtime
   intl: ^0.18.0
+  json_annotation: ^4.8.1
   universal_io: ^2.2.0
   version: ^3.0.2
   xml: ^6.3.0
@@ -28,6 +29,7 @@ dev_dependencies:
     git:
       url: https://github.com/provokateurin/nextcloud-neon
       path: packages/dynamite/dynamite
+  json_serializable: ^6.6.2
   nit_picking:
     git:
       url: https://github.com/stack11/dart_nit_picking

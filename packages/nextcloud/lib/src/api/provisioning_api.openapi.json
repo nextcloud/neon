@@ -3479,7 +3479,7 @@
                     {
                         "name": "app",
                         "in": "path",
-                        "description": "ID if the app",
+                        "description": "ID of the app",
                         "required": true,
                         "schema": {
                             "type": "string"

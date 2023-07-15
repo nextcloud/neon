@@ -17,7 +17,6 @@ void main() {
       client = await getTestClient(
         container,
         username: 'admin',
-        password: 'admin',
       );
     });
     tearDown(() => container.destroy());
