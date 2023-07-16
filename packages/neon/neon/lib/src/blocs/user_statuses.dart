@@ -2,11 +2,11 @@ import 'dart:async';
 
 import 'package:flutter/foundation.dart';
 import 'package:meta/meta.dart';
+import 'package:neon/platform.dart';
 import 'package:neon/src/bloc/bloc.dart';
 import 'package:neon/src/bloc/result.dart';
 import 'package:neon/src/blocs/timer.dart';
 import 'package:neon/src/models/account.dart';
-import 'package:neon/src/platform/platform.dart';
 import 'package:nextcloud/nextcloud.dart';
 import 'package:rxdart/rxdart.dart';
 import 'package:window_manager/window_manager.dart';
@@ -22,14 +22,12 @@ abstract class UserStatusesBlocStates {
 @internal
 class UserStatusesBloc extends InteractiveBloc implements UserStatusesBlocEvents, UserStatusesBlocStates {
   UserStatusesBloc(
-    this._platform,
     this._account,
   ) {
     unawaited(refresh());
     _timer = TimerBloc().registerTimer(const Duration(minutes: 5), refresh);
   }
 
-  final NeonPlatform _platform;
   final Account _account;
   late final NeonTimer _timer;
 
@@ -63,8 +61,12 @@ class UserStatusesBloc extends InteractiveBloc implements UserStatusesBlocEvents
       UserStatusPublic? data;
 
       if (_account.username == username) {
-        final isAway =
-            _platform.canUseWindowManager && (!(await windowManager.isFocused()) || !(await windowManager.isVisible()));
+        var isAway = false;
+        if (NeonPlatform.instance.canUseWindowManager) {
+          final focused = await windowManager.isFocused();
+          final visible = await windowManager.isFocused();
+          isAway = !focused || !visible;
+        }
         try {
           final response = await _account.client.userStatus.heartbeat.heartbeat(
             status: isAway ? 'away' : 'online',

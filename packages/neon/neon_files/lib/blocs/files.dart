@@ -28,7 +28,6 @@ class FilesBloc extends InteractiveBloc implements FilesBlocEvents, FilesBlocSta
   FilesBloc(
     this.options,
     this.account,
-    this._platform,
   ) {
     options.uploadQueueParallelism.addListener(_uploadParalelismListener);
     options.downloadQueueParallelism.addListener(_downloadParalelismListener);
@@ -36,7 +35,6 @@ class FilesBloc extends InteractiveBloc implements FilesBlocEvents, FilesBlocSta
 
   final FilesAppSpecificOptions options;
   final Account account;
-  final NeonPlatform _platform;
   late final browser = getNewFilesBrowserBloc();
 
   final _uploadQueue = Queue();
@@ -86,7 +84,7 @@ class FilesBloc extends InteractiveBloc implements FilesBlocEvents, FilesBlocSta
       () async {
         final file = File(
           p.join(
-            await _platform.getApplicationCachePath(),
+            await NeonPlatform.instance.getApplicationCachePath(),
             'files',
             etag.replaceAll('"', ''),
             path.last,
@@ -139,7 +137,7 @@ class FilesBloc extends InteractiveBloc implements FilesBlocEvents, FilesBlocSta
       () async {
         final file = File(
           p.join(
-            await _platform.getUserAccessibleAppDataPath(),
+            await NeonPlatform.instance.getUserAccessibleAppDataPath(),
             account.humanReadableID,
             'files',
             path.join(Platform.pathSeparator),

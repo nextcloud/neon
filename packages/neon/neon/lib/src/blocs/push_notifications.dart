@@ -28,9 +28,8 @@ class PushNotificationsBloc extends Bloc implements PushNotificationsBlocEvents,
     this._accountsBloc,
     this._sharedPreferences,
     this._globalOptions,
-    this._platform,
   ) {
-    if (_platform.canUsePushNotifications) {
+    if (NeonPlatform.instance.canUsePushNotifications) {
       unawaited(UnifiedPush.getDistributors().then(_globalOptions.updateDistributors));
 
       _globalOptions.pushNotificationsEnabled.addListener(_pushNotificationsEnabledListener);
@@ -40,7 +39,6 @@ class PushNotificationsBloc extends Bloc implements PushNotificationsBlocEvents,
   }
 
   final AccountsBloc _accountsBloc;
-  final NeonPlatform _platform;
   final SharedPreferences _sharedPreferences;
   late final _storage = AppStorage(AppIDs.notifications, _sharedPreferences);
   final GlobalOptions _globalOptions;

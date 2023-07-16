@@ -52,7 +52,7 @@ part 'widgets/folder_view.dart';
 part 'widgets/folders_view.dart';
 
 class NewsApp extends AppImplementation<NewsBloc, NewsAppSpecificOptions> {
-  NewsApp(super.sharedPreferences, super.platform);
+  NewsApp(super.sharedPreferences);
 
   @override
   String id = AppIDs.news;
@@ -64,7 +64,7 @@ class NewsApp extends AppImplementation<NewsBloc, NewsAppSpecificOptions> {
   List<Locale> supportedLocales = AppLocalizations.supportedLocales;
 
   @override
-  NewsAppSpecificOptions buildOptions(final AppStorage storage) => NewsAppSpecificOptions(storage, platform);
+  NewsAppSpecificOptions buildOptions(final AppStorage storage) => NewsAppSpecificOptions(storage);
 
   @override
   NewsBloc buildBloc(final Account account) => NewsBloc(

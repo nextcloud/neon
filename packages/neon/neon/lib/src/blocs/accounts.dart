@@ -10,7 +10,6 @@ import 'package:neon/src/blocs/user_details.dart';
 import 'package:neon/src/blocs/user_statuses.dart';
 import 'package:neon/src/models/account.dart';
 import 'package:neon/src/models/app_implementation.dart';
-import 'package:neon/src/platform/platform.dart';
 import 'package:neon/src/settings/models/storage.dart';
 import 'package:neon/src/utils/account_options.dart';
 import 'package:neon/src/utils/global_options.dart';
@@ -57,7 +56,6 @@ abstract interface class AccountsBlocStates {
 
 class AccountsBloc extends Bloc implements AccountsBlocEvents, AccountsBlocStates {
   AccountsBloc(
-    this._platform,
     this._sharedPreferences,
     this._globalOptions,
     this._allAppImplementations,
@@ -98,7 +96,6 @@ class AccountsBloc extends Bloc implements AccountsBlocEvents, AccountsBlocState
     }
   }
 
-  final NeonPlatform _platform;
   late final AppStorage _storage = AppStorage('accounts', _sharedPreferences);
   final SharedPreferences _sharedPreferences;
   final GlobalOptions _globalOptions;
@@ -287,7 +284,6 @@ class AccountsBloc extends Bloc implements AccountsBlocEvents, AccountsBlocState
     }
 
     return _userStatusesBlocs[account.id] = UserStatusesBloc(
-      _platform,
       account,
     );
   }

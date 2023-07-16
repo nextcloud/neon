@@ -6,7 +6,6 @@ import 'package:neon/src/theme/branding.dart';
 import 'package:neon/src/theme/dialog.dart';
 import 'package:neon/src/utils/validators.dart';
 import 'package:neon/src/widgets/nextcloud_logo.dart';
-import 'package:provider/provider.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({
@@ -40,7 +39,6 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(final BuildContext context) {
     final branding = Branding.of(context);
-    final platform = Provider.of<NeonPlatform>(context, listen: false);
 
     return Scaffold(
       resizeToAvoidBottomInset: true,
@@ -101,7 +99,7 @@ class _LoginPageState extends State<LoginPage> {
                       onFieldSubmitted: login,
                     ),
                   ),
-                  if (platform.canUseCamera) ...[
+                  if (NeonPlatform.instance.canUseCamera) ...[
                     const SizedBox(
                       height: 50,
                     ),

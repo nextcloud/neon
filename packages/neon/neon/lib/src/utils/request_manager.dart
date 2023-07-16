@@ -22,8 +22,8 @@ class RequestManager {
   // ignore: prefer_constructors_over_static_methods
   static RequestManager get instance => _requestManager ??= RequestManager();
 
-  Future initCache(final NeonPlatform platform) async {
-    _cache = Cache(platform);
+  Future initCache() async {
+    _cache = Cache();
     await _cache!.init();
   }
 
@@ -187,9 +187,6 @@ class RequestManager {
 
 @internal
 class Cache {
-  Cache(this._platform);
-
-  final NeonPlatform _platform;
   Database? _database;
 
   Future init() async {
@@ -199,7 +196,7 @@ class Cache {
 
     _database = await openDatabase(
       p.join(
-        await _platform.getApplicationCachePath(),
+        await NeonPlatform.instance.getApplicationCachePath(),
         'cache.db',
       ),
       version: 1,
