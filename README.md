@@ -50,6 +50,10 @@ To decrease the developer burden, a lot of useful widgets and utilities have bee
 Trying to make everything re-usable is a major goal of this project, as we want to close the gap between platforms and functionalities and make development of new clients and apps enjoyable and fast.
 Developing a new Nextcloud client can be as easy as adding some UI and then necessary state management, everything else is taken care of for you.
 
+## Contributing
+
+Checkout our [contributing docs](./docs/contributing.md) to get started with developing with Neon.
+
 ## Development and support
 
 We have a Matrix space where you can ask questions: https://matrix.to/#/#nextcloud-neon:matrix.org
