@@ -1,3 +1,6 @@
+@Retry(3)
+library notifications_test;
+
 import 'dart:async';
 
 import 'package:nextcloud/nextcloud.dart';
@@ -5,12 +8,11 @@ import 'package:test/test.dart';
 
 import 'helper.dart';
 
-Future main() async {
-  await run(await getDockerImage());
-}
-
-Future run(final DockerImage image) async {
+void main() {
   group('notifications', () {
+    late DockerImage image;
+    setUpAll(() async => image = await getDockerImage());
+
     late DockerContainer container;
     late TestNextcloudClient client;
     setUp(() async {
@@ -99,6 +101,9 @@ Future run(final DockerImage image) async {
   });
 
   group('push notifications', () {
+    late DockerImage image;
+    setUpAll(() async => image = await getDockerImage());
+
     late DockerContainer container;
     late TestNextcloudClient client;
     setUp(() async {

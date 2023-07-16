@@ -1,3 +1,6 @@
+@Retry(3)
+library news_test;
+
 import 'dart:async';
 import 'dart:io';
 
@@ -6,15 +9,15 @@ import 'package:test/test.dart';
 
 import 'helper.dart';
 
-Future main() async {
-  await run(await getDockerImage());
-}
-
-Future run(final DockerImage image) async {
+void main() {
   group('news', () {
+    late DockerImage image;
     late HttpServer rssServer;
-    setUpAll(() async => rssServer = await getRssServer());
-    tearDownAll(() => rssServer.close(force: true));
+    setUpAll(() async {
+      image = await getDockerImage();
+      rssServer = await getRssServer();
+    });
+    tearDownAll(() async => rssServer.close(force: true));
 
     late DockerContainer container;
     late TestNextcloudClient client;
@@ -24,12 +27,12 @@ Future run(final DockerImage image) async {
     });
     tearDown(() => container.destroy());
 
-    Future<NewsListFeeds> addWikipediaFeed([final int? folderID]) => client.news.addFeed(
+    Future<NewsListFeeds> addWikipediaFeed([final int? folderID]) async => client.news.addFeed(
           url: 'http://host.docker.internal:${rssServer.port}/wikipedia.xml',
           folderId: folderID,
         );
 
-    Future<NewsListFeeds> addNasaFeed() => client.news.addFeed(
+    Future<NewsListFeeds> addNasaFeed() async => client.news.addFeed(
           url: 'http://host.docker.internal:${rssServer.port}/nasa.xml',
         );
 

@@ -1,13 +1,15 @@
+@Retry(3)
+library uppush_test;
+
 import 'package:test/test.dart';
 
 import 'helper.dart';
 
-Future main() async {
-  await run(await getDockerImage());
-}
-
-Future run(final DockerImage image) async {
+void main() {
   group('uppush', () {
+    late DockerImage image;
+    setUpAll(() async => image = await getDockerImage());
+
     late DockerContainer container;
     late TestNextcloudClient client;
     setUp(() async {

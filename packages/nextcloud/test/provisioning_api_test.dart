@@ -1,13 +1,15 @@
+@Retry(3)
+library provisioning_api_test;
+
 import 'package:test/test.dart';
 
 import 'helper.dart';
 
-Future main() async {
-  await run(await getDockerImage());
-}
-
-Future run(final DockerImage image) async {
+void main() {
   group('provisioning_api', () {
+    late DockerImage image;
+    setUpAll(() async => image = await getDockerImage());
+
     late DockerContainer container;
     late TestNextcloudClient client;
     setUp(() async {

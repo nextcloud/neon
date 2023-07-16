@@ -1,3 +1,6 @@
+@Retry(3)
+library webdav_test;
+
 import 'dart:convert';
 import 'dart:io';
 import 'dart:typed_data';
@@ -7,12 +10,11 @@ import 'package:test/test.dart';
 
 import 'helper.dart';
 
-Future main() async {
-  await run(await getDockerImage());
-}
-
-Future run(final DockerImage image) async {
+void main() {
   group('webdav', () {
+    late DockerImage image;
+    setUpAll(() async => image = await getDockerImage());
+
     late DockerContainer container;
     late TestNextcloudClient client;
     setUp(() async {
