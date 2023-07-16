@@ -48,6 +48,7 @@ class AppTheme {
       snackBarTheme: _snackBarTheme,
       dividerTheme: _dividerTheme,
       scrollbarTheme: _scrollbarTheme,
+      inputDecorationTheme: _inputDecorationTheme,
       extensions: [
         neonTheme,
         ...?appThemes,
@@ -69,5 +70,10 @@ class AppTheme {
 
   static const _scrollbarTheme = ScrollbarThemeData(
     interactive: true,
+  );
+
+  static const _inputDecorationTheme = InputDecorationTheme(
+    border: OutlineInputBorder(),
+    floatingLabelBehavior: FloatingLabelBehavior.always,
   );
 }

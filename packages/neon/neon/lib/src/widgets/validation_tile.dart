@@ -27,6 +27,11 @@ class NeonValidationTile extends StatelessWidget {
           color: Theme.of(context).colorScheme.error,
           size: size,
         ),
+      ValidationState.canceled => Icon(
+          Icons.cancel_outlined,
+          color: Theme.of(context).disabledColor,
+          size: size,
+        ),
       ValidationState.success => Icon(
           Icons.check_circle,
           color: Theme.of(context).colorScheme.primary,
@@ -35,7 +40,10 @@ class NeonValidationTile extends StatelessWidget {
     };
     return ListTile(
       leading: leading,
-      title: Text(title),
+      title: Text(
+        title,
+        style: state == ValidationState.canceled ? TextStyle(color: Theme.of(context).disabledColor) : null,
+      ),
     );
   }
 }
@@ -43,5 +51,6 @@ class NeonValidationTile extends StatelessWidget {
 enum ValidationState {
   loading,
   failure,
+  canceled,
   success,
 }

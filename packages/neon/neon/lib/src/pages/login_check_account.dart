@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:neon/l10n/localizations.dart';
 import 'package:neon/src/bloc/result.dart';
@@ -9,7 +11,6 @@ import 'package:neon/src/router.dart';
 import 'package:neon/src/theme/dialog.dart';
 import 'package:neon/src/widgets/account_tile.dart';
 import 'package:neon/src/widgets/exception.dart';
-import 'package:neon/src/widgets/linear_progress_indicator.dart';
 import 'package:neon/src/widgets/validation_tile.dart';
 import 'package:provider/provider.dart';
 
@@ -62,13 +63,19 @@ class _LoginCheckAccountPageState extends State<LoginCheckAccountPage> {
                 builder: (final context, final state) => Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    NeonLinearProgressIndicator(
-                      visible: state.isLoading,
-                    ),
-                    NeonException(
-                      state.error,
-                      onRetry: bloc.refresh,
-                    ),
+                    if (state.hasError) ...[
+                      Builder(
+                        builder: (final context) {
+                          final details = NeonException.getDetails(context, state.error);
+                          return NeonValidationTile(
+                            title: details.isUnauthorized
+                                ? AppLocalizations.of(context).errorCredentialsForAccountNoLongerMatch
+                                : details.text,
+                            state: ValidationState.failure,
+                          );
+                        },
+                      ),
+                    ],
                     _buildAccountTile(state),
                     Align(
                       alignment: Alignment.bottomRight,
@@ -81,8 +88,19 @@ class _LoginCheckAccountPageState extends State<LoginCheckAccountPage> {
 
                                 const HomeRoute().go(context);
                               }
-                            : null,
-                        child: Text(AppLocalizations.of(context).actionContinue),
+                            : () {
+                                if (state.hasError && NeonException.getDetails(context, state.error).isUnauthorized) {
+                                  Navigator.pop(context);
+                                  return;
+                                }
+
+                                unawaited(bloc.refresh());
+                              },
+                        child: Text(
+                          state.hasData
+                              ? AppLocalizations.of(context).actionContinue
+                              : AppLocalizations.of(context).actionRetry,
+                        ),
                       ),
                     ),
                   ],
@@ -94,6 +112,13 @@ class _LoginCheckAccountPageState extends State<LoginCheckAccountPage> {
       );
 
   Widget _buildAccountTile(final Result<Account> result) {
+    if (result.hasError) {
+      return NeonValidationTile(
+        title: AppLocalizations.of(context).loginCheckingAccount,
+        state: ValidationState.canceled,
+      );
+    }
+
     if (result.hasData) {
       return NeonAccountTile(
         account: result.requireData,

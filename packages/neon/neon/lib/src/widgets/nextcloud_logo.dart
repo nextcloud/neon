@@ -1,5 +1,6 @@
 import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:neon/l10n/localizations.dart';
 
 class NextcloudLogo extends StatelessWidget {
   const NextcloudLogo({
@@ -12,5 +13,6 @@ class NextcloudLogo extends StatelessWidget {
         package: 'neon',
         width: 100,
         height: 100,
+        semanticsLabel: AppLocalizations.of(context).nextcloudLogo,
       );
 }
