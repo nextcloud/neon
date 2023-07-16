@@ -9,8 +9,9 @@ import 'package:rxdart/rxdart.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:xml/xml.dart' as xml;
 
+@immutable
 class RequestManager {
-  RequestManager([
+  const RequestManager([
     this.cache,
   ]);
 

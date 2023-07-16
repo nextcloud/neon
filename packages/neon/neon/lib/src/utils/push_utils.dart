@@ -22,6 +22,7 @@ import 'package:nextcloud/nextcloud.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 @internal
+@immutable
 class PushUtils {
   static Future<RSAKeypair> loadRSAKeypair(final AppStorage storage) async {
     const keyDevicePrivateKey = 'device-private-key';
