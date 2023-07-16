@@ -56,16 +56,16 @@ class _LoginPageState extends State<LoginPage> {
                     branding.name,
                     style: Theme.of(context).textTheme.titleLarge,
                   ),
-                  const SizedBox(
-                    height: 20,
-                  ),
                   if (branding.showLoginWithNextcloud) ...[
+                    const SizedBox(
+                      height: 20,
+                    ),
                     Text(AppLocalizations.of(context).loginWorksWith),
                     const SizedBox(
                       height: 20,
                     ),
+                    const NextcloudLogo(),
                   ],
-                  const NextcloudLogo(),
                   const SizedBox(
                     height: 40,
                   ),
