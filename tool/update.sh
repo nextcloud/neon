@@ -27,7 +27,7 @@ elif [ -d "external/nextcloud-$1" ]; then
       # shellcheck disable=SC2001
       latest_version=$(echo "$latest_tag" | sed "s/^v//")
       if [[ "$1" == "server" ]]; then
-        sed -i "s/FROM nextcloud:.*/FROM nextcloud:$latest_version-fpm-alpine/" ../../tool/Dockerfile.dev
+        sed -i "s/FROM nextcloud:.*/FROM nextcloud:$latest_version/" ../../tool/Dockerfile.dev
       else
         sed -i "s/RUN \.\/occ app:install $1 .*/RUN .\/occ app:install $1 --force --allow-unstable # $latest_version/" ../../tool/Dockerfile.dev
       fi

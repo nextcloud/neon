@@ -25,12 +25,12 @@ Future run(final DockerImage image) async {
     tearDown(() => container.destroy());
 
     Future<NewsListFeeds> addWikipediaFeed([final int? folderID]) => client.news.addFeed(
-          url: 'http://localhost:${rssServer.port}/wikipedia.xml',
+          url: 'http://host.docker.internal:${rssServer.port}/wikipedia.xml',
           folderId: folderID,
         );
 
     Future<NewsListFeeds> addNasaFeed() => client.news.addFeed(
-          url: 'http://localhost:${rssServer.port}/nasa.xml',
+          url: 'http://host.docker.internal:${rssServer.port}/nasa.xml',
         );
 
     test('Is supported', () async {
@@ -48,13 +48,13 @@ Future run(final DockerImage image) async {
       expect(response.starredCount, null);
       expect(response.newestItemId, isNotNull);
       expect(response.feeds, hasLength(1));
-      expect(response.feeds[0].url, 'http://localhost:${rssServer.port}/wikipedia.xml');
+      expect(response.feeds[0].url, 'http://host.docker.internal:${rssServer.port}/wikipedia.xml');
 
       response = await client.news.listFeeds();
       expect(response.starredCount, 0);
       expect(response.newestItemId, isNotNull);
       expect(response.feeds, hasLength(1));
-      expect(response.feeds[0].url, 'http://localhost:${rssServer.port}/wikipedia.xml');
+      expect(response.feeds[0].url, 'http://host.docker.internal:${rssServer.port}/wikipedia.xml');
     });
 
     test('Rename feed', () async {
@@ -247,7 +247,7 @@ Future run(final DockerImage image) async {
       expect(response.newestItemId, isNotNull);
       expect(response.feeds, hasLength(1));
       expect(response.feeds[0].folderId, 1);
-      expect(response.feeds[0].url, 'http://localhost:${rssServer.port}/wikipedia.xml');
+      expect(response.feeds[0].url, 'http://host.docker.internal:${rssServer.port}/wikipedia.xml');
     });
 
     test('Mark folder as read', () async {
