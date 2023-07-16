@@ -14,14 +14,12 @@ abstract class FilesBrowserBlocStates {
 
 class FilesBrowserBloc extends InteractiveBloc implements FilesBrowserBlocEvents, FilesBrowserBlocStates {
   FilesBrowserBloc(
-    this._requestManager,
     this.options,
     this.account,
   ) {
     unawaited(refresh());
   }
 
-  final RequestManager _requestManager;
   final FilesAppSpecificOptions options;
   final Account account;
 
@@ -40,7 +38,7 @@ class FilesBrowserBloc extends InteractiveBloc implements FilesBrowserBlocEvents
 
   @override
   Future refresh() async {
-    await _requestManager.wrapWebDav<List<WebDavFile>>(
+    await RequestManager.instance.wrapWebDav<List<WebDavFile>>(
       account.id,
       'files-${path.value.join('/')}',
       files,

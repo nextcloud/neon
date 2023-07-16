@@ -6,7 +6,6 @@ abstract interface class NotificationsAppInterface<T extends NotificationsBlocIn
     R extends NotificationsOptionsInterface> extends AppImplementation<T, R> {
   NotificationsAppInterface(
     super.sharedPreferences,
-    super.requestManager,
     super.platform,
   );
 }

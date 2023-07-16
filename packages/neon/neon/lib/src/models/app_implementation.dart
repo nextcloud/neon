@@ -9,7 +9,6 @@ import 'package:neon/src/models/account.dart';
 import 'package:neon/src/platform/platform.dart';
 import 'package:neon/src/settings/models/nextcloud_app_options.dart';
 import 'package:neon/src/settings/models/storage.dart';
-import 'package:neon/src/utils/request_manager.dart';
 import 'package:neon/src/widgets/drawer_destination.dart';
 import 'package:provider/provider.dart';
 import 'package:rxdart/rxdart.dart';
@@ -18,7 +17,6 @@ import 'package:shared_preferences/shared_preferences.dart';
 abstract class AppImplementation<T extends Bloc, R extends NextcloudAppOptions> {
   AppImplementation(
     final SharedPreferences sharedPreferences,
-    this.requestManager,
     this.platform,
   ) {
     final storage = AppStorage('app-$id', sharedPreferences);
@@ -28,7 +26,6 @@ abstract class AppImplementation<T extends Bloc, R extends NextcloudAppOptions> 
   String get id;
   LocalizationsDelegate get localizationsDelegate;
   List<Locale> get supportedLocales;
-  final RequestManager requestManager;
   final NeonPlatform platform;
 
   String nameFromLocalization(final AppLocalizations localizations) => localizations.appImplementationName(id);

@@ -31,7 +31,6 @@ abstract class NewsBlocStates {
 class NewsBloc extends InteractiveBloc implements NewsBlocEvents, NewsBlocStates, NewsMainArticlesBloc {
   NewsBloc(
     this.options,
-    this.requestManager,
     this.account,
   ) {
     mainArticlesBloc.articles.listen((final result) {
@@ -50,13 +49,11 @@ class NewsBloc extends InteractiveBloc implements NewsBlocEvents, NewsBlocStates
   @override
   final NewsAppSpecificOptions options;
   @override
-  final RequestManager requestManager;
   @override
   final Account account;
   late final mainArticlesBloc = NewsMainArticlesBloc(
     this,
     options,
-    requestManager,
     account,
   );
 
@@ -95,14 +92,14 @@ class NewsBloc extends InteractiveBloc implements NewsBlocEvents, NewsBlocStates
   @override
   Future refresh() async {
     await Future.wait([
-      requestManager.wrapNextcloud<List<NewsFolder>, NewsListFolders>(
+      RequestManager.instance.wrapNextcloud<List<NewsFolder>, NewsListFolders>(
         account.id,
         'news-folders',
         folders,
         () async => account.client.news.listFolders(),
         (final response) => response.folders.toList(),
       ),
-      requestManager.wrapNextcloud<List<NewsFeed>, NewsListFeeds>(
+      RequestManager.instance.wrapNextcloud<List<NewsFeed>, NewsListFeeds>(
         account.id,
         'news-feeds',
         feeds,

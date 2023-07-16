@@ -41,7 +41,6 @@ abstract class AppsBlocStates {
 @internal
 class AppsBloc extends InteractiveBloc implements AppsBlocEvents, AppsBlocStates {
   AppsBloc(
-    this._requestManager,
     this._capabilitiesBloc,
     this._accountsBloc,
     this._account,
@@ -151,7 +150,6 @@ class AppsBloc extends InteractiveBloc implements AppsBlocEvents, AppsBlocStates
   Iterable<AppImplementation> _filteredAppImplementations(final Iterable<String> appIds) =>
       _allAppImplementations.where((final a) => appIds.contains(a.id));
 
-  final RequestManager _requestManager;
   final CapabilitiesBloc _capabilitiesBloc;
   final AccountsBloc _accountsBloc;
   final Account _account;
@@ -195,7 +193,7 @@ class AppsBloc extends InteractiveBloc implements AppsBlocEvents, AppsBlocStates
 
   @override
   Future refresh() async {
-    await _requestManager
+    await RequestManager.instance
         .wrapNextcloud<List<CoreNavigationEntry>, CoreNavigationGetAppsNavigationResponse200ApplicationJson>(
       _account.id,
       'apps-apps',

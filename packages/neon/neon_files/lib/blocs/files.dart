@@ -28,7 +28,6 @@ class FilesBloc extends InteractiveBloc implements FilesBlocEvents, FilesBlocSta
   FilesBloc(
     this.options,
     this.account,
-    this._requestManager,
     this._platform,
   ) {
     options.uploadQueueParallelism.addListener(_uploadParalelismListener);
@@ -37,7 +36,6 @@ class FilesBloc extends InteractiveBloc implements FilesBlocEvents, FilesBlocSta
 
   final FilesAppSpecificOptions options;
   final Account account;
-  final RequestManager _requestManager;
   final NeonPlatform _platform;
   late final browser = getNewFilesBrowserBloc();
 
@@ -185,7 +183,7 @@ class FilesBloc extends InteractiveBloc implements FilesBlocEvents, FilesBlocSta
     tasks.add(tasks.value..remove(task));
   }
 
-  FilesBrowserBloc getNewFilesBrowserBloc() => FilesBrowserBloc(_requestManager, options, account);
+  FilesBrowserBloc getNewFilesBrowserBloc() => FilesBrowserBloc(options, account);
 
   void _downloadParalelismListener() {
     _downloadQueue.parallel = options.downloadQueueParallelism.value;

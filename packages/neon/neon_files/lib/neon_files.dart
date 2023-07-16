@@ -44,7 +44,7 @@ part 'widgets/browser_view.dart';
 part 'widgets/file_preview.dart';
 
 class FilesApp extends AppImplementation<FilesBloc, FilesAppSpecificOptions> {
-  FilesApp(super.sharedPreferences, super.requestManager, super.platform);
+  FilesApp(super.sharedPreferences, super.platform);
 
   @override
   String id = AppIDs.files;
@@ -62,7 +62,6 @@ class FilesApp extends AppImplementation<FilesBloc, FilesAppSpecificOptions> {
   FilesBloc buildBloc(final Account account) => FilesBloc(
         options,
         account,
-        requestManager,
         platform,
       );
 

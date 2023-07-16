@@ -19,8 +19,7 @@ import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 Future runNeon({
-  required final Iterable<AppImplementation> Function(SharedPreferences, RequestManager, NeonPlatform)
-      getAppImplementations,
+  required final Iterable<AppImplementation> Function(SharedPreferences, NeonPlatform) getAppImplementations,
   required final NeonTheme theme,
   @visibleForTesting final WidgetsBinding? bindingOverride,
   @visibleForTesting final Account? account,
@@ -33,10 +32,8 @@ Future runNeon({
   final sharedPreferences = await SharedPreferences.getInstance();
 
   final platform = await getNeonPlatform();
-  final cache = Cache(platform);
-  await cache.init();
-  final requestManager = RequestManager(cache);
-  final allAppImplementations = getAppImplementations(sharedPreferences, requestManager, platform);
+  await RequestManager.instance.initCache(platform);
+  final allAppImplementations = getAppImplementations(sharedPreferences, platform);
 
   final packageInfo = await PackageInfo.fromPlatform();
   buildUserAgent(packageInfo);
@@ -47,7 +44,6 @@ Future runNeon({
   );
 
   final accountsBloc = AccountsBloc(
-    requestManager,
     platform,
     sharedPreferences,
     globalOptions,
@@ -85,9 +81,6 @@ Future runNeon({
         ),
         Provider<GlobalOptions>(
           create: (final _) => globalOptions,
-        ),
-        Provider<RequestManager>(
-          create: (final _) => requestManager,
         ),
         Provider<AccountsBloc>(
           create: (final _) => accountsBloc,

@@ -14,7 +14,6 @@ import 'package:neon/src/platform/platform.dart';
 import 'package:neon/src/settings/models/storage.dart';
 import 'package:neon/src/utils/account_options.dart';
 import 'package:neon/src/utils/global_options.dart';
-import 'package:neon/src/utils/request_manager.dart';
 import 'package:rxdart/rxdart.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -58,7 +57,6 @@ abstract interface class AccountsBlocStates {
 
 class AccountsBloc extends Bloc implements AccountsBlocEvents, AccountsBlocStates {
   AccountsBloc(
-    this._requestManager,
     this._platform,
     this._sharedPreferences,
     this._globalOptions,
@@ -100,7 +98,6 @@ class AccountsBloc extends Bloc implements AccountsBlocEvents, AccountsBlocState
     }
   }
 
-  final RequestManager _requestManager;
   final NeonPlatform _platform;
   late final AppStorage _storage = AppStorage('accounts', _sharedPreferences);
   final SharedPreferences _sharedPreferences;
@@ -237,7 +234,6 @@ class AccountsBloc extends Bloc implements AccountsBlocEvents, AccountsBlocState
     }
 
     return _appsBlocs[account.id] = AppsBloc(
-      _requestManager,
       getCapabilitiesBlocFor(account),
       this,
       account,
@@ -258,10 +254,7 @@ class AccountsBloc extends Bloc implements AccountsBlocEvents, AccountsBlocState
       return _capabilitiesBlocs[account.id]!;
     }
 
-    return _capabilitiesBlocs[account.id] = CapabilitiesBloc(
-      _requestManager,
-      account,
-    );
+    return _capabilitiesBlocs[account.id] = CapabilitiesBloc(account);
   }
 
   /// The userDetailsBloc for the [activeAccount].
@@ -277,10 +270,7 @@ class AccountsBloc extends Bloc implements AccountsBlocEvents, AccountsBlocState
       return _userDetailsBlocs[account.id]!;
     }
 
-    return _userDetailsBlocs[account.id] = UserDetailsBloc(
-      _requestManager,
-      account,
-    );
+    return _userDetailsBlocs[account.id] = UserDetailsBloc(account);
   }
 
   /// The userStatusBloc for the [activeAccount].

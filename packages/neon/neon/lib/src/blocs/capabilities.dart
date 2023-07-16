@@ -17,13 +17,11 @@ abstract class CapabilitiesBlocStates {
 @internal
 class CapabilitiesBloc extends InteractiveBloc implements CapabilitiesBlocEvents, CapabilitiesBlocStates {
   CapabilitiesBloc(
-    this._requestManager,
     this._account,
   ) {
     unawaited(refresh());
   }
 
-  final RequestManager _requestManager;
   final Account _account;
 
   @override
@@ -38,7 +36,7 @@ class CapabilitiesBloc extends InteractiveBloc implements CapabilitiesBlocEvents
 
   @override
   Future refresh() async {
-    await _requestManager.wrapNextcloud<CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data,
+    await RequestManager.instance.wrapNextcloud<CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data,
         CoreOcsGetCapabilitiesResponse200ApplicationJson>(
       _account.id,
       'capabilities',

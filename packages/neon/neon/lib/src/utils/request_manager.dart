@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter/foundation.dart';
+import 'package:meta/meta.dart';
 import 'package:neon/src/bloc/result.dart';
 import 'package:neon/src/platform/platform.dart';
 import 'package:nextcloud/nextcloud.dart';
@@ -9,13 +10,24 @@ import 'package:rxdart/rxdart.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:xml/xml.dart' as xml;
 
-@immutable
 class RequestManager {
-  const RequestManager([
-    this.cache,
-  ]);
+  RequestManager();
 
-  final Cache? cache;
+  @visibleForTesting
+  factory RequestManager.mocked(final RequestManager requestManager) => _requestManager = requestManager;
+
+  static RequestManager? _requestManager;
+
+  /// Gets the current instance of [RequestManager].
+  // ignore: prefer_constructors_over_static_methods
+  static RequestManager get instance => _requestManager ??= RequestManager();
+
+  Future initCache(final NeonPlatform platform) async {
+    _cache = Cache(platform);
+    await _cache!.init();
+  }
+
+  Cache? _cache;
 
   Future wrapNextcloud<T, R>(
     final String clientID,
@@ -100,7 +112,7 @@ class RequestManager {
 
     try {
       final response = await (disableTimeout ? call() : timeout(call));
-      await cache?.set(key, await compute(serialize, response));
+      await _cache?.set(key, await compute(serialize, response));
       subject.add(Result.success(unwrap(response)));
     } catch (e, s) {
       debugPrint(e.toString());
@@ -146,8 +158,8 @@ class RequestManager {
   ) async {
     T? cached;
     try {
-      if (cache != null && await cache!.has(key)) {
-        cached = unwrap(await compute(deserialize, (await cache!.get(key))!));
+      if (_cache != null && await _cache!.has(key)) {
+        cached = unwrap(await compute(deserialize, (await _cache!.get(key))!));
       }
     } catch (e, s) {
       debugPrint(e.toString());
@@ -167,12 +179,13 @@ class RequestManager {
     return false;
   }
 
-  static Future<T> timeout<T>(
+  Future<T> timeout<T>(
     final Future<T> Function() call,
   ) =>
       call().timeout(const Duration(seconds: 30));
 }
 
+@internal
 class Cache {
   Cache(this._platform);
 

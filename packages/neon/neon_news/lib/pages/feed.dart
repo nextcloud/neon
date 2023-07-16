@@ -20,7 +20,6 @@ class NewsFeedPage extends StatelessWidget {
           bloc: NewsArticlesBloc(
             bloc,
             bloc.options,
-            bloc.requestManager,
             bloc.account,
             id: feed.id,
             listType: ListType.feed,

@@ -22,7 +22,7 @@ part 'pages/main.dart';
 
 class NotificationsApp extends AppImplementation<NotificationsBloc, NotificationsAppSpecificOptions>
     implements NotificationsAppInterface<NotificationsBloc, NotificationsAppSpecificOptions> {
-  NotificationsApp(super.sharedPreferences, super.requestManager, super.platform);
+  NotificationsApp(super.sharedPreferences, super.platform);
 
   @override
   String id = AppIDs.notifications;
@@ -39,7 +39,6 @@ class NotificationsApp extends AppImplementation<NotificationsBloc, Notification
   @override
   NotificationsBloc buildBloc(final Account account) => NotificationsBloc(
         options,
-        requestManager,
         account,
       );
 

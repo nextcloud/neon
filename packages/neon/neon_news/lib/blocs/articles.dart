@@ -33,7 +33,6 @@ class NewsMainArticlesBloc extends NewsArticlesBloc {
   NewsMainArticlesBloc(
     super._newsBloc,
     super.options,
-    super.requestManager,
     super.account,
   );
 }
@@ -42,7 +41,6 @@ class NewsArticlesBloc extends InteractiveBloc implements NewsArticlesBlocEvents
   NewsArticlesBloc(
     this._newsBloc,
     this.options,
-    this.requestManager,
     this.account, {
     this.id,
     this.listType,
@@ -59,7 +57,6 @@ class NewsArticlesBloc extends InteractiveBloc implements NewsArticlesBlocEvents
 
   final NewsBloc _newsBloc;
   final NewsAppSpecificOptions options;
-  final RequestManager requestManager;
   final Account account;
   final int? id;
   final ListType? listType;
@@ -118,7 +115,7 @@ class NewsArticlesBloc extends InteractiveBloc implements NewsArticlesBlocEvents
         }
     }
 
-    await requestManager.wrapNextcloud<List<NewsArticle>, NewsListArticles>(
+    await RequestManager.instance.wrapNextcloud<List<NewsArticle>, NewsListArticles>(
       account.id,
       'news-articles-${type.index}-$id-$getRead',
       articles,

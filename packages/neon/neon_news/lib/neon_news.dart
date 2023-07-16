@@ -52,7 +52,7 @@ part 'widgets/folder_view.dart';
 part 'widgets/folders_view.dart';
 
 class NewsApp extends AppImplementation<NewsBloc, NewsAppSpecificOptions> {
-  NewsApp(super.sharedPreferences, super.requestManager, super.platform);
+  NewsApp(super.sharedPreferences, super.platform);
 
   @override
   String id = AppIDs.news;
@@ -69,7 +69,6 @@ class NewsApp extends AppImplementation<NewsBloc, NewsAppSpecificOptions> {
   @override
   NewsBloc buildBloc(final Account account) => NewsBloc(
         options,
-        requestManager,
         account,
       );
 

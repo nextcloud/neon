@@ -17,13 +17,11 @@ abstract class UserDetailsBlocStates {
 @internal
 class UserDetailsBloc extends InteractiveBloc implements UserDetailsBlocEvents, UserDetailsBlocStates {
   UserDetailsBloc(
-    this._requestManager,
     this._account,
   ) {
     unawaited(refresh());
   }
 
-  final RequestManager _requestManager;
   final Account _account;
 
   @override
@@ -38,7 +36,7 @@ class UserDetailsBloc extends InteractiveBloc implements UserDetailsBlocEvents, 
 
   @override
   Future refresh() async {
-    await _requestManager
+    await RequestManager.instance
         .wrapNextcloud<ProvisioningApiUserDetails, ProvisioningApiUsersGetCurrentUserResponse200ApplicationJson>(
       _account.id,
       'user-details',
