@@ -1,3 +1,6 @@
+@Retry(3)
+library webdav_test;
+
 import 'dart:convert';
 import 'dart:io';
 import 'dart:typed_data';

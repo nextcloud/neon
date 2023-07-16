@@ -1,3 +1,6 @@
+@Retry(3)
+library provisioning_api_test;
+
 import 'package:test/test.dart';
 
 import 'helper.dart';

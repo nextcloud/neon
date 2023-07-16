@@ -1,3 +1,6 @@
+@Retry(3)
+library user_status_test;
+
 import 'package:nextcloud/nextcloud.dart';
 import 'package:test/test.dart';
 

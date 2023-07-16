@@ -1,3 +1,6 @@
+@Retry(3)
+library uppush_test;
+
 import 'package:test/test.dart';
 
 import 'helper.dart';

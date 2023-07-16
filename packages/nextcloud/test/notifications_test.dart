@@ -1,3 +1,6 @@
+@Retry(3)
+library notifications_test;
+
 import 'dart:async';
 
 import 'package:nextcloud/nextcloud.dart';

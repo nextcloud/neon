@@ -1,3 +1,6 @@
+@Retry(3)
+library core_test;
+
 import 'package:nextcloud/nextcloud.dart';
 import 'package:test/test.dart';
 

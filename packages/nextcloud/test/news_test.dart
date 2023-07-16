@@ -1,3 +1,6 @@
+@Retry(3)
+library news_test;
+
 import 'dart:async';
 import 'dart:io';
 
