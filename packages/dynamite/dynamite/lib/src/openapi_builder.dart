@@ -721,9 +721,10 @@ class OpenAPIBuilder implements Builder {
           ],
           '])',
           r'final Serializers _serializers = (_$_serializers.toBuilder()',
-          for (final type in state.resolvedTypeCombinations) ...[
-            ...type.builderFactories,
-          ],
+          ...state.resolvedTypeCombinations
+              .map((final type) => type.serializers)
+              .expand((final element) => element)
+              .toSet(),
           ').build();',
           '',
           'Serializers get ${variablePrefix}Serializers => _serializers;',

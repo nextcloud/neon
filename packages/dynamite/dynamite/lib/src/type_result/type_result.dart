@@ -43,14 +43,20 @@ abstract class TypeResult {
     return 'FullType($className)';
   }
 
-  List<String> get builderFactories => [
-        for (final class_ in generics) ...[
-          ...class_.builderFactories,
-        ],
-        if (_builderFactory != null) ...[
-          _builderFactory!,
-        ],
-      ];
+  Iterable<String> get serializers sync* {
+    for (final class_ in generics) {
+      yield* class_.serializers;
+    }
+
+    if (_builderFactory != null) {
+      yield _builderFactory!;
+    }
+    if (_serializer != null) {
+      yield _serializer!;
+    }
+  }
+
+  String? get _serializer;
 
   String? get _builderFactory;
 

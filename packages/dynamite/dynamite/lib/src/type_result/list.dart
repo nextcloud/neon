@@ -14,6 +14,9 @@ class TypeResultList extends TypeResult {
   String? get _builderFactory => '..addBuilderFactory($fullType, ListBuilder<${subType.className}>.new)';
 
   @override
+  String? get _serializer => null;
+
+  @override
   String encode(
     final String object, {
     final bool onlyChildren = false,
