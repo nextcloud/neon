@@ -1,4 +1,4 @@
-import 'package:neon/src/settings/widgets/label_builder.dart';
+import 'package:neon/src/models/label_builder.dart';
 
 class OptionsCategory {
   OptionsCategory({

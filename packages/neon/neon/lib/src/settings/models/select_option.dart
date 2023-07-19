@@ -1,8 +1,8 @@
 import 'dart:async';
 
 import 'package:collection/collection.dart';
+import 'package:neon/src/models/label_builder.dart';
 import 'package:neon/src/settings/models/option.dart';
-import 'package:neon/src/settings/widgets/label_builder.dart';
 
 class SelectOption<T> extends Option<T> {
   /// Creates a SelectOption
