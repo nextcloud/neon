@@ -6,6 +6,7 @@ import 'package:neon/src/settings/models/select_option.dart';
 import 'package:neon/src/settings/models/storage.dart';
 
 @internal
+@immutable
 class AccountSpecificOptions {
   AccountSpecificOptions(
     this._storage,

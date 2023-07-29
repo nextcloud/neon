@@ -16,6 +16,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 const unifiedPushNextPushID = 'org.unifiedpush.distributor.nextpush';
 
 @internal
+@immutable
 class GlobalOptions {
   GlobalOptions(
     this._sharedPreferences,
