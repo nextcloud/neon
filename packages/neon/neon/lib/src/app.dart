@@ -227,7 +227,7 @@ class _NeonAppState extends State<NeonApp> with WidgetsBindingObserver, tray.Tra
     }
 
     final matches = _appRegex.allMatches(shortcutType);
-    final activeAccount = _accountsBloc.activeAccount.valueOrNull;
+    final activeAccount = await _accountsBloc.activeAccount.first;
     if (matches.isNotEmpty && activeAccount != null) {
       await _openAppFromExternal(activeAccount, matches.first.group(1)!);
     }

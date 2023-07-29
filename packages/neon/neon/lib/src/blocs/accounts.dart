@@ -130,7 +130,7 @@ class AccountsBloc extends Bloc implements AccountsBlocEvents, AccountsBlocState
   BehaviorSubject<List<Account>> accounts = BehaviorSubject<List<Account>>.seeded([]);
 
   @override
-  BehaviorSubject<Account?> activeAccount = BehaviorSubject<Account?>.seeded(null)
+  BehaviorSubject<Account?> activeAccount = BehaviorSubject<Account?>()
     ..distinct((final current, final next) => current?.id != next?.id);
 
   @override
@@ -191,10 +191,10 @@ class AccountsBloc extends Bloc implements AccountsBlocEvents, AccountsBlocState
 
   /// The currently active account.
   ///
-  /// Equivalent to activeAccount.value but throws a [StateError] when no user is logged in.
+  /// Equivalent to activeAccount.valueOrNull but throws a [StateError] when no user is logged in.
   @visibleForTesting
   Account get aa {
-    final aa = activeAccount.value;
+    final aa = activeAccount.valueOrNull;
 
     if (aa == null) {
       throw StateError('No user is logged in.');
@@ -204,7 +204,7 @@ class AccountsBloc extends Bloc implements AccountsBlocEvents, AccountsBlocState
   }
 
   /// Whether accounts are logged in.
-  bool get hasAccounts => activeAccount.value != null;
+  bool get hasAccounts => activeAccount.valueOrNull != null;
 
   /// The options for the [activeAccount].
   ///
