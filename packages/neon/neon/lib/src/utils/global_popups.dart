@@ -4,6 +4,7 @@ import 'package:neon/l10n/localizations.dart';
 import 'package:neon/src/blocs/first_launch.dart';
 import 'package:neon/src/blocs/next_push.dart';
 import 'package:neon/src/pages/settings.dart';
+import 'package:neon/src/platform/platform.dart';
 import 'package:neon/src/router.dart';
 import 'package:neon/src/utils/global_options.dart';
 import 'package:provider/provider.dart';
@@ -31,27 +32,31 @@ class GlobalPopups {
     final globalOptions = Provider.of<GlobalOptions>(context, listen: false);
     final firstLaunchBloc = Provider.of<FirstLaunchBloc>(context, listen: false);
     final nextPushBloc = Provider.of<NextPushBloc>(context, listen: false);
+    final platform = Provider.of<NeonPlatform>(context, listen: false);
 
     firstLaunchBloc.onFirstLaunch.listen((final _) {
-      if (globalOptions.pushNotificationsEnabled.enabled) {
-        if (!context.mounted) {
-          return;
-        }
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content: Text(AppLocalizations.of(context).firstLaunchGoToSettingsToEnablePushNotifications),
-            action: SnackBarAction(
-              label: AppLocalizations.of(context).settings,
-              onPressed: () {
-                const SettingsRoute(initialCategory: SettingsCageories.pushNotifications).go(context);
-              },
-            ),
-          ),
-        );
+      if (!platform.canUsePushNotifications || !globalOptions.pushNotificationsEnabled.enabled) {
+        return;
       }
+
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(AppLocalizations.of(context).firstLaunchGoToSettingsToEnablePushNotifications),
+          action: SnackBarAction(
+            label: AppLocalizations.of(context).settings,
+            onPressed: () {
+              const SettingsRoute(initialCategory: SettingsCageories.pushNotifications).go(context);
+            },
+          ),
+        ),
+      );
     });
 
     nextPushBloc.onNextPushSupported.listen((final _) async {
+      if (!platform.canUsePushNotifications || !globalOptions.pushNotificationsEnabled.enabled) {
+        return;
+      }
+
       await showDialog(
         context: context,
         builder: (final context) => AlertDialog(
