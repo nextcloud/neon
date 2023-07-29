@@ -1,13 +1,13 @@
 import 'dart:convert';
 import 'dart:ui';
 
-import 'package:bitmap/bitmap.dart';
 import 'package:crypto/crypto.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_cache_manager/flutter_cache_manager.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:flutter_svg/flutter_svg.dart' show SvgFileLoader, vg;
+import 'package:image/image.dart' as img;
 import 'package:meta/meta.dart';
 import 'package:neon/src/blocs/accounts.dart';
 import 'package:neon/src/models/account.dart';
@@ -132,8 +132,7 @@ class PushUtils {
               final image = recorder.endRecording().toImageSync(scaledSize.width.toInt(), scaledSize.height.toInt());
               final bytes = await image.toByteData(format: ImageByteFormat.png);
 
-              final bitmap = await Bitmap.fromProvider(MemoryImage(bytes!.buffer.asUint8List()));
-              largeIconBitmap = ByteArrayAndroidBitmap(bitmap.buildHeaded());
+              largeIconBitmap = ByteArrayAndroidBitmap(img.encodeBmp(img.decodePng(bytes!.buffer.asUint8List())!));
             }
           }
         } catch (e, s) {
