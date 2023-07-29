@@ -19,7 +19,11 @@ import 'package:rxdart/rxdart.dart';
 typedef NextcloudApp = CoreNavigationApps_Ocs_Data;
 
 abstract class AppsBlocEvents {
-  void setActiveApp(final String appID);
+  /// Sets the active app using the [appID].
+  ///
+  /// If the app is already the active app nothing will happen.
+  /// When using [skipAlreadySet] nothing will be done if there already is an active app.
+  void setActiveApp(final String appID, {final bool skipAlreadySet = false});
 }
 
 abstract class AppsBlocStates {
@@ -57,8 +61,8 @@ class AppsBloc extends InteractiveBloc implements AppsBlocEvents, AppsBlocStates
 
       final options = _accountsBloc.getOptionsFor(_account);
       final initialApp = options.initialApp.value ?? _getInitialAppFallback();
-      if (!activeApp.hasValue && initialApp != null) {
-        await setActiveApp(initialApp);
+      if (initialApp != null) {
+        await setActiveApp(initialApp, skipAlreadySet: true);
       }
 
       unawaited(_checkCompatibility());
@@ -201,7 +205,7 @@ class AppsBloc extends InteractiveBloc implements AppsBlocEvents, AppsBlocStates
   }
 
   @override
-  Future setActiveApp(final String appID) async {
+  Future setActiveApp(final String appID, {final bool skipAlreadySet = false}) async {
     if (appID == AppIDs.notifications) {
       openNotifications.add(null);
       return;
@@ -210,7 +214,7 @@ class AppsBloc extends InteractiveBloc implements AppsBlocEvents, AppsBlocStates
     final apps = await appImplementations.firstWhere((final a) => a.hasData);
     final app = apps.requireData.tryFind(appID);
     if (app != null) {
-      if (activeApp.valueOrNull?.id != appID) {
+      if ((!activeApp.hasValue || !skipAlreadySet) && activeApp.valueOrNull?.id != appID) {
         activeApp.add(app);
       }
     } else {
