@@ -991,31 +991,67 @@ abstract class UserStatusEmptyOCS implements Built<UserStatusEmptyOCS, UserStatu
   static Serializer<UserStatusEmptyOCS> get serializer => _$userStatusEmptyOCSSerializer;
 }
 
-@SerializersFor([
-  UserStatusGetPublicStatuses,
-  UserStatusGetPublicStatuses_Ocs,
-  UserStatusOCSMeta,
-  UserStatusPublicStatus,
-  UserStatusClearAt,
-  UserStatusGetPublicStatus,
-  UserStatusGetPublicStatus_Ocs,
-  UserStatusGetStatus,
-  UserStatusGetStatus_Ocs,
-  UserStatusStatus1,
-  UserStatusPredefinedStatuses,
-  UserStatusPredefinedStatuses_Ocs,
-  UserStatusPredefinedStatus,
-  UserStatusHeartbeat,
-  UserStatusHeartbeat_Ocs,
-  UserStatusEmptyOCS,
-  UserStatusEmptyOCS_Ocs,
-])
-final Serializers _serializers = (_$_serializers.toBuilder()
+final Serializers _serializers = (Serializers().toBuilder()
       ..addBuilderFactory(const FullType(UserStatusGetPublicStatuses), UserStatusGetPublicStatuses.new)
+      ..add(UserStatusGetPublicStatuses.serializer)
+      ..addBuilderFactory(const FullType(UserStatusGetPublicStatuses_Ocs), UserStatusGetPublicStatuses_Ocs.new)
+      ..add(UserStatusGetPublicStatuses_Ocs.serializer)
+      ..addBuilderFactory(const FullType(UserStatusOCSMeta), UserStatusOCSMeta.new)
+      ..add(UserStatusOCSMeta.serializer)
+      ..addBuilderFactory(const FullType(UserStatusPublicStatus), UserStatusPublicStatus.new)
+      ..add(UserStatusPublicStatus.serializer)
+      ..addBuilderFactory(const FullType(UserStatusPublicStatus_ClearAt), UserStatusPublicStatus_ClearAt.new)
+      ..add(UserStatusPublicStatus_ClearAt.serializer)
+      ..addBuilderFactory(const FullType(UserStatusClearAt), UserStatusClearAt.new)
+      ..add(UserStatusClearAt.serializer)
+      ..add(UserStatusClearAt_Type.serializer)
+      ..addBuilderFactory(const FullType(UserStatusClearAt_Time), UserStatusClearAt_Time.new)
+      ..add(UserStatusClearAt_Time.serializer)
+      ..add(UserStatusClearAt_Time0.serializer)
+      ..add(UserStatusType.serializer)
+      ..addBuilderFactory(
+        const FullType(BuiltList, [FullType(UserStatusPublicStatus)]),
+        ListBuilder<UserStatusPublicStatus>.new,
+      )
       ..addBuilderFactory(const FullType(UserStatusGetPublicStatus), UserStatusGetPublicStatus.new)
+      ..add(UserStatusGetPublicStatus.serializer)
+      ..addBuilderFactory(const FullType(UserStatusGetPublicStatus_Ocs), UserStatusGetPublicStatus_Ocs.new)
+      ..add(UserStatusGetPublicStatus_Ocs.serializer)
+      ..addBuilderFactory(const FullType(UserStatusGetPublicStatus_Ocs_Data), UserStatusGetPublicStatus_Ocs_Data.new)
+      ..add(UserStatusGetPublicStatus_Ocs_Data.serializer)
+      ..addBuilderFactory(const FullType(BuiltList, [FullType(JsonObject)]), ListBuilder<JsonObject>.new)
       ..addBuilderFactory(const FullType(UserStatusGetStatus), UserStatusGetStatus.new)
+      ..add(UserStatusGetStatus.serializer)
+      ..addBuilderFactory(const FullType(UserStatusGetStatus_Ocs), UserStatusGetStatus_Ocs.new)
+      ..add(UserStatusGetStatus_Ocs.serializer)
+      ..addBuilderFactory(const FullType(UserStatusGetStatus_Ocs_Data), UserStatusGetStatus_Ocs_Data.new)
+      ..add(UserStatusGetStatus_Ocs_Data.serializer)
+      ..addBuilderFactory(const FullType(UserStatusStatus), UserStatusStatus.new)
+      ..add(UserStatusStatus.serializer)
+      ..addBuilderFactory(const FullType(UserStatusStatus1), UserStatusStatus1.new)
+      ..add(UserStatusStatus1.serializer)
       ..addBuilderFactory(const FullType(UserStatusPredefinedStatuses), UserStatusPredefinedStatuses.new)
-      ..addBuilderFactory(const FullType(UserStatusHeartbeat), UserStatusHeartbeat.new))
+      ..add(UserStatusPredefinedStatuses.serializer)
+      ..addBuilderFactory(const FullType(UserStatusPredefinedStatuses_Ocs), UserStatusPredefinedStatuses_Ocs.new)
+      ..add(UserStatusPredefinedStatuses_Ocs.serializer)
+      ..addBuilderFactory(const FullType(UserStatusPredefinedStatus), UserStatusPredefinedStatus.new)
+      ..add(UserStatusPredefinedStatus.serializer)
+      ..addBuilderFactory(const FullType(UserStatusPredefinedStatus_ClearAt), UserStatusPredefinedStatus_ClearAt.new)
+      ..add(UserStatusPredefinedStatus_ClearAt.serializer)
+      ..addBuilderFactory(
+        const FullType(BuiltList, [FullType(UserStatusPredefinedStatus)]),
+        ListBuilder<UserStatusPredefinedStatus>.new,
+      )
+      ..addBuilderFactory(const FullType(UserStatusHeartbeat), UserStatusHeartbeat.new)
+      ..add(UserStatusHeartbeat.serializer)
+      ..addBuilderFactory(const FullType(UserStatusHeartbeat_Ocs), UserStatusHeartbeat_Ocs.new)
+      ..add(UserStatusHeartbeat_Ocs.serializer)
+      ..addBuilderFactory(const FullType(UserStatusHeartbeat_Ocs_Data), UserStatusHeartbeat_Ocs_Data.new)
+      ..add(UserStatusHeartbeat_Ocs_Data.serializer)
+      ..addBuilderFactory(const FullType(UserStatusEmptyOCS), UserStatusEmptyOCS.new)
+      ..add(UserStatusEmptyOCS.serializer)
+      ..addBuilderFactory(const FullType(UserStatusEmptyOCS_Ocs), UserStatusEmptyOCS_Ocs.new)
+      ..add(UserStatusEmptyOCS_Ocs.serializer))
     .build();
 
 Serializers get userStatusSerializers => _serializers;

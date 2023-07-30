@@ -496,26 +496,48 @@ abstract class NotificationsNotificationDecryptedSubject
       _$notificationsNotificationDecryptedSubjectSerializer;
 }
 
-@SerializersFor([
-  NotificationsListNotifications,
-  NotificationsListNotifications_Ocs,
-  NotificationsOCSMeta,
-  NotificationsNotification,
-  NotificationsNotificationAction,
-  NotificationsGetNotification,
-  NotificationsGetNotification_Ocs,
-  NotificationsEmptyOCS,
-  NotificationsEmptyOCS_Ocs,
-  NotificationsPushServerRegistration,
-  NotificationsPushServerRegistration_Ocs,
-  NotificationsPushServerSubscription,
-  NotificationsNotificationDecryptedSubject,
-])
-final Serializers _serializers = (_$_serializers.toBuilder()
+final Serializers _serializers = (Serializers().toBuilder()
       ..addBuilderFactory(const FullType(NotificationsListNotifications), NotificationsListNotifications.new)
+      ..add(NotificationsListNotifications.serializer)
+      ..addBuilderFactory(const FullType(NotificationsListNotifications_Ocs), NotificationsListNotifications_Ocs.new)
+      ..add(NotificationsListNotifications_Ocs.serializer)
+      ..addBuilderFactory(const FullType(NotificationsOCSMeta), NotificationsOCSMeta.new)
+      ..add(NotificationsOCSMeta.serializer)
+      ..addBuilderFactory(const FullType(NotificationsNotification), NotificationsNotification.new)
+      ..add(NotificationsNotification.serializer)
+      ..addBuilderFactory(const FullType(NotificationsNotificationAction), NotificationsNotificationAction.new)
+      ..add(NotificationsNotificationAction.serializer)
+      ..addBuilderFactory(
+        const FullType(BuiltList, [FullType(NotificationsNotificationAction)]),
+        ListBuilder<NotificationsNotificationAction>.new,
+      )
+      ..addBuilderFactory(
+        const FullType(BuiltList, [FullType(NotificationsNotification)]),
+        ListBuilder<NotificationsNotification>.new,
+      )
       ..addBuilderFactory(const FullType(NotificationsGetNotification), NotificationsGetNotification.new)
+      ..add(NotificationsGetNotification.serializer)
+      ..addBuilderFactory(const FullType(NotificationsGetNotification_Ocs), NotificationsGetNotification_Ocs.new)
+      ..add(NotificationsGetNotification_Ocs.serializer)
       ..addBuilderFactory(const FullType(NotificationsEmptyOCS), NotificationsEmptyOCS.new)
-      ..addBuilderFactory(const FullType(NotificationsPushServerRegistration), NotificationsPushServerRegistration.new))
+      ..add(NotificationsEmptyOCS.serializer)
+      ..addBuilderFactory(const FullType(NotificationsEmptyOCS_Ocs), NotificationsEmptyOCS_Ocs.new)
+      ..add(NotificationsEmptyOCS_Ocs.serializer)
+      ..addBuilderFactory(const FullType(BuiltList, [FullType(JsonObject)]), ListBuilder<JsonObject>.new)
+      ..addBuilderFactory(const FullType(NotificationsPushServerRegistration), NotificationsPushServerRegistration.new)
+      ..add(NotificationsPushServerRegistration.serializer)
+      ..addBuilderFactory(
+        const FullType(NotificationsPushServerRegistration_Ocs),
+        NotificationsPushServerRegistration_Ocs.new,
+      )
+      ..add(NotificationsPushServerRegistration_Ocs.serializer)
+      ..addBuilderFactory(const FullType(NotificationsPushServerSubscription), NotificationsPushServerSubscription.new)
+      ..add(NotificationsPushServerSubscription.serializer)
+      ..addBuilderFactory(
+        const FullType(NotificationsNotificationDecryptedSubject),
+        NotificationsNotificationDecryptedSubject.new,
+      )
+      ..add(NotificationsNotificationDecryptedSubject.serializer))
     .build();
 
 Serializers get notificationsSerializers => _serializers;

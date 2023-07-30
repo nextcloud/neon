@@ -427,18 +427,20 @@ abstract class NotesEmptyOCS implements Built<NotesEmptyOCS, NotesEmptyOCSBuilde
   static Serializer<NotesEmptyOCS> get serializer => _$notesEmptyOCSSerializer;
 }
 
-@SerializersFor([
-  NotesNote,
-  NotesSettings,
-  NotesOCSMeta,
-  NotesEmptyOCS,
-  NotesEmptyOCS_Ocs,
-])
-final Serializers _serializers = (_$_serializers.toBuilder()
+final Serializers _serializers = (Serializers().toBuilder()
       ..addBuilderFactory(const FullType(NotesNote), NotesNote.new)
+      ..add(NotesNote.serializer)
       ..addBuilderFactory(const FullType(BuiltList, [FullType(NotesNote)]), ListBuilder<NotesNote>.new)
-      ..addBuilderFactory(const FullType(NotesNote), NotesNote.new)
-      ..addBuilderFactory(const FullType(NotesSettings), NotesSettings.new))
+      ..addBuilderFactory(const FullType(NotesSettings), NotesSettings.new)
+      ..add(NotesSettings.serializer)
+      ..add(NotesSettings_NoteMode.serializer)
+      ..addBuilderFactory(const FullType(NotesOCSMeta), NotesOCSMeta.new)
+      ..add(NotesOCSMeta.serializer)
+      ..addBuilderFactory(const FullType(NotesEmptyOCS), NotesEmptyOCS.new)
+      ..add(NotesEmptyOCS.serializer)
+      ..addBuilderFactory(const FullType(NotesEmptyOCS_Ocs), NotesEmptyOCS_Ocs.new)
+      ..add(NotesEmptyOCS_Ocs.serializer)
+      ..addBuilderFactory(const FullType(BuiltList, [FullType(JsonObject)]), ListBuilder<JsonObject>.new))
     .build();
 
 Serializers get notesSerializers => _serializers;

@@ -6,21 +6,6 @@ part of 'provisioning_api.openapi.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-Serializers _$_serializers = (Serializers().toBuilder()
-      ..add(ProvisioningApiEmptyOCS.serializer)
-      ..add(ProvisioningApiEmptyOCS_Ocs.serializer)
-      ..add(ProvisioningApiOCSMeta.serializer)
-      ..add(ProvisioningApiUser.serializer)
-      ..add(ProvisioningApiUserDetails.serializer)
-      ..add(ProvisioningApiUserDetails_BackendCapabilities.serializer)
-      ..add(ProvisioningApiUserDetails_Quota.serializer)
-      ..add(ProvisioningApiUser_Ocs.serializer)
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(JsonObject)]), () => ListBuilder<JsonObject>())
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(String)]), () => ListBuilder<String>())
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(String)]), () => ListBuilder<String>())
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(String)]), () => ListBuilder<String>())
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(String)]), () => ListBuilder<String>()))
-    .build();
 Serializer<ProvisioningApiOCSMeta> _$provisioningApiOCSMetaSerializer = _$ProvisioningApiOCSMetaSerializer();
 Serializer<ProvisioningApiUserDetails_Quota> _$provisioningApiUserDetailsQuotaSerializer =
     _$ProvisioningApiUserDetails_QuotaSerializer();

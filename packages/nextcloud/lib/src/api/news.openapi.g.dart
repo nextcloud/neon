@@ -6,25 +6,6 @@ part of 'news.openapi.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-Serializers _$_serializers = (Serializers().toBuilder()
-      ..add(NewsArticle.serializer)
-      ..add(NewsEmptyOCS.serializer)
-      ..add(NewsEmptyOCS_Ocs.serializer)
-      ..add(NewsFeed.serializer)
-      ..add(NewsFolder.serializer)
-      ..add(NewsListArticles.serializer)
-      ..add(NewsListFeeds.serializer)
-      ..add(NewsListFolders.serializer)
-      ..add(NewsOCSMeta.serializer)
-      ..add(NewsSupportedAPIVersions.serializer)
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(JsonObject)]), () => ListBuilder<JsonObject>())
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(NewsArticle)]), () => ListBuilder<NewsArticle>())
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(NewsArticle)]), () => ListBuilder<NewsArticle>())
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(NewsFeed)]), () => ListBuilder<NewsFeed>())
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(NewsFeed)]), () => ListBuilder<NewsFeed>())
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(NewsFolder)]), () => ListBuilder<NewsFolder>())
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(String)]), () => ListBuilder<String>()))
-    .build();
 Serializer<NewsSupportedAPIVersions> _$newsSupportedAPIVersionsSerializer = _$NewsSupportedAPIVersionsSerializer();
 Serializer<NewsArticle> _$newsArticleSerializer = _$NewsArticleSerializer();
 Serializer<NewsFeed> _$newsFeedSerializer = _$NewsFeedSerializer();

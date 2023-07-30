@@ -6,26 +6,6 @@ part of 'notifications.openapi.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-Serializers _$_serializers = (Serializers().toBuilder()
-      ..add(NotificationsEmptyOCS.serializer)
-      ..add(NotificationsEmptyOCS_Ocs.serializer)
-      ..add(NotificationsGetNotification.serializer)
-      ..add(NotificationsGetNotification_Ocs.serializer)
-      ..add(NotificationsListNotifications.serializer)
-      ..add(NotificationsListNotifications_Ocs.serializer)
-      ..add(NotificationsNotification.serializer)
-      ..add(NotificationsNotificationAction.serializer)
-      ..add(NotificationsNotificationDecryptedSubject.serializer)
-      ..add(NotificationsOCSMeta.serializer)
-      ..add(NotificationsPushServerRegistration.serializer)
-      ..add(NotificationsPushServerRegistration_Ocs.serializer)
-      ..add(NotificationsPushServerSubscription.serializer)
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(JsonObject)]), () => ListBuilder<JsonObject>())
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(NotificationsNotification)]),
-          () => ListBuilder<NotificationsNotification>())
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(NotificationsNotificationAction)]),
-          () => ListBuilder<NotificationsNotificationAction>()))
-    .build();
 Serializer<NotificationsOCSMeta> _$notificationsOCSMetaSerializer = _$NotificationsOCSMetaSerializer();
 Serializer<NotificationsNotificationAction> _$notificationsNotificationActionSerializer =
     _$NotificationsNotificationActionSerializer();

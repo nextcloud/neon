@@ -14,6 +14,9 @@ class TypeResultMap extends TypeResult {
   String? get _builderFactory => '..addBuilderFactory($fullType, MapBuilder<String, ${subType.className}>.new)';
 
   @override
+  String? get _serializer => null;
+
+  @override
   TypeResultMap get dartType => TypeResultMap('Map', subType, nullable: nullable);
 
   @override

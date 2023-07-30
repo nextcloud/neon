@@ -14,6 +14,9 @@ class TypeResultEnum extends TypeResult {
   String? get _builderFactory => null;
 
   @override
+  String? get _serializer => '..add($className.serializer)';
+
+  @override
   String encode(
     final String object, {
     final bool onlyChildren = false,

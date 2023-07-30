@@ -11,6 +11,9 @@ class TypeResultBase extends TypeResult {
   String? get _builderFactory => null;
 
   @override
+  String? get _serializer => null;
+
+  @override
   String serialize(final String object) => object;
 
   @override

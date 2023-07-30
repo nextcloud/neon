@@ -77,43 +77,6 @@ final BuiltSet<UserStatusType> _$userStatusTypeValues = BuiltSet<UserStatusType>
   _$userStatusTypeInvisible,
 ]);
 
-Serializers _$_serializers = (Serializers().toBuilder()
-      ..add(UserStatusClearAt.serializer)
-      ..add(UserStatusClearAt_Time.serializer)
-      ..add(UserStatusClearAt_Time0.serializer)
-      ..add(UserStatusClearAt_Type.serializer)
-      ..add(UserStatusEmptyOCS.serializer)
-      ..add(UserStatusEmptyOCS_Ocs.serializer)
-      ..add(UserStatusGetPublicStatus.serializer)
-      ..add(UserStatusGetPublicStatus_Ocs.serializer)
-      ..add(UserStatusGetPublicStatus_Ocs_Data.serializer)
-      ..add(UserStatusGetPublicStatuses.serializer)
-      ..add(UserStatusGetPublicStatuses_Ocs.serializer)
-      ..add(UserStatusGetStatus.serializer)
-      ..add(UserStatusGetStatus_Ocs.serializer)
-      ..add(UserStatusGetStatus_Ocs_Data.serializer)
-      ..add(UserStatusHeartbeat.serializer)
-      ..add(UserStatusHeartbeat_Ocs.serializer)
-      ..add(UserStatusHeartbeat_Ocs_Data.serializer)
-      ..add(UserStatusOCSMeta.serializer)
-      ..add(UserStatusPredefinedStatus.serializer)
-      ..add(UserStatusPredefinedStatus_ClearAt.serializer)
-      ..add(UserStatusPredefinedStatuses.serializer)
-      ..add(UserStatusPredefinedStatuses_Ocs.serializer)
-      ..add(UserStatusPublicStatus.serializer)
-      ..add(UserStatusPublicStatus_ClearAt.serializer)
-      ..add(UserStatusStatus.serializer)
-      ..add(UserStatusStatus1.serializer)
-      ..add(UserStatusType.serializer)
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(JsonObject)]), () => ListBuilder<JsonObject>())
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(JsonObject)]), () => ListBuilder<JsonObject>())
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(JsonObject)]), () => ListBuilder<JsonObject>())
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(JsonObject)]), () => ListBuilder<JsonObject>())
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(UserStatusPredefinedStatus)]),
-          () => ListBuilder<UserStatusPredefinedStatus>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, [FullType(UserStatusPublicStatus)]), () => ListBuilder<UserStatusPublicStatus>()))
-    .build();
 Serializer<UserStatusOCSMeta> _$userStatusOCSMetaSerializer = _$UserStatusOCSMetaSerializer();
 Serializer<UserStatusClearAt_Type> _$userStatusClearAtTypeSerializer = _$UserStatusClearAt_TypeSerializer();
 Serializer<UserStatusClearAt_Time0> _$userStatusClearAtTime0Serializer = _$UserStatusClearAt_Time0Serializer();
