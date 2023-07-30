@@ -710,13 +710,10 @@ class OpenAPIBuilder implements Builder {
 
       output.addAll(state.output.map((final e) => e.accept(emitter).toString()));
 
-      if (state.resolvedTypeCombinations.isNotEmpty) {
+      if (state.resolvedTypes.isNotEmpty) {
         output.addAll([
           'final Serializers _serializers = (Serializers().toBuilder()',
-          ...state.resolvedTypeCombinations
-              .map((final type) => type.serializers)
-              .expand((final element) => element)
-              .toSet(),
+          ...state.resolvedTypes.map((final type) => type.serializers).expand((final element) => element).toSet(),
           ').build();',
           '',
           'Serializers get ${variablePrefix}Serializers => _serializers;',
@@ -926,9 +923,8 @@ class State {
   State(this.prefix);
 
   final String prefix;
-  final resolvedTypes = <String>{};
   final output = <Spec>[];
-  final resolvedTypeCombinations = <TypeResult>{};
+  final resolvedTypes = <TypeResult>{};
 }
 
 TypeResult resolveObject(
@@ -940,8 +936,7 @@ TypeResult resolveObject(
   final bool nullable = false,
   final bool isHeader = false,
 }) {
-  if (!state.resolvedTypes.contains('${state.prefix}$identifier')) {
-    state.resolvedTypes.add('${state.prefix}$identifier');
+  if (state.resolvedTypes.add(TypeResultObject('${state.prefix}$identifier'))) {
     state.output.add(
       Class(
         (final b) {
@@ -1268,8 +1263,7 @@ TypeResult resolveType(
       nullable: nullable,
     );
   } else if (schema.ofs != null) {
-    if (!state.resolvedTypes.contains('${state.prefix}$identifier')) {
-      state.resolvedTypes.add('${state.prefix}$identifier');
+    if (state.resolvedTypes.add(TypeResultObject('${state.prefix}$identifier'))) {
       final results = schema.ofs!
           .map(
             (final s) => resolveType(
@@ -1659,8 +1653,7 @@ TypeResult resolveType(
 
   if (result != null) {
     if (!ignoreEnum && schema.enum_ != null) {
-      if (!state.resolvedTypes.contains('${state.prefix}$identifier')) {
-        state.resolvedTypes.add('${state.prefix}$identifier');
+      if (state.resolvedTypes.add(TypeResultEnum('${state.prefix}$identifier', result))) {
         state.output.add(
           Class(
             (final b) => b
@@ -1764,7 +1757,7 @@ TypeResult resolveType(
       );
     }
 
-    state.resolvedTypeCombinations.add(result);
+    state.resolvedTypes.add(result);
     return result;
   }
 
