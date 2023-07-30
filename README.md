@@ -52,7 +52,7 @@ Developing a new Nextcloud client can be as easy as adding some UI and then nece
 
 ## Contributing
 
-Checkout our [contributing docs](./docs/contributing.md) to get started with developing with Neon.
+Checkout our [contributing docs](CONTRIBUTING.md) to get started with developing with Neon.
 
 ## Development and support
 
