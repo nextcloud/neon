@@ -415,8 +415,6 @@ class OpenAPIBuilder implements Builder {
                                 nullable: dartParameterNullable,
                               ).dartType;
 
-                              state.resolvedTypeCombinations.add(result);
-
                               if (result.name == 'String') {
                                 if (parameter.schema?.pattern != null) {
                                   code.write('''
@@ -621,7 +619,6 @@ class OpenAPIBuilder implements Builder {
                                       ),
                                       mediaType.schema!,
                                     );
-                                    state.resolvedTypeCombinations.add(result);
 
                                     if (mimeType == '*/*' ||
                                         mimeType == 'application/octet-stream' ||
@@ -713,14 +710,9 @@ class OpenAPIBuilder implements Builder {
 
       output.addAll(state.output.map((final e) => e.accept(emitter).toString()));
 
-      if (state.registeredJsonObjects.isNotEmpty) {
+      if (state.resolvedTypeCombinations.isNotEmpty) {
         output.addAll([
-          '@SerializersFor(const [',
-          for (final name in state.registeredJsonObjects) ...[
-            '$name,',
-          ],
-          '])',
-          r'final Serializers _serializers = (_$_serializers.toBuilder()',
+          'final Serializers _serializers = (Serializers().toBuilder()',
           ...state.resolvedTypeCombinations
               .map((final type) => type.serializers)
               .expand((final element) => element)
@@ -935,7 +927,6 @@ class State {
 
   final String prefix;
   final resolvedTypes = <String>{};
-  final registeredJsonObjects = <String>{};
   final output = <Spec>[];
   final resolvedTypeCombinations = <TypeResult>{};
 }
@@ -951,7 +942,6 @@ TypeResult resolveObject(
 }) {
   if (!state.resolvedTypes.contains('${state.prefix}$identifier')) {
     state.resolvedTypes.add('${state.prefix}$identifier');
-    state.registeredJsonObjects.add('${state.prefix}$identifier');
     state.output.add(
       Class(
         (final b) {
@@ -1774,6 +1764,7 @@ TypeResult resolveType(
       );
     }
 
+    state.resolvedTypeCombinations.add(result);
     return result;
   }
 
