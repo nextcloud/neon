@@ -44,27 +44,10 @@ class NextcloudClient extends DynamiteClient {
   /// Identifier used for authentication. This can be the username or email or something else.
   final String? loginName;
 
-  /// Username of the user on the server, it needs to be set for using WebDAV.
-  /// It can be obtained via the
+  /// Username of the user on the server
   final String? username;
 
   WebDavClient? _webdav;
-
-  /// Client for WebDAV. Username needs to be set in order to use it
-  WebDavClient get webdav {
-    if (_webdav != null) {
-      return _webdav!;
-    }
-    if (username == null) {
-      throw Exception('The WebDAV client is only available when a username is set');
-    }
-
-    return _webdav = WebDavClient(
-      this,
-      '/remote.php/dav/files/$username',
-    );
-  }
-
   CoreClient? _core;
   NewsClient? _news;
   NotesClient? _notes;
@@ -72,6 +55,9 @@ class NextcloudClient extends DynamiteClient {
   ProvisioningApiClient? _provisioningApi;
   UppushClient? _uppush;
   UserStatusClient? _userStatus;
+
+  /// Client for WebDAV
+  WebDavClient get webdav => _webdav ??= WebDavClient(this);
 
   /// Client for the core APIs
   CoreClient get core => _core ??= CoreClient.fromClient(this);

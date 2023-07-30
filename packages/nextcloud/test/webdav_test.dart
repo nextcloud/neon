@@ -23,17 +23,9 @@ void main() {
     });
     tearDown(() => container.destroy());
 
-    test('Fail without username', () async {
-      client = await getTestClient(
-        container,
-        username: null,
-      );
-      expect(() => client.webdav, throwsException);
-    });
-
     test('Get status', () async {
       final status = await client.webdav.status();
-      expect(status.capabilities, containsAll(['1', '3', 'access-control']));
+      expect(status.capabilities, containsAll(['1', '3']));
       expect(status.searchCapabilities, hasLength(0));
     });
 
