@@ -288,18 +288,28 @@ abstract class ProvisioningApiEmptyOCS implements Built<ProvisioningApiEmptyOCS,
   static Serializer<ProvisioningApiEmptyOCS> get serializer => _$provisioningApiEmptyOCSSerializer;
 }
 
-@SerializersFor([
-  ProvisioningApiUser,
-  ProvisioningApiUser_Ocs,
-  ProvisioningApiOCSMeta,
-  ProvisioningApiUserDetails,
-  ProvisioningApiUserDetails_Quota,
-  ProvisioningApiUserDetails_BackendCapabilities,
-  ProvisioningApiEmptyOCS,
-  ProvisioningApiEmptyOCS_Ocs,
-])
-final Serializers _serializers = (_$_serializers.toBuilder()
-      ..addBuilderFactory(const FullType(ProvisioningApiUser), ProvisioningApiUser.new))
+final Serializers _serializers = (Serializers().toBuilder()
+      ..addBuilderFactory(const FullType(ProvisioningApiUser), ProvisioningApiUser.new)
+      ..add(ProvisioningApiUser.serializer)
+      ..addBuilderFactory(const FullType(ProvisioningApiUser_Ocs), ProvisioningApiUser_Ocs.new)
+      ..add(ProvisioningApiUser_Ocs.serializer)
+      ..addBuilderFactory(const FullType(ProvisioningApiOCSMeta), ProvisioningApiOCSMeta.new)
+      ..add(ProvisioningApiOCSMeta.serializer)
+      ..addBuilderFactory(const FullType(ProvisioningApiUserDetails), ProvisioningApiUserDetails.new)
+      ..add(ProvisioningApiUserDetails.serializer)
+      ..addBuilderFactory(const FullType(BuiltList, [FullType(String)]), ListBuilder<String>.new)
+      ..addBuilderFactory(const FullType(ProvisioningApiUserDetails_Quota), ProvisioningApiUserDetails_Quota.new)
+      ..add(ProvisioningApiUserDetails_Quota.serializer)
+      ..addBuilderFactory(
+        const FullType(ProvisioningApiUserDetails_BackendCapabilities),
+        ProvisioningApiUserDetails_BackendCapabilities.new,
+      )
+      ..add(ProvisioningApiUserDetails_BackendCapabilities.serializer)
+      ..addBuilderFactory(const FullType(ProvisioningApiEmptyOCS), ProvisioningApiEmptyOCS.new)
+      ..add(ProvisioningApiEmptyOCS.serializer)
+      ..addBuilderFactory(const FullType(ProvisioningApiEmptyOCS_Ocs), ProvisioningApiEmptyOCS_Ocs.new)
+      ..add(ProvisioningApiEmptyOCS_Ocs.serializer)
+      ..addBuilderFactory(const FullType(BuiltList, [FullType(JsonObject)]), ListBuilder<JsonObject>.new))
     .build();
 
 Serializers get provisioningApiSerializers => _serializers;

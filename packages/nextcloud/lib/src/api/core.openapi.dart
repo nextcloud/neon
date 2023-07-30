@@ -2036,99 +2036,339 @@ abstract class CoreEmptyOCS implements Built<CoreEmptyOCS, CoreEmptyOCSBuilder> 
   static Serializer<CoreEmptyOCS> get serializer => _$coreEmptyOCSSerializer;
 }
 
-@SerializersFor([
-  CoreServerStatus,
-  CoreServerCapabilities,
-  CoreServerCapabilities_Ocs,
-  CoreOCSMeta,
-  CoreServerCapabilities_Ocs_Data,
-  CoreServerCapabilities_Ocs_Data_Version,
-  CoreServerCapabilities_Ocs_Data_Capabilities,
-  CoreServerCapabilities_Ocs_Data_Capabilities_Core,
-  CoreServerCapabilities_Ocs_Data_Capabilities_Bruteforce,
-  CoreServerCapabilities_Ocs_Data_Capabilities_MetadataAvailable,
-  CoreServerCapabilities_Ocs_Data_Capabilities_Files,
-  CoreServerCapabilities_Ocs_Data_Capabilities_Files_DirectEditing,
-  CoreServerCapabilities_Ocs_Data_Capabilities_Activity,
-  CoreServerCapabilities_Ocs_Data_Capabilities_Circles,
-  CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Status,
-  CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Settings,
-  CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle,
-  CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants,
-  CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants_Source,
-  CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Config,
-  CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member,
-  CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member_Constants,
-  CoreServerCapabilities_Ocs_Data_Capabilities_Ocm,
-  CoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes,
-  CoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes_Protocols,
-  CoreServerCapabilities_Ocs_Data_Capabilities_Dav,
-  CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing,
-  CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public,
-  CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_Password,
-  CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDate,
-  CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternal,
-  CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemote,
-  CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User,
-  CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User_ExpireDate,
-  CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group,
-  CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDate,
-  CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation,
-  CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDate,
-  CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupported,
-  CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharee,
-  CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail,
-  CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_UploadFilesDrop,
-  CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_Password,
-  CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_ExpireDate,
-  CoreServerCapabilities_Ocs_Data_Capabilities_Notes,
-  CoreServerCapabilities_Ocs_Data_Capabilities_Notifications,
-  CoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy,
-  CoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy_Api,
-  CoreServerCapabilities_Ocs_Data_Capabilities_ProvisioningApi,
-  CoreServerCapabilities_Ocs_Data_Capabilities_Theming,
-  CoreServerCapabilities_Ocs_Data_Capabilities_UserStatus,
-  CoreServerCapabilities_Ocs_Data_Capabilities_WeatherStatus,
-  CoreNavigationApps,
-  CoreNavigationApps_Ocs,
-  CoreNavigationApps_Ocs_Data,
-  CoreLoginFlowInit,
-  CoreLoginFlowInit_Poll,
-  CoreLoginFlowResult,
-  CoreAutocompleteResult,
-  CoreAutocompleteResult_Ocs,
-  CoreAutocompleteResult_Ocs_Data,
-  CoreUnifiedSearchProvidersResponse200ApplicationJson,
-  CoreUnifiedSearchProvidersResponse200ApplicationJson_Ocs,
-  CoreUnifiedSearchProvider,
-  CoreUnifiedSearchResponse200ApplicationJson,
-  CoreUnifiedSearchResponse200ApplicationJson_Ocs,
-  CoreUnifiedSearchResult,
-  CoreUnifiedSearchResultEntry,
-  CoreEmptyOCS,
-  CoreEmptyOCS_Ocs,
-])
-final Serializers _serializers = (_$_serializers.toBuilder()
+final Serializers _serializers = (Serializers().toBuilder()
       ..addBuilderFactory(const FullType(CoreServerStatus), CoreServerStatus.new)
+      ..add(CoreServerStatus.serializer)
       ..addBuilderFactory(const FullType(CoreServerCapabilities), CoreServerCapabilities.new)
+      ..add(CoreServerCapabilities.serializer)
+      ..addBuilderFactory(const FullType(CoreServerCapabilities_Ocs), CoreServerCapabilities_Ocs.new)
+      ..add(CoreServerCapabilities_Ocs.serializer)
+      ..addBuilderFactory(const FullType(CoreOCSMeta), CoreOCSMeta.new)
+      ..add(CoreOCSMeta.serializer)
+      ..addBuilderFactory(const FullType(CoreServerCapabilities_Ocs_Data), CoreServerCapabilities_Ocs_Data.new)
+      ..add(CoreServerCapabilities_Ocs_Data.serializer)
+      ..addBuilderFactory(
+        const FullType(CoreServerCapabilities_Ocs_Data_Version),
+        CoreServerCapabilities_Ocs_Data_Version.new,
+      )
+      ..add(CoreServerCapabilities_Ocs_Data_Version.serializer)
+      ..addBuilderFactory(
+        const FullType(CoreServerCapabilities_Ocs_Data_Capabilities),
+        CoreServerCapabilities_Ocs_Data_Capabilities.new,
+      )
+      ..add(CoreServerCapabilities_Ocs_Data_Capabilities.serializer)
+      ..addBuilderFactory(
+        const FullType(CoreServerCapabilities_Ocs_Data_Capabilities_Core),
+        CoreServerCapabilities_Ocs_Data_Capabilities_Core.new,
+      )
+      ..add(CoreServerCapabilities_Ocs_Data_Capabilities_Core.serializer)
+      ..addBuilderFactory(
+        const FullType(CoreServerCapabilities_Ocs_Data_Capabilities_Bruteforce),
+        CoreServerCapabilities_Ocs_Data_Capabilities_Bruteforce.new,
+      )
+      ..add(CoreServerCapabilities_Ocs_Data_Capabilities_Bruteforce.serializer)
+      ..addBuilderFactory(
+        const FullType(CoreServerCapabilities_Ocs_Data_Capabilities_MetadataAvailable),
+        CoreServerCapabilities_Ocs_Data_Capabilities_MetadataAvailable.new,
+      )
+      ..add(CoreServerCapabilities_Ocs_Data_Capabilities_MetadataAvailable.serializer)
+      ..addBuilderFactory(const FullType(BuiltList, [FullType(String)]), ListBuilder<String>.new)
+      ..addBuilderFactory(
+        const FullType(CoreServerCapabilities_Ocs_Data_Capabilities_Files),
+        CoreServerCapabilities_Ocs_Data_Capabilities_Files.new,
+      )
+      ..add(CoreServerCapabilities_Ocs_Data_Capabilities_Files.serializer)
+      ..addBuilderFactory(
+        const FullType(CoreServerCapabilities_Ocs_Data_Capabilities_Files_DirectEditing),
+        CoreServerCapabilities_Ocs_Data_Capabilities_Files_DirectEditing.new,
+      )
+      ..add(CoreServerCapabilities_Ocs_Data_Capabilities_Files_DirectEditing.serializer)
+      ..addBuilderFactory(
+        const FullType(CoreServerCapabilities_Ocs_Data_Capabilities_Activity),
+        CoreServerCapabilities_Ocs_Data_Capabilities_Activity.new,
+      )
+      ..add(CoreServerCapabilities_Ocs_Data_Capabilities_Activity.serializer)
+      ..addBuilderFactory(
+        const FullType(CoreServerCapabilities_Ocs_Data_Capabilities_Circles),
+        CoreServerCapabilities_Ocs_Data_Capabilities_Circles.new,
+      )
+      ..add(CoreServerCapabilities_Ocs_Data_Capabilities_Circles.serializer)
+      ..addBuilderFactory(
+        const FullType(CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Status),
+        CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Status.new,
+      )
+      ..add(CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Status.serializer)
+      ..addBuilderFactory(
+        const FullType(CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Settings),
+        CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Settings.new,
+      )
+      ..add(CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Settings.serializer)
+      ..addBuilderFactory(
+        const FullType(CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle),
+        CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle.new,
+      )
+      ..add(CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle.serializer)
+      ..addBuilderFactory(
+        const FullType(CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants),
+        CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants.new,
+      )
+      ..add(CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants.serializer)
+      ..addBuilderFactory(
+        const FullType(CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants_Source),
+        CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants_Source.new,
+      )
+      ..add(CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Constants_Source.serializer)
+      ..addBuilderFactory(
+        const FullType(CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Config),
+        CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Config.new,
+      )
+      ..add(CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Circle_Config.serializer)
+      ..addBuilderFactory(const FullType(BuiltList, [FullType(int)]), ListBuilder<int>.new)
+      ..addBuilderFactory(
+        const FullType(CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member),
+        CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member.new,
+      )
+      ..add(CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member.serializer)
+      ..addBuilderFactory(
+        const FullType(CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member_Constants),
+        CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member_Constants.new,
+      )
+      ..add(CoreServerCapabilities_Ocs_Data_Capabilities_Circles_Member_Constants.serializer)
+      ..addBuilderFactory(
+        const FullType(CoreServerCapabilities_Ocs_Data_Capabilities_Ocm),
+        CoreServerCapabilities_Ocs_Data_Capabilities_Ocm.new,
+      )
+      ..add(CoreServerCapabilities_Ocs_Data_Capabilities_Ocm.serializer)
+      ..addBuilderFactory(
+        const FullType(CoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes),
+        CoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes.new,
+      )
+      ..add(CoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes.serializer)
+      ..addBuilderFactory(
+        const FullType(CoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes_Protocols),
+        CoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes_Protocols.new,
+      )
+      ..add(CoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes_Protocols.serializer)
+      ..addBuilderFactory(
+        const FullType(BuiltList, [FullType(CoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes)]),
+        ListBuilder<CoreServerCapabilities_Ocs_Data_Capabilities_Ocm_ResourceTypes>.new,
+      )
+      ..addBuilderFactory(
+        const FullType(CoreServerCapabilities_Ocs_Data_Capabilities_Dav),
+        CoreServerCapabilities_Ocs_Data_Capabilities_Dav.new,
+      )
+      ..add(CoreServerCapabilities_Ocs_Data_Capabilities_Dav.serializer)
+      ..addBuilderFactory(
+        const FullType(CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing),
+        CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing.new,
+      )
+      ..add(CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing.serializer)
+      ..addBuilderFactory(
+        const FullType(CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public),
+        CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public.new,
+      )
+      ..add(CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public.serializer)
+      ..addBuilderFactory(
+        const FullType(CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_Password),
+        CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_Password.new,
+      )
+      ..add(CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_Password.serializer)
+      ..addBuilderFactory(
+        const FullType(CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDate),
+        CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDate.new,
+      )
+      ..add(CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDate.serializer)
+      ..addBuilderFactory(
+        const FullType(CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternal),
+        CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternal.new,
+      )
+      ..add(CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternal.serializer)
+      ..addBuilderFactory(
+        const FullType(CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemote),
+        CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemote.new,
+      )
+      ..add(CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemote.serializer)
+      ..addBuilderFactory(
+        const FullType(CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User),
+        CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User.new,
+      )
+      ..add(CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User.serializer)
+      ..addBuilderFactory(
+        const FullType(CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User_ExpireDate),
+        CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User_ExpireDate.new,
+      )
+      ..add(CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_User_ExpireDate.serializer)
+      ..addBuilderFactory(
+        const FullType(CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group),
+        CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group.new,
+      )
+      ..add(CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group.serializer)
+      ..addBuilderFactory(
+        const FullType(CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDate),
+        CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDate.new,
+      )
+      ..add(CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDate.serializer)
+      ..addBuilderFactory(
+        const FullType(CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation),
+        CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation.new,
+      )
+      ..add(CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation.serializer)
+      ..addBuilderFactory(
+        const FullType(CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDate),
+        CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDate.new,
+      )
+      ..add(CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDate.serializer)
+      ..addBuilderFactory(
+        const FullType(CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupported),
+        CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupported.new,
+      )
+      ..add(CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupported.serializer)
+      ..addBuilderFactory(
+        const FullType(CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharee),
+        CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharee.new,
+      )
+      ..add(CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharee.serializer)
+      ..addBuilderFactory(
+        const FullType(CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail),
+        CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail.new,
+      )
+      ..add(CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail.serializer)
+      ..addBuilderFactory(
+        const FullType(CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_UploadFilesDrop),
+        CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_UploadFilesDrop.new,
+      )
+      ..add(CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_UploadFilesDrop.serializer)
+      ..addBuilderFactory(
+        const FullType(CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_Password),
+        CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_Password.new,
+      )
+      ..add(CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_Password.serializer)
+      ..addBuilderFactory(
+        const FullType(CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_ExpireDate),
+        CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_ExpireDate.new,
+      )
+      ..add(CoreServerCapabilities_Ocs_Data_Capabilities_FilesSharing_Sharebymail_ExpireDate.serializer)
+      ..addBuilderFactory(
+        const FullType(CoreServerCapabilities_Ocs_Data_Capabilities_Notes),
+        CoreServerCapabilities_Ocs_Data_Capabilities_Notes.new,
+      )
+      ..add(CoreServerCapabilities_Ocs_Data_Capabilities_Notes.serializer)
+      ..addBuilderFactory(
+        const FullType(CoreServerCapabilities_Ocs_Data_Capabilities_Notifications),
+        CoreServerCapabilities_Ocs_Data_Capabilities_Notifications.new,
+      )
+      ..add(CoreServerCapabilities_Ocs_Data_Capabilities_Notifications.serializer)
+      ..addBuilderFactory(
+        const FullType(CoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy),
+        CoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy.new,
+      )
+      ..add(CoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy.serializer)
+      ..addBuilderFactory(
+        const FullType(CoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy_Api),
+        CoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy_Api.new,
+      )
+      ..add(CoreServerCapabilities_Ocs_Data_Capabilities_PasswordPolicy_Api.serializer)
+      ..addBuilderFactory(
+        const FullType(CoreServerCapabilities_Ocs_Data_Capabilities_ProvisioningApi),
+        CoreServerCapabilities_Ocs_Data_Capabilities_ProvisioningApi.new,
+      )
+      ..add(CoreServerCapabilities_Ocs_Data_Capabilities_ProvisioningApi.serializer)
+      ..addBuilderFactory(
+        const FullType(CoreServerCapabilities_Ocs_Data_Capabilities_Theming),
+        CoreServerCapabilities_Ocs_Data_Capabilities_Theming.new,
+      )
+      ..add(CoreServerCapabilities_Ocs_Data_Capabilities_Theming.serializer)
+      ..addBuilderFactory(
+        const FullType(CoreServerCapabilities_Ocs_Data_Capabilities_UserStatus),
+        CoreServerCapabilities_Ocs_Data_Capabilities_UserStatus.new,
+      )
+      ..add(CoreServerCapabilities_Ocs_Data_Capabilities_UserStatus.serializer)
+      ..addBuilderFactory(
+        const FullType(CoreServerCapabilities_Ocs_Data_Capabilities_WeatherStatus),
+        CoreServerCapabilities_Ocs_Data_Capabilities_WeatherStatus.new,
+      )
+      ..add(CoreServerCapabilities_Ocs_Data_Capabilities_WeatherStatus.serializer)
       ..addBuilderFactory(const FullType(CoreNavigationApps), CoreNavigationApps.new)
+      ..add(CoreNavigationApps.serializer)
+      ..addBuilderFactory(const FullType(CoreNavigationApps_Ocs), CoreNavigationApps_Ocs.new)
+      ..add(CoreNavigationApps_Ocs.serializer)
+      ..addBuilderFactory(const FullType(CoreNavigationApps_Ocs_Data), CoreNavigationApps_Ocs_Data.new)
+      ..add(CoreNavigationApps_Ocs_Data.serializer)
+      ..addBuilderFactory(const FullType(CoreNavigationApps_Ocs_Data_Order), CoreNavigationApps_Ocs_Data_Order.new)
+      ..add(CoreNavigationApps_Ocs_Data_Order.serializer)
+      ..addBuilderFactory(
+        const FullType(BuiltList, [FullType(CoreNavigationApps_Ocs_Data)]),
+        ListBuilder<CoreNavigationApps_Ocs_Data>.new,
+      )
       ..addBuilderFactory(const FullType(CoreLoginFlowInit), CoreLoginFlowInit.new)
+      ..add(CoreLoginFlowInit.serializer)
+      ..addBuilderFactory(const FullType(CoreLoginFlowInit_Poll), CoreLoginFlowInit_Poll.new)
+      ..add(CoreLoginFlowInit_Poll.serializer)
       ..addBuilderFactory(const FullType(CoreLoginFlowResult), CoreLoginFlowResult.new)
-      ..addBuilderFactory(const FullType(List, [FullType(int)]), ListBuilder<int>.new)
+      ..add(CoreLoginFlowResult.serializer)
       ..addBuilderFactory(const FullType(CoreAutocompleteResult), CoreAutocompleteResult.new)
+      ..add(CoreAutocompleteResult.serializer)
+      ..addBuilderFactory(const FullType(CoreAutocompleteResult_Ocs), CoreAutocompleteResult_Ocs.new)
+      ..add(CoreAutocompleteResult_Ocs.serializer)
+      ..addBuilderFactory(const FullType(CoreAutocompleteResult_Ocs_Data), CoreAutocompleteResult_Ocs_Data.new)
+      ..add(CoreAutocompleteResult_Ocs_Data.serializer)
+      ..addBuilderFactory(
+        const FullType(CoreAutocompleteResult_Ocs_Data_Status),
+        CoreAutocompleteResult_Ocs_Data_Status.new,
+      )
+      ..add(CoreAutocompleteResult_Ocs_Data_Status.serializer)
+      ..addBuilderFactory(const FullType(BuiltList, [FullType(JsonObject)]), ListBuilder<JsonObject>.new)
+      ..addBuilderFactory(
+        const FullType(BuiltList, [FullType(CoreAutocompleteResult_Ocs_Data)]),
+        ListBuilder<CoreAutocompleteResult_Ocs_Data>.new,
+      )
       ..addBuilderFactory(
         const FullType(CoreUnifiedSearchProvidersResponse200ApplicationJson),
         CoreUnifiedSearchProvidersResponse200ApplicationJson.new,
       )
+      ..add(CoreUnifiedSearchProvidersResponse200ApplicationJson.serializer)
+      ..addBuilderFactory(
+        const FullType(CoreUnifiedSearchProvidersResponse200ApplicationJson_Ocs),
+        CoreUnifiedSearchProvidersResponse200ApplicationJson_Ocs.new,
+      )
+      ..add(CoreUnifiedSearchProvidersResponse200ApplicationJson_Ocs.serializer)
+      ..addBuilderFactory(const FullType(CoreUnifiedSearchProvider), CoreUnifiedSearchProvider.new)
+      ..add(CoreUnifiedSearchProvider.serializer)
+      ..addBuilderFactory(
+        const FullType(BuiltList, [FullType(CoreUnifiedSearchProvider)]),
+        ListBuilder<CoreUnifiedSearchProvider>.new,
+      )
       ..addBuilderFactory(const FullType(CoreUnifiedSearchCursor), CoreUnifiedSearchCursor.new)
+      ..add(CoreUnifiedSearchCursor.serializer)
       ..addBuilderFactory(
         const FullType(ContentString, [FullType(CoreUnifiedSearchCursor)]),
         ContentString<CoreUnifiedSearchCursor>.new,
       )
+      ..add(ContentString.serializer)
       ..addBuilderFactory(
         const FullType(CoreUnifiedSearchResponse200ApplicationJson),
         CoreUnifiedSearchResponse200ApplicationJson.new,
-      ))
+      )
+      ..add(CoreUnifiedSearchResponse200ApplicationJson.serializer)
+      ..addBuilderFactory(
+        const FullType(CoreUnifiedSearchResponse200ApplicationJson_Ocs),
+        CoreUnifiedSearchResponse200ApplicationJson_Ocs.new,
+      )
+      ..add(CoreUnifiedSearchResponse200ApplicationJson_Ocs.serializer)
+      ..addBuilderFactory(const FullType(CoreUnifiedSearchResult), CoreUnifiedSearchResult.new)
+      ..add(CoreUnifiedSearchResult.serializer)
+      ..addBuilderFactory(const FullType(CoreUnifiedSearchResultEntry), CoreUnifiedSearchResultEntry.new)
+      ..add(CoreUnifiedSearchResultEntry.serializer)
+      ..addBuilderFactory(
+        const FullType(BuiltList, [FullType(CoreUnifiedSearchResultEntry)]),
+        ListBuilder<CoreUnifiedSearchResultEntry>.new,
+      )
+      ..addBuilderFactory(const FullType(CoreUnifiedSearchResult_Cursor), CoreUnifiedSearchResult_Cursor.new)
+      ..add(CoreUnifiedSearchResult_Cursor.serializer)
+      ..addBuilderFactory(const FullType(CoreEmptyOCS), CoreEmptyOCS.new)
+      ..add(CoreEmptyOCS.serializer)
+      ..addBuilderFactory(const FullType(CoreEmptyOCS_Ocs), CoreEmptyOCS_Ocs.new)
+      ..add(CoreEmptyOCS_Ocs.serializer))
     .build();
 
 Serializers get coreSerializers => _serializers;

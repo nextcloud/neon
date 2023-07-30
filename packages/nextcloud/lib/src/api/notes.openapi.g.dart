@@ -30,15 +30,6 @@ final BuiltSet<NotesSettings_NoteMode> _$notesSettingsNoteModeValues =
   _$notesSettingsNoteModeRich,
 ]);
 
-Serializers _$_serializers = (Serializers().toBuilder()
-      ..add(NotesEmptyOCS.serializer)
-      ..add(NotesEmptyOCS_Ocs.serializer)
-      ..add(NotesNote.serializer)
-      ..add(NotesOCSMeta.serializer)
-      ..add(NotesSettings.serializer)
-      ..add(NotesSettings_NoteMode.serializer)
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(JsonObject)]), () => ListBuilder<JsonObject>()))
-    .build();
 Serializer<NotesNote> _$notesNoteSerializer = _$NotesNoteSerializer();
 Serializer<NotesSettings_NoteMode> _$notesSettingsNoteModeSerializer = _$NotesSettings_NoteModeSerializer();
 Serializer<NotesSettings> _$notesSettingsSerializer = _$NotesSettingsSerializer();

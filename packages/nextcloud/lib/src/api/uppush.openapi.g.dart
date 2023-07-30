@@ -6,22 +6,6 @@ part of 'uppush.openapi.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-Serializers _$_serializers = (Serializers().toBuilder()
-      ..add(UppushCheckResponse200ApplicationJson.serializer)
-      ..add(UppushCreateAppResponse200ApplicationJson.serializer)
-      ..add(UppushCreateDeviceResponse200ApplicationJson.serializer)
-      ..add(UppushDeleteAppResponse200ApplicationJson.serializer)
-      ..add(UppushDeleteDeviceResponse200ApplicationJson.serializer)
-      ..add(UppushGatewayMatrixDiscoveryResponse200ApplicationJson.serializer)
-      ..add(UppushGatewayMatrixDiscoveryResponse200ApplicationJson_Unifiedpush.serializer)
-      ..add(UppushGatewayMatrixResponse200ApplicationJson.serializer)
-      ..add(UppushPushResponse201ApplicationJson.serializer)
-      ..add(UppushSetKeepaliveResponse200ApplicationJson.serializer)
-      ..add(UppushSyncDeviceResponse401ApplicationJson.serializer)
-      ..add(UppushUnifiedpushDiscoveryResponse200ApplicationJson.serializer)
-      ..add(UppushUnifiedpushDiscoveryResponse200ApplicationJson_Unifiedpush.serializer)
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(String)]), () => ListBuilder<String>()))
-    .build();
 Serializer<UppushCheckResponse200ApplicationJson> _$uppushCheckResponse200ApplicationJsonSerializer =
     _$UppushCheckResponse200ApplicationJsonSerializer();
 Serializer<UppushSetKeepaliveResponse200ApplicationJson> _$uppushSetKeepaliveResponse200ApplicationJsonSerializer =

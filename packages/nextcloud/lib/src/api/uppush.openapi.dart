@@ -622,66 +622,73 @@ abstract class UppushGatewayMatrixResponse200ApplicationJson
       _$uppushGatewayMatrixResponse200ApplicationJsonSerializer;
 }
 
-@SerializersFor([
-  UppushCheckResponse200ApplicationJson,
-  UppushSetKeepaliveResponse200ApplicationJson,
-  UppushCreateDeviceResponse200ApplicationJson,
-  UppushSyncDeviceResponse401ApplicationJson,
-  UppushDeleteDeviceResponse200ApplicationJson,
-  UppushCreateAppResponse200ApplicationJson,
-  UppushDeleteAppResponse200ApplicationJson,
-  UppushUnifiedpushDiscoveryResponse200ApplicationJson,
-  UppushUnifiedpushDiscoveryResponse200ApplicationJson_Unifiedpush,
-  UppushPushResponse201ApplicationJson,
-  UppushGatewayMatrixDiscoveryResponse200ApplicationJson,
-  UppushGatewayMatrixDiscoveryResponse200ApplicationJson_Unifiedpush,
-  UppushGatewayMatrixResponse200ApplicationJson,
-])
-final Serializers _serializers = (_$_serializers.toBuilder()
+final Serializers _serializers = (Serializers().toBuilder()
       ..addBuilderFactory(
         const FullType(UppushCheckResponse200ApplicationJson),
         UppushCheckResponse200ApplicationJson.new,
       )
+      ..add(UppushCheckResponse200ApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(UppushSetKeepaliveResponse200ApplicationJson),
         UppushSetKeepaliveResponse200ApplicationJson.new,
       )
+      ..add(UppushSetKeepaliveResponse200ApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(UppushCreateDeviceResponse200ApplicationJson),
         UppushCreateDeviceResponse200ApplicationJson.new,
       )
+      ..add(UppushCreateDeviceResponse200ApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(UppushSyncDeviceResponse401ApplicationJson),
         UppushSyncDeviceResponse401ApplicationJson.new,
       )
+      ..add(UppushSyncDeviceResponse401ApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(UppushDeleteDeviceResponse200ApplicationJson),
         UppushDeleteDeviceResponse200ApplicationJson.new,
       )
+      ..add(UppushDeleteDeviceResponse200ApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(UppushCreateAppResponse200ApplicationJson),
         UppushCreateAppResponse200ApplicationJson.new,
       )
+      ..add(UppushCreateAppResponse200ApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(UppushDeleteAppResponse200ApplicationJson),
         UppushDeleteAppResponse200ApplicationJson.new,
       )
+      ..add(UppushDeleteAppResponse200ApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(UppushUnifiedpushDiscoveryResponse200ApplicationJson),
         UppushUnifiedpushDiscoveryResponse200ApplicationJson.new,
       )
+      ..add(UppushUnifiedpushDiscoveryResponse200ApplicationJson.serializer)
+      ..addBuilderFactory(
+        const FullType(UppushUnifiedpushDiscoveryResponse200ApplicationJson_Unifiedpush),
+        UppushUnifiedpushDiscoveryResponse200ApplicationJson_Unifiedpush.new,
+      )
+      ..add(UppushUnifiedpushDiscoveryResponse200ApplicationJson_Unifiedpush.serializer)
       ..addBuilderFactory(
         const FullType(UppushPushResponse201ApplicationJson),
         UppushPushResponse201ApplicationJson.new,
       )
+      ..add(UppushPushResponse201ApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(UppushGatewayMatrixDiscoveryResponse200ApplicationJson),
         UppushGatewayMatrixDiscoveryResponse200ApplicationJson.new,
       )
+      ..add(UppushGatewayMatrixDiscoveryResponse200ApplicationJson.serializer)
+      ..addBuilderFactory(
+        const FullType(UppushGatewayMatrixDiscoveryResponse200ApplicationJson_Unifiedpush),
+        UppushGatewayMatrixDiscoveryResponse200ApplicationJson_Unifiedpush.new,
+      )
+      ..add(UppushGatewayMatrixDiscoveryResponse200ApplicationJson_Unifiedpush.serializer)
       ..addBuilderFactory(
         const FullType(UppushGatewayMatrixResponse200ApplicationJson),
         UppushGatewayMatrixResponse200ApplicationJson.new,
-      ))
+      )
+      ..add(UppushGatewayMatrixResponse200ApplicationJson.serializer)
+      ..addBuilderFactory(const FullType(BuiltList, [FullType(String)]), ListBuilder<String>.new))
     .build();
 
 Serializers get uppushSerializers => _serializers;

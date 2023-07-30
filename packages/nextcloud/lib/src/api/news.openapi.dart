@@ -731,23 +731,32 @@ abstract class NewsEmptyOCS implements Built<NewsEmptyOCS, NewsEmptyOCSBuilder> 
   static Serializer<NewsEmptyOCS> get serializer => _$newsEmptyOCSSerializer;
 }
 
-@SerializersFor([
-  NewsSupportedAPIVersions,
-  NewsListFolders,
-  NewsFolder,
-  NewsFeed,
-  NewsArticle,
-  NewsListFeeds,
-  NewsListArticles,
-  NewsOCSMeta,
-  NewsEmptyOCS,
-  NewsEmptyOCS_Ocs,
-])
-final Serializers _serializers = (_$_serializers.toBuilder()
+final Serializers _serializers = (Serializers().toBuilder()
       ..addBuilderFactory(const FullType(NewsSupportedAPIVersions), NewsSupportedAPIVersions.new)
+      ..add(NewsSupportedAPIVersions.serializer)
+      ..addBuilderFactory(const FullType(BuiltList, [FullType(String)]), ListBuilder<String>.new)
       ..addBuilderFactory(const FullType(NewsListFolders), NewsListFolders.new)
+      ..add(NewsListFolders.serializer)
+      ..addBuilderFactory(const FullType(NewsFolder), NewsFolder.new)
+      ..add(NewsFolder.serializer)
+      ..addBuilderFactory(const FullType(NewsFeed), NewsFeed.new)
+      ..add(NewsFeed.serializer)
+      ..addBuilderFactory(const FullType(NewsArticle), NewsArticle.new)
+      ..add(NewsArticle.serializer)
+      ..addBuilderFactory(const FullType(BuiltList, [FullType(NewsArticle)]), ListBuilder<NewsArticle>.new)
+      ..addBuilderFactory(const FullType(BuiltList, [FullType(NewsFeed)]), ListBuilder<NewsFeed>.new)
+      ..addBuilderFactory(const FullType(BuiltList, [FullType(NewsFolder)]), ListBuilder<NewsFolder>.new)
       ..addBuilderFactory(const FullType(NewsListFeeds), NewsListFeeds.new)
-      ..addBuilderFactory(const FullType(NewsListArticles), NewsListArticles.new))
+      ..add(NewsListFeeds.serializer)
+      ..addBuilderFactory(const FullType(NewsListArticles), NewsListArticles.new)
+      ..add(NewsListArticles.serializer)
+      ..addBuilderFactory(const FullType(NewsOCSMeta), NewsOCSMeta.new)
+      ..add(NewsOCSMeta.serializer)
+      ..addBuilderFactory(const FullType(NewsEmptyOCS), NewsEmptyOCS.new)
+      ..add(NewsEmptyOCS.serializer)
+      ..addBuilderFactory(const FullType(NewsEmptyOCS_Ocs), NewsEmptyOCS_Ocs.new)
+      ..add(NewsEmptyOCS_Ocs.serializer)
+      ..addBuilderFactory(const FullType(BuiltList, [FullType(JsonObject)]), ListBuilder<JsonObject>.new))
     .build();
 
 Serializers get newsSerializers => _serializers;
