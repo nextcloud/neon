@@ -25,9 +25,7 @@ class NotificationsApp extends AppImplementation<NotificationsBloc, Notification
   NotificationsApp(super.sharedPreferences, super.requestManager, super.platform);
 
   @override
-  String id = appId;
-
-  static const String appId = 'notifications';
+  String id = AppIDs.notifications;
 
   @override
   LocalizationsDelegate localizationsDelegate = AppLocalizations.delegate;

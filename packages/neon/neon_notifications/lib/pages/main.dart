@@ -85,7 +85,7 @@ class _NotificationsMainPageState extends State<NotificationsMainPage> {
               ),
             ),
       onTap: () async {
-        if (notification.app == 'notifications') {
+        if (notification.app == AppIDs.notifications) {
           return;
         }
         if (app != null) {

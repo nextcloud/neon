@@ -55,9 +55,7 @@ class NewsApp extends AppImplementation<NewsBloc, NewsAppSpecificOptions> {
   NewsApp(super.sharedPreferences, super.requestManager, super.platform);
 
   @override
-  String id = appId;
-
-  static const String appId = 'news';
+  String id = AppIDs.news;
 
   @override
   LocalizationsDelegate localizationsDelegate = AppLocalizations.delegate;

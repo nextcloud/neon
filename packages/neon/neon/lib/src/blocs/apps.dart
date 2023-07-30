@@ -7,6 +7,7 @@ import 'package:neon/src/bloc/result.dart';
 import 'package:neon/src/blocs/accounts.dart';
 import 'package:neon/src/blocs/capabilities.dart';
 import 'package:neon/src/models/account.dart';
+import 'package:neon/src/models/app_ids.dart';
 import 'package:neon/src/models/app_implementation.dart';
 import 'package:neon/src/models/notifications_interface.dart';
 import 'package:neon/src/settings/models/nextcloud_app_options.dart';
@@ -66,7 +67,7 @@ class AppsBloc extends InteractiveBloc implements AppsBlocEvents, AppsBlocStates
     _capabilitiesBloc.capabilities.listen((final result) {
       notificationsAppImplementation.add(
         result.transform(
-          (final data) => data.capabilities.notifications != null ? _findAppImplementation('notifications') : null,
+          (final data) => data.capabilities.notifications != null ? _findAppImplementation(AppIDs.notifications) : null,
         ),
       );
 
@@ -86,8 +87,8 @@ class AppsBloc extends InteractiveBloc implements AppsBlocEvents, AppsBlocStates
   /// Returns null when no app is supported by the server.
   String? _getInitialAppFallback() {
     final supportedApps = appImplementations.value.requireData;
-    if (supportedApps.tryFind('files') != null) {
-      return 'files';
+    if (supportedApps.tryFind(AppIDs.files) != null) {
+      return AppIDs.files;
     } else if (supportedApps.isNotEmpty) {
       return supportedApps.first.id;
     }
@@ -115,8 +116,8 @@ class AppsBloc extends InteractiveBloc implements AppsBlocEvents, AppsBlocStates
       try {
         final (supported, minVersion) = switch (id) {
           'core' => _account.client.core.isSupported(capabilities.requireData),
-          'news' => await _account.client.news.isSupported(),
-          'notes' => _account.client.notes.isSupported(capabilities.requireData),
+          AppIDs.news => await _account.client.news.isSupported(),
+          AppIDs.notes => _account.client.notes.isSupported(capabilities.requireData),
           _ => (true, null),
         };
 
@@ -201,7 +202,7 @@ class AppsBloc extends InteractiveBloc implements AppsBlocEvents, AppsBlocStates
 
   @override
   Future setActiveApp(final String appID) async {
-    if (appID == 'notifications') {
+    if (appID == AppIDs.notifications) {
       openNotifications.add(null);
       return;
     }

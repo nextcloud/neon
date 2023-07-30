@@ -11,6 +11,7 @@ import 'package:flutter_svg/flutter_svg.dart' show SvgFileLoader, vg;
 import 'package:meta/meta.dart';
 import 'package:neon/src/blocs/accounts.dart';
 import 'package:neon/src/models/account.dart';
+import 'package:neon/src/models/app_ids.dart';
 import 'package:neon/src/models/push_notification.dart';
 import 'package:neon/src/platform/platform.dart';
 import 'package:neon/src/settings/models/storage.dart';
@@ -74,7 +75,7 @@ class PushUtils {
     );
     final sharedPreferences = await SharedPreferences.getInstance();
 
-    final keypair = await loadRSAKeypair(AppStorage('notifications', sharedPreferences));
+    final keypair = await loadRSAKeypair(AppStorage(AppIDs.notifications, sharedPreferences));
 
     for (final message in Uri(query: utf8.decode(messages)).queryParameters.values) {
       final data = json.decode(message) as Map<String, dynamic>;

@@ -45,9 +45,7 @@ class NotesApp extends AppImplementation<NotesBloc, NotesAppSpecificOptions> {
   NotesApp(super.sharedPreferences, super.requestManager, super.platform);
 
   @override
-  String id = appId;
-
-  static const String appId = 'notes';
+  String id = AppIDs.notes;
 
   @override
   List<Locale> supportedLocales = AppLocalizations.supportedLocales;

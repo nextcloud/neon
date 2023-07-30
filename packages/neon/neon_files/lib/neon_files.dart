@@ -49,9 +49,7 @@ class FilesApp extends AppImplementation<FilesBloc, FilesAppSpecificOptions> {
   FilesApp(super.sharedPreferences, super.requestManager, super.platform);
 
   @override
-  String id = appId;
-
-  static const String appId = 'files';
+  String id = AppIDs.files;
 
   @override
   LocalizationsDelegate localizationsDelegate = AppLocalizations.delegate;
