@@ -3,6 +3,7 @@ library webdav_test;
 
 import 'dart:convert';
 import 'dart:io';
+import 'dart:math';
 import 'dart:typed_data';
 
 import 'package:nextcloud/nextcloud.dart';
@@ -427,6 +428,215 @@ void main() {
           .first
           .prop;
       expect(props.ocfavorite, 0);
+    });
+
+    group('litmus', () {
+      group('basic', () {
+        test('options', () async {
+          final options = await client.webdav.options();
+          expect(options.capabilities, contains('1'));
+          expect(options.capabilities, contains('3'));
+          // Nextcloud only contains a fake plugin for Class 2 support: https://github.com/nextcloud/server/blob/master/apps/dav/lib/Connector/Sabre/FakeLockerPlugin.php
+          // It does not actually support locking and is only there for compatibility reasons.
+          expect(options.capabilities, isNot(contains('2')));
+        });
+
+        for (final (name, path) in [
+          ('put_get', 'res'),
+          ('put_get_utf8_segment', 'res-%e2%82%ac'),
+        ]) {
+          test(name, () async {
+            final content = Uint8List.fromList(utf8.encode('This is a test file'));
+
+            final response = await client.webdav.put(content, path);
+            expect(response.statusCode, 201);
+
+            final downloadedContent = await client.webdav.get(path);
+            expect(downloadedContent, equals(content));
+          });
+        }
+
+        test('put_no_parent', () async {
+          expect(
+            () => client.webdav.put(Uint8List(0), '409me/noparent.txt'),
+            // https://github.com/nextcloud/server/issues/39625
+            throwsA(predicate<DynamiteApiException>((final e) => e.statusCode == 409)),
+          );
+        });
+
+        test('delete', () async {
+          await client.webdav.put(Uint8List(0), 'test.txt');
+
+          final response = await client.webdav.delete('test.txt');
+          expect(response.statusCode, 204);
+        });
+
+        test('delete_null', () async {
+          expect(
+            () => client.webdav.delete('test.txt'),
+            throwsA(predicate<DynamiteApiException>((final e) => e.statusCode == 404)),
+          );
+        });
+
+        // delete_fragment: This test is not applicable because the fragment is already removed on the client side
+
+        test('mkcol', () async {
+          final response = await client.webdav.mkcol('test');
+          expect(response.statusCode, 201);
+        });
+
+        test('mkcol_again', () async {
+          await client.webdav.mkcol('test');
+
+          expect(
+            () => client.webdav.mkcol('test'),
+            throwsA(predicate<DynamiteApiException>((final e) => e.statusCode == 405)),
+          );
+        });
+
+        test('delete_coll', () async {
+          var response = await client.webdav.mkcol('test');
+
+          response = await client.webdav.delete('test');
+          expect(response.statusCode, 204);
+        });
+
+        test('mkcol_no_parent', () async {
+          expect(
+            () => client.webdav.mkcol('409me/noparent'),
+            throwsA(predicate<DynamiteApiException>((final e) => e.statusCode == 409)),
+          );
+        });
+
+        // mkcol_with_body: This test is not applicable because we only write valid request bodies
+      });
+
+      group('copymove', () {
+        test('copy_simple', () async {
+          await client.webdav.mkcol('src');
+
+          final response = await client.webdav.copy('src', 'dst');
+          expect(response.statusCode, 201);
+        });
+
+        test('copy_overwrite', () async {
+          await client.webdav.mkcol('src');
+          await client.webdav.mkcol('dst');
+
+          expect(
+            () => client.webdav.copy('src', 'dst'),
+            throwsA(predicate<DynamiteApiException>((final e) => e.statusCode == 412)),
+          );
+
+          final response = await client.webdav.copy('src', 'dst', overwrite: true);
+          expect(response.statusCode, 204);
+        });
+
+        test('copy_nodestcoll', () async {
+          await client.webdav.mkcol('src');
+
+          expect(
+            () => client.webdav.copy('src', 'nonesuch/dst'),
+            throwsA(predicate<DynamiteApiException>((final e) => e.statusCode == 409)),
+          );
+        });
+
+        test('copy_coll', () async {
+          await client.webdav.mkcol('src');
+          await client.webdav.mkcol('src/sub');
+          for (var i = 0; i < 10; i++) {
+            await client.webdav.put(Uint8List(0), 'src/$i.txt');
+          }
+          await client.webdav.copy('src', 'dst1');
+          await client.webdav.copy('src', 'dst2');
+
+          expect(
+            () => client.webdav.copy('src', 'dst1'),
+            throwsA(predicate<DynamiteApiException>((final e) => e.statusCode == 412)),
+          );
+
+          var response = await client.webdav.copy('src', 'dst2', overwrite: true);
+          expect(response.statusCode, 204);
+
+          for (var i = 0; i < 10; i++) {
+            response = await client.webdav.delete('dst1/$i.txt');
+            expect(response.statusCode, 204);
+          }
+
+          response = await client.webdav.delete('dst1/sub');
+          expect(response.statusCode, 204);
+
+          response = await client.webdav.delete('dst2');
+          expect(response.statusCode, 204);
+        });
+
+        // copy_shallow: Does not work on litmus, let's wait for https://github.com/nextcloud/server/issues/39627
+
+        test('move', () async {
+          await client.webdav.put(Uint8List(0), 'src1.txt');
+          await client.webdav.put(Uint8List(0), 'src2.txt');
+          await client.webdav.mkcol('coll');
+
+          var response = await client.webdav.move('src1.txt', 'dst.txt');
+          expect(response.statusCode, 201);
+
+          expect(
+            () => client.webdav.move('src2.txt', 'dst.txt'),
+            throwsA(predicate<DynamiteApiException>((final e) => e.statusCode == 412)),
+          );
+
+          response = await client.webdav.move('src2.txt', 'dst.txt', overwrite: true);
+          expect(response.statusCode, 204);
+        });
+
+        test('move_coll', () async {
+          await client.webdav.mkcol('src');
+          await client.webdav.mkcol('src/sub');
+          for (var i = 0; i < 10; i++) {
+            await client.webdav.put(Uint8List(0), 'src/$i.txt');
+          }
+          await client.webdav.put(Uint8List(0), 'noncoll');
+          await client.webdav.copy('src', 'dst2');
+          await client.webdav.move('src', 'dst1');
+
+          expect(
+            () => client.webdav.move('dst1', 'dst2'),
+            throwsA(predicate<DynamiteApiException>((final e) => e.statusCode == 412)),
+          );
+
+          await client.webdav.move('dst2', 'dst1', overwrite: true);
+          await client.webdav.copy('dst1', 'dst2');
+
+          for (var i = 0; i < 10; i++) {
+            final response = await client.webdav.delete('dst1/$i.txt');
+            expect(response.statusCode, 204);
+          }
+
+          final response = await client.webdav.delete('dst1/sub');
+          expect(response.statusCode, 204);
+
+          expect(
+            () => client.webdav.move('dst2', 'noncoll'),
+            throwsA(predicate<DynamiteApiException>((final e) => e.statusCode == 412)),
+          );
+        });
+      });
+
+      group('largefile', () {
+        final largefileSize = pow(10, 9).toInt(); // 1GB
+
+        // large_put: Already covered by large_get
+
+        test('large_get', () async {
+          final response = await client.webdav.put(Uint8List(largefileSize), 'test.txt');
+          expect(response.statusCode, 201);
+
+          final downloadedContent = await client.webdav.get('test.txt');
+          expect(downloadedContent, hasLength(largefileSize));
+        });
+      });
+
+      // props: Most of them are either not applicable or hard/impossible to implement because we don't allow just writing any props
     });
   });
 }
