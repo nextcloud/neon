@@ -1,6 +1,6 @@
 # Documentation
 
-## [Contributing](contributing.md)
+## [Contributing](../CONTRIBUTING.md)
 
 ## [Architecture overview](architecture.md)
 

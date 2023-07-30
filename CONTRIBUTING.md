@@ -28,7 +28,7 @@ For easier development we use a monorepo structure.
 This means that we have multiple packages in one git repository.
 We use [melos](https://pub.dev/packages/melos) to manage the packages in this repository.
 
-Take a look at our [melos.yaml](../melos.yaml) to find useful commands for running commands like build_runner or the analyzer in all packages.
+Take a look at our [melos.yaml](melos.yaml) to find useful commands for running commands like build_runner or the analyzer in all packages.
 
 ## Linting
 We use very strict static code analysis (also known as linting) rules.
