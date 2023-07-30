@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:neon/l10n/localizations.dart';
-import 'package:neon/theme.dart';
+import 'package:neon/src/theme/colors.dart';
 
 Future<bool> showConfirmationDialog(final BuildContext context, final String title) async =>
     await showDialog<bool>(
