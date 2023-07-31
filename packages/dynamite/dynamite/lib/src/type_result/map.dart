@@ -21,12 +21,8 @@ class TypeResultMap extends TypeResult {
 
   @override
   bool operator ==(final Object other) =>
-      other is TypeResultMap &&
-      other.className == className &&
-      other.generics == generics &&
-      other.nullable == nullable &&
-      other.subType == subType;
+      other is TypeResultMap && other.className == className && other.generics == generics && other.subType == subType;
 
   @override
-  int get hashCode => className.hashCode + generics.hashCode + nullable.hashCode + subType.hashCode;
+  int get hashCode => className.hashCode + generics.hashCode + subType.hashCode;
 }
