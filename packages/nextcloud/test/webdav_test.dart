@@ -24,13 +24,13 @@ void main() {
     tearDown(() => container.destroy());
 
     test('Get status', () async {
-      final status = await client.webdav.status();
-      expect(status.capabilities, containsAll(['1', '3']));
-      expect(status.searchCapabilities, hasLength(0));
+      final options = await client.webdav.options();
+      expect(options.capabilities, containsAll(['1', '3']));
+      expect(options.searchCapabilities, hasLength(0));
     });
 
     test('List directory', () async {
-      final responses = (await client.webdav.ls(
+      final responses = (await client.webdav.propfind(
         '/',
         prop: WebDavPropfindProp.fromBools(
           nchaspreview: true,
@@ -50,7 +50,7 @@ void main() {
     });
 
     test('List directory recursively', () async {
-      final responses = (await client.webdav.ls(
+      final responses = (await client.webdav.propfind(
         '/',
         depth: 'infinity',
       ))
@@ -59,30 +59,21 @@ void main() {
     });
 
     test('Create directory', () async {
-      final response = await client.webdav.mkdir('test');
+      final response = await client.webdav.mkcol('test');
       expect(response.statusCode, equals(201));
-    });
-
-    test('Create directory recursively', () async {
-      final response = await client.webdav.mkdirs('test/bla');
-      expect(response!.statusCode, equals(201));
-
-      final responses = (await client.webdav.ls('/test')).responses;
-      expect(responses, hasLength(2));
-      expect(responses[1].href, endsWith('/test/bla/'));
     });
 
     test('Upload files', () async {
       final pngBytes = File('test/files/test.png').readAsBytesSync();
       final txtBytes = File('test/files/test.txt').readAsBytesSync();
 
-      var response = await client.webdav.upload(pngBytes, 'test.png');
+      var response = await client.webdav.put(pngBytes, 'test.png');
       expect(response.statusCode, equals(201));
 
-      response = await client.webdav.upload(txtBytes, 'test.txt');
+      response = await client.webdav.put(txtBytes, 'test.txt');
       expect(response.statusCode, equals(201));
 
-      final responses = (await client.webdav.ls(
+      final responses = (await client.webdav.propfind(
         '/',
         prop: WebDavPropfindProp.fromBools(
           ocsize: true,
@@ -105,7 +96,7 @@ void main() {
       final created = lastModified.subtract(const Duration(hours: 1));
       final txtBytes = File('test/files/test.txt').readAsBytesSync();
 
-      final response = await client.webdav.upload(
+      final response = await client.webdav.put(
         txtBytes,
         'test.txt',
         lastModified: lastModified,
@@ -113,7 +104,7 @@ void main() {
       );
       expect(response.statusCode, equals(201));
 
-      final props = (await client.webdav.ls(
+      final props = (await client.webdav.propfind(
         '/',
         prop: WebDavPropfindProp.fromBools(
           davgetlastmodified: true,
@@ -136,14 +127,14 @@ void main() {
     });
 
     test('Download file', () async {
-      final response = await client.webdav.download('Nextcloud.png');
+      final response = await client.webdav.get('Nextcloud.png');
       expect(response, isNotEmpty);
     });
 
     test('Delete file', () async {
       final response = await client.webdav.delete('Nextcloud.png');
       expect(response.statusCode, 204);
-      final responses = (await client.webdav.ls('/')).responses;
+      final responses = (await client.webdav.propfind('/')).responses;
       expect(responses.where((final response) => response.href!.endsWith('/Nextcloud.png')), hasLength(0));
     });
 
@@ -153,14 +144,14 @@ void main() {
         'test.png',
       );
       expect(response.statusCode, 201);
-      final responses = (await client.webdav.ls('/')).responses;
+      final responses = (await client.webdav.propfind('/')).responses;
       expect(responses.where((final response) => response.href!.endsWith('/Nextcloud.png')), hasLength(1));
       expect(responses.where((final response) => response.href!.endsWith('/test.png')), hasLength(1));
     });
 
     test('Copy file (overwrite fail)', () async {
-      await client.webdav.upload(Uint8List.fromList(utf8.encode('1')), '1.txt');
-      await client.webdav.upload(Uint8List.fromList(utf8.encode('2')), '2.txt');
+      await client.webdav.put(Uint8List.fromList(utf8.encode('1')), '1.txt');
+      await client.webdav.put(Uint8List.fromList(utf8.encode('2')), '2.txt');
 
       expect(
         () => client.webdav.copy('1.txt', '2.txt'),
@@ -169,8 +160,8 @@ void main() {
     });
 
     test('Copy file (overwrite success)', () async {
-      await client.webdav.upload(Uint8List.fromList(utf8.encode('1')), '1.txt');
-      await client.webdav.upload(Uint8List.fromList(utf8.encode('2')), '2.txt');
+      await client.webdav.put(Uint8List.fromList(utf8.encode('1')), '1.txt');
+      await client.webdav.put(Uint8List.fromList(utf8.encode('2')), '2.txt');
 
       final response = await client.webdav.copy(
         '1.txt',
@@ -186,14 +177,14 @@ void main() {
         'test.png',
       );
       expect(response.statusCode, 201);
-      final responses = (await client.webdav.ls('/')).responses;
+      final responses = (await client.webdav.propfind('/')).responses;
       expect(responses.where((final response) => response.href!.endsWith('/Nextcloud.png')), hasLength(0));
       expect(responses.where((final response) => response.href!.endsWith('/test.png')), hasLength(1));
     });
 
     test('Move file (overwrite fail)', () async {
-      await client.webdav.upload(Uint8List.fromList(utf8.encode('1')), '1.txt');
-      await client.webdav.upload(Uint8List.fromList(utf8.encode('2')), '2.txt');
+      await client.webdav.put(Uint8List.fromList(utf8.encode('1')), '1.txt');
+      await client.webdav.put(Uint8List.fromList(utf8.encode('2')), '2.txt');
 
       expect(
         () => client.webdav.move('1.txt', '2.txt'),
@@ -202,8 +193,8 @@ void main() {
     });
 
     test('Move file (overwrite success)', () async {
-      await client.webdav.upload(Uint8List.fromList(utf8.encode('1')), '1.txt');
-      await client.webdav.upload(Uint8List.fromList(utf8.encode('2')), '2.txt');
+      await client.webdav.put(Uint8List.fromList(utf8.encode('1')), '1.txt');
+      await client.webdav.put(Uint8List.fromList(utf8.encode('2')), '2.txt');
 
       final response = await client.webdav.move(
         '1.txt',
@@ -214,7 +205,7 @@ void main() {
     });
 
     test('Get file props', () async {
-      final response = (await client.webdav.ls(
+      final response = (await client.webdav.propfind(
         'Nextcloud.png',
         prop: WebDavPropfindProp.fromBools(
           davgetlastmodified: true,
@@ -298,10 +289,10 @@ void main() {
 
     test('Get directory props', () async {
       final data = Uint8List.fromList(utf8.encode('test'));
-      await client.webdav.mkdir('test');
-      await client.webdav.upload(data, 'test/test.txt');
+      await client.webdav.mkcol('test');
+      await client.webdav.put(data, 'test/test.txt');
 
-      final response = (await client.webdav.ls(
+      final response = (await client.webdav.propfind(
         'test',
         prop: WebDavPropfindProp.fromBools(
           davgetcontenttype: true,
@@ -329,16 +320,16 @@ void main() {
     });
 
     test('Filter files', () async {
-      final response = await client.webdav.upload(Uint8List.fromList(utf8.encode('test')), 'test.txt');
+      final response = await client.webdav.put(Uint8List.fromList(utf8.encode('test')), 'test.txt');
       final id = response.headers['oc-fileid']!.first;
-      await client.webdav.updateProps(
+      await client.webdav.proppatch(
         'test.txt',
         WebDavProp(
           ocfavorite: 1,
         ),
       );
 
-      final responses = (await client.webdav.filter(
+      final responses = (await client.webdav.report(
         '/',
         WebDavOcFilterRules(
           ocfavorite: 1,
@@ -361,9 +352,9 @@ void main() {
       final createdEpoch = createdDate.millisecondsSinceEpoch ~/ 1000;
       final uploadTime = DateTime.now();
 
-      await client.webdav.upload(Uint8List.fromList(utf8.encode('test')), 'test.txt');
+      await client.webdav.put(Uint8List.fromList(utf8.encode('test')), 'test.txt');
 
-      final updated = await client.webdav.updateProps(
+      final updated = await client.webdav.proppatch(
         'test.txt',
         WebDavProp(
           ocfavorite: 1,
@@ -372,7 +363,7 @@ void main() {
       );
       expect(updated, isTrue);
 
-      final props = (await client.webdav.ls(
+      final props = (await client.webdav.propfind(
         'test.txt',
         prop: WebDavPropfindProp.fromBools(
           ocfavorite: true,

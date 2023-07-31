@@ -76,8 +76,8 @@ class WebDavClient {
           .where((final part) => part.isNotEmpty)
           .join('/');
 
-  /// returns the WebDAV capabilities of the server
-  Future<WebDavStatus> status() async {
+  /// Gets the WebDAV capabilities of the server.
+  Future<WebDavOptions> options() async {
     final response = await _send(
       'OPTIONS',
       _constructPath(),
@@ -85,14 +85,16 @@ class WebDavClient {
     );
     final davCapabilities = response.headers['dav']?.cast<String>().first ?? '';
     final davSearchCapabilities = response.headers['dasl']?.cast<String>().first ?? '';
-    return WebDavStatus(
+    return WebDavOptions(
       davCapabilities.split(',').map((final e) => e.trim()).where((final e) => e.isNotEmpty).toSet(),
       davSearchCapabilities.split(',').map((final e) => e.trim()).where((final e) => e.isNotEmpty).toSet(),
     );
   }
 
-  /// make a dir with [path] under current dir
-  Future<HttpClientResponse> mkdir(
+  /// Creates a collection at [path].
+  ///
+  /// See http://www.webdav.org/specs/rfc2518.html#METHOD_MKCOL for more information.
+  Future<HttpClientResponse> mkcol(
     final String path, {
     final bool safe = true,
   }) async {
@@ -110,32 +112,9 @@ class WebDavClient {
     );
   }
 
-  /// just like mkdir -p
-  Future<HttpClientResponse?> mkdirs(
-    final String path, {
-    final bool safe = true,
-  }) async {
-    final dirs = path.trim().split('/')..removeWhere((final value) => value == '');
-    if (dirs.isEmpty) {
-      return null;
-    }
-    if (path.trim().startsWith('/')) {
-      dirs[0] = '/${dirs[0]}'; // coverage:ignore-line
-    }
-    final prevPath = StringBuffer();
-    late HttpClientResponse response;
-    for (final dir in dirs) {
-      response = await mkdir(
-        '$prevPath/$dir',
-        safe: safe,
-      );
-      prevPath.write('/$dir');
-    }
-
-    return response;
-  }
-
-  /// remove dir with given [path]
+  /// Deletes the resource at [path].
+  ///
+  /// See http://www.webdav.org/specs/rfc2518.html#METHOD_DELETE for more information.
   Future<HttpClientResponse> delete(final String path) => _send(
         'DELETE',
         _constructPath(path),
@@ -161,14 +140,18 @@ class WebDavClient {
     return headers.isNotEmpty ? headers : null;
   }
 
-  /// upload a new file with [localData] as content to [path]
-  Future<HttpClientResponse> upload(
+  /// Puts a new file at [path] with [localData] as content.
+  ///
+  /// [lastModified] sets the date when the file was last modified on the server.
+  /// [created] sets the date when the file was created on the server.
+  /// See http://www.webdav.org/specs/rfc2518.html#METHOD_PUT for more information.
+  Future<HttpClientResponse> put(
     final Uint8List localData,
     final String path, {
     final DateTime? lastModified,
     final DateTime? created,
   }) =>
-      uploadStream(
+      putStream(
         Stream.value(localData),
         path,
         lastModified: lastModified,
@@ -176,8 +159,13 @@ class WebDavClient {
         contentLength: localData.lengthInBytes,
       );
 
-  /// upload a new file with [localData] as content to [path]
-  Future<HttpClientResponse> uploadStream(
+  /// Puts a new file at [path] with [localData] as content.
+  ///
+  /// [lastModified] sets the date when the file was last modified on the server.
+  /// [created] sets the date when the file was created on the server.
+  /// [contentLength] sets the length of the [localData] that is uploaded.
+  /// See http://www.webdav.org/specs/rfc2518.html#METHOD_PUT for more information.
+  Future<HttpClientResponse> putStream(
     final Stream<Uint8List> localData,
     final String path, {
     final DateTime? lastModified,
@@ -196,11 +184,11 @@ class WebDavClient {
         ),
       );
 
-  /// download [path] and store the response file contents to String
-  Future<Uint8List> download(final String path) async => (await downloadStream(path)).bodyBytes;
+  /// Gets the content of the file at [path].
+  Future<Uint8List> get(final String path) async => (await getStream(path)).bodyBytes;
 
-  /// download [path] and store the response file contents to ByteStream
-  Future<HttpClientResponse> downloadStream(final String path) async => _send(
+  /// Gets the content of the file at [path].
+  Future<HttpClientResponse> getStream(final String path) async => _send(
         'GET',
         _constructPath(path),
         [200],
@@ -209,11 +197,12 @@ class WebDavClient {
   Future<WebDavMultistatus> _parseResponse(final HttpClientResponse response) async =>
       WebDavMultistatus.fromXmlElement(xml.XmlDocument.parse(await response.body).rootElement);
 
-  /// list the directories and files under given [path].
+  /// Retrieves the props for the resource at [path].
   ///
   /// Optionally populates the given [prop]s on the returned files.
   /// [depth] can be '0', '1' or 'infinity'.
-  Future<WebDavMultistatus> ls(
+  /// See http://www.webdav.org/specs/rfc2518.html#METHOD_PROPFIND for more information.
+  Future<WebDavMultistatus> propfind(
     final String path, {
     final WebDavPropfindProp? prop,
     final String? depth,
@@ -238,7 +227,7 @@ class WebDavClient {
     );
     if (response.statusCode == 301) {
       // coverage:ignore-start
-      return ls(
+      return propfind(
         response.headers['location']!.first,
         prop: prop,
         depth: depth,
@@ -248,37 +237,38 @@ class WebDavClient {
     return _parseResponse(response);
   }
 
-  /// Runs the filter-files report with the given [filterRules] on the
-  /// [path].
+  /// Runs the filter-files report with the [filterRules] on the resource at [path].
   ///
-  /// Optionally populates the given [prop]s on the returned files.
-  Future<WebDavMultistatus> filter(
+  /// Optionally populates the [prop]s on the returned files.
+  /// See https://github.com/owncloud/docs/issues/359 for more information.
+  Future<WebDavMultistatus> report(
     final String path,
     final WebDavOcFilterRules filterRules, {
     final WebDavPropfindProp? prop,
-  }) async {
-    final response = await _send(
-      'REPORT',
-      _constructPath(path),
-      [200, 207],
-      data: Stream.value(
-        Uint8List.fromList(
-          utf8.encode(
-            WebDavOcFilterFiles(
-              filterRules: filterRules,
-              prop: prop ?? WebDavPropfindProp(), // coverage:ignore-line
-            ).toXmlElement(namespaces: namespaces).toXmlString(),
+  }) async =>
+      _parseResponse(
+        await _send(
+          'REPORT',
+          _constructPath(path),
+          [200, 207],
+          data: Stream.value(
+            Uint8List.fromList(
+              utf8.encode(
+                WebDavOcFilterFiles(
+                  filterRules: filterRules,
+                  prop: prop ?? WebDavPropfindProp(), // coverage:ignore-line
+                ).toXmlElement(namespaces: namespaces).toXmlString(),
+              ),
+            ),
           ),
         ),
-      ),
-    );
-    return _parseResponse(response);
-  }
+      );
 
-  /// Update (string) properties of the given [path].
+  /// Updates the props of the resource at [path].
   ///
   /// Returns true if the update was successful.
-  Future<bool> updateProps(
+  /// See http://www.webdav.org/specs/rfc2518.html#METHOD_PROPPATCH for more information.
+  Future<bool> proppatch(
     final String path,
     final WebDavProp prop,
   ) async {
@@ -305,7 +295,10 @@ class WebDavClient {
     return true;
   }
 
-  /// Move a file from [sourcePath] to [destinationPath]
+  /// Moves the resource from [sourcePath] to [destinationPath].
+  ///
+  /// If [overwrite] is set any existing resource will be replaced.
+  /// See http://www.webdav.org/specs/rfc2518.html#METHOD_MOVE for more information.
   Future<HttpClientResponse> move(
     final String sourcePath,
     final String destinationPath, {
@@ -321,7 +314,10 @@ class WebDavClient {
         },
       );
 
-  /// Copy a file from [sourcePath] to [destinationPath]
+  /// Copies the resource from [sourcePath] to [destinationPath].
+  ///
+  /// If [overwrite] is set any existing resource will be replaced.
+  /// See http://www.webdav.org/specs/rfc2518.html#METHOD_COPY for more information.
   Future<HttpClientResponse> copy(
     final String sourcePath,
     final String destinationPath, {
@@ -338,10 +334,10 @@ class WebDavClient {
       );
 }
 
-/// WebDAV server status.
-class WebDavStatus {
+/// WebDAV capabilities
+class WebDavOptions {
   /// Creates a new WebDavStatus.
-  WebDavStatus(
+  WebDavOptions(
     this.capabilities,
     this.searchCapabilities,
   );
@@ -349,7 +345,6 @@ class WebDavStatus {
   /// DAV capabilities as advertised by the server in the 'dav' header.
   Set<String> capabilities;
 
-  /// DAV search and locating capabilities as advertised by the server in the
-  /// 'dasl' header.
+  /// DAV search and locating capabilities as advertised by the server in the 'dasl' header.
   Set<String> searchCapabilities;
 }
