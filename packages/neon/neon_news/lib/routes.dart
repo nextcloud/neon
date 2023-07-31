@@ -1,13 +1,14 @@
 import 'package:flutter/widgets.dart';
 import 'package:go_router/go_router.dart';
+import 'package:neon/models.dart';
 import 'package:neon/utils.dart';
 import 'package:neon_news/neon_news.dart';
 
 part 'routes.g.dart';
 
 @TypedGoRoute<NewsAppRoute>(
-  path: '$appsRoutePrefix${NewsApp.appId}',
-  name: NewsApp.appId,
+  path: '$appsRoutePrefix${AppIDs.news}',
+  name: AppIDs.news,
 )
 @immutable
 class NewsAppRoute extends NeonAppRoute {

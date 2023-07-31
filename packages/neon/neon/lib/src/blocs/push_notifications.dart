@@ -6,6 +6,7 @@ import 'package:meta/meta.dart';
 import 'package:neon/src/bloc/bloc.dart';
 import 'package:neon/src/blocs/accounts.dart';
 import 'package:neon/src/models/account.dart';
+import 'package:neon/src/models/app_ids.dart';
 import 'package:neon/src/models/push_notification.dart';
 import 'package:neon/src/platform/platform.dart';
 import 'package:neon/src/settings/models/storage.dart';
@@ -39,7 +40,7 @@ class PushNotificationsBloc extends Bloc implements PushNotificationsBlocEvents,
   final AccountsBloc _accountsBloc;
   final NeonPlatform _platform;
   final SharedPreferences _sharedPreferences;
-  late final _storage = AppStorage('notifications', _sharedPreferences);
+  late final _storage = AppStorage(AppIDs.notifications, _sharedPreferences);
   final GlobalOptions _globalOptions;
 
   final _notificationsController = StreamController<PushNotification>();

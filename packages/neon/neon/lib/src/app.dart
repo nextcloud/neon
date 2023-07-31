@@ -10,6 +10,7 @@ import 'package:neon/src/bloc/result_builder.dart';
 import 'package:neon/src/blocs/accounts.dart';
 import 'package:neon/src/blocs/capabilities.dart';
 import 'package:neon/src/models/account.dart';
+import 'package:neon/src/models/app_ids.dart';
 import 'package:neon/src/models/app_implementation.dart';
 import 'package:neon/src/models/notifications_interface.dart';
 import 'package:neon/src/models/push_notification.dart';
@@ -144,7 +145,7 @@ class _NeonAppState extends State<NeonApp> with WidgetsBindingObserver, tray.Tra
           }
 
           final allAppImplementations = Provider.of<Iterable<AppImplementation>>(context, listen: false);
-          final app = allAppImplementations.tryFind('notifications') as NotificationsAppInterface?;
+          final app = allAppImplementations.tryFind(AppIDs.notifications) as NotificationsAppInterface?;
 
           if (app == null) {
             return;
@@ -161,7 +162,7 @@ class _NeonAppState extends State<NeonApp> with WidgetsBindingObserver, tray.Tra
 
           final allAppImplementations = Provider.of<Iterable<AppImplementation>>(context, listen: false);
 
-          final notificationsApp = allAppImplementations.tryFind('notifications') as NotificationsAppInterface?;
+          final notificationsApp = allAppImplementations.tryFind(AppIDs.notifications) as NotificationsAppInterface?;
           if (notificationsApp != null) {
             _accountsBloc
                 .getAppsBlocFor(account)
