@@ -104,7 +104,7 @@ class WebDavPropfind with _$WebDavPropfindXmlSerializableMixin {
   });
 
   @annotation.XmlElement(name: 'prop', namespace: namespaceDav)
-  final WebDavPropfindProp prop;
+  final WebDavPropWithoutValues prop;
 }
 
 @annotation.XmlSerializable(createMixin: true)
@@ -119,7 +119,7 @@ class WebDavOcFilterFiles with _$WebDavOcFilterFilesXmlSerializableMixin {
   final WebDavOcFilterRules filterRules;
 
   @annotation.XmlElement(name: 'prop', namespace: namespaceDav)
-  final WebDavPropfindProp prop;
+  final WebDavPropWithoutValues prop;
 }
 
 @annotation.XmlSerializable(createMixin: true)

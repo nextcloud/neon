@@ -204,7 +204,7 @@ class WebDavClient {
   /// See http://www.webdav.org/specs/rfc2518.html#METHOD_PROPFIND for more information.
   Future<WebDavMultistatus> propfind(
     final String path, {
-    final WebDavPropfindProp? prop,
+    final WebDavPropWithoutValues? prop,
     final String? depth,
   }) async {
     assert(depth == null || ['0', '1', 'infinity'].contains(depth), 'Depth has to be 0, 1 or infinity');
@@ -215,7 +215,7 @@ class WebDavClient {
       data: Stream.value(
         Uint8List.fromList(
           utf8.encode(
-            WebDavPropfind(prop: prop ?? WebDavPropfindProp()).toXmlElement(namespaces: namespaces).toXmlString(),
+            WebDavPropfind(prop: prop ?? WebDavPropWithoutValues()).toXmlElement(namespaces: namespaces).toXmlString(),
           ),
         ),
       ),
@@ -244,7 +244,7 @@ class WebDavClient {
   Future<WebDavMultistatus> report(
     final String path,
     final WebDavOcFilterRules filterRules, {
-    final WebDavPropfindProp? prop,
+    final WebDavPropWithoutValues? prop,
   }) async =>
       _parseResponse(
         await _send(
@@ -256,7 +256,7 @@ class WebDavClient {
               utf8.encode(
                 WebDavOcFilterFiles(
                   filterRules: filterRules,
-                  prop: prop ?? WebDavPropfindProp(), // coverage:ignore-line
+                  prop: prop ?? WebDavPropWithoutValues(), // coverage:ignore-line
                 ).toXmlElement(namespaces: namespaces).toXmlString(),
               ),
             ),

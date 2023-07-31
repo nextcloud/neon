@@ -356,7 +356,7 @@ void _$WebDavPropfindBuildXmlElement(WebDavPropfind instance, XmlBuilder builder
 
 WebDavPropfind _$WebDavPropfindFromXmlElement(XmlElement element) {
   final prop = element.getElement('prop', namespace: 'DAV:')!;
-  return WebDavPropfind(prop: WebDavPropfindProp.fromXmlElement(prop));
+  return WebDavPropfind(prop: WebDavPropWithoutValues.fromXmlElement(prop));
 }
 
 List<XmlAttribute> _$WebDavPropfindToXmlAttributes(WebDavPropfind instance,
@@ -424,7 +424,7 @@ WebDavOcFilterFiles _$WebDavOcFilterFilesFromXmlElement(XmlElement element) {
   final filterRules = element.getElement('filter-rules', namespace: 'http://owncloud.org/ns')!;
   final prop = element.getElement('prop', namespace: 'DAV:')!;
   return WebDavOcFilterFiles(
-      filterRules: WebDavOcFilterRules.fromXmlElement(filterRules), prop: WebDavPropfindProp.fromXmlElement(prop));
+      filterRules: WebDavOcFilterRules.fromXmlElement(filterRules), prop: WebDavPropWithoutValues.fromXmlElement(prop));
 }
 
 List<XmlAttribute> _$WebDavOcFilterFilesToXmlAttributes(WebDavOcFilterFiles instance,

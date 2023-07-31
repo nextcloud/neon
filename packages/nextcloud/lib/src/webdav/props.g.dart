@@ -6,7 +6,7 @@ part of 'props.dart';
 // XmlSerializableGenerator
 // **************************************************************************
 
-void _$WebDavPropfindPropBuildXmlChildren(WebDavPropfindProp instance, XmlBuilder builder,
+void _$WebDavPropWithoutValuesBuildXmlChildren(WebDavPropWithoutValues instance, XmlBuilder builder,
     {Map<String, String> namespaces = const {}}) {
   final davgetlastmodified = instance.davgetlastmodified;
   final davgetlastmodifiedSerialized = davgetlastmodified;
@@ -308,14 +308,14 @@ void _$WebDavPropfindPropBuildXmlChildren(WebDavPropfindProp instance, XmlBuilde
   }
 }
 
-void _$WebDavPropfindPropBuildXmlElement(WebDavPropfindProp instance, XmlBuilder builder,
+void _$WebDavPropWithoutValuesBuildXmlElement(WebDavPropWithoutValues instance, XmlBuilder builder,
     {Map<String, String> namespaces = const {}}) {
   builder.element('prop', namespace: 'DAV:', namespaces: namespaces, nest: () {
     instance.buildXmlChildren(builder, namespaces: namespaces);
   });
 }
 
-WebDavPropfindProp _$WebDavPropfindPropFromXmlElement(XmlElement element) {
+WebDavPropWithoutValues _$WebDavPropWithoutValuesFromXmlElement(XmlElement element) {
   final davgetlastmodified =
       element.getElements('getlastmodified', namespace: 'DAV:')?.map((e) => e.getText()).whereType<String>();
   final davgetetag = element.getElements('getetag', namespace: 'DAV:')?.map((e) => e.getText()).whereType<String>();
@@ -401,7 +401,7 @@ WebDavPropfindProp _$WebDavPropfindPropFromXmlElement(XmlElement element) {
       .getElements('share-permissions', namespace: 'http://open-cloud-mesh.org/ns')
       ?.map((e) => e.getText())
       .whereType<String>();
-  return WebDavPropfindProp(
+  return WebDavPropWithoutValues(
       davgetlastmodified: davgetlastmodified?.toList(),
       davgetetag: davgetetag?.toList(),
       davgetcontenttype: davgetcontenttype?.toList(),
@@ -431,13 +431,13 @@ WebDavPropfindProp _$WebDavPropfindPropFromXmlElement(XmlElement element) {
       ocmsharepermissions: ocmsharepermissions?.toList());
 }
 
-List<XmlAttribute> _$WebDavPropfindPropToXmlAttributes(WebDavPropfindProp instance,
+List<XmlAttribute> _$WebDavPropWithoutValuesToXmlAttributes(WebDavPropWithoutValues instance,
     {Map<String, String?> namespaces = const {}}) {
   final attributes = <XmlAttribute>[];
   return attributes;
 }
 
-List<XmlNode> _$WebDavPropfindPropToXmlChildren(WebDavPropfindProp instance,
+List<XmlNode> _$WebDavPropWithoutValuesToXmlChildren(WebDavPropWithoutValues instance,
     {Map<String, String?> namespaces = const {}}) {
   final children = <XmlNode>[];
   final davgetlastmodified = instance.davgetlastmodified;
@@ -638,28 +638,29 @@ List<XmlNode> _$WebDavPropfindPropToXmlChildren(WebDavPropfindProp instance,
   return children;
 }
 
-XmlElement _$WebDavPropfindPropToXmlElement(WebDavPropfindProp instance, {Map<String, String?> namespaces = const {}}) {
+XmlElement _$WebDavPropWithoutValuesToXmlElement(WebDavPropWithoutValues instance,
+    {Map<String, String?> namespaces = const {}}) {
   return XmlElement(
       XmlName('prop', namespaces['DAV:']),
       [...namespaces.toXmlAttributes(), ...instance.toXmlAttributes(namespaces: namespaces)],
       instance.toXmlChildren(namespaces: namespaces));
 }
 
-mixin _$WebDavPropfindPropXmlSerializableMixin {
+mixin _$WebDavPropWithoutValuesXmlSerializableMixin {
   void buildXmlChildren(XmlBuilder builder, {Map<String, String> namespaces = const {}}) =>
-      _$WebDavPropfindPropBuildXmlChildren(this as WebDavPropfindProp, builder, namespaces: namespaces);
+      _$WebDavPropWithoutValuesBuildXmlChildren(this as WebDavPropWithoutValues, builder, namespaces: namespaces);
 
   void buildXmlElement(XmlBuilder builder, {Map<String, String> namespaces = const {}}) =>
-      _$WebDavPropfindPropBuildXmlElement(this as WebDavPropfindProp, builder, namespaces: namespaces);
+      _$WebDavPropWithoutValuesBuildXmlElement(this as WebDavPropWithoutValues, builder, namespaces: namespaces);
 
   List<XmlAttribute> toXmlAttributes({Map<String, String?> namespaces = const {}}) =>
-      _$WebDavPropfindPropToXmlAttributes(this as WebDavPropfindProp, namespaces: namespaces);
+      _$WebDavPropWithoutValuesToXmlAttributes(this as WebDavPropWithoutValues, namespaces: namespaces);
 
   List<XmlNode> toXmlChildren({Map<String, String?> namespaces = const {}}) =>
-      _$WebDavPropfindPropToXmlChildren(this as WebDavPropfindProp, namespaces: namespaces);
+      _$WebDavPropWithoutValuesToXmlChildren(this as WebDavPropWithoutValues, namespaces: namespaces);
 
   XmlElement toXmlElement({Map<String, String?> namespaces = const {}}) =>
-      _$WebDavPropfindPropToXmlElement(this as WebDavPropfindProp, namespaces: namespaces);
+      _$WebDavPropWithoutValuesToXmlElement(this as WebDavPropWithoutValues, namespaces: namespaces);
 }
 
 void _$WebDavPropBuildXmlChildren(WebDavProp instance, XmlBuilder builder,

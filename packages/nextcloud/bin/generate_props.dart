@@ -29,7 +29,7 @@ void main() {
       "part 'props.g.dart';",
       '',
       ...generateClass(
-        'WebDavPropfindProp',
+        'WebDavPropWithoutValues',
         'prop',
         'namespaceDav',
         findProps,

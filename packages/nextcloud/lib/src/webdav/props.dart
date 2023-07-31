@@ -7,8 +7,8 @@ part 'props.g.dart';
 
 @annotation.XmlSerializable(createMixin: true)
 @annotation.XmlRootElement(name: 'prop', namespace: namespaceDav)
-class WebDavPropfindProp with _$WebDavPropfindPropXmlSerializableMixin {
-  WebDavPropfindProp({
+class WebDavPropWithoutValues with _$WebDavPropWithoutValuesXmlSerializableMixin {
+  WebDavPropWithoutValues({
     this.davgetlastmodified,
     this.davgetetag,
     this.davgetcontenttype,
@@ -38,7 +38,7 @@ class WebDavPropfindProp with _$WebDavPropfindPropXmlSerializableMixin {
     this.ocmsharepermissions,
   });
 
-  WebDavPropfindProp.fromBools({
+  WebDavPropWithoutValues.fromBools({
     final bool davgetlastmodified = false,
     final bool davgetetag = false,
     final bool davgetcontenttype = false,
@@ -94,7 +94,8 @@ class WebDavPropfindProp with _$WebDavPropfindPropXmlSerializableMixin {
         ocssharepermissions = ocssharepermissions ? [null] : null,
         ocmsharepermissions = ocmsharepermissions ? [null] : null;
 
-  factory WebDavPropfindProp.fromXmlElement(final XmlElement element) => _$WebDavPropfindPropFromXmlElement(element);
+  factory WebDavPropWithoutValues.fromXmlElement(final XmlElement element) =>
+      _$WebDavPropWithoutValuesFromXmlElement(element);
 
   @annotation.XmlElement(
     name: 'getlastmodified',

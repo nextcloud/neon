@@ -32,7 +32,7 @@ void main() {
     test('List directory', () async {
       final responses = (await client.webdav.propfind(
         '/',
-        prop: WebDavPropfindProp.fromBools(
+        prop: WebDavPropWithoutValues.fromBools(
           nchaspreview: true,
           davgetcontenttype: true,
           davgetlastmodified: true,
@@ -75,7 +75,7 @@ void main() {
 
       final responses = (await client.webdav.propfind(
         '/',
-        prop: WebDavPropfindProp.fromBools(
+        prop: WebDavPropWithoutValues.fromBools(
           ocsize: true,
         ),
       ))
@@ -106,7 +106,7 @@ void main() {
 
       final props = (await client.webdav.propfind(
         '/',
-        prop: WebDavPropfindProp.fromBools(
+        prop: WebDavPropWithoutValues.fromBools(
           davgetlastmodified: true,
           nccreationtime: true,
         ),
@@ -207,7 +207,7 @@ void main() {
     test('Get file props', () async {
       final response = (await client.webdav.propfind(
         'Nextcloud.png',
-        prop: WebDavPropfindProp.fromBools(
+        prop: WebDavPropWithoutValues.fromBools(
           davgetlastmodified: true,
           davgetetag: true,
           davgetcontenttype: true,
@@ -294,7 +294,7 @@ void main() {
 
       final response = (await client.webdav.propfind(
         'test',
-        prop: WebDavPropfindProp.fromBools(
+        prop: WebDavPropWithoutValues.fromBools(
           davgetcontenttype: true,
           davgetlastmodified: true,
           davresourcetype: true,
@@ -334,7 +334,7 @@ void main() {
         WebDavOcFilterRules(
           ocfavorite: 1,
         ),
-        prop: WebDavPropfindProp.fromBools(
+        prop: WebDavPropWithoutValues.fromBools(
           ocid: true,
           ocfavorite: true,
         ),
@@ -365,7 +365,7 @@ void main() {
 
       final props = (await client.webdav.propfind(
         'test.txt',
-        prop: WebDavPropfindProp.fromBools(
+        prop: WebDavPropWithoutValues.fromBools(
           ocfavorite: true,
           nccreationtime: true,
           ncuploadtime: true,
