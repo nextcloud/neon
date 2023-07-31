@@ -16,7 +16,7 @@ class UploadTask {
 
   Future execute(final NextcloudClient client, final Stream<List<int>> stream) async {
     var uploaded = 0;
-    await client.webdav.uploadStream(
+    await client.webdav.putStream(
       stream.map((final chunk) {
         uploaded += chunk.length;
         _streamController.add((uploaded / size * 100).toInt());

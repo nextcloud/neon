@@ -65,7 +65,12 @@ class FilesBloc extends InteractiveBloc implements FilesBlocEvents, FilesBlocSta
 
   @override
   void addFavorite(final List<String> path) {
-    wrapAction(() async => client.webdav.updateProps(path.join('/'), WebDavProp(ocfavorite: 1)));
+    wrapAction(
+      () async => client.webdav.proppatch(
+        path.join('/'),
+        set: WebDavProp(ocfavorite: 1),
+      ),
+    );
   }
 
   @override
@@ -119,9 +124,9 @@ class FilesBloc extends InteractiveBloc implements FilesBlocEvents, FilesBlocSta
   @override
   void removeFavorite(final List<String> path) {
     wrapAction(
-      () async => client.webdav.updateProps(
+      () async => client.webdav.proppatch(
         path.join('/'),
-        WebDavProp(ocfavorite: 0),
+        set: WebDavProp(ocfavorite: 0),
       ),
     );
   }
