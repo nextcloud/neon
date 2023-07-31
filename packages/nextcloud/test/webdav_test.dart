@@ -324,7 +324,7 @@ void main() {
       final id = response.headers['oc-fileid']!.first;
       await client.webdav.proppatch(
         'test.txt',
-        WebDavProp(
+        set: WebDavProp(
           ocfavorite: 1,
         ),
       );
@@ -356,7 +356,7 @@ void main() {
 
       final updated = await client.webdav.proppatch(
         'test.txt',
-        WebDavProp(
+        set: WebDavProp(
           ocfavorite: 1,
           nccreationtime: createdEpoch,
         ),
@@ -379,6 +379,54 @@ void main() {
       expect(props.ocfavorite, 1);
       expect(DateTime.fromMillisecondsSinceEpoch(props.nccreationtime! * 1000).isAtSameMomentAs(createdDate), isTrue);
       expectDateInReasonableTimeRange(DateTime.fromMillisecondsSinceEpoch(props.ncuploadtime! * 1000), uploadTime);
+    });
+
+    test('Remove properties', () async {
+      await client.webdav.put(Uint8List.fromList(utf8.encode('test')), 'test.txt');
+
+      var updated = await client.webdav.proppatch(
+        'test.txt',
+        set: WebDavProp(
+          ocfavorite: 1,
+        ),
+      );
+      expect(updated, isTrue);
+
+      var props = (await client.webdav.propfind(
+        'test.txt',
+        prop: WebDavPropWithoutValues.fromBools(
+          ocfavorite: true,
+          nccreationtime: true,
+          ncuploadtime: true,
+        ),
+      ))
+          .responses
+          .single
+          .propstats
+          .first
+          .prop;
+      expect(props.ocfavorite, 1);
+
+      updated = await client.webdav.proppatch(
+        'test.txt',
+        remove: WebDavPropWithoutValues.fromBools(
+          ocfavorite: true,
+        ),
+      );
+      expect(updated, isFalse);
+
+      props = (await client.webdav.propfind(
+        'test.txt',
+        prop: WebDavPropWithoutValues.fromBools(
+          ocfavorite: true,
+        ),
+      ))
+          .responses
+          .single
+          .propstats
+          .first
+          .prop;
+      expect(props.ocfavorite, 0);
     });
   });
 }

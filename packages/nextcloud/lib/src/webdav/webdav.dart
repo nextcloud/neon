@@ -76,11 +76,15 @@ class WebDavPropstat with _$WebDavPropstatXmlSerializableMixin {
 @annotation.XmlRootElement(name: 'propertyupdate', namespace: namespaceDav)
 class WebDavPropertyupdate with _$WebDavPropertyupdateXmlSerializableMixin {
   WebDavPropertyupdate({
-    required this.set,
+    this.set,
+    this.remove,
   });
 
-  @annotation.XmlElement(name: 'set', namespace: namespaceDav)
-  final WebDavSet set;
+  @annotation.XmlElement(name: 'set', namespace: namespaceDav, includeIfNull: false)
+  final WebDavSet? set;
+
+  @annotation.XmlElement(name: 'remove', namespace: namespaceDav, includeIfNull: false)
+  final WebDavRemove? remove;
 }
 
 @annotation.XmlSerializable(createMixin: true)
@@ -94,6 +98,19 @@ class WebDavSet with _$WebDavSetXmlSerializableMixin {
 
   @annotation.XmlElement(name: 'prop', namespace: namespaceDav)
   final WebDavProp prop; // coverage:ignore-line
+}
+
+@annotation.XmlSerializable(createMixin: true)
+@annotation.XmlRootElement(name: 'remove', namespace: namespaceDav)
+class WebDavRemove with _$WebDavRemoveXmlSerializableMixin {
+  WebDavRemove({
+    required this.prop,
+  });
+
+  factory WebDavRemove.fromXmlElement(final XmlElement element) => _$WebDavRemoveFromXmlElement(element);
+
+  @annotation.XmlElement(name: 'prop', namespace: namespaceDav)
+  final WebDavPropWithoutValues prop; // coverage:ignore-line
 }
 
 @annotation.XmlSerializable(createMixin: true)

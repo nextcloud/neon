@@ -266,12 +266,15 @@ class WebDavClient {
 
   /// Updates the props of the resource at [path].
   ///
+  /// The props in [set] will be updated.
+  /// The props in [remove] will be removed.
   /// Returns true if the update was successful.
   /// See http://www.webdav.org/specs/rfc2518.html#METHOD_PROPPATCH for more information.
   Future<bool> proppatch(
-    final String path,
-    final WebDavProp prop,
-  ) async {
+    final String path, {
+    final WebDavProp? set,
+    final WebDavPropWithoutValues? remove,
+  }) async {
     final response = await _send(
       'PROPPATCH',
       _constructPath(path),
@@ -279,7 +282,10 @@ class WebDavClient {
       data: Stream.value(
         Uint8List.fromList(
           utf8.encode(
-            WebDavPropertyupdate(set: WebDavSet(prop: prop)).toXmlElement(namespaces: namespaces).toXmlString(),
+            WebDavPropertyupdate(
+              set: set != null ? WebDavSet(prop: set) : null,
+              remove: remove != null ? WebDavRemove(prop: remove) : null,
+            ).toXmlElement(namespaces: namespaces).toXmlString(),
           ),
         ),
       ),
