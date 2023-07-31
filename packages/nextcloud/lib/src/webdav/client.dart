@@ -200,8 +200,7 @@ class WebDavClient {
       );
 
   /// download [remotePath] and store the response file contents to String
-  Future<Uint8List> download(final String remotePath) async =>
-      Uint8List.fromList((await (await downloadStream(remotePath)).join()).codeUnits);
+  Future<Uint8List> download(final String remotePath) async => (await downloadStream(remotePath)).bodyBytes;
 
   /// download [remotePath] and store the response file contents to ByteStream
   Future<HttpClientResponse> downloadStream(final String remotePath) async => _send(
