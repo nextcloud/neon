@@ -41,7 +41,7 @@ class AccountSettingsPage extends StatelessWidget {
               context,
               AppLocalizations.of(context).accountOptionsRemoveConfirm(account.client.humanReadableID),
             )) {
-              final isActive = bloc.activeAccount.value == account;
+              final isActive = bloc.activeAccount.valueOrNull == account;
 
               bloc.removeAccount(account);
 
