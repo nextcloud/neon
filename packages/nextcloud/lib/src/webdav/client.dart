@@ -91,9 +91,9 @@ class WebDavClient {
     );
   }
 
-  /// make a dir with [remotePath] under current dir
+  /// make a dir with [path] under current dir
   Future<HttpClientResponse> mkdir(
-    final String remotePath, {
+    final String path, {
     final bool safe = true,
   }) async {
     final expectedCodes = [
@@ -105,21 +105,21 @@ class WebDavClient {
     ];
     return _send(
       'MKCOL',
-      _constructPath(remotePath),
+      _constructPath(path),
       expectedCodes,
     );
   }
 
   /// just like mkdir -p
   Future<HttpClientResponse?> mkdirs(
-    final String remotePath, {
+    final String path, {
     final bool safe = true,
   }) async {
-    final dirs = remotePath.trim().split('/')..removeWhere((final value) => value == '');
+    final dirs = path.trim().split('/')..removeWhere((final value) => value == '');
     if (dirs.isEmpty) {
       return null;
     }
-    if (remotePath.trim().startsWith('/')) {
+    if (path.trim().startsWith('/')) {
       dirs[0] = '/${dirs[0]}'; // coverage:ignore-line
     }
     final prevPath = StringBuffer();
@@ -161,32 +161,32 @@ class WebDavClient {
     return headers.isNotEmpty ? headers : null;
   }
 
-  /// upload a new file with [localData] as content to [remotePath]
+  /// upload a new file with [localData] as content to [path]
   Future<HttpClientResponse> upload(
     final Uint8List localData,
-    final String remotePath, {
+    final String path, {
     final DateTime? lastModified,
     final DateTime? created,
   }) =>
       uploadStream(
         Stream.value(localData),
-        remotePath,
+        path,
         lastModified: lastModified,
         created: created,
         contentLength: localData.lengthInBytes,
       );
 
-  /// upload a new file with [localData] as content to [remotePath]
+  /// upload a new file with [localData] as content to [path]
   Future<HttpClientResponse> uploadStream(
     final Stream<Uint8List> localData,
-    final String remotePath, {
+    final String path, {
     final DateTime? lastModified,
     final DateTime? created,
     final int? contentLength,
   }) async =>
       _send(
         'PUT',
-        _constructPath(remotePath),
+        _constructPath(path),
         [200, 201, 204],
         data: localData,
         headers: _generateUploadHeaders(
@@ -196,32 +196,32 @@ class WebDavClient {
         ),
       );
 
-  /// download [remotePath] and store the response file contents to String
-  Future<Uint8List> download(final String remotePath) async => (await downloadStream(remotePath)).bodyBytes;
+  /// download [path] and store the response file contents to String
+  Future<Uint8List> download(final String path) async => (await downloadStream(path)).bodyBytes;
 
-  /// download [remotePath] and store the response file contents to ByteStream
-  Future<HttpClientResponse> downloadStream(final String remotePath) async => _send(
+  /// download [path] and store the response file contents to ByteStream
+  Future<HttpClientResponse> downloadStream(final String path) async => _send(
         'GET',
-        _constructPath(remotePath),
+        _constructPath(path),
         [200],
       );
 
   Future<WebDavMultistatus> _parseResponse(final HttpClientResponse response) async =>
       WebDavMultistatus.fromXmlElement(xml.XmlDocument.parse(await response.body).rootElement);
 
-  /// list the directories and files under given [remotePath].
+  /// list the directories and files under given [path].
   ///
   /// Optionally populates the given [prop]s on the returned files.
   /// [depth] can be '0', '1' or 'infinity'.
   Future<WebDavMultistatus> ls(
-    final String remotePath, {
+    final String path, {
     final WebDavPropfindProp? prop,
     final String? depth,
   }) async {
     assert(depth == null || ['0', '1', 'infinity'].contains(depth), 'Depth has to be 0, 1 or infinity');
     final response = await _send(
       'PROPFIND',
-      _constructPath(remotePath),
+      _constructPath(path),
       [207, 301],
       data: Stream.value(
         Uint8List.fromList(
@@ -249,17 +249,17 @@ class WebDavClient {
   }
 
   /// Runs the filter-files report with the given [filterRules] on the
-  /// [remotePath].
+  /// [path].
   ///
   /// Optionally populates the given [prop]s on the returned files.
   Future<WebDavMultistatus> filter(
-    final String remotePath,
+    final String path,
     final WebDavOcFilterRules filterRules, {
     final WebDavPropfindProp? prop,
   }) async {
     final response = await _send(
       'REPORT',
-      _constructPath(remotePath),
+      _constructPath(path),
       [200, 207],
       data: Stream.value(
         Uint8List.fromList(
@@ -275,16 +275,16 @@ class WebDavClient {
     return _parseResponse(response);
   }
 
-  /// Update (string) properties of the given [remotePath].
+  /// Update (string) properties of the given [path].
   ///
   /// Returns true if the update was successful.
   Future<bool> updateProps(
-    final String remotePath,
+    final String path,
     final WebDavProp prop,
   ) async {
     final response = await _send(
       'PROPPATCH',
-      _constructPath(remotePath),
+      _constructPath(path),
       [200, 207],
       data: Stream.value(
         Uint8List.fromList(
