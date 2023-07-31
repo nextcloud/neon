@@ -7,19 +7,16 @@ import 'package:nextcloud/src/webdav/webdav.dart';
 import 'package:universal_io/io.dart';
 import 'package:xml/xml.dart' as xml;
 
+/// Base path used on the server
+const String webdavBasePath = '/remote.php/webdav';
+
 /// WebDavClient class
 class WebDavClient {
   // ignore: public_member_api_docs
-  WebDavClient(
-    this.rootClient,
-    this.basePath,
-  );
+  WebDavClient(this.rootClient);
 
   // ignore: public_member_api_docs
   final DynamiteClient rootClient;
-
-  /// Base path used on the server
-  final String basePath;
 
   Future<HttpClientResponse> _send(
     final String method,
@@ -62,7 +59,7 @@ class WebDavClient {
 
   String _constructPath([final String? path]) => [
         rootClient.baseURL,
-        basePath,
+        webdavBasePath,
         if (path != null) ...[
           path,
         ],

@@ -7,12 +7,7 @@ extension WebDavMultistatusFile on WebDavMultistatus {
   /// Convert the [WebDavMultistatus] into a [WebDavFile] for easier handling
   List<WebDavFile> toWebDavFiles(final WebDavClient client) => responses
       .where((final response) => response.href != null)
-      .map(
-        (final response) => WebDavFile(
-          basePath: client.basePath,
-          response: response,
-        ),
-      )
+      .map((final response) => WebDavFile(response: response))
       .toList();
 }
 
@@ -20,12 +15,9 @@ extension WebDavMultistatusFile on WebDavMultistatus {
 class WebDavFile {
   /// Creates a new WebDavFile object with the given path
   WebDavFile({
-    required final String basePath,
     required final WebDavResponse response,
-  })  : _basePath = basePath,
-        _response = response;
+  }) : _response = response;
 
-  final String _basePath;
   final WebDavResponse _response;
 
   /// Get the props of the file
@@ -34,7 +26,7 @@ class WebDavFile {
 
   /// The path of file
   late final String path =
-      Uri.decodeFull(_response.href!.substring(Uri.encodeFull(_basePath).length, _response.href!.length));
+      Uri.decodeFull(_response.href!.substring(Uri.encodeFull(webdavBasePath).length, _response.href!.length));
 
   /// The fileid namespaced by the instance id, globally unique
   late final String? id = props.ocid;
