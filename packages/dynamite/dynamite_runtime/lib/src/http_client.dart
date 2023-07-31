@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:convert';
 import 'dart:typed_data';
 
@@ -8,9 +9,11 @@ export 'package:cookie_jar/cookie_jar.dart';
 
 extension DynamiteHttpClientResponseBody on HttpClientResponse {
   Future<Uint8List> get bodyBytes async {
-    final data = await expand((final element) => element).toList();
+    final buffer = BytesBuilder();
 
-    return Uint8List.fromList(data);
+    await forEach(buffer.add);
+
+    return buffer.toBytes();
   }
 
   Future<String> get body => transform(utf8.decoder).join();
