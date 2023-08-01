@@ -74,6 +74,7 @@ class _HomePageState extends State<HomePage> {
   @override
   void dispose() {
     unawaited(_versionCheckSubscription.cancel());
+    GlobalPopups().dispose();
     super.dispose();
   }
 
