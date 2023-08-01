@@ -116,23 +116,11 @@ class WebDavClient {
   /// Creates a collection at [path].
   ///
   /// See http://www.webdav.org/specs/rfc2518.html#METHOD_MKCOL for more information.
-  Future<HttpClientResponse> mkcol(
-    final String path, {
-    final bool safe = true,
-  }) async {
-    final expectedCodes = [
-      201,
-      if (safe) ...[
-        301,
-        405,
-      ],
-    ];
-    return _send(
-      'MKCOL',
-      _constructPath(path),
-      expectedCodes,
-    );
-  }
+  Future<HttpClientResponse> mkcol(final String path) async => _send(
+        'MKCOL',
+        _constructPath(path),
+        [201],
+      );
 
   /// Deletes the resource at [path].
   ///
