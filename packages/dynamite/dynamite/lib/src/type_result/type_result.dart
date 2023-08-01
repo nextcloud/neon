@@ -101,8 +101,8 @@ abstract class TypeResult {
 
   @override
   bool operator ==(final Object other) =>
-      other is TypeResult && other.className == className && other.generics == generics && other.nullable == nullable;
+      other is TypeResult && other.className == className && other.generics == generics;
 
   @override
-  int get hashCode => className.hashCode + generics.hashCode + nullable.hashCode;
+  int get hashCode => className.hashCode + generics.hashCode;
 }
