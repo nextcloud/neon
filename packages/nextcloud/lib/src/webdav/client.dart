@@ -20,8 +20,7 @@ class WebDavClient {
 
   Future<HttpClientResponse> _send(
     final String method,
-    final String url,
-    final List<int> expectedCodes, {
+    final String url, {
     final Stream<Uint8List>? data,
     final Map<String, String>? headers,
   }) async {
@@ -45,7 +44,7 @@ class WebDavClient {
 
     final response = await request.close();
 
-    if (!expectedCodes.contains(response.statusCode)) {
+    if (response.statusCode > 299) {
       throw DynamiteApiException(
         response.statusCode,
         response.responseHeaders,
@@ -102,7 +101,6 @@ class WebDavClient {
     final response = await _send(
       'OPTIONS',
       _constructPath(),
-      [200],
     );
     final davCapabilities = response.headers['dav']?.cast<String>().first ?? '';
     final davSearchCapabilities = response.headers['dasl']?.cast<String>().first ?? '';
@@ -118,7 +116,6 @@ class WebDavClient {
   Future<HttpClientResponse> mkcol(final String path) async => _send(
         'MKCOL',
         _constructPath(path),
-        [201],
       );
 
   /// Deletes the resource at [path].
@@ -127,7 +124,6 @@ class WebDavClient {
   Future<HttpClientResponse> delete(final String path) => _send(
         'DELETE',
         _constructPath(path),
-        [204],
       );
 
   /// Puts a new file at [path] with [localData] as content.
@@ -165,7 +161,6 @@ class WebDavClient {
       _send(
         'PUT',
         _constructPath(path),
-        [200, 201, 204],
         data: localData,
         headers: _getUploadHeaders(
           lastModified: lastModified,
@@ -181,7 +176,6 @@ class WebDavClient {
   Future<HttpClientResponse> getStream(final String path) async => _send(
         'GET',
         _constructPath(path),
-        [200],
       );
 
   /// Retrieves the props for the resource at [path].
@@ -199,7 +193,6 @@ class WebDavClient {
       await _send(
         'PROPFIND',
         _constructPath(path),
-        [207],
         data: Stream.value(
           Uint8List.fromList(
             utf8.encode(
@@ -231,7 +224,6 @@ class WebDavClient {
         await _send(
           'REPORT',
           _constructPath(path),
-          [200, 207],
           data: Stream.value(
             Uint8List.fromList(
               utf8.encode(
@@ -259,7 +251,6 @@ class WebDavClient {
     final response = await _send(
       'PROPPATCH',
       _constructPath(path),
-      [200, 207],
       data: Stream.value(
         Uint8List.fromList(
           utf8.encode(
@@ -294,7 +285,6 @@ class WebDavClient {
       _send(
         'MOVE',
         _constructPath(sourcePath),
-        [200, 201, 204],
         headers: {
           'Destination': _constructPath(destinationPath),
           'Overwrite': overwrite ? 'T' : 'F',
@@ -313,7 +303,6 @@ class WebDavClient {
       _send(
         'COPY',
         _constructPath(sourcePath),
-        [200, 201, 204],
         headers: {
           'Destination': _constructPath(destinationPath),
           'Overwrite': overwrite ? 'T' : 'F',
