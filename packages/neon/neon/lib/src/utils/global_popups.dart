@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:meta/meta.dart';
 import 'package:neon/l10n/localizations.dart';
@@ -23,8 +25,19 @@ class GlobalPopups {
   static GlobalPopups? instance;
 
   bool _registered = false;
+  late BuildContext _context;
+  final _subscriptions = <StreamSubscription>[];
+
+  void dispose() {
+    for (final subscription in _subscriptions) {
+      unawaited(subscription.cancel());
+    }
+    _subscriptions.clear();
+    _registered = false;
+  }
 
   void register(final BuildContext context) {
+    _context = context;
     if (_registered) {
       return;
     }
@@ -34,55 +47,60 @@ class GlobalPopups {
     final nextPushBloc = Provider.of<NextPushBloc>(context, listen: false);
     final platform = Provider.of<NeonPlatform>(context, listen: false);
 
-    firstLaunchBloc.onFirstLaunch.listen((final _) {
-      if (!platform.canUsePushNotifications || !globalOptions.pushNotificationsEnabled.enabled) {
-        return;
-      }
+    _subscriptions.addAll([
+      if (platform.canUsePushNotifications) ...[
+        firstLaunchBloc.onFirstLaunch.listen((final _) {
+          assert(context.mounted, 'Context should be mounted');
+          if (!globalOptions.pushNotificationsEnabled.enabled) {
+            return;
+          }
 
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Text(AppLocalizations.of(context).firstLaunchGoToSettingsToEnablePushNotifications),
-          action: SnackBarAction(
-            label: AppLocalizations.of(context).settings,
-            onPressed: () {
-              const SettingsRoute(initialCategory: SettingsCageories.pushNotifications).go(context);
-            },
-          ),
-        ),
-      );
-    });
-
-    nextPushBloc.onNextPushSupported.listen((final _) async {
-      if (!platform.canUsePushNotifications || !globalOptions.pushNotificationsEnabled.enabled) {
-        return;
-      }
-
-      await showDialog(
-        context: context,
-        builder: (final context) => AlertDialog(
-          title: Text(AppLocalizations.of(context).nextPushSupported),
-          content: Text(AppLocalizations.of(context).nextPushSupportedText),
-          actions: [
-            OutlinedButton(
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
-              child: Text(AppLocalizations.of(context).actionNo),
+          ScaffoldMessenger.of(_context).showSnackBar(
+            SnackBar(
+              content: Text(AppLocalizations.of(_context).firstLaunchGoToSettingsToEnablePushNotifications),
+              action: SnackBarAction(
+                label: AppLocalizations.of(_context).settings,
+                onPressed: () {
+                  const SettingsRoute(initialCategory: SettingsCageories.pushNotifications).go(_context);
+                },
+              ),
             ),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.of(context).pop();
-                launchUrlString(
-                  'https://f-droid.org/packages/$unifiedPushNextPushID',
-                  mode: LaunchMode.externalApplication,
-                );
-              },
-              child: Text(AppLocalizations.of(context).nextPushSupportedInstall),
+          );
+        }),
+        nextPushBloc.onNextPushSupported.listen((final _) async {
+          assert(context.mounted, 'Context should be mounted');
+          if (!globalOptions.pushNotificationsEnabled.enabled) {
+            return;
+          }
+
+          await showDialog(
+            context: _context,
+            builder: (final context) => AlertDialog(
+              title: Text(AppLocalizations.of(context).nextPushSupported),
+              content: Text(AppLocalizations.of(context).nextPushSupportedText),
+              actions: [
+                OutlinedButton(
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                  },
+                  child: Text(AppLocalizations.of(context).actionNo),
+                ),
+                ElevatedButton(
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                    launchUrlString(
+                      'https://f-droid.org/packages/$unifiedPushNextPushID',
+                      mode: LaunchMode.externalApplication,
+                    );
+                  },
+                  child: Text(AppLocalizations.of(context).nextPushSupportedInstall),
+                ),
+              ],
             ),
-          ],
-        ),
-      );
-    });
+          );
+        }),
+      ],
+    ]);
 
     _registered = true;
   }
