@@ -29,7 +29,6 @@ class WebDavClient {
       method,
       Uri.parse(url),
     )
-      ..followRedirects = false
       ..persistentConnection = true;
     for (final header in {
       HttpHeaders.contentTypeHeader: 'application/xml',
@@ -196,33 +195,27 @@ class WebDavClient {
     final String? depth,
   }) async {
     assert(depth == null || ['0', '1', 'infinity'].contains(depth), 'Depth has to be 0, 1 or infinity');
-    final response = await _send(
-      'PROPFIND',
-      _constructPath(path),
-      [207, 301],
-      data: Stream.value(
-        Uint8List.fromList(
-          utf8.encode(
-            WebDavPropfind(prop: prop ?? WebDavPropWithoutValues()).toXmlElement(namespaces: namespaces).toXmlString(),
+    return _parseResponse(
+      await _send(
+        'PROPFIND',
+        _constructPath(path),
+        [207],
+        data: Stream.value(
+          Uint8List.fromList(
+            utf8.encode(
+              WebDavPropfind(prop: prop ?? WebDavPropWithoutValues())
+                  .toXmlElement(namespaces: namespaces)
+                  .toXmlString(),
+            ),
           ),
         ),
-      ),
-      headers: {
-        if (depth != null) ...{
-          'Depth': depth,
+        headers: {
+          if (depth != null) ...{
+            'Depth': depth,
+          },
         },
-      },
+      ),
     );
-    if (response.statusCode == 301) {
-      // coverage:ignore-start
-      return propfind(
-        response.headers['location']!.first,
-        prop: prop,
-        depth: depth,
-      );
-      // coverage:ignore-end
-    }
-    return _parseResponse(response);
   }
 
   /// Runs the filter-files report with the [filterRules] on the resource at [path].
