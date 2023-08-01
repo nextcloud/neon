@@ -76,6 +76,28 @@ class WebDavClient {
           .where((final part) => part.isNotEmpty)
           .join('/');
 
+  Future<WebDavMultistatus> _parseResponse(final HttpClientResponse response) async =>
+      WebDavMultistatus.fromXmlElement(xml.XmlDocument.parse(await response.body).rootElement);
+
+  Map<String, String>? _getUploadHeaders({
+    required final DateTime? lastModified,
+    required final DateTime? created,
+    required final int? contentLength,
+  }) {
+    final headers = <String, String>{
+      if (lastModified != null) ...{
+        'X-OC-Mtime': (lastModified.millisecondsSinceEpoch ~/ 1000).toString(),
+      },
+      if (created != null) ...{
+        'X-OC-CTime': (created.millisecondsSinceEpoch ~/ 1000).toString(),
+      },
+      if (contentLength != null) ...{
+        'Content-Length': contentLength.toString(),
+      },
+    };
+    return headers.isNotEmpty ? headers : null;
+  }
+
   /// Gets the WebDAV capabilities of the server.
   Future<WebDavOptions> options() async {
     final response = await _send(
@@ -121,25 +143,6 @@ class WebDavClient {
         [204],
       );
 
-  Map<String, String>? _generateUploadHeaders({
-    required final DateTime? lastModified,
-    required final DateTime? created,
-    required final int? contentLength,
-  }) {
-    final headers = <String, String>{
-      if (lastModified != null) ...{
-        'X-OC-Mtime': (lastModified.millisecondsSinceEpoch ~/ 1000).toString(),
-      },
-      if (created != null) ...{
-        'X-OC-CTime': (created.millisecondsSinceEpoch ~/ 1000).toString(),
-      },
-      if (contentLength != null) ...{
-        'Content-Length': contentLength.toString(),
-      },
-    };
-    return headers.isNotEmpty ? headers : null;
-  }
-
   /// Puts a new file at [path] with [localData] as content.
   ///
   /// [lastModified] sets the date when the file was last modified on the server.
@@ -177,7 +180,7 @@ class WebDavClient {
         _constructPath(path),
         [200, 201, 204],
         data: localData,
-        headers: _generateUploadHeaders(
+        headers: _getUploadHeaders(
           lastModified: lastModified,
           created: created,
           contentLength: contentLength,
@@ -193,9 +196,6 @@ class WebDavClient {
         _constructPath(path),
         [200],
       );
-
-  Future<WebDavMultistatus> _parseResponse(final HttpClientResponse response) async =>
-      WebDavMultistatus.fromXmlElement(xml.XmlDocument.parse(await response.body).rootElement);
 
   /// Retrieves the props for the resource at [path].
   ///
