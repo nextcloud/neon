@@ -936,7 +936,11 @@ TypeResult resolveObject(
   final bool nullable = false,
   final bool isHeader = false,
 }) {
-  if (state.resolvedTypes.add(TypeResultObject('${state.prefix}$identifier'))) {
+  final result = TypeResultObject(
+    '${state.prefix}$identifier',
+    nullable: nullable,
+  );
+  if (state.resolvedTypes.add(result)) {
     state.output.add(
       Class(
         (final b) {
@@ -1230,10 +1234,7 @@ TypeResult resolveObject(
       );
     }
   }
-  return TypeResultObject(
-    '${state.prefix}$identifier',
-    nullable: nullable,
-  );
+  return result;
 }
 
 TypeResult resolveType(
@@ -1263,7 +1264,11 @@ TypeResult resolveType(
       nullable: nullable,
     );
   } else if (schema.ofs != null) {
-    if (state.resolvedTypes.add(TypeResultObject('${state.prefix}$identifier'))) {
+    result = TypeResultObject(
+      '${state.prefix}$identifier',
+      nullable: nullable,
+    );
+    if (state.resolvedTypes.add(result)) {
       final results = schema.ofs!
           .map(
             (final s) => resolveType(
@@ -1523,11 +1528,6 @@ TypeResult resolveType(
         ),
       ]);
     }
-
-    result = TypeResultObject(
-      '${state.prefix}$identifier',
-      nullable: nullable,
-    );
   } else if (schema.isContentString) {
     final subResult = resolveType(
       spec,
