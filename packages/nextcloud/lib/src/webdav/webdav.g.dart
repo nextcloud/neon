@@ -221,9 +221,18 @@ void _$WebDavPropertyupdateBuildXmlChildren(WebDavPropertyupdate instance, XmlBu
     {Map<String, String> namespaces = const {}}) {
   final set = instance.set;
   final setSerialized = set;
-  builder.element('set', namespace: 'DAV:', nest: () {
-    setSerialized.buildXmlChildren(builder, namespaces: namespaces);
-  });
+  if (setSerialized != null) {
+    builder.element('set', namespace: 'DAV:', nest: () {
+      setSerialized.buildXmlChildren(builder, namespaces: namespaces);
+    });
+  }
+  final remove = instance.remove;
+  final removeSerialized = remove;
+  if (removeSerialized != null) {
+    builder.element('remove', namespace: 'DAV:', nest: () {
+      removeSerialized.buildXmlChildren(builder, namespaces: namespaces);
+    });
+  }
 }
 
 void _$WebDavPropertyupdateBuildXmlElement(WebDavPropertyupdate instance, XmlBuilder builder,
@@ -234,8 +243,11 @@ void _$WebDavPropertyupdateBuildXmlElement(WebDavPropertyupdate instance, XmlBui
 }
 
 WebDavPropertyupdate _$WebDavPropertyupdateFromXmlElement(XmlElement element) {
-  final set = element.getElement('set', namespace: 'DAV:')!;
-  return WebDavPropertyupdate(set: WebDavSet.fromXmlElement(set));
+  final set = element.getElement('set', namespace: 'DAV:');
+  final remove = element.getElement('remove', namespace: 'DAV:');
+  return WebDavPropertyupdate(
+      set: set != null ? WebDavSet.fromXmlElement(set) : null,
+      remove: remove != null ? WebDavRemove.fromXmlElement(remove) : null);
 }
 
 List<XmlAttribute> _$WebDavPropertyupdateToXmlAttributes(WebDavPropertyupdate instance,
@@ -249,9 +261,22 @@ List<XmlNode> _$WebDavPropertyupdateToXmlChildren(WebDavPropertyupdate instance,
   final children = <XmlNode>[];
   final set = instance.set;
   final setSerialized = set;
-  final setConstructed = XmlElement(XmlName('set', namespaces['DAV:']),
-      setSerialized.toXmlAttributes(namespaces: namespaces), setSerialized.toXmlChildren(namespaces: namespaces));
-  children.add(setConstructed);
+  final setConstructed = setSerialized != null
+      ? XmlElement(XmlName('set', namespaces['DAV:']), setSerialized.toXmlAttributes(namespaces: namespaces),
+          setSerialized.toXmlChildren(namespaces: namespaces))
+      : null;
+  if (setConstructed != null) {
+    children.add(setConstructed);
+  }
+  final remove = instance.remove;
+  final removeSerialized = remove;
+  final removeConstructed = removeSerialized != null
+      ? XmlElement(XmlName('remove', namespaces['DAV:']), removeSerialized.toXmlAttributes(namespaces: namespaces),
+          removeSerialized.toXmlChildren(namespaces: namespaces))
+      : null;
+  if (removeConstructed != null) {
+    children.add(removeConstructed);
+  }
   return children;
 }
 
@@ -338,6 +363,66 @@ mixin _$WebDavSetXmlSerializableMixin {
       _$WebDavSetToXmlElement(this as WebDavSet, namespaces: namespaces);
 }
 
+void _$WebDavRemoveBuildXmlChildren(WebDavRemove instance, XmlBuilder builder,
+    {Map<String, String> namespaces = const {}}) {
+  final prop = instance.prop;
+  final propSerialized = prop;
+  builder.element('prop', namespace: 'DAV:', nest: () {
+    propSerialized.buildXmlChildren(builder, namespaces: namespaces);
+  });
+}
+
+void _$WebDavRemoveBuildXmlElement(WebDavRemove instance, XmlBuilder builder,
+    {Map<String, String> namespaces = const {}}) {
+  builder.element('remove', namespace: 'DAV:', namespaces: namespaces, nest: () {
+    instance.buildXmlChildren(builder, namespaces: namespaces);
+  });
+}
+
+WebDavRemove _$WebDavRemoveFromXmlElement(XmlElement element) {
+  final prop = element.getElement('prop', namespace: 'DAV:')!;
+  return WebDavRemove(prop: WebDavPropWithoutValues.fromXmlElement(prop));
+}
+
+List<XmlAttribute> _$WebDavRemoveToXmlAttributes(WebDavRemove instance, {Map<String, String?> namespaces = const {}}) {
+  final attributes = <XmlAttribute>[];
+  return attributes;
+}
+
+List<XmlNode> _$WebDavRemoveToXmlChildren(WebDavRemove instance, {Map<String, String?> namespaces = const {}}) {
+  final children = <XmlNode>[];
+  final prop = instance.prop;
+  final propSerialized = prop;
+  final propConstructed = XmlElement(XmlName('prop', namespaces['DAV:']),
+      propSerialized.toXmlAttributes(namespaces: namespaces), propSerialized.toXmlChildren(namespaces: namespaces));
+  children.add(propConstructed);
+  return children;
+}
+
+XmlElement _$WebDavRemoveToXmlElement(WebDavRemove instance, {Map<String, String?> namespaces = const {}}) {
+  return XmlElement(
+      XmlName('remove', namespaces['DAV:']),
+      [...namespaces.toXmlAttributes(), ...instance.toXmlAttributes(namespaces: namespaces)],
+      instance.toXmlChildren(namespaces: namespaces));
+}
+
+mixin _$WebDavRemoveXmlSerializableMixin {
+  void buildXmlChildren(XmlBuilder builder, {Map<String, String> namespaces = const {}}) =>
+      _$WebDavRemoveBuildXmlChildren(this as WebDavRemove, builder, namespaces: namespaces);
+
+  void buildXmlElement(XmlBuilder builder, {Map<String, String> namespaces = const {}}) =>
+      _$WebDavRemoveBuildXmlElement(this as WebDavRemove, builder, namespaces: namespaces);
+
+  List<XmlAttribute> toXmlAttributes({Map<String, String?> namespaces = const {}}) =>
+      _$WebDavRemoveToXmlAttributes(this as WebDavRemove, namespaces: namespaces);
+
+  List<XmlNode> toXmlChildren({Map<String, String?> namespaces = const {}}) =>
+      _$WebDavRemoveToXmlChildren(this as WebDavRemove, namespaces: namespaces);
+
+  XmlElement toXmlElement({Map<String, String?> namespaces = const {}}) =>
+      _$WebDavRemoveToXmlElement(this as WebDavRemove, namespaces: namespaces);
+}
+
 void _$WebDavPropfindBuildXmlChildren(WebDavPropfind instance, XmlBuilder builder,
     {Map<String, String> namespaces = const {}}) {
   final prop = instance.prop;
@@ -356,7 +441,7 @@ void _$WebDavPropfindBuildXmlElement(WebDavPropfind instance, XmlBuilder builder
 
 WebDavPropfind _$WebDavPropfindFromXmlElement(XmlElement element) {
   final prop = element.getElement('prop', namespace: 'DAV:')!;
-  return WebDavPropfind(prop: WebDavPropfindProp.fromXmlElement(prop));
+  return WebDavPropfind(prop: WebDavPropWithoutValues.fromXmlElement(prop));
 }
 
 List<XmlAttribute> _$WebDavPropfindToXmlAttributes(WebDavPropfind instance,
@@ -424,7 +509,7 @@ WebDavOcFilterFiles _$WebDavOcFilterFilesFromXmlElement(XmlElement element) {
   final filterRules = element.getElement('filter-rules', namespace: 'http://owncloud.org/ns')!;
   final prop = element.getElement('prop', namespace: 'DAV:')!;
   return WebDavOcFilterFiles(
-      filterRules: WebDavOcFilterRules.fromXmlElement(filterRules), prop: WebDavPropfindProp.fromXmlElement(prop));
+      filterRules: WebDavOcFilterRules.fromXmlElement(filterRules), prop: WebDavPropWithoutValues.fromXmlElement(prop));
 }
 
 List<XmlAttribute> _$WebDavOcFilterFilesToXmlAttributes(WebDavOcFilterFiles instance,

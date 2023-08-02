@@ -76,11 +76,15 @@ class WebDavPropstat with _$WebDavPropstatXmlSerializableMixin {
 @annotation.XmlRootElement(name: 'propertyupdate', namespace: namespaceDav)
 class WebDavPropertyupdate with _$WebDavPropertyupdateXmlSerializableMixin {
   WebDavPropertyupdate({
-    required this.set,
+    this.set,
+    this.remove,
   });
 
-  @annotation.XmlElement(name: 'set', namespace: namespaceDav)
-  final WebDavSet set;
+  @annotation.XmlElement(name: 'set', namespace: namespaceDav, includeIfNull: false)
+  final WebDavSet? set;
+
+  @annotation.XmlElement(name: 'remove', namespace: namespaceDav, includeIfNull: false)
+  final WebDavRemove? remove;
 }
 
 @annotation.XmlSerializable(createMixin: true)
@@ -97,6 +101,19 @@ class WebDavSet with _$WebDavSetXmlSerializableMixin {
 }
 
 @annotation.XmlSerializable(createMixin: true)
+@annotation.XmlRootElement(name: 'remove', namespace: namespaceDav)
+class WebDavRemove with _$WebDavRemoveXmlSerializableMixin {
+  WebDavRemove({
+    required this.prop,
+  });
+
+  factory WebDavRemove.fromXmlElement(final XmlElement element) => _$WebDavRemoveFromXmlElement(element);
+
+  @annotation.XmlElement(name: 'prop', namespace: namespaceDav)
+  final WebDavPropWithoutValues prop; // coverage:ignore-line
+}
+
+@annotation.XmlSerializable(createMixin: true)
 @annotation.XmlRootElement(name: 'propfind', namespace: namespaceDav)
 class WebDavPropfind with _$WebDavPropfindXmlSerializableMixin {
   WebDavPropfind({
@@ -104,7 +121,7 @@ class WebDavPropfind with _$WebDavPropfindXmlSerializableMixin {
   });
 
   @annotation.XmlElement(name: 'prop', namespace: namespaceDav)
-  final WebDavPropfindProp prop;
+  final WebDavPropWithoutValues prop;
 }
 
 @annotation.XmlSerializable(createMixin: true)
@@ -119,7 +136,7 @@ class WebDavOcFilterFiles with _$WebDavOcFilterFilesXmlSerializableMixin {
   final WebDavOcFilterRules filterRules;
 
   @annotation.XmlElement(name: 'prop', namespace: namespaceDav)
-  final WebDavPropfindProp prop;
+  final WebDavPropWithoutValues prop;
 }
 
 @annotation.XmlSerializable(createMixin: true)
