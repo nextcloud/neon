@@ -7,7 +7,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_cache_manager/flutter_cache_manager.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
-import 'package:flutter_svg/flutter_svg.dart' show SvgFileLoader, vg;
+import 'package:flutter_svg/flutter_svg.dart' show vg;
 import 'package:image/image.dart' as img;
 import 'package:meta/meta.dart';
 import 'package:neon/src/blocs/accounts.dart';
@@ -17,6 +17,7 @@ import 'package:neon/src/settings/models/storage.dart';
 import 'package:neon/src/theme/colors.dart';
 import 'package:neon/src/utils/global.dart';
 import 'package:neon/src/utils/localizations.dart';
+import 'package:neon/src/utils/universal_svg_file_loader.dart';
 import 'package:nextcloud/notifications.dart' as notifications;
 
 @internal
@@ -106,7 +107,7 @@ class PushUtils {
               final cacheManager = DefaultCacheManager();
               final file = await cacheManager.getSingleFile(notification.icon!);
 
-              final pictureInfo = await vg.loadPicture(SvgFileLoader(file), null);
+              final pictureInfo = await vg.loadPicture(UniversalSvgFileLoader(file), null);
 
               const largeIconSize = 256;
               final scale = largeIconSize / pictureInfo.size.longestSide;
