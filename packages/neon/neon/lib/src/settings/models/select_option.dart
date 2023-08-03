@@ -1,8 +1,8 @@
 import 'dart:async';
 
 import 'package:collection/collection.dart';
+import 'package:neon/src/models/label_builder.dart';
 import 'package:neon/src/settings/models/option.dart';
-import 'package:neon/src/settings/widgets/label_builder.dart';
 
 class SelectOption<T> extends Option<T> {
   /// Creates a SelectOption
@@ -12,10 +12,16 @@ class SelectOption<T> extends Option<T> {
     required super.label,
     required super.defaultValue,
     required final Map<T, LabelBuilder> values,
+
+    /// Force loading the stored value.
+    ///
+    /// This is needed when [values] is empty but the stored value should still be loaded.
+    /// This only works when [T] is of type String?.
+    final bool forceLoadValue = true,
     super.category,
     super.enabled,
   })  : _values = values,
-        super(initialValue: _fromString(values, storage.getString(key)));
+        super(initialValue: loadValue(values, storage.getString(key), forceLoad: forceLoadValue));
 
   /// Creates a SelectOption depending on the State of another [Option].
   SelectOption.depend({
@@ -25,9 +31,23 @@ class SelectOption<T> extends Option<T> {
     required super.defaultValue,
     required final Map<T, LabelBuilder> values,
     required super.enabled,
+
+    /// Force loading the stored value.
+    ///
+    /// This is needed when [values] is empty but the stored value should still be loaded.
+    /// This only works when [T] is of type String?.
+    final bool forceLoadValue = true,
     super.category,
   })  : _values = values,
-        super.depend(initialValue: _fromString(values, storage.getString(key)));
+        super.depend(initialValue: loadValue(values, storage.getString(key), forceLoad: forceLoadValue));
+
+  static T? loadValue<T>(final Map<T, LabelBuilder> vs, final String? stored, {final bool forceLoad = true}) {
+    if (forceLoad && vs.isEmpty && stored is T) {
+      return stored as T;
+    }
+
+    return _fromString(vs, stored);
+  }
 
   static T? _fromString<T>(final Map<T, LabelBuilder> vs, final String? valueStr) {
     if (valueStr == null) {
