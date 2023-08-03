@@ -466,8 +466,6 @@ class OpenAPIBuilder implements Builder {
                               final value = result.encode(
                                 _toDartName(parameter.name),
                                 onlyChildren: result is TypeResultList && parameter.in_ == 'query',
-                                // Objects inside the query always have to be interpreted in some way
-                                mimeType: 'application/json',
                               );
                               if (defaultValueCode != null && parameter.in_ == 'query') {
                                 code.write('if (${_toDartName(parameter.name)} != $defaultValueCode) {');
@@ -480,7 +478,7 @@ class OpenAPIBuilder implements Builder {
                                   break;
                                 case 'query':
                                   code.write(
-                                    "queryParameters['${parameter.name}${result is TypeResultList ? '[]' : ''}'] = $value;",
+                                    "queryParameters['${parameter.name}'] = $value;",
                                   );
                                   break;
                                 case 'header':
