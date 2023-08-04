@@ -15,7 +15,7 @@ class NotesCategorySelect extends StatelessWidget {
     categories.sort();
 
     // After sorting the empty category '' should be at the first place
-    if (!categories.first.isNotEmpty) {
+    if (categories.isNotEmpty && !categories.first.isNotEmpty) {
       categories.insert(0, '');
     }
   }
