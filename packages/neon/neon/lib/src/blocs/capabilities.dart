@@ -21,13 +21,13 @@ abstract class CapabilitiesBlocStates {
 class CapabilitiesBloc extends InteractiveBloc implements CapabilitiesBlocEvents, CapabilitiesBlocStates {
   CapabilitiesBloc(
     this._requestManager,
-    this._client,
+    this._account,
   ) {
     unawaited(refresh());
   }
 
   final RequestManager _requestManager;
-  final NextcloudClient _client;
+  final Account _account;
 
   @override
   void dispose() {
@@ -41,10 +41,10 @@ class CapabilitiesBloc extends InteractiveBloc implements CapabilitiesBlocEvents
   @override
   Future refresh() async {
     await _requestManager.wrapNextcloud<CoreServerCapabilities_Ocs_Data, CoreServerCapabilities>(
-      _client.id,
+      _account.id,
       'capabilities',
       capabilities,
-      () async => _client.core.getCapabilities(),
+      () async => _account.client.core.getCapabilities(),
       (final response) => response.ocs.data,
     );
   }

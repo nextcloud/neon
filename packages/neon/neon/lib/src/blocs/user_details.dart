@@ -18,13 +18,13 @@ abstract class UserDetailsBlocStates {
 class UserDetailsBloc extends InteractiveBloc implements UserDetailsBlocEvents, UserDetailsBlocStates {
   UserDetailsBloc(
     this._requestManager,
-    this._client,
+    this._account,
   ) {
     unawaited(refresh());
   }
 
   final RequestManager _requestManager;
-  final NextcloudClient _client;
+  final Account _account;
 
   @override
   void dispose() {
@@ -39,10 +39,10 @@ class UserDetailsBloc extends InteractiveBloc implements UserDetailsBlocEvents, 
   @override
   Future refresh() async {
     await _requestManager.wrapNextcloud<ProvisioningApiUserDetails, ProvisioningApiUser>(
-      _client.id,
+      _account.id,
       'user-details',
       userDetails,
-      () async => _client.provisioningApi.getCurrentUser(),
+      () async => _account.client.provisioningApi.getCurrentUser(),
       (final response) => response.ocs.data,
     );
   }

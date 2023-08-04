@@ -126,7 +126,7 @@ class PushNotificationsBloc extends Bloc implements PushNotificationsBlocEvents,
     for (final account in accounts) {
       try {
         await account.client.notifications.removeDevice();
-        await UnifiedPush.unregister(account.client.id);
+        await UnifiedPush.unregister(account.id);
         await _storage.remove(_keyLastEndpoint(account));
       } catch (e) {
         debugPrint('Failed to unregister device: $e');
@@ -137,7 +137,7 @@ class PushNotificationsBloc extends Bloc implements PushNotificationsBlocEvents,
   Future _registerUnifiedPushInstances(final List<Account> accounts) async {
     // Notifications will only work on accounts with app password
     for (final account in accounts.where((final a) => a.password != null)) {
-      await UnifiedPush.registerApp(account.client.id);
+      await UnifiedPush.registerApp(account.id);
     }
   }
 }
