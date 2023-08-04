@@ -85,7 +85,7 @@ void main() {
           ocmsharepermissions: true,
         ),
       ))
-          .toWebDavFiles(client.webdav)
+          .toWebDavFiles()
           .single;
 
       expect(response.path, '/Nextcloud.png');
@@ -150,7 +150,7 @@ void main() {
         ),
         depth: '0',
       ))
-          .toWebDavFiles(client.webdav)
+          .toWebDavFiles()
           .single;
 
       expect(response.path, '/test/');

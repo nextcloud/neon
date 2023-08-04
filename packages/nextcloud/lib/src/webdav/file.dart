@@ -5,7 +5,7 @@ import 'package:nextcloud/src/webdav/webdav.dart';
 // ignore: public_member_api_docs
 extension WebDavMultistatusFile on WebDavMultistatus {
   /// Convert the [WebDavMultistatus] into a [WebDavFile] for easier handling
-  List<WebDavFile> toWebDavFiles(final WebDavClient client) => responses
+  List<WebDavFile> toWebDavFiles() => responses
       .where((final response) => response.href != null)
       .map((final response) => WebDavFile(response: response))
       .toList();
