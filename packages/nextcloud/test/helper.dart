@@ -76,7 +76,6 @@ class TestNextcloudClient extends NextcloudClient {
   TestNextcloudClient(
     super.baseURL, {
     super.loginName,
-    super.username,
     super.password,
     super.language,
     super.appType,
@@ -126,7 +125,6 @@ Future<TestNextcloudClient> getTestClient(
   final client = TestNextcloudClient(
     'http://localhost:${container.port}',
     loginName: username,
-    username: username,
     password: clientPassword,
     appType: appType,
     userAgentOverride: userAgentOverride,
