@@ -13,7 +13,7 @@ class Branding {
     required this.name,
     required this.logo,
     this.legalese,
-    this.showLoginWithNextcloud = false,
+    this.showLoginWithNextcloud = true,
   });
 
   /// App name

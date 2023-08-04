@@ -20,16 +20,21 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   final _formKey = GlobalKey<FormState>();
   final _focusNode = FocusNode();
-
-  @override
-  void initState() {
-    super.initState();
-  }
+  final _controller = TextEditingController();
 
   @override
   void dispose() {
     _focusNode.dispose();
+    _controller.dispose();
     super.dispose();
+  }
+
+  void login(final String url) {
+    if (_formKey.currentState!.validate()) {
+      LoginCheckServerStatusRoute(serverUrl: url).go(context);
+    } else {
+      _focusNode.requestFocus();
+    }
   }
 
   @override
@@ -39,77 +44,76 @@ class _LoginPageState extends State<LoginPage> {
 
     return Scaffold(
       resizeToAvoidBottomInset: true,
-      appBar: AppBar(
-        leading: Navigator.canPop(context) ? const CloseButton() : null,
-      ),
+      appBar: Navigator.canPop(context)
+          ? AppBar(
+              leading: const CloseButton(),
+            )
+          : null,
       body: Center(
         child: ConstrainedBox(
           constraints: NeonDialogTheme.of(context).constraints,
           child: Scrollbar(
             child: SingleChildScrollView(
-              padding: const EdgeInsets.symmetric(vertical: 40, horizontal: 20),
+              padding: const EdgeInsets.all(10),
               primary: true,
               child: Column(
                 children: [
-                  branding.logo,
+                  ExcludeSemantics(
+                    child: branding.logo,
+                  ),
                   Text(
                     branding.name,
                     style: Theme.of(context).textTheme.titleLarge,
                   ),
-                  const SizedBox(
-                    height: 20,
-                  ),
                   if (branding.showLoginWithNextcloud) ...[
+                    const SizedBox(
+                      height: 10,
+                    ),
                     Text(AppLocalizations.of(context).loginWorksWith),
                     const SizedBox(
-                      height: 20,
+                      height: 10,
+                    ),
+                    Semantics(
+                      label: AppLocalizations.of(context).nextcloud,
+                      child: const NextcloudLogo(),
                     ),
                   ],
-                  const NextcloudLogo(),
                   const SizedBox(
-                    height: 40,
+                    height: 50,
                   ),
-                  if (platform.canUseCamera) ...[
-                    ExcludeSemantics(
-                      child: Center(
-                        child: Text(AppLocalizations.of(context).loginUsingQrcode),
-                      ),
-                    ),
-                    IconButton(
-                      tooltip: AppLocalizations.of(context).loginUsingQrcode,
-                      icon: const Icon(
-                        Icons.qr_code_scanner,
-                        size: 50,
-                      ),
-                      onPressed: () => const LoginQrcodeRoute().go(context),
-                    ),
-                    const SizedBox(
-                      height: 20,
-                    ),
-                    ExcludeSemantics(
-                      child: Center(
-                        child: Text(AppLocalizations.of(context).loginUsingServerAddress),
-                      ),
-                    ),
-                  ],
                   Form(
                     key: _formKey,
                     child: TextFormField(
                       focusNode: _focusNode,
-                      decoration: const InputDecoration(
+                      controller: _controller,
+                      decoration: InputDecoration(
                         hintText: 'https://...',
+                        labelText: AppLocalizations.of(context).loginUsingServerAddress,
+                        suffixIcon: IconButton(
+                          icon: const Icon(Icons.arrow_forward),
+                          onPressed: () {
+                            login(_controller.text);
+                          },
+                        ),
                       ),
                       keyboardType: TextInputType.url,
                       validator: (final input) => validateHttpUrl(context, input),
-                      onFieldSubmitted: (final input) {
-                        if (_formKey.currentState!.validate()) {
-                          LoginCheckServerStatusRoute(serverUrl: input).go(context);
-                        } else {
-                          _focusNode.requestFocus();
-                        }
-                      },
+                      onFieldSubmitted: login,
                     ),
                   ),
+                  if (platform.canUseCamera || true) ...[
+                    const SizedBox(
+                      height: 50,
+                    ),
+                    IconButton(
+                      tooltip: AppLocalizations.of(context).loginUsingQrcode,
+                      icon: const Icon(
+                        Icons.qr_code_scanner_rounded,
+                        size: 60,
+                      ),
+                      onPressed: () => const LoginQrcodeRoute().go(context),
+                    ),
+                  ],
                 ],
               ),
             ),

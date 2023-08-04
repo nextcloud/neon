@@ -6,7 +6,6 @@ import 'package:neon/src/blocs/login_check_server_status.dart';
 import 'package:neon/src/router.dart';
 import 'package:neon/src/theme/dialog.dart';
 import 'package:neon/src/widgets/exception.dart';
-import 'package:neon/src/widgets/linear_progress_indicator.dart';
 import 'package:neon/src/widgets/validation_tile.dart';
 import 'package:nextcloud/nextcloud.dart';
 
@@ -64,20 +63,23 @@ class _LoginCheckServerStatusPageState extends State<LoginCheckServerStatusPage>
                   return Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      NeonLinearProgressIndicator(
-                        visible: state.isLoading,
-                      ),
-                      NeonException(
-                        state.error,
-                        onRetry: bloc.refresh,
-                      ),
+                      if (state.hasError) ...[
+                        NeonValidationTile(
+                          title: NeonException.getDetails(context, state.error).text,
+                          state: ValidationState.failure,
+                        ),
+                      ],
                       _buildServerVersionTile(state),
                       _buildMaintenanceModeTile(state),
                       Align(
                         alignment: Alignment.bottomRight,
                         child: ElevatedButton(
-                          onPressed: success ? _onContinue : null,
-                          child: Text(AppLocalizations.of(context).actionContinue),
+                          onPressed: success ? _onContinue : bloc.refresh,
+                          child: Text(
+                            success
+                                ? AppLocalizations.of(context).actionContinue
+                                : AppLocalizations.of(context).actionRetry,
+                          ),
                         ),
                       ),
                     ],
@@ -102,6 +104,13 @@ class _LoginCheckServerStatusPageState extends State<LoginCheckServerStatusPage>
   }
 
   Widget _buildServerVersionTile(final Result<CoreServerStatus> result) {
+    if (result.hasError) {
+      return NeonValidationTile(
+        title: AppLocalizations.of(context).loginCheckingServerVersion,
+        state: ValidationState.canceled,
+      );
+    }
+
     if (!result.hasData) {
       return NeonValidationTile(
         title: AppLocalizations.of(context).loginCheckingServerVersion,
@@ -123,6 +132,13 @@ class _LoginCheckServerStatusPageState extends State<LoginCheckServerStatusPage>
   }
 
   Widget _buildMaintenanceModeTile(final Result<CoreServerStatus> result) {
+    if (result.hasError) {
+      return NeonValidationTile(
+        title: AppLocalizations.of(context).loginCheckingMaintenanceMode,
+        state: ValidationState.canceled,
+      );
+    }
+
     if (!result.hasData) {
       return NeonValidationTile(
         title: AppLocalizations.of(context).loginCheckingMaintenanceMode,

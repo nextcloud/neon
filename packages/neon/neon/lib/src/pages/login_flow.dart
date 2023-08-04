@@ -57,7 +57,7 @@ class _LoginFlowPageState extends State<LoginFlowPage> {
         appBar: AppBar(),
         body: Center(
           child: Padding(
-            padding: const EdgeInsets.all(24),
+            padding: const EdgeInsets.all(10),
             child: ResultBuilder.behaviorSubject(
               stream: bloc.init,
               builder: (final context, final init) => Column(

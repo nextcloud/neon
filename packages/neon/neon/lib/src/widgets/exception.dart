@@ -27,7 +27,7 @@ class NeonException extends StatelessWidget {
   final Color? color;
 
   static void showSnackbar(final BuildContext context, final dynamic exception) {
-    final details = _getExceptionDetails(context, exception);
+    final details = getDetails(context, exception);
 
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
@@ -48,7 +48,7 @@ class NeonException extends StatelessWidget {
       return const SizedBox();
     }
 
-    final details = _getExceptionDetails(context, exception);
+    final details = getDetails(context, exception);
     final color = this.color ?? Theme.of(context).colorScheme.error;
 
     final errorIcon = Icon(
@@ -109,7 +109,7 @@ class NeonException extends StatelessWidget {
     );
   }
 
-  static _ExceptionDetails _getExceptionDetails(final BuildContext context, final dynamic exception) {
+  static _ExceptionDetails getDetails(final BuildContext context, final dynamic exception) {
     if (exception is String) {
       return _ExceptionDetails(
         text: exception,
