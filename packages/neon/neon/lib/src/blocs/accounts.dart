@@ -225,18 +225,12 @@ class AccountsBloc extends Bloc implements AccountsBlocEvents, AccountsBlocState
   /// The appsBloc for the specified [account].
   ///
   /// Use [activeAppsBloc] to get them for the [activeAccount].
-  AppsBloc getAppsBlocFor(final Account account) {
-    if (_appsBlocs[account.id] != null) {
-      return _appsBlocs[account.id]!;
-    }
-
-    return _appsBlocs[account.id] = AppsBloc(
-      getCapabilitiesBlocFor(account),
-      this,
-      account,
-      _allAppImplementations,
-    );
-  }
+  AppsBloc getAppsBlocFor(final Account account) => _appsBlocs[account.id] ??= AppsBloc(
+        getCapabilitiesBlocFor(account),
+        this,
+        account,
+        _allAppImplementations,
+      );
 
   /// The capabilitiesBloc for the [activeAccount].
   ///
@@ -246,13 +240,8 @@ class AccountsBloc extends Bloc implements AccountsBlocEvents, AccountsBlocState
   /// The capabilitiesBloc for the specified [account].
   ///
   /// Use [activeCapabilitiesBloc] to get them for the [activeAccount].
-  CapabilitiesBloc getCapabilitiesBlocFor(final Account account) {
-    if (_capabilitiesBlocs[account.id] != null) {
-      return _capabilitiesBlocs[account.id]!;
-    }
-
-    return _capabilitiesBlocs[account.id] = CapabilitiesBloc(account);
-  }
+  CapabilitiesBloc getCapabilitiesBlocFor(final Account account) =>
+      _capabilitiesBlocs[account.id] ??= CapabilitiesBloc(account);
 
   /// The userDetailsBloc for the [activeAccount].
   ///
@@ -262,13 +251,8 @@ class AccountsBloc extends Bloc implements AccountsBlocEvents, AccountsBlocState
   /// The userDetailsBloc for the specified [account].
   ///
   /// Use [activeUerDetailsBloc] to get them for the [activeAccount].
-  UserDetailsBloc getUserDetailsBlocFor(final Account account) {
-    if (_userDetailsBlocs[account.id] != null) {
-      return _userDetailsBlocs[account.id]!;
-    }
-
-    return _userDetailsBlocs[account.id] = UserDetailsBloc(account);
-  }
+  UserDetailsBloc getUserDetailsBlocFor(final Account account) =>
+      _userDetailsBlocs[account.id] ??= UserDetailsBloc(account);
 
   /// The userStatusBloc for the [activeAccount].
   ///
@@ -278,15 +262,8 @@ class AccountsBloc extends Bloc implements AccountsBlocEvents, AccountsBlocState
   /// The userStatusBloc for the specified [account].
   ///
   /// Use [activeUserStatusesBloc] to get them for the [activeAccount].
-  UserStatusesBloc getUserStatusesBlocFor(final Account account) {
-    if (_userStatusesBlocs[account.id] != null) {
-      return _userStatusesBlocs[account.id]!;
-    }
-
-    return _userStatusesBlocs[account.id] = UserStatusesBloc(
-      account,
-    );
-  }
+  UserStatusesBloc getUserStatusesBlocFor(final Account account) =>
+      _userStatusesBlocs[account.id] ??= UserStatusesBloc(account);
 
   /// The UnifiedSearchBloc for the [activeAccount].
   ///
@@ -296,16 +273,11 @@ class AccountsBloc extends Bloc implements AccountsBlocEvents, AccountsBlocState
   /// The UnifiedSearchBloc for the specified [account].
   ///
   /// Use [activeUnifiedSearchBloc] to get them for the [activeAccount].
-  UnifiedSearchBloc getUnifiedSearchBlocFor(final Account account) {
-    if (_unifiedSearchBlocs[account.id] != null) {
-      return _unifiedSearchBlocs[account.id]!;
-    }
-
-    return _unifiedSearchBlocs[account.id] = UnifiedSearchBloc(
-      getAppsBlocFor(account),
-      account,
-    );
-  }
+  UnifiedSearchBloc getUnifiedSearchBlocFor(final Account account) =>
+      _unifiedSearchBlocs[account.id] ??= UnifiedSearchBloc(
+        getAppsBlocFor(account),
+        account,
+      );
 }
 
 /// Get a list of logged in accounts from [storage].
