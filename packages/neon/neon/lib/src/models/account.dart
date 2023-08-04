@@ -27,14 +27,12 @@ abstract interface class Credentials {
 class Account implements Credentials {
   Account({
     required this.serverURL,
-    required this.loginName,
     required this.username,
     this.password,
     this.userAgent,
   }) : _client = NextcloudClient(
           serverURL,
-          loginName: loginName,
-          username: username,
+          loginName: username,
           password: password,
           userAgentOverride: userAgent,
           cookieJar: CookieJar(),
@@ -45,7 +43,6 @@ class Account implements Credentials {
 
   @override
   final String serverURL;
-  final String loginName;
   @override
   final String username;
   @override
@@ -56,7 +53,6 @@ class Account implements Credentials {
   bool operator ==(final Object other) =>
       other is Account &&
       other.serverURL == serverURL &&
-      other.loginName == loginName &&
       other.username == username &&
       other.password == password &&
       other.userAgent == userAgent;
