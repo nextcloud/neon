@@ -11,7 +11,6 @@ import 'package:neon/src/settings/models/nextcloud_app_options.dart';
 import 'package:neon/src/settings/models/storage.dart';
 import 'package:neon/src/utils/request_manager.dart';
 import 'package:neon/src/widgets/drawer_destination.dart';
-import 'package:nextcloud/nextcloud.dart';
 import 'package:provider/provider.dart';
 import 'package:rxdart/rxdart.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -40,9 +39,9 @@ abstract class AppImplementation<T extends Bloc, R extends NextcloudAppOptions> 
 
   final Map<String, T> blocs = {};
 
-  T getBloc(final Account account) => blocs[account.id] ??= buildBloc(account.client);
+  T getBloc(final Account account) => blocs[account.id] ??= buildBloc(account);
 
-  T buildBloc(final NextcloudClient client);
+  T buildBloc(final Account account);
 
   Provider<T> get blocProvider => Provider<T>(
         create: (final context) {

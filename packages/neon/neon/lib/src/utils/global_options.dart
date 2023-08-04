@@ -107,7 +107,7 @@ class GlobalOptions {
     }
     initialAccount.values = {
       for (final account in accounts) ...{
-        account.id: (final context) => account.client.humanReadableID,
+        account.id: (final context) => account.humanReadableID,
       },
     };
   }

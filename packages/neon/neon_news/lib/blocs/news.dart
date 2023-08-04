@@ -32,7 +32,7 @@ class NewsBloc extends InteractiveBloc implements NewsBlocEvents, NewsBlocStates
   NewsBloc(
     this.options,
     this.requestManager,
-    this.client,
+    this.account,
   ) {
     mainArticlesBloc.articles.listen((final result) {
       if (result.hasData) {
@@ -52,12 +52,12 @@ class NewsBloc extends InteractiveBloc implements NewsBlocEvents, NewsBlocStates
   @override
   final RequestManager requestManager;
   @override
-  final NextcloudClient client;
+  final Account account;
   late final mainArticlesBloc = NewsMainArticlesBloc(
     this,
     options,
     requestManager,
-    client,
+    account,
   );
 
   late int _newestItemId;
@@ -96,17 +96,17 @@ class NewsBloc extends InteractiveBloc implements NewsBlocEvents, NewsBlocStates
   Future refresh() async {
     await Future.wait([
       requestManager.wrapNextcloud<List<NewsFolder>, NewsListFolders>(
-        client.id,
+        account.id,
         'news-folders',
         folders,
-        () async => client.news.listFolders(),
+        () async => account.client.news.listFolders(),
         (final response) => response.folders.toList(),
       ),
       requestManager.wrapNextcloud<List<NewsFeed>, NewsListFeeds>(
-        client.id,
+        account.id,
         'news-feeds',
         feeds,
-        () async => client.news.listFeeds(),
+        () async => account.client.news.listFeeds(),
         (final response) {
           // This is a bit ugly, but IDGAF right now
           if (response.newestItemId != null) {
@@ -121,47 +121,47 @@ class NewsBloc extends InteractiveBloc implements NewsBlocEvents, NewsBlocStates
 
   @override
   void addFeed(final String url, final int? folderId) {
-    wrapAction(() async => client.news.addFeed(url: url, folderId: folderId));
+    wrapAction(() async => account.client.news.addFeed(url: url, folderId: folderId));
   }
 
   @override
   void createFolder(final String name) {
-    wrapAction(() async => client.news.createFolder(name: name));
+    wrapAction(() async => account.client.news.createFolder(name: name));
   }
 
   @override
   void deleteFolder(final int folderId) {
-    wrapAction(() async => client.news.deleteFolder(folderId: folderId));
+    wrapAction(() async => account.client.news.deleteFolder(folderId: folderId));
   }
 
   @override
   void markFeedAsRead(final int feedId) {
-    wrapAction(() async => client.news.markFeedAsRead(feedId: feedId, newestItemId: _newestItemId));
+    wrapAction(() async => account.client.news.markFeedAsRead(feedId: feedId, newestItemId: _newestItemId));
   }
 
   @override
   void markFolderAsRead(final int folderId) {
-    wrapAction(() async => client.news.markFolderAsRead(folderId: folderId, newestItemId: _newestItemId));
+    wrapAction(() async => account.client.news.markFolderAsRead(folderId: folderId, newestItemId: _newestItemId));
   }
 
   @override
   void moveFeed(final int feedId, final int? folderId) {
-    wrapAction(() async => client.news.moveFeed(feedId: feedId, folderId: folderId));
+    wrapAction(() async => account.client.news.moveFeed(feedId: feedId, folderId: folderId));
   }
 
   @override
   void removeFeed(final int feedId) {
-    wrapAction(() async => client.news.deleteFeed(feedId: feedId));
+    wrapAction(() async => account.client.news.deleteFeed(feedId: feedId));
   }
 
   @override
   void renameFeed(final int feedId, final String feedTitle) {
-    wrapAction(() async => client.news.renameFeed(feedId: feedId, feedTitle: feedTitle));
+    wrapAction(() async => account.client.news.renameFeed(feedId: feedId, feedTitle: feedTitle));
   }
 
   @override
   void renameFolder(final int folderId, final String name) {
-    wrapAction(() async => client.news.renameFolder(folderId: folderId, name: name));
+    wrapAction(() async => account.client.news.renameFolder(folderId: folderId, name: name));
   }
 
   @override

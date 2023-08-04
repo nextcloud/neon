@@ -66,6 +66,8 @@ class Account implements Credentials {
 
   String get id => client.id;
 
+  String get humanReadableID => client.humanReadableID;
+
   final NextcloudClient _client;
 
   NextcloudClient get client => _client;

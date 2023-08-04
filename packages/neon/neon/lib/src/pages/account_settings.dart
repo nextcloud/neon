@@ -30,7 +30,7 @@ class AccountSettingsPage extends StatelessWidget {
   Widget build(final BuildContext context) {
     final options = bloc.getOptionsFor(account);
     final userDetailsBloc = bloc.getUserDetailsBlocFor(account);
-    final name = account.client.humanReadableID;
+    final name = account.humanReadableID;
 
     final appBar = AppBar(
       title: Text(name),
@@ -39,7 +39,7 @@ class AccountSettingsPage extends StatelessWidget {
           onPressed: () async {
             if (await showConfirmationDialog(
               context,
-              AppLocalizations.of(context).accountOptionsRemoveConfirm(account.client.humanReadableID),
+              AppLocalizations.of(context).accountOptionsRemoveConfirm(account.humanReadableID),
             )) {
               final isActive = bloc.activeAccount.valueOrNull == account;
 

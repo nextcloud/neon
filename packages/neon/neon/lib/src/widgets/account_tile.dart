@@ -90,7 +90,7 @@ class NeonAccountTile extends StatelessWidget {
         ),
       ),
       subtitle: Text(
-        account.client.humanReadableID,
+        account.humanReadableID,
         style: Theme.of(context).textTheme.bodySmall!.copyWith(
               color: textColor,
             ),

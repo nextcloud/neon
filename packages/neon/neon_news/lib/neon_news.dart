@@ -67,10 +67,10 @@ class NewsApp extends AppImplementation<NewsBloc, NewsAppSpecificOptions> {
   NewsAppSpecificOptions buildOptions(final AppStorage storage) => NewsAppSpecificOptions(storage, platform);
 
   @override
-  NewsBloc buildBloc(final NextcloudClient client) => NewsBloc(
+  NewsBloc buildBloc(final Account account) => NewsBloc(
         options,
         requestManager,
-        client,
+        account,
       );
 
   @override

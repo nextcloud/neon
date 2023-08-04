@@ -26,14 +26,14 @@ class NotesBloc extends InteractiveBloc implements NotesBlocEvents, NotesBlocSta
   NotesBloc(
     this.options,
     this.requestManager,
-    this.client,
+    this.account,
   ) {
     unawaited(refresh());
   }
 
   final NotesAppSpecificOptions options;
   final RequestManager requestManager;
-  final NextcloudClient client;
+  final Account account;
 
   @override
   void dispose() {
@@ -47,10 +47,10 @@ class NotesBloc extends InteractiveBloc implements NotesBlocEvents, NotesBlocSta
   @override
   Future refresh() async {
     await requestManager.wrapNextcloud<List<NotesNote>, BuiltList>(
-      client.id,
+      account.id,
       'notes-notes',
       notes,
-      () async => client.notes.getNotes(),
+      () async => account.client.notes.getNotes(),
       List<NotesNote>.from,
     );
   }
@@ -58,7 +58,7 @@ class NotesBloc extends InteractiveBloc implements NotesBlocEvents, NotesBlocSta
   @override
   void createNote({final String title = '', final String category = ''}) {
     wrapAction(
-      () async => client.notes.createNote(
+      () async => account.client.notes.createNote(
         title: title,
         category: category,
       ),
@@ -67,7 +67,7 @@ class NotesBloc extends InteractiveBloc implements NotesBlocEvents, NotesBlocSta
 
   @override
   void deleteNote(final int id) {
-    wrapAction(() async => client.notes.deleteNote(id: id));
+    wrapAction(() async => account.client.notes.deleteNote(id: id));
   }
 
   @override
@@ -80,7 +80,7 @@ class NotesBloc extends InteractiveBloc implements NotesBlocEvents, NotesBlocSta
     final bool? favorite,
   }) {
     wrapAction(
-      () async => client.notes.updateNote(
+      () async => account.client.notes.updateNote(
         id: id,
         title: title,
         category: category,

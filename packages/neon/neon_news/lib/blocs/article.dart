@@ -49,7 +49,7 @@ class NewsArticleBloc extends InteractiveBloc implements NewsArticleBlocEvents, 
   @override
   void markArticleAsRead() {
     _wrapArticleAction(() async {
-      await _newsArticlesBloc.client.news.markArticleAsRead(itemId: _id);
+      await _newsArticlesBloc.account.client.news.markArticleAsRead(itemId: _id);
       unread.add(false);
     });
   }
@@ -57,7 +57,7 @@ class NewsArticleBloc extends InteractiveBloc implements NewsArticleBlocEvents, 
   @override
   void markArticleAsUnread() {
     _wrapArticleAction(() async {
-      await _newsArticlesBloc.client.news.markArticleAsUnread(itemId: _id);
+      await _newsArticlesBloc.account.client.news.markArticleAsUnread(itemId: _id);
       unread.add(true);
     });
   }
@@ -65,7 +65,7 @@ class NewsArticleBloc extends InteractiveBloc implements NewsArticleBlocEvents, 
   @override
   void starArticle() {
     _wrapArticleAction(() async {
-      await _newsArticlesBloc.client.news.starArticle(itemId: _id);
+      await _newsArticlesBloc.account.client.news.starArticle(itemId: _id);
       starred.add(true);
     });
   }
@@ -73,7 +73,7 @@ class NewsArticleBloc extends InteractiveBloc implements NewsArticleBlocEvents, 
   @override
   void unstarArticle() {
     _wrapArticleAction(() async {
-      await _newsArticlesBloc.client.news.unstarArticle(itemId: _id);
+      await _newsArticlesBloc.account.client.news.unstarArticle(itemId: _id);
       starred.add(false);
     });
   }
