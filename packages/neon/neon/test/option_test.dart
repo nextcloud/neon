@@ -37,6 +37,8 @@ void main() {
 
     setUp(() {
       when(() => storage.setString(key, any())).thenAnswer((final _) async {});
+      when(() => storage.remove(key)).thenAnswer((final _) async => true);
+
       option = SelectOption<SelectValues>(
         storage: storage,
         key: key,
@@ -148,7 +150,20 @@ void main() {
       option.reset();
 
       verify(callback.call).called(1);
+      verify(() => storage.remove(key)).called(1);
       expect(option.value, option.defaultValue, reason: 'Should reset the value.');
+    });
+
+    test('Serialize null', () {
+      final option = SelectOption<SelectValues?>(
+        storage: storage,
+        key: key,
+        label: labelBuilder,
+        defaultValue: null,
+        values: valuesLabel,
+      );
+
+      expect(option.serialize(), null, reason: 'Should serialize to null. A string containing "null" is an error');
     });
   });
 
@@ -157,6 +172,8 @@ void main() {
 
     setUp(() {
       when(() => storage.setBool(key, any())).thenAnswer((final _) async {});
+      when(() => storage.remove(key)).thenAnswer((final _) async => true);
+
       option = ToggleOption(
         storage: storage,
         key: key,
@@ -245,6 +262,7 @@ void main() {
       option.reset();
 
       verify(callback.call).called(1);
+      verify(() => storage.remove(key)).called(1);
       expect(option.value, option.defaultValue, reason: 'Should reset the value.');
     });
   });

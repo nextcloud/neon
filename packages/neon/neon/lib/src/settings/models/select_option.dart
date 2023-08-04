@@ -46,15 +46,14 @@ class SelectOption<T> extends Option<T> {
       return stored as T;
     }
 
-    return _fromString(vs, stored);
+    return _deserialize(vs, stored);
   }
 
-  static T? _fromString<T>(final Map<T, LabelBuilder> vs, final String? valueStr) {
-    if (valueStr == null) {
-      return null;
-    }
+  @override
+  void reset() {
+    unawaited(storage.remove(key));
 
-    return vs.keys.firstWhereOrNull((final e) => e.toString() == valueStr);
+    super.reset();
   }
 
   Map<T, LabelBuilder> _values;
@@ -62,7 +61,10 @@ class SelectOption<T> extends Option<T> {
   @override
   set value(final T value) {
     super.value = value;
-    unawaited(storage.setString(key, serialize()));
+
+    if (value != null) {
+      unawaited(storage.setString(key, serialize()!));
+    }
   }
 
   /// A collection of different values this can have.
@@ -80,8 +82,18 @@ class SelectOption<T> extends Option<T> {
   }
 
   @override
-  String serialize() => value.toString();
+  String? serialize() => _serialize(value);
+
+  static String? _serialize<T>(final T value) => value?.toString();
 
   @override
-  T deserialize(final Object data) => _fromString(_values, data as String)!;
+  T? deserialize(final Object? data) => _deserialize(_values, data as String?);
+
+  static T? _deserialize<T>(final Map<T, LabelBuilder> vs, final String? valueStr) {
+    if (valueStr == null) {
+      return null;
+    }
+
+    return vs.keys.firstWhereOrNull((final e) => _serialize(e) == valueStr);
+  }
 }

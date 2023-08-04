@@ -84,10 +84,10 @@ abstract class Option<T> extends ChangeNotifier implements ValueListenable<T> {
   }
 
   /// Deserializes the data.
-  T deserialize(final Object data);
+  T? deserialize(final Object? data);
 
   /// Serializes the [value].
-  Object serialize();
+  Object? serialize();
 
   BehaviorSubject<T>? _stream;
 

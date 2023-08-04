@@ -9,6 +9,8 @@ abstract interface class SettingsStorage {
 
   // ignore: avoid_positional_boolean_parameters
   Future setBool(final String key, final bool value);
+
+  Future<bool> remove(final String key);
 }
 
 class AppStorage implements SettingsStorage {
@@ -24,6 +26,7 @@ class AppStorage implements SettingsStorage {
 
   bool containsKey(final String key) => _sharedPreferences.containsKey(_formatKey(key));
 
+  @override
   Future<bool> remove(final String key) => _sharedPreferences.remove(_formatKey(key));
 
   @override
