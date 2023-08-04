@@ -8,6 +8,7 @@
     },
     "version": "1.4.0"
   },
+  "tags": [],
   "paths": {
     "/index.php/apps/uppush": {
       "get": {

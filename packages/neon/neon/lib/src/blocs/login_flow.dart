@@ -10,9 +10,9 @@ import 'package:rxdart/rxdart.dart';
 abstract class LoginFlowBlocEvents {}
 
 abstract class LoginFlowBlocStates {
-  BehaviorSubject<Result<CoreLoginFlowInit>> get init;
+  BehaviorSubject<Result<CoreLoginFlowV2>> get init;
 
-  Stream<CoreLoginFlowResult> get result;
+  Stream<CoreLoginFlowV2Credentials> get result;
 }
 
 class LoginFlowBloc extends InteractiveBloc implements LoginFlowBlocEvents, LoginFlowBlocStates {
@@ -25,7 +25,7 @@ class LoginFlowBloc extends InteractiveBloc implements LoginFlowBlocEvents, Logi
     serverURL,
     userAgentOverride: neonUserAgent,
   );
-  final _resultController = StreamController<CoreLoginFlowResult>();
+  final _resultController = StreamController<CoreLoginFlowV2Credentials>();
 
   Timer? _pollTimer;
 
@@ -37,23 +37,23 @@ class LoginFlowBloc extends InteractiveBloc implements LoginFlowBlocEvents, Logi
   }
 
   @override
-  BehaviorSubject<Result<CoreLoginFlowInit>> init = BehaviorSubject<Result<CoreLoginFlowInit>>();
+  BehaviorSubject<Result<CoreLoginFlowV2>> init = BehaviorSubject<Result<CoreLoginFlowV2>>();
 
   @override
-  late Stream<CoreLoginFlowResult> result = _resultController.stream.asBroadcastStream();
+  late Stream<CoreLoginFlowV2Credentials> result = _resultController.stream.asBroadcastStream();
 
   @override
   Future refresh() async {
     try {
       init.add(Result.loading());
 
-      final initResponse = await _client.core.initLoginFlow();
+      final initResponse = await _client.core.clientFlowLoginV2.init();
       init.add(Result.success(initResponse));
 
       _cancelPollTimer();
       _pollTimer = Timer.periodic(const Duration(seconds: 1), (final _) async {
         try {
-          final resultResponse = await _client.core.getLoginFlowResult(token: initResponse.poll.token);
+          final resultResponse = await _client.core.clientFlowLoginV2.poll(token: initResponse.poll.token);
           _cancelPollTimer();
           _resultController.add(resultResponse);
         } catch (e, s) {

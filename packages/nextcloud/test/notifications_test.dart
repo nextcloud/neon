@@ -20,7 +20,6 @@ void main() {
       client = await getTestClient(
         container,
         username: 'admin',
-        password: 'admin',
       );
     });
     tearDown(() => container.destroy());
@@ -42,8 +41,8 @@ void main() {
 
       final startTime = DateTime.now().toUtc();
       final response = await client.notifications.listNotifications();
-      expect(response.ocs.data, hasLength(1));
-      expect(response.ocs.data[0].notificationId, 1);
+      expect(response.ocs.data, hasLength(2));
+      expect(response.ocs.data[0].notificationId, 2);
       expect(response.ocs.data[0].app, 'admin_notifications');
       expect(response.ocs.data[0].user, 'admin');
       expectDateInReasonableTimeRange(DateTime.parse(response.ocs.data[0].datetime), startTime);
@@ -64,8 +63,8 @@ void main() {
       await sendTestNotification();
 
       final startTime = DateTime.now().toUtc();
-      final response = await client.notifications.getNotification(id: 1);
-      expect(response.ocs.data.notificationId, 1);
+      final response = await client.notifications.getNotification(id: 2);
+      expect(response.ocs.data.notificationId, 2);
       expect(response.ocs.data.app, 'admin_notifications');
       expect(response.ocs.data.user, 'admin');
       expectDateInReasonableTimeRange(DateTime.parse(response.ocs.data.datetime), startTime);
@@ -84,10 +83,10 @@ void main() {
 
     test('Delete notification', () async {
       await sendTestNotification();
-      await client.notifications.deleteNotification(id: 1);
+      await client.notifications.deleteNotification(id: 2);
 
       final response = await client.notifications.listNotifications();
-      expect(response.ocs.data, hasLength(0));
+      expect(response.ocs.data, hasLength(1));
     });
 
     test('Delete all notifications', () async {
@@ -111,8 +110,6 @@ void main() {
       client = await getTestClient(
         container,
         username: 'admin',
-        // We need to use app passwords in order to register push devices
-        useAppPassword: true,
       );
     });
     tearDown(() => container.destroy());

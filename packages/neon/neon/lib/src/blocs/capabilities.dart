@@ -8,13 +8,10 @@ import 'package:neon/src/utils/request_manager.dart';
 import 'package:nextcloud/nextcloud.dart';
 import 'package:rxdart/rxdart.dart';
 
-typedef Capabilities = CoreServerCapabilities_Ocs_Data;
-typedef NextcloudTheme = CoreServerCapabilities_Ocs_Data_Capabilities_Theming;
-
 abstract class CapabilitiesBlocEvents {}
 
 abstract class CapabilitiesBlocStates {
-  BehaviorSubject<Result<Capabilities>> get capabilities;
+  BehaviorSubject<Result<CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data>> get capabilities;
 }
 
 @internal
@@ -36,15 +33,17 @@ class CapabilitiesBloc extends InteractiveBloc implements CapabilitiesBlocEvents
   }
 
   @override
-  BehaviorSubject<Result<Capabilities>> capabilities = BehaviorSubject<Result<Capabilities>>();
+  BehaviorSubject<Result<CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data>> capabilities =
+      BehaviorSubject<Result<CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data>>();
 
   @override
   Future refresh() async {
-    await _requestManager.wrapNextcloud<CoreServerCapabilities_Ocs_Data, CoreServerCapabilities>(
+    await _requestManager.wrapNextcloud<CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data,
+        CoreOcsGetCapabilitiesResponse200ApplicationJson>(
       _account.id,
       'capabilities',
       capabilities,
-      () async => _account.client.core.getCapabilities(),
+      () async => _account.client.core.ocs.getCapabilities(),
       (final response) => response.ocs.data,
     );
   }

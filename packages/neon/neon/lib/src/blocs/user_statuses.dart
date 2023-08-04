@@ -16,7 +16,7 @@ abstract class UserStatusesBlocEvents {
 }
 
 abstract class UserStatusesBlocStates {
-  BehaviorSubject<Map<String, Result<UserStatusPublicStatus?>>> get statuses;
+  BehaviorSubject<Map<String, Result<UserStatusPublic?>>> get statuses;
 }
 
 @internal
@@ -41,8 +41,8 @@ class UserStatusesBloc extends InteractiveBloc implements UserStatusesBlocEvents
   }
 
   @override
-  BehaviorSubject<Map<String, Result<UserStatusPublicStatus?>>> statuses =
-      BehaviorSubject<Map<String, Result<UserStatusPublicStatus?>>>();
+  BehaviorSubject<Map<String, Result<UserStatusPublic?>>> statuses =
+      BehaviorSubject<Map<String, Result<UserStatusPublic?>>>();
 
   @override
   Future refresh() async {
@@ -60,17 +60,17 @@ class UserStatusesBloc extends InteractiveBloc implements UserStatusesBlocEvents
     try {
       _updateStatus(username, Result.loading());
 
-      UserStatusPublicStatus? data;
+      UserStatusPublic? data;
       if (_account.username == username) {
         final isAway =
             _platform.canUseWindowManager && (!(await windowManager.isFocused()) || !(await windowManager.isVisible()));
-        final response = await _account.client.userStatus.heartbeat(
-          status: isAway ? UserStatusType.away : UserStatusType.online,
+        final response = await _account.client.userStatus.heartbeat.heartbeat(
+          status: isAway ? 'away' : 'online',
         );
-        data = response.ocs.data.status?.publicStatus;
+        data = response.ocs.data.public;
       } else {
-        final response = await _account.client.userStatus.getPublicStatus(userId: username);
-        data = response.ocs.data.publicStatus;
+        final response = await _account.client.userStatus.statuses.find(userId: username);
+        data = response.ocs.data;
       }
 
       _updateStatus(username, Result.success(data));
@@ -85,10 +85,9 @@ class UserStatusesBloc extends InteractiveBloc implements UserStatusesBlocEvents
     }
   }
 
-  Map<String, Result<UserStatusPublicStatus?>> get _statuses =>
-      statuses.valueOrNull ?? <String, Result<UserStatusPublicStatus?>>{};
+  Map<String, Result<UserStatusPublic?>> get _statuses => statuses.valueOrNull ?? <String, Result<UserStatusPublic?>>{};
 
-  void _updateStatus(final String username, final Result<UserStatusPublicStatus?> result) {
+  void _updateStatus(final String username, final Result<UserStatusPublic?> result) {
     statuses.add({
       ..._statuses,
       username: result,

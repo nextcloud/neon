@@ -127,10 +127,10 @@ class NewsArticlesBloc extends InteractiveBloc implements NewsArticlesBlocEvents
 
     await requestManager.wrapNextcloud<List<NewsArticle>, NewsListArticles>(
       account.id,
-      'news-articles-${type.code}-$id-$getRead',
+      'news-articles-${type.index}-$id-$getRead',
       articles,
       () async => account.client.news.listArticles(
-        type: type.code,
+        type: type.index,
         id: id ?? 0,
         getRead: getRead ?? true ? 1 : 0,
       ),

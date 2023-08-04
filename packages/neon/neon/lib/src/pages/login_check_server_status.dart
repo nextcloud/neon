@@ -103,7 +103,7 @@ class _LoginCheckServerStatusPageState extends State<LoginCheckServerStatusPage>
     }
   }
 
-  Widget _buildServerVersionTile(final Result<CoreServerStatus> result) {
+  Widget _buildServerVersionTile(final Result<CoreStatus> result) {
     if (result.hasError) {
       return NeonValidationTile(
         title: AppLocalizations.of(context).loginCheckingServerVersion,
@@ -131,7 +131,7 @@ class _LoginCheckServerStatusPageState extends State<LoginCheckServerStatusPage>
     );
   }
 
-  Widget _buildMaintenanceModeTile(final Result<CoreServerStatus> result) {
+  Widget _buildMaintenanceModeTile(final Result<CoreStatus> result) {
     if (result.hasError) {
       return NeonValidationTile(
         title: AppLocalizations.of(context).loginCheckingMaintenanceMode,

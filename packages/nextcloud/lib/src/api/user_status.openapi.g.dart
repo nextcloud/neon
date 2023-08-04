@@ -26,83 +26,96 @@ final BuiltSet<UserStatusClearAt_Type> _$userStatusClearAtTypeValues =
   _$userStatusClearAtTypeEndOf,
 ]);
 
-const UserStatusClearAt_Time0 _$userStatusClearAtTime0Day = UserStatusClearAt_Time0._('day');
-const UserStatusClearAt_Time0 _$userStatusClearAtTime0Week = UserStatusClearAt_Time0._('week');
+const UserStatusClearAtTimeType _$userStatusClearAtTimeTypeDay = UserStatusClearAtTimeType._('day');
+const UserStatusClearAtTimeType _$userStatusClearAtTimeTypeWeek = UserStatusClearAtTimeType._('week');
 
-UserStatusClearAt_Time0 _$valueOfUserStatusClearAt_Time0(String name) {
+UserStatusClearAtTimeType _$valueOfUserStatusClearAtTimeType(String name) {
   switch (name) {
     case 'day':
-      return _$userStatusClearAtTime0Day;
+      return _$userStatusClearAtTimeTypeDay;
     case 'week':
-      return _$userStatusClearAtTime0Week;
+      return _$userStatusClearAtTimeTypeWeek;
     default:
       throw ArgumentError(name);
   }
 }
 
-final BuiltSet<UserStatusClearAt_Time0> _$userStatusClearAtTime0Values =
-    BuiltSet<UserStatusClearAt_Time0>(const <UserStatusClearAt_Time0>[
-  _$userStatusClearAtTime0Day,
-  _$userStatusClearAtTime0Week,
-]);
-
-const UserStatusType _$userStatusTypeOnline = UserStatusType._('online');
-const UserStatusType _$userStatusTypeOffline = UserStatusType._('offline');
-const UserStatusType _$userStatusTypeDnd = UserStatusType._('dnd');
-const UserStatusType _$userStatusTypeAway = UserStatusType._('away');
-const UserStatusType _$userStatusTypeInvisible = UserStatusType._('invisible');
-
-UserStatusType _$valueOfUserStatusType(String name) {
-  switch (name) {
-    case 'online':
-      return _$userStatusTypeOnline;
-    case 'offline':
-      return _$userStatusTypeOffline;
-    case 'dnd':
-      return _$userStatusTypeDnd;
-    case 'away':
-      return _$userStatusTypeAway;
-    case 'invisible':
-      return _$userStatusTypeInvisible;
-    default:
-      throw ArgumentError(name);
-  }
-}
-
-final BuiltSet<UserStatusType> _$userStatusTypeValues = BuiltSet<UserStatusType>(const <UserStatusType>[
-  _$userStatusTypeOnline,
-  _$userStatusTypeOffline,
-  _$userStatusTypeDnd,
-  _$userStatusTypeAway,
-  _$userStatusTypeInvisible,
+final BuiltSet<UserStatusClearAtTimeType> _$userStatusClearAtTimeTypeValues =
+    BuiltSet<UserStatusClearAtTimeType>(const <UserStatusClearAtTimeType>[
+  _$userStatusClearAtTimeTypeDay,
+  _$userStatusClearAtTimeTypeWeek,
 ]);
 
 Serializer<UserStatusOCSMeta> _$userStatusOCSMetaSerializer = _$UserStatusOCSMetaSerializer();
+Serializer<UserStatusPublic> _$userStatusPublicSerializer = _$UserStatusPublicSerializer();
+Serializer<UserStatusPrivate1> _$userStatusPrivate1Serializer = _$UserStatusPrivate1Serializer();
+Serializer<UserStatusHeartbeatHeartbeatResponse200ApplicationJson_Ocs>
+    _$userStatusHeartbeatHeartbeatResponse200ApplicationJsonOcsSerializer =
+    _$UserStatusHeartbeatHeartbeatResponse200ApplicationJson_OcsSerializer();
+Serializer<UserStatusHeartbeatHeartbeatResponse200ApplicationJson>
+    _$userStatusHeartbeatHeartbeatResponse200ApplicationJsonSerializer =
+    _$UserStatusHeartbeatHeartbeatResponse200ApplicationJsonSerializer();
 Serializer<UserStatusClearAt_Type> _$userStatusClearAtTypeSerializer = _$UserStatusClearAt_TypeSerializer();
-Serializer<UserStatusClearAt_Time0> _$userStatusClearAtTime0Serializer = _$UserStatusClearAt_Time0Serializer();
+Serializer<UserStatusClearAtTimeType> _$userStatusClearAtTimeTypeSerializer = _$UserStatusClearAtTimeTypeSerializer();
 Serializer<UserStatusClearAt> _$userStatusClearAtSerializer = _$UserStatusClearAtSerializer();
-Serializer<UserStatusType> _$userStatusTypeSerializer = _$UserStatusTypeSerializer();
-Serializer<UserStatusPublicStatus> _$userStatusPublicStatusSerializer = _$UserStatusPublicStatusSerializer();
-Serializer<UserStatusGetPublicStatuses_Ocs> _$userStatusGetPublicStatusesOcsSerializer =
-    _$UserStatusGetPublicStatuses_OcsSerializer();
-Serializer<UserStatusGetPublicStatuses> _$userStatusGetPublicStatusesSerializer =
-    _$UserStatusGetPublicStatusesSerializer();
-Serializer<UserStatusGetPublicStatus_Ocs> _$userStatusGetPublicStatusOcsSerializer =
-    _$UserStatusGetPublicStatus_OcsSerializer();
-Serializer<UserStatusGetPublicStatus> _$userStatusGetPublicStatusSerializer = _$UserStatusGetPublicStatusSerializer();
-Serializer<UserStatusStatus1> _$userStatusStatus1Serializer = _$UserStatusStatus1Serializer();
-Serializer<UserStatusGetStatus_Ocs> _$userStatusGetStatusOcsSerializer = _$UserStatusGetStatus_OcsSerializer();
-Serializer<UserStatusGetStatus> _$userStatusGetStatusSerializer = _$UserStatusGetStatusSerializer();
-Serializer<UserStatusPredefinedStatus> _$userStatusPredefinedStatusSerializer =
-    _$UserStatusPredefinedStatusSerializer();
-Serializer<UserStatusPredefinedStatuses_Ocs> _$userStatusPredefinedStatusesOcsSerializer =
-    _$UserStatusPredefinedStatuses_OcsSerializer();
-Serializer<UserStatusPredefinedStatuses> _$userStatusPredefinedStatusesSerializer =
-    _$UserStatusPredefinedStatusesSerializer();
-Serializer<UserStatusHeartbeat_Ocs> _$userStatusHeartbeatOcsSerializer = _$UserStatusHeartbeat_OcsSerializer();
-Serializer<UserStatusHeartbeat> _$userStatusHeartbeatSerializer = _$UserStatusHeartbeatSerializer();
-Serializer<UserStatusEmptyOCS_Ocs> _$userStatusEmptyOCSOcsSerializer = _$UserStatusEmptyOCS_OcsSerializer();
-Serializer<UserStatusEmptyOCS> _$userStatusEmptyOCSSerializer = _$UserStatusEmptyOCSSerializer();
+Serializer<UserStatusPredefined> _$userStatusPredefinedSerializer = _$UserStatusPredefinedSerializer();
+Serializer<UserStatusPredefinedStatusFindAllResponse200ApplicationJson_Ocs>
+    _$userStatusPredefinedStatusFindAllResponse200ApplicationJsonOcsSerializer =
+    _$UserStatusPredefinedStatusFindAllResponse200ApplicationJson_OcsSerializer();
+Serializer<UserStatusPredefinedStatusFindAllResponse200ApplicationJson>
+    _$userStatusPredefinedStatusFindAllResponse200ApplicationJsonSerializer =
+    _$UserStatusPredefinedStatusFindAllResponse200ApplicationJsonSerializer();
+Serializer<UserStatusStatusesFindAllResponse200ApplicationJson_Ocs>
+    _$userStatusStatusesFindAllResponse200ApplicationJsonOcsSerializer =
+    _$UserStatusStatusesFindAllResponse200ApplicationJson_OcsSerializer();
+Serializer<UserStatusStatusesFindAllResponse200ApplicationJson>
+    _$userStatusStatusesFindAllResponse200ApplicationJsonSerializer =
+    _$UserStatusStatusesFindAllResponse200ApplicationJsonSerializer();
+Serializer<UserStatusStatusesFindResponse200ApplicationJson_Ocs>
+    _$userStatusStatusesFindResponse200ApplicationJsonOcsSerializer =
+    _$UserStatusStatusesFindResponse200ApplicationJson_OcsSerializer();
+Serializer<UserStatusStatusesFindResponse200ApplicationJson>
+    _$userStatusStatusesFindResponse200ApplicationJsonSerializer =
+    _$UserStatusStatusesFindResponse200ApplicationJsonSerializer();
+Serializer<UserStatusUserStatusGetStatusResponse200ApplicationJson_Ocs>
+    _$userStatusUserStatusGetStatusResponse200ApplicationJsonOcsSerializer =
+    _$UserStatusUserStatusGetStatusResponse200ApplicationJson_OcsSerializer();
+Serializer<UserStatusUserStatusGetStatusResponse200ApplicationJson>
+    _$userStatusUserStatusGetStatusResponse200ApplicationJsonSerializer =
+    _$UserStatusUserStatusGetStatusResponse200ApplicationJsonSerializer();
+Serializer<UserStatusUserStatusSetStatusResponse200ApplicationJson_Ocs>
+    _$userStatusUserStatusSetStatusResponse200ApplicationJsonOcsSerializer =
+    _$UserStatusUserStatusSetStatusResponse200ApplicationJson_OcsSerializer();
+Serializer<UserStatusUserStatusSetStatusResponse200ApplicationJson>
+    _$userStatusUserStatusSetStatusResponse200ApplicationJsonSerializer =
+    _$UserStatusUserStatusSetStatusResponse200ApplicationJsonSerializer();
+Serializer<UserStatusUserStatusSetPredefinedMessageResponse200ApplicationJson_Ocs>
+    _$userStatusUserStatusSetPredefinedMessageResponse200ApplicationJsonOcsSerializer =
+    _$UserStatusUserStatusSetPredefinedMessageResponse200ApplicationJson_OcsSerializer();
+Serializer<UserStatusUserStatusSetPredefinedMessageResponse200ApplicationJson>
+    _$userStatusUserStatusSetPredefinedMessageResponse200ApplicationJsonSerializer =
+    _$UserStatusUserStatusSetPredefinedMessageResponse200ApplicationJsonSerializer();
+Serializer<UserStatusUserStatusSetCustomMessageResponse200ApplicationJson_Ocs>
+    _$userStatusUserStatusSetCustomMessageResponse200ApplicationJsonOcsSerializer =
+    _$UserStatusUserStatusSetCustomMessageResponse200ApplicationJson_OcsSerializer();
+Serializer<UserStatusUserStatusSetCustomMessageResponse200ApplicationJson>
+    _$userStatusUserStatusSetCustomMessageResponse200ApplicationJsonSerializer =
+    _$UserStatusUserStatusSetCustomMessageResponse200ApplicationJsonSerializer();
+Serializer<UserStatusUserStatusClearMessageResponse200ApplicationJson_Ocs>
+    _$userStatusUserStatusClearMessageResponse200ApplicationJsonOcsSerializer =
+    _$UserStatusUserStatusClearMessageResponse200ApplicationJson_OcsSerializer();
+Serializer<UserStatusUserStatusClearMessageResponse200ApplicationJson>
+    _$userStatusUserStatusClearMessageResponse200ApplicationJsonSerializer =
+    _$UserStatusUserStatusClearMessageResponse200ApplicationJsonSerializer();
+Serializer<UserStatusUserStatusRevertStatusResponse200ApplicationJson_Ocs>
+    _$userStatusUserStatusRevertStatusResponse200ApplicationJsonOcsSerializer =
+    _$UserStatusUserStatusRevertStatusResponse200ApplicationJson_OcsSerializer();
+Serializer<UserStatusUserStatusRevertStatusResponse200ApplicationJson>
+    _$userStatusUserStatusRevertStatusResponse200ApplicationJsonSerializer =
+    _$UserStatusUserStatusRevertStatusResponse200ApplicationJsonSerializer();
+Serializer<UserStatusCapabilities_UserStatus> _$userStatusCapabilitiesUserStatusSerializer =
+    _$UserStatusCapabilities_UserStatusSerializer();
+Serializer<UserStatusCapabilities> _$userStatusCapabilitiesSerializer = _$UserStatusCapabilitiesSerializer();
 
 class _$UserStatusOCSMetaSerializer implements StructuredSerializer<UserStatusOCSMeta> {
   @override
@@ -174,6 +187,225 @@ class _$UserStatusOCSMetaSerializer implements StructuredSerializer<UserStatusOC
   }
 }
 
+class _$UserStatusPublicSerializer implements StructuredSerializer<UserStatusPublic> {
+  @override
+  final Iterable<Type> types = const [UserStatusPublic, _$UserStatusPublic];
+  @override
+  final String wireName = 'UserStatusPublic';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, UserStatusPublic object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'userId',
+      serializers.serialize(object.userId, specifiedType: const FullType(String)),
+      'status',
+      serializers.serialize(object.status, specifiedType: const FullType(String)),
+    ];
+    Object? value;
+    value = object.message;
+    if (value != null) {
+      result
+        ..add('message')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    value = object.icon;
+    if (value != null) {
+      result
+        ..add('icon')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    value = object.clearAt;
+    if (value != null) {
+      result
+        ..add('clearAt')
+        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
+    }
+    return result;
+  }
+
+  @override
+  UserStatusPublic deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = UserStatusPublicBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'userId':
+          result.userId = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'message':
+          result.message = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+        case 'icon':
+          result.icon = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+        case 'clearAt':
+          result.clearAt = serializers.deserialize(value, specifiedType: const FullType(int)) as int?;
+          break;
+        case 'status':
+          result.status = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$UserStatusPrivate1Serializer implements StructuredSerializer<UserStatusPrivate1> {
+  @override
+  final Iterable<Type> types = const [UserStatusPrivate1, _$UserStatusPrivate1];
+  @override
+  final String wireName = 'UserStatusPrivate1';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, UserStatusPrivate1 object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'messageIsPredefined',
+      serializers.serialize(object.messageIsPredefined, specifiedType: const FullType(bool)),
+      'statusIsUserDefined',
+      serializers.serialize(object.statusIsUserDefined, specifiedType: const FullType(bool)),
+    ];
+    Object? value;
+    value = object.messageId;
+    if (value != null) {
+      result
+        ..add('messageId')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    return result;
+  }
+
+  @override
+  UserStatusPrivate1 deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = UserStatusPrivate1Builder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'messageId':
+          result.messageId = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+        case 'messageIsPredefined':
+          result.messageIsPredefined = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+          break;
+        case 'statusIsUserDefined':
+          result.statusIsUserDefined = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$UserStatusHeartbeatHeartbeatResponse200ApplicationJson_OcsSerializer
+    implements StructuredSerializer<UserStatusHeartbeatHeartbeatResponse200ApplicationJson_Ocs> {
+  @override
+  final Iterable<Type> types = const [
+    UserStatusHeartbeatHeartbeatResponse200ApplicationJson_Ocs,
+    _$UserStatusHeartbeatHeartbeatResponse200ApplicationJson_Ocs
+  ];
+  @override
+  final String wireName = 'UserStatusHeartbeatHeartbeatResponse200ApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(
+      Serializers serializers, UserStatusHeartbeatHeartbeatResponse200ApplicationJson_Ocs object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(UserStatusOCSMeta)),
+      'data',
+      serializers.serialize(object.data, specifiedType: const FullType(UserStatusPrivate)),
+    ];
+
+    return result;
+  }
+
+  @override
+  UserStatusHeartbeatHeartbeatResponse200ApplicationJson_Ocs deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = UserStatusHeartbeatHeartbeatResponse200ApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(
+              serializers.deserialize(value, specifiedType: const FullType(UserStatusOCSMeta))! as UserStatusOCSMeta);
+          break;
+        case 'data':
+          result.data.replace(
+              serializers.deserialize(value, specifiedType: const FullType(UserStatusPrivate))! as UserStatusPrivate);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$UserStatusHeartbeatHeartbeatResponse200ApplicationJsonSerializer
+    implements StructuredSerializer<UserStatusHeartbeatHeartbeatResponse200ApplicationJson> {
+  @override
+  final Iterable<Type> types = const [
+    UserStatusHeartbeatHeartbeatResponse200ApplicationJson,
+    _$UserStatusHeartbeatHeartbeatResponse200ApplicationJson
+  ];
+  @override
+  final String wireName = 'UserStatusHeartbeatHeartbeatResponse200ApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, UserStatusHeartbeatHeartbeatResponse200ApplicationJson object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(object.ocs,
+          specifiedType: const FullType(UserStatusHeartbeatHeartbeatResponse200ApplicationJson_Ocs)),
+    ];
+
+    return result;
+  }
+
+  @override
+  UserStatusHeartbeatHeartbeatResponse200ApplicationJson deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = UserStatusHeartbeatHeartbeatResponse200ApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(UserStatusHeartbeatHeartbeatResponse200ApplicationJson_Ocs))!
+              as UserStatusHeartbeatHeartbeatResponse200ApplicationJson_Ocs);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
 class _$UserStatusClearAt_TypeSerializer implements PrimitiveSerializer<UserStatusClearAt_Type> {
   static const Map<String, Object> _toWire = <String, Object>{
     'endOf': 'end-of',
@@ -198,21 +430,21 @@ class _$UserStatusClearAt_TypeSerializer implements PrimitiveSerializer<UserStat
       UserStatusClearAt_Type.valueOf(_fromWire[serialized] ?? (serialized is String ? serialized : ''));
 }
 
-class _$UserStatusClearAt_Time0Serializer implements PrimitiveSerializer<UserStatusClearAt_Time0> {
+class _$UserStatusClearAtTimeTypeSerializer implements PrimitiveSerializer<UserStatusClearAtTimeType> {
   @override
-  final Iterable<Type> types = const <Type>[UserStatusClearAt_Time0];
+  final Iterable<Type> types = const <Type>[UserStatusClearAtTimeType];
   @override
-  final String wireName = 'UserStatusClearAt_Time0';
+  final String wireName = 'UserStatusClearAtTimeType';
 
   @override
-  Object serialize(Serializers serializers, UserStatusClearAt_Time0 object,
+  Object serialize(Serializers serializers, UserStatusClearAtTimeType object,
           {FullType specifiedType = FullType.unspecified}) =>
       object.name;
 
   @override
-  UserStatusClearAt_Time0 deserialize(Serializers serializers, Object serialized,
+  UserStatusClearAtTimeType deserialize(Serializers serializers, Object serialized,
           {FullType specifiedType = FullType.unspecified}) =>
-      UserStatusClearAt_Time0.valueOf(serialized as String);
+      UserStatusClearAtTimeType.valueOf(serialized as String);
 }
 
 class _$UserStatusClearAtSerializer implements StructuredSerializer<UserStatusClearAt> {
@@ -260,407 +492,14 @@ class _$UserStatusClearAtSerializer implements StructuredSerializer<UserStatusCl
   }
 }
 
-class _$UserStatusTypeSerializer implements PrimitiveSerializer<UserStatusType> {
+class _$UserStatusPredefinedSerializer implements StructuredSerializer<UserStatusPredefined> {
   @override
-  final Iterable<Type> types = const <Type>[UserStatusType];
+  final Iterable<Type> types = const [UserStatusPredefined, _$UserStatusPredefined];
   @override
-  final String wireName = 'UserStatusType';
-
-  @override
-  Object serialize(Serializers serializers, UserStatusType object, {FullType specifiedType = FullType.unspecified}) =>
-      object.name;
+  final String wireName = 'UserStatusPredefined';
 
   @override
-  UserStatusType deserialize(Serializers serializers, Object serialized,
-          {FullType specifiedType = FullType.unspecified}) =>
-      UserStatusType.valueOf(serialized as String);
-}
-
-class _$UserStatusPublicStatusSerializer implements StructuredSerializer<UserStatusPublicStatus> {
-  @override
-  final Iterable<Type> types = const [UserStatusPublicStatus, _$UserStatusPublicStatus];
-  @override
-  final String wireName = 'UserStatusPublicStatus';
-
-  @override
-  Iterable<Object?> serialize(Serializers serializers, UserStatusPublicStatus object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[
-      'userId',
-      serializers.serialize(object.userId, specifiedType: const FullType(String)),
-      'status',
-      serializers.serialize(object.status, specifiedType: const FullType(UserStatusType)),
-    ];
-    Object? value;
-    value = object.message;
-    if (value != null) {
-      result
-        ..add('message')
-        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
-    }
-    value = object.icon;
-    if (value != null) {
-      result
-        ..add('icon')
-        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
-    }
-    value = object.clearAt;
-    if (value != null) {
-      result
-        ..add('clearAt')
-        ..add(serializers.serialize(value, specifiedType: const FullType(UserStatusPublicStatus_ClearAt)));
-    }
-    return result;
-  }
-
-  @override
-  UserStatusPublicStatus deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = UserStatusPublicStatusBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final Object? value = iterator.current;
-      switch (key) {
-        case 'userId':
-          result.userId = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
-          break;
-        case 'message':
-          result.message = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
-          break;
-        case 'icon':
-          result.icon = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
-          break;
-        case 'clearAt':
-          result.clearAt.replace(serializers.deserialize(value,
-              specifiedType: const FullType(UserStatusPublicStatus_ClearAt))! as UserStatusPublicStatus_ClearAt);
-          break;
-        case 'status':
-          result.status =
-              serializers.deserialize(value, specifiedType: const FullType(UserStatusType))! as UserStatusType;
-          break;
-      }
-    }
-
-    return result.build();
-  }
-}
-
-class _$UserStatusGetPublicStatuses_OcsSerializer implements StructuredSerializer<UserStatusGetPublicStatuses_Ocs> {
-  @override
-  final Iterable<Type> types = const [UserStatusGetPublicStatuses_Ocs, _$UserStatusGetPublicStatuses_Ocs];
-  @override
-  final String wireName = 'UserStatusGetPublicStatuses_Ocs';
-
-  @override
-  Iterable<Object?> serialize(Serializers serializers, UserStatusGetPublicStatuses_Ocs object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[
-      'meta',
-      serializers.serialize(object.meta, specifiedType: const FullType(UserStatusOCSMeta)),
-      'data',
-      serializers.serialize(object.data, specifiedType: const FullType(BuiltList, [FullType(UserStatusPublicStatus)])),
-    ];
-
-    return result;
-  }
-
-  @override
-  UserStatusGetPublicStatuses_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = UserStatusGetPublicStatuses_OcsBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final Object? value = iterator.current;
-      switch (key) {
-        case 'meta':
-          result.meta.replace(
-              serializers.deserialize(value, specifiedType: const FullType(UserStatusOCSMeta))! as UserStatusOCSMeta);
-          break;
-        case 'data':
-          result.data.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, [FullType(UserStatusPublicStatus)]))! as BuiltList<Object?>);
-          break;
-      }
-    }
-
-    return result.build();
-  }
-}
-
-class _$UserStatusGetPublicStatusesSerializer implements StructuredSerializer<UserStatusGetPublicStatuses> {
-  @override
-  final Iterable<Type> types = const [UserStatusGetPublicStatuses, _$UserStatusGetPublicStatuses];
-  @override
-  final String wireName = 'UserStatusGetPublicStatuses';
-
-  @override
-  Iterable<Object?> serialize(Serializers serializers, UserStatusGetPublicStatuses object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[
-      'ocs',
-      serializers.serialize(object.ocs, specifiedType: const FullType(UserStatusGetPublicStatuses_Ocs)),
-    ];
-
-    return result;
-  }
-
-  @override
-  UserStatusGetPublicStatuses deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = UserStatusGetPublicStatusesBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final Object? value = iterator.current;
-      switch (key) {
-        case 'ocs':
-          result.ocs.replace(serializers.deserialize(value,
-              specifiedType: const FullType(UserStatusGetPublicStatuses_Ocs))! as UserStatusGetPublicStatuses_Ocs);
-          break;
-      }
-    }
-
-    return result.build();
-  }
-}
-
-class _$UserStatusGetPublicStatus_OcsSerializer implements StructuredSerializer<UserStatusGetPublicStatus_Ocs> {
-  @override
-  final Iterable<Type> types = const [UserStatusGetPublicStatus_Ocs, _$UserStatusGetPublicStatus_Ocs];
-  @override
-  final String wireName = 'UserStatusGetPublicStatus_Ocs';
-
-  @override
-  Iterable<Object?> serialize(Serializers serializers, UserStatusGetPublicStatus_Ocs object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[
-      'meta',
-      serializers.serialize(object.meta, specifiedType: const FullType(UserStatusOCSMeta)),
-      'data',
-      serializers.serialize(object.data, specifiedType: const FullType(UserStatusGetPublicStatus_Ocs_Data)),
-    ];
-
-    return result;
-  }
-
-  @override
-  UserStatusGetPublicStatus_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = UserStatusGetPublicStatus_OcsBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final Object? value = iterator.current;
-      switch (key) {
-        case 'meta':
-          result.meta.replace(
-              serializers.deserialize(value, specifiedType: const FullType(UserStatusOCSMeta))! as UserStatusOCSMeta);
-          break;
-        case 'data':
-          result.data.replace(
-              serializers.deserialize(value, specifiedType: const FullType(UserStatusGetPublicStatus_Ocs_Data))!
-                  as UserStatusGetPublicStatus_Ocs_Data);
-          break;
-      }
-    }
-
-    return result.build();
-  }
-}
-
-class _$UserStatusGetPublicStatusSerializer implements StructuredSerializer<UserStatusGetPublicStatus> {
-  @override
-  final Iterable<Type> types = const [UserStatusGetPublicStatus, _$UserStatusGetPublicStatus];
-  @override
-  final String wireName = 'UserStatusGetPublicStatus';
-
-  @override
-  Iterable<Object?> serialize(Serializers serializers, UserStatusGetPublicStatus object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[
-      'ocs',
-      serializers.serialize(object.ocs, specifiedType: const FullType(UserStatusGetPublicStatus_Ocs)),
-    ];
-
-    return result;
-  }
-
-  @override
-  UserStatusGetPublicStatus deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = UserStatusGetPublicStatusBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final Object? value = iterator.current;
-      switch (key) {
-        case 'ocs':
-          result.ocs.replace(serializers.deserialize(value,
-              specifiedType: const FullType(UserStatusGetPublicStatus_Ocs))! as UserStatusGetPublicStatus_Ocs);
-          break;
-      }
-    }
-
-    return result.build();
-  }
-}
-
-class _$UserStatusStatus1Serializer implements StructuredSerializer<UserStatusStatus1> {
-  @override
-  final Iterable<Type> types = const [UserStatusStatus1, _$UserStatusStatus1];
-  @override
-  final String wireName = 'UserStatusStatus1';
-
-  @override
-  Iterable<Object?> serialize(Serializers serializers, UserStatusStatus1 object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[
-      'messageIsPredefined',
-      serializers.serialize(object.messageIsPredefined, specifiedType: const FullType(bool)),
-      'statusIsUserDefined',
-      serializers.serialize(object.statusIsUserDefined, specifiedType: const FullType(bool)),
-    ];
-    Object? value;
-    value = object.messageId;
-    if (value != null) {
-      result
-        ..add('messageId')
-        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
-    }
-    return result;
-  }
-
-  @override
-  UserStatusStatus1 deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = UserStatusStatus1Builder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final Object? value = iterator.current;
-      switch (key) {
-        case 'messageId':
-          result.messageId = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
-          break;
-        case 'messageIsPredefined':
-          result.messageIsPredefined = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
-          break;
-        case 'statusIsUserDefined':
-          result.statusIsUserDefined = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
-          break;
-      }
-    }
-
-    return result.build();
-  }
-}
-
-class _$UserStatusGetStatus_OcsSerializer implements StructuredSerializer<UserStatusGetStatus_Ocs> {
-  @override
-  final Iterable<Type> types = const [UserStatusGetStatus_Ocs, _$UserStatusGetStatus_Ocs];
-  @override
-  final String wireName = 'UserStatusGetStatus_Ocs';
-
-  @override
-  Iterable<Object?> serialize(Serializers serializers, UserStatusGetStatus_Ocs object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[
-      'meta',
-      serializers.serialize(object.meta, specifiedType: const FullType(UserStatusOCSMeta)),
-      'data',
-      serializers.serialize(object.data, specifiedType: const FullType(UserStatusGetStatus_Ocs_Data)),
-    ];
-
-    return result;
-  }
-
-  @override
-  UserStatusGetStatus_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = UserStatusGetStatus_OcsBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final Object? value = iterator.current;
-      switch (key) {
-        case 'meta':
-          result.meta.replace(
-              serializers.deserialize(value, specifiedType: const FullType(UserStatusOCSMeta))! as UserStatusOCSMeta);
-          break;
-        case 'data':
-          result.data.replace(serializers.deserialize(value,
-              specifiedType: const FullType(UserStatusGetStatus_Ocs_Data))! as UserStatusGetStatus_Ocs_Data);
-          break;
-      }
-    }
-
-    return result.build();
-  }
-}
-
-class _$UserStatusGetStatusSerializer implements StructuredSerializer<UserStatusGetStatus> {
-  @override
-  final Iterable<Type> types = const [UserStatusGetStatus, _$UserStatusGetStatus];
-  @override
-  final String wireName = 'UserStatusGetStatus';
-
-  @override
-  Iterable<Object?> serialize(Serializers serializers, UserStatusGetStatus object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[
-      'ocs',
-      serializers.serialize(object.ocs, specifiedType: const FullType(UserStatusGetStatus_Ocs)),
-    ];
-
-    return result;
-  }
-
-  @override
-  UserStatusGetStatus deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = UserStatusGetStatusBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final Object? value = iterator.current;
-      switch (key) {
-        case 'ocs':
-          result.ocs.replace(serializers.deserialize(value, specifiedType: const FullType(UserStatusGetStatus_Ocs))!
-              as UserStatusGetStatus_Ocs);
-          break;
-      }
-    }
-
-    return result.build();
-  }
-}
-
-class _$UserStatusPredefinedStatusSerializer implements StructuredSerializer<UserStatusPredefinedStatus> {
-  @override
-  final Iterable<Type> types = const [UserStatusPredefinedStatus, _$UserStatusPredefinedStatus];
-  @override
-  final String wireName = 'UserStatusPredefinedStatus';
-
-  @override
-  Iterable<Object?> serialize(Serializers serializers, UserStatusPredefinedStatus object,
+  Iterable<Object?> serialize(Serializers serializers, UserStatusPredefined object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'id',
@@ -675,15 +514,21 @@ class _$UserStatusPredefinedStatusSerializer implements StructuredSerializer<Use
     if (value != null) {
       result
         ..add('clearAt')
-        ..add(serializers.serialize(value, specifiedType: const FullType(UserStatusPredefinedStatus_ClearAt)));
+        ..add(serializers.serialize(value, specifiedType: const FullType(UserStatusClearAt)));
+    }
+    value = object.visible;
+    if (value != null) {
+      result
+        ..add('visible')
+        ..add(serializers.serialize(value, specifiedType: const FullType(bool)));
     }
     return result;
   }
 
   @override
-  UserStatusPredefinedStatus deserialize(Serializers serializers, Iterable<Object?> serialized,
+  UserStatusPredefined deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = UserStatusPredefinedStatusBuilder();
+    final result = UserStatusPredefinedBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -702,8 +547,10 @@ class _$UserStatusPredefinedStatusSerializer implements StructuredSerializer<Use
           break;
         case 'clearAt':
           result.clearAt.replace(
-              serializers.deserialize(value, specifiedType: const FullType(UserStatusPredefinedStatus_ClearAt))!
-                  as UserStatusPredefinedStatus_ClearAt);
+              serializers.deserialize(value, specifiedType: const FullType(UserStatusClearAt))! as UserStatusClearAt);
+          break;
+        case 'visible':
+          result.visible = serializers.deserialize(value, specifiedType: const FullType(bool)) as bool?;
           break;
       }
     }
@@ -712,30 +559,35 @@ class _$UserStatusPredefinedStatusSerializer implements StructuredSerializer<Use
   }
 }
 
-class _$UserStatusPredefinedStatuses_OcsSerializer implements StructuredSerializer<UserStatusPredefinedStatuses_Ocs> {
+class _$UserStatusPredefinedStatusFindAllResponse200ApplicationJson_OcsSerializer
+    implements StructuredSerializer<UserStatusPredefinedStatusFindAllResponse200ApplicationJson_Ocs> {
   @override
-  final Iterable<Type> types = const [UserStatusPredefinedStatuses_Ocs, _$UserStatusPredefinedStatuses_Ocs];
+  final Iterable<Type> types = const [
+    UserStatusPredefinedStatusFindAllResponse200ApplicationJson_Ocs,
+    _$UserStatusPredefinedStatusFindAllResponse200ApplicationJson_Ocs
+  ];
   @override
-  final String wireName = 'UserStatusPredefinedStatuses_Ocs';
+  final String wireName = 'UserStatusPredefinedStatusFindAllResponse200ApplicationJson_Ocs';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, UserStatusPredefinedStatuses_Ocs object,
+  Iterable<Object?> serialize(
+      Serializers serializers, UserStatusPredefinedStatusFindAllResponse200ApplicationJson_Ocs object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'meta',
       serializers.serialize(object.meta, specifiedType: const FullType(UserStatusOCSMeta)),
       'data',
-      serializers.serialize(object.data,
-          specifiedType: const FullType(BuiltList, [FullType(UserStatusPredefinedStatus)])),
+      serializers.serialize(object.data, specifiedType: const FullType(BuiltList, [FullType(UserStatusPredefined)])),
     ];
 
     return result;
   }
 
   @override
-  UserStatusPredefinedStatuses_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
+  UserStatusPredefinedStatusFindAllResponse200ApplicationJson_Ocs deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = UserStatusPredefinedStatuses_OcsBuilder();
+    final result = UserStatusPredefinedStatusFindAllResponse200ApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -749,7 +601,7 @@ class _$UserStatusPredefinedStatuses_OcsSerializer implements StructuredSerializ
           break;
         case 'data':
           result.data.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, [FullType(UserStatusPredefinedStatus)]))! as BuiltList<Object?>);
+              specifiedType: const FullType(BuiltList, [FullType(UserStatusPredefined)]))! as BuiltList<Object?>);
           break;
       }
     }
@@ -758,27 +610,34 @@ class _$UserStatusPredefinedStatuses_OcsSerializer implements StructuredSerializ
   }
 }
 
-class _$UserStatusPredefinedStatusesSerializer implements StructuredSerializer<UserStatusPredefinedStatuses> {
+class _$UserStatusPredefinedStatusFindAllResponse200ApplicationJsonSerializer
+    implements StructuredSerializer<UserStatusPredefinedStatusFindAllResponse200ApplicationJson> {
   @override
-  final Iterable<Type> types = const [UserStatusPredefinedStatuses, _$UserStatusPredefinedStatuses];
+  final Iterable<Type> types = const [
+    UserStatusPredefinedStatusFindAllResponse200ApplicationJson,
+    _$UserStatusPredefinedStatusFindAllResponse200ApplicationJson
+  ];
   @override
-  final String wireName = 'UserStatusPredefinedStatuses';
+  final String wireName = 'UserStatusPredefinedStatusFindAllResponse200ApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, UserStatusPredefinedStatuses object,
+  Iterable<Object?> serialize(
+      Serializers serializers, UserStatusPredefinedStatusFindAllResponse200ApplicationJson object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'ocs',
-      serializers.serialize(object.ocs, specifiedType: const FullType(UserStatusPredefinedStatuses_Ocs)),
+      serializers.serialize(object.ocs,
+          specifiedType: const FullType(UserStatusPredefinedStatusFindAllResponse200ApplicationJson_Ocs)),
     ];
 
     return result;
   }
 
   @override
-  UserStatusPredefinedStatuses deserialize(Serializers serializers, Iterable<Object?> serialized,
+  UserStatusPredefinedStatusFindAllResponse200ApplicationJson deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = UserStatusPredefinedStatusesBuilder();
+    final result = UserStatusPredefinedStatusFindAllResponse200ApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -788,7 +647,8 @@ class _$UserStatusPredefinedStatusesSerializer implements StructuredSerializer<U
       switch (key) {
         case 'ocs':
           result.ocs.replace(serializers.deserialize(value,
-              specifiedType: const FullType(UserStatusPredefinedStatuses_Ocs))! as UserStatusPredefinedStatuses_Ocs);
+                  specifiedType: const FullType(UserStatusPredefinedStatusFindAllResponse200ApplicationJson_Ocs))!
+              as UserStatusPredefinedStatusFindAllResponse200ApplicationJson_Ocs);
           break;
       }
     }
@@ -797,29 +657,34 @@ class _$UserStatusPredefinedStatusesSerializer implements StructuredSerializer<U
   }
 }
 
-class _$UserStatusHeartbeat_OcsSerializer implements StructuredSerializer<UserStatusHeartbeat_Ocs> {
+class _$UserStatusStatusesFindAllResponse200ApplicationJson_OcsSerializer
+    implements StructuredSerializer<UserStatusStatusesFindAllResponse200ApplicationJson_Ocs> {
   @override
-  final Iterable<Type> types = const [UserStatusHeartbeat_Ocs, _$UserStatusHeartbeat_Ocs];
+  final Iterable<Type> types = const [
+    UserStatusStatusesFindAllResponse200ApplicationJson_Ocs,
+    _$UserStatusStatusesFindAllResponse200ApplicationJson_Ocs
+  ];
   @override
-  final String wireName = 'UserStatusHeartbeat_Ocs';
+  final String wireName = 'UserStatusStatusesFindAllResponse200ApplicationJson_Ocs';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, UserStatusHeartbeat_Ocs object,
+  Iterable<Object?> serialize(Serializers serializers, UserStatusStatusesFindAllResponse200ApplicationJson_Ocs object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'meta',
       serializers.serialize(object.meta, specifiedType: const FullType(UserStatusOCSMeta)),
       'data',
-      serializers.serialize(object.data, specifiedType: const FullType(UserStatusHeartbeat_Ocs_Data)),
+      serializers.serialize(object.data, specifiedType: const FullType(BuiltList, [FullType(UserStatusPublic)])),
     ];
 
     return result;
   }
 
   @override
-  UserStatusHeartbeat_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
+  UserStatusStatusesFindAllResponse200ApplicationJson_Ocs deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = UserStatusHeartbeat_OcsBuilder();
+    final result = UserStatusStatusesFindAllResponse200ApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -833,7 +698,7 @@ class _$UserStatusHeartbeat_OcsSerializer implements StructuredSerializer<UserSt
           break;
         case 'data':
           result.data.replace(serializers.deserialize(value,
-              specifiedType: const FullType(UserStatusHeartbeat_Ocs_Data))! as UserStatusHeartbeat_Ocs_Data);
+              specifiedType: const FullType(BuiltList, [FullType(UserStatusPublic)]))! as BuiltList<Object?>);
           break;
       }
     }
@@ -842,27 +707,32 @@ class _$UserStatusHeartbeat_OcsSerializer implements StructuredSerializer<UserSt
   }
 }
 
-class _$UserStatusHeartbeatSerializer implements StructuredSerializer<UserStatusHeartbeat> {
+class _$UserStatusStatusesFindAllResponse200ApplicationJsonSerializer
+    implements StructuredSerializer<UserStatusStatusesFindAllResponse200ApplicationJson> {
   @override
-  final Iterable<Type> types = const [UserStatusHeartbeat, _$UserStatusHeartbeat];
+  final Iterable<Type> types = const [
+    UserStatusStatusesFindAllResponse200ApplicationJson,
+    _$UserStatusStatusesFindAllResponse200ApplicationJson
+  ];
   @override
-  final String wireName = 'UserStatusHeartbeat';
+  final String wireName = 'UserStatusStatusesFindAllResponse200ApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, UserStatusHeartbeat object,
+  Iterable<Object?> serialize(Serializers serializers, UserStatusStatusesFindAllResponse200ApplicationJson object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'ocs',
-      serializers.serialize(object.ocs, specifiedType: const FullType(UserStatusHeartbeat_Ocs)),
+      serializers.serialize(object.ocs,
+          specifiedType: const FullType(UserStatusStatusesFindAllResponse200ApplicationJson_Ocs)),
     ];
 
     return result;
   }
 
   @override
-  UserStatusHeartbeat deserialize(Serializers serializers, Iterable<Object?> serialized,
+  UserStatusStatusesFindAllResponse200ApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = UserStatusHeartbeatBuilder();
+    final result = UserStatusStatusesFindAllResponse200ApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -871,8 +741,9 @@ class _$UserStatusHeartbeatSerializer implements StructuredSerializer<UserStatus
       final Object? value = iterator.current;
       switch (key) {
         case 'ocs':
-          result.ocs.replace(serializers.deserialize(value, specifiedType: const FullType(UserStatusHeartbeat_Ocs))!
-              as UserStatusHeartbeat_Ocs);
+          result.ocs.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(UserStatusStatusesFindAllResponse200ApplicationJson_Ocs))!
+              as UserStatusStatusesFindAllResponse200ApplicationJson_Ocs);
           break;
       }
     }
@@ -881,29 +752,619 @@ class _$UserStatusHeartbeatSerializer implements StructuredSerializer<UserStatus
   }
 }
 
-class _$UserStatusEmptyOCS_OcsSerializer implements StructuredSerializer<UserStatusEmptyOCS_Ocs> {
+class _$UserStatusStatusesFindResponse200ApplicationJson_OcsSerializer
+    implements StructuredSerializer<UserStatusStatusesFindResponse200ApplicationJson_Ocs> {
   @override
-  final Iterable<Type> types = const [UserStatusEmptyOCS_Ocs, _$UserStatusEmptyOCS_Ocs];
+  final Iterable<Type> types = const [
+    UserStatusStatusesFindResponse200ApplicationJson_Ocs,
+    _$UserStatusStatusesFindResponse200ApplicationJson_Ocs
+  ];
   @override
-  final String wireName = 'UserStatusEmptyOCS_Ocs';
+  final String wireName = 'UserStatusStatusesFindResponse200ApplicationJson_Ocs';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, UserStatusEmptyOCS_Ocs object,
+  Iterable<Object?> serialize(Serializers serializers, UserStatusStatusesFindResponse200ApplicationJson_Ocs object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'meta',
       serializers.serialize(object.meta, specifiedType: const FullType(UserStatusOCSMeta)),
       'data',
-      serializers.serialize(object.data, specifiedType: const FullType(BuiltList, [FullType(JsonObject)])),
+      serializers.serialize(object.data, specifiedType: const FullType(UserStatusPublic)),
     ];
 
     return result;
   }
 
   @override
-  UserStatusEmptyOCS_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
+  UserStatusStatusesFindResponse200ApplicationJson_Ocs deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = UserStatusEmptyOCS_OcsBuilder();
+    final result = UserStatusStatusesFindResponse200ApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(
+              serializers.deserialize(value, specifiedType: const FullType(UserStatusOCSMeta))! as UserStatusOCSMeta);
+          break;
+        case 'data':
+          result.data.replace(
+              serializers.deserialize(value, specifiedType: const FullType(UserStatusPublic))! as UserStatusPublic);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$UserStatusStatusesFindResponse200ApplicationJsonSerializer
+    implements StructuredSerializer<UserStatusStatusesFindResponse200ApplicationJson> {
+  @override
+  final Iterable<Type> types = const [
+    UserStatusStatusesFindResponse200ApplicationJson,
+    _$UserStatusStatusesFindResponse200ApplicationJson
+  ];
+  @override
+  final String wireName = 'UserStatusStatusesFindResponse200ApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, UserStatusStatusesFindResponse200ApplicationJson object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(object.ocs,
+          specifiedType: const FullType(UserStatusStatusesFindResponse200ApplicationJson_Ocs)),
+    ];
+
+    return result;
+  }
+
+  @override
+  UserStatusStatusesFindResponse200ApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = UserStatusStatusesFindResponse200ApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(UserStatusStatusesFindResponse200ApplicationJson_Ocs))!
+              as UserStatusStatusesFindResponse200ApplicationJson_Ocs);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$UserStatusUserStatusGetStatusResponse200ApplicationJson_OcsSerializer
+    implements StructuredSerializer<UserStatusUserStatusGetStatusResponse200ApplicationJson_Ocs> {
+  @override
+  final Iterable<Type> types = const [
+    UserStatusUserStatusGetStatusResponse200ApplicationJson_Ocs,
+    _$UserStatusUserStatusGetStatusResponse200ApplicationJson_Ocs
+  ];
+  @override
+  final String wireName = 'UserStatusUserStatusGetStatusResponse200ApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(
+      Serializers serializers, UserStatusUserStatusGetStatusResponse200ApplicationJson_Ocs object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(UserStatusOCSMeta)),
+      'data',
+      serializers.serialize(object.data, specifiedType: const FullType(UserStatusPrivate)),
+    ];
+
+    return result;
+  }
+
+  @override
+  UserStatusUserStatusGetStatusResponse200ApplicationJson_Ocs deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = UserStatusUserStatusGetStatusResponse200ApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(
+              serializers.deserialize(value, specifiedType: const FullType(UserStatusOCSMeta))! as UserStatusOCSMeta);
+          break;
+        case 'data':
+          result.data.replace(
+              serializers.deserialize(value, specifiedType: const FullType(UserStatusPrivate))! as UserStatusPrivate);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$UserStatusUserStatusGetStatusResponse200ApplicationJsonSerializer
+    implements StructuredSerializer<UserStatusUserStatusGetStatusResponse200ApplicationJson> {
+  @override
+  final Iterable<Type> types = const [
+    UserStatusUserStatusGetStatusResponse200ApplicationJson,
+    _$UserStatusUserStatusGetStatusResponse200ApplicationJson
+  ];
+  @override
+  final String wireName = 'UserStatusUserStatusGetStatusResponse200ApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, UserStatusUserStatusGetStatusResponse200ApplicationJson object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(object.ocs,
+          specifiedType: const FullType(UserStatusUserStatusGetStatusResponse200ApplicationJson_Ocs)),
+    ];
+
+    return result;
+  }
+
+  @override
+  UserStatusUserStatusGetStatusResponse200ApplicationJson deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = UserStatusUserStatusGetStatusResponse200ApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(UserStatusUserStatusGetStatusResponse200ApplicationJson_Ocs))!
+              as UserStatusUserStatusGetStatusResponse200ApplicationJson_Ocs);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$UserStatusUserStatusSetStatusResponse200ApplicationJson_OcsSerializer
+    implements StructuredSerializer<UserStatusUserStatusSetStatusResponse200ApplicationJson_Ocs> {
+  @override
+  final Iterable<Type> types = const [
+    UserStatusUserStatusSetStatusResponse200ApplicationJson_Ocs,
+    _$UserStatusUserStatusSetStatusResponse200ApplicationJson_Ocs
+  ];
+  @override
+  final String wireName = 'UserStatusUserStatusSetStatusResponse200ApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(
+      Serializers serializers, UserStatusUserStatusSetStatusResponse200ApplicationJson_Ocs object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(UserStatusOCSMeta)),
+      'data',
+      serializers.serialize(object.data, specifiedType: const FullType(UserStatusPrivate)),
+    ];
+
+    return result;
+  }
+
+  @override
+  UserStatusUserStatusSetStatusResponse200ApplicationJson_Ocs deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = UserStatusUserStatusSetStatusResponse200ApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(
+              serializers.deserialize(value, specifiedType: const FullType(UserStatusOCSMeta))! as UserStatusOCSMeta);
+          break;
+        case 'data':
+          result.data.replace(
+              serializers.deserialize(value, specifiedType: const FullType(UserStatusPrivate))! as UserStatusPrivate);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$UserStatusUserStatusSetStatusResponse200ApplicationJsonSerializer
+    implements StructuredSerializer<UserStatusUserStatusSetStatusResponse200ApplicationJson> {
+  @override
+  final Iterable<Type> types = const [
+    UserStatusUserStatusSetStatusResponse200ApplicationJson,
+    _$UserStatusUserStatusSetStatusResponse200ApplicationJson
+  ];
+  @override
+  final String wireName = 'UserStatusUserStatusSetStatusResponse200ApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, UserStatusUserStatusSetStatusResponse200ApplicationJson object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(object.ocs,
+          specifiedType: const FullType(UserStatusUserStatusSetStatusResponse200ApplicationJson_Ocs)),
+    ];
+
+    return result;
+  }
+
+  @override
+  UserStatusUserStatusSetStatusResponse200ApplicationJson deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = UserStatusUserStatusSetStatusResponse200ApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(UserStatusUserStatusSetStatusResponse200ApplicationJson_Ocs))!
+              as UserStatusUserStatusSetStatusResponse200ApplicationJson_Ocs);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$UserStatusUserStatusSetPredefinedMessageResponse200ApplicationJson_OcsSerializer
+    implements StructuredSerializer<UserStatusUserStatusSetPredefinedMessageResponse200ApplicationJson_Ocs> {
+  @override
+  final Iterable<Type> types = const [
+    UserStatusUserStatusSetPredefinedMessageResponse200ApplicationJson_Ocs,
+    _$UserStatusUserStatusSetPredefinedMessageResponse200ApplicationJson_Ocs
+  ];
+  @override
+  final String wireName = 'UserStatusUserStatusSetPredefinedMessageResponse200ApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(
+      Serializers serializers, UserStatusUserStatusSetPredefinedMessageResponse200ApplicationJson_Ocs object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(UserStatusOCSMeta)),
+      'data',
+      serializers.serialize(object.data, specifiedType: const FullType(UserStatusPrivate)),
+    ];
+
+    return result;
+  }
+
+  @override
+  UserStatusUserStatusSetPredefinedMessageResponse200ApplicationJson_Ocs deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = UserStatusUserStatusSetPredefinedMessageResponse200ApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(
+              serializers.deserialize(value, specifiedType: const FullType(UserStatusOCSMeta))! as UserStatusOCSMeta);
+          break;
+        case 'data':
+          result.data.replace(
+              serializers.deserialize(value, specifiedType: const FullType(UserStatusPrivate))! as UserStatusPrivate);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$UserStatusUserStatusSetPredefinedMessageResponse200ApplicationJsonSerializer
+    implements StructuredSerializer<UserStatusUserStatusSetPredefinedMessageResponse200ApplicationJson> {
+  @override
+  final Iterable<Type> types = const [
+    UserStatusUserStatusSetPredefinedMessageResponse200ApplicationJson,
+    _$UserStatusUserStatusSetPredefinedMessageResponse200ApplicationJson
+  ];
+  @override
+  final String wireName = 'UserStatusUserStatusSetPredefinedMessageResponse200ApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(
+      Serializers serializers, UserStatusUserStatusSetPredefinedMessageResponse200ApplicationJson object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(object.ocs,
+          specifiedType: const FullType(UserStatusUserStatusSetPredefinedMessageResponse200ApplicationJson_Ocs)),
+    ];
+
+    return result;
+  }
+
+  @override
+  UserStatusUserStatusSetPredefinedMessageResponse200ApplicationJson deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = UserStatusUserStatusSetPredefinedMessageResponse200ApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(serializers.deserialize(value,
+                  specifiedType:
+                      const FullType(UserStatusUserStatusSetPredefinedMessageResponse200ApplicationJson_Ocs))!
+              as UserStatusUserStatusSetPredefinedMessageResponse200ApplicationJson_Ocs);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$UserStatusUserStatusSetCustomMessageResponse200ApplicationJson_OcsSerializer
+    implements StructuredSerializer<UserStatusUserStatusSetCustomMessageResponse200ApplicationJson_Ocs> {
+  @override
+  final Iterable<Type> types = const [
+    UserStatusUserStatusSetCustomMessageResponse200ApplicationJson_Ocs,
+    _$UserStatusUserStatusSetCustomMessageResponse200ApplicationJson_Ocs
+  ];
+  @override
+  final String wireName = 'UserStatusUserStatusSetCustomMessageResponse200ApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(
+      Serializers serializers, UserStatusUserStatusSetCustomMessageResponse200ApplicationJson_Ocs object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(UserStatusOCSMeta)),
+      'data',
+      serializers.serialize(object.data, specifiedType: const FullType(UserStatusPrivate)),
+    ];
+
+    return result;
+  }
+
+  @override
+  UserStatusUserStatusSetCustomMessageResponse200ApplicationJson_Ocs deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = UserStatusUserStatusSetCustomMessageResponse200ApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(
+              serializers.deserialize(value, specifiedType: const FullType(UserStatusOCSMeta))! as UserStatusOCSMeta);
+          break;
+        case 'data':
+          result.data.replace(
+              serializers.deserialize(value, specifiedType: const FullType(UserStatusPrivate))! as UserStatusPrivate);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$UserStatusUserStatusSetCustomMessageResponse200ApplicationJsonSerializer
+    implements StructuredSerializer<UserStatusUserStatusSetCustomMessageResponse200ApplicationJson> {
+  @override
+  final Iterable<Type> types = const [
+    UserStatusUserStatusSetCustomMessageResponse200ApplicationJson,
+    _$UserStatusUserStatusSetCustomMessageResponse200ApplicationJson
+  ];
+  @override
+  final String wireName = 'UserStatusUserStatusSetCustomMessageResponse200ApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(
+      Serializers serializers, UserStatusUserStatusSetCustomMessageResponse200ApplicationJson object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(object.ocs,
+          specifiedType: const FullType(UserStatusUserStatusSetCustomMessageResponse200ApplicationJson_Ocs)),
+    ];
+
+    return result;
+  }
+
+  @override
+  UserStatusUserStatusSetCustomMessageResponse200ApplicationJson deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = UserStatusUserStatusSetCustomMessageResponse200ApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(UserStatusUserStatusSetCustomMessageResponse200ApplicationJson_Ocs))!
+              as UserStatusUserStatusSetCustomMessageResponse200ApplicationJson_Ocs);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$UserStatusUserStatusClearMessageResponse200ApplicationJson_OcsSerializer
+    implements StructuredSerializer<UserStatusUserStatusClearMessageResponse200ApplicationJson_Ocs> {
+  @override
+  final Iterable<Type> types = const [
+    UserStatusUserStatusClearMessageResponse200ApplicationJson_Ocs,
+    _$UserStatusUserStatusClearMessageResponse200ApplicationJson_Ocs
+  ];
+  @override
+  final String wireName = 'UserStatusUserStatusClearMessageResponse200ApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(
+      Serializers serializers, UserStatusUserStatusClearMessageResponse200ApplicationJson_Ocs object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(UserStatusOCSMeta)),
+      'data',
+      serializers.serialize(object.data, specifiedType: const FullType(JsonObject)),
+    ];
+
+    return result;
+  }
+
+  @override
+  UserStatusUserStatusClearMessageResponse200ApplicationJson_Ocs deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = UserStatusUserStatusClearMessageResponse200ApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(
+              serializers.deserialize(value, specifiedType: const FullType(UserStatusOCSMeta))! as UserStatusOCSMeta);
+          break;
+        case 'data':
+          result.data = serializers.deserialize(value, specifiedType: const FullType(JsonObject))! as JsonObject;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$UserStatusUserStatusClearMessageResponse200ApplicationJsonSerializer
+    implements StructuredSerializer<UserStatusUserStatusClearMessageResponse200ApplicationJson> {
+  @override
+  final Iterable<Type> types = const [
+    UserStatusUserStatusClearMessageResponse200ApplicationJson,
+    _$UserStatusUserStatusClearMessageResponse200ApplicationJson
+  ];
+  @override
+  final String wireName = 'UserStatusUserStatusClearMessageResponse200ApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(
+      Serializers serializers, UserStatusUserStatusClearMessageResponse200ApplicationJson object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(object.ocs,
+          specifiedType: const FullType(UserStatusUserStatusClearMessageResponse200ApplicationJson_Ocs)),
+    ];
+
+    return result;
+  }
+
+  @override
+  UserStatusUserStatusClearMessageResponse200ApplicationJson deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = UserStatusUserStatusClearMessageResponse200ApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(UserStatusUserStatusClearMessageResponse200ApplicationJson_Ocs))!
+              as UserStatusUserStatusClearMessageResponse200ApplicationJson_Ocs);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$UserStatusUserStatusRevertStatusResponse200ApplicationJson_OcsSerializer
+    implements StructuredSerializer<UserStatusUserStatusRevertStatusResponse200ApplicationJson_Ocs> {
+  @override
+  final Iterable<Type> types = const [
+    UserStatusUserStatusRevertStatusResponse200ApplicationJson_Ocs,
+    _$UserStatusUserStatusRevertStatusResponse200ApplicationJson_Ocs
+  ];
+  @override
+  final String wireName = 'UserStatusUserStatusRevertStatusResponse200ApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(
+      Serializers serializers, UserStatusUserStatusRevertStatusResponse200ApplicationJson_Ocs object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(UserStatusOCSMeta)),
+      'data',
+      serializers.serialize(object.data,
+          specifiedType: const FullType(UserStatusUserStatusRevertStatusResponse200ApplicationJson_Ocs_Data)),
+    ];
+
+    return result;
+  }
+
+  @override
+  UserStatusUserStatusRevertStatusResponse200ApplicationJson_Ocs deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = UserStatusUserStatusRevertStatusResponse200ApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -917,7 +1378,8 @@ class _$UserStatusEmptyOCS_OcsSerializer implements StructuredSerializer<UserSta
           break;
         case 'data':
           result.data.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, [FullType(JsonObject)]))! as BuiltList<Object?>);
+                  specifiedType: const FullType(UserStatusUserStatusRevertStatusResponse200ApplicationJson_Ocs_Data))!
+              as UserStatusUserStatusRevertStatusResponse200ApplicationJson_Ocs_Data);
           break;
       }
     }
@@ -926,27 +1388,34 @@ class _$UserStatusEmptyOCS_OcsSerializer implements StructuredSerializer<UserSta
   }
 }
 
-class _$UserStatusEmptyOCSSerializer implements StructuredSerializer<UserStatusEmptyOCS> {
+class _$UserStatusUserStatusRevertStatusResponse200ApplicationJsonSerializer
+    implements StructuredSerializer<UserStatusUserStatusRevertStatusResponse200ApplicationJson> {
   @override
-  final Iterable<Type> types = const [UserStatusEmptyOCS, _$UserStatusEmptyOCS];
+  final Iterable<Type> types = const [
+    UserStatusUserStatusRevertStatusResponse200ApplicationJson,
+    _$UserStatusUserStatusRevertStatusResponse200ApplicationJson
+  ];
   @override
-  final String wireName = 'UserStatusEmptyOCS';
+  final String wireName = 'UserStatusUserStatusRevertStatusResponse200ApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, UserStatusEmptyOCS object,
+  Iterable<Object?> serialize(
+      Serializers serializers, UserStatusUserStatusRevertStatusResponse200ApplicationJson object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'ocs',
-      serializers.serialize(object.ocs, specifiedType: const FullType(UserStatusEmptyOCS_Ocs)),
+      serializers.serialize(object.ocs,
+          specifiedType: const FullType(UserStatusUserStatusRevertStatusResponse200ApplicationJson_Ocs)),
     ];
 
     return result;
   }
 
   @override
-  UserStatusEmptyOCS deserialize(Serializers serializers, Iterable<Object?> serialized,
+  UserStatusUserStatusRevertStatusResponse200ApplicationJson deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = UserStatusEmptyOCSBuilder();
+    final result = UserStatusUserStatusRevertStatusResponse200ApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -955,8 +1424,96 @@ class _$UserStatusEmptyOCSSerializer implements StructuredSerializer<UserStatusE
       final Object? value = iterator.current;
       switch (key) {
         case 'ocs':
-          result.ocs.replace(serializers.deserialize(value, specifiedType: const FullType(UserStatusEmptyOCS_Ocs))!
-              as UserStatusEmptyOCS_Ocs);
+          result.ocs.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(UserStatusUserStatusRevertStatusResponse200ApplicationJson_Ocs))!
+              as UserStatusUserStatusRevertStatusResponse200ApplicationJson_Ocs);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$UserStatusCapabilities_UserStatusSerializer implements StructuredSerializer<UserStatusCapabilities_UserStatus> {
+  @override
+  final Iterable<Type> types = const [UserStatusCapabilities_UserStatus, _$UserStatusCapabilities_UserStatus];
+  @override
+  final String wireName = 'UserStatusCapabilities_UserStatus';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, UserStatusCapabilities_UserStatus object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'enabled',
+      serializers.serialize(object.enabled, specifiedType: const FullType(bool)),
+      'restore',
+      serializers.serialize(object.restore, specifiedType: const FullType(bool)),
+      'supports_emoji',
+      serializers.serialize(object.supportsEmoji, specifiedType: const FullType(bool)),
+    ];
+
+    return result;
+  }
+
+  @override
+  UserStatusCapabilities_UserStatus deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = UserStatusCapabilities_UserStatusBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'enabled':
+          result.enabled = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+          break;
+        case 'restore':
+          result.restore = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+          break;
+        case 'supports_emoji':
+          result.supportsEmoji = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$UserStatusCapabilitiesSerializer implements StructuredSerializer<UserStatusCapabilities> {
+  @override
+  final Iterable<Type> types = const [UserStatusCapabilities, _$UserStatusCapabilities];
+  @override
+  final String wireName = 'UserStatusCapabilities';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, UserStatusCapabilities object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'user_status',
+      serializers.serialize(object.userStatus, specifiedType: const FullType(UserStatusCapabilities_UserStatus)),
+    ];
+
+    return result;
+  }
+
+  @override
+  UserStatusCapabilities deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = UserStatusCapabilitiesBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'user_status':
+          result.userStatus.replace(serializers.deserialize(value,
+              specifiedType: const FullType(UserStatusCapabilities_UserStatus))! as UserStatusCapabilities_UserStatus);
           break;
       }
     }
@@ -1093,18 +1650,582 @@ class UserStatusOCSMetaBuilder implements Builder<UserStatusOCSMeta, UserStatusO
   }
 }
 
+class _$UserStatusPublic extends UserStatusPublic {
+  @override
+  final String userId;
+  @override
+  final String? message;
+  @override
+  final String? icon;
+  @override
+  final int? clearAt;
+  @override
+  final String status;
+
+  factory _$UserStatusPublic([void Function(UserStatusPublicBuilder)? updates]) =>
+      (UserStatusPublicBuilder()..update(updates))._build();
+
+  _$UserStatusPublic._({required this.userId, this.message, this.icon, this.clearAt, required this.status})
+      : super._() {
+    BuiltValueNullFieldError.checkNotNull(userId, r'UserStatusPublic', 'userId');
+    BuiltValueNullFieldError.checkNotNull(status, r'UserStatusPublic', 'status');
+  }
+
+  @override
+  UserStatusPublic rebuild(void Function(UserStatusPublicBuilder) updates) => (toBuilder()..update(updates)).build();
+
+  @override
+  UserStatusPublicBuilder toBuilder() => UserStatusPublicBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is UserStatusPublic &&
+        userId == other.userId &&
+        message == other.message &&
+        icon == other.icon &&
+        clearAt == other.clearAt &&
+        status == other.status;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, userId.hashCode);
+    _$hash = $jc(_$hash, message.hashCode);
+    _$hash = $jc(_$hash, icon.hashCode);
+    _$hash = $jc(_$hash, clearAt.hashCode);
+    _$hash = $jc(_$hash, status.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'UserStatusPublic')
+          ..add('userId', userId)
+          ..add('message', message)
+          ..add('icon', icon)
+          ..add('clearAt', clearAt)
+          ..add('status', status))
+        .toString();
+  }
+}
+
+class UserStatusPublicBuilder implements Builder<UserStatusPublic, UserStatusPublicBuilder> {
+  _$UserStatusPublic? _$v;
+
+  String? _userId;
+  String? get userId => _$this._userId;
+  set userId(String? userId) => _$this._userId = userId;
+
+  String? _message;
+  String? get message => _$this._message;
+  set message(String? message) => _$this._message = message;
+
+  String? _icon;
+  String? get icon => _$this._icon;
+  set icon(String? icon) => _$this._icon = icon;
+
+  int? _clearAt;
+  int? get clearAt => _$this._clearAt;
+  set clearAt(int? clearAt) => _$this._clearAt = clearAt;
+
+  String? _status;
+  String? get status => _$this._status;
+  set status(String? status) => _$this._status = status;
+
+  UserStatusPublicBuilder();
+
+  UserStatusPublicBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _userId = $v.userId;
+      _message = $v.message;
+      _icon = $v.icon;
+      _clearAt = $v.clearAt;
+      _status = $v.status;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(UserStatusPublic other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$UserStatusPublic;
+  }
+
+  @override
+  void update(void Function(UserStatusPublicBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  UserStatusPublic build() => _build();
+
+  _$UserStatusPublic _build() {
+    final _$result = _$v ??
+        _$UserStatusPublic._(
+            userId: BuiltValueNullFieldError.checkNotNull(userId, r'UserStatusPublic', 'userId'),
+            message: message,
+            icon: icon,
+            clearAt: clearAt,
+            status: BuiltValueNullFieldError.checkNotNull(status, r'UserStatusPublic', 'status'));
+    replace(_$result);
+    return _$result;
+  }
+}
+
+class _$UserStatusPrivate1 extends UserStatusPrivate1 {
+  @override
+  final String? messageId;
+  @override
+  final bool messageIsPredefined;
+  @override
+  final bool statusIsUserDefined;
+
+  factory _$UserStatusPrivate1([void Function(UserStatusPrivate1Builder)? updates]) =>
+      (UserStatusPrivate1Builder()..update(updates))._build();
+
+  _$UserStatusPrivate1._({this.messageId, required this.messageIsPredefined, required this.statusIsUserDefined})
+      : super._() {
+    BuiltValueNullFieldError.checkNotNull(messageIsPredefined, r'UserStatusPrivate1', 'messageIsPredefined');
+    BuiltValueNullFieldError.checkNotNull(statusIsUserDefined, r'UserStatusPrivate1', 'statusIsUserDefined');
+  }
+
+  @override
+  UserStatusPrivate1 rebuild(void Function(UserStatusPrivate1Builder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  UserStatusPrivate1Builder toBuilder() => UserStatusPrivate1Builder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is UserStatusPrivate1 &&
+        messageId == other.messageId &&
+        messageIsPredefined == other.messageIsPredefined &&
+        statusIsUserDefined == other.statusIsUserDefined;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, messageId.hashCode);
+    _$hash = $jc(_$hash, messageIsPredefined.hashCode);
+    _$hash = $jc(_$hash, statusIsUserDefined.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'UserStatusPrivate1')
+          ..add('messageId', messageId)
+          ..add('messageIsPredefined', messageIsPredefined)
+          ..add('statusIsUserDefined', statusIsUserDefined))
+        .toString();
+  }
+}
+
+class UserStatusPrivate1Builder implements Builder<UserStatusPrivate1, UserStatusPrivate1Builder> {
+  _$UserStatusPrivate1? _$v;
+
+  String? _messageId;
+  String? get messageId => _$this._messageId;
+  set messageId(String? messageId) => _$this._messageId = messageId;
+
+  bool? _messageIsPredefined;
+  bool? get messageIsPredefined => _$this._messageIsPredefined;
+  set messageIsPredefined(bool? messageIsPredefined) => _$this._messageIsPredefined = messageIsPredefined;
+
+  bool? _statusIsUserDefined;
+  bool? get statusIsUserDefined => _$this._statusIsUserDefined;
+  set statusIsUserDefined(bool? statusIsUserDefined) => _$this._statusIsUserDefined = statusIsUserDefined;
+
+  UserStatusPrivate1Builder();
+
+  UserStatusPrivate1Builder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _messageId = $v.messageId;
+      _messageIsPredefined = $v.messageIsPredefined;
+      _statusIsUserDefined = $v.statusIsUserDefined;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(UserStatusPrivate1 other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$UserStatusPrivate1;
+  }
+
+  @override
+  void update(void Function(UserStatusPrivate1Builder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  UserStatusPrivate1 build() => _build();
+
+  _$UserStatusPrivate1 _build() {
+    final _$result = _$v ??
+        _$UserStatusPrivate1._(
+            messageId: messageId,
+            messageIsPredefined: BuiltValueNullFieldError.checkNotNull(
+                messageIsPredefined, r'UserStatusPrivate1', 'messageIsPredefined'),
+            statusIsUserDefined: BuiltValueNullFieldError.checkNotNull(
+                statusIsUserDefined, r'UserStatusPrivate1', 'statusIsUserDefined'));
+    replace(_$result);
+    return _$result;
+  }
+}
+
+class _$UserStatusPrivate extends UserStatusPrivate {
+  @override
+  final JsonObject data;
+  @override
+  final UserStatusPublic public;
+  @override
+  final UserStatusPrivate1 private1;
+
+  factory _$UserStatusPrivate([void Function(UserStatusPrivateBuilder)? updates]) =>
+      (UserStatusPrivateBuilder()..update(updates))._build();
+
+  _$UserStatusPrivate._({required this.data, required this.public, required this.private1}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(data, r'UserStatusPrivate', 'data');
+    BuiltValueNullFieldError.checkNotNull(public, r'UserStatusPrivate', 'public');
+    BuiltValueNullFieldError.checkNotNull(private1, r'UserStatusPrivate', 'private1');
+  }
+
+  @override
+  UserStatusPrivate rebuild(void Function(UserStatusPrivateBuilder) updates) => (toBuilder()..update(updates)).build();
+
+  @override
+  UserStatusPrivateBuilder toBuilder() => UserStatusPrivateBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is UserStatusPrivate && data == other.data && public == other.public && private1 == other.private1;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, data.hashCode);
+    _$hash = $jc(_$hash, public.hashCode);
+    _$hash = $jc(_$hash, private1.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'UserStatusPrivate')
+          ..add('data', data)
+          ..add('public', public)
+          ..add('private1', private1))
+        .toString();
+  }
+}
+
+class UserStatusPrivateBuilder implements Builder<UserStatusPrivate, UserStatusPrivateBuilder> {
+  _$UserStatusPrivate? _$v;
+
+  JsonObject? _data;
+  JsonObject? get data => _$this._data;
+  set data(JsonObject? data) => _$this._data = data;
+
+  UserStatusPublicBuilder? _public;
+  UserStatusPublicBuilder get public => _$this._public ??= UserStatusPublicBuilder();
+  set public(UserStatusPublicBuilder? public) => _$this._public = public;
+
+  UserStatusPrivate1Builder? _private1;
+  UserStatusPrivate1Builder get private1 => _$this._private1 ??= UserStatusPrivate1Builder();
+  set private1(UserStatusPrivate1Builder? private1) => _$this._private1 = private1;
+
+  UserStatusPrivateBuilder();
+
+  UserStatusPrivateBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _data = $v.data;
+      _public = $v.public.toBuilder();
+      _private1 = $v.private1.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(UserStatusPrivate other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$UserStatusPrivate;
+  }
+
+  @override
+  void update(void Function(UserStatusPrivateBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  UserStatusPrivate build() => _build();
+
+  _$UserStatusPrivate _build() {
+    _$UserStatusPrivate _$result;
+    try {
+      _$result = _$v ??
+          _$UserStatusPrivate._(
+              data: BuiltValueNullFieldError.checkNotNull(data, r'UserStatusPrivate', 'data'),
+              public: public.build(),
+              private1: private1.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'public';
+        public.build();
+        _$failedField = 'private1';
+        private1.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(r'UserStatusPrivate', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+class _$UserStatusHeartbeatHeartbeatResponse200ApplicationJson_Ocs
+    extends UserStatusHeartbeatHeartbeatResponse200ApplicationJson_Ocs {
+  @override
+  final UserStatusOCSMeta meta;
+  @override
+  final UserStatusPrivate data;
+
+  factory _$UserStatusHeartbeatHeartbeatResponse200ApplicationJson_Ocs(
+          [void Function(UserStatusHeartbeatHeartbeatResponse200ApplicationJson_OcsBuilder)? updates]) =>
+      (UserStatusHeartbeatHeartbeatResponse200ApplicationJson_OcsBuilder()..update(updates))._build();
+
+  _$UserStatusHeartbeatHeartbeatResponse200ApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(meta, r'UserStatusHeartbeatHeartbeatResponse200ApplicationJson_Ocs', 'meta');
+    BuiltValueNullFieldError.checkNotNull(data, r'UserStatusHeartbeatHeartbeatResponse200ApplicationJson_Ocs', 'data');
+  }
+
+  @override
+  UserStatusHeartbeatHeartbeatResponse200ApplicationJson_Ocs rebuild(
+          void Function(UserStatusHeartbeatHeartbeatResponse200ApplicationJson_OcsBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  UserStatusHeartbeatHeartbeatResponse200ApplicationJson_OcsBuilder toBuilder() =>
+      UserStatusHeartbeatHeartbeatResponse200ApplicationJson_OcsBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is UserStatusHeartbeatHeartbeatResponse200ApplicationJson_Ocs &&
+        meta == other.meta &&
+        data == other.data;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, meta.hashCode);
+    _$hash = $jc(_$hash, data.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'UserStatusHeartbeatHeartbeatResponse200ApplicationJson_Ocs')
+          ..add('meta', meta)
+          ..add('data', data))
+        .toString();
+  }
+}
+
+class UserStatusHeartbeatHeartbeatResponse200ApplicationJson_OcsBuilder
+    implements
+        Builder<UserStatusHeartbeatHeartbeatResponse200ApplicationJson_Ocs,
+            UserStatusHeartbeatHeartbeatResponse200ApplicationJson_OcsBuilder> {
+  _$UserStatusHeartbeatHeartbeatResponse200ApplicationJson_Ocs? _$v;
+
+  UserStatusOCSMetaBuilder? _meta;
+  UserStatusOCSMetaBuilder get meta => _$this._meta ??= UserStatusOCSMetaBuilder();
+  set meta(UserStatusOCSMetaBuilder? meta) => _$this._meta = meta;
+
+  UserStatusPrivateBuilder? _data;
+  UserStatusPrivateBuilder get data => _$this._data ??= UserStatusPrivateBuilder();
+  set data(UserStatusPrivateBuilder? data) => _$this._data = data;
+
+  UserStatusHeartbeatHeartbeatResponse200ApplicationJson_OcsBuilder();
+
+  UserStatusHeartbeatHeartbeatResponse200ApplicationJson_OcsBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _meta = $v.meta.toBuilder();
+      _data = $v.data.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(UserStatusHeartbeatHeartbeatResponse200ApplicationJson_Ocs other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$UserStatusHeartbeatHeartbeatResponse200ApplicationJson_Ocs;
+  }
+
+  @override
+  void update(void Function(UserStatusHeartbeatHeartbeatResponse200ApplicationJson_OcsBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  UserStatusHeartbeatHeartbeatResponse200ApplicationJson_Ocs build() => _build();
+
+  _$UserStatusHeartbeatHeartbeatResponse200ApplicationJson_Ocs _build() {
+    _$UserStatusHeartbeatHeartbeatResponse200ApplicationJson_Ocs _$result;
+    try {
+      _$result =
+          _$v ?? _$UserStatusHeartbeatHeartbeatResponse200ApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'meta';
+        meta.build();
+        _$failedField = 'data';
+        data.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'UserStatusHeartbeatHeartbeatResponse200ApplicationJson_Ocs', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+class _$UserStatusHeartbeatHeartbeatResponse200ApplicationJson
+    extends UserStatusHeartbeatHeartbeatResponse200ApplicationJson {
+  @override
+  final UserStatusHeartbeatHeartbeatResponse200ApplicationJson_Ocs ocs;
+
+  factory _$UserStatusHeartbeatHeartbeatResponse200ApplicationJson(
+          [void Function(UserStatusHeartbeatHeartbeatResponse200ApplicationJsonBuilder)? updates]) =>
+      (UserStatusHeartbeatHeartbeatResponse200ApplicationJsonBuilder()..update(updates))._build();
+
+  _$UserStatusHeartbeatHeartbeatResponse200ApplicationJson._({required this.ocs}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(ocs, r'UserStatusHeartbeatHeartbeatResponse200ApplicationJson', 'ocs');
+  }
+
+  @override
+  UserStatusHeartbeatHeartbeatResponse200ApplicationJson rebuild(
+          void Function(UserStatusHeartbeatHeartbeatResponse200ApplicationJsonBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  UserStatusHeartbeatHeartbeatResponse200ApplicationJsonBuilder toBuilder() =>
+      UserStatusHeartbeatHeartbeatResponse200ApplicationJsonBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is UserStatusHeartbeatHeartbeatResponse200ApplicationJson && ocs == other.ocs;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, ocs.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'UserStatusHeartbeatHeartbeatResponse200ApplicationJson')..add('ocs', ocs))
+        .toString();
+  }
+}
+
+class UserStatusHeartbeatHeartbeatResponse200ApplicationJsonBuilder
+    implements
+        Builder<UserStatusHeartbeatHeartbeatResponse200ApplicationJson,
+            UserStatusHeartbeatHeartbeatResponse200ApplicationJsonBuilder> {
+  _$UserStatusHeartbeatHeartbeatResponse200ApplicationJson? _$v;
+
+  UserStatusHeartbeatHeartbeatResponse200ApplicationJson_OcsBuilder? _ocs;
+  UserStatusHeartbeatHeartbeatResponse200ApplicationJson_OcsBuilder get ocs =>
+      _$this._ocs ??= UserStatusHeartbeatHeartbeatResponse200ApplicationJson_OcsBuilder();
+  set ocs(UserStatusHeartbeatHeartbeatResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+
+  UserStatusHeartbeatHeartbeatResponse200ApplicationJsonBuilder();
+
+  UserStatusHeartbeatHeartbeatResponse200ApplicationJsonBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _ocs = $v.ocs.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(UserStatusHeartbeatHeartbeatResponse200ApplicationJson other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$UserStatusHeartbeatHeartbeatResponse200ApplicationJson;
+  }
+
+  @override
+  void update(void Function(UserStatusHeartbeatHeartbeatResponse200ApplicationJsonBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  UserStatusHeartbeatHeartbeatResponse200ApplicationJson build() => _build();
+
+  _$UserStatusHeartbeatHeartbeatResponse200ApplicationJson _build() {
+    _$UserStatusHeartbeatHeartbeatResponse200ApplicationJson _$result;
+    try {
+      _$result = _$v ?? _$UserStatusHeartbeatHeartbeatResponse200ApplicationJson._(ocs: ocs.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'ocs';
+        ocs.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'UserStatusHeartbeatHeartbeatResponse200ApplicationJson', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
 class _$UserStatusClearAt_Time extends UserStatusClearAt_Time {
   @override
   final JsonObject data;
   @override
-  final UserStatusClearAt_Time0? clearAtTime0;
-  @override
   final int? $int;
+  @override
+  final UserStatusClearAtTimeType? clearAtTimeType;
 
   factory _$UserStatusClearAt_Time([void Function(UserStatusClearAt_TimeBuilder)? updates]) =>
       (UserStatusClearAt_TimeBuilder()..update(updates))._build();
 
-  _$UserStatusClearAt_Time._({required this.data, this.clearAtTime0, this.$int}) : super._() {
+  _$UserStatusClearAt_Time._({required this.data, this.$int, this.clearAtTimeType}) : super._() {
     BuiltValueNullFieldError.checkNotNull(data, r'UserStatusClearAt_Time', 'data');
   }
 
@@ -1120,16 +2241,16 @@ class _$UserStatusClearAt_Time extends UserStatusClearAt_Time {
     if (identical(other, this)) return true;
     return other is UserStatusClearAt_Time &&
         data == other.data &&
-        clearAtTime0 == other.clearAtTime0 &&
-        $int == other.$int;
+        $int == other.$int &&
+        clearAtTimeType == other.clearAtTimeType;
   }
 
   @override
   int get hashCode {
     var _$hash = 0;
     _$hash = $jc(_$hash, data.hashCode);
-    _$hash = $jc(_$hash, clearAtTime0.hashCode);
     _$hash = $jc(_$hash, $int.hashCode);
+    _$hash = $jc(_$hash, clearAtTimeType.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
   }
@@ -1138,8 +2259,8 @@ class _$UserStatusClearAt_Time extends UserStatusClearAt_Time {
   String toString() {
     return (newBuiltValueToStringHelper(r'UserStatusClearAt_Time')
           ..add('data', data)
-          ..add('clearAtTime0', clearAtTime0)
-          ..add('\$int', $int))
+          ..add('\$int', $int)
+          ..add('clearAtTimeType', clearAtTimeType))
         .toString();
   }
 }
@@ -1151,13 +2272,13 @@ class UserStatusClearAt_TimeBuilder implements Builder<UserStatusClearAt_Time, U
   JsonObject? get data => _$this._data;
   set data(JsonObject? data) => _$this._data = data;
 
-  UserStatusClearAt_Time0? _clearAtTime0;
-  UserStatusClearAt_Time0? get clearAtTime0 => _$this._clearAtTime0;
-  set clearAtTime0(UserStatusClearAt_Time0? clearAtTime0) => _$this._clearAtTime0 = clearAtTime0;
-
   int? _$int;
   int? get $int => _$this._$int;
   set $int(int? $int) => _$this._$int = $int;
+
+  UserStatusClearAtTimeType? _clearAtTimeType;
+  UserStatusClearAtTimeType? get clearAtTimeType => _$this._clearAtTimeType;
+  set clearAtTimeType(UserStatusClearAtTimeType? clearAtTimeType) => _$this._clearAtTimeType = clearAtTimeType;
 
   UserStatusClearAt_TimeBuilder();
 
@@ -1165,8 +2286,8 @@ class UserStatusClearAt_TimeBuilder implements Builder<UserStatusClearAt_Time, U
     final $v = _$v;
     if ($v != null) {
       _data = $v.data;
-      _clearAtTime0 = $v.clearAtTime0;
       _$int = $v.$int;
+      _clearAtTimeType = $v.clearAtTimeType;
       _$v = null;
     }
     return this;
@@ -1190,8 +2311,8 @@ class UserStatusClearAt_TimeBuilder implements Builder<UserStatusClearAt_Time, U
     final _$result = _$v ??
         _$UserStatusClearAt_Time._(
             data: BuiltValueNullFieldError.checkNotNull(data, r'UserStatusClearAt_Time', 'data'),
-            clearAtTime0: clearAtTime0,
-            $int: $int);
+            $int: $int,
+            clearAtTimeType: clearAtTimeType);
     replace(_$result);
     return _$result;
   }
@@ -1299,1427 +2420,7 @@ class UserStatusClearAtBuilder implements Builder<UserStatusClearAt, UserStatusC
   }
 }
 
-class _$UserStatusPublicStatus_ClearAt extends UserStatusPublicStatus_ClearAt {
-  @override
-  final JsonObject data;
-  @override
-  final UserStatusClearAt? clearAt;
-  @override
-  final int? $int;
-
-  factory _$UserStatusPublicStatus_ClearAt([void Function(UserStatusPublicStatus_ClearAtBuilder)? updates]) =>
-      (UserStatusPublicStatus_ClearAtBuilder()..update(updates))._build();
-
-  _$UserStatusPublicStatus_ClearAt._({required this.data, this.clearAt, this.$int}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(data, r'UserStatusPublicStatus_ClearAt', 'data');
-  }
-
-  @override
-  UserStatusPublicStatus_ClearAt rebuild(void Function(UserStatusPublicStatus_ClearAtBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
-
-  @override
-  UserStatusPublicStatus_ClearAtBuilder toBuilder() => UserStatusPublicStatus_ClearAtBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other is UserStatusPublicStatus_ClearAt &&
-        data == other.data &&
-        clearAt == other.clearAt &&
-        $int == other.$int;
-  }
-
-  @override
-  int get hashCode {
-    var _$hash = 0;
-    _$hash = $jc(_$hash, data.hashCode);
-    _$hash = $jc(_$hash, clearAt.hashCode);
-    _$hash = $jc(_$hash, $int.hashCode);
-    _$hash = $jf(_$hash);
-    return _$hash;
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper(r'UserStatusPublicStatus_ClearAt')
-          ..add('data', data)
-          ..add('clearAt', clearAt)
-          ..add('\$int', $int))
-        .toString();
-  }
-}
-
-class UserStatusPublicStatus_ClearAtBuilder
-    implements Builder<UserStatusPublicStatus_ClearAt, UserStatusPublicStatus_ClearAtBuilder> {
-  _$UserStatusPublicStatus_ClearAt? _$v;
-
-  JsonObject? _data;
-  JsonObject? get data => _$this._data;
-  set data(JsonObject? data) => _$this._data = data;
-
-  UserStatusClearAtBuilder? _clearAt;
-  UserStatusClearAtBuilder get clearAt => _$this._clearAt ??= UserStatusClearAtBuilder();
-  set clearAt(UserStatusClearAtBuilder? clearAt) => _$this._clearAt = clearAt;
-
-  int? _$int;
-  int? get $int => _$this._$int;
-  set $int(int? $int) => _$this._$int = $int;
-
-  UserStatusPublicStatus_ClearAtBuilder();
-
-  UserStatusPublicStatus_ClearAtBuilder get _$this {
-    final $v = _$v;
-    if ($v != null) {
-      _data = $v.data;
-      _clearAt = $v.clearAt?.toBuilder();
-      _$int = $v.$int;
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(UserStatusPublicStatus_ClearAt other) {
-    ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$UserStatusPublicStatus_ClearAt;
-  }
-
-  @override
-  void update(void Function(UserStatusPublicStatus_ClearAtBuilder)? updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  UserStatusPublicStatus_ClearAt build() => _build();
-
-  _$UserStatusPublicStatus_ClearAt _build() {
-    _$UserStatusPublicStatus_ClearAt _$result;
-    try {
-      _$result = _$v ??
-          _$UserStatusPublicStatus_ClearAt._(
-              data: BuiltValueNullFieldError.checkNotNull(data, r'UserStatusPublicStatus_ClearAt', 'data'),
-              clearAt: _clearAt?.build(),
-              $int: $int);
-    } catch (_) {
-      late String _$failedField;
-      try {
-        _$failedField = 'clearAt';
-        _clearAt?.build();
-      } catch (e) {
-        throw BuiltValueNestedFieldError(r'UserStatusPublicStatus_ClearAt', _$failedField, e.toString());
-      }
-      rethrow;
-    }
-    replace(_$result);
-    return _$result;
-  }
-}
-
-class _$UserStatusPublicStatus extends UserStatusPublicStatus {
-  @override
-  final String userId;
-  @override
-  final String? message;
-  @override
-  final String? icon;
-  @override
-  final UserStatusPublicStatus_ClearAt? clearAt;
-  @override
-  final UserStatusType status;
-
-  factory _$UserStatusPublicStatus([void Function(UserStatusPublicStatusBuilder)? updates]) =>
-      (UserStatusPublicStatusBuilder()..update(updates))._build();
-
-  _$UserStatusPublicStatus._({required this.userId, this.message, this.icon, this.clearAt, required this.status})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(userId, r'UserStatusPublicStatus', 'userId');
-    BuiltValueNullFieldError.checkNotNull(status, r'UserStatusPublicStatus', 'status');
-  }
-
-  @override
-  UserStatusPublicStatus rebuild(void Function(UserStatusPublicStatusBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
-
-  @override
-  UserStatusPublicStatusBuilder toBuilder() => UserStatusPublicStatusBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other is UserStatusPublicStatus &&
-        userId == other.userId &&
-        message == other.message &&
-        icon == other.icon &&
-        clearAt == other.clearAt &&
-        status == other.status;
-  }
-
-  @override
-  int get hashCode {
-    var _$hash = 0;
-    _$hash = $jc(_$hash, userId.hashCode);
-    _$hash = $jc(_$hash, message.hashCode);
-    _$hash = $jc(_$hash, icon.hashCode);
-    _$hash = $jc(_$hash, clearAt.hashCode);
-    _$hash = $jc(_$hash, status.hashCode);
-    _$hash = $jf(_$hash);
-    return _$hash;
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper(r'UserStatusPublicStatus')
-          ..add('userId', userId)
-          ..add('message', message)
-          ..add('icon', icon)
-          ..add('clearAt', clearAt)
-          ..add('status', status))
-        .toString();
-  }
-}
-
-class UserStatusPublicStatusBuilder implements Builder<UserStatusPublicStatus, UserStatusPublicStatusBuilder> {
-  _$UserStatusPublicStatus? _$v;
-
-  String? _userId;
-  String? get userId => _$this._userId;
-  set userId(String? userId) => _$this._userId = userId;
-
-  String? _message;
-  String? get message => _$this._message;
-  set message(String? message) => _$this._message = message;
-
-  String? _icon;
-  String? get icon => _$this._icon;
-  set icon(String? icon) => _$this._icon = icon;
-
-  UserStatusPublicStatus_ClearAtBuilder? _clearAt;
-  UserStatusPublicStatus_ClearAtBuilder get clearAt => _$this._clearAt ??= UserStatusPublicStatus_ClearAtBuilder();
-  set clearAt(UserStatusPublicStatus_ClearAtBuilder? clearAt) => _$this._clearAt = clearAt;
-
-  UserStatusType? _status;
-  UserStatusType? get status => _$this._status;
-  set status(UserStatusType? status) => _$this._status = status;
-
-  UserStatusPublicStatusBuilder();
-
-  UserStatusPublicStatusBuilder get _$this {
-    final $v = _$v;
-    if ($v != null) {
-      _userId = $v.userId;
-      _message = $v.message;
-      _icon = $v.icon;
-      _clearAt = $v.clearAt?.toBuilder();
-      _status = $v.status;
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(UserStatusPublicStatus other) {
-    ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$UserStatusPublicStatus;
-  }
-
-  @override
-  void update(void Function(UserStatusPublicStatusBuilder)? updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  UserStatusPublicStatus build() => _build();
-
-  _$UserStatusPublicStatus _build() {
-    _$UserStatusPublicStatus _$result;
-    try {
-      _$result = _$v ??
-          _$UserStatusPublicStatus._(
-              userId: BuiltValueNullFieldError.checkNotNull(userId, r'UserStatusPublicStatus', 'userId'),
-              message: message,
-              icon: icon,
-              clearAt: _clearAt?.build(),
-              status: BuiltValueNullFieldError.checkNotNull(status, r'UserStatusPublicStatus', 'status'));
-    } catch (_) {
-      late String _$failedField;
-      try {
-        _$failedField = 'clearAt';
-        _clearAt?.build();
-      } catch (e) {
-        throw BuiltValueNestedFieldError(r'UserStatusPublicStatus', _$failedField, e.toString());
-      }
-      rethrow;
-    }
-    replace(_$result);
-    return _$result;
-  }
-}
-
-class _$UserStatusGetPublicStatuses_Ocs extends UserStatusGetPublicStatuses_Ocs {
-  @override
-  final UserStatusOCSMeta meta;
-  @override
-  final BuiltList<UserStatusPublicStatus> data;
-
-  factory _$UserStatusGetPublicStatuses_Ocs([void Function(UserStatusGetPublicStatuses_OcsBuilder)? updates]) =>
-      (UserStatusGetPublicStatuses_OcsBuilder()..update(updates))._build();
-
-  _$UserStatusGetPublicStatuses_Ocs._({required this.meta, required this.data}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(meta, r'UserStatusGetPublicStatuses_Ocs', 'meta');
-    BuiltValueNullFieldError.checkNotNull(data, r'UserStatusGetPublicStatuses_Ocs', 'data');
-  }
-
-  @override
-  UserStatusGetPublicStatuses_Ocs rebuild(void Function(UserStatusGetPublicStatuses_OcsBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
-
-  @override
-  UserStatusGetPublicStatuses_OcsBuilder toBuilder() => UserStatusGetPublicStatuses_OcsBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other is UserStatusGetPublicStatuses_Ocs && meta == other.meta && data == other.data;
-  }
-
-  @override
-  int get hashCode {
-    var _$hash = 0;
-    _$hash = $jc(_$hash, meta.hashCode);
-    _$hash = $jc(_$hash, data.hashCode);
-    _$hash = $jf(_$hash);
-    return _$hash;
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper(r'UserStatusGetPublicStatuses_Ocs')
-          ..add('meta', meta)
-          ..add('data', data))
-        .toString();
-  }
-}
-
-class UserStatusGetPublicStatuses_OcsBuilder
-    implements Builder<UserStatusGetPublicStatuses_Ocs, UserStatusGetPublicStatuses_OcsBuilder> {
-  _$UserStatusGetPublicStatuses_Ocs? _$v;
-
-  UserStatusOCSMetaBuilder? _meta;
-  UserStatusOCSMetaBuilder get meta => _$this._meta ??= UserStatusOCSMetaBuilder();
-  set meta(UserStatusOCSMetaBuilder? meta) => _$this._meta = meta;
-
-  ListBuilder<UserStatusPublicStatus>? _data;
-  ListBuilder<UserStatusPublicStatus> get data => _$this._data ??= ListBuilder<UserStatusPublicStatus>();
-  set data(ListBuilder<UserStatusPublicStatus>? data) => _$this._data = data;
-
-  UserStatusGetPublicStatuses_OcsBuilder();
-
-  UserStatusGetPublicStatuses_OcsBuilder get _$this {
-    final $v = _$v;
-    if ($v != null) {
-      _meta = $v.meta.toBuilder();
-      _data = $v.data.toBuilder();
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(UserStatusGetPublicStatuses_Ocs other) {
-    ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$UserStatusGetPublicStatuses_Ocs;
-  }
-
-  @override
-  void update(void Function(UserStatusGetPublicStatuses_OcsBuilder)? updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  UserStatusGetPublicStatuses_Ocs build() => _build();
-
-  _$UserStatusGetPublicStatuses_Ocs _build() {
-    _$UserStatusGetPublicStatuses_Ocs _$result;
-    try {
-      _$result = _$v ?? _$UserStatusGetPublicStatuses_Ocs._(meta: meta.build(), data: data.build());
-    } catch (_) {
-      late String _$failedField;
-      try {
-        _$failedField = 'meta';
-        meta.build();
-        _$failedField = 'data';
-        data.build();
-      } catch (e) {
-        throw BuiltValueNestedFieldError(r'UserStatusGetPublicStatuses_Ocs', _$failedField, e.toString());
-      }
-      rethrow;
-    }
-    replace(_$result);
-    return _$result;
-  }
-}
-
-class _$UserStatusGetPublicStatuses extends UserStatusGetPublicStatuses {
-  @override
-  final UserStatusGetPublicStatuses_Ocs ocs;
-
-  factory _$UserStatusGetPublicStatuses([void Function(UserStatusGetPublicStatusesBuilder)? updates]) =>
-      (UserStatusGetPublicStatusesBuilder()..update(updates))._build();
-
-  _$UserStatusGetPublicStatuses._({required this.ocs}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(ocs, r'UserStatusGetPublicStatuses', 'ocs');
-  }
-
-  @override
-  UserStatusGetPublicStatuses rebuild(void Function(UserStatusGetPublicStatusesBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
-
-  @override
-  UserStatusGetPublicStatusesBuilder toBuilder() => UserStatusGetPublicStatusesBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other is UserStatusGetPublicStatuses && ocs == other.ocs;
-  }
-
-  @override
-  int get hashCode {
-    var _$hash = 0;
-    _$hash = $jc(_$hash, ocs.hashCode);
-    _$hash = $jf(_$hash);
-    return _$hash;
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper(r'UserStatusGetPublicStatuses')..add('ocs', ocs)).toString();
-  }
-}
-
-class UserStatusGetPublicStatusesBuilder
-    implements Builder<UserStatusGetPublicStatuses, UserStatusGetPublicStatusesBuilder> {
-  _$UserStatusGetPublicStatuses? _$v;
-
-  UserStatusGetPublicStatuses_OcsBuilder? _ocs;
-  UserStatusGetPublicStatuses_OcsBuilder get ocs => _$this._ocs ??= UserStatusGetPublicStatuses_OcsBuilder();
-  set ocs(UserStatusGetPublicStatuses_OcsBuilder? ocs) => _$this._ocs = ocs;
-
-  UserStatusGetPublicStatusesBuilder();
-
-  UserStatusGetPublicStatusesBuilder get _$this {
-    final $v = _$v;
-    if ($v != null) {
-      _ocs = $v.ocs.toBuilder();
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(UserStatusGetPublicStatuses other) {
-    ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$UserStatusGetPublicStatuses;
-  }
-
-  @override
-  void update(void Function(UserStatusGetPublicStatusesBuilder)? updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  UserStatusGetPublicStatuses build() => _build();
-
-  _$UserStatusGetPublicStatuses _build() {
-    _$UserStatusGetPublicStatuses _$result;
-    try {
-      _$result = _$v ?? _$UserStatusGetPublicStatuses._(ocs: ocs.build());
-    } catch (_) {
-      late String _$failedField;
-      try {
-        _$failedField = 'ocs';
-        ocs.build();
-      } catch (e) {
-        throw BuiltValueNestedFieldError(r'UserStatusGetPublicStatuses', _$failedField, e.toString());
-      }
-      rethrow;
-    }
-    replace(_$result);
-    return _$result;
-  }
-}
-
-class _$UserStatusGetPublicStatus_Ocs_Data extends UserStatusGetPublicStatus_Ocs_Data {
-  @override
-  final JsonObject data;
-  @override
-  final BuiltList<JsonObject>? builtListJsonObject;
-  @override
-  final UserStatusPublicStatus? publicStatus;
-
-  factory _$UserStatusGetPublicStatus_Ocs_Data([void Function(UserStatusGetPublicStatus_Ocs_DataBuilder)? updates]) =>
-      (UserStatusGetPublicStatus_Ocs_DataBuilder()..update(updates))._build();
-
-  _$UserStatusGetPublicStatus_Ocs_Data._({required this.data, this.builtListJsonObject, this.publicStatus})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(data, r'UserStatusGetPublicStatus_Ocs_Data', 'data');
-  }
-
-  @override
-  UserStatusGetPublicStatus_Ocs_Data rebuild(void Function(UserStatusGetPublicStatus_Ocs_DataBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
-
-  @override
-  UserStatusGetPublicStatus_Ocs_DataBuilder toBuilder() => UserStatusGetPublicStatus_Ocs_DataBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other is UserStatusGetPublicStatus_Ocs_Data &&
-        data == other.data &&
-        builtListJsonObject == other.builtListJsonObject &&
-        publicStatus == other.publicStatus;
-  }
-
-  @override
-  int get hashCode {
-    var _$hash = 0;
-    _$hash = $jc(_$hash, data.hashCode);
-    _$hash = $jc(_$hash, builtListJsonObject.hashCode);
-    _$hash = $jc(_$hash, publicStatus.hashCode);
-    _$hash = $jf(_$hash);
-    return _$hash;
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper(r'UserStatusGetPublicStatus_Ocs_Data')
-          ..add('data', data)
-          ..add('builtListJsonObject', builtListJsonObject)
-          ..add('publicStatus', publicStatus))
-        .toString();
-  }
-}
-
-class UserStatusGetPublicStatus_Ocs_DataBuilder
-    implements Builder<UserStatusGetPublicStatus_Ocs_Data, UserStatusGetPublicStatus_Ocs_DataBuilder> {
-  _$UserStatusGetPublicStatus_Ocs_Data? _$v;
-
-  JsonObject? _data;
-  JsonObject? get data => _$this._data;
-  set data(JsonObject? data) => _$this._data = data;
-
-  ListBuilder<JsonObject>? _builtListJsonObject;
-  ListBuilder<JsonObject> get builtListJsonObject => _$this._builtListJsonObject ??= ListBuilder<JsonObject>();
-  set builtListJsonObject(ListBuilder<JsonObject>? builtListJsonObject) =>
-      _$this._builtListJsonObject = builtListJsonObject;
-
-  UserStatusPublicStatusBuilder? _publicStatus;
-  UserStatusPublicStatusBuilder get publicStatus => _$this._publicStatus ??= UserStatusPublicStatusBuilder();
-  set publicStatus(UserStatusPublicStatusBuilder? publicStatus) => _$this._publicStatus = publicStatus;
-
-  UserStatusGetPublicStatus_Ocs_DataBuilder();
-
-  UserStatusGetPublicStatus_Ocs_DataBuilder get _$this {
-    final $v = _$v;
-    if ($v != null) {
-      _data = $v.data;
-      _builtListJsonObject = $v.builtListJsonObject?.toBuilder();
-      _publicStatus = $v.publicStatus?.toBuilder();
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(UserStatusGetPublicStatus_Ocs_Data other) {
-    ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$UserStatusGetPublicStatus_Ocs_Data;
-  }
-
-  @override
-  void update(void Function(UserStatusGetPublicStatus_Ocs_DataBuilder)? updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  UserStatusGetPublicStatus_Ocs_Data build() => _build();
-
-  _$UserStatusGetPublicStatus_Ocs_Data _build() {
-    _$UserStatusGetPublicStatus_Ocs_Data _$result;
-    try {
-      _$result = _$v ??
-          _$UserStatusGetPublicStatus_Ocs_Data._(
-              data: BuiltValueNullFieldError.checkNotNull(data, r'UserStatusGetPublicStatus_Ocs_Data', 'data'),
-              builtListJsonObject: _builtListJsonObject?.build(),
-              publicStatus: _publicStatus?.build());
-    } catch (_) {
-      late String _$failedField;
-      try {
-        _$failedField = 'builtListJsonObject';
-        _builtListJsonObject?.build();
-        _$failedField = 'publicStatus';
-        _publicStatus?.build();
-      } catch (e) {
-        throw BuiltValueNestedFieldError(r'UserStatusGetPublicStatus_Ocs_Data', _$failedField, e.toString());
-      }
-      rethrow;
-    }
-    replace(_$result);
-    return _$result;
-  }
-}
-
-class _$UserStatusGetPublicStatus_Ocs extends UserStatusGetPublicStatus_Ocs {
-  @override
-  final UserStatusOCSMeta meta;
-  @override
-  final UserStatusGetPublicStatus_Ocs_Data data;
-
-  factory _$UserStatusGetPublicStatus_Ocs([void Function(UserStatusGetPublicStatus_OcsBuilder)? updates]) =>
-      (UserStatusGetPublicStatus_OcsBuilder()..update(updates))._build();
-
-  _$UserStatusGetPublicStatus_Ocs._({required this.meta, required this.data}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(meta, r'UserStatusGetPublicStatus_Ocs', 'meta');
-    BuiltValueNullFieldError.checkNotNull(data, r'UserStatusGetPublicStatus_Ocs', 'data');
-  }
-
-  @override
-  UserStatusGetPublicStatus_Ocs rebuild(void Function(UserStatusGetPublicStatus_OcsBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
-
-  @override
-  UserStatusGetPublicStatus_OcsBuilder toBuilder() => UserStatusGetPublicStatus_OcsBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other is UserStatusGetPublicStatus_Ocs && meta == other.meta && data == other.data;
-  }
-
-  @override
-  int get hashCode {
-    var _$hash = 0;
-    _$hash = $jc(_$hash, meta.hashCode);
-    _$hash = $jc(_$hash, data.hashCode);
-    _$hash = $jf(_$hash);
-    return _$hash;
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper(r'UserStatusGetPublicStatus_Ocs')
-          ..add('meta', meta)
-          ..add('data', data))
-        .toString();
-  }
-}
-
-class UserStatusGetPublicStatus_OcsBuilder
-    implements Builder<UserStatusGetPublicStatus_Ocs, UserStatusGetPublicStatus_OcsBuilder> {
-  _$UserStatusGetPublicStatus_Ocs? _$v;
-
-  UserStatusOCSMetaBuilder? _meta;
-  UserStatusOCSMetaBuilder get meta => _$this._meta ??= UserStatusOCSMetaBuilder();
-  set meta(UserStatusOCSMetaBuilder? meta) => _$this._meta = meta;
-
-  UserStatusGetPublicStatus_Ocs_DataBuilder? _data;
-  UserStatusGetPublicStatus_Ocs_DataBuilder get data => _$this._data ??= UserStatusGetPublicStatus_Ocs_DataBuilder();
-  set data(UserStatusGetPublicStatus_Ocs_DataBuilder? data) => _$this._data = data;
-
-  UserStatusGetPublicStatus_OcsBuilder();
-
-  UserStatusGetPublicStatus_OcsBuilder get _$this {
-    final $v = _$v;
-    if ($v != null) {
-      _meta = $v.meta.toBuilder();
-      _data = $v.data.toBuilder();
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(UserStatusGetPublicStatus_Ocs other) {
-    ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$UserStatusGetPublicStatus_Ocs;
-  }
-
-  @override
-  void update(void Function(UserStatusGetPublicStatus_OcsBuilder)? updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  UserStatusGetPublicStatus_Ocs build() => _build();
-
-  _$UserStatusGetPublicStatus_Ocs _build() {
-    _$UserStatusGetPublicStatus_Ocs _$result;
-    try {
-      _$result = _$v ?? _$UserStatusGetPublicStatus_Ocs._(meta: meta.build(), data: data.build());
-    } catch (_) {
-      late String _$failedField;
-      try {
-        _$failedField = 'meta';
-        meta.build();
-        _$failedField = 'data';
-        data.build();
-      } catch (e) {
-        throw BuiltValueNestedFieldError(r'UserStatusGetPublicStatus_Ocs', _$failedField, e.toString());
-      }
-      rethrow;
-    }
-    replace(_$result);
-    return _$result;
-  }
-}
-
-class _$UserStatusGetPublicStatus extends UserStatusGetPublicStatus {
-  @override
-  final UserStatusGetPublicStatus_Ocs ocs;
-
-  factory _$UserStatusGetPublicStatus([void Function(UserStatusGetPublicStatusBuilder)? updates]) =>
-      (UserStatusGetPublicStatusBuilder()..update(updates))._build();
-
-  _$UserStatusGetPublicStatus._({required this.ocs}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(ocs, r'UserStatusGetPublicStatus', 'ocs');
-  }
-
-  @override
-  UserStatusGetPublicStatus rebuild(void Function(UserStatusGetPublicStatusBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
-
-  @override
-  UserStatusGetPublicStatusBuilder toBuilder() => UserStatusGetPublicStatusBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other is UserStatusGetPublicStatus && ocs == other.ocs;
-  }
-
-  @override
-  int get hashCode {
-    var _$hash = 0;
-    _$hash = $jc(_$hash, ocs.hashCode);
-    _$hash = $jf(_$hash);
-    return _$hash;
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper(r'UserStatusGetPublicStatus')..add('ocs', ocs)).toString();
-  }
-}
-
-class UserStatusGetPublicStatusBuilder implements Builder<UserStatusGetPublicStatus, UserStatusGetPublicStatusBuilder> {
-  _$UserStatusGetPublicStatus? _$v;
-
-  UserStatusGetPublicStatus_OcsBuilder? _ocs;
-  UserStatusGetPublicStatus_OcsBuilder get ocs => _$this._ocs ??= UserStatusGetPublicStatus_OcsBuilder();
-  set ocs(UserStatusGetPublicStatus_OcsBuilder? ocs) => _$this._ocs = ocs;
-
-  UserStatusGetPublicStatusBuilder();
-
-  UserStatusGetPublicStatusBuilder get _$this {
-    final $v = _$v;
-    if ($v != null) {
-      _ocs = $v.ocs.toBuilder();
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(UserStatusGetPublicStatus other) {
-    ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$UserStatusGetPublicStatus;
-  }
-
-  @override
-  void update(void Function(UserStatusGetPublicStatusBuilder)? updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  UserStatusGetPublicStatus build() => _build();
-
-  _$UserStatusGetPublicStatus _build() {
-    _$UserStatusGetPublicStatus _$result;
-    try {
-      _$result = _$v ?? _$UserStatusGetPublicStatus._(ocs: ocs.build());
-    } catch (_) {
-      late String _$failedField;
-      try {
-        _$failedField = 'ocs';
-        ocs.build();
-      } catch (e) {
-        throw BuiltValueNestedFieldError(r'UserStatusGetPublicStatus', _$failedField, e.toString());
-      }
-      rethrow;
-    }
-    replace(_$result);
-    return _$result;
-  }
-}
-
-class _$UserStatusStatus1 extends UserStatusStatus1 {
-  @override
-  final String? messageId;
-  @override
-  final bool messageIsPredefined;
-  @override
-  final bool statusIsUserDefined;
-
-  factory _$UserStatusStatus1([void Function(UserStatusStatus1Builder)? updates]) =>
-      (UserStatusStatus1Builder()..update(updates))._build();
-
-  _$UserStatusStatus1._({this.messageId, required this.messageIsPredefined, required this.statusIsUserDefined})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(messageIsPredefined, r'UserStatusStatus1', 'messageIsPredefined');
-    BuiltValueNullFieldError.checkNotNull(statusIsUserDefined, r'UserStatusStatus1', 'statusIsUserDefined');
-  }
-
-  @override
-  UserStatusStatus1 rebuild(void Function(UserStatusStatus1Builder) updates) => (toBuilder()..update(updates)).build();
-
-  @override
-  UserStatusStatus1Builder toBuilder() => UserStatusStatus1Builder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other is UserStatusStatus1 &&
-        messageId == other.messageId &&
-        messageIsPredefined == other.messageIsPredefined &&
-        statusIsUserDefined == other.statusIsUserDefined;
-  }
-
-  @override
-  int get hashCode {
-    var _$hash = 0;
-    _$hash = $jc(_$hash, messageId.hashCode);
-    _$hash = $jc(_$hash, messageIsPredefined.hashCode);
-    _$hash = $jc(_$hash, statusIsUserDefined.hashCode);
-    _$hash = $jf(_$hash);
-    return _$hash;
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper(r'UserStatusStatus1')
-          ..add('messageId', messageId)
-          ..add('messageIsPredefined', messageIsPredefined)
-          ..add('statusIsUserDefined', statusIsUserDefined))
-        .toString();
-  }
-}
-
-class UserStatusStatus1Builder implements Builder<UserStatusStatus1, UserStatusStatus1Builder> {
-  _$UserStatusStatus1? _$v;
-
-  String? _messageId;
-  String? get messageId => _$this._messageId;
-  set messageId(String? messageId) => _$this._messageId = messageId;
-
-  bool? _messageIsPredefined;
-  bool? get messageIsPredefined => _$this._messageIsPredefined;
-  set messageIsPredefined(bool? messageIsPredefined) => _$this._messageIsPredefined = messageIsPredefined;
-
-  bool? _statusIsUserDefined;
-  bool? get statusIsUserDefined => _$this._statusIsUserDefined;
-  set statusIsUserDefined(bool? statusIsUserDefined) => _$this._statusIsUserDefined = statusIsUserDefined;
-
-  UserStatusStatus1Builder();
-
-  UserStatusStatus1Builder get _$this {
-    final $v = _$v;
-    if ($v != null) {
-      _messageId = $v.messageId;
-      _messageIsPredefined = $v.messageIsPredefined;
-      _statusIsUserDefined = $v.statusIsUserDefined;
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(UserStatusStatus1 other) {
-    ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$UserStatusStatus1;
-  }
-
-  @override
-  void update(void Function(UserStatusStatus1Builder)? updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  UserStatusStatus1 build() => _build();
-
-  _$UserStatusStatus1 _build() {
-    final _$result = _$v ??
-        _$UserStatusStatus1._(
-            messageId: messageId,
-            messageIsPredefined:
-                BuiltValueNullFieldError.checkNotNull(messageIsPredefined, r'UserStatusStatus1', 'messageIsPredefined'),
-            statusIsUserDefined: BuiltValueNullFieldError.checkNotNull(
-                statusIsUserDefined, r'UserStatusStatus1', 'statusIsUserDefined'));
-    replace(_$result);
-    return _$result;
-  }
-}
-
-class _$UserStatusStatus extends UserStatusStatus {
-  @override
-  final JsonObject data;
-  @override
-  final UserStatusPublicStatus publicStatus;
-  @override
-  final UserStatusStatus1 status1;
-
-  factory _$UserStatusStatus([void Function(UserStatusStatusBuilder)? updates]) =>
-      (UserStatusStatusBuilder()..update(updates))._build();
-
-  _$UserStatusStatus._({required this.data, required this.publicStatus, required this.status1}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(data, r'UserStatusStatus', 'data');
-    BuiltValueNullFieldError.checkNotNull(publicStatus, r'UserStatusStatus', 'publicStatus');
-    BuiltValueNullFieldError.checkNotNull(status1, r'UserStatusStatus', 'status1');
-  }
-
-  @override
-  UserStatusStatus rebuild(void Function(UserStatusStatusBuilder) updates) => (toBuilder()..update(updates)).build();
-
-  @override
-  UserStatusStatusBuilder toBuilder() => UserStatusStatusBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other is UserStatusStatus &&
-        data == other.data &&
-        publicStatus == other.publicStatus &&
-        status1 == other.status1;
-  }
-
-  @override
-  int get hashCode {
-    var _$hash = 0;
-    _$hash = $jc(_$hash, data.hashCode);
-    _$hash = $jc(_$hash, publicStatus.hashCode);
-    _$hash = $jc(_$hash, status1.hashCode);
-    _$hash = $jf(_$hash);
-    return _$hash;
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper(r'UserStatusStatus')
-          ..add('data', data)
-          ..add('publicStatus', publicStatus)
-          ..add('status1', status1))
-        .toString();
-  }
-}
-
-class UserStatusStatusBuilder implements Builder<UserStatusStatus, UserStatusStatusBuilder> {
-  _$UserStatusStatus? _$v;
-
-  JsonObject? _data;
-  JsonObject? get data => _$this._data;
-  set data(JsonObject? data) => _$this._data = data;
-
-  UserStatusPublicStatusBuilder? _publicStatus;
-  UserStatusPublicStatusBuilder get publicStatus => _$this._publicStatus ??= UserStatusPublicStatusBuilder();
-  set publicStatus(UserStatusPublicStatusBuilder? publicStatus) => _$this._publicStatus = publicStatus;
-
-  UserStatusStatus1Builder? _status1;
-  UserStatusStatus1Builder get status1 => _$this._status1 ??= UserStatusStatus1Builder();
-  set status1(UserStatusStatus1Builder? status1) => _$this._status1 = status1;
-
-  UserStatusStatusBuilder();
-
-  UserStatusStatusBuilder get _$this {
-    final $v = _$v;
-    if ($v != null) {
-      _data = $v.data;
-      _publicStatus = $v.publicStatus.toBuilder();
-      _status1 = $v.status1.toBuilder();
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(UserStatusStatus other) {
-    ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$UserStatusStatus;
-  }
-
-  @override
-  void update(void Function(UserStatusStatusBuilder)? updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  UserStatusStatus build() => _build();
-
-  _$UserStatusStatus _build() {
-    _$UserStatusStatus _$result;
-    try {
-      _$result = _$v ??
-          _$UserStatusStatus._(
-              data: BuiltValueNullFieldError.checkNotNull(data, r'UserStatusStatus', 'data'),
-              publicStatus: publicStatus.build(),
-              status1: status1.build());
-    } catch (_) {
-      late String _$failedField;
-      try {
-        _$failedField = 'publicStatus';
-        publicStatus.build();
-        _$failedField = 'status1';
-        status1.build();
-      } catch (e) {
-        throw BuiltValueNestedFieldError(r'UserStatusStatus', _$failedField, e.toString());
-      }
-      rethrow;
-    }
-    replace(_$result);
-    return _$result;
-  }
-}
-
-class _$UserStatusGetStatus_Ocs_Data extends UserStatusGetStatus_Ocs_Data {
-  @override
-  final JsonObject data;
-  @override
-  final BuiltList<JsonObject>? builtListJsonObject;
-  @override
-  final UserStatusStatus? status;
-
-  factory _$UserStatusGetStatus_Ocs_Data([void Function(UserStatusGetStatus_Ocs_DataBuilder)? updates]) =>
-      (UserStatusGetStatus_Ocs_DataBuilder()..update(updates))._build();
-
-  _$UserStatusGetStatus_Ocs_Data._({required this.data, this.builtListJsonObject, this.status}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(data, r'UserStatusGetStatus_Ocs_Data', 'data');
-  }
-
-  @override
-  UserStatusGetStatus_Ocs_Data rebuild(void Function(UserStatusGetStatus_Ocs_DataBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
-
-  @override
-  UserStatusGetStatus_Ocs_DataBuilder toBuilder() => UserStatusGetStatus_Ocs_DataBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other is UserStatusGetStatus_Ocs_Data &&
-        data == other.data &&
-        builtListJsonObject == other.builtListJsonObject &&
-        status == other.status;
-  }
-
-  @override
-  int get hashCode {
-    var _$hash = 0;
-    _$hash = $jc(_$hash, data.hashCode);
-    _$hash = $jc(_$hash, builtListJsonObject.hashCode);
-    _$hash = $jc(_$hash, status.hashCode);
-    _$hash = $jf(_$hash);
-    return _$hash;
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper(r'UserStatusGetStatus_Ocs_Data')
-          ..add('data', data)
-          ..add('builtListJsonObject', builtListJsonObject)
-          ..add('status', status))
-        .toString();
-  }
-}
-
-class UserStatusGetStatus_Ocs_DataBuilder
-    implements Builder<UserStatusGetStatus_Ocs_Data, UserStatusGetStatus_Ocs_DataBuilder> {
-  _$UserStatusGetStatus_Ocs_Data? _$v;
-
-  JsonObject? _data;
-  JsonObject? get data => _$this._data;
-  set data(JsonObject? data) => _$this._data = data;
-
-  ListBuilder<JsonObject>? _builtListJsonObject;
-  ListBuilder<JsonObject> get builtListJsonObject => _$this._builtListJsonObject ??= ListBuilder<JsonObject>();
-  set builtListJsonObject(ListBuilder<JsonObject>? builtListJsonObject) =>
-      _$this._builtListJsonObject = builtListJsonObject;
-
-  UserStatusStatusBuilder? _status;
-  UserStatusStatusBuilder get status => _$this._status ??= UserStatusStatusBuilder();
-  set status(UserStatusStatusBuilder? status) => _$this._status = status;
-
-  UserStatusGetStatus_Ocs_DataBuilder();
-
-  UserStatusGetStatus_Ocs_DataBuilder get _$this {
-    final $v = _$v;
-    if ($v != null) {
-      _data = $v.data;
-      _builtListJsonObject = $v.builtListJsonObject?.toBuilder();
-      _status = $v.status?.toBuilder();
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(UserStatusGetStatus_Ocs_Data other) {
-    ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$UserStatusGetStatus_Ocs_Data;
-  }
-
-  @override
-  void update(void Function(UserStatusGetStatus_Ocs_DataBuilder)? updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  UserStatusGetStatus_Ocs_Data build() => _build();
-
-  _$UserStatusGetStatus_Ocs_Data _build() {
-    _$UserStatusGetStatus_Ocs_Data _$result;
-    try {
-      _$result = _$v ??
-          _$UserStatusGetStatus_Ocs_Data._(
-              data: BuiltValueNullFieldError.checkNotNull(data, r'UserStatusGetStatus_Ocs_Data', 'data'),
-              builtListJsonObject: _builtListJsonObject?.build(),
-              status: _status?.build());
-    } catch (_) {
-      late String _$failedField;
-      try {
-        _$failedField = 'builtListJsonObject';
-        _builtListJsonObject?.build();
-        _$failedField = 'status';
-        _status?.build();
-      } catch (e) {
-        throw BuiltValueNestedFieldError(r'UserStatusGetStatus_Ocs_Data', _$failedField, e.toString());
-      }
-      rethrow;
-    }
-    replace(_$result);
-    return _$result;
-  }
-}
-
-class _$UserStatusGetStatus_Ocs extends UserStatusGetStatus_Ocs {
-  @override
-  final UserStatusOCSMeta meta;
-  @override
-  final UserStatusGetStatus_Ocs_Data data;
-
-  factory _$UserStatusGetStatus_Ocs([void Function(UserStatusGetStatus_OcsBuilder)? updates]) =>
-      (UserStatusGetStatus_OcsBuilder()..update(updates))._build();
-
-  _$UserStatusGetStatus_Ocs._({required this.meta, required this.data}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(meta, r'UserStatusGetStatus_Ocs', 'meta');
-    BuiltValueNullFieldError.checkNotNull(data, r'UserStatusGetStatus_Ocs', 'data');
-  }
-
-  @override
-  UserStatusGetStatus_Ocs rebuild(void Function(UserStatusGetStatus_OcsBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
-
-  @override
-  UserStatusGetStatus_OcsBuilder toBuilder() => UserStatusGetStatus_OcsBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other is UserStatusGetStatus_Ocs && meta == other.meta && data == other.data;
-  }
-
-  @override
-  int get hashCode {
-    var _$hash = 0;
-    _$hash = $jc(_$hash, meta.hashCode);
-    _$hash = $jc(_$hash, data.hashCode);
-    _$hash = $jf(_$hash);
-    return _$hash;
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper(r'UserStatusGetStatus_Ocs')
-          ..add('meta', meta)
-          ..add('data', data))
-        .toString();
-  }
-}
-
-class UserStatusGetStatus_OcsBuilder implements Builder<UserStatusGetStatus_Ocs, UserStatusGetStatus_OcsBuilder> {
-  _$UserStatusGetStatus_Ocs? _$v;
-
-  UserStatusOCSMetaBuilder? _meta;
-  UserStatusOCSMetaBuilder get meta => _$this._meta ??= UserStatusOCSMetaBuilder();
-  set meta(UserStatusOCSMetaBuilder? meta) => _$this._meta = meta;
-
-  UserStatusGetStatus_Ocs_DataBuilder? _data;
-  UserStatusGetStatus_Ocs_DataBuilder get data => _$this._data ??= UserStatusGetStatus_Ocs_DataBuilder();
-  set data(UserStatusGetStatus_Ocs_DataBuilder? data) => _$this._data = data;
-
-  UserStatusGetStatus_OcsBuilder();
-
-  UserStatusGetStatus_OcsBuilder get _$this {
-    final $v = _$v;
-    if ($v != null) {
-      _meta = $v.meta.toBuilder();
-      _data = $v.data.toBuilder();
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(UserStatusGetStatus_Ocs other) {
-    ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$UserStatusGetStatus_Ocs;
-  }
-
-  @override
-  void update(void Function(UserStatusGetStatus_OcsBuilder)? updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  UserStatusGetStatus_Ocs build() => _build();
-
-  _$UserStatusGetStatus_Ocs _build() {
-    _$UserStatusGetStatus_Ocs _$result;
-    try {
-      _$result = _$v ?? _$UserStatusGetStatus_Ocs._(meta: meta.build(), data: data.build());
-    } catch (_) {
-      late String _$failedField;
-      try {
-        _$failedField = 'meta';
-        meta.build();
-        _$failedField = 'data';
-        data.build();
-      } catch (e) {
-        throw BuiltValueNestedFieldError(r'UserStatusGetStatus_Ocs', _$failedField, e.toString());
-      }
-      rethrow;
-    }
-    replace(_$result);
-    return _$result;
-  }
-}
-
-class _$UserStatusGetStatus extends UserStatusGetStatus {
-  @override
-  final UserStatusGetStatus_Ocs ocs;
-
-  factory _$UserStatusGetStatus([void Function(UserStatusGetStatusBuilder)? updates]) =>
-      (UserStatusGetStatusBuilder()..update(updates))._build();
-
-  _$UserStatusGetStatus._({required this.ocs}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(ocs, r'UserStatusGetStatus', 'ocs');
-  }
-
-  @override
-  UserStatusGetStatus rebuild(void Function(UserStatusGetStatusBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
-
-  @override
-  UserStatusGetStatusBuilder toBuilder() => UserStatusGetStatusBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other is UserStatusGetStatus && ocs == other.ocs;
-  }
-
-  @override
-  int get hashCode {
-    var _$hash = 0;
-    _$hash = $jc(_$hash, ocs.hashCode);
-    _$hash = $jf(_$hash);
-    return _$hash;
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper(r'UserStatusGetStatus')..add('ocs', ocs)).toString();
-  }
-}
-
-class UserStatusGetStatusBuilder implements Builder<UserStatusGetStatus, UserStatusGetStatusBuilder> {
-  _$UserStatusGetStatus? _$v;
-
-  UserStatusGetStatus_OcsBuilder? _ocs;
-  UserStatusGetStatus_OcsBuilder get ocs => _$this._ocs ??= UserStatusGetStatus_OcsBuilder();
-  set ocs(UserStatusGetStatus_OcsBuilder? ocs) => _$this._ocs = ocs;
-
-  UserStatusGetStatusBuilder();
-
-  UserStatusGetStatusBuilder get _$this {
-    final $v = _$v;
-    if ($v != null) {
-      _ocs = $v.ocs.toBuilder();
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(UserStatusGetStatus other) {
-    ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$UserStatusGetStatus;
-  }
-
-  @override
-  void update(void Function(UserStatusGetStatusBuilder)? updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  UserStatusGetStatus build() => _build();
-
-  _$UserStatusGetStatus _build() {
-    _$UserStatusGetStatus _$result;
-    try {
-      _$result = _$v ?? _$UserStatusGetStatus._(ocs: ocs.build());
-    } catch (_) {
-      late String _$failedField;
-      try {
-        _$failedField = 'ocs';
-        ocs.build();
-      } catch (e) {
-        throw BuiltValueNestedFieldError(r'UserStatusGetStatus', _$failedField, e.toString());
-      }
-      rethrow;
-    }
-    replace(_$result);
-    return _$result;
-  }
-}
-
-class _$UserStatusPredefinedStatus_ClearAt extends UserStatusPredefinedStatus_ClearAt {
-  @override
-  final JsonObject data;
-  @override
-  final UserStatusClearAt? clearAt;
-  @override
-  final int? $int;
-
-  factory _$UserStatusPredefinedStatus_ClearAt([void Function(UserStatusPredefinedStatus_ClearAtBuilder)? updates]) =>
-      (UserStatusPredefinedStatus_ClearAtBuilder()..update(updates))._build();
-
-  _$UserStatusPredefinedStatus_ClearAt._({required this.data, this.clearAt, this.$int}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(data, r'UserStatusPredefinedStatus_ClearAt', 'data');
-  }
-
-  @override
-  UserStatusPredefinedStatus_ClearAt rebuild(void Function(UserStatusPredefinedStatus_ClearAtBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
-
-  @override
-  UserStatusPredefinedStatus_ClearAtBuilder toBuilder() => UserStatusPredefinedStatus_ClearAtBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other is UserStatusPredefinedStatus_ClearAt &&
-        data == other.data &&
-        clearAt == other.clearAt &&
-        $int == other.$int;
-  }
-
-  @override
-  int get hashCode {
-    var _$hash = 0;
-    _$hash = $jc(_$hash, data.hashCode);
-    _$hash = $jc(_$hash, clearAt.hashCode);
-    _$hash = $jc(_$hash, $int.hashCode);
-    _$hash = $jf(_$hash);
-    return _$hash;
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper(r'UserStatusPredefinedStatus_ClearAt')
-          ..add('data', data)
-          ..add('clearAt', clearAt)
-          ..add('\$int', $int))
-        .toString();
-  }
-}
-
-class UserStatusPredefinedStatus_ClearAtBuilder
-    implements Builder<UserStatusPredefinedStatus_ClearAt, UserStatusPredefinedStatus_ClearAtBuilder> {
-  _$UserStatusPredefinedStatus_ClearAt? _$v;
-
-  JsonObject? _data;
-  JsonObject? get data => _$this._data;
-  set data(JsonObject? data) => _$this._data = data;
-
-  UserStatusClearAtBuilder? _clearAt;
-  UserStatusClearAtBuilder get clearAt => _$this._clearAt ??= UserStatusClearAtBuilder();
-  set clearAt(UserStatusClearAtBuilder? clearAt) => _$this._clearAt = clearAt;
-
-  int? _$int;
-  int? get $int => _$this._$int;
-  set $int(int? $int) => _$this._$int = $int;
-
-  UserStatusPredefinedStatus_ClearAtBuilder();
-
-  UserStatusPredefinedStatus_ClearAtBuilder get _$this {
-    final $v = _$v;
-    if ($v != null) {
-      _data = $v.data;
-      _clearAt = $v.clearAt?.toBuilder();
-      _$int = $v.$int;
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(UserStatusPredefinedStatus_ClearAt other) {
-    ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$UserStatusPredefinedStatus_ClearAt;
-  }
-
-  @override
-  void update(void Function(UserStatusPredefinedStatus_ClearAtBuilder)? updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  UserStatusPredefinedStatus_ClearAt build() => _build();
-
-  _$UserStatusPredefinedStatus_ClearAt _build() {
-    _$UserStatusPredefinedStatus_ClearAt _$result;
-    try {
-      _$result = _$v ??
-          _$UserStatusPredefinedStatus_ClearAt._(
-              data: BuiltValueNullFieldError.checkNotNull(data, r'UserStatusPredefinedStatus_ClearAt', 'data'),
-              clearAt: _clearAt?.build(),
-              $int: $int);
-    } catch (_) {
-      late String _$failedField;
-      try {
-        _$failedField = 'clearAt';
-        _clearAt?.build();
-      } catch (e) {
-        throw BuiltValueNestedFieldError(r'UserStatusPredefinedStatus_ClearAt', _$failedField, e.toString());
-      }
-      rethrow;
-    }
-    replace(_$result);
-    return _$result;
-  }
-}
-
-class _$UserStatusPredefinedStatus extends UserStatusPredefinedStatus {
+class _$UserStatusPredefined extends UserStatusPredefined {
   @override
   final String id;
   @override
@@ -2727,33 +2428,36 @@ class _$UserStatusPredefinedStatus extends UserStatusPredefinedStatus {
   @override
   final String message;
   @override
-  final UserStatusPredefinedStatus_ClearAt? clearAt;
+  final UserStatusClearAt? clearAt;
+  @override
+  final bool? visible;
 
-  factory _$UserStatusPredefinedStatus([void Function(UserStatusPredefinedStatusBuilder)? updates]) =>
-      (UserStatusPredefinedStatusBuilder()..update(updates))._build();
+  factory _$UserStatusPredefined([void Function(UserStatusPredefinedBuilder)? updates]) =>
+      (UserStatusPredefinedBuilder()..update(updates))._build();
 
-  _$UserStatusPredefinedStatus._({required this.id, required this.icon, required this.message, this.clearAt})
+  _$UserStatusPredefined._({required this.id, required this.icon, required this.message, this.clearAt, this.visible})
       : super._() {
-    BuiltValueNullFieldError.checkNotNull(id, r'UserStatusPredefinedStatus', 'id');
-    BuiltValueNullFieldError.checkNotNull(icon, r'UserStatusPredefinedStatus', 'icon');
-    BuiltValueNullFieldError.checkNotNull(message, r'UserStatusPredefinedStatus', 'message');
+    BuiltValueNullFieldError.checkNotNull(id, r'UserStatusPredefined', 'id');
+    BuiltValueNullFieldError.checkNotNull(icon, r'UserStatusPredefined', 'icon');
+    BuiltValueNullFieldError.checkNotNull(message, r'UserStatusPredefined', 'message');
   }
 
   @override
-  UserStatusPredefinedStatus rebuild(void Function(UserStatusPredefinedStatusBuilder) updates) =>
+  UserStatusPredefined rebuild(void Function(UserStatusPredefinedBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  UserStatusPredefinedStatusBuilder toBuilder() => UserStatusPredefinedStatusBuilder()..replace(this);
+  UserStatusPredefinedBuilder toBuilder() => UserStatusPredefinedBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is UserStatusPredefinedStatus &&
+    return other is UserStatusPredefined &&
         id == other.id &&
         icon == other.icon &&
         message == other.message &&
-        clearAt == other.clearAt;
+        clearAt == other.clearAt &&
+        visible == other.visible;
   }
 
   @override
@@ -2763,24 +2467,25 @@ class _$UserStatusPredefinedStatus extends UserStatusPredefinedStatus {
     _$hash = $jc(_$hash, icon.hashCode);
     _$hash = $jc(_$hash, message.hashCode);
     _$hash = $jc(_$hash, clearAt.hashCode);
+    _$hash = $jc(_$hash, visible.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
   }
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'UserStatusPredefinedStatus')
+    return (newBuiltValueToStringHelper(r'UserStatusPredefined')
           ..add('id', id)
           ..add('icon', icon)
           ..add('message', message)
-          ..add('clearAt', clearAt))
+          ..add('clearAt', clearAt)
+          ..add('visible', visible))
         .toString();
   }
 }
 
-class UserStatusPredefinedStatusBuilder
-    implements Builder<UserStatusPredefinedStatus, UserStatusPredefinedStatusBuilder> {
-  _$UserStatusPredefinedStatus? _$v;
+class UserStatusPredefinedBuilder implements Builder<UserStatusPredefined, UserStatusPredefinedBuilder> {
+  _$UserStatusPredefined? _$v;
 
   String? _id;
   String? get id => _$this._id;
@@ -2794,55 +2499,60 @@ class UserStatusPredefinedStatusBuilder
   String? get message => _$this._message;
   set message(String? message) => _$this._message = message;
 
-  UserStatusPredefinedStatus_ClearAtBuilder? _clearAt;
-  UserStatusPredefinedStatus_ClearAtBuilder get clearAt =>
-      _$this._clearAt ??= UserStatusPredefinedStatus_ClearAtBuilder();
-  set clearAt(UserStatusPredefinedStatus_ClearAtBuilder? clearAt) => _$this._clearAt = clearAt;
+  UserStatusClearAtBuilder? _clearAt;
+  UserStatusClearAtBuilder get clearAt => _$this._clearAt ??= UserStatusClearAtBuilder();
+  set clearAt(UserStatusClearAtBuilder? clearAt) => _$this._clearAt = clearAt;
 
-  UserStatusPredefinedStatusBuilder();
+  bool? _visible;
+  bool? get visible => _$this._visible;
+  set visible(bool? visible) => _$this._visible = visible;
 
-  UserStatusPredefinedStatusBuilder get _$this {
+  UserStatusPredefinedBuilder();
+
+  UserStatusPredefinedBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _id = $v.id;
       _icon = $v.icon;
       _message = $v.message;
       _clearAt = $v.clearAt?.toBuilder();
+      _visible = $v.visible;
       _$v = null;
     }
     return this;
   }
 
   @override
-  void replace(UserStatusPredefinedStatus other) {
+  void replace(UserStatusPredefined other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$UserStatusPredefinedStatus;
+    _$v = other as _$UserStatusPredefined;
   }
 
   @override
-  void update(void Function(UserStatusPredefinedStatusBuilder)? updates) {
+  void update(void Function(UserStatusPredefinedBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  UserStatusPredefinedStatus build() => _build();
+  UserStatusPredefined build() => _build();
 
-  _$UserStatusPredefinedStatus _build() {
-    _$UserStatusPredefinedStatus _$result;
+  _$UserStatusPredefined _build() {
+    _$UserStatusPredefined _$result;
     try {
       _$result = _$v ??
-          _$UserStatusPredefinedStatus._(
-              id: BuiltValueNullFieldError.checkNotNull(id, r'UserStatusPredefinedStatus', 'id'),
-              icon: BuiltValueNullFieldError.checkNotNull(icon, r'UserStatusPredefinedStatus', 'icon'),
-              message: BuiltValueNullFieldError.checkNotNull(message, r'UserStatusPredefinedStatus', 'message'),
-              clearAt: _clearAt?.build());
+          _$UserStatusPredefined._(
+              id: BuiltValueNullFieldError.checkNotNull(id, r'UserStatusPredefined', 'id'),
+              icon: BuiltValueNullFieldError.checkNotNull(icon, r'UserStatusPredefined', 'icon'),
+              message: BuiltValueNullFieldError.checkNotNull(message, r'UserStatusPredefined', 'message'),
+              clearAt: _clearAt?.build(),
+              visible: visible);
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'clearAt';
         _clearAt?.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(r'UserStatusPredefinedStatus', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'UserStatusPredefined', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -2851,31 +2561,40 @@ class UserStatusPredefinedStatusBuilder
   }
 }
 
-class _$UserStatusPredefinedStatuses_Ocs extends UserStatusPredefinedStatuses_Ocs {
+class _$UserStatusPredefinedStatusFindAllResponse200ApplicationJson_Ocs
+    extends UserStatusPredefinedStatusFindAllResponse200ApplicationJson_Ocs {
   @override
   final UserStatusOCSMeta meta;
   @override
-  final BuiltList<UserStatusPredefinedStatus> data;
+  final BuiltList<UserStatusPredefined> data;
 
-  factory _$UserStatusPredefinedStatuses_Ocs([void Function(UserStatusPredefinedStatuses_OcsBuilder)? updates]) =>
-      (UserStatusPredefinedStatuses_OcsBuilder()..update(updates))._build();
+  factory _$UserStatusPredefinedStatusFindAllResponse200ApplicationJson_Ocs(
+          [void Function(UserStatusPredefinedStatusFindAllResponse200ApplicationJson_OcsBuilder)? updates]) =>
+      (UserStatusPredefinedStatusFindAllResponse200ApplicationJson_OcsBuilder()..update(updates))._build();
 
-  _$UserStatusPredefinedStatuses_Ocs._({required this.meta, required this.data}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(meta, r'UserStatusPredefinedStatuses_Ocs', 'meta');
-    BuiltValueNullFieldError.checkNotNull(data, r'UserStatusPredefinedStatuses_Ocs', 'data');
+  _$UserStatusPredefinedStatusFindAllResponse200ApplicationJson_Ocs._({required this.meta, required this.data})
+      : super._() {
+    BuiltValueNullFieldError.checkNotNull(
+        meta, r'UserStatusPredefinedStatusFindAllResponse200ApplicationJson_Ocs', 'meta');
+    BuiltValueNullFieldError.checkNotNull(
+        data, r'UserStatusPredefinedStatusFindAllResponse200ApplicationJson_Ocs', 'data');
   }
 
   @override
-  UserStatusPredefinedStatuses_Ocs rebuild(void Function(UserStatusPredefinedStatuses_OcsBuilder) updates) =>
+  UserStatusPredefinedStatusFindAllResponse200ApplicationJson_Ocs rebuild(
+          void Function(UserStatusPredefinedStatusFindAllResponse200ApplicationJson_OcsBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  UserStatusPredefinedStatuses_OcsBuilder toBuilder() => UserStatusPredefinedStatuses_OcsBuilder()..replace(this);
+  UserStatusPredefinedStatusFindAllResponse200ApplicationJson_OcsBuilder toBuilder() =>
+      UserStatusPredefinedStatusFindAllResponse200ApplicationJson_OcsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is UserStatusPredefinedStatuses_Ocs && meta == other.meta && data == other.data;
+    return other is UserStatusPredefinedStatusFindAllResponse200ApplicationJson_Ocs &&
+        meta == other.meta &&
+        data == other.data;
   }
 
   @override
@@ -2889,28 +2608,30 @@ class _$UserStatusPredefinedStatuses_Ocs extends UserStatusPredefinedStatuses_Oc
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'UserStatusPredefinedStatuses_Ocs')
+    return (newBuiltValueToStringHelper(r'UserStatusPredefinedStatusFindAllResponse200ApplicationJson_Ocs')
           ..add('meta', meta)
           ..add('data', data))
         .toString();
   }
 }
 
-class UserStatusPredefinedStatuses_OcsBuilder
-    implements Builder<UserStatusPredefinedStatuses_Ocs, UserStatusPredefinedStatuses_OcsBuilder> {
-  _$UserStatusPredefinedStatuses_Ocs? _$v;
+class UserStatusPredefinedStatusFindAllResponse200ApplicationJson_OcsBuilder
+    implements
+        Builder<UserStatusPredefinedStatusFindAllResponse200ApplicationJson_Ocs,
+            UserStatusPredefinedStatusFindAllResponse200ApplicationJson_OcsBuilder> {
+  _$UserStatusPredefinedStatusFindAllResponse200ApplicationJson_Ocs? _$v;
 
   UserStatusOCSMetaBuilder? _meta;
   UserStatusOCSMetaBuilder get meta => _$this._meta ??= UserStatusOCSMetaBuilder();
   set meta(UserStatusOCSMetaBuilder? meta) => _$this._meta = meta;
 
-  ListBuilder<UserStatusPredefinedStatus>? _data;
-  ListBuilder<UserStatusPredefinedStatus> get data => _$this._data ??= ListBuilder<UserStatusPredefinedStatus>();
-  set data(ListBuilder<UserStatusPredefinedStatus>? data) => _$this._data = data;
+  ListBuilder<UserStatusPredefined>? _data;
+  ListBuilder<UserStatusPredefined> get data => _$this._data ??= ListBuilder<UserStatusPredefined>();
+  set data(ListBuilder<UserStatusPredefined>? data) => _$this._data = data;
 
-  UserStatusPredefinedStatuses_OcsBuilder();
+  UserStatusPredefinedStatusFindAllResponse200ApplicationJson_OcsBuilder();
 
-  UserStatusPredefinedStatuses_OcsBuilder get _$this {
+  UserStatusPredefinedStatusFindAllResponse200ApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _meta = $v.meta.toBuilder();
@@ -2921,23 +2642,24 @@ class UserStatusPredefinedStatuses_OcsBuilder
   }
 
   @override
-  void replace(UserStatusPredefinedStatuses_Ocs other) {
+  void replace(UserStatusPredefinedStatusFindAllResponse200ApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$UserStatusPredefinedStatuses_Ocs;
+    _$v = other as _$UserStatusPredefinedStatusFindAllResponse200ApplicationJson_Ocs;
   }
 
   @override
-  void update(void Function(UserStatusPredefinedStatuses_OcsBuilder)? updates) {
+  void update(void Function(UserStatusPredefinedStatusFindAllResponse200ApplicationJson_OcsBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  UserStatusPredefinedStatuses_Ocs build() => _build();
+  UserStatusPredefinedStatusFindAllResponse200ApplicationJson_Ocs build() => _build();
 
-  _$UserStatusPredefinedStatuses_Ocs _build() {
-    _$UserStatusPredefinedStatuses_Ocs _$result;
+  _$UserStatusPredefinedStatusFindAllResponse200ApplicationJson_Ocs _build() {
+    _$UserStatusPredefinedStatusFindAllResponse200ApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ?? _$UserStatusPredefinedStatuses_Ocs._(meta: meta.build(), data: data.build());
+      _$result = _$v ??
+          _$UserStatusPredefinedStatusFindAllResponse200ApplicationJson_Ocs._(meta: meta.build(), data: data.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -2946,7 +2668,8 @@ class UserStatusPredefinedStatuses_OcsBuilder
         _$failedField = 'data';
         data.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(r'UserStatusPredefinedStatuses_Ocs', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(
+            r'UserStatusPredefinedStatusFindAllResponse200ApplicationJson_Ocs', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -2955,28 +2678,32 @@ class UserStatusPredefinedStatuses_OcsBuilder
   }
 }
 
-class _$UserStatusPredefinedStatuses extends UserStatusPredefinedStatuses {
+class _$UserStatusPredefinedStatusFindAllResponse200ApplicationJson
+    extends UserStatusPredefinedStatusFindAllResponse200ApplicationJson {
   @override
-  final UserStatusPredefinedStatuses_Ocs ocs;
+  final UserStatusPredefinedStatusFindAllResponse200ApplicationJson_Ocs ocs;
 
-  factory _$UserStatusPredefinedStatuses([void Function(UserStatusPredefinedStatusesBuilder)? updates]) =>
-      (UserStatusPredefinedStatusesBuilder()..update(updates))._build();
+  factory _$UserStatusPredefinedStatusFindAllResponse200ApplicationJson(
+          [void Function(UserStatusPredefinedStatusFindAllResponse200ApplicationJsonBuilder)? updates]) =>
+      (UserStatusPredefinedStatusFindAllResponse200ApplicationJsonBuilder()..update(updates))._build();
 
-  _$UserStatusPredefinedStatuses._({required this.ocs}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(ocs, r'UserStatusPredefinedStatuses', 'ocs');
+  _$UserStatusPredefinedStatusFindAllResponse200ApplicationJson._({required this.ocs}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(ocs, r'UserStatusPredefinedStatusFindAllResponse200ApplicationJson', 'ocs');
   }
 
   @override
-  UserStatusPredefinedStatuses rebuild(void Function(UserStatusPredefinedStatusesBuilder) updates) =>
+  UserStatusPredefinedStatusFindAllResponse200ApplicationJson rebuild(
+          void Function(UserStatusPredefinedStatusFindAllResponse200ApplicationJsonBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  UserStatusPredefinedStatusesBuilder toBuilder() => UserStatusPredefinedStatusesBuilder()..replace(this);
+  UserStatusPredefinedStatusFindAllResponse200ApplicationJsonBuilder toBuilder() =>
+      UserStatusPredefinedStatusFindAllResponse200ApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is UserStatusPredefinedStatuses && ocs == other.ocs;
+    return other is UserStatusPredefinedStatusFindAllResponse200ApplicationJson && ocs == other.ocs;
   }
 
   @override
@@ -2989,21 +2716,26 @@ class _$UserStatusPredefinedStatuses extends UserStatusPredefinedStatuses {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'UserStatusPredefinedStatuses')..add('ocs', ocs)).toString();
+    return (newBuiltValueToStringHelper(r'UserStatusPredefinedStatusFindAllResponse200ApplicationJson')
+          ..add('ocs', ocs))
+        .toString();
   }
 }
 
-class UserStatusPredefinedStatusesBuilder
-    implements Builder<UserStatusPredefinedStatuses, UserStatusPredefinedStatusesBuilder> {
-  _$UserStatusPredefinedStatuses? _$v;
+class UserStatusPredefinedStatusFindAllResponse200ApplicationJsonBuilder
+    implements
+        Builder<UserStatusPredefinedStatusFindAllResponse200ApplicationJson,
+            UserStatusPredefinedStatusFindAllResponse200ApplicationJsonBuilder> {
+  _$UserStatusPredefinedStatusFindAllResponse200ApplicationJson? _$v;
 
-  UserStatusPredefinedStatuses_OcsBuilder? _ocs;
-  UserStatusPredefinedStatuses_OcsBuilder get ocs => _$this._ocs ??= UserStatusPredefinedStatuses_OcsBuilder();
-  set ocs(UserStatusPredefinedStatuses_OcsBuilder? ocs) => _$this._ocs = ocs;
+  UserStatusPredefinedStatusFindAllResponse200ApplicationJson_OcsBuilder? _ocs;
+  UserStatusPredefinedStatusFindAllResponse200ApplicationJson_OcsBuilder get ocs =>
+      _$this._ocs ??= UserStatusPredefinedStatusFindAllResponse200ApplicationJson_OcsBuilder();
+  set ocs(UserStatusPredefinedStatusFindAllResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  UserStatusPredefinedStatusesBuilder();
+  UserStatusPredefinedStatusFindAllResponse200ApplicationJsonBuilder();
 
-  UserStatusPredefinedStatusesBuilder get _$this {
+  UserStatusPredefinedStatusFindAllResponse200ApplicationJsonBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _ocs = $v.ocs.toBuilder();
@@ -3013,30 +2745,31 @@ class UserStatusPredefinedStatusesBuilder
   }
 
   @override
-  void replace(UserStatusPredefinedStatuses other) {
+  void replace(UserStatusPredefinedStatusFindAllResponse200ApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$UserStatusPredefinedStatuses;
+    _$v = other as _$UserStatusPredefinedStatusFindAllResponse200ApplicationJson;
   }
 
   @override
-  void update(void Function(UserStatusPredefinedStatusesBuilder)? updates) {
+  void update(void Function(UserStatusPredefinedStatusFindAllResponse200ApplicationJsonBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  UserStatusPredefinedStatuses build() => _build();
+  UserStatusPredefinedStatusFindAllResponse200ApplicationJson build() => _build();
 
-  _$UserStatusPredefinedStatuses _build() {
-    _$UserStatusPredefinedStatuses _$result;
+  _$UserStatusPredefinedStatusFindAllResponse200ApplicationJson _build() {
+    _$UserStatusPredefinedStatusFindAllResponse200ApplicationJson _$result;
     try {
-      _$result = _$v ?? _$UserStatusPredefinedStatuses._(ocs: ocs.build());
+      _$result = _$v ?? _$UserStatusPredefinedStatusFindAllResponse200ApplicationJson._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'ocs';
         ocs.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(r'UserStatusPredefinedStatuses', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(
+            r'UserStatusPredefinedStatusFindAllResponse200ApplicationJson', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -3045,118 +2778,1630 @@ class UserStatusPredefinedStatusesBuilder
   }
 }
 
-class _$UserStatusHeartbeat_Ocs_Data extends UserStatusHeartbeat_Ocs_Data {
+class _$UserStatusStatusesFindAllResponse200ApplicationJson_Ocs
+    extends UserStatusStatusesFindAllResponse200ApplicationJson_Ocs {
   @override
-  final JsonObject data;
+  final UserStatusOCSMeta meta;
   @override
-  final BuiltList<JsonObject>? builtListJsonObject;
-  @override
-  final UserStatusStatus? status;
+  final BuiltList<UserStatusPublic> data;
 
-  factory _$UserStatusHeartbeat_Ocs_Data([void Function(UserStatusHeartbeat_Ocs_DataBuilder)? updates]) =>
-      (UserStatusHeartbeat_Ocs_DataBuilder()..update(updates))._build();
+  factory _$UserStatusStatusesFindAllResponse200ApplicationJson_Ocs(
+          [void Function(UserStatusStatusesFindAllResponse200ApplicationJson_OcsBuilder)? updates]) =>
+      (UserStatusStatusesFindAllResponse200ApplicationJson_OcsBuilder()..update(updates))._build();
 
-  _$UserStatusHeartbeat_Ocs_Data._({required this.data, this.builtListJsonObject, this.status}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(data, r'UserStatusHeartbeat_Ocs_Data', 'data');
+  _$UserStatusStatusesFindAllResponse200ApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(meta, r'UserStatusStatusesFindAllResponse200ApplicationJson_Ocs', 'meta');
+    BuiltValueNullFieldError.checkNotNull(data, r'UserStatusStatusesFindAllResponse200ApplicationJson_Ocs', 'data');
   }
 
   @override
-  UserStatusHeartbeat_Ocs_Data rebuild(void Function(UserStatusHeartbeat_Ocs_DataBuilder) updates) =>
+  UserStatusStatusesFindAllResponse200ApplicationJson_Ocs rebuild(
+          void Function(UserStatusStatusesFindAllResponse200ApplicationJson_OcsBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  UserStatusHeartbeat_Ocs_DataBuilder toBuilder() => UserStatusHeartbeat_Ocs_DataBuilder()..replace(this);
+  UserStatusStatusesFindAllResponse200ApplicationJson_OcsBuilder toBuilder() =>
+      UserStatusStatusesFindAllResponse200ApplicationJson_OcsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is UserStatusHeartbeat_Ocs_Data &&
-        data == other.data &&
-        builtListJsonObject == other.builtListJsonObject &&
-        status == other.status;
+    return other is UserStatusStatusesFindAllResponse200ApplicationJson_Ocs && meta == other.meta && data == other.data;
   }
 
   @override
   int get hashCode {
     var _$hash = 0;
+    _$hash = $jc(_$hash, meta.hashCode);
     _$hash = $jc(_$hash, data.hashCode);
-    _$hash = $jc(_$hash, builtListJsonObject.hashCode);
-    _$hash = $jc(_$hash, status.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
   }
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'UserStatusHeartbeat_Ocs_Data')
-          ..add('data', data)
-          ..add('builtListJsonObject', builtListJsonObject)
-          ..add('status', status))
+    return (newBuiltValueToStringHelper(r'UserStatusStatusesFindAllResponse200ApplicationJson_Ocs')
+          ..add('meta', meta)
+          ..add('data', data))
         .toString();
   }
 }
 
-class UserStatusHeartbeat_Ocs_DataBuilder
-    implements Builder<UserStatusHeartbeat_Ocs_Data, UserStatusHeartbeat_Ocs_DataBuilder> {
-  _$UserStatusHeartbeat_Ocs_Data? _$v;
+class UserStatusStatusesFindAllResponse200ApplicationJson_OcsBuilder
+    implements
+        Builder<UserStatusStatusesFindAllResponse200ApplicationJson_Ocs,
+            UserStatusStatusesFindAllResponse200ApplicationJson_OcsBuilder> {
+  _$UserStatusStatusesFindAllResponse200ApplicationJson_Ocs? _$v;
+
+  UserStatusOCSMetaBuilder? _meta;
+  UserStatusOCSMetaBuilder get meta => _$this._meta ??= UserStatusOCSMetaBuilder();
+  set meta(UserStatusOCSMetaBuilder? meta) => _$this._meta = meta;
+
+  ListBuilder<UserStatusPublic>? _data;
+  ListBuilder<UserStatusPublic> get data => _$this._data ??= ListBuilder<UserStatusPublic>();
+  set data(ListBuilder<UserStatusPublic>? data) => _$this._data = data;
+
+  UserStatusStatusesFindAllResponse200ApplicationJson_OcsBuilder();
+
+  UserStatusStatusesFindAllResponse200ApplicationJson_OcsBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _meta = $v.meta.toBuilder();
+      _data = $v.data.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(UserStatusStatusesFindAllResponse200ApplicationJson_Ocs other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$UserStatusStatusesFindAllResponse200ApplicationJson_Ocs;
+  }
+
+  @override
+  void update(void Function(UserStatusStatusesFindAllResponse200ApplicationJson_OcsBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  UserStatusStatusesFindAllResponse200ApplicationJson_Ocs build() => _build();
+
+  _$UserStatusStatusesFindAllResponse200ApplicationJson_Ocs _build() {
+    _$UserStatusStatusesFindAllResponse200ApplicationJson_Ocs _$result;
+    try {
+      _$result =
+          _$v ?? _$UserStatusStatusesFindAllResponse200ApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'meta';
+        meta.build();
+        _$failedField = 'data';
+        data.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'UserStatusStatusesFindAllResponse200ApplicationJson_Ocs', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+class _$UserStatusStatusesFindAllResponse200ApplicationJson
+    extends UserStatusStatusesFindAllResponse200ApplicationJson {
+  @override
+  final UserStatusStatusesFindAllResponse200ApplicationJson_Ocs ocs;
+
+  factory _$UserStatusStatusesFindAllResponse200ApplicationJson(
+          [void Function(UserStatusStatusesFindAllResponse200ApplicationJsonBuilder)? updates]) =>
+      (UserStatusStatusesFindAllResponse200ApplicationJsonBuilder()..update(updates))._build();
+
+  _$UserStatusStatusesFindAllResponse200ApplicationJson._({required this.ocs}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(ocs, r'UserStatusStatusesFindAllResponse200ApplicationJson', 'ocs');
+  }
+
+  @override
+  UserStatusStatusesFindAllResponse200ApplicationJson rebuild(
+          void Function(UserStatusStatusesFindAllResponse200ApplicationJsonBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  UserStatusStatusesFindAllResponse200ApplicationJsonBuilder toBuilder() =>
+      UserStatusStatusesFindAllResponse200ApplicationJsonBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is UserStatusStatusesFindAllResponse200ApplicationJson && ocs == other.ocs;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, ocs.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'UserStatusStatusesFindAllResponse200ApplicationJson')..add('ocs', ocs))
+        .toString();
+  }
+}
+
+class UserStatusStatusesFindAllResponse200ApplicationJsonBuilder
+    implements
+        Builder<UserStatusStatusesFindAllResponse200ApplicationJson,
+            UserStatusStatusesFindAllResponse200ApplicationJsonBuilder> {
+  _$UserStatusStatusesFindAllResponse200ApplicationJson? _$v;
+
+  UserStatusStatusesFindAllResponse200ApplicationJson_OcsBuilder? _ocs;
+  UserStatusStatusesFindAllResponse200ApplicationJson_OcsBuilder get ocs =>
+      _$this._ocs ??= UserStatusStatusesFindAllResponse200ApplicationJson_OcsBuilder();
+  set ocs(UserStatusStatusesFindAllResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+
+  UserStatusStatusesFindAllResponse200ApplicationJsonBuilder();
+
+  UserStatusStatusesFindAllResponse200ApplicationJsonBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _ocs = $v.ocs.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(UserStatusStatusesFindAllResponse200ApplicationJson other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$UserStatusStatusesFindAllResponse200ApplicationJson;
+  }
+
+  @override
+  void update(void Function(UserStatusStatusesFindAllResponse200ApplicationJsonBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  UserStatusStatusesFindAllResponse200ApplicationJson build() => _build();
+
+  _$UserStatusStatusesFindAllResponse200ApplicationJson _build() {
+    _$UserStatusStatusesFindAllResponse200ApplicationJson _$result;
+    try {
+      _$result = _$v ?? _$UserStatusStatusesFindAllResponse200ApplicationJson._(ocs: ocs.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'ocs';
+        ocs.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'UserStatusStatusesFindAllResponse200ApplicationJson', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+class _$UserStatusStatusesFindResponse200ApplicationJson_Ocs
+    extends UserStatusStatusesFindResponse200ApplicationJson_Ocs {
+  @override
+  final UserStatusOCSMeta meta;
+  @override
+  final UserStatusPublic data;
+
+  factory _$UserStatusStatusesFindResponse200ApplicationJson_Ocs(
+          [void Function(UserStatusStatusesFindResponse200ApplicationJson_OcsBuilder)? updates]) =>
+      (UserStatusStatusesFindResponse200ApplicationJson_OcsBuilder()..update(updates))._build();
+
+  _$UserStatusStatusesFindResponse200ApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(meta, r'UserStatusStatusesFindResponse200ApplicationJson_Ocs', 'meta');
+    BuiltValueNullFieldError.checkNotNull(data, r'UserStatusStatusesFindResponse200ApplicationJson_Ocs', 'data');
+  }
+
+  @override
+  UserStatusStatusesFindResponse200ApplicationJson_Ocs rebuild(
+          void Function(UserStatusStatusesFindResponse200ApplicationJson_OcsBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  UserStatusStatusesFindResponse200ApplicationJson_OcsBuilder toBuilder() =>
+      UserStatusStatusesFindResponse200ApplicationJson_OcsBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is UserStatusStatusesFindResponse200ApplicationJson_Ocs && meta == other.meta && data == other.data;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, meta.hashCode);
+    _$hash = $jc(_$hash, data.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'UserStatusStatusesFindResponse200ApplicationJson_Ocs')
+          ..add('meta', meta)
+          ..add('data', data))
+        .toString();
+  }
+}
+
+class UserStatusStatusesFindResponse200ApplicationJson_OcsBuilder
+    implements
+        Builder<UserStatusStatusesFindResponse200ApplicationJson_Ocs,
+            UserStatusStatusesFindResponse200ApplicationJson_OcsBuilder> {
+  _$UserStatusStatusesFindResponse200ApplicationJson_Ocs? _$v;
+
+  UserStatusOCSMetaBuilder? _meta;
+  UserStatusOCSMetaBuilder get meta => _$this._meta ??= UserStatusOCSMetaBuilder();
+  set meta(UserStatusOCSMetaBuilder? meta) => _$this._meta = meta;
+
+  UserStatusPublicBuilder? _data;
+  UserStatusPublicBuilder get data => _$this._data ??= UserStatusPublicBuilder();
+  set data(UserStatusPublicBuilder? data) => _$this._data = data;
+
+  UserStatusStatusesFindResponse200ApplicationJson_OcsBuilder();
+
+  UserStatusStatusesFindResponse200ApplicationJson_OcsBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _meta = $v.meta.toBuilder();
+      _data = $v.data.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(UserStatusStatusesFindResponse200ApplicationJson_Ocs other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$UserStatusStatusesFindResponse200ApplicationJson_Ocs;
+  }
+
+  @override
+  void update(void Function(UserStatusStatusesFindResponse200ApplicationJson_OcsBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  UserStatusStatusesFindResponse200ApplicationJson_Ocs build() => _build();
+
+  _$UserStatusStatusesFindResponse200ApplicationJson_Ocs _build() {
+    _$UserStatusStatusesFindResponse200ApplicationJson_Ocs _$result;
+    try {
+      _$result =
+          _$v ?? _$UserStatusStatusesFindResponse200ApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'meta';
+        meta.build();
+        _$failedField = 'data';
+        data.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'UserStatusStatusesFindResponse200ApplicationJson_Ocs', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+class _$UserStatusStatusesFindResponse200ApplicationJson extends UserStatusStatusesFindResponse200ApplicationJson {
+  @override
+  final UserStatusStatusesFindResponse200ApplicationJson_Ocs ocs;
+
+  factory _$UserStatusStatusesFindResponse200ApplicationJson(
+          [void Function(UserStatusStatusesFindResponse200ApplicationJsonBuilder)? updates]) =>
+      (UserStatusStatusesFindResponse200ApplicationJsonBuilder()..update(updates))._build();
+
+  _$UserStatusStatusesFindResponse200ApplicationJson._({required this.ocs}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(ocs, r'UserStatusStatusesFindResponse200ApplicationJson', 'ocs');
+  }
+
+  @override
+  UserStatusStatusesFindResponse200ApplicationJson rebuild(
+          void Function(UserStatusStatusesFindResponse200ApplicationJsonBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  UserStatusStatusesFindResponse200ApplicationJsonBuilder toBuilder() =>
+      UserStatusStatusesFindResponse200ApplicationJsonBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is UserStatusStatusesFindResponse200ApplicationJson && ocs == other.ocs;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, ocs.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'UserStatusStatusesFindResponse200ApplicationJson')..add('ocs', ocs))
+        .toString();
+  }
+}
+
+class UserStatusStatusesFindResponse200ApplicationJsonBuilder
+    implements
+        Builder<UserStatusStatusesFindResponse200ApplicationJson,
+            UserStatusStatusesFindResponse200ApplicationJsonBuilder> {
+  _$UserStatusStatusesFindResponse200ApplicationJson? _$v;
+
+  UserStatusStatusesFindResponse200ApplicationJson_OcsBuilder? _ocs;
+  UserStatusStatusesFindResponse200ApplicationJson_OcsBuilder get ocs =>
+      _$this._ocs ??= UserStatusStatusesFindResponse200ApplicationJson_OcsBuilder();
+  set ocs(UserStatusStatusesFindResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+
+  UserStatusStatusesFindResponse200ApplicationJsonBuilder();
+
+  UserStatusStatusesFindResponse200ApplicationJsonBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _ocs = $v.ocs.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(UserStatusStatusesFindResponse200ApplicationJson other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$UserStatusStatusesFindResponse200ApplicationJson;
+  }
+
+  @override
+  void update(void Function(UserStatusStatusesFindResponse200ApplicationJsonBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  UserStatusStatusesFindResponse200ApplicationJson build() => _build();
+
+  _$UserStatusStatusesFindResponse200ApplicationJson _build() {
+    _$UserStatusStatusesFindResponse200ApplicationJson _$result;
+    try {
+      _$result = _$v ?? _$UserStatusStatusesFindResponse200ApplicationJson._(ocs: ocs.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'ocs';
+        ocs.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'UserStatusStatusesFindResponse200ApplicationJson', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+class _$UserStatusUserStatusGetStatusResponse200ApplicationJson_Ocs
+    extends UserStatusUserStatusGetStatusResponse200ApplicationJson_Ocs {
+  @override
+  final UserStatusOCSMeta meta;
+  @override
+  final UserStatusPrivate data;
+
+  factory _$UserStatusUserStatusGetStatusResponse200ApplicationJson_Ocs(
+          [void Function(UserStatusUserStatusGetStatusResponse200ApplicationJson_OcsBuilder)? updates]) =>
+      (UserStatusUserStatusGetStatusResponse200ApplicationJson_OcsBuilder()..update(updates))._build();
+
+  _$UserStatusUserStatusGetStatusResponse200ApplicationJson_Ocs._({required this.meta, required this.data})
+      : super._() {
+    BuiltValueNullFieldError.checkNotNull(meta, r'UserStatusUserStatusGetStatusResponse200ApplicationJson_Ocs', 'meta');
+    BuiltValueNullFieldError.checkNotNull(data, r'UserStatusUserStatusGetStatusResponse200ApplicationJson_Ocs', 'data');
+  }
+
+  @override
+  UserStatusUserStatusGetStatusResponse200ApplicationJson_Ocs rebuild(
+          void Function(UserStatusUserStatusGetStatusResponse200ApplicationJson_OcsBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  UserStatusUserStatusGetStatusResponse200ApplicationJson_OcsBuilder toBuilder() =>
+      UserStatusUserStatusGetStatusResponse200ApplicationJson_OcsBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is UserStatusUserStatusGetStatusResponse200ApplicationJson_Ocs &&
+        meta == other.meta &&
+        data == other.data;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, meta.hashCode);
+    _$hash = $jc(_$hash, data.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'UserStatusUserStatusGetStatusResponse200ApplicationJson_Ocs')
+          ..add('meta', meta)
+          ..add('data', data))
+        .toString();
+  }
+}
+
+class UserStatusUserStatusGetStatusResponse200ApplicationJson_OcsBuilder
+    implements
+        Builder<UserStatusUserStatusGetStatusResponse200ApplicationJson_Ocs,
+            UserStatusUserStatusGetStatusResponse200ApplicationJson_OcsBuilder> {
+  _$UserStatusUserStatusGetStatusResponse200ApplicationJson_Ocs? _$v;
+
+  UserStatusOCSMetaBuilder? _meta;
+  UserStatusOCSMetaBuilder get meta => _$this._meta ??= UserStatusOCSMetaBuilder();
+  set meta(UserStatusOCSMetaBuilder? meta) => _$this._meta = meta;
+
+  UserStatusPrivateBuilder? _data;
+  UserStatusPrivateBuilder get data => _$this._data ??= UserStatusPrivateBuilder();
+  set data(UserStatusPrivateBuilder? data) => _$this._data = data;
+
+  UserStatusUserStatusGetStatusResponse200ApplicationJson_OcsBuilder();
+
+  UserStatusUserStatusGetStatusResponse200ApplicationJson_OcsBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _meta = $v.meta.toBuilder();
+      _data = $v.data.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(UserStatusUserStatusGetStatusResponse200ApplicationJson_Ocs other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$UserStatusUserStatusGetStatusResponse200ApplicationJson_Ocs;
+  }
+
+  @override
+  void update(void Function(UserStatusUserStatusGetStatusResponse200ApplicationJson_OcsBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  UserStatusUserStatusGetStatusResponse200ApplicationJson_Ocs build() => _build();
+
+  _$UserStatusUserStatusGetStatusResponse200ApplicationJson_Ocs _build() {
+    _$UserStatusUserStatusGetStatusResponse200ApplicationJson_Ocs _$result;
+    try {
+      _$result = _$v ??
+          _$UserStatusUserStatusGetStatusResponse200ApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'meta';
+        meta.build();
+        _$failedField = 'data';
+        data.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'UserStatusUserStatusGetStatusResponse200ApplicationJson_Ocs', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+class _$UserStatusUserStatusGetStatusResponse200ApplicationJson
+    extends UserStatusUserStatusGetStatusResponse200ApplicationJson {
+  @override
+  final UserStatusUserStatusGetStatusResponse200ApplicationJson_Ocs ocs;
+
+  factory _$UserStatusUserStatusGetStatusResponse200ApplicationJson(
+          [void Function(UserStatusUserStatusGetStatusResponse200ApplicationJsonBuilder)? updates]) =>
+      (UserStatusUserStatusGetStatusResponse200ApplicationJsonBuilder()..update(updates))._build();
+
+  _$UserStatusUserStatusGetStatusResponse200ApplicationJson._({required this.ocs}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(ocs, r'UserStatusUserStatusGetStatusResponse200ApplicationJson', 'ocs');
+  }
+
+  @override
+  UserStatusUserStatusGetStatusResponse200ApplicationJson rebuild(
+          void Function(UserStatusUserStatusGetStatusResponse200ApplicationJsonBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  UserStatusUserStatusGetStatusResponse200ApplicationJsonBuilder toBuilder() =>
+      UserStatusUserStatusGetStatusResponse200ApplicationJsonBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is UserStatusUserStatusGetStatusResponse200ApplicationJson && ocs == other.ocs;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, ocs.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'UserStatusUserStatusGetStatusResponse200ApplicationJson')..add('ocs', ocs))
+        .toString();
+  }
+}
+
+class UserStatusUserStatusGetStatusResponse200ApplicationJsonBuilder
+    implements
+        Builder<UserStatusUserStatusGetStatusResponse200ApplicationJson,
+            UserStatusUserStatusGetStatusResponse200ApplicationJsonBuilder> {
+  _$UserStatusUserStatusGetStatusResponse200ApplicationJson? _$v;
+
+  UserStatusUserStatusGetStatusResponse200ApplicationJson_OcsBuilder? _ocs;
+  UserStatusUserStatusGetStatusResponse200ApplicationJson_OcsBuilder get ocs =>
+      _$this._ocs ??= UserStatusUserStatusGetStatusResponse200ApplicationJson_OcsBuilder();
+  set ocs(UserStatusUserStatusGetStatusResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+
+  UserStatusUserStatusGetStatusResponse200ApplicationJsonBuilder();
+
+  UserStatusUserStatusGetStatusResponse200ApplicationJsonBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _ocs = $v.ocs.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(UserStatusUserStatusGetStatusResponse200ApplicationJson other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$UserStatusUserStatusGetStatusResponse200ApplicationJson;
+  }
+
+  @override
+  void update(void Function(UserStatusUserStatusGetStatusResponse200ApplicationJsonBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  UserStatusUserStatusGetStatusResponse200ApplicationJson build() => _build();
+
+  _$UserStatusUserStatusGetStatusResponse200ApplicationJson _build() {
+    _$UserStatusUserStatusGetStatusResponse200ApplicationJson _$result;
+    try {
+      _$result = _$v ?? _$UserStatusUserStatusGetStatusResponse200ApplicationJson._(ocs: ocs.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'ocs';
+        ocs.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'UserStatusUserStatusGetStatusResponse200ApplicationJson', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+class _$UserStatusUserStatusSetStatusResponse200ApplicationJson_Ocs
+    extends UserStatusUserStatusSetStatusResponse200ApplicationJson_Ocs {
+  @override
+  final UserStatusOCSMeta meta;
+  @override
+  final UserStatusPrivate data;
+
+  factory _$UserStatusUserStatusSetStatusResponse200ApplicationJson_Ocs(
+          [void Function(UserStatusUserStatusSetStatusResponse200ApplicationJson_OcsBuilder)? updates]) =>
+      (UserStatusUserStatusSetStatusResponse200ApplicationJson_OcsBuilder()..update(updates))._build();
+
+  _$UserStatusUserStatusSetStatusResponse200ApplicationJson_Ocs._({required this.meta, required this.data})
+      : super._() {
+    BuiltValueNullFieldError.checkNotNull(meta, r'UserStatusUserStatusSetStatusResponse200ApplicationJson_Ocs', 'meta');
+    BuiltValueNullFieldError.checkNotNull(data, r'UserStatusUserStatusSetStatusResponse200ApplicationJson_Ocs', 'data');
+  }
+
+  @override
+  UserStatusUserStatusSetStatusResponse200ApplicationJson_Ocs rebuild(
+          void Function(UserStatusUserStatusSetStatusResponse200ApplicationJson_OcsBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  UserStatusUserStatusSetStatusResponse200ApplicationJson_OcsBuilder toBuilder() =>
+      UserStatusUserStatusSetStatusResponse200ApplicationJson_OcsBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is UserStatusUserStatusSetStatusResponse200ApplicationJson_Ocs &&
+        meta == other.meta &&
+        data == other.data;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, meta.hashCode);
+    _$hash = $jc(_$hash, data.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'UserStatusUserStatusSetStatusResponse200ApplicationJson_Ocs')
+          ..add('meta', meta)
+          ..add('data', data))
+        .toString();
+  }
+}
+
+class UserStatusUserStatusSetStatusResponse200ApplicationJson_OcsBuilder
+    implements
+        Builder<UserStatusUserStatusSetStatusResponse200ApplicationJson_Ocs,
+            UserStatusUserStatusSetStatusResponse200ApplicationJson_OcsBuilder> {
+  _$UserStatusUserStatusSetStatusResponse200ApplicationJson_Ocs? _$v;
+
+  UserStatusOCSMetaBuilder? _meta;
+  UserStatusOCSMetaBuilder get meta => _$this._meta ??= UserStatusOCSMetaBuilder();
+  set meta(UserStatusOCSMetaBuilder? meta) => _$this._meta = meta;
+
+  UserStatusPrivateBuilder? _data;
+  UserStatusPrivateBuilder get data => _$this._data ??= UserStatusPrivateBuilder();
+  set data(UserStatusPrivateBuilder? data) => _$this._data = data;
+
+  UserStatusUserStatusSetStatusResponse200ApplicationJson_OcsBuilder();
+
+  UserStatusUserStatusSetStatusResponse200ApplicationJson_OcsBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _meta = $v.meta.toBuilder();
+      _data = $v.data.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(UserStatusUserStatusSetStatusResponse200ApplicationJson_Ocs other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$UserStatusUserStatusSetStatusResponse200ApplicationJson_Ocs;
+  }
+
+  @override
+  void update(void Function(UserStatusUserStatusSetStatusResponse200ApplicationJson_OcsBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  UserStatusUserStatusSetStatusResponse200ApplicationJson_Ocs build() => _build();
+
+  _$UserStatusUserStatusSetStatusResponse200ApplicationJson_Ocs _build() {
+    _$UserStatusUserStatusSetStatusResponse200ApplicationJson_Ocs _$result;
+    try {
+      _$result = _$v ??
+          _$UserStatusUserStatusSetStatusResponse200ApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'meta';
+        meta.build();
+        _$failedField = 'data';
+        data.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'UserStatusUserStatusSetStatusResponse200ApplicationJson_Ocs', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+class _$UserStatusUserStatusSetStatusResponse200ApplicationJson
+    extends UserStatusUserStatusSetStatusResponse200ApplicationJson {
+  @override
+  final UserStatusUserStatusSetStatusResponse200ApplicationJson_Ocs ocs;
+
+  factory _$UserStatusUserStatusSetStatusResponse200ApplicationJson(
+          [void Function(UserStatusUserStatusSetStatusResponse200ApplicationJsonBuilder)? updates]) =>
+      (UserStatusUserStatusSetStatusResponse200ApplicationJsonBuilder()..update(updates))._build();
+
+  _$UserStatusUserStatusSetStatusResponse200ApplicationJson._({required this.ocs}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(ocs, r'UserStatusUserStatusSetStatusResponse200ApplicationJson', 'ocs');
+  }
+
+  @override
+  UserStatusUserStatusSetStatusResponse200ApplicationJson rebuild(
+          void Function(UserStatusUserStatusSetStatusResponse200ApplicationJsonBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  UserStatusUserStatusSetStatusResponse200ApplicationJsonBuilder toBuilder() =>
+      UserStatusUserStatusSetStatusResponse200ApplicationJsonBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is UserStatusUserStatusSetStatusResponse200ApplicationJson && ocs == other.ocs;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, ocs.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'UserStatusUserStatusSetStatusResponse200ApplicationJson')..add('ocs', ocs))
+        .toString();
+  }
+}
+
+class UserStatusUserStatusSetStatusResponse200ApplicationJsonBuilder
+    implements
+        Builder<UserStatusUserStatusSetStatusResponse200ApplicationJson,
+            UserStatusUserStatusSetStatusResponse200ApplicationJsonBuilder> {
+  _$UserStatusUserStatusSetStatusResponse200ApplicationJson? _$v;
+
+  UserStatusUserStatusSetStatusResponse200ApplicationJson_OcsBuilder? _ocs;
+  UserStatusUserStatusSetStatusResponse200ApplicationJson_OcsBuilder get ocs =>
+      _$this._ocs ??= UserStatusUserStatusSetStatusResponse200ApplicationJson_OcsBuilder();
+  set ocs(UserStatusUserStatusSetStatusResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+
+  UserStatusUserStatusSetStatusResponse200ApplicationJsonBuilder();
+
+  UserStatusUserStatusSetStatusResponse200ApplicationJsonBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _ocs = $v.ocs.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(UserStatusUserStatusSetStatusResponse200ApplicationJson other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$UserStatusUserStatusSetStatusResponse200ApplicationJson;
+  }
+
+  @override
+  void update(void Function(UserStatusUserStatusSetStatusResponse200ApplicationJsonBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  UserStatusUserStatusSetStatusResponse200ApplicationJson build() => _build();
+
+  _$UserStatusUserStatusSetStatusResponse200ApplicationJson _build() {
+    _$UserStatusUserStatusSetStatusResponse200ApplicationJson _$result;
+    try {
+      _$result = _$v ?? _$UserStatusUserStatusSetStatusResponse200ApplicationJson._(ocs: ocs.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'ocs';
+        ocs.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'UserStatusUserStatusSetStatusResponse200ApplicationJson', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+class _$UserStatusUserStatusSetPredefinedMessageResponse200ApplicationJson_Ocs
+    extends UserStatusUserStatusSetPredefinedMessageResponse200ApplicationJson_Ocs {
+  @override
+  final UserStatusOCSMeta meta;
+  @override
+  final UserStatusPrivate data;
+
+  factory _$UserStatusUserStatusSetPredefinedMessageResponse200ApplicationJson_Ocs(
+          [void Function(UserStatusUserStatusSetPredefinedMessageResponse200ApplicationJson_OcsBuilder)? updates]) =>
+      (UserStatusUserStatusSetPredefinedMessageResponse200ApplicationJson_OcsBuilder()..update(updates))._build();
+
+  _$UserStatusUserStatusSetPredefinedMessageResponse200ApplicationJson_Ocs._({required this.meta, required this.data})
+      : super._() {
+    BuiltValueNullFieldError.checkNotNull(
+        meta, r'UserStatusUserStatusSetPredefinedMessageResponse200ApplicationJson_Ocs', 'meta');
+    BuiltValueNullFieldError.checkNotNull(
+        data, r'UserStatusUserStatusSetPredefinedMessageResponse200ApplicationJson_Ocs', 'data');
+  }
+
+  @override
+  UserStatusUserStatusSetPredefinedMessageResponse200ApplicationJson_Ocs rebuild(
+          void Function(UserStatusUserStatusSetPredefinedMessageResponse200ApplicationJson_OcsBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  UserStatusUserStatusSetPredefinedMessageResponse200ApplicationJson_OcsBuilder toBuilder() =>
+      UserStatusUserStatusSetPredefinedMessageResponse200ApplicationJson_OcsBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is UserStatusUserStatusSetPredefinedMessageResponse200ApplicationJson_Ocs &&
+        meta == other.meta &&
+        data == other.data;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, meta.hashCode);
+    _$hash = $jc(_$hash, data.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'UserStatusUserStatusSetPredefinedMessageResponse200ApplicationJson_Ocs')
+          ..add('meta', meta)
+          ..add('data', data))
+        .toString();
+  }
+}
+
+class UserStatusUserStatusSetPredefinedMessageResponse200ApplicationJson_OcsBuilder
+    implements
+        Builder<UserStatusUserStatusSetPredefinedMessageResponse200ApplicationJson_Ocs,
+            UserStatusUserStatusSetPredefinedMessageResponse200ApplicationJson_OcsBuilder> {
+  _$UserStatusUserStatusSetPredefinedMessageResponse200ApplicationJson_Ocs? _$v;
+
+  UserStatusOCSMetaBuilder? _meta;
+  UserStatusOCSMetaBuilder get meta => _$this._meta ??= UserStatusOCSMetaBuilder();
+  set meta(UserStatusOCSMetaBuilder? meta) => _$this._meta = meta;
+
+  UserStatusPrivateBuilder? _data;
+  UserStatusPrivateBuilder get data => _$this._data ??= UserStatusPrivateBuilder();
+  set data(UserStatusPrivateBuilder? data) => _$this._data = data;
+
+  UserStatusUserStatusSetPredefinedMessageResponse200ApplicationJson_OcsBuilder();
+
+  UserStatusUserStatusSetPredefinedMessageResponse200ApplicationJson_OcsBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _meta = $v.meta.toBuilder();
+      _data = $v.data.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(UserStatusUserStatusSetPredefinedMessageResponse200ApplicationJson_Ocs other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$UserStatusUserStatusSetPredefinedMessageResponse200ApplicationJson_Ocs;
+  }
+
+  @override
+  void update(void Function(UserStatusUserStatusSetPredefinedMessageResponse200ApplicationJson_OcsBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  UserStatusUserStatusSetPredefinedMessageResponse200ApplicationJson_Ocs build() => _build();
+
+  _$UserStatusUserStatusSetPredefinedMessageResponse200ApplicationJson_Ocs _build() {
+    _$UserStatusUserStatusSetPredefinedMessageResponse200ApplicationJson_Ocs _$result;
+    try {
+      _$result = _$v ??
+          _$UserStatusUserStatusSetPredefinedMessageResponse200ApplicationJson_Ocs._(
+              meta: meta.build(), data: data.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'meta';
+        meta.build();
+        _$failedField = 'data';
+        data.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'UserStatusUserStatusSetPredefinedMessageResponse200ApplicationJson_Ocs', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+class _$UserStatusUserStatusSetPredefinedMessageResponse200ApplicationJson
+    extends UserStatusUserStatusSetPredefinedMessageResponse200ApplicationJson {
+  @override
+  final UserStatusUserStatusSetPredefinedMessageResponse200ApplicationJson_Ocs ocs;
+
+  factory _$UserStatusUserStatusSetPredefinedMessageResponse200ApplicationJson(
+          [void Function(UserStatusUserStatusSetPredefinedMessageResponse200ApplicationJsonBuilder)? updates]) =>
+      (UserStatusUserStatusSetPredefinedMessageResponse200ApplicationJsonBuilder()..update(updates))._build();
+
+  _$UserStatusUserStatusSetPredefinedMessageResponse200ApplicationJson._({required this.ocs}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(
+        ocs, r'UserStatusUserStatusSetPredefinedMessageResponse200ApplicationJson', 'ocs');
+  }
+
+  @override
+  UserStatusUserStatusSetPredefinedMessageResponse200ApplicationJson rebuild(
+          void Function(UserStatusUserStatusSetPredefinedMessageResponse200ApplicationJsonBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  UserStatusUserStatusSetPredefinedMessageResponse200ApplicationJsonBuilder toBuilder() =>
+      UserStatusUserStatusSetPredefinedMessageResponse200ApplicationJsonBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is UserStatusUserStatusSetPredefinedMessageResponse200ApplicationJson && ocs == other.ocs;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, ocs.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'UserStatusUserStatusSetPredefinedMessageResponse200ApplicationJson')
+          ..add('ocs', ocs))
+        .toString();
+  }
+}
+
+class UserStatusUserStatusSetPredefinedMessageResponse200ApplicationJsonBuilder
+    implements
+        Builder<UserStatusUserStatusSetPredefinedMessageResponse200ApplicationJson,
+            UserStatusUserStatusSetPredefinedMessageResponse200ApplicationJsonBuilder> {
+  _$UserStatusUserStatusSetPredefinedMessageResponse200ApplicationJson? _$v;
+
+  UserStatusUserStatusSetPredefinedMessageResponse200ApplicationJson_OcsBuilder? _ocs;
+  UserStatusUserStatusSetPredefinedMessageResponse200ApplicationJson_OcsBuilder get ocs =>
+      _$this._ocs ??= UserStatusUserStatusSetPredefinedMessageResponse200ApplicationJson_OcsBuilder();
+  set ocs(UserStatusUserStatusSetPredefinedMessageResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+
+  UserStatusUserStatusSetPredefinedMessageResponse200ApplicationJsonBuilder();
+
+  UserStatusUserStatusSetPredefinedMessageResponse200ApplicationJsonBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _ocs = $v.ocs.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(UserStatusUserStatusSetPredefinedMessageResponse200ApplicationJson other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$UserStatusUserStatusSetPredefinedMessageResponse200ApplicationJson;
+  }
+
+  @override
+  void update(void Function(UserStatusUserStatusSetPredefinedMessageResponse200ApplicationJsonBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  UserStatusUserStatusSetPredefinedMessageResponse200ApplicationJson build() => _build();
+
+  _$UserStatusUserStatusSetPredefinedMessageResponse200ApplicationJson _build() {
+    _$UserStatusUserStatusSetPredefinedMessageResponse200ApplicationJson _$result;
+    try {
+      _$result = _$v ?? _$UserStatusUserStatusSetPredefinedMessageResponse200ApplicationJson._(ocs: ocs.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'ocs';
+        ocs.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'UserStatusUserStatusSetPredefinedMessageResponse200ApplicationJson', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+class _$UserStatusUserStatusSetCustomMessageResponse200ApplicationJson_Ocs
+    extends UserStatusUserStatusSetCustomMessageResponse200ApplicationJson_Ocs {
+  @override
+  final UserStatusOCSMeta meta;
+  @override
+  final UserStatusPrivate data;
+
+  factory _$UserStatusUserStatusSetCustomMessageResponse200ApplicationJson_Ocs(
+          [void Function(UserStatusUserStatusSetCustomMessageResponse200ApplicationJson_OcsBuilder)? updates]) =>
+      (UserStatusUserStatusSetCustomMessageResponse200ApplicationJson_OcsBuilder()..update(updates))._build();
+
+  _$UserStatusUserStatusSetCustomMessageResponse200ApplicationJson_Ocs._({required this.meta, required this.data})
+      : super._() {
+    BuiltValueNullFieldError.checkNotNull(
+        meta, r'UserStatusUserStatusSetCustomMessageResponse200ApplicationJson_Ocs', 'meta');
+    BuiltValueNullFieldError.checkNotNull(
+        data, r'UserStatusUserStatusSetCustomMessageResponse200ApplicationJson_Ocs', 'data');
+  }
+
+  @override
+  UserStatusUserStatusSetCustomMessageResponse200ApplicationJson_Ocs rebuild(
+          void Function(UserStatusUserStatusSetCustomMessageResponse200ApplicationJson_OcsBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  UserStatusUserStatusSetCustomMessageResponse200ApplicationJson_OcsBuilder toBuilder() =>
+      UserStatusUserStatusSetCustomMessageResponse200ApplicationJson_OcsBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is UserStatusUserStatusSetCustomMessageResponse200ApplicationJson_Ocs &&
+        meta == other.meta &&
+        data == other.data;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, meta.hashCode);
+    _$hash = $jc(_$hash, data.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'UserStatusUserStatusSetCustomMessageResponse200ApplicationJson_Ocs')
+          ..add('meta', meta)
+          ..add('data', data))
+        .toString();
+  }
+}
+
+class UserStatusUserStatusSetCustomMessageResponse200ApplicationJson_OcsBuilder
+    implements
+        Builder<UserStatusUserStatusSetCustomMessageResponse200ApplicationJson_Ocs,
+            UserStatusUserStatusSetCustomMessageResponse200ApplicationJson_OcsBuilder> {
+  _$UserStatusUserStatusSetCustomMessageResponse200ApplicationJson_Ocs? _$v;
+
+  UserStatusOCSMetaBuilder? _meta;
+  UserStatusOCSMetaBuilder get meta => _$this._meta ??= UserStatusOCSMetaBuilder();
+  set meta(UserStatusOCSMetaBuilder? meta) => _$this._meta = meta;
+
+  UserStatusPrivateBuilder? _data;
+  UserStatusPrivateBuilder get data => _$this._data ??= UserStatusPrivateBuilder();
+  set data(UserStatusPrivateBuilder? data) => _$this._data = data;
+
+  UserStatusUserStatusSetCustomMessageResponse200ApplicationJson_OcsBuilder();
+
+  UserStatusUserStatusSetCustomMessageResponse200ApplicationJson_OcsBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _meta = $v.meta.toBuilder();
+      _data = $v.data.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(UserStatusUserStatusSetCustomMessageResponse200ApplicationJson_Ocs other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$UserStatusUserStatusSetCustomMessageResponse200ApplicationJson_Ocs;
+  }
+
+  @override
+  void update(void Function(UserStatusUserStatusSetCustomMessageResponse200ApplicationJson_OcsBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  UserStatusUserStatusSetCustomMessageResponse200ApplicationJson_Ocs build() => _build();
+
+  _$UserStatusUserStatusSetCustomMessageResponse200ApplicationJson_Ocs _build() {
+    _$UserStatusUserStatusSetCustomMessageResponse200ApplicationJson_Ocs _$result;
+    try {
+      _$result = _$v ??
+          _$UserStatusUserStatusSetCustomMessageResponse200ApplicationJson_Ocs._(
+              meta: meta.build(), data: data.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'meta';
+        meta.build();
+        _$failedField = 'data';
+        data.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'UserStatusUserStatusSetCustomMessageResponse200ApplicationJson_Ocs', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+class _$UserStatusUserStatusSetCustomMessageResponse200ApplicationJson
+    extends UserStatusUserStatusSetCustomMessageResponse200ApplicationJson {
+  @override
+  final UserStatusUserStatusSetCustomMessageResponse200ApplicationJson_Ocs ocs;
+
+  factory _$UserStatusUserStatusSetCustomMessageResponse200ApplicationJson(
+          [void Function(UserStatusUserStatusSetCustomMessageResponse200ApplicationJsonBuilder)? updates]) =>
+      (UserStatusUserStatusSetCustomMessageResponse200ApplicationJsonBuilder()..update(updates))._build();
+
+  _$UserStatusUserStatusSetCustomMessageResponse200ApplicationJson._({required this.ocs}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(
+        ocs, r'UserStatusUserStatusSetCustomMessageResponse200ApplicationJson', 'ocs');
+  }
+
+  @override
+  UserStatusUserStatusSetCustomMessageResponse200ApplicationJson rebuild(
+          void Function(UserStatusUserStatusSetCustomMessageResponse200ApplicationJsonBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  UserStatusUserStatusSetCustomMessageResponse200ApplicationJsonBuilder toBuilder() =>
+      UserStatusUserStatusSetCustomMessageResponse200ApplicationJsonBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is UserStatusUserStatusSetCustomMessageResponse200ApplicationJson && ocs == other.ocs;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, ocs.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'UserStatusUserStatusSetCustomMessageResponse200ApplicationJson')
+          ..add('ocs', ocs))
+        .toString();
+  }
+}
+
+class UserStatusUserStatusSetCustomMessageResponse200ApplicationJsonBuilder
+    implements
+        Builder<UserStatusUserStatusSetCustomMessageResponse200ApplicationJson,
+            UserStatusUserStatusSetCustomMessageResponse200ApplicationJsonBuilder> {
+  _$UserStatusUserStatusSetCustomMessageResponse200ApplicationJson? _$v;
+
+  UserStatusUserStatusSetCustomMessageResponse200ApplicationJson_OcsBuilder? _ocs;
+  UserStatusUserStatusSetCustomMessageResponse200ApplicationJson_OcsBuilder get ocs =>
+      _$this._ocs ??= UserStatusUserStatusSetCustomMessageResponse200ApplicationJson_OcsBuilder();
+  set ocs(UserStatusUserStatusSetCustomMessageResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+
+  UserStatusUserStatusSetCustomMessageResponse200ApplicationJsonBuilder();
+
+  UserStatusUserStatusSetCustomMessageResponse200ApplicationJsonBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _ocs = $v.ocs.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(UserStatusUserStatusSetCustomMessageResponse200ApplicationJson other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$UserStatusUserStatusSetCustomMessageResponse200ApplicationJson;
+  }
+
+  @override
+  void update(void Function(UserStatusUserStatusSetCustomMessageResponse200ApplicationJsonBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  UserStatusUserStatusSetCustomMessageResponse200ApplicationJson build() => _build();
+
+  _$UserStatusUserStatusSetCustomMessageResponse200ApplicationJson _build() {
+    _$UserStatusUserStatusSetCustomMessageResponse200ApplicationJson _$result;
+    try {
+      _$result = _$v ?? _$UserStatusUserStatusSetCustomMessageResponse200ApplicationJson._(ocs: ocs.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'ocs';
+        ocs.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'UserStatusUserStatusSetCustomMessageResponse200ApplicationJson', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+class _$UserStatusUserStatusClearMessageResponse200ApplicationJson_Ocs
+    extends UserStatusUserStatusClearMessageResponse200ApplicationJson_Ocs {
+  @override
+  final UserStatusOCSMeta meta;
+  @override
+  final JsonObject data;
+
+  factory _$UserStatusUserStatusClearMessageResponse200ApplicationJson_Ocs(
+          [void Function(UserStatusUserStatusClearMessageResponse200ApplicationJson_OcsBuilder)? updates]) =>
+      (UserStatusUserStatusClearMessageResponse200ApplicationJson_OcsBuilder()..update(updates))._build();
+
+  _$UserStatusUserStatusClearMessageResponse200ApplicationJson_Ocs._({required this.meta, required this.data})
+      : super._() {
+    BuiltValueNullFieldError.checkNotNull(
+        meta, r'UserStatusUserStatusClearMessageResponse200ApplicationJson_Ocs', 'meta');
+    BuiltValueNullFieldError.checkNotNull(
+        data, r'UserStatusUserStatusClearMessageResponse200ApplicationJson_Ocs', 'data');
+  }
+
+  @override
+  UserStatusUserStatusClearMessageResponse200ApplicationJson_Ocs rebuild(
+          void Function(UserStatusUserStatusClearMessageResponse200ApplicationJson_OcsBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  UserStatusUserStatusClearMessageResponse200ApplicationJson_OcsBuilder toBuilder() =>
+      UserStatusUserStatusClearMessageResponse200ApplicationJson_OcsBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is UserStatusUserStatusClearMessageResponse200ApplicationJson_Ocs &&
+        meta == other.meta &&
+        data == other.data;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, meta.hashCode);
+    _$hash = $jc(_$hash, data.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'UserStatusUserStatusClearMessageResponse200ApplicationJson_Ocs')
+          ..add('meta', meta)
+          ..add('data', data))
+        .toString();
+  }
+}
+
+class UserStatusUserStatusClearMessageResponse200ApplicationJson_OcsBuilder
+    implements
+        Builder<UserStatusUserStatusClearMessageResponse200ApplicationJson_Ocs,
+            UserStatusUserStatusClearMessageResponse200ApplicationJson_OcsBuilder> {
+  _$UserStatusUserStatusClearMessageResponse200ApplicationJson_Ocs? _$v;
+
+  UserStatusOCSMetaBuilder? _meta;
+  UserStatusOCSMetaBuilder get meta => _$this._meta ??= UserStatusOCSMetaBuilder();
+  set meta(UserStatusOCSMetaBuilder? meta) => _$this._meta = meta;
 
   JsonObject? _data;
   JsonObject? get data => _$this._data;
   set data(JsonObject? data) => _$this._data = data;
 
-  ListBuilder<JsonObject>? _builtListJsonObject;
-  ListBuilder<JsonObject> get builtListJsonObject => _$this._builtListJsonObject ??= ListBuilder<JsonObject>();
-  set builtListJsonObject(ListBuilder<JsonObject>? builtListJsonObject) =>
-      _$this._builtListJsonObject = builtListJsonObject;
+  UserStatusUserStatusClearMessageResponse200ApplicationJson_OcsBuilder();
 
-  UserStatusStatusBuilder? _status;
-  UserStatusStatusBuilder get status => _$this._status ??= UserStatusStatusBuilder();
-  set status(UserStatusStatusBuilder? status) => _$this._status = status;
+  UserStatusUserStatusClearMessageResponse200ApplicationJson_OcsBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _meta = $v.meta.toBuilder();
+      _data = $v.data;
+      _$v = null;
+    }
+    return this;
+  }
 
-  UserStatusHeartbeat_Ocs_DataBuilder();
+  @override
+  void replace(UserStatusUserStatusClearMessageResponse200ApplicationJson_Ocs other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$UserStatusUserStatusClearMessageResponse200ApplicationJson_Ocs;
+  }
 
-  UserStatusHeartbeat_Ocs_DataBuilder get _$this {
+  @override
+  void update(void Function(UserStatusUserStatusClearMessageResponse200ApplicationJson_OcsBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  UserStatusUserStatusClearMessageResponse200ApplicationJson_Ocs build() => _build();
+
+  _$UserStatusUserStatusClearMessageResponse200ApplicationJson_Ocs _build() {
+    _$UserStatusUserStatusClearMessageResponse200ApplicationJson_Ocs _$result;
+    try {
+      _$result = _$v ??
+          _$UserStatusUserStatusClearMessageResponse200ApplicationJson_Ocs._(
+              meta: meta.build(),
+              data: BuiltValueNullFieldError.checkNotNull(
+                  data, r'UserStatusUserStatusClearMessageResponse200ApplicationJson_Ocs', 'data'));
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'meta';
+        meta.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'UserStatusUserStatusClearMessageResponse200ApplicationJson_Ocs', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+class _$UserStatusUserStatusClearMessageResponse200ApplicationJson
+    extends UserStatusUserStatusClearMessageResponse200ApplicationJson {
+  @override
+  final UserStatusUserStatusClearMessageResponse200ApplicationJson_Ocs ocs;
+
+  factory _$UserStatusUserStatusClearMessageResponse200ApplicationJson(
+          [void Function(UserStatusUserStatusClearMessageResponse200ApplicationJsonBuilder)? updates]) =>
+      (UserStatusUserStatusClearMessageResponse200ApplicationJsonBuilder()..update(updates))._build();
+
+  _$UserStatusUserStatusClearMessageResponse200ApplicationJson._({required this.ocs}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(ocs, r'UserStatusUserStatusClearMessageResponse200ApplicationJson', 'ocs');
+  }
+
+  @override
+  UserStatusUserStatusClearMessageResponse200ApplicationJson rebuild(
+          void Function(UserStatusUserStatusClearMessageResponse200ApplicationJsonBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  UserStatusUserStatusClearMessageResponse200ApplicationJsonBuilder toBuilder() =>
+      UserStatusUserStatusClearMessageResponse200ApplicationJsonBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is UserStatusUserStatusClearMessageResponse200ApplicationJson && ocs == other.ocs;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, ocs.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'UserStatusUserStatusClearMessageResponse200ApplicationJson')..add('ocs', ocs))
+        .toString();
+  }
+}
+
+class UserStatusUserStatusClearMessageResponse200ApplicationJsonBuilder
+    implements
+        Builder<UserStatusUserStatusClearMessageResponse200ApplicationJson,
+            UserStatusUserStatusClearMessageResponse200ApplicationJsonBuilder> {
+  _$UserStatusUserStatusClearMessageResponse200ApplicationJson? _$v;
+
+  UserStatusUserStatusClearMessageResponse200ApplicationJson_OcsBuilder? _ocs;
+  UserStatusUserStatusClearMessageResponse200ApplicationJson_OcsBuilder get ocs =>
+      _$this._ocs ??= UserStatusUserStatusClearMessageResponse200ApplicationJson_OcsBuilder();
+  set ocs(UserStatusUserStatusClearMessageResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+
+  UserStatusUserStatusClearMessageResponse200ApplicationJsonBuilder();
+
+  UserStatusUserStatusClearMessageResponse200ApplicationJsonBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _ocs = $v.ocs.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(UserStatusUserStatusClearMessageResponse200ApplicationJson other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$UserStatusUserStatusClearMessageResponse200ApplicationJson;
+  }
+
+  @override
+  void update(void Function(UserStatusUserStatusClearMessageResponse200ApplicationJsonBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  UserStatusUserStatusClearMessageResponse200ApplicationJson build() => _build();
+
+  _$UserStatusUserStatusClearMessageResponse200ApplicationJson _build() {
+    _$UserStatusUserStatusClearMessageResponse200ApplicationJson _$result;
+    try {
+      _$result = _$v ?? _$UserStatusUserStatusClearMessageResponse200ApplicationJson._(ocs: ocs.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'ocs';
+        ocs.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'UserStatusUserStatusClearMessageResponse200ApplicationJson', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+class _$UserStatusUserStatusRevertStatusResponse200ApplicationJson_Ocs_Data
+    extends UserStatusUserStatusRevertStatusResponse200ApplicationJson_Ocs_Data {
+  @override
+  final JsonObject data;
+  @override
+  final UserStatusPrivate? private;
+  @override
+  final JsonObject? jsonObject;
+
+  factory _$UserStatusUserStatusRevertStatusResponse200ApplicationJson_Ocs_Data(
+          [void Function(UserStatusUserStatusRevertStatusResponse200ApplicationJson_Ocs_DataBuilder)? updates]) =>
+      (UserStatusUserStatusRevertStatusResponse200ApplicationJson_Ocs_DataBuilder()..update(updates))._build();
+
+  _$UserStatusUserStatusRevertStatusResponse200ApplicationJson_Ocs_Data._(
+      {required this.data, this.private, this.jsonObject})
+      : super._() {
+    BuiltValueNullFieldError.checkNotNull(
+        data, r'UserStatusUserStatusRevertStatusResponse200ApplicationJson_Ocs_Data', 'data');
+  }
+
+  @override
+  UserStatusUserStatusRevertStatusResponse200ApplicationJson_Ocs_Data rebuild(
+          void Function(UserStatusUserStatusRevertStatusResponse200ApplicationJson_Ocs_DataBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  UserStatusUserStatusRevertStatusResponse200ApplicationJson_Ocs_DataBuilder toBuilder() =>
+      UserStatusUserStatusRevertStatusResponse200ApplicationJson_Ocs_DataBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is UserStatusUserStatusRevertStatusResponse200ApplicationJson_Ocs_Data &&
+        data == other.data &&
+        private == other.private &&
+        jsonObject == other.jsonObject;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, data.hashCode);
+    _$hash = $jc(_$hash, private.hashCode);
+    _$hash = $jc(_$hash, jsonObject.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'UserStatusUserStatusRevertStatusResponse200ApplicationJson_Ocs_Data')
+          ..add('data', data)
+          ..add('private', private)
+          ..add('jsonObject', jsonObject))
+        .toString();
+  }
+}
+
+class UserStatusUserStatusRevertStatusResponse200ApplicationJson_Ocs_DataBuilder
+    implements
+        Builder<UserStatusUserStatusRevertStatusResponse200ApplicationJson_Ocs_Data,
+            UserStatusUserStatusRevertStatusResponse200ApplicationJson_Ocs_DataBuilder> {
+  _$UserStatusUserStatusRevertStatusResponse200ApplicationJson_Ocs_Data? _$v;
+
+  JsonObject? _data;
+  JsonObject? get data => _$this._data;
+  set data(JsonObject? data) => _$this._data = data;
+
+  UserStatusPrivateBuilder? _private;
+  UserStatusPrivateBuilder get private => _$this._private ??= UserStatusPrivateBuilder();
+  set private(UserStatusPrivateBuilder? private) => _$this._private = private;
+
+  JsonObject? _jsonObject;
+  JsonObject? get jsonObject => _$this._jsonObject;
+  set jsonObject(JsonObject? jsonObject) => _$this._jsonObject = jsonObject;
+
+  UserStatusUserStatusRevertStatusResponse200ApplicationJson_Ocs_DataBuilder();
+
+  UserStatusUserStatusRevertStatusResponse200ApplicationJson_Ocs_DataBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _data = $v.data;
-      _builtListJsonObject = $v.builtListJsonObject?.toBuilder();
-      _status = $v.status?.toBuilder();
+      _private = $v.private?.toBuilder();
+      _jsonObject = $v.jsonObject;
       _$v = null;
     }
     return this;
   }
 
   @override
-  void replace(UserStatusHeartbeat_Ocs_Data other) {
+  void replace(UserStatusUserStatusRevertStatusResponse200ApplicationJson_Ocs_Data other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$UserStatusHeartbeat_Ocs_Data;
+    _$v = other as _$UserStatusUserStatusRevertStatusResponse200ApplicationJson_Ocs_Data;
   }
 
   @override
-  void update(void Function(UserStatusHeartbeat_Ocs_DataBuilder)? updates) {
+  void update(void Function(UserStatusUserStatusRevertStatusResponse200ApplicationJson_Ocs_DataBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  UserStatusHeartbeat_Ocs_Data build() => _build();
+  UserStatusUserStatusRevertStatusResponse200ApplicationJson_Ocs_Data build() => _build();
 
-  _$UserStatusHeartbeat_Ocs_Data _build() {
-    _$UserStatusHeartbeat_Ocs_Data _$result;
+  _$UserStatusUserStatusRevertStatusResponse200ApplicationJson_Ocs_Data _build() {
+    _$UserStatusUserStatusRevertStatusResponse200ApplicationJson_Ocs_Data _$result;
     try {
       _$result = _$v ??
-          _$UserStatusHeartbeat_Ocs_Data._(
-              data: BuiltValueNullFieldError.checkNotNull(data, r'UserStatusHeartbeat_Ocs_Data', 'data'),
-              builtListJsonObject: _builtListJsonObject?.build(),
-              status: _status?.build());
+          _$UserStatusUserStatusRevertStatusResponse200ApplicationJson_Ocs_Data._(
+              data: BuiltValueNullFieldError.checkNotNull(
+                  data, r'UserStatusUserStatusRevertStatusResponse200ApplicationJson_Ocs_Data', 'data'),
+              private: _private?.build(),
+              jsonObject: jsonObject);
     } catch (_) {
       late String _$failedField;
       try {
-        _$failedField = 'builtListJsonObject';
-        _builtListJsonObject?.build();
-        _$failedField = 'status';
-        _status?.build();
+        _$failedField = 'private';
+        _private?.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(r'UserStatusHeartbeat_Ocs_Data', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(
+            r'UserStatusUserStatusRevertStatusResponse200ApplicationJson_Ocs_Data', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -3165,31 +4410,40 @@ class UserStatusHeartbeat_Ocs_DataBuilder
   }
 }
 
-class _$UserStatusHeartbeat_Ocs extends UserStatusHeartbeat_Ocs {
+class _$UserStatusUserStatusRevertStatusResponse200ApplicationJson_Ocs
+    extends UserStatusUserStatusRevertStatusResponse200ApplicationJson_Ocs {
   @override
   final UserStatusOCSMeta meta;
   @override
-  final UserStatusHeartbeat_Ocs_Data data;
+  final UserStatusUserStatusRevertStatusResponse200ApplicationJson_Ocs_Data data;
 
-  factory _$UserStatusHeartbeat_Ocs([void Function(UserStatusHeartbeat_OcsBuilder)? updates]) =>
-      (UserStatusHeartbeat_OcsBuilder()..update(updates))._build();
+  factory _$UserStatusUserStatusRevertStatusResponse200ApplicationJson_Ocs(
+          [void Function(UserStatusUserStatusRevertStatusResponse200ApplicationJson_OcsBuilder)? updates]) =>
+      (UserStatusUserStatusRevertStatusResponse200ApplicationJson_OcsBuilder()..update(updates))._build();
 
-  _$UserStatusHeartbeat_Ocs._({required this.meta, required this.data}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(meta, r'UserStatusHeartbeat_Ocs', 'meta');
-    BuiltValueNullFieldError.checkNotNull(data, r'UserStatusHeartbeat_Ocs', 'data');
+  _$UserStatusUserStatusRevertStatusResponse200ApplicationJson_Ocs._({required this.meta, required this.data})
+      : super._() {
+    BuiltValueNullFieldError.checkNotNull(
+        meta, r'UserStatusUserStatusRevertStatusResponse200ApplicationJson_Ocs', 'meta');
+    BuiltValueNullFieldError.checkNotNull(
+        data, r'UserStatusUserStatusRevertStatusResponse200ApplicationJson_Ocs', 'data');
   }
 
   @override
-  UserStatusHeartbeat_Ocs rebuild(void Function(UserStatusHeartbeat_OcsBuilder) updates) =>
+  UserStatusUserStatusRevertStatusResponse200ApplicationJson_Ocs rebuild(
+          void Function(UserStatusUserStatusRevertStatusResponse200ApplicationJson_OcsBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  UserStatusHeartbeat_OcsBuilder toBuilder() => UserStatusHeartbeat_OcsBuilder()..replace(this);
+  UserStatusUserStatusRevertStatusResponse200ApplicationJson_OcsBuilder toBuilder() =>
+      UserStatusUserStatusRevertStatusResponse200ApplicationJson_OcsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is UserStatusHeartbeat_Ocs && meta == other.meta && data == other.data;
+    return other is UserStatusUserStatusRevertStatusResponse200ApplicationJson_Ocs &&
+        meta == other.meta &&
+        data == other.data;
   }
 
   @override
@@ -3203,27 +4457,31 @@ class _$UserStatusHeartbeat_Ocs extends UserStatusHeartbeat_Ocs {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'UserStatusHeartbeat_Ocs')
+    return (newBuiltValueToStringHelper(r'UserStatusUserStatusRevertStatusResponse200ApplicationJson_Ocs')
           ..add('meta', meta)
           ..add('data', data))
         .toString();
   }
 }
 
-class UserStatusHeartbeat_OcsBuilder implements Builder<UserStatusHeartbeat_Ocs, UserStatusHeartbeat_OcsBuilder> {
-  _$UserStatusHeartbeat_Ocs? _$v;
+class UserStatusUserStatusRevertStatusResponse200ApplicationJson_OcsBuilder
+    implements
+        Builder<UserStatusUserStatusRevertStatusResponse200ApplicationJson_Ocs,
+            UserStatusUserStatusRevertStatusResponse200ApplicationJson_OcsBuilder> {
+  _$UserStatusUserStatusRevertStatusResponse200ApplicationJson_Ocs? _$v;
 
   UserStatusOCSMetaBuilder? _meta;
   UserStatusOCSMetaBuilder get meta => _$this._meta ??= UserStatusOCSMetaBuilder();
   set meta(UserStatusOCSMetaBuilder? meta) => _$this._meta = meta;
 
-  UserStatusHeartbeat_Ocs_DataBuilder? _data;
-  UserStatusHeartbeat_Ocs_DataBuilder get data => _$this._data ??= UserStatusHeartbeat_Ocs_DataBuilder();
-  set data(UserStatusHeartbeat_Ocs_DataBuilder? data) => _$this._data = data;
+  UserStatusUserStatusRevertStatusResponse200ApplicationJson_Ocs_DataBuilder? _data;
+  UserStatusUserStatusRevertStatusResponse200ApplicationJson_Ocs_DataBuilder get data =>
+      _$this._data ??= UserStatusUserStatusRevertStatusResponse200ApplicationJson_Ocs_DataBuilder();
+  set data(UserStatusUserStatusRevertStatusResponse200ApplicationJson_Ocs_DataBuilder? data) => _$this._data = data;
 
-  UserStatusHeartbeat_OcsBuilder();
+  UserStatusUserStatusRevertStatusResponse200ApplicationJson_OcsBuilder();
 
-  UserStatusHeartbeat_OcsBuilder get _$this {
+  UserStatusUserStatusRevertStatusResponse200ApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _meta = $v.meta.toBuilder();
@@ -3234,23 +4492,24 @@ class UserStatusHeartbeat_OcsBuilder implements Builder<UserStatusHeartbeat_Ocs,
   }
 
   @override
-  void replace(UserStatusHeartbeat_Ocs other) {
+  void replace(UserStatusUserStatusRevertStatusResponse200ApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$UserStatusHeartbeat_Ocs;
+    _$v = other as _$UserStatusUserStatusRevertStatusResponse200ApplicationJson_Ocs;
   }
 
   @override
-  void update(void Function(UserStatusHeartbeat_OcsBuilder)? updates) {
+  void update(void Function(UserStatusUserStatusRevertStatusResponse200ApplicationJson_OcsBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  UserStatusHeartbeat_Ocs build() => _build();
+  UserStatusUserStatusRevertStatusResponse200ApplicationJson_Ocs build() => _build();
 
-  _$UserStatusHeartbeat_Ocs _build() {
-    _$UserStatusHeartbeat_Ocs _$result;
+  _$UserStatusUserStatusRevertStatusResponse200ApplicationJson_Ocs _build() {
+    _$UserStatusUserStatusRevertStatusResponse200ApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ?? _$UserStatusHeartbeat_Ocs._(meta: meta.build(), data: data.build());
+      _$result = _$v ??
+          _$UserStatusUserStatusRevertStatusResponse200ApplicationJson_Ocs._(meta: meta.build(), data: data.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -3259,7 +4518,8 @@ class UserStatusHeartbeat_OcsBuilder implements Builder<UserStatusHeartbeat_Ocs,
         _$failedField = 'data';
         data.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(r'UserStatusHeartbeat_Ocs', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(
+            r'UserStatusUserStatusRevertStatusResponse200ApplicationJson_Ocs', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -3268,28 +4528,32 @@ class UserStatusHeartbeat_OcsBuilder implements Builder<UserStatusHeartbeat_Ocs,
   }
 }
 
-class _$UserStatusHeartbeat extends UserStatusHeartbeat {
+class _$UserStatusUserStatusRevertStatusResponse200ApplicationJson
+    extends UserStatusUserStatusRevertStatusResponse200ApplicationJson {
   @override
-  final UserStatusHeartbeat_Ocs ocs;
+  final UserStatusUserStatusRevertStatusResponse200ApplicationJson_Ocs ocs;
 
-  factory _$UserStatusHeartbeat([void Function(UserStatusHeartbeatBuilder)? updates]) =>
-      (UserStatusHeartbeatBuilder()..update(updates))._build();
+  factory _$UserStatusUserStatusRevertStatusResponse200ApplicationJson(
+          [void Function(UserStatusUserStatusRevertStatusResponse200ApplicationJsonBuilder)? updates]) =>
+      (UserStatusUserStatusRevertStatusResponse200ApplicationJsonBuilder()..update(updates))._build();
 
-  _$UserStatusHeartbeat._({required this.ocs}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(ocs, r'UserStatusHeartbeat', 'ocs');
+  _$UserStatusUserStatusRevertStatusResponse200ApplicationJson._({required this.ocs}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(ocs, r'UserStatusUserStatusRevertStatusResponse200ApplicationJson', 'ocs');
   }
 
   @override
-  UserStatusHeartbeat rebuild(void Function(UserStatusHeartbeatBuilder) updates) =>
+  UserStatusUserStatusRevertStatusResponse200ApplicationJson rebuild(
+          void Function(UserStatusUserStatusRevertStatusResponse200ApplicationJsonBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  UserStatusHeartbeatBuilder toBuilder() => UserStatusHeartbeatBuilder()..replace(this);
+  UserStatusUserStatusRevertStatusResponse200ApplicationJsonBuilder toBuilder() =>
+      UserStatusUserStatusRevertStatusResponse200ApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is UserStatusHeartbeat && ocs == other.ocs;
+    return other is UserStatusUserStatusRevertStatusResponse200ApplicationJson && ocs == other.ocs;
   }
 
   @override
@@ -3302,212 +4566,25 @@ class _$UserStatusHeartbeat extends UserStatusHeartbeat {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'UserStatusHeartbeat')..add('ocs', ocs)).toString();
-  }
-}
-
-class UserStatusHeartbeatBuilder implements Builder<UserStatusHeartbeat, UserStatusHeartbeatBuilder> {
-  _$UserStatusHeartbeat? _$v;
-
-  UserStatusHeartbeat_OcsBuilder? _ocs;
-  UserStatusHeartbeat_OcsBuilder get ocs => _$this._ocs ??= UserStatusHeartbeat_OcsBuilder();
-  set ocs(UserStatusHeartbeat_OcsBuilder? ocs) => _$this._ocs = ocs;
-
-  UserStatusHeartbeatBuilder();
-
-  UserStatusHeartbeatBuilder get _$this {
-    final $v = _$v;
-    if ($v != null) {
-      _ocs = $v.ocs.toBuilder();
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(UserStatusHeartbeat other) {
-    ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$UserStatusHeartbeat;
-  }
-
-  @override
-  void update(void Function(UserStatusHeartbeatBuilder)? updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  UserStatusHeartbeat build() => _build();
-
-  _$UserStatusHeartbeat _build() {
-    _$UserStatusHeartbeat _$result;
-    try {
-      _$result = _$v ?? _$UserStatusHeartbeat._(ocs: ocs.build());
-    } catch (_) {
-      late String _$failedField;
-      try {
-        _$failedField = 'ocs';
-        ocs.build();
-      } catch (e) {
-        throw BuiltValueNestedFieldError(r'UserStatusHeartbeat', _$failedField, e.toString());
-      }
-      rethrow;
-    }
-    replace(_$result);
-    return _$result;
-  }
-}
-
-class _$UserStatusEmptyOCS_Ocs extends UserStatusEmptyOCS_Ocs {
-  @override
-  final UserStatusOCSMeta meta;
-  @override
-  final BuiltList<JsonObject> data;
-
-  factory _$UserStatusEmptyOCS_Ocs([void Function(UserStatusEmptyOCS_OcsBuilder)? updates]) =>
-      (UserStatusEmptyOCS_OcsBuilder()..update(updates))._build();
-
-  _$UserStatusEmptyOCS_Ocs._({required this.meta, required this.data}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(meta, r'UserStatusEmptyOCS_Ocs', 'meta');
-    BuiltValueNullFieldError.checkNotNull(data, r'UserStatusEmptyOCS_Ocs', 'data');
-  }
-
-  @override
-  UserStatusEmptyOCS_Ocs rebuild(void Function(UserStatusEmptyOCS_OcsBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
-
-  @override
-  UserStatusEmptyOCS_OcsBuilder toBuilder() => UserStatusEmptyOCS_OcsBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other is UserStatusEmptyOCS_Ocs && meta == other.meta && data == other.data;
-  }
-
-  @override
-  int get hashCode {
-    var _$hash = 0;
-    _$hash = $jc(_$hash, meta.hashCode);
-    _$hash = $jc(_$hash, data.hashCode);
-    _$hash = $jf(_$hash);
-    return _$hash;
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper(r'UserStatusEmptyOCS_Ocs')
-          ..add('meta', meta)
-          ..add('data', data))
+    return (newBuiltValueToStringHelper(r'UserStatusUserStatusRevertStatusResponse200ApplicationJson')..add('ocs', ocs))
         .toString();
   }
 }
 
-class UserStatusEmptyOCS_OcsBuilder implements Builder<UserStatusEmptyOCS_Ocs, UserStatusEmptyOCS_OcsBuilder> {
-  _$UserStatusEmptyOCS_Ocs? _$v;
+class UserStatusUserStatusRevertStatusResponse200ApplicationJsonBuilder
+    implements
+        Builder<UserStatusUserStatusRevertStatusResponse200ApplicationJson,
+            UserStatusUserStatusRevertStatusResponse200ApplicationJsonBuilder> {
+  _$UserStatusUserStatusRevertStatusResponse200ApplicationJson? _$v;
 
-  UserStatusOCSMetaBuilder? _meta;
-  UserStatusOCSMetaBuilder get meta => _$this._meta ??= UserStatusOCSMetaBuilder();
-  set meta(UserStatusOCSMetaBuilder? meta) => _$this._meta = meta;
+  UserStatusUserStatusRevertStatusResponse200ApplicationJson_OcsBuilder? _ocs;
+  UserStatusUserStatusRevertStatusResponse200ApplicationJson_OcsBuilder get ocs =>
+      _$this._ocs ??= UserStatusUserStatusRevertStatusResponse200ApplicationJson_OcsBuilder();
+  set ocs(UserStatusUserStatusRevertStatusResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  ListBuilder<JsonObject>? _data;
-  ListBuilder<JsonObject> get data => _$this._data ??= ListBuilder<JsonObject>();
-  set data(ListBuilder<JsonObject>? data) => _$this._data = data;
+  UserStatusUserStatusRevertStatusResponse200ApplicationJsonBuilder();
 
-  UserStatusEmptyOCS_OcsBuilder();
-
-  UserStatusEmptyOCS_OcsBuilder get _$this {
-    final $v = _$v;
-    if ($v != null) {
-      _meta = $v.meta.toBuilder();
-      _data = $v.data.toBuilder();
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(UserStatusEmptyOCS_Ocs other) {
-    ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$UserStatusEmptyOCS_Ocs;
-  }
-
-  @override
-  void update(void Function(UserStatusEmptyOCS_OcsBuilder)? updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  UserStatusEmptyOCS_Ocs build() => _build();
-
-  _$UserStatusEmptyOCS_Ocs _build() {
-    _$UserStatusEmptyOCS_Ocs _$result;
-    try {
-      _$result = _$v ?? _$UserStatusEmptyOCS_Ocs._(meta: meta.build(), data: data.build());
-    } catch (_) {
-      late String _$failedField;
-      try {
-        _$failedField = 'meta';
-        meta.build();
-        _$failedField = 'data';
-        data.build();
-      } catch (e) {
-        throw BuiltValueNestedFieldError(r'UserStatusEmptyOCS_Ocs', _$failedField, e.toString());
-      }
-      rethrow;
-    }
-    replace(_$result);
-    return _$result;
-  }
-}
-
-class _$UserStatusEmptyOCS extends UserStatusEmptyOCS {
-  @override
-  final UserStatusEmptyOCS_Ocs ocs;
-
-  factory _$UserStatusEmptyOCS([void Function(UserStatusEmptyOCSBuilder)? updates]) =>
-      (UserStatusEmptyOCSBuilder()..update(updates))._build();
-
-  _$UserStatusEmptyOCS._({required this.ocs}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(ocs, r'UserStatusEmptyOCS', 'ocs');
-  }
-
-  @override
-  UserStatusEmptyOCS rebuild(void Function(UserStatusEmptyOCSBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
-
-  @override
-  UserStatusEmptyOCSBuilder toBuilder() => UserStatusEmptyOCSBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other is UserStatusEmptyOCS && ocs == other.ocs;
-  }
-
-  @override
-  int get hashCode {
-    var _$hash = 0;
-    _$hash = $jc(_$hash, ocs.hashCode);
-    _$hash = $jf(_$hash);
-    return _$hash;
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper(r'UserStatusEmptyOCS')..add('ocs', ocs)).toString();
-  }
-}
-
-class UserStatusEmptyOCSBuilder implements Builder<UserStatusEmptyOCS, UserStatusEmptyOCSBuilder> {
-  _$UserStatusEmptyOCS? _$v;
-
-  UserStatusEmptyOCS_OcsBuilder? _ocs;
-  UserStatusEmptyOCS_OcsBuilder get ocs => _$this._ocs ??= UserStatusEmptyOCS_OcsBuilder();
-  set ocs(UserStatusEmptyOCS_OcsBuilder? ocs) => _$this._ocs = ocs;
-
-  UserStatusEmptyOCSBuilder();
-
-  UserStatusEmptyOCSBuilder get _$this {
+  UserStatusUserStatusRevertStatusResponse200ApplicationJsonBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _ocs = $v.ocs.toBuilder();
@@ -3517,30 +4594,230 @@ class UserStatusEmptyOCSBuilder implements Builder<UserStatusEmptyOCS, UserStatu
   }
 
   @override
-  void replace(UserStatusEmptyOCS other) {
+  void replace(UserStatusUserStatusRevertStatusResponse200ApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$UserStatusEmptyOCS;
+    _$v = other as _$UserStatusUserStatusRevertStatusResponse200ApplicationJson;
   }
 
   @override
-  void update(void Function(UserStatusEmptyOCSBuilder)? updates) {
+  void update(void Function(UserStatusUserStatusRevertStatusResponse200ApplicationJsonBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  UserStatusEmptyOCS build() => _build();
+  UserStatusUserStatusRevertStatusResponse200ApplicationJson build() => _build();
 
-  _$UserStatusEmptyOCS _build() {
-    _$UserStatusEmptyOCS _$result;
+  _$UserStatusUserStatusRevertStatusResponse200ApplicationJson _build() {
+    _$UserStatusUserStatusRevertStatusResponse200ApplicationJson _$result;
     try {
-      _$result = _$v ?? _$UserStatusEmptyOCS._(ocs: ocs.build());
+      _$result = _$v ?? _$UserStatusUserStatusRevertStatusResponse200ApplicationJson._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'ocs';
         ocs.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(r'UserStatusEmptyOCS', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(
+            r'UserStatusUserStatusRevertStatusResponse200ApplicationJson', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+class _$UserStatusCapabilities_UserStatus extends UserStatusCapabilities_UserStatus {
+  @override
+  final bool enabled;
+  @override
+  final bool restore;
+  @override
+  final bool supportsEmoji;
+
+  factory _$UserStatusCapabilities_UserStatus([void Function(UserStatusCapabilities_UserStatusBuilder)? updates]) =>
+      (UserStatusCapabilities_UserStatusBuilder()..update(updates))._build();
+
+  _$UserStatusCapabilities_UserStatus._({required this.enabled, required this.restore, required this.supportsEmoji})
+      : super._() {
+    BuiltValueNullFieldError.checkNotNull(enabled, r'UserStatusCapabilities_UserStatus', 'enabled');
+    BuiltValueNullFieldError.checkNotNull(restore, r'UserStatusCapabilities_UserStatus', 'restore');
+    BuiltValueNullFieldError.checkNotNull(supportsEmoji, r'UserStatusCapabilities_UserStatus', 'supportsEmoji');
+  }
+
+  @override
+  UserStatusCapabilities_UserStatus rebuild(void Function(UserStatusCapabilities_UserStatusBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  UserStatusCapabilities_UserStatusBuilder toBuilder() => UserStatusCapabilities_UserStatusBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is UserStatusCapabilities_UserStatus &&
+        enabled == other.enabled &&
+        restore == other.restore &&
+        supportsEmoji == other.supportsEmoji;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, enabled.hashCode);
+    _$hash = $jc(_$hash, restore.hashCode);
+    _$hash = $jc(_$hash, supportsEmoji.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'UserStatusCapabilities_UserStatus')
+          ..add('enabled', enabled)
+          ..add('restore', restore)
+          ..add('supportsEmoji', supportsEmoji))
+        .toString();
+  }
+}
+
+class UserStatusCapabilities_UserStatusBuilder
+    implements Builder<UserStatusCapabilities_UserStatus, UserStatusCapabilities_UserStatusBuilder> {
+  _$UserStatusCapabilities_UserStatus? _$v;
+
+  bool? _enabled;
+  bool? get enabled => _$this._enabled;
+  set enabled(bool? enabled) => _$this._enabled = enabled;
+
+  bool? _restore;
+  bool? get restore => _$this._restore;
+  set restore(bool? restore) => _$this._restore = restore;
+
+  bool? _supportsEmoji;
+  bool? get supportsEmoji => _$this._supportsEmoji;
+  set supportsEmoji(bool? supportsEmoji) => _$this._supportsEmoji = supportsEmoji;
+
+  UserStatusCapabilities_UserStatusBuilder();
+
+  UserStatusCapabilities_UserStatusBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _enabled = $v.enabled;
+      _restore = $v.restore;
+      _supportsEmoji = $v.supportsEmoji;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(UserStatusCapabilities_UserStatus other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$UserStatusCapabilities_UserStatus;
+  }
+
+  @override
+  void update(void Function(UserStatusCapabilities_UserStatusBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  UserStatusCapabilities_UserStatus build() => _build();
+
+  _$UserStatusCapabilities_UserStatus _build() {
+    final _$result = _$v ??
+        _$UserStatusCapabilities_UserStatus._(
+            enabled: BuiltValueNullFieldError.checkNotNull(enabled, r'UserStatusCapabilities_UserStatus', 'enabled'),
+            restore: BuiltValueNullFieldError.checkNotNull(restore, r'UserStatusCapabilities_UserStatus', 'restore'),
+            supportsEmoji: BuiltValueNullFieldError.checkNotNull(
+                supportsEmoji, r'UserStatusCapabilities_UserStatus', 'supportsEmoji'));
+    replace(_$result);
+    return _$result;
+  }
+}
+
+class _$UserStatusCapabilities extends UserStatusCapabilities {
+  @override
+  final UserStatusCapabilities_UserStatus userStatus;
+
+  factory _$UserStatusCapabilities([void Function(UserStatusCapabilitiesBuilder)? updates]) =>
+      (UserStatusCapabilitiesBuilder()..update(updates))._build();
+
+  _$UserStatusCapabilities._({required this.userStatus}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(userStatus, r'UserStatusCapabilities', 'userStatus');
+  }
+
+  @override
+  UserStatusCapabilities rebuild(void Function(UserStatusCapabilitiesBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  UserStatusCapabilitiesBuilder toBuilder() => UserStatusCapabilitiesBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is UserStatusCapabilities && userStatus == other.userStatus;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, userStatus.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'UserStatusCapabilities')..add('userStatus', userStatus)).toString();
+  }
+}
+
+class UserStatusCapabilitiesBuilder implements Builder<UserStatusCapabilities, UserStatusCapabilitiesBuilder> {
+  _$UserStatusCapabilities? _$v;
+
+  UserStatusCapabilities_UserStatusBuilder? _userStatus;
+  UserStatusCapabilities_UserStatusBuilder get userStatus =>
+      _$this._userStatus ??= UserStatusCapabilities_UserStatusBuilder();
+  set userStatus(UserStatusCapabilities_UserStatusBuilder? userStatus) => _$this._userStatus = userStatus;
+
+  UserStatusCapabilitiesBuilder();
+
+  UserStatusCapabilitiesBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _userStatus = $v.userStatus.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(UserStatusCapabilities other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$UserStatusCapabilities;
+  }
+
+  @override
+  void update(void Function(UserStatusCapabilitiesBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  UserStatusCapabilities build() => _build();
+
+  _$UserStatusCapabilities _build() {
+    _$UserStatusCapabilities _$result;
+    try {
+      _$result = _$v ?? _$UserStatusCapabilities._(userStatus: userStatus.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'userStatus';
+        userStatus.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(r'UserStatusCapabilities', _$failedField, e.toString());
       }
       rethrow;
     }

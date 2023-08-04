@@ -49,7 +49,7 @@ class LoginCheckAccountBloc extends InteractiveBloc
         userAgentOverride: neonUserAgent,
       );
 
-      final response = await client.provisioningApi.getCurrentUser();
+      final response = await client.provisioningApi.users.getCurrentUser();
 
       final account = Account(
         serverURL: serverURL,

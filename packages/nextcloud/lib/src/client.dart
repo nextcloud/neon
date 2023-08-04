@@ -6,6 +6,8 @@ import 'package:nextcloud/src/api/news.openapi.dart';
 import 'package:nextcloud/src/api/notes.openapi.dart';
 import 'package:nextcloud/src/api/notifications.openapi.dart';
 import 'package:nextcloud/src/api/provisioning_api.openapi.dart';
+import 'package:nextcloud/src/api/settings.openapi.dart';
+import 'package:nextcloud/src/api/theming.openapi.dart';
 import 'package:nextcloud/src/api/uppush.openapi.dart';
 import 'package:nextcloud/src/api/user_status.openapi.dart';
 import 'package:nextcloud/src/app_type.dart';
@@ -18,22 +20,27 @@ class NextcloudClient extends DynamiteClient {
     super.baseURL, {
     this.loginName,
     final String? password,
+    final String? appPassword,
     final String? language,
     final AppType appType = AppType.unknown,
     final String? userAgentOverride,
     super.cookieJar,
   }) : super(
           baseHeaders: (<String, String?>{
-            'OCS-APIRequest': 'true',
             'Accept-Language': language,
           }..removeWhere((final _, final value) => value == null))
               .cast<String, String>(),
           userAgent: userAgentOverride ?? appType.userAgent,
           authentications: [
-            if (loginName != null && password != null) ...[
+            if (appPassword != null) ...[
+              DynamiteHttpBearerAuthentication(
+                token: appPassword,
+              ),
+            ],
+            if (loginName != null && (password ?? appPassword) != null) ...[
               DynamiteHttpBasicAuthentication(
                 username: loginName,
-                password: password,
+                password: (password ?? appPassword)!,
               ),
             ],
           ],
@@ -50,6 +57,8 @@ class NextcloudClient extends DynamiteClient {
   ProvisioningApiClient? _provisioningApi;
   UppushClient? _uppush;
   UserStatusClient? _userStatus;
+  SettingsClient? _settings;
+  ThemingClient? _theming;
 
   /// Client for WebDAV
   WebDavClient get webdav => _webdav ??= WebDavClient(this);
@@ -74,6 +83,12 @@ class NextcloudClient extends DynamiteClient {
 
   /// Client for the user status APIs
   UserStatusClient get userStatus => _userStatus ??= UserStatusClient.fromClient(this);
+
+  /// Client for the settings APIs
+  SettingsClient get settings => _settings ??= SettingsClient.fromClient(this);
+
+  /// Client for the theming APIs
+  ThemingClient get theming => _theming ??= ThemingClient.fromClient(this);
 }
 
 // ignore: public_member_api_docs

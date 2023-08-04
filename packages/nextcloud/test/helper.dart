@@ -46,30 +46,29 @@ class DockerContainer {
         ),
       );
 
-  Future<String> collectLogs() async {
-    final serverLogs = (await runExecutableArguments(
-      'docker',
-      [
-        'logs',
-        id,
-      ],
-      stdoutEncoding: utf8,
-    ))
-        .stdout as String;
-    final nextcloudLogs = (await runExecutableArguments(
-      'docker',
-      [
-        'exec',
-        id,
-        'cat',
-        'data/nextcloud.log',
-      ],
-      stdoutEncoding: utf8,
-    ))
-        .stdout as String;
+  Future<String> serverLogs() async => (await runExecutableArguments(
+        'docker',
+        [
+          'logs',
+          id,
+        ],
+        stdoutEncoding: utf8,
+      ))
+          .stdout as String;
 
-    return '$serverLogs\n\n$nextcloudLogs';
-  }
+  Future<String> nextcloudLogs() async => (await runExecutableArguments(
+        'docker',
+        [
+          'exec',
+          id,
+          'cat',
+          'data/nextcloud.log',
+        ],
+        stdoutEncoding: utf8,
+      ))
+          .stdout as String;
+
+  Future<String> allLogs() async => '${await serverLogs()}\n\n${await nextcloudLogs()}';
 }
 
 class TestNextcloudClient extends NextcloudClient {
@@ -77,6 +76,7 @@ class TestNextcloudClient extends NextcloudClient {
     super.baseURL, {
     super.loginName,
     super.password,
+    super.appPassword,
     super.language,
     super.appType,
     super.userAgentOverride,
@@ -87,16 +87,11 @@ class TestNextcloudClient extends NextcloudClient {
 Future<TestNextcloudClient> getTestClient(
   final DockerContainer container, {
   final String? username = 'user1',
-  final String? password = 'user1',
-  final bool useAppPassword = false,
   final AppType appType = AppType.unknown,
   final String? userAgentOverride,
 }) async {
-  // ignore: prefer_asserts_with_message
-  assert(!useAppPassword || (username != null && password != null));
-
-  var clientPassword = password;
-  if (useAppPassword) {
+  String? appPassword;
+  if (username != null) {
     final inputStream = StreamController<List<int>>();
     final process = runExecutableArguments(
       'docker',
@@ -108,24 +103,25 @@ Future<TestNextcloudClient> getTestClient(
         '-f',
         'occ',
         'user:add-app-password',
-        username!,
+        username,
       ],
       stdin: inputStream.stream,
     );
-    inputStream.add(utf8.encode(password!));
+    inputStream.add(utf8.encode(username));
     await inputStream.close();
 
     final result = await process;
     if (result.exitCode != 0) {
       throw Exception('Failed to run generate app password command\n${result.stderr}\n${result.stdout}');
     }
-    clientPassword = (result.stdout as String).split('\n')[1];
+    appPassword = (result.stdout as String).split('\n')[1];
   }
 
   final client = TestNextcloudClient(
     'http://localhost:${container.port}',
     loginName: username,
-    password: clientPassword,
+    password: username,
+    appPassword: appPassword,
     appType: appType,
     userAgentOverride: userAgentOverride,
     cookieJar: CookieJar(),

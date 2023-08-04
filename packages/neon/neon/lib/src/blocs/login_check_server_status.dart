@@ -11,7 +11,7 @@ abstract interface class LoginCheckServerStatusBlocEvents {}
 
 abstract interface class LoginCheckServerStatusBlocStates {
   /// Contains the current server connection state
-  BehaviorSubject<Result<CoreServerStatus>> get state;
+  BehaviorSubject<Result<CoreStatus>> get state;
 }
 
 class LoginCheckServerStatusBloc extends InteractiveBloc
@@ -28,7 +28,7 @@ class LoginCheckServerStatusBloc extends InteractiveBloc
   }
 
   @override
-  BehaviorSubject<Result<CoreServerStatus>> state = BehaviorSubject();
+  BehaviorSubject<Result<CoreStatus>> state = BehaviorSubject();
 
   @override
   Future refresh() async {

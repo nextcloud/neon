@@ -20,7 +20,7 @@ void main() {
     tearDown(() => container.destroy());
 
     test('Is supported', () async {
-      final (supported, _) = client.notes.isSupported((await client.core.getCapabilities()).ocs.data);
+      final (supported, _) = client.notes.isSupported((await client.core.ocs.getCapabilities()).ocs.data);
       expect(supported, isTrue);
     });
 

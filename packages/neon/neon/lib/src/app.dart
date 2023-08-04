@@ -8,7 +8,6 @@ import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:neon/l10n/localizations.dart';
 import 'package:neon/src/bloc/result_builder.dart';
 import 'package:neon/src/blocs/accounts.dart';
-import 'package:neon/src/blocs/capabilities.dart';
 import 'package:neon/src/models/account.dart';
 import 'package:neon/src/models/app_ids.dart';
 import 'package:neon/src/models/app_implementation.dart';
@@ -22,6 +21,7 @@ import 'package:neon/src/utils/global.dart';
 import 'package:neon/src/utils/global_options.dart';
 import 'package:neon/src/utils/localizations.dart';
 import 'package:neon/src/utils/push_utils.dart';
+import 'package:nextcloud/nextcloud.dart';
 import 'package:provider/provider.dart';
 import 'package:quick_actions/quick_actions.dart';
 import 'package:tray_manager/tray_manager.dart' as tray;
@@ -285,7 +285,7 @@ class _NeonAppState extends State<NeonApp> with WidgetsBindingObserver, tray.Tra
               stream: _accountsBloc.activeAccount,
               builder: (final context, final activeAccountSnapshot) {
                 FlutterNativeSplash.remove();
-                return ResultBuilder<Capabilities?>.behaviorSubject(
+                return ResultBuilder<CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data?>.behaviorSubject(
                   stream: activeAccountSnapshot.hasData
                       ? _accountsBloc.getCapabilitiesBlocFor(activeAccountSnapshot.data!).capabilities
                       : null,

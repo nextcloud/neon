@@ -80,10 +80,12 @@ class NotificationsClient extends DynamiteClient {
       'Accept': 'application/json',
     };
     Uint8List? body;
-    if (authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
+    if (authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+      headers.addAll(authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers);
+    } else if (authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
       headers.addAll(authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
     } else {
-      throw Exception('Missing authentication for basic_auth'); // coverage:ignore-line
+      throw Exception('Missing authentication for bearer or basic_auth'); // coverage:ignore-line
     }
     final response = await doRequest(
       'get',
@@ -107,10 +109,10 @@ class NotificationsClient extends DynamiteClient {
       'Accept': 'application/json',
     };
     Uint8List? body;
-    if (authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers.addAll(authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
+    if (authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+      headers.addAll(authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers);
     } else {
-      throw Exception('Missing authentication for basic_auth'); // coverage:ignore-line
+      throw Exception('Missing authentication for bearer'); // coverage:ignore-line
     }
     final response = await doRequest(
       'delete',
@@ -131,10 +133,12 @@ class NotificationsClient extends DynamiteClient {
       'Accept': 'application/json',
     };
     Uint8List? body;
-    if (authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
+    if (authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+      headers.addAll(authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers);
+    } else if (authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
       headers.addAll(authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
     } else {
-      throw Exception('Missing authentication for basic_auth'); // coverage:ignore-line
+      throw Exception('Missing authentication for bearer or basic_auth'); // coverage:ignore-line
     }
     path = path.replaceAll('{id}', Uri.encodeQueryComponent(id.toString()));
     final response = await doRequest(
@@ -159,10 +163,10 @@ class NotificationsClient extends DynamiteClient {
       'Accept': 'application/json',
     };
     Uint8List? body;
-    if (authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers.addAll(authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
+    if (authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+      headers.addAll(authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers);
     } else {
-      throw Exception('Missing authentication for basic_auth'); // coverage:ignore-line
+      throw Exception('Missing authentication for bearer'); // coverage:ignore-line
     }
     path = path.replaceAll('{id}', Uri.encodeQueryComponent(id.toString()));
     final response = await doRequest(
@@ -191,10 +195,10 @@ class NotificationsClient extends DynamiteClient {
       'Accept': 'application/json',
     };
     Uint8List? body;
-    if (authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers.addAll(authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
+    if (authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+      headers.addAll(authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers);
     } else {
-      throw Exception('Missing authentication for basic_auth'); // coverage:ignore-line
+      throw Exception('Missing authentication for bearer'); // coverage:ignore-line
     }
     queryParameters['pushTokenHash'] = pushTokenHash;
     queryParameters['devicePublicKey'] = devicePublicKey;
@@ -221,10 +225,10 @@ class NotificationsClient extends DynamiteClient {
       'Accept': 'application/json',
     };
     Uint8List? body;
-    if (authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers.addAll(authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
+    if (authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+      headers.addAll(authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers);
     } else {
-      throw Exception('Missing authentication for basic_auth'); // coverage:ignore-line
+      throw Exception('Missing authentication for bearer'); // coverage:ignore-line
     }
     final response = await doRequest(
       'delete',
@@ -249,10 +253,10 @@ class NotificationsClient extends DynamiteClient {
       'Accept': 'application/json',
     };
     Uint8List? body;
-    if (authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers.addAll(authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
+    if (authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+      headers.addAll(authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers);
     } else {
-      throw Exception('Missing authentication for basic_auth'); // coverage:ignore-line
+      throw Exception('Missing authentication for bearer'); // coverage:ignore-line
     }
     path = path.replaceAll('{userId}', Uri.encodeQueryComponent(userId));
     queryParameters['shortMessage'] = shortMessage;
@@ -473,6 +477,39 @@ abstract class NotificationsPushServerRegistration
       _$notificationsPushServerRegistrationSerializer;
 }
 
+abstract class NotificationsCapabilities_Notifications
+    implements Built<NotificationsCapabilities_Notifications, NotificationsCapabilities_NotificationsBuilder> {
+  factory NotificationsCapabilities_Notifications([
+    final void Function(NotificationsCapabilities_NotificationsBuilder)? b,
+  ]) = _$NotificationsCapabilities_Notifications;
+  const NotificationsCapabilities_Notifications._();
+
+  factory NotificationsCapabilities_Notifications.fromJson(final Map<String, dynamic> json) =>
+      _jsonSerializers.deserializeWith(serializer, json)!;
+
+  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  @BuiltValueField(wireName: 'ocs-endpoints')
+  BuiltList<String>? get ocsEndpoints;
+  BuiltList<String>? get push;
+  @BuiltValueField(wireName: 'admin-notifications')
+  BuiltList<String>? get adminNotifications;
+  static Serializer<NotificationsCapabilities_Notifications> get serializer =>
+      _$notificationsCapabilitiesNotificationsSerializer;
+}
+
+abstract class NotificationsCapabilities implements Built<NotificationsCapabilities, NotificationsCapabilitiesBuilder> {
+  factory NotificationsCapabilities([final void Function(NotificationsCapabilitiesBuilder)? b]) =
+      _$NotificationsCapabilities;
+  const NotificationsCapabilities._();
+
+  factory NotificationsCapabilities.fromJson(final Map<String, dynamic> json) =>
+      _jsonSerializers.deserializeWith(serializer, json)!;
+
+  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  NotificationsCapabilities_Notifications get notifications;
+  static Serializer<NotificationsCapabilities> get serializer => _$notificationsCapabilitiesSerializer;
+}
+
 abstract class NotificationsNotificationDecryptedSubject
     implements Built<NotificationsNotificationDecryptedSubject, NotificationsNotificationDecryptedSubjectBuilder> {
   factory NotificationsNotificationDecryptedSubject([
@@ -533,6 +570,14 @@ final Serializers _serializers = (Serializers().toBuilder()
       ..add(NotificationsPushServerRegistration_Ocs.serializer)
       ..addBuilderFactory(const FullType(NotificationsPushServerSubscription), NotificationsPushServerSubscription.new)
       ..add(NotificationsPushServerSubscription.serializer)
+      ..addBuilderFactory(const FullType(NotificationsCapabilities), NotificationsCapabilities.new)
+      ..add(NotificationsCapabilities.serializer)
+      ..addBuilderFactory(
+        const FullType(NotificationsCapabilities_Notifications),
+        NotificationsCapabilities_Notifications.new,
+      )
+      ..add(NotificationsCapabilities_Notifications.serializer)
+      ..addBuilderFactory(const FullType(BuiltList, [FullType(String)]), ListBuilder<String>.new)
       ..addBuilderFactory(
         const FullType(NotificationsNotificationDecryptedSubject),
         NotificationsNotificationDecryptedSubject.new,

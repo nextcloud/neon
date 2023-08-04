@@ -39,6 +39,7 @@ class Account implements Credentials {
         );
 
   factory Account.fromJson(final Map<String, dynamic> json) => _$AccountFromJson(json);
+
   Map<String, dynamic> toJson() => _$AccountToJson(this);
 
   @override

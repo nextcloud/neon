@@ -88,7 +88,7 @@ class AccountSettingsPage extends StatelessWidget {
                   children: [
                     if (userDetails.hasData) ...[
                       LinearProgressIndicator(
-                        value: userDetails.requireData.quota.relative / 100,
+                        value: (userDetails.requireData.quota.relative ?? 0) / 100,
                         backgroundColor: Theme.of(context).colorScheme.primary.withOpacity(0.3),
                       ),
                       const SizedBox(
@@ -96,9 +96,9 @@ class AccountSettingsPage extends StatelessWidget {
                       ),
                       Text(
                         AppLocalizations.of(context).accountOptionsQuotaUsedOf(
-                          filesize(userDetails.requireData.quota.used, 1),
-                          filesize(userDetails.requireData.quota.total, 1),
-                          userDetails.requireData.quota.relative.toString(),
+                          filesize(userDetails.requireData.quota.used ?? 0, 1),
+                          filesize(userDetails.requireData.quota.total ?? 0, 1),
+                          (userDetails.requireData.quota.relative ?? 0).toString(),
                         ),
                       ),
                     ],

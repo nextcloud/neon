@@ -387,6 +387,32 @@ abstract class NotesSettings implements Built<NotesSettings, NotesSettingsBuilde
   static Serializer<NotesSettings> get serializer => _$notesSettingsSerializer;
 }
 
+abstract class NotesCapabilities_Notes implements Built<NotesCapabilities_Notes, NotesCapabilities_NotesBuilder> {
+  factory NotesCapabilities_Notes([final void Function(NotesCapabilities_NotesBuilder)? b]) = _$NotesCapabilities_Notes;
+  const NotesCapabilities_Notes._();
+
+  factory NotesCapabilities_Notes.fromJson(final Map<String, dynamic> json) =>
+      _jsonSerializers.deserializeWith(serializer, json)!;
+
+  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  @BuiltValueField(wireName: 'api_version')
+  BuiltList<String>? get apiVersion;
+  String? get version;
+  static Serializer<NotesCapabilities_Notes> get serializer => _$notesCapabilitiesNotesSerializer;
+}
+
+abstract class NotesCapabilities implements Built<NotesCapabilities, NotesCapabilitiesBuilder> {
+  factory NotesCapabilities([final void Function(NotesCapabilitiesBuilder)? b]) = _$NotesCapabilities;
+  const NotesCapabilities._();
+
+  factory NotesCapabilities.fromJson(final Map<String, dynamic> json) =>
+      _jsonSerializers.deserializeWith(serializer, json)!;
+
+  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  NotesCapabilities_Notes get notes;
+  static Serializer<NotesCapabilities> get serializer => _$notesCapabilitiesSerializer;
+}
+
 abstract class NotesOCSMeta implements Built<NotesOCSMeta, NotesOCSMetaBuilder> {
   factory NotesOCSMeta([final void Function(NotesOCSMetaBuilder)? b]) = _$NotesOCSMeta;
   const NotesOCSMeta._();
@@ -434,6 +460,11 @@ final Serializers _serializers = (Serializers().toBuilder()
       ..addBuilderFactory(const FullType(NotesSettings), NotesSettings.new)
       ..add(NotesSettings.serializer)
       ..add(NotesSettings_NoteMode.serializer)
+      ..addBuilderFactory(const FullType(NotesCapabilities), NotesCapabilities.new)
+      ..add(NotesCapabilities.serializer)
+      ..addBuilderFactory(const FullType(NotesCapabilities_Notes), NotesCapabilities_Notes.new)
+      ..add(NotesCapabilities_Notes.serializer)
+      ..addBuilderFactory(const FullType(BuiltList, [FullType(String)]), ListBuilder<String>.new)
       ..addBuilderFactory(const FullType(NotesOCSMeta), NotesOCSMeta.new)
       ..add(NotesOCSMeta.serializer)
       ..addBuilderFactory(const FullType(NotesEmptyOCS), NotesEmptyOCS.new)
