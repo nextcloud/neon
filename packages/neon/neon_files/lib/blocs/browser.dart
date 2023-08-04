@@ -56,7 +56,7 @@ class FilesBrowserBloc extends InteractiveBloc implements FilesBrowserBlocEvents
         ),
         depth: '1',
       ),
-      (final response) => response.toWebDavFiles(client.webdav).sublist(1),
+      (final response) => response.toWebDavFiles().sublist(1),
       emitEmptyCache: true,
     );
   }
