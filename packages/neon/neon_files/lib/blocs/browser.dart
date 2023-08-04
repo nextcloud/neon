@@ -16,14 +16,14 @@ class FilesBrowserBloc extends InteractiveBloc implements FilesBrowserBlocEvents
   FilesBrowserBloc(
     this._requestManager,
     this.options,
-    this.client,
+    this.account,
   ) {
     unawaited(refresh());
   }
 
   final RequestManager _requestManager;
   final FilesAppSpecificOptions options;
-  final NextcloudClient client;
+  final Account account;
 
   @override
   void dispose() {
@@ -41,10 +41,10 @@ class FilesBrowserBloc extends InteractiveBloc implements FilesBrowserBlocEvents
   @override
   Future refresh() async {
     await _requestManager.wrapWebDav<List<WebDavFile>>(
-      client.id,
+      account.id,
       'files-${path.value.join('/')}',
       files,
-      () async => client.webdav.propfind(
+      () async => account.client.webdav.propfind(
         path.value.join('/'),
         prop: WebDavPropWithoutValues.fromBools(
           davgetcontenttype: true,
@@ -69,6 +69,6 @@ class FilesBrowserBloc extends InteractiveBloc implements FilesBrowserBlocEvents
 
   @override
   void createFolder(final List<String> path) {
-    wrapAction(() async => client.webdav.mkcol(path.join('/')));
+    wrapAction(() async => account.client.webdav.mkcol(path.join('/')));
   }
 }

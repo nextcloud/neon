@@ -57,10 +57,10 @@ class NotesApp extends AppImplementation<NotesBloc, NotesAppSpecificOptions> {
   NotesAppSpecificOptions buildOptions(final AppStorage storage) => NotesAppSpecificOptions(storage);
 
   @override
-  NotesBloc buildBloc(final NextcloudClient client) => NotesBloc(
+  NotesBloc buildBloc(final Account account) => NotesBloc(
         options,
         requestManager,
-        client,
+        account,
       );
 
   @override

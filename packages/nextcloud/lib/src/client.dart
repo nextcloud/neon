@@ -17,14 +17,12 @@ class NextcloudClient extends DynamiteClient {
   NextcloudClient(
     super.baseURL, {
     this.loginName,
-    this.username,
     final String? password,
     final String? language,
     final AppType appType = AppType.unknown,
     final String? userAgentOverride,
     super.cookieJar,
-  })  : assert(loginName != null || username == null, 'Provide loginName instead of username or both'),
-        super(
+  }) : super(
           baseHeaders: (<String, String?>{
             'OCS-APIRequest': 'true',
             'Accept-Language': language,
@@ -43,9 +41,6 @@ class NextcloudClient extends DynamiteClient {
 
   /// Identifier used for authentication. This can be the username or email or something else.
   final String? loginName;
-
-  /// Username of the user on the server
-  final String? username;
 
   WebDavClient? _webdav;
   CoreClient? _core;

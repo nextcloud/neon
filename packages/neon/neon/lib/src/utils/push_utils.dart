@@ -160,7 +160,7 @@ class PushUtils {
               android: AndroidNotificationDetails(
                 appID,
                 appName ?? appID,
-                subText: accounts.length > 1 && account != null ? account.client.humanReadableID : null,
+                subText: accounts.length > 1 && account != null ? account.humanReadableID : null,
                 groupKey: 'app_$appID',
                 icon: '@mipmap/ic_launcher',
                 largeIcon: largeIconBitmap,

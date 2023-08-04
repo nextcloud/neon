@@ -257,7 +257,7 @@ class AccountsBloc extends Bloc implements AccountsBlocEvents, AccountsBlocState
 
     return _capabilitiesBlocs[account.id] = CapabilitiesBloc(
       _requestManager,
-      account.client,
+      account,
     );
   }
 
@@ -276,7 +276,7 @@ class AccountsBloc extends Bloc implements AccountsBlocEvents, AccountsBlocState
 
     return _userDetailsBlocs[account.id] = UserDetailsBloc(
       _requestManager,
-      account.client,
+      account,
     );
   }
 

@@ -37,10 +37,10 @@ class NotificationsApp extends AppImplementation<NotificationsBloc, Notification
   NotificationsAppSpecificOptions buildOptions(final AppStorage storage) => NotificationsAppSpecificOptions(storage);
 
   @override
-  NotificationsBloc buildBloc(final NextcloudClient client) => NotificationsBloc(
+  NotificationsBloc buildBloc(final Account account) => NotificationsBloc(
         options,
         requestManager,
-        client,
+        account,
       );
 
   @override

@@ -8,7 +8,6 @@ part of 'account.dart';
 
 Account _$AccountFromJson(Map<String, dynamic> json) => Account(
       serverURL: json['serverURL'] as String,
-      loginName: json['loginName'] as String,
       username: json['username'] as String,
       password: json['password'] as String?,
       userAgent: json['userAgent'] as String?,
@@ -16,7 +15,6 @@ Account _$AccountFromJson(Map<String, dynamic> json) => Account(
 
 Map<String, dynamic> _$AccountToJson(Account instance) => <String, dynamic>{
       'serverURL': instance.serverURL,
-      'loginName': instance.loginName,
       'username': instance.username,
       'password': instance.password,
       'userAgent': instance.userAgent,

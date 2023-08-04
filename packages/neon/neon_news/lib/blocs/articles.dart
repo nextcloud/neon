@@ -34,7 +34,7 @@ class NewsMainArticlesBloc extends NewsArticlesBloc {
     super.newsBloc,
     super.options,
     super.requestManager,
-    super.client,
+    super.account,
   );
 }
 
@@ -43,7 +43,7 @@ class NewsArticlesBloc extends InteractiveBloc implements NewsArticlesBlocEvents
     this._newsBloc,
     this.options,
     this.requestManager,
-    this.client, {
+    this.account, {
     this.id,
     this.listType,
   }) {
@@ -60,7 +60,7 @@ class NewsArticlesBloc extends InteractiveBloc implements NewsArticlesBlocEvents
   final NewsBloc _newsBloc;
   final NewsAppSpecificOptions options;
   final RequestManager requestManager;
-  final NextcloudClient client;
+  final Account account;
   final int? id;
   final ListType? listType;
 
@@ -126,10 +126,10 @@ class NewsArticlesBloc extends InteractiveBloc implements NewsArticlesBlocEvents
     }
 
     await requestManager.wrapNextcloud<List<NewsArticle>, NewsListArticles>(
-      client.id,
+      account.id,
       'news-articles-${type.code}-$id-$getRead',
       articles,
-      () async => client.news.listArticles(
+      () async => account.client.news.listArticles(
         type: type.code,
         id: id ?? 0,
         getRead: getRead ?? true ? 1 : 0,
@@ -140,12 +140,12 @@ class NewsArticlesBloc extends InteractiveBloc implements NewsArticlesBlocEvents
 
   @override
   void markArticleAsRead(final NewsArticle article) {
-    wrapAction(() async => client.news.markArticleAsRead(itemId: article.id));
+    wrapAction(() async => account.client.news.markArticleAsRead(itemId: article.id));
   }
 
   @override
   void markArticleAsUnread(final NewsArticle article) {
-    wrapAction(() async => client.news.markArticleAsUnread(itemId: article.id));
+    wrapAction(() async => account.client.news.markArticleAsUnread(itemId: article.id));
   }
 
   @override
@@ -155,11 +155,11 @@ class NewsArticlesBloc extends InteractiveBloc implements NewsArticlesBlocEvents
 
   @override
   void starArticle(final NewsArticle article) {
-    wrapAction(() async => client.news.starArticle(itemId: article.id));
+    wrapAction(() async => account.client.news.starArticle(itemId: article.id));
   }
 
   @override
   void unstarArticle(final NewsArticle article) {
-    wrapAction(() async => client.news.unstarArticle(itemId: article.id));
+    wrapAction(() async => account.client.news.unstarArticle(itemId: article.id));
   }
 }

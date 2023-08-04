@@ -25,7 +25,7 @@ class NeonUserAvatar extends StatefulWidget {
     this.backgroundColor,
     this.foregroundColor,
     super.key,
-  }) : username = username ?? account.client.username!;
+  }) : username = username ?? account.username;
 
   final Account account;
   final String username;

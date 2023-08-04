@@ -48,7 +48,7 @@ class _NewsFolderViewState extends State<NewsFolderView> {
                       widget.bloc,
                       widget.bloc.options,
                       widget.bloc.requestManager,
-                      widget.bloc.client,
+                      widget.bloc.account,
                       id: widget.folder.id,
                       listType: ListType.folder,
                     ),

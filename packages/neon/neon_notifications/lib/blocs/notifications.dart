@@ -17,7 +17,7 @@ class NotificationsBloc extends InteractiveBloc
   NotificationsBloc(
     this.options,
     this._requestManager,
-    this._client,
+    this._account,
   ) {
     notifications.listen((final result) {
       if (result.hasData) {
@@ -32,7 +32,7 @@ class NotificationsBloc extends InteractiveBloc
   @override
   final NotificationsAppSpecificOptions options;
   final RequestManager _requestManager;
-  final NextcloudClient _client;
+  final Account _account;
   late final NeonTimer _timer;
 
   @override
@@ -53,21 +53,21 @@ class NotificationsBloc extends InteractiveBloc
   @override
   Future refresh() async {
     await _requestManager.wrapNextcloud<List<NotificationsNotification>, NotificationsListNotifications>(
-      _client.id,
+      _account.id,
       'notifications-notifications',
       notifications,
-      () async => _client.notifications.listNotifications(),
+      () async => _account.client.notifications.listNotifications(),
       (final response) => response.ocs.data.toList(),
     );
   }
 
   @override
   void deleteAllNotifications() {
-    wrapAction(() async => _client.notifications.deleteAllNotifications());
+    wrapAction(() async => _account.client.notifications.deleteAllNotifications());
   }
 
   @override
   void deleteNotification(final int id) {
-    wrapAction(() async => _client.notifications.deleteNotification(id: id));
+    wrapAction(() async => _account.client.notifications.deleteNotification(id: id));
   }
 }

@@ -71,7 +71,7 @@ class NeonAppBar extends StatelessWidget implements PreferredSizeWidget {
               ),
               if (accounts.length > 1) ...[
                 Text(
-                  account.client.humanReadableID,
+                  account.humanReadableID,
                   style: Theme.of(context).textTheme.bodySmall,
                 ),
               ],
@@ -140,7 +140,7 @@ class _NotificationIconButtonState extends State<NotificationIconButton> {
             Text(app.name(context)),
             if (_accounts.length > 1) ...[
               Text(
-                _account.client.humanReadableID,
+                _account.humanReadableID,
                 style: Theme.of(context).textTheme.bodySmall,
               ),
             ],

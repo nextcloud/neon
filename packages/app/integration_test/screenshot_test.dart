@@ -129,7 +129,6 @@ Future main() async {
   final binding = IntegrationTestWidgetsFlutterBinding.ensureInitialized();
   final account = Account(
     serverURL: 'http://10.0.2.2',
-    loginName: 'user1',
     username: 'user1',
     password: 'user1',
   );
@@ -346,7 +345,6 @@ Future main() async {
   testWidgets('notifications', (final tester) async {
     await Account(
       serverURL: 'http://10.0.2.2',
-      loginName: 'admin',
       username: 'admin',
       password: 'admin',
     ).client.notifications.sendAdminNotification(

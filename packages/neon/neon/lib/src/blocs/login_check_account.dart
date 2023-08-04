@@ -53,7 +53,6 @@ class LoginCheckAccountBloc extends InteractiveBloc
 
       final account = Account(
         serverURL: serverURL,
-        loginName: loginName,
         username: response.ocs.data.id,
         password: password,
         userAgent: neonUserAgent,

@@ -27,14 +27,12 @@ abstract interface class Credentials {
 class Account implements Credentials {
   Account({
     required this.serverURL,
-    required this.loginName,
     required this.username,
     this.password,
     this.userAgent,
-  }) : _client = NextcloudClient(
+  }) : client = NextcloudClient(
           serverURL,
-          loginName: loginName,
-          username: username,
+          loginName: username,
           password: password,
           userAgentOverride: userAgent,
           cookieJar: CookieJar(),
@@ -45,7 +43,6 @@ class Account implements Credentials {
 
   @override
   final String serverURL;
-  final String loginName;
   @override
   final String username;
   @override
@@ -56,7 +53,6 @@ class Account implements Credentials {
   bool operator ==(final Object other) =>
       other is Account &&
       other.serverURL == serverURL &&
-      other.loginName == loginName &&
       other.username == username &&
       other.password == password &&
       other.userAgent == userAgent;
@@ -64,18 +60,10 @@ class Account implements Credentials {
   @override
   int get hashCode => serverURL.hashCode + username.hashCode;
 
-  String get id => client.id;
+  final NextcloudClient client;
 
-  final NextcloudClient _client;
-
-  NextcloudClient get client => _client;
-}
-
-Map<String, String> _idCache = {};
-
-extension NextcloudClientHelpers on NextcloudClient {
   String get id {
-    final key = '$username@$baseURL';
+    final key = '$username@$serverURL';
     if (_idCache[key] != null) {
       return _idCache[key]!;
     }
@@ -83,11 +71,13 @@ extension NextcloudClientHelpers on NextcloudClient {
   }
 
   String get humanReadableID {
-    final uri = Uri.parse(baseURL);
+    final uri = Uri.parse(serverURL);
     // Maybe also show path if it is not '/' ?
-    return '${username!}@${uri.port != 443 ? '${uri.host}:${uri.port}' : uri.host}';
+    return '$username@${uri.port != 443 ? '${uri.host}:${uri.port}' : uri.host}';
   }
 }
+
+Map<String, String> _idCache = {};
 
 extension AccountFind on Iterable<Account> {
   Account? tryFind(final String? accountID) => firstWhereOrNull((final account) => account.id == accountID);

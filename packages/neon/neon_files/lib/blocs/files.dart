@@ -29,7 +29,7 @@ abstract class FilesBlocStates {
 class FilesBloc extends InteractiveBloc implements FilesBlocEvents, FilesBlocStates {
   FilesBloc(
     this.options,
-    this.client,
+    this.account,
     this._requestManager,
     this._platform,
   ) {
@@ -38,7 +38,7 @@ class FilesBloc extends InteractiveBloc implements FilesBlocEvents, FilesBlocSta
   }
 
   final FilesAppSpecificOptions options;
-  final NextcloudClient client;
+  final Account account;
   final RequestManager _requestManager;
   final NeonPlatform _platform;
   late final browser = getNewFilesBrowserBloc();
@@ -66,7 +66,7 @@ class FilesBloc extends InteractiveBloc implements FilesBlocEvents, FilesBlocSta
   @override
   void addFavorite(final List<String> path) {
     wrapAction(
-      () async => client.webdav.proppatch(
+      () async => account.client.webdav.proppatch(
         path.join('/'),
         set: WebDavProp(ocfavorite: 1),
       ),
@@ -75,17 +75,17 @@ class FilesBloc extends InteractiveBloc implements FilesBlocEvents, FilesBlocSta
 
   @override
   void copy(final List<String> path, final List<String> destination) {
-    wrapAction(() async => client.webdav.copy(path.join('/'), destination.join('/')));
+    wrapAction(() async => account.client.webdav.copy(path.join('/'), destination.join('/')));
   }
 
   @override
   void delete(final List<String> path) {
-    wrapAction(() async => client.webdav.delete(path.join('/')));
+    wrapAction(() async => account.client.webdav.delete(path.join('/')));
   }
 
   @override
   void move(final List<String> path, final List<String> destination) {
-    wrapAction(() async => client.webdav.move(path.join('/'), destination.join('/')));
+    wrapAction(() async => account.client.webdav.move(path.join('/'), destination.join('/')));
   }
 
   @override
@@ -124,7 +124,7 @@ class FilesBloc extends InteractiveBloc implements FilesBlocEvents, FilesBlocSta
   @override
   void removeFavorite(final List<String> path) {
     wrapAction(
-      () async => client.webdav.proppatch(
+      () async => account.client.webdav.proppatch(
         path.join('/'),
         set: WebDavProp(ocfavorite: 0),
       ),
@@ -134,7 +134,7 @@ class FilesBloc extends InteractiveBloc implements FilesBlocEvents, FilesBlocSta
   @override
   void rename(final List<String> path, final String name) {
     wrapAction(
-      () async => client.webdav.move(
+      () async => account.client.webdav.move(
         path.join('/'),
         (path.sublist(0, path.length - 1)..add(name)).join('/'),
       ),
@@ -148,7 +148,7 @@ class FilesBloc extends InteractiveBloc implements FilesBlocEvents, FilesBlocSta
         final file = File(
           p.join(
             await _platform.getUserAccessibleAppDataPath(),
-            client.humanReadableID,
+            account.humanReadableID,
             'files',
             path.join(Platform.pathSeparator),
           ),
@@ -175,7 +175,7 @@ class FilesBloc extends InteractiveBloc implements FilesBlocEvents, FilesBlocSta
           lastModified: stat.modified,
         );
         uploadTasks.add(uploadTasks.value..add(task));
-        await _uploadQueue.add(() => task.execute(client, file.openRead()));
+        await _uploadQueue.add(() => task.execute(account.client, file.openRead()));
         uploadTasks.add(uploadTasks.value..removeWhere((final t) => t == task));
       },
       disableTimeout: true,
@@ -192,14 +192,14 @@ class FilesBloc extends InteractiveBloc implements FilesBlocEvents, FilesBlocSta
         path: path,
       );
       downloadTasks.add(downloadTasks.value..add(task));
-      await _downloadQueue.add(() => task.execute(client, sink));
+      await _downloadQueue.add(() => task.execute(account.client, sink));
       downloadTasks.add(downloadTasks.value..removeWhere((final t) => t == task));
     } finally {
       await sink.close();
     }
   }
 
-  FilesBrowserBloc getNewFilesBrowserBloc() => FilesBrowserBloc(_requestManager, options, client);
+  FilesBrowserBloc getNewFilesBrowserBloc() => FilesBrowserBloc(_requestManager, options, account);
 
   void _downloadParalelismListener() {
     _downloadQueue.parallel = options.downloadQueueParallelism.value;

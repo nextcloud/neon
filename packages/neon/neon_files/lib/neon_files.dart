@@ -61,9 +61,9 @@ class FilesApp extends AppImplementation<FilesBloc, FilesAppSpecificOptions> {
   FilesAppSpecificOptions buildOptions(final AppStorage storage) => FilesAppSpecificOptions(storage);
 
   @override
-  FilesBloc buildBloc(final NextcloudClient client) => FilesBloc(
+  FilesBloc buildBloc(final Account account) => FilesBloc(
         options,
-        client,
+        account,
         requestManager,
         platform,
       );
