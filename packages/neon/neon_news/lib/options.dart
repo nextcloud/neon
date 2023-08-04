@@ -1,7 +1,7 @@
 part of 'neon_news.dart';
 
 class NewsAppSpecificOptions extends NextcloudAppOptions {
-  NewsAppSpecificOptions(super.storage, final NeonPlatform platform) {
+  NewsAppSpecificOptions(super.storage, this._platform) {
     super.categories = [
       generalCategory,
       articlesCategory,
@@ -21,17 +21,9 @@ class NewsAppSpecificOptions extends NextcloudAppOptions {
       feedsSortPropertyOption,
       feedsSortBoxOrderOption,
     ];
-
-    articleViewTypeOption.values = {
-      ArticleViewType.direct: (final context) => AppLocalizations.of(context).optionsArticleViewTypeDirect,
-      if (platform.canUseWebView) ...{
-        ArticleViewType.internalBrowser: (final context) =>
-            AppLocalizations.of(context).optionsArticleViewTypeInternalBrowser,
-      },
-      ArticleViewType.externalBrowser: (final context) =>
-          AppLocalizations.of(context).optionsArticleViewTypeExternalBrowser,
-    };
   }
+
+  final NeonPlatform _platform;
 
   final generalCategory = OptionsCategory(
     name: (final context) => AppLocalizations.of(context).general,
@@ -68,7 +60,14 @@ class NewsAppSpecificOptions extends NextcloudAppOptions {
     key: 'article-view-type',
     label: (final context) => AppLocalizations.of(context).optionsArticleViewType,
     defaultValue: ArticleViewType.direct,
-    values: {},
+    values: {
+      ArticleViewType.direct: (final context) => AppLocalizations.of(context).optionsArticleViewTypeDirect,
+      if (_platform.canUseWebView)
+        ArticleViewType.internalBrowser: (final context) =>
+            AppLocalizations.of(context).optionsArticleViewTypeInternalBrowser,
+      ArticleViewType.externalBrowser: (final context) =>
+          AppLocalizations.of(context).optionsArticleViewTypeExternalBrowser,
+    },
   );
 
   late final articleDisableMarkAsReadTimeoutOption = ToggleOption(
