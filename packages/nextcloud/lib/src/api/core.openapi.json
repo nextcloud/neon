@@ -1218,6 +1218,222 @@
                                 "type": "object"
                               },
                               "properties": {
+                                "files_sharing": {
+                                  "type": "object",
+                                  "required": [
+                                    "api_enabled",
+                                    "public",
+                                    "user",
+                                    "resharing",
+                                    "federation",
+                                    "sharee"
+                                  ],
+                                  "properties": {
+                                    "api_enabled": {
+                                      "type": "boolean"
+                                    },
+                                    "public": {
+                                      "type": "object",
+                                      "required": [
+                                        "enabled"
+                                      ],
+                                      "properties": {
+                                        "enabled": {
+                                          "type": "boolean"
+                                        },
+                                        "password": {
+                                          "type": "object",
+                                          "required": [
+                                            "enforced",
+                                            "askForOptionalPassword"
+                                          ],
+                                          "properties": {
+                                            "enforced": {
+                                              "type": "boolean"
+                                            },
+                                            "askForOptionalPassword": {
+                                              "type": "boolean"
+                                            }
+                                          }
+                                        },
+                                        "multiple_links": {
+                                          "type": "boolean"
+                                        },
+                                        "expire_date": {
+                                          "type": "object",
+                                          "required": [
+                                            "enabled"
+                                          ],
+                                          "properties": {
+                                            "enabled": {
+                                              "type": "boolean"
+                                            },
+                                            "days": {
+                                              "type": "integer",
+                                              "format": "int64"
+                                            },
+                                            "enforced": {
+                                              "type": "boolean"
+                                            }
+                                          }
+                                        },
+                                        "expire_date_internal": {
+                                          "type": "object",
+                                          "required": [
+                                            "enabled"
+                                          ],
+                                          "properties": {
+                                            "enabled": {
+                                              "type": "boolean"
+                                            },
+                                            "days": {
+                                              "type": "integer",
+                                              "format": "int64"
+                                            },
+                                            "enforced": {
+                                              "type": "boolean"
+                                            }
+                                          }
+                                        },
+                                        "expire_date_remote": {
+                                          "type": "object",
+                                          "required": [
+                                            "enabled"
+                                          ],
+                                          "properties": {
+                                            "enabled": {
+                                              "type": "boolean"
+                                            },
+                                            "days": {
+                                              "type": "integer",
+                                              "format": "int64"
+                                            },
+                                            "enforced": {
+                                              "type": "boolean"
+                                            }
+                                          }
+                                        },
+                                        "send_mail": {
+                                          "type": "boolean"
+                                        },
+                                        "upload": {
+                                          "type": "boolean"
+                                        },
+                                        "upload_files_drop": {
+                                          "type": "boolean"
+                                        }
+                                      }
+                                    },
+                                    "user": {
+                                      "type": "object",
+                                      "required": [
+                                        "send_mail"
+                                      ],
+                                      "properties": {
+                                        "send_mail": {
+                                          "type": "boolean"
+                                        },
+                                        "expire_date": {
+                                          "type": "object",
+                                          "required": [
+                                            "enabled"
+                                          ],
+                                          "properties": {
+                                            "enabled": {
+                                              "type": "boolean"
+                                            }
+                                          }
+                                        }
+                                      }
+                                    },
+                                    "resharing": {
+                                      "type": "boolean"
+                                    },
+                                    "group_sharing": {
+                                      "type": "boolean"
+                                    },
+                                    "group": {
+                                      "type": "object",
+                                      "required": [
+                                        "enabled"
+                                      ],
+                                      "properties": {
+                                        "enabled": {
+                                          "type": "boolean"
+                                        },
+                                        "expire_date": {
+                                          "type": "object",
+                                          "required": [
+                                            "enabled"
+                                          ],
+                                          "properties": {
+                                            "enabled": {
+                                              "type": "boolean"
+                                            }
+                                          }
+                                        }
+                                      }
+                                    },
+                                    "default_permissions": {
+                                      "type": "integer",
+                                      "format": "int64"
+                                    },
+                                    "federation": {
+                                      "type": "object",
+                                      "required": [
+                                        "outgoing",
+                                        "incoming",
+                                        "expire_date",
+                                        "expire_date_supported"
+                                      ],
+                                      "properties": {
+                                        "outgoing": {
+                                          "type": "boolean"
+                                        },
+                                        "incoming": {
+                                          "type": "boolean"
+                                        },
+                                        "expire_date": {
+                                          "type": "object",
+                                          "required": [
+                                            "enabled"
+                                          ],
+                                          "properties": {
+                                            "enabled": {
+                                              "type": "boolean"
+                                            }
+                                          }
+                                        },
+                                        "expire_date_supported": {
+                                          "type": "object",
+                                          "required": [
+                                            "enabled"
+                                          ],
+                                          "properties": {
+                                            "enabled": {
+                                              "type": "boolean"
+                                            }
+                                          }
+                                        }
+                                      }
+                                    },
+                                    "sharee": {
+                                      "type": "object",
+                                      "required": [
+                                        "query_lookup_default",
+                                        "always_show_unique"
+                                      ],
+                                      "properties": {
+                                        "query_lookup_default": {
+                                          "type": "boolean"
+                                        },
+                                        "always_show_unique": {
+                                          "type": "boolean"
+                                        }
+                                      }
+                                    }
+                                  }
+                                },
                                 "notes": {
                                   "type": "object",
                                   "additionalProperties": true,

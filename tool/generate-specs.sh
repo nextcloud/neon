@@ -10,7 +10,7 @@ mkdir -p /tmp/nextcloud-neon
   composer update && composer install
 )
 
-for path in core apps/provisioning_api apps/settings apps/theming apps/user_status; do
+for path in core apps/files_sharing apps/provisioning_api apps/settings apps/theming apps/user_status; do
   codename="$(echo $path | sed "s/^apps\///")"
   ./external/nextcloud-openapi-extractor/generate-spec "external/nextcloud-server/$path" "packages/nextcloud/lib/src/api/$codename.openapi.json" --first-status-code --first-content-type --openapi-version 3.1.0
 done

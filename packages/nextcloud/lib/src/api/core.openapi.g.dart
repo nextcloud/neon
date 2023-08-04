@@ -113,6 +113,50 @@ Serializer<CoreNavigationGetSettingsNavigationResponse200ApplicationJson>
 Serializer<CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Version>
     _$coreOcsGetCapabilitiesResponse200ApplicationJsonOcsDataVersionSerializer =
     _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_VersionSerializer();
+Serializer<CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_Password>
+    _$coreOcsGetCapabilitiesResponse200ApplicationJsonOcsDataCapabilitiesFilesSharingPublicPasswordSerializer =
+    _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_PasswordSerializer();
+Serializer<CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDate>
+    _$coreOcsGetCapabilitiesResponse200ApplicationJsonOcsDataCapabilitiesFilesSharingPublicExpireDateSerializer =
+    _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateSerializer();
+Serializer<
+        CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternal>
+    _$coreOcsGetCapabilitiesResponse200ApplicationJsonOcsDataCapabilitiesFilesSharingPublicExpireDateInternalSerializer =
+    _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternalSerializer();
+Serializer<CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemote>
+    _$coreOcsGetCapabilitiesResponse200ApplicationJsonOcsDataCapabilitiesFilesSharingPublicExpireDateRemoteSerializer =
+    _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemoteSerializer();
+Serializer<CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public>
+    _$coreOcsGetCapabilitiesResponse200ApplicationJsonOcsDataCapabilitiesFilesSharingPublicSerializer =
+    _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_PublicSerializer();
+Serializer<CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_User_ExpireDate>
+    _$coreOcsGetCapabilitiesResponse200ApplicationJsonOcsDataCapabilitiesFilesSharingUserExpireDateSerializer =
+    _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_User_ExpireDateSerializer();
+Serializer<CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_User>
+    _$coreOcsGetCapabilitiesResponse200ApplicationJsonOcsDataCapabilitiesFilesSharingUserSerializer =
+    _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_UserSerializer();
+Serializer<CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDate>
+    _$coreOcsGetCapabilitiesResponse200ApplicationJsonOcsDataCapabilitiesFilesSharingGroupExpireDateSerializer =
+    _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDateSerializer();
+Serializer<CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group>
+    _$coreOcsGetCapabilitiesResponse200ApplicationJsonOcsDataCapabilitiesFilesSharingGroupSerializer =
+    _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_GroupSerializer();
+Serializer<CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDate>
+    _$coreOcsGetCapabilitiesResponse200ApplicationJsonOcsDataCapabilitiesFilesSharingFederationExpireDateSerializer =
+    _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSerializer();
+Serializer<
+        CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupported>
+    _$coreOcsGetCapabilitiesResponse200ApplicationJsonOcsDataCapabilitiesFilesSharingFederationExpireDateSupportedSerializer =
+    _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupportedSerializer();
+Serializer<CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation>
+    _$coreOcsGetCapabilitiesResponse200ApplicationJsonOcsDataCapabilitiesFilesSharingFederationSerializer =
+    _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_FederationSerializer();
+Serializer<CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Sharee>
+    _$coreOcsGetCapabilitiesResponse200ApplicationJsonOcsDataCapabilitiesFilesSharingShareeSerializer =
+    _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_ShareeSerializer();
+Serializer<CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing>
+    _$coreOcsGetCapabilitiesResponse200ApplicationJsonOcsDataCapabilitiesFilesSharingSerializer =
+    _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharingSerializer();
 Serializer<CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Notes>
     _$coreOcsGetCapabilitiesResponse200ApplicationJsonOcsDataCapabilitiesNotesSerializer =
     _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_NotesSerializer();
@@ -2516,6 +2560,958 @@ class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_VersionSeriali
   }
 }
 
+class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_PasswordSerializer
+    implements
+        StructuredSerializer<
+            CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_Password> {
+  @override
+  final Iterable<Type> types = const [
+    CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_Password,
+    _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_Password
+  ];
+  @override
+  final String wireName =
+      'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_Password';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers,
+      CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_Password object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'enforced',
+      serializers.serialize(object.enforced, specifiedType: const FullType(bool)),
+      'askForOptionalPassword',
+      serializers.serialize(object.askForOptionalPassword, specifiedType: const FullType(bool)),
+    ];
+
+    return result;
+  }
+
+  @override
+  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_Password deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result =
+        CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_PasswordBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'enforced':
+          result.enforced = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+          break;
+        case 'askForOptionalPassword':
+          result.askForOptionalPassword = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateSerializer
+    implements
+        StructuredSerializer<
+            CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDate> {
+  @override
+  final Iterable<Type> types = const [
+    CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDate,
+    _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDate
+  ];
+  @override
+  final String wireName =
+      'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDate';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers,
+      CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDate object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'enabled',
+      serializers.serialize(object.enabled, specifiedType: const FullType(bool)),
+    ];
+    Object? value;
+    value = object.days;
+    if (value != null) {
+      result
+        ..add('days')
+        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
+    }
+    value = object.enforced;
+    if (value != null) {
+      result
+        ..add('enforced')
+        ..add(serializers.serialize(value, specifiedType: const FullType(bool)));
+    }
+    return result;
+  }
+
+  @override
+  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDate deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result =
+        CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'enabled':
+          result.enabled = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+          break;
+        case 'days':
+          result.days = serializers.deserialize(value, specifiedType: const FullType(int)) as int?;
+          break;
+        case 'enforced':
+          result.enforced = serializers.deserialize(value, specifiedType: const FullType(bool)) as bool?;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternalSerializer
+    implements
+        StructuredSerializer<
+            CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternal> {
+  @override
+  final Iterable<Type> types = const [
+    CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternal,
+    _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternal
+  ];
+  @override
+  final String wireName =
+      'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternal';
+
+  @override
+  Iterable<Object?> serialize(
+      Serializers serializers,
+      CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternal
+          object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'enabled',
+      serializers.serialize(object.enabled, specifiedType: const FullType(bool)),
+    ];
+    Object? value;
+    value = object.days;
+    if (value != null) {
+      result
+        ..add('days')
+        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
+    }
+    value = object.enforced;
+    if (value != null) {
+      result
+        ..add('enforced')
+        ..add(serializers.serialize(value, specifiedType: const FullType(bool)));
+    }
+    return result;
+  }
+
+  @override
+  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternal
+      deserialize(Serializers serializers, Iterable<Object?> serialized,
+          {FullType specifiedType = FullType.unspecified}) {
+    final result =
+        CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternalBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'enabled':
+          result.enabled = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+          break;
+        case 'days':
+          result.days = serializers.deserialize(value, specifiedType: const FullType(int)) as int?;
+          break;
+        case 'enforced':
+          result.enforced = serializers.deserialize(value, specifiedType: const FullType(bool)) as bool?;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemoteSerializer
+    implements
+        StructuredSerializer<
+            CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemote> {
+  @override
+  final Iterable<Type> types = const [
+    CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemote,
+    _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemote
+  ];
+  @override
+  final String wireName =
+      'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemote';
+
+  @override
+  Iterable<Object?> serialize(
+      Serializers serializers,
+      CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemote
+          object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'enabled',
+      serializers.serialize(object.enabled, specifiedType: const FullType(bool)),
+    ];
+    Object? value;
+    value = object.days;
+    if (value != null) {
+      result
+        ..add('days')
+        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
+    }
+    value = object.enforced;
+    if (value != null) {
+      result
+        ..add('enforced')
+        ..add(serializers.serialize(value, specifiedType: const FullType(bool)));
+    }
+    return result;
+  }
+
+  @override
+  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemote
+      deserialize(Serializers serializers, Iterable<Object?> serialized,
+          {FullType specifiedType = FullType.unspecified}) {
+    final result =
+        CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemoteBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'enabled':
+          result.enabled = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+          break;
+        case 'days':
+          result.days = serializers.deserialize(value, specifiedType: const FullType(int)) as int?;
+          break;
+        case 'enforced':
+          result.enforced = serializers.deserialize(value, specifiedType: const FullType(bool)) as bool?;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_PublicSerializer
+    implements
+        StructuredSerializer<
+            CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public> {
+  @override
+  final Iterable<Type> types = const [
+    CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public,
+    _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public
+  ];
+  @override
+  final String wireName = 'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers,
+      CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'enabled',
+      serializers.serialize(object.enabled, specifiedType: const FullType(bool)),
+    ];
+    Object? value;
+    value = object.password;
+    if (value != null) {
+      result
+        ..add('password')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(
+                CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_Password)));
+    }
+    value = object.multipleLinks;
+    if (value != null) {
+      result
+        ..add('multiple_links')
+        ..add(serializers.serialize(value, specifiedType: const FullType(bool)));
+    }
+    value = object.expireDate;
+    if (value != null) {
+      result
+        ..add('expire_date')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(
+                CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDate)));
+    }
+    value = object.expireDateInternal;
+    if (value != null) {
+      result
+        ..add('expire_date_internal')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(
+                CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternal)));
+    }
+    value = object.expireDateRemote;
+    if (value != null) {
+      result
+        ..add('expire_date_remote')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(
+                CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemote)));
+    }
+    value = object.sendMail;
+    if (value != null) {
+      result
+        ..add('send_mail')
+        ..add(serializers.serialize(value, specifiedType: const FullType(bool)));
+    }
+    value = object.upload;
+    if (value != null) {
+      result
+        ..add('upload')
+        ..add(serializers.serialize(value, specifiedType: const FullType(bool)));
+    }
+    value = object.uploadFilesDrop;
+    if (value != null) {
+      result
+        ..add('upload_files_drop')
+        ..add(serializers.serialize(value, specifiedType: const FullType(bool)));
+    }
+    return result;
+  }
+
+  @override
+  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_PublicBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'enabled':
+          result.enabled = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+          break;
+        case 'password':
+          result.password.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(
+                      CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_Password))!
+              as CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_Password);
+          break;
+        case 'multiple_links':
+          result.multipleLinks = serializers.deserialize(value, specifiedType: const FullType(bool)) as bool?;
+          break;
+        case 'expire_date':
+          result.expireDate.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(
+                      CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDate))!
+              as CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDate);
+          break;
+        case 'expire_date_internal':
+          result.expireDateInternal.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(
+                      CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternal))!
+              as CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternal);
+          break;
+        case 'expire_date_remote':
+          result.expireDateRemote.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(
+                      CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemote))!
+              as CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemote);
+          break;
+        case 'send_mail':
+          result.sendMail = serializers.deserialize(value, specifiedType: const FullType(bool)) as bool?;
+          break;
+        case 'upload':
+          result.upload = serializers.deserialize(value, specifiedType: const FullType(bool)) as bool?;
+          break;
+        case 'upload_files_drop':
+          result.uploadFilesDrop = serializers.deserialize(value, specifiedType: const FullType(bool)) as bool?;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_User_ExpireDateSerializer
+    implements
+        StructuredSerializer<
+            CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_User_ExpireDate> {
+  @override
+  final Iterable<Type> types = const [
+    CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_User_ExpireDate,
+    _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_User_ExpireDate
+  ];
+  @override
+  final String wireName =
+      'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_User_ExpireDate';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers,
+      CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_User_ExpireDate object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'enabled',
+      serializers.serialize(object.enabled, specifiedType: const FullType(bool)),
+    ];
+
+    return result;
+  }
+
+  @override
+  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_User_ExpireDate deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result =
+        CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_User_ExpireDateBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'enabled':
+          result.enabled = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_UserSerializer
+    implements
+        StructuredSerializer<CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_User> {
+  @override
+  final Iterable<Type> types = const [
+    CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_User,
+    _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_User
+  ];
+  @override
+  final String wireName = 'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_User';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers,
+      CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_User object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'send_mail',
+      serializers.serialize(object.sendMail, specifiedType: const FullType(bool)),
+    ];
+    Object? value;
+    value = object.expireDate;
+    if (value != null) {
+      result
+        ..add('expire_date')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(
+                CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_User_ExpireDate)));
+    }
+    return result;
+  }
+
+  @override
+  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_User deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_UserBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'send_mail':
+          result.sendMail = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+          break;
+        case 'expire_date':
+          result.expireDate.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(
+                      CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_User_ExpireDate))!
+              as CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_User_ExpireDate);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDateSerializer
+    implements
+        StructuredSerializer<
+            CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDate> {
+  @override
+  final Iterable<Type> types = const [
+    CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDate,
+    _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDate
+  ];
+  @override
+  final String wireName =
+      'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDate';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers,
+      CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDate object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'enabled',
+      serializers.serialize(object.enabled, specifiedType: const FullType(bool)),
+    ];
+
+    return result;
+  }
+
+  @override
+  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDate deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result =
+        CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDateBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'enabled':
+          result.enabled = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_GroupSerializer
+    implements
+        StructuredSerializer<
+            CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group> {
+  @override
+  final Iterable<Type> types = const [
+    CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group,
+    _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group
+  ];
+  @override
+  final String wireName = 'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers,
+      CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'enabled',
+      serializers.serialize(object.enabled, specifiedType: const FullType(bool)),
+    ];
+    Object? value;
+    value = object.expireDate;
+    if (value != null) {
+      result
+        ..add('expire_date')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(
+                CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDate)));
+    }
+    return result;
+  }
+
+  @override
+  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_GroupBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'enabled':
+          result.enabled = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+          break;
+        case 'expire_date':
+          result.expireDate.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(
+                      CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDate))!
+              as CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDate);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSerializer
+    implements
+        StructuredSerializer<
+            CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDate> {
+  @override
+  final Iterable<Type> types = const [
+    CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDate,
+    _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDate
+  ];
+  @override
+  final String wireName =
+      'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDate';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers,
+      CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDate object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'enabled',
+      serializers.serialize(object.enabled, specifiedType: const FullType(bool)),
+    ];
+
+    return result;
+  }
+
+  @override
+  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDate deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result =
+        CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'enabled':
+          result.enabled = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupportedSerializer
+    implements
+        StructuredSerializer<
+            CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupported> {
+  @override
+  final Iterable<Type> types = const [
+    CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupported,
+    _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupported
+  ];
+  @override
+  final String wireName =
+      'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupported';
+
+  @override
+  Iterable<Object?> serialize(
+      Serializers serializers,
+      CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupported
+          object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'enabled',
+      serializers.serialize(object.enabled, specifiedType: const FullType(bool)),
+    ];
+
+    return result;
+  }
+
+  @override
+  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupported
+      deserialize(Serializers serializers, Iterable<Object?> serialized,
+          {FullType specifiedType = FullType.unspecified}) {
+    final result =
+        CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupportedBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'enabled':
+          result.enabled = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_FederationSerializer
+    implements
+        StructuredSerializer<
+            CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation> {
+  @override
+  final Iterable<Type> types = const [
+    CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation,
+    _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation
+  ];
+  @override
+  final String wireName =
+      'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers,
+      CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'outgoing',
+      serializers.serialize(object.outgoing, specifiedType: const FullType(bool)),
+      'incoming',
+      serializers.serialize(object.incoming, specifiedType: const FullType(bool)),
+      'expire_date',
+      serializers.serialize(object.expireDate,
+          specifiedType: const FullType(
+              CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDate)),
+      'expire_date_supported',
+      serializers.serialize(object.expireDateSupported,
+          specifiedType: const FullType(
+              CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupported)),
+    ];
+
+    return result;
+  }
+
+  @override
+  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result =
+        CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_FederationBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'outgoing':
+          result.outgoing = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+          break;
+        case 'incoming':
+          result.incoming = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+          break;
+        case 'expire_date':
+          result.expireDate.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(
+                      CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDate))!
+              as CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDate);
+          break;
+        case 'expire_date_supported':
+          result.expireDateSupported.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(
+                      CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupported))!
+              as CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupported);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_ShareeSerializer
+    implements
+        StructuredSerializer<
+            CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Sharee> {
+  @override
+  final Iterable<Type> types = const [
+    CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Sharee,
+    _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Sharee
+  ];
+  @override
+  final String wireName = 'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Sharee';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers,
+      CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Sharee object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'query_lookup_default',
+      serializers.serialize(object.queryLookupDefault, specifiedType: const FullType(bool)),
+      'always_show_unique',
+      serializers.serialize(object.alwaysShowUnique, specifiedType: const FullType(bool)),
+    ];
+
+    return result;
+  }
+
+  @override
+  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Sharee deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_ShareeBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'query_lookup_default':
+          result.queryLookupDefault = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+          break;
+        case 'always_show_unique':
+          result.alwaysShowUnique = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharingSerializer
+    implements
+        StructuredSerializer<CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing> {
+  @override
+  final Iterable<Type> types = const [
+    CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing,
+    _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing
+  ];
+  @override
+  final String wireName = 'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers,
+      CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'api_enabled',
+      serializers.serialize(object.apiEnabled, specifiedType: const FullType(bool)),
+      'public',
+      serializers.serialize(object.public,
+          specifiedType: const FullType(
+              CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public)),
+      'user',
+      serializers.serialize(object.user,
+          specifiedType:
+              const FullType(CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_User)),
+      'resharing',
+      serializers.serialize(object.resharing, specifiedType: const FullType(bool)),
+      'federation',
+      serializers.serialize(object.federation,
+          specifiedType: const FullType(
+              CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation)),
+      'sharee',
+      serializers.serialize(object.sharee,
+          specifiedType: const FullType(
+              CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Sharee)),
+    ];
+    Object? value;
+    value = object.groupSharing;
+    if (value != null) {
+      result
+        ..add('group_sharing')
+        ..add(serializers.serialize(value, specifiedType: const FullType(bool)));
+    }
+    value = object.group;
+    if (value != null) {
+      result
+        ..add('group')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(
+                CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group)));
+    }
+    value = object.defaultPermissions;
+    if (value != null) {
+      result
+        ..add('default_permissions')
+        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
+    }
+    return result;
+  }
+
+  @override
+  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharingBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'api_enabled':
+          result.apiEnabled = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+          break;
+        case 'public':
+          result.public.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(
+                      CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public))!
+              as CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public);
+          break;
+        case 'user':
+          result.user.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(
+                      CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_User))!
+              as CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_User);
+          break;
+        case 'resharing':
+          result.resharing = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+          break;
+        case 'group_sharing':
+          result.groupSharing = serializers.deserialize(value, specifiedType: const FullType(bool)) as bool?;
+          break;
+        case 'group':
+          result.group.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(
+                      CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group))!
+              as CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group);
+          break;
+        case 'default_permissions':
+          result.defaultPermissions = serializers.deserialize(value, specifiedType: const FullType(int)) as int?;
+          break;
+        case 'federation':
+          result.federation.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(
+                      CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation))!
+              as CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation);
+          break;
+        case 'sharee':
+          result.sharee.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(
+                      CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Sharee))!
+              as CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Sharee);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
 class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_NotesSerializer
     implements StructuredSerializer<CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Notes> {
   @override
@@ -2884,6 +3880,14 @@ class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_CapabilitiesSe
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[];
     Object? value;
+    value = object.filesSharing;
+    if (value != null) {
+      result
+        ..add('files_sharing')
+        ..add(serializers.serialize(value,
+            specifiedType:
+                const FullType(CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing)));
+    }
     value = object.notes;
     if (value != null) {
       result
@@ -2939,6 +3943,12 @@ class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_CapabilitiesSe
       iterator.moveNext();
       final Object? value = iterator.current;
       switch (key) {
+        case 'files_sharing':
+          result.filesSharing.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(
+                      CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing))!
+              as CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing);
+          break;
         case 'notes':
           result.notes.replace(serializers.deserialize(value,
                   specifiedType:
@@ -10945,6 +11955,2093 @@ class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_VersionBuilder
   }
 }
 
+class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_Password
+    extends CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_Password {
+  @override
+  final bool enforced;
+  @override
+  final bool askForOptionalPassword;
+
+  factory _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_Password(
+          [void Function(
+                  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_PasswordBuilder)?
+              updates]) =>
+      (CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_PasswordBuilder()
+            ..update(updates))
+          ._build();
+
+  _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_Password._(
+      {required this.enforced, required this.askForOptionalPassword})
+      : super._() {
+    BuiltValueNullFieldError.checkNotNull(
+        enforced,
+        r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_Password',
+        'enforced');
+    BuiltValueNullFieldError.checkNotNull(
+        askForOptionalPassword,
+        r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_Password',
+        'askForOptionalPassword');
+  }
+
+  @override
+  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_Password rebuild(
+          void Function(
+                  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_PasswordBuilder)
+              updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_PasswordBuilder
+      toBuilder() =>
+          CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_PasswordBuilder()
+            ..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other
+            is CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_Password &&
+        enforced == other.enforced &&
+        askForOptionalPassword == other.askForOptionalPassword;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, enforced.hashCode);
+    _$hash = $jc(_$hash, askForOptionalPassword.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(
+            r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_Password')
+          ..add('enforced', enforced)
+          ..add('askForOptionalPassword', askForOptionalPassword))
+        .toString();
+  }
+}
+
+class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_PasswordBuilder
+    implements
+        Builder<CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_Password,
+            CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_PasswordBuilder> {
+  _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_Password? _$v;
+
+  bool? _enforced;
+  bool? get enforced => _$this._enforced;
+  set enforced(bool? enforced) => _$this._enforced = enforced;
+
+  bool? _askForOptionalPassword;
+  bool? get askForOptionalPassword => _$this._askForOptionalPassword;
+  set askForOptionalPassword(bool? askForOptionalPassword) => _$this._askForOptionalPassword = askForOptionalPassword;
+
+  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_PasswordBuilder();
+
+  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_PasswordBuilder
+      get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _enforced = $v.enforced;
+      _askForOptionalPassword = $v.askForOptionalPassword;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(
+      CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_Password other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v =
+        other as _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_Password;
+  }
+
+  @override
+  void update(
+      void Function(
+              CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_PasswordBuilder)?
+          updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_Password build() =>
+      _build();
+
+  _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_Password _build() {
+    final _$result = _$v ??
+        _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_Password._(
+            enforced: BuiltValueNullFieldError.checkNotNull(
+                enforced,
+                r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_Password',
+                'enforced'),
+            askForOptionalPassword: BuiltValueNullFieldError.checkNotNull(
+                askForOptionalPassword,
+                r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_Password',
+                'askForOptionalPassword'));
+    replace(_$result);
+    return _$result;
+  }
+}
+
+class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDate
+    extends CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDate {
+  @override
+  final bool enabled;
+  @override
+  final int? days;
+  @override
+  final bool? enforced;
+
+  factory _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDate(
+          [void Function(
+                  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateBuilder)?
+              updates]) =>
+      (CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateBuilder()
+            ..update(updates))
+          ._build();
+
+  _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDate._(
+      {required this.enabled, this.days, this.enforced})
+      : super._() {
+    BuiltValueNullFieldError.checkNotNull(
+        enabled,
+        r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDate',
+        'enabled');
+  }
+
+  @override
+  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDate rebuild(
+          void Function(
+                  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateBuilder)
+              updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateBuilder
+      toBuilder() =>
+          CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateBuilder()
+            ..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other
+            is CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDate &&
+        enabled == other.enabled &&
+        days == other.days &&
+        enforced == other.enforced;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, enabled.hashCode);
+    _$hash = $jc(_$hash, days.hashCode);
+    _$hash = $jc(_$hash, enforced.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(
+            r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDate')
+          ..add('enabled', enabled)
+          ..add('days', days)
+          ..add('enforced', enforced))
+        .toString();
+  }
+}
+
+class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateBuilder
+    implements
+        Builder<CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDate,
+            CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateBuilder> {
+  _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDate? _$v;
+
+  bool? _enabled;
+  bool? get enabled => _$this._enabled;
+  set enabled(bool? enabled) => _$this._enabled = enabled;
+
+  int? _days;
+  int? get days => _$this._days;
+  set days(int? days) => _$this._days = days;
+
+  bool? _enforced;
+  bool? get enforced => _$this._enforced;
+  set enforced(bool? enforced) => _$this._enforced = enforced;
+
+  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateBuilder();
+
+  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateBuilder
+      get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _enabled = $v.enabled;
+      _days = $v.days;
+      _enforced = $v.enforced;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(
+      CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDate other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other
+        as _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDate;
+  }
+
+  @override
+  void update(
+      void Function(
+              CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateBuilder)?
+          updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDate build() =>
+      _build();
+
+  _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDate _build() {
+    final _$result = _$v ??
+        _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDate._(
+            enabled: BuiltValueNullFieldError.checkNotNull(
+                enabled,
+                r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDate',
+                'enabled'),
+            days: days,
+            enforced: enforced);
+    replace(_$result);
+    return _$result;
+  }
+}
+
+class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternal
+    extends CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternal {
+  @override
+  final bool enabled;
+  @override
+  final int? days;
+  @override
+  final bool? enforced;
+
+  factory _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternal(
+          [void Function(
+                  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternalBuilder)?
+              updates]) =>
+      (CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternalBuilder()
+            ..update(updates))
+          ._build();
+
+  _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternal._(
+      {required this.enabled, this.days, this.enforced})
+      : super._() {
+    BuiltValueNullFieldError.checkNotNull(
+        enabled,
+        r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternal',
+        'enabled');
+  }
+
+  @override
+  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternal rebuild(
+          void Function(
+                  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternalBuilder)
+              updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternalBuilder
+      toBuilder() =>
+          CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternalBuilder()
+            ..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other
+            is CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternal &&
+        enabled == other.enabled &&
+        days == other.days &&
+        enforced == other.enforced;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, enabled.hashCode);
+    _$hash = $jc(_$hash, days.hashCode);
+    _$hash = $jc(_$hash, enforced.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(
+            r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternal')
+          ..add('enabled', enabled)
+          ..add('days', days)
+          ..add('enforced', enforced))
+        .toString();
+  }
+}
+
+class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternalBuilder
+    implements
+        Builder<
+            CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternal,
+            CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternalBuilder> {
+  _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternal? _$v;
+
+  bool? _enabled;
+  bool? get enabled => _$this._enabled;
+  set enabled(bool? enabled) => _$this._enabled = enabled;
+
+  int? _days;
+  int? get days => _$this._days;
+  set days(int? days) => _$this._days = days;
+
+  bool? _enforced;
+  bool? get enforced => _$this._enforced;
+  set enforced(bool? enforced) => _$this._enforced = enforced;
+
+  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternalBuilder();
+
+  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternalBuilder
+      get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _enabled = $v.enabled;
+      _days = $v.days;
+      _enforced = $v.enforced;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(
+      CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternal
+          other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other
+        as _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternal;
+  }
+
+  @override
+  void update(
+      void Function(
+              CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternalBuilder)?
+          updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternal
+      build() => _build();
+
+  _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternal
+      _build() {
+    final _$result = _$v ??
+        _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternal._(
+            enabled: BuiltValueNullFieldError.checkNotNull(
+                enabled,
+                r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternal',
+                'enabled'),
+            days: days,
+            enforced: enforced);
+    replace(_$result);
+    return _$result;
+  }
+}
+
+class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemote
+    extends CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemote {
+  @override
+  final bool enabled;
+  @override
+  final int? days;
+  @override
+  final bool? enforced;
+
+  factory _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemote(
+          [void Function(
+                  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemoteBuilder)?
+              updates]) =>
+      (CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemoteBuilder()
+            ..update(updates))
+          ._build();
+
+  _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemote._(
+      {required this.enabled, this.days, this.enforced})
+      : super._() {
+    BuiltValueNullFieldError.checkNotNull(
+        enabled,
+        r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemote',
+        'enabled');
+  }
+
+  @override
+  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemote rebuild(
+          void Function(
+                  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemoteBuilder)
+              updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemoteBuilder
+      toBuilder() =>
+          CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemoteBuilder()
+            ..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other
+            is CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemote &&
+        enabled == other.enabled &&
+        days == other.days &&
+        enforced == other.enforced;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, enabled.hashCode);
+    _$hash = $jc(_$hash, days.hashCode);
+    _$hash = $jc(_$hash, enforced.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(
+            r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemote')
+          ..add('enabled', enabled)
+          ..add('days', days)
+          ..add('enforced', enforced))
+        .toString();
+  }
+}
+
+class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemoteBuilder
+    implements
+        Builder<
+            CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemote,
+            CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemoteBuilder> {
+  _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemote? _$v;
+
+  bool? _enabled;
+  bool? get enabled => _$this._enabled;
+  set enabled(bool? enabled) => _$this._enabled = enabled;
+
+  int? _days;
+  int? get days => _$this._days;
+  set days(int? days) => _$this._days = days;
+
+  bool? _enforced;
+  bool? get enforced => _$this._enforced;
+  set enforced(bool? enforced) => _$this._enforced = enforced;
+
+  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemoteBuilder();
+
+  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemoteBuilder
+      get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _enabled = $v.enabled;
+      _days = $v.days;
+      _enforced = $v.enforced;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(
+      CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemote
+          other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other
+        as _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemote;
+  }
+
+  @override
+  void update(
+      void Function(
+              CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemoteBuilder)?
+          updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemote build() =>
+      _build();
+
+  _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemote
+      _build() {
+    final _$result = _$v ??
+        _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemote._(
+            enabled: BuiltValueNullFieldError.checkNotNull(
+                enabled,
+                r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemote',
+                'enabled'),
+            days: days,
+            enforced: enforced);
+    replace(_$result);
+    return _$result;
+  }
+}
+
+class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public
+    extends CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public {
+  @override
+  final bool enabled;
+  @override
+  final CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_Password? password;
+  @override
+  final bool? multipleLinks;
+  @override
+  final CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDate?
+      expireDate;
+  @override
+  final CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternal?
+      expireDateInternal;
+  @override
+  final CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemote?
+      expireDateRemote;
+  @override
+  final bool? sendMail;
+  @override
+  final bool? upload;
+  @override
+  final bool? uploadFilesDrop;
+
+  factory _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public(
+          [void Function(
+                  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_PublicBuilder)?
+              updates]) =>
+      (CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_PublicBuilder()
+            ..update(updates))
+          ._build();
+
+  _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public._(
+      {required this.enabled,
+      this.password,
+      this.multipleLinks,
+      this.expireDate,
+      this.expireDateInternal,
+      this.expireDateRemote,
+      this.sendMail,
+      this.upload,
+      this.uploadFilesDrop})
+      : super._() {
+    BuiltValueNullFieldError.checkNotNull(enabled,
+        r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public', 'enabled');
+  }
+
+  @override
+  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public rebuild(
+          void Function(
+                  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_PublicBuilder)
+              updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_PublicBuilder toBuilder() =>
+      CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_PublicBuilder()
+        ..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public &&
+        enabled == other.enabled &&
+        password == other.password &&
+        multipleLinks == other.multipleLinks &&
+        expireDate == other.expireDate &&
+        expireDateInternal == other.expireDateInternal &&
+        expireDateRemote == other.expireDateRemote &&
+        sendMail == other.sendMail &&
+        upload == other.upload &&
+        uploadFilesDrop == other.uploadFilesDrop;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, enabled.hashCode);
+    _$hash = $jc(_$hash, password.hashCode);
+    _$hash = $jc(_$hash, multipleLinks.hashCode);
+    _$hash = $jc(_$hash, expireDate.hashCode);
+    _$hash = $jc(_$hash, expireDateInternal.hashCode);
+    _$hash = $jc(_$hash, expireDateRemote.hashCode);
+    _$hash = $jc(_$hash, sendMail.hashCode);
+    _$hash = $jc(_$hash, upload.hashCode);
+    _$hash = $jc(_$hash, uploadFilesDrop.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(
+            r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public')
+          ..add('enabled', enabled)
+          ..add('password', password)
+          ..add('multipleLinks', multipleLinks)
+          ..add('expireDate', expireDate)
+          ..add('expireDateInternal', expireDateInternal)
+          ..add('expireDateRemote', expireDateRemote)
+          ..add('sendMail', sendMail)
+          ..add('upload', upload)
+          ..add('uploadFilesDrop', uploadFilesDrop))
+        .toString();
+  }
+}
+
+class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_PublicBuilder
+    implements
+        Builder<CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public,
+            CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_PublicBuilder> {
+  _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public? _$v;
+
+  bool? _enabled;
+  bool? get enabled => _$this._enabled;
+  set enabled(bool? enabled) => _$this._enabled = enabled;
+
+  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_PasswordBuilder? _password;
+  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_PasswordBuilder
+      get password => _$this._password ??=
+          CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_PasswordBuilder();
+  set password(
+          CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_PasswordBuilder?
+              password) =>
+      _$this._password = password;
+
+  bool? _multipleLinks;
+  bool? get multipleLinks => _$this._multipleLinks;
+  set multipleLinks(bool? multipleLinks) => _$this._multipleLinks = multipleLinks;
+
+  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateBuilder?
+      _expireDate;
+  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateBuilder
+      get expireDate => _$this._expireDate ??=
+          CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateBuilder();
+  set expireDate(
+          CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateBuilder?
+              expireDate) =>
+      _$this._expireDate = expireDate;
+
+  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternalBuilder?
+      _expireDateInternal;
+  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternalBuilder
+      get expireDateInternal => _$this._expireDateInternal ??=
+          CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternalBuilder();
+  set expireDateInternal(
+          CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternalBuilder?
+              expireDateInternal) =>
+      _$this._expireDateInternal = expireDateInternal;
+
+  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemoteBuilder?
+      _expireDateRemote;
+  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemoteBuilder
+      get expireDateRemote => _$this._expireDateRemote ??=
+          CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemoteBuilder();
+  set expireDateRemote(
+          CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemoteBuilder?
+              expireDateRemote) =>
+      _$this._expireDateRemote = expireDateRemote;
+
+  bool? _sendMail;
+  bool? get sendMail => _$this._sendMail;
+  set sendMail(bool? sendMail) => _$this._sendMail = sendMail;
+
+  bool? _upload;
+  bool? get upload => _$this._upload;
+  set upload(bool? upload) => _$this._upload = upload;
+
+  bool? _uploadFilesDrop;
+  bool? get uploadFilesDrop => _$this._uploadFilesDrop;
+  set uploadFilesDrop(bool? uploadFilesDrop) => _$this._uploadFilesDrop = uploadFilesDrop;
+
+  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_PublicBuilder();
+
+  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_PublicBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _enabled = $v.enabled;
+      _password = $v.password?.toBuilder();
+      _multipleLinks = $v.multipleLinks;
+      _expireDate = $v.expireDate?.toBuilder();
+      _expireDateInternal = $v.expireDateInternal?.toBuilder();
+      _expireDateRemote = $v.expireDateRemote?.toBuilder();
+      _sendMail = $v.sendMail;
+      _upload = $v.upload;
+      _uploadFilesDrop = $v.uploadFilesDrop;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public;
+  }
+
+  @override
+  void update(
+      void Function(CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_PublicBuilder)?
+          updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public build() => _build();
+
+  _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public _build() {
+    _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public _$result;
+    try {
+      _$result = _$v ??
+          _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public._(
+              enabled: BuiltValueNullFieldError.checkNotNull(
+                  enabled,
+                  r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public',
+                  'enabled'),
+              password: _password?.build(),
+              multipleLinks: multipleLinks,
+              expireDate: _expireDate?.build(),
+              expireDateInternal: _expireDateInternal?.build(),
+              expireDateRemote: _expireDateRemote?.build(),
+              sendMail: sendMail,
+              upload: upload,
+              uploadFilesDrop: uploadFilesDrop);
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'password';
+        _password?.build();
+
+        _$failedField = 'expireDate';
+        _expireDate?.build();
+        _$failedField = 'expireDateInternal';
+        _expireDateInternal?.build();
+        _$failedField = 'expireDateRemote';
+        _expireDateRemote?.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public',
+            _$failedField,
+            e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_User_ExpireDate
+    extends CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_User_ExpireDate {
+  @override
+  final bool enabled;
+
+  factory _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_User_ExpireDate(
+          [void Function(
+                  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_User_ExpireDateBuilder)?
+              updates]) =>
+      (CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_User_ExpireDateBuilder()
+            ..update(updates))
+          ._build();
+
+  _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_User_ExpireDate._(
+      {required this.enabled})
+      : super._() {
+    BuiltValueNullFieldError.checkNotNull(
+        enabled,
+        r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_User_ExpireDate',
+        'enabled');
+  }
+
+  @override
+  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_User_ExpireDate rebuild(
+          void Function(
+                  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_User_ExpireDateBuilder)
+              updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_User_ExpireDateBuilder
+      toBuilder() =>
+          CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_User_ExpireDateBuilder()
+            ..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other
+            is CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_User_ExpireDate &&
+        enabled == other.enabled;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, enabled.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(
+            r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_User_ExpireDate')
+          ..add('enabled', enabled))
+        .toString();
+  }
+}
+
+class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_User_ExpireDateBuilder
+    implements
+        Builder<CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_User_ExpireDate,
+            CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_User_ExpireDateBuilder> {
+  _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_User_ExpireDate? _$v;
+
+  bool? _enabled;
+  bool? get enabled => _$this._enabled;
+  set enabled(bool? enabled) => _$this._enabled = enabled;
+
+  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_User_ExpireDateBuilder();
+
+  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_User_ExpireDateBuilder
+      get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _enabled = $v.enabled;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(
+      CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_User_ExpireDate other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v =
+        other as _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_User_ExpireDate;
+  }
+
+  @override
+  void update(
+      void Function(
+              CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_User_ExpireDateBuilder)?
+          updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_User_ExpireDate build() =>
+      _build();
+
+  _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_User_ExpireDate _build() {
+    final _$result = _$v ??
+        _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_User_ExpireDate._(
+            enabled: BuiltValueNullFieldError.checkNotNull(
+                enabled,
+                r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_User_ExpireDate',
+                'enabled'));
+    replace(_$result);
+    return _$result;
+  }
+}
+
+class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_User
+    extends CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_User {
+  @override
+  final bool sendMail;
+  @override
+  final CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_User_ExpireDate? expireDate;
+
+  factory _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_User(
+          [void Function(
+                  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_UserBuilder)?
+              updates]) =>
+      (CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_UserBuilder()
+            ..update(updates))
+          ._build();
+
+  _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_User._(
+      {required this.sendMail, this.expireDate})
+      : super._() {
+    BuiltValueNullFieldError.checkNotNull(sendMail,
+        r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_User', 'sendMail');
+  }
+
+  @override
+  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_User rebuild(
+          void Function(CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_UserBuilder)
+              updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_UserBuilder toBuilder() =>
+      CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_UserBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_User &&
+        sendMail == other.sendMail &&
+        expireDate == other.expireDate;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, sendMail.hashCode);
+    _$hash = $jc(_$hash, expireDate.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(
+            r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_User')
+          ..add('sendMail', sendMail)
+          ..add('expireDate', expireDate))
+        .toString();
+  }
+}
+
+class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_UserBuilder
+    implements
+        Builder<CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_User,
+            CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_UserBuilder> {
+  _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_User? _$v;
+
+  bool? _sendMail;
+  bool? get sendMail => _$this._sendMail;
+  set sendMail(bool? sendMail) => _$this._sendMail = sendMail;
+
+  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_User_ExpireDateBuilder?
+      _expireDate;
+  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_User_ExpireDateBuilder
+      get expireDate => _$this._expireDate ??=
+          CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_User_ExpireDateBuilder();
+  set expireDate(
+          CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_User_ExpireDateBuilder?
+              expireDate) =>
+      _$this._expireDate = expireDate;
+
+  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_UserBuilder();
+
+  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_UserBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _sendMail = $v.sendMail;
+      _expireDate = $v.expireDate?.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_User other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_User;
+  }
+
+  @override
+  void update(
+      void Function(CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_UserBuilder)?
+          updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_User build() => _build();
+
+  _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_User _build() {
+    _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_User _$result;
+    try {
+      _$result = _$v ??
+          _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_User._(
+              sendMail: BuiltValueNullFieldError.checkNotNull(
+                  sendMail,
+                  r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_User',
+                  'sendMail'),
+              expireDate: _expireDate?.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'expireDate';
+        _expireDate?.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_User',
+            _$failedField,
+            e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDate
+    extends CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDate {
+  @override
+  final bool enabled;
+
+  factory _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDate(
+          [void Function(
+                  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDateBuilder)?
+              updates]) =>
+      (CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDateBuilder()
+            ..update(updates))
+          ._build();
+
+  _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDate._(
+      {required this.enabled})
+      : super._() {
+    BuiltValueNullFieldError.checkNotNull(
+        enabled,
+        r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDate',
+        'enabled');
+  }
+
+  @override
+  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDate rebuild(
+          void Function(
+                  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDateBuilder)
+              updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDateBuilder
+      toBuilder() =>
+          CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDateBuilder()
+            ..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other
+            is CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDate &&
+        enabled == other.enabled;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, enabled.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(
+            r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDate')
+          ..add('enabled', enabled))
+        .toString();
+  }
+}
+
+class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDateBuilder
+    implements
+        Builder<CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDate,
+            CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDateBuilder> {
+  _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDate? _$v;
+
+  bool? _enabled;
+  bool? get enabled => _$this._enabled;
+  set enabled(bool? enabled) => _$this._enabled = enabled;
+
+  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDateBuilder();
+
+  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDateBuilder
+      get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _enabled = $v.enabled;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(
+      CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDate other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v =
+        other as _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDate;
+  }
+
+  @override
+  void update(
+      void Function(
+              CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDateBuilder)?
+          updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDate build() =>
+      _build();
+
+  _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDate _build() {
+    final _$result = _$v ??
+        _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDate._(
+            enabled: BuiltValueNullFieldError.checkNotNull(
+                enabled,
+                r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDate',
+                'enabled'));
+    replace(_$result);
+    return _$result;
+  }
+}
+
+class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group
+    extends CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group {
+  @override
+  final bool enabled;
+  @override
+  final CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDate?
+      expireDate;
+
+  factory _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group(
+          [void Function(
+                  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_GroupBuilder)?
+              updates]) =>
+      (CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_GroupBuilder()
+            ..update(updates))
+          ._build();
+
+  _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group._(
+      {required this.enabled, this.expireDate})
+      : super._() {
+    BuiltValueNullFieldError.checkNotNull(enabled,
+        r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group', 'enabled');
+  }
+
+  @override
+  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group rebuild(
+          void Function(
+                  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_GroupBuilder)
+              updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_GroupBuilder toBuilder() =>
+      CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_GroupBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group &&
+        enabled == other.enabled &&
+        expireDate == other.expireDate;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, enabled.hashCode);
+    _$hash = $jc(_$hash, expireDate.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(
+            r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group')
+          ..add('enabled', enabled)
+          ..add('expireDate', expireDate))
+        .toString();
+  }
+}
+
+class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_GroupBuilder
+    implements
+        Builder<CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group,
+            CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_GroupBuilder> {
+  _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group? _$v;
+
+  bool? _enabled;
+  bool? get enabled => _$this._enabled;
+  set enabled(bool? enabled) => _$this._enabled = enabled;
+
+  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDateBuilder?
+      _expireDate;
+  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDateBuilder
+      get expireDate => _$this._expireDate ??=
+          CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDateBuilder();
+  set expireDate(
+          CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDateBuilder?
+              expireDate) =>
+      _$this._expireDate = expireDate;
+
+  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_GroupBuilder();
+
+  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_GroupBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _enabled = $v.enabled;
+      _expireDate = $v.expireDate?.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group;
+  }
+
+  @override
+  void update(
+      void Function(CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_GroupBuilder)?
+          updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group build() => _build();
+
+  _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group _build() {
+    _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group _$result;
+    try {
+      _$result = _$v ??
+          _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group._(
+              enabled: BuiltValueNullFieldError.checkNotNull(
+                  enabled,
+                  r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group',
+                  'enabled'),
+              expireDate: _expireDate?.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'expireDate';
+        _expireDate?.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group',
+            _$failedField,
+            e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDate
+    extends CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDate {
+  @override
+  final bool enabled;
+
+  factory _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDate(
+          [void Function(
+                  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateBuilder)?
+              updates]) =>
+      (CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateBuilder()
+            ..update(updates))
+          ._build();
+
+  _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDate._(
+      {required this.enabled})
+      : super._() {
+    BuiltValueNullFieldError.checkNotNull(
+        enabled,
+        r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDate',
+        'enabled');
+  }
+
+  @override
+  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDate rebuild(
+          void Function(
+                  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateBuilder)
+              updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateBuilder
+      toBuilder() =>
+          CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateBuilder()
+            ..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other
+            is CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDate &&
+        enabled == other.enabled;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, enabled.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(
+            r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDate')
+          ..add('enabled', enabled))
+        .toString();
+  }
+}
+
+class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateBuilder
+    implements
+        Builder<
+            CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDate,
+            CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateBuilder> {
+  _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDate? _$v;
+
+  bool? _enabled;
+  bool? get enabled => _$this._enabled;
+  set enabled(bool? enabled) => _$this._enabled = enabled;
+
+  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateBuilder();
+
+  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateBuilder
+      get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _enabled = $v.enabled;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(
+      CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDate other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other
+        as _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDate;
+  }
+
+  @override
+  void update(
+      void Function(
+              CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateBuilder)?
+          updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDate build() =>
+      _build();
+
+  _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDate _build() {
+    final _$result = _$v ??
+        _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDate._(
+            enabled: BuiltValueNullFieldError.checkNotNull(
+                enabled,
+                r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDate',
+                'enabled'));
+    replace(_$result);
+    return _$result;
+  }
+}
+
+class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupported
+    extends CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupported {
+  @override
+  final bool enabled;
+
+  factory _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupported(
+          [void Function(
+                  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupportedBuilder)?
+              updates]) =>
+      (CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupportedBuilder()
+            ..update(updates))
+          ._build();
+
+  _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupported._(
+      {required this.enabled})
+      : super._() {
+    BuiltValueNullFieldError.checkNotNull(
+        enabled,
+        r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupported',
+        'enabled');
+  }
+
+  @override
+  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupported
+      rebuild(
+              void Function(
+                      CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupportedBuilder)
+                  updates) =>
+          (toBuilder()..update(updates)).build();
+
+  @override
+  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupportedBuilder
+      toBuilder() =>
+          CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupportedBuilder()
+            ..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other
+            is CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupported &&
+        enabled == other.enabled;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, enabled.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(
+            r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupported')
+          ..add('enabled', enabled))
+        .toString();
+  }
+}
+
+class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupportedBuilder
+    implements
+        Builder<
+            CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupported,
+            CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupportedBuilder> {
+  _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupported?
+      _$v;
+
+  bool? _enabled;
+  bool? get enabled => _$this._enabled;
+  set enabled(bool? enabled) => _$this._enabled = enabled;
+
+  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupportedBuilder();
+
+  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupportedBuilder
+      get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _enabled = $v.enabled;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(
+      CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupported
+          other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other
+        as _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupported;
+  }
+
+  @override
+  void update(
+      void Function(
+              CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupportedBuilder)?
+          updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupported
+      build() => _build();
+
+  _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupported
+      _build() {
+    final _$result = _$v ??
+        _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupported._(
+            enabled: BuiltValueNullFieldError.checkNotNull(
+                enabled,
+                r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupported',
+                'enabled'));
+    replace(_$result);
+    return _$result;
+  }
+}
+
+class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation
+    extends CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation {
+  @override
+  final bool outgoing;
+  @override
+  final bool incoming;
+  @override
+  final CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDate
+      expireDate;
+  @override
+  final CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupported
+      expireDateSupported;
+
+  factory _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation(
+          [void Function(
+                  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_FederationBuilder)?
+              updates]) =>
+      (CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_FederationBuilder()
+            ..update(updates))
+          ._build();
+
+  _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation._(
+      {required this.outgoing, required this.incoming, required this.expireDate, required this.expireDateSupported})
+      : super._() {
+    BuiltValueNullFieldError.checkNotNull(outgoing,
+        r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation', 'outgoing');
+    BuiltValueNullFieldError.checkNotNull(incoming,
+        r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation', 'incoming');
+    BuiltValueNullFieldError.checkNotNull(
+        expireDate,
+        r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation',
+        'expireDate');
+    BuiltValueNullFieldError.checkNotNull(
+        expireDateSupported,
+        r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation',
+        'expireDateSupported');
+  }
+
+  @override
+  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation rebuild(
+          void Function(
+                  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_FederationBuilder)
+              updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_FederationBuilder toBuilder() =>
+      CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_FederationBuilder()
+        ..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation &&
+        outgoing == other.outgoing &&
+        incoming == other.incoming &&
+        expireDate == other.expireDate &&
+        expireDateSupported == other.expireDateSupported;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, outgoing.hashCode);
+    _$hash = $jc(_$hash, incoming.hashCode);
+    _$hash = $jc(_$hash, expireDate.hashCode);
+    _$hash = $jc(_$hash, expireDateSupported.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(
+            r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation')
+          ..add('outgoing', outgoing)
+          ..add('incoming', incoming)
+          ..add('expireDate', expireDate)
+          ..add('expireDateSupported', expireDateSupported))
+        .toString();
+  }
+}
+
+class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_FederationBuilder
+    implements
+        Builder<CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation,
+            CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_FederationBuilder> {
+  _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation? _$v;
+
+  bool? _outgoing;
+  bool? get outgoing => _$this._outgoing;
+  set outgoing(bool? outgoing) => _$this._outgoing = outgoing;
+
+  bool? _incoming;
+  bool? get incoming => _$this._incoming;
+  set incoming(bool? incoming) => _$this._incoming = incoming;
+
+  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateBuilder?
+      _expireDate;
+  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateBuilder
+      get expireDate => _$this._expireDate ??=
+          CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateBuilder();
+  set expireDate(
+          CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateBuilder?
+              expireDate) =>
+      _$this._expireDate = expireDate;
+
+  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupportedBuilder?
+      _expireDateSupported;
+  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupportedBuilder
+      get expireDateSupported => _$this._expireDateSupported ??=
+          CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupportedBuilder();
+  set expireDateSupported(
+          CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupportedBuilder?
+              expireDateSupported) =>
+      _$this._expireDateSupported = expireDateSupported;
+
+  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_FederationBuilder();
+
+  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_FederationBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _outgoing = $v.outgoing;
+      _incoming = $v.incoming;
+      _expireDate = $v.expireDate.toBuilder();
+      _expireDateSupported = $v.expireDateSupported.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation;
+  }
+
+  @override
+  void update(
+      void Function(
+              CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_FederationBuilder)?
+          updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation build() => _build();
+
+  _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation _build() {
+    _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation _$result;
+    try {
+      _$result = _$v ??
+          _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation._(
+              outgoing: BuiltValueNullFieldError.checkNotNull(
+                  outgoing,
+                  r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation',
+                  'outgoing'),
+              incoming: BuiltValueNullFieldError.checkNotNull(
+                  incoming,
+                  r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation',
+                  'incoming'),
+              expireDate: expireDate.build(),
+              expireDateSupported: expireDateSupported.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'expireDate';
+        expireDate.build();
+        _$failedField = 'expireDateSupported';
+        expireDateSupported.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation',
+            _$failedField,
+            e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Sharee
+    extends CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Sharee {
+  @override
+  final bool queryLookupDefault;
+  @override
+  final bool alwaysShowUnique;
+
+  factory _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Sharee(
+          [void Function(
+                  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_ShareeBuilder)?
+              updates]) =>
+      (CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_ShareeBuilder()
+            ..update(updates))
+          ._build();
+
+  _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Sharee._(
+      {required this.queryLookupDefault, required this.alwaysShowUnique})
+      : super._() {
+    BuiltValueNullFieldError.checkNotNull(
+        queryLookupDefault,
+        r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Sharee',
+        'queryLookupDefault');
+    BuiltValueNullFieldError.checkNotNull(
+        alwaysShowUnique,
+        r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Sharee',
+        'alwaysShowUnique');
+  }
+
+  @override
+  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Sharee rebuild(
+          void Function(
+                  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_ShareeBuilder)
+              updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_ShareeBuilder toBuilder() =>
+      CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_ShareeBuilder()
+        ..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Sharee &&
+        queryLookupDefault == other.queryLookupDefault &&
+        alwaysShowUnique == other.alwaysShowUnique;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, queryLookupDefault.hashCode);
+    _$hash = $jc(_$hash, alwaysShowUnique.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(
+            r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Sharee')
+          ..add('queryLookupDefault', queryLookupDefault)
+          ..add('alwaysShowUnique', alwaysShowUnique))
+        .toString();
+  }
+}
+
+class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_ShareeBuilder
+    implements
+        Builder<CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Sharee,
+            CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_ShareeBuilder> {
+  _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Sharee? _$v;
+
+  bool? _queryLookupDefault;
+  bool? get queryLookupDefault => _$this._queryLookupDefault;
+  set queryLookupDefault(bool? queryLookupDefault) => _$this._queryLookupDefault = queryLookupDefault;
+
+  bool? _alwaysShowUnique;
+  bool? get alwaysShowUnique => _$this._alwaysShowUnique;
+  set alwaysShowUnique(bool? alwaysShowUnique) => _$this._alwaysShowUnique = alwaysShowUnique;
+
+  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_ShareeBuilder();
+
+  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_ShareeBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _queryLookupDefault = $v.queryLookupDefault;
+      _alwaysShowUnique = $v.alwaysShowUnique;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Sharee other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Sharee;
+  }
+
+  @override
+  void update(
+      void Function(CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_ShareeBuilder)?
+          updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Sharee build() => _build();
+
+  _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Sharee _build() {
+    final _$result = _$v ??
+        _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Sharee._(
+            queryLookupDefault: BuiltValueNullFieldError.checkNotNull(
+                queryLookupDefault,
+                r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Sharee',
+                'queryLookupDefault'),
+            alwaysShowUnique: BuiltValueNullFieldError.checkNotNull(
+                alwaysShowUnique,
+                r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Sharee',
+                'alwaysShowUnique'));
+    replace(_$result);
+    return _$result;
+  }
+}
+
+class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing
+    extends CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing {
+  @override
+  final bool apiEnabled;
+  @override
+  final CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public public;
+  @override
+  final CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_User user;
+  @override
+  final bool resharing;
+  @override
+  final bool? groupSharing;
+  @override
+  final CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group? group;
+  @override
+  final int? defaultPermissions;
+  @override
+  final CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation federation;
+  @override
+  final CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Sharee sharee;
+
+  factory _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing(
+          [void Function(CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharingBuilder)?
+              updates]) =>
+      (CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharingBuilder()..update(updates))
+          ._build();
+
+  _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing._(
+      {required this.apiEnabled,
+      required this.public,
+      required this.user,
+      required this.resharing,
+      this.groupSharing,
+      this.group,
+      this.defaultPermissions,
+      required this.federation,
+      required this.sharee})
+      : super._() {
+    BuiltValueNullFieldError.checkNotNull(apiEnabled,
+        r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing', 'apiEnabled');
+    BuiltValueNullFieldError.checkNotNull(
+        public, r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing', 'public');
+    BuiltValueNullFieldError.checkNotNull(
+        user, r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing', 'user');
+    BuiltValueNullFieldError.checkNotNull(
+        resharing, r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing', 'resharing');
+    BuiltValueNullFieldError.checkNotNull(federation,
+        r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing', 'federation');
+    BuiltValueNullFieldError.checkNotNull(
+        sharee, r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing', 'sharee');
+  }
+
+  @override
+  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing rebuild(
+          void Function(CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharingBuilder)
+              updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharingBuilder toBuilder() =>
+      CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharingBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing &&
+        apiEnabled == other.apiEnabled &&
+        public == other.public &&
+        user == other.user &&
+        resharing == other.resharing &&
+        groupSharing == other.groupSharing &&
+        group == other.group &&
+        defaultPermissions == other.defaultPermissions &&
+        federation == other.federation &&
+        sharee == other.sharee;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, apiEnabled.hashCode);
+    _$hash = $jc(_$hash, public.hashCode);
+    _$hash = $jc(_$hash, user.hashCode);
+    _$hash = $jc(_$hash, resharing.hashCode);
+    _$hash = $jc(_$hash, groupSharing.hashCode);
+    _$hash = $jc(_$hash, group.hashCode);
+    _$hash = $jc(_$hash, defaultPermissions.hashCode);
+    _$hash = $jc(_$hash, federation.hashCode);
+    _$hash = $jc(_$hash, sharee.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(
+            r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing')
+          ..add('apiEnabled', apiEnabled)
+          ..add('public', public)
+          ..add('user', user)
+          ..add('resharing', resharing)
+          ..add('groupSharing', groupSharing)
+          ..add('group', group)
+          ..add('defaultPermissions', defaultPermissions)
+          ..add('federation', federation)
+          ..add('sharee', sharee))
+        .toString();
+  }
+}
+
+class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharingBuilder
+    implements
+        Builder<CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing,
+            CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharingBuilder> {
+  _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing? _$v;
+
+  bool? _apiEnabled;
+  bool? get apiEnabled => _$this._apiEnabled;
+  set apiEnabled(bool? apiEnabled) => _$this._apiEnabled = apiEnabled;
+
+  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_PublicBuilder? _public;
+  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_PublicBuilder get public =>
+      _$this._public ??=
+          CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_PublicBuilder();
+  set public(
+          CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_PublicBuilder? public) =>
+      _$this._public = public;
+
+  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_UserBuilder? _user;
+  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_UserBuilder get user =>
+      _$this._user ??=
+          CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_UserBuilder();
+  set user(CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_UserBuilder? user) =>
+      _$this._user = user;
+
+  bool? _resharing;
+  bool? get resharing => _$this._resharing;
+  set resharing(bool? resharing) => _$this._resharing = resharing;
+
+  bool? _groupSharing;
+  bool? get groupSharing => _$this._groupSharing;
+  set groupSharing(bool? groupSharing) => _$this._groupSharing = groupSharing;
+
+  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_GroupBuilder? _group;
+  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_GroupBuilder get group =>
+      _$this._group ??=
+          CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_GroupBuilder();
+  set group(CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_GroupBuilder? group) =>
+      _$this._group = group;
+
+  int? _defaultPermissions;
+  int? get defaultPermissions => _$this._defaultPermissions;
+  set defaultPermissions(int? defaultPermissions) => _$this._defaultPermissions = defaultPermissions;
+
+  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_FederationBuilder? _federation;
+  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_FederationBuilder
+      get federation => _$this._federation ??=
+          CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_FederationBuilder();
+  set federation(
+          CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_FederationBuilder?
+              federation) =>
+      _$this._federation = federation;
+
+  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_ShareeBuilder? _sharee;
+  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_ShareeBuilder get sharee =>
+      _$this._sharee ??=
+          CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_ShareeBuilder();
+  set sharee(
+          CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_ShareeBuilder? sharee) =>
+      _$this._sharee = sharee;
+
+  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharingBuilder();
+
+  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharingBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _apiEnabled = $v.apiEnabled;
+      _public = $v.public.toBuilder();
+      _user = $v.user.toBuilder();
+      _resharing = $v.resharing;
+      _groupSharing = $v.groupSharing;
+      _group = $v.group?.toBuilder();
+      _defaultPermissions = $v.defaultPermissions;
+      _federation = $v.federation.toBuilder();
+      _sharee = $v.sharee.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing;
+  }
+
+  @override
+  void update(
+      void Function(CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharingBuilder)?
+          updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing build() => _build();
+
+  _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing _build() {
+    _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing _$result;
+    try {
+      _$result = _$v ??
+          _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing._(
+              apiEnabled: BuiltValueNullFieldError.checkNotNull(apiEnabled,
+                  r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing', 'apiEnabled'),
+              public: public.build(),
+              user: user.build(),
+              resharing: BuiltValueNullFieldError.checkNotNull(resharing,
+                  r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing', 'resharing'),
+              groupSharing: groupSharing,
+              group: _group?.build(),
+              defaultPermissions: defaultPermissions,
+              federation: federation.build(),
+              sharee: sharee.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'public';
+        public.build();
+        _$failedField = 'user';
+        user.build();
+
+        _$failedField = 'group';
+        _group?.build();
+
+        _$failedField = 'federation';
+        federation.build();
+        _$failedField = 'sharee';
+        sharee.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing',
+            _$failedField,
+            e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
 class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Notes
     extends CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Notes {
   @override
@@ -11771,6 +14868,8 @@ class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Use
 class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities
     extends CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities {
   @override
+  final CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing? filesSharing;
+  @override
   final CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Notes? notes;
   @override
   final CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Notifications? notifications;
@@ -11786,7 +14885,7 @@ class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities
       (CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_CapabilitiesBuilder()..update(updates))._build();
 
   _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities._(
-      {this.notes, this.notifications, this.provisioningApi, this.theming, this.userStatus})
+      {this.filesSharing, this.notes, this.notifications, this.provisioningApi, this.theming, this.userStatus})
       : super._();
 
   @override
@@ -11802,6 +14901,7 @@ class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
     return other is CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities &&
+        filesSharing == other.filesSharing &&
         notes == other.notes &&
         notifications == other.notifications &&
         provisioningApi == other.provisioningApi &&
@@ -11812,6 +14912,7 @@ class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities
   @override
   int get hashCode {
     var _$hash = 0;
+    _$hash = $jc(_$hash, filesSharing.hashCode);
     _$hash = $jc(_$hash, notes.hashCode);
     _$hash = $jc(_$hash, notifications.hashCode);
     _$hash = $jc(_$hash, provisioningApi.hashCode);
@@ -11824,6 +14925,7 @@ class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities
   @override
   String toString() {
     return (newBuiltValueToStringHelper(r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities')
+          ..add('filesSharing', filesSharing)
           ..add('notes', notes)
           ..add('notifications', notifications)
           ..add('provisioningApi', provisioningApi)
@@ -11838,6 +14940,14 @@ class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_CapabilitiesBuil
         Builder<CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities,
             CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_CapabilitiesBuilder> {
   _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities? _$v;
+
+  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharingBuilder? _filesSharing;
+  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharingBuilder get filesSharing =>
+      _$this._filesSharing ??=
+          CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharingBuilder();
+  set filesSharing(
+          CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharingBuilder? filesSharing) =>
+      _$this._filesSharing = filesSharing;
 
   CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_NotesBuilder? _notes;
   CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_NotesBuilder get notes =>
@@ -11880,6 +14990,7 @@ class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_CapabilitiesBuil
   CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_CapabilitiesBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
+      _filesSharing = $v.filesSharing?.toBuilder();
       _notes = $v.notes?.toBuilder();
       _notifications = $v.notifications?.toBuilder();
       _provisioningApi = $v.provisioningApi?.toBuilder();
@@ -11909,6 +15020,7 @@ class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_CapabilitiesBuil
     try {
       _$result = _$v ??
           _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities._(
+              filesSharing: _filesSharing?.build(),
               notes: _notes?.build(),
               notifications: _notifications?.build(),
               provisioningApi: _provisioningApi?.build(),
@@ -11917,6 +15029,8 @@ class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_CapabilitiesBuil
     } catch (_) {
       late String _$failedField;
       try {
+        _$failedField = 'filesSharing';
+        _filesSharing?.build();
         _$failedField = 'notes';
         _notes?.build();
         _$failedField = 'notifications';
