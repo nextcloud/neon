@@ -8,7 +8,7 @@ mkdir -p /tmp/nextcloud-neon
 (
   cd packages/nextcloud
   rm coverage -rf
-  fvm dart run coverage:test_with_coverage --function-coverage --branch-coverage -- --timeout 60s "$@"
+  fvm dart run coverage:test_with_coverage -- --concurrency="$(nproc --all)"   "$@"
   lcov --remove coverage/lcov.info "$(pwd)/lib/src/**.g.dart" -o coverage/filtered.info
   genhtml coverage/filtered.info -o coverage/html
 )
