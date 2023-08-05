@@ -2,8 +2,4 @@
 set -euxo pipefail
 cd "$(dirname "$0")/.."
 
-cloc \
-  --fullpath \
-  --not-match-d="(./external|./specs/templates|./packages/.*/.idea|./packages/.*/build|./packages/.*/coverage|./packages/.*/.dart_tool|./packages/app/linux/flutter/ephemeral|./packages/nextcloud/doc)" \
-  --exclude-ext="g.dart" --exclude-ext="openapi.dart" \
-  .
+git ls-files | grep -v "^external/" | cloc --fullpath --list-file=- .
