@@ -2,6 +2,7 @@
 library webdav_test;
 
 import 'dart:convert';
+import 'dart:io';
 import 'dart:math';
 import 'dart:typed_data';
 
@@ -275,6 +276,29 @@ void main() {
           .first
           .prop;
       expect(props.ocfavorite, 0);
+    });
+
+    test('Upload and download file', () async {
+      final destinationDir = Directory.systemTemp.createTempSync();
+      final destination = File('${destinationDir.path}/test.png');
+      final source = File('test/files/test.png');
+      final progressValues = <double>[];
+
+      await client.webdav.putFile(
+        source,
+        source.statSync(),
+        'test.png',
+        onProgress: progressValues.add,
+      );
+      await client.webdav.getFile(
+        'test.png',
+        destination,
+        onProgress: progressValues.add,
+      );
+      expect(progressValues, [100.0, 100.0]);
+      expect(destination.readAsBytesSync(), source.readAsBytesSync());
+
+      destinationDir.deleteSync(recursive: true);
     });
 
     group('litmus', () {
