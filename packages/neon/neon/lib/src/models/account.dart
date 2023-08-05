@@ -18,7 +18,7 @@ abstract interface class Credentials {
   /// Username
   abstract final String username;
 
-  /// Password
+  /// App password
   abstract final String? password;
 }
 
@@ -34,6 +34,7 @@ class Account implements Credentials {
           serverURL,
           loginName: username,
           password: password,
+          appPassword: password,
           userAgentOverride: userAgent,
           cookieJar: CookieJar(),
         );
