@@ -26,8 +26,16 @@ class ToggleOption extends Option<bool> {
         );
 
   @override
+  void reset() {
+    unawaited(storage.remove(key));
+
+    super.reset();
+  }
+
+  @override
   set value(final bool value) {
     super.value = value;
+
     unawaited(storage.setBool(key, serialize()));
   }
 
@@ -35,5 +43,5 @@ class ToggleOption extends Option<bool> {
   bool serialize() => value;
 
   @override
-  bool deserialize(final Object data) => data as bool;
+  bool? deserialize(final Object? data) => data as bool?;
 }
