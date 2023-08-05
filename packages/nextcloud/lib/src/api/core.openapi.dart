@@ -98,6 +98,8 @@ class CoreClient extends DynamiteClient {
       'Accept': 'application/json',
     };
     Uint8List? body;
+    // coverage:ignore-start
+    // coverage:ignore-end
     final response = await doRequest(
       'get',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
@@ -127,6 +129,7 @@ class CoreAppPasswordClient {
       'Accept': 'application/json',
     };
     Uint8List? body;
+    // coverage:ignore-start
     if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
         rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
@@ -135,8 +138,9 @@ class CoreAppPasswordClient {
       headers
           .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
     } else {
-      throw Exception('Missing authentication for bearer_auth or basic_auth'); // coverage:ignore-line
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
+    // coverage:ignore-end
     headers['OCS-APIRequest'] = oCSAPIRequest;
     final response = await rootClient.doRequest(
       'get',
@@ -163,6 +167,7 @@ class CoreAppPasswordClient {
       'Accept': 'application/json',
     };
     Uint8List? body;
+    // coverage:ignore-start
     if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
         rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
@@ -171,8 +176,9 @@ class CoreAppPasswordClient {
       headers
           .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
     } else {
-      throw Exception('Missing authentication for bearer_auth or basic_auth'); // coverage:ignore-line
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
+    // coverage:ignore-end
     headers['OCS-APIRequest'] = oCSAPIRequest;
     final response = await rootClient.doRequest(
       'post',
@@ -199,6 +205,7 @@ class CoreAppPasswordClient {
       'Accept': 'application/json',
     };
     Uint8List? body;
+    // coverage:ignore-start
     if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
         rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
@@ -207,8 +214,9 @@ class CoreAppPasswordClient {
       headers
           .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
     } else {
-      throw Exception('Missing authentication for bearer_auth or basic_auth'); // coverage:ignore-line
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
+    // coverage:ignore-end
     headers['OCS-APIRequest'] = oCSAPIRequest;
     final response = await rootClient.doRequest(
       'delete',
@@ -247,6 +255,7 @@ class CoreAutoCompleteClient {
       'Accept': 'application/json',
     };
     Uint8List? body;
+    // coverage:ignore-start
     if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
         rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
@@ -255,8 +264,9 @@ class CoreAutoCompleteClient {
       headers
           .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
     } else {
-      throw Exception('Missing authentication for bearer_auth or basic_auth'); // coverage:ignore-line
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
+    // coverage:ignore-end
     queryParameters['search'] = search;
     if (itemType != null) {
       queryParameters['itemType'] = itemType;
@@ -307,6 +317,7 @@ class CoreAvatarClient {
       'Accept': '*/*',
     };
     Uint8List? body;
+    // coverage:ignore-start
     if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
         rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
@@ -315,6 +326,7 @@ class CoreAvatarClient {
       headers
           .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
     }
+    // coverage:ignore-end
     path = path.replaceAll('{userId}', Uri.encodeQueryComponent(userId));
     path = path.replaceAll('{size}', Uri.encodeQueryComponent(size.toString()));
     final response = await rootClient.doRequest(
@@ -346,6 +358,7 @@ class CoreAvatarClient {
       'Accept': '*/*',
     };
     Uint8List? body;
+    // coverage:ignore-start
     if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
         rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
@@ -354,6 +367,7 @@ class CoreAvatarClient {
       headers
           .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
     }
+    // coverage:ignore-end
     path = path.replaceAll('{userId}', Uri.encodeQueryComponent(userId));
     path = path.replaceAll('{size}', Uri.encodeQueryComponent(size.toString()));
     final response = await rootClient.doRequest(
@@ -388,6 +402,7 @@ class CoreClientFlowLoginV2Client {
       'Accept': 'application/json',
     };
     Uint8List? body;
+    // coverage:ignore-start
     if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
         rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
@@ -396,6 +411,7 @@ class CoreClientFlowLoginV2Client {
       headers
           .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
     }
+    // coverage:ignore-end
     queryParameters['token'] = token;
     final response = await rootClient.doRequest(
       'post',
@@ -420,6 +436,7 @@ class CoreClientFlowLoginV2Client {
       'Accept': 'application/json',
     };
     Uint8List? body;
+    // coverage:ignore-start
     if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
         rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
@@ -428,6 +445,7 @@ class CoreClientFlowLoginV2Client {
       headers
           .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
     }
+    // coverage:ignore-end
     final response = await rootClient.doRequest(
       'post',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
@@ -458,6 +476,7 @@ class CoreCollaborationResourcesClient {
       'Accept': 'application/json',
     };
     Uint8List? body;
+    // coverage:ignore-start
     if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
         rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
@@ -466,8 +485,9 @@ class CoreCollaborationResourcesClient {
       headers
           .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
     } else {
-      throw Exception('Missing authentication for bearer_auth or basic_auth'); // coverage:ignore-line
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
+    // coverage:ignore-end
     path = path.replaceAll('{filter}', Uri.encodeQueryComponent(filter));
     headers['OCS-APIRequest'] = oCSAPIRequest;
     final response = await rootClient.doRequest(
@@ -496,6 +516,7 @@ class CoreCollaborationResourcesClient {
       'Accept': 'application/json',
     };
     Uint8List? body;
+    // coverage:ignore-start
     if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
         rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
@@ -504,8 +525,9 @@ class CoreCollaborationResourcesClient {
       headers
           .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
     } else {
-      throw Exception('Missing authentication for bearer_auth or basic_auth'); // coverage:ignore-line
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
+    // coverage:ignore-end
     path = path.replaceAll('{collectionId}', Uri.encodeQueryComponent(collectionId.toString()));
     headers['OCS-APIRequest'] = oCSAPIRequest;
     final response = await rootClient.doRequest(
@@ -535,6 +557,7 @@ class CoreCollaborationResourcesClient {
       'Accept': 'application/json',
     };
     Uint8List? body;
+    // coverage:ignore-start
     if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
         rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
@@ -543,8 +566,9 @@ class CoreCollaborationResourcesClient {
       headers
           .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
     } else {
-      throw Exception('Missing authentication for bearer_auth or basic_auth'); // coverage:ignore-line
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
+    // coverage:ignore-end
     queryParameters['collectionName'] = collectionName;
     path = path.replaceAll('{collectionId}', Uri.encodeQueryComponent(collectionId.toString()));
     headers['OCS-APIRequest'] = oCSAPIRequest;
@@ -576,6 +600,7 @@ class CoreCollaborationResourcesClient {
       'Accept': 'application/json',
     };
     Uint8List? body;
+    // coverage:ignore-start
     if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
         rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
@@ -584,8 +609,9 @@ class CoreCollaborationResourcesClient {
       headers
           .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
     } else {
-      throw Exception('Missing authentication for bearer_auth or basic_auth'); // coverage:ignore-line
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
+    // coverage:ignore-end
     queryParameters['resourceType'] = resourceType;
     queryParameters['resourceId'] = resourceId;
     path = path.replaceAll('{collectionId}', Uri.encodeQueryComponent(collectionId.toString()));
@@ -618,6 +644,7 @@ class CoreCollaborationResourcesClient {
       'Accept': 'application/json',
     };
     Uint8List? body;
+    // coverage:ignore-start
     if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
         rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
@@ -626,8 +653,9 @@ class CoreCollaborationResourcesClient {
       headers
           .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
     } else {
-      throw Exception('Missing authentication for bearer_auth or basic_auth'); // coverage:ignore-line
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
+    // coverage:ignore-end
     queryParameters['resourceType'] = resourceType;
     queryParameters['resourceId'] = resourceId;
     path = path.replaceAll('{collectionId}', Uri.encodeQueryComponent(collectionId.toString()));
@@ -659,6 +687,7 @@ class CoreCollaborationResourcesClient {
       'Accept': 'application/json',
     };
     Uint8List? body;
+    // coverage:ignore-start
     if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
         rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
@@ -667,8 +696,9 @@ class CoreCollaborationResourcesClient {
       headers
           .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
     } else {
-      throw Exception('Missing authentication for bearer_auth or basic_auth'); // coverage:ignore-line
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
+    // coverage:ignore-end
     path = path.replaceAll('{resourceType}', Uri.encodeQueryComponent(resourceType));
     path = path.replaceAll('{resourceId}', Uri.encodeQueryComponent(resourceId));
     headers['OCS-APIRequest'] = oCSAPIRequest;
@@ -700,6 +730,7 @@ class CoreCollaborationResourcesClient {
       'Accept': 'application/json',
     };
     Uint8List? body;
+    // coverage:ignore-start
     if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
         rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
@@ -708,8 +739,9 @@ class CoreCollaborationResourcesClient {
       headers
           .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
     } else {
-      throw Exception('Missing authentication for bearer_auth or basic_auth'); // coverage:ignore-line
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
+    // coverage:ignore-end
     queryParameters['name'] = name;
     path = path.replaceAll('{baseResourceType}', Uri.encodeQueryComponent(baseResourceType));
     path = path.replaceAll('{baseResourceId}', Uri.encodeQueryComponent(baseResourceId));
@@ -747,6 +779,7 @@ class CoreGuestAvatarClient {
       'Accept': '*/*',
     };
     Uint8List? body;
+    // coverage:ignore-start
     if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
         rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
@@ -755,6 +788,7 @@ class CoreGuestAvatarClient {
       headers
           .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
     }
+    // coverage:ignore-end
     path = path.replaceAll('{guestName}', Uri.encodeQueryComponent(guestName));
     path = path.replaceAll('{size}', Uri.encodeQueryComponent(size));
     final response = await rootClient.doRequest(
@@ -781,6 +815,7 @@ class CoreGuestAvatarClient {
       'Accept': '*/*',
     };
     Uint8List? body;
+    // coverage:ignore-start
     if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
         rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
@@ -789,6 +824,7 @@ class CoreGuestAvatarClient {
       headers
           .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
     }
+    // coverage:ignore-end
     path = path.replaceAll('{guestName}', Uri.encodeQueryComponent(guestName));
     path = path.replaceAll('{size}', Uri.encodeQueryComponent(size));
     if (darkTheme != null) {
@@ -825,6 +861,7 @@ class CoreHoverCardClient {
       'Accept': 'application/json',
     };
     Uint8List? body;
+    // coverage:ignore-start
     if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
         rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
@@ -833,8 +870,9 @@ class CoreHoverCardClient {
       headers
           .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
     } else {
-      throw Exception('Missing authentication for bearer_auth or basic_auth'); // coverage:ignore-line
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
+    // coverage:ignore-end
     path = path.replaceAll('{userId}', Uri.encodeQueryComponent(userId));
     headers['OCS-APIRequest'] = oCSAPIRequest;
     final response = await rootClient.doRequest(
@@ -869,6 +907,7 @@ class CoreNavigationClient {
       'Accept': 'application/json',
     };
     Uint8List? body;
+    // coverage:ignore-start
     if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
         rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
@@ -877,8 +916,9 @@ class CoreNavigationClient {
       headers
           .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
     } else {
-      throw Exception('Missing authentication for bearer_auth or basic_auth'); // coverage:ignore-line
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
+    // coverage:ignore-end
     if (absolute != 0) {
       queryParameters['absolute'] = absolute.toString();
     }
@@ -909,6 +949,7 @@ class CoreNavigationClient {
       'Accept': 'application/json',
     };
     Uint8List? body;
+    // coverage:ignore-start
     if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
         rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
@@ -917,8 +958,9 @@ class CoreNavigationClient {
       headers
           .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
     } else {
-      throw Exception('Missing authentication for bearer_auth or basic_auth'); // coverage:ignore-line
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
+    // coverage:ignore-end
     if (absolute != 0) {
       queryParameters['absolute'] = absolute.toString();
     }
@@ -954,6 +996,7 @@ class CoreOcsClient {
       'Accept': 'application/json',
     };
     Uint8List? body;
+    // coverage:ignore-start
     if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
         rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
@@ -962,6 +1005,7 @@ class CoreOcsClient {
       headers
           .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
     }
+    // coverage:ignore-end
     headers['OCS-APIRequest'] = oCSAPIRequest;
     final response = await rootClient.doRequest(
       'get',
@@ -999,6 +1043,7 @@ class CorePreviewClient {
       'Accept': '*/*',
     };
     Uint8List? body;
+    // coverage:ignore-start
     if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
         rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
@@ -1007,8 +1052,9 @@ class CorePreviewClient {
       headers
           .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
     } else {
-      throw Exception('Missing authentication for bearer_auth or basic_auth'); // coverage:ignore-line
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
+    // coverage:ignore-end
     if (fileId != -1) {
       queryParameters['fileId'] = fileId.toString();
     }
@@ -1054,6 +1100,7 @@ class CorePreviewClient {
       'Accept': '*/*',
     };
     Uint8List? body;
+    // coverage:ignore-start
     if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
         rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
@@ -1062,8 +1109,9 @@ class CorePreviewClient {
       headers
           .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
     } else {
-      throw Exception('Missing authentication for bearer_auth or basic_auth'); // coverage:ignore-line
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
+    // coverage:ignore-end
     if (file != '') {
       queryParameters['file'] = file;
     }
@@ -1113,6 +1161,7 @@ class CoreProfileApiClient {
       'Accept': 'application/json',
     };
     Uint8List? body;
+    // coverage:ignore-start
     if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
         rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
@@ -1121,8 +1170,9 @@ class CoreProfileApiClient {
       headers
           .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
     } else {
-      throw Exception('Missing authentication for bearer_auth or basic_auth'); // coverage:ignore-line
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
+    // coverage:ignore-end
     queryParameters['paramId'] = paramId;
     queryParameters['visibility'] = visibility;
     path = path.replaceAll('{targetUserId}', Uri.encodeQueryComponent(targetUserId));
@@ -1156,6 +1206,7 @@ class CoreReferenceClient {
       'Accept': '*/*',
     };
     Uint8List? body;
+    // coverage:ignore-start
     if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
         rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
@@ -1164,6 +1215,7 @@ class CoreReferenceClient {
       headers
           .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
     }
+    // coverage:ignore-end
     path = path.replaceAll('{referenceId}', Uri.encodeQueryComponent(referenceId));
     final response = await rootClient.doRequest(
       'get',
@@ -1194,6 +1246,7 @@ class CoreReferenceApiClient {
       'Accept': 'application/json',
     };
     Uint8List? body;
+    // coverage:ignore-start
     if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
         rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
@@ -1202,8 +1255,9 @@ class CoreReferenceApiClient {
       headers
           .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
     } else {
-      throw Exception('Missing authentication for bearer_auth or basic_auth'); // coverage:ignore-line
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
+    // coverage:ignore-end
     queryParameters['reference'] = reference;
     headers['OCS-APIRequest'] = oCSAPIRequest;
     final response = await rootClient.doRequest(
@@ -1233,6 +1287,7 @@ class CoreReferenceApiClient {
       'Accept': 'application/json',
     };
     Uint8List? body;
+    // coverage:ignore-start
     if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
         rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
@@ -1241,8 +1296,9 @@ class CoreReferenceApiClient {
       headers
           .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
     } else {
-      throw Exception('Missing authentication for bearer_auth or basic_auth'); // coverage:ignore-line
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
+    // coverage:ignore-end
     queryParameters['references[]'] = references.map((final e) => e);
     if (limit != 1) {
       queryParameters['limit'] = limit.toString();
@@ -1276,6 +1332,7 @@ class CoreReferenceApiClient {
       'Accept': 'application/json',
     };
     Uint8List? body;
+    // coverage:ignore-start
     if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
         rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
@@ -1284,8 +1341,9 @@ class CoreReferenceApiClient {
       headers
           .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
     } else {
-      throw Exception('Missing authentication for bearer_auth or basic_auth'); // coverage:ignore-line
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
+    // coverage:ignore-end
     queryParameters['text'] = text;
     if (resolve != 0) {
       queryParameters['resolve'] = resolve.toString();
@@ -1319,6 +1377,7 @@ class CoreReferenceApiClient {
       'Accept': 'application/json',
     };
     Uint8List? body;
+    // coverage:ignore-start
     if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
         rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
@@ -1327,8 +1386,9 @@ class CoreReferenceApiClient {
       headers
           .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
     } else {
-      throw Exception('Missing authentication for bearer_auth or basic_auth'); // coverage:ignore-line
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
+    // coverage:ignore-end
     headers['OCS-APIRequest'] = oCSAPIRequest;
     final response = await rootClient.doRequest(
       'get',
@@ -1357,6 +1417,7 @@ class CoreReferenceApiClient {
       'Accept': 'application/json',
     };
     Uint8List? body;
+    // coverage:ignore-start
     if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
         rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
@@ -1365,8 +1426,9 @@ class CoreReferenceApiClient {
       headers
           .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
     } else {
-      throw Exception('Missing authentication for bearer_auth or basic_auth'); // coverage:ignore-line
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
+    // coverage:ignore-end
     path = path.replaceAll('{providerId}', Uri.encodeQueryComponent(providerId));
     if (timestamp != null) {
       queryParameters['timestamp'] = timestamp.toString();
@@ -1403,6 +1465,7 @@ class CoreTextProcessingApiClient {
       'Accept': 'application/json',
     };
     Uint8List? body;
+    // coverage:ignore-start
     if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
         rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
@@ -1411,6 +1474,7 @@ class CoreTextProcessingApiClient {
       headers
           .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
     }
+    // coverage:ignore-end
     headers['OCS-APIRequest'] = oCSAPIRequest;
     final response = await rootClient.doRequest(
       'get',
@@ -1441,6 +1505,7 @@ class CoreTextProcessingApiClient {
       'Accept': 'application/json',
     };
     Uint8List? body;
+    // coverage:ignore-start
     if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
         rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
@@ -1449,6 +1514,7 @@ class CoreTextProcessingApiClient {
       headers
           .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
     }
+    // coverage:ignore-end
     queryParameters['input'] = input;
     queryParameters['type'] = type;
     queryParameters['appId'] = appId;
@@ -1482,6 +1548,7 @@ class CoreTextProcessingApiClient {
       'Accept': 'application/json',
     };
     Uint8List? body;
+    // coverage:ignore-start
     if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
         rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
@@ -1490,6 +1557,7 @@ class CoreTextProcessingApiClient {
       headers
           .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
     }
+    // coverage:ignore-end
     path = path.replaceAll('{id}', Uri.encodeQueryComponent(id.toString()));
     headers['OCS-APIRequest'] = oCSAPIRequest;
     final response = await rootClient.doRequest(
@@ -1521,6 +1589,7 @@ class CoreTranslationApiClient {
       'Accept': 'application/json',
     };
     Uint8List? body;
+    // coverage:ignore-start
     if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
         rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
@@ -1529,6 +1598,7 @@ class CoreTranslationApiClient {
       headers
           .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
     }
+    // coverage:ignore-end
     headers['OCS-APIRequest'] = oCSAPIRequest;
     final response = await rootClient.doRequest(
       'get',
@@ -1558,6 +1628,7 @@ class CoreTranslationApiClient {
       'Accept': 'application/json',
     };
     Uint8List? body;
+    // coverage:ignore-start
     if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
         rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
@@ -1566,6 +1637,7 @@ class CoreTranslationApiClient {
       headers
           .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
     }
+    // coverage:ignore-end
     queryParameters['text'] = text;
     queryParameters['toLanguage'] = toLanguage;
     if (fromLanguage != null) {
@@ -1604,6 +1676,7 @@ class CoreUnifiedSearchClient {
       'Accept': 'application/json',
     };
     Uint8List? body;
+    // coverage:ignore-start
     if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
         rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
@@ -1612,8 +1685,9 @@ class CoreUnifiedSearchClient {
       headers
           .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
     } else {
-      throw Exception('Missing authentication for bearer_auth or basic_auth'); // coverage:ignore-line
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
+    // coverage:ignore-end
     if (from != '') {
       queryParameters['from'] = from;
     }
@@ -1649,6 +1723,7 @@ class CoreUnifiedSearchClient {
       'Accept': 'application/json',
     };
     Uint8List? body;
+    // coverage:ignore-start
     if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
         rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
@@ -1657,8 +1732,9 @@ class CoreUnifiedSearchClient {
       headers
           .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
     } else {
-      throw Exception('Missing authentication for bearer_auth or basic_auth'); // coverage:ignore-line
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
+    // coverage:ignore-end
     path = path.replaceAll('{providerId}', Uri.encodeQueryComponent(providerId));
     if (term != '') {
       queryParameters['term'] = term;
@@ -1708,6 +1784,7 @@ class CoreWhatsNewClient {
       'Accept': 'application/json',
     };
     Uint8List? body;
+    // coverage:ignore-start
     if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
         rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
@@ -1716,8 +1793,9 @@ class CoreWhatsNewClient {
       headers
           .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
     } else {
-      throw Exception('Missing authentication for bearer_auth or basic_auth'); // coverage:ignore-line
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
+    // coverage:ignore-end
     headers['OCS-APIRequest'] = oCSAPIRequest;
     final response = await rootClient.doRequest(
       'get',
@@ -1745,6 +1823,7 @@ class CoreWhatsNewClient {
       'Accept': 'application/json',
     };
     Uint8List? body;
+    // coverage:ignore-start
     if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
         rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
@@ -1753,8 +1832,9 @@ class CoreWhatsNewClient {
       headers
           .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
     } else {
-      throw Exception('Missing authentication for bearer_auth or basic_auth'); // coverage:ignore-line
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
+    // coverage:ignore-end
     queryParameters['version'] = version;
     headers['OCS-APIRequest'] = oCSAPIRequest;
     final response = await rootClient.doRequest(
@@ -1786,6 +1866,7 @@ class CoreWipeClient {
       'Accept': 'application/json',
     };
     Uint8List? body;
+    // coverage:ignore-start
     if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
         rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
@@ -1794,6 +1875,7 @@ class CoreWipeClient {
       headers
           .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
     }
+    // coverage:ignore-end
     queryParameters['token'] = token;
     final response = await rootClient.doRequest(
       'post',
@@ -1818,6 +1900,7 @@ class CoreWipeClient {
       'Accept': 'application/json',
     };
     Uint8List? body;
+    // coverage:ignore-start
     if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
         rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
@@ -1826,6 +1909,7 @@ class CoreWipeClient {
       headers
           .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
     }
+    // coverage:ignore-end
     queryParameters['token'] = token;
     final response = await rootClient.doRequest(
       'post',
@@ -1842,11 +1926,18 @@ class CoreWipeClient {
 
 abstract class CoreStatus implements Built<CoreStatus, CoreStatusBuilder> {
   factory CoreStatus([final void Function(CoreStatusBuilder)? b]) = _$CoreStatus;
+
+  // coverage:ignore-start
   const CoreStatus._();
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   factory CoreStatus.fromJson(final Map<String, dynamic> json) => _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   bool get installed;
   bool get maintenance;
   bool get needsDbUpgrade;
@@ -1860,11 +1951,18 @@ abstract class CoreStatus implements Built<CoreStatus, CoreStatusBuilder> {
 
 abstract class CoreOCSMeta implements Built<CoreOCSMeta, CoreOCSMetaBuilder> {
   factory CoreOCSMeta([final void Function(CoreOCSMetaBuilder)? b]) = _$CoreOCSMeta;
+
+  // coverage:ignore-start
   const CoreOCSMeta._();
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   factory CoreOCSMeta.fromJson(final Map<String, dynamic> json) => _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   String get status;
   int get statuscode;
   String? get message;
@@ -1880,12 +1978,19 @@ abstract class CoreAppPasswordGetAppPasswordResponse200ApplicationJson_Ocs_Data
   factory CoreAppPasswordGetAppPasswordResponse200ApplicationJson_Ocs_Data([
     final void Function(CoreAppPasswordGetAppPasswordResponse200ApplicationJson_Ocs_DataBuilder)? b,
   ]) = _$CoreAppPasswordGetAppPasswordResponse200ApplicationJson_Ocs_Data;
-  const CoreAppPasswordGetAppPasswordResponse200ApplicationJson_Ocs_Data._();
 
+  // coverage:ignore-start
+  const CoreAppPasswordGetAppPasswordResponse200ApplicationJson_Ocs_Data._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory CoreAppPasswordGetAppPasswordResponse200ApplicationJson_Ocs_Data.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   String get apppassword;
   static Serializer<CoreAppPasswordGetAppPasswordResponse200ApplicationJson_Ocs_Data> get serializer =>
       _$coreAppPasswordGetAppPasswordResponse200ApplicationJsonOcsDataSerializer;
@@ -1898,12 +2003,19 @@ abstract class CoreAppPasswordGetAppPasswordResponse200ApplicationJson_Ocs
   factory CoreAppPasswordGetAppPasswordResponse200ApplicationJson_Ocs([
     final void Function(CoreAppPasswordGetAppPasswordResponse200ApplicationJson_OcsBuilder)? b,
   ]) = _$CoreAppPasswordGetAppPasswordResponse200ApplicationJson_Ocs;
-  const CoreAppPasswordGetAppPasswordResponse200ApplicationJson_Ocs._();
 
+  // coverage:ignore-start
+  const CoreAppPasswordGetAppPasswordResponse200ApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory CoreAppPasswordGetAppPasswordResponse200ApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   CoreOCSMeta get meta;
   CoreAppPasswordGetAppPasswordResponse200ApplicationJson_Ocs_Data get data;
   static Serializer<CoreAppPasswordGetAppPasswordResponse200ApplicationJson_Ocs> get serializer =>
@@ -1917,12 +2029,19 @@ abstract class CoreAppPasswordGetAppPasswordResponse200ApplicationJson
   factory CoreAppPasswordGetAppPasswordResponse200ApplicationJson([
     final void Function(CoreAppPasswordGetAppPasswordResponse200ApplicationJsonBuilder)? b,
   ]) = _$CoreAppPasswordGetAppPasswordResponse200ApplicationJson;
-  const CoreAppPasswordGetAppPasswordResponse200ApplicationJson._();
 
+  // coverage:ignore-start
+  const CoreAppPasswordGetAppPasswordResponse200ApplicationJson._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory CoreAppPasswordGetAppPasswordResponse200ApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   CoreAppPasswordGetAppPasswordResponse200ApplicationJson_Ocs get ocs;
   static Serializer<CoreAppPasswordGetAppPasswordResponse200ApplicationJson> get serializer =>
       _$coreAppPasswordGetAppPasswordResponse200ApplicationJsonSerializer;
@@ -1935,14 +2054,21 @@ abstract class CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_Ocs_Da
   factory CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_Ocs_Data([
     final void Function(CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_Ocs_DataBuilder)? b,
   ]) = _$CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_Ocs_Data;
-  const CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_Ocs_Data._();
 
+  // coverage:ignore-start
+  const CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_Ocs_Data._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_Ocs_Data.fromJson(
     final Map<String, dynamic> json,
   ) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   String get apppassword;
   static Serializer<CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_Ocs_Data> get serializer =>
       _$coreAppPasswordRotateAppPasswordResponse200ApplicationJsonOcsDataSerializer;
@@ -1955,12 +2081,19 @@ abstract class CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_Ocs
   factory CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_Ocs([
     final void Function(CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_OcsBuilder)? b,
   ]) = _$CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_Ocs;
-  const CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_Ocs._();
 
+  // coverage:ignore-start
+  const CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   CoreOCSMeta get meta;
   CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_Ocs_Data get data;
   static Serializer<CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_Ocs> get serializer =>
@@ -1974,12 +2107,19 @@ abstract class CoreAppPasswordRotateAppPasswordResponse200ApplicationJson
   factory CoreAppPasswordRotateAppPasswordResponse200ApplicationJson([
     final void Function(CoreAppPasswordRotateAppPasswordResponse200ApplicationJsonBuilder)? b,
   ]) = _$CoreAppPasswordRotateAppPasswordResponse200ApplicationJson;
-  const CoreAppPasswordRotateAppPasswordResponse200ApplicationJson._();
 
+  // coverage:ignore-start
+  const CoreAppPasswordRotateAppPasswordResponse200ApplicationJson._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory CoreAppPasswordRotateAppPasswordResponse200ApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   CoreAppPasswordRotateAppPasswordResponse200ApplicationJson_Ocs get ocs;
   static Serializer<CoreAppPasswordRotateAppPasswordResponse200ApplicationJson> get serializer =>
       _$coreAppPasswordRotateAppPasswordResponse200ApplicationJsonSerializer;
@@ -1992,12 +2132,19 @@ abstract class CoreAppPasswordDeleteAppPasswordResponse200ApplicationJson_Ocs
   factory CoreAppPasswordDeleteAppPasswordResponse200ApplicationJson_Ocs([
     final void Function(CoreAppPasswordDeleteAppPasswordResponse200ApplicationJson_OcsBuilder)? b,
   ]) = _$CoreAppPasswordDeleteAppPasswordResponse200ApplicationJson_Ocs;
-  const CoreAppPasswordDeleteAppPasswordResponse200ApplicationJson_Ocs._();
 
+  // coverage:ignore-start
+  const CoreAppPasswordDeleteAppPasswordResponse200ApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory CoreAppPasswordDeleteAppPasswordResponse200ApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   CoreOCSMeta get meta;
   JsonObject get data;
   static Serializer<CoreAppPasswordDeleteAppPasswordResponse200ApplicationJson_Ocs> get serializer =>
@@ -2011,12 +2158,19 @@ abstract class CoreAppPasswordDeleteAppPasswordResponse200ApplicationJson
   factory CoreAppPasswordDeleteAppPasswordResponse200ApplicationJson([
     final void Function(CoreAppPasswordDeleteAppPasswordResponse200ApplicationJsonBuilder)? b,
   ]) = _$CoreAppPasswordDeleteAppPasswordResponse200ApplicationJson;
-  const CoreAppPasswordDeleteAppPasswordResponse200ApplicationJson._();
 
+  // coverage:ignore-start
+  const CoreAppPasswordDeleteAppPasswordResponse200ApplicationJson._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory CoreAppPasswordDeleteAppPasswordResponse200ApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   CoreAppPasswordDeleteAppPasswordResponse200ApplicationJson_Ocs get ocs;
   static Serializer<CoreAppPasswordDeleteAppPasswordResponse200ApplicationJson> get serializer =>
       _$coreAppPasswordDeleteAppPasswordResponse200ApplicationJsonSerializer;
@@ -2024,12 +2178,19 @@ abstract class CoreAppPasswordDeleteAppPasswordResponse200ApplicationJson
 
 abstract class CoreAutocompleteResult implements Built<CoreAutocompleteResult, CoreAutocompleteResultBuilder> {
   factory CoreAutocompleteResult([final void Function(CoreAutocompleteResultBuilder)? b]) = _$CoreAutocompleteResult;
-  const CoreAutocompleteResult._();
 
+  // coverage:ignore-start
+  const CoreAutocompleteResult._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory CoreAutocompleteResult.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   String get id;
   String get label;
   String get icon;
@@ -2047,12 +2208,19 @@ abstract class CoreAutoCompleteGetResponse200ApplicationJson_Ocs
   factory CoreAutoCompleteGetResponse200ApplicationJson_Ocs([
     final void Function(CoreAutoCompleteGetResponse200ApplicationJson_OcsBuilder)? b,
   ]) = _$CoreAutoCompleteGetResponse200ApplicationJson_Ocs;
-  const CoreAutoCompleteGetResponse200ApplicationJson_Ocs._();
 
+  // coverage:ignore-start
+  const CoreAutoCompleteGetResponse200ApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory CoreAutoCompleteGetResponse200ApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   CoreOCSMeta get meta;
   BuiltList<CoreAutocompleteResult> get data;
   static Serializer<CoreAutoCompleteGetResponse200ApplicationJson_Ocs> get serializer =>
@@ -2065,12 +2233,19 @@ abstract class CoreAutoCompleteGetResponse200ApplicationJson
   factory CoreAutoCompleteGetResponse200ApplicationJson([
     final void Function(CoreAutoCompleteGetResponse200ApplicationJsonBuilder)? b,
   ]) = _$CoreAutoCompleteGetResponse200ApplicationJson;
-  const CoreAutoCompleteGetResponse200ApplicationJson._();
 
+  // coverage:ignore-start
+  const CoreAutoCompleteGetResponse200ApplicationJson._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory CoreAutoCompleteGetResponse200ApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   CoreAutoCompleteGetResponse200ApplicationJson_Ocs get ocs;
   static Serializer<CoreAutoCompleteGetResponse200ApplicationJson> get serializer =>
       _$coreAutoCompleteGetResponse200ApplicationJsonSerializer;
@@ -2080,12 +2255,19 @@ abstract class CoreAvatarAvatarGetAvatarDarkHeaders
     implements Built<CoreAvatarAvatarGetAvatarDarkHeaders, CoreAvatarAvatarGetAvatarDarkHeadersBuilder> {
   factory CoreAvatarAvatarGetAvatarDarkHeaders([final void Function(CoreAvatarAvatarGetAvatarDarkHeadersBuilder)? b]) =
       _$CoreAvatarAvatarGetAvatarDarkHeaders;
-  const CoreAvatarAvatarGetAvatarDarkHeaders._();
 
+  // coverage:ignore-start
+  const CoreAvatarAvatarGetAvatarDarkHeaders._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory CoreAvatarAvatarGetAvatarDarkHeaders.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   @BuiltValueField(wireName: 'x-nc-iscustomavatar')
   int? get xNcIscustomavatar;
   @BuiltValueSerializer(custom: true)
@@ -2138,12 +2320,19 @@ abstract class CoreAvatarAvatarGetAvatarHeaders
     implements Built<CoreAvatarAvatarGetAvatarHeaders, CoreAvatarAvatarGetAvatarHeadersBuilder> {
   factory CoreAvatarAvatarGetAvatarHeaders([final void Function(CoreAvatarAvatarGetAvatarHeadersBuilder)? b]) =
       _$CoreAvatarAvatarGetAvatarHeaders;
-  const CoreAvatarAvatarGetAvatarHeaders._();
 
+  // coverage:ignore-start
+  const CoreAvatarAvatarGetAvatarHeaders._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory CoreAvatarAvatarGetAvatarHeaders.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   @BuiltValueField(wireName: 'x-nc-iscustomavatar')
   int? get xNcIscustomavatar;
   @BuiltValueSerializer(custom: true)
@@ -2194,12 +2383,19 @@ abstract class CoreLoginFlowV2Credentials
     implements Built<CoreLoginFlowV2Credentials, CoreLoginFlowV2CredentialsBuilder> {
   factory CoreLoginFlowV2Credentials([final void Function(CoreLoginFlowV2CredentialsBuilder)? b]) =
       _$CoreLoginFlowV2Credentials;
-  const CoreLoginFlowV2Credentials._();
 
+  // coverage:ignore-start
+  const CoreLoginFlowV2Credentials._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory CoreLoginFlowV2Credentials.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   String get server;
   String get loginName;
   String get appPassword;
@@ -2208,12 +2404,19 @@ abstract class CoreLoginFlowV2Credentials
 
 abstract class CoreLoginFlowV2_Poll implements Built<CoreLoginFlowV2_Poll, CoreLoginFlowV2_PollBuilder> {
   factory CoreLoginFlowV2_Poll([final void Function(CoreLoginFlowV2_PollBuilder)? b]) = _$CoreLoginFlowV2_Poll;
-  const CoreLoginFlowV2_Poll._();
 
+  // coverage:ignore-start
+  const CoreLoginFlowV2_Poll._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory CoreLoginFlowV2_Poll.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   String get token;
   String get endpoint;
   static Serializer<CoreLoginFlowV2_Poll> get serializer => _$coreLoginFlowV2PollSerializer;
@@ -2221,12 +2424,19 @@ abstract class CoreLoginFlowV2_Poll implements Built<CoreLoginFlowV2_Poll, CoreL
 
 abstract class CoreLoginFlowV2 implements Built<CoreLoginFlowV2, CoreLoginFlowV2Builder> {
   factory CoreLoginFlowV2([final void Function(CoreLoginFlowV2Builder)? b]) = _$CoreLoginFlowV2;
-  const CoreLoginFlowV2._();
 
+  // coverage:ignore-start
+  const CoreLoginFlowV2._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory CoreLoginFlowV2.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   CoreLoginFlowV2_Poll get poll;
   String get login;
   static Serializer<CoreLoginFlowV2> get serializer => _$coreLoginFlowV2Serializer;
@@ -2236,12 +2446,19 @@ abstract class CoreOpenGraphObject_OpenGraphObject
     implements Built<CoreOpenGraphObject_OpenGraphObject, CoreOpenGraphObject_OpenGraphObjectBuilder> {
   factory CoreOpenGraphObject_OpenGraphObject([final void Function(CoreOpenGraphObject_OpenGraphObjectBuilder)? b]) =
       _$CoreOpenGraphObject_OpenGraphObject;
-  const CoreOpenGraphObject_OpenGraphObject._();
 
+  // coverage:ignore-start
+  const CoreOpenGraphObject_OpenGraphObject._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory CoreOpenGraphObject_OpenGraphObject.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   String get id;
   String get name;
   String? get description;
@@ -2253,12 +2470,19 @@ abstract class CoreOpenGraphObject_OpenGraphObject
 
 abstract class CoreOpenGraphObject implements Built<CoreOpenGraphObject, CoreOpenGraphObjectBuilder> {
   factory CoreOpenGraphObject([final void Function(CoreOpenGraphObjectBuilder)? b]) = _$CoreOpenGraphObject;
-  const CoreOpenGraphObject._();
 
+  // coverage:ignore-start
+  const CoreOpenGraphObject._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory CoreOpenGraphObject.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   String get richObjectType;
   BuiltMap<String, JsonObject> get richObject;
   CoreOpenGraphObject_OpenGraphObject get openGraphObject;
@@ -2268,12 +2492,19 @@ abstract class CoreOpenGraphObject implements Built<CoreOpenGraphObject, CoreOpe
 
 abstract class CoreCollection implements Built<CoreCollection, CoreCollectionBuilder> {
   factory CoreCollection([final void Function(CoreCollectionBuilder)? b]) = _$CoreCollection;
-  const CoreCollection._();
 
+  // coverage:ignore-start
+  const CoreCollection._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory CoreCollection.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   int get id;
   String get name;
   BuiltList<CoreOpenGraphObject> get resources;
@@ -2287,14 +2518,21 @@ abstract class CoreCollaborationResourcesSearchCollectionsResponse200Application
   factory CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJson_Ocs([
     final void Function(CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJson_OcsBuilder)? b,
   ]) = _$CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJson_Ocs;
-  const CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJson_Ocs._();
 
+  // coverage:ignore-start
+  const CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJson_Ocs.fromJson(
     final Map<String, dynamic> json,
   ) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   CoreOCSMeta get meta;
   BuiltList<CoreCollection> get data;
   static Serializer<CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJson_Ocs> get serializer =>
@@ -2308,14 +2546,21 @@ abstract class CoreCollaborationResourcesSearchCollectionsResponse200Application
   factory CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJson([
     final void Function(CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJsonBuilder)? b,
   ]) = _$CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJson;
-  const CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJson._();
 
+  // coverage:ignore-start
+  const CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJson._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJson.fromJson(
     final Map<String, dynamic> json,
   ) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJson_Ocs get ocs;
   static Serializer<CoreCollaborationResourcesSearchCollectionsResponse200ApplicationJson> get serializer =>
       _$coreCollaborationResourcesSearchCollectionsResponse200ApplicationJsonSerializer;
@@ -2328,14 +2573,21 @@ abstract class CoreCollaborationResourcesListCollectionResponse200ApplicationJso
   factory CoreCollaborationResourcesListCollectionResponse200ApplicationJson_Ocs([
     final void Function(CoreCollaborationResourcesListCollectionResponse200ApplicationJson_OcsBuilder)? b,
   ]) = _$CoreCollaborationResourcesListCollectionResponse200ApplicationJson_Ocs;
-  const CoreCollaborationResourcesListCollectionResponse200ApplicationJson_Ocs._();
 
+  // coverage:ignore-start
+  const CoreCollaborationResourcesListCollectionResponse200ApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory CoreCollaborationResourcesListCollectionResponse200ApplicationJson_Ocs.fromJson(
     final Map<String, dynamic> json,
   ) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   CoreOCSMeta get meta;
   CoreCollection get data;
   static Serializer<CoreCollaborationResourcesListCollectionResponse200ApplicationJson_Ocs> get serializer =>
@@ -2349,14 +2601,21 @@ abstract class CoreCollaborationResourcesListCollectionResponse200ApplicationJso
   factory CoreCollaborationResourcesListCollectionResponse200ApplicationJson([
     final void Function(CoreCollaborationResourcesListCollectionResponse200ApplicationJsonBuilder)? b,
   ]) = _$CoreCollaborationResourcesListCollectionResponse200ApplicationJson;
-  const CoreCollaborationResourcesListCollectionResponse200ApplicationJson._();
 
+  // coverage:ignore-start
+  const CoreCollaborationResourcesListCollectionResponse200ApplicationJson._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory CoreCollaborationResourcesListCollectionResponse200ApplicationJson.fromJson(
     final Map<String, dynamic> json,
   ) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   CoreCollaborationResourcesListCollectionResponse200ApplicationJson_Ocs get ocs;
   static Serializer<CoreCollaborationResourcesListCollectionResponse200ApplicationJson> get serializer =>
       _$coreCollaborationResourcesListCollectionResponse200ApplicationJsonSerializer;
@@ -2369,14 +2628,21 @@ abstract class CoreCollaborationResourcesRenameCollectionResponse200ApplicationJ
   factory CoreCollaborationResourcesRenameCollectionResponse200ApplicationJson_Ocs([
     final void Function(CoreCollaborationResourcesRenameCollectionResponse200ApplicationJson_OcsBuilder)? b,
   ]) = _$CoreCollaborationResourcesRenameCollectionResponse200ApplicationJson_Ocs;
-  const CoreCollaborationResourcesRenameCollectionResponse200ApplicationJson_Ocs._();
 
+  // coverage:ignore-start
+  const CoreCollaborationResourcesRenameCollectionResponse200ApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory CoreCollaborationResourcesRenameCollectionResponse200ApplicationJson_Ocs.fromJson(
     final Map<String, dynamic> json,
   ) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   CoreOCSMeta get meta;
   CoreCollection get data;
   static Serializer<CoreCollaborationResourcesRenameCollectionResponse200ApplicationJson_Ocs> get serializer =>
@@ -2390,14 +2656,21 @@ abstract class CoreCollaborationResourcesRenameCollectionResponse200ApplicationJ
   factory CoreCollaborationResourcesRenameCollectionResponse200ApplicationJson([
     final void Function(CoreCollaborationResourcesRenameCollectionResponse200ApplicationJsonBuilder)? b,
   ]) = _$CoreCollaborationResourcesRenameCollectionResponse200ApplicationJson;
-  const CoreCollaborationResourcesRenameCollectionResponse200ApplicationJson._();
 
+  // coverage:ignore-start
+  const CoreCollaborationResourcesRenameCollectionResponse200ApplicationJson._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory CoreCollaborationResourcesRenameCollectionResponse200ApplicationJson.fromJson(
     final Map<String, dynamic> json,
   ) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   CoreCollaborationResourcesRenameCollectionResponse200ApplicationJson_Ocs get ocs;
   static Serializer<CoreCollaborationResourcesRenameCollectionResponse200ApplicationJson> get serializer =>
       _$coreCollaborationResourcesRenameCollectionResponse200ApplicationJsonSerializer;
@@ -2410,14 +2683,21 @@ abstract class CoreCollaborationResourcesAddResourceResponse200ApplicationJson_O
   factory CoreCollaborationResourcesAddResourceResponse200ApplicationJson_Ocs([
     final void Function(CoreCollaborationResourcesAddResourceResponse200ApplicationJson_OcsBuilder)? b,
   ]) = _$CoreCollaborationResourcesAddResourceResponse200ApplicationJson_Ocs;
-  const CoreCollaborationResourcesAddResourceResponse200ApplicationJson_Ocs._();
 
+  // coverage:ignore-start
+  const CoreCollaborationResourcesAddResourceResponse200ApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory CoreCollaborationResourcesAddResourceResponse200ApplicationJson_Ocs.fromJson(
     final Map<String, dynamic> json,
   ) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   CoreOCSMeta get meta;
   CoreCollection get data;
   static Serializer<CoreCollaborationResourcesAddResourceResponse200ApplicationJson_Ocs> get serializer =>
@@ -2431,12 +2711,19 @@ abstract class CoreCollaborationResourcesAddResourceResponse200ApplicationJson
   factory CoreCollaborationResourcesAddResourceResponse200ApplicationJson([
     final void Function(CoreCollaborationResourcesAddResourceResponse200ApplicationJsonBuilder)? b,
   ]) = _$CoreCollaborationResourcesAddResourceResponse200ApplicationJson;
-  const CoreCollaborationResourcesAddResourceResponse200ApplicationJson._();
 
+  // coverage:ignore-start
+  const CoreCollaborationResourcesAddResourceResponse200ApplicationJson._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory CoreCollaborationResourcesAddResourceResponse200ApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   CoreCollaborationResourcesAddResourceResponse200ApplicationJson_Ocs get ocs;
   static Serializer<CoreCollaborationResourcesAddResourceResponse200ApplicationJson> get serializer =>
       _$coreCollaborationResourcesAddResourceResponse200ApplicationJsonSerializer;
@@ -2449,14 +2736,21 @@ abstract class CoreCollaborationResourcesRemoveResourceResponse200ApplicationJso
   factory CoreCollaborationResourcesRemoveResourceResponse200ApplicationJson_Ocs([
     final void Function(CoreCollaborationResourcesRemoveResourceResponse200ApplicationJson_OcsBuilder)? b,
   ]) = _$CoreCollaborationResourcesRemoveResourceResponse200ApplicationJson_Ocs;
-  const CoreCollaborationResourcesRemoveResourceResponse200ApplicationJson_Ocs._();
 
+  // coverage:ignore-start
+  const CoreCollaborationResourcesRemoveResourceResponse200ApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory CoreCollaborationResourcesRemoveResourceResponse200ApplicationJson_Ocs.fromJson(
     final Map<String, dynamic> json,
   ) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   CoreOCSMeta get meta;
   CoreCollection get data;
   static Serializer<CoreCollaborationResourcesRemoveResourceResponse200ApplicationJson_Ocs> get serializer =>
@@ -2470,14 +2764,21 @@ abstract class CoreCollaborationResourcesRemoveResourceResponse200ApplicationJso
   factory CoreCollaborationResourcesRemoveResourceResponse200ApplicationJson([
     final void Function(CoreCollaborationResourcesRemoveResourceResponse200ApplicationJsonBuilder)? b,
   ]) = _$CoreCollaborationResourcesRemoveResourceResponse200ApplicationJson;
-  const CoreCollaborationResourcesRemoveResourceResponse200ApplicationJson._();
 
+  // coverage:ignore-start
+  const CoreCollaborationResourcesRemoveResourceResponse200ApplicationJson._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory CoreCollaborationResourcesRemoveResourceResponse200ApplicationJson.fromJson(
     final Map<String, dynamic> json,
   ) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   CoreCollaborationResourcesRemoveResourceResponse200ApplicationJson_Ocs get ocs;
   static Serializer<CoreCollaborationResourcesRemoveResourceResponse200ApplicationJson> get serializer =>
       _$coreCollaborationResourcesRemoveResourceResponse200ApplicationJsonSerializer;
@@ -2490,14 +2791,21 @@ abstract class CoreCollaborationResourcesGetCollectionsByResourceResponse200Appl
   factory CoreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJson_Ocs([
     final void Function(CoreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJson_OcsBuilder)? b,
   ]) = _$CoreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJson_Ocs;
-  const CoreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJson_Ocs._();
 
+  // coverage:ignore-start
+  const CoreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory CoreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJson_Ocs.fromJson(
     final Map<String, dynamic> json,
   ) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   CoreOCSMeta get meta;
   BuiltList<CoreCollection> get data;
   static Serializer<CoreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJson_Ocs> get serializer =>
@@ -2511,14 +2819,21 @@ abstract class CoreCollaborationResourcesGetCollectionsByResourceResponse200Appl
   factory CoreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJson([
     final void Function(CoreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJsonBuilder)? b,
   ]) = _$CoreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJson;
-  const CoreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJson._();
 
+  // coverage:ignore-start
+  const CoreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJson._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory CoreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJson.fromJson(
     final Map<String, dynamic> json,
   ) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   CoreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJson_Ocs get ocs;
   static Serializer<CoreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJson> get serializer =>
       _$coreCollaborationResourcesGetCollectionsByResourceResponse200ApplicationJsonSerializer;
@@ -2531,14 +2846,21 @@ abstract class CoreCollaborationResourcesCreateCollectionOnResourceResponse200Ap
   factory CoreCollaborationResourcesCreateCollectionOnResourceResponse200ApplicationJson_Ocs([
     final void Function(CoreCollaborationResourcesCreateCollectionOnResourceResponse200ApplicationJson_OcsBuilder)? b,
   ]) = _$CoreCollaborationResourcesCreateCollectionOnResourceResponse200ApplicationJson_Ocs;
-  const CoreCollaborationResourcesCreateCollectionOnResourceResponse200ApplicationJson_Ocs._();
 
+  // coverage:ignore-start
+  const CoreCollaborationResourcesCreateCollectionOnResourceResponse200ApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory CoreCollaborationResourcesCreateCollectionOnResourceResponse200ApplicationJson_Ocs.fromJson(
     final Map<String, dynamic> json,
   ) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   CoreOCSMeta get meta;
   CoreCollection get data;
   static Serializer<CoreCollaborationResourcesCreateCollectionOnResourceResponse200ApplicationJson_Ocs>
@@ -2552,14 +2874,21 @@ abstract class CoreCollaborationResourcesCreateCollectionOnResourceResponse200Ap
   factory CoreCollaborationResourcesCreateCollectionOnResourceResponse200ApplicationJson([
     final void Function(CoreCollaborationResourcesCreateCollectionOnResourceResponse200ApplicationJsonBuilder)? b,
   ]) = _$CoreCollaborationResourcesCreateCollectionOnResourceResponse200ApplicationJson;
-  const CoreCollaborationResourcesCreateCollectionOnResourceResponse200ApplicationJson._();
 
+  // coverage:ignore-start
+  const CoreCollaborationResourcesCreateCollectionOnResourceResponse200ApplicationJson._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory CoreCollaborationResourcesCreateCollectionOnResourceResponse200ApplicationJson.fromJson(
     final Map<String, dynamic> json,
   ) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   CoreCollaborationResourcesCreateCollectionOnResourceResponse200ApplicationJson_Ocs get ocs;
   static Serializer<CoreCollaborationResourcesCreateCollectionOnResourceResponse200ApplicationJson> get serializer =>
       _$coreCollaborationResourcesCreateCollectionOnResourceResponse200ApplicationJsonSerializer;
@@ -2567,12 +2896,19 @@ abstract class CoreCollaborationResourcesCreateCollectionOnResourceResponse200Ap
 
 abstract class CoreContactsAction implements Built<CoreContactsAction, CoreContactsActionBuilder> {
   factory CoreContactsAction([final void Function(CoreContactsActionBuilder)? b]) = _$CoreContactsAction;
-  const CoreContactsAction._();
 
+  // coverage:ignore-start
+  const CoreContactsAction._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory CoreContactsAction.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   String get title;
   String get icon;
   String get hyperlink;
@@ -2587,12 +2923,19 @@ abstract class CoreHoverCardGetUserResponse200ApplicationJson_Ocs_Data
   factory CoreHoverCardGetUserResponse200ApplicationJson_Ocs_Data([
     final void Function(CoreHoverCardGetUserResponse200ApplicationJson_Ocs_DataBuilder)? b,
   ]) = _$CoreHoverCardGetUserResponse200ApplicationJson_Ocs_Data;
-  const CoreHoverCardGetUserResponse200ApplicationJson_Ocs_Data._();
 
+  // coverage:ignore-start
+  const CoreHoverCardGetUserResponse200ApplicationJson_Ocs_Data._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory CoreHoverCardGetUserResponse200ApplicationJson_Ocs_Data.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   String get userId;
   String get displayName;
   BuiltList<CoreContactsAction> get actions;
@@ -2607,12 +2950,19 @@ abstract class CoreHoverCardGetUserResponse200ApplicationJson_Ocs
   factory CoreHoverCardGetUserResponse200ApplicationJson_Ocs([
     final void Function(CoreHoverCardGetUserResponse200ApplicationJson_OcsBuilder)? b,
   ]) = _$CoreHoverCardGetUserResponse200ApplicationJson_Ocs;
-  const CoreHoverCardGetUserResponse200ApplicationJson_Ocs._();
 
+  // coverage:ignore-start
+  const CoreHoverCardGetUserResponse200ApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory CoreHoverCardGetUserResponse200ApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   CoreOCSMeta get meta;
   CoreHoverCardGetUserResponse200ApplicationJson_Ocs_Data get data;
   static Serializer<CoreHoverCardGetUserResponse200ApplicationJson_Ocs> get serializer =>
@@ -2625,27 +2975,39 @@ abstract class CoreHoverCardGetUserResponse200ApplicationJson
   factory CoreHoverCardGetUserResponse200ApplicationJson([
     final void Function(CoreHoverCardGetUserResponse200ApplicationJsonBuilder)? b,
   ]) = _$CoreHoverCardGetUserResponse200ApplicationJson;
-  const CoreHoverCardGetUserResponse200ApplicationJson._();
 
+  // coverage:ignore-start
+  const CoreHoverCardGetUserResponse200ApplicationJson._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory CoreHoverCardGetUserResponse200ApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   CoreHoverCardGetUserResponse200ApplicationJson_Ocs get ocs;
   static Serializer<CoreHoverCardGetUserResponse200ApplicationJson> get serializer =>
       _$coreHoverCardGetUserResponse200ApplicationJsonSerializer;
 }
 
 abstract class CoreNavigationEntry_Order implements Built<CoreNavigationEntry_Order, CoreNavigationEntry_OrderBuilder> {
+  // coverage:ignore-end
+
   factory CoreNavigationEntry_Order([final void Function(CoreNavigationEntry_OrderBuilder)? b]) =
       _$CoreNavigationEntry_Order;
+  // coverage:ignore-start
   const CoreNavigationEntry_Order._();
 
   JsonObject get data;
   int? get $int;
   String? get string;
   static CoreNavigationEntry_Order fromJson(final Object json) => _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   @BuiltValueSerializer(custom: true)
   static Serializer<CoreNavigationEntry_Order> get serializer => _$CoreNavigationEntry_OrderSerializer();
 }
@@ -2685,12 +3047,19 @@ class _$CoreNavigationEntry_OrderSerializer implements PrimitiveSerializer<CoreN
 
 abstract class CoreNavigationEntry implements Built<CoreNavigationEntry, CoreNavigationEntryBuilder> {
   factory CoreNavigationEntry([final void Function(CoreNavigationEntryBuilder)? b]) = _$CoreNavigationEntry;
-  const CoreNavigationEntry._();
 
+  // coverage:ignore-start
+  const CoreNavigationEntry._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory CoreNavigationEntry.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   String get id;
   CoreNavigationEntry_Order get order;
   String get href;
@@ -2710,12 +3079,19 @@ abstract class CoreNavigationGetAppsNavigationResponse200ApplicationJson_Ocs
   factory CoreNavigationGetAppsNavigationResponse200ApplicationJson_Ocs([
     final void Function(CoreNavigationGetAppsNavigationResponse200ApplicationJson_OcsBuilder)? b,
   ]) = _$CoreNavigationGetAppsNavigationResponse200ApplicationJson_Ocs;
-  const CoreNavigationGetAppsNavigationResponse200ApplicationJson_Ocs._();
 
+  // coverage:ignore-start
+  const CoreNavigationGetAppsNavigationResponse200ApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory CoreNavigationGetAppsNavigationResponse200ApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   CoreOCSMeta get meta;
   BuiltList<CoreNavigationEntry> get data;
   static Serializer<CoreNavigationGetAppsNavigationResponse200ApplicationJson_Ocs> get serializer =>
@@ -2729,12 +3105,19 @@ abstract class CoreNavigationGetAppsNavigationResponse200ApplicationJson
   factory CoreNavigationGetAppsNavigationResponse200ApplicationJson([
     final void Function(CoreNavigationGetAppsNavigationResponse200ApplicationJsonBuilder)? b,
   ]) = _$CoreNavigationGetAppsNavigationResponse200ApplicationJson;
-  const CoreNavigationGetAppsNavigationResponse200ApplicationJson._();
 
+  // coverage:ignore-start
+  const CoreNavigationGetAppsNavigationResponse200ApplicationJson._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory CoreNavigationGetAppsNavigationResponse200ApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   CoreNavigationGetAppsNavigationResponse200ApplicationJson_Ocs get ocs;
   static Serializer<CoreNavigationGetAppsNavigationResponse200ApplicationJson> get serializer =>
       _$coreNavigationGetAppsNavigationResponse200ApplicationJsonSerializer;
@@ -2747,12 +3130,19 @@ abstract class CoreNavigationGetSettingsNavigationResponse200ApplicationJson_Ocs
   factory CoreNavigationGetSettingsNavigationResponse200ApplicationJson_Ocs([
     final void Function(CoreNavigationGetSettingsNavigationResponse200ApplicationJson_OcsBuilder)? b,
   ]) = _$CoreNavigationGetSettingsNavigationResponse200ApplicationJson_Ocs;
-  const CoreNavigationGetSettingsNavigationResponse200ApplicationJson_Ocs._();
 
+  // coverage:ignore-start
+  const CoreNavigationGetSettingsNavigationResponse200ApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory CoreNavigationGetSettingsNavigationResponse200ApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   CoreOCSMeta get meta;
   BuiltList<CoreNavigationEntry> get data;
   static Serializer<CoreNavigationGetSettingsNavigationResponse200ApplicationJson_Ocs> get serializer =>
@@ -2766,12 +3156,19 @@ abstract class CoreNavigationGetSettingsNavigationResponse200ApplicationJson
   factory CoreNavigationGetSettingsNavigationResponse200ApplicationJson([
     final void Function(CoreNavigationGetSettingsNavigationResponse200ApplicationJsonBuilder)? b,
   ]) = _$CoreNavigationGetSettingsNavigationResponse200ApplicationJson;
-  const CoreNavigationGetSettingsNavigationResponse200ApplicationJson._();
 
+  // coverage:ignore-start
+  const CoreNavigationGetSettingsNavigationResponse200ApplicationJson._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory CoreNavigationGetSettingsNavigationResponse200ApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   CoreNavigationGetSettingsNavigationResponse200ApplicationJson_Ocs get ocs;
   static Serializer<CoreNavigationGetSettingsNavigationResponse200ApplicationJson> get serializer =>
       _$coreNavigationGetSettingsNavigationResponse200ApplicationJsonSerializer;
@@ -2784,12 +3181,19 @@ abstract class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Version
   factory CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Version([
     final void Function(CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_VersionBuilder)? b,
   ]) = _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Version;
-  const CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Version._();
 
+  // coverage:ignore-start
+  const CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Version._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Version.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   int get major;
   int get minor;
   int get micro;
@@ -2809,14 +3213,21 @@ abstract class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabil
       CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_PasswordBuilder,
     )? b,
   ]) = _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_Password;
-  const CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_Password._();
 
+  // coverage:ignore-start
+  const CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_Password._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_Password.fromJson(
     final Map<String, dynamic> json,
   ) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   bool get enforced;
   bool get askForOptionalPassword;
   static Serializer<CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_Password>
@@ -2833,14 +3244,21 @@ abstract class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabil
       CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateBuilder,
     )? b,
   ]) = _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDate;
-  const CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDate._();
 
+  // coverage:ignore-start
+  const CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDate._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDate.fromJson(
     final Map<String, dynamic> json,
   ) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   bool get enabled;
   int? get days;
   bool? get enforced;
@@ -2860,14 +3278,21 @@ abstract class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabil
       CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternalBuilder,
     )? b,
   ]) = _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternal;
-  const CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternal._();
 
+  // coverage:ignore-start
+  const CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternal._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternal.fromJson(
     final Map<String, dynamic> json,
   ) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   bool get enabled;
   int? get days;
   bool? get enforced;
@@ -2887,14 +3312,21 @@ abstract class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabil
       CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemoteBuilder,
     )? b,
   ]) = _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemote;
-  const CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemote._();
 
+  // coverage:ignore-start
+  const CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemote._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemote.fromJson(
     final Map<String, dynamic> json,
   ) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   bool get enabled;
   int? get days;
   bool? get enforced;
@@ -2913,14 +3345,21 @@ abstract class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabil
       CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_PublicBuilder,
     )? b,
   ]) = _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public;
-  const CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public._();
 
+  // coverage:ignore-start
+  const CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public.fromJson(
     final Map<String, dynamic> json,
   ) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   bool get enabled;
   CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_Password? get password;
   @BuiltValueField(wireName: 'multiple_links')
@@ -2952,14 +3391,21 @@ abstract class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabil
       CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_User_ExpireDateBuilder,
     )? b,
   ]) = _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_User_ExpireDate;
-  const CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_User_ExpireDate._();
 
+  // coverage:ignore-start
+  const CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_User_ExpireDate._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_User_ExpireDate.fromJson(
     final Map<String, dynamic> json,
   ) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   bool get enabled;
   static Serializer<CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_User_ExpireDate>
       get serializer =>
@@ -2975,14 +3421,21 @@ abstract class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabil
       CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_UserBuilder,
     )? b,
   ]) = _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_User;
-  const CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_User._();
 
+  // coverage:ignore-start
+  const CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_User._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_User.fromJson(
     final Map<String, dynamic> json,
   ) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   @BuiltValueField(wireName: 'send_mail')
   bool get sendMail;
   @BuiltValueField(wireName: 'expire_date')
@@ -3000,14 +3453,21 @@ abstract class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabil
       CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDateBuilder,
     )? b,
   ]) = _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDate;
-  const CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDate._();
 
+  // coverage:ignore-start
+  const CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDate._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDate.fromJson(
     final Map<String, dynamic> json,
   ) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   bool get enabled;
   static Serializer<
           CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDate>
@@ -3024,14 +3484,21 @@ abstract class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabil
       CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_GroupBuilder,
     )? b,
   ]) = _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group;
-  const CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group._();
 
+  // coverage:ignore-start
+  const CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group.fromJson(
     final Map<String, dynamic> json,
   ) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   bool get enabled;
   @BuiltValueField(wireName: 'expire_date')
   CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDate? get expireDate;
@@ -3049,14 +3516,21 @@ abstract class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabil
       CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateBuilder,
     )? b,
   ]) = _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDate;
-  const CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDate._();
 
+  // coverage:ignore-start
+  const CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDate._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDate.fromJson(
     final Map<String, dynamic> json,
   ) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   bool get enabled;
   static Serializer<
           CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDate>
@@ -3075,14 +3549,21 @@ abstract class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabil
     )? b,
   ]) =
       _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupported;
-  const CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupported._();
 
+  // coverage:ignore-start
+  const CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupported._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupported.fromJson(
     final Map<String, dynamic> json,
   ) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   bool get enabled;
   static Serializer<
           CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupported>
@@ -3099,14 +3580,21 @@ abstract class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabil
       CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_FederationBuilder,
     )? b,
   ]) = _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation;
-  const CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation._();
 
+  // coverage:ignore-start
+  const CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation.fromJson(
     final Map<String, dynamic> json,
   ) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   bool get outgoing;
   bool get incoming;
   @BuiltValueField(wireName: 'expire_date')
@@ -3129,14 +3617,21 @@ abstract class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabil
       CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_ShareeBuilder,
     )? b,
   ]) = _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Sharee;
-  const CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Sharee._();
 
+  // coverage:ignore-start
+  const CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Sharee._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Sharee.fromJson(
     final Map<String, dynamic> json,
   ) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   @BuiltValueField(wireName: 'query_lookup_default')
   bool get queryLookupDefault;
   @BuiltValueField(wireName: 'always_show_unique')
@@ -3153,14 +3648,21 @@ abstract class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabil
   factory CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing([
     final void Function(CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharingBuilder)? b,
   ]) = _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing;
-  const CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing._();
 
+  // coverage:ignore-start
+  const CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing.fromJson(
     final Map<String, dynamic> json,
   ) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   @BuiltValueField(wireName: 'api_enabled')
   bool get apiEnabled;
   CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public get public;
@@ -3184,14 +3686,21 @@ abstract class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabil
   factory CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Notes([
     final void Function(CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_NotesBuilder)? b,
   ]) = _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Notes;
-  const CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Notes._();
 
+  // coverage:ignore-start
+  const CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Notes._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Notes.fromJson(
     final Map<String, dynamic> json,
   ) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   @BuiltValueField(wireName: 'api_version')
   BuiltList<String>? get apiVersion;
   String? get version;
@@ -3206,14 +3715,21 @@ abstract class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabil
   factory CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Notifications([
     final void Function(CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_NotificationsBuilder)? b,
   ]) = _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Notifications;
-  const CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Notifications._();
 
+  // coverage:ignore-start
+  const CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Notifications._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Notifications.fromJson(
     final Map<String, dynamic> json,
   ) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   @BuiltValueField(wireName: 'ocs-endpoints')
   BuiltList<String>? get ocsEndpoints;
   BuiltList<String>? get push;
@@ -3231,14 +3747,21 @@ abstract class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabil
     final void Function(CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_ProvisioningApiBuilder)?
         b,
   ]) = _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_ProvisioningApi;
-  const CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_ProvisioningApi._();
 
+  // coverage:ignore-start
+  const CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_ProvisioningApi._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_ProvisioningApi.fromJson(
     final Map<String, dynamic> json,
   ) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   String get version;
   @BuiltValueField(wireName: 'AccountPropertyScopesVersion')
   int get accountPropertyScopesVersion;
@@ -3257,14 +3780,21 @@ abstract class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabil
   factory CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Theming([
     final void Function(CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_ThemingBuilder)? b,
   ]) = _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Theming;
-  const CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Theming._();
 
+  // coverage:ignore-start
+  const CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Theming._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Theming.fromJson(
     final Map<String, dynamic> json,
   ) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   String get name;
   String get url;
   String get slogan;
@@ -3296,14 +3826,21 @@ abstract class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabil
   factory CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_UserStatus([
     final void Function(CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_UserStatusBuilder)? b,
   ]) = _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_UserStatus;
-  const CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_UserStatus._();
 
+  // coverage:ignore-start
+  const CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_UserStatus._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_UserStatus.fromJson(
     final Map<String, dynamic> json,
   ) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   bool get enabled;
   bool get restore;
   @BuiltValueField(wireName: 'supports_emoji')
@@ -3319,14 +3856,21 @@ abstract class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabil
   factory CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities([
     final void Function(CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_CapabilitiesBuilder)? b,
   ]) = _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities;
-  const CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities._();
 
+  // coverage:ignore-start
+  const CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities.fromJson(
     final Map<String, dynamic> json,
   ) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   @BuiltValueField(wireName: 'files_sharing')
   CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing? get filesSharing;
   CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Notes? get notes;
@@ -3347,12 +3891,19 @@ abstract class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data
   factory CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data([
     final void Function(CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_DataBuilder)? b,
   ]) = _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data;
-  const CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data._();
 
+  // coverage:ignore-start
+  const CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Version get version;
   CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities get capabilities;
   static Serializer<CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data> get serializer =>
@@ -3366,12 +3917,19 @@ abstract class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs
   factory CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs([
     final void Function(CoreOcsGetCapabilitiesResponse200ApplicationJson_OcsBuilder)? b,
   ]) = _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs;
-  const CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs._();
 
+  // coverage:ignore-start
+  const CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   CoreOCSMeta get meta;
   CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data get data;
   static Serializer<CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs> get serializer =>
@@ -3385,12 +3943,19 @@ abstract class CoreOcsGetCapabilitiesResponse200ApplicationJson
   factory CoreOcsGetCapabilitiesResponse200ApplicationJson([
     final void Function(CoreOcsGetCapabilitiesResponse200ApplicationJsonBuilder)? b,
   ]) = _$CoreOcsGetCapabilitiesResponse200ApplicationJson;
-  const CoreOcsGetCapabilitiesResponse200ApplicationJson._();
 
+  // coverage:ignore-start
+  const CoreOcsGetCapabilitiesResponse200ApplicationJson._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory CoreOcsGetCapabilitiesResponse200ApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs get ocs;
   static Serializer<CoreOcsGetCapabilitiesResponse200ApplicationJson> get serializer =>
       _$coreOcsGetCapabilitiesResponse200ApplicationJsonSerializer;
@@ -3403,12 +3968,19 @@ abstract class CoreProfileApiSetVisibilityResponse200ApplicationJson_Ocs
   factory CoreProfileApiSetVisibilityResponse200ApplicationJson_Ocs([
     final void Function(CoreProfileApiSetVisibilityResponse200ApplicationJson_OcsBuilder)? b,
   ]) = _$CoreProfileApiSetVisibilityResponse200ApplicationJson_Ocs;
-  const CoreProfileApiSetVisibilityResponse200ApplicationJson_Ocs._();
 
+  // coverage:ignore-start
+  const CoreProfileApiSetVisibilityResponse200ApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory CoreProfileApiSetVisibilityResponse200ApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   CoreOCSMeta get meta;
   JsonObject get data;
   static Serializer<CoreProfileApiSetVisibilityResponse200ApplicationJson_Ocs> get serializer =>
@@ -3422,12 +3994,19 @@ abstract class CoreProfileApiSetVisibilityResponse200ApplicationJson
   factory CoreProfileApiSetVisibilityResponse200ApplicationJson([
     final void Function(CoreProfileApiSetVisibilityResponse200ApplicationJsonBuilder)? b,
   ]) = _$CoreProfileApiSetVisibilityResponse200ApplicationJson;
-  const CoreProfileApiSetVisibilityResponse200ApplicationJson._();
 
+  // coverage:ignore-start
+  const CoreProfileApiSetVisibilityResponse200ApplicationJson._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory CoreProfileApiSetVisibilityResponse200ApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   CoreProfileApiSetVisibilityResponse200ApplicationJson_Ocs get ocs;
   static Serializer<CoreProfileApiSetVisibilityResponse200ApplicationJson> get serializer =>
       _$coreProfileApiSetVisibilityResponse200ApplicationJsonSerializer;
@@ -3435,12 +4014,19 @@ abstract class CoreProfileApiSetVisibilityResponse200ApplicationJson
 
 abstract class CoreReference implements Built<CoreReference, CoreReferenceBuilder> {
   factory CoreReference([final void Function(CoreReferenceBuilder)? b]) = _$CoreReference;
-  const CoreReference._();
 
+  // coverage:ignore-start
+  const CoreReference._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory CoreReference.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   String get richObjectType;
   BuiltMap<String, JsonObject> get richObject;
   CoreOpenGraphObject get openGraphObject;
@@ -3455,12 +4041,19 @@ abstract class CoreReferenceApiResolveOneResponse200ApplicationJson_Ocs_Data
   factory CoreReferenceApiResolveOneResponse200ApplicationJson_Ocs_Data([
     final void Function(CoreReferenceApiResolveOneResponse200ApplicationJson_Ocs_DataBuilder)? b,
   ]) = _$CoreReferenceApiResolveOneResponse200ApplicationJson_Ocs_Data;
-  const CoreReferenceApiResolveOneResponse200ApplicationJson_Ocs_Data._();
 
+  // coverage:ignore-start
+  const CoreReferenceApiResolveOneResponse200ApplicationJson_Ocs_Data._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory CoreReferenceApiResolveOneResponse200ApplicationJson_Ocs_Data.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   BuiltMap<String, CoreReference> get references;
   static Serializer<CoreReferenceApiResolveOneResponse200ApplicationJson_Ocs_Data> get serializer =>
       _$coreReferenceApiResolveOneResponse200ApplicationJsonOcsDataSerializer;
@@ -3473,12 +4066,19 @@ abstract class CoreReferenceApiResolveOneResponse200ApplicationJson_Ocs
   factory CoreReferenceApiResolveOneResponse200ApplicationJson_Ocs([
     final void Function(CoreReferenceApiResolveOneResponse200ApplicationJson_OcsBuilder)? b,
   ]) = _$CoreReferenceApiResolveOneResponse200ApplicationJson_Ocs;
-  const CoreReferenceApiResolveOneResponse200ApplicationJson_Ocs._();
 
+  // coverage:ignore-start
+  const CoreReferenceApiResolveOneResponse200ApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory CoreReferenceApiResolveOneResponse200ApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   CoreOCSMeta get meta;
   CoreReferenceApiResolveOneResponse200ApplicationJson_Ocs_Data get data;
   static Serializer<CoreReferenceApiResolveOneResponse200ApplicationJson_Ocs> get serializer =>
@@ -3492,12 +4092,19 @@ abstract class CoreReferenceApiResolveOneResponse200ApplicationJson
   factory CoreReferenceApiResolveOneResponse200ApplicationJson([
     final void Function(CoreReferenceApiResolveOneResponse200ApplicationJsonBuilder)? b,
   ]) = _$CoreReferenceApiResolveOneResponse200ApplicationJson;
-  const CoreReferenceApiResolveOneResponse200ApplicationJson._();
 
+  // coverage:ignore-start
+  const CoreReferenceApiResolveOneResponse200ApplicationJson._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory CoreReferenceApiResolveOneResponse200ApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   CoreReferenceApiResolveOneResponse200ApplicationJson_Ocs get ocs;
   static Serializer<CoreReferenceApiResolveOneResponse200ApplicationJson> get serializer =>
       _$coreReferenceApiResolveOneResponse200ApplicationJsonSerializer;
@@ -3507,9 +4114,12 @@ abstract class CoreReferenceApiResolveResponse200ApplicationJson_Ocs_Data_Refere
     implements
         Built<CoreReferenceApiResolveResponse200ApplicationJson_Ocs_Data_References,
             CoreReferenceApiResolveResponse200ApplicationJson_Ocs_Data_ReferencesBuilder> {
+  // coverage:ignore-end
+
   factory CoreReferenceApiResolveResponse200ApplicationJson_Ocs_Data_References([
     final void Function(CoreReferenceApiResolveResponse200ApplicationJson_Ocs_Data_ReferencesBuilder)? b,
   ]) = _$CoreReferenceApiResolveResponse200ApplicationJson_Ocs_Data_References;
+  // coverage:ignore-start
   const CoreReferenceApiResolveResponse200ApplicationJson_Ocs_Data_References._();
 
   JsonObject get data;
@@ -3517,7 +4127,9 @@ abstract class CoreReferenceApiResolveResponse200ApplicationJson_Ocs_Data_Refere
   JsonObject? get jsonObject;
   static CoreReferenceApiResolveResponse200ApplicationJson_Ocs_Data_References fromJson(final Object json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   @BuiltValueSerializer(custom: true)
   static Serializer<CoreReferenceApiResolveResponse200ApplicationJson_Ocs_Data_References> get serializer =>
       _$CoreReferenceApiResolveResponse200ApplicationJson_Ocs_Data_ReferencesSerializer();
@@ -3573,12 +4185,19 @@ abstract class CoreReferenceApiResolveResponse200ApplicationJson_Ocs_Data
   factory CoreReferenceApiResolveResponse200ApplicationJson_Ocs_Data([
     final void Function(CoreReferenceApiResolveResponse200ApplicationJson_Ocs_DataBuilder)? b,
   ]) = _$CoreReferenceApiResolveResponse200ApplicationJson_Ocs_Data;
-  const CoreReferenceApiResolveResponse200ApplicationJson_Ocs_Data._();
 
+  // coverage:ignore-start
+  const CoreReferenceApiResolveResponse200ApplicationJson_Ocs_Data._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory CoreReferenceApiResolveResponse200ApplicationJson_Ocs_Data.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   BuiltMap<String, CoreReferenceApiResolveResponse200ApplicationJson_Ocs_Data_References> get references;
   static Serializer<CoreReferenceApiResolveResponse200ApplicationJson_Ocs_Data> get serializer =>
       _$coreReferenceApiResolveResponse200ApplicationJsonOcsDataSerializer;
@@ -3591,12 +4210,19 @@ abstract class CoreReferenceApiResolveResponse200ApplicationJson_Ocs
   factory CoreReferenceApiResolveResponse200ApplicationJson_Ocs([
     final void Function(CoreReferenceApiResolveResponse200ApplicationJson_OcsBuilder)? b,
   ]) = _$CoreReferenceApiResolveResponse200ApplicationJson_Ocs;
-  const CoreReferenceApiResolveResponse200ApplicationJson_Ocs._();
 
+  // coverage:ignore-start
+  const CoreReferenceApiResolveResponse200ApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory CoreReferenceApiResolveResponse200ApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   CoreOCSMeta get meta;
   CoreReferenceApiResolveResponse200ApplicationJson_Ocs_Data get data;
   static Serializer<CoreReferenceApiResolveResponse200ApplicationJson_Ocs> get serializer =>
@@ -3610,12 +4236,19 @@ abstract class CoreReferenceApiResolveResponse200ApplicationJson
   factory CoreReferenceApiResolveResponse200ApplicationJson([
     final void Function(CoreReferenceApiResolveResponse200ApplicationJsonBuilder)? b,
   ]) = _$CoreReferenceApiResolveResponse200ApplicationJson;
-  const CoreReferenceApiResolveResponse200ApplicationJson._();
 
+  // coverage:ignore-start
+  const CoreReferenceApiResolveResponse200ApplicationJson._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory CoreReferenceApiResolveResponse200ApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   CoreReferenceApiResolveResponse200ApplicationJson_Ocs get ocs;
   static Serializer<CoreReferenceApiResolveResponse200ApplicationJson> get serializer =>
       _$coreReferenceApiResolveResponse200ApplicationJsonSerializer;
@@ -3625,9 +4258,12 @@ abstract class CoreReferenceApiExtractResponse200ApplicationJson_Ocs_Data_Refere
     implements
         Built<CoreReferenceApiExtractResponse200ApplicationJson_Ocs_Data_References,
             CoreReferenceApiExtractResponse200ApplicationJson_Ocs_Data_ReferencesBuilder> {
+  // coverage:ignore-end
+
   factory CoreReferenceApiExtractResponse200ApplicationJson_Ocs_Data_References([
     final void Function(CoreReferenceApiExtractResponse200ApplicationJson_Ocs_Data_ReferencesBuilder)? b,
   ]) = _$CoreReferenceApiExtractResponse200ApplicationJson_Ocs_Data_References;
+  // coverage:ignore-start
   const CoreReferenceApiExtractResponse200ApplicationJson_Ocs_Data_References._();
 
   JsonObject get data;
@@ -3635,7 +4271,9 @@ abstract class CoreReferenceApiExtractResponse200ApplicationJson_Ocs_Data_Refere
   JsonObject? get jsonObject;
   static CoreReferenceApiExtractResponse200ApplicationJson_Ocs_Data_References fromJson(final Object json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   @BuiltValueSerializer(custom: true)
   static Serializer<CoreReferenceApiExtractResponse200ApplicationJson_Ocs_Data_References> get serializer =>
       _$CoreReferenceApiExtractResponse200ApplicationJson_Ocs_Data_ReferencesSerializer();
@@ -3691,12 +4329,19 @@ abstract class CoreReferenceApiExtractResponse200ApplicationJson_Ocs_Data
   factory CoreReferenceApiExtractResponse200ApplicationJson_Ocs_Data([
     final void Function(CoreReferenceApiExtractResponse200ApplicationJson_Ocs_DataBuilder)? b,
   ]) = _$CoreReferenceApiExtractResponse200ApplicationJson_Ocs_Data;
-  const CoreReferenceApiExtractResponse200ApplicationJson_Ocs_Data._();
 
+  // coverage:ignore-start
+  const CoreReferenceApiExtractResponse200ApplicationJson_Ocs_Data._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory CoreReferenceApiExtractResponse200ApplicationJson_Ocs_Data.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   BuiltMap<String, CoreReferenceApiExtractResponse200ApplicationJson_Ocs_Data_References> get references;
   static Serializer<CoreReferenceApiExtractResponse200ApplicationJson_Ocs_Data> get serializer =>
       _$coreReferenceApiExtractResponse200ApplicationJsonOcsDataSerializer;
@@ -3709,12 +4354,19 @@ abstract class CoreReferenceApiExtractResponse200ApplicationJson_Ocs
   factory CoreReferenceApiExtractResponse200ApplicationJson_Ocs([
     final void Function(CoreReferenceApiExtractResponse200ApplicationJson_OcsBuilder)? b,
   ]) = _$CoreReferenceApiExtractResponse200ApplicationJson_Ocs;
-  const CoreReferenceApiExtractResponse200ApplicationJson_Ocs._();
 
+  // coverage:ignore-start
+  const CoreReferenceApiExtractResponse200ApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory CoreReferenceApiExtractResponse200ApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   CoreOCSMeta get meta;
   CoreReferenceApiExtractResponse200ApplicationJson_Ocs_Data get data;
   static Serializer<CoreReferenceApiExtractResponse200ApplicationJson_Ocs> get serializer =>
@@ -3728,12 +4380,19 @@ abstract class CoreReferenceApiExtractResponse200ApplicationJson
   factory CoreReferenceApiExtractResponse200ApplicationJson([
     final void Function(CoreReferenceApiExtractResponse200ApplicationJsonBuilder)? b,
   ]) = _$CoreReferenceApiExtractResponse200ApplicationJson;
-  const CoreReferenceApiExtractResponse200ApplicationJson._();
 
+  // coverage:ignore-start
+  const CoreReferenceApiExtractResponse200ApplicationJson._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory CoreReferenceApiExtractResponse200ApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   CoreReferenceApiExtractResponse200ApplicationJson_Ocs get ocs;
   static Serializer<CoreReferenceApiExtractResponse200ApplicationJson> get serializer =>
       _$coreReferenceApiExtractResponse200ApplicationJsonSerializer;
@@ -3741,12 +4400,19 @@ abstract class CoreReferenceApiExtractResponse200ApplicationJson
 
 abstract class CoreReferenceProvider implements Built<CoreReferenceProvider, CoreReferenceProviderBuilder> {
   factory CoreReferenceProvider([final void Function(CoreReferenceProviderBuilder)? b]) = _$CoreReferenceProvider;
-  const CoreReferenceProvider._();
 
+  // coverage:ignore-start
+  const CoreReferenceProvider._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory CoreReferenceProvider.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   String get id;
   String get title;
   @BuiltValueField(wireName: 'icon_url')
@@ -3764,12 +4430,19 @@ abstract class CoreReferenceApiGetProvidersInfoResponse200ApplicationJson_Ocs
   factory CoreReferenceApiGetProvidersInfoResponse200ApplicationJson_Ocs([
     final void Function(CoreReferenceApiGetProvidersInfoResponse200ApplicationJson_OcsBuilder)? b,
   ]) = _$CoreReferenceApiGetProvidersInfoResponse200ApplicationJson_Ocs;
-  const CoreReferenceApiGetProvidersInfoResponse200ApplicationJson_Ocs._();
 
+  // coverage:ignore-start
+  const CoreReferenceApiGetProvidersInfoResponse200ApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory CoreReferenceApiGetProvidersInfoResponse200ApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   CoreOCSMeta get meta;
   BuiltList<CoreReferenceProvider> get data;
   static Serializer<CoreReferenceApiGetProvidersInfoResponse200ApplicationJson_Ocs> get serializer =>
@@ -3783,12 +4456,19 @@ abstract class CoreReferenceApiGetProvidersInfoResponse200ApplicationJson
   factory CoreReferenceApiGetProvidersInfoResponse200ApplicationJson([
     final void Function(CoreReferenceApiGetProvidersInfoResponse200ApplicationJsonBuilder)? b,
   ]) = _$CoreReferenceApiGetProvidersInfoResponse200ApplicationJson;
-  const CoreReferenceApiGetProvidersInfoResponse200ApplicationJson._();
 
+  // coverage:ignore-start
+  const CoreReferenceApiGetProvidersInfoResponse200ApplicationJson._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory CoreReferenceApiGetProvidersInfoResponse200ApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   CoreReferenceApiGetProvidersInfoResponse200ApplicationJson_Ocs get ocs;
   static Serializer<CoreReferenceApiGetProvidersInfoResponse200ApplicationJson> get serializer =>
       _$coreReferenceApiGetProvidersInfoResponse200ApplicationJsonSerializer;
@@ -3801,12 +4481,19 @@ abstract class CoreReferenceApiTouchProviderResponse200ApplicationJson_Ocs_Data
   factory CoreReferenceApiTouchProviderResponse200ApplicationJson_Ocs_Data([
     final void Function(CoreReferenceApiTouchProviderResponse200ApplicationJson_Ocs_DataBuilder)? b,
   ]) = _$CoreReferenceApiTouchProviderResponse200ApplicationJson_Ocs_Data;
-  const CoreReferenceApiTouchProviderResponse200ApplicationJson_Ocs_Data._();
 
+  // coverage:ignore-start
+  const CoreReferenceApiTouchProviderResponse200ApplicationJson_Ocs_Data._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory CoreReferenceApiTouchProviderResponse200ApplicationJson_Ocs_Data.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   bool get success;
   static Serializer<CoreReferenceApiTouchProviderResponse200ApplicationJson_Ocs_Data> get serializer =>
       _$coreReferenceApiTouchProviderResponse200ApplicationJsonOcsDataSerializer;
@@ -3819,12 +4506,19 @@ abstract class CoreReferenceApiTouchProviderResponse200ApplicationJson_Ocs
   factory CoreReferenceApiTouchProviderResponse200ApplicationJson_Ocs([
     final void Function(CoreReferenceApiTouchProviderResponse200ApplicationJson_OcsBuilder)? b,
   ]) = _$CoreReferenceApiTouchProviderResponse200ApplicationJson_Ocs;
-  const CoreReferenceApiTouchProviderResponse200ApplicationJson_Ocs._();
 
+  // coverage:ignore-start
+  const CoreReferenceApiTouchProviderResponse200ApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory CoreReferenceApiTouchProviderResponse200ApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   CoreOCSMeta get meta;
   CoreReferenceApiTouchProviderResponse200ApplicationJson_Ocs_Data get data;
   static Serializer<CoreReferenceApiTouchProviderResponse200ApplicationJson_Ocs> get serializer =>
@@ -3838,12 +4532,19 @@ abstract class CoreReferenceApiTouchProviderResponse200ApplicationJson
   factory CoreReferenceApiTouchProviderResponse200ApplicationJson([
     final void Function(CoreReferenceApiTouchProviderResponse200ApplicationJsonBuilder)? b,
   ]) = _$CoreReferenceApiTouchProviderResponse200ApplicationJson;
-  const CoreReferenceApiTouchProviderResponse200ApplicationJson._();
 
+  // coverage:ignore-start
+  const CoreReferenceApiTouchProviderResponse200ApplicationJson._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory CoreReferenceApiTouchProviderResponse200ApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   CoreReferenceApiTouchProviderResponse200ApplicationJson_Ocs get ocs;
   static Serializer<CoreReferenceApiTouchProviderResponse200ApplicationJson> get serializer =>
       _$coreReferenceApiTouchProviderResponse200ApplicationJsonSerializer;
@@ -3856,14 +4557,21 @@ abstract class CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_Data
   factory CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_Data_Types([
     final void Function(CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_Data_TypesBuilder)? b,
   ]) = _$CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_Data_Types;
-  const CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_Data_Types._();
 
+  // coverage:ignore-start
+  const CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_Data_Types._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_Data_Types.fromJson(
     final Map<String, dynamic> json,
   ) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   String get id;
   String get name;
   String get description;
@@ -3878,12 +4586,19 @@ abstract class CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_Data
   factory CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_Data([
     final void Function(CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_DataBuilder)? b,
   ]) = _$CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_Data;
-  const CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_Data._();
 
+  // coverage:ignore-start
+  const CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_Data._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_Data.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   BuiltList<CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_Data_Types> get types;
   static Serializer<CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_Data> get serializer =>
       _$coreTextProcessingApiTaskTypesResponse200ApplicationJsonOcsDataSerializer;
@@ -3896,12 +4611,19 @@ abstract class CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs
   factory CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs([
     final void Function(CoreTextProcessingApiTaskTypesResponse200ApplicationJson_OcsBuilder)? b,
   ]) = _$CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs;
-  const CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs._();
 
+  // coverage:ignore-start
+  const CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   CoreOCSMeta get meta;
   CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs_Data get data;
   static Serializer<CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs> get serializer =>
@@ -3915,12 +4637,19 @@ abstract class CoreTextProcessingApiTaskTypesResponse200ApplicationJson
   factory CoreTextProcessingApiTaskTypesResponse200ApplicationJson([
     final void Function(CoreTextProcessingApiTaskTypesResponse200ApplicationJsonBuilder)? b,
   ]) = _$CoreTextProcessingApiTaskTypesResponse200ApplicationJson;
-  const CoreTextProcessingApiTaskTypesResponse200ApplicationJson._();
 
+  // coverage:ignore-start
+  const CoreTextProcessingApiTaskTypesResponse200ApplicationJson._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory CoreTextProcessingApiTaskTypesResponse200ApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   CoreTextProcessingApiTaskTypesResponse200ApplicationJson_Ocs get ocs;
   static Serializer<CoreTextProcessingApiTaskTypesResponse200ApplicationJson> get serializer =>
       _$coreTextProcessingApiTaskTypesResponse200ApplicationJsonSerializer;
@@ -3928,12 +4657,19 @@ abstract class CoreTextProcessingApiTaskTypesResponse200ApplicationJson
 
 abstract class CoreTextProcessingTask implements Built<CoreTextProcessingTask, CoreTextProcessingTaskBuilder> {
   factory CoreTextProcessingTask([final void Function(CoreTextProcessingTaskBuilder)? b]) = _$CoreTextProcessingTask;
-  const CoreTextProcessingTask._();
 
+  // coverage:ignore-start
+  const CoreTextProcessingTask._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory CoreTextProcessingTask.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   int? get id;
   String get type;
   int get status;
@@ -3952,12 +4688,19 @@ abstract class CoreTextProcessingApiScheduleResponse200ApplicationJson_Ocs_Data
   factory CoreTextProcessingApiScheduleResponse200ApplicationJson_Ocs_Data([
     final void Function(CoreTextProcessingApiScheduleResponse200ApplicationJson_Ocs_DataBuilder)? b,
   ]) = _$CoreTextProcessingApiScheduleResponse200ApplicationJson_Ocs_Data;
-  const CoreTextProcessingApiScheduleResponse200ApplicationJson_Ocs_Data._();
 
+  // coverage:ignore-start
+  const CoreTextProcessingApiScheduleResponse200ApplicationJson_Ocs_Data._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory CoreTextProcessingApiScheduleResponse200ApplicationJson_Ocs_Data.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   CoreTextProcessingTask get task;
   static Serializer<CoreTextProcessingApiScheduleResponse200ApplicationJson_Ocs_Data> get serializer =>
       _$coreTextProcessingApiScheduleResponse200ApplicationJsonOcsDataSerializer;
@@ -3970,12 +4713,19 @@ abstract class CoreTextProcessingApiScheduleResponse200ApplicationJson_Ocs
   factory CoreTextProcessingApiScheduleResponse200ApplicationJson_Ocs([
     final void Function(CoreTextProcessingApiScheduleResponse200ApplicationJson_OcsBuilder)? b,
   ]) = _$CoreTextProcessingApiScheduleResponse200ApplicationJson_Ocs;
-  const CoreTextProcessingApiScheduleResponse200ApplicationJson_Ocs._();
 
+  // coverage:ignore-start
+  const CoreTextProcessingApiScheduleResponse200ApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory CoreTextProcessingApiScheduleResponse200ApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   CoreOCSMeta get meta;
   CoreTextProcessingApiScheduleResponse200ApplicationJson_Ocs_Data get data;
   static Serializer<CoreTextProcessingApiScheduleResponse200ApplicationJson_Ocs> get serializer =>
@@ -3989,12 +4739,19 @@ abstract class CoreTextProcessingApiScheduleResponse200ApplicationJson
   factory CoreTextProcessingApiScheduleResponse200ApplicationJson([
     final void Function(CoreTextProcessingApiScheduleResponse200ApplicationJsonBuilder)? b,
   ]) = _$CoreTextProcessingApiScheduleResponse200ApplicationJson;
-  const CoreTextProcessingApiScheduleResponse200ApplicationJson._();
 
+  // coverage:ignore-start
+  const CoreTextProcessingApiScheduleResponse200ApplicationJson._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory CoreTextProcessingApiScheduleResponse200ApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   CoreTextProcessingApiScheduleResponse200ApplicationJson_Ocs get ocs;
   static Serializer<CoreTextProcessingApiScheduleResponse200ApplicationJson> get serializer =>
       _$coreTextProcessingApiScheduleResponse200ApplicationJsonSerializer;
@@ -4007,12 +4764,19 @@ abstract class CoreTextProcessingApiGetTaskResponse200ApplicationJson_Ocs_Data
   factory CoreTextProcessingApiGetTaskResponse200ApplicationJson_Ocs_Data([
     final void Function(CoreTextProcessingApiGetTaskResponse200ApplicationJson_Ocs_DataBuilder)? b,
   ]) = _$CoreTextProcessingApiGetTaskResponse200ApplicationJson_Ocs_Data;
-  const CoreTextProcessingApiGetTaskResponse200ApplicationJson_Ocs_Data._();
 
+  // coverage:ignore-start
+  const CoreTextProcessingApiGetTaskResponse200ApplicationJson_Ocs_Data._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory CoreTextProcessingApiGetTaskResponse200ApplicationJson_Ocs_Data.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   CoreTextProcessingTask get task;
   static Serializer<CoreTextProcessingApiGetTaskResponse200ApplicationJson_Ocs_Data> get serializer =>
       _$coreTextProcessingApiGetTaskResponse200ApplicationJsonOcsDataSerializer;
@@ -4025,12 +4789,19 @@ abstract class CoreTextProcessingApiGetTaskResponse200ApplicationJson_Ocs
   factory CoreTextProcessingApiGetTaskResponse200ApplicationJson_Ocs([
     final void Function(CoreTextProcessingApiGetTaskResponse200ApplicationJson_OcsBuilder)? b,
   ]) = _$CoreTextProcessingApiGetTaskResponse200ApplicationJson_Ocs;
-  const CoreTextProcessingApiGetTaskResponse200ApplicationJson_Ocs._();
 
+  // coverage:ignore-start
+  const CoreTextProcessingApiGetTaskResponse200ApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory CoreTextProcessingApiGetTaskResponse200ApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   CoreOCSMeta get meta;
   CoreTextProcessingApiGetTaskResponse200ApplicationJson_Ocs_Data get data;
   static Serializer<CoreTextProcessingApiGetTaskResponse200ApplicationJson_Ocs> get serializer =>
@@ -4044,12 +4815,19 @@ abstract class CoreTextProcessingApiGetTaskResponse200ApplicationJson
   factory CoreTextProcessingApiGetTaskResponse200ApplicationJson([
     final void Function(CoreTextProcessingApiGetTaskResponse200ApplicationJsonBuilder)? b,
   ]) = _$CoreTextProcessingApiGetTaskResponse200ApplicationJson;
-  const CoreTextProcessingApiGetTaskResponse200ApplicationJson._();
 
+  // coverage:ignore-start
+  const CoreTextProcessingApiGetTaskResponse200ApplicationJson._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory CoreTextProcessingApiGetTaskResponse200ApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   CoreTextProcessingApiGetTaskResponse200ApplicationJson_Ocs get ocs;
   static Serializer<CoreTextProcessingApiGetTaskResponse200ApplicationJson> get serializer =>
       _$coreTextProcessingApiGetTaskResponse200ApplicationJsonSerializer;
@@ -4062,14 +4840,21 @@ abstract class CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_Data_La
   factory CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_Data_Languages([
     final void Function(CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_Data_LanguagesBuilder)? b,
   ]) = _$CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_Data_Languages;
-  const CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_Data_Languages._();
 
+  // coverage:ignore-start
+  const CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_Data_Languages._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_Data_Languages.fromJson(
     final Map<String, dynamic> json,
   ) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   String get from;
   String get fromLabel;
   String get to;
@@ -4085,12 +4870,19 @@ abstract class CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_Data
   factory CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_Data([
     final void Function(CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_DataBuilder)? b,
   ]) = _$CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_Data;
-  const CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_Data._();
 
+  // coverage:ignore-start
+  const CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_Data._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_Data.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   BuiltList<CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_Data_Languages> get languages;
   bool get languageDetection;
   static Serializer<CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_Data> get serializer =>
@@ -4104,12 +4896,19 @@ abstract class CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs
   factory CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs([
     final void Function(CoreTranslationApiLanguagesResponse200ApplicationJson_OcsBuilder)? b,
   ]) = _$CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs;
-  const CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs._();
 
+  // coverage:ignore-start
+  const CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   CoreOCSMeta get meta;
   CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_Data get data;
   static Serializer<CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs> get serializer =>
@@ -4123,12 +4922,19 @@ abstract class CoreTranslationApiLanguagesResponse200ApplicationJson
   factory CoreTranslationApiLanguagesResponse200ApplicationJson([
     final void Function(CoreTranslationApiLanguagesResponse200ApplicationJsonBuilder)? b,
   ]) = _$CoreTranslationApiLanguagesResponse200ApplicationJson;
-  const CoreTranslationApiLanguagesResponse200ApplicationJson._();
 
+  // coverage:ignore-start
+  const CoreTranslationApiLanguagesResponse200ApplicationJson._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory CoreTranslationApiLanguagesResponse200ApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs get ocs;
   static Serializer<CoreTranslationApiLanguagesResponse200ApplicationJson> get serializer =>
       _$coreTranslationApiLanguagesResponse200ApplicationJsonSerializer;
@@ -4141,12 +4947,19 @@ abstract class CoreTranslationApiTranslateResponse200ApplicationJson_Ocs_Data
   factory CoreTranslationApiTranslateResponse200ApplicationJson_Ocs_Data([
     final void Function(CoreTranslationApiTranslateResponse200ApplicationJson_Ocs_DataBuilder)? b,
   ]) = _$CoreTranslationApiTranslateResponse200ApplicationJson_Ocs_Data;
-  const CoreTranslationApiTranslateResponse200ApplicationJson_Ocs_Data._();
 
+  // coverage:ignore-start
+  const CoreTranslationApiTranslateResponse200ApplicationJson_Ocs_Data._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory CoreTranslationApiTranslateResponse200ApplicationJson_Ocs_Data.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   String get text;
   String? get from;
   static Serializer<CoreTranslationApiTranslateResponse200ApplicationJson_Ocs_Data> get serializer =>
@@ -4160,12 +4973,19 @@ abstract class CoreTranslationApiTranslateResponse200ApplicationJson_Ocs
   factory CoreTranslationApiTranslateResponse200ApplicationJson_Ocs([
     final void Function(CoreTranslationApiTranslateResponse200ApplicationJson_OcsBuilder)? b,
   ]) = _$CoreTranslationApiTranslateResponse200ApplicationJson_Ocs;
-  const CoreTranslationApiTranslateResponse200ApplicationJson_Ocs._();
 
+  // coverage:ignore-start
+  const CoreTranslationApiTranslateResponse200ApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory CoreTranslationApiTranslateResponse200ApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   CoreOCSMeta get meta;
   CoreTranslationApiTranslateResponse200ApplicationJson_Ocs_Data get data;
   static Serializer<CoreTranslationApiTranslateResponse200ApplicationJson_Ocs> get serializer =>
@@ -4179,12 +4999,19 @@ abstract class CoreTranslationApiTranslateResponse200ApplicationJson
   factory CoreTranslationApiTranslateResponse200ApplicationJson([
     final void Function(CoreTranslationApiTranslateResponse200ApplicationJsonBuilder)? b,
   ]) = _$CoreTranslationApiTranslateResponse200ApplicationJson;
-  const CoreTranslationApiTranslateResponse200ApplicationJson._();
 
+  // coverage:ignore-start
+  const CoreTranslationApiTranslateResponse200ApplicationJson._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory CoreTranslationApiTranslateResponse200ApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   CoreTranslationApiTranslateResponse200ApplicationJson_Ocs get ocs;
   static Serializer<CoreTranslationApiTranslateResponse200ApplicationJson> get serializer =>
       _$coreTranslationApiTranslateResponse200ApplicationJsonSerializer;
@@ -4193,12 +5020,19 @@ abstract class CoreTranslationApiTranslateResponse200ApplicationJson
 abstract class CoreUnifiedSearchProvider implements Built<CoreUnifiedSearchProvider, CoreUnifiedSearchProviderBuilder> {
   factory CoreUnifiedSearchProvider([final void Function(CoreUnifiedSearchProviderBuilder)? b]) =
       _$CoreUnifiedSearchProvider;
-  const CoreUnifiedSearchProvider._();
 
+  // coverage:ignore-start
+  const CoreUnifiedSearchProvider._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory CoreUnifiedSearchProvider.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   String get id;
   String get name;
   int get order;
@@ -4212,12 +5046,19 @@ abstract class CoreUnifiedSearchGetProvidersResponse200ApplicationJson_Ocs
   factory CoreUnifiedSearchGetProvidersResponse200ApplicationJson_Ocs([
     final void Function(CoreUnifiedSearchGetProvidersResponse200ApplicationJson_OcsBuilder)? b,
   ]) = _$CoreUnifiedSearchGetProvidersResponse200ApplicationJson_Ocs;
-  const CoreUnifiedSearchGetProvidersResponse200ApplicationJson_Ocs._();
 
+  // coverage:ignore-start
+  const CoreUnifiedSearchGetProvidersResponse200ApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory CoreUnifiedSearchGetProvidersResponse200ApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   CoreOCSMeta get meta;
   BuiltList<CoreUnifiedSearchProvider> get data;
   static Serializer<CoreUnifiedSearchGetProvidersResponse200ApplicationJson_Ocs> get serializer =>
@@ -4231,12 +5072,19 @@ abstract class CoreUnifiedSearchGetProvidersResponse200ApplicationJson
   factory CoreUnifiedSearchGetProvidersResponse200ApplicationJson([
     final void Function(CoreUnifiedSearchGetProvidersResponse200ApplicationJsonBuilder)? b,
   ]) = _$CoreUnifiedSearchGetProvidersResponse200ApplicationJson;
-  const CoreUnifiedSearchGetProvidersResponse200ApplicationJson._();
 
+  // coverage:ignore-start
+  const CoreUnifiedSearchGetProvidersResponse200ApplicationJson._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory CoreUnifiedSearchGetProvidersResponse200ApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   CoreUnifiedSearchGetProvidersResponse200ApplicationJson_Ocs get ocs;
   static Serializer<CoreUnifiedSearchGetProvidersResponse200ApplicationJson> get serializer =>
       _$coreUnifiedSearchGetProvidersResponse200ApplicationJsonSerializer;
@@ -4244,8 +5092,11 @@ abstract class CoreUnifiedSearchGetProvidersResponse200ApplicationJson
 
 abstract class CoreUnifiedSearchSearchCursor
     implements Built<CoreUnifiedSearchSearchCursor, CoreUnifiedSearchSearchCursorBuilder> {
+  // coverage:ignore-end
+
   factory CoreUnifiedSearchSearchCursor([final void Function(CoreUnifiedSearchSearchCursorBuilder)? b]) =
       _$CoreUnifiedSearchSearchCursor;
+  // coverage:ignore-start
   const CoreUnifiedSearchSearchCursor._();
 
   JsonObject get data;
@@ -4253,7 +5104,9 @@ abstract class CoreUnifiedSearchSearchCursor
   String? get string;
   static CoreUnifiedSearchSearchCursor fromJson(final Object json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   @BuiltValueSerializer(custom: true)
   static Serializer<CoreUnifiedSearchSearchCursor> get serializer => _$CoreUnifiedSearchSearchCursorSerializer();
 }
@@ -4295,12 +5148,19 @@ abstract class CoreUnifiedSearchResultEntry
     implements Built<CoreUnifiedSearchResultEntry, CoreUnifiedSearchResultEntryBuilder> {
   factory CoreUnifiedSearchResultEntry([final void Function(CoreUnifiedSearchResultEntryBuilder)? b]) =
       _$CoreUnifiedSearchResultEntry;
-  const CoreUnifiedSearchResultEntry._();
 
+  // coverage:ignore-start
+  const CoreUnifiedSearchResultEntry._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory CoreUnifiedSearchResultEntry.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   String get thumbnailUrl;
   String get title;
   String get subline;
@@ -4313,8 +5173,11 @@ abstract class CoreUnifiedSearchResultEntry
 
 abstract class CoreUnifiedSearchResult_Cursor
     implements Built<CoreUnifiedSearchResult_Cursor, CoreUnifiedSearchResult_CursorBuilder> {
+  // coverage:ignore-end
+
   factory CoreUnifiedSearchResult_Cursor([final void Function(CoreUnifiedSearchResult_CursorBuilder)? b]) =
       _$CoreUnifiedSearchResult_Cursor;
+  // coverage:ignore-start
   const CoreUnifiedSearchResult_Cursor._();
 
   JsonObject get data;
@@ -4322,7 +5185,9 @@ abstract class CoreUnifiedSearchResult_Cursor
   String? get string;
   static CoreUnifiedSearchResult_Cursor fromJson(final Object json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   @BuiltValueSerializer(custom: true)
   static Serializer<CoreUnifiedSearchResult_Cursor> get serializer => _$CoreUnifiedSearchResult_CursorSerializer();
 }
@@ -4362,12 +5227,19 @@ class _$CoreUnifiedSearchResult_CursorSerializer implements PrimitiveSerializer<
 
 abstract class CoreUnifiedSearchResult implements Built<CoreUnifiedSearchResult, CoreUnifiedSearchResultBuilder> {
   factory CoreUnifiedSearchResult([final void Function(CoreUnifiedSearchResultBuilder)? b]) = _$CoreUnifiedSearchResult;
-  const CoreUnifiedSearchResult._();
 
+  // coverage:ignore-start
+  const CoreUnifiedSearchResult._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory CoreUnifiedSearchResult.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   String get name;
   bool get isPaginated;
   BuiltList<CoreUnifiedSearchResultEntry> get entries;
@@ -4382,12 +5254,19 @@ abstract class CoreUnifiedSearchSearchResponse200ApplicationJson_Ocs
   factory CoreUnifiedSearchSearchResponse200ApplicationJson_Ocs([
     final void Function(CoreUnifiedSearchSearchResponse200ApplicationJson_OcsBuilder)? b,
   ]) = _$CoreUnifiedSearchSearchResponse200ApplicationJson_Ocs;
-  const CoreUnifiedSearchSearchResponse200ApplicationJson_Ocs._();
 
+  // coverage:ignore-start
+  const CoreUnifiedSearchSearchResponse200ApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory CoreUnifiedSearchSearchResponse200ApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   CoreOCSMeta get meta;
   CoreUnifiedSearchResult get data;
   static Serializer<CoreUnifiedSearchSearchResponse200ApplicationJson_Ocs> get serializer =>
@@ -4401,12 +5280,19 @@ abstract class CoreUnifiedSearchSearchResponse200ApplicationJson
   factory CoreUnifiedSearchSearchResponse200ApplicationJson([
     final void Function(CoreUnifiedSearchSearchResponse200ApplicationJsonBuilder)? b,
   ]) = _$CoreUnifiedSearchSearchResponse200ApplicationJson;
-  const CoreUnifiedSearchSearchResponse200ApplicationJson._();
 
+  // coverage:ignore-start
+  const CoreUnifiedSearchSearchResponse200ApplicationJson._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory CoreUnifiedSearchSearchResponse200ApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   CoreUnifiedSearchSearchResponse200ApplicationJson_Ocs get ocs;
   static Serializer<CoreUnifiedSearchSearchResponse200ApplicationJson> get serializer =>
       _$coreUnifiedSearchSearchResponse200ApplicationJsonSerializer;
@@ -4419,12 +5305,19 @@ abstract class CoreWhatsNewGetResponse200ApplicationJson_Ocs_Data_WhatsNew
   factory CoreWhatsNewGetResponse200ApplicationJson_Ocs_Data_WhatsNew([
     final void Function(CoreWhatsNewGetResponse200ApplicationJson_Ocs_Data_WhatsNewBuilder)? b,
   ]) = _$CoreWhatsNewGetResponse200ApplicationJson_Ocs_Data_WhatsNew;
-  const CoreWhatsNewGetResponse200ApplicationJson_Ocs_Data_WhatsNew._();
 
+  // coverage:ignore-start
+  const CoreWhatsNewGetResponse200ApplicationJson_Ocs_Data_WhatsNew._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory CoreWhatsNewGetResponse200ApplicationJson_Ocs_Data_WhatsNew.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   BuiltList<String> get regular;
   BuiltList<String> get admin;
   static Serializer<CoreWhatsNewGetResponse200ApplicationJson_Ocs_Data_WhatsNew> get serializer =>
@@ -4438,12 +5331,19 @@ abstract class CoreWhatsNewGetResponse200ApplicationJson_Ocs_Data
   factory CoreWhatsNewGetResponse200ApplicationJson_Ocs_Data([
     final void Function(CoreWhatsNewGetResponse200ApplicationJson_Ocs_DataBuilder)? b,
   ]) = _$CoreWhatsNewGetResponse200ApplicationJson_Ocs_Data;
-  const CoreWhatsNewGetResponse200ApplicationJson_Ocs_Data._();
 
+  // coverage:ignore-start
+  const CoreWhatsNewGetResponse200ApplicationJson_Ocs_Data._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory CoreWhatsNewGetResponse200ApplicationJson_Ocs_Data.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   String get changelogURL;
   String get product;
   String get version;
@@ -4458,12 +5358,19 @@ abstract class CoreWhatsNewGetResponse200ApplicationJson_Ocs
   factory CoreWhatsNewGetResponse200ApplicationJson_Ocs([
     final void Function(CoreWhatsNewGetResponse200ApplicationJson_OcsBuilder)? b,
   ]) = _$CoreWhatsNewGetResponse200ApplicationJson_Ocs;
-  const CoreWhatsNewGetResponse200ApplicationJson_Ocs._();
 
+  // coverage:ignore-start
+  const CoreWhatsNewGetResponse200ApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory CoreWhatsNewGetResponse200ApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   CoreOCSMeta get meta;
   CoreWhatsNewGetResponse200ApplicationJson_Ocs_Data get data;
   static Serializer<CoreWhatsNewGetResponse200ApplicationJson_Ocs> get serializer =>
@@ -4475,12 +5382,19 @@ abstract class CoreWhatsNewGetResponse200ApplicationJson
   factory CoreWhatsNewGetResponse200ApplicationJson([
     final void Function(CoreWhatsNewGetResponse200ApplicationJsonBuilder)? b,
   ]) = _$CoreWhatsNewGetResponse200ApplicationJson;
-  const CoreWhatsNewGetResponse200ApplicationJson._();
 
+  // coverage:ignore-start
+  const CoreWhatsNewGetResponse200ApplicationJson._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory CoreWhatsNewGetResponse200ApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   CoreWhatsNewGetResponse200ApplicationJson_Ocs get ocs;
   static Serializer<CoreWhatsNewGetResponse200ApplicationJson> get serializer =>
       _$coreWhatsNewGetResponse200ApplicationJsonSerializer;
@@ -4493,12 +5407,19 @@ abstract class CoreWhatsNewDismissResponse200ApplicationJson_Ocs
   factory CoreWhatsNewDismissResponse200ApplicationJson_Ocs([
     final void Function(CoreWhatsNewDismissResponse200ApplicationJson_OcsBuilder)? b,
   ]) = _$CoreWhatsNewDismissResponse200ApplicationJson_Ocs;
-  const CoreWhatsNewDismissResponse200ApplicationJson_Ocs._();
 
+  // coverage:ignore-start
+  const CoreWhatsNewDismissResponse200ApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory CoreWhatsNewDismissResponse200ApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   CoreOCSMeta get meta;
   JsonObject get data;
   static Serializer<CoreWhatsNewDismissResponse200ApplicationJson_Ocs> get serializer =>
@@ -4511,12 +5432,19 @@ abstract class CoreWhatsNewDismissResponse200ApplicationJson
   factory CoreWhatsNewDismissResponse200ApplicationJson([
     final void Function(CoreWhatsNewDismissResponse200ApplicationJsonBuilder)? b,
   ]) = _$CoreWhatsNewDismissResponse200ApplicationJson;
-  const CoreWhatsNewDismissResponse200ApplicationJson._();
 
+  // coverage:ignore-start
+  const CoreWhatsNewDismissResponse200ApplicationJson._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory CoreWhatsNewDismissResponse200ApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   CoreWhatsNewDismissResponse200ApplicationJson_Ocs get ocs;
   static Serializer<CoreWhatsNewDismissResponse200ApplicationJson> get serializer =>
       _$coreWhatsNewDismissResponse200ApplicationJsonSerializer;
@@ -4527,17 +5455,25 @@ abstract class CoreWipeCheckWipeResponse200ApplicationJson
   factory CoreWipeCheckWipeResponse200ApplicationJson([
     final void Function(CoreWipeCheckWipeResponse200ApplicationJsonBuilder)? b,
   ]) = _$CoreWipeCheckWipeResponse200ApplicationJson;
-  const CoreWipeCheckWipeResponse200ApplicationJson._();
 
+  // coverage:ignore-start
+  const CoreWipeCheckWipeResponse200ApplicationJson._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory CoreWipeCheckWipeResponse200ApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   bool get wipe;
   static Serializer<CoreWipeCheckWipeResponse200ApplicationJson> get serializer =>
       _$coreWipeCheckWipeResponse200ApplicationJsonSerializer;
 }
 
+// coverage:ignore-start
 final Serializers _serializers = (Serializers().toBuilder()
       ..addBuilderFactory(const FullType(CoreStatus), CoreStatus.new)
       ..add(CoreStatus.serializer)
@@ -5205,7 +6141,6 @@ final Serializers _jsonSerializers = (_serializers.toBuilder()
       ..addPlugin(const ContentStringPlugin()))
     .build();
 
-// coverage:ignore-start
 T deserializeCore<T>(final Object data) => _serializers.deserialize(data, specifiedType: FullType(T))! as T;
 
 Object? serializeCore<T>(final T data) => _serializers.serialize(data, specifiedType: FullType(T));

@@ -91,6 +91,7 @@ class ThemingIconClient {
       'Accept': 'image/x-icon',
     };
     Uint8List? body;
+    // coverage:ignore-start
     if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
         rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
@@ -99,6 +100,7 @@ class ThemingIconClient {
       headers
           .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
     }
+    // coverage:ignore-end
     path = path.replaceAll('{app}', Uri.encodeQueryComponent(app));
     final response = await rootClient.doRequest(
       'get',
@@ -120,6 +122,7 @@ class ThemingIconClient {
       'Accept': 'image/png',
     };
     Uint8List? body;
+    // coverage:ignore-start
     if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
         rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
@@ -128,6 +131,7 @@ class ThemingIconClient {
       headers
           .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
     }
+    // coverage:ignore-end
     path = path.replaceAll('{app}', Uri.encodeQueryComponent(app));
     final response = await rootClient.doRequest(
       'get',
@@ -152,6 +156,7 @@ class ThemingIconClient {
       'Accept': 'image/svg+xml',
     };
     Uint8List? body;
+    // coverage:ignore-start
     if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
         rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
@@ -160,6 +165,7 @@ class ThemingIconClient {
       headers
           .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
     }
+    // coverage:ignore-end
     path = path.replaceAll('{app}', Uri.encodeQueryComponent(app));
     if (!RegExp(r'^.+$').hasMatch(image)) {
       throw Exception('Invalid value "$image" for parameter "image" with pattern "${r'^.+$'}"'); // coverage:ignore-line
@@ -197,6 +203,7 @@ class ThemingThemingClient {
       'Accept': 'text/css',
     };
     Uint8List? body;
+    // coverage:ignore-start
     if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
         rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
@@ -205,6 +212,7 @@ class ThemingThemingClient {
       headers
           .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
     }
+    // coverage:ignore-end
     path = path.replaceAll('{themeId}', Uri.encodeQueryComponent(themeId));
     if (plain != 0) {
       queryParameters['plain'] = plain.toString();
@@ -235,6 +243,7 @@ class ThemingThemingClient {
       'Accept': '*/*',
     };
     Uint8List? body;
+    // coverage:ignore-start
     if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
         rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
@@ -243,6 +252,7 @@ class ThemingThemingClient {
       headers
           .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
     }
+    // coverage:ignore-end
     path = path.replaceAll('{key}', Uri.encodeQueryComponent(key));
     if (useSvg != 1) {
       queryParameters['useSvg'] = useSvg.toString();
@@ -267,6 +277,7 @@ class ThemingThemingClient {
       'Accept': 'application/json',
     };
     Uint8List? body;
+    // coverage:ignore-start
     if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
         rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
@@ -275,6 +286,7 @@ class ThemingThemingClient {
       headers
           .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
     }
+    // coverage:ignore-end
     path = path.replaceAll('{app}', Uri.encodeQueryComponent(app));
     final response = await rootClient.doRequest(
       'get',
@@ -305,6 +317,7 @@ class ThemingUserThemeClient {
       'Accept': '*/*',
     };
     Uint8List? body;
+    // coverage:ignore-start
     if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
         rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
@@ -313,8 +326,9 @@ class ThemingUserThemeClient {
       headers
           .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
     } else {
-      throw Exception('Missing authentication for bearer_auth or basic_auth'); // coverage:ignore-line
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
+    // coverage:ignore-end
     headers['OCS-APIRequest'] = oCSAPIRequest;
     final response = await rootClient.doRequest(
       'get',
@@ -341,6 +355,7 @@ class ThemingUserThemeClient {
       'Accept': 'application/json',
     };
     Uint8List? body;
+    // coverage:ignore-start
     if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
         rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
@@ -349,8 +364,9 @@ class ThemingUserThemeClient {
       headers
           .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
     } else {
-      throw Exception('Missing authentication for bearer_auth or basic_auth'); // coverage:ignore-line
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
+    // coverage:ignore-end
     path = path.replaceAll('{type}', Uri.encodeQueryComponent(type));
     if (value != '') {
       queryParameters['value'] = value;
@@ -380,6 +396,7 @@ class ThemingUserThemeClient {
       'Accept': 'application/json',
     };
     Uint8List? body;
+    // coverage:ignore-start
     if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
         rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
@@ -388,8 +405,9 @@ class ThemingUserThemeClient {
       headers
           .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
     } else {
-      throw Exception('Missing authentication for bearer_auth or basic_auth'); // coverage:ignore-line
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
+    // coverage:ignore-end
     headers['OCS-APIRequest'] = oCSAPIRequest;
     final response = await rootClient.doRequest(
       'delete',
@@ -415,6 +433,7 @@ class ThemingUserThemeClient {
       'Accept': 'application/json',
     };
     Uint8List? body;
+    // coverage:ignore-start
     if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
         rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
@@ -423,8 +442,9 @@ class ThemingUserThemeClient {
       headers
           .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
     } else {
-      throw Exception('Missing authentication for bearer_auth or basic_auth'); // coverage:ignore-line
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
+    // coverage:ignore-end
     path = path.replaceAll('{themeId}', Uri.encodeQueryComponent(themeId));
     headers['OCS-APIRequest'] = oCSAPIRequest;
     final response = await rootClient.doRequest(
@@ -453,6 +473,7 @@ class ThemingUserThemeClient {
       'Accept': 'application/json',
     };
     Uint8List? body;
+    // coverage:ignore-start
     if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
         rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
@@ -461,8 +482,9 @@ class ThemingUserThemeClient {
       headers
           .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
     } else {
-      throw Exception('Missing authentication for bearer_auth or basic_auth'); // coverage:ignore-line
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
+    // coverage:ignore-end
     path = path.replaceAll('{themeId}', Uri.encodeQueryComponent(themeId));
     headers['OCS-APIRequest'] = oCSAPIRequest;
     final response = await rootClient.doRequest(
@@ -488,12 +510,19 @@ abstract class ThemingThemingGetManifestResponse200ApplicationJson_Icons
   factory ThemingThemingGetManifestResponse200ApplicationJson_Icons([
     final void Function(ThemingThemingGetManifestResponse200ApplicationJson_IconsBuilder)? b,
   ]) = _$ThemingThemingGetManifestResponse200ApplicationJson_Icons;
-  const ThemingThemingGetManifestResponse200ApplicationJson_Icons._();
 
+  // coverage:ignore-start
+  const ThemingThemingGetManifestResponse200ApplicationJson_Icons._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory ThemingThemingGetManifestResponse200ApplicationJson_Icons.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   String get src;
   String get type;
   String get sizes;
@@ -508,12 +537,19 @@ abstract class ThemingThemingGetManifestResponse200ApplicationJson
   factory ThemingThemingGetManifestResponse200ApplicationJson([
     final void Function(ThemingThemingGetManifestResponse200ApplicationJsonBuilder)? b,
   ]) = _$ThemingThemingGetManifestResponse200ApplicationJson;
-  const ThemingThemingGetManifestResponse200ApplicationJson._();
 
+  // coverage:ignore-start
+  const ThemingThemingGetManifestResponse200ApplicationJson._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory ThemingThemingGetManifestResponse200ApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   String get name;
   @BuiltValueField(wireName: 'short_name')
   String get shortName;
@@ -532,12 +568,19 @@ abstract class ThemingThemingGetManifestResponse200ApplicationJson
 
 abstract class ThemingBackground implements Built<ThemingBackground, ThemingBackgroundBuilder> {
   factory ThemingBackground([final void Function(ThemingBackgroundBuilder)? b]) = _$ThemingBackground;
-  const ThemingBackground._();
 
+  // coverage:ignore-start
+  const ThemingBackground._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory ThemingBackground.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   String? get backgroundImage;
   String get backgroundColor;
   int get version;
@@ -546,12 +589,19 @@ abstract class ThemingBackground implements Built<ThemingBackground, ThemingBack
 
 abstract class ThemingOCSMeta implements Built<ThemingOCSMeta, ThemingOCSMetaBuilder> {
   factory ThemingOCSMeta([final void Function(ThemingOCSMetaBuilder)? b]) = _$ThemingOCSMeta;
-  const ThemingOCSMeta._();
 
+  // coverage:ignore-start
+  const ThemingOCSMeta._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory ThemingOCSMeta.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   String get status;
   int get statuscode;
   String? get message;
@@ -567,12 +617,19 @@ abstract class ThemingUserThemeEnableThemeResponse200ApplicationJson_Ocs
   factory ThemingUserThemeEnableThemeResponse200ApplicationJson_Ocs([
     final void Function(ThemingUserThemeEnableThemeResponse200ApplicationJson_OcsBuilder)? b,
   ]) = _$ThemingUserThemeEnableThemeResponse200ApplicationJson_Ocs;
-  const ThemingUserThemeEnableThemeResponse200ApplicationJson_Ocs._();
 
+  // coverage:ignore-start
+  const ThemingUserThemeEnableThemeResponse200ApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory ThemingUserThemeEnableThemeResponse200ApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   ThemingOCSMeta get meta;
   JsonObject get data;
   static Serializer<ThemingUserThemeEnableThemeResponse200ApplicationJson_Ocs> get serializer =>
@@ -586,12 +643,19 @@ abstract class ThemingUserThemeEnableThemeResponse200ApplicationJson
   factory ThemingUserThemeEnableThemeResponse200ApplicationJson([
     final void Function(ThemingUserThemeEnableThemeResponse200ApplicationJsonBuilder)? b,
   ]) = _$ThemingUserThemeEnableThemeResponse200ApplicationJson;
-  const ThemingUserThemeEnableThemeResponse200ApplicationJson._();
 
+  // coverage:ignore-start
+  const ThemingUserThemeEnableThemeResponse200ApplicationJson._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory ThemingUserThemeEnableThemeResponse200ApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   ThemingUserThemeEnableThemeResponse200ApplicationJson_Ocs get ocs;
   static Serializer<ThemingUserThemeEnableThemeResponse200ApplicationJson> get serializer =>
       _$themingUserThemeEnableThemeResponse200ApplicationJsonSerializer;
@@ -604,12 +668,19 @@ abstract class ThemingUserThemeDisableThemeResponse200ApplicationJson_Ocs
   factory ThemingUserThemeDisableThemeResponse200ApplicationJson_Ocs([
     final void Function(ThemingUserThemeDisableThemeResponse200ApplicationJson_OcsBuilder)? b,
   ]) = _$ThemingUserThemeDisableThemeResponse200ApplicationJson_Ocs;
-  const ThemingUserThemeDisableThemeResponse200ApplicationJson_Ocs._();
 
+  // coverage:ignore-start
+  const ThemingUserThemeDisableThemeResponse200ApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory ThemingUserThemeDisableThemeResponse200ApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   ThemingOCSMeta get meta;
   JsonObject get data;
   static Serializer<ThemingUserThemeDisableThemeResponse200ApplicationJson_Ocs> get serializer =>
@@ -623,12 +694,19 @@ abstract class ThemingUserThemeDisableThemeResponse200ApplicationJson
   factory ThemingUserThemeDisableThemeResponse200ApplicationJson([
     final void Function(ThemingUserThemeDisableThemeResponse200ApplicationJsonBuilder)? b,
   ]) = _$ThemingUserThemeDisableThemeResponse200ApplicationJson;
-  const ThemingUserThemeDisableThemeResponse200ApplicationJson._();
 
+  // coverage:ignore-start
+  const ThemingUserThemeDisableThemeResponse200ApplicationJson._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory ThemingUserThemeDisableThemeResponse200ApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   ThemingUserThemeDisableThemeResponse200ApplicationJson_Ocs get ocs;
   static Serializer<ThemingUserThemeDisableThemeResponse200ApplicationJson> get serializer =>
       _$themingUserThemeDisableThemeResponse200ApplicationJsonSerializer;
@@ -638,12 +716,19 @@ abstract class ThemingPublicCapabilities_Theming
     implements Built<ThemingPublicCapabilities_Theming, ThemingPublicCapabilities_ThemingBuilder> {
   factory ThemingPublicCapabilities_Theming([final void Function(ThemingPublicCapabilities_ThemingBuilder)? b]) =
       _$ThemingPublicCapabilities_Theming;
-  const ThemingPublicCapabilities_Theming._();
 
+  // coverage:ignore-start
+  const ThemingPublicCapabilities_Theming._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory ThemingPublicCapabilities_Theming.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   String get name;
   String get url;
   String get slogan;
@@ -670,16 +755,24 @@ abstract class ThemingPublicCapabilities_Theming
 abstract class ThemingPublicCapabilities implements Built<ThemingPublicCapabilities, ThemingPublicCapabilitiesBuilder> {
   factory ThemingPublicCapabilities([final void Function(ThemingPublicCapabilitiesBuilder)? b]) =
       _$ThemingPublicCapabilities;
-  const ThemingPublicCapabilities._();
 
+  // coverage:ignore-start
+  const ThemingPublicCapabilities._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory ThemingPublicCapabilities.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   ThemingPublicCapabilities_Theming get theming;
   static Serializer<ThemingPublicCapabilities> get serializer => _$themingPublicCapabilitiesSerializer;
 }
 
+// coverage:ignore-start
 final Serializers _serializers = (Serializers().toBuilder()
       ..addBuilderFactory(
         const FullType(ThemingThemingGetManifestResponse200ApplicationJson),
@@ -732,7 +825,6 @@ final Serializers _jsonSerializers = (_serializers.toBuilder()
       ..addPlugin(const ContentStringPlugin()))
     .build();
 
-// coverage:ignore-start
 T deserializeTheming<T>(final Object data) => _serializers.deserialize(data, specifiedType: FullType(T))! as T;
 
 Object? serializeTheming<T>(final T data) => _serializers.serialize(data, specifiedType: FullType(T));

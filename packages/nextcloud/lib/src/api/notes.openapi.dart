@@ -87,11 +87,13 @@ class NotesClient extends DynamiteClient {
       'Accept': 'application/json',
     };
     Uint8List? body;
+    // coverage:ignore-start
     if (authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
       headers.addAll(authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
     } else {
-      throw Exception('Missing authentication for basic_auth'); // coverage:ignore-line
+      throw Exception('Missing authentication for basic_auth');
     }
+    // coverage:ignore-end
     if (category != null) {
       queryParameters['category'] = category;
     }
@@ -138,11 +140,13 @@ class NotesClient extends DynamiteClient {
       'Accept': 'application/json',
     };
     Uint8List? body;
+    // coverage:ignore-start
     if (authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
       headers.addAll(authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
     } else {
-      throw Exception('Missing authentication for basic_auth'); // coverage:ignore-line
+      throw Exception('Missing authentication for basic_auth');
     }
+    // coverage:ignore-end
     if (category != '') {
       queryParameters['category'] = category;
     }
@@ -182,11 +186,13 @@ class NotesClient extends DynamiteClient {
       'Accept': 'application/json',
     };
     Uint8List? body;
+    // coverage:ignore-start
     if (authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
       headers.addAll(authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
     } else {
-      throw Exception('Missing authentication for basic_auth'); // coverage:ignore-line
+      throw Exception('Missing authentication for basic_auth');
     }
+    // coverage:ignore-end
     path = path.replaceAll('{id}', Uri.encodeQueryComponent(id.toString()));
     if (exclude != '') {
       queryParameters['exclude'] = exclude;
@@ -222,11 +228,13 @@ class NotesClient extends DynamiteClient {
       'Accept': 'application/json',
     };
     Uint8List? body;
+    // coverage:ignore-start
     if (authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
       headers.addAll(authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
     } else {
-      throw Exception('Missing authentication for basic_auth'); // coverage:ignore-line
+      throw Exception('Missing authentication for basic_auth');
     }
+    // coverage:ignore-end
     path = path.replaceAll('{id}', Uri.encodeQueryComponent(id.toString()));
     if (content != null) {
       queryParameters['content'] = content;
@@ -266,11 +274,13 @@ class NotesClient extends DynamiteClient {
       'Accept': 'application/json',
     };
     Uint8List? body;
+    // coverage:ignore-start
     if (authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
       headers.addAll(authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
     } else {
-      throw Exception('Missing authentication for basic_auth'); // coverage:ignore-line
+      throw Exception('Missing authentication for basic_auth');
     }
+    // coverage:ignore-end
     path = path.replaceAll('{id}', Uri.encodeQueryComponent(id.toString()));
     final response = await doRequest(
       'delete',
@@ -291,11 +301,13 @@ class NotesClient extends DynamiteClient {
       'Accept': 'application/json',
     };
     Uint8List? body;
+    // coverage:ignore-start
     if (authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
       headers.addAll(authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
     } else {
-      throw Exception('Missing authentication for basic_auth'); // coverage:ignore-line
+      throw Exception('Missing authentication for basic_auth');
     }
+    // coverage:ignore-end
     final response = await doRequest(
       'get',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
@@ -316,11 +328,13 @@ class NotesClient extends DynamiteClient {
       'Accept': 'application/json',
     };
     Uint8List? body;
+    // coverage:ignore-start
     if (authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
       headers.addAll(authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
     } else {
-      throw Exception('Missing authentication for basic_auth'); // coverage:ignore-line
+      throw Exception('Missing authentication for basic_auth');
     }
+    // coverage:ignore-end
     headers['Content-Type'] = 'application/json';
     body = Uint8List.fromList(
       utf8.encode(json.encode(_jsonSerializers.serialize(settings, specifiedType: const FullType(NotesSettings)))),
@@ -341,11 +355,18 @@ class NotesClient extends DynamiteClient {
 
 abstract class NotesNote implements Built<NotesNote, NotesNoteBuilder> {
   factory NotesNote([final void Function(NotesNoteBuilder)? b]) = _$NotesNote;
+
+  // coverage:ignore-start
   const NotesNote._();
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   factory NotesNote.fromJson(final Map<String, dynamic> json) => _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   int get id;
   String get etag;
   bool get readonly;
@@ -368,19 +389,28 @@ class NotesSettings_NoteMode extends EnumClass {
 
   static const NotesSettings_NoteMode rich = _$notesSettingsNoteModeRich;
 
+  // coverage:ignore-start
   static BuiltSet<NotesSettings_NoteMode> get values => _$notesSettingsNoteModeValues;
+  // coverage:ignore-end
   static NotesSettings_NoteMode valueOf(final String name) => _$valueOfNotesSettings_NoteMode(name);
   static Serializer<NotesSettings_NoteMode> get serializer => _$notesSettingsNoteModeSerializer;
 }
 
 abstract class NotesSettings implements Built<NotesSettings, NotesSettingsBuilder> {
   factory NotesSettings([final void Function(NotesSettingsBuilder)? b]) = _$NotesSettings;
-  const NotesSettings._();
 
+  // coverage:ignore-start
+  const NotesSettings._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory NotesSettings.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   String get notesPath;
   String get fileSuffix;
   NotesSettings_NoteMode get noteMode;
@@ -389,12 +419,19 @@ abstract class NotesSettings implements Built<NotesSettings, NotesSettingsBuilde
 
 abstract class NotesCapabilities_Notes implements Built<NotesCapabilities_Notes, NotesCapabilities_NotesBuilder> {
   factory NotesCapabilities_Notes([final void Function(NotesCapabilities_NotesBuilder)? b]) = _$NotesCapabilities_Notes;
-  const NotesCapabilities_Notes._();
 
+  // coverage:ignore-start
+  const NotesCapabilities_Notes._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory NotesCapabilities_Notes.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   @BuiltValueField(wireName: 'api_version')
   BuiltList<String>? get apiVersion;
   String? get version;
@@ -403,23 +440,37 @@ abstract class NotesCapabilities_Notes implements Built<NotesCapabilities_Notes,
 
 abstract class NotesCapabilities implements Built<NotesCapabilities, NotesCapabilitiesBuilder> {
   factory NotesCapabilities([final void Function(NotesCapabilitiesBuilder)? b]) = _$NotesCapabilities;
-  const NotesCapabilities._();
 
+  // coverage:ignore-start
+  const NotesCapabilities._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory NotesCapabilities.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   NotesCapabilities_Notes get notes;
   static Serializer<NotesCapabilities> get serializer => _$notesCapabilitiesSerializer;
 }
 
 abstract class NotesOCSMeta implements Built<NotesOCSMeta, NotesOCSMetaBuilder> {
   factory NotesOCSMeta([final void Function(NotesOCSMetaBuilder)? b]) = _$NotesOCSMeta;
+
+  // coverage:ignore-start
   const NotesOCSMeta._();
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   factory NotesOCSMeta.fromJson(final Map<String, dynamic> json) => _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   String get status;
   int get statuscode;
   String? get message;
@@ -430,12 +481,19 @@ abstract class NotesOCSMeta implements Built<NotesOCSMeta, NotesOCSMetaBuilder> 
 
 abstract class NotesEmptyOCS_Ocs implements Built<NotesEmptyOCS_Ocs, NotesEmptyOCS_OcsBuilder> {
   factory NotesEmptyOCS_Ocs([final void Function(NotesEmptyOCS_OcsBuilder)? b]) = _$NotesEmptyOCS_Ocs;
-  const NotesEmptyOCS_Ocs._();
 
+  // coverage:ignore-start
+  const NotesEmptyOCS_Ocs._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory NotesEmptyOCS_Ocs.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   NotesOCSMeta get meta;
   BuiltList<JsonObject> get data;
   static Serializer<NotesEmptyOCS_Ocs> get serializer => _$notesEmptyOCSOcsSerializer;
@@ -443,16 +501,24 @@ abstract class NotesEmptyOCS_Ocs implements Built<NotesEmptyOCS_Ocs, NotesEmptyO
 
 abstract class NotesEmptyOCS implements Built<NotesEmptyOCS, NotesEmptyOCSBuilder> {
   factory NotesEmptyOCS([final void Function(NotesEmptyOCSBuilder)? b]) = _$NotesEmptyOCS;
-  const NotesEmptyOCS._();
 
+  // coverage:ignore-start
+  const NotesEmptyOCS._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory NotesEmptyOCS.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   NotesEmptyOCS_Ocs get ocs;
   static Serializer<NotesEmptyOCS> get serializer => _$notesEmptyOCSSerializer;
 }
 
+// coverage:ignore-start
 final Serializers _serializers = (Serializers().toBuilder()
       ..addBuilderFactory(const FullType(NotesNote), NotesNote.new)
       ..add(NotesNote.serializer)
@@ -481,7 +547,6 @@ final Serializers _jsonSerializers = (_serializers.toBuilder()
       ..addPlugin(const ContentStringPlugin()))
     .build();
 
-// coverage:ignore-start
 T deserializeNotes<T>(final Object data) => _serializers.deserialize(data, specifiedType: FullType(T))! as T;
 
 Object? serializeNotes<T>(final T data) => _serializers.serialize(data, specifiedType: FullType(T));

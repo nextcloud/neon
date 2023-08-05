@@ -95,6 +95,7 @@ class UserStatusHeartbeatClient {
       'Accept': 'application/json',
     };
     Uint8List? body;
+    // coverage:ignore-start
     if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
         rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
@@ -103,8 +104,9 @@ class UserStatusHeartbeatClient {
       headers
           .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
     } else {
-      throw Exception('Missing authentication for bearer_auth or basic_auth'); // coverage:ignore-line
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
+    // coverage:ignore-end
     queryParameters['status'] = status;
     headers['OCS-APIRequest'] = oCSAPIRequest;
     final response = await rootClient.doRequest(
@@ -138,6 +140,7 @@ class UserStatusPredefinedStatusClient {
       'Accept': 'application/json',
     };
     Uint8List? body;
+    // coverage:ignore-start
     if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
         rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
@@ -146,8 +149,9 @@ class UserStatusPredefinedStatusClient {
       headers
           .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
     } else {
-      throw Exception('Missing authentication for bearer_auth or basic_auth'); // coverage:ignore-line
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
+    // coverage:ignore-end
     headers['OCS-APIRequest'] = oCSAPIRequest;
     final response = await rootClient.doRequest(
       'get',
@@ -182,6 +186,7 @@ class UserStatusStatusesClient {
       'Accept': 'application/json',
     };
     Uint8List? body;
+    // coverage:ignore-start
     if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
         rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
@@ -190,8 +195,9 @@ class UserStatusStatusesClient {
       headers
           .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
     } else {
-      throw Exception('Missing authentication for bearer_auth or basic_auth'); // coverage:ignore-line
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
+    // coverage:ignore-end
     if (limit != null) {
       queryParameters['limit'] = limit.toString();
     }
@@ -225,6 +231,7 @@ class UserStatusStatusesClient {
       'Accept': 'application/json',
     };
     Uint8List? body;
+    // coverage:ignore-start
     if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
         rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
@@ -233,8 +240,9 @@ class UserStatusStatusesClient {
       headers
           .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
     } else {
-      throw Exception('Missing authentication for bearer_auth or basic_auth'); // coverage:ignore-line
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
+    // coverage:ignore-end
     path = path.replaceAll('{userId}', Uri.encodeQueryComponent(userId));
     headers['OCS-APIRequest'] = oCSAPIRequest;
     final response = await rootClient.doRequest(
@@ -268,6 +276,7 @@ class UserStatusUserStatusClient {
       'Accept': 'application/json',
     };
     Uint8List? body;
+    // coverage:ignore-start
     if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
         rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
@@ -276,8 +285,9 @@ class UserStatusUserStatusClient {
       headers
           .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
     } else {
-      throw Exception('Missing authentication for bearer_auth or basic_auth'); // coverage:ignore-line
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
+    // coverage:ignore-end
     headers['OCS-APIRequest'] = oCSAPIRequest;
     final response = await rootClient.doRequest(
       'get',
@@ -305,6 +315,7 @@ class UserStatusUserStatusClient {
       'Accept': 'application/json',
     };
     Uint8List? body;
+    // coverage:ignore-start
     if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
         rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
@@ -313,8 +324,9 @@ class UserStatusUserStatusClient {
       headers
           .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
     } else {
-      throw Exception('Missing authentication for bearer_auth or basic_auth'); // coverage:ignore-line
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
+    // coverage:ignore-end
     queryParameters['statusType'] = statusType;
     headers['OCS-APIRequest'] = oCSAPIRequest;
     final response = await rootClient.doRequest(
@@ -344,6 +356,7 @@ class UserStatusUserStatusClient {
       'Accept': 'application/json',
     };
     Uint8List? body;
+    // coverage:ignore-start
     if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
         rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
@@ -352,8 +365,9 @@ class UserStatusUserStatusClient {
       headers
           .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
     } else {
-      throw Exception('Missing authentication for bearer_auth or basic_auth'); // coverage:ignore-line
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
+    // coverage:ignore-end
     queryParameters['messageId'] = messageId;
     if (clearAt != null) {
       queryParameters['clearAt'] = clearAt.toString();
@@ -387,6 +401,7 @@ class UserStatusUserStatusClient {
       'Accept': 'application/json',
     };
     Uint8List? body;
+    // coverage:ignore-start
     if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
         rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
@@ -395,8 +410,9 @@ class UserStatusUserStatusClient {
       headers
           .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
     } else {
-      throw Exception('Missing authentication for bearer_auth or basic_auth'); // coverage:ignore-line
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
+    // coverage:ignore-end
     if (statusIcon != null) {
       queryParameters['statusIcon'] = statusIcon;
     }
@@ -432,6 +448,7 @@ class UserStatusUserStatusClient {
       'Accept': 'application/json',
     };
     Uint8List? body;
+    // coverage:ignore-start
     if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
         rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
@@ -440,8 +457,9 @@ class UserStatusUserStatusClient {
       headers
           .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
     } else {
-      throw Exception('Missing authentication for bearer_auth or basic_auth'); // coverage:ignore-line
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
+    // coverage:ignore-end
     headers['OCS-APIRequest'] = oCSAPIRequest;
     final response = await rootClient.doRequest(
       'delete',
@@ -469,6 +487,7 @@ class UserStatusUserStatusClient {
       'Accept': 'application/json',
     };
     Uint8List? body;
+    // coverage:ignore-start
     if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
         rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
@@ -477,8 +496,9 @@ class UserStatusUserStatusClient {
       headers
           .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
     } else {
-      throw Exception('Missing authentication for bearer_auth or basic_auth'); // coverage:ignore-line
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
+    // coverage:ignore-end
     path = path.replaceAll('{messageId}', Uri.encodeQueryComponent(messageId));
     headers['OCS-APIRequest'] = oCSAPIRequest;
     final response = await rootClient.doRequest(
@@ -499,12 +519,19 @@ class UserStatusUserStatusClient {
 
 abstract class UserStatusOCSMeta implements Built<UserStatusOCSMeta, UserStatusOCSMetaBuilder> {
   factory UserStatusOCSMeta([final void Function(UserStatusOCSMetaBuilder)? b]) = _$UserStatusOCSMeta;
-  const UserStatusOCSMeta._();
 
+  // coverage:ignore-start
+  const UserStatusOCSMeta._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory UserStatusOCSMeta.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   String get status;
   int get statuscode;
   String? get message;
@@ -515,12 +542,19 @@ abstract class UserStatusOCSMeta implements Built<UserStatusOCSMeta, UserStatusO
 
 abstract class UserStatusPublic implements Built<UserStatusPublic, UserStatusPublicBuilder> {
   factory UserStatusPublic([final void Function(UserStatusPublicBuilder)? b]) = _$UserStatusPublic;
-  const UserStatusPublic._();
 
+  // coverage:ignore-start
+  const UserStatusPublic._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory UserStatusPublic.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   String get userId;
   String? get message;
   String? get icon;
@@ -531,12 +565,19 @@ abstract class UserStatusPublic implements Built<UserStatusPublic, UserStatusPub
 
 abstract class UserStatusPrivate1 implements Built<UserStatusPrivate1, UserStatusPrivate1Builder> {
   factory UserStatusPrivate1([final void Function(UserStatusPrivate1Builder)? b]) = _$UserStatusPrivate1;
-  const UserStatusPrivate1._();
 
+  // coverage:ignore-start
+  const UserStatusPrivate1._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory UserStatusPrivate1.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   String? get messageId;
   bool get messageIsPredefined;
   bool get statusIsUserDefined;
@@ -544,14 +585,19 @@ abstract class UserStatusPrivate1 implements Built<UserStatusPrivate1, UserStatu
 }
 
 abstract class UserStatusPrivate implements Built<UserStatusPrivate, UserStatusPrivateBuilder> {
+  // coverage:ignore-end
+
   factory UserStatusPrivate([final void Function(UserStatusPrivateBuilder)? b]) = _$UserStatusPrivate;
+  // coverage:ignore-start
   const UserStatusPrivate._();
 
   JsonObject get data;
   UserStatusPublic get public;
   UserStatusPrivate1 get private1;
   static UserStatusPrivate fromJson(final Object json) => _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   @BuiltValueSerializer(custom: true)
   static Serializer<UserStatusPrivate> get serializer => _$UserStatusPrivateSerializer();
 }
@@ -595,12 +641,19 @@ abstract class UserStatusHeartbeatHeartbeatResponse200ApplicationJson_Ocs
   factory UserStatusHeartbeatHeartbeatResponse200ApplicationJson_Ocs([
     final void Function(UserStatusHeartbeatHeartbeatResponse200ApplicationJson_OcsBuilder)? b,
   ]) = _$UserStatusHeartbeatHeartbeatResponse200ApplicationJson_Ocs;
-  const UserStatusHeartbeatHeartbeatResponse200ApplicationJson_Ocs._();
 
+  // coverage:ignore-start
+  const UserStatusHeartbeatHeartbeatResponse200ApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory UserStatusHeartbeatHeartbeatResponse200ApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   UserStatusOCSMeta get meta;
   UserStatusPrivate get data;
   static Serializer<UserStatusHeartbeatHeartbeatResponse200ApplicationJson_Ocs> get serializer =>
@@ -614,12 +667,19 @@ abstract class UserStatusHeartbeatHeartbeatResponse200ApplicationJson
   factory UserStatusHeartbeatHeartbeatResponse200ApplicationJson([
     final void Function(UserStatusHeartbeatHeartbeatResponse200ApplicationJsonBuilder)? b,
   ]) = _$UserStatusHeartbeatHeartbeatResponse200ApplicationJson;
-  const UserStatusHeartbeatHeartbeatResponse200ApplicationJson._();
 
+  // coverage:ignore-start
+  const UserStatusHeartbeatHeartbeatResponse200ApplicationJson._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory UserStatusHeartbeatHeartbeatResponse200ApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   UserStatusHeartbeatHeartbeatResponse200ApplicationJson_Ocs get ocs;
   static Serializer<UserStatusHeartbeatHeartbeatResponse200ApplicationJson> get serializer =>
       _$userStatusHeartbeatHeartbeatResponse200ApplicationJsonSerializer;
@@ -633,7 +693,9 @@ class UserStatusClearAt_Type extends EnumClass {
   @BuiltValueEnumConst(wireName: 'end-of')
   static const UserStatusClearAt_Type endOf = _$userStatusClearAtTypeEndOf;
 
+  // coverage:ignore-start
   static BuiltSet<UserStatusClearAt_Type> get values => _$userStatusClearAtTypeValues;
+  // coverage:ignore-end
   static UserStatusClearAt_Type valueOf(final String name) => _$valueOfUserStatusClearAt_Type(name);
   static Serializer<UserStatusClearAt_Type> get serializer => _$userStatusClearAtTypeSerializer;
 }
@@ -645,20 +707,27 @@ class UserStatusClearAtTimeType extends EnumClass {
 
   static const UserStatusClearAtTimeType week = _$userStatusClearAtTimeTypeWeek;
 
+  // coverage:ignore-start
   static BuiltSet<UserStatusClearAtTimeType> get values => _$userStatusClearAtTimeTypeValues;
+  // coverage:ignore-end
   static UserStatusClearAtTimeType valueOf(final String name) => _$valueOfUserStatusClearAtTimeType(name);
   static Serializer<UserStatusClearAtTimeType> get serializer => _$userStatusClearAtTimeTypeSerializer;
 }
 
 abstract class UserStatusClearAt_Time implements Built<UserStatusClearAt_Time, UserStatusClearAt_TimeBuilder> {
+  // coverage:ignore-end
+
   factory UserStatusClearAt_Time([final void Function(UserStatusClearAt_TimeBuilder)? b]) = _$UserStatusClearAt_Time;
+  // coverage:ignore-start
   const UserStatusClearAt_Time._();
 
   JsonObject get data;
   int? get $int;
   UserStatusClearAtTimeType? get clearAtTimeType;
   static UserStatusClearAt_Time fromJson(final Object json) => _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   @BuiltValueSerializer(custom: true)
   static Serializer<UserStatusClearAt_Time> get serializer => _$UserStatusClearAt_TimeSerializer();
 }
@@ -704,12 +773,19 @@ class _$UserStatusClearAt_TimeSerializer implements PrimitiveSerializer<UserStat
 
 abstract class UserStatusClearAt implements Built<UserStatusClearAt, UserStatusClearAtBuilder> {
   factory UserStatusClearAt([final void Function(UserStatusClearAtBuilder)? b]) = _$UserStatusClearAt;
-  const UserStatusClearAt._();
 
+  // coverage:ignore-start
+  const UserStatusClearAt._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory UserStatusClearAt.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   UserStatusClearAt_Type get type;
   UserStatusClearAt_Time get time;
   static Serializer<UserStatusClearAt> get serializer => _$userStatusClearAtSerializer;
@@ -717,12 +793,19 @@ abstract class UserStatusClearAt implements Built<UserStatusClearAt, UserStatusC
 
 abstract class UserStatusPredefined implements Built<UserStatusPredefined, UserStatusPredefinedBuilder> {
   factory UserStatusPredefined([final void Function(UserStatusPredefinedBuilder)? b]) = _$UserStatusPredefined;
-  const UserStatusPredefined._();
 
+  // coverage:ignore-start
+  const UserStatusPredefined._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory UserStatusPredefined.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   String get id;
   String get icon;
   String get message;
@@ -738,12 +821,19 @@ abstract class UserStatusPredefinedStatusFindAllResponse200ApplicationJson_Ocs
   factory UserStatusPredefinedStatusFindAllResponse200ApplicationJson_Ocs([
     final void Function(UserStatusPredefinedStatusFindAllResponse200ApplicationJson_OcsBuilder)? b,
   ]) = _$UserStatusPredefinedStatusFindAllResponse200ApplicationJson_Ocs;
-  const UserStatusPredefinedStatusFindAllResponse200ApplicationJson_Ocs._();
 
+  // coverage:ignore-start
+  const UserStatusPredefinedStatusFindAllResponse200ApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory UserStatusPredefinedStatusFindAllResponse200ApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   UserStatusOCSMeta get meta;
   BuiltList<UserStatusPredefined> get data;
   static Serializer<UserStatusPredefinedStatusFindAllResponse200ApplicationJson_Ocs> get serializer =>
@@ -757,12 +847,19 @@ abstract class UserStatusPredefinedStatusFindAllResponse200ApplicationJson
   factory UserStatusPredefinedStatusFindAllResponse200ApplicationJson([
     final void Function(UserStatusPredefinedStatusFindAllResponse200ApplicationJsonBuilder)? b,
   ]) = _$UserStatusPredefinedStatusFindAllResponse200ApplicationJson;
-  const UserStatusPredefinedStatusFindAllResponse200ApplicationJson._();
 
+  // coverage:ignore-start
+  const UserStatusPredefinedStatusFindAllResponse200ApplicationJson._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory UserStatusPredefinedStatusFindAllResponse200ApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   UserStatusPredefinedStatusFindAllResponse200ApplicationJson_Ocs get ocs;
   static Serializer<UserStatusPredefinedStatusFindAllResponse200ApplicationJson> get serializer =>
       _$userStatusPredefinedStatusFindAllResponse200ApplicationJsonSerializer;
@@ -775,12 +872,19 @@ abstract class UserStatusStatusesFindAllResponse200ApplicationJson_Ocs
   factory UserStatusStatusesFindAllResponse200ApplicationJson_Ocs([
     final void Function(UserStatusStatusesFindAllResponse200ApplicationJson_OcsBuilder)? b,
   ]) = _$UserStatusStatusesFindAllResponse200ApplicationJson_Ocs;
-  const UserStatusStatusesFindAllResponse200ApplicationJson_Ocs._();
 
+  // coverage:ignore-start
+  const UserStatusStatusesFindAllResponse200ApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory UserStatusStatusesFindAllResponse200ApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   UserStatusOCSMeta get meta;
   BuiltList<UserStatusPublic> get data;
   static Serializer<UserStatusStatusesFindAllResponse200ApplicationJson_Ocs> get serializer =>
@@ -794,12 +898,19 @@ abstract class UserStatusStatusesFindAllResponse200ApplicationJson
   factory UserStatusStatusesFindAllResponse200ApplicationJson([
     final void Function(UserStatusStatusesFindAllResponse200ApplicationJsonBuilder)? b,
   ]) = _$UserStatusStatusesFindAllResponse200ApplicationJson;
-  const UserStatusStatusesFindAllResponse200ApplicationJson._();
 
+  // coverage:ignore-start
+  const UserStatusStatusesFindAllResponse200ApplicationJson._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory UserStatusStatusesFindAllResponse200ApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   UserStatusStatusesFindAllResponse200ApplicationJson_Ocs get ocs;
   static Serializer<UserStatusStatusesFindAllResponse200ApplicationJson> get serializer =>
       _$userStatusStatusesFindAllResponse200ApplicationJsonSerializer;
@@ -812,12 +923,19 @@ abstract class UserStatusStatusesFindResponse200ApplicationJson_Ocs
   factory UserStatusStatusesFindResponse200ApplicationJson_Ocs([
     final void Function(UserStatusStatusesFindResponse200ApplicationJson_OcsBuilder)? b,
   ]) = _$UserStatusStatusesFindResponse200ApplicationJson_Ocs;
-  const UserStatusStatusesFindResponse200ApplicationJson_Ocs._();
 
+  // coverage:ignore-start
+  const UserStatusStatusesFindResponse200ApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory UserStatusStatusesFindResponse200ApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   UserStatusOCSMeta get meta;
   UserStatusPublic get data;
   static Serializer<UserStatusStatusesFindResponse200ApplicationJson_Ocs> get serializer =>
@@ -831,12 +949,19 @@ abstract class UserStatusStatusesFindResponse200ApplicationJson
   factory UserStatusStatusesFindResponse200ApplicationJson([
     final void Function(UserStatusStatusesFindResponse200ApplicationJsonBuilder)? b,
   ]) = _$UserStatusStatusesFindResponse200ApplicationJson;
-  const UserStatusStatusesFindResponse200ApplicationJson._();
 
+  // coverage:ignore-start
+  const UserStatusStatusesFindResponse200ApplicationJson._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory UserStatusStatusesFindResponse200ApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   UserStatusStatusesFindResponse200ApplicationJson_Ocs get ocs;
   static Serializer<UserStatusStatusesFindResponse200ApplicationJson> get serializer =>
       _$userStatusStatusesFindResponse200ApplicationJsonSerializer;
@@ -849,12 +974,19 @@ abstract class UserStatusUserStatusGetStatusResponse200ApplicationJson_Ocs
   factory UserStatusUserStatusGetStatusResponse200ApplicationJson_Ocs([
     final void Function(UserStatusUserStatusGetStatusResponse200ApplicationJson_OcsBuilder)? b,
   ]) = _$UserStatusUserStatusGetStatusResponse200ApplicationJson_Ocs;
-  const UserStatusUserStatusGetStatusResponse200ApplicationJson_Ocs._();
 
+  // coverage:ignore-start
+  const UserStatusUserStatusGetStatusResponse200ApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory UserStatusUserStatusGetStatusResponse200ApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   UserStatusOCSMeta get meta;
   UserStatusPrivate get data;
   static Serializer<UserStatusUserStatusGetStatusResponse200ApplicationJson_Ocs> get serializer =>
@@ -868,12 +1000,19 @@ abstract class UserStatusUserStatusGetStatusResponse200ApplicationJson
   factory UserStatusUserStatusGetStatusResponse200ApplicationJson([
     final void Function(UserStatusUserStatusGetStatusResponse200ApplicationJsonBuilder)? b,
   ]) = _$UserStatusUserStatusGetStatusResponse200ApplicationJson;
-  const UserStatusUserStatusGetStatusResponse200ApplicationJson._();
 
+  // coverage:ignore-start
+  const UserStatusUserStatusGetStatusResponse200ApplicationJson._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory UserStatusUserStatusGetStatusResponse200ApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   UserStatusUserStatusGetStatusResponse200ApplicationJson_Ocs get ocs;
   static Serializer<UserStatusUserStatusGetStatusResponse200ApplicationJson> get serializer =>
       _$userStatusUserStatusGetStatusResponse200ApplicationJsonSerializer;
@@ -886,12 +1025,19 @@ abstract class UserStatusUserStatusSetStatusResponse200ApplicationJson_Ocs
   factory UserStatusUserStatusSetStatusResponse200ApplicationJson_Ocs([
     final void Function(UserStatusUserStatusSetStatusResponse200ApplicationJson_OcsBuilder)? b,
   ]) = _$UserStatusUserStatusSetStatusResponse200ApplicationJson_Ocs;
-  const UserStatusUserStatusSetStatusResponse200ApplicationJson_Ocs._();
 
+  // coverage:ignore-start
+  const UserStatusUserStatusSetStatusResponse200ApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory UserStatusUserStatusSetStatusResponse200ApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   UserStatusOCSMeta get meta;
   UserStatusPrivate get data;
   static Serializer<UserStatusUserStatusSetStatusResponse200ApplicationJson_Ocs> get serializer =>
@@ -905,12 +1051,19 @@ abstract class UserStatusUserStatusSetStatusResponse200ApplicationJson
   factory UserStatusUserStatusSetStatusResponse200ApplicationJson([
     final void Function(UserStatusUserStatusSetStatusResponse200ApplicationJsonBuilder)? b,
   ]) = _$UserStatusUserStatusSetStatusResponse200ApplicationJson;
-  const UserStatusUserStatusSetStatusResponse200ApplicationJson._();
 
+  // coverage:ignore-start
+  const UserStatusUserStatusSetStatusResponse200ApplicationJson._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory UserStatusUserStatusSetStatusResponse200ApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   UserStatusUserStatusSetStatusResponse200ApplicationJson_Ocs get ocs;
   static Serializer<UserStatusUserStatusSetStatusResponse200ApplicationJson> get serializer =>
       _$userStatusUserStatusSetStatusResponse200ApplicationJsonSerializer;
@@ -923,14 +1076,21 @@ abstract class UserStatusUserStatusSetPredefinedMessageResponse200ApplicationJso
   factory UserStatusUserStatusSetPredefinedMessageResponse200ApplicationJson_Ocs([
     final void Function(UserStatusUserStatusSetPredefinedMessageResponse200ApplicationJson_OcsBuilder)? b,
   ]) = _$UserStatusUserStatusSetPredefinedMessageResponse200ApplicationJson_Ocs;
-  const UserStatusUserStatusSetPredefinedMessageResponse200ApplicationJson_Ocs._();
 
+  // coverage:ignore-start
+  const UserStatusUserStatusSetPredefinedMessageResponse200ApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory UserStatusUserStatusSetPredefinedMessageResponse200ApplicationJson_Ocs.fromJson(
     final Map<String, dynamic> json,
   ) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   UserStatusOCSMeta get meta;
   UserStatusPrivate get data;
   static Serializer<UserStatusUserStatusSetPredefinedMessageResponse200ApplicationJson_Ocs> get serializer =>
@@ -944,14 +1104,21 @@ abstract class UserStatusUserStatusSetPredefinedMessageResponse200ApplicationJso
   factory UserStatusUserStatusSetPredefinedMessageResponse200ApplicationJson([
     final void Function(UserStatusUserStatusSetPredefinedMessageResponse200ApplicationJsonBuilder)? b,
   ]) = _$UserStatusUserStatusSetPredefinedMessageResponse200ApplicationJson;
-  const UserStatusUserStatusSetPredefinedMessageResponse200ApplicationJson._();
 
+  // coverage:ignore-start
+  const UserStatusUserStatusSetPredefinedMessageResponse200ApplicationJson._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory UserStatusUserStatusSetPredefinedMessageResponse200ApplicationJson.fromJson(
     final Map<String, dynamic> json,
   ) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   UserStatusUserStatusSetPredefinedMessageResponse200ApplicationJson_Ocs get ocs;
   static Serializer<UserStatusUserStatusSetPredefinedMessageResponse200ApplicationJson> get serializer =>
       _$userStatusUserStatusSetPredefinedMessageResponse200ApplicationJsonSerializer;
@@ -964,14 +1131,21 @@ abstract class UserStatusUserStatusSetCustomMessageResponse200ApplicationJson_Oc
   factory UserStatusUserStatusSetCustomMessageResponse200ApplicationJson_Ocs([
     final void Function(UserStatusUserStatusSetCustomMessageResponse200ApplicationJson_OcsBuilder)? b,
   ]) = _$UserStatusUserStatusSetCustomMessageResponse200ApplicationJson_Ocs;
-  const UserStatusUserStatusSetCustomMessageResponse200ApplicationJson_Ocs._();
 
+  // coverage:ignore-start
+  const UserStatusUserStatusSetCustomMessageResponse200ApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory UserStatusUserStatusSetCustomMessageResponse200ApplicationJson_Ocs.fromJson(
     final Map<String, dynamic> json,
   ) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   UserStatusOCSMeta get meta;
   UserStatusPrivate get data;
   static Serializer<UserStatusUserStatusSetCustomMessageResponse200ApplicationJson_Ocs> get serializer =>
@@ -985,12 +1159,19 @@ abstract class UserStatusUserStatusSetCustomMessageResponse200ApplicationJson
   factory UserStatusUserStatusSetCustomMessageResponse200ApplicationJson([
     final void Function(UserStatusUserStatusSetCustomMessageResponse200ApplicationJsonBuilder)? b,
   ]) = _$UserStatusUserStatusSetCustomMessageResponse200ApplicationJson;
-  const UserStatusUserStatusSetCustomMessageResponse200ApplicationJson._();
 
+  // coverage:ignore-start
+  const UserStatusUserStatusSetCustomMessageResponse200ApplicationJson._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory UserStatusUserStatusSetCustomMessageResponse200ApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   UserStatusUserStatusSetCustomMessageResponse200ApplicationJson_Ocs get ocs;
   static Serializer<UserStatusUserStatusSetCustomMessageResponse200ApplicationJson> get serializer =>
       _$userStatusUserStatusSetCustomMessageResponse200ApplicationJsonSerializer;
@@ -1003,12 +1184,19 @@ abstract class UserStatusUserStatusClearMessageResponse200ApplicationJson_Ocs
   factory UserStatusUserStatusClearMessageResponse200ApplicationJson_Ocs([
     final void Function(UserStatusUserStatusClearMessageResponse200ApplicationJson_OcsBuilder)? b,
   ]) = _$UserStatusUserStatusClearMessageResponse200ApplicationJson_Ocs;
-  const UserStatusUserStatusClearMessageResponse200ApplicationJson_Ocs._();
 
+  // coverage:ignore-start
+  const UserStatusUserStatusClearMessageResponse200ApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory UserStatusUserStatusClearMessageResponse200ApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   UserStatusOCSMeta get meta;
   JsonObject get data;
   static Serializer<UserStatusUserStatusClearMessageResponse200ApplicationJson_Ocs> get serializer =>
@@ -1022,12 +1210,19 @@ abstract class UserStatusUserStatusClearMessageResponse200ApplicationJson
   factory UserStatusUserStatusClearMessageResponse200ApplicationJson([
     final void Function(UserStatusUserStatusClearMessageResponse200ApplicationJsonBuilder)? b,
   ]) = _$UserStatusUserStatusClearMessageResponse200ApplicationJson;
-  const UserStatusUserStatusClearMessageResponse200ApplicationJson._();
 
+  // coverage:ignore-start
+  const UserStatusUserStatusClearMessageResponse200ApplicationJson._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory UserStatusUserStatusClearMessageResponse200ApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   UserStatusUserStatusClearMessageResponse200ApplicationJson_Ocs get ocs;
   static Serializer<UserStatusUserStatusClearMessageResponse200ApplicationJson> get serializer =>
       _$userStatusUserStatusClearMessageResponse200ApplicationJsonSerializer;
@@ -1037,9 +1232,12 @@ abstract class UserStatusUserStatusRevertStatusResponse200ApplicationJson_Ocs_Da
     implements
         Built<UserStatusUserStatusRevertStatusResponse200ApplicationJson_Ocs_Data,
             UserStatusUserStatusRevertStatusResponse200ApplicationJson_Ocs_DataBuilder> {
+  // coverage:ignore-end
+
   factory UserStatusUserStatusRevertStatusResponse200ApplicationJson_Ocs_Data([
     final void Function(UserStatusUserStatusRevertStatusResponse200ApplicationJson_Ocs_DataBuilder)? b,
   ]) = _$UserStatusUserStatusRevertStatusResponse200ApplicationJson_Ocs_Data;
+  // coverage:ignore-start
   const UserStatusUserStatusRevertStatusResponse200ApplicationJson_Ocs_Data._();
 
   JsonObject get data;
@@ -1047,7 +1245,9 @@ abstract class UserStatusUserStatusRevertStatusResponse200ApplicationJson_Ocs_Da
   JsonObject? get jsonObject;
   static UserStatusUserStatusRevertStatusResponse200ApplicationJson_Ocs_Data fromJson(final Object json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   @BuiltValueSerializer(custom: true)
   static Serializer<UserStatusUserStatusRevertStatusResponse200ApplicationJson_Ocs_Data> get serializer =>
       _$UserStatusUserStatusRevertStatusResponse200ApplicationJson_Ocs_DataSerializer();
@@ -1103,12 +1303,19 @@ abstract class UserStatusUserStatusRevertStatusResponse200ApplicationJson_Ocs
   factory UserStatusUserStatusRevertStatusResponse200ApplicationJson_Ocs([
     final void Function(UserStatusUserStatusRevertStatusResponse200ApplicationJson_OcsBuilder)? b,
   ]) = _$UserStatusUserStatusRevertStatusResponse200ApplicationJson_Ocs;
-  const UserStatusUserStatusRevertStatusResponse200ApplicationJson_Ocs._();
 
+  // coverage:ignore-start
+  const UserStatusUserStatusRevertStatusResponse200ApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory UserStatusUserStatusRevertStatusResponse200ApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   UserStatusOCSMeta get meta;
   UserStatusUserStatusRevertStatusResponse200ApplicationJson_Ocs_Data get data;
   static Serializer<UserStatusUserStatusRevertStatusResponse200ApplicationJson_Ocs> get serializer =>
@@ -1122,12 +1329,19 @@ abstract class UserStatusUserStatusRevertStatusResponse200ApplicationJson
   factory UserStatusUserStatusRevertStatusResponse200ApplicationJson([
     final void Function(UserStatusUserStatusRevertStatusResponse200ApplicationJsonBuilder)? b,
   ]) = _$UserStatusUserStatusRevertStatusResponse200ApplicationJson;
-  const UserStatusUserStatusRevertStatusResponse200ApplicationJson._();
 
+  // coverage:ignore-start
+  const UserStatusUserStatusRevertStatusResponse200ApplicationJson._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory UserStatusUserStatusRevertStatusResponse200ApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   UserStatusUserStatusRevertStatusResponse200ApplicationJson_Ocs get ocs;
   static Serializer<UserStatusUserStatusRevertStatusResponse200ApplicationJson> get serializer =>
       _$userStatusUserStatusRevertStatusResponse200ApplicationJsonSerializer;
@@ -1137,12 +1351,19 @@ abstract class UserStatusCapabilities_UserStatus
     implements Built<UserStatusCapabilities_UserStatus, UserStatusCapabilities_UserStatusBuilder> {
   factory UserStatusCapabilities_UserStatus([final void Function(UserStatusCapabilities_UserStatusBuilder)? b]) =
       _$UserStatusCapabilities_UserStatus;
-  const UserStatusCapabilities_UserStatus._();
 
+  // coverage:ignore-start
+  const UserStatusCapabilities_UserStatus._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory UserStatusCapabilities_UserStatus.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   bool get enabled;
   bool get restore;
   @BuiltValueField(wireName: 'supports_emoji')
@@ -1152,17 +1373,25 @@ abstract class UserStatusCapabilities_UserStatus
 
 abstract class UserStatusCapabilities implements Built<UserStatusCapabilities, UserStatusCapabilitiesBuilder> {
   factory UserStatusCapabilities([final void Function(UserStatusCapabilitiesBuilder)? b]) = _$UserStatusCapabilities;
-  const UserStatusCapabilities._();
 
+  // coverage:ignore-start
+  const UserStatusCapabilities._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory UserStatusCapabilities.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   @BuiltValueField(wireName: 'user_status')
   UserStatusCapabilities_UserStatus get userStatus;
   static Serializer<UserStatusCapabilities> get serializer => _$userStatusCapabilitiesSerializer;
 }
 
+// coverage:ignore-start
 final Serializers _serializers = (Serializers().toBuilder()
       ..addBuilderFactory(
         const FullType(UserStatusHeartbeatHeartbeatResponse200ApplicationJson),
@@ -1303,7 +1532,6 @@ final Serializers _jsonSerializers = (_serializers.toBuilder()
       ..addPlugin(const ContentStringPlugin()))
     .build();
 
-// coverage:ignore-start
 T deserializeUserStatus<T>(final Object data) => _serializers.deserialize(data, specifiedType: FullType(T))! as T;
 
 Object? serializeUserStatus<T>(final T data) => _serializers.serialize(data, specifiedType: FullType(T));

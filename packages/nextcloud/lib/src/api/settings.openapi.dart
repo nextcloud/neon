@@ -89,6 +89,7 @@ class SettingsLogSettingsClient {
       'Accept': 'application/octet-stream',
     };
     Uint8List? body;
+    // coverage:ignore-start
     if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
         rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
@@ -97,8 +98,9 @@ class SettingsLogSettingsClient {
       headers
           .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
     } else {
-      throw Exception('Missing authentication for bearer_auth or basic_auth'); // coverage:ignore-line
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
+    // coverage:ignore-end
     final response = await rootClient.doRequest(
       'get',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
@@ -124,12 +126,19 @@ abstract class SettingsLogSettingsLogSettingsDownloadHeaders
   factory SettingsLogSettingsLogSettingsDownloadHeaders([
     final void Function(SettingsLogSettingsLogSettingsDownloadHeadersBuilder)? b,
   ]) = _$SettingsLogSettingsLogSettingsDownloadHeaders;
-  const SettingsLogSettingsLogSettingsDownloadHeaders._();
 
+  // coverage:ignore-start
+  const SettingsLogSettingsLogSettingsDownloadHeaders._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory SettingsLogSettingsLogSettingsDownloadHeaders.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   @BuiltValueField(wireName: 'content-disposition')
   String? get contentDisposition;
   @BuiltValueSerializer(custom: true)
@@ -181,6 +190,7 @@ class _$SettingsLogSettingsLogSettingsDownloadHeadersSerializer
   }
 }
 
+// coverage:ignore-start
 final Serializers _serializers = (Serializers().toBuilder()
       ..addBuilderFactory(
         const FullType(SettingsLogSettingsLogSettingsDownloadHeaders),
@@ -196,7 +206,6 @@ final Serializers _jsonSerializers = (_serializers.toBuilder()
       ..addPlugin(const ContentStringPlugin()))
     .build();
 
-// coverage:ignore-start
 T deserializeSettings<T>(final Object data) => _serializers.deserialize(data, specifiedType: FullType(T))! as T;
 
 Object? serializeSettings<T>(final T data) => _serializers.serialize(data, specifiedType: FullType(T));

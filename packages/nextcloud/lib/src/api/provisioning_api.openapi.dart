@@ -97,6 +97,7 @@ class ProvisioningApiAppConfigClient {
       'Accept': 'application/json',
     };
     Uint8List? body;
+    // coverage:ignore-start
     if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
         rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
@@ -105,8 +106,9 @@ class ProvisioningApiAppConfigClient {
       headers
           .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
     } else {
-      throw Exception('Missing authentication for bearer_auth or basic_auth'); // coverage:ignore-line
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
+    // coverage:ignore-end
     headers['OCS-APIRequest'] = oCSAPIRequest;
     final response = await rootClient.doRequest(
       'get',
@@ -136,6 +138,7 @@ class ProvisioningApiAppConfigClient {
       'Accept': 'application/json',
     };
     Uint8List? body;
+    // coverage:ignore-start
     if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
         rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
@@ -144,8 +147,9 @@ class ProvisioningApiAppConfigClient {
       headers
           .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
     } else {
-      throw Exception('Missing authentication for bearer_auth or basic_auth'); // coverage:ignore-line
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
+    // coverage:ignore-end
     path = path.replaceAll('{app}', Uri.encodeQueryComponent(app));
     headers['OCS-APIRequest'] = oCSAPIRequest;
     final response = await rootClient.doRequest(
@@ -178,6 +182,7 @@ class ProvisioningApiAppConfigClient {
       'Accept': 'application/json',
     };
     Uint8List? body;
+    // coverage:ignore-start
     if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
         rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
@@ -186,8 +191,9 @@ class ProvisioningApiAppConfigClient {
       headers
           .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
     } else {
-      throw Exception('Missing authentication for bearer_auth or basic_auth'); // coverage:ignore-line
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
+    // coverage:ignore-end
     path = path.replaceAll('{app}', Uri.encodeQueryComponent(app));
     path = path.replaceAll('{key}', Uri.encodeQueryComponent(key));
     if (defaultValue != '') {
@@ -222,6 +228,7 @@ class ProvisioningApiAppConfigClient {
       'Accept': 'application/json',
     };
     Uint8List? body;
+    // coverage:ignore-start
     if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
         rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
@@ -230,8 +237,9 @@ class ProvisioningApiAppConfigClient {
       headers
           .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
     } else {
-      throw Exception('Missing authentication for bearer_auth or basic_auth'); // coverage:ignore-line
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
+    // coverage:ignore-end
     queryParameters['value'] = value;
     path = path.replaceAll('{app}', Uri.encodeQueryComponent(app));
     path = path.replaceAll('{key}', Uri.encodeQueryComponent(key));
@@ -265,6 +273,7 @@ class ProvisioningApiAppConfigClient {
       'Accept': 'application/json',
     };
     Uint8List? body;
+    // coverage:ignore-start
     if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
         rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
@@ -273,8 +282,9 @@ class ProvisioningApiAppConfigClient {
       headers
           .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
     } else {
-      throw Exception('Missing authentication for bearer_auth or basic_auth'); // coverage:ignore-line
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
+    // coverage:ignore-end
     path = path.replaceAll('{app}', Uri.encodeQueryComponent(app));
     path = path.replaceAll('{key}', Uri.encodeQueryComponent(key));
     headers['OCS-APIRequest'] = oCSAPIRequest;
@@ -312,6 +322,7 @@ class ProvisioningApiAppsClient {
       'Accept': 'application/json',
     };
     Uint8List? body;
+    // coverage:ignore-start
     if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
         rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
@@ -320,8 +331,9 @@ class ProvisioningApiAppsClient {
       headers
           .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
     } else {
-      throw Exception('Missing authentication for bearer_auth or basic_auth'); // coverage:ignore-line
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
+    // coverage:ignore-end
     if (filter != null) {
       queryParameters['filter'] = filter;
     }
@@ -354,6 +366,7 @@ class ProvisioningApiAppsClient {
       'Accept': 'application/json',
     };
     Uint8List? body;
+    // coverage:ignore-start
     if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
         rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
@@ -362,8 +375,9 @@ class ProvisioningApiAppsClient {
       headers
           .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
     } else {
-      throw Exception('Missing authentication for bearer_auth or basic_auth'); // coverage:ignore-line
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
+    // coverage:ignore-end
     path = path.replaceAll('{app}', Uri.encodeQueryComponent(app));
     headers['OCS-APIRequest'] = oCSAPIRequest;
     final response = await rootClient.doRequest(
@@ -394,6 +408,7 @@ class ProvisioningApiAppsClient {
       'Accept': 'application/json',
     };
     Uint8List? body;
+    // coverage:ignore-start
     if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
         rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
@@ -402,8 +417,9 @@ class ProvisioningApiAppsClient {
       headers
           .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
     } else {
-      throw Exception('Missing authentication for bearer_auth or basic_auth'); // coverage:ignore-line
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
+    // coverage:ignore-end
     path = path.replaceAll('{app}', Uri.encodeQueryComponent(app));
     headers['OCS-APIRequest'] = oCSAPIRequest;
     final response = await rootClient.doRequest(
@@ -434,6 +450,7 @@ class ProvisioningApiAppsClient {
       'Accept': 'application/json',
     };
     Uint8List? body;
+    // coverage:ignore-start
     if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
         rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
@@ -442,8 +459,9 @@ class ProvisioningApiAppsClient {
       headers
           .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
     } else {
-      throw Exception('Missing authentication for bearer_auth or basic_auth'); // coverage:ignore-line
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
+    // coverage:ignore-end
     path = path.replaceAll('{app}', Uri.encodeQueryComponent(app));
     headers['OCS-APIRequest'] = oCSAPIRequest;
     final response = await rootClient.doRequest(
@@ -480,6 +498,7 @@ class ProvisioningApiGroupsClient {
       'Accept': 'application/json',
     };
     Uint8List? body;
+    // coverage:ignore-start
     if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
         rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
@@ -488,8 +507,9 @@ class ProvisioningApiGroupsClient {
       headers
           .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
     } else {
-      throw Exception('Missing authentication for bearer_auth or basic_auth'); // coverage:ignore-line
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
+    // coverage:ignore-end
     if (search != '') {
       queryParameters['search'] = search;
     }
@@ -529,6 +549,7 @@ class ProvisioningApiGroupsClient {
       'Accept': 'application/json',
     };
     Uint8List? body;
+    // coverage:ignore-start
     if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
         rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
@@ -537,8 +558,9 @@ class ProvisioningApiGroupsClient {
       headers
           .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
     } else {
-      throw Exception('Missing authentication for bearer_auth or basic_auth'); // coverage:ignore-line
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
+    // coverage:ignore-end
     queryParameters['groupid'] = groupid;
     if (displayname != '') {
       queryParameters['displayname'] = displayname;
@@ -572,6 +594,7 @@ class ProvisioningApiGroupsClient {
       'Accept': 'application/json',
     };
     Uint8List? body;
+    // coverage:ignore-start
     if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
         rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
@@ -580,8 +603,9 @@ class ProvisioningApiGroupsClient {
       headers
           .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
     } else {
-      throw Exception('Missing authentication for bearer_auth or basic_auth'); // coverage:ignore-line
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
+    // coverage:ignore-end
     if (search != '') {
       queryParameters['search'] = search;
     }
@@ -618,6 +642,7 @@ class ProvisioningApiGroupsClient {
       'Accept': 'application/json',
     };
     Uint8List? body;
+    // coverage:ignore-start
     if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
         rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
@@ -626,8 +651,9 @@ class ProvisioningApiGroupsClient {
       headers
           .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
     } else {
-      throw Exception('Missing authentication for bearer_auth or basic_auth'); // coverage:ignore-line
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
+    // coverage:ignore-end
     if (!RegExp(r'^.+$').hasMatch(groupId)) {
       throw Exception(
         'Invalid value "$groupId" for parameter "groupId" with pattern "${r'^.+$'}"',
@@ -664,6 +690,7 @@ class ProvisioningApiGroupsClient {
       'Accept': 'application/json',
     };
     Uint8List? body;
+    // coverage:ignore-start
     if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
         rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
@@ -672,8 +699,9 @@ class ProvisioningApiGroupsClient {
       headers
           .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
     } else {
-      throw Exception('Missing authentication for bearer_auth or basic_auth'); // coverage:ignore-line
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
+    // coverage:ignore-end
     if (!RegExp(r'^.+$').hasMatch(groupId)) {
       throw Exception(
         'Invalid value "$groupId" for parameter "groupId" with pattern "${r'^.+$'}"',
@@ -718,6 +746,7 @@ class ProvisioningApiGroupsClient {
       'Accept': 'application/json',
     };
     Uint8List? body;
+    // coverage:ignore-start
     if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
         rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
@@ -726,8 +755,9 @@ class ProvisioningApiGroupsClient {
       headers
           .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
     } else {
-      throw Exception('Missing authentication for bearer_auth or basic_auth'); // coverage:ignore-line
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
+    // coverage:ignore-end
     if (!RegExp(r'^.+$').hasMatch(groupId)) {
       throw Exception(
         'Invalid value "$groupId" for parameter "groupId" with pattern "${r'^.+$'}"',
@@ -762,6 +792,7 @@ class ProvisioningApiGroupsClient {
       'Accept': 'application/json',
     };
     Uint8List? body;
+    // coverage:ignore-start
     if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
         rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
@@ -770,8 +801,9 @@ class ProvisioningApiGroupsClient {
       headers
           .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
     } else {
-      throw Exception('Missing authentication for bearer_auth or basic_auth'); // coverage:ignore-line
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
+    // coverage:ignore-end
     if (!RegExp(r'^.+$').hasMatch(groupId)) {
       throw Exception(
         'Invalid value "$groupId" for parameter "groupId" with pattern "${r'^.+$'}"',
@@ -809,6 +841,7 @@ class ProvisioningApiGroupsClient {
       'Accept': 'application/json',
     };
     Uint8List? body;
+    // coverage:ignore-start
     if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
         rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
@@ -817,8 +850,9 @@ class ProvisioningApiGroupsClient {
       headers
           .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
     } else {
-      throw Exception('Missing authentication for bearer_auth or basic_auth'); // coverage:ignore-line
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
+    // coverage:ignore-end
     queryParameters['key'] = key;
     queryParameters['value'] = value;
     if (!RegExp(r'^.+$').hasMatch(groupId)) {
@@ -856,6 +890,7 @@ class ProvisioningApiGroupsClient {
       'Accept': 'application/json',
     };
     Uint8List? body;
+    // coverage:ignore-start
     if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
         rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
@@ -864,8 +899,9 @@ class ProvisioningApiGroupsClient {
       headers
           .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
     } else {
-      throw Exception('Missing authentication for bearer_auth or basic_auth'); // coverage:ignore-line
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
+    // coverage:ignore-end
     if (!RegExp(r'^.+$').hasMatch(groupId)) {
       throw Exception(
         'Invalid value "$groupId" for parameter "groupId" with pattern "${r'^.+$'}"',
@@ -907,6 +943,7 @@ class ProvisioningApiPreferencesClient {
       'Accept': 'application/json',
     };
     Uint8List? body;
+    // coverage:ignore-start
     if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
         rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
@@ -915,8 +952,9 @@ class ProvisioningApiPreferencesClient {
       headers
           .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
     } else {
-      throw Exception('Missing authentication for bearer_auth or basic_auth'); // coverage:ignore-line
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
+    // coverage:ignore-end
     queryParameters['configValue'] = configValue;
     path = path.replaceAll('{appId}', Uri.encodeQueryComponent(appId));
     path = path.replaceAll('{configKey}', Uri.encodeQueryComponent(configKey));
@@ -948,6 +986,7 @@ class ProvisioningApiPreferencesClient {
       'Accept': 'application/json',
     };
     Uint8List? body;
+    // coverage:ignore-start
     if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
         rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
@@ -956,8 +995,9 @@ class ProvisioningApiPreferencesClient {
       headers
           .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
     } else {
-      throw Exception('Missing authentication for bearer_auth or basic_auth'); // coverage:ignore-line
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
+    // coverage:ignore-end
     path = path.replaceAll('{appId}', Uri.encodeQueryComponent(appId));
     path = path.replaceAll('{configKey}', Uri.encodeQueryComponent(configKey));
     headers['OCS-APIRequest'] = oCSAPIRequest;
@@ -988,6 +1028,7 @@ class ProvisioningApiPreferencesClient {
       'Accept': 'application/json',
     };
     Uint8List? body;
+    // coverage:ignore-start
     if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
         rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
@@ -996,8 +1037,9 @@ class ProvisioningApiPreferencesClient {
       headers
           .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
     } else {
-      throw Exception('Missing authentication for bearer_auth or basic_auth'); // coverage:ignore-line
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
+    // coverage:ignore-end
     queryParameters['configs'] = _jsonSerializers.serialize(
       configs,
       specifiedType: const FullType(ContentString, [
@@ -1033,6 +1075,7 @@ class ProvisioningApiPreferencesClient {
       'Accept': 'application/json',
     };
     Uint8List? body;
+    // coverage:ignore-start
     if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
         rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
@@ -1041,8 +1084,9 @@ class ProvisioningApiPreferencesClient {
       headers
           .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
     } else {
-      throw Exception('Missing authentication for bearer_auth or basic_auth'); // coverage:ignore-line
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
+    // coverage:ignore-end
     queryParameters['configKeys[]'] = configKeys.map((final e) => e);
     path = path.replaceAll('{appId}', Uri.encodeQueryComponent(appId));
     headers['OCS-APIRequest'] = oCSAPIRequest;
@@ -1080,6 +1124,7 @@ class ProvisioningApiUsersClient {
       'Accept': 'application/json',
     };
     Uint8List? body;
+    // coverage:ignore-start
     if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
         rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
@@ -1088,8 +1133,9 @@ class ProvisioningApiUsersClient {
       headers
           .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
     } else {
-      throw Exception('Missing authentication for bearer_auth or basic_auth'); // coverage:ignore-line
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
+    // coverage:ignore-end
     if (search != '') {
       queryParameters['search'] = search;
     }
@@ -1134,6 +1180,7 @@ class ProvisioningApiUsersClient {
       'Accept': 'application/json',
     };
     Uint8List? body;
+    // coverage:ignore-start
     if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
         rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
@@ -1142,8 +1189,9 @@ class ProvisioningApiUsersClient {
       headers
           .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
     } else {
-      throw Exception('Missing authentication for bearer_auth or basic_auth'); // coverage:ignore-line
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
+    // coverage:ignore-end
     queryParameters['userid'] = userid;
     if (password != '') {
       queryParameters['password'] = password;
@@ -1198,6 +1246,7 @@ class ProvisioningApiUsersClient {
       'Accept': 'application/json',
     };
     Uint8List? body;
+    // coverage:ignore-start
     if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
         rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
@@ -1206,8 +1255,9 @@ class ProvisioningApiUsersClient {
       headers
           .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
     } else {
-      throw Exception('Missing authentication for bearer_auth or basic_auth'); // coverage:ignore-line
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
+    // coverage:ignore-end
     if (search != '') {
       queryParameters['search'] = search;
     }
@@ -1245,6 +1295,7 @@ class ProvisioningApiUsersClient {
       'Accept': 'application/json',
     };
     Uint8List? body;
+    // coverage:ignore-start
     if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
         rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
@@ -1253,8 +1304,9 @@ class ProvisioningApiUsersClient {
       headers
           .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
     } else {
-      throw Exception('Missing authentication for bearer_auth or basic_auth'); // coverage:ignore-line
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
+    // coverage:ignore-end
     queryParameters['location'] = location;
     queryParameters['search'] = _jsonSerializers.serialize(
       search,
@@ -1292,6 +1344,7 @@ class ProvisioningApiUsersClient {
       'Accept': 'application/json',
     };
     Uint8List? body;
+    // coverage:ignore-start
     if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
         rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
@@ -1300,8 +1353,9 @@ class ProvisioningApiUsersClient {
       headers
           .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
     } else {
-      throw Exception('Missing authentication for bearer_auth or basic_auth'); // coverage:ignore-line
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
+    // coverage:ignore-end
     path = path.replaceAll('{userId}', Uri.encodeQueryComponent(userId));
     headers['OCS-APIRequest'] = oCSAPIRequest;
     final response = await rootClient.doRequest(
@@ -1332,6 +1386,7 @@ class ProvisioningApiUsersClient {
       'Accept': 'application/json',
     };
     Uint8List? body;
+    // coverage:ignore-start
     if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
         rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
@@ -1340,8 +1395,9 @@ class ProvisioningApiUsersClient {
       headers
           .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
     } else {
-      throw Exception('Missing authentication for bearer_auth or basic_auth'); // coverage:ignore-line
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
+    // coverage:ignore-end
     queryParameters['key'] = key;
     queryParameters['value'] = value;
     path = path.replaceAll('{userId}', Uri.encodeQueryComponent(userId));
@@ -1372,6 +1428,7 @@ class ProvisioningApiUsersClient {
       'Accept': 'application/json',
     };
     Uint8List? body;
+    // coverage:ignore-start
     if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
         rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
@@ -1380,8 +1437,9 @@ class ProvisioningApiUsersClient {
       headers
           .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
     } else {
-      throw Exception('Missing authentication for bearer_auth or basic_auth'); // coverage:ignore-line
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
+    // coverage:ignore-end
     path = path.replaceAll('{userId}', Uri.encodeQueryComponent(userId));
     headers['OCS-APIRequest'] = oCSAPIRequest;
     final response = await rootClient.doRequest(
@@ -1409,6 +1467,7 @@ class ProvisioningApiUsersClient {
       'Accept': 'application/json',
     };
     Uint8List? body;
+    // coverage:ignore-start
     if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
         rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
@@ -1417,8 +1476,9 @@ class ProvisioningApiUsersClient {
       headers
           .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
     } else {
-      throw Exception('Missing authentication for bearer_auth or basic_auth'); // coverage:ignore-line
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
+    // coverage:ignore-end
     headers['OCS-APIRequest'] = oCSAPIRequest;
     final response = await rootClient.doRequest(
       'get',
@@ -1445,6 +1505,7 @@ class ProvisioningApiUsersClient {
       'Accept': 'application/json',
     };
     Uint8List? body;
+    // coverage:ignore-start
     if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
         rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
@@ -1453,8 +1514,9 @@ class ProvisioningApiUsersClient {
       headers
           .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
     } else {
-      throw Exception('Missing authentication for bearer_auth or basic_auth'); // coverage:ignore-line
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
+    // coverage:ignore-end
     headers['OCS-APIRequest'] = oCSAPIRequest;
     final response = await rootClient.doRequest(
       'get',
@@ -1482,6 +1544,7 @@ class ProvisioningApiUsersClient {
       'Accept': 'application/json',
     };
     Uint8List? body;
+    // coverage:ignore-start
     if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
         rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
@@ -1490,8 +1553,9 @@ class ProvisioningApiUsersClient {
       headers
           .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
     } else {
-      throw Exception('Missing authentication for bearer_auth or basic_auth'); // coverage:ignore-line
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
+    // coverage:ignore-end
     path = path.replaceAll('{userId}', Uri.encodeQueryComponent(userId));
     headers['OCS-APIRequest'] = oCSAPIRequest;
     final response = await rootClient.doRequest(
@@ -1523,6 +1587,7 @@ class ProvisioningApiUsersClient {
       'Accept': 'application/json',
     };
     Uint8List? body;
+    // coverage:ignore-start
     if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
         rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
@@ -1531,8 +1596,9 @@ class ProvisioningApiUsersClient {
       headers
           .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
     } else {
-      throw Exception('Missing authentication for bearer_auth or basic_auth'); // coverage:ignore-line
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
+    // coverage:ignore-end
     queryParameters['key'] = key;
     queryParameters['value'] = value;
     path = path.replaceAll('{userId}', Uri.encodeQueryComponent(userId));
@@ -1569,6 +1635,7 @@ class ProvisioningApiUsersClient {
       'Accept': 'application/json',
     };
     Uint8List? body;
+    // coverage:ignore-start
     if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
         rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
@@ -1577,8 +1644,9 @@ class ProvisioningApiUsersClient {
       headers
           .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
     } else {
-      throw Exception('Missing authentication for bearer_auth or basic_auth'); // coverage:ignore-line
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
+    // coverage:ignore-end
     path = path.replaceAll('{userId}', Uri.encodeQueryComponent(userId));
     headers['OCS-APIRequest'] = oCSAPIRequest;
     final response = await rootClient.doRequest(
@@ -1607,6 +1675,7 @@ class ProvisioningApiUsersClient {
       'Accept': 'application/json',
     };
     Uint8List? body;
+    // coverage:ignore-start
     if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
         rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
@@ -1615,8 +1684,9 @@ class ProvisioningApiUsersClient {
       headers
           .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
     } else {
-      throw Exception('Missing authentication for bearer_auth or basic_auth'); // coverage:ignore-line
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
+    // coverage:ignore-end
     path = path.replaceAll('{userId}', Uri.encodeQueryComponent(userId));
     headers['OCS-APIRequest'] = oCSAPIRequest;
     final response = await rootClient.doRequest(
@@ -1645,6 +1715,7 @@ class ProvisioningApiUsersClient {
       'Accept': 'application/json',
     };
     Uint8List? body;
+    // coverage:ignore-start
     if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
         rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
@@ -1653,8 +1724,9 @@ class ProvisioningApiUsersClient {
       headers
           .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
     } else {
-      throw Exception('Missing authentication for bearer_auth or basic_auth'); // coverage:ignore-line
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
+    // coverage:ignore-end
     path = path.replaceAll('{userId}', Uri.encodeQueryComponent(userId));
     headers['OCS-APIRequest'] = oCSAPIRequest;
     final response = await rootClient.doRequest(
@@ -1683,6 +1755,7 @@ class ProvisioningApiUsersClient {
       'Accept': 'application/json',
     };
     Uint8List? body;
+    // coverage:ignore-start
     if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
         rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
@@ -1691,8 +1764,9 @@ class ProvisioningApiUsersClient {
       headers
           .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
     } else {
-      throw Exception('Missing authentication for bearer_auth or basic_auth'); // coverage:ignore-line
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
+    // coverage:ignore-end
     path = path.replaceAll('{userId}', Uri.encodeQueryComponent(userId));
     headers['OCS-APIRequest'] = oCSAPIRequest;
     final response = await rootClient.doRequest(
@@ -1722,6 +1796,7 @@ class ProvisioningApiUsersClient {
       'Accept': 'application/json',
     };
     Uint8List? body;
+    // coverage:ignore-start
     if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
         rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
@@ -1730,8 +1805,9 @@ class ProvisioningApiUsersClient {
       headers
           .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
     } else {
-      throw Exception('Missing authentication for bearer_auth or basic_auth'); // coverage:ignore-line
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
+    // coverage:ignore-end
     path = path.replaceAll('{userId}', Uri.encodeQueryComponent(userId));
     if (groupid != '') {
       queryParameters['groupid'] = groupid;
@@ -1764,6 +1840,7 @@ class ProvisioningApiUsersClient {
       'Accept': 'application/json',
     };
     Uint8List? body;
+    // coverage:ignore-start
     if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
         rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
@@ -1772,8 +1849,9 @@ class ProvisioningApiUsersClient {
       headers
           .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
     } else {
-      throw Exception('Missing authentication for bearer_auth or basic_auth'); // coverage:ignore-line
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
+    // coverage:ignore-end
     queryParameters['groupid'] = groupid;
     path = path.replaceAll('{userId}', Uri.encodeQueryComponent(userId));
     headers['OCS-APIRequest'] = oCSAPIRequest;
@@ -1805,6 +1883,7 @@ class ProvisioningApiUsersClient {
       'Accept': 'application/json',
     };
     Uint8List? body;
+    // coverage:ignore-start
     if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
         rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
@@ -1813,8 +1892,9 @@ class ProvisioningApiUsersClient {
       headers
           .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
     } else {
-      throw Exception('Missing authentication for bearer_auth or basic_auth'); // coverage:ignore-line
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
+    // coverage:ignore-end
     path = path.replaceAll('{userId}', Uri.encodeQueryComponent(userId));
     headers['OCS-APIRequest'] = oCSAPIRequest;
     final response = await rootClient.doRequest(
@@ -1846,6 +1926,7 @@ class ProvisioningApiUsersClient {
       'Accept': 'application/json',
     };
     Uint8List? body;
+    // coverage:ignore-start
     if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
         rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
@@ -1854,8 +1935,9 @@ class ProvisioningApiUsersClient {
       headers
           .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
     } else {
-      throw Exception('Missing authentication for bearer_auth or basic_auth'); // coverage:ignore-line
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
+    // coverage:ignore-end
     queryParameters['groupid'] = groupid;
     path = path.replaceAll('{userId}', Uri.encodeQueryComponent(userId));
     headers['OCS-APIRequest'] = oCSAPIRequest;
@@ -1888,6 +1970,7 @@ class ProvisioningApiUsersClient {
       'Accept': 'application/json',
     };
     Uint8List? body;
+    // coverage:ignore-start
     if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
         rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
@@ -1896,8 +1979,9 @@ class ProvisioningApiUsersClient {
       headers
           .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
     } else {
-      throw Exception('Missing authentication for bearer_auth or basic_auth'); // coverage:ignore-line
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
+    // coverage:ignore-end
     queryParameters['groupid'] = groupid;
     path = path.replaceAll('{userId}', Uri.encodeQueryComponent(userId));
     headers['OCS-APIRequest'] = oCSAPIRequest;
@@ -1927,6 +2011,7 @@ class ProvisioningApiUsersClient {
       'Accept': 'application/json',
     };
     Uint8List? body;
+    // coverage:ignore-start
     if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
         rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
@@ -1935,8 +2020,9 @@ class ProvisioningApiUsersClient {
       headers
           .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
     } else {
-      throw Exception('Missing authentication for bearer_auth or basic_auth'); // coverage:ignore-line
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
+    // coverage:ignore-end
     path = path.replaceAll('{userId}', Uri.encodeQueryComponent(userId));
     headers['OCS-APIRequest'] = oCSAPIRequest;
     final response = await rootClient.doRequest(
@@ -1957,12 +2043,19 @@ class ProvisioningApiUsersClient {
 
 abstract class ProvisioningApiOCSMeta implements Built<ProvisioningApiOCSMeta, ProvisioningApiOCSMetaBuilder> {
   factory ProvisioningApiOCSMeta([final void Function(ProvisioningApiOCSMetaBuilder)? b]) = _$ProvisioningApiOCSMeta;
-  const ProvisioningApiOCSMeta._();
 
+  // coverage:ignore-start
+  const ProvisioningApiOCSMeta._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory ProvisioningApiOCSMeta.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   String get status;
   int get statuscode;
   String? get message;
@@ -1978,14 +2071,21 @@ abstract class ProvisioningApiAppConfigGetAppsResponse200ApplicationJson_Ocs_Dat
   factory ProvisioningApiAppConfigGetAppsResponse200ApplicationJson_Ocs_Data([
     final void Function(ProvisioningApiAppConfigGetAppsResponse200ApplicationJson_Ocs_DataBuilder)? b,
   ]) = _$ProvisioningApiAppConfigGetAppsResponse200ApplicationJson_Ocs_Data;
-  const ProvisioningApiAppConfigGetAppsResponse200ApplicationJson_Ocs_Data._();
 
+  // coverage:ignore-start
+  const ProvisioningApiAppConfigGetAppsResponse200ApplicationJson_Ocs_Data._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory ProvisioningApiAppConfigGetAppsResponse200ApplicationJson_Ocs_Data.fromJson(
     final Map<String, dynamic> json,
   ) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   BuiltList<String> get data;
   static Serializer<ProvisioningApiAppConfigGetAppsResponse200ApplicationJson_Ocs_Data> get serializer =>
       _$provisioningApiAppConfigGetAppsResponse200ApplicationJsonOcsDataSerializer;
@@ -1998,12 +2098,19 @@ abstract class ProvisioningApiAppConfigGetAppsResponse200ApplicationJson_Ocs
   factory ProvisioningApiAppConfigGetAppsResponse200ApplicationJson_Ocs([
     final void Function(ProvisioningApiAppConfigGetAppsResponse200ApplicationJson_OcsBuilder)? b,
   ]) = _$ProvisioningApiAppConfigGetAppsResponse200ApplicationJson_Ocs;
-  const ProvisioningApiAppConfigGetAppsResponse200ApplicationJson_Ocs._();
 
+  // coverage:ignore-start
+  const ProvisioningApiAppConfigGetAppsResponse200ApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory ProvisioningApiAppConfigGetAppsResponse200ApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   ProvisioningApiOCSMeta get meta;
   ProvisioningApiAppConfigGetAppsResponse200ApplicationJson_Ocs_Data get data;
   static Serializer<ProvisioningApiAppConfigGetAppsResponse200ApplicationJson_Ocs> get serializer =>
@@ -2017,12 +2124,19 @@ abstract class ProvisioningApiAppConfigGetAppsResponse200ApplicationJson
   factory ProvisioningApiAppConfigGetAppsResponse200ApplicationJson([
     final void Function(ProvisioningApiAppConfigGetAppsResponse200ApplicationJsonBuilder)? b,
   ]) = _$ProvisioningApiAppConfigGetAppsResponse200ApplicationJson;
-  const ProvisioningApiAppConfigGetAppsResponse200ApplicationJson._();
 
+  // coverage:ignore-start
+  const ProvisioningApiAppConfigGetAppsResponse200ApplicationJson._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory ProvisioningApiAppConfigGetAppsResponse200ApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   ProvisioningApiAppConfigGetAppsResponse200ApplicationJson_Ocs get ocs;
   static Serializer<ProvisioningApiAppConfigGetAppsResponse200ApplicationJson> get serializer =>
       _$provisioningApiAppConfigGetAppsResponse200ApplicationJsonSerializer;
@@ -2035,14 +2149,21 @@ abstract class ProvisioningApiAppConfigGetKeysResponse200ApplicationJson_Ocs_Dat
   factory ProvisioningApiAppConfigGetKeysResponse200ApplicationJson_Ocs_Data([
     final void Function(ProvisioningApiAppConfigGetKeysResponse200ApplicationJson_Ocs_DataBuilder)? b,
   ]) = _$ProvisioningApiAppConfigGetKeysResponse200ApplicationJson_Ocs_Data;
-  const ProvisioningApiAppConfigGetKeysResponse200ApplicationJson_Ocs_Data._();
 
+  // coverage:ignore-start
+  const ProvisioningApiAppConfigGetKeysResponse200ApplicationJson_Ocs_Data._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory ProvisioningApiAppConfigGetKeysResponse200ApplicationJson_Ocs_Data.fromJson(
     final Map<String, dynamic> json,
   ) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   BuiltList<String> get data;
   static Serializer<ProvisioningApiAppConfigGetKeysResponse200ApplicationJson_Ocs_Data> get serializer =>
       _$provisioningApiAppConfigGetKeysResponse200ApplicationJsonOcsDataSerializer;
@@ -2055,12 +2176,19 @@ abstract class ProvisioningApiAppConfigGetKeysResponse200ApplicationJson_Ocs
   factory ProvisioningApiAppConfigGetKeysResponse200ApplicationJson_Ocs([
     final void Function(ProvisioningApiAppConfigGetKeysResponse200ApplicationJson_OcsBuilder)? b,
   ]) = _$ProvisioningApiAppConfigGetKeysResponse200ApplicationJson_Ocs;
-  const ProvisioningApiAppConfigGetKeysResponse200ApplicationJson_Ocs._();
 
+  // coverage:ignore-start
+  const ProvisioningApiAppConfigGetKeysResponse200ApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory ProvisioningApiAppConfigGetKeysResponse200ApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   ProvisioningApiOCSMeta get meta;
   ProvisioningApiAppConfigGetKeysResponse200ApplicationJson_Ocs_Data get data;
   static Serializer<ProvisioningApiAppConfigGetKeysResponse200ApplicationJson_Ocs> get serializer =>
@@ -2074,12 +2202,19 @@ abstract class ProvisioningApiAppConfigGetKeysResponse200ApplicationJson
   factory ProvisioningApiAppConfigGetKeysResponse200ApplicationJson([
     final void Function(ProvisioningApiAppConfigGetKeysResponse200ApplicationJsonBuilder)? b,
   ]) = _$ProvisioningApiAppConfigGetKeysResponse200ApplicationJson;
-  const ProvisioningApiAppConfigGetKeysResponse200ApplicationJson._();
 
+  // coverage:ignore-start
+  const ProvisioningApiAppConfigGetKeysResponse200ApplicationJson._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory ProvisioningApiAppConfigGetKeysResponse200ApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   ProvisioningApiAppConfigGetKeysResponse200ApplicationJson_Ocs get ocs;
   static Serializer<ProvisioningApiAppConfigGetKeysResponse200ApplicationJson> get serializer =>
       _$provisioningApiAppConfigGetKeysResponse200ApplicationJsonSerializer;
@@ -2092,14 +2227,21 @@ abstract class ProvisioningApiAppConfigGetValueResponse200ApplicationJson_Ocs_Da
   factory ProvisioningApiAppConfigGetValueResponse200ApplicationJson_Ocs_Data([
     final void Function(ProvisioningApiAppConfigGetValueResponse200ApplicationJson_Ocs_DataBuilder)? b,
   ]) = _$ProvisioningApiAppConfigGetValueResponse200ApplicationJson_Ocs_Data;
-  const ProvisioningApiAppConfigGetValueResponse200ApplicationJson_Ocs_Data._();
 
+  // coverage:ignore-start
+  const ProvisioningApiAppConfigGetValueResponse200ApplicationJson_Ocs_Data._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory ProvisioningApiAppConfigGetValueResponse200ApplicationJson_Ocs_Data.fromJson(
     final Map<String, dynamic> json,
   ) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   String get data;
   static Serializer<ProvisioningApiAppConfigGetValueResponse200ApplicationJson_Ocs_Data> get serializer =>
       _$provisioningApiAppConfigGetValueResponse200ApplicationJsonOcsDataSerializer;
@@ -2112,12 +2254,19 @@ abstract class ProvisioningApiAppConfigGetValueResponse200ApplicationJson_Ocs
   factory ProvisioningApiAppConfigGetValueResponse200ApplicationJson_Ocs([
     final void Function(ProvisioningApiAppConfigGetValueResponse200ApplicationJson_OcsBuilder)? b,
   ]) = _$ProvisioningApiAppConfigGetValueResponse200ApplicationJson_Ocs;
-  const ProvisioningApiAppConfigGetValueResponse200ApplicationJson_Ocs._();
 
+  // coverage:ignore-start
+  const ProvisioningApiAppConfigGetValueResponse200ApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory ProvisioningApiAppConfigGetValueResponse200ApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   ProvisioningApiOCSMeta get meta;
   ProvisioningApiAppConfigGetValueResponse200ApplicationJson_Ocs_Data get data;
   static Serializer<ProvisioningApiAppConfigGetValueResponse200ApplicationJson_Ocs> get serializer =>
@@ -2131,12 +2280,19 @@ abstract class ProvisioningApiAppConfigGetValueResponse200ApplicationJson
   factory ProvisioningApiAppConfigGetValueResponse200ApplicationJson([
     final void Function(ProvisioningApiAppConfigGetValueResponse200ApplicationJsonBuilder)? b,
   ]) = _$ProvisioningApiAppConfigGetValueResponse200ApplicationJson;
-  const ProvisioningApiAppConfigGetValueResponse200ApplicationJson._();
 
+  // coverage:ignore-start
+  const ProvisioningApiAppConfigGetValueResponse200ApplicationJson._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory ProvisioningApiAppConfigGetValueResponse200ApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   ProvisioningApiAppConfigGetValueResponse200ApplicationJson_Ocs get ocs;
   static Serializer<ProvisioningApiAppConfigGetValueResponse200ApplicationJson> get serializer =>
       _$provisioningApiAppConfigGetValueResponse200ApplicationJsonSerializer;
@@ -2149,12 +2305,19 @@ abstract class ProvisioningApiAppConfigSetValueResponse200ApplicationJson_Ocs
   factory ProvisioningApiAppConfigSetValueResponse200ApplicationJson_Ocs([
     final void Function(ProvisioningApiAppConfigSetValueResponse200ApplicationJson_OcsBuilder)? b,
   ]) = _$ProvisioningApiAppConfigSetValueResponse200ApplicationJson_Ocs;
-  const ProvisioningApiAppConfigSetValueResponse200ApplicationJson_Ocs._();
 
+  // coverage:ignore-start
+  const ProvisioningApiAppConfigSetValueResponse200ApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory ProvisioningApiAppConfigSetValueResponse200ApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   ProvisioningApiOCSMeta get meta;
   JsonObject get data;
   static Serializer<ProvisioningApiAppConfigSetValueResponse200ApplicationJson_Ocs> get serializer =>
@@ -2168,12 +2331,19 @@ abstract class ProvisioningApiAppConfigSetValueResponse200ApplicationJson
   factory ProvisioningApiAppConfigSetValueResponse200ApplicationJson([
     final void Function(ProvisioningApiAppConfigSetValueResponse200ApplicationJsonBuilder)? b,
   ]) = _$ProvisioningApiAppConfigSetValueResponse200ApplicationJson;
-  const ProvisioningApiAppConfigSetValueResponse200ApplicationJson._();
 
+  // coverage:ignore-start
+  const ProvisioningApiAppConfigSetValueResponse200ApplicationJson._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory ProvisioningApiAppConfigSetValueResponse200ApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   ProvisioningApiAppConfigSetValueResponse200ApplicationJson_Ocs get ocs;
   static Serializer<ProvisioningApiAppConfigSetValueResponse200ApplicationJson> get serializer =>
       _$provisioningApiAppConfigSetValueResponse200ApplicationJsonSerializer;
@@ -2186,12 +2356,19 @@ abstract class ProvisioningApiAppConfigDeleteKeyResponse200ApplicationJson_Ocs
   factory ProvisioningApiAppConfigDeleteKeyResponse200ApplicationJson_Ocs([
     final void Function(ProvisioningApiAppConfigDeleteKeyResponse200ApplicationJson_OcsBuilder)? b,
   ]) = _$ProvisioningApiAppConfigDeleteKeyResponse200ApplicationJson_Ocs;
-  const ProvisioningApiAppConfigDeleteKeyResponse200ApplicationJson_Ocs._();
 
+  // coverage:ignore-start
+  const ProvisioningApiAppConfigDeleteKeyResponse200ApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory ProvisioningApiAppConfigDeleteKeyResponse200ApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   ProvisioningApiOCSMeta get meta;
   JsonObject get data;
   static Serializer<ProvisioningApiAppConfigDeleteKeyResponse200ApplicationJson_Ocs> get serializer =>
@@ -2205,12 +2382,19 @@ abstract class ProvisioningApiAppConfigDeleteKeyResponse200ApplicationJson
   factory ProvisioningApiAppConfigDeleteKeyResponse200ApplicationJson([
     final void Function(ProvisioningApiAppConfigDeleteKeyResponse200ApplicationJsonBuilder)? b,
   ]) = _$ProvisioningApiAppConfigDeleteKeyResponse200ApplicationJson;
-  const ProvisioningApiAppConfigDeleteKeyResponse200ApplicationJson._();
 
+  // coverage:ignore-start
+  const ProvisioningApiAppConfigDeleteKeyResponse200ApplicationJson._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory ProvisioningApiAppConfigDeleteKeyResponse200ApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   ProvisioningApiAppConfigDeleteKeyResponse200ApplicationJson_Ocs get ocs;
   static Serializer<ProvisioningApiAppConfigDeleteKeyResponse200ApplicationJson> get serializer =>
       _$provisioningApiAppConfigDeleteKeyResponse200ApplicationJsonSerializer;
@@ -2223,12 +2407,19 @@ abstract class ProvisioningApiAppsGetAppsResponse200ApplicationJson_Ocs_Data
   factory ProvisioningApiAppsGetAppsResponse200ApplicationJson_Ocs_Data([
     final void Function(ProvisioningApiAppsGetAppsResponse200ApplicationJson_Ocs_DataBuilder)? b,
   ]) = _$ProvisioningApiAppsGetAppsResponse200ApplicationJson_Ocs_Data;
-  const ProvisioningApiAppsGetAppsResponse200ApplicationJson_Ocs_Data._();
 
+  // coverage:ignore-start
+  const ProvisioningApiAppsGetAppsResponse200ApplicationJson_Ocs_Data._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory ProvisioningApiAppsGetAppsResponse200ApplicationJson_Ocs_Data.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   BuiltList<String> get apps;
   static Serializer<ProvisioningApiAppsGetAppsResponse200ApplicationJson_Ocs_Data> get serializer =>
       _$provisioningApiAppsGetAppsResponse200ApplicationJsonOcsDataSerializer;
@@ -2241,12 +2432,19 @@ abstract class ProvisioningApiAppsGetAppsResponse200ApplicationJson_Ocs
   factory ProvisioningApiAppsGetAppsResponse200ApplicationJson_Ocs([
     final void Function(ProvisioningApiAppsGetAppsResponse200ApplicationJson_OcsBuilder)? b,
   ]) = _$ProvisioningApiAppsGetAppsResponse200ApplicationJson_Ocs;
-  const ProvisioningApiAppsGetAppsResponse200ApplicationJson_Ocs._();
 
+  // coverage:ignore-start
+  const ProvisioningApiAppsGetAppsResponse200ApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory ProvisioningApiAppsGetAppsResponse200ApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   ProvisioningApiOCSMeta get meta;
   ProvisioningApiAppsGetAppsResponse200ApplicationJson_Ocs_Data get data;
   static Serializer<ProvisioningApiAppsGetAppsResponse200ApplicationJson_Ocs> get serializer =>
@@ -2260,12 +2458,19 @@ abstract class ProvisioningApiAppsGetAppsResponse200ApplicationJson
   factory ProvisioningApiAppsGetAppsResponse200ApplicationJson([
     final void Function(ProvisioningApiAppsGetAppsResponse200ApplicationJsonBuilder)? b,
   ]) = _$ProvisioningApiAppsGetAppsResponse200ApplicationJson;
-  const ProvisioningApiAppsGetAppsResponse200ApplicationJson._();
 
+  // coverage:ignore-start
+  const ProvisioningApiAppsGetAppsResponse200ApplicationJson._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory ProvisioningApiAppsGetAppsResponse200ApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   ProvisioningApiAppsGetAppsResponse200ApplicationJson_Ocs get ocs;
   static Serializer<ProvisioningApiAppsGetAppsResponse200ApplicationJson> get serializer =>
       _$provisioningApiAppsGetAppsResponse200ApplicationJsonSerializer;
@@ -2273,12 +2478,19 @@ abstract class ProvisioningApiAppsGetAppsResponse200ApplicationJson
 
 abstract class ProvisioningApiAppInfo implements Built<ProvisioningApiAppInfo, ProvisioningApiAppInfoBuilder> {
   factory ProvisioningApiAppInfo([final void Function(ProvisioningApiAppInfoBuilder)? b]) = _$ProvisioningApiAppInfo;
-  const ProvisioningApiAppInfo._();
 
+  // coverage:ignore-start
+  const ProvisioningApiAppInfo._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory ProvisioningApiAppInfo.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   bool? get active;
   JsonObject? get activity;
   JsonObject? get author;
@@ -2332,12 +2544,19 @@ abstract class ProvisioningApiAppsGetAppInfoResponse200ApplicationJson_Ocs
   factory ProvisioningApiAppsGetAppInfoResponse200ApplicationJson_Ocs([
     final void Function(ProvisioningApiAppsGetAppInfoResponse200ApplicationJson_OcsBuilder)? b,
   ]) = _$ProvisioningApiAppsGetAppInfoResponse200ApplicationJson_Ocs;
-  const ProvisioningApiAppsGetAppInfoResponse200ApplicationJson_Ocs._();
 
+  // coverage:ignore-start
+  const ProvisioningApiAppsGetAppInfoResponse200ApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory ProvisioningApiAppsGetAppInfoResponse200ApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   ProvisioningApiOCSMeta get meta;
   ProvisioningApiAppInfo get data;
   static Serializer<ProvisioningApiAppsGetAppInfoResponse200ApplicationJson_Ocs> get serializer =>
@@ -2351,12 +2570,19 @@ abstract class ProvisioningApiAppsGetAppInfoResponse200ApplicationJson
   factory ProvisioningApiAppsGetAppInfoResponse200ApplicationJson([
     final void Function(ProvisioningApiAppsGetAppInfoResponse200ApplicationJsonBuilder)? b,
   ]) = _$ProvisioningApiAppsGetAppInfoResponse200ApplicationJson;
-  const ProvisioningApiAppsGetAppInfoResponse200ApplicationJson._();
 
+  // coverage:ignore-start
+  const ProvisioningApiAppsGetAppInfoResponse200ApplicationJson._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory ProvisioningApiAppsGetAppInfoResponse200ApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   ProvisioningApiAppsGetAppInfoResponse200ApplicationJson_Ocs get ocs;
   static Serializer<ProvisioningApiAppsGetAppInfoResponse200ApplicationJson> get serializer =>
       _$provisioningApiAppsGetAppInfoResponse200ApplicationJsonSerializer;
@@ -2369,12 +2595,19 @@ abstract class ProvisioningApiAppsEnableResponse200ApplicationJson_Ocs
   factory ProvisioningApiAppsEnableResponse200ApplicationJson_Ocs([
     final void Function(ProvisioningApiAppsEnableResponse200ApplicationJson_OcsBuilder)? b,
   ]) = _$ProvisioningApiAppsEnableResponse200ApplicationJson_Ocs;
-  const ProvisioningApiAppsEnableResponse200ApplicationJson_Ocs._();
 
+  // coverage:ignore-start
+  const ProvisioningApiAppsEnableResponse200ApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory ProvisioningApiAppsEnableResponse200ApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   ProvisioningApiOCSMeta get meta;
   JsonObject get data;
   static Serializer<ProvisioningApiAppsEnableResponse200ApplicationJson_Ocs> get serializer =>
@@ -2388,12 +2621,19 @@ abstract class ProvisioningApiAppsEnableResponse200ApplicationJson
   factory ProvisioningApiAppsEnableResponse200ApplicationJson([
     final void Function(ProvisioningApiAppsEnableResponse200ApplicationJsonBuilder)? b,
   ]) = _$ProvisioningApiAppsEnableResponse200ApplicationJson;
-  const ProvisioningApiAppsEnableResponse200ApplicationJson._();
 
+  // coverage:ignore-start
+  const ProvisioningApiAppsEnableResponse200ApplicationJson._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory ProvisioningApiAppsEnableResponse200ApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   ProvisioningApiAppsEnableResponse200ApplicationJson_Ocs get ocs;
   static Serializer<ProvisioningApiAppsEnableResponse200ApplicationJson> get serializer =>
       _$provisioningApiAppsEnableResponse200ApplicationJsonSerializer;
@@ -2406,12 +2646,19 @@ abstract class ProvisioningApiAppsDisableResponse200ApplicationJson_Ocs
   factory ProvisioningApiAppsDisableResponse200ApplicationJson_Ocs([
     final void Function(ProvisioningApiAppsDisableResponse200ApplicationJson_OcsBuilder)? b,
   ]) = _$ProvisioningApiAppsDisableResponse200ApplicationJson_Ocs;
-  const ProvisioningApiAppsDisableResponse200ApplicationJson_Ocs._();
 
+  // coverage:ignore-start
+  const ProvisioningApiAppsDisableResponse200ApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory ProvisioningApiAppsDisableResponse200ApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   ProvisioningApiOCSMeta get meta;
   JsonObject get data;
   static Serializer<ProvisioningApiAppsDisableResponse200ApplicationJson_Ocs> get serializer =>
@@ -2425,12 +2672,19 @@ abstract class ProvisioningApiAppsDisableResponse200ApplicationJson
   factory ProvisioningApiAppsDisableResponse200ApplicationJson([
     final void Function(ProvisioningApiAppsDisableResponse200ApplicationJsonBuilder)? b,
   ]) = _$ProvisioningApiAppsDisableResponse200ApplicationJson;
-  const ProvisioningApiAppsDisableResponse200ApplicationJson._();
 
+  // coverage:ignore-start
+  const ProvisioningApiAppsDisableResponse200ApplicationJson._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory ProvisioningApiAppsDisableResponse200ApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   ProvisioningApiAppsDisableResponse200ApplicationJson_Ocs get ocs;
   static Serializer<ProvisioningApiAppsDisableResponse200ApplicationJson> get serializer =>
       _$provisioningApiAppsDisableResponse200ApplicationJsonSerializer;
@@ -2443,12 +2697,19 @@ abstract class ProvisioningApiGroupsGetGroupsResponse200ApplicationJson_Ocs_Data
   factory ProvisioningApiGroupsGetGroupsResponse200ApplicationJson_Ocs_Data([
     final void Function(ProvisioningApiGroupsGetGroupsResponse200ApplicationJson_Ocs_DataBuilder)? b,
   ]) = _$ProvisioningApiGroupsGetGroupsResponse200ApplicationJson_Ocs_Data;
-  const ProvisioningApiGroupsGetGroupsResponse200ApplicationJson_Ocs_Data._();
 
+  // coverage:ignore-start
+  const ProvisioningApiGroupsGetGroupsResponse200ApplicationJson_Ocs_Data._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory ProvisioningApiGroupsGetGroupsResponse200ApplicationJson_Ocs_Data.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   BuiltList<String> get groups;
   static Serializer<ProvisioningApiGroupsGetGroupsResponse200ApplicationJson_Ocs_Data> get serializer =>
       _$provisioningApiGroupsGetGroupsResponse200ApplicationJsonOcsDataSerializer;
@@ -2461,12 +2722,19 @@ abstract class ProvisioningApiGroupsGetGroupsResponse200ApplicationJson_Ocs
   factory ProvisioningApiGroupsGetGroupsResponse200ApplicationJson_Ocs([
     final void Function(ProvisioningApiGroupsGetGroupsResponse200ApplicationJson_OcsBuilder)? b,
   ]) = _$ProvisioningApiGroupsGetGroupsResponse200ApplicationJson_Ocs;
-  const ProvisioningApiGroupsGetGroupsResponse200ApplicationJson_Ocs._();
 
+  // coverage:ignore-start
+  const ProvisioningApiGroupsGetGroupsResponse200ApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory ProvisioningApiGroupsGetGroupsResponse200ApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   ProvisioningApiOCSMeta get meta;
   ProvisioningApiGroupsGetGroupsResponse200ApplicationJson_Ocs_Data get data;
   static Serializer<ProvisioningApiGroupsGetGroupsResponse200ApplicationJson_Ocs> get serializer =>
@@ -2480,12 +2748,19 @@ abstract class ProvisioningApiGroupsGetGroupsResponse200ApplicationJson
   factory ProvisioningApiGroupsGetGroupsResponse200ApplicationJson([
     final void Function(ProvisioningApiGroupsGetGroupsResponse200ApplicationJsonBuilder)? b,
   ]) = _$ProvisioningApiGroupsGetGroupsResponse200ApplicationJson;
-  const ProvisioningApiGroupsGetGroupsResponse200ApplicationJson._();
 
+  // coverage:ignore-start
+  const ProvisioningApiGroupsGetGroupsResponse200ApplicationJson._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory ProvisioningApiGroupsGetGroupsResponse200ApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   ProvisioningApiGroupsGetGroupsResponse200ApplicationJson_Ocs get ocs;
   static Serializer<ProvisioningApiGroupsGetGroupsResponse200ApplicationJson> get serializer =>
       _$provisioningApiGroupsGetGroupsResponse200ApplicationJsonSerializer;
@@ -2498,12 +2773,19 @@ abstract class ProvisioningApiGroupsAddGroupResponse200ApplicationJson_Ocs
   factory ProvisioningApiGroupsAddGroupResponse200ApplicationJson_Ocs([
     final void Function(ProvisioningApiGroupsAddGroupResponse200ApplicationJson_OcsBuilder)? b,
   ]) = _$ProvisioningApiGroupsAddGroupResponse200ApplicationJson_Ocs;
-  const ProvisioningApiGroupsAddGroupResponse200ApplicationJson_Ocs._();
 
+  // coverage:ignore-start
+  const ProvisioningApiGroupsAddGroupResponse200ApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory ProvisioningApiGroupsAddGroupResponse200ApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   ProvisioningApiOCSMeta get meta;
   JsonObject get data;
   static Serializer<ProvisioningApiGroupsAddGroupResponse200ApplicationJson_Ocs> get serializer =>
@@ -2517,12 +2799,19 @@ abstract class ProvisioningApiGroupsAddGroupResponse200ApplicationJson
   factory ProvisioningApiGroupsAddGroupResponse200ApplicationJson([
     final void Function(ProvisioningApiGroupsAddGroupResponse200ApplicationJsonBuilder)? b,
   ]) = _$ProvisioningApiGroupsAddGroupResponse200ApplicationJson;
-  const ProvisioningApiGroupsAddGroupResponse200ApplicationJson._();
 
+  // coverage:ignore-start
+  const ProvisioningApiGroupsAddGroupResponse200ApplicationJson._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory ProvisioningApiGroupsAddGroupResponse200ApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   ProvisioningApiGroupsAddGroupResponse200ApplicationJson_Ocs get ocs;
   static Serializer<ProvisioningApiGroupsAddGroupResponse200ApplicationJson> get serializer =>
       _$provisioningApiGroupsAddGroupResponse200ApplicationJsonSerializer;
@@ -2530,9 +2819,12 @@ abstract class ProvisioningApiGroupsAddGroupResponse200ApplicationJson
 
 abstract class ProvisioningApiGroupDetails_Usercount
     implements Built<ProvisioningApiGroupDetails_Usercount, ProvisioningApiGroupDetails_UsercountBuilder> {
+  // coverage:ignore-end
+
   factory ProvisioningApiGroupDetails_Usercount([
     final void Function(ProvisioningApiGroupDetails_UsercountBuilder)? b,
   ]) = _$ProvisioningApiGroupDetails_Usercount;
+  // coverage:ignore-start
   const ProvisioningApiGroupDetails_Usercount._();
 
   JsonObject get data;
@@ -2540,7 +2832,9 @@ abstract class ProvisioningApiGroupDetails_Usercount
   int? get $int;
   static ProvisioningApiGroupDetails_Usercount fromJson(final Object json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   @BuiltValueSerializer(custom: true)
   static Serializer<ProvisioningApiGroupDetails_Usercount> get serializer =>
       _$ProvisioningApiGroupDetails_UsercountSerializer();
@@ -2582,8 +2876,11 @@ class _$ProvisioningApiGroupDetails_UsercountSerializer
 
 abstract class ProvisioningApiGroupDetails_Disabled
     implements Built<ProvisioningApiGroupDetails_Disabled, ProvisioningApiGroupDetails_DisabledBuilder> {
+  // coverage:ignore-end
+
   factory ProvisioningApiGroupDetails_Disabled([final void Function(ProvisioningApiGroupDetails_DisabledBuilder)? b]) =
       _$ProvisioningApiGroupDetails_Disabled;
+  // coverage:ignore-start
   const ProvisioningApiGroupDetails_Disabled._();
 
   JsonObject get data;
@@ -2591,7 +2888,9 @@ abstract class ProvisioningApiGroupDetails_Disabled
   int? get $int;
   static ProvisioningApiGroupDetails_Disabled fromJson(final Object json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   @BuiltValueSerializer(custom: true)
   static Serializer<ProvisioningApiGroupDetails_Disabled> get serializer =>
       _$ProvisioningApiGroupDetails_DisabledSerializer();
@@ -2635,12 +2934,19 @@ abstract class ProvisioningApiGroupDetails
     implements Built<ProvisioningApiGroupDetails, ProvisioningApiGroupDetailsBuilder> {
   factory ProvisioningApiGroupDetails([final void Function(ProvisioningApiGroupDetailsBuilder)? b]) =
       _$ProvisioningApiGroupDetails;
-  const ProvisioningApiGroupDetails._();
 
+  // coverage:ignore-start
+  const ProvisioningApiGroupDetails._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory ProvisioningApiGroupDetails.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   String get id;
   String get displayname;
   ProvisioningApiGroupDetails_Usercount get usercount;
@@ -2657,14 +2963,21 @@ abstract class ProvisioningApiGroupsGetGroupsDetailsResponse200ApplicationJson_O
   factory ProvisioningApiGroupsGetGroupsDetailsResponse200ApplicationJson_Ocs_Data([
     final void Function(ProvisioningApiGroupsGetGroupsDetailsResponse200ApplicationJson_Ocs_DataBuilder)? b,
   ]) = _$ProvisioningApiGroupsGetGroupsDetailsResponse200ApplicationJson_Ocs_Data;
-  const ProvisioningApiGroupsGetGroupsDetailsResponse200ApplicationJson_Ocs_Data._();
 
+  // coverage:ignore-start
+  const ProvisioningApiGroupsGetGroupsDetailsResponse200ApplicationJson_Ocs_Data._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory ProvisioningApiGroupsGetGroupsDetailsResponse200ApplicationJson_Ocs_Data.fromJson(
     final Map<String, dynamic> json,
   ) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   BuiltList<ProvisioningApiGroupDetails> get groups;
   static Serializer<ProvisioningApiGroupsGetGroupsDetailsResponse200ApplicationJson_Ocs_Data> get serializer =>
       _$provisioningApiGroupsGetGroupsDetailsResponse200ApplicationJsonOcsDataSerializer;
@@ -2677,14 +2990,21 @@ abstract class ProvisioningApiGroupsGetGroupsDetailsResponse200ApplicationJson_O
   factory ProvisioningApiGroupsGetGroupsDetailsResponse200ApplicationJson_Ocs([
     final void Function(ProvisioningApiGroupsGetGroupsDetailsResponse200ApplicationJson_OcsBuilder)? b,
   ]) = _$ProvisioningApiGroupsGetGroupsDetailsResponse200ApplicationJson_Ocs;
-  const ProvisioningApiGroupsGetGroupsDetailsResponse200ApplicationJson_Ocs._();
 
+  // coverage:ignore-start
+  const ProvisioningApiGroupsGetGroupsDetailsResponse200ApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory ProvisioningApiGroupsGetGroupsDetailsResponse200ApplicationJson_Ocs.fromJson(
     final Map<String, dynamic> json,
   ) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   ProvisioningApiOCSMeta get meta;
   ProvisioningApiGroupsGetGroupsDetailsResponse200ApplicationJson_Ocs_Data get data;
   static Serializer<ProvisioningApiGroupsGetGroupsDetailsResponse200ApplicationJson_Ocs> get serializer =>
@@ -2698,12 +3018,19 @@ abstract class ProvisioningApiGroupsGetGroupsDetailsResponse200ApplicationJson
   factory ProvisioningApiGroupsGetGroupsDetailsResponse200ApplicationJson([
     final void Function(ProvisioningApiGroupsGetGroupsDetailsResponse200ApplicationJsonBuilder)? b,
   ]) = _$ProvisioningApiGroupsGetGroupsDetailsResponse200ApplicationJson;
-  const ProvisioningApiGroupsGetGroupsDetailsResponse200ApplicationJson._();
 
+  // coverage:ignore-start
+  const ProvisioningApiGroupsGetGroupsDetailsResponse200ApplicationJson._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory ProvisioningApiGroupsGetGroupsDetailsResponse200ApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   ProvisioningApiGroupsGetGroupsDetailsResponse200ApplicationJson_Ocs get ocs;
   static Serializer<ProvisioningApiGroupsGetGroupsDetailsResponse200ApplicationJson> get serializer =>
       _$provisioningApiGroupsGetGroupsDetailsResponse200ApplicationJsonSerializer;
@@ -2716,14 +3043,21 @@ abstract class ProvisioningApiGroupsGetGroupUsersResponse200ApplicationJson_Ocs_
   factory ProvisioningApiGroupsGetGroupUsersResponse200ApplicationJson_Ocs_Data([
     final void Function(ProvisioningApiGroupsGetGroupUsersResponse200ApplicationJson_Ocs_DataBuilder)? b,
   ]) = _$ProvisioningApiGroupsGetGroupUsersResponse200ApplicationJson_Ocs_Data;
-  const ProvisioningApiGroupsGetGroupUsersResponse200ApplicationJson_Ocs_Data._();
 
+  // coverage:ignore-start
+  const ProvisioningApiGroupsGetGroupUsersResponse200ApplicationJson_Ocs_Data._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory ProvisioningApiGroupsGetGroupUsersResponse200ApplicationJson_Ocs_Data.fromJson(
     final Map<String, dynamic> json,
   ) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   BuiltList<String> get users;
   static Serializer<ProvisioningApiGroupsGetGroupUsersResponse200ApplicationJson_Ocs_Data> get serializer =>
       _$provisioningApiGroupsGetGroupUsersResponse200ApplicationJsonOcsDataSerializer;
@@ -2736,12 +3070,19 @@ abstract class ProvisioningApiGroupsGetGroupUsersResponse200ApplicationJson_Ocs
   factory ProvisioningApiGroupsGetGroupUsersResponse200ApplicationJson_Ocs([
     final void Function(ProvisioningApiGroupsGetGroupUsersResponse200ApplicationJson_OcsBuilder)? b,
   ]) = _$ProvisioningApiGroupsGetGroupUsersResponse200ApplicationJson_Ocs;
-  const ProvisioningApiGroupsGetGroupUsersResponse200ApplicationJson_Ocs._();
 
+  // coverage:ignore-start
+  const ProvisioningApiGroupsGetGroupUsersResponse200ApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory ProvisioningApiGroupsGetGroupUsersResponse200ApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   ProvisioningApiOCSMeta get meta;
   ProvisioningApiGroupsGetGroupUsersResponse200ApplicationJson_Ocs_Data get data;
   static Serializer<ProvisioningApiGroupsGetGroupUsersResponse200ApplicationJson_Ocs> get serializer =>
@@ -2755,12 +3096,19 @@ abstract class ProvisioningApiGroupsGetGroupUsersResponse200ApplicationJson
   factory ProvisioningApiGroupsGetGroupUsersResponse200ApplicationJson([
     final void Function(ProvisioningApiGroupsGetGroupUsersResponse200ApplicationJsonBuilder)? b,
   ]) = _$ProvisioningApiGroupsGetGroupUsersResponse200ApplicationJson;
-  const ProvisioningApiGroupsGetGroupUsersResponse200ApplicationJson._();
 
+  // coverage:ignore-start
+  const ProvisioningApiGroupsGetGroupUsersResponse200ApplicationJson._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory ProvisioningApiGroupsGetGroupUsersResponse200ApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   ProvisioningApiGroupsGetGroupUsersResponse200ApplicationJson_Ocs get ocs;
   static Serializer<ProvisioningApiGroupsGetGroupUsersResponse200ApplicationJson> get serializer =>
       _$provisioningApiGroupsGetGroupUsersResponse200ApplicationJsonSerializer;
@@ -2772,12 +3120,19 @@ abstract class ProvisioningApiUserDetails_BackendCapabilities
   factory ProvisioningApiUserDetails_BackendCapabilities([
     final void Function(ProvisioningApiUserDetails_BackendCapabilitiesBuilder)? b,
   ]) = _$ProvisioningApiUserDetails_BackendCapabilities;
-  const ProvisioningApiUserDetails_BackendCapabilities._();
 
+  // coverage:ignore-start
+  const ProvisioningApiUserDetails_BackendCapabilities._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory ProvisioningApiUserDetails_BackendCapabilities.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   bool get setDisplayName;
   bool get setPassword;
   static Serializer<ProvisioningApiUserDetails_BackendCapabilities> get serializer =>
@@ -2786,9 +3141,12 @@ abstract class ProvisioningApiUserDetails_BackendCapabilities
 
 abstract class ProvisioningApiUserDetailsQuota_Quota
     implements Built<ProvisioningApiUserDetailsQuota_Quota, ProvisioningApiUserDetailsQuota_QuotaBuilder> {
+  // coverage:ignore-end
+
   factory ProvisioningApiUserDetailsQuota_Quota([
     final void Function(ProvisioningApiUserDetailsQuota_QuotaBuilder)? b,
   ]) = _$ProvisioningApiUserDetailsQuota_Quota;
+  // coverage:ignore-start
   const ProvisioningApiUserDetailsQuota_Quota._();
 
   JsonObject get data;
@@ -2796,7 +3154,9 @@ abstract class ProvisioningApiUserDetailsQuota_Quota
   String? get string;
   static ProvisioningApiUserDetailsQuota_Quota fromJson(final Object json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   @BuiltValueSerializer(custom: true)
   static Serializer<ProvisioningApiUserDetailsQuota_Quota> get serializer =>
       _$ProvisioningApiUserDetailsQuota_QuotaSerializer();
@@ -2840,12 +3200,19 @@ abstract class ProvisioningApiUserDetailsQuota
     implements Built<ProvisioningApiUserDetailsQuota, ProvisioningApiUserDetailsQuotaBuilder> {
   factory ProvisioningApiUserDetailsQuota([final void Function(ProvisioningApiUserDetailsQuotaBuilder)? b]) =
       _$ProvisioningApiUserDetailsQuota;
-  const ProvisioningApiUserDetailsQuota._();
 
+  // coverage:ignore-start
+  const ProvisioningApiUserDetailsQuota._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory ProvisioningApiUserDetailsQuota.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   num? get free;
   ProvisioningApiUserDetailsQuota_Quota? get quota;
   num? get relative;
@@ -2858,12 +3225,19 @@ abstract class ProvisioningApiUserDetails
     implements Built<ProvisioningApiUserDetails, ProvisioningApiUserDetailsBuilder> {
   factory ProvisioningApiUserDetails([final void Function(ProvisioningApiUserDetailsBuilder)? b]) =
       _$ProvisioningApiUserDetails;
-  const ProvisioningApiUserDetails._();
 
+  // coverage:ignore-start
+  const ProvisioningApiUserDetails._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory ProvisioningApiUserDetails.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   @BuiltValueField(wireName: 'additional_mail')
   BuiltList<String> get additionalMail;
   @BuiltValueField(wireName: 'additional_mailScope')
@@ -2921,14 +3295,21 @@ abstract class ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJs
   factory ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJson_Ocs_Data_Users1([
     final void Function(ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJson_Ocs_Data_Users1Builder)? b,
   ]) = _$ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJson_Ocs_Data_Users1;
-  const ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJson_Ocs_Data_Users1._();
 
+  // coverage:ignore-start
+  const ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJson_Ocs_Data_Users1._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJson_Ocs_Data_Users1.fromJson(
     final Map<String, dynamic> json,
   ) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   String get id;
   static Serializer<ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJson_Ocs_Data_Users1>
       get serializer => _$provisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJsonOcsDataUsers1Serializer;
@@ -2938,9 +3319,12 @@ abstract class ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJs
     implements
         Built<ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJson_Ocs_Data_Users,
             ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJson_Ocs_Data_UsersBuilder> {
+  // coverage:ignore-end
+
   factory ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJson_Ocs_Data_Users([
     final void Function(ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJson_Ocs_Data_UsersBuilder)? b,
   ]) = _$ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJson_Ocs_Data_Users;
+  // coverage:ignore-start
   const ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJson_Ocs_Data_Users._();
 
   JsonObject get data;
@@ -2951,7 +3335,9 @@ abstract class ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJs
     final Object json,
   ) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   @BuiltValueSerializer(custom: true)
   static Serializer<ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJson_Ocs_Data_Users>
       get serializer =>
@@ -3018,14 +3404,21 @@ abstract class ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJs
   factory ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJson_Ocs_Data([
     final void Function(ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJson_Ocs_DataBuilder)? b,
   ]) = _$ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJson_Ocs_Data;
-  const ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJson_Ocs_Data._();
 
+  // coverage:ignore-start
+  const ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJson_Ocs_Data._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJson_Ocs_Data.fromJson(
     final Map<String, dynamic> json,
   ) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   BuiltMap<String, ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJson_Ocs_Data_Users> get users;
   static Serializer<ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJson_Ocs_Data> get serializer =>
       _$provisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJsonOcsDataSerializer;
@@ -3038,14 +3431,21 @@ abstract class ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJs
   factory ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJson_Ocs([
     final void Function(ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJson_OcsBuilder)? b,
   ]) = _$ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJson_Ocs;
-  const ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJson_Ocs._();
 
+  // coverage:ignore-start
+  const ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJson_Ocs.fromJson(
     final Map<String, dynamic> json,
   ) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   ProvisioningApiOCSMeta get meta;
   ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJson_Ocs_Data get data;
   static Serializer<ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJson_Ocs> get serializer =>
@@ -3059,14 +3459,21 @@ abstract class ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJs
   factory ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJson([
     final void Function(ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJsonBuilder)? b,
   ]) = _$ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJson;
-  const ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJson._();
 
+  // coverage:ignore-start
+  const ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJson._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJson.fromJson(
     final Map<String, dynamic> json,
   ) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJson_Ocs get ocs;
   static Serializer<ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJson> get serializer =>
       _$provisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJsonSerializer;
@@ -3079,14 +3486,21 @@ abstract class ProvisioningApiGroupsGetSubAdminsOfGroupResponse200ApplicationJso
   factory ProvisioningApiGroupsGetSubAdminsOfGroupResponse200ApplicationJson_Ocs([
     final void Function(ProvisioningApiGroupsGetSubAdminsOfGroupResponse200ApplicationJson_OcsBuilder)? b,
   ]) = _$ProvisioningApiGroupsGetSubAdminsOfGroupResponse200ApplicationJson_Ocs;
-  const ProvisioningApiGroupsGetSubAdminsOfGroupResponse200ApplicationJson_Ocs._();
 
+  // coverage:ignore-start
+  const ProvisioningApiGroupsGetSubAdminsOfGroupResponse200ApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory ProvisioningApiGroupsGetSubAdminsOfGroupResponse200ApplicationJson_Ocs.fromJson(
     final Map<String, dynamic> json,
   ) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   ProvisioningApiOCSMeta get meta;
   BuiltList<String> get data;
   static Serializer<ProvisioningApiGroupsGetSubAdminsOfGroupResponse200ApplicationJson_Ocs> get serializer =>
@@ -3100,14 +3514,21 @@ abstract class ProvisioningApiGroupsGetSubAdminsOfGroupResponse200ApplicationJso
   factory ProvisioningApiGroupsGetSubAdminsOfGroupResponse200ApplicationJson([
     final void Function(ProvisioningApiGroupsGetSubAdminsOfGroupResponse200ApplicationJsonBuilder)? b,
   ]) = _$ProvisioningApiGroupsGetSubAdminsOfGroupResponse200ApplicationJson;
-  const ProvisioningApiGroupsGetSubAdminsOfGroupResponse200ApplicationJson._();
 
+  // coverage:ignore-start
+  const ProvisioningApiGroupsGetSubAdminsOfGroupResponse200ApplicationJson._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory ProvisioningApiGroupsGetSubAdminsOfGroupResponse200ApplicationJson.fromJson(
     final Map<String, dynamic> json,
   ) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   ProvisioningApiGroupsGetSubAdminsOfGroupResponse200ApplicationJson_Ocs get ocs;
   static Serializer<ProvisioningApiGroupsGetSubAdminsOfGroupResponse200ApplicationJson> get serializer =>
       _$provisioningApiGroupsGetSubAdminsOfGroupResponse200ApplicationJsonSerializer;
@@ -3120,12 +3541,19 @@ abstract class ProvisioningApiGroupsGetGroupResponse200ApplicationJson_Ocs_Data
   factory ProvisioningApiGroupsGetGroupResponse200ApplicationJson_Ocs_Data([
     final void Function(ProvisioningApiGroupsGetGroupResponse200ApplicationJson_Ocs_DataBuilder)? b,
   ]) = _$ProvisioningApiGroupsGetGroupResponse200ApplicationJson_Ocs_Data;
-  const ProvisioningApiGroupsGetGroupResponse200ApplicationJson_Ocs_Data._();
 
+  // coverage:ignore-start
+  const ProvisioningApiGroupsGetGroupResponse200ApplicationJson_Ocs_Data._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory ProvisioningApiGroupsGetGroupResponse200ApplicationJson_Ocs_Data.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   BuiltList<String> get users;
   static Serializer<ProvisioningApiGroupsGetGroupResponse200ApplicationJson_Ocs_Data> get serializer =>
       _$provisioningApiGroupsGetGroupResponse200ApplicationJsonOcsDataSerializer;
@@ -3138,12 +3566,19 @@ abstract class ProvisioningApiGroupsGetGroupResponse200ApplicationJson_Ocs
   factory ProvisioningApiGroupsGetGroupResponse200ApplicationJson_Ocs([
     final void Function(ProvisioningApiGroupsGetGroupResponse200ApplicationJson_OcsBuilder)? b,
   ]) = _$ProvisioningApiGroupsGetGroupResponse200ApplicationJson_Ocs;
-  const ProvisioningApiGroupsGetGroupResponse200ApplicationJson_Ocs._();
 
+  // coverage:ignore-start
+  const ProvisioningApiGroupsGetGroupResponse200ApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory ProvisioningApiGroupsGetGroupResponse200ApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   ProvisioningApiOCSMeta get meta;
   ProvisioningApiGroupsGetGroupResponse200ApplicationJson_Ocs_Data get data;
   static Serializer<ProvisioningApiGroupsGetGroupResponse200ApplicationJson_Ocs> get serializer =>
@@ -3157,12 +3592,19 @@ abstract class ProvisioningApiGroupsGetGroupResponse200ApplicationJson
   factory ProvisioningApiGroupsGetGroupResponse200ApplicationJson([
     final void Function(ProvisioningApiGroupsGetGroupResponse200ApplicationJsonBuilder)? b,
   ]) = _$ProvisioningApiGroupsGetGroupResponse200ApplicationJson;
-  const ProvisioningApiGroupsGetGroupResponse200ApplicationJson._();
 
+  // coverage:ignore-start
+  const ProvisioningApiGroupsGetGroupResponse200ApplicationJson._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory ProvisioningApiGroupsGetGroupResponse200ApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   ProvisioningApiGroupsGetGroupResponse200ApplicationJson_Ocs get ocs;
   static Serializer<ProvisioningApiGroupsGetGroupResponse200ApplicationJson> get serializer =>
       _$provisioningApiGroupsGetGroupResponse200ApplicationJsonSerializer;
@@ -3175,12 +3617,19 @@ abstract class ProvisioningApiGroupsUpdateGroupResponse200ApplicationJson_Ocs
   factory ProvisioningApiGroupsUpdateGroupResponse200ApplicationJson_Ocs([
     final void Function(ProvisioningApiGroupsUpdateGroupResponse200ApplicationJson_OcsBuilder)? b,
   ]) = _$ProvisioningApiGroupsUpdateGroupResponse200ApplicationJson_Ocs;
-  const ProvisioningApiGroupsUpdateGroupResponse200ApplicationJson_Ocs._();
 
+  // coverage:ignore-start
+  const ProvisioningApiGroupsUpdateGroupResponse200ApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory ProvisioningApiGroupsUpdateGroupResponse200ApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   ProvisioningApiOCSMeta get meta;
   JsonObject get data;
   static Serializer<ProvisioningApiGroupsUpdateGroupResponse200ApplicationJson_Ocs> get serializer =>
@@ -3194,12 +3643,19 @@ abstract class ProvisioningApiGroupsUpdateGroupResponse200ApplicationJson
   factory ProvisioningApiGroupsUpdateGroupResponse200ApplicationJson([
     final void Function(ProvisioningApiGroupsUpdateGroupResponse200ApplicationJsonBuilder)? b,
   ]) = _$ProvisioningApiGroupsUpdateGroupResponse200ApplicationJson;
-  const ProvisioningApiGroupsUpdateGroupResponse200ApplicationJson._();
 
+  // coverage:ignore-start
+  const ProvisioningApiGroupsUpdateGroupResponse200ApplicationJson._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory ProvisioningApiGroupsUpdateGroupResponse200ApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   ProvisioningApiGroupsUpdateGroupResponse200ApplicationJson_Ocs get ocs;
   static Serializer<ProvisioningApiGroupsUpdateGroupResponse200ApplicationJson> get serializer =>
       _$provisioningApiGroupsUpdateGroupResponse200ApplicationJsonSerializer;
@@ -3212,12 +3668,19 @@ abstract class ProvisioningApiGroupsDeleteGroupResponse200ApplicationJson_Ocs
   factory ProvisioningApiGroupsDeleteGroupResponse200ApplicationJson_Ocs([
     final void Function(ProvisioningApiGroupsDeleteGroupResponse200ApplicationJson_OcsBuilder)? b,
   ]) = _$ProvisioningApiGroupsDeleteGroupResponse200ApplicationJson_Ocs;
-  const ProvisioningApiGroupsDeleteGroupResponse200ApplicationJson_Ocs._();
 
+  // coverage:ignore-start
+  const ProvisioningApiGroupsDeleteGroupResponse200ApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory ProvisioningApiGroupsDeleteGroupResponse200ApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   ProvisioningApiOCSMeta get meta;
   JsonObject get data;
   static Serializer<ProvisioningApiGroupsDeleteGroupResponse200ApplicationJson_Ocs> get serializer =>
@@ -3231,12 +3694,19 @@ abstract class ProvisioningApiGroupsDeleteGroupResponse200ApplicationJson
   factory ProvisioningApiGroupsDeleteGroupResponse200ApplicationJson([
     final void Function(ProvisioningApiGroupsDeleteGroupResponse200ApplicationJsonBuilder)? b,
   ]) = _$ProvisioningApiGroupsDeleteGroupResponse200ApplicationJson;
-  const ProvisioningApiGroupsDeleteGroupResponse200ApplicationJson._();
 
+  // coverage:ignore-start
+  const ProvisioningApiGroupsDeleteGroupResponse200ApplicationJson._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory ProvisioningApiGroupsDeleteGroupResponse200ApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   ProvisioningApiGroupsDeleteGroupResponse200ApplicationJson_Ocs get ocs;
   static Serializer<ProvisioningApiGroupsDeleteGroupResponse200ApplicationJson> get serializer =>
       _$provisioningApiGroupsDeleteGroupResponse200ApplicationJsonSerializer;
@@ -3249,14 +3719,21 @@ abstract class ProvisioningApiPreferencesSetPreferenceResponse200ApplicationJson
   factory ProvisioningApiPreferencesSetPreferenceResponse200ApplicationJson_Ocs([
     final void Function(ProvisioningApiPreferencesSetPreferenceResponse200ApplicationJson_OcsBuilder)? b,
   ]) = _$ProvisioningApiPreferencesSetPreferenceResponse200ApplicationJson_Ocs;
-  const ProvisioningApiPreferencesSetPreferenceResponse200ApplicationJson_Ocs._();
 
+  // coverage:ignore-start
+  const ProvisioningApiPreferencesSetPreferenceResponse200ApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory ProvisioningApiPreferencesSetPreferenceResponse200ApplicationJson_Ocs.fromJson(
     final Map<String, dynamic> json,
   ) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   ProvisioningApiOCSMeta get meta;
   JsonObject get data;
   static Serializer<ProvisioningApiPreferencesSetPreferenceResponse200ApplicationJson_Ocs> get serializer =>
@@ -3270,12 +3747,19 @@ abstract class ProvisioningApiPreferencesSetPreferenceResponse200ApplicationJson
   factory ProvisioningApiPreferencesSetPreferenceResponse200ApplicationJson([
     final void Function(ProvisioningApiPreferencesSetPreferenceResponse200ApplicationJsonBuilder)? b,
   ]) = _$ProvisioningApiPreferencesSetPreferenceResponse200ApplicationJson;
-  const ProvisioningApiPreferencesSetPreferenceResponse200ApplicationJson._();
 
+  // coverage:ignore-start
+  const ProvisioningApiPreferencesSetPreferenceResponse200ApplicationJson._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory ProvisioningApiPreferencesSetPreferenceResponse200ApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   ProvisioningApiPreferencesSetPreferenceResponse200ApplicationJson_Ocs get ocs;
   static Serializer<ProvisioningApiPreferencesSetPreferenceResponse200ApplicationJson> get serializer =>
       _$provisioningApiPreferencesSetPreferenceResponse200ApplicationJsonSerializer;
@@ -3288,14 +3772,21 @@ abstract class ProvisioningApiPreferencesDeletePreferenceResponse200ApplicationJ
   factory ProvisioningApiPreferencesDeletePreferenceResponse200ApplicationJson_Ocs([
     final void Function(ProvisioningApiPreferencesDeletePreferenceResponse200ApplicationJson_OcsBuilder)? b,
   ]) = _$ProvisioningApiPreferencesDeletePreferenceResponse200ApplicationJson_Ocs;
-  const ProvisioningApiPreferencesDeletePreferenceResponse200ApplicationJson_Ocs._();
 
+  // coverage:ignore-start
+  const ProvisioningApiPreferencesDeletePreferenceResponse200ApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory ProvisioningApiPreferencesDeletePreferenceResponse200ApplicationJson_Ocs.fromJson(
     final Map<String, dynamic> json,
   ) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   ProvisioningApiOCSMeta get meta;
   JsonObject get data;
   static Serializer<ProvisioningApiPreferencesDeletePreferenceResponse200ApplicationJson_Ocs> get serializer =>
@@ -3309,14 +3800,21 @@ abstract class ProvisioningApiPreferencesDeletePreferenceResponse200ApplicationJ
   factory ProvisioningApiPreferencesDeletePreferenceResponse200ApplicationJson([
     final void Function(ProvisioningApiPreferencesDeletePreferenceResponse200ApplicationJsonBuilder)? b,
   ]) = _$ProvisioningApiPreferencesDeletePreferenceResponse200ApplicationJson;
-  const ProvisioningApiPreferencesDeletePreferenceResponse200ApplicationJson._();
 
+  // coverage:ignore-start
+  const ProvisioningApiPreferencesDeletePreferenceResponse200ApplicationJson._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory ProvisioningApiPreferencesDeletePreferenceResponse200ApplicationJson.fromJson(
     final Map<String, dynamic> json,
   ) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   ProvisioningApiPreferencesDeletePreferenceResponse200ApplicationJson_Ocs get ocs;
   static Serializer<ProvisioningApiPreferencesDeletePreferenceResponse200ApplicationJson> get serializer =>
       _$provisioningApiPreferencesDeletePreferenceResponse200ApplicationJsonSerializer;
@@ -3329,14 +3827,21 @@ abstract class ProvisioningApiPreferencesSetMultiplePreferencesResponse200Applic
   factory ProvisioningApiPreferencesSetMultiplePreferencesResponse200ApplicationJson_Ocs([
     final void Function(ProvisioningApiPreferencesSetMultiplePreferencesResponse200ApplicationJson_OcsBuilder)? b,
   ]) = _$ProvisioningApiPreferencesSetMultiplePreferencesResponse200ApplicationJson_Ocs;
-  const ProvisioningApiPreferencesSetMultiplePreferencesResponse200ApplicationJson_Ocs._();
 
+  // coverage:ignore-start
+  const ProvisioningApiPreferencesSetMultiplePreferencesResponse200ApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory ProvisioningApiPreferencesSetMultiplePreferencesResponse200ApplicationJson_Ocs.fromJson(
     final Map<String, dynamic> json,
   ) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   ProvisioningApiOCSMeta get meta;
   JsonObject get data;
   static Serializer<ProvisioningApiPreferencesSetMultiplePreferencesResponse200ApplicationJson_Ocs> get serializer =>
@@ -3350,14 +3855,21 @@ abstract class ProvisioningApiPreferencesSetMultiplePreferencesResponse200Applic
   factory ProvisioningApiPreferencesSetMultiplePreferencesResponse200ApplicationJson([
     final void Function(ProvisioningApiPreferencesSetMultiplePreferencesResponse200ApplicationJsonBuilder)? b,
   ]) = _$ProvisioningApiPreferencesSetMultiplePreferencesResponse200ApplicationJson;
-  const ProvisioningApiPreferencesSetMultiplePreferencesResponse200ApplicationJson._();
 
+  // coverage:ignore-start
+  const ProvisioningApiPreferencesSetMultiplePreferencesResponse200ApplicationJson._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory ProvisioningApiPreferencesSetMultiplePreferencesResponse200ApplicationJson.fromJson(
     final Map<String, dynamic> json,
   ) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   ProvisioningApiPreferencesSetMultiplePreferencesResponse200ApplicationJson_Ocs get ocs;
   static Serializer<ProvisioningApiPreferencesSetMultiplePreferencesResponse200ApplicationJson> get serializer =>
       _$provisioningApiPreferencesSetMultiplePreferencesResponse200ApplicationJsonSerializer;
@@ -3370,14 +3882,21 @@ abstract class ProvisioningApiPreferencesDeleteMultiplePreferenceResponse200Appl
   factory ProvisioningApiPreferencesDeleteMultiplePreferenceResponse200ApplicationJson_Ocs([
     final void Function(ProvisioningApiPreferencesDeleteMultiplePreferenceResponse200ApplicationJson_OcsBuilder)? b,
   ]) = _$ProvisioningApiPreferencesDeleteMultiplePreferenceResponse200ApplicationJson_Ocs;
-  const ProvisioningApiPreferencesDeleteMultiplePreferenceResponse200ApplicationJson_Ocs._();
 
+  // coverage:ignore-start
+  const ProvisioningApiPreferencesDeleteMultiplePreferenceResponse200ApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory ProvisioningApiPreferencesDeleteMultiplePreferenceResponse200ApplicationJson_Ocs.fromJson(
     final Map<String, dynamic> json,
   ) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   ProvisioningApiOCSMeta get meta;
   JsonObject get data;
   static Serializer<ProvisioningApiPreferencesDeleteMultiplePreferenceResponse200ApplicationJson_Ocs> get serializer =>
@@ -3391,14 +3910,21 @@ abstract class ProvisioningApiPreferencesDeleteMultiplePreferenceResponse200Appl
   factory ProvisioningApiPreferencesDeleteMultiplePreferenceResponse200ApplicationJson([
     final void Function(ProvisioningApiPreferencesDeleteMultiplePreferenceResponse200ApplicationJsonBuilder)? b,
   ]) = _$ProvisioningApiPreferencesDeleteMultiplePreferenceResponse200ApplicationJson;
-  const ProvisioningApiPreferencesDeleteMultiplePreferenceResponse200ApplicationJson._();
 
+  // coverage:ignore-start
+  const ProvisioningApiPreferencesDeleteMultiplePreferenceResponse200ApplicationJson._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory ProvisioningApiPreferencesDeleteMultiplePreferenceResponse200ApplicationJson.fromJson(
     final Map<String, dynamic> json,
   ) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   ProvisioningApiPreferencesDeleteMultiplePreferenceResponse200ApplicationJson_Ocs get ocs;
   static Serializer<ProvisioningApiPreferencesDeleteMultiplePreferenceResponse200ApplicationJson> get serializer =>
       _$provisioningApiPreferencesDeleteMultiplePreferenceResponse200ApplicationJsonSerializer;
@@ -3411,12 +3937,19 @@ abstract class ProvisioningApiUsersGetUsersResponse200ApplicationJson_Ocs_Data
   factory ProvisioningApiUsersGetUsersResponse200ApplicationJson_Ocs_Data([
     final void Function(ProvisioningApiUsersGetUsersResponse200ApplicationJson_Ocs_DataBuilder)? b,
   ]) = _$ProvisioningApiUsersGetUsersResponse200ApplicationJson_Ocs_Data;
-  const ProvisioningApiUsersGetUsersResponse200ApplicationJson_Ocs_Data._();
 
+  // coverage:ignore-start
+  const ProvisioningApiUsersGetUsersResponse200ApplicationJson_Ocs_Data._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory ProvisioningApiUsersGetUsersResponse200ApplicationJson_Ocs_Data.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   BuiltList<String> get users;
   static Serializer<ProvisioningApiUsersGetUsersResponse200ApplicationJson_Ocs_Data> get serializer =>
       _$provisioningApiUsersGetUsersResponse200ApplicationJsonOcsDataSerializer;
@@ -3429,12 +3962,19 @@ abstract class ProvisioningApiUsersGetUsersResponse200ApplicationJson_Ocs
   factory ProvisioningApiUsersGetUsersResponse200ApplicationJson_Ocs([
     final void Function(ProvisioningApiUsersGetUsersResponse200ApplicationJson_OcsBuilder)? b,
   ]) = _$ProvisioningApiUsersGetUsersResponse200ApplicationJson_Ocs;
-  const ProvisioningApiUsersGetUsersResponse200ApplicationJson_Ocs._();
 
+  // coverage:ignore-start
+  const ProvisioningApiUsersGetUsersResponse200ApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory ProvisioningApiUsersGetUsersResponse200ApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   ProvisioningApiOCSMeta get meta;
   ProvisioningApiUsersGetUsersResponse200ApplicationJson_Ocs_Data get data;
   static Serializer<ProvisioningApiUsersGetUsersResponse200ApplicationJson_Ocs> get serializer =>
@@ -3448,12 +3988,19 @@ abstract class ProvisioningApiUsersGetUsersResponse200ApplicationJson
   factory ProvisioningApiUsersGetUsersResponse200ApplicationJson([
     final void Function(ProvisioningApiUsersGetUsersResponse200ApplicationJsonBuilder)? b,
   ]) = _$ProvisioningApiUsersGetUsersResponse200ApplicationJson;
-  const ProvisioningApiUsersGetUsersResponse200ApplicationJson._();
 
+  // coverage:ignore-start
+  const ProvisioningApiUsersGetUsersResponse200ApplicationJson._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory ProvisioningApiUsersGetUsersResponse200ApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   ProvisioningApiUsersGetUsersResponse200ApplicationJson_Ocs get ocs;
   static Serializer<ProvisioningApiUsersGetUsersResponse200ApplicationJson> get serializer =>
       _$provisioningApiUsersGetUsersResponse200ApplicationJsonSerializer;
@@ -3466,12 +4013,19 @@ abstract class ProvisioningApiUsersAddUserResponse200ApplicationJson_Ocs_Data
   factory ProvisioningApiUsersAddUserResponse200ApplicationJson_Ocs_Data([
     final void Function(ProvisioningApiUsersAddUserResponse200ApplicationJson_Ocs_DataBuilder)? b,
   ]) = _$ProvisioningApiUsersAddUserResponse200ApplicationJson_Ocs_Data;
-  const ProvisioningApiUsersAddUserResponse200ApplicationJson_Ocs_Data._();
 
+  // coverage:ignore-start
+  const ProvisioningApiUsersAddUserResponse200ApplicationJson_Ocs_Data._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory ProvisioningApiUsersAddUserResponse200ApplicationJson_Ocs_Data.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   String get id;
   static Serializer<ProvisioningApiUsersAddUserResponse200ApplicationJson_Ocs_Data> get serializer =>
       _$provisioningApiUsersAddUserResponse200ApplicationJsonOcsDataSerializer;
@@ -3484,12 +4038,19 @@ abstract class ProvisioningApiUsersAddUserResponse200ApplicationJson_Ocs
   factory ProvisioningApiUsersAddUserResponse200ApplicationJson_Ocs([
     final void Function(ProvisioningApiUsersAddUserResponse200ApplicationJson_OcsBuilder)? b,
   ]) = _$ProvisioningApiUsersAddUserResponse200ApplicationJson_Ocs;
-  const ProvisioningApiUsersAddUserResponse200ApplicationJson_Ocs._();
 
+  // coverage:ignore-start
+  const ProvisioningApiUsersAddUserResponse200ApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory ProvisioningApiUsersAddUserResponse200ApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   ProvisioningApiOCSMeta get meta;
   ProvisioningApiUsersAddUserResponse200ApplicationJson_Ocs_Data get data;
   static Serializer<ProvisioningApiUsersAddUserResponse200ApplicationJson_Ocs> get serializer =>
@@ -3503,12 +4064,19 @@ abstract class ProvisioningApiUsersAddUserResponse200ApplicationJson
   factory ProvisioningApiUsersAddUserResponse200ApplicationJson([
     final void Function(ProvisioningApiUsersAddUserResponse200ApplicationJsonBuilder)? b,
   ]) = _$ProvisioningApiUsersAddUserResponse200ApplicationJson;
-  const ProvisioningApiUsersAddUserResponse200ApplicationJson._();
 
+  // coverage:ignore-start
+  const ProvisioningApiUsersAddUserResponse200ApplicationJson._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory ProvisioningApiUsersAddUserResponse200ApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   ProvisioningApiUsersAddUserResponse200ApplicationJson_Ocs get ocs;
   static Serializer<ProvisioningApiUsersAddUserResponse200ApplicationJson> get serializer =>
       _$provisioningApiUsersAddUserResponse200ApplicationJsonSerializer;
@@ -3521,14 +4089,21 @@ abstract class ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson_Ocs
   factory ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson_Ocs_Data_Users1([
     final void Function(ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson_Ocs_Data_Users1Builder)? b,
   ]) = _$ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson_Ocs_Data_Users1;
-  const ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson_Ocs_Data_Users1._();
 
+  // coverage:ignore-start
+  const ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson_Ocs_Data_Users1._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson_Ocs_Data_Users1.fromJson(
     final Map<String, dynamic> json,
   ) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   String get id;
   static Serializer<ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson_Ocs_Data_Users1> get serializer =>
       _$provisioningApiUsersGetUsersDetailsResponse200ApplicationJsonOcsDataUsers1Serializer;
@@ -3538,9 +4113,12 @@ abstract class ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson_Ocs
     implements
         Built<ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson_Ocs_Data_Users,
             ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson_Ocs_Data_UsersBuilder> {
+  // coverage:ignore-end
+
   factory ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson_Ocs_Data_Users([
     final void Function(ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson_Ocs_Data_UsersBuilder)? b,
   ]) = _$ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson_Ocs_Data_Users;
+  // coverage:ignore-start
   const ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson_Ocs_Data_Users._();
 
   JsonObject get data;
@@ -3549,7 +4127,9 @@ abstract class ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson_Ocs
       get usersGetUsersDetailsResponse200ApplicationJsonOcsDataUsers1;
   static ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson_Ocs_Data_Users fromJson(final Object json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   @BuiltValueSerializer(custom: true)
   static Serializer<ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson_Ocs_Data_Users> get serializer =>
       _$ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson_Ocs_Data_UsersSerializer();
@@ -3613,14 +4193,21 @@ abstract class ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson_Ocs
   factory ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson_Ocs_Data([
     final void Function(ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson_Ocs_DataBuilder)? b,
   ]) = _$ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson_Ocs_Data;
-  const ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson_Ocs_Data._();
 
+  // coverage:ignore-start
+  const ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson_Ocs_Data._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson_Ocs_Data.fromJson(
     final Map<String, dynamic> json,
   ) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   BuiltMap<String, ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson_Ocs_Data_Users> get users;
   static Serializer<ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson_Ocs_Data> get serializer =>
       _$provisioningApiUsersGetUsersDetailsResponse200ApplicationJsonOcsDataSerializer;
@@ -3633,12 +4220,19 @@ abstract class ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson_Ocs
   factory ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson_Ocs([
     final void Function(ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson_OcsBuilder)? b,
   ]) = _$ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson_Ocs;
-  const ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson_Ocs._();
 
+  // coverage:ignore-start
+  const ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   ProvisioningApiOCSMeta get meta;
   ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson_Ocs_Data get data;
   static Serializer<ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson_Ocs> get serializer =>
@@ -3652,12 +4246,19 @@ abstract class ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson
   factory ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson([
     final void Function(ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJsonBuilder)? b,
   ]) = _$ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson;
-  const ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson._();
 
+  // coverage:ignore-start
+  const ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson_Ocs get ocs;
   static Serializer<ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson> get serializer =>
       _$provisioningApiUsersGetUsersDetailsResponse200ApplicationJsonSerializer;
@@ -3670,14 +4271,21 @@ abstract class ProvisioningApiUsersSearchByPhoneNumbersResponse200ApplicationJso
   factory ProvisioningApiUsersSearchByPhoneNumbersResponse200ApplicationJson_Ocs([
     final void Function(ProvisioningApiUsersSearchByPhoneNumbersResponse200ApplicationJson_OcsBuilder)? b,
   ]) = _$ProvisioningApiUsersSearchByPhoneNumbersResponse200ApplicationJson_Ocs;
-  const ProvisioningApiUsersSearchByPhoneNumbersResponse200ApplicationJson_Ocs._();
 
+  // coverage:ignore-start
+  const ProvisioningApiUsersSearchByPhoneNumbersResponse200ApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory ProvisioningApiUsersSearchByPhoneNumbersResponse200ApplicationJson_Ocs.fromJson(
     final Map<String, dynamic> json,
   ) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   ProvisioningApiOCSMeta get meta;
   BuiltMap<String, String> get data;
   static Serializer<ProvisioningApiUsersSearchByPhoneNumbersResponse200ApplicationJson_Ocs> get serializer =>
@@ -3691,14 +4299,21 @@ abstract class ProvisioningApiUsersSearchByPhoneNumbersResponse200ApplicationJso
   factory ProvisioningApiUsersSearchByPhoneNumbersResponse200ApplicationJson([
     final void Function(ProvisioningApiUsersSearchByPhoneNumbersResponse200ApplicationJsonBuilder)? b,
   ]) = _$ProvisioningApiUsersSearchByPhoneNumbersResponse200ApplicationJson;
-  const ProvisioningApiUsersSearchByPhoneNumbersResponse200ApplicationJson._();
 
+  // coverage:ignore-start
+  const ProvisioningApiUsersSearchByPhoneNumbersResponse200ApplicationJson._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory ProvisioningApiUsersSearchByPhoneNumbersResponse200ApplicationJson.fromJson(
     final Map<String, dynamic> json,
   ) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   ProvisioningApiUsersSearchByPhoneNumbersResponse200ApplicationJson_Ocs get ocs;
   static Serializer<ProvisioningApiUsersSearchByPhoneNumbersResponse200ApplicationJson> get serializer =>
       _$provisioningApiUsersSearchByPhoneNumbersResponse200ApplicationJsonSerializer;
@@ -3711,12 +4326,19 @@ abstract class ProvisioningApiUsersGetUserResponse200ApplicationJson_Ocs
   factory ProvisioningApiUsersGetUserResponse200ApplicationJson_Ocs([
     final void Function(ProvisioningApiUsersGetUserResponse200ApplicationJson_OcsBuilder)? b,
   ]) = _$ProvisioningApiUsersGetUserResponse200ApplicationJson_Ocs;
-  const ProvisioningApiUsersGetUserResponse200ApplicationJson_Ocs._();
 
+  // coverage:ignore-start
+  const ProvisioningApiUsersGetUserResponse200ApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory ProvisioningApiUsersGetUserResponse200ApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   ProvisioningApiOCSMeta get meta;
   ProvisioningApiUserDetails get data;
   static Serializer<ProvisioningApiUsersGetUserResponse200ApplicationJson_Ocs> get serializer =>
@@ -3730,12 +4352,19 @@ abstract class ProvisioningApiUsersGetUserResponse200ApplicationJson
   factory ProvisioningApiUsersGetUserResponse200ApplicationJson([
     final void Function(ProvisioningApiUsersGetUserResponse200ApplicationJsonBuilder)? b,
   ]) = _$ProvisioningApiUsersGetUserResponse200ApplicationJson;
-  const ProvisioningApiUsersGetUserResponse200ApplicationJson._();
 
+  // coverage:ignore-start
+  const ProvisioningApiUsersGetUserResponse200ApplicationJson._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory ProvisioningApiUsersGetUserResponse200ApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   ProvisioningApiUsersGetUserResponse200ApplicationJson_Ocs get ocs;
   static Serializer<ProvisioningApiUsersGetUserResponse200ApplicationJson> get serializer =>
       _$provisioningApiUsersGetUserResponse200ApplicationJsonSerializer;
@@ -3748,12 +4377,19 @@ abstract class ProvisioningApiUsersEditUserResponse200ApplicationJson_Ocs
   factory ProvisioningApiUsersEditUserResponse200ApplicationJson_Ocs([
     final void Function(ProvisioningApiUsersEditUserResponse200ApplicationJson_OcsBuilder)? b,
   ]) = _$ProvisioningApiUsersEditUserResponse200ApplicationJson_Ocs;
-  const ProvisioningApiUsersEditUserResponse200ApplicationJson_Ocs._();
 
+  // coverage:ignore-start
+  const ProvisioningApiUsersEditUserResponse200ApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory ProvisioningApiUsersEditUserResponse200ApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   ProvisioningApiOCSMeta get meta;
   JsonObject get data;
   static Serializer<ProvisioningApiUsersEditUserResponse200ApplicationJson_Ocs> get serializer =>
@@ -3767,12 +4403,19 @@ abstract class ProvisioningApiUsersEditUserResponse200ApplicationJson
   factory ProvisioningApiUsersEditUserResponse200ApplicationJson([
     final void Function(ProvisioningApiUsersEditUserResponse200ApplicationJsonBuilder)? b,
   ]) = _$ProvisioningApiUsersEditUserResponse200ApplicationJson;
-  const ProvisioningApiUsersEditUserResponse200ApplicationJson._();
 
+  // coverage:ignore-start
+  const ProvisioningApiUsersEditUserResponse200ApplicationJson._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory ProvisioningApiUsersEditUserResponse200ApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   ProvisioningApiUsersEditUserResponse200ApplicationJson_Ocs get ocs;
   static Serializer<ProvisioningApiUsersEditUserResponse200ApplicationJson> get serializer =>
       _$provisioningApiUsersEditUserResponse200ApplicationJsonSerializer;
@@ -3785,12 +4428,19 @@ abstract class ProvisioningApiUsersDeleteUserResponse200ApplicationJson_Ocs
   factory ProvisioningApiUsersDeleteUserResponse200ApplicationJson_Ocs([
     final void Function(ProvisioningApiUsersDeleteUserResponse200ApplicationJson_OcsBuilder)? b,
   ]) = _$ProvisioningApiUsersDeleteUserResponse200ApplicationJson_Ocs;
-  const ProvisioningApiUsersDeleteUserResponse200ApplicationJson_Ocs._();
 
+  // coverage:ignore-start
+  const ProvisioningApiUsersDeleteUserResponse200ApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory ProvisioningApiUsersDeleteUserResponse200ApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   ProvisioningApiOCSMeta get meta;
   JsonObject get data;
   static Serializer<ProvisioningApiUsersDeleteUserResponse200ApplicationJson_Ocs> get serializer =>
@@ -3804,12 +4454,19 @@ abstract class ProvisioningApiUsersDeleteUserResponse200ApplicationJson
   factory ProvisioningApiUsersDeleteUserResponse200ApplicationJson([
     final void Function(ProvisioningApiUsersDeleteUserResponse200ApplicationJsonBuilder)? b,
   ]) = _$ProvisioningApiUsersDeleteUserResponse200ApplicationJson;
-  const ProvisioningApiUsersDeleteUserResponse200ApplicationJson._();
 
+  // coverage:ignore-start
+  const ProvisioningApiUsersDeleteUserResponse200ApplicationJson._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory ProvisioningApiUsersDeleteUserResponse200ApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   ProvisioningApiUsersDeleteUserResponse200ApplicationJson_Ocs get ocs;
   static Serializer<ProvisioningApiUsersDeleteUserResponse200ApplicationJson> get serializer =>
       _$provisioningApiUsersDeleteUserResponse200ApplicationJsonSerializer;
@@ -3822,12 +4479,19 @@ abstract class ProvisioningApiUsersGetCurrentUserResponse200ApplicationJson_Ocs
   factory ProvisioningApiUsersGetCurrentUserResponse200ApplicationJson_Ocs([
     final void Function(ProvisioningApiUsersGetCurrentUserResponse200ApplicationJson_OcsBuilder)? b,
   ]) = _$ProvisioningApiUsersGetCurrentUserResponse200ApplicationJson_Ocs;
-  const ProvisioningApiUsersGetCurrentUserResponse200ApplicationJson_Ocs._();
 
+  // coverage:ignore-start
+  const ProvisioningApiUsersGetCurrentUserResponse200ApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory ProvisioningApiUsersGetCurrentUserResponse200ApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   ProvisioningApiOCSMeta get meta;
   ProvisioningApiUserDetails get data;
   static Serializer<ProvisioningApiUsersGetCurrentUserResponse200ApplicationJson_Ocs> get serializer =>
@@ -3841,12 +4505,19 @@ abstract class ProvisioningApiUsersGetCurrentUserResponse200ApplicationJson
   factory ProvisioningApiUsersGetCurrentUserResponse200ApplicationJson([
     final void Function(ProvisioningApiUsersGetCurrentUserResponse200ApplicationJsonBuilder)? b,
   ]) = _$ProvisioningApiUsersGetCurrentUserResponse200ApplicationJson;
-  const ProvisioningApiUsersGetCurrentUserResponse200ApplicationJson._();
 
+  // coverage:ignore-start
+  const ProvisioningApiUsersGetCurrentUserResponse200ApplicationJson._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory ProvisioningApiUsersGetCurrentUserResponse200ApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   ProvisioningApiUsersGetCurrentUserResponse200ApplicationJson_Ocs get ocs;
   static Serializer<ProvisioningApiUsersGetCurrentUserResponse200ApplicationJson> get serializer =>
       _$provisioningApiUsersGetCurrentUserResponse200ApplicationJsonSerializer;
@@ -3859,14 +4530,21 @@ abstract class ProvisioningApiUsersGetEditableFieldsResponse200ApplicationJson_O
   factory ProvisioningApiUsersGetEditableFieldsResponse200ApplicationJson_Ocs([
     final void Function(ProvisioningApiUsersGetEditableFieldsResponse200ApplicationJson_OcsBuilder)? b,
   ]) = _$ProvisioningApiUsersGetEditableFieldsResponse200ApplicationJson_Ocs;
-  const ProvisioningApiUsersGetEditableFieldsResponse200ApplicationJson_Ocs._();
 
+  // coverage:ignore-start
+  const ProvisioningApiUsersGetEditableFieldsResponse200ApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory ProvisioningApiUsersGetEditableFieldsResponse200ApplicationJson_Ocs.fromJson(
     final Map<String, dynamic> json,
   ) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   ProvisioningApiOCSMeta get meta;
   BuiltList<String> get data;
   static Serializer<ProvisioningApiUsersGetEditableFieldsResponse200ApplicationJson_Ocs> get serializer =>
@@ -3880,12 +4558,19 @@ abstract class ProvisioningApiUsersGetEditableFieldsResponse200ApplicationJson
   factory ProvisioningApiUsersGetEditableFieldsResponse200ApplicationJson([
     final void Function(ProvisioningApiUsersGetEditableFieldsResponse200ApplicationJsonBuilder)? b,
   ]) = _$ProvisioningApiUsersGetEditableFieldsResponse200ApplicationJson;
-  const ProvisioningApiUsersGetEditableFieldsResponse200ApplicationJson._();
 
+  // coverage:ignore-start
+  const ProvisioningApiUsersGetEditableFieldsResponse200ApplicationJson._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory ProvisioningApiUsersGetEditableFieldsResponse200ApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   ProvisioningApiUsersGetEditableFieldsResponse200ApplicationJson_Ocs get ocs;
   static Serializer<ProvisioningApiUsersGetEditableFieldsResponse200ApplicationJson> get serializer =>
       _$provisioningApiUsersGetEditableFieldsResponse200ApplicationJsonSerializer;
@@ -3898,14 +4583,21 @@ abstract class ProvisioningApiUsersGetEditableFieldsForUserResponse200Applicatio
   factory ProvisioningApiUsersGetEditableFieldsForUserResponse200ApplicationJson_Ocs([
     final void Function(ProvisioningApiUsersGetEditableFieldsForUserResponse200ApplicationJson_OcsBuilder)? b,
   ]) = _$ProvisioningApiUsersGetEditableFieldsForUserResponse200ApplicationJson_Ocs;
-  const ProvisioningApiUsersGetEditableFieldsForUserResponse200ApplicationJson_Ocs._();
 
+  // coverage:ignore-start
+  const ProvisioningApiUsersGetEditableFieldsForUserResponse200ApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory ProvisioningApiUsersGetEditableFieldsForUserResponse200ApplicationJson_Ocs.fromJson(
     final Map<String, dynamic> json,
   ) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   ProvisioningApiOCSMeta get meta;
   BuiltList<String> get data;
   static Serializer<ProvisioningApiUsersGetEditableFieldsForUserResponse200ApplicationJson_Ocs> get serializer =>
@@ -3919,14 +4611,21 @@ abstract class ProvisioningApiUsersGetEditableFieldsForUserResponse200Applicatio
   factory ProvisioningApiUsersGetEditableFieldsForUserResponse200ApplicationJson([
     final void Function(ProvisioningApiUsersGetEditableFieldsForUserResponse200ApplicationJsonBuilder)? b,
   ]) = _$ProvisioningApiUsersGetEditableFieldsForUserResponse200ApplicationJson;
-  const ProvisioningApiUsersGetEditableFieldsForUserResponse200ApplicationJson._();
 
+  // coverage:ignore-start
+  const ProvisioningApiUsersGetEditableFieldsForUserResponse200ApplicationJson._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory ProvisioningApiUsersGetEditableFieldsForUserResponse200ApplicationJson.fromJson(
     final Map<String, dynamic> json,
   ) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   ProvisioningApiUsersGetEditableFieldsForUserResponse200ApplicationJson_Ocs get ocs;
   static Serializer<ProvisioningApiUsersGetEditableFieldsForUserResponse200ApplicationJson> get serializer =>
       _$provisioningApiUsersGetEditableFieldsForUserResponse200ApplicationJsonSerializer;
@@ -3939,14 +4638,21 @@ abstract class ProvisioningApiUsersEditUserMultiValueResponse200ApplicationJson_
   factory ProvisioningApiUsersEditUserMultiValueResponse200ApplicationJson_Ocs([
     final void Function(ProvisioningApiUsersEditUserMultiValueResponse200ApplicationJson_OcsBuilder)? b,
   ]) = _$ProvisioningApiUsersEditUserMultiValueResponse200ApplicationJson_Ocs;
-  const ProvisioningApiUsersEditUserMultiValueResponse200ApplicationJson_Ocs._();
 
+  // coverage:ignore-start
+  const ProvisioningApiUsersEditUserMultiValueResponse200ApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory ProvisioningApiUsersEditUserMultiValueResponse200ApplicationJson_Ocs.fromJson(
     final Map<String, dynamic> json,
   ) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   ProvisioningApiOCSMeta get meta;
   JsonObject get data;
   static Serializer<ProvisioningApiUsersEditUserMultiValueResponse200ApplicationJson_Ocs> get serializer =>
@@ -3960,12 +4666,19 @@ abstract class ProvisioningApiUsersEditUserMultiValueResponse200ApplicationJson
   factory ProvisioningApiUsersEditUserMultiValueResponse200ApplicationJson([
     final void Function(ProvisioningApiUsersEditUserMultiValueResponse200ApplicationJsonBuilder)? b,
   ]) = _$ProvisioningApiUsersEditUserMultiValueResponse200ApplicationJson;
-  const ProvisioningApiUsersEditUserMultiValueResponse200ApplicationJson._();
 
+  // coverage:ignore-start
+  const ProvisioningApiUsersEditUserMultiValueResponse200ApplicationJson._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory ProvisioningApiUsersEditUserMultiValueResponse200ApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   ProvisioningApiUsersEditUserMultiValueResponse200ApplicationJson_Ocs get ocs;
   static Serializer<ProvisioningApiUsersEditUserMultiValueResponse200ApplicationJson> get serializer =>
       _$provisioningApiUsersEditUserMultiValueResponse200ApplicationJsonSerializer;
@@ -3978,12 +4691,19 @@ abstract class ProvisioningApiUsersWipeUserDevicesResponse200ApplicationJson_Ocs
   factory ProvisioningApiUsersWipeUserDevicesResponse200ApplicationJson_Ocs([
     final void Function(ProvisioningApiUsersWipeUserDevicesResponse200ApplicationJson_OcsBuilder)? b,
   ]) = _$ProvisioningApiUsersWipeUserDevicesResponse200ApplicationJson_Ocs;
-  const ProvisioningApiUsersWipeUserDevicesResponse200ApplicationJson_Ocs._();
 
+  // coverage:ignore-start
+  const ProvisioningApiUsersWipeUserDevicesResponse200ApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory ProvisioningApiUsersWipeUserDevicesResponse200ApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   ProvisioningApiOCSMeta get meta;
   JsonObject get data;
   static Serializer<ProvisioningApiUsersWipeUserDevicesResponse200ApplicationJson_Ocs> get serializer =>
@@ -3997,12 +4717,19 @@ abstract class ProvisioningApiUsersWipeUserDevicesResponse200ApplicationJson
   factory ProvisioningApiUsersWipeUserDevicesResponse200ApplicationJson([
     final void Function(ProvisioningApiUsersWipeUserDevicesResponse200ApplicationJsonBuilder)? b,
   ]) = _$ProvisioningApiUsersWipeUserDevicesResponse200ApplicationJson;
-  const ProvisioningApiUsersWipeUserDevicesResponse200ApplicationJson._();
 
+  // coverage:ignore-start
+  const ProvisioningApiUsersWipeUserDevicesResponse200ApplicationJson._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory ProvisioningApiUsersWipeUserDevicesResponse200ApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   ProvisioningApiUsersWipeUserDevicesResponse200ApplicationJson_Ocs get ocs;
   static Serializer<ProvisioningApiUsersWipeUserDevicesResponse200ApplicationJson> get serializer =>
       _$provisioningApiUsersWipeUserDevicesResponse200ApplicationJsonSerializer;
@@ -4015,12 +4742,19 @@ abstract class ProvisioningApiUsersEnableUserResponse200ApplicationJson_Ocs
   factory ProvisioningApiUsersEnableUserResponse200ApplicationJson_Ocs([
     final void Function(ProvisioningApiUsersEnableUserResponse200ApplicationJson_OcsBuilder)? b,
   ]) = _$ProvisioningApiUsersEnableUserResponse200ApplicationJson_Ocs;
-  const ProvisioningApiUsersEnableUserResponse200ApplicationJson_Ocs._();
 
+  // coverage:ignore-start
+  const ProvisioningApiUsersEnableUserResponse200ApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory ProvisioningApiUsersEnableUserResponse200ApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   ProvisioningApiOCSMeta get meta;
   JsonObject get data;
   static Serializer<ProvisioningApiUsersEnableUserResponse200ApplicationJson_Ocs> get serializer =>
@@ -4034,12 +4768,19 @@ abstract class ProvisioningApiUsersEnableUserResponse200ApplicationJson
   factory ProvisioningApiUsersEnableUserResponse200ApplicationJson([
     final void Function(ProvisioningApiUsersEnableUserResponse200ApplicationJsonBuilder)? b,
   ]) = _$ProvisioningApiUsersEnableUserResponse200ApplicationJson;
-  const ProvisioningApiUsersEnableUserResponse200ApplicationJson._();
 
+  // coverage:ignore-start
+  const ProvisioningApiUsersEnableUserResponse200ApplicationJson._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory ProvisioningApiUsersEnableUserResponse200ApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   ProvisioningApiUsersEnableUserResponse200ApplicationJson_Ocs get ocs;
   static Serializer<ProvisioningApiUsersEnableUserResponse200ApplicationJson> get serializer =>
       _$provisioningApiUsersEnableUserResponse200ApplicationJsonSerializer;
@@ -4052,12 +4793,19 @@ abstract class ProvisioningApiUsersDisableUserResponse200ApplicationJson_Ocs
   factory ProvisioningApiUsersDisableUserResponse200ApplicationJson_Ocs([
     final void Function(ProvisioningApiUsersDisableUserResponse200ApplicationJson_OcsBuilder)? b,
   ]) = _$ProvisioningApiUsersDisableUserResponse200ApplicationJson_Ocs;
-  const ProvisioningApiUsersDisableUserResponse200ApplicationJson_Ocs._();
 
+  // coverage:ignore-start
+  const ProvisioningApiUsersDisableUserResponse200ApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory ProvisioningApiUsersDisableUserResponse200ApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   ProvisioningApiOCSMeta get meta;
   JsonObject get data;
   static Serializer<ProvisioningApiUsersDisableUserResponse200ApplicationJson_Ocs> get serializer =>
@@ -4071,12 +4819,19 @@ abstract class ProvisioningApiUsersDisableUserResponse200ApplicationJson
   factory ProvisioningApiUsersDisableUserResponse200ApplicationJson([
     final void Function(ProvisioningApiUsersDisableUserResponse200ApplicationJsonBuilder)? b,
   ]) = _$ProvisioningApiUsersDisableUserResponse200ApplicationJson;
-  const ProvisioningApiUsersDisableUserResponse200ApplicationJson._();
 
+  // coverage:ignore-start
+  const ProvisioningApiUsersDisableUserResponse200ApplicationJson._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory ProvisioningApiUsersDisableUserResponse200ApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   ProvisioningApiUsersDisableUserResponse200ApplicationJson_Ocs get ocs;
   static Serializer<ProvisioningApiUsersDisableUserResponse200ApplicationJson> get serializer =>
       _$provisioningApiUsersDisableUserResponse200ApplicationJsonSerializer;
@@ -4089,14 +4844,21 @@ abstract class ProvisioningApiUsersGetUsersGroupsResponse200ApplicationJson_Ocs_
   factory ProvisioningApiUsersGetUsersGroupsResponse200ApplicationJson_Ocs_Data([
     final void Function(ProvisioningApiUsersGetUsersGroupsResponse200ApplicationJson_Ocs_DataBuilder)? b,
   ]) = _$ProvisioningApiUsersGetUsersGroupsResponse200ApplicationJson_Ocs_Data;
-  const ProvisioningApiUsersGetUsersGroupsResponse200ApplicationJson_Ocs_Data._();
 
+  // coverage:ignore-start
+  const ProvisioningApiUsersGetUsersGroupsResponse200ApplicationJson_Ocs_Data._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory ProvisioningApiUsersGetUsersGroupsResponse200ApplicationJson_Ocs_Data.fromJson(
     final Map<String, dynamic> json,
   ) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   BuiltList<String> get groups;
   static Serializer<ProvisioningApiUsersGetUsersGroupsResponse200ApplicationJson_Ocs_Data> get serializer =>
       _$provisioningApiUsersGetUsersGroupsResponse200ApplicationJsonOcsDataSerializer;
@@ -4109,12 +4871,19 @@ abstract class ProvisioningApiUsersGetUsersGroupsResponse200ApplicationJson_Ocs
   factory ProvisioningApiUsersGetUsersGroupsResponse200ApplicationJson_Ocs([
     final void Function(ProvisioningApiUsersGetUsersGroupsResponse200ApplicationJson_OcsBuilder)? b,
   ]) = _$ProvisioningApiUsersGetUsersGroupsResponse200ApplicationJson_Ocs;
-  const ProvisioningApiUsersGetUsersGroupsResponse200ApplicationJson_Ocs._();
 
+  // coverage:ignore-start
+  const ProvisioningApiUsersGetUsersGroupsResponse200ApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory ProvisioningApiUsersGetUsersGroupsResponse200ApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   ProvisioningApiOCSMeta get meta;
   ProvisioningApiUsersGetUsersGroupsResponse200ApplicationJson_Ocs_Data get data;
   static Serializer<ProvisioningApiUsersGetUsersGroupsResponse200ApplicationJson_Ocs> get serializer =>
@@ -4128,12 +4897,19 @@ abstract class ProvisioningApiUsersGetUsersGroupsResponse200ApplicationJson
   factory ProvisioningApiUsersGetUsersGroupsResponse200ApplicationJson([
     final void Function(ProvisioningApiUsersGetUsersGroupsResponse200ApplicationJsonBuilder)? b,
   ]) = _$ProvisioningApiUsersGetUsersGroupsResponse200ApplicationJson;
-  const ProvisioningApiUsersGetUsersGroupsResponse200ApplicationJson._();
 
+  // coverage:ignore-start
+  const ProvisioningApiUsersGetUsersGroupsResponse200ApplicationJson._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory ProvisioningApiUsersGetUsersGroupsResponse200ApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   ProvisioningApiUsersGetUsersGroupsResponse200ApplicationJson_Ocs get ocs;
   static Serializer<ProvisioningApiUsersGetUsersGroupsResponse200ApplicationJson> get serializer =>
       _$provisioningApiUsersGetUsersGroupsResponse200ApplicationJsonSerializer;
@@ -4146,12 +4922,19 @@ abstract class ProvisioningApiUsersAddToGroupResponse200ApplicationJson_Ocs
   factory ProvisioningApiUsersAddToGroupResponse200ApplicationJson_Ocs([
     final void Function(ProvisioningApiUsersAddToGroupResponse200ApplicationJson_OcsBuilder)? b,
   ]) = _$ProvisioningApiUsersAddToGroupResponse200ApplicationJson_Ocs;
-  const ProvisioningApiUsersAddToGroupResponse200ApplicationJson_Ocs._();
 
+  // coverage:ignore-start
+  const ProvisioningApiUsersAddToGroupResponse200ApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory ProvisioningApiUsersAddToGroupResponse200ApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   ProvisioningApiOCSMeta get meta;
   JsonObject get data;
   static Serializer<ProvisioningApiUsersAddToGroupResponse200ApplicationJson_Ocs> get serializer =>
@@ -4165,12 +4948,19 @@ abstract class ProvisioningApiUsersAddToGroupResponse200ApplicationJson
   factory ProvisioningApiUsersAddToGroupResponse200ApplicationJson([
     final void Function(ProvisioningApiUsersAddToGroupResponse200ApplicationJsonBuilder)? b,
   ]) = _$ProvisioningApiUsersAddToGroupResponse200ApplicationJson;
-  const ProvisioningApiUsersAddToGroupResponse200ApplicationJson._();
 
+  // coverage:ignore-start
+  const ProvisioningApiUsersAddToGroupResponse200ApplicationJson._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory ProvisioningApiUsersAddToGroupResponse200ApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   ProvisioningApiUsersAddToGroupResponse200ApplicationJson_Ocs get ocs;
   static Serializer<ProvisioningApiUsersAddToGroupResponse200ApplicationJson> get serializer =>
       _$provisioningApiUsersAddToGroupResponse200ApplicationJsonSerializer;
@@ -4183,12 +4973,19 @@ abstract class ProvisioningApiUsersRemoveFromGroupResponse200ApplicationJson_Ocs
   factory ProvisioningApiUsersRemoveFromGroupResponse200ApplicationJson_Ocs([
     final void Function(ProvisioningApiUsersRemoveFromGroupResponse200ApplicationJson_OcsBuilder)? b,
   ]) = _$ProvisioningApiUsersRemoveFromGroupResponse200ApplicationJson_Ocs;
-  const ProvisioningApiUsersRemoveFromGroupResponse200ApplicationJson_Ocs._();
 
+  // coverage:ignore-start
+  const ProvisioningApiUsersRemoveFromGroupResponse200ApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory ProvisioningApiUsersRemoveFromGroupResponse200ApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   ProvisioningApiOCSMeta get meta;
   JsonObject get data;
   static Serializer<ProvisioningApiUsersRemoveFromGroupResponse200ApplicationJson_Ocs> get serializer =>
@@ -4202,12 +4999,19 @@ abstract class ProvisioningApiUsersRemoveFromGroupResponse200ApplicationJson
   factory ProvisioningApiUsersRemoveFromGroupResponse200ApplicationJson([
     final void Function(ProvisioningApiUsersRemoveFromGroupResponse200ApplicationJsonBuilder)? b,
   ]) = _$ProvisioningApiUsersRemoveFromGroupResponse200ApplicationJson;
-  const ProvisioningApiUsersRemoveFromGroupResponse200ApplicationJson._();
 
+  // coverage:ignore-start
+  const ProvisioningApiUsersRemoveFromGroupResponse200ApplicationJson._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory ProvisioningApiUsersRemoveFromGroupResponse200ApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   ProvisioningApiUsersRemoveFromGroupResponse200ApplicationJson_Ocs get ocs;
   static Serializer<ProvisioningApiUsersRemoveFromGroupResponse200ApplicationJson> get serializer =>
       _$provisioningApiUsersRemoveFromGroupResponse200ApplicationJsonSerializer;
@@ -4220,14 +5024,21 @@ abstract class ProvisioningApiUsersGetUserSubAdminGroupsResponse200ApplicationJs
   factory ProvisioningApiUsersGetUserSubAdminGroupsResponse200ApplicationJson_Ocs([
     final void Function(ProvisioningApiUsersGetUserSubAdminGroupsResponse200ApplicationJson_OcsBuilder)? b,
   ]) = _$ProvisioningApiUsersGetUserSubAdminGroupsResponse200ApplicationJson_Ocs;
-  const ProvisioningApiUsersGetUserSubAdminGroupsResponse200ApplicationJson_Ocs._();
 
+  // coverage:ignore-start
+  const ProvisioningApiUsersGetUserSubAdminGroupsResponse200ApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory ProvisioningApiUsersGetUserSubAdminGroupsResponse200ApplicationJson_Ocs.fromJson(
     final Map<String, dynamic> json,
   ) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   ProvisioningApiOCSMeta get meta;
   BuiltList<String> get data;
   static Serializer<ProvisioningApiUsersGetUserSubAdminGroupsResponse200ApplicationJson_Ocs> get serializer =>
@@ -4241,14 +5052,21 @@ abstract class ProvisioningApiUsersGetUserSubAdminGroupsResponse200ApplicationJs
   factory ProvisioningApiUsersGetUserSubAdminGroupsResponse200ApplicationJson([
     final void Function(ProvisioningApiUsersGetUserSubAdminGroupsResponse200ApplicationJsonBuilder)? b,
   ]) = _$ProvisioningApiUsersGetUserSubAdminGroupsResponse200ApplicationJson;
-  const ProvisioningApiUsersGetUserSubAdminGroupsResponse200ApplicationJson._();
 
+  // coverage:ignore-start
+  const ProvisioningApiUsersGetUserSubAdminGroupsResponse200ApplicationJson._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory ProvisioningApiUsersGetUserSubAdminGroupsResponse200ApplicationJson.fromJson(
     final Map<String, dynamic> json,
   ) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   ProvisioningApiUsersGetUserSubAdminGroupsResponse200ApplicationJson_Ocs get ocs;
   static Serializer<ProvisioningApiUsersGetUserSubAdminGroupsResponse200ApplicationJson> get serializer =>
       _$provisioningApiUsersGetUserSubAdminGroupsResponse200ApplicationJsonSerializer;
@@ -4261,12 +5079,19 @@ abstract class ProvisioningApiUsersAddSubAdminResponse200ApplicationJson_Ocs
   factory ProvisioningApiUsersAddSubAdminResponse200ApplicationJson_Ocs([
     final void Function(ProvisioningApiUsersAddSubAdminResponse200ApplicationJson_OcsBuilder)? b,
   ]) = _$ProvisioningApiUsersAddSubAdminResponse200ApplicationJson_Ocs;
-  const ProvisioningApiUsersAddSubAdminResponse200ApplicationJson_Ocs._();
 
+  // coverage:ignore-start
+  const ProvisioningApiUsersAddSubAdminResponse200ApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory ProvisioningApiUsersAddSubAdminResponse200ApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   ProvisioningApiOCSMeta get meta;
   JsonObject get data;
   static Serializer<ProvisioningApiUsersAddSubAdminResponse200ApplicationJson_Ocs> get serializer =>
@@ -4280,12 +5105,19 @@ abstract class ProvisioningApiUsersAddSubAdminResponse200ApplicationJson
   factory ProvisioningApiUsersAddSubAdminResponse200ApplicationJson([
     final void Function(ProvisioningApiUsersAddSubAdminResponse200ApplicationJsonBuilder)? b,
   ]) = _$ProvisioningApiUsersAddSubAdminResponse200ApplicationJson;
-  const ProvisioningApiUsersAddSubAdminResponse200ApplicationJson._();
 
+  // coverage:ignore-start
+  const ProvisioningApiUsersAddSubAdminResponse200ApplicationJson._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory ProvisioningApiUsersAddSubAdminResponse200ApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   ProvisioningApiUsersAddSubAdminResponse200ApplicationJson_Ocs get ocs;
   static Serializer<ProvisioningApiUsersAddSubAdminResponse200ApplicationJson> get serializer =>
       _$provisioningApiUsersAddSubAdminResponse200ApplicationJsonSerializer;
@@ -4298,12 +5130,19 @@ abstract class ProvisioningApiUsersRemoveSubAdminResponse200ApplicationJson_Ocs
   factory ProvisioningApiUsersRemoveSubAdminResponse200ApplicationJson_Ocs([
     final void Function(ProvisioningApiUsersRemoveSubAdminResponse200ApplicationJson_OcsBuilder)? b,
   ]) = _$ProvisioningApiUsersRemoveSubAdminResponse200ApplicationJson_Ocs;
-  const ProvisioningApiUsersRemoveSubAdminResponse200ApplicationJson_Ocs._();
 
+  // coverage:ignore-start
+  const ProvisioningApiUsersRemoveSubAdminResponse200ApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory ProvisioningApiUsersRemoveSubAdminResponse200ApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   ProvisioningApiOCSMeta get meta;
   JsonObject get data;
   static Serializer<ProvisioningApiUsersRemoveSubAdminResponse200ApplicationJson_Ocs> get serializer =>
@@ -4317,12 +5156,19 @@ abstract class ProvisioningApiUsersRemoveSubAdminResponse200ApplicationJson
   factory ProvisioningApiUsersRemoveSubAdminResponse200ApplicationJson([
     final void Function(ProvisioningApiUsersRemoveSubAdminResponse200ApplicationJsonBuilder)? b,
   ]) = _$ProvisioningApiUsersRemoveSubAdminResponse200ApplicationJson;
-  const ProvisioningApiUsersRemoveSubAdminResponse200ApplicationJson._();
 
+  // coverage:ignore-start
+  const ProvisioningApiUsersRemoveSubAdminResponse200ApplicationJson._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory ProvisioningApiUsersRemoveSubAdminResponse200ApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   ProvisioningApiUsersRemoveSubAdminResponse200ApplicationJson_Ocs get ocs;
   static Serializer<ProvisioningApiUsersRemoveSubAdminResponse200ApplicationJson> get serializer =>
       _$provisioningApiUsersRemoveSubAdminResponse200ApplicationJsonSerializer;
@@ -4335,14 +5181,21 @@ abstract class ProvisioningApiUsersResendWelcomeMessageResponse200ApplicationJso
   factory ProvisioningApiUsersResendWelcomeMessageResponse200ApplicationJson_Ocs([
     final void Function(ProvisioningApiUsersResendWelcomeMessageResponse200ApplicationJson_OcsBuilder)? b,
   ]) = _$ProvisioningApiUsersResendWelcomeMessageResponse200ApplicationJson_Ocs;
-  const ProvisioningApiUsersResendWelcomeMessageResponse200ApplicationJson_Ocs._();
 
+  // coverage:ignore-start
+  const ProvisioningApiUsersResendWelcomeMessageResponse200ApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory ProvisioningApiUsersResendWelcomeMessageResponse200ApplicationJson_Ocs.fromJson(
     final Map<String, dynamic> json,
   ) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   ProvisioningApiOCSMeta get meta;
   JsonObject get data;
   static Serializer<ProvisioningApiUsersResendWelcomeMessageResponse200ApplicationJson_Ocs> get serializer =>
@@ -4356,14 +5209,21 @@ abstract class ProvisioningApiUsersResendWelcomeMessageResponse200ApplicationJso
   factory ProvisioningApiUsersResendWelcomeMessageResponse200ApplicationJson([
     final void Function(ProvisioningApiUsersResendWelcomeMessageResponse200ApplicationJsonBuilder)? b,
   ]) = _$ProvisioningApiUsersResendWelcomeMessageResponse200ApplicationJson;
-  const ProvisioningApiUsersResendWelcomeMessageResponse200ApplicationJson._();
 
+  // coverage:ignore-start
+  const ProvisioningApiUsersResendWelcomeMessageResponse200ApplicationJson._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory ProvisioningApiUsersResendWelcomeMessageResponse200ApplicationJson.fromJson(
     final Map<String, dynamic> json,
   ) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   ProvisioningApiUsersResendWelcomeMessageResponse200ApplicationJson_Ocs get ocs;
   static Serializer<ProvisioningApiUsersResendWelcomeMessageResponse200ApplicationJson> get serializer =>
       _$provisioningApiUsersResendWelcomeMessageResponse200ApplicationJsonSerializer;
@@ -4374,12 +5234,19 @@ abstract class ProvisioningApiCapabilities_ProvisioningApi
   factory ProvisioningApiCapabilities_ProvisioningApi([
     final void Function(ProvisioningApiCapabilities_ProvisioningApiBuilder)? b,
   ]) = _$ProvisioningApiCapabilities_ProvisioningApi;
-  const ProvisioningApiCapabilities_ProvisioningApi._();
 
+  // coverage:ignore-start
+  const ProvisioningApiCapabilities_ProvisioningApi._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory ProvisioningApiCapabilities_ProvisioningApi.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   String get version;
   @BuiltValueField(wireName: 'AccountPropertyScopesVersion')
   int get accountPropertyScopesVersion;
@@ -4395,17 +5262,25 @@ abstract class ProvisioningApiCapabilities
     implements Built<ProvisioningApiCapabilities, ProvisioningApiCapabilitiesBuilder> {
   factory ProvisioningApiCapabilities([final void Function(ProvisioningApiCapabilitiesBuilder)? b]) =
       _$ProvisioningApiCapabilities;
-  const ProvisioningApiCapabilities._();
 
+  // coverage:ignore-start
+  const ProvisioningApiCapabilities._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory ProvisioningApiCapabilities.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   @BuiltValueField(wireName: 'provisioning_api')
   ProvisioningApiCapabilities_ProvisioningApi get provisioningApi;
   static Serializer<ProvisioningApiCapabilities> get serializer => _$provisioningApiCapabilitiesSerializer;
 }
 
+// coverage:ignore-start
 final Serializers _serializers = (Serializers().toBuilder()
       ..addBuilderFactory(
         const FullType(ProvisioningApiAppConfigGetAppsResponse200ApplicationJson),
@@ -5014,7 +5889,6 @@ final Serializers _jsonSerializers = (_serializers.toBuilder()
       ..addPlugin(const ContentStringPlugin()))
     .build();
 
-// coverage:ignore-start
 T deserializeProvisioningApi<T>(final Object data) => _serializers.deserialize(data, specifiedType: FullType(T))! as T;
 
 Object? serializeProvisioningApi<T>(final T data) => _serializers.serialize(data, specifiedType: FullType(T));
