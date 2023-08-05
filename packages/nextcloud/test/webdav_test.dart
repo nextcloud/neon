@@ -197,17 +197,21 @@ void main() {
     });
 
     test('Set properties', () async {
+      final lastModifiedDate = DateTime.utc(1972, 3);
       final createdDate = DateTime.utc(1971, 2);
-      final createdEpoch = createdDate.millisecondsSinceEpoch ~/ 1000;
       final uploadTime = DateTime.now();
 
-      await client.webdav.put(Uint8List.fromList(utf8.encode('test')), 'test.txt');
+      await client.webdav.put(
+        Uint8List.fromList(utf8.encode('test')),
+        'test.txt',
+        lastModified: lastModifiedDate,
+        created: createdDate,
+      );
 
       final updated = await client.webdav.proppatch(
         'test.txt',
         set: WebDavProp(
           ocfavorite: 1,
-          nccreationtime: createdEpoch,
         ),
       );
       expect(updated, isTrue);
@@ -216,6 +220,7 @@ void main() {
         'test.txt',
         prop: WebDavPropWithoutValues.fromBools(
           ocfavorite: true,
+          davgetlastmodified: true,
           nccreationtime: true,
           ncuploadtime: true,
         ),
@@ -226,6 +231,7 @@ void main() {
           .first
           .prop;
       expect(props.ocfavorite, 1);
+      expect(webdavDateFormat.parseUtc(props.davgetlastmodified!), lastModifiedDate);
       expect(DateTime.fromMillisecondsSinceEpoch(props.nccreationtime! * 1000).isAtSameMomentAs(createdDate), isTrue);
       expectDateInReasonableTimeRange(DateTime.fromMillisecondsSinceEpoch(props.ncuploadtime! * 1000), uploadTime);
     });
