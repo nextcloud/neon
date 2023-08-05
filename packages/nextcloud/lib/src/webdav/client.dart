@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:convert';
 import 'dart:typed_data';
 
@@ -169,6 +170,33 @@ class WebDavClient {
         ),
       );
 
+  /// Puts a new file at [path] with [file] as content.
+  ///
+  /// [lastModified] sets the date when the file was last modified on the server.
+  /// [created] sets the date when the file was created on the server.
+  /// See http://www.webdav.org/specs/rfc2518.html#METHOD_PUT for more information.
+  Future<HttpClientResponse> putFile(
+    final File file,
+    final FileStat fileStat,
+    final String path, {
+    final DateTime? lastModified,
+    final DateTime? created,
+    final Function(double progres)? onProgress,
+  }) async {
+    var uploaded = 0;
+    return putStream(
+      file.openRead().map((final chunk) {
+        uploaded += chunk.length;
+        onProgress?.call(uploaded / fileStat.size * 100);
+        return Uint8List.fromList(chunk);
+      }),
+      path,
+      lastModified: lastModified,
+      created: created,
+      contentLength: fileStat.size,
+    );
+  }
+
   /// Gets the content of the file at [path].
   Future<Uint8List> get(final String path) async => (await getStream(path)).bodyBytes;
 
@@ -177,6 +205,32 @@ class WebDavClient {
         'GET',
         _constructPath(path),
       );
+
+  /// Gets the content of the file at [path].
+  Future getFile(
+    final String path,
+    final File file, {
+    final Function(double progress)? onProgress,
+  }) async {
+    final sink = file.openWrite();
+    final response = await getStream(path);
+    if (response.contentLength > 0) {
+      final completer = Completer();
+      var downloaded = 0;
+
+      response.listen((final chunk) async {
+        sink.add(chunk);
+        downloaded += chunk.length;
+        onProgress?.call(downloaded / response.contentLength * 100);
+        if (downloaded >= response.contentLength) {
+          completer.complete();
+        }
+      });
+      await completer.future;
+    }
+
+    await sink.close();
+  }
 
   /// Retrieves the props for the resource at [path].
   ///
