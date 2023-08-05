@@ -2,6 +2,7 @@ import 'package:built_value/serializer.dart';
 import 'package:built_value/standard_json_plugin.dart';
 import 'package:dynamite_runtime/content_string.dart';
 import 'package:nextcloud/src/api/core.openapi.dart';
+import 'package:nextcloud/src/api/files_sharing.openapi.dart';
 import 'package:nextcloud/src/api/news.openapi.dart';
 import 'package:nextcloud/src/api/notes.openapi.dart';
 import 'package:nextcloud/src/api/notifications.openapi.dart';
@@ -51,20 +52,24 @@ class NextcloudClient extends DynamiteClient {
 
   WebDavClient? _webdav;
   CoreClient? _core;
+  FilesSharingClient? _filesSharing;
   NewsClient? _news;
   NotesClient? _notes;
   NotificationsClient? _notifications;
   ProvisioningApiClient? _provisioningApi;
-  UppushClient? _uppush;
-  UserStatusClient? _userStatus;
   SettingsClient? _settings;
   ThemingClient? _theming;
+  UppushClient? _uppush;
+  UserStatusClient? _userStatus;
 
   /// Client for WebDAV
   WebDavClient get webdav => _webdav ??= WebDavClient(this);
 
   /// Client for the core APIs
   CoreClient get core => _core ??= CoreClient.fromClient(this);
+
+  /// Client for the files sharing APIs
+  FilesSharingClient get filesSharing => _filesSharing ??= FilesSharingClient.fromClient(this);
 
   /// Client for the news app APIs
   NewsClient get news => _news ??= NewsClient.fromClient(this);
@@ -78,17 +83,17 @@ class NextcloudClient extends DynamiteClient {
   /// Client for the provisioning APIs
   ProvisioningApiClient get provisioningApi => _provisioningApi ??= ProvisioningApiClient.fromClient(this);
 
-  /// Client for the uppush app APIs
-  UppushClient get uppush => _uppush ??= UppushClient.fromClient(this);
-
-  /// Client for the user status APIs
-  UserStatusClient get userStatus => _userStatus ??= UserStatusClient.fromClient(this);
-
   /// Client for the settings APIs
   SettingsClient get settings => _settings ??= SettingsClient.fromClient(this);
 
   /// Client for the theming APIs
   ThemingClient get theming => _theming ??= ThemingClient.fromClient(this);
+
+  /// Client for the uppush app APIs
+  UppushClient get uppush => _uppush ??= UppushClient.fromClient(this);
+
+  /// Client for the user status APIs
+  UserStatusClient get userStatus => _userStatus ??= UserStatusClient.fromClient(this);
 }
 
 // ignore: public_member_api_docs
