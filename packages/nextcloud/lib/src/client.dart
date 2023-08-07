@@ -96,6 +96,8 @@ class NextcloudClient extends DynamiteClient {
   UserStatusClient get userStatus => _userStatus ??= UserStatusClient.fromClient(this);
 }
 
+// coverage:ignore-start
+
 // ignore: public_member_api_docs
 final serializers = Serializers.merge([
   coreSerializers,
@@ -118,3 +120,5 @@ T deserializeNextcloud<T>(final Object data) => serializers.deserialize(data, sp
 
 // ignore: public_member_api_docs
 Object? serializeNextcloud<T>(final T data) => serializers.serialize(data, specifiedType: FullType(T));
+
+// coverage:ignore-end

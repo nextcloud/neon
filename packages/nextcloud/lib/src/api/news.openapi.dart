@@ -80,11 +80,13 @@ class NewsClient extends DynamiteClient {
       'Accept': 'application/json',
     };
     Uint8List? body;
+    // coverage:ignore-start
     if (authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
       headers.addAll(authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
     } else {
-      throw Exception('Missing authentication for basic_auth'); // coverage:ignore-line
+      throw Exception('Missing authentication for basic_auth');
     }
+    // coverage:ignore-end
     final response = await doRequest(
       'get',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
@@ -107,11 +109,13 @@ class NewsClient extends DynamiteClient {
       'Accept': 'application/json',
     };
     Uint8List? body;
+    // coverage:ignore-start
     if (authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
       headers.addAll(authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
     } else {
-      throw Exception('Missing authentication for basic_auth'); // coverage:ignore-line
+      throw Exception('Missing authentication for basic_auth');
     }
+    // coverage:ignore-end
     final response = await doRequest(
       'get',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
@@ -132,11 +136,13 @@ class NewsClient extends DynamiteClient {
       'Accept': 'application/json',
     };
     Uint8List? body;
+    // coverage:ignore-start
     if (authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
       headers.addAll(authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
     } else {
-      throw Exception('Missing authentication for basic_auth'); // coverage:ignore-line
+      throw Exception('Missing authentication for basic_auth');
     }
+    // coverage:ignore-end
     queryParameters['name'] = name;
     final response = await doRequest(
       'post',
@@ -159,11 +165,13 @@ class NewsClient extends DynamiteClient {
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{};
     Uint8List? body;
+    // coverage:ignore-start
     if (authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
       headers.addAll(authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
     } else {
-      throw Exception('Missing authentication for basic_auth'); // coverage:ignore-line
+      throw Exception('Missing authentication for basic_auth');
     }
+    // coverage:ignore-end
     path = path.replaceAll('{folderId}', Uri.encodeQueryComponent(folderId.toString()));
     queryParameters['name'] = name;
     final response = await doRequest(
@@ -183,11 +191,13 @@ class NewsClient extends DynamiteClient {
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{};
     Uint8List? body;
+    // coverage:ignore-start
     if (authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
       headers.addAll(authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
     } else {
-      throw Exception('Missing authentication for basic_auth'); // coverage:ignore-line
+      throw Exception('Missing authentication for basic_auth');
     }
+    // coverage:ignore-end
     path = path.replaceAll('{folderId}', Uri.encodeQueryComponent(folderId.toString()));
     final response = await doRequest(
       'delete',
@@ -209,11 +219,13 @@ class NewsClient extends DynamiteClient {
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{};
     Uint8List? body;
+    // coverage:ignore-start
     if (authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
       headers.addAll(authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
     } else {
-      throw Exception('Missing authentication for basic_auth'); // coverage:ignore-line
+      throw Exception('Missing authentication for basic_auth');
     }
+    // coverage:ignore-end
     path = path.replaceAll('{folderId}', Uri.encodeQueryComponent(folderId.toString()));
     queryParameters['newestItemId'] = newestItemId.toString();
     final response = await doRequest(
@@ -235,11 +247,13 @@ class NewsClient extends DynamiteClient {
       'Accept': 'application/json',
     };
     Uint8List? body;
+    // coverage:ignore-start
     if (authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
       headers.addAll(authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
     } else {
-      throw Exception('Missing authentication for basic_auth'); // coverage:ignore-line
+      throw Exception('Missing authentication for basic_auth');
     }
+    // coverage:ignore-end
     final response = await doRequest(
       'get',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
@@ -263,11 +277,13 @@ class NewsClient extends DynamiteClient {
       'Accept': 'application/json',
     };
     Uint8List? body;
+    // coverage:ignore-start
     if (authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
       headers.addAll(authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
     } else {
-      throw Exception('Missing authentication for basic_auth'); // coverage:ignore-line
+      throw Exception('Missing authentication for basic_auth');
     }
+    // coverage:ignore-end
     queryParameters['url'] = url;
     if (folderId != null) {
       queryParameters['folderId'] = folderId.toString();
@@ -290,11 +306,13 @@ class NewsClient extends DynamiteClient {
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{};
     Uint8List? body;
+    // coverage:ignore-start
     if (authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
       headers.addAll(authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
     } else {
-      throw Exception('Missing authentication for basic_auth'); // coverage:ignore-line
+      throw Exception('Missing authentication for basic_auth');
     }
+    // coverage:ignore-end
     path = path.replaceAll('{feedId}', Uri.encodeQueryComponent(feedId.toString()));
     final response = await doRequest(
       'delete',
@@ -316,11 +334,13 @@ class NewsClient extends DynamiteClient {
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{};
     Uint8List? body;
+    // coverage:ignore-start
     if (authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
       headers.addAll(authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
     } else {
-      throw Exception('Missing authentication for basic_auth'); // coverage:ignore-line
+      throw Exception('Missing authentication for basic_auth');
     }
+    // coverage:ignore-end
     path = path.replaceAll('{feedId}', Uri.encodeQueryComponent(feedId.toString()));
     if (folderId != null) {
       queryParameters['folderId'] = folderId.toString();
@@ -345,11 +365,13 @@ class NewsClient extends DynamiteClient {
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{};
     Uint8List? body;
+    // coverage:ignore-start
     if (authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
       headers.addAll(authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
     } else {
-      throw Exception('Missing authentication for basic_auth'); // coverage:ignore-line
+      throw Exception('Missing authentication for basic_auth');
     }
+    // coverage:ignore-end
     path = path.replaceAll('{feedId}', Uri.encodeQueryComponent(feedId.toString()));
     queryParameters['feedTitle'] = feedTitle;
     final response = await doRequest(
@@ -372,11 +394,13 @@ class NewsClient extends DynamiteClient {
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{};
     Uint8List? body;
+    // coverage:ignore-start
     if (authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
       headers.addAll(authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
     } else {
-      throw Exception('Missing authentication for basic_auth'); // coverage:ignore-line
+      throw Exception('Missing authentication for basic_auth');
     }
+    // coverage:ignore-end
     path = path.replaceAll('{feedId}', Uri.encodeQueryComponent(feedId.toString()));
     queryParameters['newestItemId'] = newestItemId.toString();
     final response = await doRequest(
@@ -405,11 +429,13 @@ class NewsClient extends DynamiteClient {
       'Accept': 'application/json',
     };
     Uint8List? body;
+    // coverage:ignore-start
     if (authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
       headers.addAll(authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
     } else {
-      throw Exception('Missing authentication for basic_auth'); // coverage:ignore-line
+      throw Exception('Missing authentication for basic_auth');
     }
+    // coverage:ignore-end
     if (type != 3) {
       queryParameters['type'] = type.toString();
     }
@@ -452,11 +478,13 @@ class NewsClient extends DynamiteClient {
       'Accept': 'application/json',
     };
     Uint8List? body;
+    // coverage:ignore-start
     if (authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
       headers.addAll(authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
     } else {
-      throw Exception('Missing authentication for basic_auth'); // coverage:ignore-line
+      throw Exception('Missing authentication for basic_auth');
     }
+    // coverage:ignore-end
     if (type != 3) {
       queryParameters['type'] = type.toString();
     }
@@ -484,11 +512,13 @@ class NewsClient extends DynamiteClient {
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{};
     Uint8List? body;
+    // coverage:ignore-start
     if (authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
       headers.addAll(authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
     } else {
-      throw Exception('Missing authentication for basic_auth'); // coverage:ignore-line
+      throw Exception('Missing authentication for basic_auth');
     }
+    // coverage:ignore-end
     path = path.replaceAll('{itemId}', Uri.encodeQueryComponent(itemId.toString()));
     final response = await doRequest(
       'post',
@@ -507,11 +537,13 @@ class NewsClient extends DynamiteClient {
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{};
     Uint8List? body;
+    // coverage:ignore-start
     if (authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
       headers.addAll(authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
     } else {
-      throw Exception('Missing authentication for basic_auth'); // coverage:ignore-line
+      throw Exception('Missing authentication for basic_auth');
     }
+    // coverage:ignore-end
     path = path.replaceAll('{itemId}', Uri.encodeQueryComponent(itemId.toString()));
     final response = await doRequest(
       'post',
@@ -530,11 +562,13 @@ class NewsClient extends DynamiteClient {
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{};
     Uint8List? body;
+    // coverage:ignore-start
     if (authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
       headers.addAll(authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
     } else {
-      throw Exception('Missing authentication for basic_auth'); // coverage:ignore-line
+      throw Exception('Missing authentication for basic_auth');
     }
+    // coverage:ignore-end
     path = path.replaceAll('{itemId}', Uri.encodeQueryComponent(itemId.toString()));
     final response = await doRequest(
       'post',
@@ -553,11 +587,13 @@ class NewsClient extends DynamiteClient {
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{};
     Uint8List? body;
+    // coverage:ignore-start
     if (authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
       headers.addAll(authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
     } else {
-      throw Exception('Missing authentication for basic_auth'); // coverage:ignore-line
+      throw Exception('Missing authentication for basic_auth');
     }
+    // coverage:ignore-end
     path = path.replaceAll('{itemId}', Uri.encodeQueryComponent(itemId.toString()));
     final response = await doRequest(
       'post',
@@ -575,23 +611,37 @@ class NewsClient extends DynamiteClient {
 abstract class NewsSupportedAPIVersions implements Built<NewsSupportedAPIVersions, NewsSupportedAPIVersionsBuilder> {
   factory NewsSupportedAPIVersions([final void Function(NewsSupportedAPIVersionsBuilder)? b]) =
       _$NewsSupportedAPIVersions;
-  const NewsSupportedAPIVersions._();
 
+  // coverage:ignore-start
+  const NewsSupportedAPIVersions._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory NewsSupportedAPIVersions.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   BuiltList<String>? get apiLevels;
   static Serializer<NewsSupportedAPIVersions> get serializer => _$newsSupportedAPIVersionsSerializer;
 }
 
 abstract class NewsArticle implements Built<NewsArticle, NewsArticleBuilder> {
   factory NewsArticle([final void Function(NewsArticleBuilder)? b]) = _$NewsArticle;
+
+  // coverage:ignore-start
   const NewsArticle._();
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   factory NewsArticle.fromJson(final Map<String, dynamic> json) => _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   int get id;
   String get guid;
   String get guidHash;
@@ -617,11 +667,18 @@ abstract class NewsArticle implements Built<NewsArticle, NewsArticleBuilder> {
 
 abstract class NewsFeed implements Built<NewsFeed, NewsFeedBuilder> {
   factory NewsFeed([final void Function(NewsFeedBuilder)? b]) = _$NewsFeed;
+
+  // coverage:ignore-start
   const NewsFeed._();
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   factory NewsFeed.fromJson(final Map<String, dynamic> json) => _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   int get id;
   String get url;
   String get title;
@@ -640,11 +697,18 @@ abstract class NewsFeed implements Built<NewsFeed, NewsFeedBuilder> {
 
 abstract class NewsFolder implements Built<NewsFolder, NewsFolderBuilder> {
   factory NewsFolder([final void Function(NewsFolderBuilder)? b]) = _$NewsFolder;
+
+  // coverage:ignore-start
   const NewsFolder._();
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   factory NewsFolder.fromJson(final Map<String, dynamic> json) => _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   int get id;
   String get name;
   bool get opened;
@@ -656,24 +720,38 @@ abstract class NewsFolder implements Built<NewsFolder, NewsFolderBuilder> {
 
 abstract class NewsListFolders implements Built<NewsListFolders, NewsListFoldersBuilder> {
   factory NewsListFolders([final void Function(NewsListFoldersBuilder)? b]) = _$NewsListFolders;
-  const NewsListFolders._();
 
+  // coverage:ignore-start
+  const NewsListFolders._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory NewsListFolders.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   BuiltList<NewsFolder> get folders;
   static Serializer<NewsListFolders> get serializer => _$newsListFoldersSerializer;
 }
 
 abstract class NewsListFeeds implements Built<NewsListFeeds, NewsListFeedsBuilder> {
   factory NewsListFeeds([final void Function(NewsListFeedsBuilder)? b]) = _$NewsListFeeds;
-  const NewsListFeeds._();
 
+  // coverage:ignore-start
+  const NewsListFeeds._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory NewsListFeeds.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   int? get starredCount;
   int? get newestItemId;
   BuiltList<NewsFeed> get feeds;
@@ -682,23 +760,37 @@ abstract class NewsListFeeds implements Built<NewsListFeeds, NewsListFeedsBuilde
 
 abstract class NewsListArticles implements Built<NewsListArticles, NewsListArticlesBuilder> {
   factory NewsListArticles([final void Function(NewsListArticlesBuilder)? b]) = _$NewsListArticles;
-  const NewsListArticles._();
 
+  // coverage:ignore-start
+  const NewsListArticles._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory NewsListArticles.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   BuiltList<NewsArticle> get items;
   static Serializer<NewsListArticles> get serializer => _$newsListArticlesSerializer;
 }
 
 abstract class NewsOCSMeta implements Built<NewsOCSMeta, NewsOCSMetaBuilder> {
   factory NewsOCSMeta([final void Function(NewsOCSMetaBuilder)? b]) = _$NewsOCSMeta;
+
+  // coverage:ignore-start
   const NewsOCSMeta._();
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   factory NewsOCSMeta.fromJson(final Map<String, dynamic> json) => _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   String get status;
   int get statuscode;
   String? get message;
@@ -709,12 +801,19 @@ abstract class NewsOCSMeta implements Built<NewsOCSMeta, NewsOCSMetaBuilder> {
 
 abstract class NewsEmptyOCS_Ocs implements Built<NewsEmptyOCS_Ocs, NewsEmptyOCS_OcsBuilder> {
   factory NewsEmptyOCS_Ocs([final void Function(NewsEmptyOCS_OcsBuilder)? b]) = _$NewsEmptyOCS_Ocs;
-  const NewsEmptyOCS_Ocs._();
 
+  // coverage:ignore-start
+  const NewsEmptyOCS_Ocs._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory NewsEmptyOCS_Ocs.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   NewsOCSMeta get meta;
   BuiltList<JsonObject> get data;
   static Serializer<NewsEmptyOCS_Ocs> get serializer => _$newsEmptyOCSOcsSerializer;
@@ -722,15 +821,23 @@ abstract class NewsEmptyOCS_Ocs implements Built<NewsEmptyOCS_Ocs, NewsEmptyOCS_
 
 abstract class NewsEmptyOCS implements Built<NewsEmptyOCS, NewsEmptyOCSBuilder> {
   factory NewsEmptyOCS([final void Function(NewsEmptyOCSBuilder)? b]) = _$NewsEmptyOCS;
+
+  // coverage:ignore-start
   const NewsEmptyOCS._();
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   factory NewsEmptyOCS.fromJson(final Map<String, dynamic> json) => _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   NewsEmptyOCS_Ocs get ocs;
   static Serializer<NewsEmptyOCS> get serializer => _$newsEmptyOCSSerializer;
 }
 
+// coverage:ignore-start
 final Serializers _serializers = (Serializers().toBuilder()
       ..addBuilderFactory(const FullType(NewsSupportedAPIVersions), NewsSupportedAPIVersions.new)
       ..add(NewsSupportedAPIVersions.serializer)
@@ -766,7 +873,6 @@ final Serializers _jsonSerializers = (_serializers.toBuilder()
       ..addPlugin(const ContentStringPlugin()))
     .build();
 
-// coverage:ignore-start
 T deserializeNews<T>(final Object data) => _serializers.deserialize(data, specifiedType: FullType(T))! as T;
 
 Object? serializeNews<T>(final T data) => _serializers.serialize(data, specifiedType: FullType(T));

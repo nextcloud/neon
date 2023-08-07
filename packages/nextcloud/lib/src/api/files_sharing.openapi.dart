@@ -94,6 +94,7 @@ class FilesSharingDeletedShareapiClient {
       'Accept': 'application/json',
     };
     Uint8List? body;
+    // coverage:ignore-start
     if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
         rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
@@ -102,8 +103,9 @@ class FilesSharingDeletedShareapiClient {
       headers
           .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
     } else {
-      throw Exception('Missing authentication for bearer_auth or basic_auth'); // coverage:ignore-line
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
+    // coverage:ignore-end
     headers['OCS-APIRequest'] = oCSAPIRequest;
     final response = await rootClient.doRequest(
       'get',
@@ -131,6 +133,7 @@ class FilesSharingDeletedShareapiClient {
       'Accept': 'application/json',
     };
     Uint8List? body;
+    // coverage:ignore-start
     if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
         rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
@@ -139,8 +142,9 @@ class FilesSharingDeletedShareapiClient {
       headers
           .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
     } else {
-      throw Exception('Missing authentication for bearer_auth or basic_auth'); // coverage:ignore-line
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
+    // coverage:ignore-end
     path = path.replaceAll('{id}', Uri.encodeQueryComponent(id));
     headers['OCS-APIRequest'] = oCSAPIRequest;
     final response = await rootClient.doRequest(
@@ -175,6 +179,7 @@ class FilesSharingPublicPreviewClient {
       'Accept': '*/*',
     };
     Uint8List? body;
+    // coverage:ignore-start
     if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
         rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
@@ -183,6 +188,7 @@ class FilesSharingPublicPreviewClient {
       headers
           .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
     }
+    // coverage:ignore-end
     path = path.replaceAll('{token}', Uri.encodeQueryComponent(token));
     headers['OCS-APIRequest'] = oCSAPIRequest;
     final response = await rootClient.doRequest(
@@ -212,6 +218,7 @@ class FilesSharingPublicPreviewClient {
       'Accept': '*/*',
     };
     Uint8List? body;
+    // coverage:ignore-start
     if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
         rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
@@ -220,6 +227,7 @@ class FilesSharingPublicPreviewClient {
       headers
           .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
     }
+    // coverage:ignore-end
     path = path.replaceAll('{token}', Uri.encodeQueryComponent(token));
     if (file != '') {
       queryParameters['file'] = file;
@@ -260,6 +268,7 @@ class FilesSharingRemoteClient {
       'Accept': 'application/json',
     };
     Uint8List? body;
+    // coverage:ignore-start
     if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
         rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
@@ -268,8 +277,9 @@ class FilesSharingRemoteClient {
       headers
           .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
     } else {
-      throw Exception('Missing authentication for bearer_auth or basic_auth'); // coverage:ignore-line
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
+    // coverage:ignore-end
     headers['OCS-APIRequest'] = oCSAPIRequest;
     final response = await rootClient.doRequest(
       'get',
@@ -296,6 +306,7 @@ class FilesSharingRemoteClient {
       'Accept': 'application/json',
     };
     Uint8List? body;
+    // coverage:ignore-start
     if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
         rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
@@ -304,8 +315,9 @@ class FilesSharingRemoteClient {
       headers
           .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
     } else {
-      throw Exception('Missing authentication for bearer_auth or basic_auth'); // coverage:ignore-line
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
+    // coverage:ignore-end
     headers['OCS-APIRequest'] = oCSAPIRequest;
     final response = await rootClient.doRequest(
       'get',
@@ -333,6 +345,7 @@ class FilesSharingRemoteClient {
       'Accept': 'application/json',
     };
     Uint8List? body;
+    // coverage:ignore-start
     if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
         rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
@@ -341,8 +354,9 @@ class FilesSharingRemoteClient {
       headers
           .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
     } else {
-      throw Exception('Missing authentication for bearer_auth or basic_auth'); // coverage:ignore-line
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
+    // coverage:ignore-end
     path = path.replaceAll('{id}', Uri.encodeQueryComponent(id.toString()));
     headers['OCS-APIRequest'] = oCSAPIRequest;
     final response = await rootClient.doRequest(
@@ -371,6 +385,7 @@ class FilesSharingRemoteClient {
       'Accept': 'application/json',
     };
     Uint8List? body;
+    // coverage:ignore-start
     if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
         rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
@@ -379,8 +394,9 @@ class FilesSharingRemoteClient {
       headers
           .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
     } else {
-      throw Exception('Missing authentication for bearer_auth or basic_auth'); // coverage:ignore-line
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
+    // coverage:ignore-end
     path = path.replaceAll('{id}', Uri.encodeQueryComponent(id.toString()));
     headers['OCS-APIRequest'] = oCSAPIRequest;
     final response = await rootClient.doRequest(
@@ -409,6 +425,7 @@ class FilesSharingRemoteClient {
       'Accept': 'application/json',
     };
     Uint8List? body;
+    // coverage:ignore-start
     if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
         rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
@@ -417,8 +434,9 @@ class FilesSharingRemoteClient {
       headers
           .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
     } else {
-      throw Exception('Missing authentication for bearer_auth or basic_auth'); // coverage:ignore-line
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
+    // coverage:ignore-end
     path = path.replaceAll('{id}', Uri.encodeQueryComponent(id.toString()));
     headers['OCS-APIRequest'] = oCSAPIRequest;
     final response = await rootClient.doRequest(
@@ -447,6 +465,7 @@ class FilesSharingRemoteClient {
       'Accept': 'application/json',
     };
     Uint8List? body;
+    // coverage:ignore-start
     if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
         rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
@@ -455,8 +474,9 @@ class FilesSharingRemoteClient {
       headers
           .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
     } else {
-      throw Exception('Missing authentication for bearer_auth or basic_auth'); // coverage:ignore-line
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
+    // coverage:ignore-end
     path = path.replaceAll('{id}', Uri.encodeQueryComponent(id.toString()));
     headers['OCS-APIRequest'] = oCSAPIRequest;
     final response = await rootClient.doRequest(
@@ -493,6 +513,7 @@ class FilesSharingShareInfoClient {
       'Accept': 'application/json',
     };
     Uint8List? body;
+    // coverage:ignore-start
     if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
         rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
@@ -501,6 +522,7 @@ class FilesSharingShareInfoClient {
       headers
           .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
     }
+    // coverage:ignore-end
     queryParameters['t'] = t;
     if (password != null) {
       queryParameters['password'] = password;
@@ -547,6 +569,7 @@ class FilesSharingShareapiClient {
       'Accept': 'application/json',
     };
     Uint8List? body;
+    // coverage:ignore-start
     if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
         rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
@@ -555,8 +578,9 @@ class FilesSharingShareapiClient {
       headers
           .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
     } else {
-      throw Exception('Missing authentication for bearer_auth or basic_auth'); // coverage:ignore-line
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
+    // coverage:ignore-end
     if (sharedWithMe != 'false') {
       queryParameters['shared_with_me'] = sharedWithMe;
     }
@@ -609,6 +633,7 @@ class FilesSharingShareapiClient {
       'Accept': 'application/json',
     };
     Uint8List? body;
+    // coverage:ignore-start
     if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
         rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
@@ -617,8 +642,9 @@ class FilesSharingShareapiClient {
       headers
           .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
     } else {
-      throw Exception('Missing authentication for bearer_auth or basic_auth'); // coverage:ignore-line
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
+    // coverage:ignore-end
     queryParameters['path'] = path;
     if (permissions != null) {
       queryParameters['permissions'] = permissions.toString();
@@ -677,6 +703,7 @@ class FilesSharingShareapiClient {
       'Accept': 'application/json',
     };
     Uint8List? body;
+    // coverage:ignore-start
     if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
         rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
@@ -685,8 +712,9 @@ class FilesSharingShareapiClient {
       headers
           .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
     } else {
-      throw Exception('Missing authentication for bearer_auth or basic_auth'); // coverage:ignore-line
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
+    // coverage:ignore-end
     queryParameters['path'] = path;
     headers['OCS-APIRequest'] = oCSAPIRequest;
     final response = await rootClient.doRequest(
@@ -714,6 +742,7 @@ class FilesSharingShareapiClient {
       'Accept': 'application/json',
     };
     Uint8List? body;
+    // coverage:ignore-start
     if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
         rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
@@ -722,8 +751,9 @@ class FilesSharingShareapiClient {
       headers
           .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
     } else {
-      throw Exception('Missing authentication for bearer_auth or basic_auth'); // coverage:ignore-line
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
+    // coverage:ignore-end
     headers['OCS-APIRequest'] = oCSAPIRequest;
     final response = await rootClient.doRequest(
       'get',
@@ -752,6 +782,7 @@ class FilesSharingShareapiClient {
       'Accept': 'application/json',
     };
     Uint8List? body;
+    // coverage:ignore-start
     if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
         rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
@@ -760,8 +791,9 @@ class FilesSharingShareapiClient {
       headers
           .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
     } else {
-      throw Exception('Missing authentication for bearer_auth or basic_auth'); // coverage:ignore-line
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
+    // coverage:ignore-end
     path = path.replaceAll('{id}', Uri.encodeQueryComponent(id));
     if (includeTags != 0) {
       queryParameters['include_tags'] = includeTags.toString();
@@ -802,6 +834,7 @@ class FilesSharingShareapiClient {
       'Accept': 'application/json',
     };
     Uint8List? body;
+    // coverage:ignore-start
     if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
         rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
@@ -810,8 +843,9 @@ class FilesSharingShareapiClient {
       headers
           .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
     } else {
-      throw Exception('Missing authentication for bearer_auth or basic_auth'); // coverage:ignore-line
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
+    // coverage:ignore-end
     path = path.replaceAll('{id}', Uri.encodeQueryComponent(id));
     if (permissions != null) {
       queryParameters['permissions'] = permissions.toString();
@@ -867,6 +901,7 @@ class FilesSharingShareapiClient {
       'Accept': 'application/json',
     };
     Uint8List? body;
+    // coverage:ignore-start
     if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
         rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
@@ -875,8 +910,9 @@ class FilesSharingShareapiClient {
       headers
           .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
     } else {
-      throw Exception('Missing authentication for bearer_auth or basic_auth'); // coverage:ignore-line
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
+    // coverage:ignore-end
     path = path.replaceAll('{id}', Uri.encodeQueryComponent(id));
     headers['OCS-APIRequest'] = oCSAPIRequest;
     final response = await rootClient.doRequest(
@@ -905,6 +941,7 @@ class FilesSharingShareapiClient {
       'Accept': 'application/json',
     };
     Uint8List? body;
+    // coverage:ignore-start
     if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
         rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
@@ -913,8 +950,9 @@ class FilesSharingShareapiClient {
       headers
           .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
     } else {
-      throw Exception('Missing authentication for bearer_auth or basic_auth'); // coverage:ignore-line
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
+    // coverage:ignore-end
     path = path.replaceAll('{id}', Uri.encodeQueryComponent(id));
     headers['OCS-APIRequest'] = oCSAPIRequest;
     final response = await rootClient.doRequest(
@@ -956,6 +994,7 @@ class FilesSharingShareesapiClient {
       'Accept': 'application/json',
     };
     Uint8List? body;
+    // coverage:ignore-start
     if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
         rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
@@ -964,8 +1003,9 @@ class FilesSharingShareesapiClient {
       headers
           .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
     } else {
-      throw Exception('Missing authentication for bearer_auth or basic_auth'); // coverage:ignore-line
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
+    // coverage:ignore-end
     if (search != '') {
       queryParameters['search'] = search;
     }
@@ -1022,6 +1062,7 @@ class FilesSharingShareesapiClient {
       'Accept': 'application/json',
     };
     Uint8List? body;
+    // coverage:ignore-start
     if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
         rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
@@ -1030,8 +1071,9 @@ class FilesSharingShareesapiClient {
       headers
           .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
     } else {
-      throw Exception('Missing authentication for bearer_auth or basic_auth'); // coverage:ignore-line
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
+    // coverage:ignore-end
     queryParameters['itemType'] = itemType;
     if (shareType != null) {
       queryParameters['shareType'] = _jsonSerializers.serialize(
@@ -1058,12 +1100,19 @@ class FilesSharingShareesapiClient {
 
 abstract class FilesSharingOCSMeta implements Built<FilesSharingOCSMeta, FilesSharingOCSMetaBuilder> {
   factory FilesSharingOCSMeta([final void Function(FilesSharingOCSMetaBuilder)? b]) = _$FilesSharingOCSMeta;
-  const FilesSharingOCSMeta._();
 
+  // coverage:ignore-start
+  const FilesSharingOCSMeta._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory FilesSharingOCSMeta.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   String get status;
   int get statuscode;
   String? get message;
@@ -1075,12 +1124,19 @@ abstract class FilesSharingOCSMeta implements Built<FilesSharingOCSMeta, FilesSh
 abstract class FilesSharingDeletedShare implements Built<FilesSharingDeletedShare, FilesSharingDeletedShareBuilder> {
   factory FilesSharingDeletedShare([final void Function(FilesSharingDeletedShareBuilder)? b]) =
       _$FilesSharingDeletedShare;
-  const FilesSharingDeletedShare._();
 
+  // coverage:ignore-start
+  const FilesSharingDeletedShare._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory FilesSharingDeletedShare.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   String get id;
   @BuiltValueField(wireName: 'share_type')
   int get shareType;
@@ -1124,12 +1180,19 @@ abstract class FilesSharingDeletedShareapiListResponse200ApplicationJson_Ocs
   factory FilesSharingDeletedShareapiListResponse200ApplicationJson_Ocs([
     final void Function(FilesSharingDeletedShareapiListResponse200ApplicationJson_OcsBuilder)? b,
   ]) = _$FilesSharingDeletedShareapiListResponse200ApplicationJson_Ocs;
-  const FilesSharingDeletedShareapiListResponse200ApplicationJson_Ocs._();
 
+  // coverage:ignore-start
+  const FilesSharingDeletedShareapiListResponse200ApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory FilesSharingDeletedShareapiListResponse200ApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   FilesSharingOCSMeta get meta;
   BuiltList<FilesSharingDeletedShare> get data;
   static Serializer<FilesSharingDeletedShareapiListResponse200ApplicationJson_Ocs> get serializer =>
@@ -1143,12 +1206,19 @@ abstract class FilesSharingDeletedShareapiListResponse200ApplicationJson
   factory FilesSharingDeletedShareapiListResponse200ApplicationJson([
     final void Function(FilesSharingDeletedShareapiListResponse200ApplicationJsonBuilder)? b,
   ]) = _$FilesSharingDeletedShareapiListResponse200ApplicationJson;
-  const FilesSharingDeletedShareapiListResponse200ApplicationJson._();
 
+  // coverage:ignore-start
+  const FilesSharingDeletedShareapiListResponse200ApplicationJson._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory FilesSharingDeletedShareapiListResponse200ApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   FilesSharingDeletedShareapiListResponse200ApplicationJson_Ocs get ocs;
   static Serializer<FilesSharingDeletedShareapiListResponse200ApplicationJson> get serializer =>
       _$filesSharingDeletedShareapiListResponse200ApplicationJsonSerializer;
@@ -1161,12 +1231,19 @@ abstract class FilesSharingDeletedShareapiUndeleteResponse200ApplicationJson_Ocs
   factory FilesSharingDeletedShareapiUndeleteResponse200ApplicationJson_Ocs([
     final void Function(FilesSharingDeletedShareapiUndeleteResponse200ApplicationJson_OcsBuilder)? b,
   ]) = _$FilesSharingDeletedShareapiUndeleteResponse200ApplicationJson_Ocs;
-  const FilesSharingDeletedShareapiUndeleteResponse200ApplicationJson_Ocs._();
 
+  // coverage:ignore-start
+  const FilesSharingDeletedShareapiUndeleteResponse200ApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory FilesSharingDeletedShareapiUndeleteResponse200ApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   FilesSharingOCSMeta get meta;
   JsonObject get data;
   static Serializer<FilesSharingDeletedShareapiUndeleteResponse200ApplicationJson_Ocs> get serializer =>
@@ -1180,12 +1257,19 @@ abstract class FilesSharingDeletedShareapiUndeleteResponse200ApplicationJson
   factory FilesSharingDeletedShareapiUndeleteResponse200ApplicationJson([
     final void Function(FilesSharingDeletedShareapiUndeleteResponse200ApplicationJsonBuilder)? b,
   ]) = _$FilesSharingDeletedShareapiUndeleteResponse200ApplicationJson;
-  const FilesSharingDeletedShareapiUndeleteResponse200ApplicationJson._();
 
+  // coverage:ignore-start
+  const FilesSharingDeletedShareapiUndeleteResponse200ApplicationJson._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory FilesSharingDeletedShareapiUndeleteResponse200ApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   FilesSharingDeletedShareapiUndeleteResponse200ApplicationJson_Ocs get ocs;
   static Serializer<FilesSharingDeletedShareapiUndeleteResponse200ApplicationJson> get serializer =>
       _$filesSharingDeletedShareapiUndeleteResponse200ApplicationJsonSerializer;
@@ -1193,12 +1277,19 @@ abstract class FilesSharingDeletedShareapiUndeleteResponse200ApplicationJson
 
 abstract class FilesSharingRemoteShare implements Built<FilesSharingRemoteShare, FilesSharingRemoteShareBuilder> {
   factory FilesSharingRemoteShare([final void Function(FilesSharingRemoteShareBuilder)? b]) = _$FilesSharingRemoteShare;
-  const FilesSharingRemoteShare._();
 
+  // coverage:ignore-start
+  const FilesSharingRemoteShare._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory FilesSharingRemoteShare.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   bool get accepted;
   @BuiltValueField(wireName: 'file_id')
   int? get fileId;
@@ -1229,12 +1320,19 @@ abstract class FilesSharingRemoteGetSharesResponse200ApplicationJson_Ocs
   factory FilesSharingRemoteGetSharesResponse200ApplicationJson_Ocs([
     final void Function(FilesSharingRemoteGetSharesResponse200ApplicationJson_OcsBuilder)? b,
   ]) = _$FilesSharingRemoteGetSharesResponse200ApplicationJson_Ocs;
-  const FilesSharingRemoteGetSharesResponse200ApplicationJson_Ocs._();
 
+  // coverage:ignore-start
+  const FilesSharingRemoteGetSharesResponse200ApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory FilesSharingRemoteGetSharesResponse200ApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   FilesSharingOCSMeta get meta;
   BuiltList<FilesSharingRemoteShare> get data;
   static Serializer<FilesSharingRemoteGetSharesResponse200ApplicationJson_Ocs> get serializer =>
@@ -1248,12 +1346,19 @@ abstract class FilesSharingRemoteGetSharesResponse200ApplicationJson
   factory FilesSharingRemoteGetSharesResponse200ApplicationJson([
     final void Function(FilesSharingRemoteGetSharesResponse200ApplicationJsonBuilder)? b,
   ]) = _$FilesSharingRemoteGetSharesResponse200ApplicationJson;
-  const FilesSharingRemoteGetSharesResponse200ApplicationJson._();
 
+  // coverage:ignore-start
+  const FilesSharingRemoteGetSharesResponse200ApplicationJson._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory FilesSharingRemoteGetSharesResponse200ApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   FilesSharingRemoteGetSharesResponse200ApplicationJson_Ocs get ocs;
   static Serializer<FilesSharingRemoteGetSharesResponse200ApplicationJson> get serializer =>
       _$filesSharingRemoteGetSharesResponse200ApplicationJsonSerializer;
@@ -1266,12 +1371,19 @@ abstract class FilesSharingRemoteGetOpenSharesResponse200ApplicationJson_Ocs
   factory FilesSharingRemoteGetOpenSharesResponse200ApplicationJson_Ocs([
     final void Function(FilesSharingRemoteGetOpenSharesResponse200ApplicationJson_OcsBuilder)? b,
   ]) = _$FilesSharingRemoteGetOpenSharesResponse200ApplicationJson_Ocs;
-  const FilesSharingRemoteGetOpenSharesResponse200ApplicationJson_Ocs._();
 
+  // coverage:ignore-start
+  const FilesSharingRemoteGetOpenSharesResponse200ApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory FilesSharingRemoteGetOpenSharesResponse200ApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   FilesSharingOCSMeta get meta;
   BuiltList<FilesSharingRemoteShare> get data;
   static Serializer<FilesSharingRemoteGetOpenSharesResponse200ApplicationJson_Ocs> get serializer =>
@@ -1285,12 +1397,19 @@ abstract class FilesSharingRemoteGetOpenSharesResponse200ApplicationJson
   factory FilesSharingRemoteGetOpenSharesResponse200ApplicationJson([
     final void Function(FilesSharingRemoteGetOpenSharesResponse200ApplicationJsonBuilder)? b,
   ]) = _$FilesSharingRemoteGetOpenSharesResponse200ApplicationJson;
-  const FilesSharingRemoteGetOpenSharesResponse200ApplicationJson._();
 
+  // coverage:ignore-start
+  const FilesSharingRemoteGetOpenSharesResponse200ApplicationJson._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory FilesSharingRemoteGetOpenSharesResponse200ApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   FilesSharingRemoteGetOpenSharesResponse200ApplicationJson_Ocs get ocs;
   static Serializer<FilesSharingRemoteGetOpenSharesResponse200ApplicationJson> get serializer =>
       _$filesSharingRemoteGetOpenSharesResponse200ApplicationJsonSerializer;
@@ -1303,12 +1422,19 @@ abstract class FilesSharingRemoteAcceptShareResponse200ApplicationJson_Ocs
   factory FilesSharingRemoteAcceptShareResponse200ApplicationJson_Ocs([
     final void Function(FilesSharingRemoteAcceptShareResponse200ApplicationJson_OcsBuilder)? b,
   ]) = _$FilesSharingRemoteAcceptShareResponse200ApplicationJson_Ocs;
-  const FilesSharingRemoteAcceptShareResponse200ApplicationJson_Ocs._();
 
+  // coverage:ignore-start
+  const FilesSharingRemoteAcceptShareResponse200ApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory FilesSharingRemoteAcceptShareResponse200ApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   FilesSharingOCSMeta get meta;
   JsonObject get data;
   static Serializer<FilesSharingRemoteAcceptShareResponse200ApplicationJson_Ocs> get serializer =>
@@ -1322,12 +1448,19 @@ abstract class FilesSharingRemoteAcceptShareResponse200ApplicationJson
   factory FilesSharingRemoteAcceptShareResponse200ApplicationJson([
     final void Function(FilesSharingRemoteAcceptShareResponse200ApplicationJsonBuilder)? b,
   ]) = _$FilesSharingRemoteAcceptShareResponse200ApplicationJson;
-  const FilesSharingRemoteAcceptShareResponse200ApplicationJson._();
 
+  // coverage:ignore-start
+  const FilesSharingRemoteAcceptShareResponse200ApplicationJson._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory FilesSharingRemoteAcceptShareResponse200ApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   FilesSharingRemoteAcceptShareResponse200ApplicationJson_Ocs get ocs;
   static Serializer<FilesSharingRemoteAcceptShareResponse200ApplicationJson> get serializer =>
       _$filesSharingRemoteAcceptShareResponse200ApplicationJsonSerializer;
@@ -1340,12 +1473,19 @@ abstract class FilesSharingRemoteDeclineShareResponse200ApplicationJson_Ocs
   factory FilesSharingRemoteDeclineShareResponse200ApplicationJson_Ocs([
     final void Function(FilesSharingRemoteDeclineShareResponse200ApplicationJson_OcsBuilder)? b,
   ]) = _$FilesSharingRemoteDeclineShareResponse200ApplicationJson_Ocs;
-  const FilesSharingRemoteDeclineShareResponse200ApplicationJson_Ocs._();
 
+  // coverage:ignore-start
+  const FilesSharingRemoteDeclineShareResponse200ApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory FilesSharingRemoteDeclineShareResponse200ApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   FilesSharingOCSMeta get meta;
   JsonObject get data;
   static Serializer<FilesSharingRemoteDeclineShareResponse200ApplicationJson_Ocs> get serializer =>
@@ -1359,12 +1499,19 @@ abstract class FilesSharingRemoteDeclineShareResponse200ApplicationJson
   factory FilesSharingRemoteDeclineShareResponse200ApplicationJson([
     final void Function(FilesSharingRemoteDeclineShareResponse200ApplicationJsonBuilder)? b,
   ]) = _$FilesSharingRemoteDeclineShareResponse200ApplicationJson;
-  const FilesSharingRemoteDeclineShareResponse200ApplicationJson._();
 
+  // coverage:ignore-start
+  const FilesSharingRemoteDeclineShareResponse200ApplicationJson._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory FilesSharingRemoteDeclineShareResponse200ApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   FilesSharingRemoteDeclineShareResponse200ApplicationJson_Ocs get ocs;
   static Serializer<FilesSharingRemoteDeclineShareResponse200ApplicationJson> get serializer =>
       _$filesSharingRemoteDeclineShareResponse200ApplicationJsonSerializer;
@@ -1377,12 +1524,19 @@ abstract class FilesSharingRemoteGetShareResponse200ApplicationJson_Ocs
   factory FilesSharingRemoteGetShareResponse200ApplicationJson_Ocs([
     final void Function(FilesSharingRemoteGetShareResponse200ApplicationJson_OcsBuilder)? b,
   ]) = _$FilesSharingRemoteGetShareResponse200ApplicationJson_Ocs;
-  const FilesSharingRemoteGetShareResponse200ApplicationJson_Ocs._();
 
+  // coverage:ignore-start
+  const FilesSharingRemoteGetShareResponse200ApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory FilesSharingRemoteGetShareResponse200ApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   FilesSharingOCSMeta get meta;
   FilesSharingRemoteShare get data;
   static Serializer<FilesSharingRemoteGetShareResponse200ApplicationJson_Ocs> get serializer =>
@@ -1396,12 +1550,19 @@ abstract class FilesSharingRemoteGetShareResponse200ApplicationJson
   factory FilesSharingRemoteGetShareResponse200ApplicationJson([
     final void Function(FilesSharingRemoteGetShareResponse200ApplicationJsonBuilder)? b,
   ]) = _$FilesSharingRemoteGetShareResponse200ApplicationJson;
-  const FilesSharingRemoteGetShareResponse200ApplicationJson._();
 
+  // coverage:ignore-start
+  const FilesSharingRemoteGetShareResponse200ApplicationJson._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory FilesSharingRemoteGetShareResponse200ApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   FilesSharingRemoteGetShareResponse200ApplicationJson_Ocs get ocs;
   static Serializer<FilesSharingRemoteGetShareResponse200ApplicationJson> get serializer =>
       _$filesSharingRemoteGetShareResponse200ApplicationJsonSerializer;
@@ -1414,12 +1575,19 @@ abstract class FilesSharingRemoteUnshareResponse200ApplicationJson_Ocs
   factory FilesSharingRemoteUnshareResponse200ApplicationJson_Ocs([
     final void Function(FilesSharingRemoteUnshareResponse200ApplicationJson_OcsBuilder)? b,
   ]) = _$FilesSharingRemoteUnshareResponse200ApplicationJson_Ocs;
-  const FilesSharingRemoteUnshareResponse200ApplicationJson_Ocs._();
 
+  // coverage:ignore-start
+  const FilesSharingRemoteUnshareResponse200ApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory FilesSharingRemoteUnshareResponse200ApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   FilesSharingOCSMeta get meta;
   JsonObject get data;
   static Serializer<FilesSharingRemoteUnshareResponse200ApplicationJson_Ocs> get serializer =>
@@ -1433,12 +1601,19 @@ abstract class FilesSharingRemoteUnshareResponse200ApplicationJson
   factory FilesSharingRemoteUnshareResponse200ApplicationJson([
     final void Function(FilesSharingRemoteUnshareResponse200ApplicationJsonBuilder)? b,
   ]) = _$FilesSharingRemoteUnshareResponse200ApplicationJson;
-  const FilesSharingRemoteUnshareResponse200ApplicationJson._();
 
+  // coverage:ignore-start
+  const FilesSharingRemoteUnshareResponse200ApplicationJson._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory FilesSharingRemoteUnshareResponse200ApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   FilesSharingRemoteUnshareResponse200ApplicationJson_Ocs get ocs;
   static Serializer<FilesSharingRemoteUnshareResponse200ApplicationJson> get serializer =>
       _$filesSharingRemoteUnshareResponse200ApplicationJsonSerializer;
@@ -1446,15 +1621,20 @@ abstract class FilesSharingRemoteUnshareResponse200ApplicationJson
 
 abstract class FilesSharingShareInfo_Size
     implements Built<FilesSharingShareInfo_Size, FilesSharingShareInfo_SizeBuilder> {
+  // coverage:ignore-end
+
   factory FilesSharingShareInfo_Size([final void Function(FilesSharingShareInfo_SizeBuilder)? b]) =
       _$FilesSharingShareInfo_Size;
+  // coverage:ignore-start
   const FilesSharingShareInfo_Size._();
 
   JsonObject get data;
   int? get $int;
   num? get $num;
   static FilesSharingShareInfo_Size fromJson(final Object json) => _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   @BuiltValueSerializer(custom: true)
   static Serializer<FilesSharingShareInfo_Size> get serializer => _$FilesSharingShareInfo_SizeSerializer();
 }
@@ -1494,12 +1674,19 @@ class _$FilesSharingShareInfo_SizeSerializer implements PrimitiveSerializer<File
 
 abstract class FilesSharingShareInfo implements Built<FilesSharingShareInfo, FilesSharingShareInfoBuilder> {
   factory FilesSharingShareInfo([final void Function(FilesSharingShareInfoBuilder)? b]) = _$FilesSharingShareInfo;
-  const FilesSharingShareInfo._();
 
+  // coverage:ignore-start
+  const FilesSharingShareInfo._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory FilesSharingShareInfo.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   int get id;
   int get parentId;
   int get mtime;
@@ -1515,15 +1702,20 @@ abstract class FilesSharingShareInfo implements Built<FilesSharingShareInfo, Fil
 
 abstract class FilesSharingShare_ItemSize
     implements Built<FilesSharingShare_ItemSize, FilesSharingShare_ItemSizeBuilder> {
+  // coverage:ignore-end
+
   factory FilesSharingShare_ItemSize([final void Function(FilesSharingShare_ItemSizeBuilder)? b]) =
       _$FilesSharingShare_ItemSize;
+  // coverage:ignore-start
   const FilesSharingShare_ItemSize._();
 
   JsonObject get data;
   num? get $num;
   int? get $int;
   static FilesSharingShare_ItemSize fromJson(final Object json) => _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   @BuiltValueSerializer(custom: true)
   static Serializer<FilesSharingShare_ItemSize> get serializer => _$FilesSharingShare_ItemSizeSerializer();
 }
@@ -1568,7 +1760,9 @@ class FilesSharingShare_ItemType extends EnumClass {
 
   static const FilesSharingShare_ItemType folder = _$filesSharingShareItemTypeFolder;
 
+  // coverage:ignore-start
   static BuiltSet<FilesSharingShare_ItemType> get values => _$filesSharingShareItemTypeValues;
+  // coverage:ignore-end
   static FilesSharingShare_ItemType valueOf(final String name) => _$valueOfFilesSharingShare_ItemType(name);
   static Serializer<FilesSharingShare_ItemType> get serializer => _$filesSharingShareItemTypeSerializer;
 }
@@ -1576,12 +1770,19 @@ class FilesSharingShare_ItemType extends EnumClass {
 abstract class FilesSharingShare_Status implements Built<FilesSharingShare_Status, FilesSharingShare_StatusBuilder> {
   factory FilesSharingShare_Status([final void Function(FilesSharingShare_StatusBuilder)? b]) =
       _$FilesSharingShare_Status;
-  const FilesSharingShare_Status._();
 
+  // coverage:ignore-start
+  const FilesSharingShare_Status._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory FilesSharingShare_Status.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   int? get clearAt;
   String? get icon;
   String? get message;
@@ -1591,12 +1792,19 @@ abstract class FilesSharingShare_Status implements Built<FilesSharingShare_Statu
 
 abstract class FilesSharingShare implements Built<FilesSharingShare, FilesSharingShareBuilder> {
   factory FilesSharingShare([final void Function(FilesSharingShareBuilder)? b]) = _$FilesSharingShare;
-  const FilesSharingShare._();
 
+  // coverage:ignore-start
+  const FilesSharingShare._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory FilesSharingShare.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   String? get attributes;
   @BuiltValueField(wireName: 'can_delete')
   bool get canDelete;
@@ -1674,12 +1882,19 @@ abstract class FilesSharingShareapiGetSharesResponse200ApplicationJson_Ocs
   factory FilesSharingShareapiGetSharesResponse200ApplicationJson_Ocs([
     final void Function(FilesSharingShareapiGetSharesResponse200ApplicationJson_OcsBuilder)? b,
   ]) = _$FilesSharingShareapiGetSharesResponse200ApplicationJson_Ocs;
-  const FilesSharingShareapiGetSharesResponse200ApplicationJson_Ocs._();
 
+  // coverage:ignore-start
+  const FilesSharingShareapiGetSharesResponse200ApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory FilesSharingShareapiGetSharesResponse200ApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   FilesSharingOCSMeta get meta;
   BuiltList<FilesSharingShare> get data;
   static Serializer<FilesSharingShareapiGetSharesResponse200ApplicationJson_Ocs> get serializer =>
@@ -1693,12 +1908,19 @@ abstract class FilesSharingShareapiGetSharesResponse200ApplicationJson
   factory FilesSharingShareapiGetSharesResponse200ApplicationJson([
     final void Function(FilesSharingShareapiGetSharesResponse200ApplicationJsonBuilder)? b,
   ]) = _$FilesSharingShareapiGetSharesResponse200ApplicationJson;
-  const FilesSharingShareapiGetSharesResponse200ApplicationJson._();
 
+  // coverage:ignore-start
+  const FilesSharingShareapiGetSharesResponse200ApplicationJson._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory FilesSharingShareapiGetSharesResponse200ApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   FilesSharingShareapiGetSharesResponse200ApplicationJson_Ocs get ocs;
   static Serializer<FilesSharingShareapiGetSharesResponse200ApplicationJson> get serializer =>
       _$filesSharingShareapiGetSharesResponse200ApplicationJsonSerializer;
@@ -1711,12 +1933,19 @@ abstract class FilesSharingShareapiCreateShareResponse200ApplicationJson_Ocs
   factory FilesSharingShareapiCreateShareResponse200ApplicationJson_Ocs([
     final void Function(FilesSharingShareapiCreateShareResponse200ApplicationJson_OcsBuilder)? b,
   ]) = _$FilesSharingShareapiCreateShareResponse200ApplicationJson_Ocs;
-  const FilesSharingShareapiCreateShareResponse200ApplicationJson_Ocs._();
 
+  // coverage:ignore-start
+  const FilesSharingShareapiCreateShareResponse200ApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory FilesSharingShareapiCreateShareResponse200ApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   FilesSharingOCSMeta get meta;
   FilesSharingShare get data;
   static Serializer<FilesSharingShareapiCreateShareResponse200ApplicationJson_Ocs> get serializer =>
@@ -1730,12 +1959,19 @@ abstract class FilesSharingShareapiCreateShareResponse200ApplicationJson
   factory FilesSharingShareapiCreateShareResponse200ApplicationJson([
     final void Function(FilesSharingShareapiCreateShareResponse200ApplicationJsonBuilder)? b,
   ]) = _$FilesSharingShareapiCreateShareResponse200ApplicationJson;
-  const FilesSharingShareapiCreateShareResponse200ApplicationJson._();
 
+  // coverage:ignore-start
+  const FilesSharingShareapiCreateShareResponse200ApplicationJson._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory FilesSharingShareapiCreateShareResponse200ApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   FilesSharingShareapiCreateShareResponse200ApplicationJson_Ocs get ocs;
   static Serializer<FilesSharingShareapiCreateShareResponse200ApplicationJson> get serializer =>
       _$filesSharingShareapiCreateShareResponse200ApplicationJsonSerializer;
@@ -1748,14 +1984,21 @@ abstract class FilesSharingShareapiGetInheritedSharesResponse200ApplicationJson_
   factory FilesSharingShareapiGetInheritedSharesResponse200ApplicationJson_Ocs([
     final void Function(FilesSharingShareapiGetInheritedSharesResponse200ApplicationJson_OcsBuilder)? b,
   ]) = _$FilesSharingShareapiGetInheritedSharesResponse200ApplicationJson_Ocs;
-  const FilesSharingShareapiGetInheritedSharesResponse200ApplicationJson_Ocs._();
 
+  // coverage:ignore-start
+  const FilesSharingShareapiGetInheritedSharesResponse200ApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory FilesSharingShareapiGetInheritedSharesResponse200ApplicationJson_Ocs.fromJson(
     final Map<String, dynamic> json,
   ) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   FilesSharingOCSMeta get meta;
   BuiltList<FilesSharingShare> get data;
   static Serializer<FilesSharingShareapiGetInheritedSharesResponse200ApplicationJson_Ocs> get serializer =>
@@ -1769,12 +2012,19 @@ abstract class FilesSharingShareapiGetInheritedSharesResponse200ApplicationJson
   factory FilesSharingShareapiGetInheritedSharesResponse200ApplicationJson([
     final void Function(FilesSharingShareapiGetInheritedSharesResponse200ApplicationJsonBuilder)? b,
   ]) = _$FilesSharingShareapiGetInheritedSharesResponse200ApplicationJson;
-  const FilesSharingShareapiGetInheritedSharesResponse200ApplicationJson._();
 
+  // coverage:ignore-start
+  const FilesSharingShareapiGetInheritedSharesResponse200ApplicationJson._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory FilesSharingShareapiGetInheritedSharesResponse200ApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   FilesSharingShareapiGetInheritedSharesResponse200ApplicationJson_Ocs get ocs;
   static Serializer<FilesSharingShareapiGetInheritedSharesResponse200ApplicationJson> get serializer =>
       _$filesSharingShareapiGetInheritedSharesResponse200ApplicationJsonSerializer;
@@ -1787,12 +2037,19 @@ abstract class FilesSharingShareapiPendingSharesResponse200ApplicationJson_Ocs
   factory FilesSharingShareapiPendingSharesResponse200ApplicationJson_Ocs([
     final void Function(FilesSharingShareapiPendingSharesResponse200ApplicationJson_OcsBuilder)? b,
   ]) = _$FilesSharingShareapiPendingSharesResponse200ApplicationJson_Ocs;
-  const FilesSharingShareapiPendingSharesResponse200ApplicationJson_Ocs._();
 
+  // coverage:ignore-start
+  const FilesSharingShareapiPendingSharesResponse200ApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory FilesSharingShareapiPendingSharesResponse200ApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   FilesSharingOCSMeta get meta;
   BuiltList<FilesSharingShare> get data;
   static Serializer<FilesSharingShareapiPendingSharesResponse200ApplicationJson_Ocs> get serializer =>
@@ -1806,12 +2063,19 @@ abstract class FilesSharingShareapiPendingSharesResponse200ApplicationJson
   factory FilesSharingShareapiPendingSharesResponse200ApplicationJson([
     final void Function(FilesSharingShareapiPendingSharesResponse200ApplicationJsonBuilder)? b,
   ]) = _$FilesSharingShareapiPendingSharesResponse200ApplicationJson;
-  const FilesSharingShareapiPendingSharesResponse200ApplicationJson._();
 
+  // coverage:ignore-start
+  const FilesSharingShareapiPendingSharesResponse200ApplicationJson._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory FilesSharingShareapiPendingSharesResponse200ApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   FilesSharingShareapiPendingSharesResponse200ApplicationJson_Ocs get ocs;
   static Serializer<FilesSharingShareapiPendingSharesResponse200ApplicationJson> get serializer =>
       _$filesSharingShareapiPendingSharesResponse200ApplicationJsonSerializer;
@@ -1824,12 +2088,19 @@ abstract class FilesSharingShareapiGetShareResponse200ApplicationJson_Ocs
   factory FilesSharingShareapiGetShareResponse200ApplicationJson_Ocs([
     final void Function(FilesSharingShareapiGetShareResponse200ApplicationJson_OcsBuilder)? b,
   ]) = _$FilesSharingShareapiGetShareResponse200ApplicationJson_Ocs;
-  const FilesSharingShareapiGetShareResponse200ApplicationJson_Ocs._();
 
+  // coverage:ignore-start
+  const FilesSharingShareapiGetShareResponse200ApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory FilesSharingShareapiGetShareResponse200ApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   FilesSharingOCSMeta get meta;
   FilesSharingShare get data;
   static Serializer<FilesSharingShareapiGetShareResponse200ApplicationJson_Ocs> get serializer =>
@@ -1843,12 +2114,19 @@ abstract class FilesSharingShareapiGetShareResponse200ApplicationJson
   factory FilesSharingShareapiGetShareResponse200ApplicationJson([
     final void Function(FilesSharingShareapiGetShareResponse200ApplicationJsonBuilder)? b,
   ]) = _$FilesSharingShareapiGetShareResponse200ApplicationJson;
-  const FilesSharingShareapiGetShareResponse200ApplicationJson._();
 
+  // coverage:ignore-start
+  const FilesSharingShareapiGetShareResponse200ApplicationJson._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory FilesSharingShareapiGetShareResponse200ApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   FilesSharingShareapiGetShareResponse200ApplicationJson_Ocs get ocs;
   static Serializer<FilesSharingShareapiGetShareResponse200ApplicationJson> get serializer =>
       _$filesSharingShareapiGetShareResponse200ApplicationJsonSerializer;
@@ -1861,12 +2139,19 @@ abstract class FilesSharingShareapiUpdateShareResponse200ApplicationJson_Ocs
   factory FilesSharingShareapiUpdateShareResponse200ApplicationJson_Ocs([
     final void Function(FilesSharingShareapiUpdateShareResponse200ApplicationJson_OcsBuilder)? b,
   ]) = _$FilesSharingShareapiUpdateShareResponse200ApplicationJson_Ocs;
-  const FilesSharingShareapiUpdateShareResponse200ApplicationJson_Ocs._();
 
+  // coverage:ignore-start
+  const FilesSharingShareapiUpdateShareResponse200ApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory FilesSharingShareapiUpdateShareResponse200ApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   FilesSharingOCSMeta get meta;
   FilesSharingShare get data;
   static Serializer<FilesSharingShareapiUpdateShareResponse200ApplicationJson_Ocs> get serializer =>
@@ -1880,12 +2165,19 @@ abstract class FilesSharingShareapiUpdateShareResponse200ApplicationJson
   factory FilesSharingShareapiUpdateShareResponse200ApplicationJson([
     final void Function(FilesSharingShareapiUpdateShareResponse200ApplicationJsonBuilder)? b,
   ]) = _$FilesSharingShareapiUpdateShareResponse200ApplicationJson;
-  const FilesSharingShareapiUpdateShareResponse200ApplicationJson._();
 
+  // coverage:ignore-start
+  const FilesSharingShareapiUpdateShareResponse200ApplicationJson._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory FilesSharingShareapiUpdateShareResponse200ApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   FilesSharingShareapiUpdateShareResponse200ApplicationJson_Ocs get ocs;
   static Serializer<FilesSharingShareapiUpdateShareResponse200ApplicationJson> get serializer =>
       _$filesSharingShareapiUpdateShareResponse200ApplicationJsonSerializer;
@@ -1898,12 +2190,19 @@ abstract class FilesSharingShareapiDeleteShareResponse200ApplicationJson_Ocs
   factory FilesSharingShareapiDeleteShareResponse200ApplicationJson_Ocs([
     final void Function(FilesSharingShareapiDeleteShareResponse200ApplicationJson_OcsBuilder)? b,
   ]) = _$FilesSharingShareapiDeleteShareResponse200ApplicationJson_Ocs;
-  const FilesSharingShareapiDeleteShareResponse200ApplicationJson_Ocs._();
 
+  // coverage:ignore-start
+  const FilesSharingShareapiDeleteShareResponse200ApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory FilesSharingShareapiDeleteShareResponse200ApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   FilesSharingOCSMeta get meta;
   JsonObject get data;
   static Serializer<FilesSharingShareapiDeleteShareResponse200ApplicationJson_Ocs> get serializer =>
@@ -1917,12 +2216,19 @@ abstract class FilesSharingShareapiDeleteShareResponse200ApplicationJson
   factory FilesSharingShareapiDeleteShareResponse200ApplicationJson([
     final void Function(FilesSharingShareapiDeleteShareResponse200ApplicationJsonBuilder)? b,
   ]) = _$FilesSharingShareapiDeleteShareResponse200ApplicationJson;
-  const FilesSharingShareapiDeleteShareResponse200ApplicationJson._();
 
+  // coverage:ignore-start
+  const FilesSharingShareapiDeleteShareResponse200ApplicationJson._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory FilesSharingShareapiDeleteShareResponse200ApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   FilesSharingShareapiDeleteShareResponse200ApplicationJson_Ocs get ocs;
   static Serializer<FilesSharingShareapiDeleteShareResponse200ApplicationJson> get serializer =>
       _$filesSharingShareapiDeleteShareResponse200ApplicationJsonSerializer;
@@ -1935,12 +2241,19 @@ abstract class FilesSharingShareapiAcceptShareResponse200ApplicationJson_Ocs
   factory FilesSharingShareapiAcceptShareResponse200ApplicationJson_Ocs([
     final void Function(FilesSharingShareapiAcceptShareResponse200ApplicationJson_OcsBuilder)? b,
   ]) = _$FilesSharingShareapiAcceptShareResponse200ApplicationJson_Ocs;
-  const FilesSharingShareapiAcceptShareResponse200ApplicationJson_Ocs._();
 
+  // coverage:ignore-start
+  const FilesSharingShareapiAcceptShareResponse200ApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory FilesSharingShareapiAcceptShareResponse200ApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   FilesSharingOCSMeta get meta;
   JsonObject get data;
   static Serializer<FilesSharingShareapiAcceptShareResponse200ApplicationJson_Ocs> get serializer =>
@@ -1954,12 +2267,19 @@ abstract class FilesSharingShareapiAcceptShareResponse200ApplicationJson
   factory FilesSharingShareapiAcceptShareResponse200ApplicationJson([
     final void Function(FilesSharingShareapiAcceptShareResponse200ApplicationJsonBuilder)? b,
   ]) = _$FilesSharingShareapiAcceptShareResponse200ApplicationJson;
-  const FilesSharingShareapiAcceptShareResponse200ApplicationJson._();
 
+  // coverage:ignore-start
+  const FilesSharingShareapiAcceptShareResponse200ApplicationJson._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory FilesSharingShareapiAcceptShareResponse200ApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   FilesSharingShareapiAcceptShareResponse200ApplicationJson_Ocs get ocs;
   static Serializer<FilesSharingShareapiAcceptShareResponse200ApplicationJson> get serializer =>
       _$filesSharingShareapiAcceptShareResponse200ApplicationJsonSerializer;
@@ -1967,9 +2287,12 @@ abstract class FilesSharingShareapiAcceptShareResponse200ApplicationJson
 
 abstract class FilesSharingShareesapiSearchShareType
     implements Built<FilesSharingShareesapiSearchShareType, FilesSharingShareesapiSearchShareTypeBuilder> {
+  // coverage:ignore-end
+
   factory FilesSharingShareesapiSearchShareType([
     final void Function(FilesSharingShareesapiSearchShareTypeBuilder)? b,
   ]) = _$FilesSharingShareesapiSearchShareType;
+  // coverage:ignore-start
   const FilesSharingShareesapiSearchShareType._();
 
   JsonObject get data;
@@ -1977,7 +2300,9 @@ abstract class FilesSharingShareesapiSearchShareType
   BuiltList<int>? get builtListInt;
   static FilesSharingShareesapiSearchShareType fromJson(final Object json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   @BuiltValueSerializer(custom: true)
   static Serializer<FilesSharingShareesapiSearchShareType> get serializer =>
       _$FilesSharingShareesapiSearchShareTypeSerializer();
@@ -2030,12 +2355,19 @@ abstract class FilesSharingShareesapiShareesapiSearchHeaders
   factory FilesSharingShareesapiShareesapiSearchHeaders([
     final void Function(FilesSharingShareesapiShareesapiSearchHeadersBuilder)? b,
   ]) = _$FilesSharingShareesapiShareesapiSearchHeaders;
-  const FilesSharingShareesapiShareesapiSearchHeaders._();
 
+  // coverage:ignore-start
+  const FilesSharingShareesapiShareesapiSearchHeaders._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory FilesSharingShareesapiShareesapiSearchHeaders.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   String? get link;
   @BuiltValueSerializer(custom: true)
   static Serializer<FilesSharingShareesapiShareesapiSearchHeaders> get serializer =>
@@ -2088,12 +2420,19 @@ class _$FilesSharingShareesapiShareesapiSearchHeadersSerializer
 
 abstract class FilesSharingSharee implements Built<FilesSharingSharee, FilesSharingShareeBuilder> {
   factory FilesSharingSharee([final void Function(FilesSharingShareeBuilder)? b]) = _$FilesSharingSharee;
-  const FilesSharingSharee._();
 
+  // coverage:ignore-start
+  const FilesSharingSharee._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory FilesSharingSharee.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   int? get count;
   String get label;
   static Serializer<FilesSharingSharee> get serializer => _$filesSharingShareeSerializer;
@@ -2101,12 +2440,19 @@ abstract class FilesSharingSharee implements Built<FilesSharingSharee, FilesShar
 
 abstract class FilesSharingShareeValue implements Built<FilesSharingShareeValue, FilesSharingShareeValueBuilder> {
   factory FilesSharingShareeValue([final void Function(FilesSharingShareeValueBuilder)? b]) = _$FilesSharingShareeValue;
-  const FilesSharingShareeValue._();
 
+  // coverage:ignore-start
+  const FilesSharingShareeValue._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory FilesSharingShareeValue.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   int get shareType;
   String get shareWith;
   static Serializer<FilesSharingShareeValue> get serializer => _$filesSharingShareeValueSerializer;
@@ -2116,20 +2462,30 @@ abstract class FilesSharingShareeCircle1_Value1
     implements Built<FilesSharingShareeCircle1_Value1, FilesSharingShareeCircle1_Value1Builder> {
   factory FilesSharingShareeCircle1_Value1([final void Function(FilesSharingShareeCircle1_Value1Builder)? b]) =
       _$FilesSharingShareeCircle1_Value1;
-  const FilesSharingShareeCircle1_Value1._();
 
+  // coverage:ignore-start
+  const FilesSharingShareeCircle1_Value1._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory FilesSharingShareeCircle1_Value1.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   String get circle;
   static Serializer<FilesSharingShareeCircle1_Value1> get serializer => _$filesSharingShareeCircle1Value1Serializer;
 }
 
 abstract class FilesSharingShareeCircle1_Value
     implements Built<FilesSharingShareeCircle1_Value, FilesSharingShareeCircle1_ValueBuilder> {
+  // coverage:ignore-end
+
   factory FilesSharingShareeCircle1_Value([final void Function(FilesSharingShareeCircle1_ValueBuilder)? b]) =
       _$FilesSharingShareeCircle1_Value;
+  // coverage:ignore-start
   const FilesSharingShareeCircle1_Value._();
 
   JsonObject get data;
@@ -2137,7 +2493,9 @@ abstract class FilesSharingShareeCircle1_Value
   FilesSharingShareeCircle1_Value1 get shareeCircle1Value1;
   static FilesSharingShareeCircle1_Value fromJson(final Object json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   @BuiltValueSerializer(custom: true)
   static Serializer<FilesSharingShareeCircle1_Value> get serializer => _$FilesSharingShareeCircle1_ValueSerializer();
 }
@@ -2183,27 +2541,39 @@ class _$FilesSharingShareeCircle1_ValueSerializer implements PrimitiveSerializer
 abstract class FilesSharingShareeCircle1 implements Built<FilesSharingShareeCircle1, FilesSharingShareeCircle1Builder> {
   factory FilesSharingShareeCircle1([final void Function(FilesSharingShareeCircle1Builder)? b]) =
       _$FilesSharingShareeCircle1;
-  const FilesSharingShareeCircle1._();
 
+  // coverage:ignore-start
+  const FilesSharingShareeCircle1._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory FilesSharingShareeCircle1.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   String get shareWithDescription;
   FilesSharingShareeCircle1_Value get value;
   static Serializer<FilesSharingShareeCircle1> get serializer => _$filesSharingShareeCircle1Serializer;
 }
 
 abstract class FilesSharingShareeCircle implements Built<FilesSharingShareeCircle, FilesSharingShareeCircleBuilder> {
+  // coverage:ignore-end
+
   factory FilesSharingShareeCircle([final void Function(FilesSharingShareeCircleBuilder)? b]) =
       _$FilesSharingShareeCircle;
+  // coverage:ignore-start
   const FilesSharingShareeCircle._();
 
   JsonObject get data;
   FilesSharingSharee get sharee;
   FilesSharingShareeCircle1 get shareeCircle1;
   static FilesSharingShareeCircle fromJson(final Object json) => _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   @BuiltValueSerializer(custom: true)
   static Serializer<FilesSharingShareeCircle> get serializer => _$FilesSharingShareeCircleSerializer();
 }
@@ -2246,12 +2616,19 @@ class _$FilesSharingShareeCircleSerializer implements PrimitiveSerializer<FilesS
 abstract class FilesSharingShareeEmail1 implements Built<FilesSharingShareeEmail1, FilesSharingShareeEmail1Builder> {
   factory FilesSharingShareeEmail1([final void Function(FilesSharingShareeEmail1Builder)? b]) =
       _$FilesSharingShareeEmail1;
-  const FilesSharingShareeEmail1._();
 
+  // coverage:ignore-start
+  const FilesSharingShareeEmail1._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory FilesSharingShareeEmail1.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   String get uuid;
   String get name;
   String get type;
@@ -2261,14 +2638,19 @@ abstract class FilesSharingShareeEmail1 implements Built<FilesSharingShareeEmail
 }
 
 abstract class FilesSharingShareeEmail implements Built<FilesSharingShareeEmail, FilesSharingShareeEmailBuilder> {
+  // coverage:ignore-end
+
   factory FilesSharingShareeEmail([final void Function(FilesSharingShareeEmailBuilder)? b]) = _$FilesSharingShareeEmail;
+  // coverage:ignore-start
   const FilesSharingShareeEmail._();
 
   JsonObject get data;
   FilesSharingSharee get sharee;
   FilesSharingShareeEmail1 get shareeEmail1;
   static FilesSharingShareeEmail fromJson(final Object json) => _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   @BuiltValueSerializer(custom: true)
   static Serializer<FilesSharingShareeEmail> get serializer => _$FilesSharingShareeEmailSerializer();
 }
@@ -2313,12 +2695,19 @@ abstract class FilesSharingShareeRemoteGroup1_Value1
   factory FilesSharingShareeRemoteGroup1_Value1([
     final void Function(FilesSharingShareeRemoteGroup1_Value1Builder)? b,
   ]) = _$FilesSharingShareeRemoteGroup1_Value1;
-  const FilesSharingShareeRemoteGroup1_Value1._();
 
+  // coverage:ignore-start
+  const FilesSharingShareeRemoteGroup1_Value1._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory FilesSharingShareeRemoteGroup1_Value1.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   String get server;
   static Serializer<FilesSharingShareeRemoteGroup1_Value1> get serializer =>
       _$filesSharingShareeRemoteGroup1Value1Serializer;
@@ -2326,8 +2715,11 @@ abstract class FilesSharingShareeRemoteGroup1_Value1
 
 abstract class FilesSharingShareeRemoteGroup1_Value
     implements Built<FilesSharingShareeRemoteGroup1_Value, FilesSharingShareeRemoteGroup1_ValueBuilder> {
+  // coverage:ignore-end
+
   factory FilesSharingShareeRemoteGroup1_Value([final void Function(FilesSharingShareeRemoteGroup1_ValueBuilder)? b]) =
       _$FilesSharingShareeRemoteGroup1_Value;
+  // coverage:ignore-start
   const FilesSharingShareeRemoteGroup1_Value._();
 
   JsonObject get data;
@@ -2335,7 +2727,9 @@ abstract class FilesSharingShareeRemoteGroup1_Value
   FilesSharingShareeRemoteGroup1_Value1 get shareeRemoteGroup1Value1;
   static FilesSharingShareeRemoteGroup1_Value fromJson(final Object json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   @BuiltValueSerializer(custom: true)
   static Serializer<FilesSharingShareeRemoteGroup1_Value> get serializer =>
       _$FilesSharingShareeRemoteGroup1_ValueSerializer();
@@ -2382,12 +2776,19 @@ abstract class FilesSharingShareeRemoteGroup1
     implements Built<FilesSharingShareeRemoteGroup1, FilesSharingShareeRemoteGroup1Builder> {
   factory FilesSharingShareeRemoteGroup1([final void Function(FilesSharingShareeRemoteGroup1Builder)? b]) =
       _$FilesSharingShareeRemoteGroup1;
-  const FilesSharingShareeRemoteGroup1._();
 
+  // coverage:ignore-start
+  const FilesSharingShareeRemoteGroup1._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory FilesSharingShareeRemoteGroup1.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   String get guid;
   String get name;
   FilesSharingShareeRemoteGroup1_Value get value;
@@ -2396,8 +2797,11 @@ abstract class FilesSharingShareeRemoteGroup1
 
 abstract class FilesSharingShareeRemoteGroup
     implements Built<FilesSharingShareeRemoteGroup, FilesSharingShareeRemoteGroupBuilder> {
+  // coverage:ignore-end
+
   factory FilesSharingShareeRemoteGroup([final void Function(FilesSharingShareeRemoteGroupBuilder)? b]) =
       _$FilesSharingShareeRemoteGroup;
+  // coverage:ignore-start
   const FilesSharingShareeRemoteGroup._();
 
   JsonObject get data;
@@ -2405,7 +2809,9 @@ abstract class FilesSharingShareeRemoteGroup
   FilesSharingShareeRemoteGroup1 get shareeRemoteGroup1;
   static FilesSharingShareeRemoteGroup fromJson(final Object json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   @BuiltValueSerializer(custom: true)
   static Serializer<FilesSharingShareeRemoteGroup> get serializer => _$FilesSharingShareeRemoteGroupSerializer();
 }
@@ -2449,20 +2855,30 @@ abstract class FilesSharingShareeRemote1_Value1
     implements Built<FilesSharingShareeRemote1_Value1, FilesSharingShareeRemote1_Value1Builder> {
   factory FilesSharingShareeRemote1_Value1([final void Function(FilesSharingShareeRemote1_Value1Builder)? b]) =
       _$FilesSharingShareeRemote1_Value1;
-  const FilesSharingShareeRemote1_Value1._();
 
+  // coverage:ignore-start
+  const FilesSharingShareeRemote1_Value1._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory FilesSharingShareeRemote1_Value1.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   String get server;
   static Serializer<FilesSharingShareeRemote1_Value1> get serializer => _$filesSharingShareeRemote1Value1Serializer;
 }
 
 abstract class FilesSharingShareeRemote1_Value
     implements Built<FilesSharingShareeRemote1_Value, FilesSharingShareeRemote1_ValueBuilder> {
+  // coverage:ignore-end
+
   factory FilesSharingShareeRemote1_Value([final void Function(FilesSharingShareeRemote1_ValueBuilder)? b]) =
       _$FilesSharingShareeRemote1_Value;
+  // coverage:ignore-start
   const FilesSharingShareeRemote1_Value._();
 
   JsonObject get data;
@@ -2470,7 +2886,9 @@ abstract class FilesSharingShareeRemote1_Value
   FilesSharingShareeRemote1_Value1 get shareeRemote1Value1;
   static FilesSharingShareeRemote1_Value fromJson(final Object json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   @BuiltValueSerializer(custom: true)
   static Serializer<FilesSharingShareeRemote1_Value> get serializer => _$FilesSharingShareeRemote1_ValueSerializer();
 }
@@ -2516,12 +2934,19 @@ class _$FilesSharingShareeRemote1_ValueSerializer implements PrimitiveSerializer
 abstract class FilesSharingShareeRemote1 implements Built<FilesSharingShareeRemote1, FilesSharingShareeRemote1Builder> {
   factory FilesSharingShareeRemote1([final void Function(FilesSharingShareeRemote1Builder)? b]) =
       _$FilesSharingShareeRemote1;
-  const FilesSharingShareeRemote1._();
 
+  // coverage:ignore-start
+  const FilesSharingShareeRemote1._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory FilesSharingShareeRemote1.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   String get uuid;
   String get name;
   String get type;
@@ -2530,15 +2955,20 @@ abstract class FilesSharingShareeRemote1 implements Built<FilesSharingShareeRemo
 }
 
 abstract class FilesSharingShareeRemote implements Built<FilesSharingShareeRemote, FilesSharingShareeRemoteBuilder> {
+  // coverage:ignore-end
+
   factory FilesSharingShareeRemote([final void Function(FilesSharingShareeRemoteBuilder)? b]) =
       _$FilesSharingShareeRemote;
+  // coverage:ignore-start
   const FilesSharingShareeRemote._();
 
   JsonObject get data;
   FilesSharingSharee get sharee;
   FilesSharingShareeRemote1 get shareeRemote1;
   static FilesSharingShareeRemote fromJson(final Object json) => _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   @BuiltValueSerializer(custom: true)
   static Serializer<FilesSharingShareeRemote> get serializer => _$FilesSharingShareeRemoteSerializer();
 }
@@ -2582,12 +3012,19 @@ abstract class FilesSharingShareeUser1_Status
     implements Built<FilesSharingShareeUser1_Status, FilesSharingShareeUser1_StatusBuilder> {
   factory FilesSharingShareeUser1_Status([final void Function(FilesSharingShareeUser1_StatusBuilder)? b]) =
       _$FilesSharingShareeUser1_Status;
-  const FilesSharingShareeUser1_Status._();
 
+  // coverage:ignore-start
+  const FilesSharingShareeUser1_Status._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory FilesSharingShareeUser1_Status.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   String get status;
   String get message;
   String get icon;
@@ -2597,12 +3034,19 @@ abstract class FilesSharingShareeUser1_Status
 
 abstract class FilesSharingShareeUser1 implements Built<FilesSharingShareeUser1, FilesSharingShareeUser1Builder> {
   factory FilesSharingShareeUser1([final void Function(FilesSharingShareeUser1Builder)? b]) = _$FilesSharingShareeUser1;
-  const FilesSharingShareeUser1._();
 
+  // coverage:ignore-start
+  const FilesSharingShareeUser1._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory FilesSharingShareeUser1.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   String get subline;
   String get icon;
   String get shareWithDisplayNameUnique;
@@ -2612,14 +3056,19 @@ abstract class FilesSharingShareeUser1 implements Built<FilesSharingShareeUser1,
 }
 
 abstract class FilesSharingShareeUser implements Built<FilesSharingShareeUser, FilesSharingShareeUserBuilder> {
+  // coverage:ignore-end
+
   factory FilesSharingShareeUser([final void Function(FilesSharingShareeUserBuilder)? b]) = _$FilesSharingShareeUser;
+  // coverage:ignore-start
   const FilesSharingShareeUser._();
 
   JsonObject get data;
   FilesSharingSharee get sharee;
   FilesSharingShareeUser1 get shareeUser1;
   static FilesSharingShareeUser fromJson(final Object json) => _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   @BuiltValueSerializer(custom: true)
   static Serializer<FilesSharingShareeUser> get serializer => _$FilesSharingShareeUserSerializer();
 }
@@ -2664,12 +3113,19 @@ abstract class FilesSharingShareesSearchResult_Exact
   factory FilesSharingShareesSearchResult_Exact([
     final void Function(FilesSharingShareesSearchResult_ExactBuilder)? b,
   ]) = _$FilesSharingShareesSearchResult_Exact;
-  const FilesSharingShareesSearchResult_Exact._();
 
+  // coverage:ignore-start
+  const FilesSharingShareesSearchResult_Exact._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory FilesSharingShareesSearchResult_Exact.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   BuiltList<FilesSharingShareeCircle> get circles;
   BuiltList<FilesSharingShareeEmail> get emails;
   BuiltList<FilesSharingSharee> get groups;
@@ -2684,12 +3140,19 @@ abstract class FilesSharingShareesSearchResult_Exact
 
 abstract class FilesSharingLookup implements Built<FilesSharingLookup, FilesSharingLookupBuilder> {
   factory FilesSharingLookup([final void Function(FilesSharingLookupBuilder)? b]) = _$FilesSharingLookup;
-  const FilesSharingLookup._();
 
+  // coverage:ignore-start
+  const FilesSharingLookup._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory FilesSharingLookup.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   String get value;
   int get verified;
   static Serializer<FilesSharingLookup> get serializer => _$filesSharingLookupSerializer;
@@ -2699,12 +3162,19 @@ abstract class FilesSharingShareeLookup1_Extra
     implements Built<FilesSharingShareeLookup1_Extra, FilesSharingShareeLookup1_ExtraBuilder> {
   factory FilesSharingShareeLookup1_Extra([final void Function(FilesSharingShareeLookup1_ExtraBuilder)? b]) =
       _$FilesSharingShareeLookup1_Extra;
-  const FilesSharingShareeLookup1_Extra._();
 
+  // coverage:ignore-start
+  const FilesSharingShareeLookup1_Extra._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory FilesSharingShareeLookup1_Extra.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   String get federationId;
   FilesSharingLookup? get name;
   FilesSharingLookup? get email;
@@ -2724,20 +3194,30 @@ abstract class FilesSharingShareeLookup1_Value1
     implements Built<FilesSharingShareeLookup1_Value1, FilesSharingShareeLookup1_Value1Builder> {
   factory FilesSharingShareeLookup1_Value1([final void Function(FilesSharingShareeLookup1_Value1Builder)? b]) =
       _$FilesSharingShareeLookup1_Value1;
-  const FilesSharingShareeLookup1_Value1._();
 
+  // coverage:ignore-start
+  const FilesSharingShareeLookup1_Value1._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory FilesSharingShareeLookup1_Value1.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   bool get globalScale;
   static Serializer<FilesSharingShareeLookup1_Value1> get serializer => _$filesSharingShareeLookup1Value1Serializer;
 }
 
 abstract class FilesSharingShareeLookup1_Value
     implements Built<FilesSharingShareeLookup1_Value, FilesSharingShareeLookup1_ValueBuilder> {
+  // coverage:ignore-end
+
   factory FilesSharingShareeLookup1_Value([final void Function(FilesSharingShareeLookup1_ValueBuilder)? b]) =
       _$FilesSharingShareeLookup1_Value;
+  // coverage:ignore-start
   const FilesSharingShareeLookup1_Value._();
 
   JsonObject get data;
@@ -2745,7 +3225,9 @@ abstract class FilesSharingShareeLookup1_Value
   FilesSharingShareeLookup1_Value1 get shareeLookup1Value1;
   static FilesSharingShareeLookup1_Value fromJson(final Object json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   @BuiltValueSerializer(custom: true)
   static Serializer<FilesSharingShareeLookup1_Value> get serializer => _$FilesSharingShareeLookup1_ValueSerializer();
 }
@@ -2791,27 +3273,39 @@ class _$FilesSharingShareeLookup1_ValueSerializer implements PrimitiveSerializer
 abstract class FilesSharingShareeLookup1 implements Built<FilesSharingShareeLookup1, FilesSharingShareeLookup1Builder> {
   factory FilesSharingShareeLookup1([final void Function(FilesSharingShareeLookup1Builder)? b]) =
       _$FilesSharingShareeLookup1;
-  const FilesSharingShareeLookup1._();
 
+  // coverage:ignore-start
+  const FilesSharingShareeLookup1._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory FilesSharingShareeLookup1.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   FilesSharingShareeLookup1_Extra get extra;
   FilesSharingShareeLookup1_Value get value;
   static Serializer<FilesSharingShareeLookup1> get serializer => _$filesSharingShareeLookup1Serializer;
 }
 
 abstract class FilesSharingShareeLookup implements Built<FilesSharingShareeLookup, FilesSharingShareeLookupBuilder> {
+  // coverage:ignore-end
+
   factory FilesSharingShareeLookup([final void Function(FilesSharingShareeLookupBuilder)? b]) =
       _$FilesSharingShareeLookup;
+  // coverage:ignore-start
   const FilesSharingShareeLookup._();
 
   JsonObject get data;
   FilesSharingSharee get sharee;
   FilesSharingShareeLookup1 get shareeLookup1;
   static FilesSharingShareeLookup fromJson(final Object json) => _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   @BuiltValueSerializer(custom: true)
   static Serializer<FilesSharingShareeLookup> get serializer => _$FilesSharingShareeLookupSerializer();
 }
@@ -2855,12 +3349,19 @@ abstract class FilesSharingShareesSearchResult
     implements Built<FilesSharingShareesSearchResult, FilesSharingShareesSearchResultBuilder> {
   factory FilesSharingShareesSearchResult([final void Function(FilesSharingShareesSearchResultBuilder)? b]) =
       _$FilesSharingShareesSearchResult;
-  const FilesSharingShareesSearchResult._();
 
+  // coverage:ignore-start
+  const FilesSharingShareesSearchResult._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory FilesSharingShareesSearchResult.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   FilesSharingShareesSearchResult_Exact get exact;
   BuiltList<FilesSharingShareeCircle> get circles;
   BuiltList<FilesSharingShareeEmail> get emails;
@@ -2882,12 +3383,19 @@ abstract class FilesSharingShareesapiSearchResponse200ApplicationJson_Ocs
   factory FilesSharingShareesapiSearchResponse200ApplicationJson_Ocs([
     final void Function(FilesSharingShareesapiSearchResponse200ApplicationJson_OcsBuilder)? b,
   ]) = _$FilesSharingShareesapiSearchResponse200ApplicationJson_Ocs;
-  const FilesSharingShareesapiSearchResponse200ApplicationJson_Ocs._();
 
+  // coverage:ignore-start
+  const FilesSharingShareesapiSearchResponse200ApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory FilesSharingShareesapiSearchResponse200ApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   FilesSharingOCSMeta get meta;
   FilesSharingShareesSearchResult get data;
   static Serializer<FilesSharingShareesapiSearchResponse200ApplicationJson_Ocs> get serializer =>
@@ -2901,12 +3409,19 @@ abstract class FilesSharingShareesapiSearchResponse200ApplicationJson
   factory FilesSharingShareesapiSearchResponse200ApplicationJson([
     final void Function(FilesSharingShareesapiSearchResponse200ApplicationJsonBuilder)? b,
   ]) = _$FilesSharingShareesapiSearchResponse200ApplicationJson;
-  const FilesSharingShareesapiSearchResponse200ApplicationJson._();
 
+  // coverage:ignore-start
+  const FilesSharingShareesapiSearchResponse200ApplicationJson._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory FilesSharingShareesapiSearchResponse200ApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   FilesSharingShareesapiSearchResponse200ApplicationJson_Ocs get ocs;
   static Serializer<FilesSharingShareesapiSearchResponse200ApplicationJson> get serializer =>
       _$filesSharingShareesapiSearchResponse200ApplicationJsonSerializer;
@@ -2915,9 +3430,12 @@ abstract class FilesSharingShareesapiSearchResponse200ApplicationJson
 abstract class FilesSharingShareesapiFindRecommendedShareType
     implements
         Built<FilesSharingShareesapiFindRecommendedShareType, FilesSharingShareesapiFindRecommendedShareTypeBuilder> {
+  // coverage:ignore-end
+
   factory FilesSharingShareesapiFindRecommendedShareType([
     final void Function(FilesSharingShareesapiFindRecommendedShareTypeBuilder)? b,
   ]) = _$FilesSharingShareesapiFindRecommendedShareType;
+  // coverage:ignore-start
   const FilesSharingShareesapiFindRecommendedShareType._();
 
   JsonObject get data;
@@ -2925,7 +3443,9 @@ abstract class FilesSharingShareesapiFindRecommendedShareType
   BuiltList<int>? get builtListInt;
   static FilesSharingShareesapiFindRecommendedShareType fromJson(final Object json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   @BuiltValueSerializer(custom: true)
   static Serializer<FilesSharingShareesapiFindRecommendedShareType> get serializer =>
       _$FilesSharingShareesapiFindRecommendedShareTypeSerializer();
@@ -2980,12 +3500,19 @@ abstract class FilesSharingShareesRecommendedResult_Exact
   factory FilesSharingShareesRecommendedResult_Exact([
     final void Function(FilesSharingShareesRecommendedResult_ExactBuilder)? b,
   ]) = _$FilesSharingShareesRecommendedResult_Exact;
-  const FilesSharingShareesRecommendedResult_Exact._();
 
+  // coverage:ignore-start
+  const FilesSharingShareesRecommendedResult_Exact._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory FilesSharingShareesRecommendedResult_Exact.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   BuiltList<FilesSharingShareeEmail> get emails;
   BuiltList<FilesSharingSharee> get groups;
   @BuiltValueField(wireName: 'remote_groups')
@@ -3000,12 +3527,19 @@ abstract class FilesSharingShareesRecommendedResult
     implements Built<FilesSharingShareesRecommendedResult, FilesSharingShareesRecommendedResultBuilder> {
   factory FilesSharingShareesRecommendedResult([final void Function(FilesSharingShareesRecommendedResultBuilder)? b]) =
       _$FilesSharingShareesRecommendedResult;
-  const FilesSharingShareesRecommendedResult._();
 
+  // coverage:ignore-start
+  const FilesSharingShareesRecommendedResult._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory FilesSharingShareesRecommendedResult.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   FilesSharingShareesRecommendedResult_Exact get exact;
   BuiltList<FilesSharingShareeEmail> get emails;
   BuiltList<FilesSharingSharee> get groups;
@@ -3024,14 +3558,21 @@ abstract class FilesSharingShareesapiFindRecommendedResponse200ApplicationJson_O
   factory FilesSharingShareesapiFindRecommendedResponse200ApplicationJson_Ocs([
     final void Function(FilesSharingShareesapiFindRecommendedResponse200ApplicationJson_OcsBuilder)? b,
   ]) = _$FilesSharingShareesapiFindRecommendedResponse200ApplicationJson_Ocs;
-  const FilesSharingShareesapiFindRecommendedResponse200ApplicationJson_Ocs._();
 
+  // coverage:ignore-start
+  const FilesSharingShareesapiFindRecommendedResponse200ApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory FilesSharingShareesapiFindRecommendedResponse200ApplicationJson_Ocs.fromJson(
     final Map<String, dynamic> json,
   ) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   FilesSharingOCSMeta get meta;
   FilesSharingShareesRecommendedResult get data;
   static Serializer<FilesSharingShareesapiFindRecommendedResponse200ApplicationJson_Ocs> get serializer =>
@@ -3045,12 +3586,19 @@ abstract class FilesSharingShareesapiFindRecommendedResponse200ApplicationJson
   factory FilesSharingShareesapiFindRecommendedResponse200ApplicationJson([
     final void Function(FilesSharingShareesapiFindRecommendedResponse200ApplicationJsonBuilder)? b,
   ]) = _$FilesSharingShareesapiFindRecommendedResponse200ApplicationJson;
-  const FilesSharingShareesapiFindRecommendedResponse200ApplicationJson._();
 
+  // coverage:ignore-start
+  const FilesSharingShareesapiFindRecommendedResponse200ApplicationJson._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory FilesSharingShareesapiFindRecommendedResponse200ApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   FilesSharingShareesapiFindRecommendedResponse200ApplicationJson_Ocs get ocs;
   static Serializer<FilesSharingShareesapiFindRecommendedResponse200ApplicationJson> get serializer =>
       _$filesSharingShareesapiFindRecommendedResponse200ApplicationJsonSerializer;
@@ -3063,12 +3611,19 @@ abstract class FilesSharingCapabilities_FilesSharing_Public_Password
   factory FilesSharingCapabilities_FilesSharing_Public_Password([
     final void Function(FilesSharingCapabilities_FilesSharing_Public_PasswordBuilder)? b,
   ]) = _$FilesSharingCapabilities_FilesSharing_Public_Password;
-  const FilesSharingCapabilities_FilesSharing_Public_Password._();
 
+  // coverage:ignore-start
+  const FilesSharingCapabilities_FilesSharing_Public_Password._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory FilesSharingCapabilities_FilesSharing_Public_Password.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   bool get enforced;
   bool get askForOptionalPassword;
   static Serializer<FilesSharingCapabilities_FilesSharing_Public_Password> get serializer =>
@@ -3082,12 +3637,19 @@ abstract class FilesSharingCapabilities_FilesSharing_Public_ExpireDate
   factory FilesSharingCapabilities_FilesSharing_Public_ExpireDate([
     final void Function(FilesSharingCapabilities_FilesSharing_Public_ExpireDateBuilder)? b,
   ]) = _$FilesSharingCapabilities_FilesSharing_Public_ExpireDate;
-  const FilesSharingCapabilities_FilesSharing_Public_ExpireDate._();
 
+  // coverage:ignore-start
+  const FilesSharingCapabilities_FilesSharing_Public_ExpireDate._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory FilesSharingCapabilities_FilesSharing_Public_ExpireDate.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   bool get enabled;
   int? get days;
   bool? get enforced;
@@ -3102,12 +3664,19 @@ abstract class FilesSharingCapabilities_FilesSharing_Public_ExpireDateInternal
   factory FilesSharingCapabilities_FilesSharing_Public_ExpireDateInternal([
     final void Function(FilesSharingCapabilities_FilesSharing_Public_ExpireDateInternalBuilder)? b,
   ]) = _$FilesSharingCapabilities_FilesSharing_Public_ExpireDateInternal;
-  const FilesSharingCapabilities_FilesSharing_Public_ExpireDateInternal._();
 
+  // coverage:ignore-start
+  const FilesSharingCapabilities_FilesSharing_Public_ExpireDateInternal._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory FilesSharingCapabilities_FilesSharing_Public_ExpireDateInternal.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   bool get enabled;
   int? get days;
   bool? get enforced;
@@ -3122,12 +3691,19 @@ abstract class FilesSharingCapabilities_FilesSharing_Public_ExpireDateRemote
   factory FilesSharingCapabilities_FilesSharing_Public_ExpireDateRemote([
     final void Function(FilesSharingCapabilities_FilesSharing_Public_ExpireDateRemoteBuilder)? b,
   ]) = _$FilesSharingCapabilities_FilesSharing_Public_ExpireDateRemote;
-  const FilesSharingCapabilities_FilesSharing_Public_ExpireDateRemote._();
 
+  // coverage:ignore-start
+  const FilesSharingCapabilities_FilesSharing_Public_ExpireDateRemote._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory FilesSharingCapabilities_FilesSharing_Public_ExpireDateRemote.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   bool get enabled;
   int? get days;
   bool? get enforced;
@@ -3141,12 +3717,19 @@ abstract class FilesSharingCapabilities_FilesSharing_Public
   factory FilesSharingCapabilities_FilesSharing_Public([
     final void Function(FilesSharingCapabilities_FilesSharing_PublicBuilder)? b,
   ]) = _$FilesSharingCapabilities_FilesSharing_Public;
-  const FilesSharingCapabilities_FilesSharing_Public._();
 
+  // coverage:ignore-start
+  const FilesSharingCapabilities_FilesSharing_Public._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory FilesSharingCapabilities_FilesSharing_Public.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   bool get enabled;
   FilesSharingCapabilities_FilesSharing_Public_Password? get password;
   @BuiltValueField(wireName: 'multiple_links')
@@ -3173,12 +3756,19 @@ abstract class FilesSharingCapabilities_FilesSharing_User_ExpireDate
   factory FilesSharingCapabilities_FilesSharing_User_ExpireDate([
     final void Function(FilesSharingCapabilities_FilesSharing_User_ExpireDateBuilder)? b,
   ]) = _$FilesSharingCapabilities_FilesSharing_User_ExpireDate;
-  const FilesSharingCapabilities_FilesSharing_User_ExpireDate._();
 
+  // coverage:ignore-start
+  const FilesSharingCapabilities_FilesSharing_User_ExpireDate._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory FilesSharingCapabilities_FilesSharing_User_ExpireDate.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   bool get enabled;
   static Serializer<FilesSharingCapabilities_FilesSharing_User_ExpireDate> get serializer =>
       _$filesSharingCapabilitiesFilesSharingUserExpireDateSerializer;
@@ -3189,12 +3779,19 @@ abstract class FilesSharingCapabilities_FilesSharing_User
   factory FilesSharingCapabilities_FilesSharing_User([
     final void Function(FilesSharingCapabilities_FilesSharing_UserBuilder)? b,
   ]) = _$FilesSharingCapabilities_FilesSharing_User;
-  const FilesSharingCapabilities_FilesSharing_User._();
 
+  // coverage:ignore-start
+  const FilesSharingCapabilities_FilesSharing_User._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory FilesSharingCapabilities_FilesSharing_User.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   @BuiltValueField(wireName: 'send_mail')
   bool get sendMail;
   @BuiltValueField(wireName: 'expire_date')
@@ -3210,12 +3807,19 @@ abstract class FilesSharingCapabilities_FilesSharing_Group_ExpireDate
   factory FilesSharingCapabilities_FilesSharing_Group_ExpireDate([
     final void Function(FilesSharingCapabilities_FilesSharing_Group_ExpireDateBuilder)? b,
   ]) = _$FilesSharingCapabilities_FilesSharing_Group_ExpireDate;
-  const FilesSharingCapabilities_FilesSharing_Group_ExpireDate._();
 
+  // coverage:ignore-start
+  const FilesSharingCapabilities_FilesSharing_Group_ExpireDate._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory FilesSharingCapabilities_FilesSharing_Group_ExpireDate.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   bool get enabled;
   static Serializer<FilesSharingCapabilities_FilesSharing_Group_ExpireDate> get serializer =>
       _$filesSharingCapabilitiesFilesSharingGroupExpireDateSerializer;
@@ -3226,12 +3830,19 @@ abstract class FilesSharingCapabilities_FilesSharing_Group
   factory FilesSharingCapabilities_FilesSharing_Group([
     final void Function(FilesSharingCapabilities_FilesSharing_GroupBuilder)? b,
   ]) = _$FilesSharingCapabilities_FilesSharing_Group;
-  const FilesSharingCapabilities_FilesSharing_Group._();
 
+  // coverage:ignore-start
+  const FilesSharingCapabilities_FilesSharing_Group._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory FilesSharingCapabilities_FilesSharing_Group.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   bool get enabled;
   @BuiltValueField(wireName: 'expire_date')
   FilesSharingCapabilities_FilesSharing_Group_ExpireDate? get expireDate;
@@ -3246,12 +3857,19 @@ abstract class FilesSharingCapabilities_FilesSharing_Federation_ExpireDate
   factory FilesSharingCapabilities_FilesSharing_Federation_ExpireDate([
     final void Function(FilesSharingCapabilities_FilesSharing_Federation_ExpireDateBuilder)? b,
   ]) = _$FilesSharingCapabilities_FilesSharing_Federation_ExpireDate;
-  const FilesSharingCapabilities_FilesSharing_Federation_ExpireDate._();
 
+  // coverage:ignore-start
+  const FilesSharingCapabilities_FilesSharing_Federation_ExpireDate._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory FilesSharingCapabilities_FilesSharing_Federation_ExpireDate.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   bool get enabled;
   static Serializer<FilesSharingCapabilities_FilesSharing_Federation_ExpireDate> get serializer =>
       _$filesSharingCapabilitiesFilesSharingFederationExpireDateSerializer;
@@ -3264,14 +3882,21 @@ abstract class FilesSharingCapabilities_FilesSharing_Federation_ExpireDateSuppor
   factory FilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupported([
     final void Function(FilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupportedBuilder)? b,
   ]) = _$FilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupported;
-  const FilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupported._();
 
+  // coverage:ignore-start
+  const FilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupported._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory FilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupported.fromJson(
     final Map<String, dynamic> json,
   ) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   bool get enabled;
   static Serializer<FilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupported> get serializer =>
       _$filesSharingCapabilitiesFilesSharingFederationExpireDateSupportedSerializer;
@@ -3284,12 +3909,19 @@ abstract class FilesSharingCapabilities_FilesSharing_Federation
   factory FilesSharingCapabilities_FilesSharing_Federation([
     final void Function(FilesSharingCapabilities_FilesSharing_FederationBuilder)? b,
   ]) = _$FilesSharingCapabilities_FilesSharing_Federation;
-  const FilesSharingCapabilities_FilesSharing_Federation._();
 
+  // coverage:ignore-start
+  const FilesSharingCapabilities_FilesSharing_Federation._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory FilesSharingCapabilities_FilesSharing_Federation.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   bool get outgoing;
   bool get incoming;
   @BuiltValueField(wireName: 'expire_date')
@@ -3306,12 +3938,19 @@ abstract class FilesSharingCapabilities_FilesSharing_Sharee
   factory FilesSharingCapabilities_FilesSharing_Sharee([
     final void Function(FilesSharingCapabilities_FilesSharing_ShareeBuilder)? b,
   ]) = _$FilesSharingCapabilities_FilesSharing_Sharee;
-  const FilesSharingCapabilities_FilesSharing_Sharee._();
 
+  // coverage:ignore-start
+  const FilesSharingCapabilities_FilesSharing_Sharee._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory FilesSharingCapabilities_FilesSharing_Sharee.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   @BuiltValueField(wireName: 'query_lookup_default')
   bool get queryLookupDefault;
   @BuiltValueField(wireName: 'always_show_unique')
@@ -3325,12 +3964,19 @@ abstract class FilesSharingCapabilities_FilesSharing
   factory FilesSharingCapabilities_FilesSharing([
     final void Function(FilesSharingCapabilities_FilesSharingBuilder)? b,
   ]) = _$FilesSharingCapabilities_FilesSharing;
-  const FilesSharingCapabilities_FilesSharing._();
 
+  // coverage:ignore-start
+  const FilesSharingCapabilities_FilesSharing._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory FilesSharingCapabilities_FilesSharing.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   @BuiltValueField(wireName: 'api_enabled')
   bool get apiEnabled;
   FilesSharingCapabilities_FilesSharing_Public get public;
@@ -3350,17 +3996,25 @@ abstract class FilesSharingCapabilities_FilesSharing
 abstract class FilesSharingCapabilities implements Built<FilesSharingCapabilities, FilesSharingCapabilitiesBuilder> {
   factory FilesSharingCapabilities([final void Function(FilesSharingCapabilitiesBuilder)? b]) =
       _$FilesSharingCapabilities;
-  const FilesSharingCapabilities._();
 
+  // coverage:ignore-start
+  const FilesSharingCapabilities._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory FilesSharingCapabilities.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   @BuiltValueField(wireName: 'files_sharing')
   FilesSharingCapabilities_FilesSharing get filesSharing;
   static Serializer<FilesSharingCapabilities> get serializer => _$filesSharingCapabilitiesSerializer;
 }
 
+// coverage:ignore-start
 final Serializers _serializers = (Serializers().toBuilder()
       ..addBuilderFactory(
         const FullType(FilesSharingDeletedShareapiListResponse200ApplicationJson),
@@ -3785,7 +4439,6 @@ final Serializers _jsonSerializers = (_serializers.toBuilder()
       ..addPlugin(const ContentStringPlugin()))
     .build();
 
-// coverage:ignore-start
 T deserializeFilesSharing<T>(final Object data) => _serializers.deserialize(data, specifiedType: FullType(T))! as T;
 
 Object? serializeFilesSharing<T>(final T data) => _serializers.serialize(data, specifiedType: FullType(T));

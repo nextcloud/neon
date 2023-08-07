@@ -80,11 +80,13 @@ class UppushClient extends DynamiteClient {
       'Accept': 'application/json',
     };
     Uint8List? body;
+    // coverage:ignore-start
     if (authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
       headers.addAll(authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
     } else {
-      throw Exception('Missing authentication for basic_auth'); // coverage:ignore-line
+      throw Exception('Missing authentication for basic_auth');
     }
+    // coverage:ignore-end
     final response = await doRequest(
       'get',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
@@ -110,11 +112,13 @@ class UppushClient extends DynamiteClient {
       'Accept': 'application/json',
     };
     Uint8List? body;
+    // coverage:ignore-start
     if (authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
       headers.addAll(authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
     } else {
-      throw Exception('Missing authentication for basic_auth'); // coverage:ignore-line
+      throw Exception('Missing authentication for basic_auth');
     }
+    // coverage:ignore-end
     queryParameters['keepalive'] = keepalive.toString();
     final response = await doRequest(
       'put',
@@ -139,11 +143,13 @@ class UppushClient extends DynamiteClient {
       'Accept': 'application/json',
     };
     Uint8List? body;
+    // coverage:ignore-start
     if (authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
       headers.addAll(authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
     } else {
-      throw Exception('Missing authentication for basic_auth'); // coverage:ignore-line
+      throw Exception('Missing authentication for basic_auth');
     }
+    // coverage:ignore-end
     queryParameters['deviceName'] = deviceName;
     final response = await doRequest(
       'put',
@@ -170,11 +176,13 @@ class UppushClient extends DynamiteClient {
       'Accept': 'application/json',
     };
     Uint8List? body;
+    // coverage:ignore-start
     if (authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
       headers.addAll(authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
     } else {
-      throw Exception('Missing authentication for basic_auth'); // coverage:ignore-line
+      throw Exception('Missing authentication for basic_auth');
     }
+    // coverage:ignore-end
     path = path.replaceAll('{deviceId}', Uri.encodeQueryComponent(deviceId));
     final response = await doRequest(
       'get',
@@ -199,11 +207,13 @@ class UppushClient extends DynamiteClient {
       'Accept': 'application/json',
     };
     Uint8List? body;
+    // coverage:ignore-start
     if (authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
       headers.addAll(authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
     } else {
-      throw Exception('Missing authentication for basic_auth'); // coverage:ignore-line
+      throw Exception('Missing authentication for basic_auth');
     }
+    // coverage:ignore-end
     path = path.replaceAll('{deviceId}', Uri.encodeQueryComponent(deviceId));
     final response = await doRequest(
       'delete',
@@ -231,11 +241,13 @@ class UppushClient extends DynamiteClient {
       'Accept': 'application/json',
     };
     Uint8List? body;
+    // coverage:ignore-start
     if (authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
       headers.addAll(authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
     } else {
-      throw Exception('Missing authentication for basic_auth'); // coverage:ignore-line
+      throw Exception('Missing authentication for basic_auth');
     }
+    // coverage:ignore-end
     queryParameters['deviceId'] = deviceId;
     queryParameters['appName'] = appName;
     final response = await doRequest(
@@ -261,11 +273,13 @@ class UppushClient extends DynamiteClient {
       'Accept': 'application/json',
     };
     Uint8List? body;
+    // coverage:ignore-start
     if (authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
       headers.addAll(authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
     } else {
-      throw Exception('Missing authentication for basic_auth'); // coverage:ignore-line
+      throw Exception('Missing authentication for basic_auth');
     }
+    // coverage:ignore-end
     path = path.replaceAll('{token}', Uri.encodeQueryComponent(token));
     final response = await doRequest(
       'delete',
@@ -292,11 +306,13 @@ class UppushClient extends DynamiteClient {
       'Accept': 'application/json',
     };
     Uint8List? body;
+    // coverage:ignore-start
     if (authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
       headers.addAll(authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
     } else {
-      throw Exception('Missing authentication for basic_auth'); // coverage:ignore-line
+      throw Exception('Missing authentication for basic_auth');
     }
+    // coverage:ignore-end
     path = path.replaceAll('{token}', Uri.encodeQueryComponent(token));
     final response = await doRequest(
       'get',
@@ -321,11 +337,13 @@ class UppushClient extends DynamiteClient {
       'Accept': 'application/json',
     };
     Uint8List? body;
+    // coverage:ignore-start
     if (authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
       headers.addAll(authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
     } else {
-      throw Exception('Missing authentication for basic_auth'); // coverage:ignore-line
+      throw Exception('Missing authentication for basic_auth');
     }
+    // coverage:ignore-end
     path = path.replaceAll('{token}', Uri.encodeQueryComponent(token));
     final response = await doRequest(
       'post',
@@ -350,11 +368,13 @@ class UppushClient extends DynamiteClient {
       'Accept': 'application/json',
     };
     Uint8List? body;
+    // coverage:ignore-start
     if (authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
       headers.addAll(authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
     } else {
-      throw Exception('Missing authentication for basic_auth'); // coverage:ignore-line
+      throw Exception('Missing authentication for basic_auth');
     }
+    // coverage:ignore-end
     final response = await doRequest(
       'get',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
@@ -378,11 +398,13 @@ class UppushClient extends DynamiteClient {
       'Accept': 'application/json',
     };
     Uint8List? body;
+    // coverage:ignore-start
     if (authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
       headers.addAll(authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
     } else {
-      throw Exception('Missing authentication for basic_auth'); // coverage:ignore-line
+      throw Exception('Missing authentication for basic_auth');
     }
+    // coverage:ignore-end
     final response = await doRequest(
       'post',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
@@ -404,12 +426,19 @@ abstract class UppushCheckResponse200ApplicationJson
   factory UppushCheckResponse200ApplicationJson([
     final void Function(UppushCheckResponse200ApplicationJsonBuilder)? b,
   ]) = _$UppushCheckResponse200ApplicationJson;
-  const UppushCheckResponse200ApplicationJson._();
 
+  // coverage:ignore-start
+  const UppushCheckResponse200ApplicationJson._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory UppushCheckResponse200ApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   bool get success;
   static Serializer<UppushCheckResponse200ApplicationJson> get serializer =>
       _$uppushCheckResponse200ApplicationJsonSerializer;
@@ -421,12 +450,19 @@ abstract class UppushSetKeepaliveResponse200ApplicationJson
   factory UppushSetKeepaliveResponse200ApplicationJson([
     final void Function(UppushSetKeepaliveResponse200ApplicationJsonBuilder)? b,
   ]) = _$UppushSetKeepaliveResponse200ApplicationJson;
-  const UppushSetKeepaliveResponse200ApplicationJson._();
 
+  // coverage:ignore-start
+  const UppushSetKeepaliveResponse200ApplicationJson._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory UppushSetKeepaliveResponse200ApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   bool get success;
   static Serializer<UppushSetKeepaliveResponse200ApplicationJson> get serializer =>
       _$uppushSetKeepaliveResponse200ApplicationJsonSerializer;
@@ -438,12 +474,19 @@ abstract class UppushCreateDeviceResponse200ApplicationJson
   factory UppushCreateDeviceResponse200ApplicationJson([
     final void Function(UppushCreateDeviceResponse200ApplicationJsonBuilder)? b,
   ]) = _$UppushCreateDeviceResponse200ApplicationJson;
-  const UppushCreateDeviceResponse200ApplicationJson._();
 
+  // coverage:ignore-start
+  const UppushCreateDeviceResponse200ApplicationJson._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory UppushCreateDeviceResponse200ApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   bool get success;
   String get deviceId;
   static Serializer<UppushCreateDeviceResponse200ApplicationJson> get serializer =>
@@ -455,12 +498,19 @@ abstract class UppushSyncDeviceResponse401ApplicationJson
   factory UppushSyncDeviceResponse401ApplicationJson([
     final void Function(UppushSyncDeviceResponse401ApplicationJsonBuilder)? b,
   ]) = _$UppushSyncDeviceResponse401ApplicationJson;
-  const UppushSyncDeviceResponse401ApplicationJson._();
 
+  // coverage:ignore-start
+  const UppushSyncDeviceResponse401ApplicationJson._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory UppushSyncDeviceResponse401ApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   bool get success;
   static Serializer<UppushSyncDeviceResponse401ApplicationJson> get serializer =>
       _$uppushSyncDeviceResponse401ApplicationJsonSerializer;
@@ -472,12 +522,19 @@ abstract class UppushDeleteDeviceResponse200ApplicationJson
   factory UppushDeleteDeviceResponse200ApplicationJson([
     final void Function(UppushDeleteDeviceResponse200ApplicationJsonBuilder)? b,
   ]) = _$UppushDeleteDeviceResponse200ApplicationJson;
-  const UppushDeleteDeviceResponse200ApplicationJson._();
 
+  // coverage:ignore-start
+  const UppushDeleteDeviceResponse200ApplicationJson._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory UppushDeleteDeviceResponse200ApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   bool get success;
   static Serializer<UppushDeleteDeviceResponse200ApplicationJson> get serializer =>
       _$uppushDeleteDeviceResponse200ApplicationJsonSerializer;
@@ -488,12 +545,19 @@ abstract class UppushCreateAppResponse200ApplicationJson
   factory UppushCreateAppResponse200ApplicationJson([
     final void Function(UppushCreateAppResponse200ApplicationJsonBuilder)? b,
   ]) = _$UppushCreateAppResponse200ApplicationJson;
-  const UppushCreateAppResponse200ApplicationJson._();
 
+  // coverage:ignore-start
+  const UppushCreateAppResponse200ApplicationJson._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory UppushCreateAppResponse200ApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   bool get success;
   String get token;
   static Serializer<UppushCreateAppResponse200ApplicationJson> get serializer =>
@@ -505,12 +569,19 @@ abstract class UppushDeleteAppResponse200ApplicationJson
   factory UppushDeleteAppResponse200ApplicationJson([
     final void Function(UppushDeleteAppResponse200ApplicationJsonBuilder)? b,
   ]) = _$UppushDeleteAppResponse200ApplicationJson;
-  const UppushDeleteAppResponse200ApplicationJson._();
 
+  // coverage:ignore-start
+  const UppushDeleteAppResponse200ApplicationJson._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory UppushDeleteAppResponse200ApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   bool get success;
   static Serializer<UppushDeleteAppResponse200ApplicationJson> get serializer =>
       _$uppushDeleteAppResponse200ApplicationJsonSerializer;
@@ -523,12 +594,19 @@ abstract class UppushUnifiedpushDiscoveryResponse200ApplicationJson_Unifiedpush
   factory UppushUnifiedpushDiscoveryResponse200ApplicationJson_Unifiedpush([
     final void Function(UppushUnifiedpushDiscoveryResponse200ApplicationJson_UnifiedpushBuilder)? b,
   ]) = _$UppushUnifiedpushDiscoveryResponse200ApplicationJson_Unifiedpush;
-  const UppushUnifiedpushDiscoveryResponse200ApplicationJson_Unifiedpush._();
 
+  // coverage:ignore-start
+  const UppushUnifiedpushDiscoveryResponse200ApplicationJson_Unifiedpush._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory UppushUnifiedpushDiscoveryResponse200ApplicationJson_Unifiedpush.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   int get version;
   static Serializer<UppushUnifiedpushDiscoveryResponse200ApplicationJson_Unifiedpush> get serializer =>
       _$uppushUnifiedpushDiscoveryResponse200ApplicationJsonUnifiedpushSerializer;
@@ -541,12 +619,19 @@ abstract class UppushUnifiedpushDiscoveryResponse200ApplicationJson
   factory UppushUnifiedpushDiscoveryResponse200ApplicationJson([
     final void Function(UppushUnifiedpushDiscoveryResponse200ApplicationJsonBuilder)? b,
   ]) = _$UppushUnifiedpushDiscoveryResponse200ApplicationJson;
-  const UppushUnifiedpushDiscoveryResponse200ApplicationJson._();
 
+  // coverage:ignore-start
+  const UppushUnifiedpushDiscoveryResponse200ApplicationJson._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory UppushUnifiedpushDiscoveryResponse200ApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   UppushUnifiedpushDiscoveryResponse200ApplicationJson_Unifiedpush get unifiedpush;
   static Serializer<UppushUnifiedpushDiscoveryResponse200ApplicationJson> get serializer =>
       _$uppushUnifiedpushDiscoveryResponse200ApplicationJsonSerializer;
@@ -556,12 +641,19 @@ abstract class UppushPushResponse201ApplicationJson
     implements Built<UppushPushResponse201ApplicationJson, UppushPushResponse201ApplicationJsonBuilder> {
   factory UppushPushResponse201ApplicationJson([final void Function(UppushPushResponse201ApplicationJsonBuilder)? b]) =
       _$UppushPushResponse201ApplicationJson;
-  const UppushPushResponse201ApplicationJson._();
 
+  // coverage:ignore-start
+  const UppushPushResponse201ApplicationJson._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory UppushPushResponse201ApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   bool get success;
   static Serializer<UppushPushResponse201ApplicationJson> get serializer =>
       _$uppushPushResponse201ApplicationJsonSerializer;
@@ -574,14 +666,21 @@ abstract class UppushGatewayMatrixDiscoveryResponse200ApplicationJson_Unifiedpus
   factory UppushGatewayMatrixDiscoveryResponse200ApplicationJson_Unifiedpush([
     final void Function(UppushGatewayMatrixDiscoveryResponse200ApplicationJson_UnifiedpushBuilder)? b,
   ]) = _$UppushGatewayMatrixDiscoveryResponse200ApplicationJson_Unifiedpush;
-  const UppushGatewayMatrixDiscoveryResponse200ApplicationJson_Unifiedpush._();
 
+  // coverage:ignore-start
+  const UppushGatewayMatrixDiscoveryResponse200ApplicationJson_Unifiedpush._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory UppushGatewayMatrixDiscoveryResponse200ApplicationJson_Unifiedpush.fromJson(
     final Map<String, dynamic> json,
   ) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   String get gateway;
   static Serializer<UppushGatewayMatrixDiscoveryResponse200ApplicationJson_Unifiedpush> get serializer =>
       _$uppushGatewayMatrixDiscoveryResponse200ApplicationJsonUnifiedpushSerializer;
@@ -594,12 +693,19 @@ abstract class UppushGatewayMatrixDiscoveryResponse200ApplicationJson
   factory UppushGatewayMatrixDiscoveryResponse200ApplicationJson([
     final void Function(UppushGatewayMatrixDiscoveryResponse200ApplicationJsonBuilder)? b,
   ]) = _$UppushGatewayMatrixDiscoveryResponse200ApplicationJson;
-  const UppushGatewayMatrixDiscoveryResponse200ApplicationJson._();
 
+  // coverage:ignore-start
+  const UppushGatewayMatrixDiscoveryResponse200ApplicationJson._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory UppushGatewayMatrixDiscoveryResponse200ApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   UppushGatewayMatrixDiscoveryResponse200ApplicationJson_Unifiedpush get unifiedpush;
   static Serializer<UppushGatewayMatrixDiscoveryResponse200ApplicationJson> get serializer =>
       _$uppushGatewayMatrixDiscoveryResponse200ApplicationJsonSerializer;
@@ -611,17 +717,25 @@ abstract class UppushGatewayMatrixResponse200ApplicationJson
   factory UppushGatewayMatrixResponse200ApplicationJson([
     final void Function(UppushGatewayMatrixResponse200ApplicationJsonBuilder)? b,
   ]) = _$UppushGatewayMatrixResponse200ApplicationJson;
-  const UppushGatewayMatrixResponse200ApplicationJson._();
 
+  // coverage:ignore-start
+  const UppushGatewayMatrixResponse200ApplicationJson._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
   factory UppushGatewayMatrixResponse200ApplicationJson.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   BuiltList<String> get rejected;
   static Serializer<UppushGatewayMatrixResponse200ApplicationJson> get serializer =>
       _$uppushGatewayMatrixResponse200ApplicationJsonSerializer;
 }
 
+// coverage:ignore-start
 final Serializers _serializers = (Serializers().toBuilder()
       ..addBuilderFactory(
         const FullType(UppushCheckResponse200ApplicationJson),
@@ -698,7 +812,6 @@ final Serializers _jsonSerializers = (_serializers.toBuilder()
       ..addPlugin(const ContentStringPlugin()))
     .build();
 
-// coverage:ignore-start
 T deserializeUppush<T>(final Object data) => _serializers.deserialize(data, specifiedType: FullType(T))! as T;
 
 Object? serializeUppush<T>(final T data) => _serializers.serialize(data, specifiedType: FullType(T));

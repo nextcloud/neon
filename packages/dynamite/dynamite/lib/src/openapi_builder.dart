@@ -373,6 +373,7 @@ class OpenAPIBuilder implements Builder {
                             final security = operation.security ?? spec.security ?? [];
                             final securityRequirements = security.where((final requirement) => requirement.isNotEmpty);
                             final isOptionalSecurity = securityRequirements.length != security.length;
+                            code.write('    // coverage:ignore-start\n');
                             for (final requirement in securityRequirements) {
                               final securityScheme = spec.components!.securitySchemes![requirement.keys.single]!;
                               code.write('''
@@ -387,10 +388,11 @@ class OpenAPIBuilder implements Builder {
                             if (securityRequirements.isNotEmpty && !isOptionalSecurity) {
                               code.write('''
                                 else {
-                                  throw Exception('Missing authentication for ${securityRequirements.map((final r) => r.keys.single).join(' or ')}'); // coverage:ignore-line
+                                  throw Exception('Missing authentication for ${securityRequirements.map((final r) => r.keys.single).join(' or ')}');
                                 }
                               ''');
                             }
+                            code.write('    // coverage:ignore-end\n');
 
                             for (final parameter in parameters) {
                               final dartParameterNullable = _isDartParameterNullable(
@@ -710,6 +712,7 @@ class OpenAPIBuilder implements Builder {
 
       if (state.resolvedTypes.isNotEmpty) {
         output.addAll([
+          '// coverage:ignore-start',
           'final Serializers _serializers = (Serializers().toBuilder()',
           ...state.resolvedTypes.map((final type) => type.serializers).expand((final element) => element).toSet(),
           ').build();',
@@ -718,7 +721,6 @@ class OpenAPIBuilder implements Builder {
           '',
           'final Serializers _jsonSerializers = (_serializers.toBuilder()..addPlugin(StandardJsonPlugin())..addPlugin(const ContentStringPlugin())).build();',
           '',
-          '// coverage:ignore-start',
           'T deserialize$classPrefix<T>(final Object data) => _serializers.deserialize(data, specifiedType: FullType(T))! as T;',
           '',
           'Object? serialize$classPrefix<T>(final T data) => _serializers.serialize(data, specifiedType: FullType(T));',
@@ -726,29 +728,28 @@ class OpenAPIBuilder implements Builder {
         ]);
       }
 
-      final formatter = DartFormatter(
-        pageWidth: 120,
-      );
-      const coverageIgnoreStart = '  // coverage:ignore-start';
-      const coverageIgnoreEnd = '  // coverage:ignore-end';
       final patterns = [
         RegExp(
-          r'factory .*\.fromJson\(Map<String, dynamic> json\) => _\$.*FromJson\(json\);',
+          r'const .*\._\(\);',
         ),
         RegExp(
-          r'Map<String, dynamic> toJson\(\) => _\$.*ToJson\(this\);',
+          r'factory .*\.fromJson\(Map<String, dynamic> json\) => _jsonSerializers\.deserializeWith\(serializer, json\)!;',
         ),
         RegExp(
-          r'dynamic toJson\(\) => _data;',
+          r'Map<String, dynamic> toJson\(\) => _jsonSerializers\.serializeWith\(serializer, this\)! as Map<String, dynamic>;',
+        ),
+        RegExp(
+          r'static BuiltSet<.*> get values => _\$.*Values;',
         ),
       ];
       var outputString = output.join('\n');
       for (final pattern in patterns) {
         outputString = outputString.replaceAllMapped(
           pattern,
-          (final match) => '$coverageIgnoreStart\n${match.group(0)}\n$coverageIgnoreEnd',
+          (final match) => '  // coverage:ignore-start\n${match.group(0)}\n  // coverage:ignore-end',
         );
       }
+      final formatter = DartFormatter(pageWidth: 120);
       await buildStep.writeAsString(
         outputId,
         formatter.format(outputString),
@@ -954,11 +955,6 @@ TypeResult resolveObject(
             ..constructors.addAll([
               Constructor(
                 (final b) => b
-                  ..name = '_'
-                  ..constant = true,
-              ),
-              Constructor(
-                (final b) => b
                   ..factory = true
                   ..lambda = true
                   ..optionalParameters.add(
@@ -969,6 +965,11 @@ TypeResult resolveObject(
                     ),
                   )
                   ..redirect = refer('_\$${state.prefix}$identifier'),
+              ),
+              Constructor(
+                (final b) => b
+                  ..name = '_'
+                  ..constant = true,
               ),
               Constructor(
                 (final b) => b
