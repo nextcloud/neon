@@ -24,10 +24,6 @@ dependencies:
     git:
       url: https://github.com/provokateurin/nextcloud-neon
       path: packages/neon/neon
-  nextcloud:
-    git:
-      url: https://github.com/provokateurin/nextcloud-neon
-      path: packages/nextcloud
   open_file: ^3.3.1
   path: ^1.8.3
   provider: ^6.0.5
