@@ -1,3 +1,4 @@
+# melos_managed_dependency_overrides: cookie_store,dynamite_runtime,file_icons,neon_framework,neon_lints,nextcloud,sort_box,synchronize
 dependency_overrides:
   cookie_store:
     path: ../../cookie_store
@@ -13,3 +14,5 @@ dependency_overrides:
     path: ../../nextcloud
   sort_box:
     path: ../../sort_box
+  synchronize:
+    path: ../../synchronize
