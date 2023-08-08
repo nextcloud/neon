@@ -1409,6 +1409,13 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.2.0"
+  synchronize:
+    dependency: "direct overridden"
+    description:
+      path: "../packages/synchronize"
+      relative: true
+    source: path
+    version: "1.0.0"
   synchronized:
     dependency: transitive
     description:

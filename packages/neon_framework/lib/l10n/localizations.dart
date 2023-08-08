@@ -337,6 +337,24 @@ abstract class NeonLocalizations {
   /// **'Done'**
   String get actionDone;
 
+  /// No description provided for @actionPrevious.
+  ///
+  /// In en, this message translates to:
+  /// **'Previous'**
+  String get actionPrevious;
+
+  /// No description provided for @actionNext.
+  ///
+  /// In en, this message translates to:
+  /// **'Next'**
+  String get actionNext;
+
+  /// No description provided for @actionFinish.
+  ///
+  /// In en, this message translates to:
+  /// **'Finish'**
+  String get actionFinish;
+
   /// No description provided for @firstLaunchGoToSettingsToEnablePushNotifications.
   ///
   /// In en, this message translates to:
@@ -870,6 +888,84 @@ abstract class NeonLocalizations {
   /// In en, this message translates to:
   /// **'Online status'**
   String get userStatusOnlineStatus;
+
+  /// No description provided for @sync.
+  ///
+  /// In en, this message translates to:
+  /// **'Synchronization'**
+  String get sync;
+
+  /// No description provided for @syncOptionsNoSynchronizations.
+  ///
+  /// In en, this message translates to:
+  /// **'No {type} synchronizations'**
+  String syncOptionsNoSynchronizations(String type);
+
+  /// No description provided for @syncOptionsAdd.
+  ///
+  /// In en, this message translates to:
+  /// **'Add {type} synchronization'**
+  String syncOptionsAdd(String type);
+
+  /// No description provided for @syncOptionsRemove.
+  ///
+  /// In en, this message translates to:
+  /// **'Remove synchronization'**
+  String get syncOptionsRemove;
+
+  /// No description provided for @syncOptionsSyncNow.
+  ///
+  /// In en, this message translates to:
+  /// **'Synchronize now'**
+  String get syncOptionsSyncNow;
+
+  /// No description provided for @syncOptionsStatusUnknown.
+  ///
+  /// In en, this message translates to:
+  /// **'Unknown synchronization status'**
+  String get syncOptionsStatusUnknown;
+
+  /// No description provided for @syncOptionsStatusIncomplete.
+  ///
+  /// In en, this message translates to:
+  /// **'Not completely synchronized'**
+  String get syncOptionsStatusIncomplete;
+
+  /// No description provided for @syncOptionsStatusComplete.
+  ///
+  /// In en, this message translates to:
+  /// **'Completely synchronized'**
+  String get syncOptionsStatusComplete;
+
+  /// No description provided for @syncOptionsRemoveConfirmation.
+  ///
+  /// In en, this message translates to:
+  /// **'Do you want to remove the synchronization?'**
+  String get syncOptionsRemoveConfirmation;
+
+  /// No description provided for @syncOptionsAutomaticSync.
+  ///
+  /// In en, this message translates to:
+  /// **'Sync automatically'**
+  String get syncOptionsAutomaticSync;
+
+  /// No description provided for @syncResolveConflictsLocal.
+  ///
+  /// In en, this message translates to:
+  /// **'Local'**
+  String get syncResolveConflictsLocal;
+
+  /// No description provided for @syncResolveConflictsRemote.
+  ///
+  /// In en, this message translates to:
+  /// **'Remote'**
+  String get syncResolveConflictsRemote;
+
+  /// No description provided for @syncResolveConflictsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Found {count} conflicts for syncing {name}'**
+  String syncResolveConflictsTitle(int count, String name);
 }
 
 class _NeonLocalizationsDelegate extends LocalizationsDelegate<NeonLocalizations> {

@@ -33,6 +33,10 @@ RouteBase get $homeRoute => GoRouteData.$route(
             ),
           ],
         ),
+        GoRouteData.$route(
+          path: 'sync',
+          factory: $SyncRouteExtension._fromState,
+        ),
       ],
     );
 
@@ -109,6 +113,22 @@ extension $AccountSettingsRouteExtension on AccountSettingsRoute {
 
   String get location => GoRouteData.$location(
         '/settings/account/${Uri.encodeComponent(accountID)}',
+      );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) => context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
+}
+
+extension $SyncRouteExtension on SyncRoute {
+  static SyncRoute _fromState(GoRouterState state) => const SyncRoute();
+
+  String get location => GoRouteData.$location(
+        '/sync',
       );
 
   void go(BuildContext context) => context.go(location);
