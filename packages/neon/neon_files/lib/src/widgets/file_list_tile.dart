@@ -129,7 +129,7 @@ class _FileIcon extends StatelessWidget {
             child: Icon(
               AdaptiveIcons.star,
               size: smallIconSize,
-              color: Colors.yellow,
+              color: NcColors.starredColor,
             ),
           ),
         ],

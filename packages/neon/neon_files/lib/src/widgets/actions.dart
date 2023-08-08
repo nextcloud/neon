@@ -54,7 +54,7 @@ class FileActions extends StatelessWidget {
         if (!context.mounted) {
           return;
         }
-        final result = await showChooseFolderDialog(context, details);
+        final result = await showChooseFolderDialog(context, details.uri);
 
         if (result != null) {
           bloc.move(details.uri, result.join(PathUri.parse(details.name)));
@@ -64,7 +64,7 @@ class FileActions extends StatelessWidget {
           return;
         }
 
-        final result = await showChooseFolderDialog(context, details);
+        final result = await showChooseFolderDialog(context, details.uri);
         if (result != null) {
           bloc.copy(details.uri, result.join(PathUri.parse(details.name)));
         }
