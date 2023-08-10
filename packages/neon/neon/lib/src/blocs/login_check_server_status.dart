@@ -1,9 +1,9 @@
 import 'dart:async';
 
 import 'package:flutter/foundation.dart';
-import 'package:neon/neon.dart';
 import 'package:neon/src/bloc/bloc.dart';
 import 'package:neon/src/bloc/result.dart';
+import 'package:neon/src/utils/user_agent.dart';
 import 'package:nextcloud/nextcloud.dart';
 import 'package:rxdart/rxdart.dart';
 
