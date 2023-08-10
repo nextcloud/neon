@@ -1,6 +1,5 @@
 import 'dart:io';
 
-import 'package:flutter/foundation.dart';
 import 'package:integration_test/integration_test_driver_extended.dart';
 
 Future<void> main() async {
@@ -16,6 +15,7 @@ Future<void> main() async {
       },
     );
   } catch (e) {
-    debugPrint('Error occurred: $e');
+    // ignore: avoid_print
+    print('Error occurred: $e');
   }
 }
