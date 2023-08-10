@@ -319,7 +319,7 @@ class _FilesBrowserViewState extends State<FilesBrowserView> {
                     value: FilesFileAction.copy,
                     child: Text(AppLocalizations.of(context).actionCopy),
                   ),
-                  // TODO: https://github.com/provokateurin/nextcloud-neon/issues/4
+                  // TODO: https://github.com/nextcloud/neon/issues/4
                   if (!details.isDirectory) ...[
                     PopupMenuItem(
                       value: FilesFileAction.sync,
