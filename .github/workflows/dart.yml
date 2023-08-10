@@ -14,7 +14,7 @@ permissions: read-all
 jobs:
   dart-ci:
     name: Dart CI
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     steps:
       - name: Cache dependencies
         uses: actions/cache@v3
