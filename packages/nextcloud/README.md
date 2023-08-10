@@ -2,7 +2,7 @@
 
 A Nextcloud client written in Dart.  
 
-This client will become the replacement for https://github.com/provokateurin/dart-nextcloud at some point ([See](https://github.com/provokateurin/nextcloud-neon/issues/1)).
+This client will become the replacement for https://github.com/provokateurin/dart-nextcloud at some point ([See](https://github.com/nextcloud/neon/issues/1)).
 
 
 ## Installing
@@ -12,14 +12,14 @@ In the future this code will be available at https://pub.dev/packages/nextcloud,
 dependencies:
   nextcloud:
     git:
-      url: https://github.com/provokateurin/nextcloud-neon
+      url: https://github.com/nextcloud/neon
       path: packages/nextcloud
       ref: $COMMIT
 
 dependency_overrides:
   dynamite_runtime:
     git:
-      url: https://github.com/provokateurin/nextcloud-neon
+      url: https://github.com/nextcloud/neon
       path: packages/dynamite/dynamite_runtime
       ref: $COMMIT
 ```

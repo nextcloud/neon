@@ -12,7 +12,7 @@ dependencies:
   crypton: ^2.0.5
   dynamite_runtime:
     git:
-      url: https://github.com/provokateurin/nextcloud-neon
+      url: https://github.com/nextcloud/neon
       path: packages/dynamite/dynamite_runtime
   intl: ^0.18.0
   json_annotation: ^4.8.1
@@ -27,7 +27,7 @@ dev_dependencies:
   coverage: ^1.6.3
   dynamite:
     git:
-      url: https://github.com/provokateurin/nextcloud-neon
+      url: https://github.com/nextcloud/neon
       path: packages/dynamite/dynamite
   json_serializable: ^6.6.2
   nit_picking:

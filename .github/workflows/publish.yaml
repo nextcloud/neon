@@ -103,7 +103,7 @@ jobs:
           sudo apt-get purge fdroidserver
           pip3 install https://gitlab.com/fdroid/fdroidserver/-/archive/master/fdroidserver.tar.gz
           export DEBUG_KEYSTORE=${{ secrets.DEBUG_KEYSTORE }}
-          fdroid nightly -v --archive-older 10
+          GITHUB_REPOSITORY=provokateurin/nextcloud-neon fdroid nightly -v --archive-older 10
 
   linux_x86_64:
     name: Linux x86_64

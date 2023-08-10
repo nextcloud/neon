@@ -1,4 +1,4 @@
-# nextcloud-neon
+# neon
 
 <img src="assets/logo.svg" alt="Neon logo" width="200"/>
 

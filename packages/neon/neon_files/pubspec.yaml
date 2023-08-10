@@ -10,7 +10,7 @@ dependencies:
   collection: ^1.17.0
   file_icons:
     git:
-      url: https://github.com/provokateurin/nextcloud-neon
+      url: https://github.com/nextcloud/neon
       path: packages/file_icons
   file_picker: ^5.3.0
   filesize: ^2.0.1
@@ -22,7 +22,7 @@ dependencies:
   material_design_icons_flutter: ^7.0.7296
   neon:
     git:
-      url: https://github.com/provokateurin/nextcloud-neon
+      url: https://github.com/nextcloud/neon
       path: packages/neon/neon
   open_file: ^3.3.1
   path: ^1.8.3
