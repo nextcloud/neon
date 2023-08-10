@@ -10,6 +10,7 @@ import 'package:material_design_icons_flutter/material_design_icons_flutter.dart
 import 'package:neon/models.dart';
 import 'package:neon/neon.dart';
 import 'package:neon/nextcloud.dart';
+import 'package:neon/settings.dart';
 import 'package:neon_files/widgets/actions.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -36,7 +37,7 @@ Future openDrawer(final WidgetTester tester) async {
 
 Future switchPage(final WidgetTester tester, final String name) async {
   await openDrawer(tester);
-  await tester.tap(find.byKey(Key(name)));
+  await tester.tap(find.text(name).last);
   await tester.pumpAndSettle();
 }
 
@@ -87,14 +88,6 @@ Future main() async {
     );
     await prepareScreenshot(tester, binding);
     await binding.takeScreenshot('login_server_selection');
-
-    await tester.enterText(find.byType(TextFormField), account.serverURL);
-    await tester.pumpAndSettle();
-    await tester.testTextInput.receiveAction(TextInputAction.done);
-    await tester.pumpAndSettle();
-    await tester.pump(const Duration(seconds: 3)); // Make sure the login webview is loaded
-    await tester.pumpAndSettle();
-    await binding.takeScreenshot('login_form');
   });
 
   testWidgets('home', (final tester) async {
@@ -165,7 +158,7 @@ Future main() async {
       account: account,
     );
     await prepareScreenshot(tester, binding);
-    await switchPage(tester, 'app-news');
+    await switchPage(tester, 'News');
 
     // Show folders
     await tester.tap(find.byIcon(Icons.folder));
@@ -235,7 +228,7 @@ Future main() async {
       account: account,
     );
     await prepareScreenshot(tester, binding);
-    await switchPage(tester, 'app-notes');
+    await switchPage(tester, 'Notes');
 
     // Create note
     await tester.tap(find.byType(FloatingActionButton));
@@ -298,7 +291,7 @@ Future main() async {
       account: account,
     );
     await prepareScreenshot(tester, binding);
-    await tester.tap(find.byKey(const Key('app-notifications')));
+    await tester.tap(find.byTooltip('Notifications'));
     await tester.pumpAndSettle();
 
     await tester.pumpAndSettle();
@@ -314,7 +307,7 @@ Future main() async {
       account: account,
     );
     await prepareScreenshot(tester, binding);
-    await switchPage(tester, 'settings');
+    await switchPage(tester, 'Settings');
 
     // Open Files settings
     await tester.tap(find.text('Files'));
@@ -365,7 +358,7 @@ Future main() async {
     await tester.pumpAndSettle();
 
     // Scroll down to accounts
-    await tester.drag(find.byType(ListView), const Offset(0, -10000));
+    await tester.drag(find.byType(SettingsList).first, const Offset(0, -10000));
     await tester.pumpAndSettle();
 
     await binding.takeScreenshot('settings_accounts');
