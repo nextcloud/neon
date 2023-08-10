@@ -9,6 +9,7 @@ import 'package:integration_test/integration_test.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:neon/models.dart';
 import 'package:neon/neon.dart';
+import 'package:neon/nextcloud.dart';
 import 'package:neon_files/widgets/actions.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -44,19 +45,34 @@ Future prepareScreenshot(final WidgetTester tester, final IntegrationTestWidgets
   await tester.pumpAndSettle();
 }
 
+Future<Account> getAccount(final String username) async {
+  const host = 'http://10.0.2.2';
+  final appPassword = (await NextcloudClient(
+    host,
+    loginName: username,
+    password: username,
+  ).core.appPassword.getAppPassword())
+      .ocs
+      .data
+      .apppassword;
+  return Account(
+    serverURL: host,
+    username: username,
+    password: appPassword,
+  );
+}
+
 Future main() async {
   // The screenshots are pretty annoying on Android. See https://github.com/flutter/flutter/issues/92381
 
   assert(Platform.isAndroid, 'Screenshots need to be taken on Android');
 
   final binding = IntegrationTestWidgetsFlutterBinding.ensureInitialized();
-  final account = Account(
-    serverURL: 'http://10.0.2.2',
-    username: 'demo',
-    password: 'demo',
-  );
+
+  late Account account;
 
   setUpAll(() async {
+    account = await getAccount('demo');
     await SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual, overlays: []);
   });
 
@@ -270,11 +286,7 @@ Future main() async {
   });
 
   testWidgets('notifications', (final tester) async {
-    await Account(
-      serverURL: 'http://10.0.2.2',
-      username: 'admin',
-      password: 'admin',
-    ).client.notifications.sendAdminNotification(
+    await (await getAccount('admin')).client.notifications.sendAdminNotification(
           userId: account.username,
           shortMessage: 'Notifications demo',
           longMessage: 'This is a notifications demo of the Neon app',
