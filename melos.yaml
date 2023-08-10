@@ -1,4 +1,4 @@
-name: nextcloud-neon
+name: neon
 repository: https://github.com/nextcloud/neon
 
 sdkPath: .fvm/flutter_sdk
