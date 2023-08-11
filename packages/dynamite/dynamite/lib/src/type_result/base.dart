@@ -34,6 +34,8 @@ class TypeResultBase extends TypeResult {
         return '($object as String)';
       case 'int':
         return 'int.parse($object as String)';
+      case 'bool':
+        return "($object as String == 'true')";
       case 'JsonObject':
         return 'JsonObject($object)';
       default:
