@@ -101,7 +101,7 @@ class _LoginPageState extends State<LoginPage> {
                       onFieldSubmitted: login,
                     ),
                   ),
-                  if (platform.canUseCamera || true) ...[
+                  if (platform.canUseCamera) ...[
                     const SizedBox(
                       height: 50,
                     ),
