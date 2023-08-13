@@ -78,7 +78,7 @@ extension $HomeRouteExtension on HomeRoute {
 extension $SettingsRouteExtension on SettingsRoute {
   static SettingsRoute _fromState(GoRouterState state) => SettingsRoute(
         initialCategory:
-            _$convertMapValue('initial-category', state.queryParameters, _$SettingsCageoriesEnumMap._$fromName),
+            _$convertMapValue('initial-category', state.uri.queryParameters, _$SettingsCageoriesEnumMap._$fromName),
       );
 
   String get location => GoRouteData.$location(
@@ -144,7 +144,7 @@ extension $_AddAccountRouteExtension on _AddAccountRoute {
 
 extension $_AddAccountFlowRouteExtension on _AddAccountFlowRoute {
   static _AddAccountFlowRoute _fromState(GoRouterState state) => _AddAccountFlowRoute(
-        serverUrl: state.queryParameters['server-url']!,
+        serverUrl: state.uri.queryParameters['server-url']!,
       );
 
   String get location => GoRouteData.$location(
@@ -181,7 +181,7 @@ extension $_AddAccountQrcodeRouteExtension on _AddAccountQrcodeRoute {
 
 extension $_AddAccountCheckServerStatusRouteExtension on _AddAccountCheckServerStatusRoute {
   static _AddAccountCheckServerStatusRoute _fromState(GoRouterState state) => _AddAccountCheckServerStatusRoute(
-        serverUrl: state.queryParameters['server-url']!,
+        serverUrl: state.uri.queryParameters['server-url']!,
       );
 
   String get location => GoRouteData.$location(
@@ -202,9 +202,9 @@ extension $_AddAccountCheckServerStatusRouteExtension on _AddAccountCheckServerS
 
 extension $_AddAccountCheckAccountRouteExtension on _AddAccountCheckAccountRoute {
   static _AddAccountCheckAccountRoute _fromState(GoRouterState state) => _AddAccountCheckAccountRoute(
-        serverUrl: state.queryParameters['server-url']!,
-        loginName: state.queryParameters['login-name']!,
-        password: state.queryParameters['password']!,
+        serverUrl: state.uri.queryParameters['server-url']!,
+        loginName: state.uri.queryParameters['login-name']!,
+        password: state.uri.queryParameters['password']!,
       );
 
   String get location => GoRouteData.$location(
@@ -298,7 +298,7 @@ extension $LoginRouteExtension on LoginRoute {
 
 extension $LoginFlowRouteExtension on LoginFlowRoute {
   static LoginFlowRoute _fromState(GoRouterState state) => LoginFlowRoute(
-        serverUrl: state.queryParameters['server-url']!,
+        serverUrl: state.uri.queryParameters['server-url']!,
       );
 
   String get location => GoRouteData.$location(
@@ -335,9 +335,9 @@ extension $LoginQrcodeRouteExtension on LoginQrcodeRoute {
 
 extension $LoginCheckServerStatusRouteExtension on LoginCheckServerStatusRoute {
   static LoginCheckServerStatusRoute _fromState(GoRouterState state) => LoginCheckServerStatusRoute(
-        serverUrl: state.queryParameters['server-url']!,
-        loginName: state.queryParameters['login-name'],
-        password: state.queryParameters['password'],
+        serverUrl: state.uri.queryParameters['server-url']!,
+        loginName: state.uri.queryParameters['login-name'],
+        password: state.uri.queryParameters['password'],
       );
 
   String get location => GoRouteData.$location(
@@ -360,9 +360,9 @@ extension $LoginCheckServerStatusRouteExtension on LoginCheckServerStatusRoute {
 
 extension $LoginCheckAccountRouteExtension on LoginCheckAccountRoute {
   static LoginCheckAccountRoute _fromState(GoRouterState state) => LoginCheckAccountRoute(
-        serverUrl: state.queryParameters['server-url']!,
-        loginName: state.queryParameters['login-name']!,
-        password: state.queryParameters['password']!,
+        serverUrl: state.uri.queryParameters['server-url']!,
+        loginName: state.uri.queryParameters['login-name']!,
+        password: state.uri.queryParameters['password']!,
       );
 
   String get location => GoRouteData.$location(
