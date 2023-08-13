@@ -13,6 +13,12 @@ updates:
     labels:
       - "dependencies"
   - package-ecosystem: "pub"
+    directory: "/"
+    schedule:
+      interval: "daily"
+    labels:
+      - "dependencies"
+  - package-ecosystem: "pub"
     directory: "/packages/app"
     schedule:
       interval: "daily"
