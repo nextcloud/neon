@@ -20,6 +20,7 @@ function add_update() {
 
 add_update github-actions /
 add_update gradle /packages/app/android
+add_update pub /
 for path in $(melos list --relative --parsable); do
   add_update pub "/$path"
 done
