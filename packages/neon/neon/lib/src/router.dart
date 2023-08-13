@@ -34,7 +34,7 @@ class AppRouter extends GoRouter {
           navigatorKey: navigatorKey,
           initialLocation: const HomeRoute().location,
           redirect: (final context, final state) {
-            final loginQrcode = LoginQrcode.tryParse(state.location);
+            final loginQrcode = LoginQrcode.tryParse(state.uri.toString());
             if (loginQrcode != null) {
               return LoginCheckServerStatusRoute.withCredentials(
                 serverUrl: loginQrcode.serverURL,
@@ -44,7 +44,7 @@ class AppRouter extends GoRouter {
             }
 
             // redirect to loginscreen when no account is logged in
-            if (!accountsBloc.hasAccounts && !state.location.startsWith(const LoginRoute().location)) {
+            if (!accountsBloc.hasAccounts && !state.uri.toString().startsWith(const LoginRoute().location)) {
               return const LoginRoute().location;
             }
 
