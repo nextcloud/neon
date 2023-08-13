@@ -218,11 +218,13 @@ packages:
     source: hosted
     version: "0.7.8"
   dynamite_runtime:
-    dependency: "direct overridden"
+    dependency: transitive
     description:
-      path: "../dynamite/dynamite_runtime"
-      relative: true
-    source: path
+      path: "packages/dynamite/dynamite_runtime"
+      ref: HEAD
+      resolved-ref: bce9027e5e895dd0d1baf1409a0ff0a037d507ad
+      url: "https://github.com/nextcloud/neon"
+    source: git
     version: "1.0.0"
   fake_async:
     dependency: transitive
@@ -249,11 +251,13 @@ packages:
     source: hosted
     version: "6.1.4"
   file_icons:
-    dependency: "direct overridden"
+    dependency: transitive
     description:
-      path: "../file_icons"
-      relative: true
-    source: path
+      path: "packages/file_icons"
+      ref: HEAD
+      resolved-ref: bce9027e5e895dd0d1baf1409a0ff0a037d507ad
+      url: "https://github.com/nextcloud/neon"
+    source: git
     version: "1.0.0"
   file_picker:
     dependency: transitive
@@ -320,10 +324,10 @@ packages:
     dependency: transitive
     description:
       name: flutter_cache_manager
-      sha256: "32cd900555219333326a2d0653aaaf8671264c29befa65bbd9856d204a4c9fb3"
+      sha256: "8207f27539deb83732fdda03e259349046a39a4c767269285f449ade355d54ba"
       url: "https://pub.dev"
     source: hosted
-    version: "3.3.0"
+    version: "3.3.1"
   flutter_driver:
     dependency: transitive
     description: flutter
@@ -349,10 +353,10 @@ packages:
     dependency: transitive
     description:
       name: flutter_local_notifications
-      sha256: "812791d43ccfc1b443a0d39fa02a206fc228c597e28ff9337e09e3ca8d370391"
+      sha256: "3cc40fe8c50ab8383f3e053a499f00f975636622ecdc8e20a77418ece3b1e975"
       url: "https://pub.dev"
     source: hosted
-    version: "14.1.1"
+    version: "15.1.0+1"
   flutter_local_notifications_linux:
     dependency: transitive
     description:
@@ -441,10 +445,10 @@ packages:
     dependency: transitive
     description:
       name: go_router
-      sha256: b33a88c67816312597e5e0f5906c5139a0b9bd9bb137346e872c788da7af8ea0
+      sha256: b3cadd2cd59a4103fd5f6bc572ca75111264698784e927aa471921c3477d5475
       url: "https://pub.dev"
     source: hosted
-    version: "9.0.3"
+    version: "10.0.0"
   graphs:
     dependency: transitive
     description:
@@ -465,10 +469,10 @@ packages:
     dependency: transitive
     description:
       name: http
-      sha256: "5895291c13fa8a3bd82e76d5627f69e0d85ca6a30dcac95c4ea19a5d555879c2"
+      sha256: "759d1a329847dd0f39226c688d3e06a6b8679668e350e2891a6474f8b4bb8525"
       url: "https://pub.dev"
     source: hosted
-    version: "0.13.6"
+    version: "1.1.0"
   http_parser:
     dependency: transitive
     description:
@@ -646,10 +650,10 @@ packages:
     dependency: transitive
     description:
       name: melos
-      sha256: ccbb6ecd8bb3f08ae8f9ce22920d816bff325a98940c845eda0257cd395503ac
+      sha256: "3f22f6cc629d72acf3acc8a7f8563384550290fa30790efa328c9cf606aa17d7"
       url: "https://pub.dev"
     source: hosted
-    version: "3.1.0"
+    version: "3.1.1"
   menu_base:
     dependency: transitive
     description:
@@ -685,37 +689,47 @@ packages:
   neon:
     dependency: "direct main"
     description:
-      path: "../neon/neon"
-      relative: true
-    source: path
+      path: "packages/neon/neon"
+      ref: HEAD
+      resolved-ref: bce9027e5e895dd0d1baf1409a0ff0a037d507ad
+      url: "https://github.com/nextcloud/neon"
+    source: git
     version: "1.0.0"
   neon_files:
     dependency: "direct main"
     description:
-      path: "../neon/neon_files"
-      relative: true
-    source: path
+      path: "packages/neon/neon_files"
+      ref: HEAD
+      resolved-ref: bce9027e5e895dd0d1baf1409a0ff0a037d507ad
+      url: "https://github.com/nextcloud/neon"
+    source: git
     version: "1.0.0"
   neon_news:
     dependency: "direct main"
     description:
-      path: "../neon/neon_news"
-      relative: true
-    source: path
+      path: "packages/neon/neon_news"
+      ref: HEAD
+      resolved-ref: bce9027e5e895dd0d1baf1409a0ff0a037d507ad
+      url: "https://github.com/nextcloud/neon"
+    source: git
     version: "1.0.0"
   neon_notes:
     dependency: "direct main"
     description:
-      path: "../neon/neon_notes"
-      relative: true
-    source: path
+      path: "packages/neon/neon_notes"
+      ref: HEAD
+      resolved-ref: bce9027e5e895dd0d1baf1409a0ff0a037d507ad
+      url: "https://github.com/nextcloud/neon"
+    source: git
     version: "1.0.0"
   neon_notifications:
     dependency: "direct main"
     description:
-      path: "../neon/neon_notifications"
-      relative: true
-    source: path
+      path: "packages/neon/neon_notifications"
+      ref: HEAD
+      resolved-ref: bce9027e5e895dd0d1baf1409a0ff0a037d507ad
+      url: "https://github.com/nextcloud/neon"
+    source: git
     version: "1.0.0"
   nested:
     dependency: transitive
@@ -726,11 +740,13 @@ packages:
     source: hosted
     version: "1.0.0"
   nextcloud:
-    dependency: "direct overridden"
+    dependency: transitive
     description:
-      path: "../nextcloud"
-      relative: true
-    source: path
+      path: "packages/nextcloud"
+      ref: HEAD
+      resolved-ref: bce9027e5e895dd0d1baf1409a0ff0a037d507ad
+      url: "https://github.com/nextcloud/neon"
+    source: git
     version: "1.0.0"
   nit_picking:
     dependency: "direct dev"
@@ -829,14 +845,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.1.7"
-  pedantic:
-    dependency: transitive
-    description:
-      name: pedantic
-      sha256: "67fc27ed9639506c856c840ccce7594d0bdcd91bc8d53d6e52359449a1d50602"
-      url: "https://pub.dev"
-    source: hosted
-    version: "1.11.1"
   permission_handler:
     dependency: transitive
     description:
@@ -953,10 +961,10 @@ packages:
     dependency: transitive
     description:
       name: pub_updater
-      sha256: "42890302ab2672adf567dc2b20e55b4ecc29d7e19c63b6b98143ab68dd717d3a"
+      sha256: b06600619c8c219065a548f8f7c192b3e080beff95488ed692780f48f69c0625
       url: "https://pub.dev"
     source: hosted
-    version: "0.2.4"
+    version: "0.3.1"
   pubspec:
     dependency: transitive
     description:
@@ -1057,10 +1065,10 @@ packages:
     dependency: "direct main"
     description:
       name: shared_preferences
-      sha256: "396f85b8afc6865182610c0a2fc470853d56499f75f7499e2a73a9f0539d23d0"
+      sha256: "0344316c947ffeb3a529eac929e1978fcd37c26be4e8468628bac399365a3ca1"
       url: "https://pub.dev"
     source: hosted
-    version: "2.1.2"
+    version: "2.2.0"
   shared_preferences_android:
     dependency: transitive
     description:
@@ -1089,10 +1097,10 @@ packages:
     dependency: transitive
     description:
       name: shared_preferences_platform_interface
-      sha256: fb5cf25c0235df2d0640ac1b1174f6466bd311f621574997ac59018a6664548d
+      sha256: "23b052f17a25b90ff2b61aad4cc962154da76fb62848a9ce088efe30d7c50ab1"
       url: "https://pub.dev"
     source: hosted
-    version: "2.2.0"
+    version: "2.3.0"
   shared_preferences_web:
     dependency: transitive
     description:
@@ -1123,11 +1131,13 @@ packages:
     source: sdk
     version: "0.0.99"
   sort_box:
-    dependency: "direct overridden"
+    dependency: transitive
     description:
-      path: "../sort_box"
-      relative: true
-    source: path
+      path: "packages/sort_box"
+      ref: HEAD
+      resolved-ref: bce9027e5e895dd0d1baf1409a0ff0a037d507ad
+      url: "https://github.com/nextcloud/neon"
+    source: git
     version: "1.0.0"
   source_span:
     dependency: transitive
