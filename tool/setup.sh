@@ -2,8 +2,10 @@
 set -euxo pipefail
 cd "$(dirname "$0")/.."
 
-dart pub global activate melos 3.1.0
-dart pub global activate fvm 2.4.1
+for package in $(yq -r ".dev_dependencies | keys | .[]" pubspec.yaml); do
+  version="$(yq -r ".dev_dependencies.$package" pubspec.yaml)"
+  dart pub global activate "$package" "$version"
+done
 echo "y" | fvm install
 melos exec --concurrency=1 flutter pub get
 dart run husky install
