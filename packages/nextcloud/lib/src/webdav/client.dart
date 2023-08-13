@@ -234,40 +234,38 @@ class WebDavClient {
 
   /// Retrieves the props for the resource at [path].
   ///
-  /// Optionally populates the given [prop]s on the returned files.
-  /// [depth] can be '0', '1' or 'infinity'.
+  /// Optionally populates the given [prop]s on the returned resources.
+  /// [depth] can be used to limit scope of the returned resources.
   /// See http://www.webdav.org/specs/rfc2518.html#METHOD_PROPFIND for more information.
   Future<WebDavMultistatus> propfind(
     final String path, {
     final WebDavPropWithoutValues? prop,
-    final String? depth,
-  }) async {
-    assert(depth == null || ['0', '1', 'infinity'].contains(depth), 'Depth has to be 0, 1 or infinity');
-    return _parseResponse(
-      await _send(
-        'PROPFIND',
-        _constructPath(path),
-        data: Stream.value(
-          Uint8List.fromList(
-            utf8.encode(
-              WebDavPropfind(prop: prop ?? WebDavPropWithoutValues())
-                  .toXmlElement(namespaces: namespaces)
-                  .toXmlString(),
+    final WebDavDepth? depth,
+  }) async =>
+      _parseResponse(
+        await _send(
+          'PROPFIND',
+          _constructPath(path),
+          data: Stream.value(
+            Uint8List.fromList(
+              utf8.encode(
+                WebDavPropfind(prop: prop ?? WebDavPropWithoutValues())
+                    .toXmlElement(namespaces: namespaces)
+                    .toXmlString(),
+              ),
             ),
           ),
-        ),
-        headers: {
-          if (depth != null) ...{
-            'Depth': depth,
+          headers: {
+            if (depth != null) ...{
+              'Depth': depth.value,
+            },
           },
-        },
-      ),
-    );
-  }
+        ),
+      );
 
   /// Runs the filter-files report with the [filterRules] on the resource at [path].
   ///
-  /// Optionally populates the [prop]s on the returned files.
+  /// Optionally populates the [prop]s on the returned resources.
   /// See https://github.com/owncloud/docs/issues/359 for more information.
   Future<WebDavMultistatus> report(
     final String path,
@@ -377,4 +375,27 @@ class WebDavOptions {
 
   /// DAV search and locating capabilities as advertised by the server in the 'dasl' header.
   Set<String> searchCapabilities;
+}
+
+/// Depth used for [WebDavClient.propfind].
+///
+/// See http://www.webdav.org/specs/rfc2518.html#HEADER_Depth for more information.
+enum WebDavDepth {
+  /// Returns props of the resource.
+  zero('0'),
+
+  /// Returns props of the resource and its immediate children.
+  ///
+  /// Only works on collections and returns the same as [WebDavDepth.zero] for other resources.
+  one('1'),
+
+  /// Returns props of the resource and all its progeny.
+  ///
+  /// Only works on collections and returns the same as [WebDavDepth.zero] for other resources.
+  infinity('infinity');
+
+  const WebDavDepth(this.value);
+
+  // ignore: public_member_api_docs
+  final String value;
 }
