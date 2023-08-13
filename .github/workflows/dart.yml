@@ -11,6 +11,10 @@ env:
   PUB_ENVIRONMENT: bot.github
 permissions: read-all
 
+concurrency:
+  group: dart-${{ github.head_ref || github.run_id }}
+  cancel-in-progress: true
+
 jobs:
   dart-ci:
     name: Dart CI
