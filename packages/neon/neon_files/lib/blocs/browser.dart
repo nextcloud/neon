@@ -54,7 +54,7 @@ class FilesBrowserBloc extends InteractiveBloc implements FilesBrowserBlocEvents
           ocsize: true,
           ocfavorite: true,
         ),
-        depth: '1',
+        depth: WebDavDepth.one,
       ),
       (final response) => response.toWebDavFiles().sublist(1),
       emitEmptyCache: true,
