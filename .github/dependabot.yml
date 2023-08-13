@@ -7,13 +7,73 @@ updates:
     labels:
       - "dependencies"
   - package-ecosystem: "gradle"
-    directory: "/"
+    directory: "/packages/app/android"
     schedule:
       interval: "daily"
     labels:
       - "dependencies"
   - package-ecosystem: "pub"
-    directory: "/"
+    directory: "/packages/app"
+    schedule:
+      interval: "daily"
+    labels:
+      - "dependencies"
+  - package-ecosystem: "pub"
+    directory: "/packages/dynamite/dynamite"
+    schedule:
+      interval: "daily"
+    labels:
+      - "dependencies"
+  - package-ecosystem: "pub"
+    directory: "/packages/dynamite/dynamite_runtime"
+    schedule:
+      interval: "daily"
+    labels:
+      - "dependencies"
+  - package-ecosystem: "pub"
+    directory: "/packages/file_icons"
+    schedule:
+      interval: "daily"
+    labels:
+      - "dependencies"
+  - package-ecosystem: "pub"
+    directory: "/packages/neon/neon"
+    schedule:
+      interval: "daily"
+    labels:
+      - "dependencies"
+  - package-ecosystem: "pub"
+    directory: "/packages/neon/neon_files"
+    schedule:
+      interval: "daily"
+    labels:
+      - "dependencies"
+  - package-ecosystem: "pub"
+    directory: "/packages/neon/neon_news"
+    schedule:
+      interval: "daily"
+    labels:
+      - "dependencies"
+  - package-ecosystem: "pub"
+    directory: "/packages/neon/neon_notes"
+    schedule:
+      interval: "daily"
+    labels:
+      - "dependencies"
+  - package-ecosystem: "pub"
+    directory: "/packages/neon/neon_notifications"
+    schedule:
+      interval: "daily"
+    labels:
+      - "dependencies"
+  - package-ecosystem: "pub"
+    directory: "/packages/nextcloud"
+    schedule:
+      interval: "daily"
+    labels:
+      - "dependencies"
+  - package-ecosystem: "pub"
+    directory: "/packages/sort_box"
     schedule:
       interval: "daily"
     labels:
