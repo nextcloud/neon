@@ -11,9 +11,7 @@ class FileDetails {
     required this.lastModified,
     required this.hasPreview,
     required this.isFavorite,
-  })  : progress = null,
-        isUploading = false,
-        isDownloading = false;
+  }) : task = null;
 
   FileDetails.fromWebDav({
     required final WebDavFile file,
@@ -26,18 +24,13 @@ class FileDetails {
         lastModified = file.lastModified,
         hasPreview = file.hasPreview,
         isFavorite = file.favorite,
-        progress = null,
-        isUploading = false,
-        isDownloading = false;
+        task = null;
 
   FileDetails.fromUploadTask({
-    required final UploadTask task,
+    required FilesUploadTask this.task,
   })  : path = task.path,
         size = task.size,
         lastModified = task.lastModified,
-        progress = task.progress,
-        isUploading = true,
-        isDownloading = false,
         isDirectory = false,
         etag = null,
         mimeType = null,
@@ -45,7 +38,7 @@ class FileDetails {
         isFavorite = null;
 
   FileDetails.fromDownloadTask({
-    required final DownloadTask task,
+    required FilesDownloadTask this.task,
     required final WebDavFile file,
   })  : path = task.path,
         isDirectory = file.isDirectory,
@@ -54,10 +47,22 @@ class FileDetails {
         mimeType = file.mimeType,
         lastModified = file.lastModified,
         hasPreview = file.hasPreview,
-        isFavorite = file.favorite,
-        progress = task.progress,
-        isUploading = false,
-        isDownloading = true;
+        isFavorite = file.favorite;
+
+  factory FileDetails.fromTask({
+    required final FilesTask task,
+    required final WebDavFile file,
+  }) {
+    switch (task) {
+      case FilesUploadTask():
+        return FileDetails.fromUploadTask(task: task);
+      case FilesDownloadTask():
+        return FileDetails.fromDownloadTask(
+          task: task,
+          file: file,
+        );
+    }
+  }
 
   String get name => path.last;
 
@@ -77,9 +82,7 @@ class FileDetails {
 
   final bool? isFavorite;
 
-  final Stream<double>? progress;
-  final bool isUploading;
-  final bool isDownloading;
+  final FilesTask? task;
 
-  bool get isLoading => isUploading || isDownloading;
+  bool get hasTask => task != null;
 }

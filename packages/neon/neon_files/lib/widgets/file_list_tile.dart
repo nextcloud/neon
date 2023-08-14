@@ -44,11 +44,10 @@ class FileListTile extends StatelessWidget {
       ),
       subtitle: Row(
         children: [
-          if (details.lastModified != null) ...[
+          if (details.lastModified != null)
             RelativeTime(
               date: details.lastModified!,
             ),
-          ],
           if (details.size != null && details.size! > 0) ...[
             const SizedBox(
               width: 10,
@@ -65,7 +64,7 @@ class FileListTile extends StatelessWidget {
       leading: _FileIcon(
         details: details,
       ),
-      trailing: !details.isLoading && enableFileActions
+      trailing: !details.hasTask && enableFileActions
           ? FileActions(details: details)
           : const SizedBox.square(
               dimension: 48,
@@ -86,13 +85,16 @@ class _FileIcon extends StatelessWidget {
     final bloc = Provider.of<FilesBloc>(context);
 
     Widget icon = Center(
-      child: details.isLoading
+      child: details.hasTask
           ? StreamBuilder<double>(
-              stream: details.progress,
+              stream: details.task!.progress,
               builder: (final context, final progress) => Column(
                 children: [
                   Icon(
-                    details.isUploading ? MdiIcons.upload : MdiIcons.download,
+                    switch (details.task!) {
+                      FilesUploadTask() => MdiIcons.upload,
+                      FilesDownloadTask() => MdiIcons.download,
+                    },
                     color: Theme.of(context).colorScheme.primary,
                   ),
                   LinearProgressIndicator(

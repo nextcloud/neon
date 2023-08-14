@@ -40,8 +40,7 @@ part 'options.dart';
 part 'pages/details.dart';
 part 'pages/main.dart';
 part 'sort/files.dart';
-part 'utils/download_task.dart';
-part 'utils/upload_task.dart';
+part 'utils/task.dart';
 part 'widgets/browser_view.dart';
 part 'widgets/file_preview.dart';
 
