@@ -47,7 +47,7 @@ void main() {
     test('List directory recursively', () async {
       final responses = (await client.webdav.propfind(
         '/',
-        depth: 'infinity',
+        depth: WebDavDepth.infinity,
       ))
           .responses;
       expect(responses, hasLength(48));
@@ -149,7 +149,7 @@ void main() {
           davresourcetype: true,
           ocsize: true,
         ),
-        depth: '0',
+        depth: WebDavDepth.zero,
       ))
           .toWebDavFiles()
           .single;
