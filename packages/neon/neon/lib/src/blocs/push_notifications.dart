@@ -34,6 +34,8 @@ class PushNotificationsBloc extends Bloc implements PushNotificationsBlocEvents,
       unawaited(UnifiedPush.getDistributors().then(_globalOptions.updateDistributors));
 
       _globalOptions.pushNotificationsEnabled.addListener(_pushNotificationsEnabledListener);
+      // Call the listener to update everything
+      unawaited(_pushNotificationsEnabledListener());
     }
   }
 
