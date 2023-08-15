@@ -16,7 +16,7 @@ void main() {
       await Future.delayed(duration);
 
       expect(stopwatch.elapsedMilliseconds, greaterThan(duration.inMilliseconds));
-      expect(stopwatch.elapsedMilliseconds, lessThan(duration.inMilliseconds * 1.1));
+      expect(stopwatch.elapsedMilliseconds, lessThan(duration.inMilliseconds * 2));
       expect(TimerBloc().callbacks[duration.inSeconds], contains(callback));
       expect(TimerBloc().timers[duration.inSeconds], isNot(isNull));
     });

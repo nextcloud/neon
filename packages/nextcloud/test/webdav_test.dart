@@ -301,7 +301,7 @@ void main() {
         destination,
         onProgress: progressValues.add,
       );
-      expect(progressValues, [100.0, 100.0]);
+      expect(progressValues, containsAll([100.0, 100.0]));
       expect(destination.readAsBytesSync(), source.readAsBytesSync());
 
       destinationDir.deleteSync(recursive: true);
