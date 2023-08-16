@@ -1206,7 +1206,6 @@ TypeResult resolveObject(
                         'result.${_toDartName(propertyName)} = value!;',
                       ),
                     ],
-                    const Code('break;'),
                   ];
                 }
 
