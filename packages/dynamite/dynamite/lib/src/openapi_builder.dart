@@ -477,17 +477,14 @@ class OpenAPIBuilder implements Builder {
                                   code.write(
                                     "path = path.replaceAll('{${parameter.name}}', Uri.encodeQueryComponent($value));",
                                   );
-                                  break;
                                 case 'query':
                                   code.write(
                                     "queryParameters['${parameter.name}'] = $value;",
                                   );
-                                  break;
                                 case 'header':
                                   code.write(
                                     "headers['${parameter.name}'] = $value;",
                                   );
-                                  break;
                                 default:
                                   throw Exception('Can not work with parameter in "${parameter.in_}"');
                               }
@@ -549,7 +546,6 @@ class OpenAPIBuilder implements Builder {
                                     if (dartParameterNullable) {
                                       code.write('}');
                                     }
-                                    break;
                                   default:
                                     throw Exception('Can not parse mime type "$mimeType"');
                                 }
@@ -1206,7 +1202,6 @@ TypeResult resolveObject(
                         'result.${_toDartName(propertyName)} = value!;',
                       ),
                     ],
-                    const Code('break;'),
                   ];
                 }
 
@@ -1548,19 +1543,16 @@ TypeResult resolveType(
           'bool',
           nullable: nullable,
         );
-        break;
       case 'integer':
         result = TypeResultBase(
           'int',
           nullable: nullable,
         );
-        break;
       case 'number':
         result = TypeResultBase(
           'num',
           nullable: nullable,
         );
-        break;
       case 'string':
         switch (schema.format) {
           case 'binary':
@@ -1568,14 +1560,12 @@ TypeResult resolveType(
               'Uint8List',
               nullable: nullable,
             );
-            break;
         }
 
         result = TypeResultBase(
           'String',
           nullable: nullable,
         );
-        break;
       case 'array':
         if (schema.items != null) {
           final subResult = resolveType(
@@ -1597,7 +1587,6 @@ TypeResult resolveType(
             nullable: nullable,
           );
         }
-        break;
       case 'object':
         if (schema.properties == null) {
           if (schema.additionalProperties != null) {
@@ -1646,7 +1635,6 @@ TypeResult resolveType(
           schema,
           nullable: nullable,
         );
-        break;
     }
   }
 

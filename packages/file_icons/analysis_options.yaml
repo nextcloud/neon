@@ -1,1 +1,1 @@
-include: package:nit_picking/dart.yaml
+include: package:neon_lints/dart.yaml

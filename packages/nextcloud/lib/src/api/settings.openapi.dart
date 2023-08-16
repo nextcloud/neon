@@ -182,7 +182,6 @@ class _$SettingsLogSettingsLogSettingsDownloadHeadersSerializer
       switch (key) {
         case 'content-disposition':
           result.contentDisposition = value;
-          break;
       }
     }
 

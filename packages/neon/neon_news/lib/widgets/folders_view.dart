@@ -92,7 +92,6 @@ class NewsFoldersView extends StatelessWidget {
               )) {
                 bloc.deleteFolder(folder.id);
               }
-              break;
             case NewsFolderAction.rename:
               final result = await showRenameDialog(
                 context: context,
@@ -102,7 +101,6 @@ class NewsFoldersView extends StatelessWidget {
               if (result != null) {
                 bloc.renameFolder(folder.id, result);
               }
-              break;
           }
         },
       ),

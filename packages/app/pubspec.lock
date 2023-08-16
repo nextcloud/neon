@@ -696,6 +696,13 @@ packages:
       relative: true
     source: path
     version: "1.0.0"
+  neon_lints:
+    dependency: "direct dev"
+    description:
+      path: "../neon_lints"
+      relative: true
+    source: path
+    version: "1.0.0"
   neon_news:
     dependency: "direct main"
     description:
@@ -732,15 +739,6 @@ packages:
       relative: true
     source: path
     version: "1.0.0"
-  nit_picking:
-    dependency: "direct dev"
-    description:
-      path: "."
-      ref: "0b2ee0d"
-      resolved-ref: "0b2ee0d6d6871a04aaf85e88cd7e877f654d15e3"
-      url: "https://github.com/stack11/dart_nit_picking"
-    source: git
-    version: "0.0.0"
   open_file:
     dependency: transitive
     description:

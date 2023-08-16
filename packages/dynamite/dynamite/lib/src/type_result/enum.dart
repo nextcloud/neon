@@ -3,7 +3,7 @@ part of 'type_result.dart';
 @immutable
 class TypeResultEnum extends TypeResult {
   TypeResultEnum(
-    super.name,
+    super.className,
     this.subType, {
     super.nullable,
   });

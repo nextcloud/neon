@@ -2308,7 +2308,6 @@ class _$CoreAvatarAvatarGetAvatarDarkHeadersSerializer
       switch (key) {
         case 'x-nc-iscustomavatar':
           result.xNcIscustomavatar = int.parse(value);
-          break;
       }
     }
 
@@ -2371,7 +2370,6 @@ class _$CoreAvatarAvatarGetAvatarHeadersSerializer implements StructuredSerializ
       switch (key) {
         case 'x-nc-iscustomavatar':
           result.xNcIscustomavatar = int.parse(value);
-          break;
       }
     }
 

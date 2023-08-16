@@ -20,8 +20,8 @@ dev_dependencies:
   built_collection: ^5.1.1
   built_value_generator: ^8.5.0
   json_serializable: ^6.6.2
-  nit_picking:
+  neon_lints:
     git:
-      url: https://github.com/stack11/dart_nit_picking
-      ref: 0b2ee0d
+      url: https://github.com/nextcloud/neon
+      path: packages/neon_lints
   test: ^1.24.2

@@ -39,10 +39,10 @@ dev_dependencies:
   integration_test:
     sdk: flutter
   material_design_icons_flutter: ^7.0.7296
-  nit_picking:
+  neon_lints:
     git:
-      url: https://github.com/stack11/dart_nit_picking
-      ref: 0b2ee0d
+      url: https://github.com/nextcloud/neon
+      path: packages/neon_lints
 
 flutter:
   uses-material-design: true

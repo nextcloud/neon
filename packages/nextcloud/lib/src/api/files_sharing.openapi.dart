@@ -2410,7 +2410,6 @@ class _$FilesSharingShareesapiShareesapiSearchHeadersSerializer
       switch (key) {
         case 'link':
           result.link = value;
-          break;
       }
     }
 

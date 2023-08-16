@@ -20,5 +20,6 @@ rules:
       - neon_news
       - neon_notes
       - neon_notifications
+      - neon_lints
       - nextcloud
       - sort_box
