@@ -23,7 +23,6 @@ class FileActions extends StatelessWidget {
         } else {
           bloc.addFavorite(details.path);
         }
-        break;
       case FilesFileAction.details:
         await Navigator.of(context).push(
           MaterialPageRoute(
@@ -33,7 +32,6 @@ class FileActions extends StatelessWidget {
             ),
           ),
         );
-        break;
       case FilesFileAction.rename:
         final result = await showRenameDialog(
           context: context,
@@ -44,7 +42,6 @@ class FileActions extends StatelessWidget {
         if (result != null) {
           bloc.rename(details.path, result);
         }
-        break;
       case FilesFileAction.move:
         final b = bloc.getNewFilesBrowserBloc();
         final originalPath = details.path.sublist(0, details.path.length - 1);
@@ -61,7 +58,6 @@ class FileActions extends StatelessWidget {
         if (result != null) {
           bloc.move(details.path, result..add(details.name));
         }
-        break;
       case FilesFileAction.copy:
         final b = bloc.getNewFilesBrowserBloc();
         final originalPath = details.path.sublist(0, details.path.length - 1);
@@ -78,7 +74,6 @@ class FileActions extends StatelessWidget {
         if (result != null) {
           bloc.copy(details.path, result..add(details.name));
         }
-        break;
       case FilesFileAction.sync:
         final sizeWarning = browserBloc.options.downloadSizeWarning.value;
         if (sizeWarning != null && details.size != null && details.size! > sizeWarning) {
@@ -93,7 +88,6 @@ class FileActions extends StatelessWidget {
           }
         }
         bloc.syncFile(details.path);
-        break;
       case FilesFileAction.delete:
         if (await showConfirmationDialog(
           context,
@@ -103,7 +97,6 @@ class FileActions extends StatelessWidget {
         )) {
           bloc.delete(details.path);
         }
-        break;
     }
   }
 

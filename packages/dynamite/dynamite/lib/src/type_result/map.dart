@@ -3,7 +3,7 @@ part of 'type_result.dart';
 @immutable
 class TypeResultMap extends TypeResult {
   TypeResultMap(
-    super.name,
+    super.className,
     final TypeResult subType, {
     super.nullable,
   }) : super(generics: [TypeResultBase('String'), subType]);

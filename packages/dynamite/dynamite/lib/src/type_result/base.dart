@@ -3,7 +3,7 @@ part of 'type_result.dart';
 @immutable
 class TypeResultBase extends TypeResult {
   TypeResultBase(
-    super.name, {
+    super.className, {
     super.nullable,
   });
 
@@ -47,7 +47,6 @@ class TypeResultBase extends TypeResult {
     switch (name) {
       case 'JsonObject':
         dartName = 'dynamic';
-        break;
       default:
         dartName = name;
     }

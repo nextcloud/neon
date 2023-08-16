@@ -31,7 +31,7 @@ abstract class NewsArticlesBlocStates {
 
 class NewsMainArticlesBloc extends NewsArticlesBloc {
   NewsMainArticlesBloc(
-    super.newsBloc,
+    super._newsBloc,
     super.options,
     super.requestManager,
     super.account,
@@ -98,7 +98,6 @@ class NewsArticlesBloc extends InteractiveBloc implements NewsArticlesBlocEvents
           break;
         case FilterType.unread:
           getRead = false;
-          break;
         default:
           throw Exception('FilterType ${filterType.value} not allowed');
       }
@@ -106,23 +105,17 @@ class NewsArticlesBloc extends InteractiveBloc implements NewsArticlesBlocEvents
     switch (listType) {
       case ListType.feed:
         type = NewsListType.feed;
-        break;
       case ListType.folder:
         type = NewsListType.folder;
-        break;
       case null:
         switch (filterType.value) {
           case FilterType.starred:
             type = NewsListType.starred;
-            break;
           case FilterType.all:
             type = NewsListType.allItems;
-            break;
           case FilterType.unread:
             type = NewsListType.unread;
-            break;
         }
-        break;
     }
 
     await requestManager.wrapNextcloud<List<NewsArticle>, NewsListArticles>(

@@ -70,13 +70,10 @@ class _NewsArticlesViewState extends State<NewsArticlesView> {
                           switch (a) {
                             case FilterType.all:
                               label = AppLocalizations.of(context).articlesFilterAll;
-                              break;
                             case FilterType.unread:
                               label = AppLocalizations.of(context).articlesFilterUnread;
-                              break;
                             case FilterType.starred:
                               label = AppLocalizations.of(context).articlesFilterStarred;
-                              break;
                             default:
                               throw Exception('FilterType $a should not be shown');
                           }

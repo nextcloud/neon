@@ -111,7 +111,6 @@ class NewsFeedsView extends StatelessWidget {
                         feed: feed,
                       ),
                     );
-                    break;
                   case NewsFeedAction.delete:
                     if (await showConfirmationDialog(
                       context,
@@ -119,7 +118,6 @@ class NewsFeedsView extends StatelessWidget {
                     )) {
                       bloc.removeFeed(feed.id);
                     }
-                    break;
                   case NewsFeedAction.rename:
                     final result = await showRenameDialog(
                       context: context,
@@ -129,7 +127,6 @@ class NewsFeedsView extends StatelessWidget {
                     if (result != null) {
                       bloc.renameFeed(feed.id, result);
                     }
-                    break;
                   case NewsFeedAction.move:
                     final result = await showDialog<List<int?>>(
                       context: context,
@@ -141,7 +138,6 @@ class NewsFeedsView extends StatelessWidget {
                     if (result != null) {
                       bloc.moveFeed(feed.id, result[0]);
                     }
-                    break;
                 }
               },
             ),

@@ -3,7 +3,7 @@ part of 'type_result.dart';
 @immutable
 class TypeResultList extends TypeResult {
   TypeResultList(
-    super.name,
+    super.className,
     final TypeResult subType, {
     super.nullable,
   }) : super(generics: [subType]);
