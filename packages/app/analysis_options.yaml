@@ -1,1 +1,1 @@
-include: package:nit_picking/flutter.yaml
+include: package:neon_lints/flutter.yaml
