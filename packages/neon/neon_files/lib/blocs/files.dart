@@ -21,9 +21,7 @@ abstract class FilesBlocEvents {
 }
 
 abstract class FilesBlocStates {
-  BehaviorSubject<List<UploadTask>> get uploadTasks;
-
-  BehaviorSubject<List<DownloadTask>> get downloadTasks;
+  BehaviorSubject<List<FilesTask>> get tasks;
 }
 
 class FilesBloc extends InteractiveBloc implements FilesBlocEvents, FilesBlocStates {
@@ -50,18 +48,14 @@ class FilesBloc extends InteractiveBloc implements FilesBlocEvents, FilesBlocSta
   void dispose() {
     _uploadQueue.dispose();
     _downloadQueue.dispose();
-    unawaited(uploadTasks.close());
-    unawaited(downloadTasks.close());
+    unawaited(tasks.close());
 
     options.uploadQueueParallelism.removeListener(_uploadParalelismListener);
     options.downloadQueueParallelism.removeListener(_downloadParalelismListener);
   }
 
   @override
-  BehaviorSubject<List<UploadTask>> uploadTasks = BehaviorSubject<List<UploadTask>>.seeded([]);
-
-  @override
-  BehaviorSubject<List<DownloadTask>> downloadTasks = BehaviorSubject<List<DownloadTask>>.seeded([]);
+  BehaviorSubject<List<FilesTask>> tasks = BehaviorSubject<List<FilesTask>>.seeded([]);
 
   @override
   void addFavorite(final List<String> path) {
@@ -169,14 +163,14 @@ class FilesBloc extends InteractiveBloc implements FilesBlocEvents, FilesBlocSta
         final file = File(localPath);
         // ignore: avoid_slow_async_io
         final stat = await file.stat();
-        final task = UploadTask(
+        final task = FilesUploadTask(
           path: path,
           size: stat.size,
           lastModified: stat.modified,
         );
-        uploadTasks.add(uploadTasks.value..add(task));
+        tasks.add(tasks.value..add(task));
         await _uploadQueue.add(() => task.execute(account.client, file.openRead()));
-        uploadTasks.add(uploadTasks.value..removeWhere((final t) => t == task));
+        tasks.add(tasks.value..remove(task));
       },
       disableTimeout: true,
     );
@@ -188,12 +182,12 @@ class FilesBloc extends InteractiveBloc implements FilesBlocEvents, FilesBlocSta
   ) async {
     final sink = file.openWrite();
     try {
-      final task = DownloadTask(
+      final task = FilesDownloadTask(
         path: path,
       );
-      downloadTasks.add(downloadTasks.value..add(task));
+      tasks.add(tasks.value..add(task));
       await _downloadQueue.add(() => task.execute(account.client, sink));
-      downloadTasks.add(downloadTasks.value..removeWhere((final t) => t == task));
+      tasks.add(tasks.value..remove(task));
     } finally {
       await sink.close();
     }
