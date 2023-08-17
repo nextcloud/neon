@@ -622,7 +622,7 @@ class OpenAPIBuilder implements Builder {
                                       dataType = 'Uint8List';
                                       dataValue = '_response.bodyBytes';
                                       dataNeedsAwait = true;
-                                    } else if (mimeType.startsWith('text/')) {
+                                    } else if (mimeType.startsWith('text/') || mimeType == 'application/javascript') {
                                       dataType = 'String';
                                       dataValue = '_response.body';
                                       dataNeedsAwait = true;
