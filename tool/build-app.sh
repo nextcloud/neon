@@ -45,7 +45,7 @@ if [[ "$target" == "linux/arm64" ]] || [[ "$target" == "linux/amd64" ]]; then
   ./tool/build
 
   run_args=()
-  for path in packages/{app,dynamite/dynamite_runtime,file_icons,nextcloud,settings,sort_box}/{lib,pubspec.yaml} packages/neon/*/{assets,lib,pubspec.yaml,pubspec_overrides.yaml} packages/file_icons/fonts packages/nextcloud/pubspec_overrides.yaml packages/app/{pubspec_overrides.yaml,assets,build,linux}; do
+  for path in packages/{app,dynamite/dynamite_runtime,file_icons,neon_lints,nextcloud,sort_box}/{lib,pubspec.yaml} packages/neon/*/{assets,lib,pubspec.yaml,pubspec_overrides.yaml} packages/file_icons/fonts packages/nextcloud/pubspec_overrides.yaml packages/app/{pubspec_overrides.yaml,assets,build,linux}; do
     run_args+=(-v "$(pwd)/$path:/src/$path")
   done
   mkdir -p "packages/app/build"
