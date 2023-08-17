@@ -12,7 +12,25 @@ mkdir -p /tmp/nextcloud-neon
   git checkout . # Remove changed files
 )
 
-for path in core apps/files_sharing apps/provisioning_api apps/settings apps/theming apps/user_status; do
+for path in \
+  core \
+  apps/comments \
+  apps/dashboard \
+  apps/dav \
+  apps/files \
+  apps/files_external \
+  apps/files_reminders \
+  apps/files_sharing \
+  apps/files_trashbin \
+  apps/files_versions \
+  apps/provisioning_api \
+  apps/settings \
+  apps/sharebymail \
+  apps/theming \
+  apps/updatenotification \
+  apps/user_status \
+  apps/weather_status \
+; do
   codename="$(echo $path | sed "s/^apps\///")"
   (
     cd external/nextcloud-server

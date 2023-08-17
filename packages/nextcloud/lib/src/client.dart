@@ -1,18 +1,7 @@
 import 'package:built_value/serializer.dart';
 import 'package:built_value/standard_json_plugin.dart';
 import 'package:dynamite_runtime/content_string.dart';
-import 'package:nextcloud/src/api/core.openapi.dart';
-import 'package:nextcloud/src/api/files_sharing.openapi.dart';
-import 'package:nextcloud/src/api/news.openapi.dart';
-import 'package:nextcloud/src/api/notes.openapi.dart';
-import 'package:nextcloud/src/api/notifications.openapi.dart';
-import 'package:nextcloud/src/api/provisioning_api.openapi.dart';
-import 'package:nextcloud/src/api/settings.openapi.dart';
-import 'package:nextcloud/src/api/theming.openapi.dart';
-import 'package:nextcloud/src/api/uppush.openapi.dart';
-import 'package:nextcloud/src/api/user_status.openapi.dart';
-import 'package:nextcloud/src/app_type.dart';
-import 'package:nextcloud/src/webdav/client.dart';
+import 'package:nextcloud/nextcloud.dart';
 
 // ignore: public_member_api_docs
 class NextcloudClient extends DynamiteClient {
@@ -48,25 +37,57 @@ class NextcloudClient extends DynamiteClient {
   final String? loginName;
 
   WebDavClient? _webdav;
+  CommentsClient? _comments;
   CoreClient? _core;
+  DashboardClient? _dashboard;
+  DavClient? _dav;
+  FilesClient? _files;
+  FilesExternalClient? _filesExternal;
   FilesSharingClient? _filesSharing;
+  FilesTrashbinClient? _filesTrashbin;
+  FilesVersionsClient? _filesVersions;
   NewsClient? _news;
   NotesClient? _notes;
   NotificationsClient? _notifications;
   ProvisioningApiClient? _provisioningApi;
   SettingsClient? _settings;
   ThemingClient? _theming;
+  UpdatenotificationClient? _updatenotification;
   UppushClient? _uppush;
   UserStatusClient? _userStatus;
+  WeatherStatusClient? _weatherStatus;
 
   /// Client for WebDAV
   WebDavClient get webdav => _webdav ??= WebDavClient(this);
 
+  /// Client for the comments APIs
+  CommentsClient get comments => _comments ??= CommentsClient.fromClient(this);
+
   /// Client for the core APIs
   CoreClient get core => _core ??= CoreClient.fromClient(this);
 
+  /// Client for the dashboard APIs
+  DashboardClient get dashboard => _dashboard ??= DashboardClient.fromClient(this);
+
+  /// Client for the dav APIs
+  ///
+  /// This client does not expose WebDAV functionality. Use [webdav] instead.
+  DavClient get dav => _dav ??= DavClient.fromClient(this);
+
+  /// Client for the files APIs
+  FilesClient get files => _files ??= FilesClient.fromClient(this);
+
+  /// Client for the files external APIs
+  FilesExternalClient get filesExternal => _filesExternal ??= FilesExternalClient.fromClient(this);
+
   /// Client for the files sharing APIs
   FilesSharingClient get filesSharing => _filesSharing ??= FilesSharingClient.fromClient(this);
+
+  /// Client for the files trashbin APIs
+  FilesTrashbinClient get filesTrashbin => _filesTrashbin ??= FilesTrashbinClient.fromClient(this);
+
+  /// Client for the files versions APIs
+  FilesVersionsClient get filesVersions => _filesVersions ??= FilesVersionsClient.fromClient(this);
 
   /// Client for the news app APIs
   NewsClient get news => _news ??= NewsClient.fromClient(this);
@@ -86,11 +107,17 @@ class NextcloudClient extends DynamiteClient {
   /// Client for the theming APIs
   ThemingClient get theming => _theming ??= ThemingClient.fromClient(this);
 
+  /// Client for the updatenotification APIs
+  UpdatenotificationClient get updatenotification => _updatenotification ??= UpdatenotificationClient.fromClient(this);
+
   /// Client for the uppush app APIs
   UppushClient get uppush => _uppush ??= UppushClient.fromClient(this);
 
   /// Client for the user status APIs
   UserStatusClient get userStatus => _userStatus ??= UserStatusClient.fromClient(this);
+
+  /// Client for the weather status APIs
+  WeatherStatusClient get weatherStatus => _weatherStatus ??= WeatherStatusClient.fromClient(this);
 }
 
 // coverage:ignore-start
