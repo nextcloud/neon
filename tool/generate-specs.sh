@@ -6,20 +6,24 @@ rm -rf /tmp/nextcloud-neon
 mkdir -p /tmp/nextcloud-neon
 
 (
-  cd external/nextcloud-openapi-extractor
-  composer update && composer install
+  cd external/nextcloud-server
+  composer update
+  composer install --no-dev
+  git checkout . # Remove changed files
 )
 
 for path in core apps/files_sharing apps/provisioning_api apps/settings apps/theming apps/user_status; do
   codename="$(echo $path | sed "s/^apps\///")"
-  ./external/nextcloud-openapi-extractor/generate-spec "external/nextcloud-server/$path" "packages/nextcloud/lib/src/api/$codename.openapi.json" --first-status-code --first-content-type --openapi-version 3.1.0
+  (
+    cd external/nextcloud-server
+    composer exec generate-spec -- "$path" "../../packages/nextcloud/lib/src/api/$codename.openapi.json" --first-status-code --first-content-type --openapi-version 3.1.0
+  )
 done
 
-./external/nextcloud-openapi-extractor/merge-specs \
-  --openapi-version 3.1.0 \
-  --core packages/nextcloud/lib/src/api/core.openapi.json \
-  --merged /tmp/nextcloud-neon/merged.json \
-  packages/nextcloud/lib/src/api/*.openapi.json
+(
+  cd external/nextcloud-server
+  composer exec merge-specs -- --core ../../packages/nextcloud/lib/src/api/core.openapi.json --merged /tmp/nextcloud-neon/merged.json ../../packages/nextcloud/lib/src/api/*.openapi.json --openapi-version 3.1.0
+)
 
 jq \
   -s \
