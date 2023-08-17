@@ -2379,7 +2379,7 @@ class _$FilesSharingShareesapiShareesapiSearchHeadersSerializer
   @override
   final Iterable<Type> types = const [
     FilesSharingShareesapiShareesapiSearchHeaders,
-    _$FilesSharingShareesapiShareesapiSearchHeaders
+    _$FilesSharingShareesapiShareesapiSearchHeaders,
   ];
 
   @override
@@ -3455,7 +3455,7 @@ class _$FilesSharingShareesapiFindRecommendedShareTypeSerializer
   @override
   final Iterable<Type> types = const [
     FilesSharingShareesapiFindRecommendedShareType,
-    _$FilesSharingShareesapiFindRecommendedShareType
+    _$FilesSharingShareesapiFindRecommendedShareType,
   ];
 
   @override
@@ -4119,7 +4119,7 @@ final Serializers _serializers = (Serializers().toBuilder()
       )
       ..addBuilderFactory(
         const FullType(BuiltList, [
-          FullType(BuiltMap, [FullType(String), FullType(JsonObject)])
+          FullType(BuiltMap, [FullType(String), FullType(JsonObject)]),
         ]),
         ListBuilder<BuiltMap>.new,
       )

@@ -33,6 +33,9 @@ class FileActions extends StatelessWidget {
           ),
         );
       case FilesFileAction.rename:
+        if (!context.mounted) {
+          return;
+        }
         final result = await showRenameDialog(
           context: context,
           title:
@@ -43,6 +46,9 @@ class FileActions extends StatelessWidget {
           bloc.rename(details.path, result);
         }
       case FilesFileAction.move:
+        if (!context.mounted) {
+          return;
+        }
         final b = bloc.getNewFilesBrowserBloc();
         final originalPath = details.path.sublist(0, details.path.length - 1);
         b.setPath(originalPath);
@@ -59,6 +65,9 @@ class FileActions extends StatelessWidget {
           bloc.move(details.path, result..add(details.name));
         }
       case FilesFileAction.copy:
+        if (!context.mounted) {
+          return;
+        }
         final b = bloc.getNewFilesBrowserBloc();
         final originalPath = details.path.sublist(0, details.path.length - 1);
         b.setPath(originalPath);
@@ -75,6 +84,9 @@ class FileActions extends StatelessWidget {
           bloc.copy(details.path, result..add(details.name));
         }
       case FilesFileAction.sync:
+        if (!context.mounted) {
+          return;
+        }
         final sizeWarning = browserBloc.options.downloadSizeWarning.value;
         if (sizeWarning != null && details.size != null && details.size! > sizeWarning) {
           if (!(await showConfirmationDialog(
@@ -89,6 +101,9 @@ class FileActions extends StatelessWidget {
         }
         bloc.syncFile(details.path);
       case FilesFileAction.delete:
+        if (!context.mounted) {
+          return;
+        }
         if (await showConfirmationDialog(
           context,
           details.isDirectory

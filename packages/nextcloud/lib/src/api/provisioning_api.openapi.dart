@@ -1043,7 +1043,7 @@ class ProvisioningApiPreferencesClient {
     queryParameters['configs'] = _jsonSerializers.serialize(
       configs,
       specifiedType: const FullType(ContentString, [
-        FullType(BuiltMap, [FullType(String), FullType(String)])
+        FullType(BuiltMap, [FullType(String), FullType(String)]),
       ]),
     );
     path = path.replaceAll('{appId}', Uri.encodeQueryComponent(appId));
@@ -1313,8 +1313,8 @@ class ProvisioningApiUsersClient {
       specifiedType: const FullType(ContentString, [
         FullType(BuiltMap, [
           FullType(String),
-          FullType(BuiltList, [FullType(String)])
-        ])
+          FullType(BuiltList, [FullType(String)]),
+        ]),
       ]),
     );
     headers['OCS-APIRequest'] = oCSAPIRequest;
@@ -3349,7 +3349,7 @@ class _$ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJson_Ocs_
   @override
   final Iterable<Type> types = const [
     ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJson_Ocs_Data_Users,
-    _$ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJson_Ocs_Data_Users
+    _$ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJson_Ocs_Data_Users,
   ];
 
   @override
@@ -4140,7 +4140,7 @@ class _$ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson_Ocs_Data_U
   @override
   final Iterable<Type> types = const [
     ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson_Ocs_Data_Users,
-    _$ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson_Ocs_Data_Users
+    _$ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson_Ocs_Data_Users,
   ];
 
   @override
@@ -5510,7 +5510,7 @@ final Serializers _serializers = (Serializers().toBuilder()
       ..addBuilderFactory(
         const FullType(BuiltMap, [
           FullType(String),
-          FullType(ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJson_Ocs_Data_Users)
+          FullType(ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJson_Ocs_Data_Users),
         ]),
         MapBuilder<String, ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJson_Ocs_Data_Users>.new,
       )
@@ -5585,7 +5585,7 @@ final Serializers _serializers = (Serializers().toBuilder()
       )
       ..addBuilderFactory(
         const FullType(ContentString, [
-          FullType(BuiltMap, [FullType(String), FullType(String)])
+          FullType(BuiltMap, [FullType(String), FullType(String)]),
         ]),
         ContentString<BuiltMap<String, String>>.new,
       )
@@ -5666,16 +5666,16 @@ final Serializers _serializers = (Serializers().toBuilder()
       )
       ..add(ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson_Ocs_Data_Users1.serializer)
       ..addBuilderFactory(
-        const FullType(
-          BuiltMap,
-          [FullType(String), FullType(ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson_Ocs_Data_Users)],
-        ),
+        const FullType(BuiltMap, [
+          FullType(String),
+          FullType(ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson_Ocs_Data_Users),
+        ]),
         MapBuilder<String, ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson_Ocs_Data_Users>.new,
       )
       ..addBuilderFactory(
         const FullType(BuiltMap, [
           FullType(String),
-          FullType(BuiltList, [FullType(String)])
+          FullType(BuiltList, [FullType(String)]),
         ]),
         MapBuilder<String, BuiltList>.new,
       )
@@ -5683,8 +5683,8 @@ final Serializers _serializers = (Serializers().toBuilder()
         const FullType(ContentString, [
           FullType(BuiltMap, [
             FullType(String),
-            FullType(BuiltList, [FullType(String)])
-          ])
+            FullType(BuiltList, [FullType(String)]),
+          ]),
         ]),
         ContentString<BuiltMap<String, BuiltList<String>>>.new,
       )

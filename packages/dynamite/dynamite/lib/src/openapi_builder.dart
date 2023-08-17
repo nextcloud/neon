@@ -1113,7 +1113,7 @@ TypeResult resolveObject(
                   ..type = refer('String')
                   ..annotations.add(refer('override'))
                   ..assignment = Code("r'${state.prefix}$identifier'"),
-              )
+              ),
             ])
             ..methods.addAll([
               Method((final b) {
@@ -1389,7 +1389,7 @@ TypeResult resolveType(
                   ..type = refer('String')
                   ..annotations.add(refer('override'))
                   ..assignment = Code("r'${state.prefix}$identifier'"),
-              )
+              ),
             ])
             ..methods.addAll([
               Method((final b) {

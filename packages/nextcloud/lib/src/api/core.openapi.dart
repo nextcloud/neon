@@ -4138,7 +4138,7 @@ class _$CoreReferenceApiResolveResponse200ApplicationJson_Ocs_Data_ReferencesSer
   @override
   final Iterable<Type> types = const [
     CoreReferenceApiResolveResponse200ApplicationJson_Ocs_Data_References,
-    _$CoreReferenceApiResolveResponse200ApplicationJson_Ocs_Data_References
+    _$CoreReferenceApiResolveResponse200ApplicationJson_Ocs_Data_References,
   ];
 
   @override
@@ -4282,7 +4282,7 @@ class _$CoreReferenceApiExtractResponse200ApplicationJson_Ocs_Data_ReferencesSer
   @override
   final Iterable<Type> types = const [
     CoreReferenceApiExtractResponse200ApplicationJson_Ocs_Data_References,
-    _$CoreReferenceApiExtractResponse200ApplicationJson_Ocs_Data_References
+    _$CoreReferenceApiExtractResponse200ApplicationJson_Ocs_Data_References,
   ];
 
   @override

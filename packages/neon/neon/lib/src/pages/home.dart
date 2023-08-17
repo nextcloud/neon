@@ -89,7 +89,9 @@ class _HomePageState extends State<HomePage> {
     } catch (e, s) {
       debugPrint(e.toString());
       debugPrint(s.toString());
-      NeonException.showSnackbar(context, e);
+      if (mounted) {
+        NeonException.showSnackbar(context, e);
+      }
     }
   }
 

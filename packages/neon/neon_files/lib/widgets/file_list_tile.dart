@@ -122,7 +122,7 @@ class _FileIcon extends StatelessWidget {
               size: 14,
               color: Colors.yellow,
             ),
-          )
+          ),
         ],
       );
     }

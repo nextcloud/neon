@@ -109,7 +109,7 @@ class AccountSettingsRoute extends GoRouteData {
           name: 'AccountSettings',
         ),
       ],
-    )
+    ),
   ],
 )
 @immutable

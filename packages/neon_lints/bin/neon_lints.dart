@@ -27,10 +27,7 @@ const disabledRules = [
 /// Rules that won't be added to the list.
 ///
 /// This is needed for rules not yet available in the current dart version.
-const excludedRules = [
-  'no_self_assignments',
-  'no_wildcard_variable_uses',
-];
+const excludedRules = [];
 
 /// Commit hash to use to fetch the rules from upstream
 const commitHash = '7f40f11';
