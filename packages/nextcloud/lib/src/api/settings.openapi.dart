@@ -151,7 +151,7 @@ class _$SettingsLogSettingsLogSettingsDownloadHeadersSerializer
   @override
   final Iterable<Type> types = const [
     SettingsLogSettingsLogSettingsDownloadHeaders,
-    _$SettingsLogSettingsLogSettingsDownloadHeaders
+    _$SettingsLogSettingsLogSettingsDownloadHeaders,
   ];
 
   @override

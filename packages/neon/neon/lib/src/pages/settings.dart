@@ -217,7 +217,7 @@ class _SettingsPageState extends State<SettingsPage> {
                       icon: Icon(MdiIcons.accountPlus),
                       label: Text(AppLocalizations.of(context).globalOptionsAccountsAdd),
                     ),
-                  )
+                  ),
                 ],
               ),
               SettingsCategory(
@@ -264,7 +264,9 @@ class _SettingsPageState extends State<SettingsPage> {
                       } catch (e, s) {
                         debugPrint(e.toString());
                         debugPrint(s.toString());
-                        NeonException.showSnackbar(context, e);
+                        if (mounted) {
+                          NeonException.showSnackbar(context, e);
+                        }
                       }
                     },
                   ),
@@ -302,7 +304,9 @@ class _SettingsPageState extends State<SettingsPage> {
                       } catch (e, s) {
                         debugPrint(e.toString());
                         debugPrint(s.toString());
-                        NeonException.showSnackbar(context, e);
+                        if (mounted) {
+                          NeonException.showSnackbar(context, e);
+                        }
                       }
                     },
                   ),

@@ -93,6 +93,9 @@ class NewsFoldersView extends StatelessWidget {
                 bloc.deleteFolder(folder.id);
               }
             case NewsFolderAction.rename:
+              if (!context.mounted) {
+                return;
+              }
               final result = await showRenameDialog(
                 context: context,
                 title: AppLocalizations.of(context).folderRename,

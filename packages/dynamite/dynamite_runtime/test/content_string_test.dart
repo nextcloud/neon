@@ -20,14 +20,14 @@ final Serializers serializers = (_$serializers.toBuilder()
       ..addBuilderFactory(const FullType(ContentString, [FullType(double)]), ContentStringBuilder<double>.new)
       ..addBuilderFactory(
         const FullType(ContentString, [
-          FullType(BuiltList, [FullType(int)])
+          FullType(BuiltList, [FullType(int)]),
         ]),
         ContentStringBuilder<BuiltList<int>>.new,
       )
       ..addBuilderFactory(const FullType(BuiltList, [FullType(int)]), ListBuilder<int>.new)
       ..addBuilderFactory(
         const FullType(ContentString, [
-          FullType(BuiltMap, [FullType(String), FullType(int)])
+          FullType(BuiltMap, [FullType(String), FullType(int)]),
         ]),
         ContentStringBuilder<BuiltMap<String, int>>.new,
       )
@@ -36,7 +36,7 @@ final Serializers serializers = (_$serializers.toBuilder()
       ..addBuilderFactory(const FullType(ContentString, [FullType(String)]), ContentStringBuilder<String>.new)
       ..addBuilderFactory(
         const FullType(ContentString, [
-          FullType(ContentString, [FullType(String)])
+          FullType(ContentString, [FullType(String)]),
         ]),
         ContentStringBuilder<ContentString<String>>.new,
       ))
@@ -62,7 +62,7 @@ void main() {
     final serialized = json.decode(
       json.encode({
         r'$': 'ContentString',
-        'content': {r'$': 'bool', '': true}
+        'content': {r'$': 'bool', '': true},
       }),
     ) as Object;
     const specifiedType = FullType.unspecified;
@@ -95,7 +95,7 @@ void main() {
     final serialized = json.decode(
       json.encode({
         r'$': 'ContentString',
-        'content': {r'$': 'double', '': 42.5}
+        'content': {r'$': 'double', '': 42.5},
       }),
     ) as Object;
     const specifiedType = FullType.unspecified;
@@ -113,7 +113,7 @@ void main() {
     final data = ContentString<BuiltList<int>>((final b) => b..content = BuiltList([1, 2, 3]));
     final serialized = json.encode([1, 2, 3]);
     const specifiedType = FullType(ContentString, [
-      FullType(BuiltList, [FullType(int)])
+      FullType(BuiltList, [FullType(int)]),
     ]);
 
     test('can be serialized', () {
@@ -135,9 +135,9 @@ void main() {
           '': [
             {r'$': 'int', '': 1},
             {r'$': 'int', '': 2},
-            {r'$': 'int', '': 3}
-          ]
-        }
+            {r'$': 'int', '': 3},
+          ],
+        },
       }),
     ) as Object;
     const specifiedType = FullType.unspecified;
@@ -158,7 +158,7 @@ void main() {
     // using the StandardJsonPlugin will encode it to a valid Map<String, int>.
     final serialized = json.encode({'one': 1, 'two': 2, 'three': 3});
     const specifiedType = FullType(ContentString, [
-      FullType(BuiltMap, [FullType(String), FullType(int)])
+      FullType(BuiltMap, [FullType(String), FullType(int)]),
     ]);
 
     test('can be serialized', () {
@@ -179,8 +179,8 @@ void main() {
           r'$': 'encoded_map',
           r'{"$":"String","":"one"}': {r'$': 'int', '': 1},
           r'{"$":"String","":"two"}': {r'$': 'int', '': 2},
-          r'{"$":"String","":"three"}': {r'$': 'int', '': 3}
-        }
+          r'{"$":"String","":"three"}': {r'$': 'int', '': 3},
+        },
       }),
     ) as Object;
     const specifiedType = FullType.unspecified;
@@ -216,7 +216,7 @@ void main() {
     final serialized = json.decode(
       json.encode({
         r'$': 'ContentString',
-        'content': {r'$': 'int', '': 42}
+        'content': {r'$': 'int', '': 42},
       }),
     ) as Object;
     const specifiedType = FullType.unspecified;
@@ -249,7 +249,7 @@ void main() {
     final serialized = json.decode(
       json.encode({
         r'$': 'ContentString',
-        'content': {r'$': 'String', '': 'test'}
+        'content': {r'$': 'String', '': 'test'},
       }),
     ) as Object;
     const specifiedType = FullType.unspecified;
@@ -272,7 +272,7 @@ void main() {
     );
     final serialized = json.encode(json.encode('test'));
     const specifiedType = FullType(ContentString, [
-      FullType(ContentString, [FullType(String)])
+      FullType(ContentString, [FullType(String)]),
     ]);
 
     test('can be serialized', () {
@@ -296,8 +296,8 @@ void main() {
         r'$': 'ContentString',
         'content': {
           r'$': 'ContentString',
-          'content': {r'$': 'String', '': 'test'}
-        }
+          'content': {r'$': 'String', '': 'test'},
+        },
       }),
     ) as Object;
     const specifiedType = FullType.unspecified;

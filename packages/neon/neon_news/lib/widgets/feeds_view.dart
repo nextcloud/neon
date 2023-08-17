@@ -112,6 +112,9 @@ class NewsFeedsView extends StatelessWidget {
                       ),
                     );
                   case NewsFeedAction.delete:
+                    if (!context.mounted) {
+                      return;
+                    }
                     if (await showConfirmationDialog(
                       context,
                       AppLocalizations.of(context).feedRemoveConfirm(feed.title),
@@ -119,6 +122,9 @@ class NewsFeedsView extends StatelessWidget {
                       bloc.removeFeed(feed.id);
                     }
                   case NewsFeedAction.rename:
+                    if (!context.mounted) {
+                      return;
+                    }
                     final result = await showRenameDialog(
                       context: context,
                       title: AppLocalizations.of(context).feedRename,
@@ -128,6 +134,9 @@ class NewsFeedsView extends StatelessWidget {
                       bloc.renameFeed(feed.id, result);
                     }
                   case NewsFeedAction.move:
+                    if (!context.mounted) {
+                      return;
+                    }
                     final result = await showDialog<List<int?>>(
                       context: context,
                       builder: (final context) => NewsMoveFeedDialog(

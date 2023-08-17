@@ -59,7 +59,7 @@ class AccountSwitcherButton extends StatelessWidget {
                 Navigator.of(context).pop();
                 const SettingsRoute(initialCategory: SettingsCageories.accounts).push(context);
               },
-            )
+            ),
           ],
         );
 

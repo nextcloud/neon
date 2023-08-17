@@ -1258,7 +1258,7 @@ class _$UserStatusUserStatusRevertStatusResponse200ApplicationJson_Ocs_DataSeria
   @override
   final Iterable<Type> types = const [
     UserStatusUserStatusRevertStatusResponse200ApplicationJson_Ocs_Data,
-    _$UserStatusUserStatusRevertStatusResponse200ApplicationJson_Ocs_Data
+    _$UserStatusUserStatusRevertStatusResponse200ApplicationJson_Ocs_Data,
   ];
 
   @override
