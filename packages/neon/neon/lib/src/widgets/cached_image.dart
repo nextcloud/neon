@@ -5,6 +5,7 @@ import 'dart:typed_data';
 import 'package:flutter/material.dart';
 import 'package:flutter_cache_manager/flutter_cache_manager.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:neon/src/models/account.dart';
 import 'package:neon/src/widgets/exception.dart';
 import 'package:neon/src/widgets/linear_progress_indicator.dart';
 
@@ -27,6 +28,7 @@ class NeonCachedImage extends StatefulWidget {
 
   NeonCachedImage.url({
     required final String url,
+    final Account? account,
     final Key? key,
     this.isSvgHint = false,
     this.size,
@@ -34,7 +36,7 @@ class NeonCachedImage extends StatefulWidget {
     this.svgColor,
     this.iconColor,
     this.errorBuilder,
-  })  : image = _getImageFromUrl(url),
+  })  : image = _getImageFromUrl(url, account),
         super(key: key ?? Key(url));
 
   NeonCachedImage.custom({
@@ -67,8 +69,18 @@ class NeonCachedImage extends StatefulWidget {
 
   final ErrorWidgetBuilder? errorBuilder;
 
-  static Future<Uint8List> _getImageFromUrl(final String url) async {
-    final file = await _cacheManager.getSingleFile(url);
+  static Future<Uint8List> _getImageFromUrl(final String url, final Account? account) async {
+    var uri = Uri.parse(url);
+    if (account != null) {
+      uri = account.completeUri(uri);
+    }
+    final file = await _cacheManager.getSingleFile(
+      uri.toString(),
+      headers:
+          account != null && uri.host == Uri.parse(account.serverURL).host && account.client.authentications.isNotEmpty
+              ? account.client.authentications.first.headers
+              : null,
+    );
     return file.readAsBytes();
   }
 
