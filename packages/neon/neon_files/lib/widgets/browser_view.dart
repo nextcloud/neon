@@ -64,7 +64,8 @@ class _FilesBrowserViewState extends State<FilesBrowserView> {
                                     false,
                               )) ...[
                             FileListTile(
-                              context: context,
+                              bloc: widget.filesBloc,
+                              browserBloc: widget.bloc,
                               details: FileDetails.fromUploadTask(
                                 task: uploadTask,
                               ),
@@ -91,7 +92,8 @@ class _FilesBrowserViewState extends State<FilesBrowserView> {
                                           );
 
                                     return FileListTile(
-                                      context: context,
+                                      bloc: widget.filesBloc,
+                                      browserBloc: widget.bloc,
                                       details: details,
                                       enableFileActions: widget.enableFileActions,
                                       onPickFile: widget.onPickFile,
