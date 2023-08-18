@@ -31,8 +31,8 @@ class NotesView extends StatelessWidget {
               scrollKey: 'notes-notes',
               withFloatingActionButton: true,
               items: [
-                ...?sortedFavorites,
-                ...?sortedNonFavorites,
+                ...sortedFavorites,
+                ...sortedNonFavorites,
               ],
               isLoading: notes.isLoading,
               error: notes.error,

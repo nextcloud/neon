@@ -2,26 +2,39 @@ import 'package:flutter/widgets.dart';
 import 'package:neon/src/settings/models/select_option.dart';
 import 'package:sort_box/sort_box.dart';
 
+/// Signature for a function that creates a widget for a given sorted list.
+///
+/// Used by [SortBoxBuilder] to display a sorted list of items.
+typedef SortBoxWidgetBuilder<T> = Widget Function(BuildContext context, List<T> sorted);
+
+/// Sorted list builder.
+///
+/// Used together with a [SortBox] to sort a given list.
 class SortBoxBuilder<T extends Enum, R> extends StatelessWidget {
-  const SortBoxBuilder({
+  SortBoxBuilder({
     required this.sortBox,
     required this.sortPropertyOption,
     required this.sortBoxOrderOption,
-    required this.input,
+    required final List<R>? input,
     required this.builder,
     super.key,
-  });
+  }) : input = input ?? [];
 
   final SortBox<T, R> sortBox;
   final SelectOption<T> sortPropertyOption;
   final SelectOption<SortBoxOrder> sortBoxOrderOption;
-  final List<R>? input;
-  final Widget Function(BuildContext, List<R>?) builder;
+
+  /// Input list to sort.
+  final List<R> input;
+
+  /// Child builder using the sorted list.
+  final SortBoxWidgetBuilder<R> builder;
 
   @override
   Widget build(final BuildContext context) {
-    if (input == null || (input?.isEmpty ?? false)) {
-      return builder(context, null);
+    if (input.length <= 1) {
+      // input is already sorted.
+      return builder(context, input);
     }
 
     return ValueListenableBuilder<T>(
@@ -31,7 +44,7 @@ class SortBoxBuilder<T extends Enum, R> extends StatelessWidget {
         builder: (final context, final order, final _) {
           final box = Box(property, order);
 
-          return builder(context, sortBox.sort(input!, box));
+          return builder(context, sortBox.sort(input, box));
         },
       ),
     );
