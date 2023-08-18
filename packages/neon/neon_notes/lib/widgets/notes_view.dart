@@ -15,30 +15,20 @@ class NotesView extends StatelessWidget {
         stream: bloc.notes,
         builder: (final context, final notes) => SortBoxBuilder<NotesSortProperty, NotesNote>(
           sortBox: notesSortBox,
+          presort: const {
+            (NotesSortProperty.favorite, SortBoxOrder.ascending),
+          },
           sortPropertyOption: bloc.options.notesSortPropertyOption,
           sortBoxOrderOption: bloc.options.notesSortBoxOrderOption,
-          input: category != null
-              ? notes.data?.where((final note) => note.favorite && note.category == category).toList()
-              : notes.data?.where((final note) => note.favorite).toList(),
-          builder: (final context, final sortedFavorites) => SortBoxBuilder<NotesSortProperty, NotesNote>(
-            sortBox: notesSortBox,
-            sortPropertyOption: bloc.options.notesSortPropertyOption,
-            sortBoxOrderOption: bloc.options.notesSortBoxOrderOption,
-            input: category != null
-                ? notes.data?.where((final note) => !note.favorite && note.category == category).toList()
-                : notes.data?.where((final note) => !note.favorite).toList(),
-            builder: (final context, final sortedNonFavorites) => NeonListView<NotesNote>(
-              scrollKey: 'notes-notes',
-              withFloatingActionButton: true,
-              items: [
-                ...sortedFavorites,
-                ...sortedNonFavorites,
-              ],
-              isLoading: notes.isLoading,
-              error: notes.error,
-              onRefresh: bloc.refresh,
-              builder: _buildNote,
-            ),
+          input: category != null ? notes.data?.where((final note) => note.category == category).toList() : notes.data,
+          builder: (final context, final sorted) => NeonListView<NotesNote>(
+            scrollKey: 'notes-notes',
+            withFloatingActionButton: true,
+            items: sorted,
+            isLoading: notes.isLoading,
+            error: notes.error,
+            onRefresh: bloc.refresh,
+            builder: _buildNote,
           ),
         ),
       );

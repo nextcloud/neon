@@ -108,6 +108,7 @@ enum DefaultNoteViewType {
 enum NotesSortProperty {
   lastModified,
   alphabetical,
+  favorite,
 }
 
 enum CategoriesSortProperty {
