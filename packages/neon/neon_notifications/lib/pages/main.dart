@@ -35,14 +35,13 @@ class _NotificationsMainPageState extends State<NotificationsMainPage> {
             tooltip: AppLocalizations.of(context).notificationsDismissAll,
             child: const Icon(MdiIcons.checkAll),
           ),
-          body: NeonListView<NotificationsNotification>(
+          body: NeonListView(
             scrollKey: 'notifications-notifications',
-            withFloatingActionButton: true,
-            items: notifications.data,
             isLoading: notifications.isLoading,
             error: notifications.error,
             onRefresh: bloc.refresh,
-            builder: _buildNotification,
+            itemCount: notifications.data?.length,
+            itemBuilder: (final context, final index) => _buildNotification(context, notifications.data![index]),
           ),
         ),
       );

@@ -26,14 +26,16 @@ class NewsFoldersView extends StatelessWidget {
                     return (folder, feedCount, unreadCount);
                   }).toList()
                 : null,
-            builder: (final context, final sorted) => NeonListView<FolderFeedsWrapper>(
+            builder: (final context, final sorted) => NeonListView(
               scrollKey: 'news-folders',
-              withFloatingActionButton: true,
-              items: sorted,
               isLoading: feeds.isLoading || folders.isLoading,
               error: feeds.error ?? folders.error,
               onRefresh: bloc.refresh,
-              builder: _buildFolder,
+              itemCount: sorted.length,
+              itemBuilder: (final context, final index) => _buildFolder(
+                context,
+                sorted[index],
+              ),
             ),
           ),
         ),

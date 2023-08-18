@@ -21,14 +21,13 @@ class NotesView extends StatelessWidget {
           sortPropertyOption: bloc.options.notesSortPropertyOption,
           sortBoxOrderOption: bloc.options.notesSortBoxOrderOption,
           input: category != null ? notes.data?.where((final note) => note.category == category).toList() : notes.data,
-          builder: (final context, final sorted) => NeonListView<NotesNote>(
+          builder: (final context, final sorted) => NeonListView(
             scrollKey: 'notes-notes',
-            withFloatingActionButton: true,
-            items: sorted,
             isLoading: notes.isLoading,
             error: notes.error,
             onRefresh: bloc.refresh,
-            builder: _buildNote,
+            itemCount: sorted.length,
+            itemBuilder: (final context, final index) => _buildNote(context, sorted[index]),
           ),
         ),
       );

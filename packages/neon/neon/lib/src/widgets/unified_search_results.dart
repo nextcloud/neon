@@ -29,22 +29,30 @@ class NeonUnifiedSearchResults extends StatelessWidget {
     final bloc = accountsBloc.activeUnifiedSearchBloc;
     return ResultBuilder.behaviorSubject(
       stream: bloc.results,
-      builder: (final context, final results) => NeonListView(
-        items: results.data?.entries,
-        isLoading: results.isLoading,
-        error: results.error,
-        onRefresh: bloc.refresh,
-        builder: (final context, final snapshot) => AnimatedSize(
-          duration: const Duration(milliseconds: 100),
-          child: _buildProvider(
-            context,
-            accountsBloc,
-            bloc,
-            snapshot.key,
-            snapshot.value,
-          ),
-        ),
-      ),
+      builder: (final context, final results) {
+        final values = results.data?.entries.toList();
+
+        return NeonListView(
+          isLoading: results.isLoading,
+          error: results.error,
+          onRefresh: bloc.refresh,
+          itemCount: values?.length,
+          itemBuilder: (final context, final index) {
+            final snapshot = values![index];
+
+            return AnimatedSize(
+              duration: const Duration(milliseconds: 100),
+              child: _buildProvider(
+                context,
+                accountsBloc,
+                bloc,
+                snapshot.key,
+                snapshot.value,
+              ),
+            );
+          },
+        );
+      },
     );
   }
 

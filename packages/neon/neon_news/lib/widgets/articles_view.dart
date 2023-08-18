@@ -34,9 +34,8 @@ class _NewsArticlesViewState extends State<NewsArticlesView> {
             sortPropertyOption: widget.newsBloc.options.articlesSortPropertyOption,
             sortBoxOrderOption: widget.newsBloc.options.articlesSortBoxOrderOption,
             input: articles.data,
-            builder: (final context, final sorted) => NeonListView<NewsArticle>(
+            builder: (final context, final sorted) => NeonListView(
               scrollKey: 'news-articles',
-              items: feeds.hasData ? sorted : null,
               isLoading: articles.isLoading || feeds.isLoading,
               error: articles.error ?? feeds.error,
               onRefresh: () async {
@@ -45,11 +44,16 @@ class _NewsArticlesViewState extends State<NewsArticlesView> {
                   widget.newsBloc.refresh(),
                 ]);
               },
-              builder: (final context, final article) => _buildArticle(
-                context,
-                article,
-                feeds.requireData.singleWhere((final feed) => feed.id == article.feedId),
-              ),
+              itemCount: feeds.hasData ? sorted.length : null,
+              itemBuilder: (final context, final index) {
+                final article = sorted[index];
+
+                return _buildArticle(
+                  context,
+                  article,
+                  feeds.requireData.singleWhere((final feed) => feed.id == article.feedId),
+                );
+              },
               topFixedChildren: [
                 StreamBuilder<FilterType>(
                   stream: widget.bloc.filterType,
