@@ -13,6 +13,7 @@ import 'package:neon/src/utils/global_popups.dart';
 import 'package:neon/src/widgets/app_bar.dart';
 import 'package:neon/src/widgets/drawer.dart';
 import 'package:neon/src/widgets/exception.dart';
+import 'package:neon/src/widgets/unified_search_results.dart';
 import 'package:neon/src/widgets/user_avatar.dart';
 import 'package:provider/provider.dart';
 
@@ -123,30 +124,38 @@ class _HomePageState extends State<HomePage> {
     const drawer = NeonDrawer();
     const appBar = NeonAppBar();
 
-    final appView = ResultBuilder<Iterable<AppImplementation>>.behaviorSubject(
-      stream: _appsBloc.appImplementations,
-      builder: (final context, final appImplementations) {
-        if (!appImplementations.hasData) {
-          return const SizedBox();
+    final appView = StreamBuilder(
+      stream: _accountsBloc.activeUnifiedSearchBloc.enabled,
+      builder: (final context, final unifiedSearchEnabledSnapshot) {
+        if (unifiedSearchEnabledSnapshot.data ?? false) {
+          return const NeonUnifiedSearchResults();
         }
-
-        if (appImplementations.requireData.isEmpty) {
-          return Center(
-            child: Text(
-              AppLocalizations.of(context).errorNoCompatibleNextcloudAppsFound,
-              textAlign: TextAlign.center,
-            ),
-          );
-        }
-
-        return StreamBuilder<AppImplementation>(
-          stream: _appsBloc.activeApp,
-          builder: (final context, final activeAppIDSnapshot) {
-            if (!activeAppIDSnapshot.hasData) {
+        return ResultBuilder<Iterable<AppImplementation>>.behaviorSubject(
+          stream: _appsBloc.appImplementations,
+          builder: (final context, final appImplementations) {
+            if (!appImplementations.hasData) {
               return const SizedBox();
             }
 
-            return activeAppIDSnapshot.requireData.page;
+            if (appImplementations.requireData.isEmpty) {
+              return Center(
+                child: Text(
+                  AppLocalizations.of(context).errorNoCompatibleNextcloudAppsFound,
+                  textAlign: TextAlign.center,
+                ),
+              );
+            }
+
+            return StreamBuilder<AppImplementation>(
+              stream: _appsBloc.activeApp,
+              builder: (final context, final activeAppIDSnapshot) {
+                if (!activeAppIDSnapshot.hasData) {
+                  return const SizedBox();
+                }
+
+                return activeAppIDSnapshot.requireData.page;
+              },
+            );
           },
         );
       },

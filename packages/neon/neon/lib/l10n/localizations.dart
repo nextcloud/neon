@@ -341,6 +341,24 @@ abstract class AppLocalizations {
   /// **'Install NextPush'**
   String get nextPushSupportedInstall;
 
+  /// No description provided for @search.
+  ///
+  /// In en, this message translates to:
+  /// **'Search'**
+  String get search;
+
+  /// No description provided for @searchCancel.
+  ///
+  /// In en, this message translates to:
+  /// **'Cancel search'**
+  String get searchCancel;
+
+  /// No description provided for @searchNoResults.
+  ///
+  /// In en, this message translates to:
+  /// **'No search results'**
+  String get searchNoResults;
+
   /// No description provided for @settings.
   ///
   /// In en, this message translates to:

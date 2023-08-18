@@ -163,6 +163,15 @@ class AppLocalizationsEn extends AppLocalizations {
   String get nextPushSupportedInstall => 'Install NextPush';
 
   @override
+  String get search => 'Search';
+
+  @override
+  String get searchCancel => 'Cancel search';
+
+  @override
+  String get searchNoResults => 'No search results';
+
+  @override
   String get settings => 'Settings';
 
   @override

@@ -5,6 +5,7 @@ import 'package:flutter/foundation.dart';
 import 'package:neon/src/bloc/bloc.dart';
 import 'package:neon/src/blocs/apps.dart';
 import 'package:neon/src/blocs/capabilities.dart';
+import 'package:neon/src/blocs/unified_search.dart';
 import 'package:neon/src/blocs/user_details.dart';
 import 'package:neon/src/blocs/user_statuses.dart';
 import 'package:neon/src/models/account.dart';
@@ -112,6 +113,7 @@ class AccountsBloc extends Bloc implements AccountsBlocEvents, AccountsBlocState
   final _capabilitiesBlocs = <String, CapabilitiesBloc>{};
   final _userDetailsBlocs = <String, UserDetailsBloc>{};
   final _userStatusesBlocs = <String, UserStatusesBloc>{};
+  final _unifiedSearchBlocs = <String, UnifiedSearchBloc>{};
 
   @override
   void dispose() {
@@ -121,6 +123,7 @@ class AccountsBloc extends Bloc implements AccountsBlocEvents, AccountsBlocState
     _capabilitiesBlocs.disposeAll();
     _userDetailsBlocs.disposeAll();
     _userStatusesBlocs.disposeAll();
+    _unifiedSearchBlocs.disposeAll();
     for (final options in _accountsOptions.values) {
       options.dispose();
     }
@@ -295,6 +298,25 @@ class AccountsBloc extends Bloc implements AccountsBlocEvents, AccountsBlocState
 
     return _userStatusesBlocs[account.id] = UserStatusesBloc(
       _platform,
+      account,
+    );
+  }
+
+  /// The UnifiedSearchBloc for the [activeAccount].
+  ///
+  /// Convenience method for [getUnifiedSearchBlocFor] with the currently active account.
+  UnifiedSearchBloc get activeUnifiedSearchBloc => getUnifiedSearchBlocFor(aa);
+
+  /// The UnifiedSearchBloc for the specified [account].
+  ///
+  /// Use [activeUnifiedSearchBloc] to get them for the [activeAccount].
+  UnifiedSearchBloc getUnifiedSearchBlocFor(final Account account) {
+    if (_unifiedSearchBlocs[account.id] != null) {
+      return _unifiedSearchBlocs[account.id]!;
+    }
+
+    return _unifiedSearchBlocs[account.id] = UnifiedSearchBloc(
+      getAppsBlocFor(account),
       account,
     );
   }
