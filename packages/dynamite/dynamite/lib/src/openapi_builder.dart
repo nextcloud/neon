@@ -276,7 +276,7 @@ class OpenAPIBuilder implements Builder {
                   ..fields.add(
                     Field(
                       (final b) => b
-                        ..name = 'rootClient'
+                        ..name = '_rootClient'
                         ..type = refer('${classPrefix}Client')
                         ..modifier = FieldModifier.final$,
                     ),
@@ -286,7 +286,7 @@ class OpenAPIBuilder implements Builder {
                       (final b) => b.requiredParameters.add(
                         Parameter(
                           (final b) => b
-                            ..name = 'rootClient'
+                            ..name = '_rootClient'
                             ..toThis = true,
                         ),
                       ),
@@ -315,7 +315,7 @@ class OpenAPIBuilder implements Builder {
                           ..lambda = true
                           ..type = MethodType.getter
                           ..returns = refer('$classPrefix${_clientName(t)}')
-                          ..body = Code('$classPrefix${_clientName(t)}(${isRootClient ? 'this' : 'rootClient'})'),
+                          ..body = Code('$classPrefix${_clientName(t)}(${isRootClient ? 'this' : '_rootClient'})'),
                       ),
                     ],
                     for (final path in paths.keys) ...[
@@ -364,10 +364,10 @@ class OpenAPIBuilder implements Builder {
                                     {})
                                 .join(',');
                             final code = StringBuffer('''
-                            var path = '$path';
-                            final queryParameters = <String, dynamic>{};
-                            final headers = <String, String>{${acceptHeader.isNotEmpty ? "'Accept': '$acceptHeader'," : ''}};
-                            Uint8List? body;
+                            var _path = '$path';
+                            final _queryParameters = <String, dynamic>{};
+                            final _headers = <String, String>{${acceptHeader.isNotEmpty ? "'Accept': '$acceptHeader'," : ''}};
+                            Uint8List? _body;
                           ''');
 
                             final security = operation.security ?? spec.security ?? [];
@@ -377,8 +377,8 @@ class OpenAPIBuilder implements Builder {
                             for (final requirement in securityRequirements) {
                               final securityScheme = spec.components!.securitySchemes![requirement.keys.single]!;
                               code.write('''
-                                if (${isRootClient ? '' : 'rootClient.'}authentications.where((final a) => a.type == '${securityScheme.type}' && a.scheme == '${securityScheme.scheme}').isNotEmpty) {
-                                  headers.addAll(${isRootClient ? '' : 'rootClient.'}authentications.singleWhere((final a) => a.type == '${securityScheme.type}' && a.scheme == '${securityScheme.scheme}').headers);
+                                if (${isRootClient ? 'this' : '_rootClient'}.authentications.where((final a) => a.type == '${securityScheme.type}' && a.scheme == '${securityScheme.scheme}').isNotEmpty) {
+                                  _headers.addAll(${isRootClient ? 'this' : '_rootClient'}.authentications.singleWhere((final a) => a.type == '${securityScheme.type}' && a.scheme == '${securityScheme.scheme}').headers);
                                 }
                               ''');
                               if (securityRequirements.last != requirement) {
@@ -475,15 +475,15 @@ class OpenAPIBuilder implements Builder {
                               switch (parameter.in_) {
                                 case 'path':
                                   code.write(
-                                    "path = path.replaceAll('{${parameter.name}}', Uri.encodeQueryComponent($value));",
+                                    "_path = _path.replaceAll('{${parameter.name}}', Uri.encodeQueryComponent($value));",
                                   );
                                 case 'query':
                                   code.write(
-                                    "queryParameters['${parameter.name}'] = $value;",
+                                    "_queryParameters['${parameter.name}'] = $value;",
                                   );
                                 case 'header':
                                   code.write(
-                                    "headers['${parameter.name}'] = $value;",
+                                    "_headers['${parameter.name}'] = $value;",
                                   );
                                 default:
                                   throw Exception('Can not work with parameter in "${parameter.in_}"');
@@ -503,7 +503,7 @@ class OpenAPIBuilder implements Builder {
                               for (final mimeType in operation.requestBody!.content!.keys) {
                                 final mediaType = operation.requestBody!.content![mimeType]!;
 
-                                code.write("headers['Content-Type'] = '$mimeType';");
+                                code.write("_headers['Content-Type'] = '$mimeType';");
 
                                 final dartParameterNullable = _isDartParameterNullable(
                                   operation.requestBody!.required,
@@ -541,7 +541,7 @@ class OpenAPIBuilder implements Builder {
                                       code.write('if ($parameterName != null) {');
                                     }
                                     code.write(
-                                      'body = Uint8List.fromList(utf8.encode(${result.encode(parameterName, mimeType: mimeType)}));',
+                                      '_body = Uint8List.fromList(utf8.encode(${result.encode(parameterName, mimeType: mimeType)}));',
                                     );
                                     if (dartParameterNullable) {
                                       code.write('}');
@@ -554,11 +554,11 @@ class OpenAPIBuilder implements Builder {
 
                             code.write(
                               '''
-                            final response = await ${isRootClient ? '' : 'rootClient.'}doRequest(
+                            final _response = await ${isRootClient ? 'this' : '_rootClient'}.doRequest(
                               '$httpMethod',
-                              Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
-                              headers,
-                              body,
+                              Uri(path: _path, queryParameters: _queryParameters.isNotEmpty ? _queryParameters : null).toString(),
+                              _headers,
+                              _body,
                             );
                           ''',
                             );
@@ -569,7 +569,7 @@ class OpenAPIBuilder implements Builder {
                               }
                               for (final statusCode in operation.responses!.keys) {
                                 final response = operation.responses![statusCode]!;
-                                code.write('if (response.statusCode == $statusCode) {');
+                                code.write('if (_response.statusCode == $statusCode) {');
 
                                 String? headersType;
                                 String? headersValue;
@@ -592,7 +592,7 @@ class OpenAPIBuilder implements Builder {
                                     isHeader: true,
                                   );
                                   headersType = result.name;
-                                  headersValue = result.deserialize('response.responseHeaders');
+                                  headersValue = result.deserialize('_response.responseHeaders');
                                 }
 
                                 String? dataType;
@@ -620,24 +620,24 @@ class OpenAPIBuilder implements Builder {
                                         mimeType == 'application/octet-stream' ||
                                         mimeType.startsWith('image/')) {
                                       dataType = 'Uint8List';
-                                      dataValue = 'response.bodyBytes';
+                                      dataValue = '_response.bodyBytes';
                                       dataNeedsAwait = true;
                                     } else if (mimeType.startsWith('text/')) {
                                       dataType = 'String';
-                                      dataValue = 'response.body';
+                                      dataValue = '_response.body';
                                       dataNeedsAwait = true;
                                     } else if (mimeType == 'application/json') {
                                       dataType = result.name;
                                       if (result.name == 'dynamic') {
                                         dataValue = '';
                                       } else if (result.name == 'String') {
-                                        dataValue = 'response.body';
+                                        dataValue = '_response.body';
                                         dataNeedsAwait = true;
                                       } else if (result is TypeResultEnum || result is TypeResultBase) {
-                                        dataValue = result.deserialize(result.decode('await response.body'));
+                                        dataValue = result.deserialize(result.decode('await _response.body'));
                                         dataNeedsAwait = false;
                                       } else {
-                                        dataValue = result.deserialize('await response.jsonBody');
+                                        dataValue = result.deserialize('await _response.jsonBody');
                                         dataNeedsAwait = false;
                                       }
                                     } else {
@@ -665,7 +665,7 @@ class OpenAPIBuilder implements Builder {
                                 code.write('}');
                               }
                               code.write(
-                                'throw await ${classPrefix}ApiException.fromResponse(response); // coverage:ignore-line\n',
+                                'throw await ${classPrefix}ApiException.fromResponse(_response); // coverage:ignore-line\n',
                               );
                             } else {
                               b.returns = refer('Future');

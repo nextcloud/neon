@@ -81,9 +81,9 @@ class ProvisioningApiClient extends DynamiteClient {
 }
 
 class ProvisioningApiAppConfigClient {
-  ProvisioningApiAppConfigClient(this.rootClient);
+  ProvisioningApiAppConfigClient(this._rootClient);
 
-  final ProvisioningApiClient rootClient;
+  final ProvisioningApiClient _rootClient;
 
   /// Get a list of apps
   ///
@@ -98,19 +98,20 @@ class ProvisioningApiAppConfigClient {
     };
     Uint8List? body;
     // coverage:ignore-start
-    if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+    if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
-        rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
+        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
       );
-    } else if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers
-          .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
+    } else if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
+      headers.addAll(
+        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers,
+      );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
     // coverage:ignore-end
     headers['OCS-APIRequest'] = oCSAPIRequest;
-    final response = await rootClient.doRequest(
+    final response = await _rootClient.doRequest(
       'get',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
       headers,
@@ -139,20 +140,21 @@ class ProvisioningApiAppConfigClient {
     };
     Uint8List? body;
     // coverage:ignore-start
-    if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+    if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
-        rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
+        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
       );
-    } else if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers
-          .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
+    } else if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
+      headers.addAll(
+        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers,
+      );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
     // coverage:ignore-end
     path = path.replaceAll('{app}', Uri.encodeQueryComponent(app));
     headers['OCS-APIRequest'] = oCSAPIRequest;
-    final response = await rootClient.doRequest(
+    final response = await _rootClient.doRequest(
       'get',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
       headers,
@@ -183,13 +185,14 @@ class ProvisioningApiAppConfigClient {
     };
     Uint8List? body;
     // coverage:ignore-start
-    if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+    if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
-        rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
+        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
       );
-    } else if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers
-          .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
+    } else if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
+      headers.addAll(
+        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers,
+      );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
@@ -200,7 +203,7 @@ class ProvisioningApiAppConfigClient {
       queryParameters['defaultValue'] = defaultValue;
     }
     headers['OCS-APIRequest'] = oCSAPIRequest;
-    final response = await rootClient.doRequest(
+    final response = await _rootClient.doRequest(
       'get',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
       headers,
@@ -229,13 +232,14 @@ class ProvisioningApiAppConfigClient {
     };
     Uint8List? body;
     // coverage:ignore-start
-    if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+    if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
-        rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
+        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
       );
-    } else if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers
-          .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
+    } else if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
+      headers.addAll(
+        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers,
+      );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
@@ -244,7 +248,7 @@ class ProvisioningApiAppConfigClient {
     path = path.replaceAll('{app}', Uri.encodeQueryComponent(app));
     path = path.replaceAll('{key}', Uri.encodeQueryComponent(key));
     headers['OCS-APIRequest'] = oCSAPIRequest;
-    final response = await rootClient.doRequest(
+    final response = await _rootClient.doRequest(
       'post',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
       headers,
@@ -274,13 +278,14 @@ class ProvisioningApiAppConfigClient {
     };
     Uint8List? body;
     // coverage:ignore-start
-    if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+    if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
-        rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
+        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
       );
-    } else if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers
-          .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
+    } else if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
+      headers.addAll(
+        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers,
+      );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
@@ -288,7 +293,7 @@ class ProvisioningApiAppConfigClient {
     path = path.replaceAll('{app}', Uri.encodeQueryComponent(app));
     path = path.replaceAll('{key}', Uri.encodeQueryComponent(key));
     headers['OCS-APIRequest'] = oCSAPIRequest;
-    final response = await rootClient.doRequest(
+    final response = await _rootClient.doRequest(
       'delete',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
       headers,
@@ -305,9 +310,9 @@ class ProvisioningApiAppConfigClient {
 }
 
 class ProvisioningApiAppsClient {
-  ProvisioningApiAppsClient(this.rootClient);
+  ProvisioningApiAppsClient(this._rootClient);
 
-  final ProvisioningApiClient rootClient;
+  final ProvisioningApiClient _rootClient;
 
   /// Get a list of installed apps
   ///
@@ -323,13 +328,14 @@ class ProvisioningApiAppsClient {
     };
     Uint8List? body;
     // coverage:ignore-start
-    if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+    if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
-        rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
+        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
       );
-    } else if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers
-          .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
+    } else if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
+      headers.addAll(
+        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers,
+      );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
@@ -338,7 +344,7 @@ class ProvisioningApiAppsClient {
       queryParameters['filter'] = filter;
     }
     headers['OCS-APIRequest'] = oCSAPIRequest;
-    final response = await rootClient.doRequest(
+    final response = await _rootClient.doRequest(
       'get',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
       headers,
@@ -367,20 +373,21 @@ class ProvisioningApiAppsClient {
     };
     Uint8List? body;
     // coverage:ignore-start
-    if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+    if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
-        rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
+        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
       );
-    } else if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers
-          .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
+    } else if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
+      headers.addAll(
+        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers,
+      );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
     // coverage:ignore-end
     path = path.replaceAll('{app}', Uri.encodeQueryComponent(app));
     headers['OCS-APIRequest'] = oCSAPIRequest;
-    final response = await rootClient.doRequest(
+    final response = await _rootClient.doRequest(
       'get',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
       headers,
@@ -409,20 +416,21 @@ class ProvisioningApiAppsClient {
     };
     Uint8List? body;
     // coverage:ignore-start
-    if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+    if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
-        rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
+        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
       );
-    } else if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers
-          .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
+    } else if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
+      headers.addAll(
+        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers,
+      );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
     // coverage:ignore-end
     path = path.replaceAll('{app}', Uri.encodeQueryComponent(app));
     headers['OCS-APIRequest'] = oCSAPIRequest;
-    final response = await rootClient.doRequest(
+    final response = await _rootClient.doRequest(
       'post',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
       headers,
@@ -451,20 +459,21 @@ class ProvisioningApiAppsClient {
     };
     Uint8List? body;
     // coverage:ignore-start
-    if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+    if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
-        rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
+        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
       );
-    } else if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers
-          .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
+    } else if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
+      headers.addAll(
+        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers,
+      );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
     // coverage:ignore-end
     path = path.replaceAll('{app}', Uri.encodeQueryComponent(app));
     headers['OCS-APIRequest'] = oCSAPIRequest;
-    final response = await rootClient.doRequest(
+    final response = await _rootClient.doRequest(
       'delete',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
       headers,
@@ -481,9 +490,9 @@ class ProvisioningApiAppsClient {
 }
 
 class ProvisioningApiGroupsClient {
-  ProvisioningApiGroupsClient(this.rootClient);
+  ProvisioningApiGroupsClient(this._rootClient);
 
-  final ProvisioningApiClient rootClient;
+  final ProvisioningApiClient _rootClient;
 
   /// Get a list of groups
   Future<ProvisioningApiGroupsGetGroupsResponse200ApplicationJson> getGroups({
@@ -499,13 +508,14 @@ class ProvisioningApiGroupsClient {
     };
     Uint8List? body;
     // coverage:ignore-start
-    if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+    if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
-        rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
+        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
       );
-    } else if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers
-          .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
+    } else if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
+      headers.addAll(
+        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers,
+      );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
@@ -520,7 +530,7 @@ class ProvisioningApiGroupsClient {
       queryParameters['offset'] = offset.toString();
     }
     headers['OCS-APIRequest'] = oCSAPIRequest;
-    final response = await rootClient.doRequest(
+    final response = await _rootClient.doRequest(
       'get',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
       headers,
@@ -550,13 +560,14 @@ class ProvisioningApiGroupsClient {
     };
     Uint8List? body;
     // coverage:ignore-start
-    if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+    if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
-        rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
+        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
       );
-    } else if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers
-          .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
+    } else if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
+      headers.addAll(
+        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers,
+      );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
@@ -566,7 +577,7 @@ class ProvisioningApiGroupsClient {
       queryParameters['displayname'] = displayname;
     }
     headers['OCS-APIRequest'] = oCSAPIRequest;
-    final response = await rootClient.doRequest(
+    final response = await _rootClient.doRequest(
       'post',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
       headers,
@@ -595,13 +606,14 @@ class ProvisioningApiGroupsClient {
     };
     Uint8List? body;
     // coverage:ignore-start
-    if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+    if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
-        rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
+        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
       );
-    } else if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers
-          .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
+    } else if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
+      headers.addAll(
+        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers,
+      );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
@@ -616,7 +628,7 @@ class ProvisioningApiGroupsClient {
       queryParameters['offset'] = offset.toString();
     }
     headers['OCS-APIRequest'] = oCSAPIRequest;
-    final response = await rootClient.doRequest(
+    final response = await _rootClient.doRequest(
       'get',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
       headers,
@@ -643,13 +655,14 @@ class ProvisioningApiGroupsClient {
     };
     Uint8List? body;
     // coverage:ignore-start
-    if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+    if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
-        rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
+        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
       );
-    } else if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers
-          .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
+    } else if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
+      headers.addAll(
+        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers,
+      );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
@@ -661,7 +674,7 @@ class ProvisioningApiGroupsClient {
     }
     path = path.replaceAll('{groupId}', Uri.encodeQueryComponent(groupId));
     headers['OCS-APIRequest'] = oCSAPIRequest;
-    final response = await rootClient.doRequest(
+    final response = await _rootClient.doRequest(
       'get',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
       headers,
@@ -691,13 +704,14 @@ class ProvisioningApiGroupsClient {
     };
     Uint8List? body;
     // coverage:ignore-start
-    if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+    if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
-        rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
+        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
       );
-    } else if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers
-          .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
+    } else if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
+      headers.addAll(
+        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers,
+      );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
@@ -718,7 +732,7 @@ class ProvisioningApiGroupsClient {
       queryParameters['offset'] = offset.toString();
     }
     headers['OCS-APIRequest'] = oCSAPIRequest;
-    final response = await rootClient.doRequest(
+    final response = await _rootClient.doRequest(
       'get',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
       headers,
@@ -747,13 +761,14 @@ class ProvisioningApiGroupsClient {
     };
     Uint8List? body;
     // coverage:ignore-start
-    if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+    if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
-        rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
+        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
       );
-    } else if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers
-          .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
+    } else if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
+      headers.addAll(
+        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers,
+      );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
@@ -765,7 +780,7 @@ class ProvisioningApiGroupsClient {
     }
     path = path.replaceAll('{groupId}', Uri.encodeQueryComponent(groupId));
     headers['OCS-APIRequest'] = oCSAPIRequest;
-    final response = await rootClient.doRequest(
+    final response = await _rootClient.doRequest(
       'get',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
       headers,
@@ -793,13 +808,14 @@ class ProvisioningApiGroupsClient {
     };
     Uint8List? body;
     // coverage:ignore-start
-    if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+    if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
-        rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
+        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
       );
-    } else if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers
-          .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
+    } else if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
+      headers.addAll(
+        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers,
+      );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
@@ -811,7 +827,7 @@ class ProvisioningApiGroupsClient {
     }
     path = path.replaceAll('{groupId}', Uri.encodeQueryComponent(groupId));
     headers['OCS-APIRequest'] = oCSAPIRequest;
-    final response = await rootClient.doRequest(
+    final response = await _rootClient.doRequest(
       'get',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
       headers,
@@ -842,13 +858,14 @@ class ProvisioningApiGroupsClient {
     };
     Uint8List? body;
     // coverage:ignore-start
-    if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+    if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
-        rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
+        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
       );
-    } else if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers
-          .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
+    } else if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
+      headers.addAll(
+        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers,
+      );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
@@ -862,7 +879,7 @@ class ProvisioningApiGroupsClient {
     }
     path = path.replaceAll('{groupId}', Uri.encodeQueryComponent(groupId));
     headers['OCS-APIRequest'] = oCSAPIRequest;
-    final response = await rootClient.doRequest(
+    final response = await _rootClient.doRequest(
       'put',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
       headers,
@@ -891,13 +908,14 @@ class ProvisioningApiGroupsClient {
     };
     Uint8List? body;
     // coverage:ignore-start
-    if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+    if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
-        rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
+        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
       );
-    } else if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers
-          .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
+    } else if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
+      headers.addAll(
+        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers,
+      );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
@@ -909,7 +927,7 @@ class ProvisioningApiGroupsClient {
     }
     path = path.replaceAll('{groupId}', Uri.encodeQueryComponent(groupId));
     headers['OCS-APIRequest'] = oCSAPIRequest;
-    final response = await rootClient.doRequest(
+    final response = await _rootClient.doRequest(
       'delete',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
       headers,
@@ -926,9 +944,9 @@ class ProvisioningApiGroupsClient {
 }
 
 class ProvisioningApiPreferencesClient {
-  ProvisioningApiPreferencesClient(this.rootClient);
+  ProvisioningApiPreferencesClient(this._rootClient);
 
-  final ProvisioningApiClient rootClient;
+  final ProvisioningApiClient _rootClient;
 
   /// Update a preference value of an app
   Future<ProvisioningApiPreferencesSetPreferenceResponse200ApplicationJson> setPreference({
@@ -944,13 +962,14 @@ class ProvisioningApiPreferencesClient {
     };
     Uint8List? body;
     // coverage:ignore-start
-    if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+    if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
-        rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
+        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
       );
-    } else if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers
-          .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
+    } else if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
+      headers.addAll(
+        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers,
+      );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
@@ -959,7 +978,7 @@ class ProvisioningApiPreferencesClient {
     path = path.replaceAll('{appId}', Uri.encodeQueryComponent(appId));
     path = path.replaceAll('{configKey}', Uri.encodeQueryComponent(configKey));
     headers['OCS-APIRequest'] = oCSAPIRequest;
-    final response = await rootClient.doRequest(
+    final response = await _rootClient.doRequest(
       'post',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
       headers,
@@ -987,13 +1006,14 @@ class ProvisioningApiPreferencesClient {
     };
     Uint8List? body;
     // coverage:ignore-start
-    if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+    if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
-        rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
+        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
       );
-    } else if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers
-          .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
+    } else if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
+      headers.addAll(
+        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers,
+      );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
@@ -1001,7 +1021,7 @@ class ProvisioningApiPreferencesClient {
     path = path.replaceAll('{appId}', Uri.encodeQueryComponent(appId));
     path = path.replaceAll('{configKey}', Uri.encodeQueryComponent(configKey));
     headers['OCS-APIRequest'] = oCSAPIRequest;
-    final response = await rootClient.doRequest(
+    final response = await _rootClient.doRequest(
       'delete',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
       headers,
@@ -1029,13 +1049,14 @@ class ProvisioningApiPreferencesClient {
     };
     Uint8List? body;
     // coverage:ignore-start
-    if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+    if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
-        rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
+        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
       );
-    } else if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers
-          .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
+    } else if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
+      headers.addAll(
+        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers,
+      );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
@@ -1048,7 +1069,7 @@ class ProvisioningApiPreferencesClient {
     );
     path = path.replaceAll('{appId}', Uri.encodeQueryComponent(appId));
     headers['OCS-APIRequest'] = oCSAPIRequest;
-    final response = await rootClient.doRequest(
+    final response = await _rootClient.doRequest(
       'post',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
       headers,
@@ -1076,13 +1097,14 @@ class ProvisioningApiPreferencesClient {
     };
     Uint8List? body;
     // coverage:ignore-start
-    if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+    if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
-        rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
+        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
       );
-    } else if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers
-          .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
+    } else if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
+      headers.addAll(
+        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers,
+      );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
@@ -1090,7 +1112,7 @@ class ProvisioningApiPreferencesClient {
     queryParameters['configKeys[]'] = configKeys.map((final e) => e);
     path = path.replaceAll('{appId}', Uri.encodeQueryComponent(appId));
     headers['OCS-APIRequest'] = oCSAPIRequest;
-    final response = await rootClient.doRequest(
+    final response = await _rootClient.doRequest(
       'delete',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
       headers,
@@ -1107,9 +1129,9 @@ class ProvisioningApiPreferencesClient {
 }
 
 class ProvisioningApiUsersClient {
-  ProvisioningApiUsersClient(this.rootClient);
+  ProvisioningApiUsersClient(this._rootClient);
 
-  final ProvisioningApiClient rootClient;
+  final ProvisioningApiClient _rootClient;
 
   /// Get a list of users
   Future<ProvisioningApiUsersGetUsersResponse200ApplicationJson> getUsers({
@@ -1125,13 +1147,14 @@ class ProvisioningApiUsersClient {
     };
     Uint8List? body;
     // coverage:ignore-start
-    if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+    if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
-        rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
+        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
       );
-    } else if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers
-          .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
+    } else if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
+      headers.addAll(
+        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers,
+      );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
@@ -1146,7 +1169,7 @@ class ProvisioningApiUsersClient {
       queryParameters['offset'] = offset.toString();
     }
     headers['OCS-APIRequest'] = oCSAPIRequest;
-    final response = await rootClient.doRequest(
+    final response = await _rootClient.doRequest(
       'get',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
       headers,
@@ -1181,13 +1204,14 @@ class ProvisioningApiUsersClient {
     };
     Uint8List? body;
     // coverage:ignore-start
-    if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+    if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
-        rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
+        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
       );
-    } else if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers
-          .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
+    } else if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
+      headers.addAll(
+        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers,
+      );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
@@ -1218,7 +1242,7 @@ class ProvisioningApiUsersClient {
       queryParameters['manager'] = manager;
     }
     headers['OCS-APIRequest'] = oCSAPIRequest;
-    final response = await rootClient.doRequest(
+    final response = await _rootClient.doRequest(
       'post',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
       headers,
@@ -1247,13 +1271,14 @@ class ProvisioningApiUsersClient {
     };
     Uint8List? body;
     // coverage:ignore-start
-    if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+    if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
-        rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
+        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
       );
-    } else if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers
-          .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
+    } else if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
+      headers.addAll(
+        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers,
+      );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
@@ -1268,7 +1293,7 @@ class ProvisioningApiUsersClient {
       queryParameters['offset'] = offset.toString();
     }
     headers['OCS-APIRequest'] = oCSAPIRequest;
-    final response = await rootClient.doRequest(
+    final response = await _rootClient.doRequest(
       'get',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
       headers,
@@ -1296,13 +1321,14 @@ class ProvisioningApiUsersClient {
     };
     Uint8List? body;
     // coverage:ignore-start
-    if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+    if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
-        rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
+        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
       );
-    } else if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers
-          .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
+    } else if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
+      headers.addAll(
+        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers,
+      );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
@@ -1318,7 +1344,7 @@ class ProvisioningApiUsersClient {
       ]),
     );
     headers['OCS-APIRequest'] = oCSAPIRequest;
-    final response = await rootClient.doRequest(
+    final response = await _rootClient.doRequest(
       'post',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
       headers,
@@ -1345,20 +1371,21 @@ class ProvisioningApiUsersClient {
     };
     Uint8List? body;
     // coverage:ignore-start
-    if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+    if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
-        rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
+        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
       );
-    } else if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers
-          .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
+    } else if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
+      headers.addAll(
+        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers,
+      );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
     // coverage:ignore-end
     path = path.replaceAll('{userId}', Uri.encodeQueryComponent(userId));
     headers['OCS-APIRequest'] = oCSAPIRequest;
-    final response = await rootClient.doRequest(
+    final response = await _rootClient.doRequest(
       'get',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
       headers,
@@ -1387,13 +1414,14 @@ class ProvisioningApiUsersClient {
     };
     Uint8List? body;
     // coverage:ignore-start
-    if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+    if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
-        rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
+        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
       );
-    } else if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers
-          .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
+    } else if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
+      headers.addAll(
+        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers,
+      );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
@@ -1402,7 +1430,7 @@ class ProvisioningApiUsersClient {
     queryParameters['value'] = value;
     path = path.replaceAll('{userId}', Uri.encodeQueryComponent(userId));
     headers['OCS-APIRequest'] = oCSAPIRequest;
-    final response = await rootClient.doRequest(
+    final response = await _rootClient.doRequest(
       'put',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
       headers,
@@ -1429,20 +1457,21 @@ class ProvisioningApiUsersClient {
     };
     Uint8List? body;
     // coverage:ignore-start
-    if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+    if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
-        rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
+        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
       );
-    } else if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers
-          .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
+    } else if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
+      headers.addAll(
+        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers,
+      );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
     // coverage:ignore-end
     path = path.replaceAll('{userId}', Uri.encodeQueryComponent(userId));
     headers['OCS-APIRequest'] = oCSAPIRequest;
-    final response = await rootClient.doRequest(
+    final response = await _rootClient.doRequest(
       'delete',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
       headers,
@@ -1468,19 +1497,20 @@ class ProvisioningApiUsersClient {
     };
     Uint8List? body;
     // coverage:ignore-start
-    if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+    if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
-        rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
+        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
       );
-    } else if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers
-          .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
+    } else if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
+      headers.addAll(
+        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers,
+      );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
     // coverage:ignore-end
     headers['OCS-APIRequest'] = oCSAPIRequest;
-    final response = await rootClient.doRequest(
+    final response = await _rootClient.doRequest(
       'get',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
       headers,
@@ -1506,19 +1536,20 @@ class ProvisioningApiUsersClient {
     };
     Uint8List? body;
     // coverage:ignore-start
-    if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+    if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
-        rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
+        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
       );
-    } else if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers
-          .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
+    } else if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
+      headers.addAll(
+        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers,
+      );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
     // coverage:ignore-end
     headers['OCS-APIRequest'] = oCSAPIRequest;
-    final response = await rootClient.doRequest(
+    final response = await _rootClient.doRequest(
       'get',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
       headers,
@@ -1545,20 +1576,21 @@ class ProvisioningApiUsersClient {
     };
     Uint8List? body;
     // coverage:ignore-start
-    if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+    if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
-        rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
+        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
       );
-    } else if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers
-          .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
+    } else if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
+      headers.addAll(
+        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers,
+      );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
     // coverage:ignore-end
     path = path.replaceAll('{userId}', Uri.encodeQueryComponent(userId));
     headers['OCS-APIRequest'] = oCSAPIRequest;
-    final response = await rootClient.doRequest(
+    final response = await _rootClient.doRequest(
       'get',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
       headers,
@@ -1588,13 +1620,14 @@ class ProvisioningApiUsersClient {
     };
     Uint8List? body;
     // coverage:ignore-start
-    if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+    if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
-        rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
+        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
       );
-    } else if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers
-          .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
+    } else if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
+      headers.addAll(
+        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers,
+      );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
@@ -1609,7 +1642,7 @@ class ProvisioningApiUsersClient {
     }
     path = path.replaceAll('{collectionName}', Uri.encodeQueryComponent(collectionName));
     headers['OCS-APIRequest'] = oCSAPIRequest;
-    final response = await rootClient.doRequest(
+    final response = await _rootClient.doRequest(
       'put',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
       headers,
@@ -1636,20 +1669,21 @@ class ProvisioningApiUsersClient {
     };
     Uint8List? body;
     // coverage:ignore-start
-    if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+    if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
-        rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
+        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
       );
-    } else if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers
-          .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
+    } else if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
+      headers.addAll(
+        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers,
+      );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
     // coverage:ignore-end
     path = path.replaceAll('{userId}', Uri.encodeQueryComponent(userId));
     headers['OCS-APIRequest'] = oCSAPIRequest;
-    final response = await rootClient.doRequest(
+    final response = await _rootClient.doRequest(
       'post',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
       headers,
@@ -1676,20 +1710,21 @@ class ProvisioningApiUsersClient {
     };
     Uint8List? body;
     // coverage:ignore-start
-    if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+    if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
-        rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
+        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
       );
-    } else if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers
-          .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
+    } else if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
+      headers.addAll(
+        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers,
+      );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
     // coverage:ignore-end
     path = path.replaceAll('{userId}', Uri.encodeQueryComponent(userId));
     headers['OCS-APIRequest'] = oCSAPIRequest;
-    final response = await rootClient.doRequest(
+    final response = await _rootClient.doRequest(
       'put',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
       headers,
@@ -1716,20 +1751,21 @@ class ProvisioningApiUsersClient {
     };
     Uint8List? body;
     // coverage:ignore-start
-    if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+    if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
-        rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
+        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
       );
-    } else if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers
-          .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
+    } else if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
+      headers.addAll(
+        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers,
+      );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
     // coverage:ignore-end
     path = path.replaceAll('{userId}', Uri.encodeQueryComponent(userId));
     headers['OCS-APIRequest'] = oCSAPIRequest;
-    final response = await rootClient.doRequest(
+    final response = await _rootClient.doRequest(
       'put',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
       headers,
@@ -1756,20 +1792,21 @@ class ProvisioningApiUsersClient {
     };
     Uint8List? body;
     // coverage:ignore-start
-    if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+    if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
-        rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
+        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
       );
-    } else if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers
-          .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
+    } else if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
+      headers.addAll(
+        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers,
+      );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
     // coverage:ignore-end
     path = path.replaceAll('{userId}', Uri.encodeQueryComponent(userId));
     headers['OCS-APIRequest'] = oCSAPIRequest;
-    final response = await rootClient.doRequest(
+    final response = await _rootClient.doRequest(
       'get',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
       headers,
@@ -1797,13 +1834,14 @@ class ProvisioningApiUsersClient {
     };
     Uint8List? body;
     // coverage:ignore-start
-    if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+    if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
-        rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
+        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
       );
-    } else if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers
-          .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
+    } else if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
+      headers.addAll(
+        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers,
+      );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
@@ -1813,7 +1851,7 @@ class ProvisioningApiUsersClient {
       queryParameters['groupid'] = groupid;
     }
     headers['OCS-APIRequest'] = oCSAPIRequest;
-    final response = await rootClient.doRequest(
+    final response = await _rootClient.doRequest(
       'post',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
       headers,
@@ -1841,13 +1879,14 @@ class ProvisioningApiUsersClient {
     };
     Uint8List? body;
     // coverage:ignore-start
-    if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+    if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
-        rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
+        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
       );
-    } else if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers
-          .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
+    } else if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
+      headers.addAll(
+        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers,
+      );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
@@ -1855,7 +1894,7 @@ class ProvisioningApiUsersClient {
     queryParameters['groupid'] = groupid;
     path = path.replaceAll('{userId}', Uri.encodeQueryComponent(userId));
     headers['OCS-APIRequest'] = oCSAPIRequest;
-    final response = await rootClient.doRequest(
+    final response = await _rootClient.doRequest(
       'delete',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
       headers,
@@ -1884,20 +1923,21 @@ class ProvisioningApiUsersClient {
     };
     Uint8List? body;
     // coverage:ignore-start
-    if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+    if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
-        rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
+        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
       );
-    } else if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers
-          .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
+    } else if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
+      headers.addAll(
+        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers,
+      );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
     // coverage:ignore-end
     path = path.replaceAll('{userId}', Uri.encodeQueryComponent(userId));
     headers['OCS-APIRequest'] = oCSAPIRequest;
-    final response = await rootClient.doRequest(
+    final response = await _rootClient.doRequest(
       'get',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
       headers,
@@ -1927,13 +1967,14 @@ class ProvisioningApiUsersClient {
     };
     Uint8List? body;
     // coverage:ignore-start
-    if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+    if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
-        rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
+        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
       );
-    } else if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers
-          .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
+    } else if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
+      headers.addAll(
+        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers,
+      );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
@@ -1941,7 +1982,7 @@ class ProvisioningApiUsersClient {
     queryParameters['groupid'] = groupid;
     path = path.replaceAll('{userId}', Uri.encodeQueryComponent(userId));
     headers['OCS-APIRequest'] = oCSAPIRequest;
-    final response = await rootClient.doRequest(
+    final response = await _rootClient.doRequest(
       'post',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
       headers,
@@ -1971,13 +2012,14 @@ class ProvisioningApiUsersClient {
     };
     Uint8List? body;
     // coverage:ignore-start
-    if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+    if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
-        rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
+        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
       );
-    } else if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers
-          .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
+    } else if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
+      headers.addAll(
+        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers,
+      );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
@@ -1985,7 +2027,7 @@ class ProvisioningApiUsersClient {
     queryParameters['groupid'] = groupid;
     path = path.replaceAll('{userId}', Uri.encodeQueryComponent(userId));
     headers['OCS-APIRequest'] = oCSAPIRequest;
-    final response = await rootClient.doRequest(
+    final response = await _rootClient.doRequest(
       'delete',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
       headers,
@@ -2012,20 +2054,21 @@ class ProvisioningApiUsersClient {
     };
     Uint8List? body;
     // coverage:ignore-start
-    if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+    if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
-        rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
+        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
       );
-    } else if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers
-          .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
+    } else if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
+      headers.addAll(
+        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers,
+      );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
     // coverage:ignore-end
     path = path.replaceAll('{userId}', Uri.encodeQueryComponent(userId));
     headers['OCS-APIRequest'] = oCSAPIRequest;
-    final response = await rootClient.doRequest(
+    final response = await _rootClient.doRequest(
       'post',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
       headers,

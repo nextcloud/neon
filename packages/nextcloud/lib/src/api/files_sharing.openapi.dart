@@ -82,9 +82,9 @@ class FilesSharingClient extends DynamiteClient {
 }
 
 class FilesSharingDeletedShareapiClient {
-  FilesSharingDeletedShareapiClient(this.rootClient);
+  FilesSharingDeletedShareapiClient(this._rootClient);
 
-  final FilesSharingClient rootClient;
+  final FilesSharingClient _rootClient;
 
   /// Get a list of all deleted shares
   Future<FilesSharingDeletedShareapiListResponse200ApplicationJson> list({final String oCSAPIRequest = 'true'}) async {
@@ -95,19 +95,20 @@ class FilesSharingDeletedShareapiClient {
     };
     Uint8List? body;
     // coverage:ignore-start
-    if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+    if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
-        rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
+        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
       );
-    } else if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers
-          .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
+    } else if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
+      headers.addAll(
+        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers,
+      );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
     // coverage:ignore-end
     headers['OCS-APIRequest'] = oCSAPIRequest;
-    final response = await rootClient.doRequest(
+    final response = await _rootClient.doRequest(
       'get',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
       headers,
@@ -134,20 +135,21 @@ class FilesSharingDeletedShareapiClient {
     };
     Uint8List? body;
     // coverage:ignore-start
-    if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+    if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
-        rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
+        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
       );
-    } else if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers
-          .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
+    } else if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
+      headers.addAll(
+        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers,
+      );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
     // coverage:ignore-end
     path = path.replaceAll('{id}', Uri.encodeQueryComponent(id));
     headers['OCS-APIRequest'] = oCSAPIRequest;
-    final response = await rootClient.doRequest(
+    final response = await _rootClient.doRequest(
       'post',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
       headers,
@@ -164,9 +166,9 @@ class FilesSharingDeletedShareapiClient {
 }
 
 class FilesSharingPublicPreviewClient {
-  FilesSharingPublicPreviewClient(this.rootClient);
+  FilesSharingPublicPreviewClient(this._rootClient);
 
-  final FilesSharingClient rootClient;
+  final FilesSharingClient _rootClient;
 
   /// Get a direct link preview for a shared file
   Future<Uint8List> directLink({
@@ -180,18 +182,19 @@ class FilesSharingPublicPreviewClient {
     };
     Uint8List? body;
     // coverage:ignore-start
-    if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+    if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
-        rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
+        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
       );
-    } else if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers
-          .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
+    } else if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
+      headers.addAll(
+        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers,
+      );
     }
     // coverage:ignore-end
     path = path.replaceAll('{token}', Uri.encodeQueryComponent(token));
     headers['OCS-APIRequest'] = oCSAPIRequest;
-    final response = await rootClient.doRequest(
+    final response = await _rootClient.doRequest(
       'get',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
       headers,
@@ -219,13 +222,14 @@ class FilesSharingPublicPreviewClient {
     };
     Uint8List? body;
     // coverage:ignore-start
-    if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+    if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
-        rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
+        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
       );
-    } else if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers
-          .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
+    } else if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
+      headers.addAll(
+        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers,
+      );
     }
     // coverage:ignore-end
     path = path.replaceAll('{token}', Uri.encodeQueryComponent(token));
@@ -242,7 +246,7 @@ class FilesSharingPublicPreviewClient {
       queryParameters['a'] = a.toString();
     }
     headers['OCS-APIRequest'] = oCSAPIRequest;
-    final response = await rootClient.doRequest(
+    final response = await _rootClient.doRequest(
       'get',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
       headers,
@@ -256,9 +260,9 @@ class FilesSharingPublicPreviewClient {
 }
 
 class FilesSharingRemoteClient {
-  FilesSharingRemoteClient(this.rootClient);
+  FilesSharingRemoteClient(this._rootClient);
 
-  final FilesSharingClient rootClient;
+  final FilesSharingClient _rootClient;
 
   /// Get a list of accepted remote shares
   Future<FilesSharingRemoteGetSharesResponse200ApplicationJson> getShares({final String oCSAPIRequest = 'true'}) async {
@@ -269,19 +273,20 @@ class FilesSharingRemoteClient {
     };
     Uint8List? body;
     // coverage:ignore-start
-    if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+    if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
-        rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
+        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
       );
-    } else if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers
-          .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
+    } else if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
+      headers.addAll(
+        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers,
+      );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
     // coverage:ignore-end
     headers['OCS-APIRequest'] = oCSAPIRequest;
-    final response = await rootClient.doRequest(
+    final response = await _rootClient.doRequest(
       'get',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
       headers,
@@ -307,19 +312,20 @@ class FilesSharingRemoteClient {
     };
     Uint8List? body;
     // coverage:ignore-start
-    if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+    if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
-        rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
+        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
       );
-    } else if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers
-          .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
+    } else if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
+      headers.addAll(
+        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers,
+      );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
     // coverage:ignore-end
     headers['OCS-APIRequest'] = oCSAPIRequest;
-    final response = await rootClient.doRequest(
+    final response = await _rootClient.doRequest(
       'get',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
       headers,
@@ -346,20 +352,21 @@ class FilesSharingRemoteClient {
     };
     Uint8List? body;
     // coverage:ignore-start
-    if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+    if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
-        rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
+        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
       );
-    } else if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers
-          .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
+    } else if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
+      headers.addAll(
+        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers,
+      );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
     // coverage:ignore-end
     path = path.replaceAll('{id}', Uri.encodeQueryComponent(id.toString()));
     headers['OCS-APIRequest'] = oCSAPIRequest;
-    final response = await rootClient.doRequest(
+    final response = await _rootClient.doRequest(
       'post',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
       headers,
@@ -386,20 +393,21 @@ class FilesSharingRemoteClient {
     };
     Uint8List? body;
     // coverage:ignore-start
-    if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+    if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
-        rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
+        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
       );
-    } else if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers
-          .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
+    } else if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
+      headers.addAll(
+        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers,
+      );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
     // coverage:ignore-end
     path = path.replaceAll('{id}', Uri.encodeQueryComponent(id.toString()));
     headers['OCS-APIRequest'] = oCSAPIRequest;
-    final response = await rootClient.doRequest(
+    final response = await _rootClient.doRequest(
       'delete',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
       headers,
@@ -426,20 +434,21 @@ class FilesSharingRemoteClient {
     };
     Uint8List? body;
     // coverage:ignore-start
-    if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+    if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
-        rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
+        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
       );
-    } else if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers
-          .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
+    } else if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
+      headers.addAll(
+        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers,
+      );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
     // coverage:ignore-end
     path = path.replaceAll('{id}', Uri.encodeQueryComponent(id.toString()));
     headers['OCS-APIRequest'] = oCSAPIRequest;
-    final response = await rootClient.doRequest(
+    final response = await _rootClient.doRequest(
       'get',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
       headers,
@@ -466,20 +475,21 @@ class FilesSharingRemoteClient {
     };
     Uint8List? body;
     // coverage:ignore-start
-    if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+    if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
-        rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
+        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
       );
-    } else if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers
-          .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
+    } else if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
+      headers.addAll(
+        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers,
+      );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
     // coverage:ignore-end
     path = path.replaceAll('{id}', Uri.encodeQueryComponent(id.toString()));
     headers['OCS-APIRequest'] = oCSAPIRequest;
-    final response = await rootClient.doRequest(
+    final response = await _rootClient.doRequest(
       'delete',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
       headers,
@@ -496,9 +506,9 @@ class FilesSharingRemoteClient {
 }
 
 class FilesSharingShareInfoClient {
-  FilesSharingShareInfoClient(this.rootClient);
+  FilesSharingShareInfoClient(this._rootClient);
 
-  final FilesSharingClient rootClient;
+  final FilesSharingClient _rootClient;
 
   /// Get the info about a share
   Future<FilesSharingShareInfo> info({
@@ -514,13 +524,14 @@ class FilesSharingShareInfoClient {
     };
     Uint8List? body;
     // coverage:ignore-start
-    if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+    if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
-        rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
+        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
       );
-    } else if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers
-          .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
+    } else if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
+      headers.addAll(
+        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers,
+      );
     }
     // coverage:ignore-end
     queryParameters['t'] = t;
@@ -533,7 +544,7 @@ class FilesSharingShareInfoClient {
     if (depth != -1) {
       queryParameters['depth'] = depth.toString();
     }
-    final response = await rootClient.doRequest(
+    final response = await _rootClient.doRequest(
       'post',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
       headers,
@@ -550,9 +561,9 @@ class FilesSharingShareInfoClient {
 }
 
 class FilesSharingShareapiClient {
-  FilesSharingShareapiClient(this.rootClient);
+  FilesSharingShareapiClient(this._rootClient);
 
-  final FilesSharingClient rootClient;
+  final FilesSharingClient _rootClient;
 
   /// Get shares of the current user
   Future<FilesSharingShareapiGetSharesResponse200ApplicationJson> getShares({
@@ -563,20 +574,21 @@ class FilesSharingShareapiClient {
     final String includeTags = 'false',
     final String oCSAPIRequest = 'true',
   }) async {
-    const path = '/ocs/v2.php/apps/files_sharing/api/v1/shares';
+    const path0 = '/ocs/v2.php/apps/files_sharing/api/v1/shares';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
     Uint8List? body;
     // coverage:ignore-start
-    if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+    if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
-        rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
+        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
       );
-    } else if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers
-          .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
+    } else if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
+      headers.addAll(
+        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers,
+      );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
@@ -597,9 +609,9 @@ class FilesSharingShareapiClient {
       queryParameters['include_tags'] = includeTags;
     }
     headers['OCS-APIRequest'] = oCSAPIRequest;
-    final response = await rootClient.doRequest(
+    final response = await _rootClient.doRequest(
       'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
+      Uri(path: path0, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
       headers,
       body,
     );
@@ -627,25 +639,28 @@ class FilesSharingShareapiClient {
     final String? attributes,
     final String oCSAPIRequest = 'true',
   }) async {
-    const path = '/ocs/v2.php/apps/files_sharing/api/v1/shares';
+    const path0 = '/ocs/v2.php/apps/files_sharing/api/v1/shares';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
     Uint8List? body;
     // coverage:ignore-start
-    if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+    if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
-        rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
+        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
       );
-    } else if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers
-          .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
+    } else if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
+      headers.addAll(
+        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers,
+      );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
     // coverage:ignore-end
-    queryParameters['path'] = path;
+    if (path != null) {
+      queryParameters['path'] = path;
+    }
     if (permissions != null) {
       queryParameters['permissions'] = permissions.toString();
     }
@@ -677,9 +692,9 @@ class FilesSharingShareapiClient {
       queryParameters['attributes'] = attributes;
     }
     headers['OCS-APIRequest'] = oCSAPIRequest;
-    final response = await rootClient.doRequest(
+    final response = await _rootClient.doRequest(
       'post',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
+      Uri(path: path0, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
       headers,
       body,
     );
@@ -697,29 +712,30 @@ class FilesSharingShareapiClient {
     required final String path,
     final String oCSAPIRequest = 'true',
   }) async {
-    const path = '/ocs/v2.php/apps/files_sharing/api/v1/shares/inherited';
+    const path0 = '/ocs/v2.php/apps/files_sharing/api/v1/shares/inherited';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
     Uint8List? body;
     // coverage:ignore-start
-    if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+    if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
-        rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
+        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
       );
-    } else if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers
-          .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
+    } else if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
+      headers.addAll(
+        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers,
+      );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
     // coverage:ignore-end
     queryParameters['path'] = path;
     headers['OCS-APIRequest'] = oCSAPIRequest;
-    final response = await rootClient.doRequest(
+    final response = await _rootClient.doRequest(
       'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
+      Uri(path: path0, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
       headers,
       body,
     );
@@ -743,19 +759,20 @@ class FilesSharingShareapiClient {
     };
     Uint8List? body;
     // coverage:ignore-start
-    if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+    if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
-        rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
+        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
       );
-    } else if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers
-          .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
+    } else if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
+      headers.addAll(
+        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers,
+      );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
     // coverage:ignore-end
     headers['OCS-APIRequest'] = oCSAPIRequest;
-    final response = await rootClient.doRequest(
+    final response = await _rootClient.doRequest(
       'get',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
       headers,
@@ -783,13 +800,14 @@ class FilesSharingShareapiClient {
     };
     Uint8List? body;
     // coverage:ignore-start
-    if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+    if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
-        rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
+        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
       );
-    } else if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers
-          .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
+    } else if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
+      headers.addAll(
+        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers,
+      );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
@@ -799,7 +817,7 @@ class FilesSharingShareapiClient {
       queryParameters['include_tags'] = includeTags.toString();
     }
     headers['OCS-APIRequest'] = oCSAPIRequest;
-    final response = await rootClient.doRequest(
+    final response = await _rootClient.doRequest(
       'get',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
       headers,
@@ -835,13 +853,14 @@ class FilesSharingShareapiClient {
     };
     Uint8List? body;
     // coverage:ignore-start
-    if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+    if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
-        rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
+        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
       );
-    } else if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers
-          .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
+    } else if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
+      headers.addAll(
+        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers,
+      );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
@@ -875,7 +894,7 @@ class FilesSharingShareapiClient {
       queryParameters['attributes'] = attributes;
     }
     headers['OCS-APIRequest'] = oCSAPIRequest;
-    final response = await rootClient.doRequest(
+    final response = await _rootClient.doRequest(
       'put',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
       headers,
@@ -902,20 +921,21 @@ class FilesSharingShareapiClient {
     };
     Uint8List? body;
     // coverage:ignore-start
-    if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+    if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
-        rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
+        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
       );
-    } else if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers
-          .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
+    } else if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
+      headers.addAll(
+        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers,
+      );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
     // coverage:ignore-end
     path = path.replaceAll('{id}', Uri.encodeQueryComponent(id));
     headers['OCS-APIRequest'] = oCSAPIRequest;
-    final response = await rootClient.doRequest(
+    final response = await _rootClient.doRequest(
       'delete',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
       headers,
@@ -942,20 +962,21 @@ class FilesSharingShareapiClient {
     };
     Uint8List? body;
     // coverage:ignore-start
-    if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+    if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
-        rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
+        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
       );
-    } else if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers
-          .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
+    } else if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
+      headers.addAll(
+        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers,
+      );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
     // coverage:ignore-end
     path = path.replaceAll('{id}', Uri.encodeQueryComponent(id));
     headers['OCS-APIRequest'] = oCSAPIRequest;
-    final response = await rootClient.doRequest(
+    final response = await _rootClient.doRequest(
       'post',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
       headers,
@@ -972,9 +993,9 @@ class FilesSharingShareapiClient {
 }
 
 class FilesSharingShareesapiClient {
-  FilesSharingShareesapiClient(this.rootClient);
+  FilesSharingShareesapiClient(this._rootClient);
 
-  final FilesSharingClient rootClient;
+  final FilesSharingClient _rootClient;
 
   /// Search for sharees
   Future<
@@ -995,13 +1016,14 @@ class FilesSharingShareesapiClient {
     };
     Uint8List? body;
     // coverage:ignore-start
-    if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+    if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
-        rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
+        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
       );
-    } else if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers
-          .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
+    } else if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
+      headers.addAll(
+        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers,
+      );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
@@ -1028,7 +1050,7 @@ class FilesSharingShareesapiClient {
       queryParameters['lookup'] = lookup.toString();
     }
     headers['OCS-APIRequest'] = oCSAPIRequest;
-    final response = await rootClient.doRequest(
+    final response = await _rootClient.doRequest(
       'get',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
       headers,
@@ -1063,13 +1085,14 @@ class FilesSharingShareesapiClient {
     };
     Uint8List? body;
     // coverage:ignore-start
-    if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+    if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
-        rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
+        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
       );
-    } else if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers
-          .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
+    } else if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
+      headers.addAll(
+        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers,
+      );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
@@ -1082,7 +1105,7 @@ class FilesSharingShareesapiClient {
       );
     }
     headers['OCS-APIRequest'] = oCSAPIRequest;
-    final response = await rootClient.doRequest(
+    final response = await _rootClient.doRequest(
       'get',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
       headers,

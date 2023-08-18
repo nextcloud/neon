@@ -75,9 +75,9 @@ class SettingsClient extends DynamiteClient {
 }
 
 class SettingsLogSettingsClient {
-  SettingsLogSettingsClient(this.rootClient);
+  SettingsLogSettingsClient(this._rootClient);
 
-  final SettingsClient rootClient;
+  final SettingsClient _rootClient;
 
   /// download logfile
   ///
@@ -90,18 +90,19 @@ class SettingsLogSettingsClient {
     };
     Uint8List? body;
     // coverage:ignore-start
-    if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+    if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
       headers.addAll(
-        rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
+        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
       );
-    } else if (rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
-      headers
-          .addAll(rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers);
+    } else if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
+      headers.addAll(
+        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers,
+      );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
     // coverage:ignore-end
-    final response = await rootClient.doRequest(
+    final response = await _rootClient.doRequest(
       'get',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
       headers,
