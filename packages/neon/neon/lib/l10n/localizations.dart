@@ -269,6 +269,12 @@ abstract class AppLocalizations {
   /// **'Invalid QR-Code provided'**
   String get errorInvalidQrcode;
 
+  /// No description provided for @errorRouteNotFound.
+  ///
+  /// In en, this message translates to:
+  /// **'Route not found: {route}'**
+  String errorRouteNotFound(String route);
+
   /// No description provided for @actionYes.
   ///
   /// In en, this message translates to:

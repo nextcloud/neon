@@ -124,6 +124,11 @@ class AppLocalizationsEn extends AppLocalizations {
   String get errorInvalidQrcode => 'Invalid QR-Code provided';
 
   @override
+  String errorRouteNotFound(String route) {
+    return 'Route not found: $route';
+  }
+
+  @override
   String get actionYes => 'Yes';
 
   @override
