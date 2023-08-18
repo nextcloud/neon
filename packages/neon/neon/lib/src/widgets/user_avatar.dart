@@ -8,7 +8,6 @@ import 'package:neon/src/bloc/result.dart';
 import 'package:neon/src/bloc/result_builder.dart';
 import 'package:neon/src/blocs/accounts.dart';
 import 'package:neon/src/models/account.dart';
-import 'package:neon/src/theme/colors.dart';
 import 'package:neon/src/widgets/cached_image.dart';
 import 'package:nextcloud/nextcloud.dart';
 import 'package:provider/provider.dart';

@@ -52,6 +52,7 @@ dependencies:
   unifiedpush: ^5.0.0
   unifiedpush_android: ^2.1.2
   url_launcher: ^6.1.11
+  vector_graphics: ^1.1.7
   window_manager: ^0.3.2
   xdg_directories: ^1.0.0
   xml: ^6.3.0
@@ -66,8 +67,10 @@ dev_dependencies:
       url: https://github.com/nextcloud/neon
       path: packages/neon_lints
   test: ^1.24.3
+  vector_graphics_compiler: ^1.1.7
 
 flutter:
   uses-material-design: true
   assets:
     - assets/
+    - assets/icons/server/
