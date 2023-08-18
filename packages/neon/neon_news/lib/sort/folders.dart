@@ -6,8 +6,12 @@ final foldersSortBox = SortBox<FoldersSortProperty, FolderFeedsWrapper>(
     FoldersSortProperty.unreadCount: (final folderFeedsWrapper) => folderFeedsWrapper.$3,
   },
   {
-    FoldersSortProperty.alphabetical: Box(FoldersSortProperty.unreadCount, SortBoxOrder.descending),
-    FoldersSortProperty.unreadCount: Box(FoldersSortProperty.alphabetical, SortBoxOrder.ascending),
+    FoldersSortProperty.alphabetical: {
+      Box(FoldersSortProperty.unreadCount, SortBoxOrder.descending),
+    },
+    FoldersSortProperty.unreadCount: {
+      Box(FoldersSortProperty.alphabetical, SortBoxOrder.ascending),
+    },
   },
 );
 

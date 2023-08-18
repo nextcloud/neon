@@ -7,7 +7,11 @@ final articlesSortBox = SortBox<ArticlesSortProperty, NewsArticle>(
     ArticlesSortProperty.byFeed: (final article) => article.feedId,
   },
   {
-    ArticlesSortProperty.alphabetical: Box(ArticlesSortProperty.publishDate, SortBoxOrder.descending),
-    ArticlesSortProperty.byFeed: Box(ArticlesSortProperty.alphabetical, SortBoxOrder.ascending),
+    ArticlesSortProperty.alphabetical: {
+      Box(ArticlesSortProperty.publishDate, SortBoxOrder.descending),
+    },
+    ArticlesSortProperty.byFeed: {
+      Box(ArticlesSortProperty.alphabetical, SortBoxOrder.ascending),
+    },
   },
 );
