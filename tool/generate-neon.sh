@@ -2,7 +2,7 @@
 set -euxo pipefail
 cd "$(dirname "$0")/.."
 
-color="#f37736"
+color="#0082C9"
 
 function copy_nextcloud_app_svg() {
   id="$1"

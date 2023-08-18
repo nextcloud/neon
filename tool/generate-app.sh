@@ -7,7 +7,9 @@ function export_mipmap_icon() {
     name="$2"
     size="$3"
     dpi="$4"
-    inkscape "$source" -o "android/app/src/main/res/mipmap-${dpi}dpi/$name.png" -w "$size" -h "$size"
+    until inkscape "$source" -o "android/app/src/main/res/mipmap-${dpi}dpi/$name.png" -w "$size" -h "$size"; do
+      true
+    done
 }
 
 function export_mipmap_icon_all() {
