@@ -160,16 +160,12 @@ class FilesBloc extends InteractiveBloc implements FilesBlocEvents, FilesBlocSta
   void uploadFile(final List<String> path, final String localPath) {
     wrapAction(
       () async {
-        final file = File(localPath);
-        // ignore: avoid_slow_async_io
-        final stat = await file.stat();
         final task = FilesUploadTask(
           path: path,
-          size: stat.size,
-          lastModified: stat.modified,
+          file: File(localPath),
         );
         tasks.add(tasks.value..add(task));
-        await _uploadQueue.add(() => task.execute(account.client, file.openRead()));
+        await _uploadQueue.add(() => task.execute(account.client));
         tasks.add(tasks.value..remove(task));
       },
       disableTimeout: true,
@@ -180,17 +176,13 @@ class FilesBloc extends InteractiveBloc implements FilesBlocEvents, FilesBlocSta
     final List<String> path,
     final File file,
   ) async {
-    final sink = file.openWrite();
-    try {
-      final task = FilesDownloadTask(
-        path: path,
-      );
-      tasks.add(tasks.value..add(task));
-      await _downloadQueue.add(() => task.execute(account.client, sink));
-      tasks.add(tasks.value..remove(task));
-    } finally {
-      await sink.close();
-    }
+    final task = FilesDownloadTask(
+      path: path,
+      file: file,
+    );
+    tasks.add(tasks.value..add(task));
+    await _downloadQueue.add(() => task.execute(account.client));
+    tasks.add(tasks.value..remove(task));
   }
 
   FilesBrowserBloc getNewFilesBrowserBloc() => FilesBrowserBloc(_requestManager, options, account);
