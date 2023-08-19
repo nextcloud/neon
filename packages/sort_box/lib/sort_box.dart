@@ -9,15 +9,14 @@ class SortBox<T extends Enum, R> {
   );
 
   final Map<T, ComparableGetter<R>> _properties;
-  final Map<T, Set<Box<T>>> _boxes;
+  final Map<T, Set<(T property, SortBoxOrder order)>> _boxes;
 
-  List<R> sort(final List<R> input, final Box<T> box) {
+  List<R> sort(final List<R> input, final (T property, SortBoxOrder order) box) {
     if (input.length <= 1) {
       return input;
     }
 
-    final sorted = input
-      ..sort((final item1, final item2) => _compare(item1, item2, box, _boxes[box.property]?.iterator));
+    final sorted = input..sort((final item1, final item2) => _compare(item1, item2, box, _boxes[box.$1]?.iterator));
 
     return sorted;
   }
@@ -25,16 +24,19 @@ class SortBox<T extends Enum, R> {
   int _compare(
     final R item1,
     final R item2,
-    final Box<T> box,
-    final Iterator<Box<T>>? iterator,
+    final (T property, SortBoxOrder order) box,
+    final Iterator<(T property, SortBoxOrder order)>? iterator,
   ) {
-    final comparableGetter = _properties[box.property]!;
+    final (property, sortBoxOrder) = box;
+    final comparableGetter = _properties[property]!;
 
     final comparable1 = comparableGetter(item1);
     final comparable2 = comparableGetter(item2);
 
-    final order =
-        box.order == SortBoxOrder.ascending ? comparable1.compareTo(comparable2) : comparable2.compareTo(comparable1);
+    final order = switch (sortBoxOrder) {
+      SortBoxOrder.ascending => comparable1.compareTo(comparable2),
+      SortBoxOrder.descending => comparable2.compareTo(comparable1),
+    };
 
     if (order == 0 && iterator != null && iterator.moveNext()) {
       return _compare(item1, item2, iterator.current, iterator);
@@ -47,14 +49,4 @@ class SortBox<T extends Enum, R> {
 enum SortBoxOrder {
   ascending,
   descending,
-}
-
-class Box<T extends Enum> {
-  Box(
-    this.property,
-    this.order,
-  );
-
-  final T property;
-  final SortBoxOrder order;
 }

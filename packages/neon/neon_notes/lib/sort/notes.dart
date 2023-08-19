@@ -7,7 +7,7 @@ final notesSortBox = SortBox<NotesSortProperty, NotesNote>(
   },
   {
     NotesSortProperty.alphabetical: {
-      Box(NotesSortProperty.lastModified, SortBoxOrder.descending),
+      (NotesSortProperty.lastModified, SortBoxOrder.descending),
     },
   },
 );

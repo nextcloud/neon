@@ -7,10 +7,10 @@ final foldersSortBox = SortBox<FoldersSortProperty, FolderFeedsWrapper>(
   },
   {
     FoldersSortProperty.alphabetical: {
-      Box(FoldersSortProperty.unreadCount, SortBoxOrder.descending),
+      (FoldersSortProperty.unreadCount, SortBoxOrder.descending),
     },
     FoldersSortProperty.unreadCount: {
-      Box(FoldersSortProperty.alphabetical, SortBoxOrder.ascending),
+      (FoldersSortProperty.alphabetical, SortBoxOrder.ascending),
     },
   },
 );
