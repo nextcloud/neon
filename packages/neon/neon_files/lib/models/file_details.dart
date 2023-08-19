@@ -29,8 +29,8 @@ class FileDetails {
   FileDetails.fromUploadTask({
     required FilesUploadTask this.task,
   })  : path = task.path,
-        size = task.size,
-        lastModified = task.lastModified,
+        size = task.stat.size,
+        lastModified = task.stat.modified,
         isDirectory = false,
         etag = null,
         mimeType = null,

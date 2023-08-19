@@ -187,7 +187,7 @@ class WebDavClient {
     return putStream(
       file.openRead().map((final chunk) {
         uploaded += chunk.length;
-        onProgress?.call(uploaded / fileStat.size * 100);
+        onProgress?.call(uploaded / fileStat.size);
         return Uint8List.fromList(chunk);
       }),
       path,
@@ -221,7 +221,7 @@ class WebDavClient {
       response.listen((final chunk) async {
         sink.add(chunk);
         downloaded += chunk.length;
-        onProgress?.call(downloaded / response.contentLength * 100);
+        onProgress?.call(downloaded / response.contentLength);
         if (downloaded >= response.contentLength) {
           completer.complete();
         }

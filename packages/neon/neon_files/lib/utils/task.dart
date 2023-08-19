@@ -3,9 +3,12 @@ part of '../neon_files.dart';
 sealed class FilesTask {
   FilesTask({
     required this.path,
+    required this.file,
   });
 
   final List<String> path;
+
+  final File file;
 
   @protected
   final streamController = StreamController<double>();
@@ -17,50 +20,38 @@ sealed class FilesTask {
 class FilesDownloadTask extends FilesTask {
   FilesDownloadTask({
     required super.path,
+    required super.file,
   });
 
-  Future execute(final NextcloudClient client, final IOSink sink) async {
-    final completer = Completer();
-
-    final response = await client.webdav.getStream(path.join('/'));
-    var downloaded = 0;
-
-    response.listen((final chunk) async {
-      sink.add(chunk);
-
-      downloaded += chunk.length;
-      streamController.add(downloaded / response.contentLength);
-
-      if (downloaded >= response.contentLength) {
-        completer.complete();
-      }
-    });
-
-    return completer.future;
+  Future execute(final NextcloudClient client) async {
+    await client.webdav.getFile(
+      path.join('/'),
+      file,
+      onProgress: (final progress) {
+        streamController.add(progress);
+      },
+    );
   }
 }
 
 class FilesUploadTask extends FilesTask {
   FilesUploadTask({
     required super.path,
-    required this.size,
-    required this.lastModified,
+    required super.file,
   });
 
-  final int size;
-  final DateTime lastModified;
+  FileStat? _stat;
+  FileStat get stat => _stat ??= file.statSync();
 
-  Future execute(final NextcloudClient client, final Stream<List<int>> stream) async {
-    var uploaded = 0;
-    await client.webdav.putStream(
-      stream.map((final chunk) {
-        uploaded += chunk.length;
-        streamController.add(uploaded / size);
-
-        return Uint8List.fromList(chunk);
-      }),
+  Future execute(final NextcloudClient client) async {
+    await client.webdav.putFile(
+      file,
+      stat,
       path.join('/'),
-      lastModified: lastModified,
+      lastModified: stat.modified,
+      onProgress: (final progress) {
+        streamController.add(progress);
+      },
     );
   }
 }
