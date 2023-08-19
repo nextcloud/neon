@@ -4,27 +4,25 @@ import 'package:material_design_icons_flutter/material_design_icons_flutter.dart
 import 'package:neon/widgets.dart';
 import 'package:neon_files/neon_files.dart';
 import 'package:neon_files/widgets/actions.dart';
-import 'package:provider/provider.dart';
 
 class FileListTile extends StatelessWidget {
   const FileListTile({
-    required this.context,
+    required this.bloc,
+    required this.browserBloc,
     required this.details,
     this.enableFileActions = true,
     this.onPickFile,
     super.key,
   });
 
-  final BuildContext context;
+  final FilesBloc bloc;
+  final FilesBrowserBloc browserBloc;
   final FileDetails details;
   final bool enableFileActions;
   final Function(FileDetails)? onPickFile;
 
   @override
   Widget build(final BuildContext context) {
-    final bloc = Provider.of<FilesBloc>(context);
-    final browserBloc = bloc.browser;
-
     // When the ETag is null it means we are uploading this file right now
     final onTap = details.isDirectory || details.etag != null
         ? () {
@@ -63,6 +61,7 @@ class FileListTile extends StatelessWidget {
       ),
       leading: _FileIcon(
         details: details,
+        bloc: bloc,
       ),
       trailing: !details.hasTask && enableFileActions
           ? FileActions(details: details)
@@ -76,14 +75,14 @@ class FileListTile extends StatelessWidget {
 class _FileIcon extends StatelessWidget {
   const _FileIcon({
     required this.details,
+    required this.bloc,
   });
 
   final FileDetails details;
+  final FilesBloc bloc;
 
   @override
   Widget build(final BuildContext context) {
-    final bloc = Provider.of<FilesBloc>(context);
-
     Widget icon = Center(
       child: details.hasTask
           ? StreamBuilder<double>(
