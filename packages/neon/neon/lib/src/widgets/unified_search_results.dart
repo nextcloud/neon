@@ -36,7 +36,7 @@ class NeonUnifiedSearchResults extends StatelessWidget {
           isLoading: results.isLoading,
           error: results.error,
           onRefresh: bloc.refresh,
-          itemCount: values?.length,
+          itemCount: values?.length ?? 0,
           itemBuilder: (final context, final index) {
             final snapshot = values![index];
 

@@ -120,7 +120,7 @@ class _FilesBrowserViewState extends State<FilesBrowserView> {
                             error: files.error,
                             onRefresh: widget.bloc.refresh,
                             topScrollingChildren: [
-                              FileBrowserNavigator(
+                              FilesBrowserNavigator(
                                 path: pathSnapshot.requireData,
                                 bloc: widget.bloc,
                               ),
@@ -137,73 +137,5 @@ class _FilesBrowserViewState extends State<FilesBrowserView> {
   bool _pathMatchesFile(final List<String> path, final String name) => const ListEquality<String>().equals(
         [...widget.bloc.path.value, name],
         path,
-      );
-}
-
-class FileBrowserNavigator extends StatelessWidget {
-  const FileBrowserNavigator({
-    required this.path,
-    required this.bloc,
-    super.key,
-  });
-
-  final List<String> path;
-  final FilesBrowserBloc bloc;
-
-  @override
-  Widget build(final BuildContext context) => Align(
-        alignment: Alignment.topLeft,
-        child: Container(
-          margin: const EdgeInsets.symmetric(
-            horizontal: 10,
-          ),
-          child: Wrap(
-            crossAxisAlignment: WrapCrossAlignment.center,
-            children: <Widget>[
-              IconButton(
-                padding: EdgeInsets.zero,
-                visualDensity: const VisualDensity(
-                  horizontal: VisualDensity.minimumDensity,
-                  vertical: VisualDensity.minimumDensity,
-                ),
-                tooltip: AppLocalizations.of(context).goToPath(''),
-                icon: const Icon(
-                  Icons.house,
-                  size: 30,
-                ),
-                onPressed: () {
-                  bloc.setPath([]);
-                },
-              ),
-              for (var i = 0; i < path.length; i++) ...[
-                Builder(
-                  builder: (final context) {
-                    final path = this.path.sublist(0, i + 1);
-                    return Tooltip(
-                      message: AppLocalizations.of(context).goToPath(path.join('/')),
-                      excludeFromSemantics: true,
-                      child: TextButton(
-                        onPressed: () {
-                          bloc.setPath(path);
-                        },
-                        child: Text(
-                          this.path[i],
-                          semanticsLabel: AppLocalizations.of(context).goToPath(path.join('/')),
-                        ),
-                      ),
-                    );
-                  },
-                ),
-              ],
-            ]
-                .intersperse(
-                  const Icon(
-                    Icons.keyboard_arrow_right,
-                    size: 30,
-                  ),
-                )
-                .toList(),
-          ),
-        ),
       );
 }
