@@ -39,7 +39,7 @@ class FilePreview extends StatelessWidget {
 
           return ValueListenableBuilder<bool>(
             valueListenable: bloc.options.showPreviewsOption,
-            builder: (final context, final showPreviews, final child) {
+            builder: (final context, final showPreviews, final _) {
               if (showPreviews && (details.hasPreview ?? false)) {
                 final preview = FilePreviewImage(
                   file: details,
@@ -56,13 +56,12 @@ class FilePreview extends StatelessWidget {
                 return preview;
               }
 
-              return child!;
+              return FileIcon(
+                details.name,
+                color: color,
+                size: size.shortestSide,
+              );
             },
-            child: FileIcon(
-              details.name,
-              color: color,
-              size: size.shortestSide,
-            ),
           );
         },
       ),
