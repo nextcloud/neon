@@ -8,8 +8,8 @@ import 'package:neon/src/bloc/result.dart';
 import 'package:neon/src/bloc/result_builder.dart';
 import 'package:neon/src/blocs/accounts.dart';
 import 'package:neon/src/models/account.dart';
-import 'package:neon/src/theme/colors.dart';
 import 'package:neon/src/widgets/cached_image.dart';
+import 'package:neon/src/widgets/server_icon.dart';
 import 'package:nextcloud/nextcloud.dart';
 import 'package:provider/provider.dart';
 import 'package:rxdart/rxdart.dart';
@@ -97,10 +97,9 @@ class _UserAvatarState extends State<NeonUserAvatar> {
 
   Widget _userStatusIconBuilder(final BuildContext context, final Result<UserStatusPublic?> result) {
     final hasEmoji = result.data?.icon != null;
-    final scaledSize = size / (hasEmoji ? 2 : 3);
+    final scaledSize = size / (hasEmoji ? 2 : 2.5);
 
     Widget? child;
-    Decoration? decoration;
     if (result.isLoading) {
       child = CircularProgressIndicator(
         strokeWidth: 1.5,
@@ -120,20 +119,16 @@ class _UserAvatarState extends State<NeonUserAvatar> {
         ),
       );
     } else if (result.hasData) {
-      decoration = BoxDecoration(
-        shape: BoxShape.circle,
-        color: result.data!.color,
-      );
+      child = NeonServerIcon(icon: 'user-status-${result.data!.status}');
     }
 
     return SizedBox.square(
       dimension: size,
       child: Align(
         alignment: Alignment.bottomRight,
-        child: Container(
+        child: SizedBox(
           width: scaledSize,
           height: scaledSize,
-          decoration: decoration,
           child: child,
         ),
       ),
