@@ -45,17 +45,12 @@ void main() {
       final capabilities = await client.core.ocs.getCapabilities();
       expect(capabilities.ocs.data.version.major, coreSupportedVersion);
       expect(capabilities.ocs.data.version.string, startsWith('$coreSupportedVersion.'));
-      expect(capabilities.ocs.data.capabilities.theming!.name, 'Nextcloud');
-      expect(capabilities.ocs.data.capabilities.theming!.url, 'https://nextcloud.com');
-      expect(capabilities.ocs.data.capabilities.theming!.slogan, 'a safe home for all your data');
-      expect(capabilities.ocs.data.capabilities.theming!.color, '#0082c9');
-      expect(capabilities.ocs.data.capabilities.theming!.colorText, '#ffffff');
-      expect(capabilities.ocs.data.capabilities.theming!.logo, isNotEmpty);
-      expect(capabilities.ocs.data.capabilities.theming!.background, isNotEmpty);
-      expect(capabilities.ocs.data.capabilities.theming!.backgroundPlain, false);
-      expect(capabilities.ocs.data.capabilities.theming!.backgroundDefault, true);
-      expect(capabilities.ocs.data.capabilities.theming!.logoheader, isNotEmpty);
-      expect(capabilities.ocs.data.capabilities.theming!.favicon, isNotEmpty);
+      expect(capabilities.ocs.data.capabilities.filesSharingCapabilities, isNotNull);
+      expect(capabilities.ocs.data.capabilities.notesCapabilities, isNotNull);
+      expect(capabilities.ocs.data.capabilities.notificationsCapabilities, isNotNull);
+      expect(capabilities.ocs.data.capabilities.provisioningApiCapabilities, isNotNull);
+      expect(capabilities.ocs.data.capabilities.themingPublicCapabilities, isNotNull);
+      expect(capabilities.ocs.data.capabilities.userStatusCapabilities, isNotNull);
     });
 
     test('Get navigation apps', () async {

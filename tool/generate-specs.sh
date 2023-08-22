@@ -23,7 +23,7 @@ done
 
 jq \
   -s \
-  '.[0] * {paths: {"/ocs/v2.php/cloud/capabilities": {get: {responses: .[1].paths."/ocs/v2.php/cloud/capabilities".get.responses}}}}' \
+  '.[0] * {components: {schemas: .[1].components.schemas | with_entries(select(.key | endswith("Capabilities")))}, paths: {"/ocs/v2.php/cloud/capabilities": {get: {responses: .[1].paths."/ocs/v2.php/cloud/capabilities".get.responses}}}}' \
   packages/nextcloud/lib/src/api/core.openapi.json \
   /tmp/nextcloud-neon/merged.json \
   > /tmp/nextcloud-neon/core.json

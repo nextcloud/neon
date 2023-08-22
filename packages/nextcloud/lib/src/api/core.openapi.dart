@@ -1057,6 +1057,7 @@ class CorePreviewClient {
     final int a = 0,
     final int forceIcon = 1,
     final String mode = 'fill',
+    final int mimeFallback = 0,
   }) async {
     const path = '/index.php/core/preview';
     final queryParameters = <String, dynamic>{};
@@ -1095,6 +1096,9 @@ class CorePreviewClient {
     if (mode != 'fill') {
       queryParameters['mode'] = mode;
     }
+    if (mimeFallback != 0) {
+      queryParameters['mimeFallback'] = mimeFallback.toString();
+    }
     final response = await _rootClient.doRequest(
       'get',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
@@ -1115,6 +1119,7 @@ class CorePreviewClient {
     final int a = 0,
     final int forceIcon = 1,
     final String mode = 'fill',
+    final int mimeFallback = 0,
   }) async {
     const path = '/index.php/core/preview.png';
     final queryParameters = <String, dynamic>{};
@@ -1152,6 +1157,9 @@ class CorePreviewClient {
     }
     if (mode != 'fill') {
       queryParameters['mode'] = mode;
+    }
+    if (mimeFallback != 0) {
+      queryParameters['mimeFallback'] = mimeFallback.toString();
     }
     final response = await _rootClient.doRequest(
       'get',
@@ -1604,6 +1612,92 @@ class CoreTextProcessingApiClient {
         await response.jsonBody,
         specifiedType: const FullType(CoreTextProcessingApiGetTaskResponse200ApplicationJson),
       )! as CoreTextProcessingApiGetTaskResponse200ApplicationJson;
+    }
+    throw await CoreApiException.fromResponse(response); // coverage:ignore-line
+  }
+
+  /// This endpoint allows to delete a scheduled task for a user
+  Future<CoreTextProcessingApiDeleteTaskResponse200ApplicationJson> deleteTask({
+    required final int id,
+    final String oCSAPIRequest = 'true',
+  }) async {
+    var path = '/ocs/v2.php/textprocessing/task/{id}';
+    final queryParameters = <String, dynamic>{};
+    final headers = <String, String>{
+      'Accept': 'application/json',
+    };
+    Uint8List? body;
+    // coverage:ignore-start
+    if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+      headers.addAll(
+        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
+      );
+    } else if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
+      headers.addAll(
+        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers,
+      );
+    } else {
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
+    }
+    // coverage:ignore-end
+    path = path.replaceAll('{id}', Uri.encodeQueryComponent(id.toString()));
+    headers['OCS-APIRequest'] = oCSAPIRequest;
+    final response = await _rootClient.doRequest(
+      'delete',
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
+      headers,
+      body,
+    );
+    if (response.statusCode == 200) {
+      return _jsonSerializers.deserialize(
+        await response.jsonBody,
+        specifiedType: const FullType(CoreTextProcessingApiDeleteTaskResponse200ApplicationJson),
+      )! as CoreTextProcessingApiDeleteTaskResponse200ApplicationJson;
+    }
+    throw await CoreApiException.fromResponse(response); // coverage:ignore-line
+  }
+
+  /// This endpoint returns a list of tasks of a user that are related with a specific appId and optionally with an identifier
+  Future<CoreTextProcessingApiListTasksByAppResponse200ApplicationJson> listTasksByApp({
+    required final String appId,
+    final String? identifier,
+    final String oCSAPIRequest = 'true',
+  }) async {
+    var path = '/ocs/v2.php/textprocessing/tasks/app/{appId}';
+    final queryParameters = <String, dynamic>{};
+    final headers = <String, String>{
+      'Accept': 'application/json',
+    };
+    Uint8List? body;
+    // coverage:ignore-start
+    if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'bearer').isNotEmpty) {
+      headers.addAll(
+        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'bearer').headers,
+      );
+    } else if (_rootClient.authentications.where((final a) => a.type == 'http' && a.scheme == 'basic').isNotEmpty) {
+      headers.addAll(
+        _rootClient.authentications.singleWhere((final a) => a.type == 'http' && a.scheme == 'basic').headers,
+      );
+    } else {
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
+    }
+    // coverage:ignore-end
+    path = path.replaceAll('{appId}', Uri.encodeQueryComponent(appId));
+    if (identifier != null) {
+      queryParameters['identifier'] = identifier;
+    }
+    headers['OCS-APIRequest'] = oCSAPIRequest;
+    final response = await _rootClient.doRequest(
+      'get',
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
+      headers,
+      body,
+    );
+    if (response.statusCode == 200) {
+      return _jsonSerializers.deserialize(
+        await response.jsonBody,
+        specifiedType: const FullType(CoreTextProcessingApiListTasksByAppResponse200ApplicationJson),
+      )! as CoreTextProcessingApiListTasksByAppResponse200ApplicationJson;
     }
     throw await CoreApiException.fromResponse(response); // coverage:ignore-line
   }
@@ -3243,24 +3337,20 @@ abstract class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Version
       _$coreOcsGetCapabilitiesResponse200ApplicationJsonOcsDataVersionSerializer;
 }
 
-abstract class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_Password
+abstract class CoreFilesSharingCapabilities_FilesSharing_Public_Password
     implements
-        Built<CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_Password,
-            CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_PasswordBuilder> {
-  factory CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_Password([
-    final void Function(
-      CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_PasswordBuilder,
-    )? b,
-  ]) = _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_Password;
+        Built<CoreFilesSharingCapabilities_FilesSharing_Public_Password,
+            CoreFilesSharingCapabilities_FilesSharing_Public_PasswordBuilder> {
+  factory CoreFilesSharingCapabilities_FilesSharing_Public_Password([
+    final void Function(CoreFilesSharingCapabilities_FilesSharing_Public_PasswordBuilder)? b,
+  ]) = _$CoreFilesSharingCapabilities_FilesSharing_Public_Password;
 
   // coverage:ignore-start
-  const CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_Password._();
+  const CoreFilesSharingCapabilities_FilesSharing_Public_Password._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_Password.fromJson(
-    final Map<String, dynamic> json,
-  ) =>
+  factory CoreFilesSharingCapabilities_FilesSharing_Public_Password.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -3269,27 +3359,51 @@ abstract class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabil
   // coverage:ignore-end
   bool get enforced;
   bool get askForOptionalPassword;
-  static Serializer<CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_Password>
-      get serializer =>
-          _$coreOcsGetCapabilitiesResponse200ApplicationJsonOcsDataCapabilitiesFilesSharingPublicPasswordSerializer;
+  static Serializer<CoreFilesSharingCapabilities_FilesSharing_Public_Password> get serializer =>
+      _$coreFilesSharingCapabilitiesFilesSharingPublicPasswordSerializer;
 }
 
-abstract class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDate
+abstract class CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDate
     implements
-        Built<CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDate,
-            CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateBuilder> {
-  factory CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDate([
-    final void Function(
-      CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateBuilder,
-    )? b,
-  ]) = _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDate;
+        Built<CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDate,
+            CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateBuilder> {
+  factory CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDate([
+    final void Function(CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateBuilder)? b,
+  ]) = _$CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDate;
 
   // coverage:ignore-start
-  const CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDate._();
+  const CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDate._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDate.fromJson(
+  factory CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDate.fromJson(final Map<String, dynamic> json) =>
+      _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+  bool get enabled;
+  int? get days;
+  bool? get enforced;
+  static Serializer<CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDate> get serializer =>
+      _$coreFilesSharingCapabilitiesFilesSharingPublicExpireDateSerializer;
+}
+
+abstract class CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateInternal
+    implements
+        Built<CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateInternal,
+            CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateInternalBuilder> {
+  factory CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateInternal([
+    final void Function(CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateInternalBuilder)? b,
+  ]) = _$CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateInternal;
+
+  // coverage:ignore-start
+  const CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateInternal._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  factory CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateInternal.fromJson(
     final Map<String, dynamic> json,
   ) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
@@ -3301,31 +3415,24 @@ abstract class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabil
   bool get enabled;
   int? get days;
   bool? get enforced;
-  static Serializer<
-          CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDate>
-      get serializer =>
-          _$coreOcsGetCapabilitiesResponse200ApplicationJsonOcsDataCapabilitiesFilesSharingPublicExpireDateSerializer;
+  static Serializer<CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateInternal> get serializer =>
+      _$coreFilesSharingCapabilitiesFilesSharingPublicExpireDateInternalSerializer;
 }
 
-abstract class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternal
+abstract class CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateRemote
     implements
-        Built<
-            CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternal,
-            CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternalBuilder> {
-  factory CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternal([
-    final void Function(
-      CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternalBuilder,
-    )? b,
-  ]) = _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternal;
+        Built<CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateRemote,
+            CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateRemoteBuilder> {
+  factory CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateRemote([
+    final void Function(CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateRemoteBuilder)? b,
+  ]) = _$CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateRemote;
 
   // coverage:ignore-start
-  const CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternal._();
+  const CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateRemote._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternal.fromJson(
-    final Map<String, dynamic> json,
-  ) =>
+  factory CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateRemote.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -3335,31 +3442,24 @@ abstract class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabil
   bool get enabled;
   int? get days;
   bool? get enforced;
-  static Serializer<
-          CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternal>
-      get serializer =>
-          _$coreOcsGetCapabilitiesResponse200ApplicationJsonOcsDataCapabilitiesFilesSharingPublicExpireDateInternalSerializer;
+  static Serializer<CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateRemote> get serializer =>
+      _$coreFilesSharingCapabilitiesFilesSharingPublicExpireDateRemoteSerializer;
 }
 
-abstract class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemote
+abstract class CoreFilesSharingCapabilities_FilesSharing_Public
     implements
-        Built<
-            CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemote,
-            CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemoteBuilder> {
-  factory CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemote([
-    final void Function(
-      CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemoteBuilder,
-    )? b,
-  ]) = _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemote;
+        Built<CoreFilesSharingCapabilities_FilesSharing_Public,
+            CoreFilesSharingCapabilities_FilesSharing_PublicBuilder> {
+  factory CoreFilesSharingCapabilities_FilesSharing_Public([
+    final void Function(CoreFilesSharingCapabilities_FilesSharing_PublicBuilder)? b,
+  ]) = _$CoreFilesSharingCapabilities_FilesSharing_Public;
 
   // coverage:ignore-start
-  const CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemote._();
+  const CoreFilesSharingCapabilities_FilesSharing_Public._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemote.fromJson(
-    final Map<String, dynamic> json,
-  ) =>
+  factory CoreFilesSharingCapabilities_FilesSharing_Public.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -3367,78 +3467,38 @@ abstract class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabil
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
   bool get enabled;
-  int? get days;
-  bool? get enforced;
-  static Serializer<
-          CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemote>
-      get serializer =>
-          _$coreOcsGetCapabilitiesResponse200ApplicationJsonOcsDataCapabilitiesFilesSharingPublicExpireDateRemoteSerializer;
-}
-
-abstract class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public
-    implements
-        Built<CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public,
-            CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_PublicBuilder> {
-  factory CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public([
-    final void Function(
-      CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_PublicBuilder,
-    )? b,
-  ]) = _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public;
-
-  // coverage:ignore-start
-  const CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public._();
-  // coverage:ignore-end
-
-  // coverage:ignore-start
-  factory CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public.fromJson(
-    final Map<String, dynamic> json,
-  ) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-  bool get enabled;
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_Password? get password;
+  CoreFilesSharingCapabilities_FilesSharing_Public_Password? get password;
   @BuiltValueField(wireName: 'multiple_links')
   bool? get multipleLinks;
   @BuiltValueField(wireName: 'expire_date')
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDate? get expireDate;
+  CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDate? get expireDate;
   @BuiltValueField(wireName: 'expire_date_internal')
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternal?
-      get expireDateInternal;
+  CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateInternal? get expireDateInternal;
   @BuiltValueField(wireName: 'expire_date_remote')
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemote?
-      get expireDateRemote;
+  CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateRemote? get expireDateRemote;
   @BuiltValueField(wireName: 'send_mail')
   bool? get sendMail;
   bool? get upload;
   @BuiltValueField(wireName: 'upload_files_drop')
   bool? get uploadFilesDrop;
-  static Serializer<CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public>
-      get serializer =>
-          _$coreOcsGetCapabilitiesResponse200ApplicationJsonOcsDataCapabilitiesFilesSharingPublicSerializer;
+  static Serializer<CoreFilesSharingCapabilities_FilesSharing_Public> get serializer =>
+      _$coreFilesSharingCapabilitiesFilesSharingPublicSerializer;
 }
 
-abstract class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_User_ExpireDate
+abstract class CoreFilesSharingCapabilities_FilesSharing_User_ExpireDate
     implements
-        Built<CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_User_ExpireDate,
-            CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_User_ExpireDateBuilder> {
-  factory CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_User_ExpireDate([
-    final void Function(
-      CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_User_ExpireDateBuilder,
-    )? b,
-  ]) = _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_User_ExpireDate;
+        Built<CoreFilesSharingCapabilities_FilesSharing_User_ExpireDate,
+            CoreFilesSharingCapabilities_FilesSharing_User_ExpireDateBuilder> {
+  factory CoreFilesSharingCapabilities_FilesSharing_User_ExpireDate([
+    final void Function(CoreFilesSharingCapabilities_FilesSharing_User_ExpireDateBuilder)? b,
+  ]) = _$CoreFilesSharingCapabilities_FilesSharing_User_ExpireDate;
 
   // coverage:ignore-start
-  const CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_User_ExpireDate._();
+  const CoreFilesSharingCapabilities_FilesSharing_User_ExpireDate._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_User_ExpireDate.fromJson(
-    final Map<String, dynamic> json,
-  ) =>
+  factory CoreFilesSharingCapabilities_FilesSharing_User_ExpireDate.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -3446,29 +3506,23 @@ abstract class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabil
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
   bool get enabled;
-  static Serializer<CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_User_ExpireDate>
-      get serializer =>
-          _$coreOcsGetCapabilitiesResponse200ApplicationJsonOcsDataCapabilitiesFilesSharingUserExpireDateSerializer;
+  static Serializer<CoreFilesSharingCapabilities_FilesSharing_User_ExpireDate> get serializer =>
+      _$coreFilesSharingCapabilitiesFilesSharingUserExpireDateSerializer;
 }
 
-abstract class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_User
+abstract class CoreFilesSharingCapabilities_FilesSharing_User
     implements
-        Built<CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_User,
-            CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_UserBuilder> {
-  factory CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_User([
-    final void Function(
-      CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_UserBuilder,
-    )? b,
-  ]) = _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_User;
+        Built<CoreFilesSharingCapabilities_FilesSharing_User, CoreFilesSharingCapabilities_FilesSharing_UserBuilder> {
+  factory CoreFilesSharingCapabilities_FilesSharing_User([
+    final void Function(CoreFilesSharingCapabilities_FilesSharing_UserBuilder)? b,
+  ]) = _$CoreFilesSharingCapabilities_FilesSharing_User;
 
   // coverage:ignore-start
-  const CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_User._();
+  const CoreFilesSharingCapabilities_FilesSharing_User._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_User.fromJson(
-    final Map<String, dynamic> json,
-  ) =>
+  factory CoreFilesSharingCapabilities_FilesSharing_User.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -3478,29 +3532,25 @@ abstract class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabil
   @BuiltValueField(wireName: 'send_mail')
   bool get sendMail;
   @BuiltValueField(wireName: 'expire_date')
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_User_ExpireDate? get expireDate;
-  static Serializer<CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_User>
-      get serializer => _$coreOcsGetCapabilitiesResponse200ApplicationJsonOcsDataCapabilitiesFilesSharingUserSerializer;
+  CoreFilesSharingCapabilities_FilesSharing_User_ExpireDate? get expireDate;
+  static Serializer<CoreFilesSharingCapabilities_FilesSharing_User> get serializer =>
+      _$coreFilesSharingCapabilitiesFilesSharingUserSerializer;
 }
 
-abstract class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDate
+abstract class CoreFilesSharingCapabilities_FilesSharing_Group_ExpireDate
     implements
-        Built<CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDate,
-            CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDateBuilder> {
-  factory CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDate([
-    final void Function(
-      CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDateBuilder,
-    )? b,
-  ]) = _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDate;
+        Built<CoreFilesSharingCapabilities_FilesSharing_Group_ExpireDate,
+            CoreFilesSharingCapabilities_FilesSharing_Group_ExpireDateBuilder> {
+  factory CoreFilesSharingCapabilities_FilesSharing_Group_ExpireDate([
+    final void Function(CoreFilesSharingCapabilities_FilesSharing_Group_ExpireDateBuilder)? b,
+  ]) = _$CoreFilesSharingCapabilities_FilesSharing_Group_ExpireDate;
 
   // coverage:ignore-start
-  const CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDate._();
+  const CoreFilesSharingCapabilities_FilesSharing_Group_ExpireDate._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDate.fromJson(
-    final Map<String, dynamic> json,
-  ) =>
+  factory CoreFilesSharingCapabilities_FilesSharing_Group_ExpireDate.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -3508,30 +3558,23 @@ abstract class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabil
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
   bool get enabled;
-  static Serializer<
-          CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDate>
-      get serializer =>
-          _$coreOcsGetCapabilitiesResponse200ApplicationJsonOcsDataCapabilitiesFilesSharingGroupExpireDateSerializer;
+  static Serializer<CoreFilesSharingCapabilities_FilesSharing_Group_ExpireDate> get serializer =>
+      _$coreFilesSharingCapabilitiesFilesSharingGroupExpireDateSerializer;
 }
 
-abstract class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group
+abstract class CoreFilesSharingCapabilities_FilesSharing_Group
     implements
-        Built<CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group,
-            CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_GroupBuilder> {
-  factory CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group([
-    final void Function(
-      CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_GroupBuilder,
-    )? b,
-  ]) = _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group;
+        Built<CoreFilesSharingCapabilities_FilesSharing_Group, CoreFilesSharingCapabilities_FilesSharing_GroupBuilder> {
+  factory CoreFilesSharingCapabilities_FilesSharing_Group([
+    final void Function(CoreFilesSharingCapabilities_FilesSharing_GroupBuilder)? b,
+  ]) = _$CoreFilesSharingCapabilities_FilesSharing_Group;
 
   // coverage:ignore-start
-  const CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group._();
+  const CoreFilesSharingCapabilities_FilesSharing_Group._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group.fromJson(
-    final Map<String, dynamic> json,
-  ) =>
+  factory CoreFilesSharingCapabilities_FilesSharing_Group.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -3540,28 +3583,50 @@ abstract class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabil
   // coverage:ignore-end
   bool get enabled;
   @BuiltValueField(wireName: 'expire_date')
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDate? get expireDate;
-  static Serializer<CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group>
-      get serializer =>
-          _$coreOcsGetCapabilitiesResponse200ApplicationJsonOcsDataCapabilitiesFilesSharingGroupSerializer;
+  CoreFilesSharingCapabilities_FilesSharing_Group_ExpireDate? get expireDate;
+  static Serializer<CoreFilesSharingCapabilities_FilesSharing_Group> get serializer =>
+      _$coreFilesSharingCapabilitiesFilesSharingGroupSerializer;
 }
 
-abstract class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDate
+abstract class CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDate
     implements
-        Built<CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDate,
-            CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateBuilder> {
-  factory CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDate([
-    final void Function(
-      CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateBuilder,
-    )? b,
-  ]) = _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDate;
+        Built<CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDate,
+            CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDateBuilder> {
+  factory CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDate([
+    final void Function(CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDateBuilder)? b,
+  ]) = _$CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDate;
 
   // coverage:ignore-start
-  const CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDate._();
+  const CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDate._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDate.fromJson(
+  factory CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDate.fromJson(final Map<String, dynamic> json) =>
+      _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+  bool get enabled;
+  static Serializer<CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDate> get serializer =>
+      _$coreFilesSharingCapabilitiesFilesSharingFederationExpireDateSerializer;
+}
+
+abstract class CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupported
+    implements
+        Built<CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupported,
+            CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupportedBuilder> {
+  factory CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupported([
+    final void Function(CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupportedBuilder)? b,
+  ]) = _$CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupported;
+
+  // coverage:ignore-start
+  const CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupported._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  factory CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupported.fromJson(
     final Map<String, dynamic> json,
   ) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
@@ -3571,63 +3636,24 @@ abstract class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabil
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
   bool get enabled;
-  static Serializer<
-          CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDate>
-      get serializer =>
-          _$coreOcsGetCapabilitiesResponse200ApplicationJsonOcsDataCapabilitiesFilesSharingFederationExpireDateSerializer;
+  static Serializer<CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupported> get serializer =>
+      _$coreFilesSharingCapabilitiesFilesSharingFederationExpireDateSupportedSerializer;
 }
 
-abstract class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupported
+abstract class CoreFilesSharingCapabilities_FilesSharing_Federation
     implements
-        Built<
-            CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupported,
-            CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupportedBuilder> {
-  factory CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupported([
-    final void Function(
-      CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupportedBuilder,
-    )? b,
-  ]) =
-      _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupported;
+        Built<CoreFilesSharingCapabilities_FilesSharing_Federation,
+            CoreFilesSharingCapabilities_FilesSharing_FederationBuilder> {
+  factory CoreFilesSharingCapabilities_FilesSharing_Federation([
+    final void Function(CoreFilesSharingCapabilities_FilesSharing_FederationBuilder)? b,
+  ]) = _$CoreFilesSharingCapabilities_FilesSharing_Federation;
 
   // coverage:ignore-start
-  const CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupported._();
+  const CoreFilesSharingCapabilities_FilesSharing_Federation._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupported.fromJson(
-    final Map<String, dynamic> json,
-  ) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-  bool get enabled;
-  static Serializer<
-          CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupported>
-      get serializer =>
-          _$coreOcsGetCapabilitiesResponse200ApplicationJsonOcsDataCapabilitiesFilesSharingFederationExpireDateSupportedSerializer;
-}
-
-abstract class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation
-    implements
-        Built<CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation,
-            CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_FederationBuilder> {
-  factory CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation([
-    final void Function(
-      CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_FederationBuilder,
-    )? b,
-  ]) = _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation;
-
-  // coverage:ignore-start
-  const CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation._();
-  // coverage:ignore-end
-
-  // coverage:ignore-start
-  factory CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation.fromJson(
-    final Map<String, dynamic> json,
-  ) =>
+  factory CoreFilesSharingCapabilities_FilesSharing_Federation.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -3637,34 +3663,27 @@ abstract class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabil
   bool get outgoing;
   bool get incoming;
   @BuiltValueField(wireName: 'expire_date')
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDate
-      get expireDate;
+  CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDate get expireDate;
   @BuiltValueField(wireName: 'expire_date_supported')
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupported
-      get expireDateSupported;
-  static Serializer<CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation>
-      get serializer =>
-          _$coreOcsGetCapabilitiesResponse200ApplicationJsonOcsDataCapabilitiesFilesSharingFederationSerializer;
+  CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupported get expireDateSupported;
+  static Serializer<CoreFilesSharingCapabilities_FilesSharing_Federation> get serializer =>
+      _$coreFilesSharingCapabilitiesFilesSharingFederationSerializer;
 }
 
-abstract class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Sharee
+abstract class CoreFilesSharingCapabilities_FilesSharing_Sharee
     implements
-        Built<CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Sharee,
-            CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_ShareeBuilder> {
-  factory CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Sharee([
-    final void Function(
-      CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_ShareeBuilder,
-    )? b,
-  ]) = _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Sharee;
+        Built<CoreFilesSharingCapabilities_FilesSharing_Sharee,
+            CoreFilesSharingCapabilities_FilesSharing_ShareeBuilder> {
+  factory CoreFilesSharingCapabilities_FilesSharing_Sharee([
+    final void Function(CoreFilesSharingCapabilities_FilesSharing_ShareeBuilder)? b,
+  ]) = _$CoreFilesSharingCapabilities_FilesSharing_Sharee;
 
   // coverage:ignore-start
-  const CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Sharee._();
+  const CoreFilesSharingCapabilities_FilesSharing_Sharee._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Sharee.fromJson(
-    final Map<String, dynamic> json,
-  ) =>
+  factory CoreFilesSharingCapabilities_FilesSharing_Sharee.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -3675,27 +3694,22 @@ abstract class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabil
   bool get queryLookupDefault;
   @BuiltValueField(wireName: 'always_show_unique')
   bool get alwaysShowUnique;
-  static Serializer<CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Sharee>
-      get serializer =>
-          _$coreOcsGetCapabilitiesResponse200ApplicationJsonOcsDataCapabilitiesFilesSharingShareeSerializer;
+  static Serializer<CoreFilesSharingCapabilities_FilesSharing_Sharee> get serializer =>
+      _$coreFilesSharingCapabilitiesFilesSharingShareeSerializer;
 }
 
-abstract class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing
-    implements
-        Built<CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing,
-            CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharingBuilder> {
-  factory CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing([
-    final void Function(CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharingBuilder)? b,
-  ]) = _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing;
+abstract class CoreFilesSharingCapabilities_FilesSharing
+    implements Built<CoreFilesSharingCapabilities_FilesSharing, CoreFilesSharingCapabilities_FilesSharingBuilder> {
+  factory CoreFilesSharingCapabilities_FilesSharing([
+    final void Function(CoreFilesSharingCapabilities_FilesSharingBuilder)? b,
+  ]) = _$CoreFilesSharingCapabilities_FilesSharing;
 
   // coverage:ignore-start
-  const CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing._();
+  const CoreFilesSharingCapabilities_FilesSharing._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing.fromJson(
-    final Map<String, dynamic> json,
-  ) =>
+  factory CoreFilesSharingCapabilities_FilesSharing.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -3704,36 +3718,53 @@ abstract class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabil
   // coverage:ignore-end
   @BuiltValueField(wireName: 'api_enabled')
   bool get apiEnabled;
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public get public;
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_User get user;
+  CoreFilesSharingCapabilities_FilesSharing_Public get public;
+  CoreFilesSharingCapabilities_FilesSharing_User get user;
   bool get resharing;
   @BuiltValueField(wireName: 'group_sharing')
   bool? get groupSharing;
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group? get group;
+  CoreFilesSharingCapabilities_FilesSharing_Group? get group;
   @BuiltValueField(wireName: 'default_permissions')
   int? get defaultPermissions;
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation get federation;
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Sharee get sharee;
-  static Serializer<CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing>
-      get serializer => _$coreOcsGetCapabilitiesResponse200ApplicationJsonOcsDataCapabilitiesFilesSharingSerializer;
+  CoreFilesSharingCapabilities_FilesSharing_Federation get federation;
+  CoreFilesSharingCapabilities_FilesSharing_Sharee get sharee;
+  static Serializer<CoreFilesSharingCapabilities_FilesSharing> get serializer =>
+      _$coreFilesSharingCapabilitiesFilesSharingSerializer;
 }
 
-abstract class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Notes
-    implements
-        Built<CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Notes,
-            CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_NotesBuilder> {
-  factory CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Notes([
-    final void Function(CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_NotesBuilder)? b,
-  ]) = _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Notes;
+abstract class CoreFilesSharingCapabilities
+    implements Built<CoreFilesSharingCapabilities, CoreFilesSharingCapabilitiesBuilder> {
+  factory CoreFilesSharingCapabilities([final void Function(CoreFilesSharingCapabilitiesBuilder)? b]) =
+      _$CoreFilesSharingCapabilities;
 
   // coverage:ignore-start
-  const CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Notes._();
+  const CoreFilesSharingCapabilities._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Notes.fromJson(
-    final Map<String, dynamic> json,
-  ) =>
+  factory CoreFilesSharingCapabilities.fromJson(final Map<String, dynamic> json) =>
+      _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+  @BuiltValueField(wireName: 'files_sharing')
+  CoreFilesSharingCapabilities_FilesSharing get filesSharing;
+  static Serializer<CoreFilesSharingCapabilities> get serializer => _$coreFilesSharingCapabilitiesSerializer;
+}
+
+abstract class CoreNotesCapabilities_Notes
+    implements Built<CoreNotesCapabilities_Notes, CoreNotesCapabilities_NotesBuilder> {
+  factory CoreNotesCapabilities_Notes([final void Function(CoreNotesCapabilities_NotesBuilder)? b]) =
+      _$CoreNotesCapabilities_Notes;
+
+  // coverage:ignore-start
+  const CoreNotesCapabilities_Notes._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  factory CoreNotesCapabilities_Notes.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -3743,26 +3774,40 @@ abstract class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabil
   @BuiltValueField(wireName: 'api_version')
   BuiltList<String>? get apiVersion;
   String? get version;
-  static Serializer<CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Notes> get serializer =>
-      _$coreOcsGetCapabilitiesResponse200ApplicationJsonOcsDataCapabilitiesNotesSerializer;
+  static Serializer<CoreNotesCapabilities_Notes> get serializer => _$coreNotesCapabilitiesNotesSerializer;
 }
 
-abstract class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Notifications
-    implements
-        Built<CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Notifications,
-            CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_NotificationsBuilder> {
-  factory CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Notifications([
-    final void Function(CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_NotificationsBuilder)? b,
-  ]) = _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Notifications;
+abstract class CoreNotesCapabilities implements Built<CoreNotesCapabilities, CoreNotesCapabilitiesBuilder> {
+  factory CoreNotesCapabilities([final void Function(CoreNotesCapabilitiesBuilder)? b]) = _$CoreNotesCapabilities;
 
   // coverage:ignore-start
-  const CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Notifications._();
+  const CoreNotesCapabilities._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Notifications.fromJson(
-    final Map<String, dynamic> json,
-  ) =>
+  factory CoreNotesCapabilities.fromJson(final Map<String, dynamic> json) =>
+      _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+  CoreNotesCapabilities_Notes get notes;
+  static Serializer<CoreNotesCapabilities> get serializer => _$coreNotesCapabilitiesSerializer;
+}
+
+abstract class CoreNotificationsCapabilities_Notifications
+    implements Built<CoreNotificationsCapabilities_Notifications, CoreNotificationsCapabilities_NotificationsBuilder> {
+  factory CoreNotificationsCapabilities_Notifications([
+    final void Function(CoreNotificationsCapabilities_NotificationsBuilder)? b,
+  ]) = _$CoreNotificationsCapabilities_Notifications;
+
+  // coverage:ignore-start
+  const CoreNotificationsCapabilities_Notifications._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  factory CoreNotificationsCapabilities_Notifications.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -3774,27 +3819,44 @@ abstract class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabil
   BuiltList<String>? get push;
   @BuiltValueField(wireName: 'admin-notifications')
   BuiltList<String>? get adminNotifications;
-  static Serializer<CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Notifications>
-      get serializer => _$coreOcsGetCapabilitiesResponse200ApplicationJsonOcsDataCapabilitiesNotificationsSerializer;
+  static Serializer<CoreNotificationsCapabilities_Notifications> get serializer =>
+      _$coreNotificationsCapabilitiesNotificationsSerializer;
 }
 
-abstract class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_ProvisioningApi
-    implements
-        Built<CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_ProvisioningApi,
-            CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_ProvisioningApiBuilder> {
-  factory CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_ProvisioningApi([
-    final void Function(CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_ProvisioningApiBuilder)?
-        b,
-  ]) = _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_ProvisioningApi;
+abstract class CoreNotificationsCapabilities
+    implements Built<CoreNotificationsCapabilities, CoreNotificationsCapabilitiesBuilder> {
+  factory CoreNotificationsCapabilities([final void Function(CoreNotificationsCapabilitiesBuilder)? b]) =
+      _$CoreNotificationsCapabilities;
 
   // coverage:ignore-start
-  const CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_ProvisioningApi._();
+  const CoreNotificationsCapabilities._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_ProvisioningApi.fromJson(
-    final Map<String, dynamic> json,
-  ) =>
+  factory CoreNotificationsCapabilities.fromJson(final Map<String, dynamic> json) =>
+      _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+  CoreNotificationsCapabilities_Notifications get notifications;
+  static Serializer<CoreNotificationsCapabilities> get serializer => _$coreNotificationsCapabilitiesSerializer;
+}
+
+abstract class CoreProvisioningApiCapabilities_ProvisioningApi
+    implements
+        Built<CoreProvisioningApiCapabilities_ProvisioningApi, CoreProvisioningApiCapabilities_ProvisioningApiBuilder> {
+  factory CoreProvisioningApiCapabilities_ProvisioningApi([
+    final void Function(CoreProvisioningApiCapabilities_ProvisioningApiBuilder)? b,
+  ]) = _$CoreProvisioningApiCapabilities_ProvisioningApi;
+
+  // coverage:ignore-start
+  const CoreProvisioningApiCapabilities_ProvisioningApi._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  factory CoreProvisioningApiCapabilities_ProvisioningApi.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -3808,26 +3870,44 @@ abstract class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabil
   bool get accountPropertyScopesFederatedEnabled;
   @BuiltValueField(wireName: 'AccountPropertyScopesPublishedEnabled')
   bool get accountPropertyScopesPublishedEnabled;
-  static Serializer<CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_ProvisioningApi>
-      get serializer => _$coreOcsGetCapabilitiesResponse200ApplicationJsonOcsDataCapabilitiesProvisioningApiSerializer;
+  static Serializer<CoreProvisioningApiCapabilities_ProvisioningApi> get serializer =>
+      _$coreProvisioningApiCapabilitiesProvisioningApiSerializer;
 }
 
-abstract class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Theming
-    implements
-        Built<CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Theming,
-            CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_ThemingBuilder> {
-  factory CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Theming([
-    final void Function(CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_ThemingBuilder)? b,
-  ]) = _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Theming;
+abstract class CoreProvisioningApiCapabilities
+    implements Built<CoreProvisioningApiCapabilities, CoreProvisioningApiCapabilitiesBuilder> {
+  factory CoreProvisioningApiCapabilities([final void Function(CoreProvisioningApiCapabilitiesBuilder)? b]) =
+      _$CoreProvisioningApiCapabilities;
 
   // coverage:ignore-start
-  const CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Theming._();
+  const CoreProvisioningApiCapabilities._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Theming.fromJson(
-    final Map<String, dynamic> json,
-  ) =>
+  factory CoreProvisioningApiCapabilities.fromJson(final Map<String, dynamic> json) =>
+      _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+  @BuiltValueField(wireName: 'provisioning_api')
+  CoreProvisioningApiCapabilities_ProvisioningApi get provisioningApi;
+  static Serializer<CoreProvisioningApiCapabilities> get serializer => _$coreProvisioningApiCapabilitiesSerializer;
+}
+
+abstract class CoreThemingPublicCapabilities_Theming
+    implements Built<CoreThemingPublicCapabilities_Theming, CoreThemingPublicCapabilities_ThemingBuilder> {
+  factory CoreThemingPublicCapabilities_Theming([
+    final void Function(CoreThemingPublicCapabilities_ThemingBuilder)? b,
+  ]) = _$CoreThemingPublicCapabilities_Theming;
+
+  // coverage:ignore-start
+  const CoreThemingPublicCapabilities_Theming._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  factory CoreThemingPublicCapabilities_Theming.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -3854,26 +3934,43 @@ abstract class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabil
   bool get backgroundDefault;
   String get logoheader;
   String get favicon;
-  static Serializer<CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Theming> get serializer =>
-      _$coreOcsGetCapabilitiesResponse200ApplicationJsonOcsDataCapabilitiesThemingSerializer;
+  static Serializer<CoreThemingPublicCapabilities_Theming> get serializer =>
+      _$coreThemingPublicCapabilitiesThemingSerializer;
 }
 
-abstract class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_UserStatus
-    implements
-        Built<CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_UserStatus,
-            CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_UserStatusBuilder> {
-  factory CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_UserStatus([
-    final void Function(CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_UserStatusBuilder)? b,
-  ]) = _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_UserStatus;
+abstract class CoreThemingPublicCapabilities
+    implements Built<CoreThemingPublicCapabilities, CoreThemingPublicCapabilitiesBuilder> {
+  factory CoreThemingPublicCapabilities([final void Function(CoreThemingPublicCapabilitiesBuilder)? b]) =
+      _$CoreThemingPublicCapabilities;
 
   // coverage:ignore-start
-  const CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_UserStatus._();
+  const CoreThemingPublicCapabilities._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_UserStatus.fromJson(
-    final Map<String, dynamic> json,
-  ) =>
+  factory CoreThemingPublicCapabilities.fromJson(final Map<String, dynamic> json) =>
+      _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+  CoreThemingPublicCapabilities_Theming get theming;
+  static Serializer<CoreThemingPublicCapabilities> get serializer => _$coreThemingPublicCapabilitiesSerializer;
+}
+
+abstract class CoreUserStatusCapabilities_UserStatus
+    implements Built<CoreUserStatusCapabilities_UserStatus, CoreUserStatusCapabilities_UserStatusBuilder> {
+  factory CoreUserStatusCapabilities_UserStatus([
+    final void Function(CoreUserStatusCapabilities_UserStatusBuilder)? b,
+  ]) = _$CoreUserStatusCapabilities_UserStatus;
+
+  // coverage:ignore-start
+  const CoreUserStatusCapabilities_UserStatus._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  factory CoreUserStatusCapabilities_UserStatus.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -3884,43 +3981,143 @@ abstract class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabil
   bool get restore;
   @BuiltValueField(wireName: 'supports_emoji')
   bool get supportsEmoji;
-  static Serializer<CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_UserStatus> get serializer =>
-      _$coreOcsGetCapabilitiesResponse200ApplicationJsonOcsDataCapabilitiesUserStatusSerializer;
+  static Serializer<CoreUserStatusCapabilities_UserStatus> get serializer =>
+      _$coreUserStatusCapabilitiesUserStatusSerializer;
 }
 
-abstract class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities
-    implements
-        Built<CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities,
-            CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_CapabilitiesBuilder> {
-  factory CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities([
-    final void Function(CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_CapabilitiesBuilder)? b,
-  ]) = _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities;
+abstract class CoreUserStatusCapabilities
+    implements Built<CoreUserStatusCapabilities, CoreUserStatusCapabilitiesBuilder> {
+  factory CoreUserStatusCapabilities([final void Function(CoreUserStatusCapabilitiesBuilder)? b]) =
+      _$CoreUserStatusCapabilities;
 
   // coverage:ignore-start
-  const CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities._();
+  const CoreUserStatusCapabilities._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities.fromJson(
-    final Map<String, dynamic> json,
-  ) =>
+  factory CoreUserStatusCapabilities.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-  @BuiltValueField(wireName: 'files_sharing')
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing? get filesSharing;
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Notes? get notes;
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Notifications? get notifications;
-  @BuiltValueField(wireName: 'provisioning_api')
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_ProvisioningApi? get provisioningApi;
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Theming? get theming;
   @BuiltValueField(wireName: 'user_status')
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_UserStatus? get userStatus;
+  CoreUserStatusCapabilities_UserStatus get userStatus;
+  static Serializer<CoreUserStatusCapabilities> get serializer => _$coreUserStatusCapabilitiesSerializer;
+}
+
+abstract class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities
+    implements
+        Built<CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities,
+            CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_CapabilitiesBuilder> {
+  // coverage:ignore-end
+
+  factory CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities([
+    final void Function(CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_CapabilitiesBuilder)? b,
+  ]) = _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities;
+  // coverage:ignore-start
+  const CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities._();
+
+  JsonObject get data;
+  CoreFilesSharingCapabilities? get filesSharingCapabilities;
+  CoreNotesCapabilities? get notesCapabilities;
+  CoreNotificationsCapabilities? get notificationsCapabilities;
+  CoreProvisioningApiCapabilities? get provisioningApiCapabilities;
+  CoreThemingPublicCapabilities? get themingPublicCapabilities;
+  CoreUserStatusCapabilities? get userStatusCapabilities;
+  static CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities fromJson(final Object json) =>
+      _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+  @BuiltValueSerializer(custom: true)
   static Serializer<CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities> get serializer =>
-      _$coreOcsGetCapabilitiesResponse200ApplicationJsonOcsDataCapabilitiesSerializer;
+      _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_CapabilitiesSerializer();
+}
+
+class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_CapabilitiesSerializer
+    implements PrimitiveSerializer<CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities> {
+  @override
+  final Iterable<Type> types = const [
+    CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities,
+    _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities,
+  ];
+
+  @override
+  final String wireName = 'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities';
+
+  @override
+  Object serialize(
+    final Serializers serializers,
+    final CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) =>
+      object.data.value;
+
+  @override
+  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities deserialize(
+    final Serializers serializers,
+    final Object data, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_CapabilitiesBuilder()
+      ..data = JsonObject(data);
+    try {
+      result._filesSharingCapabilities = (_jsonSerializers.deserialize(
+        data,
+        specifiedType: const FullType(CoreFilesSharingCapabilities),
+      )! as CoreFilesSharingCapabilities)
+          .toBuilder();
+    } catch (_) {}
+    try {
+      result._notesCapabilities = (_jsonSerializers.deserialize(
+        data,
+        specifiedType: const FullType(CoreNotesCapabilities),
+      )! as CoreNotesCapabilities)
+          .toBuilder();
+    } catch (_) {}
+    try {
+      result._notificationsCapabilities = (_jsonSerializers.deserialize(
+        data,
+        specifiedType: const FullType(CoreNotificationsCapabilities),
+      )! as CoreNotificationsCapabilities)
+          .toBuilder();
+    } catch (_) {}
+    try {
+      result._provisioningApiCapabilities = (_jsonSerializers.deserialize(
+        data,
+        specifiedType: const FullType(CoreProvisioningApiCapabilities),
+      )! as CoreProvisioningApiCapabilities)
+          .toBuilder();
+    } catch (_) {}
+    try {
+      result._themingPublicCapabilities = (_jsonSerializers.deserialize(
+        data,
+        specifiedType: const FullType(CoreThemingPublicCapabilities),
+      )! as CoreThemingPublicCapabilities)
+          .toBuilder();
+    } catch (_) {}
+    try {
+      result._userStatusCapabilities = (_jsonSerializers.deserialize(
+        data,
+        specifiedType: const FullType(CoreUserStatusCapabilities),
+      )! as CoreUserStatusCapabilities)
+          .toBuilder();
+    } catch (_) {}
+    assert(
+      [
+        result._filesSharingCapabilities,
+        result._notesCapabilities,
+        result._notificationsCapabilities,
+        result._provisioningApiCapabilities,
+        result._themingPublicCapabilities,
+        result._userStatusCapabilities,
+      ].where((final x) => x != null).isNotEmpty,
+      'Need anyOf for ${result._data}',
+    );
+    return result.build();
+  }
 }
 
 abstract class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data
@@ -4872,6 +5069,162 @@ abstract class CoreTextProcessingApiGetTaskResponse200ApplicationJson
       _$coreTextProcessingApiGetTaskResponse200ApplicationJsonSerializer;
 }
 
+abstract class CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs_Data
+    implements
+        Built<CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs_Data,
+            CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs_DataBuilder> {
+  factory CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs_Data([
+    final void Function(CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs_DataBuilder)? b,
+  ]) = _$CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs_Data;
+
+  // coverage:ignore-start
+  const CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs_Data._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  factory CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs_Data.fromJson(
+    final Map<String, dynamic> json,
+  ) =>
+      _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+  CoreTextProcessingTask get task;
+  static Serializer<CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs_Data> get serializer =>
+      _$coreTextProcessingApiDeleteTaskResponse200ApplicationJsonOcsDataSerializer;
+}
+
+abstract class CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs
+    implements
+        Built<CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs,
+            CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_OcsBuilder> {
+  factory CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs([
+    final void Function(CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_OcsBuilder)? b,
+  ]) = _$CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs;
+
+  // coverage:ignore-start
+  const CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  factory CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+      _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+  CoreOCSMeta get meta;
+  CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs_Data get data;
+  static Serializer<CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs> get serializer =>
+      _$coreTextProcessingApiDeleteTaskResponse200ApplicationJsonOcsSerializer;
+}
+
+abstract class CoreTextProcessingApiDeleteTaskResponse200ApplicationJson
+    implements
+        Built<CoreTextProcessingApiDeleteTaskResponse200ApplicationJson,
+            CoreTextProcessingApiDeleteTaskResponse200ApplicationJsonBuilder> {
+  factory CoreTextProcessingApiDeleteTaskResponse200ApplicationJson([
+    final void Function(CoreTextProcessingApiDeleteTaskResponse200ApplicationJsonBuilder)? b,
+  ]) = _$CoreTextProcessingApiDeleteTaskResponse200ApplicationJson;
+
+  // coverage:ignore-start
+  const CoreTextProcessingApiDeleteTaskResponse200ApplicationJson._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  factory CoreTextProcessingApiDeleteTaskResponse200ApplicationJson.fromJson(final Map<String, dynamic> json) =>
+      _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+  CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs get ocs;
+  static Serializer<CoreTextProcessingApiDeleteTaskResponse200ApplicationJson> get serializer =>
+      _$coreTextProcessingApiDeleteTaskResponse200ApplicationJsonSerializer;
+}
+
+abstract class CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs_Data
+    implements
+        Built<CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs_Data,
+            CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs_DataBuilder> {
+  factory CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs_Data([
+    final void Function(CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs_DataBuilder)? b,
+  ]) = _$CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs_Data;
+
+  // coverage:ignore-start
+  const CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs_Data._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  factory CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs_Data.fromJson(
+    final Map<String, dynamic> json,
+  ) =>
+      _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+  BuiltList<CoreTextProcessingTask> get tasks;
+  static Serializer<CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs_Data> get serializer =>
+      _$coreTextProcessingApiListTasksByAppResponse200ApplicationJsonOcsDataSerializer;
+}
+
+abstract class CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs
+    implements
+        Built<CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs,
+            CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_OcsBuilder> {
+  factory CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs([
+    final void Function(CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_OcsBuilder)? b,
+  ]) = _$CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs;
+
+  // coverage:ignore-start
+  const CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  factory CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+      _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+  CoreOCSMeta get meta;
+  CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs_Data get data;
+  static Serializer<CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs> get serializer =>
+      _$coreTextProcessingApiListTasksByAppResponse200ApplicationJsonOcsSerializer;
+}
+
+abstract class CoreTextProcessingApiListTasksByAppResponse200ApplicationJson
+    implements
+        Built<CoreTextProcessingApiListTasksByAppResponse200ApplicationJson,
+            CoreTextProcessingApiListTasksByAppResponse200ApplicationJsonBuilder> {
+  factory CoreTextProcessingApiListTasksByAppResponse200ApplicationJson([
+    final void Function(CoreTextProcessingApiListTasksByAppResponse200ApplicationJsonBuilder)? b,
+  ]) = _$CoreTextProcessingApiListTasksByAppResponse200ApplicationJson;
+
+  // coverage:ignore-start
+  const CoreTextProcessingApiListTasksByAppResponse200ApplicationJson._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  factory CoreTextProcessingApiListTasksByAppResponse200ApplicationJson.fromJson(final Map<String, dynamic> json) =>
+      _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+  CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs get ocs;
+  static Serializer<CoreTextProcessingApiListTasksByAppResponse200ApplicationJson> get serializer =>
+      _$coreTextProcessingApiListTasksByAppResponse200ApplicationJsonSerializer;
+}
+
 abstract class CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_Data_Languages
     implements
         Built<CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_Data_Languages,
@@ -5747,141 +6100,111 @@ final Serializers _serializers = (Serializers().toBuilder()
         CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities.new,
       )
       ..add(CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities.serializer)
+      ..addBuilderFactory(const FullType(CoreFilesSharingCapabilities), CoreFilesSharingCapabilities.new)
+      ..add(CoreFilesSharingCapabilities.serializer)
       ..addBuilderFactory(
-        const FullType(CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing),
-        CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing.new,
+        const FullType(CoreFilesSharingCapabilities_FilesSharing),
+        CoreFilesSharingCapabilities_FilesSharing.new,
       )
-      ..add(CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing.serializer)
+      ..add(CoreFilesSharingCapabilities_FilesSharing.serializer)
       ..addBuilderFactory(
-        const FullType(CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public),
-        CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public.new,
+        const FullType(CoreFilesSharingCapabilities_FilesSharing_Public),
+        CoreFilesSharingCapabilities_FilesSharing_Public.new,
       )
-      ..add(CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public.serializer)
+      ..add(CoreFilesSharingCapabilities_FilesSharing_Public.serializer)
       ..addBuilderFactory(
-        const FullType(
-          CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_Password,
-        ),
-        CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_Password.new,
+        const FullType(CoreFilesSharingCapabilities_FilesSharing_Public_Password),
+        CoreFilesSharingCapabilities_FilesSharing_Public_Password.new,
       )
-      ..add(
-        CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_Password.serializer,
-      )
+      ..add(CoreFilesSharingCapabilities_FilesSharing_Public_Password.serializer)
       ..addBuilderFactory(
-        const FullType(
-          CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDate,
-        ),
-        CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDate.new,
+        const FullType(CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDate),
+        CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDate.new,
       )
-      ..add(
-        CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDate
-            .serializer,
-      )
+      ..add(CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDate.serializer)
       ..addBuilderFactory(
-        const FullType(
-          CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternal,
-        ),
-        CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternal
-            .new,
+        const FullType(CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateInternal),
+        CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateInternal.new,
       )
-      ..add(
-        CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternal
-            .serializer,
-      )
+      ..add(CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateInternal.serializer)
       ..addBuilderFactory(
-        const FullType(
-          CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemote,
-        ),
-        CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemote.new,
+        const FullType(CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateRemote),
+        CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateRemote.new,
       )
-      ..add(
-        CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemote
-            .serializer,
-      )
+      ..add(CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateRemote.serializer)
       ..addBuilderFactory(
-        const FullType(CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_User),
-        CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_User.new,
+        const FullType(CoreFilesSharingCapabilities_FilesSharing_User),
+        CoreFilesSharingCapabilities_FilesSharing_User.new,
       )
-      ..add(CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_User.serializer)
+      ..add(CoreFilesSharingCapabilities_FilesSharing_User.serializer)
       ..addBuilderFactory(
-        const FullType(
-          CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_User_ExpireDate,
-        ),
-        CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_User_ExpireDate.new,
+        const FullType(CoreFilesSharingCapabilities_FilesSharing_User_ExpireDate),
+        CoreFilesSharingCapabilities_FilesSharing_User_ExpireDate.new,
       )
-      ..add(
-        CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_User_ExpireDate.serializer,
-      )
+      ..add(CoreFilesSharingCapabilities_FilesSharing_User_ExpireDate.serializer)
       ..addBuilderFactory(
-        const FullType(CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group),
-        CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group.new,
+        const FullType(CoreFilesSharingCapabilities_FilesSharing_Group),
+        CoreFilesSharingCapabilities_FilesSharing_Group.new,
       )
-      ..add(CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group.serializer)
+      ..add(CoreFilesSharingCapabilities_FilesSharing_Group.serializer)
       ..addBuilderFactory(
-        const FullType(
-          CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDate,
-        ),
-        CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDate.new,
+        const FullType(CoreFilesSharingCapabilities_FilesSharing_Group_ExpireDate),
+        CoreFilesSharingCapabilities_FilesSharing_Group_ExpireDate.new,
       )
-      ..add(
-        CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDate.serializer,
-      )
+      ..add(CoreFilesSharingCapabilities_FilesSharing_Group_ExpireDate.serializer)
       ..addBuilderFactory(
-        const FullType(CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation),
-        CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation.new,
+        const FullType(CoreFilesSharingCapabilities_FilesSharing_Federation),
+        CoreFilesSharingCapabilities_FilesSharing_Federation.new,
       )
-      ..add(CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation.serializer)
+      ..add(CoreFilesSharingCapabilities_FilesSharing_Federation.serializer)
       ..addBuilderFactory(
-        const FullType(
-          CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDate,
-        ),
-        CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDate.new,
+        const FullType(CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDate),
+        CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDate.new,
       )
-      ..add(
-        CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDate
-            .serializer,
-      )
+      ..add(CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDate.serializer)
       ..addBuilderFactory(
-        const FullType(
-          CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupported,
-        ),
-        CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupported
-            .new,
+        const FullType(CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupported),
+        CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupported.new,
       )
-      ..add(
-        CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupported
-            .serializer,
-      )
+      ..add(CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupported.serializer)
       ..addBuilderFactory(
-        const FullType(CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Sharee),
-        CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Sharee.new,
+        const FullType(CoreFilesSharingCapabilities_FilesSharing_Sharee),
+        CoreFilesSharingCapabilities_FilesSharing_Sharee.new,
       )
-      ..add(CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Sharee.serializer)
-      ..addBuilderFactory(
-        const FullType(CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Notes),
-        CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Notes.new,
-      )
-      ..add(CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Notes.serializer)
+      ..add(CoreFilesSharingCapabilities_FilesSharing_Sharee.serializer)
+      ..addBuilderFactory(const FullType(CoreNotesCapabilities), CoreNotesCapabilities.new)
+      ..add(CoreNotesCapabilities.serializer)
+      ..addBuilderFactory(const FullType(CoreNotesCapabilities_Notes), CoreNotesCapabilities_Notes.new)
+      ..add(CoreNotesCapabilities_Notes.serializer)
       ..addBuilderFactory(const FullType(BuiltList, [FullType(String)]), ListBuilder<String>.new)
+      ..addBuilderFactory(const FullType(CoreNotificationsCapabilities), CoreNotificationsCapabilities.new)
+      ..add(CoreNotificationsCapabilities.serializer)
       ..addBuilderFactory(
-        const FullType(CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Notifications),
-        CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Notifications.new,
+        const FullType(CoreNotificationsCapabilities_Notifications),
+        CoreNotificationsCapabilities_Notifications.new,
       )
-      ..add(CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Notifications.serializer)
+      ..add(CoreNotificationsCapabilities_Notifications.serializer)
+      ..addBuilderFactory(const FullType(CoreProvisioningApiCapabilities), CoreProvisioningApiCapabilities.new)
+      ..add(CoreProvisioningApiCapabilities.serializer)
       ..addBuilderFactory(
-        const FullType(CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_ProvisioningApi),
-        CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_ProvisioningApi.new,
+        const FullType(CoreProvisioningApiCapabilities_ProvisioningApi),
+        CoreProvisioningApiCapabilities_ProvisioningApi.new,
       )
-      ..add(CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_ProvisioningApi.serializer)
+      ..add(CoreProvisioningApiCapabilities_ProvisioningApi.serializer)
+      ..addBuilderFactory(const FullType(CoreThemingPublicCapabilities), CoreThemingPublicCapabilities.new)
+      ..add(CoreThemingPublicCapabilities.serializer)
       ..addBuilderFactory(
-        const FullType(CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Theming),
-        CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Theming.new,
+        const FullType(CoreThemingPublicCapabilities_Theming),
+        CoreThemingPublicCapabilities_Theming.new,
       )
-      ..add(CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Theming.serializer)
+      ..add(CoreThemingPublicCapabilities_Theming.serializer)
+      ..addBuilderFactory(const FullType(CoreUserStatusCapabilities), CoreUserStatusCapabilities.new)
+      ..add(CoreUserStatusCapabilities.serializer)
       ..addBuilderFactory(
-        const FullType(CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_UserStatus),
-        CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_UserStatus.new,
+        const FullType(CoreUserStatusCapabilities_UserStatus),
+        CoreUserStatusCapabilities_UserStatus.new,
       )
-      ..add(CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_UserStatus.serializer)
+      ..add(CoreUserStatusCapabilities_UserStatus.serializer)
       ..addBuilderFactory(
         const FullType(CoreProfileApiSetVisibilityResponse200ApplicationJson),
         CoreProfileApiSetVisibilityResponse200ApplicationJson.new,
@@ -6054,6 +6377,40 @@ final Serializers _serializers = (Serializers().toBuilder()
         CoreTextProcessingApiGetTaskResponse200ApplicationJson_Ocs_Data.new,
       )
       ..add(CoreTextProcessingApiGetTaskResponse200ApplicationJson_Ocs_Data.serializer)
+      ..addBuilderFactory(
+        const FullType(CoreTextProcessingApiDeleteTaskResponse200ApplicationJson),
+        CoreTextProcessingApiDeleteTaskResponse200ApplicationJson.new,
+      )
+      ..add(CoreTextProcessingApiDeleteTaskResponse200ApplicationJson.serializer)
+      ..addBuilderFactory(
+        const FullType(CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs),
+        CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs.new,
+      )
+      ..add(CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs.serializer)
+      ..addBuilderFactory(
+        const FullType(CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs_Data),
+        CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs_Data.new,
+      )
+      ..add(CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs_Data.serializer)
+      ..addBuilderFactory(
+        const FullType(CoreTextProcessingApiListTasksByAppResponse200ApplicationJson),
+        CoreTextProcessingApiListTasksByAppResponse200ApplicationJson.new,
+      )
+      ..add(CoreTextProcessingApiListTasksByAppResponse200ApplicationJson.serializer)
+      ..addBuilderFactory(
+        const FullType(CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs),
+        CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs.new,
+      )
+      ..add(CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs.serializer)
+      ..addBuilderFactory(
+        const FullType(CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs_Data),
+        CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs_Data.new,
+      )
+      ..add(CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs_Data.serializer)
+      ..addBuilderFactory(
+        const FullType(BuiltList, [FullType(CoreTextProcessingTask)]),
+        ListBuilder<CoreTextProcessingTask>.new,
+      )
       ..addBuilderFactory(
         const FullType(CoreTranslationApiLanguagesResponse200ApplicationJson),
         CoreTranslationApiLanguagesResponse200ApplicationJson.new,
