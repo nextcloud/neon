@@ -137,7 +137,7 @@ class NeonDrawerHeader extends StatelessWidget {
           );
         }
 
-        final theme = capabilities.requireData.capabilities.theming;
+        final theme = capabilities.requireData.capabilities.themingPublicCapabilities?.theming;
 
         if (theme == null) {
           return const SizedBox();

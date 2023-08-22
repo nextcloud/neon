@@ -69,7 +69,9 @@ class AppsBloc extends InteractiveBloc implements AppsBlocEvents, AppsBlocStates
     _capabilitiesBloc.capabilities.listen((final result) {
       notificationsAppImplementation.add(
         result.transform(
-          (final data) => data.capabilities.notifications != null ? _findAppImplementation(AppIDs.notifications) : null,
+          (final data) => data.capabilities.notificationsCapabilities?.notifications != null
+              ? _findAppImplementation(AppIDs.notifications)
+              : null,
         ),
       );
 
