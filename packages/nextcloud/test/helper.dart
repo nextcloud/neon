@@ -17,24 +17,19 @@ class DockerContainer {
 
   final int port;
 
-  Future runOccCommand(final List<String> args) async {
-    final result = await runExecutableArguments(
-      'docker',
-      [
-        'exec',
-        id,
-        'php',
-        '-f',
-        'occ',
-        ...args,
-      ],
-      stdout: stdout,
-      stderr: stderr,
-    );
-    if (result.exitCode != 0) {
-      throw Exception('Failed to run occ command');
-    }
-  }
+  Future<ProcessResult> runOccCommand(final List<String> args) async => runExecutableArguments(
+        'docker',
+        [
+          'exec',
+          id,
+          'php',
+          '-f',
+          'occ',
+          ...args,
+        ],
+        stdoutEncoding: utf8,
+        stderrEncoding: utf8,
+      );
 
   void destroy() => unawaited(
         runExecutableArguments(

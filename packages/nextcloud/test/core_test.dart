@@ -1,6 +1,8 @@
 @Retry(3)
 library core_test;
 
+import 'dart:convert';
+
 import 'package:nextcloud/nextcloud.dart';
 import 'package:test/test.dart';
 
@@ -56,6 +58,39 @@ void main() {
       expect(capabilities.ocs.data.capabilities.theming!.backgroundDefault, true);
       expect(capabilities.ocs.data.capabilities.theming!.logoheader, isNotEmpty);
       expect(capabilities.ocs.data.capabilities.theming!.favicon, isNotEmpty);
+    });
+
+    test('Get capabilities with all apps disabled', () async {
+      // According to https://github.com/nextcloud/server/blob/master/core/shipped.json `alwaysEnabled`
+      const requiredApps = [
+        'files',
+        'cloud_federation_api',
+        'dav',
+        'federatedfilesharing',
+        'lookup_server_connector',
+        'provisioning_api',
+        'oauth2',
+        'settings',
+        'theming',
+        'twofactor_backupcodes',
+        'viewer',
+        'workflowengine',
+      ];
+
+      final listResult = await container.runOccCommand(['app:list', '--output=json']);
+      expect(listResult.exitCode, 0);
+
+      final apps =
+          ((json.decode(listResult.stdout as String) as Map<String, dynamic>)['enabled'] as Map<String, dynamic>).keys;
+
+      for (final app in apps.where((final app) => !requiredApps.contains(app))) {
+        final disableResult = await container.runOccCommand(['app:disable', app]);
+        expect(disableResult.exitCode, 0);
+      }
+
+      final capabilities = await client.core.ocs.getCapabilities();
+      expect(capabilities.ocs.data.version.major, coreSupportedVersion);
+      expect(capabilities.ocs.data.version.string, startsWith('$coreSupportedVersion.'));
     });
 
     test('Get navigation apps', () async {
