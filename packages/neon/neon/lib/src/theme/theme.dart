@@ -16,7 +16,7 @@ class AppTheme {
     this.appThemes,
   }) : keepOriginalAccentColor = nextcloudTheme == null || keepOriginalAccentColor;
 
-  final CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Theming? nextcloudTheme;
+  final CoreThemingPublicCapabilities_Theming? nextcloudTheme;
   final bool keepOriginalAccentColor;
   final bool oledAsDark;
   final Iterable<ThemeExtension>? appThemes;

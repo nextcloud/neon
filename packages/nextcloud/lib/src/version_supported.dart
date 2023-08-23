@@ -49,7 +49,7 @@ extension NotesVersionSupported on NotesClient {
   ///
   /// Also returns the supported API version number
   (bool, int) isSupported(final CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data capabilities) => (
-        capabilities.capabilities.notes?.apiVersion
+        capabilities.capabilities.notesCapabilities?.notes.apiVersion
                 ?.map(Version.parse)
                 .where((final version) => version.major == notesSupportedVersion)
                 .isNotEmpty ??

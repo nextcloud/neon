@@ -113,68 +113,66 @@ Serializer<CoreNavigationGetSettingsNavigationResponse200ApplicationJson>
 Serializer<CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Version>
     _$coreOcsGetCapabilitiesResponse200ApplicationJsonOcsDataVersionSerializer =
     _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_VersionSerializer();
-Serializer<CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_Password>
-    _$coreOcsGetCapabilitiesResponse200ApplicationJsonOcsDataCapabilitiesFilesSharingPublicPasswordSerializer =
-    _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_PasswordSerializer();
-Serializer<CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDate>
-    _$coreOcsGetCapabilitiesResponse200ApplicationJsonOcsDataCapabilitiesFilesSharingPublicExpireDateSerializer =
-    _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateSerializer();
-Serializer<
-        CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternal>
-    _$coreOcsGetCapabilitiesResponse200ApplicationJsonOcsDataCapabilitiesFilesSharingPublicExpireDateInternalSerializer =
-    _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternalSerializer();
-Serializer<CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemote>
-    _$coreOcsGetCapabilitiesResponse200ApplicationJsonOcsDataCapabilitiesFilesSharingPublicExpireDateRemoteSerializer =
-    _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemoteSerializer();
-Serializer<CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public>
-    _$coreOcsGetCapabilitiesResponse200ApplicationJsonOcsDataCapabilitiesFilesSharingPublicSerializer =
-    _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_PublicSerializer();
-Serializer<CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_User_ExpireDate>
-    _$coreOcsGetCapabilitiesResponse200ApplicationJsonOcsDataCapabilitiesFilesSharingUserExpireDateSerializer =
-    _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_User_ExpireDateSerializer();
-Serializer<CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_User>
-    _$coreOcsGetCapabilitiesResponse200ApplicationJsonOcsDataCapabilitiesFilesSharingUserSerializer =
-    _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_UserSerializer();
-Serializer<CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDate>
-    _$coreOcsGetCapabilitiesResponse200ApplicationJsonOcsDataCapabilitiesFilesSharingGroupExpireDateSerializer =
-    _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDateSerializer();
-Serializer<CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group>
-    _$coreOcsGetCapabilitiesResponse200ApplicationJsonOcsDataCapabilitiesFilesSharingGroupSerializer =
-    _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_GroupSerializer();
-Serializer<CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDate>
-    _$coreOcsGetCapabilitiesResponse200ApplicationJsonOcsDataCapabilitiesFilesSharingFederationExpireDateSerializer =
-    _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSerializer();
-Serializer<
-        CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupported>
-    _$coreOcsGetCapabilitiesResponse200ApplicationJsonOcsDataCapabilitiesFilesSharingFederationExpireDateSupportedSerializer =
-    _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupportedSerializer();
-Serializer<CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation>
-    _$coreOcsGetCapabilitiesResponse200ApplicationJsonOcsDataCapabilitiesFilesSharingFederationSerializer =
-    _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_FederationSerializer();
-Serializer<CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Sharee>
-    _$coreOcsGetCapabilitiesResponse200ApplicationJsonOcsDataCapabilitiesFilesSharingShareeSerializer =
-    _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_ShareeSerializer();
-Serializer<CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing>
-    _$coreOcsGetCapabilitiesResponse200ApplicationJsonOcsDataCapabilitiesFilesSharingSerializer =
-    _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharingSerializer();
-Serializer<CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Notes>
-    _$coreOcsGetCapabilitiesResponse200ApplicationJsonOcsDataCapabilitiesNotesSerializer =
-    _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_NotesSerializer();
-Serializer<CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Notifications>
-    _$coreOcsGetCapabilitiesResponse200ApplicationJsonOcsDataCapabilitiesNotificationsSerializer =
-    _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_NotificationsSerializer();
-Serializer<CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_ProvisioningApi>
-    _$coreOcsGetCapabilitiesResponse200ApplicationJsonOcsDataCapabilitiesProvisioningApiSerializer =
-    _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_ProvisioningApiSerializer();
-Serializer<CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Theming>
-    _$coreOcsGetCapabilitiesResponse200ApplicationJsonOcsDataCapabilitiesThemingSerializer =
-    _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_ThemingSerializer();
-Serializer<CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_UserStatus>
-    _$coreOcsGetCapabilitiesResponse200ApplicationJsonOcsDataCapabilitiesUserStatusSerializer =
-    _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_UserStatusSerializer();
-Serializer<CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities>
-    _$coreOcsGetCapabilitiesResponse200ApplicationJsonOcsDataCapabilitiesSerializer =
-    _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_CapabilitiesSerializer();
+Serializer<CoreFilesSharingCapabilities_FilesSharing_Public_Password>
+    _$coreFilesSharingCapabilitiesFilesSharingPublicPasswordSerializer =
+    _$CoreFilesSharingCapabilities_FilesSharing_Public_PasswordSerializer();
+Serializer<CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDate>
+    _$coreFilesSharingCapabilitiesFilesSharingPublicExpireDateSerializer =
+    _$CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateSerializer();
+Serializer<CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateInternal>
+    _$coreFilesSharingCapabilitiesFilesSharingPublicExpireDateInternalSerializer =
+    _$CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateInternalSerializer();
+Serializer<CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateRemote>
+    _$coreFilesSharingCapabilitiesFilesSharingPublicExpireDateRemoteSerializer =
+    _$CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateRemoteSerializer();
+Serializer<CoreFilesSharingCapabilities_FilesSharing_Public>
+    _$coreFilesSharingCapabilitiesFilesSharingPublicSerializer =
+    _$CoreFilesSharingCapabilities_FilesSharing_PublicSerializer();
+Serializer<CoreFilesSharingCapabilities_FilesSharing_User_ExpireDate>
+    _$coreFilesSharingCapabilitiesFilesSharingUserExpireDateSerializer =
+    _$CoreFilesSharingCapabilities_FilesSharing_User_ExpireDateSerializer();
+Serializer<CoreFilesSharingCapabilities_FilesSharing_User> _$coreFilesSharingCapabilitiesFilesSharingUserSerializer =
+    _$CoreFilesSharingCapabilities_FilesSharing_UserSerializer();
+Serializer<CoreFilesSharingCapabilities_FilesSharing_Group_ExpireDate>
+    _$coreFilesSharingCapabilitiesFilesSharingGroupExpireDateSerializer =
+    _$CoreFilesSharingCapabilities_FilesSharing_Group_ExpireDateSerializer();
+Serializer<CoreFilesSharingCapabilities_FilesSharing_Group> _$coreFilesSharingCapabilitiesFilesSharingGroupSerializer =
+    _$CoreFilesSharingCapabilities_FilesSharing_GroupSerializer();
+Serializer<CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDate>
+    _$coreFilesSharingCapabilitiesFilesSharingFederationExpireDateSerializer =
+    _$CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDateSerializer();
+Serializer<CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupported>
+    _$coreFilesSharingCapabilitiesFilesSharingFederationExpireDateSupportedSerializer =
+    _$CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupportedSerializer();
+Serializer<CoreFilesSharingCapabilities_FilesSharing_Federation>
+    _$coreFilesSharingCapabilitiesFilesSharingFederationSerializer =
+    _$CoreFilesSharingCapabilities_FilesSharing_FederationSerializer();
+Serializer<CoreFilesSharingCapabilities_FilesSharing_Sharee>
+    _$coreFilesSharingCapabilitiesFilesSharingShareeSerializer =
+    _$CoreFilesSharingCapabilities_FilesSharing_ShareeSerializer();
+Serializer<CoreFilesSharingCapabilities_FilesSharing> _$coreFilesSharingCapabilitiesFilesSharingSerializer =
+    _$CoreFilesSharingCapabilities_FilesSharingSerializer();
+Serializer<CoreFilesSharingCapabilities> _$coreFilesSharingCapabilitiesSerializer =
+    _$CoreFilesSharingCapabilitiesSerializer();
+Serializer<CoreNotesCapabilities_Notes> _$coreNotesCapabilitiesNotesSerializer =
+    _$CoreNotesCapabilities_NotesSerializer();
+Serializer<CoreNotesCapabilities> _$coreNotesCapabilitiesSerializer = _$CoreNotesCapabilitiesSerializer();
+Serializer<CoreNotificationsCapabilities_Notifications> _$coreNotificationsCapabilitiesNotificationsSerializer =
+    _$CoreNotificationsCapabilities_NotificationsSerializer();
+Serializer<CoreNotificationsCapabilities> _$coreNotificationsCapabilitiesSerializer =
+    _$CoreNotificationsCapabilitiesSerializer();
+Serializer<CoreProvisioningApiCapabilities_ProvisioningApi> _$coreProvisioningApiCapabilitiesProvisioningApiSerializer =
+    _$CoreProvisioningApiCapabilities_ProvisioningApiSerializer();
+Serializer<CoreProvisioningApiCapabilities> _$coreProvisioningApiCapabilitiesSerializer =
+    _$CoreProvisioningApiCapabilitiesSerializer();
+Serializer<CoreThemingPublicCapabilities_Theming> _$coreThemingPublicCapabilitiesThemingSerializer =
+    _$CoreThemingPublicCapabilities_ThemingSerializer();
+Serializer<CoreThemingPublicCapabilities> _$coreThemingPublicCapabilitiesSerializer =
+    _$CoreThemingPublicCapabilitiesSerializer();
+Serializer<CoreUserStatusCapabilities_UserStatus> _$coreUserStatusCapabilitiesUserStatusSerializer =
+    _$CoreUserStatusCapabilities_UserStatusSerializer();
+Serializer<CoreUserStatusCapabilities> _$coreUserStatusCapabilitiesSerializer =
+    _$CoreUserStatusCapabilitiesSerializer();
 Serializer<CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data>
     _$coreOcsGetCapabilitiesResponse200ApplicationJsonOcsDataSerializer =
     _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_DataSerializer();
@@ -265,6 +263,24 @@ Serializer<CoreTextProcessingApiGetTaskResponse200ApplicationJson_Ocs>
 Serializer<CoreTextProcessingApiGetTaskResponse200ApplicationJson>
     _$coreTextProcessingApiGetTaskResponse200ApplicationJsonSerializer =
     _$CoreTextProcessingApiGetTaskResponse200ApplicationJsonSerializer();
+Serializer<CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs_Data>
+    _$coreTextProcessingApiDeleteTaskResponse200ApplicationJsonOcsDataSerializer =
+    _$CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs_DataSerializer();
+Serializer<CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs>
+    _$coreTextProcessingApiDeleteTaskResponse200ApplicationJsonOcsSerializer =
+    _$CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_OcsSerializer();
+Serializer<CoreTextProcessingApiDeleteTaskResponse200ApplicationJson>
+    _$coreTextProcessingApiDeleteTaskResponse200ApplicationJsonSerializer =
+    _$CoreTextProcessingApiDeleteTaskResponse200ApplicationJsonSerializer();
+Serializer<CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs_Data>
+    _$coreTextProcessingApiListTasksByAppResponse200ApplicationJsonOcsDataSerializer =
+    _$CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs_DataSerializer();
+Serializer<CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs>
+    _$coreTextProcessingApiListTasksByAppResponse200ApplicationJsonOcsSerializer =
+    _$CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_OcsSerializer();
+Serializer<CoreTextProcessingApiListTasksByAppResponse200ApplicationJson>
+    _$coreTextProcessingApiListTasksByAppResponse200ApplicationJsonSerializer =
+    _$CoreTextProcessingApiListTasksByAppResponse200ApplicationJsonSerializer();
 Serializer<CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_Data_Languages>
     _$coreTranslationApiLanguagesResponse200ApplicationJsonOcsDataLanguagesSerializer =
     _$CoreTranslationApiLanguagesResponse200ApplicationJson_Ocs_Data_LanguagesSerializer();
@@ -2560,22 +2576,18 @@ class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_VersionSeriali
   }
 }
 
-class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_PasswordSerializer
-    implements
-        StructuredSerializer<
-            CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_Password> {
+class _$CoreFilesSharingCapabilities_FilesSharing_Public_PasswordSerializer
+    implements StructuredSerializer<CoreFilesSharingCapabilities_FilesSharing_Public_Password> {
   @override
   final Iterable<Type> types = const [
-    CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_Password,
-    _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_Password
+    CoreFilesSharingCapabilities_FilesSharing_Public_Password,
+    _$CoreFilesSharingCapabilities_FilesSharing_Public_Password
   ];
   @override
-  final String wireName =
-      'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_Password';
+  final String wireName = 'CoreFilesSharingCapabilities_FilesSharing_Public_Password';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers,
-      CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_Password object,
+  Iterable<Object?> serialize(Serializers serializers, CoreFilesSharingCapabilities_FilesSharing_Public_Password object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'enforced',
@@ -2588,11 +2600,10 @@ class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_F
   }
 
   @override
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_Password deserialize(
+  CoreFilesSharingCapabilities_FilesSharing_Public_Password deserialize(
       Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result =
-        CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_PasswordBuilder();
+    final result = CoreFilesSharingCapabilities_FilesSharing_Public_PasswordBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -2613,22 +2624,19 @@ class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_F
   }
 }
 
-class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateSerializer
-    implements
-        StructuredSerializer<
-            CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDate> {
+class _$CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateSerializer
+    implements StructuredSerializer<CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDate> {
   @override
   final Iterable<Type> types = const [
-    CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDate,
-    _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDate
+    CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDate,
+    _$CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDate
   ];
   @override
-  final String wireName =
-      'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDate';
+  final String wireName = 'CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDate';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers,
-      CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDate object,
+  Iterable<Object?> serialize(
+      Serializers serializers, CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDate object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'enabled',
@@ -2651,11 +2659,10 @@ class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_F
   }
 
   @override
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDate deserialize(
+  CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDate deserialize(
       Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result =
-        CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateBuilder();
+    final result = CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -2679,24 +2686,19 @@ class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_F
   }
 }
 
-class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternalSerializer
-    implements
-        StructuredSerializer<
-            CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternal> {
+class _$CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateInternalSerializer
+    implements StructuredSerializer<CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateInternal> {
   @override
   final Iterable<Type> types = const [
-    CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternal,
-    _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternal
+    CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateInternal,
+    _$CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateInternal
   ];
   @override
-  final String wireName =
-      'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternal';
+  final String wireName = 'CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateInternal';
 
   @override
   Iterable<Object?> serialize(
-      Serializers serializers,
-      CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternal
-          object,
+      Serializers serializers, CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateInternal object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'enabled',
@@ -2719,11 +2721,10 @@ class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_F
   }
 
   @override
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternal
-      deserialize(Serializers serializers, Iterable<Object?> serialized,
-          {FullType specifiedType = FullType.unspecified}) {
-    final result =
-        CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternalBuilder();
+  CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateInternal deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateInternalBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -2747,24 +2748,19 @@ class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_F
   }
 }
 
-class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemoteSerializer
-    implements
-        StructuredSerializer<
-            CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemote> {
+class _$CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateRemoteSerializer
+    implements StructuredSerializer<CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateRemote> {
   @override
   final Iterable<Type> types = const [
-    CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemote,
-    _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemote
+    CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateRemote,
+    _$CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateRemote
   ];
   @override
-  final String wireName =
-      'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemote';
+  final String wireName = 'CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateRemote';
 
   @override
   Iterable<Object?> serialize(
-      Serializers serializers,
-      CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemote
-          object,
+      Serializers serializers, CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateRemote object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'enabled',
@@ -2787,11 +2783,10 @@ class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_F
   }
 
   @override
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemote
-      deserialize(Serializers serializers, Iterable<Object?> serialized,
-          {FullType specifiedType = FullType.unspecified}) {
-    final result =
-        CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemoteBuilder();
+  CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateRemote deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateRemoteBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -2815,21 +2810,18 @@ class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_F
   }
 }
 
-class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_PublicSerializer
-    implements
-        StructuredSerializer<
-            CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public> {
+class _$CoreFilesSharingCapabilities_FilesSharing_PublicSerializer
+    implements StructuredSerializer<CoreFilesSharingCapabilities_FilesSharing_Public> {
   @override
   final Iterable<Type> types = const [
-    CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public,
-    _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public
+    CoreFilesSharingCapabilities_FilesSharing_Public,
+    _$CoreFilesSharingCapabilities_FilesSharing_Public
   ];
   @override
-  final String wireName = 'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public';
+  final String wireName = 'CoreFilesSharingCapabilities_FilesSharing_Public';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers,
-      CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public object,
+  Iterable<Object?> serialize(Serializers serializers, CoreFilesSharingCapabilities_FilesSharing_Public object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'enabled',
@@ -2841,8 +2833,7 @@ class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_F
       result
         ..add('password')
         ..add(serializers.serialize(value,
-            specifiedType: const FullType(
-                CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_Password)));
+            specifiedType: const FullType(CoreFilesSharingCapabilities_FilesSharing_Public_Password)));
     }
     value = object.multipleLinks;
     if (value != null) {
@@ -2855,24 +2846,21 @@ class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_F
       result
         ..add('expire_date')
         ..add(serializers.serialize(value,
-            specifiedType: const FullType(
-                CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDate)));
+            specifiedType: const FullType(CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDate)));
     }
     value = object.expireDateInternal;
     if (value != null) {
       result
         ..add('expire_date_internal')
         ..add(serializers.serialize(value,
-            specifiedType: const FullType(
-                CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternal)));
+            specifiedType: const FullType(CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateInternal)));
     }
     value = object.expireDateRemote;
     if (value != null) {
       result
         ..add('expire_date_remote')
         ..add(serializers.serialize(value,
-            specifiedType: const FullType(
-                CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemote)));
+            specifiedType: const FullType(CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateRemote)));
     }
     value = object.sendMail;
     if (value != null) {
@@ -2896,10 +2884,9 @@ class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_F
   }
 
   @override
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public deserialize(
-      Serializers serializers, Iterable<Object?> serialized,
+  CoreFilesSharingCapabilities_FilesSharing_Public deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_PublicBuilder();
+    final result = CoreFilesSharingCapabilities_FilesSharing_PublicBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -2912,30 +2899,26 @@ class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_F
           break;
         case 'password':
           result.password.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(
-                      CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_Password))!
-              as CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_Password);
+                  specifiedType: const FullType(CoreFilesSharingCapabilities_FilesSharing_Public_Password))!
+              as CoreFilesSharingCapabilities_FilesSharing_Public_Password);
           break;
         case 'multiple_links':
           result.multipleLinks = serializers.deserialize(value, specifiedType: const FullType(bool)) as bool?;
           break;
         case 'expire_date':
           result.expireDate.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(
-                      CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDate))!
-              as CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDate);
+                  specifiedType: const FullType(CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDate))!
+              as CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDate);
           break;
         case 'expire_date_internal':
           result.expireDateInternal.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(
-                      CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternal))!
-              as CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternal);
+                  specifiedType: const FullType(CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateInternal))!
+              as CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateInternal);
           break;
         case 'expire_date_remote':
           result.expireDateRemote.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(
-                      CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemote))!
-              as CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemote);
+                  specifiedType: const FullType(CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateRemote))!
+              as CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateRemote);
           break;
         case 'send_mail':
           result.sendMail = serializers.deserialize(value, specifiedType: const FullType(bool)) as bool?;
@@ -2953,22 +2936,18 @@ class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_F
   }
 }
 
-class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_User_ExpireDateSerializer
-    implements
-        StructuredSerializer<
-            CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_User_ExpireDate> {
+class _$CoreFilesSharingCapabilities_FilesSharing_User_ExpireDateSerializer
+    implements StructuredSerializer<CoreFilesSharingCapabilities_FilesSharing_User_ExpireDate> {
   @override
   final Iterable<Type> types = const [
-    CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_User_ExpireDate,
-    _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_User_ExpireDate
+    CoreFilesSharingCapabilities_FilesSharing_User_ExpireDate,
+    _$CoreFilesSharingCapabilities_FilesSharing_User_ExpireDate
   ];
   @override
-  final String wireName =
-      'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_User_ExpireDate';
+  final String wireName = 'CoreFilesSharingCapabilities_FilesSharing_User_ExpireDate';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers,
-      CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_User_ExpireDate object,
+  Iterable<Object?> serialize(Serializers serializers, CoreFilesSharingCapabilities_FilesSharing_User_ExpireDate object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'enabled',
@@ -2979,11 +2958,10 @@ class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_F
   }
 
   @override
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_User_ExpireDate deserialize(
+  CoreFilesSharingCapabilities_FilesSharing_User_ExpireDate deserialize(
       Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result =
-        CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_User_ExpireDateBuilder();
+    final result = CoreFilesSharingCapabilities_FilesSharing_User_ExpireDateBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -3001,20 +2979,18 @@ class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_F
   }
 }
 
-class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_UserSerializer
-    implements
-        StructuredSerializer<CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_User> {
+class _$CoreFilesSharingCapabilities_FilesSharing_UserSerializer
+    implements StructuredSerializer<CoreFilesSharingCapabilities_FilesSharing_User> {
   @override
   final Iterable<Type> types = const [
-    CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_User,
-    _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_User
+    CoreFilesSharingCapabilities_FilesSharing_User,
+    _$CoreFilesSharingCapabilities_FilesSharing_User
   ];
   @override
-  final String wireName = 'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_User';
+  final String wireName = 'CoreFilesSharingCapabilities_FilesSharing_User';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers,
-      CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_User object,
+  Iterable<Object?> serialize(Serializers serializers, CoreFilesSharingCapabilities_FilesSharing_User object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'send_mail',
@@ -3026,17 +3002,15 @@ class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_F
       result
         ..add('expire_date')
         ..add(serializers.serialize(value,
-            specifiedType: const FullType(
-                CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_User_ExpireDate)));
+            specifiedType: const FullType(CoreFilesSharingCapabilities_FilesSharing_User_ExpireDate)));
     }
     return result;
   }
 
   @override
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_User deserialize(
-      Serializers serializers, Iterable<Object?> serialized,
+  CoreFilesSharingCapabilities_FilesSharing_User deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_UserBuilder();
+    final result = CoreFilesSharingCapabilities_FilesSharing_UserBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -3049,9 +3023,8 @@ class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_F
           break;
         case 'expire_date':
           result.expireDate.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(
-                      CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_User_ExpireDate))!
-              as CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_User_ExpireDate);
+                  specifiedType: const FullType(CoreFilesSharingCapabilities_FilesSharing_User_ExpireDate))!
+              as CoreFilesSharingCapabilities_FilesSharing_User_ExpireDate);
           break;
       }
     }
@@ -3060,22 +3033,19 @@ class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_F
   }
 }
 
-class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDateSerializer
-    implements
-        StructuredSerializer<
-            CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDate> {
+class _$CoreFilesSharingCapabilities_FilesSharing_Group_ExpireDateSerializer
+    implements StructuredSerializer<CoreFilesSharingCapabilities_FilesSharing_Group_ExpireDate> {
   @override
   final Iterable<Type> types = const [
-    CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDate,
-    _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDate
+    CoreFilesSharingCapabilities_FilesSharing_Group_ExpireDate,
+    _$CoreFilesSharingCapabilities_FilesSharing_Group_ExpireDate
   ];
   @override
-  final String wireName =
-      'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDate';
+  final String wireName = 'CoreFilesSharingCapabilities_FilesSharing_Group_ExpireDate';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers,
-      CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDate object,
+  Iterable<Object?> serialize(
+      Serializers serializers, CoreFilesSharingCapabilities_FilesSharing_Group_ExpireDate object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'enabled',
@@ -3086,11 +3056,10 @@ class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_F
   }
 
   @override
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDate deserialize(
+  CoreFilesSharingCapabilities_FilesSharing_Group_ExpireDate deserialize(
       Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result =
-        CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDateBuilder();
+    final result = CoreFilesSharingCapabilities_FilesSharing_Group_ExpireDateBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -3108,21 +3077,18 @@ class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_F
   }
 }
 
-class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_GroupSerializer
-    implements
-        StructuredSerializer<
-            CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group> {
+class _$CoreFilesSharingCapabilities_FilesSharing_GroupSerializer
+    implements StructuredSerializer<CoreFilesSharingCapabilities_FilesSharing_Group> {
   @override
   final Iterable<Type> types = const [
-    CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group,
-    _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group
+    CoreFilesSharingCapabilities_FilesSharing_Group,
+    _$CoreFilesSharingCapabilities_FilesSharing_Group
   ];
   @override
-  final String wireName = 'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group';
+  final String wireName = 'CoreFilesSharingCapabilities_FilesSharing_Group';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers,
-      CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group object,
+  Iterable<Object?> serialize(Serializers serializers, CoreFilesSharingCapabilities_FilesSharing_Group object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'enabled',
@@ -3134,17 +3100,15 @@ class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_F
       result
         ..add('expire_date')
         ..add(serializers.serialize(value,
-            specifiedType: const FullType(
-                CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDate)));
+            specifiedType: const FullType(CoreFilesSharingCapabilities_FilesSharing_Group_ExpireDate)));
     }
     return result;
   }
 
   @override
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group deserialize(
-      Serializers serializers, Iterable<Object?> serialized,
+  CoreFilesSharingCapabilities_FilesSharing_Group deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_GroupBuilder();
+    final result = CoreFilesSharingCapabilities_FilesSharing_GroupBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -3157,9 +3121,8 @@ class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_F
           break;
         case 'expire_date':
           result.expireDate.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(
-                      CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDate))!
-              as CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDate);
+                  specifiedType: const FullType(CoreFilesSharingCapabilities_FilesSharing_Group_ExpireDate))!
+              as CoreFilesSharingCapabilities_FilesSharing_Group_ExpireDate);
           break;
       }
     }
@@ -3168,72 +3131,19 @@ class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_F
   }
 }
 
-class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSerializer
-    implements
-        StructuredSerializer<
-            CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDate> {
+class _$CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDateSerializer
+    implements StructuredSerializer<CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDate> {
   @override
   final Iterable<Type> types = const [
-    CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDate,
-    _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDate
+    CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDate,
+    _$CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDate
   ];
   @override
-  final String wireName =
-      'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDate';
-
-  @override
-  Iterable<Object?> serialize(Serializers serializers,
-      CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDate object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[
-      'enabled',
-      serializers.serialize(object.enabled, specifiedType: const FullType(bool)),
-    ];
-
-    return result;
-  }
-
-  @override
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDate deserialize(
-      Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result =
-        CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final Object? value = iterator.current;
-      switch (key) {
-        case 'enabled':
-          result.enabled = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
-          break;
-      }
-    }
-
-    return result.build();
-  }
-}
-
-class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupportedSerializer
-    implements
-        StructuredSerializer<
-            CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupported> {
-  @override
-  final Iterable<Type> types = const [
-    CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupported,
-    _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupported
-  ];
-  @override
-  final String wireName =
-      'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupported';
+  final String wireName = 'CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDate';
 
   @override
   Iterable<Object?> serialize(
-      Serializers serializers,
-      CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupported
-          object,
+      Serializers serializers, CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDate object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'enabled',
@@ -3244,11 +3154,10 @@ class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_F
   }
 
   @override
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupported
-      deserialize(Serializers serializers, Iterable<Object?> serialized,
-          {FullType specifiedType = FullType.unspecified}) {
-    final result =
-        CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupportedBuilder();
+  CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDate deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDateBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -3266,22 +3175,62 @@ class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_F
   }
 }
 
-class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_FederationSerializer
-    implements
-        StructuredSerializer<
-            CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation> {
+class _$CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupportedSerializer
+    implements StructuredSerializer<CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupported> {
   @override
   final Iterable<Type> types = const [
-    CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation,
-    _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation
+    CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupported,
+    _$CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupported
   ];
   @override
-  final String wireName =
-      'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation';
+  final String wireName = 'CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupported';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers,
-      CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation object,
+  Iterable<Object?> serialize(
+      Serializers serializers, CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupported object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'enabled',
+      serializers.serialize(object.enabled, specifiedType: const FullType(bool)),
+    ];
+
+    return result;
+  }
+
+  @override
+  CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupported deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupportedBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'enabled':
+          result.enabled = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$CoreFilesSharingCapabilities_FilesSharing_FederationSerializer
+    implements StructuredSerializer<CoreFilesSharingCapabilities_FilesSharing_Federation> {
+  @override
+  final Iterable<Type> types = const [
+    CoreFilesSharingCapabilities_FilesSharing_Federation,
+    _$CoreFilesSharingCapabilities_FilesSharing_Federation
+  ];
+  @override
+  final String wireName = 'CoreFilesSharingCapabilities_FilesSharing_Federation';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, CoreFilesSharingCapabilities_FilesSharing_Federation object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'outgoing',
@@ -3290,23 +3239,20 @@ class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_F
       serializers.serialize(object.incoming, specifiedType: const FullType(bool)),
       'expire_date',
       serializers.serialize(object.expireDate,
-          specifiedType: const FullType(
-              CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDate)),
+          specifiedType: const FullType(CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDate)),
       'expire_date_supported',
       serializers.serialize(object.expireDateSupported,
-          specifiedType: const FullType(
-              CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupported)),
+          specifiedType: const FullType(CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupported)),
     ];
 
     return result;
   }
 
   @override
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation deserialize(
+  CoreFilesSharingCapabilities_FilesSharing_Federation deserialize(
       Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result =
-        CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_FederationBuilder();
+    final result = CoreFilesSharingCapabilities_FilesSharing_FederationBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -3322,15 +3268,14 @@ class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_F
           break;
         case 'expire_date':
           result.expireDate.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(
-                      CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDate))!
-              as CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDate);
+                  specifiedType: const FullType(CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDate))!
+              as CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDate);
           break;
         case 'expire_date_supported':
           result.expireDateSupported.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(
-                      CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupported))!
-              as CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupported);
+                  specifiedType:
+                      const FullType(CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupported))!
+              as CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupported);
           break;
       }
     }
@@ -3339,21 +3284,18 @@ class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_F
   }
 }
 
-class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_ShareeSerializer
-    implements
-        StructuredSerializer<
-            CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Sharee> {
+class _$CoreFilesSharingCapabilities_FilesSharing_ShareeSerializer
+    implements StructuredSerializer<CoreFilesSharingCapabilities_FilesSharing_Sharee> {
   @override
   final Iterable<Type> types = const [
-    CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Sharee,
-    _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Sharee
+    CoreFilesSharingCapabilities_FilesSharing_Sharee,
+    _$CoreFilesSharingCapabilities_FilesSharing_Sharee
   ];
   @override
-  final String wireName = 'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Sharee';
+  final String wireName = 'CoreFilesSharingCapabilities_FilesSharing_Sharee';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers,
-      CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Sharee object,
+  Iterable<Object?> serialize(Serializers serializers, CoreFilesSharingCapabilities_FilesSharing_Sharee object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'query_lookup_default',
@@ -3366,10 +3308,9 @@ class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_F
   }
 
   @override
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Sharee deserialize(
-      Serializers serializers, Iterable<Object?> serialized,
+  CoreFilesSharingCapabilities_FilesSharing_Sharee deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_ShareeBuilder();
+    final result = CoreFilesSharingCapabilities_FilesSharing_ShareeBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -3390,42 +3331,35 @@ class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_F
   }
 }
 
-class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharingSerializer
-    implements
-        StructuredSerializer<CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing> {
+class _$CoreFilesSharingCapabilities_FilesSharingSerializer
+    implements StructuredSerializer<CoreFilesSharingCapabilities_FilesSharing> {
   @override
   final Iterable<Type> types = const [
-    CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing,
-    _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing
+    CoreFilesSharingCapabilities_FilesSharing,
+    _$CoreFilesSharingCapabilities_FilesSharing
   ];
   @override
-  final String wireName = 'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing';
+  final String wireName = 'CoreFilesSharingCapabilities_FilesSharing';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers,
-      CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing object,
+  Iterable<Object?> serialize(Serializers serializers, CoreFilesSharingCapabilities_FilesSharing object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'api_enabled',
       serializers.serialize(object.apiEnabled, specifiedType: const FullType(bool)),
       'public',
       serializers.serialize(object.public,
-          specifiedType: const FullType(
-              CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public)),
+          specifiedType: const FullType(CoreFilesSharingCapabilities_FilesSharing_Public)),
       'user',
-      serializers.serialize(object.user,
-          specifiedType:
-              const FullType(CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_User)),
+      serializers.serialize(object.user, specifiedType: const FullType(CoreFilesSharingCapabilities_FilesSharing_User)),
       'resharing',
       serializers.serialize(object.resharing, specifiedType: const FullType(bool)),
       'federation',
       serializers.serialize(object.federation,
-          specifiedType: const FullType(
-              CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation)),
+          specifiedType: const FullType(CoreFilesSharingCapabilities_FilesSharing_Federation)),
       'sharee',
       serializers.serialize(object.sharee,
-          specifiedType: const FullType(
-              CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Sharee)),
+          specifiedType: const FullType(CoreFilesSharingCapabilities_FilesSharing_Sharee)),
     ];
     Object? value;
     value = object.groupSharing;
@@ -3439,8 +3373,7 @@ class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_F
       result
         ..add('group')
         ..add(serializers.serialize(value,
-            specifiedType: const FullType(
-                CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group)));
+            specifiedType: const FullType(CoreFilesSharingCapabilities_FilesSharing_Group)));
     }
     value = object.defaultPermissions;
     if (value != null) {
@@ -3452,10 +3385,9 @@ class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_F
   }
 
   @override
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing deserialize(
-      Serializers serializers, Iterable<Object?> serialized,
+  CoreFilesSharingCapabilities_FilesSharing deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharingBuilder();
+    final result = CoreFilesSharingCapabilities_FilesSharingBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -3468,15 +3400,13 @@ class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_F
           break;
         case 'public':
           result.public.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(
-                      CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public))!
-              as CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public);
+                  specifiedType: const FullType(CoreFilesSharingCapabilities_FilesSharing_Public))!
+              as CoreFilesSharingCapabilities_FilesSharing_Public);
           break;
         case 'user':
           result.user.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(
-                      CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_User))!
-              as CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_User);
+                  specifiedType: const FullType(CoreFilesSharingCapabilities_FilesSharing_User))!
+              as CoreFilesSharingCapabilities_FilesSharing_User);
           break;
         case 'resharing':
           result.resharing = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
@@ -3486,24 +3416,21 @@ class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_F
           break;
         case 'group':
           result.group.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(
-                      CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group))!
-              as CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group);
+                  specifiedType: const FullType(CoreFilesSharingCapabilities_FilesSharing_Group))!
+              as CoreFilesSharingCapabilities_FilesSharing_Group);
           break;
         case 'default_permissions':
           result.defaultPermissions = serializers.deserialize(value, specifiedType: const FullType(int)) as int?;
           break;
         case 'federation':
           result.federation.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(
-                      CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation))!
-              as CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation);
+                  specifiedType: const FullType(CoreFilesSharingCapabilities_FilesSharing_Federation))!
+              as CoreFilesSharingCapabilities_FilesSharing_Federation);
           break;
         case 'sharee':
           result.sharee.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(
-                      CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Sharee))!
-              as CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Sharee);
+                  specifiedType: const FullType(CoreFilesSharingCapabilities_FilesSharing_Sharee))!
+              as CoreFilesSharingCapabilities_FilesSharing_Sharee);
           break;
       }
     }
@@ -3512,19 +3439,55 @@ class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_F
   }
 }
 
-class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_NotesSerializer
-    implements StructuredSerializer<CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Notes> {
+class _$CoreFilesSharingCapabilitiesSerializer implements StructuredSerializer<CoreFilesSharingCapabilities> {
   @override
-  final Iterable<Type> types = const [
-    CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Notes,
-    _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Notes
-  ];
+  final Iterable<Type> types = const [CoreFilesSharingCapabilities, _$CoreFilesSharingCapabilities];
   @override
-  final String wireName = 'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Notes';
+  final String wireName = 'CoreFilesSharingCapabilities';
 
   @override
-  Iterable<Object?> serialize(
-      Serializers serializers, CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Notes object,
+  Iterable<Object?> serialize(Serializers serializers, CoreFilesSharingCapabilities object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'files_sharing',
+      serializers.serialize(object.filesSharing,
+          specifiedType: const FullType(CoreFilesSharingCapabilities_FilesSharing)),
+    ];
+
+    return result;
+  }
+
+  @override
+  CoreFilesSharingCapabilities deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = CoreFilesSharingCapabilitiesBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'files_sharing':
+          result.filesSharing.replace(
+              serializers.deserialize(value, specifiedType: const FullType(CoreFilesSharingCapabilities_FilesSharing))!
+                  as CoreFilesSharingCapabilities_FilesSharing);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$CoreNotesCapabilities_NotesSerializer implements StructuredSerializer<CoreNotesCapabilities_Notes> {
+  @override
+  final Iterable<Type> types = const [CoreNotesCapabilities_Notes, _$CoreNotesCapabilities_Notes];
+  @override
+  final String wireName = 'CoreNotesCapabilities_Notes';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, CoreNotesCapabilities_Notes object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[];
     Object? value;
@@ -3544,10 +3507,9 @@ class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_N
   }
 
   @override
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Notes deserialize(
-      Serializers serializers, Iterable<Object?> serialized,
+  CoreNotesCapabilities_Notes deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_NotesBuilder();
+    final result = CoreNotesCapabilities_NotesBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -3569,20 +3531,57 @@ class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_N
   }
 }
 
-class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_NotificationsSerializer
-    implements
-        StructuredSerializer<CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Notifications> {
+class _$CoreNotesCapabilitiesSerializer implements StructuredSerializer<CoreNotesCapabilities> {
   @override
-  final Iterable<Type> types = const [
-    CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Notifications,
-    _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Notifications
-  ];
+  final Iterable<Type> types = const [CoreNotesCapabilities, _$CoreNotesCapabilities];
   @override
-  final String wireName = 'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Notifications';
+  final String wireName = 'CoreNotesCapabilities';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers,
-      CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Notifications object,
+  Iterable<Object?> serialize(Serializers serializers, CoreNotesCapabilities object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'notes',
+      serializers.serialize(object.notes, specifiedType: const FullType(CoreNotesCapabilities_Notes)),
+    ];
+
+    return result;
+  }
+
+  @override
+  CoreNotesCapabilities deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = CoreNotesCapabilitiesBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'notes':
+          result.notes.replace(serializers.deserialize(value,
+              specifiedType: const FullType(CoreNotesCapabilities_Notes))! as CoreNotesCapabilities_Notes);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$CoreNotificationsCapabilities_NotificationsSerializer
+    implements StructuredSerializer<CoreNotificationsCapabilities_Notifications> {
+  @override
+  final Iterable<Type> types = const [
+    CoreNotificationsCapabilities_Notifications,
+    _$CoreNotificationsCapabilities_Notifications
+  ];
+  @override
+  final String wireName = 'CoreNotificationsCapabilities_Notifications';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, CoreNotificationsCapabilities_Notifications object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[];
     Object? value;
@@ -3608,10 +3607,9 @@ class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_N
   }
 
   @override
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Notifications deserialize(
-      Serializers serializers, Iterable<Object?> serialized,
+  CoreNotificationsCapabilities_Notifications deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_NotificationsBuilder();
+    final result = CoreNotificationsCapabilities_NotificationsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -3638,20 +3636,59 @@ class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_N
   }
 }
 
-class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_ProvisioningApiSerializer
-    implements
-        StructuredSerializer<CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_ProvisioningApi> {
+class _$CoreNotificationsCapabilitiesSerializer implements StructuredSerializer<CoreNotificationsCapabilities> {
   @override
-  final Iterable<Type> types = const [
-    CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_ProvisioningApi,
-    _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_ProvisioningApi
-  ];
+  final Iterable<Type> types = const [CoreNotificationsCapabilities, _$CoreNotificationsCapabilities];
   @override
-  final String wireName = 'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_ProvisioningApi';
+  final String wireName = 'CoreNotificationsCapabilities';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers,
-      CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_ProvisioningApi object,
+  Iterable<Object?> serialize(Serializers serializers, CoreNotificationsCapabilities object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'notifications',
+      serializers.serialize(object.notifications,
+          specifiedType: const FullType(CoreNotificationsCapabilities_Notifications)),
+    ];
+
+    return result;
+  }
+
+  @override
+  CoreNotificationsCapabilities deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = CoreNotificationsCapabilitiesBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'notifications':
+          result.notifications.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(CoreNotificationsCapabilities_Notifications))!
+              as CoreNotificationsCapabilities_Notifications);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$CoreProvisioningApiCapabilities_ProvisioningApiSerializer
+    implements StructuredSerializer<CoreProvisioningApiCapabilities_ProvisioningApi> {
+  @override
+  final Iterable<Type> types = const [
+    CoreProvisioningApiCapabilities_ProvisioningApi,
+    _$CoreProvisioningApiCapabilities_ProvisioningApi
+  ];
+  @override
+  final String wireName = 'CoreProvisioningApiCapabilities_ProvisioningApi';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, CoreProvisioningApiCapabilities_ProvisioningApi object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'version',
@@ -3668,10 +3705,9 @@ class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_P
   }
 
   @override
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_ProvisioningApi deserialize(
-      Serializers serializers, Iterable<Object?> serialized,
+  CoreProvisioningApiCapabilities_ProvisioningApi deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_ProvisioningApiBuilder();
+    final result = CoreProvisioningApiCapabilities_ProvisioningApiBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -3701,19 +3737,56 @@ class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_P
   }
 }
 
-class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_ThemingSerializer
-    implements StructuredSerializer<CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Theming> {
+class _$CoreProvisioningApiCapabilitiesSerializer implements StructuredSerializer<CoreProvisioningApiCapabilities> {
   @override
-  final Iterable<Type> types = const [
-    CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Theming,
-    _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Theming
-  ];
+  final Iterable<Type> types = const [CoreProvisioningApiCapabilities, _$CoreProvisioningApiCapabilities];
   @override
-  final String wireName = 'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Theming';
+  final String wireName = 'CoreProvisioningApiCapabilities';
 
   @override
-  Iterable<Object?> serialize(
-      Serializers serializers, CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Theming object,
+  Iterable<Object?> serialize(Serializers serializers, CoreProvisioningApiCapabilities object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'provisioning_api',
+      serializers.serialize(object.provisioningApi,
+          specifiedType: const FullType(CoreProvisioningApiCapabilities_ProvisioningApi)),
+    ];
+
+    return result;
+  }
+
+  @override
+  CoreProvisioningApiCapabilities deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = CoreProvisioningApiCapabilitiesBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'provisioning_api':
+          result.provisioningApi.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(CoreProvisioningApiCapabilities_ProvisioningApi))!
+              as CoreProvisioningApiCapabilities_ProvisioningApi);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$CoreThemingPublicCapabilities_ThemingSerializer
+    implements StructuredSerializer<CoreThemingPublicCapabilities_Theming> {
+  @override
+  final Iterable<Type> types = const [CoreThemingPublicCapabilities_Theming, _$CoreThemingPublicCapabilities_Theming];
+  @override
+  final String wireName = 'CoreThemingPublicCapabilities_Theming';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, CoreThemingPublicCapabilities_Theming object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'name',
@@ -3750,10 +3823,9 @@ class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_T
   }
 
   @override
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Theming deserialize(
-      Serializers serializers, Iterable<Object?> serialized,
+  CoreThemingPublicCapabilities_Theming deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_ThemingBuilder();
+    final result = CoreThemingPublicCapabilities_ThemingBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -3810,19 +3882,55 @@ class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_T
   }
 }
 
-class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_UserStatusSerializer
-    implements StructuredSerializer<CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_UserStatus> {
+class _$CoreThemingPublicCapabilitiesSerializer implements StructuredSerializer<CoreThemingPublicCapabilities> {
   @override
-  final Iterable<Type> types = const [
-    CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_UserStatus,
-    _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_UserStatus
-  ];
+  final Iterable<Type> types = const [CoreThemingPublicCapabilities, _$CoreThemingPublicCapabilities];
   @override
-  final String wireName = 'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_UserStatus';
+  final String wireName = 'CoreThemingPublicCapabilities';
 
   @override
-  Iterable<Object?> serialize(
-      Serializers serializers, CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_UserStatus object,
+  Iterable<Object?> serialize(Serializers serializers, CoreThemingPublicCapabilities object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'theming',
+      serializers.serialize(object.theming, specifiedType: const FullType(CoreThemingPublicCapabilities_Theming)),
+    ];
+
+    return result;
+  }
+
+  @override
+  CoreThemingPublicCapabilities deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = CoreThemingPublicCapabilitiesBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'theming':
+          result.theming.replace(
+              serializers.deserialize(value, specifiedType: const FullType(CoreThemingPublicCapabilities_Theming))!
+                  as CoreThemingPublicCapabilities_Theming);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$CoreUserStatusCapabilities_UserStatusSerializer
+    implements StructuredSerializer<CoreUserStatusCapabilities_UserStatus> {
+  @override
+  final Iterable<Type> types = const [CoreUserStatusCapabilities_UserStatus, _$CoreUserStatusCapabilities_UserStatus];
+  @override
+  final String wireName = 'CoreUserStatusCapabilities_UserStatus';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, CoreUserStatusCapabilities_UserStatus object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'enabled',
@@ -3837,10 +3945,9 @@ class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_U
   }
 
   @override
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_UserStatus deserialize(
-      Serializers serializers, Iterable<Object?> serialized,
+  CoreUserStatusCapabilities_UserStatus deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_UserStatusBuilder();
+    final result = CoreUserStatusCapabilities_UserStatusBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -3864,78 +3971,27 @@ class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_U
   }
 }
 
-class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_CapabilitiesSerializer
-    implements StructuredSerializer<CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities> {
+class _$CoreUserStatusCapabilitiesSerializer implements StructuredSerializer<CoreUserStatusCapabilities> {
   @override
-  final Iterable<Type> types = const [
-    CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities,
-    _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities
-  ];
+  final Iterable<Type> types = const [CoreUserStatusCapabilities, _$CoreUserStatusCapabilities];
   @override
-  final String wireName = 'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities';
+  final String wireName = 'CoreUserStatusCapabilities';
 
   @override
-  Iterable<Object?> serialize(
-      Serializers serializers, CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities object,
+  Iterable<Object?> serialize(Serializers serializers, CoreUserStatusCapabilities object,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[];
-    Object? value;
-    value = object.filesSharing;
-    if (value != null) {
-      result
-        ..add('files_sharing')
-        ..add(serializers.serialize(value,
-            specifiedType:
-                const FullType(CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing)));
-    }
-    value = object.notes;
-    if (value != null) {
-      result
-        ..add('notes')
-        ..add(serializers.serialize(value,
-            specifiedType:
-                const FullType(CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Notes)));
-    }
-    value = object.notifications;
-    if (value != null) {
-      result
-        ..add('notifications')
-        ..add(serializers.serialize(value,
-            specifiedType:
-                const FullType(CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Notifications)));
-    }
-    value = object.provisioningApi;
-    if (value != null) {
-      result
-        ..add('provisioning_api')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(
-                CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_ProvisioningApi)));
-    }
-    value = object.theming;
-    if (value != null) {
-      result
-        ..add('theming')
-        ..add(serializers.serialize(value,
-            specifiedType:
-                const FullType(CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Theming)));
-    }
-    value = object.userStatus;
-    if (value != null) {
-      result
-        ..add('user_status')
-        ..add(serializers.serialize(value,
-            specifiedType:
-                const FullType(CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_UserStatus)));
-    }
+    final result = <Object?>[
+      'user_status',
+      serializers.serialize(object.userStatus, specifiedType: const FullType(CoreUserStatusCapabilities_UserStatus)),
+    ];
+
     return result;
   }
 
   @override
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities deserialize(
-      Serializers serializers, Iterable<Object?> serialized,
+  CoreUserStatusCapabilities deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_CapabilitiesBuilder();
+    final result = CoreUserStatusCapabilitiesBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -3943,41 +3999,10 @@ class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_CapabilitiesSe
       iterator.moveNext();
       final Object? value = iterator.current;
       switch (key) {
-        case 'files_sharing':
-          result.filesSharing.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(
-                      CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing))!
-              as CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing);
-          break;
-        case 'notes':
-          result.notes.replace(serializers.deserialize(value,
-                  specifiedType:
-                      const FullType(CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Notes))!
-              as CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Notes);
-          break;
-        case 'notifications':
-          result.notifications.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(
-                      CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Notifications))!
-              as CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Notifications);
-          break;
-        case 'provisioning_api':
-          result.provisioningApi.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(
-                      CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_ProvisioningApi))!
-              as CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_ProvisioningApi);
-          break;
-        case 'theming':
-          result.theming.replace(serializers.deserialize(value,
-                  specifiedType:
-                      const FullType(CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Theming))!
-              as CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Theming);
-          break;
         case 'user_status':
-          result.userStatus.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(
-                      CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_UserStatus))!
-              as CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_UserStatus);
+          result.userStatus.replace(
+              serializers.deserialize(value, specifiedType: const FullType(CoreUserStatusCapabilities_UserStatus))!
+                  as CoreUserStatusCapabilities_UserStatus);
           break;
       }
     }
@@ -5598,6 +5623,296 @@ class _$CoreTextProcessingApiGetTaskResponse200ApplicationJsonSerializer
           result.ocs.replace(serializers.deserialize(value,
                   specifiedType: const FullType(CoreTextProcessingApiGetTaskResponse200ApplicationJson_Ocs))!
               as CoreTextProcessingApiGetTaskResponse200ApplicationJson_Ocs);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs_DataSerializer
+    implements StructuredSerializer<CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs_Data> {
+  @override
+  final Iterable<Type> types = const [
+    CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs_Data,
+    _$CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs_Data
+  ];
+  @override
+  final String wireName = 'CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs_Data';
+
+  @override
+  Iterable<Object?> serialize(
+      Serializers serializers, CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs_Data object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'task',
+      serializers.serialize(object.task, specifiedType: const FullType(CoreTextProcessingTask)),
+    ];
+
+    return result;
+  }
+
+  @override
+  CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs_Data deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs_DataBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'task':
+          result.task.replace(serializers.deserialize(value, specifiedType: const FullType(CoreTextProcessingTask))!
+              as CoreTextProcessingTask);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_OcsSerializer
+    implements StructuredSerializer<CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs> {
+  @override
+  final Iterable<Type> types = const [
+    CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs,
+    _$CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs
+  ];
+  @override
+  final String wireName = 'CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(
+      Serializers serializers, CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(CoreOCSMeta)),
+      'data',
+      serializers.serialize(object.data,
+          specifiedType: const FullType(CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs_Data)),
+    ];
+
+    return result;
+  }
+
+  @override
+  CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta
+              .replace(serializers.deserialize(value, specifiedType: const FullType(CoreOCSMeta))! as CoreOCSMeta);
+          break;
+        case 'data':
+          result.data.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs_Data))!
+              as CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs_Data);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$CoreTextProcessingApiDeleteTaskResponse200ApplicationJsonSerializer
+    implements StructuredSerializer<CoreTextProcessingApiDeleteTaskResponse200ApplicationJson> {
+  @override
+  final Iterable<Type> types = const [
+    CoreTextProcessingApiDeleteTaskResponse200ApplicationJson,
+    _$CoreTextProcessingApiDeleteTaskResponse200ApplicationJson
+  ];
+  @override
+  final String wireName = 'CoreTextProcessingApiDeleteTaskResponse200ApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, CoreTextProcessingApiDeleteTaskResponse200ApplicationJson object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(object.ocs,
+          specifiedType: const FullType(CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs)),
+    ];
+
+    return result;
+  }
+
+  @override
+  CoreTextProcessingApiDeleteTaskResponse200ApplicationJson deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = CoreTextProcessingApiDeleteTaskResponse200ApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs))!
+              as CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs_DataSerializer
+    implements StructuredSerializer<CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs_Data> {
+  @override
+  final Iterable<Type> types = const [
+    CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs_Data,
+    _$CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs_Data
+  ];
+  @override
+  final String wireName = 'CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs_Data';
+
+  @override
+  Iterable<Object?> serialize(
+      Serializers serializers, CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs_Data object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'tasks',
+      serializers.serialize(object.tasks, specifiedType: const FullType(BuiltList, [FullType(CoreTextProcessingTask)])),
+    ];
+
+    return result;
+  }
+
+  @override
+  CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs_Data deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs_DataBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'tasks':
+          result.tasks.replace(serializers.deserialize(value,
+              specifiedType: const FullType(BuiltList, [FullType(CoreTextProcessingTask)]))! as BuiltList<Object?>);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_OcsSerializer
+    implements StructuredSerializer<CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs> {
+  @override
+  final Iterable<Type> types = const [
+    CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs,
+    _$CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs
+  ];
+  @override
+  final String wireName = 'CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(
+      Serializers serializers, CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(CoreOCSMeta)),
+      'data',
+      serializers.serialize(object.data,
+          specifiedType: const FullType(CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs_Data)),
+    ];
+
+    return result;
+  }
+
+  @override
+  CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta
+              .replace(serializers.deserialize(value, specifiedType: const FullType(CoreOCSMeta))! as CoreOCSMeta);
+          break;
+        case 'data':
+          result.data.replace(serializers.deserialize(value,
+                  specifiedType:
+                      const FullType(CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs_Data))!
+              as CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs_Data);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$CoreTextProcessingApiListTasksByAppResponse200ApplicationJsonSerializer
+    implements StructuredSerializer<CoreTextProcessingApiListTasksByAppResponse200ApplicationJson> {
+  @override
+  final Iterable<Type> types = const [
+    CoreTextProcessingApiListTasksByAppResponse200ApplicationJson,
+    _$CoreTextProcessingApiListTasksByAppResponse200ApplicationJson
+  ];
+  @override
+  final String wireName = 'CoreTextProcessingApiListTasksByAppResponse200ApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(
+      Serializers serializers, CoreTextProcessingApiListTasksByAppResponse200ApplicationJson object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(object.ocs,
+          specifiedType: const FullType(CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs)),
+    ];
+
+    return result;
+  }
+
+  @override
+  CoreTextProcessingApiListTasksByAppResponse200ApplicationJson deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = CoreTextProcessingApiListTasksByAppResponse200ApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs))!
+              as CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs);
           break;
       }
     }
@@ -11955,52 +12270,39 @@ class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_VersionBuilder
   }
 }
 
-class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_Password
-    extends CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_Password {
+class _$CoreFilesSharingCapabilities_FilesSharing_Public_Password
+    extends CoreFilesSharingCapabilities_FilesSharing_Public_Password {
   @override
   final bool enforced;
   @override
   final bool askForOptionalPassword;
 
-  factory _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_Password(
-          [void Function(
-                  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_PasswordBuilder)?
-              updates]) =>
-      (CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_PasswordBuilder()
-            ..update(updates))
-          ._build();
+  factory _$CoreFilesSharingCapabilities_FilesSharing_Public_Password(
+          [void Function(CoreFilesSharingCapabilities_FilesSharing_Public_PasswordBuilder)? updates]) =>
+      (CoreFilesSharingCapabilities_FilesSharing_Public_PasswordBuilder()..update(updates))._build();
 
-  _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_Password._(
+  _$CoreFilesSharingCapabilities_FilesSharing_Public_Password._(
       {required this.enforced, required this.askForOptionalPassword})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(
-        enforced,
-        r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_Password',
-        'enforced');
+        enforced, r'CoreFilesSharingCapabilities_FilesSharing_Public_Password', 'enforced');
     BuiltValueNullFieldError.checkNotNull(
-        askForOptionalPassword,
-        r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_Password',
-        'askForOptionalPassword');
+        askForOptionalPassword, r'CoreFilesSharingCapabilities_FilesSharing_Public_Password', 'askForOptionalPassword');
   }
 
   @override
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_Password rebuild(
-          void Function(
-                  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_PasswordBuilder)
-              updates) =>
+  CoreFilesSharingCapabilities_FilesSharing_Public_Password rebuild(
+          void Function(CoreFilesSharingCapabilities_FilesSharing_Public_PasswordBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_PasswordBuilder
-      toBuilder() =>
-          CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_PasswordBuilder()
-            ..replace(this);
+  CoreFilesSharingCapabilities_FilesSharing_Public_PasswordBuilder toBuilder() =>
+      CoreFilesSharingCapabilities_FilesSharing_Public_PasswordBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other
-            is CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_Password &&
+    return other is CoreFilesSharingCapabilities_FilesSharing_Public_Password &&
         enforced == other.enforced &&
         askForOptionalPassword == other.askForOptionalPassword;
   }
@@ -12016,19 +12318,18 @@ class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_F
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(
-            r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_Password')
+    return (newBuiltValueToStringHelper(r'CoreFilesSharingCapabilities_FilesSharing_Public_Password')
           ..add('enforced', enforced)
           ..add('askForOptionalPassword', askForOptionalPassword))
         .toString();
   }
 }
 
-class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_PasswordBuilder
+class CoreFilesSharingCapabilities_FilesSharing_Public_PasswordBuilder
     implements
-        Builder<CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_Password,
-            CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_PasswordBuilder> {
-  _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_Password? _$v;
+        Builder<CoreFilesSharingCapabilities_FilesSharing_Public_Password,
+            CoreFilesSharingCapabilities_FilesSharing_Public_PasswordBuilder> {
+  _$CoreFilesSharingCapabilities_FilesSharing_Public_Password? _$v;
 
   bool? _enforced;
   bool? get enforced => _$this._enforced;
@@ -12038,10 +12339,9 @@ class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Fil
   bool? get askForOptionalPassword => _$this._askForOptionalPassword;
   set askForOptionalPassword(bool? askForOptionalPassword) => _$this._askForOptionalPassword = askForOptionalPassword;
 
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_PasswordBuilder();
+  CoreFilesSharingCapabilities_FilesSharing_Public_PasswordBuilder();
 
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_PasswordBuilder
-      get _$this {
+  CoreFilesSharingCapabilities_FilesSharing_Public_PasswordBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _enforced = $v.enforced;
@@ -12052,43 +12352,33 @@ class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Fil
   }
 
   @override
-  void replace(
-      CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_Password other) {
+  void replace(CoreFilesSharingCapabilities_FilesSharing_Public_Password other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v =
-        other as _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_Password;
+    _$v = other as _$CoreFilesSharingCapabilities_FilesSharing_Public_Password;
   }
 
   @override
-  void update(
-      void Function(
-              CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_PasswordBuilder)?
-          updates) {
+  void update(void Function(CoreFilesSharingCapabilities_FilesSharing_Public_PasswordBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_Password build() =>
-      _build();
+  CoreFilesSharingCapabilities_FilesSharing_Public_Password build() => _build();
 
-  _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_Password _build() {
+  _$CoreFilesSharingCapabilities_FilesSharing_Public_Password _build() {
     final _$result = _$v ??
-        _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_Password._(
+        _$CoreFilesSharingCapabilities_FilesSharing_Public_Password._(
             enforced: BuiltValueNullFieldError.checkNotNull(
-                enforced,
-                r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_Password',
-                'enforced'),
-            askForOptionalPassword: BuiltValueNullFieldError.checkNotNull(
-                askForOptionalPassword,
-                r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_Password',
-                'askForOptionalPassword'));
+                enforced, r'CoreFilesSharingCapabilities_FilesSharing_Public_Password', 'enforced'),
+            askForOptionalPassword: BuiltValueNullFieldError.checkNotNull(askForOptionalPassword,
+                r'CoreFilesSharingCapabilities_FilesSharing_Public_Password', 'askForOptionalPassword'));
     replace(_$result);
     return _$result;
   }
 }
 
-class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDate
-    extends CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDate {
+class _$CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDate
+    extends CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDate {
   @override
   final bool enabled;
   @override
@@ -12096,41 +12386,29 @@ class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_F
   @override
   final bool? enforced;
 
-  factory _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDate(
-          [void Function(
-                  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateBuilder)?
-              updates]) =>
-      (CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateBuilder()
-            ..update(updates))
-          ._build();
+  factory _$CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDate(
+          [void Function(CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateBuilder)? updates]) =>
+      (CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateBuilder()..update(updates))._build();
 
-  _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDate._(
-      {required this.enabled, this.days, this.enforced})
+  _$CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDate._({required this.enabled, this.days, this.enforced})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(
-        enabled,
-        r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDate',
-        'enabled');
+        enabled, r'CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDate', 'enabled');
   }
 
   @override
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDate rebuild(
-          void Function(
-                  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateBuilder)
-              updates) =>
+  CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDate rebuild(
+          void Function(CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateBuilder
-      toBuilder() =>
-          CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateBuilder()
-            ..replace(this);
+  CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateBuilder toBuilder() =>
+      CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other
-            is CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDate &&
+    return other is CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDate &&
         enabled == other.enabled &&
         days == other.days &&
         enforced == other.enforced;
@@ -12148,8 +12426,7 @@ class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_F
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(
-            r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDate')
+    return (newBuiltValueToStringHelper(r'CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDate')
           ..add('enabled', enabled)
           ..add('days', days)
           ..add('enforced', enforced))
@@ -12157,11 +12434,11 @@ class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_F
   }
 }
 
-class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateBuilder
+class CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateBuilder
     implements
-        Builder<CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDate,
-            CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateBuilder> {
-  _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDate? _$v;
+        Builder<CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDate,
+            CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateBuilder> {
+  _$CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDate? _$v;
 
   bool? _enabled;
   bool? get enabled => _$this._enabled;
@@ -12175,10 +12452,9 @@ class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Fil
   bool? get enforced => _$this._enforced;
   set enforced(bool? enforced) => _$this._enforced = enforced;
 
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateBuilder();
+  CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateBuilder();
 
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateBuilder
-      get _$this {
+  CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _enabled = $v.enabled;
@@ -12190,32 +12466,24 @@ class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Fil
   }
 
   @override
-  void replace(
-      CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDate other) {
+  void replace(CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDate other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other
-        as _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDate;
+    _$v = other as _$CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDate;
   }
 
   @override
-  void update(
-      void Function(
-              CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateBuilder)?
-          updates) {
+  void update(void Function(CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDate build() =>
-      _build();
+  CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDate build() => _build();
 
-  _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDate _build() {
+  _$CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDate _build() {
     final _$result = _$v ??
-        _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDate._(
+        _$CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDate._(
             enabled: BuiltValueNullFieldError.checkNotNull(
-                enabled,
-                r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDate',
-                'enabled'),
+                enabled, r'CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDate', 'enabled'),
             days: days,
             enforced: enforced);
     replace(_$result);
@@ -12223,8 +12491,8 @@ class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Fil
   }
 }
 
-class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternal
-    extends CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternal {
+class _$CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateInternal
+    extends CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateInternal {
   @override
   final bool enabled;
   @override
@@ -12232,41 +12500,30 @@ class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_F
   @override
   final bool? enforced;
 
-  factory _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternal(
-          [void Function(
-                  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternalBuilder)?
-              updates]) =>
-      (CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternalBuilder()
-            ..update(updates))
-          ._build();
+  factory _$CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateInternal(
+          [void Function(CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateInternalBuilder)? updates]) =>
+      (CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateInternalBuilder()..update(updates))._build();
 
-  _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternal._(
+  _$CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateInternal._(
       {required this.enabled, this.days, this.enforced})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(
-        enabled,
-        r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternal',
-        'enabled');
+        enabled, r'CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateInternal', 'enabled');
   }
 
   @override
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternal rebuild(
-          void Function(
-                  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternalBuilder)
-              updates) =>
+  CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateInternal rebuild(
+          void Function(CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateInternalBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternalBuilder
-      toBuilder() =>
-          CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternalBuilder()
-            ..replace(this);
+  CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateInternalBuilder toBuilder() =>
+      CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateInternalBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other
-            is CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternal &&
+    return other is CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateInternal &&
         enabled == other.enabled &&
         days == other.days &&
         enforced == other.enforced;
@@ -12284,8 +12541,7 @@ class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_F
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(
-            r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternal')
+    return (newBuiltValueToStringHelper(r'CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateInternal')
           ..add('enabled', enabled)
           ..add('days', days)
           ..add('enforced', enforced))
@@ -12293,12 +12549,11 @@ class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_F
   }
 }
 
-class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternalBuilder
+class CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateInternalBuilder
     implements
-        Builder<
-            CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternal,
-            CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternalBuilder> {
-  _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternal? _$v;
+        Builder<CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateInternal,
+            CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateInternalBuilder> {
+  _$CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateInternal? _$v;
 
   bool? _enabled;
   bool? get enabled => _$this._enabled;
@@ -12312,10 +12567,9 @@ class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Fil
   bool? get enforced => _$this._enforced;
   set enforced(bool? enforced) => _$this._enforced = enforced;
 
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternalBuilder();
+  CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateInternalBuilder();
 
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternalBuilder
-      get _$this {
+  CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateInternalBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _enabled = $v.enabled;
@@ -12327,34 +12581,24 @@ class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Fil
   }
 
   @override
-  void replace(
-      CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternal
-          other) {
+  void replace(CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateInternal other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other
-        as _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternal;
+    _$v = other as _$CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateInternal;
   }
 
   @override
-  void update(
-      void Function(
-              CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternalBuilder)?
-          updates) {
+  void update(void Function(CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateInternalBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternal
-      build() => _build();
+  CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateInternal build() => _build();
 
-  _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternal
-      _build() {
+  _$CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateInternal _build() {
     final _$result = _$v ??
-        _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternal._(
+        _$CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateInternal._(
             enabled: BuiltValueNullFieldError.checkNotNull(
-                enabled,
-                r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternal',
-                'enabled'),
+                enabled, r'CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateInternal', 'enabled'),
             days: days,
             enforced: enforced);
     replace(_$result);
@@ -12362,8 +12606,8 @@ class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Fil
   }
 }
 
-class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemote
-    extends CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemote {
+class _$CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateRemote
+    extends CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateRemote {
   @override
   final bool enabled;
   @override
@@ -12371,41 +12615,30 @@ class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_F
   @override
   final bool? enforced;
 
-  factory _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemote(
-          [void Function(
-                  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemoteBuilder)?
-              updates]) =>
-      (CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemoteBuilder()
-            ..update(updates))
-          ._build();
+  factory _$CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateRemote(
+          [void Function(CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateRemoteBuilder)? updates]) =>
+      (CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateRemoteBuilder()..update(updates))._build();
 
-  _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemote._(
+  _$CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateRemote._(
       {required this.enabled, this.days, this.enforced})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(
-        enabled,
-        r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemote',
-        'enabled');
+        enabled, r'CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateRemote', 'enabled');
   }
 
   @override
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemote rebuild(
-          void Function(
-                  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemoteBuilder)
-              updates) =>
+  CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateRemote rebuild(
+          void Function(CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateRemoteBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemoteBuilder
-      toBuilder() =>
-          CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemoteBuilder()
-            ..replace(this);
+  CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateRemoteBuilder toBuilder() =>
+      CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateRemoteBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other
-            is CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemote &&
+    return other is CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateRemote &&
         enabled == other.enabled &&
         days == other.days &&
         enforced == other.enforced;
@@ -12423,8 +12656,7 @@ class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_F
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(
-            r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemote')
+    return (newBuiltValueToStringHelper(r'CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateRemote')
           ..add('enabled', enabled)
           ..add('days', days)
           ..add('enforced', enforced))
@@ -12432,12 +12664,11 @@ class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_F
   }
 }
 
-class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemoteBuilder
+class CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateRemoteBuilder
     implements
-        Builder<
-            CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemote,
-            CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemoteBuilder> {
-  _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemote? _$v;
+        Builder<CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateRemote,
+            CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateRemoteBuilder> {
+  _$CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateRemote? _$v;
 
   bool? _enabled;
   bool? get enabled => _$this._enabled;
@@ -12451,10 +12682,9 @@ class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Fil
   bool? get enforced => _$this._enforced;
   set enforced(bool? enforced) => _$this._enforced = enforced;
 
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemoteBuilder();
+  CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateRemoteBuilder();
 
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemoteBuilder
-      get _$this {
+  CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateRemoteBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _enabled = $v.enabled;
@@ -12466,34 +12696,24 @@ class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Fil
   }
 
   @override
-  void replace(
-      CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemote
-          other) {
+  void replace(CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateRemote other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other
-        as _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemote;
+    _$v = other as _$CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateRemote;
   }
 
   @override
-  void update(
-      void Function(
-              CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemoteBuilder)?
-          updates) {
+  void update(void Function(CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateRemoteBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemote build() =>
-      _build();
+  CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateRemote build() => _build();
 
-  _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemote
-      _build() {
+  _$CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateRemote _build() {
     final _$result = _$v ??
-        _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemote._(
+        _$CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateRemote._(
             enabled: BuiltValueNullFieldError.checkNotNull(
-                enabled,
-                r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemote',
-                'enabled'),
+                enabled, r'CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateRemote', 'enabled'),
             days: days,
             enforced: enforced);
     replace(_$result);
@@ -12501,23 +12721,19 @@ class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Fil
   }
 }
 
-class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public
-    extends CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public {
+class _$CoreFilesSharingCapabilities_FilesSharing_Public extends CoreFilesSharingCapabilities_FilesSharing_Public {
   @override
   final bool enabled;
   @override
-  final CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_Password? password;
+  final CoreFilesSharingCapabilities_FilesSharing_Public_Password? password;
   @override
   final bool? multipleLinks;
   @override
-  final CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDate?
-      expireDate;
+  final CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDate? expireDate;
   @override
-  final CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternal?
-      expireDateInternal;
+  final CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateInternal? expireDateInternal;
   @override
-  final CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemote?
-      expireDateRemote;
+  final CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateRemote? expireDateRemote;
   @override
   final bool? sendMail;
   @override
@@ -12525,15 +12741,11 @@ class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_F
   @override
   final bool? uploadFilesDrop;
 
-  factory _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public(
-          [void Function(
-                  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_PublicBuilder)?
-              updates]) =>
-      (CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_PublicBuilder()
-            ..update(updates))
-          ._build();
+  factory _$CoreFilesSharingCapabilities_FilesSharing_Public(
+          [void Function(CoreFilesSharingCapabilities_FilesSharing_PublicBuilder)? updates]) =>
+      (CoreFilesSharingCapabilities_FilesSharing_PublicBuilder()..update(updates))._build();
 
-  _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public._(
+  _$CoreFilesSharingCapabilities_FilesSharing_Public._(
       {required this.enabled,
       this.password,
       this.multipleLinks,
@@ -12544,26 +12756,22 @@ class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_F
       this.upload,
       this.uploadFilesDrop})
       : super._() {
-    BuiltValueNullFieldError.checkNotNull(enabled,
-        r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public', 'enabled');
+    BuiltValueNullFieldError.checkNotNull(enabled, r'CoreFilesSharingCapabilities_FilesSharing_Public', 'enabled');
   }
 
   @override
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public rebuild(
-          void Function(
-                  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_PublicBuilder)
-              updates) =>
+  CoreFilesSharingCapabilities_FilesSharing_Public rebuild(
+          void Function(CoreFilesSharingCapabilities_FilesSharing_PublicBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_PublicBuilder toBuilder() =>
-      CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_PublicBuilder()
-        ..replace(this);
+  CoreFilesSharingCapabilities_FilesSharing_PublicBuilder toBuilder() =>
+      CoreFilesSharingCapabilities_FilesSharing_PublicBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public &&
+    return other is CoreFilesSharingCapabilities_FilesSharing_Public &&
         enabled == other.enabled &&
         password == other.password &&
         multipleLinks == other.multipleLinks &&
@@ -12593,8 +12801,7 @@ class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_F
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(
-            r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public')
+    return (newBuiltValueToStringHelper(r'CoreFilesSharingCapabilities_FilesSharing_Public')
           ..add('enabled', enabled)
           ..add('password', password)
           ..add('multipleLinks', multipleLinks)
@@ -12608,57 +12815,43 @@ class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_F
   }
 }
 
-class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_PublicBuilder
+class CoreFilesSharingCapabilities_FilesSharing_PublicBuilder
     implements
-        Builder<CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public,
-            CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_PublicBuilder> {
-  _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public? _$v;
+        Builder<CoreFilesSharingCapabilities_FilesSharing_Public,
+            CoreFilesSharingCapabilities_FilesSharing_PublicBuilder> {
+  _$CoreFilesSharingCapabilities_FilesSharing_Public? _$v;
 
   bool? _enabled;
   bool? get enabled => _$this._enabled;
   set enabled(bool? enabled) => _$this._enabled = enabled;
 
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_PasswordBuilder? _password;
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_PasswordBuilder
-      get password => _$this._password ??=
-          CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_PasswordBuilder();
-  set password(
-          CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_PasswordBuilder?
-              password) =>
+  CoreFilesSharingCapabilities_FilesSharing_Public_PasswordBuilder? _password;
+  CoreFilesSharingCapabilities_FilesSharing_Public_PasswordBuilder get password =>
+      _$this._password ??= CoreFilesSharingCapabilities_FilesSharing_Public_PasswordBuilder();
+  set password(CoreFilesSharingCapabilities_FilesSharing_Public_PasswordBuilder? password) =>
       _$this._password = password;
 
   bool? _multipleLinks;
   bool? get multipleLinks => _$this._multipleLinks;
   set multipleLinks(bool? multipleLinks) => _$this._multipleLinks = multipleLinks;
 
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateBuilder?
-      _expireDate;
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateBuilder
-      get expireDate => _$this._expireDate ??=
-          CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateBuilder();
-  set expireDate(
-          CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateBuilder?
-              expireDate) =>
+  CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateBuilder? _expireDate;
+  CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateBuilder get expireDate =>
+      _$this._expireDate ??= CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateBuilder();
+  set expireDate(CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateBuilder? expireDate) =>
       _$this._expireDate = expireDate;
 
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternalBuilder?
-      _expireDateInternal;
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternalBuilder
-      get expireDateInternal => _$this._expireDateInternal ??=
-          CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternalBuilder();
+  CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateInternalBuilder? _expireDateInternal;
+  CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateInternalBuilder get expireDateInternal =>
+      _$this._expireDateInternal ??= CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateInternalBuilder();
   set expireDateInternal(
-          CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateInternalBuilder?
-              expireDateInternal) =>
+          CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateInternalBuilder? expireDateInternal) =>
       _$this._expireDateInternal = expireDateInternal;
 
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemoteBuilder?
-      _expireDateRemote;
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemoteBuilder
-      get expireDateRemote => _$this._expireDateRemote ??=
-          CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemoteBuilder();
-  set expireDateRemote(
-          CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public_ExpireDateRemoteBuilder?
-              expireDateRemote) =>
+  CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateRemoteBuilder? _expireDateRemote;
+  CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateRemoteBuilder get expireDateRemote =>
+      _$this._expireDateRemote ??= CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateRemoteBuilder();
+  set expireDateRemote(CoreFilesSharingCapabilities_FilesSharing_Public_ExpireDateRemoteBuilder? expireDateRemote) =>
       _$this._expireDateRemote = expireDateRemote;
 
   bool? _sendMail;
@@ -12673,9 +12866,9 @@ class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Fil
   bool? get uploadFilesDrop => _$this._uploadFilesDrop;
   set uploadFilesDrop(bool? uploadFilesDrop) => _$this._uploadFilesDrop = uploadFilesDrop;
 
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_PublicBuilder();
+  CoreFilesSharingCapabilities_FilesSharing_PublicBuilder();
 
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_PublicBuilder get _$this {
+  CoreFilesSharingCapabilities_FilesSharing_PublicBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _enabled = $v.enabled;
@@ -12693,30 +12886,26 @@ class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Fil
   }
 
   @override
-  void replace(CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public other) {
+  void replace(CoreFilesSharingCapabilities_FilesSharing_Public other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public;
+    _$v = other as _$CoreFilesSharingCapabilities_FilesSharing_Public;
   }
 
   @override
-  void update(
-      void Function(CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_PublicBuilder)?
-          updates) {
+  void update(void Function(CoreFilesSharingCapabilities_FilesSharing_PublicBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public build() => _build();
+  CoreFilesSharingCapabilities_FilesSharing_Public build() => _build();
 
-  _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public _build() {
-    _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public _$result;
+  _$CoreFilesSharingCapabilities_FilesSharing_Public _build() {
+    _$CoreFilesSharingCapabilities_FilesSharing_Public _$result;
     try {
       _$result = _$v ??
-          _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public._(
+          _$CoreFilesSharingCapabilities_FilesSharing_Public._(
               enabled: BuiltValueNullFieldError.checkNotNull(
-                  enabled,
-                  r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public',
-                  'enabled'),
+                  enabled, r'CoreFilesSharingCapabilities_FilesSharing_Public', 'enabled'),
               password: _password?.build(),
               multipleLinks: multipleLinks,
               expireDate: _expireDate?.build(),
@@ -12739,9 +12928,7 @@ class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Fil
         _expireDateRemote?.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public',
-            _$failedField,
-            e.toString());
+            r'CoreFilesSharingCapabilities_FilesSharing_Public', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -12750,47 +12937,33 @@ class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Fil
   }
 }
 
-class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_User_ExpireDate
-    extends CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_User_ExpireDate {
+class _$CoreFilesSharingCapabilities_FilesSharing_User_ExpireDate
+    extends CoreFilesSharingCapabilities_FilesSharing_User_ExpireDate {
   @override
   final bool enabled;
 
-  factory _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_User_ExpireDate(
-          [void Function(
-                  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_User_ExpireDateBuilder)?
-              updates]) =>
-      (CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_User_ExpireDateBuilder()
-            ..update(updates))
-          ._build();
+  factory _$CoreFilesSharingCapabilities_FilesSharing_User_ExpireDate(
+          [void Function(CoreFilesSharingCapabilities_FilesSharing_User_ExpireDateBuilder)? updates]) =>
+      (CoreFilesSharingCapabilities_FilesSharing_User_ExpireDateBuilder()..update(updates))._build();
 
-  _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_User_ExpireDate._(
-      {required this.enabled})
-      : super._() {
+  _$CoreFilesSharingCapabilities_FilesSharing_User_ExpireDate._({required this.enabled}) : super._() {
     BuiltValueNullFieldError.checkNotNull(
-        enabled,
-        r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_User_ExpireDate',
-        'enabled');
+        enabled, r'CoreFilesSharingCapabilities_FilesSharing_User_ExpireDate', 'enabled');
   }
 
   @override
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_User_ExpireDate rebuild(
-          void Function(
-                  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_User_ExpireDateBuilder)
-              updates) =>
+  CoreFilesSharingCapabilities_FilesSharing_User_ExpireDate rebuild(
+          void Function(CoreFilesSharingCapabilities_FilesSharing_User_ExpireDateBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_User_ExpireDateBuilder
-      toBuilder() =>
-          CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_User_ExpireDateBuilder()
-            ..replace(this);
+  CoreFilesSharingCapabilities_FilesSharing_User_ExpireDateBuilder toBuilder() =>
+      CoreFilesSharingCapabilities_FilesSharing_User_ExpireDateBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other
-            is CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_User_ExpireDate &&
-        enabled == other.enabled;
+    return other is CoreFilesSharingCapabilities_FilesSharing_User_ExpireDate && enabled == other.enabled;
   }
 
   @override
@@ -12803,27 +12976,25 @@ class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_F
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(
-            r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_User_ExpireDate')
+    return (newBuiltValueToStringHelper(r'CoreFilesSharingCapabilities_FilesSharing_User_ExpireDate')
           ..add('enabled', enabled))
         .toString();
   }
 }
 
-class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_User_ExpireDateBuilder
+class CoreFilesSharingCapabilities_FilesSharing_User_ExpireDateBuilder
     implements
-        Builder<CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_User_ExpireDate,
-            CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_User_ExpireDateBuilder> {
-  _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_User_ExpireDate? _$v;
+        Builder<CoreFilesSharingCapabilities_FilesSharing_User_ExpireDate,
+            CoreFilesSharingCapabilities_FilesSharing_User_ExpireDateBuilder> {
+  _$CoreFilesSharingCapabilities_FilesSharing_User_ExpireDate? _$v;
 
   bool? _enabled;
   bool? get enabled => _$this._enabled;
   set enabled(bool? enabled) => _$this._enabled = enabled;
 
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_User_ExpireDateBuilder();
+  CoreFilesSharingCapabilities_FilesSharing_User_ExpireDateBuilder();
 
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_User_ExpireDateBuilder
-      get _$this {
+  CoreFilesSharingCapabilities_FilesSharing_User_ExpireDateBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _enabled = $v.enabled;
@@ -12833,73 +13004,56 @@ class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Fil
   }
 
   @override
-  void replace(
-      CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_User_ExpireDate other) {
+  void replace(CoreFilesSharingCapabilities_FilesSharing_User_ExpireDate other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v =
-        other as _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_User_ExpireDate;
+    _$v = other as _$CoreFilesSharingCapabilities_FilesSharing_User_ExpireDate;
   }
 
   @override
-  void update(
-      void Function(
-              CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_User_ExpireDateBuilder)?
-          updates) {
+  void update(void Function(CoreFilesSharingCapabilities_FilesSharing_User_ExpireDateBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_User_ExpireDate build() =>
-      _build();
+  CoreFilesSharingCapabilities_FilesSharing_User_ExpireDate build() => _build();
 
-  _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_User_ExpireDate _build() {
+  _$CoreFilesSharingCapabilities_FilesSharing_User_ExpireDate _build() {
     final _$result = _$v ??
-        _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_User_ExpireDate._(
+        _$CoreFilesSharingCapabilities_FilesSharing_User_ExpireDate._(
             enabled: BuiltValueNullFieldError.checkNotNull(
-                enabled,
-                r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_User_ExpireDate',
-                'enabled'));
+                enabled, r'CoreFilesSharingCapabilities_FilesSharing_User_ExpireDate', 'enabled'));
     replace(_$result);
     return _$result;
   }
 }
 
-class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_User
-    extends CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_User {
+class _$CoreFilesSharingCapabilities_FilesSharing_User extends CoreFilesSharingCapabilities_FilesSharing_User {
   @override
   final bool sendMail;
   @override
-  final CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_User_ExpireDate? expireDate;
+  final CoreFilesSharingCapabilities_FilesSharing_User_ExpireDate? expireDate;
 
-  factory _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_User(
-          [void Function(
-                  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_UserBuilder)?
-              updates]) =>
-      (CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_UserBuilder()
-            ..update(updates))
-          ._build();
+  factory _$CoreFilesSharingCapabilities_FilesSharing_User(
+          [void Function(CoreFilesSharingCapabilities_FilesSharing_UserBuilder)? updates]) =>
+      (CoreFilesSharingCapabilities_FilesSharing_UserBuilder()..update(updates))._build();
 
-  _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_User._(
-      {required this.sendMail, this.expireDate})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(sendMail,
-        r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_User', 'sendMail');
+  _$CoreFilesSharingCapabilities_FilesSharing_User._({required this.sendMail, this.expireDate}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(sendMail, r'CoreFilesSharingCapabilities_FilesSharing_User', 'sendMail');
   }
 
   @override
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_User rebuild(
-          void Function(CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_UserBuilder)
-              updates) =>
+  CoreFilesSharingCapabilities_FilesSharing_User rebuild(
+          void Function(CoreFilesSharingCapabilities_FilesSharing_UserBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_UserBuilder toBuilder() =>
-      CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_UserBuilder()..replace(this);
+  CoreFilesSharingCapabilities_FilesSharing_UserBuilder toBuilder() =>
+      CoreFilesSharingCapabilities_FilesSharing_UserBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_User &&
+    return other is CoreFilesSharingCapabilities_FilesSharing_User &&
         sendMail == other.sendMail &&
         expireDate == other.expireDate;
   }
@@ -12915,37 +13069,31 @@ class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_F
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(
-            r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_User')
+    return (newBuiltValueToStringHelper(r'CoreFilesSharingCapabilities_FilesSharing_User')
           ..add('sendMail', sendMail)
           ..add('expireDate', expireDate))
         .toString();
   }
 }
 
-class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_UserBuilder
+class CoreFilesSharingCapabilities_FilesSharing_UserBuilder
     implements
-        Builder<CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_User,
-            CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_UserBuilder> {
-  _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_User? _$v;
+        Builder<CoreFilesSharingCapabilities_FilesSharing_User, CoreFilesSharingCapabilities_FilesSharing_UserBuilder> {
+  _$CoreFilesSharingCapabilities_FilesSharing_User? _$v;
 
   bool? _sendMail;
   bool? get sendMail => _$this._sendMail;
   set sendMail(bool? sendMail) => _$this._sendMail = sendMail;
 
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_User_ExpireDateBuilder?
-      _expireDate;
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_User_ExpireDateBuilder
-      get expireDate => _$this._expireDate ??=
-          CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_User_ExpireDateBuilder();
-  set expireDate(
-          CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_User_ExpireDateBuilder?
-              expireDate) =>
+  CoreFilesSharingCapabilities_FilesSharing_User_ExpireDateBuilder? _expireDate;
+  CoreFilesSharingCapabilities_FilesSharing_User_ExpireDateBuilder get expireDate =>
+      _$this._expireDate ??= CoreFilesSharingCapabilities_FilesSharing_User_ExpireDateBuilder();
+  set expireDate(CoreFilesSharingCapabilities_FilesSharing_User_ExpireDateBuilder? expireDate) =>
       _$this._expireDate = expireDate;
 
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_UserBuilder();
+  CoreFilesSharingCapabilities_FilesSharing_UserBuilder();
 
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_UserBuilder get _$this {
+  CoreFilesSharingCapabilities_FilesSharing_UserBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _sendMail = $v.sendMail;
@@ -12956,30 +13104,26 @@ class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Fil
   }
 
   @override
-  void replace(CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_User other) {
+  void replace(CoreFilesSharingCapabilities_FilesSharing_User other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_User;
+    _$v = other as _$CoreFilesSharingCapabilities_FilesSharing_User;
   }
 
   @override
-  void update(
-      void Function(CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_UserBuilder)?
-          updates) {
+  void update(void Function(CoreFilesSharingCapabilities_FilesSharing_UserBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_User build() => _build();
+  CoreFilesSharingCapabilities_FilesSharing_User build() => _build();
 
-  _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_User _build() {
-    _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_User _$result;
+  _$CoreFilesSharingCapabilities_FilesSharing_User _build() {
+    _$CoreFilesSharingCapabilities_FilesSharing_User _$result;
     try {
       _$result = _$v ??
-          _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_User._(
+          _$CoreFilesSharingCapabilities_FilesSharing_User._(
               sendMail: BuiltValueNullFieldError.checkNotNull(
-                  sendMail,
-                  r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_User',
-                  'sendMail'),
+                  sendMail, r'CoreFilesSharingCapabilities_FilesSharing_User', 'sendMail'),
               expireDate: _expireDate?.build());
     } catch (_) {
       late String _$failedField;
@@ -12988,9 +13132,7 @@ class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Fil
         _expireDate?.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_User',
-            _$failedField,
-            e.toString());
+            r'CoreFilesSharingCapabilities_FilesSharing_User', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -12999,47 +13141,33 @@ class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Fil
   }
 }
 
-class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDate
-    extends CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDate {
+class _$CoreFilesSharingCapabilities_FilesSharing_Group_ExpireDate
+    extends CoreFilesSharingCapabilities_FilesSharing_Group_ExpireDate {
   @override
   final bool enabled;
 
-  factory _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDate(
-          [void Function(
-                  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDateBuilder)?
-              updates]) =>
-      (CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDateBuilder()
-            ..update(updates))
-          ._build();
+  factory _$CoreFilesSharingCapabilities_FilesSharing_Group_ExpireDate(
+          [void Function(CoreFilesSharingCapabilities_FilesSharing_Group_ExpireDateBuilder)? updates]) =>
+      (CoreFilesSharingCapabilities_FilesSharing_Group_ExpireDateBuilder()..update(updates))._build();
 
-  _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDate._(
-      {required this.enabled})
-      : super._() {
+  _$CoreFilesSharingCapabilities_FilesSharing_Group_ExpireDate._({required this.enabled}) : super._() {
     BuiltValueNullFieldError.checkNotNull(
-        enabled,
-        r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDate',
-        'enabled');
+        enabled, r'CoreFilesSharingCapabilities_FilesSharing_Group_ExpireDate', 'enabled');
   }
 
   @override
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDate rebuild(
-          void Function(
-                  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDateBuilder)
-              updates) =>
+  CoreFilesSharingCapabilities_FilesSharing_Group_ExpireDate rebuild(
+          void Function(CoreFilesSharingCapabilities_FilesSharing_Group_ExpireDateBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDateBuilder
-      toBuilder() =>
-          CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDateBuilder()
-            ..replace(this);
+  CoreFilesSharingCapabilities_FilesSharing_Group_ExpireDateBuilder toBuilder() =>
+      CoreFilesSharingCapabilities_FilesSharing_Group_ExpireDateBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other
-            is CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDate &&
-        enabled == other.enabled;
+    return other is CoreFilesSharingCapabilities_FilesSharing_Group_ExpireDate && enabled == other.enabled;
   }
 
   @override
@@ -13052,27 +13180,25 @@ class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_F
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(
-            r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDate')
+    return (newBuiltValueToStringHelper(r'CoreFilesSharingCapabilities_FilesSharing_Group_ExpireDate')
           ..add('enabled', enabled))
         .toString();
   }
 }
 
-class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDateBuilder
+class CoreFilesSharingCapabilities_FilesSharing_Group_ExpireDateBuilder
     implements
-        Builder<CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDate,
-            CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDateBuilder> {
-  _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDate? _$v;
+        Builder<CoreFilesSharingCapabilities_FilesSharing_Group_ExpireDate,
+            CoreFilesSharingCapabilities_FilesSharing_Group_ExpireDateBuilder> {
+  _$CoreFilesSharingCapabilities_FilesSharing_Group_ExpireDate? _$v;
 
   bool? _enabled;
   bool? get enabled => _$this._enabled;
   set enabled(bool? enabled) => _$this._enabled = enabled;
 
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDateBuilder();
+  CoreFilesSharingCapabilities_FilesSharing_Group_ExpireDateBuilder();
 
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDateBuilder
-      get _$this {
+  CoreFilesSharingCapabilities_FilesSharing_Group_ExpireDateBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _enabled = $v.enabled;
@@ -13082,75 +13208,56 @@ class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Fil
   }
 
   @override
-  void replace(
-      CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDate other) {
+  void replace(CoreFilesSharingCapabilities_FilesSharing_Group_ExpireDate other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v =
-        other as _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDate;
+    _$v = other as _$CoreFilesSharingCapabilities_FilesSharing_Group_ExpireDate;
   }
 
   @override
-  void update(
-      void Function(
-              CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDateBuilder)?
-          updates) {
+  void update(void Function(CoreFilesSharingCapabilities_FilesSharing_Group_ExpireDateBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDate build() =>
-      _build();
+  CoreFilesSharingCapabilities_FilesSharing_Group_ExpireDate build() => _build();
 
-  _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDate _build() {
+  _$CoreFilesSharingCapabilities_FilesSharing_Group_ExpireDate _build() {
     final _$result = _$v ??
-        _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDate._(
+        _$CoreFilesSharingCapabilities_FilesSharing_Group_ExpireDate._(
             enabled: BuiltValueNullFieldError.checkNotNull(
-                enabled,
-                r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDate',
-                'enabled'));
+                enabled, r'CoreFilesSharingCapabilities_FilesSharing_Group_ExpireDate', 'enabled'));
     replace(_$result);
     return _$result;
   }
 }
 
-class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group
-    extends CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group {
+class _$CoreFilesSharingCapabilities_FilesSharing_Group extends CoreFilesSharingCapabilities_FilesSharing_Group {
   @override
   final bool enabled;
   @override
-  final CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDate?
-      expireDate;
+  final CoreFilesSharingCapabilities_FilesSharing_Group_ExpireDate? expireDate;
 
-  factory _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group(
-          [void Function(
-                  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_GroupBuilder)?
-              updates]) =>
-      (CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_GroupBuilder()
-            ..update(updates))
-          ._build();
+  factory _$CoreFilesSharingCapabilities_FilesSharing_Group(
+          [void Function(CoreFilesSharingCapabilities_FilesSharing_GroupBuilder)? updates]) =>
+      (CoreFilesSharingCapabilities_FilesSharing_GroupBuilder()..update(updates))._build();
 
-  _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group._(
-      {required this.enabled, this.expireDate})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(enabled,
-        r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group', 'enabled');
+  _$CoreFilesSharingCapabilities_FilesSharing_Group._({required this.enabled, this.expireDate}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(enabled, r'CoreFilesSharingCapabilities_FilesSharing_Group', 'enabled');
   }
 
   @override
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group rebuild(
-          void Function(
-                  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_GroupBuilder)
-              updates) =>
+  CoreFilesSharingCapabilities_FilesSharing_Group rebuild(
+          void Function(CoreFilesSharingCapabilities_FilesSharing_GroupBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_GroupBuilder toBuilder() =>
-      CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_GroupBuilder()..replace(this);
+  CoreFilesSharingCapabilities_FilesSharing_GroupBuilder toBuilder() =>
+      CoreFilesSharingCapabilities_FilesSharing_GroupBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group &&
+    return other is CoreFilesSharingCapabilities_FilesSharing_Group &&
         enabled == other.enabled &&
         expireDate == other.expireDate;
   }
@@ -13166,37 +13273,32 @@ class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_F
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(
-            r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group')
+    return (newBuiltValueToStringHelper(r'CoreFilesSharingCapabilities_FilesSharing_Group')
           ..add('enabled', enabled)
           ..add('expireDate', expireDate))
         .toString();
   }
 }
 
-class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_GroupBuilder
+class CoreFilesSharingCapabilities_FilesSharing_GroupBuilder
     implements
-        Builder<CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group,
-            CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_GroupBuilder> {
-  _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group? _$v;
+        Builder<CoreFilesSharingCapabilities_FilesSharing_Group,
+            CoreFilesSharingCapabilities_FilesSharing_GroupBuilder> {
+  _$CoreFilesSharingCapabilities_FilesSharing_Group? _$v;
 
   bool? _enabled;
   bool? get enabled => _$this._enabled;
   set enabled(bool? enabled) => _$this._enabled = enabled;
 
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDateBuilder?
-      _expireDate;
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDateBuilder
-      get expireDate => _$this._expireDate ??=
-          CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDateBuilder();
-  set expireDate(
-          CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group_ExpireDateBuilder?
-              expireDate) =>
+  CoreFilesSharingCapabilities_FilesSharing_Group_ExpireDateBuilder? _expireDate;
+  CoreFilesSharingCapabilities_FilesSharing_Group_ExpireDateBuilder get expireDate =>
+      _$this._expireDate ??= CoreFilesSharingCapabilities_FilesSharing_Group_ExpireDateBuilder();
+  set expireDate(CoreFilesSharingCapabilities_FilesSharing_Group_ExpireDateBuilder? expireDate) =>
       _$this._expireDate = expireDate;
 
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_GroupBuilder();
+  CoreFilesSharingCapabilities_FilesSharing_GroupBuilder();
 
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_GroupBuilder get _$this {
+  CoreFilesSharingCapabilities_FilesSharing_GroupBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _enabled = $v.enabled;
@@ -13207,30 +13309,26 @@ class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Fil
   }
 
   @override
-  void replace(CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group other) {
+  void replace(CoreFilesSharingCapabilities_FilesSharing_Group other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group;
+    _$v = other as _$CoreFilesSharingCapabilities_FilesSharing_Group;
   }
 
   @override
-  void update(
-      void Function(CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_GroupBuilder)?
-          updates) {
+  void update(void Function(CoreFilesSharingCapabilities_FilesSharing_GroupBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group build() => _build();
+  CoreFilesSharingCapabilities_FilesSharing_Group build() => _build();
 
-  _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group _build() {
-    _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group _$result;
+  _$CoreFilesSharingCapabilities_FilesSharing_Group _build() {
+    _$CoreFilesSharingCapabilities_FilesSharing_Group _$result;
     try {
       _$result = _$v ??
-          _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group._(
+          _$CoreFilesSharingCapabilities_FilesSharing_Group._(
               enabled: BuiltValueNullFieldError.checkNotNull(
-                  enabled,
-                  r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group',
-                  'enabled'),
+                  enabled, r'CoreFilesSharingCapabilities_FilesSharing_Group', 'enabled'),
               expireDate: _expireDate?.build());
     } catch (_) {
       late String _$failedField;
@@ -13239,9 +13337,7 @@ class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Fil
         _expireDate?.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group',
-            _$failedField,
-            e.toString());
+            r'CoreFilesSharingCapabilities_FilesSharing_Group', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -13250,47 +13346,33 @@ class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Fil
   }
 }
 
-class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDate
-    extends CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDate {
+class _$CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDate
+    extends CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDate {
   @override
   final bool enabled;
 
-  factory _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDate(
-          [void Function(
-                  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateBuilder)?
-              updates]) =>
-      (CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateBuilder()
-            ..update(updates))
-          ._build();
+  factory _$CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDate(
+          [void Function(CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDateBuilder)? updates]) =>
+      (CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDateBuilder()..update(updates))._build();
 
-  _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDate._(
-      {required this.enabled})
-      : super._() {
+  _$CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDate._({required this.enabled}) : super._() {
     BuiltValueNullFieldError.checkNotNull(
-        enabled,
-        r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDate',
-        'enabled');
+        enabled, r'CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDate', 'enabled');
   }
 
   @override
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDate rebuild(
-          void Function(
-                  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateBuilder)
-              updates) =>
+  CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDate rebuild(
+          void Function(CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDateBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateBuilder
-      toBuilder() =>
-          CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateBuilder()
-            ..replace(this);
+  CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDateBuilder toBuilder() =>
+      CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDateBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other
-            is CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDate &&
-        enabled == other.enabled;
+    return other is CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDate && enabled == other.enabled;
   }
 
   @override
@@ -13303,28 +13385,25 @@ class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_F
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(
-            r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDate')
+    return (newBuiltValueToStringHelper(r'CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDate')
           ..add('enabled', enabled))
         .toString();
   }
 }
 
-class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateBuilder
+class CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDateBuilder
     implements
-        Builder<
-            CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDate,
-            CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateBuilder> {
-  _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDate? _$v;
+        Builder<CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDate,
+            CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDateBuilder> {
+  _$CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDate? _$v;
 
   bool? _enabled;
   bool? get enabled => _$this._enabled;
   set enabled(bool? enabled) => _$this._enabled = enabled;
 
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateBuilder();
+  CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDateBuilder();
 
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateBuilder
-      get _$this {
+  CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDateBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _enabled = $v.enabled;
@@ -13334,78 +13413,56 @@ class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Fil
   }
 
   @override
-  void replace(
-      CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDate other) {
+  void replace(CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDate other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other
-        as _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDate;
+    _$v = other as _$CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDate;
   }
 
   @override
-  void update(
-      void Function(
-              CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateBuilder)?
-          updates) {
+  void update(void Function(CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDateBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDate build() =>
-      _build();
+  CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDate build() => _build();
 
-  _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDate _build() {
+  _$CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDate _build() {
     final _$result = _$v ??
-        _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDate._(
+        _$CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDate._(
             enabled: BuiltValueNullFieldError.checkNotNull(
-                enabled,
-                r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDate',
-                'enabled'));
+                enabled, r'CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDate', 'enabled'));
     replace(_$result);
     return _$result;
   }
 }
 
-class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupported
-    extends CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupported {
+class _$CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupported
+    extends CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupported {
   @override
   final bool enabled;
 
-  factory _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupported(
-          [void Function(
-                  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupportedBuilder)?
-              updates]) =>
-      (CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupportedBuilder()
-            ..update(updates))
-          ._build();
+  factory _$CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupported(
+          [void Function(CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupportedBuilder)? updates]) =>
+      (CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupportedBuilder()..update(updates))._build();
 
-  _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupported._(
-      {required this.enabled})
-      : super._() {
+  _$CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupported._({required this.enabled}) : super._() {
     BuiltValueNullFieldError.checkNotNull(
-        enabled,
-        r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupported',
-        'enabled');
+        enabled, r'CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupported', 'enabled');
   }
 
   @override
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupported
-      rebuild(
-              void Function(
-                      CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupportedBuilder)
-                  updates) =>
-          (toBuilder()..update(updates)).build();
+  CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupported rebuild(
+          void Function(CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupportedBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
 
   @override
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupportedBuilder
-      toBuilder() =>
-          CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupportedBuilder()
-            ..replace(this);
+  CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupportedBuilder toBuilder() =>
+      CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupportedBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other
-            is CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupported &&
+    return other is CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupported &&
         enabled == other.enabled;
   }
 
@@ -13419,29 +13476,25 @@ class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_F
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(
-            r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupported')
+    return (newBuiltValueToStringHelper(r'CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupported')
           ..add('enabled', enabled))
         .toString();
   }
 }
 
-class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupportedBuilder
+class CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupportedBuilder
     implements
-        Builder<
-            CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupported,
-            CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupportedBuilder> {
-  _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupported?
-      _$v;
+        Builder<CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupported,
+            CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupportedBuilder> {
+  _$CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupported? _$v;
 
   bool? _enabled;
   bool? get enabled => _$this._enabled;
   set enabled(bool? enabled) => _$this._enabled = enabled;
 
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupportedBuilder();
+  CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupportedBuilder();
 
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupportedBuilder
-      get _$this {
+  CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupportedBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _enabled = $v.enabled;
@@ -13451,93 +13504,70 @@ class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Fil
   }
 
   @override
-  void replace(
-      CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupported
-          other) {
+  void replace(CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupported other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other
-        as _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupported;
+    _$v = other as _$CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupported;
   }
 
   @override
-  void update(
-      void Function(
-              CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupportedBuilder)?
-          updates) {
+  void update(void Function(CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupportedBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupported
-      build() => _build();
+  CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupported build() => _build();
 
-  _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupported
-      _build() {
+  _$CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupported _build() {
     final _$result = _$v ??
-        _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupported._(
+        _$CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupported._(
             enabled: BuiltValueNullFieldError.checkNotNull(
-                enabled,
-                r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupported',
-                'enabled'));
+                enabled, r'CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupported', 'enabled'));
     replace(_$result);
     return _$result;
   }
 }
 
-class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation
-    extends CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation {
+class _$CoreFilesSharingCapabilities_FilesSharing_Federation
+    extends CoreFilesSharingCapabilities_FilesSharing_Federation {
   @override
   final bool outgoing;
   @override
   final bool incoming;
   @override
-  final CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDate
-      expireDate;
+  final CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDate expireDate;
   @override
-  final CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupported
-      expireDateSupported;
+  final CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupported expireDateSupported;
 
-  factory _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation(
-          [void Function(
-                  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_FederationBuilder)?
-              updates]) =>
-      (CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_FederationBuilder()
-            ..update(updates))
-          ._build();
+  factory _$CoreFilesSharingCapabilities_FilesSharing_Federation(
+          [void Function(CoreFilesSharingCapabilities_FilesSharing_FederationBuilder)? updates]) =>
+      (CoreFilesSharingCapabilities_FilesSharing_FederationBuilder()..update(updates))._build();
 
-  _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation._(
+  _$CoreFilesSharingCapabilities_FilesSharing_Federation._(
       {required this.outgoing, required this.incoming, required this.expireDate, required this.expireDateSupported})
       : super._() {
-    BuiltValueNullFieldError.checkNotNull(outgoing,
-        r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation', 'outgoing');
-    BuiltValueNullFieldError.checkNotNull(incoming,
-        r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation', 'incoming');
     BuiltValueNullFieldError.checkNotNull(
-        expireDate,
-        r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation',
-        'expireDate');
+        outgoing, r'CoreFilesSharingCapabilities_FilesSharing_Federation', 'outgoing');
     BuiltValueNullFieldError.checkNotNull(
-        expireDateSupported,
-        r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation',
-        'expireDateSupported');
+        incoming, r'CoreFilesSharingCapabilities_FilesSharing_Federation', 'incoming');
+    BuiltValueNullFieldError.checkNotNull(
+        expireDate, r'CoreFilesSharingCapabilities_FilesSharing_Federation', 'expireDate');
+    BuiltValueNullFieldError.checkNotNull(
+        expireDateSupported, r'CoreFilesSharingCapabilities_FilesSharing_Federation', 'expireDateSupported');
   }
 
   @override
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation rebuild(
-          void Function(
-                  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_FederationBuilder)
-              updates) =>
+  CoreFilesSharingCapabilities_FilesSharing_Federation rebuild(
+          void Function(CoreFilesSharingCapabilities_FilesSharing_FederationBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_FederationBuilder toBuilder() =>
-      CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_FederationBuilder()
-        ..replace(this);
+  CoreFilesSharingCapabilities_FilesSharing_FederationBuilder toBuilder() =>
+      CoreFilesSharingCapabilities_FilesSharing_FederationBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation &&
+    return other is CoreFilesSharingCapabilities_FilesSharing_Federation &&
         outgoing == other.outgoing &&
         incoming == other.incoming &&
         expireDate == other.expireDate &&
@@ -13557,8 +13587,7 @@ class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_F
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(
-            r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation')
+    return (newBuiltValueToStringHelper(r'CoreFilesSharingCapabilities_FilesSharing_Federation')
           ..add('outgoing', outgoing)
           ..add('incoming', incoming)
           ..add('expireDate', expireDate)
@@ -13567,11 +13596,11 @@ class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_F
   }
 }
 
-class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_FederationBuilder
+class CoreFilesSharingCapabilities_FilesSharing_FederationBuilder
     implements
-        Builder<CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation,
-            CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_FederationBuilder> {
-  _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation? _$v;
+        Builder<CoreFilesSharingCapabilities_FilesSharing_Federation,
+            CoreFilesSharingCapabilities_FilesSharing_FederationBuilder> {
+  _$CoreFilesSharingCapabilities_FilesSharing_Federation? _$v;
 
   bool? _outgoing;
   bool? get outgoing => _$this._outgoing;
@@ -13581,29 +13610,22 @@ class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Fil
   bool? get incoming => _$this._incoming;
   set incoming(bool? incoming) => _$this._incoming = incoming;
 
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateBuilder?
-      _expireDate;
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateBuilder
-      get expireDate => _$this._expireDate ??=
-          CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateBuilder();
-  set expireDate(
-          CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateBuilder?
-              expireDate) =>
+  CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDateBuilder? _expireDate;
+  CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDateBuilder get expireDate =>
+      _$this._expireDate ??= CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDateBuilder();
+  set expireDate(CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDateBuilder? expireDate) =>
       _$this._expireDate = expireDate;
 
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupportedBuilder?
-      _expireDateSupported;
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupportedBuilder
-      get expireDateSupported => _$this._expireDateSupported ??=
-          CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupportedBuilder();
+  CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupportedBuilder? _expireDateSupported;
+  CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupportedBuilder get expireDateSupported =>
+      _$this._expireDateSupported ??= CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupportedBuilder();
   set expireDateSupported(
-          CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation_ExpireDateSupportedBuilder?
-              expireDateSupported) =>
+          CoreFilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupportedBuilder? expireDateSupported) =>
       _$this._expireDateSupported = expireDateSupported;
 
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_FederationBuilder();
+  CoreFilesSharingCapabilities_FilesSharing_FederationBuilder();
 
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_FederationBuilder get _$this {
+  CoreFilesSharingCapabilities_FilesSharing_FederationBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _outgoing = $v.outgoing;
@@ -13616,35 +13638,28 @@ class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Fil
   }
 
   @override
-  void replace(CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation other) {
+  void replace(CoreFilesSharingCapabilities_FilesSharing_Federation other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation;
+    _$v = other as _$CoreFilesSharingCapabilities_FilesSharing_Federation;
   }
 
   @override
-  void update(
-      void Function(
-              CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_FederationBuilder)?
-          updates) {
+  void update(void Function(CoreFilesSharingCapabilities_FilesSharing_FederationBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation build() => _build();
+  CoreFilesSharingCapabilities_FilesSharing_Federation build() => _build();
 
-  _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation _build() {
-    _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation _$result;
+  _$CoreFilesSharingCapabilities_FilesSharing_Federation _build() {
+    _$CoreFilesSharingCapabilities_FilesSharing_Federation _$result;
     try {
       _$result = _$v ??
-          _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation._(
+          _$CoreFilesSharingCapabilities_FilesSharing_Federation._(
               outgoing: BuiltValueNullFieldError.checkNotNull(
-                  outgoing,
-                  r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation',
-                  'outgoing'),
+                  outgoing, r'CoreFilesSharingCapabilities_FilesSharing_Federation', 'outgoing'),
               incoming: BuiltValueNullFieldError.checkNotNull(
-                  incoming,
-                  r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation',
-                  'incoming'),
+                  incoming, r'CoreFilesSharingCapabilities_FilesSharing_Federation', 'incoming'),
               expireDate: expireDate.build(),
               expireDateSupported: expireDateSupported.build());
     } catch (_) {
@@ -13656,9 +13671,7 @@ class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Fil
         expireDateSupported.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation',
-            _$failedField,
-            e.toString());
+            r'CoreFilesSharingCapabilities_FilesSharing_Federation', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -13667,50 +13680,38 @@ class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Fil
   }
 }
 
-class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Sharee
-    extends CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Sharee {
+class _$CoreFilesSharingCapabilities_FilesSharing_Sharee extends CoreFilesSharingCapabilities_FilesSharing_Sharee {
   @override
   final bool queryLookupDefault;
   @override
   final bool alwaysShowUnique;
 
-  factory _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Sharee(
-          [void Function(
-                  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_ShareeBuilder)?
-              updates]) =>
-      (CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_ShareeBuilder()
-            ..update(updates))
-          ._build();
+  factory _$CoreFilesSharingCapabilities_FilesSharing_Sharee(
+          [void Function(CoreFilesSharingCapabilities_FilesSharing_ShareeBuilder)? updates]) =>
+      (CoreFilesSharingCapabilities_FilesSharing_ShareeBuilder()..update(updates))._build();
 
-  _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Sharee._(
+  _$CoreFilesSharingCapabilities_FilesSharing_Sharee._(
       {required this.queryLookupDefault, required this.alwaysShowUnique})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(
-        queryLookupDefault,
-        r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Sharee',
-        'queryLookupDefault');
+        queryLookupDefault, r'CoreFilesSharingCapabilities_FilesSharing_Sharee', 'queryLookupDefault');
     BuiltValueNullFieldError.checkNotNull(
-        alwaysShowUnique,
-        r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Sharee',
-        'alwaysShowUnique');
+        alwaysShowUnique, r'CoreFilesSharingCapabilities_FilesSharing_Sharee', 'alwaysShowUnique');
   }
 
   @override
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Sharee rebuild(
-          void Function(
-                  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_ShareeBuilder)
-              updates) =>
+  CoreFilesSharingCapabilities_FilesSharing_Sharee rebuild(
+          void Function(CoreFilesSharingCapabilities_FilesSharing_ShareeBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_ShareeBuilder toBuilder() =>
-      CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_ShareeBuilder()
-        ..replace(this);
+  CoreFilesSharingCapabilities_FilesSharing_ShareeBuilder toBuilder() =>
+      CoreFilesSharingCapabilities_FilesSharing_ShareeBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Sharee &&
+    return other is CoreFilesSharingCapabilities_FilesSharing_Sharee &&
         queryLookupDefault == other.queryLookupDefault &&
         alwaysShowUnique == other.alwaysShowUnique;
   }
@@ -13726,19 +13727,18 @@ class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_F
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(
-            r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Sharee')
+    return (newBuiltValueToStringHelper(r'CoreFilesSharingCapabilities_FilesSharing_Sharee')
           ..add('queryLookupDefault', queryLookupDefault)
           ..add('alwaysShowUnique', alwaysShowUnique))
         .toString();
   }
 }
 
-class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_ShareeBuilder
+class CoreFilesSharingCapabilities_FilesSharing_ShareeBuilder
     implements
-        Builder<CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Sharee,
-            CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_ShareeBuilder> {
-  _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Sharee? _$v;
+        Builder<CoreFilesSharingCapabilities_FilesSharing_Sharee,
+            CoreFilesSharingCapabilities_FilesSharing_ShareeBuilder> {
+  _$CoreFilesSharingCapabilities_FilesSharing_Sharee? _$v;
 
   bool? _queryLookupDefault;
   bool? get queryLookupDefault => _$this._queryLookupDefault;
@@ -13748,9 +13748,9 @@ class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Fil
   bool? get alwaysShowUnique => _$this._alwaysShowUnique;
   set alwaysShowUnique(bool? alwaysShowUnique) => _$this._alwaysShowUnique = alwaysShowUnique;
 
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_ShareeBuilder();
+  CoreFilesSharingCapabilities_FilesSharing_ShareeBuilder();
 
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_ShareeBuilder get _$this {
+  CoreFilesSharingCapabilities_FilesSharing_ShareeBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _queryLookupDefault = $v.queryLookupDefault;
@@ -13761,65 +13761,56 @@ class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Fil
   }
 
   @override
-  void replace(CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Sharee other) {
+  void replace(CoreFilesSharingCapabilities_FilesSharing_Sharee other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Sharee;
+    _$v = other as _$CoreFilesSharingCapabilities_FilesSharing_Sharee;
   }
 
   @override
-  void update(
-      void Function(CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_ShareeBuilder)?
-          updates) {
+  void update(void Function(CoreFilesSharingCapabilities_FilesSharing_ShareeBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Sharee build() => _build();
+  CoreFilesSharingCapabilities_FilesSharing_Sharee build() => _build();
 
-  _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Sharee _build() {
+  _$CoreFilesSharingCapabilities_FilesSharing_Sharee _build() {
     final _$result = _$v ??
-        _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Sharee._(
+        _$CoreFilesSharingCapabilities_FilesSharing_Sharee._(
             queryLookupDefault: BuiltValueNullFieldError.checkNotNull(
-                queryLookupDefault,
-                r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Sharee',
-                'queryLookupDefault'),
+                queryLookupDefault, r'CoreFilesSharingCapabilities_FilesSharing_Sharee', 'queryLookupDefault'),
             alwaysShowUnique: BuiltValueNullFieldError.checkNotNull(
-                alwaysShowUnique,
-                r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Sharee',
-                'alwaysShowUnique'));
+                alwaysShowUnique, r'CoreFilesSharingCapabilities_FilesSharing_Sharee', 'alwaysShowUnique'));
     replace(_$result);
     return _$result;
   }
 }
 
-class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing
-    extends CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing {
+class _$CoreFilesSharingCapabilities_FilesSharing extends CoreFilesSharingCapabilities_FilesSharing {
   @override
   final bool apiEnabled;
   @override
-  final CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Public public;
+  final CoreFilesSharingCapabilities_FilesSharing_Public public;
   @override
-  final CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_User user;
+  final CoreFilesSharingCapabilities_FilesSharing_User user;
   @override
   final bool resharing;
   @override
   final bool? groupSharing;
   @override
-  final CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Group? group;
+  final CoreFilesSharingCapabilities_FilesSharing_Group? group;
   @override
   final int? defaultPermissions;
   @override
-  final CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Federation federation;
+  final CoreFilesSharingCapabilities_FilesSharing_Federation federation;
   @override
-  final CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_Sharee sharee;
+  final CoreFilesSharingCapabilities_FilesSharing_Sharee sharee;
 
-  factory _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing(
-          [void Function(CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharingBuilder)?
-              updates]) =>
-      (CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharingBuilder()..update(updates))
-          ._build();
+  factory _$CoreFilesSharingCapabilities_FilesSharing(
+          [void Function(CoreFilesSharingCapabilities_FilesSharingBuilder)? updates]) =>
+      (CoreFilesSharingCapabilities_FilesSharingBuilder()..update(updates))._build();
 
-  _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing._(
+  _$CoreFilesSharingCapabilities_FilesSharing._(
       {required this.apiEnabled,
       required this.public,
       required this.user,
@@ -13830,34 +13821,27 @@ class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_F
       required this.federation,
       required this.sharee})
       : super._() {
-    BuiltValueNullFieldError.checkNotNull(apiEnabled,
-        r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing', 'apiEnabled');
-    BuiltValueNullFieldError.checkNotNull(
-        public, r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing', 'public');
-    BuiltValueNullFieldError.checkNotNull(
-        user, r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing', 'user');
-    BuiltValueNullFieldError.checkNotNull(
-        resharing, r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing', 'resharing');
-    BuiltValueNullFieldError.checkNotNull(federation,
-        r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing', 'federation');
-    BuiltValueNullFieldError.checkNotNull(
-        sharee, r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing', 'sharee');
+    BuiltValueNullFieldError.checkNotNull(apiEnabled, r'CoreFilesSharingCapabilities_FilesSharing', 'apiEnabled');
+    BuiltValueNullFieldError.checkNotNull(public, r'CoreFilesSharingCapabilities_FilesSharing', 'public');
+    BuiltValueNullFieldError.checkNotNull(user, r'CoreFilesSharingCapabilities_FilesSharing', 'user');
+    BuiltValueNullFieldError.checkNotNull(resharing, r'CoreFilesSharingCapabilities_FilesSharing', 'resharing');
+    BuiltValueNullFieldError.checkNotNull(federation, r'CoreFilesSharingCapabilities_FilesSharing', 'federation');
+    BuiltValueNullFieldError.checkNotNull(sharee, r'CoreFilesSharingCapabilities_FilesSharing', 'sharee');
   }
 
   @override
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing rebuild(
-          void Function(CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharingBuilder)
-              updates) =>
+  CoreFilesSharingCapabilities_FilesSharing rebuild(
+          void Function(CoreFilesSharingCapabilities_FilesSharingBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharingBuilder toBuilder() =>
-      CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharingBuilder()..replace(this);
+  CoreFilesSharingCapabilities_FilesSharingBuilder toBuilder() =>
+      CoreFilesSharingCapabilities_FilesSharingBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing &&
+    return other is CoreFilesSharingCapabilities_FilesSharing &&
         apiEnabled == other.apiEnabled &&
         public == other.public &&
         user == other.user &&
@@ -13887,8 +13871,7 @@ class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_F
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(
-            r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing')
+    return (newBuiltValueToStringHelper(r'CoreFilesSharingCapabilities_FilesSharing')
           ..add('apiEnabled', apiEnabled)
           ..add('public', public)
           ..add('user', user)
@@ -13902,30 +13885,23 @@ class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_F
   }
 }
 
-class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharingBuilder
-    implements
-        Builder<CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing,
-            CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharingBuilder> {
-  _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing? _$v;
+class CoreFilesSharingCapabilities_FilesSharingBuilder
+    implements Builder<CoreFilesSharingCapabilities_FilesSharing, CoreFilesSharingCapabilities_FilesSharingBuilder> {
+  _$CoreFilesSharingCapabilities_FilesSharing? _$v;
 
   bool? _apiEnabled;
   bool? get apiEnabled => _$this._apiEnabled;
   set apiEnabled(bool? apiEnabled) => _$this._apiEnabled = apiEnabled;
 
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_PublicBuilder? _public;
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_PublicBuilder get public =>
-      _$this._public ??=
-          CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_PublicBuilder();
-  set public(
-          CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_PublicBuilder? public) =>
-      _$this._public = public;
+  CoreFilesSharingCapabilities_FilesSharing_PublicBuilder? _public;
+  CoreFilesSharingCapabilities_FilesSharing_PublicBuilder get public =>
+      _$this._public ??= CoreFilesSharingCapabilities_FilesSharing_PublicBuilder();
+  set public(CoreFilesSharingCapabilities_FilesSharing_PublicBuilder? public) => _$this._public = public;
 
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_UserBuilder? _user;
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_UserBuilder get user =>
-      _$this._user ??=
-          CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_UserBuilder();
-  set user(CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_UserBuilder? user) =>
-      _$this._user = user;
+  CoreFilesSharingCapabilities_FilesSharing_UserBuilder? _user;
+  CoreFilesSharingCapabilities_FilesSharing_UserBuilder get user =>
+      _$this._user ??= CoreFilesSharingCapabilities_FilesSharing_UserBuilder();
+  set user(CoreFilesSharingCapabilities_FilesSharing_UserBuilder? user) => _$this._user = user;
 
   bool? _resharing;
   bool? get resharing => _$this._resharing;
@@ -13935,37 +13911,29 @@ class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Fil
   bool? get groupSharing => _$this._groupSharing;
   set groupSharing(bool? groupSharing) => _$this._groupSharing = groupSharing;
 
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_GroupBuilder? _group;
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_GroupBuilder get group =>
-      _$this._group ??=
-          CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_GroupBuilder();
-  set group(CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_GroupBuilder? group) =>
-      _$this._group = group;
+  CoreFilesSharingCapabilities_FilesSharing_GroupBuilder? _group;
+  CoreFilesSharingCapabilities_FilesSharing_GroupBuilder get group =>
+      _$this._group ??= CoreFilesSharingCapabilities_FilesSharing_GroupBuilder();
+  set group(CoreFilesSharingCapabilities_FilesSharing_GroupBuilder? group) => _$this._group = group;
 
   int? _defaultPermissions;
   int? get defaultPermissions => _$this._defaultPermissions;
   set defaultPermissions(int? defaultPermissions) => _$this._defaultPermissions = defaultPermissions;
 
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_FederationBuilder? _federation;
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_FederationBuilder
-      get federation => _$this._federation ??=
-          CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_FederationBuilder();
-  set federation(
-          CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_FederationBuilder?
-              federation) =>
+  CoreFilesSharingCapabilities_FilesSharing_FederationBuilder? _federation;
+  CoreFilesSharingCapabilities_FilesSharing_FederationBuilder get federation =>
+      _$this._federation ??= CoreFilesSharingCapabilities_FilesSharing_FederationBuilder();
+  set federation(CoreFilesSharingCapabilities_FilesSharing_FederationBuilder? federation) =>
       _$this._federation = federation;
 
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_ShareeBuilder? _sharee;
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_ShareeBuilder get sharee =>
-      _$this._sharee ??=
-          CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_ShareeBuilder();
-  set sharee(
-          CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing_ShareeBuilder? sharee) =>
-      _$this._sharee = sharee;
+  CoreFilesSharingCapabilities_FilesSharing_ShareeBuilder? _sharee;
+  CoreFilesSharingCapabilities_FilesSharing_ShareeBuilder get sharee =>
+      _$this._sharee ??= CoreFilesSharingCapabilities_FilesSharing_ShareeBuilder();
+  set sharee(CoreFilesSharingCapabilities_FilesSharing_ShareeBuilder? sharee) => _$this._sharee = sharee;
 
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharingBuilder();
+  CoreFilesSharingCapabilities_FilesSharingBuilder();
 
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharingBuilder get _$this {
+  CoreFilesSharingCapabilities_FilesSharingBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _apiEnabled = $v.apiEnabled;
@@ -13983,32 +13951,30 @@ class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Fil
   }
 
   @override
-  void replace(CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing other) {
+  void replace(CoreFilesSharingCapabilities_FilesSharing other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing;
+    _$v = other as _$CoreFilesSharingCapabilities_FilesSharing;
   }
 
   @override
-  void update(
-      void Function(CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharingBuilder)?
-          updates) {
+  void update(void Function(CoreFilesSharingCapabilities_FilesSharingBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing build() => _build();
+  CoreFilesSharingCapabilities_FilesSharing build() => _build();
 
-  _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing _build() {
-    _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing _$result;
+  _$CoreFilesSharingCapabilities_FilesSharing _build() {
+    _$CoreFilesSharingCapabilities_FilesSharing _$result;
     try {
       _$result = _$v ??
-          _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing._(
-              apiEnabled: BuiltValueNullFieldError.checkNotNull(apiEnabled,
-                  r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing', 'apiEnabled'),
+          _$CoreFilesSharingCapabilities_FilesSharing._(
+              apiEnabled: BuiltValueNullFieldError.checkNotNull(
+                  apiEnabled, r'CoreFilesSharingCapabilities_FilesSharing', 'apiEnabled'),
               public: public.build(),
               user: user.build(),
-              resharing: BuiltValueNullFieldError.checkNotNull(resharing,
-                  r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing', 'resharing'),
+              resharing: BuiltValueNullFieldError.checkNotNull(
+                  resharing, r'CoreFilesSharingCapabilities_FilesSharing', 'resharing'),
               groupSharing: groupSharing,
               group: _group?.build(),
               defaultPermissions: defaultPermissions,
@@ -14030,10 +13996,7 @@ class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Fil
         _$failedField = 'sharee';
         sharee.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(
-            r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing',
-            _$failedField,
-            e.toString());
+        throw BuiltValueNestedFieldError(r'CoreFilesSharingCapabilities_FilesSharing', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -14042,36 +14005,120 @@ class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Fil
   }
 }
 
-class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Notes
-    extends CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Notes {
+class _$CoreFilesSharingCapabilities extends CoreFilesSharingCapabilities {
+  @override
+  final CoreFilesSharingCapabilities_FilesSharing filesSharing;
+
+  factory _$CoreFilesSharingCapabilities([void Function(CoreFilesSharingCapabilitiesBuilder)? updates]) =>
+      (CoreFilesSharingCapabilitiesBuilder()..update(updates))._build();
+
+  _$CoreFilesSharingCapabilities._({required this.filesSharing}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(filesSharing, r'CoreFilesSharingCapabilities', 'filesSharing');
+  }
+
+  @override
+  CoreFilesSharingCapabilities rebuild(void Function(CoreFilesSharingCapabilitiesBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  CoreFilesSharingCapabilitiesBuilder toBuilder() => CoreFilesSharingCapabilitiesBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is CoreFilesSharingCapabilities && filesSharing == other.filesSharing;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, filesSharing.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'CoreFilesSharingCapabilities')..add('filesSharing', filesSharing)).toString();
+  }
+}
+
+class CoreFilesSharingCapabilitiesBuilder
+    implements Builder<CoreFilesSharingCapabilities, CoreFilesSharingCapabilitiesBuilder> {
+  _$CoreFilesSharingCapabilities? _$v;
+
+  CoreFilesSharingCapabilities_FilesSharingBuilder? _filesSharing;
+  CoreFilesSharingCapabilities_FilesSharingBuilder get filesSharing =>
+      _$this._filesSharing ??= CoreFilesSharingCapabilities_FilesSharingBuilder();
+  set filesSharing(CoreFilesSharingCapabilities_FilesSharingBuilder? filesSharing) =>
+      _$this._filesSharing = filesSharing;
+
+  CoreFilesSharingCapabilitiesBuilder();
+
+  CoreFilesSharingCapabilitiesBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _filesSharing = $v.filesSharing.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(CoreFilesSharingCapabilities other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$CoreFilesSharingCapabilities;
+  }
+
+  @override
+  void update(void Function(CoreFilesSharingCapabilitiesBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  CoreFilesSharingCapabilities build() => _build();
+
+  _$CoreFilesSharingCapabilities _build() {
+    _$CoreFilesSharingCapabilities _$result;
+    try {
+      _$result = _$v ?? _$CoreFilesSharingCapabilities._(filesSharing: filesSharing.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'filesSharing';
+        filesSharing.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(r'CoreFilesSharingCapabilities', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+class _$CoreNotesCapabilities_Notes extends CoreNotesCapabilities_Notes {
   @override
   final BuiltList<String>? apiVersion;
   @override
   final String? version;
 
-  factory _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Notes(
-          [void Function(CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_NotesBuilder)?
-              updates]) =>
-      (CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_NotesBuilder()..update(updates))._build();
+  factory _$CoreNotesCapabilities_Notes([void Function(CoreNotesCapabilities_NotesBuilder)? updates]) =>
+      (CoreNotesCapabilities_NotesBuilder()..update(updates))._build();
 
-  _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Notes._({this.apiVersion, this.version})
-      : super._();
+  _$CoreNotesCapabilities_Notes._({this.apiVersion, this.version}) : super._();
 
   @override
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Notes rebuild(
-          void Function(CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_NotesBuilder) updates) =>
+  CoreNotesCapabilities_Notes rebuild(void Function(CoreNotesCapabilities_NotesBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_NotesBuilder toBuilder() =>
-      CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_NotesBuilder()..replace(this);
+  CoreNotesCapabilities_NotesBuilder toBuilder() => CoreNotesCapabilities_NotesBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Notes &&
-        apiVersion == other.apiVersion &&
-        version == other.version;
+    return other is CoreNotesCapabilities_Notes && apiVersion == other.apiVersion && version == other.version;
   }
 
   @override
@@ -14085,18 +14132,16 @@ class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_N
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Notes')
+    return (newBuiltValueToStringHelper(r'CoreNotesCapabilities_Notes')
           ..add('apiVersion', apiVersion)
           ..add('version', version))
         .toString();
   }
 }
 
-class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_NotesBuilder
-    implements
-        Builder<CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Notes,
-            CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_NotesBuilder> {
-  _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Notes? _$v;
+class CoreNotesCapabilities_NotesBuilder
+    implements Builder<CoreNotesCapabilities_Notes, CoreNotesCapabilities_NotesBuilder> {
+  _$CoreNotesCapabilities_Notes? _$v;
 
   ListBuilder<String>? _apiVersion;
   ListBuilder<String> get apiVersion => _$this._apiVersion ??= ListBuilder<String>();
@@ -14106,9 +14151,9 @@ class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Not
   String? get version => _$this._version;
   set version(String? version) => _$this._version = version;
 
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_NotesBuilder();
+  CoreNotesCapabilities_NotesBuilder();
 
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_NotesBuilder get _$this {
+  CoreNotesCapabilities_NotesBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _apiVersion = $v.apiVersion?.toBuilder();
@@ -14119,36 +14164,30 @@ class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Not
   }
 
   @override
-  void replace(CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Notes other) {
+  void replace(CoreNotesCapabilities_Notes other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Notes;
+    _$v = other as _$CoreNotesCapabilities_Notes;
   }
 
   @override
-  void update(
-      void Function(CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_NotesBuilder)? updates) {
+  void update(void Function(CoreNotesCapabilities_NotesBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Notes build() => _build();
+  CoreNotesCapabilities_Notes build() => _build();
 
-  _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Notes _build() {
-    _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Notes _$result;
+  _$CoreNotesCapabilities_Notes _build() {
+    _$CoreNotesCapabilities_Notes _$result;
     try {
-      _$result = _$v ??
-          _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Notes._(
-              apiVersion: _apiVersion?.build(), version: version);
+      _$result = _$v ?? _$CoreNotesCapabilities_Notes._(apiVersion: _apiVersion?.build(), version: version);
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'apiVersion';
         _apiVersion?.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(
-            r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Notes',
-            _$failedField,
-            e.toString());
+        throw BuiltValueNestedFieldError(r'CoreNotesCapabilities_Notes', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -14157,8 +14196,96 @@ class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Not
   }
 }
 
-class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Notifications
-    extends CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Notifications {
+class _$CoreNotesCapabilities extends CoreNotesCapabilities {
+  @override
+  final CoreNotesCapabilities_Notes notes;
+
+  factory _$CoreNotesCapabilities([void Function(CoreNotesCapabilitiesBuilder)? updates]) =>
+      (CoreNotesCapabilitiesBuilder()..update(updates))._build();
+
+  _$CoreNotesCapabilities._({required this.notes}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(notes, r'CoreNotesCapabilities', 'notes');
+  }
+
+  @override
+  CoreNotesCapabilities rebuild(void Function(CoreNotesCapabilitiesBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  CoreNotesCapabilitiesBuilder toBuilder() => CoreNotesCapabilitiesBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is CoreNotesCapabilities && notes == other.notes;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, notes.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'CoreNotesCapabilities')..add('notes', notes)).toString();
+  }
+}
+
+class CoreNotesCapabilitiesBuilder implements Builder<CoreNotesCapabilities, CoreNotesCapabilitiesBuilder> {
+  _$CoreNotesCapabilities? _$v;
+
+  CoreNotesCapabilities_NotesBuilder? _notes;
+  CoreNotesCapabilities_NotesBuilder get notes => _$this._notes ??= CoreNotesCapabilities_NotesBuilder();
+  set notes(CoreNotesCapabilities_NotesBuilder? notes) => _$this._notes = notes;
+
+  CoreNotesCapabilitiesBuilder();
+
+  CoreNotesCapabilitiesBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _notes = $v.notes.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(CoreNotesCapabilities other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$CoreNotesCapabilities;
+  }
+
+  @override
+  void update(void Function(CoreNotesCapabilitiesBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  CoreNotesCapabilities build() => _build();
+
+  _$CoreNotesCapabilities _build() {
+    _$CoreNotesCapabilities _$result;
+    try {
+      _$result = _$v ?? _$CoreNotesCapabilities._(notes: notes.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'notes';
+        notes.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(r'CoreNotesCapabilities', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+class _$CoreNotificationsCapabilities_Notifications extends CoreNotificationsCapabilities_Notifications {
   @override
   final BuiltList<String>? ocsEndpoints;
   @override
@@ -14166,30 +14293,25 @@ class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_N
   @override
   final BuiltList<String>? adminNotifications;
 
-  factory _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Notifications(
-          [void Function(CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_NotificationsBuilder)?
-              updates]) =>
-      (CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_NotificationsBuilder()..update(updates))
-          ._build();
+  factory _$CoreNotificationsCapabilities_Notifications(
+          [void Function(CoreNotificationsCapabilities_NotificationsBuilder)? updates]) =>
+      (CoreNotificationsCapabilities_NotificationsBuilder()..update(updates))._build();
 
-  _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Notifications._(
-      {this.ocsEndpoints, this.push, this.adminNotifications})
-      : super._();
+  _$CoreNotificationsCapabilities_Notifications._({this.ocsEndpoints, this.push, this.adminNotifications}) : super._();
 
   @override
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Notifications rebuild(
-          void Function(CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_NotificationsBuilder)
-              updates) =>
+  CoreNotificationsCapabilities_Notifications rebuild(
+          void Function(CoreNotificationsCapabilities_NotificationsBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_NotificationsBuilder toBuilder() =>
-      CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_NotificationsBuilder()..replace(this);
+  CoreNotificationsCapabilities_NotificationsBuilder toBuilder() =>
+      CoreNotificationsCapabilities_NotificationsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Notifications &&
+    return other is CoreNotificationsCapabilities_Notifications &&
         ocsEndpoints == other.ocsEndpoints &&
         push == other.push &&
         adminNotifications == other.adminNotifications;
@@ -14207,8 +14329,7 @@ class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_N
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(
-            r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Notifications')
+    return (newBuiltValueToStringHelper(r'CoreNotificationsCapabilities_Notifications')
           ..add('ocsEndpoints', ocsEndpoints)
           ..add('push', push)
           ..add('adminNotifications', adminNotifications))
@@ -14216,11 +14337,10 @@ class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_N
   }
 }
 
-class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_NotificationsBuilder
+class CoreNotificationsCapabilities_NotificationsBuilder
     implements
-        Builder<CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Notifications,
-            CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_NotificationsBuilder> {
-  _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Notifications? _$v;
+        Builder<CoreNotificationsCapabilities_Notifications, CoreNotificationsCapabilities_NotificationsBuilder> {
+  _$CoreNotificationsCapabilities_Notifications? _$v;
 
   ListBuilder<String>? _ocsEndpoints;
   ListBuilder<String> get ocsEndpoints => _$this._ocsEndpoints ??= ListBuilder<String>();
@@ -14234,9 +14354,9 @@ class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Not
   ListBuilder<String> get adminNotifications => _$this._adminNotifications ??= ListBuilder<String>();
   set adminNotifications(ListBuilder<String>? adminNotifications) => _$this._adminNotifications = adminNotifications;
 
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_NotificationsBuilder();
+  CoreNotificationsCapabilities_NotificationsBuilder();
 
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_NotificationsBuilder get _$this {
+  CoreNotificationsCapabilities_NotificationsBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _ocsEndpoints = $v.ocsEndpoints?.toBuilder();
@@ -14248,26 +14368,24 @@ class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Not
   }
 
   @override
-  void replace(CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Notifications other) {
+  void replace(CoreNotificationsCapabilities_Notifications other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Notifications;
+    _$v = other as _$CoreNotificationsCapabilities_Notifications;
   }
 
   @override
-  void update(
-      void Function(CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_NotificationsBuilder)?
-          updates) {
+  void update(void Function(CoreNotificationsCapabilities_NotificationsBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Notifications build() => _build();
+  CoreNotificationsCapabilities_Notifications build() => _build();
 
-  _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Notifications _build() {
-    _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Notifications _$result;
+  _$CoreNotificationsCapabilities_Notifications _build() {
+    _$CoreNotificationsCapabilities_Notifications _$result;
     try {
       _$result = _$v ??
-          _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Notifications._(
+          _$CoreNotificationsCapabilities_Notifications._(
               ocsEndpoints: _ocsEndpoints?.build(),
               push: _push?.build(),
               adminNotifications: _adminNotifications?.build());
@@ -14281,10 +14399,7 @@ class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Not
         _$failedField = 'adminNotifications';
         _adminNotifications?.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(
-            r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Notifications',
-            _$failedField,
-            e.toString());
+        throw BuiltValueNestedFieldError(r'CoreNotificationsCapabilities_Notifications', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -14293,8 +14408,100 @@ class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Not
   }
 }
 
-class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_ProvisioningApi
-    extends CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_ProvisioningApi {
+class _$CoreNotificationsCapabilities extends CoreNotificationsCapabilities {
+  @override
+  final CoreNotificationsCapabilities_Notifications notifications;
+
+  factory _$CoreNotificationsCapabilities([void Function(CoreNotificationsCapabilitiesBuilder)? updates]) =>
+      (CoreNotificationsCapabilitiesBuilder()..update(updates))._build();
+
+  _$CoreNotificationsCapabilities._({required this.notifications}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(notifications, r'CoreNotificationsCapabilities', 'notifications');
+  }
+
+  @override
+  CoreNotificationsCapabilities rebuild(void Function(CoreNotificationsCapabilitiesBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  CoreNotificationsCapabilitiesBuilder toBuilder() => CoreNotificationsCapabilitiesBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is CoreNotificationsCapabilities && notifications == other.notifications;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, notifications.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'CoreNotificationsCapabilities')..add('notifications', notifications))
+        .toString();
+  }
+}
+
+class CoreNotificationsCapabilitiesBuilder
+    implements Builder<CoreNotificationsCapabilities, CoreNotificationsCapabilitiesBuilder> {
+  _$CoreNotificationsCapabilities? _$v;
+
+  CoreNotificationsCapabilities_NotificationsBuilder? _notifications;
+  CoreNotificationsCapabilities_NotificationsBuilder get notifications =>
+      _$this._notifications ??= CoreNotificationsCapabilities_NotificationsBuilder();
+  set notifications(CoreNotificationsCapabilities_NotificationsBuilder? notifications) =>
+      _$this._notifications = notifications;
+
+  CoreNotificationsCapabilitiesBuilder();
+
+  CoreNotificationsCapabilitiesBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _notifications = $v.notifications.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(CoreNotificationsCapabilities other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$CoreNotificationsCapabilities;
+  }
+
+  @override
+  void update(void Function(CoreNotificationsCapabilitiesBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  CoreNotificationsCapabilities build() => _build();
+
+  _$CoreNotificationsCapabilities _build() {
+    _$CoreNotificationsCapabilities _$result;
+    try {
+      _$result = _$v ?? _$CoreNotificationsCapabilities._(notifications: notifications.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'notifications';
+        notifications.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(r'CoreNotificationsCapabilities', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+class _$CoreProvisioningApiCapabilities_ProvisioningApi extends CoreProvisioningApiCapabilities_ProvisioningApi {
   @override
   final String version;
   @override
@@ -14304,48 +14511,38 @@ class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_P
   @override
   final bool accountPropertyScopesPublishedEnabled;
 
-  factory _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_ProvisioningApi(
-          [void Function(CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_ProvisioningApiBuilder)?
-              updates]) =>
-      (CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_ProvisioningApiBuilder()..update(updates))
-          ._build();
+  factory _$CoreProvisioningApiCapabilities_ProvisioningApi(
+          [void Function(CoreProvisioningApiCapabilities_ProvisioningApiBuilder)? updates]) =>
+      (CoreProvisioningApiCapabilities_ProvisioningApiBuilder()..update(updates))._build();
 
-  _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_ProvisioningApi._(
+  _$CoreProvisioningApiCapabilities_ProvisioningApi._(
       {required this.version,
       required this.accountPropertyScopesVersion,
       required this.accountPropertyScopesFederatedEnabled,
       required this.accountPropertyScopesPublishedEnabled})
       : super._() {
-    BuiltValueNullFieldError.checkNotNull(
-        version, r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_ProvisioningApi', 'version');
-    BuiltValueNullFieldError.checkNotNull(
-        accountPropertyScopesVersion,
-        r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_ProvisioningApi',
-        'accountPropertyScopesVersion');
-    BuiltValueNullFieldError.checkNotNull(
-        accountPropertyScopesFederatedEnabled,
-        r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_ProvisioningApi',
-        'accountPropertyScopesFederatedEnabled');
-    BuiltValueNullFieldError.checkNotNull(
-        accountPropertyScopesPublishedEnabled,
-        r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_ProvisioningApi',
-        'accountPropertyScopesPublishedEnabled');
+    BuiltValueNullFieldError.checkNotNull(version, r'CoreProvisioningApiCapabilities_ProvisioningApi', 'version');
+    BuiltValueNullFieldError.checkNotNull(accountPropertyScopesVersion,
+        r'CoreProvisioningApiCapabilities_ProvisioningApi', 'accountPropertyScopesVersion');
+    BuiltValueNullFieldError.checkNotNull(accountPropertyScopesFederatedEnabled,
+        r'CoreProvisioningApiCapabilities_ProvisioningApi', 'accountPropertyScopesFederatedEnabled');
+    BuiltValueNullFieldError.checkNotNull(accountPropertyScopesPublishedEnabled,
+        r'CoreProvisioningApiCapabilities_ProvisioningApi', 'accountPropertyScopesPublishedEnabled');
   }
 
   @override
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_ProvisioningApi rebuild(
-          void Function(CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_ProvisioningApiBuilder)
-              updates) =>
+  CoreProvisioningApiCapabilities_ProvisioningApi rebuild(
+          void Function(CoreProvisioningApiCapabilities_ProvisioningApiBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_ProvisioningApiBuilder toBuilder() =>
-      CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_ProvisioningApiBuilder()..replace(this);
+  CoreProvisioningApiCapabilities_ProvisioningApiBuilder toBuilder() =>
+      CoreProvisioningApiCapabilities_ProvisioningApiBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_ProvisioningApi &&
+    return other is CoreProvisioningApiCapabilities_ProvisioningApi &&
         version == other.version &&
         accountPropertyScopesVersion == other.accountPropertyScopesVersion &&
         accountPropertyScopesFederatedEnabled == other.accountPropertyScopesFederatedEnabled &&
@@ -14365,8 +14562,7 @@ class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_P
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(
-            r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_ProvisioningApi')
+    return (newBuiltValueToStringHelper(r'CoreProvisioningApiCapabilities_ProvisioningApi')
           ..add('version', version)
           ..add('accountPropertyScopesVersion', accountPropertyScopesVersion)
           ..add('accountPropertyScopesFederatedEnabled', accountPropertyScopesFederatedEnabled)
@@ -14375,11 +14571,11 @@ class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_P
   }
 }
 
-class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_ProvisioningApiBuilder
+class CoreProvisioningApiCapabilities_ProvisioningApiBuilder
     implements
-        Builder<CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_ProvisioningApi,
-            CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_ProvisioningApiBuilder> {
-  _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_ProvisioningApi? _$v;
+        Builder<CoreProvisioningApiCapabilities_ProvisioningApi,
+            CoreProvisioningApiCapabilities_ProvisioningApiBuilder> {
+  _$CoreProvisioningApiCapabilities_ProvisioningApi? _$v;
 
   String? _version;
   String? get version => _$this._version;
@@ -14400,9 +14596,9 @@ class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Pro
   set accountPropertyScopesPublishedEnabled(bool? accountPropertyScopesPublishedEnabled) =>
       _$this._accountPropertyScopesPublishedEnabled = accountPropertyScopesPublishedEnabled;
 
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_ProvisioningApiBuilder();
+  CoreProvisioningApiCapabilities_ProvisioningApiBuilder();
 
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_ProvisioningApiBuilder get _$this {
+  CoreProvisioningApiCapabilities_ProvisioningApiBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _version = $v.version;
@@ -14415,45 +14611,133 @@ class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Pro
   }
 
   @override
-  void replace(CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_ProvisioningApi other) {
+  void replace(CoreProvisioningApiCapabilities_ProvisioningApi other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_ProvisioningApi;
+    _$v = other as _$CoreProvisioningApiCapabilities_ProvisioningApi;
   }
 
   @override
-  void update(
-      void Function(CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_ProvisioningApiBuilder)?
-          updates) {
+  void update(void Function(CoreProvisioningApiCapabilities_ProvisioningApiBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_ProvisioningApi build() => _build();
+  CoreProvisioningApiCapabilities_ProvisioningApi build() => _build();
 
-  _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_ProvisioningApi _build() {
+  _$CoreProvisioningApiCapabilities_ProvisioningApi _build() {
     final _$result = _$v ??
-        _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_ProvisioningApi._(
-            version: BuiltValueNullFieldError.checkNotNull(version,
-                r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_ProvisioningApi', 'version'),
-            accountPropertyScopesVersion: BuiltValueNullFieldError.checkNotNull(
-                accountPropertyScopesVersion,
-                r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_ProvisioningApi',
-                'accountPropertyScopesVersion'),
+        _$CoreProvisioningApiCapabilities_ProvisioningApi._(
+            version: BuiltValueNullFieldError.checkNotNull(
+                version, r'CoreProvisioningApiCapabilities_ProvisioningApi', 'version'),
+            accountPropertyScopesVersion: BuiltValueNullFieldError.checkNotNull(accountPropertyScopesVersion,
+                r'CoreProvisioningApiCapabilities_ProvisioningApi', 'accountPropertyScopesVersion'),
             accountPropertyScopesFederatedEnabled: BuiltValueNullFieldError.checkNotNull(
                 accountPropertyScopesFederatedEnabled,
-                r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_ProvisioningApi',
+                r'CoreProvisioningApiCapabilities_ProvisioningApi',
                 'accountPropertyScopesFederatedEnabled'),
             accountPropertyScopesPublishedEnabled: BuiltValueNullFieldError.checkNotNull(
                 accountPropertyScopesPublishedEnabled,
-                r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_ProvisioningApi',
+                r'CoreProvisioningApiCapabilities_ProvisioningApi',
                 'accountPropertyScopesPublishedEnabled'));
     replace(_$result);
     return _$result;
   }
 }
 
-class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Theming
-    extends CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Theming {
+class _$CoreProvisioningApiCapabilities extends CoreProvisioningApiCapabilities {
+  @override
+  final CoreProvisioningApiCapabilities_ProvisioningApi provisioningApi;
+
+  factory _$CoreProvisioningApiCapabilities([void Function(CoreProvisioningApiCapabilitiesBuilder)? updates]) =>
+      (CoreProvisioningApiCapabilitiesBuilder()..update(updates))._build();
+
+  _$CoreProvisioningApiCapabilities._({required this.provisioningApi}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(provisioningApi, r'CoreProvisioningApiCapabilities', 'provisioningApi');
+  }
+
+  @override
+  CoreProvisioningApiCapabilities rebuild(void Function(CoreProvisioningApiCapabilitiesBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  CoreProvisioningApiCapabilitiesBuilder toBuilder() => CoreProvisioningApiCapabilitiesBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is CoreProvisioningApiCapabilities && provisioningApi == other.provisioningApi;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, provisioningApi.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'CoreProvisioningApiCapabilities')..add('provisioningApi', provisioningApi))
+        .toString();
+  }
+}
+
+class CoreProvisioningApiCapabilitiesBuilder
+    implements Builder<CoreProvisioningApiCapabilities, CoreProvisioningApiCapabilitiesBuilder> {
+  _$CoreProvisioningApiCapabilities? _$v;
+
+  CoreProvisioningApiCapabilities_ProvisioningApiBuilder? _provisioningApi;
+  CoreProvisioningApiCapabilities_ProvisioningApiBuilder get provisioningApi =>
+      _$this._provisioningApi ??= CoreProvisioningApiCapabilities_ProvisioningApiBuilder();
+  set provisioningApi(CoreProvisioningApiCapabilities_ProvisioningApiBuilder? provisioningApi) =>
+      _$this._provisioningApi = provisioningApi;
+
+  CoreProvisioningApiCapabilitiesBuilder();
+
+  CoreProvisioningApiCapabilitiesBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _provisioningApi = $v.provisioningApi.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(CoreProvisioningApiCapabilities other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$CoreProvisioningApiCapabilities;
+  }
+
+  @override
+  void update(void Function(CoreProvisioningApiCapabilitiesBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  CoreProvisioningApiCapabilities build() => _build();
+
+  _$CoreProvisioningApiCapabilities _build() {
+    _$CoreProvisioningApiCapabilities _$result;
+    try {
+      _$result = _$v ?? _$CoreProvisioningApiCapabilities._(provisioningApi: provisioningApi.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'provisioningApi';
+        provisioningApi.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(r'CoreProvisioningApiCapabilities', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+class _$CoreThemingPublicCapabilities_Theming extends CoreThemingPublicCapabilities_Theming {
   @override
   final String name;
   @override
@@ -14483,13 +14767,11 @@ class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_T
   @override
   final String favicon;
 
-  factory _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Theming(
-          [void Function(CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_ThemingBuilder)?
-              updates]) =>
-      (CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_ThemingBuilder()..update(updates))
-          ._build();
+  factory _$CoreThemingPublicCapabilities_Theming(
+          [void Function(CoreThemingPublicCapabilities_ThemingBuilder)? updates]) =>
+      (CoreThemingPublicCapabilities_ThemingBuilder()..update(updates))._build();
 
-  _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Theming._(
+  _$CoreThemingPublicCapabilities_Theming._(
       {required this.name,
       required this.url,
       required this.slogan,
@@ -14505,50 +14787,37 @@ class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_T
       required this.logoheader,
       required this.favicon})
       : super._() {
+    BuiltValueNullFieldError.checkNotNull(name, r'CoreThemingPublicCapabilities_Theming', 'name');
+    BuiltValueNullFieldError.checkNotNull(url, r'CoreThemingPublicCapabilities_Theming', 'url');
+    BuiltValueNullFieldError.checkNotNull(slogan, r'CoreThemingPublicCapabilities_Theming', 'slogan');
+    BuiltValueNullFieldError.checkNotNull(color, r'CoreThemingPublicCapabilities_Theming', 'color');
+    BuiltValueNullFieldError.checkNotNull(colorText, r'CoreThemingPublicCapabilities_Theming', 'colorText');
+    BuiltValueNullFieldError.checkNotNull(colorElement, r'CoreThemingPublicCapabilities_Theming', 'colorElement');
     BuiltValueNullFieldError.checkNotNull(
-        name, r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Theming', 'name');
+        colorElementBright, r'CoreThemingPublicCapabilities_Theming', 'colorElementBright');
     BuiltValueNullFieldError.checkNotNull(
-        url, r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Theming', 'url');
+        colorElementDark, r'CoreThemingPublicCapabilities_Theming', 'colorElementDark');
+    BuiltValueNullFieldError.checkNotNull(logo, r'CoreThemingPublicCapabilities_Theming', 'logo');
+    BuiltValueNullFieldError.checkNotNull(background, r'CoreThemingPublicCapabilities_Theming', 'background');
+    BuiltValueNullFieldError.checkNotNull(backgroundPlain, r'CoreThemingPublicCapabilities_Theming', 'backgroundPlain');
     BuiltValueNullFieldError.checkNotNull(
-        slogan, r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Theming', 'slogan');
-    BuiltValueNullFieldError.checkNotNull(
-        color, r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Theming', 'color');
-    BuiltValueNullFieldError.checkNotNull(
-        colorText, r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Theming', 'colorText');
-    BuiltValueNullFieldError.checkNotNull(colorElement,
-        r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Theming', 'colorElement');
-    BuiltValueNullFieldError.checkNotNull(colorElementBright,
-        r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Theming', 'colorElementBright');
-    BuiltValueNullFieldError.checkNotNull(colorElementDark,
-        r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Theming', 'colorElementDark');
-    BuiltValueNullFieldError.checkNotNull(
-        logo, r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Theming', 'logo');
-    BuiltValueNullFieldError.checkNotNull(
-        background, r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Theming', 'background');
-    BuiltValueNullFieldError.checkNotNull(backgroundPlain,
-        r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Theming', 'backgroundPlain');
-    BuiltValueNullFieldError.checkNotNull(backgroundDefault,
-        r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Theming', 'backgroundDefault');
-    BuiltValueNullFieldError.checkNotNull(
-        logoheader, r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Theming', 'logoheader');
-    BuiltValueNullFieldError.checkNotNull(
-        favicon, r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Theming', 'favicon');
+        backgroundDefault, r'CoreThemingPublicCapabilities_Theming', 'backgroundDefault');
+    BuiltValueNullFieldError.checkNotNull(logoheader, r'CoreThemingPublicCapabilities_Theming', 'logoheader');
+    BuiltValueNullFieldError.checkNotNull(favicon, r'CoreThemingPublicCapabilities_Theming', 'favicon');
   }
 
   @override
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Theming rebuild(
-          void Function(CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_ThemingBuilder)
-              updates) =>
+  CoreThemingPublicCapabilities_Theming rebuild(void Function(CoreThemingPublicCapabilities_ThemingBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_ThemingBuilder toBuilder() =>
-      CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_ThemingBuilder()..replace(this);
+  CoreThemingPublicCapabilities_ThemingBuilder toBuilder() =>
+      CoreThemingPublicCapabilities_ThemingBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Theming &&
+    return other is CoreThemingPublicCapabilities_Theming &&
         name == other.name &&
         url == other.url &&
         slogan == other.slogan &&
@@ -14588,8 +14857,7 @@ class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_T
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(
-            r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Theming')
+    return (newBuiltValueToStringHelper(r'CoreThemingPublicCapabilities_Theming')
           ..add('name', name)
           ..add('url', url)
           ..add('slogan', slogan)
@@ -14608,11 +14876,9 @@ class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_T
   }
 }
 
-class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_ThemingBuilder
-    implements
-        Builder<CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Theming,
-            CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_ThemingBuilder> {
-  _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Theming? _$v;
+class CoreThemingPublicCapabilities_ThemingBuilder
+    implements Builder<CoreThemingPublicCapabilities_Theming, CoreThemingPublicCapabilities_ThemingBuilder> {
+  _$CoreThemingPublicCapabilities_Theming? _$v;
 
   String? _name;
   String? get name => _$this._name;
@@ -14670,9 +14936,9 @@ class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_The
   String? get favicon => _$this._favicon;
   set favicon(String? favicon) => _$this._favicon = favicon;
 
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_ThemingBuilder();
+  CoreThemingPublicCapabilities_ThemingBuilder();
 
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_ThemingBuilder get _$this {
+  CoreThemingPublicCapabilities_ThemingBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _name = $v.name;
@@ -14695,51 +14961,142 @@ class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_The
   }
 
   @override
-  void replace(CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Theming other) {
+  void replace(CoreThemingPublicCapabilities_Theming other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Theming;
+    _$v = other as _$CoreThemingPublicCapabilities_Theming;
   }
 
   @override
-  void update(
-      void Function(CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_ThemingBuilder)? updates) {
+  void update(void Function(CoreThemingPublicCapabilities_ThemingBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Theming build() => _build();
+  CoreThemingPublicCapabilities_Theming build() => _build();
 
-  _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Theming _build() {
+  _$CoreThemingPublicCapabilities_Theming _build() {
     final _$result = _$v ??
-        _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Theming._(
-            name: BuiltValueNullFieldError.checkNotNull(
-                name, r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Theming', 'name'),
-            url: BuiltValueNullFieldError.checkNotNull(
-                url, r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Theming', 'url'),
-            slogan: BuiltValueNullFieldError.checkNotNull(
-                slogan, r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Theming', 'slogan'),
-            color: BuiltValueNullFieldError.checkNotNull(
-                color, r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Theming', 'color'),
-            colorText: BuiltValueNullFieldError.checkNotNull(
-                colorText, r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Theming', 'colorText'),
+        _$CoreThemingPublicCapabilities_Theming._(
+            name: BuiltValueNullFieldError.checkNotNull(name, r'CoreThemingPublicCapabilities_Theming', 'name'),
+            url: BuiltValueNullFieldError.checkNotNull(url, r'CoreThemingPublicCapabilities_Theming', 'url'),
+            slogan: BuiltValueNullFieldError.checkNotNull(slogan, r'CoreThemingPublicCapabilities_Theming', 'slogan'),
+            color: BuiltValueNullFieldError.checkNotNull(color, r'CoreThemingPublicCapabilities_Theming', 'color'),
+            colorText:
+                BuiltValueNullFieldError.checkNotNull(colorText, r'CoreThemingPublicCapabilities_Theming', 'colorText'),
             colorElement: BuiltValueNullFieldError.checkNotNull(
-                colorElement, r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Theming', 'colorElement'),
+                colorElement, r'CoreThemingPublicCapabilities_Theming', 'colorElement'),
             colorElementBright: BuiltValueNullFieldError.checkNotNull(
-                colorElementBright, r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Theming', 'colorElementBright'),
-            colorElementDark: BuiltValueNullFieldError.checkNotNull(colorElementDark, r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Theming', 'colorElementDark'),
-            logo: BuiltValueNullFieldError.checkNotNull(logo, r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Theming', 'logo'),
-            background: BuiltValueNullFieldError.checkNotNull(background, r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Theming', 'background'),
-            backgroundPlain: BuiltValueNullFieldError.checkNotNull(backgroundPlain, r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Theming', 'backgroundPlain'),
-            backgroundDefault: BuiltValueNullFieldError.checkNotNull(backgroundDefault, r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Theming', 'backgroundDefault'),
-            logoheader: BuiltValueNullFieldError.checkNotNull(logoheader, r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Theming', 'logoheader'),
-            favicon: BuiltValueNullFieldError.checkNotNull(favicon, r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Theming', 'favicon'));
+                colorElementBright, r'CoreThemingPublicCapabilities_Theming', 'colorElementBright'),
+            colorElementDark: BuiltValueNullFieldError.checkNotNull(
+                colorElementDark, r'CoreThemingPublicCapabilities_Theming', 'colorElementDark'),
+            logo: BuiltValueNullFieldError.checkNotNull(logo, r'CoreThemingPublicCapabilities_Theming', 'logo'),
+            background: BuiltValueNullFieldError.checkNotNull(
+                background, r'CoreThemingPublicCapabilities_Theming', 'background'),
+            backgroundPlain: BuiltValueNullFieldError.checkNotNull(
+                backgroundPlain, r'CoreThemingPublicCapabilities_Theming', 'backgroundPlain'),
+            backgroundDefault: BuiltValueNullFieldError.checkNotNull(
+                backgroundDefault, r'CoreThemingPublicCapabilities_Theming', 'backgroundDefault'),
+            logoheader: BuiltValueNullFieldError.checkNotNull(
+                logoheader, r'CoreThemingPublicCapabilities_Theming', 'logoheader'),
+            favicon:
+                BuiltValueNullFieldError.checkNotNull(favicon, r'CoreThemingPublicCapabilities_Theming', 'favicon'));
     replace(_$result);
     return _$result;
   }
 }
 
-class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_UserStatus
-    extends CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_UserStatus {
+class _$CoreThemingPublicCapabilities extends CoreThemingPublicCapabilities {
+  @override
+  final CoreThemingPublicCapabilities_Theming theming;
+
+  factory _$CoreThemingPublicCapabilities([void Function(CoreThemingPublicCapabilitiesBuilder)? updates]) =>
+      (CoreThemingPublicCapabilitiesBuilder()..update(updates))._build();
+
+  _$CoreThemingPublicCapabilities._({required this.theming}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(theming, r'CoreThemingPublicCapabilities', 'theming');
+  }
+
+  @override
+  CoreThemingPublicCapabilities rebuild(void Function(CoreThemingPublicCapabilitiesBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  CoreThemingPublicCapabilitiesBuilder toBuilder() => CoreThemingPublicCapabilitiesBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is CoreThemingPublicCapabilities && theming == other.theming;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, theming.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'CoreThemingPublicCapabilities')..add('theming', theming)).toString();
+  }
+}
+
+class CoreThemingPublicCapabilitiesBuilder
+    implements Builder<CoreThemingPublicCapabilities, CoreThemingPublicCapabilitiesBuilder> {
+  _$CoreThemingPublicCapabilities? _$v;
+
+  CoreThemingPublicCapabilities_ThemingBuilder? _theming;
+  CoreThemingPublicCapabilities_ThemingBuilder get theming =>
+      _$this._theming ??= CoreThemingPublicCapabilities_ThemingBuilder();
+  set theming(CoreThemingPublicCapabilities_ThemingBuilder? theming) => _$this._theming = theming;
+
+  CoreThemingPublicCapabilitiesBuilder();
+
+  CoreThemingPublicCapabilitiesBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _theming = $v.theming.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(CoreThemingPublicCapabilities other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$CoreThemingPublicCapabilities;
+  }
+
+  @override
+  void update(void Function(CoreThemingPublicCapabilitiesBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  CoreThemingPublicCapabilities build() => _build();
+
+  _$CoreThemingPublicCapabilities _build() {
+    _$CoreThemingPublicCapabilities _$result;
+    try {
+      _$result = _$v ?? _$CoreThemingPublicCapabilities._(theming: theming.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'theming';
+        theming.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(r'CoreThemingPublicCapabilities', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+class _$CoreUserStatusCapabilities_UserStatus extends CoreUserStatusCapabilities_UserStatus {
   @override
   final bool enabled;
   @override
@@ -14747,37 +15104,29 @@ class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_U
   @override
   final bool supportsEmoji;
 
-  factory _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_UserStatus(
-          [void Function(CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_UserStatusBuilder)?
-              updates]) =>
-      (CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_UserStatusBuilder()..update(updates))
-          ._build();
+  factory _$CoreUserStatusCapabilities_UserStatus(
+          [void Function(CoreUserStatusCapabilities_UserStatusBuilder)? updates]) =>
+      (CoreUserStatusCapabilities_UserStatusBuilder()..update(updates))._build();
 
-  _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_UserStatus._(
-      {required this.enabled, required this.restore, required this.supportsEmoji})
+  _$CoreUserStatusCapabilities_UserStatus._({required this.enabled, required this.restore, required this.supportsEmoji})
       : super._() {
-    BuiltValueNullFieldError.checkNotNull(
-        enabled, r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_UserStatus', 'enabled');
-    BuiltValueNullFieldError.checkNotNull(
-        restore, r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_UserStatus', 'restore');
-    BuiltValueNullFieldError.checkNotNull(supportsEmoji,
-        r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_UserStatus', 'supportsEmoji');
+    BuiltValueNullFieldError.checkNotNull(enabled, r'CoreUserStatusCapabilities_UserStatus', 'enabled');
+    BuiltValueNullFieldError.checkNotNull(restore, r'CoreUserStatusCapabilities_UserStatus', 'restore');
+    BuiltValueNullFieldError.checkNotNull(supportsEmoji, r'CoreUserStatusCapabilities_UserStatus', 'supportsEmoji');
   }
 
   @override
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_UserStatus rebuild(
-          void Function(CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_UserStatusBuilder)
-              updates) =>
+  CoreUserStatusCapabilities_UserStatus rebuild(void Function(CoreUserStatusCapabilities_UserStatusBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_UserStatusBuilder toBuilder() =>
-      CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_UserStatusBuilder()..replace(this);
+  CoreUserStatusCapabilities_UserStatusBuilder toBuilder() =>
+      CoreUserStatusCapabilities_UserStatusBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_UserStatus &&
+    return other is CoreUserStatusCapabilities_UserStatus &&
         enabled == other.enabled &&
         restore == other.restore &&
         supportsEmoji == other.supportsEmoji;
@@ -14795,8 +15144,7 @@ class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_U
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(
-            r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_UserStatus')
+    return (newBuiltValueToStringHelper(r'CoreUserStatusCapabilities_UserStatus')
           ..add('enabled', enabled)
           ..add('restore', restore)
           ..add('supportsEmoji', supportsEmoji))
@@ -14804,11 +15152,9 @@ class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_U
   }
 }
 
-class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_UserStatusBuilder
-    implements
-        Builder<CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_UserStatus,
-            CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_UserStatusBuilder> {
-  _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_UserStatus? _$v;
+class CoreUserStatusCapabilities_UserStatusBuilder
+    implements Builder<CoreUserStatusCapabilities_UserStatus, CoreUserStatusCapabilities_UserStatusBuilder> {
+  _$CoreUserStatusCapabilities_UserStatus? _$v;
 
   bool? _enabled;
   bool? get enabled => _$this._enabled;
@@ -14822,9 +15168,9 @@ class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Use
   bool? get supportsEmoji => _$this._supportsEmoji;
   set supportsEmoji(bool? supportsEmoji) => _$this._supportsEmoji = supportsEmoji;
 
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_UserStatusBuilder();
+  CoreUserStatusCapabilities_UserStatusBuilder();
 
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_UserStatusBuilder get _$this {
+  CoreUserStatusCapabilities_UserStatusBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _enabled = $v.enabled;
@@ -14836,30 +15182,119 @@ class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Use
   }
 
   @override
-  void replace(CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_UserStatus other) {
+  void replace(CoreUserStatusCapabilities_UserStatus other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_UserStatus;
+    _$v = other as _$CoreUserStatusCapabilities_UserStatus;
   }
 
   @override
-  void update(
-      void Function(CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_UserStatusBuilder)?
-          updates) {
+  void update(void Function(CoreUserStatusCapabilities_UserStatusBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_UserStatus build() => _build();
+  CoreUserStatusCapabilities_UserStatus build() => _build();
 
-  _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_UserStatus _build() {
+  _$CoreUserStatusCapabilities_UserStatus _build() {
     final _$result = _$v ??
-        _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_UserStatus._(
-            enabled: BuiltValueNullFieldError.checkNotNull(enabled,
-                r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_UserStatus', 'enabled'),
-            restore: BuiltValueNullFieldError.checkNotNull(restore,
-                r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_UserStatus', 'restore'),
-            supportsEmoji: BuiltValueNullFieldError.checkNotNull(supportsEmoji,
-                r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_UserStatus', 'supportsEmoji'));
+        _$CoreUserStatusCapabilities_UserStatus._(
+            enabled:
+                BuiltValueNullFieldError.checkNotNull(enabled, r'CoreUserStatusCapabilities_UserStatus', 'enabled'),
+            restore:
+                BuiltValueNullFieldError.checkNotNull(restore, r'CoreUserStatusCapabilities_UserStatus', 'restore'),
+            supportsEmoji: BuiltValueNullFieldError.checkNotNull(
+                supportsEmoji, r'CoreUserStatusCapabilities_UserStatus', 'supportsEmoji'));
+    replace(_$result);
+    return _$result;
+  }
+}
+
+class _$CoreUserStatusCapabilities extends CoreUserStatusCapabilities {
+  @override
+  final CoreUserStatusCapabilities_UserStatus userStatus;
+
+  factory _$CoreUserStatusCapabilities([void Function(CoreUserStatusCapabilitiesBuilder)? updates]) =>
+      (CoreUserStatusCapabilitiesBuilder()..update(updates))._build();
+
+  _$CoreUserStatusCapabilities._({required this.userStatus}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(userStatus, r'CoreUserStatusCapabilities', 'userStatus');
+  }
+
+  @override
+  CoreUserStatusCapabilities rebuild(void Function(CoreUserStatusCapabilitiesBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  CoreUserStatusCapabilitiesBuilder toBuilder() => CoreUserStatusCapabilitiesBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is CoreUserStatusCapabilities && userStatus == other.userStatus;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, userStatus.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'CoreUserStatusCapabilities')..add('userStatus', userStatus)).toString();
+  }
+}
+
+class CoreUserStatusCapabilitiesBuilder
+    implements Builder<CoreUserStatusCapabilities, CoreUserStatusCapabilitiesBuilder> {
+  _$CoreUserStatusCapabilities? _$v;
+
+  CoreUserStatusCapabilities_UserStatusBuilder? _userStatus;
+  CoreUserStatusCapabilities_UserStatusBuilder get userStatus =>
+      _$this._userStatus ??= CoreUserStatusCapabilities_UserStatusBuilder();
+  set userStatus(CoreUserStatusCapabilities_UserStatusBuilder? userStatus) => _$this._userStatus = userStatus;
+
+  CoreUserStatusCapabilitiesBuilder();
+
+  CoreUserStatusCapabilitiesBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _userStatus = $v.userStatus.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(CoreUserStatusCapabilities other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$CoreUserStatusCapabilities;
+  }
+
+  @override
+  void update(void Function(CoreUserStatusCapabilitiesBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  CoreUserStatusCapabilities build() => _build();
+
+  _$CoreUserStatusCapabilities _build() {
+    _$CoreUserStatusCapabilities _$result;
+    try {
+      _$result = _$v ?? _$CoreUserStatusCapabilities._(userStatus: userStatus.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'userStatus';
+        userStatus.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(r'CoreUserStatusCapabilities', _$failedField, e.toString());
+      }
+      rethrow;
+    }
     replace(_$result);
     return _$result;
   }
@@ -14868,25 +15303,36 @@ class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Use
 class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities
     extends CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities {
   @override
-  final CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharing? filesSharing;
+  final JsonObject data;
   @override
-  final CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Notes? notes;
+  final CoreFilesSharingCapabilities? filesSharingCapabilities;
   @override
-  final CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Notifications? notifications;
+  final CoreNotesCapabilities? notesCapabilities;
   @override
-  final CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_ProvisioningApi? provisioningApi;
+  final CoreNotificationsCapabilities? notificationsCapabilities;
   @override
-  final CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_Theming? theming;
+  final CoreProvisioningApiCapabilities? provisioningApiCapabilities;
   @override
-  final CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_UserStatus? userStatus;
+  final CoreThemingPublicCapabilities? themingPublicCapabilities;
+  @override
+  final CoreUserStatusCapabilities? userStatusCapabilities;
 
   factory _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities(
           [void Function(CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_CapabilitiesBuilder)? updates]) =>
       (CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_CapabilitiesBuilder()..update(updates))._build();
 
   _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities._(
-      {this.filesSharing, this.notes, this.notifications, this.provisioningApi, this.theming, this.userStatus})
-      : super._();
+      {required this.data,
+      this.filesSharingCapabilities,
+      this.notesCapabilities,
+      this.notificationsCapabilities,
+      this.provisioningApiCapabilities,
+      this.themingPublicCapabilities,
+      this.userStatusCapabilities})
+      : super._() {
+    BuiltValueNullFieldError.checkNotNull(
+        data, r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities', 'data');
+  }
 
   @override
   CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities rebuild(
@@ -14901,23 +15347,25 @@ class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
     return other is CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities &&
-        filesSharing == other.filesSharing &&
-        notes == other.notes &&
-        notifications == other.notifications &&
-        provisioningApi == other.provisioningApi &&
-        theming == other.theming &&
-        userStatus == other.userStatus;
+        data == other.data &&
+        filesSharingCapabilities == other.filesSharingCapabilities &&
+        notesCapabilities == other.notesCapabilities &&
+        notificationsCapabilities == other.notificationsCapabilities &&
+        provisioningApiCapabilities == other.provisioningApiCapabilities &&
+        themingPublicCapabilities == other.themingPublicCapabilities &&
+        userStatusCapabilities == other.userStatusCapabilities;
   }
 
   @override
   int get hashCode {
     var _$hash = 0;
-    _$hash = $jc(_$hash, filesSharing.hashCode);
-    _$hash = $jc(_$hash, notes.hashCode);
-    _$hash = $jc(_$hash, notifications.hashCode);
-    _$hash = $jc(_$hash, provisioningApi.hashCode);
-    _$hash = $jc(_$hash, theming.hashCode);
-    _$hash = $jc(_$hash, userStatus.hashCode);
+    _$hash = $jc(_$hash, data.hashCode);
+    _$hash = $jc(_$hash, filesSharingCapabilities.hashCode);
+    _$hash = $jc(_$hash, notesCapabilities.hashCode);
+    _$hash = $jc(_$hash, notificationsCapabilities.hashCode);
+    _$hash = $jc(_$hash, provisioningApiCapabilities.hashCode);
+    _$hash = $jc(_$hash, themingPublicCapabilities.hashCode);
+    _$hash = $jc(_$hash, userStatusCapabilities.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
   }
@@ -14925,12 +15373,13 @@ class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities
   @override
   String toString() {
     return (newBuiltValueToStringHelper(r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities')
-          ..add('filesSharing', filesSharing)
-          ..add('notes', notes)
-          ..add('notifications', notifications)
-          ..add('provisioningApi', provisioningApi)
-          ..add('theming', theming)
-          ..add('userStatus', userStatus))
+          ..add('data', data)
+          ..add('filesSharingCapabilities', filesSharingCapabilities)
+          ..add('notesCapabilities', notesCapabilities)
+          ..add('notificationsCapabilities', notificationsCapabilities)
+          ..add('provisioningApiCapabilities', provisioningApiCapabilities)
+          ..add('themingPublicCapabilities', themingPublicCapabilities)
+          ..add('userStatusCapabilities', userStatusCapabilities))
         .toString();
   }
 }
@@ -14941,61 +15390,57 @@ class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_CapabilitiesBuil
             CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_CapabilitiesBuilder> {
   _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities? _$v;
 
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharingBuilder? _filesSharing;
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharingBuilder get filesSharing =>
-      _$this._filesSharing ??=
-          CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharingBuilder();
-  set filesSharing(
-          CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_FilesSharingBuilder? filesSharing) =>
-      _$this._filesSharing = filesSharing;
+  JsonObject? _data;
+  JsonObject? get data => _$this._data;
+  set data(JsonObject? data) => _$this._data = data;
 
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_NotesBuilder? _notes;
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_NotesBuilder get notes =>
-      _$this._notes ??= CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_NotesBuilder();
-  set notes(CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_NotesBuilder? notes) =>
-      _$this._notes = notes;
+  CoreFilesSharingCapabilitiesBuilder? _filesSharingCapabilities;
+  CoreFilesSharingCapabilitiesBuilder get filesSharingCapabilities =>
+      _$this._filesSharingCapabilities ??= CoreFilesSharingCapabilitiesBuilder();
+  set filesSharingCapabilities(CoreFilesSharingCapabilitiesBuilder? filesSharingCapabilities) =>
+      _$this._filesSharingCapabilities = filesSharingCapabilities;
 
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_NotificationsBuilder? _notifications;
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_NotificationsBuilder get notifications =>
-      _$this._notifications ??=
-          CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_NotificationsBuilder();
-  set notifications(
-          CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_NotificationsBuilder? notifications) =>
-      _$this._notifications = notifications;
+  CoreNotesCapabilitiesBuilder? _notesCapabilities;
+  CoreNotesCapabilitiesBuilder get notesCapabilities => _$this._notesCapabilities ??= CoreNotesCapabilitiesBuilder();
+  set notesCapabilities(CoreNotesCapabilitiesBuilder? notesCapabilities) =>
+      _$this._notesCapabilities = notesCapabilities;
 
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_ProvisioningApiBuilder? _provisioningApi;
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_ProvisioningApiBuilder get provisioningApi =>
-      _$this._provisioningApi ??=
-          CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_ProvisioningApiBuilder();
-  set provisioningApi(
-          CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_ProvisioningApiBuilder?
-              provisioningApi) =>
-      _$this._provisioningApi = provisioningApi;
+  CoreNotificationsCapabilitiesBuilder? _notificationsCapabilities;
+  CoreNotificationsCapabilitiesBuilder get notificationsCapabilities =>
+      _$this._notificationsCapabilities ??= CoreNotificationsCapabilitiesBuilder();
+  set notificationsCapabilities(CoreNotificationsCapabilitiesBuilder? notificationsCapabilities) =>
+      _$this._notificationsCapabilities = notificationsCapabilities;
 
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_ThemingBuilder? _theming;
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_ThemingBuilder get theming =>
-      _$this._theming ??= CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_ThemingBuilder();
-  set theming(CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_ThemingBuilder? theming) =>
-      _$this._theming = theming;
+  CoreProvisioningApiCapabilitiesBuilder? _provisioningApiCapabilities;
+  CoreProvisioningApiCapabilitiesBuilder get provisioningApiCapabilities =>
+      _$this._provisioningApiCapabilities ??= CoreProvisioningApiCapabilitiesBuilder();
+  set provisioningApiCapabilities(CoreProvisioningApiCapabilitiesBuilder? provisioningApiCapabilities) =>
+      _$this._provisioningApiCapabilities = provisioningApiCapabilities;
 
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_UserStatusBuilder? _userStatus;
-  CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_UserStatusBuilder get userStatus =>
-      _$this._userStatus ??= CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_UserStatusBuilder();
-  set userStatus(
-          CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities_UserStatusBuilder? userStatus) =>
-      _$this._userStatus = userStatus;
+  CoreThemingPublicCapabilitiesBuilder? _themingPublicCapabilities;
+  CoreThemingPublicCapabilitiesBuilder get themingPublicCapabilities =>
+      _$this._themingPublicCapabilities ??= CoreThemingPublicCapabilitiesBuilder();
+  set themingPublicCapabilities(CoreThemingPublicCapabilitiesBuilder? themingPublicCapabilities) =>
+      _$this._themingPublicCapabilities = themingPublicCapabilities;
+
+  CoreUserStatusCapabilitiesBuilder? _userStatusCapabilities;
+  CoreUserStatusCapabilitiesBuilder get userStatusCapabilities =>
+      _$this._userStatusCapabilities ??= CoreUserStatusCapabilitiesBuilder();
+  set userStatusCapabilities(CoreUserStatusCapabilitiesBuilder? userStatusCapabilities) =>
+      _$this._userStatusCapabilities = userStatusCapabilities;
 
   CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_CapabilitiesBuilder();
 
   CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_CapabilitiesBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
-      _filesSharing = $v.filesSharing?.toBuilder();
-      _notes = $v.notes?.toBuilder();
-      _notifications = $v.notifications?.toBuilder();
-      _provisioningApi = $v.provisioningApi?.toBuilder();
-      _theming = $v.theming?.toBuilder();
-      _userStatus = $v.userStatus?.toBuilder();
+      _data = $v.data;
+      _filesSharingCapabilities = $v.filesSharingCapabilities?.toBuilder();
+      _notesCapabilities = $v.notesCapabilities?.toBuilder();
+      _notificationsCapabilities = $v.notificationsCapabilities?.toBuilder();
+      _provisioningApiCapabilities = $v.provisioningApiCapabilities?.toBuilder();
+      _themingPublicCapabilities = $v.themingPublicCapabilities?.toBuilder();
+      _userStatusCapabilities = $v.userStatusCapabilities?.toBuilder();
       _$v = null;
     }
     return this;
@@ -15020,27 +15465,29 @@ class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_CapabilitiesBuil
     try {
       _$result = _$v ??
           _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities._(
-              filesSharing: _filesSharing?.build(),
-              notes: _notes?.build(),
-              notifications: _notifications?.build(),
-              provisioningApi: _provisioningApi?.build(),
-              theming: _theming?.build(),
-              userStatus: _userStatus?.build());
+              data: BuiltValueNullFieldError.checkNotNull(
+                  data, r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities', 'data'),
+              filesSharingCapabilities: _filesSharingCapabilities?.build(),
+              notesCapabilities: _notesCapabilities?.build(),
+              notificationsCapabilities: _notificationsCapabilities?.build(),
+              provisioningApiCapabilities: _provisioningApiCapabilities?.build(),
+              themingPublicCapabilities: _themingPublicCapabilities?.build(),
+              userStatusCapabilities: _userStatusCapabilities?.build());
     } catch (_) {
       late String _$failedField;
       try {
-        _$failedField = 'filesSharing';
-        _filesSharing?.build();
-        _$failedField = 'notes';
-        _notes?.build();
-        _$failedField = 'notifications';
-        _notifications?.build();
-        _$failedField = 'provisioningApi';
-        _provisioningApi?.build();
-        _$failedField = 'theming';
-        _theming?.build();
-        _$failedField = 'userStatus';
-        _userStatus?.build();
+        _$failedField = 'filesSharingCapabilities';
+        _filesSharingCapabilities?.build();
+        _$failedField = 'notesCapabilities';
+        _notesCapabilities?.build();
+        _$failedField = 'notificationsCapabilities';
+        _notificationsCapabilities?.build();
+        _$failedField = 'provisioningApiCapabilities';
+        _provisioningApiCapabilities?.build();
+        _$failedField = 'themingPublicCapabilities';
+        _themingPublicCapabilities?.build();
+        _$failedField = 'userStatusCapabilities';
+        _userStatusCapabilities?.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
             r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities', _$failedField, e.toString());
@@ -18830,6 +19277,642 @@ class CoreTextProcessingApiGetTaskResponse200ApplicationJsonBuilder
       } catch (e) {
         throw BuiltValueNestedFieldError(
             r'CoreTextProcessingApiGetTaskResponse200ApplicationJson', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+class _$CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs_Data
+    extends CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs_Data {
+  @override
+  final CoreTextProcessingTask task;
+
+  factory _$CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs_Data(
+          [void Function(CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs_DataBuilder)? updates]) =>
+      (CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs_DataBuilder()..update(updates))._build();
+
+  _$CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs_Data._({required this.task}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(
+        task, r'CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs_Data', 'task');
+  }
+
+  @override
+  CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs_Data rebuild(
+          void Function(CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs_DataBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs_DataBuilder toBuilder() =>
+      CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs_DataBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs_Data && task == other.task;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, task.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs_Data')
+          ..add('task', task))
+        .toString();
+  }
+}
+
+class CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs_DataBuilder
+    implements
+        Builder<CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs_Data,
+            CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs_DataBuilder> {
+  _$CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs_Data? _$v;
+
+  CoreTextProcessingTaskBuilder? _task;
+  CoreTextProcessingTaskBuilder get task => _$this._task ??= CoreTextProcessingTaskBuilder();
+  set task(CoreTextProcessingTaskBuilder? task) => _$this._task = task;
+
+  CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs_DataBuilder();
+
+  CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs_DataBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _task = $v.task.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs_Data other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs_Data;
+  }
+
+  @override
+  void update(void Function(CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs_DataBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs_Data build() => _build();
+
+  _$CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs_Data _build() {
+    _$CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs_Data _$result;
+    try {
+      _$result = _$v ?? _$CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs_Data._(task: task.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'task';
+        task.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs_Data', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+class _$CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs
+    extends CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs {
+  @override
+  final CoreOCSMeta meta;
+  @override
+  final CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs_Data data;
+
+  factory _$CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs(
+          [void Function(CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_OcsBuilder)? updates]) =>
+      (CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_OcsBuilder()..update(updates))._build();
+
+  _$CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs._({required this.meta, required this.data})
+      : super._() {
+    BuiltValueNullFieldError.checkNotNull(
+        meta, r'CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs', 'meta');
+    BuiltValueNullFieldError.checkNotNull(
+        data, r'CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs', 'data');
+  }
+
+  @override
+  CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs rebuild(
+          void Function(CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_OcsBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_OcsBuilder toBuilder() =>
+      CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_OcsBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs &&
+        meta == other.meta &&
+        data == other.data;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, meta.hashCode);
+    _$hash = $jc(_$hash, data.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs')
+          ..add('meta', meta)
+          ..add('data', data))
+        .toString();
+  }
+}
+
+class CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_OcsBuilder
+    implements
+        Builder<CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs,
+            CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_OcsBuilder> {
+  _$CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs? _$v;
+
+  CoreOCSMetaBuilder? _meta;
+  CoreOCSMetaBuilder get meta => _$this._meta ??= CoreOCSMetaBuilder();
+  set meta(CoreOCSMetaBuilder? meta) => _$this._meta = meta;
+
+  CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs_DataBuilder? _data;
+  CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs_DataBuilder get data =>
+      _$this._data ??= CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs_DataBuilder();
+  set data(CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs_DataBuilder? data) => _$this._data = data;
+
+  CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_OcsBuilder();
+
+  CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_OcsBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _meta = $v.meta.toBuilder();
+      _data = $v.data.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs;
+  }
+
+  @override
+  void update(void Function(CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_OcsBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs build() => _build();
+
+  _$CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs _build() {
+    _$CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs _$result;
+    try {
+      _$result = _$v ??
+          _$CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'meta';
+        meta.build();
+        _$failedField = 'data';
+        data.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+class _$CoreTextProcessingApiDeleteTaskResponse200ApplicationJson
+    extends CoreTextProcessingApiDeleteTaskResponse200ApplicationJson {
+  @override
+  final CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_Ocs ocs;
+
+  factory _$CoreTextProcessingApiDeleteTaskResponse200ApplicationJson(
+          [void Function(CoreTextProcessingApiDeleteTaskResponse200ApplicationJsonBuilder)? updates]) =>
+      (CoreTextProcessingApiDeleteTaskResponse200ApplicationJsonBuilder()..update(updates))._build();
+
+  _$CoreTextProcessingApiDeleteTaskResponse200ApplicationJson._({required this.ocs}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(ocs, r'CoreTextProcessingApiDeleteTaskResponse200ApplicationJson', 'ocs');
+  }
+
+  @override
+  CoreTextProcessingApiDeleteTaskResponse200ApplicationJson rebuild(
+          void Function(CoreTextProcessingApiDeleteTaskResponse200ApplicationJsonBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  CoreTextProcessingApiDeleteTaskResponse200ApplicationJsonBuilder toBuilder() =>
+      CoreTextProcessingApiDeleteTaskResponse200ApplicationJsonBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is CoreTextProcessingApiDeleteTaskResponse200ApplicationJson && ocs == other.ocs;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, ocs.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'CoreTextProcessingApiDeleteTaskResponse200ApplicationJson')..add('ocs', ocs))
+        .toString();
+  }
+}
+
+class CoreTextProcessingApiDeleteTaskResponse200ApplicationJsonBuilder
+    implements
+        Builder<CoreTextProcessingApiDeleteTaskResponse200ApplicationJson,
+            CoreTextProcessingApiDeleteTaskResponse200ApplicationJsonBuilder> {
+  _$CoreTextProcessingApiDeleteTaskResponse200ApplicationJson? _$v;
+
+  CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_OcsBuilder? _ocs;
+  CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_OcsBuilder get ocs =>
+      _$this._ocs ??= CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_OcsBuilder();
+  set ocs(CoreTextProcessingApiDeleteTaskResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+
+  CoreTextProcessingApiDeleteTaskResponse200ApplicationJsonBuilder();
+
+  CoreTextProcessingApiDeleteTaskResponse200ApplicationJsonBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _ocs = $v.ocs.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(CoreTextProcessingApiDeleteTaskResponse200ApplicationJson other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$CoreTextProcessingApiDeleteTaskResponse200ApplicationJson;
+  }
+
+  @override
+  void update(void Function(CoreTextProcessingApiDeleteTaskResponse200ApplicationJsonBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  CoreTextProcessingApiDeleteTaskResponse200ApplicationJson build() => _build();
+
+  _$CoreTextProcessingApiDeleteTaskResponse200ApplicationJson _build() {
+    _$CoreTextProcessingApiDeleteTaskResponse200ApplicationJson _$result;
+    try {
+      _$result = _$v ?? _$CoreTextProcessingApiDeleteTaskResponse200ApplicationJson._(ocs: ocs.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'ocs';
+        ocs.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'CoreTextProcessingApiDeleteTaskResponse200ApplicationJson', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+class _$CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs_Data
+    extends CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs_Data {
+  @override
+  final BuiltList<CoreTextProcessingTask> tasks;
+
+  factory _$CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs_Data(
+          [void Function(CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs_DataBuilder)? updates]) =>
+      (CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs_DataBuilder()..update(updates))._build();
+
+  _$CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs_Data._({required this.tasks}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(
+        tasks, r'CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs_Data', 'tasks');
+  }
+
+  @override
+  CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs_Data rebuild(
+          void Function(CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs_DataBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs_DataBuilder toBuilder() =>
+      CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs_DataBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs_Data && tasks == other.tasks;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, tasks.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs_Data')
+          ..add('tasks', tasks))
+        .toString();
+  }
+}
+
+class CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs_DataBuilder
+    implements
+        Builder<CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs_Data,
+            CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs_DataBuilder> {
+  _$CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs_Data? _$v;
+
+  ListBuilder<CoreTextProcessingTask>? _tasks;
+  ListBuilder<CoreTextProcessingTask> get tasks => _$this._tasks ??= ListBuilder<CoreTextProcessingTask>();
+  set tasks(ListBuilder<CoreTextProcessingTask>? tasks) => _$this._tasks = tasks;
+
+  CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs_DataBuilder();
+
+  CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs_DataBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _tasks = $v.tasks.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs_Data other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs_Data;
+  }
+
+  @override
+  void update(void Function(CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs_DataBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs_Data build() => _build();
+
+  _$CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs_Data _build() {
+    _$CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs_Data _$result;
+    try {
+      _$result =
+          _$v ?? _$CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs_Data._(tasks: tasks.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'tasks';
+        tasks.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs_Data', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+class _$CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs
+    extends CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs {
+  @override
+  final CoreOCSMeta meta;
+  @override
+  final CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs_Data data;
+
+  factory _$CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs(
+          [void Function(CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_OcsBuilder)? updates]) =>
+      (CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_OcsBuilder()..update(updates))._build();
+
+  _$CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs._({required this.meta, required this.data})
+      : super._() {
+    BuiltValueNullFieldError.checkNotNull(
+        meta, r'CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs', 'meta');
+    BuiltValueNullFieldError.checkNotNull(
+        data, r'CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs', 'data');
+  }
+
+  @override
+  CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs rebuild(
+          void Function(CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_OcsBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_OcsBuilder toBuilder() =>
+      CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_OcsBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs &&
+        meta == other.meta &&
+        data == other.data;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, meta.hashCode);
+    _$hash = $jc(_$hash, data.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs')
+          ..add('meta', meta)
+          ..add('data', data))
+        .toString();
+  }
+}
+
+class CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_OcsBuilder
+    implements
+        Builder<CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs,
+            CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_OcsBuilder> {
+  _$CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs? _$v;
+
+  CoreOCSMetaBuilder? _meta;
+  CoreOCSMetaBuilder get meta => _$this._meta ??= CoreOCSMetaBuilder();
+  set meta(CoreOCSMetaBuilder? meta) => _$this._meta = meta;
+
+  CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs_DataBuilder? _data;
+  CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs_DataBuilder get data =>
+      _$this._data ??= CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs_DataBuilder();
+  set data(CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs_DataBuilder? data) => _$this._data = data;
+
+  CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_OcsBuilder();
+
+  CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_OcsBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _meta = $v.meta.toBuilder();
+      _data = $v.data.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs;
+  }
+
+  @override
+  void update(void Function(CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_OcsBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs build() => _build();
+
+  _$CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs _build() {
+    _$CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs _$result;
+    try {
+      _$result = _$v ??
+          _$CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'meta';
+        meta.build();
+        _$failedField = 'data';
+        data.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+class _$CoreTextProcessingApiListTasksByAppResponse200ApplicationJson
+    extends CoreTextProcessingApiListTasksByAppResponse200ApplicationJson {
+  @override
+  final CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_Ocs ocs;
+
+  factory _$CoreTextProcessingApiListTasksByAppResponse200ApplicationJson(
+          [void Function(CoreTextProcessingApiListTasksByAppResponse200ApplicationJsonBuilder)? updates]) =>
+      (CoreTextProcessingApiListTasksByAppResponse200ApplicationJsonBuilder()..update(updates))._build();
+
+  _$CoreTextProcessingApiListTasksByAppResponse200ApplicationJson._({required this.ocs}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(ocs, r'CoreTextProcessingApiListTasksByAppResponse200ApplicationJson', 'ocs');
+  }
+
+  @override
+  CoreTextProcessingApiListTasksByAppResponse200ApplicationJson rebuild(
+          void Function(CoreTextProcessingApiListTasksByAppResponse200ApplicationJsonBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  CoreTextProcessingApiListTasksByAppResponse200ApplicationJsonBuilder toBuilder() =>
+      CoreTextProcessingApiListTasksByAppResponse200ApplicationJsonBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is CoreTextProcessingApiListTasksByAppResponse200ApplicationJson && ocs == other.ocs;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, ocs.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'CoreTextProcessingApiListTasksByAppResponse200ApplicationJson')
+          ..add('ocs', ocs))
+        .toString();
+  }
+}
+
+class CoreTextProcessingApiListTasksByAppResponse200ApplicationJsonBuilder
+    implements
+        Builder<CoreTextProcessingApiListTasksByAppResponse200ApplicationJson,
+            CoreTextProcessingApiListTasksByAppResponse200ApplicationJsonBuilder> {
+  _$CoreTextProcessingApiListTasksByAppResponse200ApplicationJson? _$v;
+
+  CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_OcsBuilder? _ocs;
+  CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_OcsBuilder get ocs =>
+      _$this._ocs ??= CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_OcsBuilder();
+  set ocs(CoreTextProcessingApiListTasksByAppResponse200ApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+
+  CoreTextProcessingApiListTasksByAppResponse200ApplicationJsonBuilder();
+
+  CoreTextProcessingApiListTasksByAppResponse200ApplicationJsonBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _ocs = $v.ocs.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(CoreTextProcessingApiListTasksByAppResponse200ApplicationJson other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$CoreTextProcessingApiListTasksByAppResponse200ApplicationJson;
+  }
+
+  @override
+  void update(void Function(CoreTextProcessingApiListTasksByAppResponse200ApplicationJsonBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  CoreTextProcessingApiListTasksByAppResponse200ApplicationJson build() => _build();
+
+  _$CoreTextProcessingApiListTasksByAppResponse200ApplicationJson _build() {
+    _$CoreTextProcessingApiListTasksByAppResponse200ApplicationJson _$result;
+    try {
+      _$result = _$v ?? _$CoreTextProcessingApiListTasksByAppResponse200ApplicationJson._(ocs: ocs.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'ocs';
+        ocs.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'CoreTextProcessingApiListTasksByAppResponse200ApplicationJson', _$failedField, e.toString());
       }
       rethrow;
     }

@@ -291,7 +291,7 @@ class _NeonAppState extends State<NeonApp> with WidgetsBindingObserver, tray.Tra
                       : null,
                   builder: (final context, final capabilitiesSnapshot) {
                     final appTheme = AppTheme(
-                      capabilitiesSnapshot.data?.capabilities.theming,
+                      capabilitiesSnapshot.data?.capabilities.themingPublicCapabilities?.theming,
                       keepOriginalAccentColor: themeKeepOriginalAccentColor,
                       oledAsDark: themeOLEDAsDark,
                       appThemes: _appImplementations.map((final a) => a.theme).whereNotNull(),

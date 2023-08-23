@@ -509,6 +509,415 @@
             }
           }
         }
+      },
+      "FilesSharingCapabilities": {
+        "type": "object",
+        "required": [
+          "files_sharing"
+        ],
+        "properties": {
+          "files_sharing": {
+            "type": "object",
+            "required": [
+              "api_enabled",
+              "public",
+              "user",
+              "resharing",
+              "federation",
+              "sharee"
+            ],
+            "properties": {
+              "api_enabled": {
+                "type": "boolean"
+              },
+              "public": {
+                "type": "object",
+                "required": [
+                  "enabled"
+                ],
+                "properties": {
+                  "enabled": {
+                    "type": "boolean"
+                  },
+                  "password": {
+                    "type": "object",
+                    "required": [
+                      "enforced",
+                      "askForOptionalPassword"
+                    ],
+                    "properties": {
+                      "enforced": {
+                        "type": "boolean"
+                      },
+                      "askForOptionalPassword": {
+                        "type": "boolean"
+                      }
+                    }
+                  },
+                  "multiple_links": {
+                    "type": "boolean"
+                  },
+                  "expire_date": {
+                    "type": "object",
+                    "required": [
+                      "enabled"
+                    ],
+                    "properties": {
+                      "enabled": {
+                        "type": "boolean"
+                      },
+                      "days": {
+                        "type": "integer",
+                        "format": "int64"
+                      },
+                      "enforced": {
+                        "type": "boolean"
+                      }
+                    }
+                  },
+                  "expire_date_internal": {
+                    "type": "object",
+                    "required": [
+                      "enabled"
+                    ],
+                    "properties": {
+                      "enabled": {
+                        "type": "boolean"
+                      },
+                      "days": {
+                        "type": "integer",
+                        "format": "int64"
+                      },
+                      "enforced": {
+                        "type": "boolean"
+                      }
+                    }
+                  },
+                  "expire_date_remote": {
+                    "type": "object",
+                    "required": [
+                      "enabled"
+                    ],
+                    "properties": {
+                      "enabled": {
+                        "type": "boolean"
+                      },
+                      "days": {
+                        "type": "integer",
+                        "format": "int64"
+                      },
+                      "enforced": {
+                        "type": "boolean"
+                      }
+                    }
+                  },
+                  "send_mail": {
+                    "type": "boolean"
+                  },
+                  "upload": {
+                    "type": "boolean"
+                  },
+                  "upload_files_drop": {
+                    "type": "boolean"
+                  }
+                }
+              },
+              "user": {
+                "type": "object",
+                "required": [
+                  "send_mail"
+                ],
+                "properties": {
+                  "send_mail": {
+                    "type": "boolean"
+                  },
+                  "expire_date": {
+                    "type": "object",
+                    "required": [
+                      "enabled"
+                    ],
+                    "properties": {
+                      "enabled": {
+                        "type": "boolean"
+                      }
+                    }
+                  }
+                }
+              },
+              "resharing": {
+                "type": "boolean"
+              },
+              "group_sharing": {
+                "type": "boolean"
+              },
+              "group": {
+                "type": "object",
+                "required": [
+                  "enabled"
+                ],
+                "properties": {
+                  "enabled": {
+                    "type": "boolean"
+                  },
+                  "expire_date": {
+                    "type": "object",
+                    "required": [
+                      "enabled"
+                    ],
+                    "properties": {
+                      "enabled": {
+                        "type": "boolean"
+                      }
+                    }
+                  }
+                }
+              },
+              "default_permissions": {
+                "type": "integer",
+                "format": "int64"
+              },
+              "federation": {
+                "type": "object",
+                "required": [
+                  "outgoing",
+                  "incoming",
+                  "expire_date",
+                  "expire_date_supported"
+                ],
+                "properties": {
+                  "outgoing": {
+                    "type": "boolean"
+                  },
+                  "incoming": {
+                    "type": "boolean"
+                  },
+                  "expire_date": {
+                    "type": "object",
+                    "required": [
+                      "enabled"
+                    ],
+                    "properties": {
+                      "enabled": {
+                        "type": "boolean"
+                      }
+                    }
+                  },
+                  "expire_date_supported": {
+                    "type": "object",
+                    "required": [
+                      "enabled"
+                    ],
+                    "properties": {
+                      "enabled": {
+                        "type": "boolean"
+                      }
+                    }
+                  }
+                }
+              },
+              "sharee": {
+                "type": "object",
+                "required": [
+                  "query_lookup_default",
+                  "always_show_unique"
+                ],
+                "properties": {
+                  "query_lookup_default": {
+                    "type": "boolean"
+                  },
+                  "always_show_unique": {
+                    "type": "boolean"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "NotesCapabilities": {
+        "type": "object",
+        "required": [
+          "notes"
+        ],
+        "properties": {
+          "notes": {
+            "type": "object",
+            "additionalProperties": true,
+            "properties": {
+              "api_version": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "version": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      },
+      "NotificationsCapabilities": {
+        "type": "object",
+        "required": [
+          "notifications"
+        ],
+        "properties": {
+          "notifications": {
+            "type": "object",
+            "additionalProperties": true,
+            "properties": {
+              "ocs-endpoints": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "push": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "admin-notifications": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      },
+      "ProvisioningApiCapabilities": {
+        "type": "object",
+        "required": [
+          "provisioning_api"
+        ],
+        "properties": {
+          "provisioning_api": {
+            "type": "object",
+            "required": [
+              "version",
+              "AccountPropertyScopesVersion",
+              "AccountPropertyScopesFederatedEnabled",
+              "AccountPropertyScopesPublishedEnabled"
+            ],
+            "properties": {
+              "version": {
+                "type": "string"
+              },
+              "AccountPropertyScopesVersion": {
+                "type": "integer",
+                "format": "int64"
+              },
+              "AccountPropertyScopesFederatedEnabled": {
+                "type": "boolean"
+              },
+              "AccountPropertyScopesPublishedEnabled": {
+                "type": "boolean"
+              }
+            }
+          }
+        }
+      },
+      "ThemingPublicCapabilities": {
+        "type": "object",
+        "required": [
+          "theming"
+        ],
+        "properties": {
+          "theming": {
+            "type": "object",
+            "required": [
+              "name",
+              "url",
+              "slogan",
+              "color",
+              "color-text",
+              "color-element",
+              "color-element-bright",
+              "color-element-dark",
+              "logo",
+              "background",
+              "background-plain",
+              "background-default",
+              "logoheader",
+              "favicon"
+            ],
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "url": {
+                "type": "string"
+              },
+              "slogan": {
+                "type": "string"
+              },
+              "color": {
+                "type": "string"
+              },
+              "color-text": {
+                "type": "string"
+              },
+              "color-element": {
+                "type": "string"
+              },
+              "color-element-bright": {
+                "type": "string"
+              },
+              "color-element-dark": {
+                "type": "string"
+              },
+              "logo": {
+                "type": "string"
+              },
+              "background": {
+                "type": "string"
+              },
+              "background-plain": {
+                "type": "boolean"
+              },
+              "background-default": {
+                "type": "boolean"
+              },
+              "logoheader": {
+                "type": "string"
+              },
+              "favicon": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      },
+      "UserStatusCapabilities": {
+        "type": "object",
+        "required": [
+          "user_status"
+        ],
+        "properties": {
+          "user_status": {
+            "type": "object",
+            "required": [
+              "enabled",
+              "restore",
+              "supports_emoji"
+            ],
+            "properties": {
+              "enabled": {
+                "type": "boolean"
+              },
+              "restore": {
+                "type": "boolean"
+              },
+              "supports_emoji": {
+                "type": "boolean"
+              }
+            }
+          }
+        }
       }
     }
   },
@@ -888,6 +1297,15 @@
               "type": "string",
               "default": "fill"
             }
+          },
+          {
+            "name": "mimeFallback",
+            "in": "query",
+            "description": "Whether to fallback to the mime icon if no preview is available",
+            "schema": {
+              "type": "integer",
+              "default": 0
+            }
           }
         ],
         "responses": {
@@ -975,6 +1393,15 @@
             "schema": {
               "type": "string",
               "default": "fill"
+            }
+          },
+          {
+            "name": "mimeFallback",
+            "in": "query",
+            "description": "Whether to fallback to the mime icon if no preview is available",
+            "schema": {
+              "type": "integer",
+              "default": 0
             }
           }
         ],
@@ -1217,369 +1644,26 @@
                               "additionalProperties": {
                                 "type": "object"
                               },
-                              "properties": {
-                                "files_sharing": {
-                                  "type": "object",
-                                  "required": [
-                                    "api_enabled",
-                                    "public",
-                                    "user",
-                                    "resharing",
-                                    "federation",
-                                    "sharee"
-                                  ],
-                                  "properties": {
-                                    "api_enabled": {
-                                      "type": "boolean"
-                                    },
-                                    "public": {
-                                      "type": "object",
-                                      "required": [
-                                        "enabled"
-                                      ],
-                                      "properties": {
-                                        "enabled": {
-                                          "type": "boolean"
-                                        },
-                                        "password": {
-                                          "type": "object",
-                                          "required": [
-                                            "enforced",
-                                            "askForOptionalPassword"
-                                          ],
-                                          "properties": {
-                                            "enforced": {
-                                              "type": "boolean"
-                                            },
-                                            "askForOptionalPassword": {
-                                              "type": "boolean"
-                                            }
-                                          }
-                                        },
-                                        "multiple_links": {
-                                          "type": "boolean"
-                                        },
-                                        "expire_date": {
-                                          "type": "object",
-                                          "required": [
-                                            "enabled"
-                                          ],
-                                          "properties": {
-                                            "enabled": {
-                                              "type": "boolean"
-                                            },
-                                            "days": {
-                                              "type": "integer",
-                                              "format": "int64"
-                                            },
-                                            "enforced": {
-                                              "type": "boolean"
-                                            }
-                                          }
-                                        },
-                                        "expire_date_internal": {
-                                          "type": "object",
-                                          "required": [
-                                            "enabled"
-                                          ],
-                                          "properties": {
-                                            "enabled": {
-                                              "type": "boolean"
-                                            },
-                                            "days": {
-                                              "type": "integer",
-                                              "format": "int64"
-                                            },
-                                            "enforced": {
-                                              "type": "boolean"
-                                            }
-                                          }
-                                        },
-                                        "expire_date_remote": {
-                                          "type": "object",
-                                          "required": [
-                                            "enabled"
-                                          ],
-                                          "properties": {
-                                            "enabled": {
-                                              "type": "boolean"
-                                            },
-                                            "days": {
-                                              "type": "integer",
-                                              "format": "int64"
-                                            },
-                                            "enforced": {
-                                              "type": "boolean"
-                                            }
-                                          }
-                                        },
-                                        "send_mail": {
-                                          "type": "boolean"
-                                        },
-                                        "upload": {
-                                          "type": "boolean"
-                                        },
-                                        "upload_files_drop": {
-                                          "type": "boolean"
-                                        }
-                                      }
-                                    },
-                                    "user": {
-                                      "type": "object",
-                                      "required": [
-                                        "send_mail"
-                                      ],
-                                      "properties": {
-                                        "send_mail": {
-                                          "type": "boolean"
-                                        },
-                                        "expire_date": {
-                                          "type": "object",
-                                          "required": [
-                                            "enabled"
-                                          ],
-                                          "properties": {
-                                            "enabled": {
-                                              "type": "boolean"
-                                            }
-                                          }
-                                        }
-                                      }
-                                    },
-                                    "resharing": {
-                                      "type": "boolean"
-                                    },
-                                    "group_sharing": {
-                                      "type": "boolean"
-                                    },
-                                    "group": {
-                                      "type": "object",
-                                      "required": [
-                                        "enabled"
-                                      ],
-                                      "properties": {
-                                        "enabled": {
-                                          "type": "boolean"
-                                        },
-                                        "expire_date": {
-                                          "type": "object",
-                                          "required": [
-                                            "enabled"
-                                          ],
-                                          "properties": {
-                                            "enabled": {
-                                              "type": "boolean"
-                                            }
-                                          }
-                                        }
-                                      }
-                                    },
-                                    "default_permissions": {
-                                      "type": "integer",
-                                      "format": "int64"
-                                    },
-                                    "federation": {
-                                      "type": "object",
-                                      "required": [
-                                        "outgoing",
-                                        "incoming",
-                                        "expire_date",
-                                        "expire_date_supported"
-                                      ],
-                                      "properties": {
-                                        "outgoing": {
-                                          "type": "boolean"
-                                        },
-                                        "incoming": {
-                                          "type": "boolean"
-                                        },
-                                        "expire_date": {
-                                          "type": "object",
-                                          "required": [
-                                            "enabled"
-                                          ],
-                                          "properties": {
-                                            "enabled": {
-                                              "type": "boolean"
-                                            }
-                                          }
-                                        },
-                                        "expire_date_supported": {
-                                          "type": "object",
-                                          "required": [
-                                            "enabled"
-                                          ],
-                                          "properties": {
-                                            "enabled": {
-                                              "type": "boolean"
-                                            }
-                                          }
-                                        }
-                                      }
-                                    },
-                                    "sharee": {
-                                      "type": "object",
-                                      "required": [
-                                        "query_lookup_default",
-                                        "always_show_unique"
-                                      ],
-                                      "properties": {
-                                        "query_lookup_default": {
-                                          "type": "boolean"
-                                        },
-                                        "always_show_unique": {
-                                          "type": "boolean"
-                                        }
-                                      }
-                                    }
-                                  }
+                              "anyOf": [
+                                {
+                                  "$ref": "#/components/schemas/FilesSharingCapabilities"
                                 },
-                                "notes": {
-                                  "type": "object",
-                                  "additionalProperties": true,
-                                  "properties": {
-                                    "api_version": {
-                                      "type": "array",
-                                      "items": {
-                                        "type": "string"
-                                      }
-                                    },
-                                    "version": {
-                                      "type": "string"
-                                    }
-                                  }
+                                {
+                                  "$ref": "#/components/schemas/NotesCapabilities"
                                 },
-                                "notifications": {
-                                  "type": "object",
-                                  "additionalProperties": true,
-                                  "properties": {
-                                    "ocs-endpoints": {
-                                      "type": "array",
-                                      "items": {
-                                        "type": "string"
-                                      }
-                                    },
-                                    "push": {
-                                      "type": "array",
-                                      "items": {
-                                        "type": "string"
-                                      }
-                                    },
-                                    "admin-notifications": {
-                                      "type": "array",
-                                      "items": {
-                                        "type": "string"
-                                      }
-                                    }
-                                  }
+                                {
+                                  "$ref": "#/components/schemas/NotificationsCapabilities"
                                 },
-                                "provisioning_api": {
-                                  "type": "object",
-                                  "required": [
-                                    "version",
-                                    "AccountPropertyScopesVersion",
-                                    "AccountPropertyScopesFederatedEnabled",
-                                    "AccountPropertyScopesPublishedEnabled"
-                                  ],
-                                  "properties": {
-                                    "version": {
-                                      "type": "string"
-                                    },
-                                    "AccountPropertyScopesVersion": {
-                                      "type": "integer",
-                                      "format": "int64"
-                                    },
-                                    "AccountPropertyScopesFederatedEnabled": {
-                                      "type": "boolean"
-                                    },
-                                    "AccountPropertyScopesPublishedEnabled": {
-                                      "type": "boolean"
-                                    }
-                                  }
+                                {
+                                  "$ref": "#/components/schemas/ProvisioningApiCapabilities"
                                 },
-                                "theming": {
-                                  "type": "object",
-                                  "required": [
-                                    "name",
-                                    "url",
-                                    "slogan",
-                                    "color",
-                                    "color-text",
-                                    "color-element",
-                                    "color-element-bright",
-                                    "color-element-dark",
-                                    "logo",
-                                    "background",
-                                    "background-plain",
-                                    "background-default",
-                                    "logoheader",
-                                    "favicon"
-                                  ],
-                                  "properties": {
-                                    "name": {
-                                      "type": "string"
-                                    },
-                                    "url": {
-                                      "type": "string"
-                                    },
-                                    "slogan": {
-                                      "type": "string"
-                                    },
-                                    "color": {
-                                      "type": "string"
-                                    },
-                                    "color-text": {
-                                      "type": "string"
-                                    },
-                                    "color-element": {
-                                      "type": "string"
-                                    },
-                                    "color-element-bright": {
-                                      "type": "string"
-                                    },
-                                    "color-element-dark": {
-                                      "type": "string"
-                                    },
-                                    "logo": {
-                                      "type": "string"
-                                    },
-                                    "background": {
-                                      "type": "string"
-                                    },
-                                    "background-plain": {
-                                      "type": "boolean"
-                                    },
-                                    "background-default": {
-                                      "type": "boolean"
-                                    },
-                                    "logoheader": {
-                                      "type": "string"
-                                    },
-                                    "favicon": {
-                                      "type": "string"
-                                    }
-                                  }
+                                {
+                                  "$ref": "#/components/schemas/ThemingPublicCapabilities"
                                 },
-                                "user_status": {
-                                  "type": "object",
-                                  "required": [
-                                    "enabled",
-                                    "restore",
-                                    "supports_emoji"
-                                  ],
-                                  "properties": {
-                                    "enabled": {
-                                      "type": "boolean"
-                                    },
-                                    "restore": {
-                                      "type": "boolean"
-                                    },
-                                    "supports_emoji": {
-                                      "type": "boolean"
-                                    }
-                                  }
+                                {
+                                  "$ref": "#/components/schemas/UserStatusCapabilities"
                                 }
-                              }
+                              ]
                             }
                           }
                         }
@@ -4041,6 +4125,171 @@
                           "properties": {
                             "task": {
                               "$ref": "#/components/schemas/TextProcessingTask"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "operationId": "text_processing_api-delete-task",
+        "summary": "This endpoint allows to delete a scheduled task for a user",
+        "tags": [
+          "text_processing_api"
+        ],
+        "security": [
+          {
+            "bearer_auth": []
+          },
+          {
+            "basic_auth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The id of the task",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "OCS-APIRequest",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "default": "true"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Task returned",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "ocs"
+                  ],
+                  "properties": {
+                    "ocs": {
+                      "type": "object",
+                      "required": [
+                        "meta",
+                        "data"
+                      ],
+                      "properties": {
+                        "meta": {
+                          "$ref": "#/components/schemas/OCSMeta"
+                        },
+                        "data": {
+                          "type": "object",
+                          "required": [
+                            "task"
+                          ],
+                          "properties": {
+                            "task": {
+                              "$ref": "#/components/schemas/TextProcessingTask"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ocs/v2.php/textprocessing/tasks/app/{appId}": {
+      "get": {
+        "operationId": "text_processing_api-list-tasks-by-app",
+        "summary": "This endpoint returns a list of tasks of a user that are related with a specific appId and optionally with an identifier",
+        "tags": [
+          "text_processing_api"
+        ],
+        "security": [
+          {
+            "bearer_auth": []
+          },
+          {
+            "basic_auth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "identifier",
+            "in": "query",
+            "description": "An arbitrary identifier for the task",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "appId",
+            "in": "path",
+            "description": "ID of the app",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "OCS-APIRequest",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "default": "true"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Task list returned",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "ocs"
+                  ],
+                  "properties": {
+                    "ocs": {
+                      "type": "object",
+                      "required": [
+                        "meta",
+                        "data"
+                      ],
+                      "properties": {
+                        "meta": {
+                          "$ref": "#/components/schemas/OCSMeta"
+                        },
+                        "data": {
+                          "type": "object",
+                          "required": [
+                            "tasks"
+                          ],
+                          "properties": {
+                            "tasks": {
+                              "type": "array",
+                              "items": {
+                                "$ref": "#/components/schemas/TextProcessingTask"
+                              }
                             }
                           }
                         }
