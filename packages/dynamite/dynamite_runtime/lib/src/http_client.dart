@@ -140,7 +140,7 @@ class DynamiteClient {
       request.headers.add(header.key, header.value);
     }
     if (body != null) {
-      request.add(body.toList());
+      request.add(body);
     }
     if (cookieJar != null) {
       request.cookies.addAll(await cookieJar!.loadForRequest(uri));
