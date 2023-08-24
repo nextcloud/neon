@@ -247,13 +247,11 @@ class WebDavClient {
           'PROPFIND',
           _constructPath(path),
           data: Stream.value(
-            Uint8List.fromList(
-              utf8.encode(
-                WebDavPropfind(prop: prop ?? WebDavPropWithoutValues())
-                    .toXmlElement(namespaces: namespaces)
-                    .toXmlString(),
-              ),
-            ),
+            utf8.encode(
+              WebDavPropfind(prop: prop ?? WebDavPropWithoutValues())
+                  .toXmlElement(namespaces: namespaces)
+                  .toXmlString(),
+            ) as Uint8List,
           ),
           headers: {
             if (depth != null) ...{
@@ -277,14 +275,12 @@ class WebDavClient {
           'REPORT',
           _constructPath(path),
           data: Stream.value(
-            Uint8List.fromList(
-              utf8.encode(
-                WebDavOcFilterFiles(
-                  filterRules: filterRules,
-                  prop: prop ?? WebDavPropWithoutValues(), // coverage:ignore-line
-                ).toXmlElement(namespaces: namespaces).toXmlString(),
-              ),
-            ),
+            utf8.encode(
+              WebDavOcFilterFiles(
+                filterRules: filterRules,
+                prop: prop ?? WebDavPropWithoutValues(), // coverage:ignore-line
+              ).toXmlElement(namespaces: namespaces).toXmlString(),
+            ) as Uint8List,
           ),
         ),
       );
@@ -304,14 +300,12 @@ class WebDavClient {
       'PROPPATCH',
       _constructPath(path),
       data: Stream.value(
-        Uint8List.fromList(
-          utf8.encode(
-            WebDavPropertyupdate(
-              set: set != null ? WebDavSet(prop: set) : null,
-              remove: remove != null ? WebDavRemove(prop: remove) : null,
-            ).toXmlElement(namespaces: namespaces).toXmlString(),
-          ),
-        ),
+        utf8.encode(
+          WebDavPropertyupdate(
+            set: set != null ? WebDavSet(prop: set) : null,
+            remove: remove != null ? WebDavRemove(prop: remove) : null,
+          ).toXmlElement(namespaces: namespaces).toXmlString(),
+        ) as Uint8List,
       ),
     );
     final data = await _parseResponse(response);

@@ -541,7 +541,7 @@ class OpenAPIBuilder implements Builder {
                                       code.write('if ($parameterName != null) {');
                                     }
                                     code.write(
-                                      '_body = Uint8List.fromList(utf8.encode(${result.encode(parameterName, mimeType: mimeType)}));',
+                                      '_body = utf8.encode(${result.encode(parameterName, mimeType: mimeType)}) as Uint8List;',
                                     );
                                     if (dartParameterNullable) {
                                       code.write('}');
