@@ -189,7 +189,7 @@ class WebDavClient {
       file.openRead().map((final chunk) {
         uploaded += chunk.length;
         onProgress?.call(uploaded / fileStat.size);
-        return Uint8List.fromList(chunk);
+        return chunk as Uint8List;
       }),
       path,
       lastModified: lastModified,
