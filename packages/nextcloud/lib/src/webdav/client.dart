@@ -103,8 +103,8 @@ class WebDavClient {
       'OPTIONS',
       _constructPath(),
     );
-    final davCapabilities = response.headers['dav']?.cast<String>().first ?? '';
-    final davSearchCapabilities = response.headers['dasl']?.cast<String>().first ?? '';
+    final davCapabilities = response.headers['dav']?.first ?? '';
+    final davSearchCapabilities = response.headers['dasl']?.first ?? '';
     return WebDavOptions(
       davCapabilities.split(',').map((final e) => e.trim()).where((final e) => e.isNotEmpty).toSet(),
       davSearchCapabilities.split(',').map((final e) => e.trim()).where((final e) => e.isNotEmpty).toSet(),

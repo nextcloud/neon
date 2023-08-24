@@ -27,10 +27,7 @@ class NextcloudClient extends DynamiteClient {
     final String? userAgentOverride,
     super.cookieJar,
   }) : super(
-          baseHeaders: (<String, String?>{
-            'Accept-Language': language,
-          }..removeWhere((final _, final value) => value == null))
-              .cast<String, String>(),
+          baseHeaders: language != null ? {'Accept-Language': language} : null,
           userAgent: userAgentOverride ?? appType.userAgent,
           authentications: [
             if (appPassword != null) ...[
