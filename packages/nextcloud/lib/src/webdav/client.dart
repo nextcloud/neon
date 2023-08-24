@@ -22,9 +22,12 @@ class WebDavClient {
   Future<HttpClientResponse> _send(
     final String method,
     final String url, {
-    final Stream<Uint8List>? data,
+    final Stream<Uint8List>? dataStream,
+    final Uint8List? data,
     final Map<String, String>? headers,
   }) async {
+    assert(dataStream == null || data == null, 'Only one of dataStream or data can be specified.');
+
     final request = await HttpClient().openUrl(
       method,
       Uri.parse(url),
@@ -40,7 +43,10 @@ class WebDavClient {
     }
 
     if (data != null) {
-      await request.addStream(data);
+      request.add(data);
+    }
+    if (dataStream != null) {
+      await request.addStream(dataStream);
     }
 
     final response = await request.close();
@@ -130,12 +136,15 @@ class WebDavClient {
     final DateTime? lastModified,
     final DateTime? created,
   }) =>
-      putStream(
-        Stream.value(localData),
-        path,
-        lastModified: lastModified,
-        created: created,
-        contentLength: localData.lengthInBytes,
+      _send(
+        'PUT',
+        _constructPath(path),
+        data: localData,
+        headers: _getUploadHeaders(
+          lastModified: lastModified,
+          created: created,
+          contentLength: null,
+        ),
       );
 
   /// Puts a new file at [path] with [localData] as content.
@@ -154,7 +163,7 @@ class WebDavClient {
       _send(
         'PUT',
         _constructPath(path),
-        data: localData,
+        dataStream: localData,
         headers: _getUploadHeaders(
           lastModified: lastModified,
           created: created,
@@ -238,13 +247,9 @@ class WebDavClient {
         await _send(
           'PROPFIND',
           _constructPath(path),
-          data: Stream.value(
-            utf8.encode(
-              WebDavPropfind(prop: prop ?? WebDavPropWithoutValues())
-                  .toXmlElement(namespaces: namespaces)
-                  .toXmlString(),
-            ) as Uint8List,
-          ),
+          data: utf8.encode(
+            WebDavPropfind(prop: prop ?? WebDavPropWithoutValues()).toXmlElement(namespaces: namespaces).toXmlString(),
+          ) as Uint8List,
           headers: depth != null ? {'Depth': depth.value} : null,
         ),
       );
@@ -262,14 +267,12 @@ class WebDavClient {
         await _send(
           'REPORT',
           _constructPath(path),
-          data: Stream.value(
-            utf8.encode(
-              WebDavOcFilterFiles(
-                filterRules: filterRules,
-                prop: prop ?? WebDavPropWithoutValues(), // coverage:ignore-line
-              ).toXmlElement(namespaces: namespaces).toXmlString(),
-            ) as Uint8List,
-          ),
+          data: utf8.encode(
+            WebDavOcFilterFiles(
+              filterRules: filterRules,
+              prop: prop ?? WebDavPropWithoutValues(), // coverage:ignore-line
+            ).toXmlElement(namespaces: namespaces).toXmlString(),
+          ) as Uint8List,
         ),
       );
 
@@ -287,14 +290,12 @@ class WebDavClient {
     final response = await _send(
       'PROPPATCH',
       _constructPath(path),
-      data: Stream.value(
-        utf8.encode(
-          WebDavPropertyupdate(
-            set: set != null ? WebDavSet(prop: set) : null,
-            remove: remove != null ? WebDavRemove(prop: remove) : null,
-          ).toXmlElement(namespaces: namespaces).toXmlString(),
-        ) as Uint8List,
-      ),
+      data: utf8.encode(
+        WebDavPropertyupdate(
+          set: set != null ? WebDavSet(prop: set) : null,
+          remove: remove != null ? WebDavRemove(prop: remove) : null,
+        ).toXmlElement(namespaces: namespaces).toXmlString(),
+      ) as Uint8List,
     );
     final data = await _parseResponse(response);
     for (final a in data.responses) {
