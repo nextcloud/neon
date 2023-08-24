@@ -33,8 +33,8 @@ class WebDavClient {
     for (final header in {
       HttpHeaders.contentTypeHeader: 'application/xml',
       ...?rootClient.baseHeaders,
-      if (headers != null) ...headers,
-      if (rootClient.authentications.isNotEmpty) ...rootClient.authentications.first.headers,
+      ...?headers,
+      ...?rootClient.authentications.firstOrNull?.headers,
     }.entries) {
       request.headers.add(header.key, header.value);
     }
@@ -78,24 +78,16 @@ class WebDavClient {
   Future<WebDavMultistatus> _parseResponse(final HttpClientResponse response) async =>
       WebDavMultistatus.fromXmlElement(xml.XmlDocument.parse(await response.body).rootElement);
 
-  Map<String, String>? _getUploadHeaders({
+  Map<String, String> _getUploadHeaders({
     required final DateTime? lastModified,
     required final DateTime? created,
     required final int? contentLength,
-  }) {
-    final headers = <String, String>{
-      if (lastModified != null) ...{
-        'X-OC-Mtime': (lastModified.millisecondsSinceEpoch ~/ 1000).toString(),
-      },
-      if (created != null) ...{
-        'X-OC-CTime': (created.millisecondsSinceEpoch ~/ 1000).toString(),
-      },
-      if (contentLength != null) ...{
-        'Content-Length': contentLength.toString(),
-      },
-    };
-    return headers.isNotEmpty ? headers : null;
-  }
+  }) =>
+      {
+        if (lastModified != null) 'X-OC-Mtime': (lastModified.millisecondsSinceEpoch ~/ 1000).toString(),
+        if (created != null) 'X-OC-CTime': (created.millisecondsSinceEpoch ~/ 1000).toString(),
+        if (contentLength != null) HttpHeaders.contentLengthHeader: contentLength.toString(),
+      };
 
   /// Gets the WebDAV capabilities of the server.
   Future<WebDavOptions> options() async {
@@ -253,11 +245,7 @@ class WebDavClient {
                   .toXmlString(),
             ) as Uint8List,
           ),
-          headers: {
-            if (depth != null) ...{
-              'Depth': depth.value,
-            },
-          },
+          headers: depth != null ? {'Depth': depth.value} : null,
         ),
       );
 
