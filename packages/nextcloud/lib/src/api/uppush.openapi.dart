@@ -1,6 +1,5 @@
 // ignore_for_file: camel_case_types
 // ignore_for_file: public_member_api_docs
-import 'dart:convert';
 import 'dart:typed_data';
 
 import 'package:built_collection/built_collection.dart';
@@ -33,11 +32,9 @@ class UppushApiException extends DynamiteApiException {
   );
 
   static Future<UppushApiException> fromResponse(final HttpClientResponse response) async {
-    final data = await response.bodyBytes;
-
     String body;
     try {
-      body = utf8.decode(data);
+      body = await response.body;
     } on FormatException {
       body = 'binary';
     }

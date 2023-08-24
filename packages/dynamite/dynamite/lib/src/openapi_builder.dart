@@ -144,11 +144,9 @@ class OpenAPIBuilder implements Builder {
                     ),
                   )
                   ..body = Block.of([
-                    const Code('final data = await response.bodyBytes;'),
-                    const Code(''),
                     const Code('String body;'),
                     const Code('try {'),
-                    const Code('body = utf8.decode(data);'),
+                    const Code('body = await response.body;'),
                     const Code('} on FormatException {'),
                     const Code("body = 'binary';"),
                     const Code('}'),

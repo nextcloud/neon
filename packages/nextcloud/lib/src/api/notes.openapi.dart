@@ -34,11 +34,9 @@ class NotesApiException extends DynamiteApiException {
   );
 
   static Future<NotesApiException> fromResponse(final HttpClientResponse response) async {
-    final data = await response.bodyBytes;
-
     String body;
     try {
-      body = utf8.decode(data);
+      body = await response.body;
     } on FormatException {
       body = 'binary';
     }

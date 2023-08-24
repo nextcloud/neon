@@ -55,7 +55,7 @@ class WebDavClient {
       throw DynamiteApiException(
         response.statusCode,
         response.responseHeaders,
-        utf8.decode(await response.bodyBytes),
+        await response.body,
       );
     }
 
