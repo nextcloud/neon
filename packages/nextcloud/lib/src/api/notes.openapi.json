@@ -396,8 +396,7 @@
             "in": "query",
             "required": false,
             "schema": {
-              "type": "integer",
-              "default": 0
+              "type": "integer"
             }
           },
           {

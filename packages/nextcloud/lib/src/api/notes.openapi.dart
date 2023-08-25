@@ -219,7 +219,7 @@ class NotesClient extends DynamiteClient {
     final int? modified,
     final String? title,
     final String? category,
-    final int favorite = 0,
+    final int? favorite,
     final String? ifMatch,
   }) async {
     var path = '/index.php/apps/notes/api/v1/notes/{id}';
@@ -248,7 +248,7 @@ class NotesClient extends DynamiteClient {
     if (category != null) {
       queryParameters['category'] = category;
     }
-    if (favorite != 0) {
+    if (favorite != null) {
       queryParameters['favorite'] = favorite.toString();
     }
     if (ifMatch != null) {
