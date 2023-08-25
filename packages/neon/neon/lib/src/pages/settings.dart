@@ -344,8 +344,3 @@ class _SettingsPageState extends State<SettingsPage> {
     );
   }
 }
-
-enum SettingsAccountAction {
-  settings,
-  delete,
-}
