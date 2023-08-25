@@ -137,7 +137,7 @@ void main() {
     });
 
     test('Get directory props', () async {
-      final data = Uint8List.fromList(utf8.encode('test'));
+      final data = utf8.encode('test') as Uint8List;
       await client.webdav.mkcol('test');
       await client.webdav.put(data, 'test/test.txt');
 
@@ -169,7 +169,7 @@ void main() {
     });
 
     test('Filter files', () async {
-      final response = await client.webdav.put(Uint8List.fromList(utf8.encode('test')), 'test.txt');
+      final response = await client.webdav.put(utf8.encode('test') as Uint8List, 'test.txt');
       final id = response.headers['oc-fileid']!.first;
       await client.webdav.proppatch(
         'test.txt',
@@ -202,7 +202,7 @@ void main() {
       final uploadTime = DateTime.now();
 
       await client.webdav.put(
-        Uint8List.fromList(utf8.encode('test')),
+        utf8.encode('test') as Uint8List,
         'test.txt',
         lastModified: lastModifiedDate,
         created: createdDate,
@@ -237,7 +237,7 @@ void main() {
     });
 
     test('Remove properties', () async {
-      await client.webdav.put(Uint8List.fromList(utf8.encode('test')), 'test.txt');
+      await client.webdav.put(utf8.encode('test') as Uint8List, 'test.txt');
 
       var updated = await client.webdav.proppatch(
         'test.txt',
@@ -323,7 +323,7 @@ void main() {
           ('put_get_utf8_segment', 'res-%e2%82%ac'),
         ]) {
           test(name, () async {
-            final content = Uint8List.fromList(utf8.encode('This is a test file'));
+            final content = utf8.encode('This is a test file') as Uint8List;
 
             final response = await client.webdav.put(content, path);
             expect(response.statusCode, 201);

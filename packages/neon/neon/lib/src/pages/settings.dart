@@ -260,7 +260,7 @@ class _SettingsPageState extends State<SettingsPage> {
                             ),
                           ),
                         );
-                        await saveFileWithPickDialog(fileName, Uint8List.fromList(utf8.encode(data)));
+                        await saveFileWithPickDialog(fileName, utf8.encode(data) as Uint8List);
                       } catch (e, s) {
                         debugPrint(e.toString());
                         debugPrint(s.toString());

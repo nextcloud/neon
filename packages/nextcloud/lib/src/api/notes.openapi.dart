@@ -34,11 +34,9 @@ class NotesApiException extends DynamiteApiException {
   );
 
   static Future<NotesApiException> fromResponse(final HttpClientResponse response) async {
-    final data = await response.bodyBytes;
-
     String body;
     try {
-      body = utf8.decode(data);
+      body = await response.body;
     } on FormatException {
       body = 'binary';
     }
@@ -336,9 +334,8 @@ class NotesClient extends DynamiteClient {
     }
     // coverage:ignore-end
     headers['Content-Type'] = 'application/json';
-    body = Uint8List.fromList(
-      utf8.encode(json.encode(_jsonSerializers.serialize(settings, specifiedType: const FullType(NotesSettings)))),
-    );
+    body = utf8.encode(json.encode(_jsonSerializers.serialize(settings, specifiedType: const FullType(NotesSettings))))
+        as Uint8List;
     final response = await doRequest(
       'put',
       Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),

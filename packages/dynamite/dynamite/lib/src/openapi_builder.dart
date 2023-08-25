@@ -144,11 +144,9 @@ class OpenAPIBuilder implements Builder {
                     ),
                   )
                   ..body = Block.of([
-                    const Code('final data = await response.bodyBytes;'),
-                    const Code(''),
                     const Code('String body;'),
                     const Code('try {'),
-                    const Code('body = utf8.decode(data);'),
+                    const Code('body = await response.body;'),
                     const Code('} on FormatException {'),
                     const Code("body = 'binary';"),
                     const Code('}'),
@@ -541,7 +539,7 @@ class OpenAPIBuilder implements Builder {
                                       code.write('if ($parameterName != null) {');
                                     }
                                     code.write(
-                                      '_body = Uint8List.fromList(utf8.encode(${result.encode(parameterName, mimeType: mimeType)}));',
+                                      '_body = utf8.encode(${result.encode(parameterName, mimeType: mimeType)}) as Uint8List;',
                                     );
                                     if (dartParameterNullable) {
                                       code.write('}');
