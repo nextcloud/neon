@@ -113,6 +113,16 @@ Serializer<CoreNavigationGetSettingsNavigationResponse200ApplicationJson>
 Serializer<CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Version>
     _$coreOcsGetCapabilitiesResponse200ApplicationJsonOcsDataVersionSerializer =
     _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_VersionSerializer();
+Serializer<CoreCommentsCapabilities_Files> _$coreCommentsCapabilitiesFilesSerializer =
+    _$CoreCommentsCapabilities_FilesSerializer();
+Serializer<CoreCommentsCapabilities> _$coreCommentsCapabilitiesSerializer = _$CoreCommentsCapabilitiesSerializer();
+Serializer<CoreDavCapabilities_Dav> _$coreDavCapabilitiesDavSerializer = _$CoreDavCapabilities_DavSerializer();
+Serializer<CoreDavCapabilities> _$coreDavCapabilitiesSerializer = _$CoreDavCapabilitiesSerializer();
+Serializer<CoreFilesCapabilities_Files_DirectEditing> _$coreFilesCapabilitiesFilesDirectEditingSerializer =
+    _$CoreFilesCapabilities_Files_DirectEditingSerializer();
+Serializer<CoreFilesCapabilities_Files> _$coreFilesCapabilitiesFilesSerializer =
+    _$CoreFilesCapabilities_FilesSerializer();
+Serializer<CoreFilesCapabilities> _$coreFilesCapabilitiesSerializer = _$CoreFilesCapabilitiesSerializer();
 Serializer<CoreFilesSharingCapabilities_FilesSharing_Public_Password>
     _$coreFilesSharingCapabilitiesFilesSharingPublicPasswordSerializer =
     _$CoreFilesSharingCapabilities_FilesSharing_Public_PasswordSerializer();
@@ -154,6 +164,14 @@ Serializer<CoreFilesSharingCapabilities_FilesSharing> _$coreFilesSharingCapabili
     _$CoreFilesSharingCapabilities_FilesSharingSerializer();
 Serializer<CoreFilesSharingCapabilities> _$coreFilesSharingCapabilitiesSerializer =
     _$CoreFilesSharingCapabilitiesSerializer();
+Serializer<CoreFilesTrashbinCapabilities_Files> _$coreFilesTrashbinCapabilitiesFilesSerializer =
+    _$CoreFilesTrashbinCapabilities_FilesSerializer();
+Serializer<CoreFilesTrashbinCapabilities> _$coreFilesTrashbinCapabilitiesSerializer =
+    _$CoreFilesTrashbinCapabilitiesSerializer();
+Serializer<CoreFilesVersionsCapabilities_Files> _$coreFilesVersionsCapabilitiesFilesSerializer =
+    _$CoreFilesVersionsCapabilities_FilesSerializer();
+Serializer<CoreFilesVersionsCapabilities> _$coreFilesVersionsCapabilitiesSerializer =
+    _$CoreFilesVersionsCapabilitiesSerializer();
 Serializer<CoreNotesCapabilities_Notes> _$coreNotesCapabilitiesNotesSerializer =
     _$CoreNotesCapabilities_NotesSerializer();
 Serializer<CoreNotesCapabilities> _$coreNotesCapabilitiesSerializer = _$CoreNotesCapabilitiesSerializer();
@@ -165,6 +183,22 @@ Serializer<CoreProvisioningApiCapabilities_ProvisioningApi> _$coreProvisioningAp
     _$CoreProvisioningApiCapabilities_ProvisioningApiSerializer();
 Serializer<CoreProvisioningApiCapabilities> _$coreProvisioningApiCapabilitiesSerializer =
     _$CoreProvisioningApiCapabilitiesSerializer();
+Serializer<CoreSharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop>
+    _$coreSharebymailCapabilitiesFilesSharingSharebymailUploadFilesDropSerializer =
+    _$CoreSharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDropSerializer();
+Serializer<CoreSharebymailCapabilities_FilesSharing_Sharebymail_Password>
+    _$coreSharebymailCapabilitiesFilesSharingSharebymailPasswordSerializer =
+    _$CoreSharebymailCapabilities_FilesSharing_Sharebymail_PasswordSerializer();
+Serializer<CoreSharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate>
+    _$coreSharebymailCapabilitiesFilesSharingSharebymailExpireDateSerializer =
+    _$CoreSharebymailCapabilities_FilesSharing_Sharebymail_ExpireDateSerializer();
+Serializer<CoreSharebymailCapabilities_FilesSharing_Sharebymail>
+    _$coreSharebymailCapabilitiesFilesSharingSharebymailSerializer =
+    _$CoreSharebymailCapabilities_FilesSharing_SharebymailSerializer();
+Serializer<CoreSharebymailCapabilities_FilesSharing> _$coreSharebymailCapabilitiesFilesSharingSerializer =
+    _$CoreSharebymailCapabilities_FilesSharingSerializer();
+Serializer<CoreSharebymailCapabilities> _$coreSharebymailCapabilitiesSerializer =
+    _$CoreSharebymailCapabilitiesSerializer();
 Serializer<CoreThemingPublicCapabilities_Theming> _$coreThemingPublicCapabilitiesThemingSerializer =
     _$CoreThemingPublicCapabilities_ThemingSerializer();
 Serializer<CoreThemingPublicCapabilities> _$coreThemingPublicCapabilitiesSerializer =
@@ -173,6 +207,10 @@ Serializer<CoreUserStatusCapabilities_UserStatus> _$coreUserStatusCapabilitiesUs
     _$CoreUserStatusCapabilities_UserStatusSerializer();
 Serializer<CoreUserStatusCapabilities> _$coreUserStatusCapabilitiesSerializer =
     _$CoreUserStatusCapabilitiesSerializer();
+Serializer<CoreWeatherStatusCapabilities_WeatherStatus> _$coreWeatherStatusCapabilitiesWeatherStatusSerializer =
+    _$CoreWeatherStatusCapabilities_WeatherStatusSerializer();
+Serializer<CoreWeatherStatusCapabilities> _$coreWeatherStatusCapabilitiesSerializer =
+    _$CoreWeatherStatusCapabilitiesSerializer();
 Serializer<CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data>
     _$coreOcsGetCapabilitiesResponse200ApplicationJsonOcsDataSerializer =
     _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_DataSerializer();
@@ -2576,6 +2614,312 @@ class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_VersionSeriali
   }
 }
 
+class _$CoreCommentsCapabilities_FilesSerializer implements StructuredSerializer<CoreCommentsCapabilities_Files> {
+  @override
+  final Iterable<Type> types = const [CoreCommentsCapabilities_Files, _$CoreCommentsCapabilities_Files];
+  @override
+  final String wireName = 'CoreCommentsCapabilities_Files';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, CoreCommentsCapabilities_Files object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'comments',
+      serializers.serialize(object.comments, specifiedType: const FullType(bool)),
+    ];
+
+    return result;
+  }
+
+  @override
+  CoreCommentsCapabilities_Files deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = CoreCommentsCapabilities_FilesBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'comments':
+          result.comments = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$CoreCommentsCapabilitiesSerializer implements StructuredSerializer<CoreCommentsCapabilities> {
+  @override
+  final Iterable<Type> types = const [CoreCommentsCapabilities, _$CoreCommentsCapabilities];
+  @override
+  final String wireName = 'CoreCommentsCapabilities';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, CoreCommentsCapabilities object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'files',
+      serializers.serialize(object.files, specifiedType: const FullType(CoreCommentsCapabilities_Files)),
+    ];
+
+    return result;
+  }
+
+  @override
+  CoreCommentsCapabilities deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = CoreCommentsCapabilitiesBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'files':
+          result.files.replace(serializers.deserialize(value,
+              specifiedType: const FullType(CoreCommentsCapabilities_Files))! as CoreCommentsCapabilities_Files);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$CoreDavCapabilities_DavSerializer implements StructuredSerializer<CoreDavCapabilities_Dav> {
+  @override
+  final Iterable<Type> types = const [CoreDavCapabilities_Dav, _$CoreDavCapabilities_Dav];
+  @override
+  final String wireName = 'CoreDavCapabilities_Dav';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, CoreDavCapabilities_Dav object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'chunking',
+      serializers.serialize(object.chunking, specifiedType: const FullType(String)),
+    ];
+    Object? value;
+    value = object.bulkupload;
+    if (value != null) {
+      result
+        ..add('bulkupload')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    return result;
+  }
+
+  @override
+  CoreDavCapabilities_Dav deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = CoreDavCapabilities_DavBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'chunking':
+          result.chunking = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'bulkupload':
+          result.bulkupload = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$CoreDavCapabilitiesSerializer implements StructuredSerializer<CoreDavCapabilities> {
+  @override
+  final Iterable<Type> types = const [CoreDavCapabilities, _$CoreDavCapabilities];
+  @override
+  final String wireName = 'CoreDavCapabilities';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, CoreDavCapabilities object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'dav',
+      serializers.serialize(object.dav, specifiedType: const FullType(CoreDavCapabilities_Dav)),
+    ];
+
+    return result;
+  }
+
+  @override
+  CoreDavCapabilities deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = CoreDavCapabilitiesBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'dav':
+          result.dav.replace(serializers.deserialize(value, specifiedType: const FullType(CoreDavCapabilities_Dav))!
+              as CoreDavCapabilities_Dav);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$CoreFilesCapabilities_Files_DirectEditingSerializer
+    implements StructuredSerializer<CoreFilesCapabilities_Files_DirectEditing> {
+  @override
+  final Iterable<Type> types = const [
+    CoreFilesCapabilities_Files_DirectEditing,
+    _$CoreFilesCapabilities_Files_DirectEditing
+  ];
+  @override
+  final String wireName = 'CoreFilesCapabilities_Files_DirectEditing';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, CoreFilesCapabilities_Files_DirectEditing object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'url',
+      serializers.serialize(object.url, specifiedType: const FullType(String)),
+      'etag',
+      serializers.serialize(object.etag, specifiedType: const FullType(String)),
+      'supportsFileId',
+      serializers.serialize(object.supportsFileId, specifiedType: const FullType(bool)),
+    ];
+
+    return result;
+  }
+
+  @override
+  CoreFilesCapabilities_Files_DirectEditing deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = CoreFilesCapabilities_Files_DirectEditingBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'url':
+          result.url = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'etag':
+          result.etag = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'supportsFileId':
+          result.supportsFileId = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$CoreFilesCapabilities_FilesSerializer implements StructuredSerializer<CoreFilesCapabilities_Files> {
+  @override
+  final Iterable<Type> types = const [CoreFilesCapabilities_Files, _$CoreFilesCapabilities_Files];
+  @override
+  final String wireName = 'CoreFilesCapabilities_Files';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, CoreFilesCapabilities_Files object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'bigfilechunking',
+      serializers.serialize(object.bigfilechunking, specifiedType: const FullType(bool)),
+      'blacklisted_files',
+      serializers.serialize(object.blacklistedFiles, specifiedType: const FullType(BuiltList, [FullType(JsonObject)])),
+      'directEditing',
+      serializers.serialize(object.directEditing,
+          specifiedType: const FullType(CoreFilesCapabilities_Files_DirectEditing)),
+    ];
+
+    return result;
+  }
+
+  @override
+  CoreFilesCapabilities_Files deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = CoreFilesCapabilities_FilesBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'bigfilechunking':
+          result.bigfilechunking = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+          break;
+        case 'blacklisted_files':
+          result.blacklistedFiles.replace(serializers.deserialize(value,
+              specifiedType: const FullType(BuiltList, [FullType(JsonObject)]))! as BuiltList<Object?>);
+          break;
+        case 'directEditing':
+          result.directEditing.replace(
+              serializers.deserialize(value, specifiedType: const FullType(CoreFilesCapabilities_Files_DirectEditing))!
+                  as CoreFilesCapabilities_Files_DirectEditing);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$CoreFilesCapabilitiesSerializer implements StructuredSerializer<CoreFilesCapabilities> {
+  @override
+  final Iterable<Type> types = const [CoreFilesCapabilities, _$CoreFilesCapabilities];
+  @override
+  final String wireName = 'CoreFilesCapabilities';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, CoreFilesCapabilities object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'files',
+      serializers.serialize(object.files, specifiedType: const FullType(CoreFilesCapabilities_Files)),
+    ];
+
+    return result;
+  }
+
+  @override
+  CoreFilesCapabilities deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = CoreFilesCapabilitiesBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'files':
+          result.files.replace(serializers.deserialize(value,
+              specifiedType: const FullType(CoreFilesCapabilities_Files))! as CoreFilesCapabilities_Files);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
 class _$CoreFilesSharingCapabilities_FilesSharing_Public_PasswordSerializer
     implements StructuredSerializer<CoreFilesSharingCapabilities_FilesSharing_Public_Password> {
   @override
@@ -3480,6 +3824,174 @@ class _$CoreFilesSharingCapabilitiesSerializer implements StructuredSerializer<C
   }
 }
 
+class _$CoreFilesTrashbinCapabilities_FilesSerializer
+    implements StructuredSerializer<CoreFilesTrashbinCapabilities_Files> {
+  @override
+  final Iterable<Type> types = const [CoreFilesTrashbinCapabilities_Files, _$CoreFilesTrashbinCapabilities_Files];
+  @override
+  final String wireName = 'CoreFilesTrashbinCapabilities_Files';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, CoreFilesTrashbinCapabilities_Files object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'undelete',
+      serializers.serialize(object.undelete, specifiedType: const FullType(bool)),
+    ];
+
+    return result;
+  }
+
+  @override
+  CoreFilesTrashbinCapabilities_Files deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = CoreFilesTrashbinCapabilities_FilesBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'undelete':
+          result.undelete = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$CoreFilesTrashbinCapabilitiesSerializer implements StructuredSerializer<CoreFilesTrashbinCapabilities> {
+  @override
+  final Iterable<Type> types = const [CoreFilesTrashbinCapabilities, _$CoreFilesTrashbinCapabilities];
+  @override
+  final String wireName = 'CoreFilesTrashbinCapabilities';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, CoreFilesTrashbinCapabilities object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'files',
+      serializers.serialize(object.files, specifiedType: const FullType(CoreFilesTrashbinCapabilities_Files)),
+    ];
+
+    return result;
+  }
+
+  @override
+  CoreFilesTrashbinCapabilities deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = CoreFilesTrashbinCapabilitiesBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'files':
+          result.files.replace(
+              serializers.deserialize(value, specifiedType: const FullType(CoreFilesTrashbinCapabilities_Files))!
+                  as CoreFilesTrashbinCapabilities_Files);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$CoreFilesVersionsCapabilities_FilesSerializer
+    implements StructuredSerializer<CoreFilesVersionsCapabilities_Files> {
+  @override
+  final Iterable<Type> types = const [CoreFilesVersionsCapabilities_Files, _$CoreFilesVersionsCapabilities_Files];
+  @override
+  final String wireName = 'CoreFilesVersionsCapabilities_Files';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, CoreFilesVersionsCapabilities_Files object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'versioning',
+      serializers.serialize(object.versioning, specifiedType: const FullType(bool)),
+      'version_labeling',
+      serializers.serialize(object.versionLabeling, specifiedType: const FullType(bool)),
+      'version_deletion',
+      serializers.serialize(object.versionDeletion, specifiedType: const FullType(bool)),
+    ];
+
+    return result;
+  }
+
+  @override
+  CoreFilesVersionsCapabilities_Files deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = CoreFilesVersionsCapabilities_FilesBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'versioning':
+          result.versioning = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+          break;
+        case 'version_labeling':
+          result.versionLabeling = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+          break;
+        case 'version_deletion':
+          result.versionDeletion = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$CoreFilesVersionsCapabilitiesSerializer implements StructuredSerializer<CoreFilesVersionsCapabilities> {
+  @override
+  final Iterable<Type> types = const [CoreFilesVersionsCapabilities, _$CoreFilesVersionsCapabilities];
+  @override
+  final String wireName = 'CoreFilesVersionsCapabilities';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, CoreFilesVersionsCapabilities object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'files',
+      serializers.serialize(object.files, specifiedType: const FullType(CoreFilesVersionsCapabilities_Files)),
+    ];
+
+    return result;
+  }
+
+  @override
+  CoreFilesVersionsCapabilities deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = CoreFilesVersionsCapabilitiesBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'files':
+          result.files.replace(
+              serializers.deserialize(value, specifiedType: const FullType(CoreFilesVersionsCapabilities_Files))!
+                  as CoreFilesVersionsCapabilities_Files);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
 class _$CoreNotesCapabilities_NotesSerializer implements StructuredSerializer<CoreNotesCapabilities_Notes> {
   @override
   final Iterable<Type> types = const [CoreNotesCapabilities_Notes, _$CoreNotesCapabilities_Notes];
@@ -3778,6 +4290,306 @@ class _$CoreProvisioningApiCapabilitiesSerializer implements StructuredSerialize
   }
 }
 
+class _$CoreSharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDropSerializer
+    implements StructuredSerializer<CoreSharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop> {
+  @override
+  final Iterable<Type> types = const [
+    CoreSharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop,
+    _$CoreSharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop
+  ];
+  @override
+  final String wireName = 'CoreSharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop';
+
+  @override
+  Iterable<Object?> serialize(
+      Serializers serializers, CoreSharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'enabled',
+      serializers.serialize(object.enabled, specifiedType: const FullType(bool)),
+    ];
+
+    return result;
+  }
+
+  @override
+  CoreSharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = CoreSharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDropBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'enabled':
+          result.enabled = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$CoreSharebymailCapabilities_FilesSharing_Sharebymail_PasswordSerializer
+    implements StructuredSerializer<CoreSharebymailCapabilities_FilesSharing_Sharebymail_Password> {
+  @override
+  final Iterable<Type> types = const [
+    CoreSharebymailCapabilities_FilesSharing_Sharebymail_Password,
+    _$CoreSharebymailCapabilities_FilesSharing_Sharebymail_Password
+  ];
+  @override
+  final String wireName = 'CoreSharebymailCapabilities_FilesSharing_Sharebymail_Password';
+
+  @override
+  Iterable<Object?> serialize(
+      Serializers serializers, CoreSharebymailCapabilities_FilesSharing_Sharebymail_Password object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'enabled',
+      serializers.serialize(object.enabled, specifiedType: const FullType(bool)),
+      'enforced',
+      serializers.serialize(object.enforced, specifiedType: const FullType(bool)),
+    ];
+
+    return result;
+  }
+
+  @override
+  CoreSharebymailCapabilities_FilesSharing_Sharebymail_Password deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = CoreSharebymailCapabilities_FilesSharing_Sharebymail_PasswordBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'enabled':
+          result.enabled = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+          break;
+        case 'enforced':
+          result.enforced = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$CoreSharebymailCapabilities_FilesSharing_Sharebymail_ExpireDateSerializer
+    implements StructuredSerializer<CoreSharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate> {
+  @override
+  final Iterable<Type> types = const [
+    CoreSharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate,
+    _$CoreSharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate
+  ];
+  @override
+  final String wireName = 'CoreSharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate';
+
+  @override
+  Iterable<Object?> serialize(
+      Serializers serializers, CoreSharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'enabled',
+      serializers.serialize(object.enabled, specifiedType: const FullType(bool)),
+      'enforced',
+      serializers.serialize(object.enforced, specifiedType: const FullType(bool)),
+    ];
+
+    return result;
+  }
+
+  @override
+  CoreSharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = CoreSharebymailCapabilities_FilesSharing_Sharebymail_ExpireDateBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'enabled':
+          result.enabled = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+          break;
+        case 'enforced':
+          result.enforced = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$CoreSharebymailCapabilities_FilesSharing_SharebymailSerializer
+    implements StructuredSerializer<CoreSharebymailCapabilities_FilesSharing_Sharebymail> {
+  @override
+  final Iterable<Type> types = const [
+    CoreSharebymailCapabilities_FilesSharing_Sharebymail,
+    _$CoreSharebymailCapabilities_FilesSharing_Sharebymail
+  ];
+  @override
+  final String wireName = 'CoreSharebymailCapabilities_FilesSharing_Sharebymail';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, CoreSharebymailCapabilities_FilesSharing_Sharebymail object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'enabled',
+      serializers.serialize(object.enabled, specifiedType: const FullType(bool)),
+      'send_password_by_mail',
+      serializers.serialize(object.sendPasswordByMail, specifiedType: const FullType(bool)),
+      'upload_files_drop',
+      serializers.serialize(object.uploadFilesDrop,
+          specifiedType: const FullType(CoreSharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop)),
+      'password',
+      serializers.serialize(object.password,
+          specifiedType: const FullType(CoreSharebymailCapabilities_FilesSharing_Sharebymail_Password)),
+      'expire_date',
+      serializers.serialize(object.expireDate,
+          specifiedType: const FullType(CoreSharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate)),
+    ];
+
+    return result;
+  }
+
+  @override
+  CoreSharebymailCapabilities_FilesSharing_Sharebymail deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = CoreSharebymailCapabilities_FilesSharing_SharebymailBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'enabled':
+          result.enabled = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+          break;
+        case 'send_password_by_mail':
+          result.sendPasswordByMail = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+          break;
+        case 'upload_files_drop':
+          result.uploadFilesDrop.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(CoreSharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop))!
+              as CoreSharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop);
+          break;
+        case 'password':
+          result.password.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(CoreSharebymailCapabilities_FilesSharing_Sharebymail_Password))!
+              as CoreSharebymailCapabilities_FilesSharing_Sharebymail_Password);
+          break;
+        case 'expire_date':
+          result.expireDate.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(CoreSharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate))!
+              as CoreSharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$CoreSharebymailCapabilities_FilesSharingSerializer
+    implements StructuredSerializer<CoreSharebymailCapabilities_FilesSharing> {
+  @override
+  final Iterable<Type> types = const [
+    CoreSharebymailCapabilities_FilesSharing,
+    _$CoreSharebymailCapabilities_FilesSharing
+  ];
+  @override
+  final String wireName = 'CoreSharebymailCapabilities_FilesSharing';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, CoreSharebymailCapabilities_FilesSharing object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'sharebymail',
+      serializers.serialize(object.sharebymail,
+          specifiedType: const FullType(CoreSharebymailCapabilities_FilesSharing_Sharebymail)),
+    ];
+
+    return result;
+  }
+
+  @override
+  CoreSharebymailCapabilities_FilesSharing deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = CoreSharebymailCapabilities_FilesSharingBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'sharebymail':
+          result.sharebymail.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(CoreSharebymailCapabilities_FilesSharing_Sharebymail))!
+              as CoreSharebymailCapabilities_FilesSharing_Sharebymail);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$CoreSharebymailCapabilitiesSerializer implements StructuredSerializer<CoreSharebymailCapabilities> {
+  @override
+  final Iterable<Type> types = const [CoreSharebymailCapabilities, _$CoreSharebymailCapabilities];
+  @override
+  final String wireName = 'CoreSharebymailCapabilities';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, CoreSharebymailCapabilities object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'files_sharing',
+      serializers.serialize(object.filesSharing,
+          specifiedType: const FullType(CoreSharebymailCapabilities_FilesSharing)),
+    ];
+
+    return result;
+  }
+
+  @override
+  CoreSharebymailCapabilities deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = CoreSharebymailCapabilitiesBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'files_sharing':
+          result.filesSharing.replace(
+              serializers.deserialize(value, specifiedType: const FullType(CoreSharebymailCapabilities_FilesSharing))!
+                  as CoreSharebymailCapabilities_FilesSharing);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
 class _$CoreThemingPublicCapabilities_ThemingSerializer
     implements StructuredSerializer<CoreThemingPublicCapabilities_Theming> {
   @override
@@ -4003,6 +4815,89 @@ class _$CoreUserStatusCapabilitiesSerializer implements StructuredSerializer<Cor
           result.userStatus.replace(
               serializers.deserialize(value, specifiedType: const FullType(CoreUserStatusCapabilities_UserStatus))!
                   as CoreUserStatusCapabilities_UserStatus);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$CoreWeatherStatusCapabilities_WeatherStatusSerializer
+    implements StructuredSerializer<CoreWeatherStatusCapabilities_WeatherStatus> {
+  @override
+  final Iterable<Type> types = const [
+    CoreWeatherStatusCapabilities_WeatherStatus,
+    _$CoreWeatherStatusCapabilities_WeatherStatus
+  ];
+  @override
+  final String wireName = 'CoreWeatherStatusCapabilities_WeatherStatus';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, CoreWeatherStatusCapabilities_WeatherStatus object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'enabled',
+      serializers.serialize(object.enabled, specifiedType: const FullType(bool)),
+    ];
+
+    return result;
+  }
+
+  @override
+  CoreWeatherStatusCapabilities_WeatherStatus deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = CoreWeatherStatusCapabilities_WeatherStatusBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'enabled':
+          result.enabled = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$CoreWeatherStatusCapabilitiesSerializer implements StructuredSerializer<CoreWeatherStatusCapabilities> {
+  @override
+  final Iterable<Type> types = const [CoreWeatherStatusCapabilities, _$CoreWeatherStatusCapabilities];
+  @override
+  final String wireName = 'CoreWeatherStatusCapabilities';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, CoreWeatherStatusCapabilities object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'weather_status',
+      serializers.serialize(object.weatherStatus,
+          specifiedType: const FullType(CoreWeatherStatusCapabilities_WeatherStatus)),
+    ];
+
+    return result;
+  }
+
+  @override
+  CoreWeatherStatusCapabilities deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = CoreWeatherStatusCapabilitiesBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'weather_status':
+          result.weatherStatus.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(CoreWeatherStatusCapabilities_WeatherStatus))!
+              as CoreWeatherStatusCapabilities_WeatherStatus);
           break;
       }
     }
@@ -12270,6 +13165,683 @@ class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_VersionBuilder
   }
 }
 
+class _$CoreCommentsCapabilities_Files extends CoreCommentsCapabilities_Files {
+  @override
+  final bool comments;
+
+  factory _$CoreCommentsCapabilities_Files([void Function(CoreCommentsCapabilities_FilesBuilder)? updates]) =>
+      (CoreCommentsCapabilities_FilesBuilder()..update(updates))._build();
+
+  _$CoreCommentsCapabilities_Files._({required this.comments}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(comments, r'CoreCommentsCapabilities_Files', 'comments');
+  }
+
+  @override
+  CoreCommentsCapabilities_Files rebuild(void Function(CoreCommentsCapabilities_FilesBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  CoreCommentsCapabilities_FilesBuilder toBuilder() => CoreCommentsCapabilities_FilesBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is CoreCommentsCapabilities_Files && comments == other.comments;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, comments.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'CoreCommentsCapabilities_Files')..add('comments', comments)).toString();
+  }
+}
+
+class CoreCommentsCapabilities_FilesBuilder
+    implements Builder<CoreCommentsCapabilities_Files, CoreCommentsCapabilities_FilesBuilder> {
+  _$CoreCommentsCapabilities_Files? _$v;
+
+  bool? _comments;
+  bool? get comments => _$this._comments;
+  set comments(bool? comments) => _$this._comments = comments;
+
+  CoreCommentsCapabilities_FilesBuilder();
+
+  CoreCommentsCapabilities_FilesBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _comments = $v.comments;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(CoreCommentsCapabilities_Files other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$CoreCommentsCapabilities_Files;
+  }
+
+  @override
+  void update(void Function(CoreCommentsCapabilities_FilesBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  CoreCommentsCapabilities_Files build() => _build();
+
+  _$CoreCommentsCapabilities_Files _build() {
+    final _$result = _$v ??
+        _$CoreCommentsCapabilities_Files._(
+            comments: BuiltValueNullFieldError.checkNotNull(comments, r'CoreCommentsCapabilities_Files', 'comments'));
+    replace(_$result);
+    return _$result;
+  }
+}
+
+class _$CoreCommentsCapabilities extends CoreCommentsCapabilities {
+  @override
+  final CoreCommentsCapabilities_Files files;
+
+  factory _$CoreCommentsCapabilities([void Function(CoreCommentsCapabilitiesBuilder)? updates]) =>
+      (CoreCommentsCapabilitiesBuilder()..update(updates))._build();
+
+  _$CoreCommentsCapabilities._({required this.files}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(files, r'CoreCommentsCapabilities', 'files');
+  }
+
+  @override
+  CoreCommentsCapabilities rebuild(void Function(CoreCommentsCapabilitiesBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  CoreCommentsCapabilitiesBuilder toBuilder() => CoreCommentsCapabilitiesBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is CoreCommentsCapabilities && files == other.files;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, files.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'CoreCommentsCapabilities')..add('files', files)).toString();
+  }
+}
+
+class CoreCommentsCapabilitiesBuilder implements Builder<CoreCommentsCapabilities, CoreCommentsCapabilitiesBuilder> {
+  _$CoreCommentsCapabilities? _$v;
+
+  CoreCommentsCapabilities_FilesBuilder? _files;
+  CoreCommentsCapabilities_FilesBuilder get files => _$this._files ??= CoreCommentsCapabilities_FilesBuilder();
+  set files(CoreCommentsCapabilities_FilesBuilder? files) => _$this._files = files;
+
+  CoreCommentsCapabilitiesBuilder();
+
+  CoreCommentsCapabilitiesBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _files = $v.files.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(CoreCommentsCapabilities other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$CoreCommentsCapabilities;
+  }
+
+  @override
+  void update(void Function(CoreCommentsCapabilitiesBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  CoreCommentsCapabilities build() => _build();
+
+  _$CoreCommentsCapabilities _build() {
+    _$CoreCommentsCapabilities _$result;
+    try {
+      _$result = _$v ?? _$CoreCommentsCapabilities._(files: files.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'files';
+        files.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(r'CoreCommentsCapabilities', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+class _$CoreDavCapabilities_Dav extends CoreDavCapabilities_Dav {
+  @override
+  final String chunking;
+  @override
+  final String? bulkupload;
+
+  factory _$CoreDavCapabilities_Dav([void Function(CoreDavCapabilities_DavBuilder)? updates]) =>
+      (CoreDavCapabilities_DavBuilder()..update(updates))._build();
+
+  _$CoreDavCapabilities_Dav._({required this.chunking, this.bulkupload}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(chunking, r'CoreDavCapabilities_Dav', 'chunking');
+  }
+
+  @override
+  CoreDavCapabilities_Dav rebuild(void Function(CoreDavCapabilities_DavBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  CoreDavCapabilities_DavBuilder toBuilder() => CoreDavCapabilities_DavBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is CoreDavCapabilities_Dav && chunking == other.chunking && bulkupload == other.bulkupload;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, chunking.hashCode);
+    _$hash = $jc(_$hash, bulkupload.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'CoreDavCapabilities_Dav')
+          ..add('chunking', chunking)
+          ..add('bulkupload', bulkupload))
+        .toString();
+  }
+}
+
+class CoreDavCapabilities_DavBuilder implements Builder<CoreDavCapabilities_Dav, CoreDavCapabilities_DavBuilder> {
+  _$CoreDavCapabilities_Dav? _$v;
+
+  String? _chunking;
+  String? get chunking => _$this._chunking;
+  set chunking(String? chunking) => _$this._chunking = chunking;
+
+  String? _bulkupload;
+  String? get bulkupload => _$this._bulkupload;
+  set bulkupload(String? bulkupload) => _$this._bulkupload = bulkupload;
+
+  CoreDavCapabilities_DavBuilder();
+
+  CoreDavCapabilities_DavBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _chunking = $v.chunking;
+      _bulkupload = $v.bulkupload;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(CoreDavCapabilities_Dav other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$CoreDavCapabilities_Dav;
+  }
+
+  @override
+  void update(void Function(CoreDavCapabilities_DavBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  CoreDavCapabilities_Dav build() => _build();
+
+  _$CoreDavCapabilities_Dav _build() {
+    final _$result = _$v ??
+        _$CoreDavCapabilities_Dav._(
+            chunking: BuiltValueNullFieldError.checkNotNull(chunking, r'CoreDavCapabilities_Dav', 'chunking'),
+            bulkupload: bulkupload);
+    replace(_$result);
+    return _$result;
+  }
+}
+
+class _$CoreDavCapabilities extends CoreDavCapabilities {
+  @override
+  final CoreDavCapabilities_Dav dav;
+
+  factory _$CoreDavCapabilities([void Function(CoreDavCapabilitiesBuilder)? updates]) =>
+      (CoreDavCapabilitiesBuilder()..update(updates))._build();
+
+  _$CoreDavCapabilities._({required this.dav}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(dav, r'CoreDavCapabilities', 'dav');
+  }
+
+  @override
+  CoreDavCapabilities rebuild(void Function(CoreDavCapabilitiesBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  CoreDavCapabilitiesBuilder toBuilder() => CoreDavCapabilitiesBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is CoreDavCapabilities && dav == other.dav;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, dav.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'CoreDavCapabilities')..add('dav', dav)).toString();
+  }
+}
+
+class CoreDavCapabilitiesBuilder implements Builder<CoreDavCapabilities, CoreDavCapabilitiesBuilder> {
+  _$CoreDavCapabilities? _$v;
+
+  CoreDavCapabilities_DavBuilder? _dav;
+  CoreDavCapabilities_DavBuilder get dav => _$this._dav ??= CoreDavCapabilities_DavBuilder();
+  set dav(CoreDavCapabilities_DavBuilder? dav) => _$this._dav = dav;
+
+  CoreDavCapabilitiesBuilder();
+
+  CoreDavCapabilitiesBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _dav = $v.dav.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(CoreDavCapabilities other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$CoreDavCapabilities;
+  }
+
+  @override
+  void update(void Function(CoreDavCapabilitiesBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  CoreDavCapabilities build() => _build();
+
+  _$CoreDavCapabilities _build() {
+    _$CoreDavCapabilities _$result;
+    try {
+      _$result = _$v ?? _$CoreDavCapabilities._(dav: dav.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'dav';
+        dav.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(r'CoreDavCapabilities', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+class _$CoreFilesCapabilities_Files_DirectEditing extends CoreFilesCapabilities_Files_DirectEditing {
+  @override
+  final String url;
+  @override
+  final String etag;
+  @override
+  final bool supportsFileId;
+
+  factory _$CoreFilesCapabilities_Files_DirectEditing(
+          [void Function(CoreFilesCapabilities_Files_DirectEditingBuilder)? updates]) =>
+      (CoreFilesCapabilities_Files_DirectEditingBuilder()..update(updates))._build();
+
+  _$CoreFilesCapabilities_Files_DirectEditing._({required this.url, required this.etag, required this.supportsFileId})
+      : super._() {
+    BuiltValueNullFieldError.checkNotNull(url, r'CoreFilesCapabilities_Files_DirectEditing', 'url');
+    BuiltValueNullFieldError.checkNotNull(etag, r'CoreFilesCapabilities_Files_DirectEditing', 'etag');
+    BuiltValueNullFieldError.checkNotNull(
+        supportsFileId, r'CoreFilesCapabilities_Files_DirectEditing', 'supportsFileId');
+  }
+
+  @override
+  CoreFilesCapabilities_Files_DirectEditing rebuild(
+          void Function(CoreFilesCapabilities_Files_DirectEditingBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  CoreFilesCapabilities_Files_DirectEditingBuilder toBuilder() =>
+      CoreFilesCapabilities_Files_DirectEditingBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is CoreFilesCapabilities_Files_DirectEditing &&
+        url == other.url &&
+        etag == other.etag &&
+        supportsFileId == other.supportsFileId;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, url.hashCode);
+    _$hash = $jc(_$hash, etag.hashCode);
+    _$hash = $jc(_$hash, supportsFileId.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'CoreFilesCapabilities_Files_DirectEditing')
+          ..add('url', url)
+          ..add('etag', etag)
+          ..add('supportsFileId', supportsFileId))
+        .toString();
+  }
+}
+
+class CoreFilesCapabilities_Files_DirectEditingBuilder
+    implements Builder<CoreFilesCapabilities_Files_DirectEditing, CoreFilesCapabilities_Files_DirectEditingBuilder> {
+  _$CoreFilesCapabilities_Files_DirectEditing? _$v;
+
+  String? _url;
+  String? get url => _$this._url;
+  set url(String? url) => _$this._url = url;
+
+  String? _etag;
+  String? get etag => _$this._etag;
+  set etag(String? etag) => _$this._etag = etag;
+
+  bool? _supportsFileId;
+  bool? get supportsFileId => _$this._supportsFileId;
+  set supportsFileId(bool? supportsFileId) => _$this._supportsFileId = supportsFileId;
+
+  CoreFilesCapabilities_Files_DirectEditingBuilder();
+
+  CoreFilesCapabilities_Files_DirectEditingBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _url = $v.url;
+      _etag = $v.etag;
+      _supportsFileId = $v.supportsFileId;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(CoreFilesCapabilities_Files_DirectEditing other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$CoreFilesCapabilities_Files_DirectEditing;
+  }
+
+  @override
+  void update(void Function(CoreFilesCapabilities_Files_DirectEditingBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  CoreFilesCapabilities_Files_DirectEditing build() => _build();
+
+  _$CoreFilesCapabilities_Files_DirectEditing _build() {
+    final _$result = _$v ??
+        _$CoreFilesCapabilities_Files_DirectEditing._(
+            url: BuiltValueNullFieldError.checkNotNull(url, r'CoreFilesCapabilities_Files_DirectEditing', 'url'),
+            etag: BuiltValueNullFieldError.checkNotNull(etag, r'CoreFilesCapabilities_Files_DirectEditing', 'etag'),
+            supportsFileId: BuiltValueNullFieldError.checkNotNull(
+                supportsFileId, r'CoreFilesCapabilities_Files_DirectEditing', 'supportsFileId'));
+    replace(_$result);
+    return _$result;
+  }
+}
+
+class _$CoreFilesCapabilities_Files extends CoreFilesCapabilities_Files {
+  @override
+  final bool bigfilechunking;
+  @override
+  final BuiltList<JsonObject> blacklistedFiles;
+  @override
+  final CoreFilesCapabilities_Files_DirectEditing directEditing;
+
+  factory _$CoreFilesCapabilities_Files([void Function(CoreFilesCapabilities_FilesBuilder)? updates]) =>
+      (CoreFilesCapabilities_FilesBuilder()..update(updates))._build();
+
+  _$CoreFilesCapabilities_Files._(
+      {required this.bigfilechunking, required this.blacklistedFiles, required this.directEditing})
+      : super._() {
+    BuiltValueNullFieldError.checkNotNull(bigfilechunking, r'CoreFilesCapabilities_Files', 'bigfilechunking');
+    BuiltValueNullFieldError.checkNotNull(blacklistedFiles, r'CoreFilesCapabilities_Files', 'blacklistedFiles');
+    BuiltValueNullFieldError.checkNotNull(directEditing, r'CoreFilesCapabilities_Files', 'directEditing');
+  }
+
+  @override
+  CoreFilesCapabilities_Files rebuild(void Function(CoreFilesCapabilities_FilesBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  CoreFilesCapabilities_FilesBuilder toBuilder() => CoreFilesCapabilities_FilesBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is CoreFilesCapabilities_Files &&
+        bigfilechunking == other.bigfilechunking &&
+        blacklistedFiles == other.blacklistedFiles &&
+        directEditing == other.directEditing;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, bigfilechunking.hashCode);
+    _$hash = $jc(_$hash, blacklistedFiles.hashCode);
+    _$hash = $jc(_$hash, directEditing.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'CoreFilesCapabilities_Files')
+          ..add('bigfilechunking', bigfilechunking)
+          ..add('blacklistedFiles', blacklistedFiles)
+          ..add('directEditing', directEditing))
+        .toString();
+  }
+}
+
+class CoreFilesCapabilities_FilesBuilder
+    implements Builder<CoreFilesCapabilities_Files, CoreFilesCapabilities_FilesBuilder> {
+  _$CoreFilesCapabilities_Files? _$v;
+
+  bool? _bigfilechunking;
+  bool? get bigfilechunking => _$this._bigfilechunking;
+  set bigfilechunking(bool? bigfilechunking) => _$this._bigfilechunking = bigfilechunking;
+
+  ListBuilder<JsonObject>? _blacklistedFiles;
+  ListBuilder<JsonObject> get blacklistedFiles => _$this._blacklistedFiles ??= ListBuilder<JsonObject>();
+  set blacklistedFiles(ListBuilder<JsonObject>? blacklistedFiles) => _$this._blacklistedFiles = blacklistedFiles;
+
+  CoreFilesCapabilities_Files_DirectEditingBuilder? _directEditing;
+  CoreFilesCapabilities_Files_DirectEditingBuilder get directEditing =>
+      _$this._directEditing ??= CoreFilesCapabilities_Files_DirectEditingBuilder();
+  set directEditing(CoreFilesCapabilities_Files_DirectEditingBuilder? directEditing) =>
+      _$this._directEditing = directEditing;
+
+  CoreFilesCapabilities_FilesBuilder();
+
+  CoreFilesCapabilities_FilesBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _bigfilechunking = $v.bigfilechunking;
+      _blacklistedFiles = $v.blacklistedFiles.toBuilder();
+      _directEditing = $v.directEditing.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(CoreFilesCapabilities_Files other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$CoreFilesCapabilities_Files;
+  }
+
+  @override
+  void update(void Function(CoreFilesCapabilities_FilesBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  CoreFilesCapabilities_Files build() => _build();
+
+  _$CoreFilesCapabilities_Files _build() {
+    _$CoreFilesCapabilities_Files _$result;
+    try {
+      _$result = _$v ??
+          _$CoreFilesCapabilities_Files._(
+              bigfilechunking: BuiltValueNullFieldError.checkNotNull(
+                  bigfilechunking, r'CoreFilesCapabilities_Files', 'bigfilechunking'),
+              blacklistedFiles: blacklistedFiles.build(),
+              directEditing: directEditing.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'blacklistedFiles';
+        blacklistedFiles.build();
+        _$failedField = 'directEditing';
+        directEditing.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(r'CoreFilesCapabilities_Files', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+class _$CoreFilesCapabilities extends CoreFilesCapabilities {
+  @override
+  final CoreFilesCapabilities_Files files;
+
+  factory _$CoreFilesCapabilities([void Function(CoreFilesCapabilitiesBuilder)? updates]) =>
+      (CoreFilesCapabilitiesBuilder()..update(updates))._build();
+
+  _$CoreFilesCapabilities._({required this.files}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(files, r'CoreFilesCapabilities', 'files');
+  }
+
+  @override
+  CoreFilesCapabilities rebuild(void Function(CoreFilesCapabilitiesBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  CoreFilesCapabilitiesBuilder toBuilder() => CoreFilesCapabilitiesBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is CoreFilesCapabilities && files == other.files;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, files.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'CoreFilesCapabilities')..add('files', files)).toString();
+  }
+}
+
+class CoreFilesCapabilitiesBuilder implements Builder<CoreFilesCapabilities, CoreFilesCapabilitiesBuilder> {
+  _$CoreFilesCapabilities? _$v;
+
+  CoreFilesCapabilities_FilesBuilder? _files;
+  CoreFilesCapabilities_FilesBuilder get files => _$this._files ??= CoreFilesCapabilities_FilesBuilder();
+  set files(CoreFilesCapabilities_FilesBuilder? files) => _$this._files = files;
+
+  CoreFilesCapabilitiesBuilder();
+
+  CoreFilesCapabilitiesBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _files = $v.files.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(CoreFilesCapabilities other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$CoreFilesCapabilities;
+  }
+
+  @override
+  void update(void Function(CoreFilesCapabilitiesBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  CoreFilesCapabilities build() => _build();
+
+  _$CoreFilesCapabilities _build() {
+    _$CoreFilesCapabilities _$result;
+    try {
+      _$result = _$v ?? _$CoreFilesCapabilities._(files: files.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'files';
+        files.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(r'CoreFilesCapabilities', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
 class _$CoreFilesSharingCapabilities_FilesSharing_Public_Password
     extends CoreFilesSharingCapabilities_FilesSharing_Public_Password {
   @override
@@ -14097,6 +15669,381 @@ class CoreFilesSharingCapabilitiesBuilder
   }
 }
 
+class _$CoreFilesTrashbinCapabilities_Files extends CoreFilesTrashbinCapabilities_Files {
+  @override
+  final bool undelete;
+
+  factory _$CoreFilesTrashbinCapabilities_Files([void Function(CoreFilesTrashbinCapabilities_FilesBuilder)? updates]) =>
+      (CoreFilesTrashbinCapabilities_FilesBuilder()..update(updates))._build();
+
+  _$CoreFilesTrashbinCapabilities_Files._({required this.undelete}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(undelete, r'CoreFilesTrashbinCapabilities_Files', 'undelete');
+  }
+
+  @override
+  CoreFilesTrashbinCapabilities_Files rebuild(void Function(CoreFilesTrashbinCapabilities_FilesBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  CoreFilesTrashbinCapabilities_FilesBuilder toBuilder() => CoreFilesTrashbinCapabilities_FilesBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is CoreFilesTrashbinCapabilities_Files && undelete == other.undelete;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, undelete.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'CoreFilesTrashbinCapabilities_Files')..add('undelete', undelete)).toString();
+  }
+}
+
+class CoreFilesTrashbinCapabilities_FilesBuilder
+    implements Builder<CoreFilesTrashbinCapabilities_Files, CoreFilesTrashbinCapabilities_FilesBuilder> {
+  _$CoreFilesTrashbinCapabilities_Files? _$v;
+
+  bool? _undelete;
+  bool? get undelete => _$this._undelete;
+  set undelete(bool? undelete) => _$this._undelete = undelete;
+
+  CoreFilesTrashbinCapabilities_FilesBuilder();
+
+  CoreFilesTrashbinCapabilities_FilesBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _undelete = $v.undelete;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(CoreFilesTrashbinCapabilities_Files other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$CoreFilesTrashbinCapabilities_Files;
+  }
+
+  @override
+  void update(void Function(CoreFilesTrashbinCapabilities_FilesBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  CoreFilesTrashbinCapabilities_Files build() => _build();
+
+  _$CoreFilesTrashbinCapabilities_Files _build() {
+    final _$result = _$v ??
+        _$CoreFilesTrashbinCapabilities_Files._(
+            undelete:
+                BuiltValueNullFieldError.checkNotNull(undelete, r'CoreFilesTrashbinCapabilities_Files', 'undelete'));
+    replace(_$result);
+    return _$result;
+  }
+}
+
+class _$CoreFilesTrashbinCapabilities extends CoreFilesTrashbinCapabilities {
+  @override
+  final CoreFilesTrashbinCapabilities_Files files;
+
+  factory _$CoreFilesTrashbinCapabilities([void Function(CoreFilesTrashbinCapabilitiesBuilder)? updates]) =>
+      (CoreFilesTrashbinCapabilitiesBuilder()..update(updates))._build();
+
+  _$CoreFilesTrashbinCapabilities._({required this.files}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(files, r'CoreFilesTrashbinCapabilities', 'files');
+  }
+
+  @override
+  CoreFilesTrashbinCapabilities rebuild(void Function(CoreFilesTrashbinCapabilitiesBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  CoreFilesTrashbinCapabilitiesBuilder toBuilder() => CoreFilesTrashbinCapabilitiesBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is CoreFilesTrashbinCapabilities && files == other.files;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, files.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'CoreFilesTrashbinCapabilities')..add('files', files)).toString();
+  }
+}
+
+class CoreFilesTrashbinCapabilitiesBuilder
+    implements Builder<CoreFilesTrashbinCapabilities, CoreFilesTrashbinCapabilitiesBuilder> {
+  _$CoreFilesTrashbinCapabilities? _$v;
+
+  CoreFilesTrashbinCapabilities_FilesBuilder? _files;
+  CoreFilesTrashbinCapabilities_FilesBuilder get files =>
+      _$this._files ??= CoreFilesTrashbinCapabilities_FilesBuilder();
+  set files(CoreFilesTrashbinCapabilities_FilesBuilder? files) => _$this._files = files;
+
+  CoreFilesTrashbinCapabilitiesBuilder();
+
+  CoreFilesTrashbinCapabilitiesBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _files = $v.files.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(CoreFilesTrashbinCapabilities other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$CoreFilesTrashbinCapabilities;
+  }
+
+  @override
+  void update(void Function(CoreFilesTrashbinCapabilitiesBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  CoreFilesTrashbinCapabilities build() => _build();
+
+  _$CoreFilesTrashbinCapabilities _build() {
+    _$CoreFilesTrashbinCapabilities _$result;
+    try {
+      _$result = _$v ?? _$CoreFilesTrashbinCapabilities._(files: files.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'files';
+        files.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(r'CoreFilesTrashbinCapabilities', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+class _$CoreFilesVersionsCapabilities_Files extends CoreFilesVersionsCapabilities_Files {
+  @override
+  final bool versioning;
+  @override
+  final bool versionLabeling;
+  @override
+  final bool versionDeletion;
+
+  factory _$CoreFilesVersionsCapabilities_Files([void Function(CoreFilesVersionsCapabilities_FilesBuilder)? updates]) =>
+      (CoreFilesVersionsCapabilities_FilesBuilder()..update(updates))._build();
+
+  _$CoreFilesVersionsCapabilities_Files._(
+      {required this.versioning, required this.versionLabeling, required this.versionDeletion})
+      : super._() {
+    BuiltValueNullFieldError.checkNotNull(versioning, r'CoreFilesVersionsCapabilities_Files', 'versioning');
+    BuiltValueNullFieldError.checkNotNull(versionLabeling, r'CoreFilesVersionsCapabilities_Files', 'versionLabeling');
+    BuiltValueNullFieldError.checkNotNull(versionDeletion, r'CoreFilesVersionsCapabilities_Files', 'versionDeletion');
+  }
+
+  @override
+  CoreFilesVersionsCapabilities_Files rebuild(void Function(CoreFilesVersionsCapabilities_FilesBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  CoreFilesVersionsCapabilities_FilesBuilder toBuilder() => CoreFilesVersionsCapabilities_FilesBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is CoreFilesVersionsCapabilities_Files &&
+        versioning == other.versioning &&
+        versionLabeling == other.versionLabeling &&
+        versionDeletion == other.versionDeletion;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, versioning.hashCode);
+    _$hash = $jc(_$hash, versionLabeling.hashCode);
+    _$hash = $jc(_$hash, versionDeletion.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'CoreFilesVersionsCapabilities_Files')
+          ..add('versioning', versioning)
+          ..add('versionLabeling', versionLabeling)
+          ..add('versionDeletion', versionDeletion))
+        .toString();
+  }
+}
+
+class CoreFilesVersionsCapabilities_FilesBuilder
+    implements Builder<CoreFilesVersionsCapabilities_Files, CoreFilesVersionsCapabilities_FilesBuilder> {
+  _$CoreFilesVersionsCapabilities_Files? _$v;
+
+  bool? _versioning;
+  bool? get versioning => _$this._versioning;
+  set versioning(bool? versioning) => _$this._versioning = versioning;
+
+  bool? _versionLabeling;
+  bool? get versionLabeling => _$this._versionLabeling;
+  set versionLabeling(bool? versionLabeling) => _$this._versionLabeling = versionLabeling;
+
+  bool? _versionDeletion;
+  bool? get versionDeletion => _$this._versionDeletion;
+  set versionDeletion(bool? versionDeletion) => _$this._versionDeletion = versionDeletion;
+
+  CoreFilesVersionsCapabilities_FilesBuilder();
+
+  CoreFilesVersionsCapabilities_FilesBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _versioning = $v.versioning;
+      _versionLabeling = $v.versionLabeling;
+      _versionDeletion = $v.versionDeletion;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(CoreFilesVersionsCapabilities_Files other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$CoreFilesVersionsCapabilities_Files;
+  }
+
+  @override
+  void update(void Function(CoreFilesVersionsCapabilities_FilesBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  CoreFilesVersionsCapabilities_Files build() => _build();
+
+  _$CoreFilesVersionsCapabilities_Files _build() {
+    final _$result = _$v ??
+        _$CoreFilesVersionsCapabilities_Files._(
+            versioning:
+                BuiltValueNullFieldError.checkNotNull(versioning, r'CoreFilesVersionsCapabilities_Files', 'versioning'),
+            versionLabeling: BuiltValueNullFieldError.checkNotNull(
+                versionLabeling, r'CoreFilesVersionsCapabilities_Files', 'versionLabeling'),
+            versionDeletion: BuiltValueNullFieldError.checkNotNull(
+                versionDeletion, r'CoreFilesVersionsCapabilities_Files', 'versionDeletion'));
+    replace(_$result);
+    return _$result;
+  }
+}
+
+class _$CoreFilesVersionsCapabilities extends CoreFilesVersionsCapabilities {
+  @override
+  final CoreFilesVersionsCapabilities_Files files;
+
+  factory _$CoreFilesVersionsCapabilities([void Function(CoreFilesVersionsCapabilitiesBuilder)? updates]) =>
+      (CoreFilesVersionsCapabilitiesBuilder()..update(updates))._build();
+
+  _$CoreFilesVersionsCapabilities._({required this.files}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(files, r'CoreFilesVersionsCapabilities', 'files');
+  }
+
+  @override
+  CoreFilesVersionsCapabilities rebuild(void Function(CoreFilesVersionsCapabilitiesBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  CoreFilesVersionsCapabilitiesBuilder toBuilder() => CoreFilesVersionsCapabilitiesBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is CoreFilesVersionsCapabilities && files == other.files;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, files.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'CoreFilesVersionsCapabilities')..add('files', files)).toString();
+  }
+}
+
+class CoreFilesVersionsCapabilitiesBuilder
+    implements Builder<CoreFilesVersionsCapabilities, CoreFilesVersionsCapabilitiesBuilder> {
+  _$CoreFilesVersionsCapabilities? _$v;
+
+  CoreFilesVersionsCapabilities_FilesBuilder? _files;
+  CoreFilesVersionsCapabilities_FilesBuilder get files =>
+      _$this._files ??= CoreFilesVersionsCapabilities_FilesBuilder();
+  set files(CoreFilesVersionsCapabilities_FilesBuilder? files) => _$this._files = files;
+
+  CoreFilesVersionsCapabilitiesBuilder();
+
+  CoreFilesVersionsCapabilitiesBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _files = $v.files.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(CoreFilesVersionsCapabilities other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$CoreFilesVersionsCapabilities;
+  }
+
+  @override
+  void update(void Function(CoreFilesVersionsCapabilitiesBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  CoreFilesVersionsCapabilities build() => _build();
+
+  _$CoreFilesVersionsCapabilities _build() {
+    _$CoreFilesVersionsCapabilities _$result;
+    try {
+      _$result = _$v ?? _$CoreFilesVersionsCapabilities._(files: files.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'files';
+        files.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(r'CoreFilesVersionsCapabilities', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
 class _$CoreNotesCapabilities_Notes extends CoreNotesCapabilities_Notes {
   @override
   final BuiltList<String>? apiVersion;
@@ -14737,6 +16684,668 @@ class CoreProvisioningApiCapabilitiesBuilder
   }
 }
 
+class _$CoreSharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop
+    extends CoreSharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop {
+  @override
+  final bool enabled;
+
+  factory _$CoreSharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop(
+          [void Function(CoreSharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDropBuilder)? updates]) =>
+      (CoreSharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDropBuilder()..update(updates))._build();
+
+  _$CoreSharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop._({required this.enabled}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(
+        enabled, r'CoreSharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop', 'enabled');
+  }
+
+  @override
+  CoreSharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop rebuild(
+          void Function(CoreSharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDropBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  CoreSharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDropBuilder toBuilder() =>
+      CoreSharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDropBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is CoreSharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop && enabled == other.enabled;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, enabled.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'CoreSharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop')
+          ..add('enabled', enabled))
+        .toString();
+  }
+}
+
+class CoreSharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDropBuilder
+    implements
+        Builder<CoreSharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop,
+            CoreSharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDropBuilder> {
+  _$CoreSharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop? _$v;
+
+  bool? _enabled;
+  bool? get enabled => _$this._enabled;
+  set enabled(bool? enabled) => _$this._enabled = enabled;
+
+  CoreSharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDropBuilder();
+
+  CoreSharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDropBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _enabled = $v.enabled;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(CoreSharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$CoreSharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop;
+  }
+
+  @override
+  void update(void Function(CoreSharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDropBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  CoreSharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop build() => _build();
+
+  _$CoreSharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop _build() {
+    final _$result = _$v ??
+        _$CoreSharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop._(
+            enabled: BuiltValueNullFieldError.checkNotNull(
+                enabled, r'CoreSharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop', 'enabled'));
+    replace(_$result);
+    return _$result;
+  }
+}
+
+class _$CoreSharebymailCapabilities_FilesSharing_Sharebymail_Password
+    extends CoreSharebymailCapabilities_FilesSharing_Sharebymail_Password {
+  @override
+  final bool enabled;
+  @override
+  final bool enforced;
+
+  factory _$CoreSharebymailCapabilities_FilesSharing_Sharebymail_Password(
+          [void Function(CoreSharebymailCapabilities_FilesSharing_Sharebymail_PasswordBuilder)? updates]) =>
+      (CoreSharebymailCapabilities_FilesSharing_Sharebymail_PasswordBuilder()..update(updates))._build();
+
+  _$CoreSharebymailCapabilities_FilesSharing_Sharebymail_Password._({required this.enabled, required this.enforced})
+      : super._() {
+    BuiltValueNullFieldError.checkNotNull(
+        enabled, r'CoreSharebymailCapabilities_FilesSharing_Sharebymail_Password', 'enabled');
+    BuiltValueNullFieldError.checkNotNull(
+        enforced, r'CoreSharebymailCapabilities_FilesSharing_Sharebymail_Password', 'enforced');
+  }
+
+  @override
+  CoreSharebymailCapabilities_FilesSharing_Sharebymail_Password rebuild(
+          void Function(CoreSharebymailCapabilities_FilesSharing_Sharebymail_PasswordBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  CoreSharebymailCapabilities_FilesSharing_Sharebymail_PasswordBuilder toBuilder() =>
+      CoreSharebymailCapabilities_FilesSharing_Sharebymail_PasswordBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is CoreSharebymailCapabilities_FilesSharing_Sharebymail_Password &&
+        enabled == other.enabled &&
+        enforced == other.enforced;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, enabled.hashCode);
+    _$hash = $jc(_$hash, enforced.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'CoreSharebymailCapabilities_FilesSharing_Sharebymail_Password')
+          ..add('enabled', enabled)
+          ..add('enforced', enforced))
+        .toString();
+  }
+}
+
+class CoreSharebymailCapabilities_FilesSharing_Sharebymail_PasswordBuilder
+    implements
+        Builder<CoreSharebymailCapabilities_FilesSharing_Sharebymail_Password,
+            CoreSharebymailCapabilities_FilesSharing_Sharebymail_PasswordBuilder> {
+  _$CoreSharebymailCapabilities_FilesSharing_Sharebymail_Password? _$v;
+
+  bool? _enabled;
+  bool? get enabled => _$this._enabled;
+  set enabled(bool? enabled) => _$this._enabled = enabled;
+
+  bool? _enforced;
+  bool? get enforced => _$this._enforced;
+  set enforced(bool? enforced) => _$this._enforced = enforced;
+
+  CoreSharebymailCapabilities_FilesSharing_Sharebymail_PasswordBuilder();
+
+  CoreSharebymailCapabilities_FilesSharing_Sharebymail_PasswordBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _enabled = $v.enabled;
+      _enforced = $v.enforced;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(CoreSharebymailCapabilities_FilesSharing_Sharebymail_Password other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$CoreSharebymailCapabilities_FilesSharing_Sharebymail_Password;
+  }
+
+  @override
+  void update(void Function(CoreSharebymailCapabilities_FilesSharing_Sharebymail_PasswordBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  CoreSharebymailCapabilities_FilesSharing_Sharebymail_Password build() => _build();
+
+  _$CoreSharebymailCapabilities_FilesSharing_Sharebymail_Password _build() {
+    final _$result = _$v ??
+        _$CoreSharebymailCapabilities_FilesSharing_Sharebymail_Password._(
+            enabled: BuiltValueNullFieldError.checkNotNull(
+                enabled, r'CoreSharebymailCapabilities_FilesSharing_Sharebymail_Password', 'enabled'),
+            enforced: BuiltValueNullFieldError.checkNotNull(
+                enforced, r'CoreSharebymailCapabilities_FilesSharing_Sharebymail_Password', 'enforced'));
+    replace(_$result);
+    return _$result;
+  }
+}
+
+class _$CoreSharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate
+    extends CoreSharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate {
+  @override
+  final bool enabled;
+  @override
+  final bool enforced;
+
+  factory _$CoreSharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate(
+          [void Function(CoreSharebymailCapabilities_FilesSharing_Sharebymail_ExpireDateBuilder)? updates]) =>
+      (CoreSharebymailCapabilities_FilesSharing_Sharebymail_ExpireDateBuilder()..update(updates))._build();
+
+  _$CoreSharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate._({required this.enabled, required this.enforced})
+      : super._() {
+    BuiltValueNullFieldError.checkNotNull(
+        enabled, r'CoreSharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate', 'enabled');
+    BuiltValueNullFieldError.checkNotNull(
+        enforced, r'CoreSharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate', 'enforced');
+  }
+
+  @override
+  CoreSharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate rebuild(
+          void Function(CoreSharebymailCapabilities_FilesSharing_Sharebymail_ExpireDateBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  CoreSharebymailCapabilities_FilesSharing_Sharebymail_ExpireDateBuilder toBuilder() =>
+      CoreSharebymailCapabilities_FilesSharing_Sharebymail_ExpireDateBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is CoreSharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate &&
+        enabled == other.enabled &&
+        enforced == other.enforced;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, enabled.hashCode);
+    _$hash = $jc(_$hash, enforced.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'CoreSharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate')
+          ..add('enabled', enabled)
+          ..add('enforced', enforced))
+        .toString();
+  }
+}
+
+class CoreSharebymailCapabilities_FilesSharing_Sharebymail_ExpireDateBuilder
+    implements
+        Builder<CoreSharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate,
+            CoreSharebymailCapabilities_FilesSharing_Sharebymail_ExpireDateBuilder> {
+  _$CoreSharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate? _$v;
+
+  bool? _enabled;
+  bool? get enabled => _$this._enabled;
+  set enabled(bool? enabled) => _$this._enabled = enabled;
+
+  bool? _enforced;
+  bool? get enforced => _$this._enforced;
+  set enforced(bool? enforced) => _$this._enforced = enforced;
+
+  CoreSharebymailCapabilities_FilesSharing_Sharebymail_ExpireDateBuilder();
+
+  CoreSharebymailCapabilities_FilesSharing_Sharebymail_ExpireDateBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _enabled = $v.enabled;
+      _enforced = $v.enforced;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(CoreSharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$CoreSharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate;
+  }
+
+  @override
+  void update(void Function(CoreSharebymailCapabilities_FilesSharing_Sharebymail_ExpireDateBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  CoreSharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate build() => _build();
+
+  _$CoreSharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate _build() {
+    final _$result = _$v ??
+        _$CoreSharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate._(
+            enabled: BuiltValueNullFieldError.checkNotNull(
+                enabled, r'CoreSharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate', 'enabled'),
+            enforced: BuiltValueNullFieldError.checkNotNull(
+                enforced, r'CoreSharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate', 'enforced'));
+    replace(_$result);
+    return _$result;
+  }
+}
+
+class _$CoreSharebymailCapabilities_FilesSharing_Sharebymail
+    extends CoreSharebymailCapabilities_FilesSharing_Sharebymail {
+  @override
+  final bool enabled;
+  @override
+  final bool sendPasswordByMail;
+  @override
+  final CoreSharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop uploadFilesDrop;
+  @override
+  final CoreSharebymailCapabilities_FilesSharing_Sharebymail_Password password;
+  @override
+  final CoreSharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate expireDate;
+
+  factory _$CoreSharebymailCapabilities_FilesSharing_Sharebymail(
+          [void Function(CoreSharebymailCapabilities_FilesSharing_SharebymailBuilder)? updates]) =>
+      (CoreSharebymailCapabilities_FilesSharing_SharebymailBuilder()..update(updates))._build();
+
+  _$CoreSharebymailCapabilities_FilesSharing_Sharebymail._(
+      {required this.enabled,
+      required this.sendPasswordByMail,
+      required this.uploadFilesDrop,
+      required this.password,
+      required this.expireDate})
+      : super._() {
+    BuiltValueNullFieldError.checkNotNull(enabled, r'CoreSharebymailCapabilities_FilesSharing_Sharebymail', 'enabled');
+    BuiltValueNullFieldError.checkNotNull(
+        sendPasswordByMail, r'CoreSharebymailCapabilities_FilesSharing_Sharebymail', 'sendPasswordByMail');
+    BuiltValueNullFieldError.checkNotNull(
+        uploadFilesDrop, r'CoreSharebymailCapabilities_FilesSharing_Sharebymail', 'uploadFilesDrop');
+    BuiltValueNullFieldError.checkNotNull(
+        password, r'CoreSharebymailCapabilities_FilesSharing_Sharebymail', 'password');
+    BuiltValueNullFieldError.checkNotNull(
+        expireDate, r'CoreSharebymailCapabilities_FilesSharing_Sharebymail', 'expireDate');
+  }
+
+  @override
+  CoreSharebymailCapabilities_FilesSharing_Sharebymail rebuild(
+          void Function(CoreSharebymailCapabilities_FilesSharing_SharebymailBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  CoreSharebymailCapabilities_FilesSharing_SharebymailBuilder toBuilder() =>
+      CoreSharebymailCapabilities_FilesSharing_SharebymailBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is CoreSharebymailCapabilities_FilesSharing_Sharebymail &&
+        enabled == other.enabled &&
+        sendPasswordByMail == other.sendPasswordByMail &&
+        uploadFilesDrop == other.uploadFilesDrop &&
+        password == other.password &&
+        expireDate == other.expireDate;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, enabled.hashCode);
+    _$hash = $jc(_$hash, sendPasswordByMail.hashCode);
+    _$hash = $jc(_$hash, uploadFilesDrop.hashCode);
+    _$hash = $jc(_$hash, password.hashCode);
+    _$hash = $jc(_$hash, expireDate.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'CoreSharebymailCapabilities_FilesSharing_Sharebymail')
+          ..add('enabled', enabled)
+          ..add('sendPasswordByMail', sendPasswordByMail)
+          ..add('uploadFilesDrop', uploadFilesDrop)
+          ..add('password', password)
+          ..add('expireDate', expireDate))
+        .toString();
+  }
+}
+
+class CoreSharebymailCapabilities_FilesSharing_SharebymailBuilder
+    implements
+        Builder<CoreSharebymailCapabilities_FilesSharing_Sharebymail,
+            CoreSharebymailCapabilities_FilesSharing_SharebymailBuilder> {
+  _$CoreSharebymailCapabilities_FilesSharing_Sharebymail? _$v;
+
+  bool? _enabled;
+  bool? get enabled => _$this._enabled;
+  set enabled(bool? enabled) => _$this._enabled = enabled;
+
+  bool? _sendPasswordByMail;
+  bool? get sendPasswordByMail => _$this._sendPasswordByMail;
+  set sendPasswordByMail(bool? sendPasswordByMail) => _$this._sendPasswordByMail = sendPasswordByMail;
+
+  CoreSharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDropBuilder? _uploadFilesDrop;
+  CoreSharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDropBuilder get uploadFilesDrop =>
+      _$this._uploadFilesDrop ??= CoreSharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDropBuilder();
+  set uploadFilesDrop(CoreSharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDropBuilder? uploadFilesDrop) =>
+      _$this._uploadFilesDrop = uploadFilesDrop;
+
+  CoreSharebymailCapabilities_FilesSharing_Sharebymail_PasswordBuilder? _password;
+  CoreSharebymailCapabilities_FilesSharing_Sharebymail_PasswordBuilder get password =>
+      _$this._password ??= CoreSharebymailCapabilities_FilesSharing_Sharebymail_PasswordBuilder();
+  set password(CoreSharebymailCapabilities_FilesSharing_Sharebymail_PasswordBuilder? password) =>
+      _$this._password = password;
+
+  CoreSharebymailCapabilities_FilesSharing_Sharebymail_ExpireDateBuilder? _expireDate;
+  CoreSharebymailCapabilities_FilesSharing_Sharebymail_ExpireDateBuilder get expireDate =>
+      _$this._expireDate ??= CoreSharebymailCapabilities_FilesSharing_Sharebymail_ExpireDateBuilder();
+  set expireDate(CoreSharebymailCapabilities_FilesSharing_Sharebymail_ExpireDateBuilder? expireDate) =>
+      _$this._expireDate = expireDate;
+
+  CoreSharebymailCapabilities_FilesSharing_SharebymailBuilder();
+
+  CoreSharebymailCapabilities_FilesSharing_SharebymailBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _enabled = $v.enabled;
+      _sendPasswordByMail = $v.sendPasswordByMail;
+      _uploadFilesDrop = $v.uploadFilesDrop.toBuilder();
+      _password = $v.password.toBuilder();
+      _expireDate = $v.expireDate.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(CoreSharebymailCapabilities_FilesSharing_Sharebymail other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$CoreSharebymailCapabilities_FilesSharing_Sharebymail;
+  }
+
+  @override
+  void update(void Function(CoreSharebymailCapabilities_FilesSharing_SharebymailBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  CoreSharebymailCapabilities_FilesSharing_Sharebymail build() => _build();
+
+  _$CoreSharebymailCapabilities_FilesSharing_Sharebymail _build() {
+    _$CoreSharebymailCapabilities_FilesSharing_Sharebymail _$result;
+    try {
+      _$result = _$v ??
+          _$CoreSharebymailCapabilities_FilesSharing_Sharebymail._(
+              enabled: BuiltValueNullFieldError.checkNotNull(
+                  enabled, r'CoreSharebymailCapabilities_FilesSharing_Sharebymail', 'enabled'),
+              sendPasswordByMail: BuiltValueNullFieldError.checkNotNull(
+                  sendPasswordByMail, r'CoreSharebymailCapabilities_FilesSharing_Sharebymail', 'sendPasswordByMail'),
+              uploadFilesDrop: uploadFilesDrop.build(),
+              password: password.build(),
+              expireDate: expireDate.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'uploadFilesDrop';
+        uploadFilesDrop.build();
+        _$failedField = 'password';
+        password.build();
+        _$failedField = 'expireDate';
+        expireDate.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'CoreSharebymailCapabilities_FilesSharing_Sharebymail', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+class _$CoreSharebymailCapabilities_FilesSharing extends CoreSharebymailCapabilities_FilesSharing {
+  @override
+  final CoreSharebymailCapabilities_FilesSharing_Sharebymail sharebymail;
+
+  factory _$CoreSharebymailCapabilities_FilesSharing(
+          [void Function(CoreSharebymailCapabilities_FilesSharingBuilder)? updates]) =>
+      (CoreSharebymailCapabilities_FilesSharingBuilder()..update(updates))._build();
+
+  _$CoreSharebymailCapabilities_FilesSharing._({required this.sharebymail}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(sharebymail, r'CoreSharebymailCapabilities_FilesSharing', 'sharebymail');
+  }
+
+  @override
+  CoreSharebymailCapabilities_FilesSharing rebuild(
+          void Function(CoreSharebymailCapabilities_FilesSharingBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  CoreSharebymailCapabilities_FilesSharingBuilder toBuilder() =>
+      CoreSharebymailCapabilities_FilesSharingBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is CoreSharebymailCapabilities_FilesSharing && sharebymail == other.sharebymail;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, sharebymail.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'CoreSharebymailCapabilities_FilesSharing')..add('sharebymail', sharebymail))
+        .toString();
+  }
+}
+
+class CoreSharebymailCapabilities_FilesSharingBuilder
+    implements Builder<CoreSharebymailCapabilities_FilesSharing, CoreSharebymailCapabilities_FilesSharingBuilder> {
+  _$CoreSharebymailCapabilities_FilesSharing? _$v;
+
+  CoreSharebymailCapabilities_FilesSharing_SharebymailBuilder? _sharebymail;
+  CoreSharebymailCapabilities_FilesSharing_SharebymailBuilder get sharebymail =>
+      _$this._sharebymail ??= CoreSharebymailCapabilities_FilesSharing_SharebymailBuilder();
+  set sharebymail(CoreSharebymailCapabilities_FilesSharing_SharebymailBuilder? sharebymail) =>
+      _$this._sharebymail = sharebymail;
+
+  CoreSharebymailCapabilities_FilesSharingBuilder();
+
+  CoreSharebymailCapabilities_FilesSharingBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _sharebymail = $v.sharebymail.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(CoreSharebymailCapabilities_FilesSharing other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$CoreSharebymailCapabilities_FilesSharing;
+  }
+
+  @override
+  void update(void Function(CoreSharebymailCapabilities_FilesSharingBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  CoreSharebymailCapabilities_FilesSharing build() => _build();
+
+  _$CoreSharebymailCapabilities_FilesSharing _build() {
+    _$CoreSharebymailCapabilities_FilesSharing _$result;
+    try {
+      _$result = _$v ?? _$CoreSharebymailCapabilities_FilesSharing._(sharebymail: sharebymail.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'sharebymail';
+        sharebymail.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(r'CoreSharebymailCapabilities_FilesSharing', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+class _$CoreSharebymailCapabilities extends CoreSharebymailCapabilities {
+  @override
+  final CoreSharebymailCapabilities_FilesSharing filesSharing;
+
+  factory _$CoreSharebymailCapabilities([void Function(CoreSharebymailCapabilitiesBuilder)? updates]) =>
+      (CoreSharebymailCapabilitiesBuilder()..update(updates))._build();
+
+  _$CoreSharebymailCapabilities._({required this.filesSharing}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(filesSharing, r'CoreSharebymailCapabilities', 'filesSharing');
+  }
+
+  @override
+  CoreSharebymailCapabilities rebuild(void Function(CoreSharebymailCapabilitiesBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  CoreSharebymailCapabilitiesBuilder toBuilder() => CoreSharebymailCapabilitiesBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is CoreSharebymailCapabilities && filesSharing == other.filesSharing;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, filesSharing.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'CoreSharebymailCapabilities')..add('filesSharing', filesSharing)).toString();
+  }
+}
+
+class CoreSharebymailCapabilitiesBuilder
+    implements Builder<CoreSharebymailCapabilities, CoreSharebymailCapabilitiesBuilder> {
+  _$CoreSharebymailCapabilities? _$v;
+
+  CoreSharebymailCapabilities_FilesSharingBuilder? _filesSharing;
+  CoreSharebymailCapabilities_FilesSharingBuilder get filesSharing =>
+      _$this._filesSharing ??= CoreSharebymailCapabilities_FilesSharingBuilder();
+  set filesSharing(CoreSharebymailCapabilities_FilesSharingBuilder? filesSharing) =>
+      _$this._filesSharing = filesSharing;
+
+  CoreSharebymailCapabilitiesBuilder();
+
+  CoreSharebymailCapabilitiesBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _filesSharing = $v.filesSharing.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(CoreSharebymailCapabilities other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$CoreSharebymailCapabilities;
+  }
+
+  @override
+  void update(void Function(CoreSharebymailCapabilitiesBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  CoreSharebymailCapabilities build() => _build();
+
+  _$CoreSharebymailCapabilities _build() {
+    _$CoreSharebymailCapabilities _$result;
+    try {
+      _$result = _$v ?? _$CoreSharebymailCapabilities._(filesSharing: filesSharing.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'filesSharing';
+        filesSharing.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(r'CoreSharebymailCapabilities', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
 class _$CoreThemingPublicCapabilities_Theming extends CoreThemingPublicCapabilities_Theming {
   @override
   final String name;
@@ -15300,12 +17909,201 @@ class CoreUserStatusCapabilitiesBuilder
   }
 }
 
+class _$CoreWeatherStatusCapabilities_WeatherStatus extends CoreWeatherStatusCapabilities_WeatherStatus {
+  @override
+  final bool enabled;
+
+  factory _$CoreWeatherStatusCapabilities_WeatherStatus(
+          [void Function(CoreWeatherStatusCapabilities_WeatherStatusBuilder)? updates]) =>
+      (CoreWeatherStatusCapabilities_WeatherStatusBuilder()..update(updates))._build();
+
+  _$CoreWeatherStatusCapabilities_WeatherStatus._({required this.enabled}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(enabled, r'CoreWeatherStatusCapabilities_WeatherStatus', 'enabled');
+  }
+
+  @override
+  CoreWeatherStatusCapabilities_WeatherStatus rebuild(
+          void Function(CoreWeatherStatusCapabilities_WeatherStatusBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  CoreWeatherStatusCapabilities_WeatherStatusBuilder toBuilder() =>
+      CoreWeatherStatusCapabilities_WeatherStatusBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is CoreWeatherStatusCapabilities_WeatherStatus && enabled == other.enabled;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, enabled.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'CoreWeatherStatusCapabilities_WeatherStatus')..add('enabled', enabled))
+        .toString();
+  }
+}
+
+class CoreWeatherStatusCapabilities_WeatherStatusBuilder
+    implements
+        Builder<CoreWeatherStatusCapabilities_WeatherStatus, CoreWeatherStatusCapabilities_WeatherStatusBuilder> {
+  _$CoreWeatherStatusCapabilities_WeatherStatus? _$v;
+
+  bool? _enabled;
+  bool? get enabled => _$this._enabled;
+  set enabled(bool? enabled) => _$this._enabled = enabled;
+
+  CoreWeatherStatusCapabilities_WeatherStatusBuilder();
+
+  CoreWeatherStatusCapabilities_WeatherStatusBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _enabled = $v.enabled;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(CoreWeatherStatusCapabilities_WeatherStatus other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$CoreWeatherStatusCapabilities_WeatherStatus;
+  }
+
+  @override
+  void update(void Function(CoreWeatherStatusCapabilities_WeatherStatusBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  CoreWeatherStatusCapabilities_WeatherStatus build() => _build();
+
+  _$CoreWeatherStatusCapabilities_WeatherStatus _build() {
+    final _$result = _$v ??
+        _$CoreWeatherStatusCapabilities_WeatherStatus._(
+            enabled: BuiltValueNullFieldError.checkNotNull(
+                enabled, r'CoreWeatherStatusCapabilities_WeatherStatus', 'enabled'));
+    replace(_$result);
+    return _$result;
+  }
+}
+
+class _$CoreWeatherStatusCapabilities extends CoreWeatherStatusCapabilities {
+  @override
+  final CoreWeatherStatusCapabilities_WeatherStatus weatherStatus;
+
+  factory _$CoreWeatherStatusCapabilities([void Function(CoreWeatherStatusCapabilitiesBuilder)? updates]) =>
+      (CoreWeatherStatusCapabilitiesBuilder()..update(updates))._build();
+
+  _$CoreWeatherStatusCapabilities._({required this.weatherStatus}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(weatherStatus, r'CoreWeatherStatusCapabilities', 'weatherStatus');
+  }
+
+  @override
+  CoreWeatherStatusCapabilities rebuild(void Function(CoreWeatherStatusCapabilitiesBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  CoreWeatherStatusCapabilitiesBuilder toBuilder() => CoreWeatherStatusCapabilitiesBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is CoreWeatherStatusCapabilities && weatherStatus == other.weatherStatus;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, weatherStatus.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'CoreWeatherStatusCapabilities')..add('weatherStatus', weatherStatus))
+        .toString();
+  }
+}
+
+class CoreWeatherStatusCapabilitiesBuilder
+    implements Builder<CoreWeatherStatusCapabilities, CoreWeatherStatusCapabilitiesBuilder> {
+  _$CoreWeatherStatusCapabilities? _$v;
+
+  CoreWeatherStatusCapabilities_WeatherStatusBuilder? _weatherStatus;
+  CoreWeatherStatusCapabilities_WeatherStatusBuilder get weatherStatus =>
+      _$this._weatherStatus ??= CoreWeatherStatusCapabilities_WeatherStatusBuilder();
+  set weatherStatus(CoreWeatherStatusCapabilities_WeatherStatusBuilder? weatherStatus) =>
+      _$this._weatherStatus = weatherStatus;
+
+  CoreWeatherStatusCapabilitiesBuilder();
+
+  CoreWeatherStatusCapabilitiesBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _weatherStatus = $v.weatherStatus.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(CoreWeatherStatusCapabilities other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$CoreWeatherStatusCapabilities;
+  }
+
+  @override
+  void update(void Function(CoreWeatherStatusCapabilitiesBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  CoreWeatherStatusCapabilities build() => _build();
+
+  _$CoreWeatherStatusCapabilities _build() {
+    _$CoreWeatherStatusCapabilities _$result;
+    try {
+      _$result = _$v ?? _$CoreWeatherStatusCapabilities._(weatherStatus: weatherStatus.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'weatherStatus';
+        weatherStatus.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(r'CoreWeatherStatusCapabilities', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
 class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities
     extends CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities {
   @override
   final JsonObject data;
   @override
+  final CoreCommentsCapabilities? commentsCapabilities;
+  @override
+  final CoreDavCapabilities? davCapabilities;
+  @override
+  final CoreFilesCapabilities? filesCapabilities;
+  @override
   final CoreFilesSharingCapabilities? filesSharingCapabilities;
+  @override
+  final CoreFilesTrashbinCapabilities? filesTrashbinCapabilities;
+  @override
+  final CoreFilesVersionsCapabilities? filesVersionsCapabilities;
   @override
   final CoreNotesCapabilities? notesCapabilities;
   @override
@@ -15313,9 +18111,13 @@ class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities
   @override
   final CoreProvisioningApiCapabilities? provisioningApiCapabilities;
   @override
+  final CoreSharebymailCapabilities? sharebymailCapabilities;
+  @override
   final CoreThemingPublicCapabilities? themingPublicCapabilities;
   @override
   final CoreUserStatusCapabilities? userStatusCapabilities;
+  @override
+  final CoreWeatherStatusCapabilities? weatherStatusCapabilities;
 
   factory _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities(
           [void Function(CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_CapabilitiesBuilder)? updates]) =>
@@ -15323,12 +18125,19 @@ class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities
 
   _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities._(
       {required this.data,
+      this.commentsCapabilities,
+      this.davCapabilities,
+      this.filesCapabilities,
       this.filesSharingCapabilities,
+      this.filesTrashbinCapabilities,
+      this.filesVersionsCapabilities,
       this.notesCapabilities,
       this.notificationsCapabilities,
       this.provisioningApiCapabilities,
+      this.sharebymailCapabilities,
       this.themingPublicCapabilities,
-      this.userStatusCapabilities})
+      this.userStatusCapabilities,
+      this.weatherStatusCapabilities})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(
         data, r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities', 'data');
@@ -15348,24 +18157,38 @@ class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities
     if (identical(other, this)) return true;
     return other is CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities &&
         data == other.data &&
+        commentsCapabilities == other.commentsCapabilities &&
+        davCapabilities == other.davCapabilities &&
+        filesCapabilities == other.filesCapabilities &&
         filesSharingCapabilities == other.filesSharingCapabilities &&
+        filesTrashbinCapabilities == other.filesTrashbinCapabilities &&
+        filesVersionsCapabilities == other.filesVersionsCapabilities &&
         notesCapabilities == other.notesCapabilities &&
         notificationsCapabilities == other.notificationsCapabilities &&
         provisioningApiCapabilities == other.provisioningApiCapabilities &&
+        sharebymailCapabilities == other.sharebymailCapabilities &&
         themingPublicCapabilities == other.themingPublicCapabilities &&
-        userStatusCapabilities == other.userStatusCapabilities;
+        userStatusCapabilities == other.userStatusCapabilities &&
+        weatherStatusCapabilities == other.weatherStatusCapabilities;
   }
 
   @override
   int get hashCode {
     var _$hash = 0;
     _$hash = $jc(_$hash, data.hashCode);
+    _$hash = $jc(_$hash, commentsCapabilities.hashCode);
+    _$hash = $jc(_$hash, davCapabilities.hashCode);
+    _$hash = $jc(_$hash, filesCapabilities.hashCode);
     _$hash = $jc(_$hash, filesSharingCapabilities.hashCode);
+    _$hash = $jc(_$hash, filesTrashbinCapabilities.hashCode);
+    _$hash = $jc(_$hash, filesVersionsCapabilities.hashCode);
     _$hash = $jc(_$hash, notesCapabilities.hashCode);
     _$hash = $jc(_$hash, notificationsCapabilities.hashCode);
     _$hash = $jc(_$hash, provisioningApiCapabilities.hashCode);
+    _$hash = $jc(_$hash, sharebymailCapabilities.hashCode);
     _$hash = $jc(_$hash, themingPublicCapabilities.hashCode);
     _$hash = $jc(_$hash, userStatusCapabilities.hashCode);
+    _$hash = $jc(_$hash, weatherStatusCapabilities.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
   }
@@ -15374,12 +18197,19 @@ class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities
   String toString() {
     return (newBuiltValueToStringHelper(r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities')
           ..add('data', data)
+          ..add('commentsCapabilities', commentsCapabilities)
+          ..add('davCapabilities', davCapabilities)
+          ..add('filesCapabilities', filesCapabilities)
           ..add('filesSharingCapabilities', filesSharingCapabilities)
+          ..add('filesTrashbinCapabilities', filesTrashbinCapabilities)
+          ..add('filesVersionsCapabilities', filesVersionsCapabilities)
           ..add('notesCapabilities', notesCapabilities)
           ..add('notificationsCapabilities', notificationsCapabilities)
           ..add('provisioningApiCapabilities', provisioningApiCapabilities)
+          ..add('sharebymailCapabilities', sharebymailCapabilities)
           ..add('themingPublicCapabilities', themingPublicCapabilities)
-          ..add('userStatusCapabilities', userStatusCapabilities))
+          ..add('userStatusCapabilities', userStatusCapabilities)
+          ..add('weatherStatusCapabilities', weatherStatusCapabilities))
         .toString();
   }
 }
@@ -15394,11 +18224,38 @@ class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_CapabilitiesBuil
   JsonObject? get data => _$this._data;
   set data(JsonObject? data) => _$this._data = data;
 
+  CoreCommentsCapabilitiesBuilder? _commentsCapabilities;
+  CoreCommentsCapabilitiesBuilder get commentsCapabilities =>
+      _$this._commentsCapabilities ??= CoreCommentsCapabilitiesBuilder();
+  set commentsCapabilities(CoreCommentsCapabilitiesBuilder? commentsCapabilities) =>
+      _$this._commentsCapabilities = commentsCapabilities;
+
+  CoreDavCapabilitiesBuilder? _davCapabilities;
+  CoreDavCapabilitiesBuilder get davCapabilities => _$this._davCapabilities ??= CoreDavCapabilitiesBuilder();
+  set davCapabilities(CoreDavCapabilitiesBuilder? davCapabilities) => _$this._davCapabilities = davCapabilities;
+
+  CoreFilesCapabilitiesBuilder? _filesCapabilities;
+  CoreFilesCapabilitiesBuilder get filesCapabilities => _$this._filesCapabilities ??= CoreFilesCapabilitiesBuilder();
+  set filesCapabilities(CoreFilesCapabilitiesBuilder? filesCapabilities) =>
+      _$this._filesCapabilities = filesCapabilities;
+
   CoreFilesSharingCapabilitiesBuilder? _filesSharingCapabilities;
   CoreFilesSharingCapabilitiesBuilder get filesSharingCapabilities =>
       _$this._filesSharingCapabilities ??= CoreFilesSharingCapabilitiesBuilder();
   set filesSharingCapabilities(CoreFilesSharingCapabilitiesBuilder? filesSharingCapabilities) =>
       _$this._filesSharingCapabilities = filesSharingCapabilities;
+
+  CoreFilesTrashbinCapabilitiesBuilder? _filesTrashbinCapabilities;
+  CoreFilesTrashbinCapabilitiesBuilder get filesTrashbinCapabilities =>
+      _$this._filesTrashbinCapabilities ??= CoreFilesTrashbinCapabilitiesBuilder();
+  set filesTrashbinCapabilities(CoreFilesTrashbinCapabilitiesBuilder? filesTrashbinCapabilities) =>
+      _$this._filesTrashbinCapabilities = filesTrashbinCapabilities;
+
+  CoreFilesVersionsCapabilitiesBuilder? _filesVersionsCapabilities;
+  CoreFilesVersionsCapabilitiesBuilder get filesVersionsCapabilities =>
+      _$this._filesVersionsCapabilities ??= CoreFilesVersionsCapabilitiesBuilder();
+  set filesVersionsCapabilities(CoreFilesVersionsCapabilitiesBuilder? filesVersionsCapabilities) =>
+      _$this._filesVersionsCapabilities = filesVersionsCapabilities;
 
   CoreNotesCapabilitiesBuilder? _notesCapabilities;
   CoreNotesCapabilitiesBuilder get notesCapabilities => _$this._notesCapabilities ??= CoreNotesCapabilitiesBuilder();
@@ -15417,6 +18274,12 @@ class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_CapabilitiesBuil
   set provisioningApiCapabilities(CoreProvisioningApiCapabilitiesBuilder? provisioningApiCapabilities) =>
       _$this._provisioningApiCapabilities = provisioningApiCapabilities;
 
+  CoreSharebymailCapabilitiesBuilder? _sharebymailCapabilities;
+  CoreSharebymailCapabilitiesBuilder get sharebymailCapabilities =>
+      _$this._sharebymailCapabilities ??= CoreSharebymailCapabilitiesBuilder();
+  set sharebymailCapabilities(CoreSharebymailCapabilitiesBuilder? sharebymailCapabilities) =>
+      _$this._sharebymailCapabilities = sharebymailCapabilities;
+
   CoreThemingPublicCapabilitiesBuilder? _themingPublicCapabilities;
   CoreThemingPublicCapabilitiesBuilder get themingPublicCapabilities =>
       _$this._themingPublicCapabilities ??= CoreThemingPublicCapabilitiesBuilder();
@@ -15429,18 +18292,31 @@ class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_CapabilitiesBuil
   set userStatusCapabilities(CoreUserStatusCapabilitiesBuilder? userStatusCapabilities) =>
       _$this._userStatusCapabilities = userStatusCapabilities;
 
+  CoreWeatherStatusCapabilitiesBuilder? _weatherStatusCapabilities;
+  CoreWeatherStatusCapabilitiesBuilder get weatherStatusCapabilities =>
+      _$this._weatherStatusCapabilities ??= CoreWeatherStatusCapabilitiesBuilder();
+  set weatherStatusCapabilities(CoreWeatherStatusCapabilitiesBuilder? weatherStatusCapabilities) =>
+      _$this._weatherStatusCapabilities = weatherStatusCapabilities;
+
   CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_CapabilitiesBuilder();
 
   CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_CapabilitiesBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _data = $v.data;
+      _commentsCapabilities = $v.commentsCapabilities?.toBuilder();
+      _davCapabilities = $v.davCapabilities?.toBuilder();
+      _filesCapabilities = $v.filesCapabilities?.toBuilder();
       _filesSharingCapabilities = $v.filesSharingCapabilities?.toBuilder();
+      _filesTrashbinCapabilities = $v.filesTrashbinCapabilities?.toBuilder();
+      _filesVersionsCapabilities = $v.filesVersionsCapabilities?.toBuilder();
       _notesCapabilities = $v.notesCapabilities?.toBuilder();
       _notificationsCapabilities = $v.notificationsCapabilities?.toBuilder();
       _provisioningApiCapabilities = $v.provisioningApiCapabilities?.toBuilder();
+      _sharebymailCapabilities = $v.sharebymailCapabilities?.toBuilder();
       _themingPublicCapabilities = $v.themingPublicCapabilities?.toBuilder();
       _userStatusCapabilities = $v.userStatusCapabilities?.toBuilder();
+      _weatherStatusCapabilities = $v.weatherStatusCapabilities?.toBuilder();
       _$v = null;
     }
     return this;
@@ -15467,27 +18343,48 @@ class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_CapabilitiesBuil
           _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities._(
               data: BuiltValueNullFieldError.checkNotNull(
                   data, r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities', 'data'),
+              commentsCapabilities: _commentsCapabilities?.build(),
+              davCapabilities: _davCapabilities?.build(),
+              filesCapabilities: _filesCapabilities?.build(),
               filesSharingCapabilities: _filesSharingCapabilities?.build(),
+              filesTrashbinCapabilities: _filesTrashbinCapabilities?.build(),
+              filesVersionsCapabilities: _filesVersionsCapabilities?.build(),
               notesCapabilities: _notesCapabilities?.build(),
               notificationsCapabilities: _notificationsCapabilities?.build(),
               provisioningApiCapabilities: _provisioningApiCapabilities?.build(),
+              sharebymailCapabilities: _sharebymailCapabilities?.build(),
               themingPublicCapabilities: _themingPublicCapabilities?.build(),
-              userStatusCapabilities: _userStatusCapabilities?.build());
+              userStatusCapabilities: _userStatusCapabilities?.build(),
+              weatherStatusCapabilities: _weatherStatusCapabilities?.build());
     } catch (_) {
       late String _$failedField;
       try {
+        _$failedField = 'commentsCapabilities';
+        _commentsCapabilities?.build();
+        _$failedField = 'davCapabilities';
+        _davCapabilities?.build();
+        _$failedField = 'filesCapabilities';
+        _filesCapabilities?.build();
         _$failedField = 'filesSharingCapabilities';
         _filesSharingCapabilities?.build();
+        _$failedField = 'filesTrashbinCapabilities';
+        _filesTrashbinCapabilities?.build();
+        _$failedField = 'filesVersionsCapabilities';
+        _filesVersionsCapabilities?.build();
         _$failedField = 'notesCapabilities';
         _notesCapabilities?.build();
         _$failedField = 'notificationsCapabilities';
         _notificationsCapabilities?.build();
         _$failedField = 'provisioningApiCapabilities';
         _provisioningApiCapabilities?.build();
+        _$failedField = 'sharebymailCapabilities';
+        _sharebymailCapabilities?.build();
         _$failedField = 'themingPublicCapabilities';
         _themingPublicCapabilities?.build();
         _$failedField = 'userStatusCapabilities';
         _userStatusCapabilities?.build();
+        _$failedField = 'weatherStatusCapabilities';
+        _weatherStatusCapabilities?.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
             r'CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities', _$failedField, e.toString());

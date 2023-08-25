@@ -3334,6 +3334,154 @@ abstract class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Version
       _$coreOcsGetCapabilitiesResponse200ApplicationJsonOcsDataVersionSerializer;
 }
 
+abstract class CoreCommentsCapabilities_Files
+    implements Built<CoreCommentsCapabilities_Files, CoreCommentsCapabilities_FilesBuilder> {
+  factory CoreCommentsCapabilities_Files([final void Function(CoreCommentsCapabilities_FilesBuilder)? b]) =
+      _$CoreCommentsCapabilities_Files;
+
+  // coverage:ignore-start
+  const CoreCommentsCapabilities_Files._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  factory CoreCommentsCapabilities_Files.fromJson(final Map<String, dynamic> json) =>
+      _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+  bool get comments;
+  static Serializer<CoreCommentsCapabilities_Files> get serializer => _$coreCommentsCapabilitiesFilesSerializer;
+}
+
+abstract class CoreCommentsCapabilities implements Built<CoreCommentsCapabilities, CoreCommentsCapabilitiesBuilder> {
+  factory CoreCommentsCapabilities([final void Function(CoreCommentsCapabilitiesBuilder)? b]) =
+      _$CoreCommentsCapabilities;
+
+  // coverage:ignore-start
+  const CoreCommentsCapabilities._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  factory CoreCommentsCapabilities.fromJson(final Map<String, dynamic> json) =>
+      _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+  CoreCommentsCapabilities_Files get files;
+  static Serializer<CoreCommentsCapabilities> get serializer => _$coreCommentsCapabilitiesSerializer;
+}
+
+abstract class CoreDavCapabilities_Dav implements Built<CoreDavCapabilities_Dav, CoreDavCapabilities_DavBuilder> {
+  factory CoreDavCapabilities_Dav([final void Function(CoreDavCapabilities_DavBuilder)? b]) = _$CoreDavCapabilities_Dav;
+
+  // coverage:ignore-start
+  const CoreDavCapabilities_Dav._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  factory CoreDavCapabilities_Dav.fromJson(final Map<String, dynamic> json) =>
+      _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+  String get chunking;
+  String? get bulkupload;
+  static Serializer<CoreDavCapabilities_Dav> get serializer => _$coreDavCapabilitiesDavSerializer;
+}
+
+abstract class CoreDavCapabilities implements Built<CoreDavCapabilities, CoreDavCapabilitiesBuilder> {
+  factory CoreDavCapabilities([final void Function(CoreDavCapabilitiesBuilder)? b]) = _$CoreDavCapabilities;
+
+  // coverage:ignore-start
+  const CoreDavCapabilities._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  factory CoreDavCapabilities.fromJson(final Map<String, dynamic> json) =>
+      _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+  CoreDavCapabilities_Dav get dav;
+  static Serializer<CoreDavCapabilities> get serializer => _$coreDavCapabilitiesSerializer;
+}
+
+abstract class CoreFilesCapabilities_Files_DirectEditing
+    implements Built<CoreFilesCapabilities_Files_DirectEditing, CoreFilesCapabilities_Files_DirectEditingBuilder> {
+  factory CoreFilesCapabilities_Files_DirectEditing([
+    final void Function(CoreFilesCapabilities_Files_DirectEditingBuilder)? b,
+  ]) = _$CoreFilesCapabilities_Files_DirectEditing;
+
+  // coverage:ignore-start
+  const CoreFilesCapabilities_Files_DirectEditing._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  factory CoreFilesCapabilities_Files_DirectEditing.fromJson(final Map<String, dynamic> json) =>
+      _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+  String get url;
+  String get etag;
+  bool get supportsFileId;
+  static Serializer<CoreFilesCapabilities_Files_DirectEditing> get serializer =>
+      _$coreFilesCapabilitiesFilesDirectEditingSerializer;
+}
+
+abstract class CoreFilesCapabilities_Files
+    implements Built<CoreFilesCapabilities_Files, CoreFilesCapabilities_FilesBuilder> {
+  factory CoreFilesCapabilities_Files([final void Function(CoreFilesCapabilities_FilesBuilder)? b]) =
+      _$CoreFilesCapabilities_Files;
+
+  // coverage:ignore-start
+  const CoreFilesCapabilities_Files._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  factory CoreFilesCapabilities_Files.fromJson(final Map<String, dynamic> json) =>
+      _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+  bool get bigfilechunking;
+  @BuiltValueField(wireName: 'blacklisted_files')
+  BuiltList<JsonObject> get blacklistedFiles;
+  CoreFilesCapabilities_Files_DirectEditing get directEditing;
+  static Serializer<CoreFilesCapabilities_Files> get serializer => _$coreFilesCapabilitiesFilesSerializer;
+}
+
+abstract class CoreFilesCapabilities implements Built<CoreFilesCapabilities, CoreFilesCapabilitiesBuilder> {
+  factory CoreFilesCapabilities([final void Function(CoreFilesCapabilitiesBuilder)? b]) = _$CoreFilesCapabilities;
+
+  // coverage:ignore-start
+  const CoreFilesCapabilities._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  factory CoreFilesCapabilities.fromJson(final Map<String, dynamic> json) =>
+      _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+  CoreFilesCapabilities_Files get files;
+  static Serializer<CoreFilesCapabilities> get serializer => _$coreFilesCapabilitiesSerializer;
+}
+
 abstract class CoreFilesSharingCapabilities_FilesSharing_Public_Password
     implements
         Built<CoreFilesSharingCapabilities_FilesSharing_Public_Password,
@@ -3751,6 +3899,96 @@ abstract class CoreFilesSharingCapabilities
   static Serializer<CoreFilesSharingCapabilities> get serializer => _$coreFilesSharingCapabilitiesSerializer;
 }
 
+abstract class CoreFilesTrashbinCapabilities_Files
+    implements Built<CoreFilesTrashbinCapabilities_Files, CoreFilesTrashbinCapabilities_FilesBuilder> {
+  factory CoreFilesTrashbinCapabilities_Files([final void Function(CoreFilesTrashbinCapabilities_FilesBuilder)? b]) =
+      _$CoreFilesTrashbinCapabilities_Files;
+
+  // coverage:ignore-start
+  const CoreFilesTrashbinCapabilities_Files._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  factory CoreFilesTrashbinCapabilities_Files.fromJson(final Map<String, dynamic> json) =>
+      _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+  bool get undelete;
+  static Serializer<CoreFilesTrashbinCapabilities_Files> get serializer =>
+      _$coreFilesTrashbinCapabilitiesFilesSerializer;
+}
+
+abstract class CoreFilesTrashbinCapabilities
+    implements Built<CoreFilesTrashbinCapabilities, CoreFilesTrashbinCapabilitiesBuilder> {
+  factory CoreFilesTrashbinCapabilities([final void Function(CoreFilesTrashbinCapabilitiesBuilder)? b]) =
+      _$CoreFilesTrashbinCapabilities;
+
+  // coverage:ignore-start
+  const CoreFilesTrashbinCapabilities._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  factory CoreFilesTrashbinCapabilities.fromJson(final Map<String, dynamic> json) =>
+      _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+  CoreFilesTrashbinCapabilities_Files get files;
+  static Serializer<CoreFilesTrashbinCapabilities> get serializer => _$coreFilesTrashbinCapabilitiesSerializer;
+}
+
+abstract class CoreFilesVersionsCapabilities_Files
+    implements Built<CoreFilesVersionsCapabilities_Files, CoreFilesVersionsCapabilities_FilesBuilder> {
+  factory CoreFilesVersionsCapabilities_Files([final void Function(CoreFilesVersionsCapabilities_FilesBuilder)? b]) =
+      _$CoreFilesVersionsCapabilities_Files;
+
+  // coverage:ignore-start
+  const CoreFilesVersionsCapabilities_Files._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  factory CoreFilesVersionsCapabilities_Files.fromJson(final Map<String, dynamic> json) =>
+      _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+  bool get versioning;
+  @BuiltValueField(wireName: 'version_labeling')
+  bool get versionLabeling;
+  @BuiltValueField(wireName: 'version_deletion')
+  bool get versionDeletion;
+  static Serializer<CoreFilesVersionsCapabilities_Files> get serializer =>
+      _$coreFilesVersionsCapabilitiesFilesSerializer;
+}
+
+abstract class CoreFilesVersionsCapabilities
+    implements Built<CoreFilesVersionsCapabilities, CoreFilesVersionsCapabilitiesBuilder> {
+  factory CoreFilesVersionsCapabilities([final void Function(CoreFilesVersionsCapabilitiesBuilder)? b]) =
+      _$CoreFilesVersionsCapabilities;
+
+  // coverage:ignore-start
+  const CoreFilesVersionsCapabilities._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  factory CoreFilesVersionsCapabilities.fromJson(final Map<String, dynamic> json) =>
+      _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+  CoreFilesVersionsCapabilities_Files get files;
+  static Serializer<CoreFilesVersionsCapabilities> get serializer => _$coreFilesVersionsCapabilitiesSerializer;
+}
+
 abstract class CoreNotesCapabilities_Notes
     implements Built<CoreNotesCapabilities_Notes, CoreNotesCapabilities_NotesBuilder> {
   factory CoreNotesCapabilities_Notes([final void Function(CoreNotesCapabilities_NotesBuilder)? b]) =
@@ -3893,6 +4131,162 @@ abstract class CoreProvisioningApiCapabilities
   static Serializer<CoreProvisioningApiCapabilities> get serializer => _$coreProvisioningApiCapabilitiesSerializer;
 }
 
+abstract class CoreSharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop
+    implements
+        Built<CoreSharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop,
+            CoreSharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDropBuilder> {
+  factory CoreSharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop([
+    final void Function(CoreSharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDropBuilder)? b,
+  ]) = _$CoreSharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop;
+
+  // coverage:ignore-start
+  const CoreSharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  factory CoreSharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop.fromJson(
+    final Map<String, dynamic> json,
+  ) =>
+      _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+  bool get enabled;
+  static Serializer<CoreSharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop> get serializer =>
+      _$coreSharebymailCapabilitiesFilesSharingSharebymailUploadFilesDropSerializer;
+}
+
+abstract class CoreSharebymailCapabilities_FilesSharing_Sharebymail_Password
+    implements
+        Built<CoreSharebymailCapabilities_FilesSharing_Sharebymail_Password,
+            CoreSharebymailCapabilities_FilesSharing_Sharebymail_PasswordBuilder> {
+  factory CoreSharebymailCapabilities_FilesSharing_Sharebymail_Password([
+    final void Function(CoreSharebymailCapabilities_FilesSharing_Sharebymail_PasswordBuilder)? b,
+  ]) = _$CoreSharebymailCapabilities_FilesSharing_Sharebymail_Password;
+
+  // coverage:ignore-start
+  const CoreSharebymailCapabilities_FilesSharing_Sharebymail_Password._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  factory CoreSharebymailCapabilities_FilesSharing_Sharebymail_Password.fromJson(final Map<String, dynamic> json) =>
+      _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+  bool get enabled;
+  bool get enforced;
+  static Serializer<CoreSharebymailCapabilities_FilesSharing_Sharebymail_Password> get serializer =>
+      _$coreSharebymailCapabilitiesFilesSharingSharebymailPasswordSerializer;
+}
+
+abstract class CoreSharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate
+    implements
+        Built<CoreSharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate,
+            CoreSharebymailCapabilities_FilesSharing_Sharebymail_ExpireDateBuilder> {
+  factory CoreSharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate([
+    final void Function(CoreSharebymailCapabilities_FilesSharing_Sharebymail_ExpireDateBuilder)? b,
+  ]) = _$CoreSharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate;
+
+  // coverage:ignore-start
+  const CoreSharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  factory CoreSharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate.fromJson(final Map<String, dynamic> json) =>
+      _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+  bool get enabled;
+  bool get enforced;
+  static Serializer<CoreSharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate> get serializer =>
+      _$coreSharebymailCapabilitiesFilesSharingSharebymailExpireDateSerializer;
+}
+
+abstract class CoreSharebymailCapabilities_FilesSharing_Sharebymail
+    implements
+        Built<CoreSharebymailCapabilities_FilesSharing_Sharebymail,
+            CoreSharebymailCapabilities_FilesSharing_SharebymailBuilder> {
+  factory CoreSharebymailCapabilities_FilesSharing_Sharebymail([
+    final void Function(CoreSharebymailCapabilities_FilesSharing_SharebymailBuilder)? b,
+  ]) = _$CoreSharebymailCapabilities_FilesSharing_Sharebymail;
+
+  // coverage:ignore-start
+  const CoreSharebymailCapabilities_FilesSharing_Sharebymail._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  factory CoreSharebymailCapabilities_FilesSharing_Sharebymail.fromJson(final Map<String, dynamic> json) =>
+      _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+  bool get enabled;
+  @BuiltValueField(wireName: 'send_password_by_mail')
+  bool get sendPasswordByMail;
+  @BuiltValueField(wireName: 'upload_files_drop')
+  CoreSharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop get uploadFilesDrop;
+  CoreSharebymailCapabilities_FilesSharing_Sharebymail_Password get password;
+  @BuiltValueField(wireName: 'expire_date')
+  CoreSharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate get expireDate;
+  static Serializer<CoreSharebymailCapabilities_FilesSharing_Sharebymail> get serializer =>
+      _$coreSharebymailCapabilitiesFilesSharingSharebymailSerializer;
+}
+
+abstract class CoreSharebymailCapabilities_FilesSharing
+    implements Built<CoreSharebymailCapabilities_FilesSharing, CoreSharebymailCapabilities_FilesSharingBuilder> {
+  factory CoreSharebymailCapabilities_FilesSharing([
+    final void Function(CoreSharebymailCapabilities_FilesSharingBuilder)? b,
+  ]) = _$CoreSharebymailCapabilities_FilesSharing;
+
+  // coverage:ignore-start
+  const CoreSharebymailCapabilities_FilesSharing._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  factory CoreSharebymailCapabilities_FilesSharing.fromJson(final Map<String, dynamic> json) =>
+      _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+  CoreSharebymailCapabilities_FilesSharing_Sharebymail get sharebymail;
+  static Serializer<CoreSharebymailCapabilities_FilesSharing> get serializer =>
+      _$coreSharebymailCapabilitiesFilesSharingSerializer;
+}
+
+abstract class CoreSharebymailCapabilities
+    implements Built<CoreSharebymailCapabilities, CoreSharebymailCapabilitiesBuilder> {
+  factory CoreSharebymailCapabilities([final void Function(CoreSharebymailCapabilitiesBuilder)? b]) =
+      _$CoreSharebymailCapabilities;
+
+  // coverage:ignore-start
+  const CoreSharebymailCapabilities._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  factory CoreSharebymailCapabilities.fromJson(final Map<String, dynamic> json) =>
+      _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+  @BuiltValueField(wireName: 'files_sharing')
+  CoreSharebymailCapabilities_FilesSharing get filesSharing;
+  static Serializer<CoreSharebymailCapabilities> get serializer => _$coreSharebymailCapabilitiesSerializer;
+}
+
 abstract class CoreThemingPublicCapabilities_Theming
     implements Built<CoreThemingPublicCapabilities_Theming, CoreThemingPublicCapabilities_ThemingBuilder> {
   factory CoreThemingPublicCapabilities_Theming([
@@ -4004,6 +4398,51 @@ abstract class CoreUserStatusCapabilities
   static Serializer<CoreUserStatusCapabilities> get serializer => _$coreUserStatusCapabilitiesSerializer;
 }
 
+abstract class CoreWeatherStatusCapabilities_WeatherStatus
+    implements Built<CoreWeatherStatusCapabilities_WeatherStatus, CoreWeatherStatusCapabilities_WeatherStatusBuilder> {
+  factory CoreWeatherStatusCapabilities_WeatherStatus([
+    final void Function(CoreWeatherStatusCapabilities_WeatherStatusBuilder)? b,
+  ]) = _$CoreWeatherStatusCapabilities_WeatherStatus;
+
+  // coverage:ignore-start
+  const CoreWeatherStatusCapabilities_WeatherStatus._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  factory CoreWeatherStatusCapabilities_WeatherStatus.fromJson(final Map<String, dynamic> json) =>
+      _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+  bool get enabled;
+  static Serializer<CoreWeatherStatusCapabilities_WeatherStatus> get serializer =>
+      _$coreWeatherStatusCapabilitiesWeatherStatusSerializer;
+}
+
+abstract class CoreWeatherStatusCapabilities
+    implements Built<CoreWeatherStatusCapabilities, CoreWeatherStatusCapabilitiesBuilder> {
+  factory CoreWeatherStatusCapabilities([final void Function(CoreWeatherStatusCapabilitiesBuilder)? b]) =
+      _$CoreWeatherStatusCapabilities;
+
+  // coverage:ignore-start
+  const CoreWeatherStatusCapabilities._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  factory CoreWeatherStatusCapabilities.fromJson(final Map<String, dynamic> json) =>
+      _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+  @BuiltValueField(wireName: 'weather_status')
+  CoreWeatherStatusCapabilities_WeatherStatus get weatherStatus;
+  static Serializer<CoreWeatherStatusCapabilities> get serializer => _$coreWeatherStatusCapabilitiesSerializer;
+}
+
 abstract class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities
     implements
         Built<CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities,
@@ -4017,12 +4456,19 @@ abstract class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabil
   const CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities._();
 
   JsonObject get data;
+  CoreCommentsCapabilities? get commentsCapabilities;
+  CoreDavCapabilities? get davCapabilities;
+  CoreFilesCapabilities? get filesCapabilities;
   CoreFilesSharingCapabilities? get filesSharingCapabilities;
+  CoreFilesTrashbinCapabilities? get filesTrashbinCapabilities;
+  CoreFilesVersionsCapabilities? get filesVersionsCapabilities;
   CoreNotesCapabilities? get notesCapabilities;
   CoreNotificationsCapabilities? get notificationsCapabilities;
   CoreProvisioningApiCapabilities? get provisioningApiCapabilities;
+  CoreSharebymailCapabilities? get sharebymailCapabilities;
   CoreThemingPublicCapabilities? get themingPublicCapabilities;
   CoreUserStatusCapabilities? get userStatusCapabilities;
+  CoreWeatherStatusCapabilities? get weatherStatusCapabilities;
   static CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities fromJson(final Object json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-start
@@ -4061,10 +4507,43 @@ class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_CapabilitiesSe
     final result = CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_CapabilitiesBuilder()
       ..data = JsonObject(data);
     try {
+      result._commentsCapabilities = (_jsonSerializers.deserialize(
+        data,
+        specifiedType: const FullType(CoreCommentsCapabilities),
+      )! as CoreCommentsCapabilities)
+          .toBuilder();
+    } catch (_) {}
+    try {
+      result._davCapabilities = (_jsonSerializers.deserialize(data, specifiedType: const FullType(CoreDavCapabilities))!
+              as CoreDavCapabilities)
+          .toBuilder();
+    } catch (_) {}
+    try {
+      result._filesCapabilities = (_jsonSerializers.deserialize(
+        data,
+        specifiedType: const FullType(CoreFilesCapabilities),
+      )! as CoreFilesCapabilities)
+          .toBuilder();
+    } catch (_) {}
+    try {
       result._filesSharingCapabilities = (_jsonSerializers.deserialize(
         data,
         specifiedType: const FullType(CoreFilesSharingCapabilities),
       )! as CoreFilesSharingCapabilities)
+          .toBuilder();
+    } catch (_) {}
+    try {
+      result._filesTrashbinCapabilities = (_jsonSerializers.deserialize(
+        data,
+        specifiedType: const FullType(CoreFilesTrashbinCapabilities),
+      )! as CoreFilesTrashbinCapabilities)
+          .toBuilder();
+    } catch (_) {}
+    try {
+      result._filesVersionsCapabilities = (_jsonSerializers.deserialize(
+        data,
+        specifiedType: const FullType(CoreFilesVersionsCapabilities),
+      )! as CoreFilesVersionsCapabilities)
           .toBuilder();
     } catch (_) {}
     try {
@@ -4089,6 +4568,13 @@ class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_CapabilitiesSe
           .toBuilder();
     } catch (_) {}
     try {
+      result._sharebymailCapabilities = (_jsonSerializers.deserialize(
+        data,
+        specifiedType: const FullType(CoreSharebymailCapabilities),
+      )! as CoreSharebymailCapabilities)
+          .toBuilder();
+    } catch (_) {}
+    try {
       result._themingPublicCapabilities = (_jsonSerializers.deserialize(
         data,
         specifiedType: const FullType(CoreThemingPublicCapabilities),
@@ -4102,14 +4588,28 @@ class _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_CapabilitiesSe
       )! as CoreUserStatusCapabilities)
           .toBuilder();
     } catch (_) {}
+    try {
+      result._weatherStatusCapabilities = (_jsonSerializers.deserialize(
+        data,
+        specifiedType: const FullType(CoreWeatherStatusCapabilities),
+      )! as CoreWeatherStatusCapabilities)
+          .toBuilder();
+    } catch (_) {}
     assert(
       [
+        result._commentsCapabilities,
+        result._davCapabilities,
+        result._filesCapabilities,
         result._filesSharingCapabilities,
+        result._filesTrashbinCapabilities,
+        result._filesVersionsCapabilities,
         result._notesCapabilities,
         result._notificationsCapabilities,
         result._provisioningApiCapabilities,
+        result._sharebymailCapabilities,
         result._themingPublicCapabilities,
         result._userStatusCapabilities,
+        result._weatherStatusCapabilities,
       ].where((final x) => x != null).isNotEmpty,
       'Need anyOf for ${result._data}',
     );
@@ -6097,6 +6597,24 @@ final Serializers _serializers = (Serializers().toBuilder()
         CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities.new,
       )
       ..add(CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities.serializer)
+      ..addBuilderFactory(const FullType(CoreCommentsCapabilities), CoreCommentsCapabilities.new)
+      ..add(CoreCommentsCapabilities.serializer)
+      ..addBuilderFactory(const FullType(CoreCommentsCapabilities_Files), CoreCommentsCapabilities_Files.new)
+      ..add(CoreCommentsCapabilities_Files.serializer)
+      ..addBuilderFactory(const FullType(CoreDavCapabilities), CoreDavCapabilities.new)
+      ..add(CoreDavCapabilities.serializer)
+      ..addBuilderFactory(const FullType(CoreDavCapabilities_Dav), CoreDavCapabilities_Dav.new)
+      ..add(CoreDavCapabilities_Dav.serializer)
+      ..addBuilderFactory(const FullType(CoreFilesCapabilities), CoreFilesCapabilities.new)
+      ..add(CoreFilesCapabilities.serializer)
+      ..addBuilderFactory(const FullType(CoreFilesCapabilities_Files), CoreFilesCapabilities_Files.new)
+      ..add(CoreFilesCapabilities_Files.serializer)
+      ..addBuilderFactory(const FullType(BuiltList, [FullType(JsonObject)]), ListBuilder<JsonObject>.new)
+      ..addBuilderFactory(
+        const FullType(CoreFilesCapabilities_Files_DirectEditing),
+        CoreFilesCapabilities_Files_DirectEditing.new,
+      )
+      ..add(CoreFilesCapabilities_Files_DirectEditing.serializer)
       ..addBuilderFactory(const FullType(CoreFilesSharingCapabilities), CoreFilesSharingCapabilities.new)
       ..add(CoreFilesSharingCapabilities.serializer)
       ..addBuilderFactory(
@@ -6169,6 +6687,14 @@ final Serializers _serializers = (Serializers().toBuilder()
         CoreFilesSharingCapabilities_FilesSharing_Sharee.new,
       )
       ..add(CoreFilesSharingCapabilities_FilesSharing_Sharee.serializer)
+      ..addBuilderFactory(const FullType(CoreFilesTrashbinCapabilities), CoreFilesTrashbinCapabilities.new)
+      ..add(CoreFilesTrashbinCapabilities.serializer)
+      ..addBuilderFactory(const FullType(CoreFilesTrashbinCapabilities_Files), CoreFilesTrashbinCapabilities_Files.new)
+      ..add(CoreFilesTrashbinCapabilities_Files.serializer)
+      ..addBuilderFactory(const FullType(CoreFilesVersionsCapabilities), CoreFilesVersionsCapabilities.new)
+      ..add(CoreFilesVersionsCapabilities.serializer)
+      ..addBuilderFactory(const FullType(CoreFilesVersionsCapabilities_Files), CoreFilesVersionsCapabilities_Files.new)
+      ..add(CoreFilesVersionsCapabilities_Files.serializer)
       ..addBuilderFactory(const FullType(CoreNotesCapabilities), CoreNotesCapabilities.new)
       ..add(CoreNotesCapabilities.serializer)
       ..addBuilderFactory(const FullType(CoreNotesCapabilities_Notes), CoreNotesCapabilities_Notes.new)
@@ -6188,6 +6714,33 @@ final Serializers _serializers = (Serializers().toBuilder()
         CoreProvisioningApiCapabilities_ProvisioningApi.new,
       )
       ..add(CoreProvisioningApiCapabilities_ProvisioningApi.serializer)
+      ..addBuilderFactory(const FullType(CoreSharebymailCapabilities), CoreSharebymailCapabilities.new)
+      ..add(CoreSharebymailCapabilities.serializer)
+      ..addBuilderFactory(
+        const FullType(CoreSharebymailCapabilities_FilesSharing),
+        CoreSharebymailCapabilities_FilesSharing.new,
+      )
+      ..add(CoreSharebymailCapabilities_FilesSharing.serializer)
+      ..addBuilderFactory(
+        const FullType(CoreSharebymailCapabilities_FilesSharing_Sharebymail),
+        CoreSharebymailCapabilities_FilesSharing_Sharebymail.new,
+      )
+      ..add(CoreSharebymailCapabilities_FilesSharing_Sharebymail.serializer)
+      ..addBuilderFactory(
+        const FullType(CoreSharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop),
+        CoreSharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop.new,
+      )
+      ..add(CoreSharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop.serializer)
+      ..addBuilderFactory(
+        const FullType(CoreSharebymailCapabilities_FilesSharing_Sharebymail_Password),
+        CoreSharebymailCapabilities_FilesSharing_Sharebymail_Password.new,
+      )
+      ..add(CoreSharebymailCapabilities_FilesSharing_Sharebymail_Password.serializer)
+      ..addBuilderFactory(
+        const FullType(CoreSharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate),
+        CoreSharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate.new,
+      )
+      ..add(CoreSharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate.serializer)
       ..addBuilderFactory(const FullType(CoreThemingPublicCapabilities), CoreThemingPublicCapabilities.new)
       ..add(CoreThemingPublicCapabilities.serializer)
       ..addBuilderFactory(
@@ -6202,6 +6755,13 @@ final Serializers _serializers = (Serializers().toBuilder()
         CoreUserStatusCapabilities_UserStatus.new,
       )
       ..add(CoreUserStatusCapabilities_UserStatus.serializer)
+      ..addBuilderFactory(const FullType(CoreWeatherStatusCapabilities), CoreWeatherStatusCapabilities.new)
+      ..add(CoreWeatherStatusCapabilities.serializer)
+      ..addBuilderFactory(
+        const FullType(CoreWeatherStatusCapabilities_WeatherStatus),
+        CoreWeatherStatusCapabilities_WeatherStatus.new,
+      )
+      ..add(CoreWeatherStatusCapabilities_WeatherStatus.serializer)
       ..addBuilderFactory(
         const FullType(CoreProfileApiSetVisibilityResponse200ApplicationJson),
         CoreProfileApiSetVisibilityResponse200ApplicationJson.new,

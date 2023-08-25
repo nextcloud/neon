@@ -510,6 +510,93 @@
           }
         }
       },
+      "CommentsCapabilities": {
+        "type": "object",
+        "required": [
+          "files"
+        ],
+        "properties": {
+          "files": {
+            "type": "object",
+            "required": [
+              "comments"
+            ],
+            "properties": {
+              "comments": {
+                "type": "boolean"
+              }
+            }
+          }
+        }
+      },
+      "DavCapabilities": {
+        "type": "object",
+        "required": [
+          "dav"
+        ],
+        "properties": {
+          "dav": {
+            "type": "object",
+            "required": [
+              "chunking"
+            ],
+            "properties": {
+              "chunking": {
+                "type": "string"
+              },
+              "bulkupload": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      },
+      "FilesCapabilities": {
+        "type": "object",
+        "required": [
+          "files"
+        ],
+        "properties": {
+          "files": {
+            "type": "object",
+            "required": [
+              "bigfilechunking",
+              "blacklisted_files",
+              "directEditing"
+            ],
+            "properties": {
+              "bigfilechunking": {
+                "type": "boolean"
+              },
+              "blacklisted_files": {
+                "type": "array",
+                "items": {
+                  "type": "object"
+                }
+              },
+              "directEditing": {
+                "type": "object",
+                "required": [
+                  "url",
+                  "etag",
+                  "supportsFileId"
+                ],
+                "properties": {
+                  "url": {
+                    "type": "string"
+                  },
+                  "etag": {
+                    "type": "string"
+                  },
+                  "supportsFileId": {
+                    "type": "boolean"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
       "FilesSharingCapabilities": {
         "type": "object",
         "required": [
@@ -734,6 +821,52 @@
           }
         }
       },
+      "FilesTrashbinCapabilities": {
+        "type": "object",
+        "required": [
+          "files"
+        ],
+        "properties": {
+          "files": {
+            "type": "object",
+            "required": [
+              "undelete"
+            ],
+            "properties": {
+              "undelete": {
+                "type": "boolean"
+              }
+            }
+          }
+        }
+      },
+      "FilesVersionsCapabilities": {
+        "type": "object",
+        "required": [
+          "files"
+        ],
+        "properties": {
+          "files": {
+            "type": "object",
+            "required": [
+              "versioning",
+              "version_labeling",
+              "version_deletion"
+            ],
+            "properties": {
+              "versioning": {
+                "type": "boolean"
+              },
+              "version_labeling": {
+                "type": "boolean"
+              },
+              "version_deletion": {
+                "type": "boolean"
+              }
+            }
+          }
+        }
+      },
       "NotesCapabilities": {
         "type": "object",
         "required": [
@@ -816,6 +949,81 @@
               },
               "AccountPropertyScopesPublishedEnabled": {
                 "type": "boolean"
+              }
+            }
+          }
+        }
+      },
+      "SharebymailCapabilities": {
+        "type": "object",
+        "required": [
+          "files_sharing"
+        ],
+        "properties": {
+          "files_sharing": {
+            "type": "object",
+            "required": [
+              "sharebymail"
+            ],
+            "properties": {
+              "sharebymail": {
+                "type": "object",
+                "required": [
+                  "enabled",
+                  "send_password_by_mail",
+                  "upload_files_drop",
+                  "password",
+                  "expire_date"
+                ],
+                "properties": {
+                  "enabled": {
+                    "type": "boolean"
+                  },
+                  "send_password_by_mail": {
+                    "type": "boolean"
+                  },
+                  "upload_files_drop": {
+                    "type": "object",
+                    "required": [
+                      "enabled"
+                    ],
+                    "properties": {
+                      "enabled": {
+                        "type": "boolean"
+                      }
+                    }
+                  },
+                  "password": {
+                    "type": "object",
+                    "required": [
+                      "enabled",
+                      "enforced"
+                    ],
+                    "properties": {
+                      "enabled": {
+                        "type": "boolean"
+                      },
+                      "enforced": {
+                        "type": "boolean"
+                      }
+                    }
+                  },
+                  "expire_date": {
+                    "type": "object",
+                    "required": [
+                      "enabled",
+                      "enforced"
+                    ],
+                    "properties": {
+                      "enabled": {
+                        "type": "boolean"
+                      },
+                      "enforced": {
+                        "type": "boolean"
+                      }
+                    }
+                  }
+                }
               }
             }
           }
@@ -913,6 +1121,25 @@
                 "type": "boolean"
               },
               "supports_emoji": {
+                "type": "boolean"
+              }
+            }
+          }
+        }
+      },
+      "WeatherStatusCapabilities": {
+        "type": "object",
+        "required": [
+          "weather_status"
+        ],
+        "properties": {
+          "weather_status": {
+            "type": "object",
+            "required": [
+              "enabled"
+            ],
+            "properties": {
+              "enabled": {
                 "type": "boolean"
               }
             }
@@ -1646,7 +1873,22 @@
                               },
                               "anyOf": [
                                 {
+                                  "$ref": "#/components/schemas/CommentsCapabilities"
+                                },
+                                {
+                                  "$ref": "#/components/schemas/DavCapabilities"
+                                },
+                                {
+                                  "$ref": "#/components/schemas/FilesCapabilities"
+                                },
+                                {
                                   "$ref": "#/components/schemas/FilesSharingCapabilities"
+                                },
+                                {
+                                  "$ref": "#/components/schemas/FilesTrashbinCapabilities"
+                                },
+                                {
+                                  "$ref": "#/components/schemas/FilesVersionsCapabilities"
                                 },
                                 {
                                   "$ref": "#/components/schemas/NotesCapabilities"
@@ -1658,10 +1900,16 @@
                                   "$ref": "#/components/schemas/ProvisioningApiCapabilities"
                                 },
                                 {
+                                  "$ref": "#/components/schemas/SharebymailCapabilities"
+                                },
+                                {
                                   "$ref": "#/components/schemas/ThemingPublicCapabilities"
                                 },
                                 {
                                   "$ref": "#/components/schemas/UserStatusCapabilities"
+                                },
+                                {
+                                  "$ref": "#/components/schemas/WeatherStatusCapabilities"
                                 }
                               ]
                             }

@@ -45,12 +45,19 @@ void main() {
       final capabilities = await client.core.ocs.getCapabilities();
       expect(capabilities.ocs.data.version.major, coreSupportedVersion);
       expect(capabilities.ocs.data.version.string, startsWith('$coreSupportedVersion.'));
+      expect(capabilities.ocs.data.capabilities.commentsCapabilities, isNotNull);
+      expect(capabilities.ocs.data.capabilities.davCapabilities, isNotNull);
+      expect(capabilities.ocs.data.capabilities.filesCapabilities, isNotNull);
       expect(capabilities.ocs.data.capabilities.filesSharingCapabilities, isNotNull);
+      expect(capabilities.ocs.data.capabilities.filesTrashbinCapabilities, isNotNull);
+      expect(capabilities.ocs.data.capabilities.filesVersionsCapabilities, isNotNull);
       expect(capabilities.ocs.data.capabilities.notesCapabilities, isNotNull);
       expect(capabilities.ocs.data.capabilities.notificationsCapabilities, isNotNull);
       expect(capabilities.ocs.data.capabilities.provisioningApiCapabilities, isNotNull);
+      expect(capabilities.ocs.data.capabilities.sharebymailCapabilities, isNotNull);
       expect(capabilities.ocs.data.capabilities.themingPublicCapabilities, isNotNull);
       expect(capabilities.ocs.data.capabilities.userStatusCapabilities, isNotNull);
+      expect(capabilities.ocs.data.capabilities.weatherStatusCapabilities, isNotNull);
     });
 
     test('Get navigation apps', () async {
