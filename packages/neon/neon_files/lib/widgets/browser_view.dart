@@ -66,112 +66,116 @@ class _FilesBrowserViewState extends State<FilesBrowserView> {
                         (FilesSortProperty.isFolder, SortBoxOrder.ascending),
                       },
                       input: files.data,
-                      builder: (final context, final sorted) => NeonListView<Widget>(
-                        scrollKey: 'files-${pathSnapshot.requireData.join('/')}',
-                        withFloatingActionButton: true,
-                        items: [
-                          for (final uploadTask in tasksSnapshot.requireData.whereType<FilesUploadTask>().where(
-                                (final task) =>
-                                    sorted.where((final file) => _pathMatchesFile(task.path, file.name)).isEmpty,
-                              )) ...[
-                            FileListTile(
-                              bloc: widget.filesBloc,
-                              browserBloc: widget.bloc,
-                              details: FileDetails.fromUploadTask(
-                                task: uploadTask,
-                              ),
-                              mode: widget.mode,
-                            ),
-                          ],
-                          for (final file in sorted) ...[
-                            if (widget.mode != FilesBrowserMode.selectDirectory || file.isDirectory) ...[
-                              Builder(
-                                builder: (final context) {
-                                  final matchingTask = tasksSnapshot.requireData
-                                      .firstWhereOrNull((final task) => _pathMatchesFile(task.path, file.name));
-
-                                  final details = matchingTask != null
-                                      ? FileDetails.fromTask(
-                                          task: matchingTask,
-                                          file: file,
-                                        )
-                                      : FileDetails.fromWebDav(
-                                          file: file,
-                                          path: widget.bloc.path.value,
-                                        );
-
-                                  return FileListTile(
-                                    bloc: widget.filesBloc,
-                                    browserBloc: widget.bloc,
-                                    details: details,
-                                    mode: widget.mode,
-                                  );
-                                },
+                      builder: (final context, final sorted) => ValueListenableBuilder(
+                        valueListenable: widget.bloc.options.showHiddenFilesOption,
+                        builder: (final context, final showHiddenFiles, final _) => NeonListView<Widget>(
+                          scrollKey: 'files-${pathSnapshot.requireData.join('/')}',
+                          withFloatingActionButton: true,
+                          items: [
+                            for (final uploadTask in tasksSnapshot.requireData.whereType<FilesUploadTask>().where(
+                                  (final task) =>
+                                      sorted.where((final file) => _pathMatchesFile(task.path, file.name)).isEmpty,
+                                )) ...[
+                              FileListTile(
+                                bloc: widget.filesBloc,
+                                browserBloc: widget.bloc,
+                                details: FileDetails.fromUploadTask(
+                                  task: uploadTask,
+                                ),
+                                mode: widget.mode,
                               ),
                             ],
+                            for (final file in sorted) ...[
+                              if ((widget.mode != FilesBrowserMode.selectDirectory || file.isDirectory) &&
+                                  (!file.isHidden || showHiddenFiles)) ...[
+                                Builder(
+                                  builder: (final context) {
+                                    final matchingTask = tasksSnapshot.requireData
+                                        .firstWhereOrNull((final task) => _pathMatchesFile(task.path, file.name));
+
+                                    final details = matchingTask != null
+                                        ? FileDetails.fromTask(
+                                            task: matchingTask,
+                                            file: file,
+                                          )
+                                        : FileDetails.fromWebDav(
+                                            file: file,
+                                            path: widget.bloc.path.value,
+                                          );
+
+                                    return FileListTile(
+                                      bloc: widget.filesBloc,
+                                      browserBloc: widget.bloc,
+                                      details: details,
+                                      mode: widget.mode,
+                                    );
+                                  },
+                                ),
+                              ],
+                            ],
                           ],
-                        ],
-                        isLoading: files.isLoading,
-                        error: files.error,
-                        onRefresh: widget.bloc.refresh,
-                        builder: (final context, final widget) => widget,
-                        topScrollingChildren: [
-                          Align(
-                            alignment: Alignment.topLeft,
-                            child: Container(
-                              margin: const EdgeInsets.symmetric(
-                                horizontal: 10,
-                              ),
-                              child: Wrap(
-                                crossAxisAlignment: WrapCrossAlignment.center,
-                                children: <Widget>[
-                                  IconButton(
-                                    padding: EdgeInsets.zero,
-                                    visualDensity: const VisualDensity(
-                                      horizontal: VisualDensity.minimumDensity,
-                                      vertical: VisualDensity.minimumDensity,
-                                    ),
-                                    tooltip: AppLocalizations.of(context).goToPath(''),
-                                    icon: const Icon(
-                                      Icons.house,
-                                      size: 30,
-                                    ),
-                                    onPressed: () {
-                                      widget.bloc.setPath([]);
-                                    },
-                                  ),
-                                  for (var i = 0; i < pathSnapshot.requireData.length; i++) ...[
-                                    Builder(
-                                      builder: (final context) {
-                                        final path = pathSnapshot.requireData.sublist(0, i + 1);
-                                        return Tooltip(
-                                          message: AppLocalizations.of(context).goToPath(path.join('/')),
-                                          excludeFromSemantics: true,
-                                          child: TextButton(
-                                            onPressed: () {
-                                              widget.bloc.setPath(path);
-                                            },
-                                            child: Text(
-                                              pathSnapshot.requireData[i],
-                                              semanticsLabel: AppLocalizations.of(context).goToPath(path.join('/')),
-                                            ),
-                                          ),
-                                        );
-                                      },
-                                    ),
-                                  ],
-                                ]
-                                    .intersperse(
-                                      const Icon(
-                                        Icons.keyboard_arrow_right,
+                          isLoading: files.isLoading,
+                          error: files.error,
+                          onRefresh: widget.bloc.refresh,
+                          builder: (final context, final widget) => widget,
+                          topScrollingChildren: [
+                            Align(
+                              alignment: Alignment.topLeft,
+                              child: Container(
+                                margin: const EdgeInsets.symmetric(
+                                  horizontal: 10,
+                                ),
+                                child: Wrap(
+                                  crossAxisAlignment: WrapCrossAlignment.center,
+                                  children: <Widget>[
+                                    IconButton(
+                                      padding: EdgeInsets.zero,
+                                      visualDensity: const VisualDensity(
+                                        horizontal: VisualDensity.minimumDensity,
+                                        vertical: VisualDensity.minimumDensity,
+                                      ),
+                                      tooltip: AppLocalizations.of(context).goToPath(''),
+                                      icon: const Icon(
+                                        Icons.house,
                                         size: 30,
                                       ),
-                                    )
-                                    .toList(),
+                                      onPressed: () {
+                                        widget.bloc.setPath([]);
+                                      },
+                                    ),
+                                    for (var i = 0; i < pathSnapshot.requireData.length; i++) ...[
+                                      Builder(
+                                        builder: (final context) {
+                                          final path = pathSnapshot.requireData.sublist(0, i + 1);
+                                          return Tooltip(
+                                            message: AppLocalizations.of(context).goToPath(path.join('/')),
+                                            excludeFromSemantics: true,
+                                            child: TextButton(
+                                              onPressed: () {
+                                                widget.bloc.setPath(path);
+                                              },
+                                              child: Text(
+                                                pathSnapshot.requireData[i],
+                                                semanticsLabel: AppLocalizations.of(context).goToPath(path.join('/')),
+                                              ),
+                                            ),
+                                          );
+                                        },
+                                      ),
+                                    ],
+                                  ]
+                                      .intersperse(
+                                        const Icon(
+                                          Icons.keyboard_arrow_right,
+                                          size: 30,
+                                        ),
+                                      )
+                                      .toList(),
+                                ),
                               ),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
                     ),
                   ),

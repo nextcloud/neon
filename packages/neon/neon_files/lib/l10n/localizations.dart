@@ -305,6 +305,12 @@ abstract class AppLocalizations {
   /// **'Sort order of files'**
   String get optionsFilesSortOrder;
 
+  /// No description provided for @optionsShowHiddenFiles.
+  ///
+  /// In en, this message translates to:
+  /// **'Show hidden files'**
+  String get optionsShowHiddenFiles;
+
   /// No description provided for @optionsShowPreviews.
   ///
   /// In en, this message translates to:

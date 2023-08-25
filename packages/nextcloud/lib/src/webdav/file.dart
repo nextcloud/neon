@@ -83,12 +83,13 @@ class WebDavFile {
     // normalised path (remove trailing slash)
     final end = path.endsWith('/') ? path.length - 1 : path.length;
     final segments = Uri.parse(path, 0, end).pathSegments;
-    if (segments.isNotEmpty) {
-      return segments.last;
-    }
-    return '';
+
+    return segments.lastOrNull ?? '';
   }();
 
-  /// Returns if the file is a directory
+  /// Whether the file is hidden.
+  late final bool isHidden = name.startsWith('.');
+
+  /// Whether the file is a directory
   late final bool isDirectory = (isCollection ?? false) || path.endsWith('/');
 }

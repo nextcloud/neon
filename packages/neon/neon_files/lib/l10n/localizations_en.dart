@@ -123,6 +123,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get optionsFilesSortOrder => 'Sort order of files';
 
   @override
+  String get optionsShowHiddenFiles => 'Show hidden files';
+
+  @override
   String get optionsShowPreviews => 'Show previews for files';
 
   @override
