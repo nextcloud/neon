@@ -6,7 +6,11 @@ final feedsSortBox = SortBox<FeedsSortProperty, NewsFeed>(
     FeedsSortProperty.unreadCount: (final feed) => feed.unreadCount ?? 0,
   },
   {
-    FeedsSortProperty.alphabetical: Box(FeedsSortProperty.unreadCount, SortBoxOrder.descending),
-    FeedsSortProperty.unreadCount: Box(FeedsSortProperty.alphabetical, SortBoxOrder.ascending),
+    FeedsSortProperty.alphabetical: {
+      (FeedsSortProperty.unreadCount, SortBoxOrder.descending),
+    },
+    FeedsSortProperty.unreadCount: {
+      (FeedsSortProperty.alphabetical, SortBoxOrder.ascending),
+    },
   },
 );

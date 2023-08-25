@@ -60,8 +60,7 @@ class _FilesBrowserViewState extends State<FilesBrowserView> {
                         items: [
                           for (final uploadTask in tasksSnapshot.requireData.whereType<FilesUploadTask>().where(
                                 (final task) =>
-                                    sorted?.where((final file) => _pathMatchesFile(task.path, file.name)).isEmpty ??
-                                    false,
+                                    sorted.where((final file) => _pathMatchesFile(task.path, file.name)).isEmpty,
                               )) ...[
                             FileListTile(
                               bloc: widget.filesBloc,
@@ -73,34 +72,32 @@ class _FilesBrowserViewState extends State<FilesBrowserView> {
                               onPickFile: widget.onPickFile,
                             ),
                           ],
-                          if (sorted != null) ...[
-                            for (final file in sorted) ...[
-                              if (!widget.onlyShowDirectories || file.isDirectory) ...[
-                                Builder(
-                                  builder: (final context) {
-                                    final matchingTask = tasksSnapshot.requireData
-                                        .firstWhereOrNull((final task) => _pathMatchesFile(task.path, file.name));
+                          for (final file in sorted) ...[
+                            if (!widget.onlyShowDirectories || file.isDirectory) ...[
+                              Builder(
+                                builder: (final context) {
+                                  final matchingTask = tasksSnapshot.requireData
+                                      .firstWhereOrNull((final task) => _pathMatchesFile(task.path, file.name));
 
-                                    final details = matchingTask != null
-                                        ? FileDetails.fromTask(
-                                            task: matchingTask,
-                                            file: file,
-                                          )
-                                        : FileDetails.fromWebDav(
-                                            file: file,
-                                            path: widget.bloc.path.value,
-                                          );
+                                  final details = matchingTask != null
+                                      ? FileDetails.fromTask(
+                                          task: matchingTask,
+                                          file: file,
+                                        )
+                                      : FileDetails.fromWebDav(
+                                          file: file,
+                                          path: widget.bloc.path.value,
+                                        );
 
-                                    return FileListTile(
-                                      bloc: widget.filesBloc,
-                                      browserBloc: widget.bloc,
-                                      details: details,
-                                      enableFileActions: widget.enableFileActions,
-                                      onPickFile: widget.onPickFile,
-                                    );
-                                  },
-                                ),
-                              ],
+                                  return FileListTile(
+                                    bloc: widget.filesBloc,
+                                    browserBloc: widget.bloc,
+                                    details: details,
+                                    enableFileActions: widget.enableFileActions,
+                                    onPickFile: widget.onPickFile,
+                                  );
+                                },
+                              ),
                             ],
                           ],
                         ],
