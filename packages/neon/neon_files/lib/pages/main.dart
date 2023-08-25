@@ -27,21 +27,6 @@ class _FilesMainPageState extends State<FilesMainPage> {
         body: FilesBrowserView(
           bloc: bloc.browser,
           filesBloc: bloc,
-          onPickFile: (final details) async {
-            final sizeWarning = bloc.options.downloadSizeWarning.value;
-            if (sizeWarning != null && details.size != null && details.size! > sizeWarning) {
-              if (!(await showConfirmationDialog(
-                context,
-                AppLocalizations.of(context).downloadConfirmSizeWarning(
-                  filesize(sizeWarning),
-                  filesize(details.size),
-                ),
-              ))) {
-                return;
-              }
-            }
-            bloc.openFile(details.path, details.etag!, details.mimeType);
-          },
         ),
         floatingActionButton: FloatingActionButton(
           onPressed: () async {

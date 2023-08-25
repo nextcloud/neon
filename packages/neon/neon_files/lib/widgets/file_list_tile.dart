@@ -1,7 +1,9 @@
 import 'package:filesize/filesize.dart';
 import 'package:flutter/material.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+import 'package:neon/utils.dart';
 import 'package:neon/widgets.dart';
+import 'package:neon_files/l10n/localizations.dart';
 import 'package:neon_files/neon_files.dart';
 import 'package:neon_files/widgets/actions.dart';
 
@@ -10,66 +12,72 @@ class FileListTile extends StatelessWidget {
     required this.bloc,
     required this.browserBloc,
     required this.details,
-    this.enableFileActions = true,
-    this.onPickFile,
+    this.mode = FilesBrowserMode.browser,
     super.key,
   });
 
   final FilesBloc bloc;
   final FilesBrowserBloc browserBloc;
   final FileDetails details;
-  final bool enableFileActions;
-  final Function(FileDetails)? onPickFile;
+  final FilesBrowserMode mode;
+
+  Future<void> _onTap(final BuildContext context, final FileDetails details) async {
+    if (details.isDirectory) {
+      browserBloc.setPath(details.path);
+    } else if (mode == FilesBrowserMode.browser) {
+      final sizeWarning = bloc.options.downloadSizeWarning.value;
+      if (sizeWarning != null && details.size != null && details.size! > sizeWarning) {
+        if (!(await showConfirmationDialog(
+          context,
+          AppLocalizations.of(context).downloadConfirmSizeWarning(
+            filesize(sizeWarning),
+            filesize(details.size),
+          ),
+        ))) {
+          return;
+        }
+      }
+      bloc.openFile(details.path, details.etag!, details.mimeType);
+    }
+  }
 
   @override
-  Widget build(final BuildContext context) {
-    // When the ETag is null it means we are uploading this file right now
-    final onTap = details.isDirectory || details.etag != null
-        ? () {
-            if (details.isDirectory) {
-              browserBloc.setPath(details.path);
-            } else {
-              onPickFile?.call(details);
-            }
-          }
-        : null;
-
-    return ListTile(
-      onTap: onTap,
-      title: Text(
-        details.name,
-        overflow: TextOverflow.ellipsis,
-      ),
-      subtitle: Row(
-        children: [
-          if (details.lastModified != null)
-            RelativeTime(
-              date: details.lastModified!,
-            ),
-          if (details.size != null && details.size! > 0) ...[
-            const SizedBox(
-              width: 10,
-            ),
-            Text(
-              filesize(details.size, 1),
-              style: DefaultTextStyle.of(context).style.copyWith(
-                    color: Colors.grey,
-                  ),
-            ),
+  Widget build(final BuildContext context) => ListTile(
+        // When the ETag is null it means we are uploading this file right now
+        onTap: details.isDirectory || details.etag != null ? () async => _onTap(context, details) : null,
+        title: Text(
+          details.name,
+          overflow: TextOverflow.ellipsis,
+        ),
+        subtitle: Row(
+          children: [
+            if (details.lastModified != null)
+              RelativeTime(
+                date: details.lastModified!,
+              ),
+            if (details.size != null && details.size! > 0) ...[
+              const SizedBox(
+                width: 10,
+              ),
+              Text(
+                filesize(details.size, 1),
+                style: DefaultTextStyle.of(context).style.copyWith(
+                      color: Colors.grey,
+                    ),
+              ),
+            ],
           ],
-        ],
-      ),
-      leading: _FileIcon(
-        details: details,
-        bloc: bloc,
-      ),
-      trailing: !details.hasTask && enableFileActions
-          ? FileActions(details: details)
-          : const SizedBox.square(
-              dimension: 48,
-            ),
-    );
-  }
+        ),
+        leading: _FileIcon(
+          details: details,
+          bloc: bloc,
+        ),
+        trailing: !details.hasTask && mode != FilesBrowserMode.noActions
+            ? FileActions(details: details)
+            : const SizedBox.square(
+                dimension: 48,
+              ),
+      );
 }
 
 class _FileIcon extends StatelessWidget {

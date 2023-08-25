@@ -1,21 +1,30 @@
 part of '../neon_files.dart';
 
+/// Mode to operate the [FilesBrowserView] in.
+enum FilesBrowserMode {
+  /// Default file browser mode.
+  ///
+  /// When a file is selecteed it will be opened or downloaded.
+  browser,
+
+  /// Select directory.
+  selectDirectory,
+
+  /// Don't show file actions.
+  noActions,
+}
+
 class FilesBrowserView extends StatefulWidget {
   const FilesBrowserView({
     required this.bloc,
     required this.filesBloc,
-    this.onPickFile,
-    this.enableFileActions = true,
-    this.onlyShowDirectories = false,
+    this.mode = FilesBrowserMode.browser,
     super.key,
-    // ignore: prefer_asserts_with_message
-  }) : assert((onPickFile == null) == onlyShowDirectories);
+  });
 
   final FilesBrowserBloc bloc;
   final FilesBloc filesBloc;
-  final Function(FileDetails)? onPickFile;
-  final bool enableFileActions;
-  final bool onlyShowDirectories;
+  final FilesBrowserMode mode;
 
   @override
   State<FilesBrowserView> createState() => _FilesBrowserViewState();
@@ -24,11 +33,11 @@ class FilesBrowserView extends StatefulWidget {
 class _FilesBrowserViewState extends State<FilesBrowserView> {
   @override
   void initState() {
-    super.initState();
-
     widget.bloc.errors.listen((final error) {
       NeonException.showSnackbar(context, error);
     });
+
+    super.initState();
   }
 
   @override
@@ -68,12 +77,11 @@ class _FilesBrowserViewState extends State<FilesBrowserView> {
                               details: FileDetails.fromUploadTask(
                                 task: uploadTask,
                               ),
-                              enableFileActions: widget.enableFileActions,
-                              onPickFile: widget.onPickFile,
+                              mode: widget.mode,
                             ),
                           ],
                           for (final file in sorted) ...[
-                            if (!widget.onlyShowDirectories || file.isDirectory) ...[
+                            if (widget.mode != FilesBrowserMode.selectDirectory || file.isDirectory) ...[
                               Builder(
                                 builder: (final context) {
                                   final matchingTask = tasksSnapshot.requireData
@@ -93,8 +101,7 @@ class _FilesBrowserViewState extends State<FilesBrowserView> {
                                     bloc: widget.filesBloc,
                                     browserBloc: widget.bloc,
                                     details: details,
-                                    enableFileActions: widget.enableFileActions,
-                                    onPickFile: widget.onPickFile,
+                                    mode: widget.mode,
                                   );
                                 },
                               ),

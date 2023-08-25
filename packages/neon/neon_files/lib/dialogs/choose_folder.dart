@@ -25,8 +25,7 @@ class FilesChooseFolderDialog extends StatelessWidget {
                 child: FilesBrowserView(
                   bloc: bloc,
                   filesBloc: filesBloc,
-                  enableFileActions: false,
-                  onlyShowDirectories: true,
+                  mode: FilesBrowserMode.selectDirectory,
                 ),
               ),
               StreamBuilder<List<String>>(
