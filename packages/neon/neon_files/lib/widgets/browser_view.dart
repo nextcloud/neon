@@ -62,6 +62,9 @@ class _FilesBrowserViewState extends State<FilesBrowserView> {
                       sortBox: filesSortBox,
                       sortPropertyOption: widget.bloc.options.filesSortPropertyOption,
                       sortBoxOrderOption: widget.bloc.options.filesSortBoxOrderOption,
+                      presort: const {
+                        (FilesSortProperty.isFolder, SortBoxOrder.ascending),
+                      },
                       input: files.data,
                       builder: (final context, final sorted) => NeonListView<Widget>(
                         scrollKey: 'files-${pathSnapshot.requireData.join('/')}',
