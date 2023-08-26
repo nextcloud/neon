@@ -152,6 +152,7 @@ class WebDavClient {
   /// [lastModified] sets the date when the file was last modified on the server.
   /// [created] sets the date when the file was created on the server.
   /// [contentLength] sets the length of the [localData] that is uploaded.
+  /// [onProgress] can be used to watch the upload progress. Possible values range from 0.0 to 1.0. [contentLength] needs to be set for it to work.
   /// See http://www.webdav.org/specs/rfc2518.html#METHOD_PUT for more information.
   Future<HttpClientResponse> putStream(
     final Stream<Uint8List> localData,
@@ -159,22 +160,32 @@ class WebDavClient {
     final DateTime? lastModified,
     final DateTime? created,
     final int? contentLength,
-  }) async =>
-      _send(
-        'PUT',
-        _constructPath(path),
-        dataStream: localData,
-        headers: _getUploadHeaders(
-          lastModified: lastModified,
-          created: created,
-          contentLength: contentLength,
-        ),
-      );
+    final Function(double progres)? onProgress,
+  }) async {
+    var uploaded = 0;
+    return _send(
+      'PUT',
+      _constructPath(path),
+      dataStream: contentLength != null
+          ? localData.map((final chunk) {
+              uploaded += chunk.length;
+              onProgress?.call(uploaded / contentLength);
+              return chunk;
+            })
+          : localData,
+      headers: _getUploadHeaders(
+        lastModified: lastModified,
+        created: created,
+        contentLength: contentLength,
+      ),
+    );
+  }
 
   /// Puts a new file at [path] with [file] as content.
   ///
   /// [lastModified] sets the date when the file was last modified on the server.
   /// [created] sets the date when the file was created on the server.
+  /// [onProgress] can be used to watch the upload progress. Possible values range from 0.0 to 1.0.
   /// See http://www.webdav.org/specs/rfc2518.html#METHOD_PUT for more information.
   Future<HttpClientResponse> putFile(
     final File file,
@@ -183,20 +194,15 @@ class WebDavClient {
     final DateTime? lastModified,
     final DateTime? created,
     final Function(double progres)? onProgress,
-  }) async {
-    var uploaded = 0;
-    return putStream(
-      file.openRead().map((final chunk) {
-        uploaded += chunk.length;
-        onProgress?.call(uploaded / fileStat.size);
-        return chunk as Uint8List;
-      }),
-      path,
-      lastModified: lastModified,
-      created: created,
-      contentLength: fileStat.size,
-    );
-  }
+  }) async =>
+      putStream(
+        file.openRead().cast<Uint8List>(),
+        path,
+        lastModified: lastModified,
+        created: created,
+        contentLength: fileStat.size,
+        onProgress: onProgress,
+      );
 
   /// Gets the content of the file at [path].
   Future<Uint8List> get(final String path) async => (await getStream(path)).bodyBytes;
