@@ -12,82 +12,6 @@ import 'package:neon/neon.dart';
 import 'package:neon_files/widgets/actions.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-class MemorySharedPreferences implements SharedPreferences {
-  final _data = <String, dynamic>{};
-
-  @override
-  Future<bool> clear() async {
-    _data.clear();
-    return true;
-  }
-
-  @override
-  Future<bool> commit() async => true;
-
-  @override
-  Future reload() async {}
-
-  @override
-  Future<bool> remove(final String key) async {
-    _data.remove(key);
-    return true;
-  }
-
-  @override
-  Set<String> getKeys() => _data.keys.toSet();
-
-  @override
-  bool containsKey(final String key) => _data.keys.contains(key);
-
-  @override
-  Object? get(final String key) => _data[key];
-
-  @override
-  bool? getBool(final String key) => _data[key] as bool?;
-
-  @override
-  double? getDouble(final String key) => _data[key] as double?;
-
-  @override
-  int? getInt(final String key) => _data[key] as int?;
-
-  @override
-  String? getString(final String key) => _data[key] as String?;
-
-  @override
-  List<String>? getStringList(final String key) => (_data[key] as List).cast<String>();
-
-  @override
-  Future<bool> setBool(final String key, final bool value) async {
-    _data[key] = value;
-    return true;
-  }
-
-  @override
-  Future<bool> setDouble(final String key, final double value) async {
-    _data[key] = value;
-    return true;
-  }
-
-  @override
-  Future<bool> setInt(final String key, final int value) async {
-    _data[key] = value;
-    return true;
-  }
-
-  @override
-  Future<bool> setString(final String key, final String value) async {
-    _data[key] = value;
-    return true;
-  }
-
-  @override
-  Future<bool> setStringList(final String key, final List<String> value) async {
-    _data[key] = value;
-    return true;
-  }
-}
-
 Future runTestApp(
   final WidgetTester tester,
   final IntegrationTestWidgetsFlutterBinding binding, {
@@ -97,7 +21,6 @@ Future runTestApp(
     getAppImplementations: getAppImplementations,
     theme: neonTheme,
     bindingOverride: binding,
-    sharedPreferencesOverride: MemorySharedPreferences(),
     account: account,
     firstLaunchDisabled: true,
     nextPushDisabled: true,
@@ -135,6 +58,10 @@ Future main() async {
 
   setUpAll(() async {
     await SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual, overlays: []);
+  });
+
+  setUp(() {
+    SharedPreferences.setMockInitialValues({});
   });
 
   testWidgets('login', (final tester) async {

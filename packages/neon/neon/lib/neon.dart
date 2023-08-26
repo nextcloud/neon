@@ -22,16 +22,15 @@ Future runNeon({
   required final Iterable<AppImplementation> Function(SharedPreferences, RequestManager, NeonPlatform)
       getAppImplementations,
   required final NeonTheme theme,
-  final WidgetsBinding? bindingOverride,
-  final SharedPreferences? sharedPreferencesOverride,
-  final Account? account,
-  final bool firstLaunchDisabled = false,
-  final bool nextPushDisabled = false,
+  @visibleForTesting final WidgetsBinding? bindingOverride,
+  @visibleForTesting final Account? account,
+  @visibleForTesting final bool firstLaunchDisabled = false,
+  @visibleForTesting final bool nextPushDisabled = false,
 }) async {
   final binding = bindingOverride ?? WidgetsFlutterBinding.ensureInitialized();
   FlutterNativeSplash.preserve(widgetsBinding: binding);
 
-  final sharedPreferences = sharedPreferencesOverride ?? await SharedPreferences.getInstance();
+  final sharedPreferences = await SharedPreferences.getInstance();
 
   final platform = await getNeonPlatform();
   final cache = Cache(platform);
