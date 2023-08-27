@@ -25,14 +25,12 @@ abstract class NotesBlocStates {
 class NotesBloc extends InteractiveBloc implements NotesBlocEvents, NotesBlocStates {
   NotesBloc(
     this.options,
-    this.requestManager,
     this.account,
   ) {
     unawaited(refresh());
   }
 
   final NotesAppSpecificOptions options;
-  final RequestManager requestManager;
   final Account account;
 
   @override
@@ -46,7 +44,7 @@ class NotesBloc extends InteractiveBloc implements NotesBlocEvents, NotesBlocSta
 
   @override
   Future refresh() async {
-    await requestManager.wrapNextcloud<List<NotesNote>, BuiltList>(
+    await RequestManager.instance.wrapNextcloud<List<NotesNote>, BuiltList>(
       account.id,
       'notes-notes',
       notes,

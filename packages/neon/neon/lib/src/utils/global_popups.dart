@@ -45,10 +45,9 @@ class GlobalPopups {
     final globalOptions = Provider.of<GlobalOptions>(context, listen: false);
     final firstLaunchBloc = Provider.of<FirstLaunchBloc>(context, listen: false);
     final nextPushBloc = Provider.of<NextPushBloc>(context, listen: false);
-    final platform = Provider.of<NeonPlatform>(context, listen: false);
 
     _subscriptions.addAll([
-      if (platform.canUsePushNotifications) ...[
+      if (NeonPlatform.instance.canUsePushNotifications) ...[
         firstLaunchBloc.onFirstLaunch.listen((final _) {
           assert(context.mounted, 'Context should be mounted');
           if (!globalOptions.pushNotificationsEnabled.enabled) {

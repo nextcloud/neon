@@ -1,7 +1,7 @@
 part of 'neon_news.dart';
 
 class NewsAppSpecificOptions extends NextcloudAppOptions {
-  NewsAppSpecificOptions(super.storage, this._platform) {
+  NewsAppSpecificOptions(super.storage) {
     super.categories = [
       generalCategory,
       articlesCategory,
@@ -22,8 +22,6 @@ class NewsAppSpecificOptions extends NextcloudAppOptions {
       feedsSortBoxOrderOption,
     ];
   }
-
-  final NeonPlatform _platform;
 
   final generalCategory = OptionsCategory(
     name: (final context) => AppLocalizations.of(context).general,
@@ -62,7 +60,7 @@ class NewsAppSpecificOptions extends NextcloudAppOptions {
     defaultValue: ArticleViewType.direct,
     values: {
       ArticleViewType.direct: (final context) => AppLocalizations.of(context).optionsArticleViewTypeDirect,
-      if (_platform.canUseWebView)
+      if (NeonPlatform.instance.canUseWebView)
         ArticleViewType.internalBrowser: (final context) =>
             AppLocalizations.of(context).optionsArticleViewTypeInternalBrowser,
       ArticleViewType.externalBrowser: (final context) =>

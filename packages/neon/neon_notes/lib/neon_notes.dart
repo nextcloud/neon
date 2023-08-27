@@ -42,7 +42,7 @@ part 'widgets/notes_floating_action_button.dart';
 part 'widgets/notes_view.dart';
 
 class NotesApp extends AppImplementation<NotesBloc, NotesAppSpecificOptions> {
-  NotesApp(super.sharedPreferences, super.requestManager, super.platform);
+  NotesApp(super.sharedPreferences);
 
   @override
   String id = AppIDs.notes;
@@ -59,7 +59,6 @@ class NotesApp extends AppImplementation<NotesBloc, NotesAppSpecificOptions> {
   @override
   NotesBloc buildBloc(final Account account) => NotesBloc(
         options,
-        requestManager,
         account,
       );
 

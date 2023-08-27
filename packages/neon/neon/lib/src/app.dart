@@ -44,7 +44,6 @@ class _NeonAppState extends State<NeonApp> with WidgetsBindingObserver, tray.Tra
   final _appRegex = RegExp(r'^app_([a-z]+)$', multiLine: true);
   final _navigatorKey = GlobalKey<NavigatorState>();
   late final Iterable<AppImplementation> _appImplementations;
-  late final NeonPlatform _platform;
   late final GlobalOptions _globalOptions;
   late final AccountsBloc _accountsBloc;
   late final _routerDelegate = AppRouter(
@@ -59,15 +58,14 @@ class _NeonAppState extends State<NeonApp> with WidgetsBindingObserver, tray.Tra
     super.initState();
 
     _appImplementations = Provider.of<Iterable<AppImplementation>>(context, listen: false);
-    _platform = Provider.of<NeonPlatform>(context, listen: false);
     _globalOptions = Provider.of<GlobalOptions>(context, listen: false);
     _accountsBloc = Provider.of<AccountsBloc>(context, listen: false);
 
     WidgetsBinding.instance.addObserver(this);
-    if (_platform.canUseSystemTray) {
+    if (NeonPlatform.instance.canUseSystemTray) {
       tray.trayManager.addListener(this);
     }
-    if (_platform.canUseWindowManager) {
+    if (NeonPlatform.instance.canUseWindowManager) {
       windowManager.addListener(this);
     }
 
@@ -77,7 +75,7 @@ class _NeonAppState extends State<NeonApp> with WidgetsBindingObserver, tray.Tra
       if (!mounted) {
         return;
       }
-      if (_platform.canUseQuickActions) {
+      if (NeonPlatform.instance.canUseQuickActions) {
         const quickActions = QuickActions();
         await quickActions.setShortcutItems(
           _appImplementations
@@ -93,7 +91,7 @@ class _NeonAppState extends State<NeonApp> with WidgetsBindingObserver, tray.Tra
         await quickActions.initialize(_handleShortcut);
       }
 
-      if (_platform.canUseWindowManager) {
+      if (NeonPlatform.instance.canUseWindowManager) {
         await windowManager.setPreventClose(true);
 
         if (_globalOptions.startupMinimized.value) {
@@ -101,7 +99,7 @@ class _NeonAppState extends State<NeonApp> with WidgetsBindingObserver, tray.Tra
         }
       }
 
-      if (_platform.canUseSystemTray) {
+      if (NeonPlatform.instance.canUseSystemTray) {
         _globalOptions.systemTrayEnabled.addListener(() async {
           if (_globalOptions.systemTrayEnabled.value) {
             // TODO: This works on Linux, but maybe not on macOS or Windows
@@ -136,7 +134,7 @@ class _NeonAppState extends State<NeonApp> with WidgetsBindingObserver, tray.Tra
         });
       }
 
-      if (_platform.canUsePushNotifications) {
+      if (NeonPlatform.instance.canUsePushNotifications) {
         final localNotificationsPlugin = await PushUtils.initLocalNotifications();
         Global.onPushNotificationReceived = (final accountID) async {
           final account = _accountsBloc.accounts.value.tryFind(accountID);
@@ -213,7 +211,7 @@ class _NeonAppState extends State<NeonApp> with WidgetsBindingObserver, tray.Tra
 
   Future _handleShortcut(final String shortcutType) async {
     if (shortcutType == 'show_hide') {
-      if (_platform.canUseWindowManager) {
+      if (NeonPlatform.instance.canUseWindowManager) {
         if (await windowManager.isVisible()) {
           await _saveAndMinimizeWindow();
         } else {
@@ -249,7 +247,7 @@ class _NeonAppState extends State<NeonApp> with WidgetsBindingObserver, tray.Tra
   }
 
   Future _showAndRestoreWindow() async {
-    if (!_platform.canUseWindowManager) {
+    if (!NeonPlatform.instance.canUseWindowManager) {
       return;
     }
 
@@ -264,10 +262,10 @@ class _NeonAppState extends State<NeonApp> with WidgetsBindingObserver, tray.Tra
   @override
   void dispose() {
     WidgetsBinding.instance.removeObserver(this);
-    if (_platform.canUseSystemTray) {
+    if (NeonPlatform.instance.canUseSystemTray) {
       tray.trayManager.removeListener(this);
     }
-    if (_platform.canUseWindowManager) {
+    if (NeonPlatform.instance.canUseWindowManager) {
       windowManager.removeListener(this);
     }
 

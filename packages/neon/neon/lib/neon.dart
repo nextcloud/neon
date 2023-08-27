@@ -9,7 +9,6 @@ import 'package:neon/src/blocs/next_push.dart';
 import 'package:neon/src/blocs/push_notifications.dart';
 import 'package:neon/src/models/account.dart';
 import 'package:neon/src/models/app_implementation.dart';
-import 'package:neon/src/platform/platform.dart';
 import 'package:neon/src/theme/neon.dart';
 import 'package:neon/src/utils/global_options.dart';
 import 'package:neon/src/utils/request_manager.dart';
@@ -19,8 +18,7 @@ import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 Future runNeon({
-  required final Iterable<AppImplementation> Function(SharedPreferences, RequestManager, NeonPlatform)
-      getAppImplementations,
+  required final Iterable<AppImplementation> Function(SharedPreferences) getAppImplementations,
   required final NeonTheme theme,
   @visibleForTesting final WidgetsBinding? bindingOverride,
   @visibleForTesting final Account? account,
@@ -32,11 +30,8 @@ Future runNeon({
 
   final sharedPreferences = await SharedPreferences.getInstance();
 
-  final platform = await getNeonPlatform();
-  final cache = Cache(platform);
-  await cache.init();
-  final requestManager = RequestManager(cache);
-  final allAppImplementations = getAppImplementations(sharedPreferences, requestManager, platform);
+  await RequestManager.instance.initCache();
+  final allAppImplementations = getAppImplementations(sharedPreferences);
 
   final packageInfo = await PackageInfo.fromPlatform();
   buildUserAgent(packageInfo);
@@ -47,8 +42,6 @@ Future runNeon({
   );
 
   final accountsBloc = AccountsBloc(
-    requestManager,
-    platform,
     sharedPreferences,
     globalOptions,
     allAppImplementations,
@@ -62,7 +55,6 @@ Future runNeon({
     accountsBloc,
     sharedPreferences,
     globalOptions,
-    platform,
   );
   final firstLaunchBloc = FirstLaunchBloc(
     sharedPreferences,
@@ -80,14 +72,8 @@ Future runNeon({
         Provider<SharedPreferences>(
           create: (final _) => sharedPreferences,
         ),
-        Provider<NeonPlatform>(
-          create: (final _) => platform,
-        ),
         Provider<GlobalOptions>(
           create: (final _) => globalOptions,
-        ),
-        Provider<RequestManager>(
-          create: (final _) => requestManager,
         ),
         Provider<AccountsBloc>(
           create: (final _) => accountsBloc,

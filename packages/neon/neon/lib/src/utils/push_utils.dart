@@ -13,12 +13,10 @@ import 'package:neon/src/blocs/accounts.dart';
 import 'package:neon/src/models/account.dart';
 import 'package:neon/src/models/app_ids.dart';
 import 'package:neon/src/models/push_notification.dart';
-import 'package:neon/src/platform/platform.dart';
 import 'package:neon/src/settings/models/storage.dart';
 import 'package:neon/src/theme/colors.dart';
 import 'package:neon/src/utils/global.dart';
 import 'package:neon/src/utils/localizations.dart';
-import 'package:neon/src/utils/request_manager.dart';
 import 'package:nextcloud/nextcloud.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -95,10 +93,6 @@ class PushUtils {
         debugPrint('Got unknown background notification ${json.encode(pushNotification.toJson())}');
       } else {
         final localizations = await appLocalizationsFromSystem();
-
-        final platform = await getNeonPlatform();
-        final cache = Cache(platform);
-        await cache.init();
 
         var accounts = <Account>[];
         Account? account;

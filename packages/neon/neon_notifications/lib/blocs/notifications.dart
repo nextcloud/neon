@@ -16,7 +16,6 @@ class NotificationsBloc extends InteractiveBloc
     implements NotificationsBlocInterface, NotificationsBlocEvents, NotificationsBlocStates {
   NotificationsBloc(
     this.options,
-    this._requestManager,
     this._account,
   ) {
     notifications.listen((final result) {
@@ -31,7 +30,6 @@ class NotificationsBloc extends InteractiveBloc
 
   @override
   final NotificationsAppSpecificOptions options;
-  final RequestManager _requestManager;
   final Account _account;
   late final NeonTimer _timer;
 
@@ -52,7 +50,7 @@ class NotificationsBloc extends InteractiveBloc
 
   @override
   Future refresh() async {
-    await _requestManager.wrapNextcloud<List<NotificationsNotification>, NotificationsListNotifications>(
+    await RequestManager.instance.wrapNextcloud<List<NotificationsNotification>, NotificationsListNotifications>(
       _account.id,
       'notifications-notifications',
       notifications,

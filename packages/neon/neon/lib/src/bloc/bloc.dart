@@ -32,7 +32,7 @@ abstract class InteractiveBloc extends Bloc {
       if (disableTimeout) {
         await call();
       } else {
-        await RequestManager.timeout(call);
+        await RequestManager.instance.timeout(call);
       }
 
       await (refresh ?? this.refresh)();

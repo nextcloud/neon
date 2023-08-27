@@ -203,7 +203,7 @@ class _NewsArticlesViewState extends State<NewsArticlesView> {
             );
           } else if (viewType == ArticleViewType.internalBrowser &&
               article.url != null &&
-              Provider.of<NeonPlatform>(context, listen: false).canUseWebView) {
+              NeonPlatform.instance.canUseWebView) {
             await Navigator.of(context).push(
               MaterialPageRoute(
                 builder: (final context) => NewsArticlePage(
