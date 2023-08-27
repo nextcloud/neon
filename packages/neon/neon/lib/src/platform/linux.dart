@@ -30,13 +30,13 @@ class LinuxNeonPlatform implements NeonPlatform {
   bool get canUsePushNotifications => false;
 
   @override
-  String getApplicationCachePath() => p.join(
+  String get applicationCachePath => p.join(
         xdg.cacheHome.absolute.path,
         'de.provokateurin.neon',
       );
 
   @override
-  String getUserAccessibleAppDataPath() => p.join(Platform.environment['HOME']!, 'Neon');
+  String get userAccessibleAppDataPath => p.join(Platform.environment['HOME']!, 'Neon');
 
   @override
   void init() {

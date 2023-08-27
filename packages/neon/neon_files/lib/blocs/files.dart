@@ -84,7 +84,7 @@ class FilesBloc extends InteractiveBloc implements FilesBlocEvents, FilesBlocSta
       () async {
         final file = File(
           p.join(
-            await NeonPlatform.instance.getApplicationCachePath(),
+            await NeonPlatform.instance.applicationCachePath,
             'files',
             etag.replaceAll('"', ''),
             path.last,
@@ -137,7 +137,7 @@ class FilesBloc extends InteractiveBloc implements FilesBlocEvents, FilesBlocSta
       () async {
         final file = File(
           p.join(
-            await NeonPlatform.instance.getUserAccessibleAppDataPath(),
+            await NeonPlatform.instance.userAccessibleAppDataPath,
             account.humanReadableID,
             'files',
             path.join(Platform.pathSeparator),

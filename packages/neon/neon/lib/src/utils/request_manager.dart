@@ -196,7 +196,7 @@ class Cache {
 
     _database = await openDatabase(
       p.join(
-        await NeonPlatform.instance.getApplicationCachePath(),
+        await NeonPlatform.instance.applicationCachePath,
         'cache.db',
       ),
       version: 1,
