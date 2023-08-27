@@ -9,6 +9,7 @@ import 'package:neon/src/blocs/next_push.dart';
 import 'package:neon/src/blocs/push_notifications.dart';
 import 'package:neon/src/models/account.dart';
 import 'package:neon/src/models/app_implementation.dart';
+import 'package:neon/src/platform/platform.dart';
 import 'package:neon/src/theme/neon.dart';
 import 'package:neon/src/utils/global_options.dart';
 import 'package:neon/src/utils/request_manager.dart';
@@ -30,6 +31,7 @@ Future runNeon({
 
   final sharedPreferences = await SharedPreferences.getInstance();
 
+  await NeonPlatform.setup();
   await RequestManager.instance.initCache();
   final allAppImplementations = getAppImplementations(sharedPreferences);
 
