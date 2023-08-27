@@ -9,84 +9,10 @@ import 'package:integration_test/integration_test.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:neon/models.dart';
 import 'package:neon/neon.dart';
+import 'package:neon/nextcloud.dart';
+import 'package:neon/settings.dart';
 import 'package:neon_files/widgets/actions.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
-class MemorySharedPreferences implements SharedPreferences {
-  final _data = <String, dynamic>{};
-
-  @override
-  Future<bool> clear() async {
-    _data.clear();
-    return true;
-  }
-
-  @override
-  Future<bool> commit() async => true;
-
-  @override
-  Future reload() async {}
-
-  @override
-  Future<bool> remove(final String key) async {
-    _data.remove(key);
-    return true;
-  }
-
-  @override
-  Set<String> getKeys() => _data.keys.toSet();
-
-  @override
-  bool containsKey(final String key) => _data.keys.contains(key);
-
-  @override
-  Object? get(final String key) => _data[key];
-
-  @override
-  bool? getBool(final String key) => _data[key] as bool?;
-
-  @override
-  double? getDouble(final String key) => _data[key] as double?;
-
-  @override
-  int? getInt(final String key) => _data[key] as int?;
-
-  @override
-  String? getString(final String key) => _data[key] as String?;
-
-  @override
-  List<String>? getStringList(final String key) => (_data[key] as List).cast<String>();
-
-  @override
-  Future<bool> setBool(final String key, final bool value) async {
-    _data[key] = value;
-    return true;
-  }
-
-  @override
-  Future<bool> setDouble(final String key, final double value) async {
-    _data[key] = value;
-    return true;
-  }
-
-  @override
-  Future<bool> setInt(final String key, final int value) async {
-    _data[key] = value;
-    return true;
-  }
-
-  @override
-  Future<bool> setString(final String key, final String value) async {
-    _data[key] = value;
-    return true;
-  }
-
-  @override
-  Future<bool> setStringList(final String key, final List<String> value) async {
-    _data[key] = value;
-    return true;
-  }
-}
 
 Future runTestApp(
   final WidgetTester tester,
@@ -97,7 +23,6 @@ Future runTestApp(
     getAppImplementations: getAppImplementations,
     theme: neonTheme,
     bindingOverride: binding,
-    sharedPreferencesOverride: MemorySharedPreferences(),
     account: account,
     firstLaunchDisabled: true,
     nextPushDisabled: true,
@@ -112,7 +37,7 @@ Future openDrawer(final WidgetTester tester) async {
 
 Future switchPage(final WidgetTester tester, final String name) async {
   await openDrawer(tester);
-  await tester.tap(find.byKey(Key(name)));
+  await tester.tap(find.text(name).last);
   await tester.pumpAndSettle();
 }
 
@@ -121,20 +46,39 @@ Future prepareScreenshot(final WidgetTester tester, final IntegrationTestWidgets
   await tester.pumpAndSettle();
 }
 
+Future<Account> getAccount(final String username) async {
+  const host = 'http://10.0.2.2';
+  final appPassword = (await NextcloudClient(
+    host,
+    loginName: username,
+    password: username,
+  ).core.appPassword.getAppPassword())
+      .ocs
+      .data
+      .apppassword;
+  return Account(
+    serverURL: host,
+    username: username,
+    password: appPassword,
+  );
+}
+
 Future main() async {
   // The screenshots are pretty annoying on Android. See https://github.com/flutter/flutter/issues/92381
 
   assert(Platform.isAndroid, 'Screenshots need to be taken on Android');
 
   final binding = IntegrationTestWidgetsFlutterBinding.ensureInitialized();
-  final account = Account(
-    serverURL: 'http://10.0.2.2',
-    username: 'user1',
-    password: 'user1',
-  );
+
+  late Account account;
 
   setUpAll(() async {
+    account = await getAccount('demo');
     await SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual, overlays: []);
+  });
+
+  setUp(() {
+    SharedPreferences.setMockInitialValues({});
   });
 
   testWidgets('login', (final tester) async {
@@ -144,14 +88,6 @@ Future main() async {
     );
     await prepareScreenshot(tester, binding);
     await binding.takeScreenshot('login_server_selection');
-
-    await tester.enterText(find.byType(TextFormField), account.serverURL);
-    await tester.pumpAndSettle();
-    await tester.testTextInput.receiveAction(TextInputAction.done);
-    await tester.pumpAndSettle();
-    await tester.pump(const Duration(seconds: 3)); // Make sure the login webview is loaded
-    await tester.pumpAndSettle();
-    await binding.takeScreenshot('login_form');
   });
 
   testWidgets('home', (final tester) async {
@@ -222,7 +158,7 @@ Future main() async {
       account: account,
     );
     await prepareScreenshot(tester, binding);
-    await switchPage(tester, 'app-news');
+    await switchPage(tester, 'News');
 
     // Show folders
     await tester.tap(find.byIcon(Icons.folder));
@@ -292,7 +228,7 @@ Future main() async {
       account: account,
     );
     await prepareScreenshot(tester, binding);
-    await switchPage(tester, 'app-notes');
+    await switchPage(tester, 'Notes');
 
     // Create note
     await tester.tap(find.byType(FloatingActionButton));
@@ -343,11 +279,7 @@ Future main() async {
   });
 
   testWidgets('notifications', (final tester) async {
-    await Account(
-      serverURL: 'http://10.0.2.2',
-      username: 'admin',
-      password: 'admin',
-    ).client.notifications.sendAdminNotification(
+    await (await getAccount('admin')).client.notifications.sendAdminNotification(
           userId: account.username,
           shortMessage: 'Notifications demo',
           longMessage: 'This is a notifications demo of the Neon app',
@@ -359,7 +291,7 @@ Future main() async {
       account: account,
     );
     await prepareScreenshot(tester, binding);
-    await tester.tap(find.byKey(const Key('app-notifications')));
+    await tester.tap(find.byTooltip('Notifications'));
     await tester.pumpAndSettle();
 
     await tester.pumpAndSettle();
@@ -375,7 +307,7 @@ Future main() async {
       account: account,
     );
     await prepareScreenshot(tester, binding);
-    await switchPage(tester, 'settings');
+    await switchPage(tester, 'Settings');
 
     // Open Files settings
     await tester.tap(find.text('Files'));
@@ -426,13 +358,13 @@ Future main() async {
     await tester.pumpAndSettle();
 
     // Scroll down to accounts
-    await tester.drag(find.byType(ListView), const Offset(0, -10000));
+    await tester.drag(find.byType(SettingsList).first, const Offset(0, -10000));
     await tester.pumpAndSettle();
 
     await binding.takeScreenshot('settings_accounts');
 
     // Go to account settings
-    await tester.tap(find.text('user1@10.0.2.2:80'));
+    await tester.tap(find.text('demo@10.0.2.2:80'));
     await tester.pumpAndSettle();
     await tester.tap(find.text('Automatic'));
     await tester.pumpAndSettle();

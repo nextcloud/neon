@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:meta/meta.dart';
 import 'package:neon/src/settings/widgets/settings_category.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 
-@internal
+@visibleForTesting
 class SettingsList extends StatelessWidget {
   const SettingsList({
     required this.categories,

@@ -2,7 +2,6 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
-import 'package:meta/meta.dart';
 import 'package:neon/src/app.dart';
 import 'package:neon/src/blocs/accounts.dart';
 import 'package:neon/src/blocs/first_launch.dart';
@@ -14,27 +13,24 @@ import 'package:neon/src/platform/platform.dart';
 import 'package:neon/src/theme/neon.dart';
 import 'package:neon/src/utils/global_options.dart';
 import 'package:neon/src/utils/request_manager.dart';
+import 'package:neon/src/utils/user_agent.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
-@internal
-late final String neonUserAgent;
 
 Future runNeon({
   required final Iterable<AppImplementation> Function(SharedPreferences, RequestManager, NeonPlatform)
       getAppImplementations,
   required final NeonTheme theme,
-  final WidgetsBinding? bindingOverride,
-  final SharedPreferences? sharedPreferencesOverride,
-  final Account? account,
-  final bool firstLaunchDisabled = false,
-  final bool nextPushDisabled = false,
+  @visibleForTesting final WidgetsBinding? bindingOverride,
+  @visibleForTesting final Account? account,
+  @visibleForTesting final bool firstLaunchDisabled = false,
+  @visibleForTesting final bool nextPushDisabled = false,
 }) async {
   final binding = bindingOverride ?? WidgetsFlutterBinding.ensureInitialized();
   FlutterNativeSplash.preserve(widgetsBinding: binding);
 
-  final sharedPreferences = sharedPreferencesOverride ?? await SharedPreferences.getInstance();
+  final sharedPreferences = await SharedPreferences.getInstance();
 
   final platform = await getNeonPlatform();
   final cache = Cache(platform);
@@ -43,11 +39,7 @@ Future runNeon({
   final allAppImplementations = getAppImplementations(sharedPreferences, requestManager, platform);
 
   final packageInfo = await PackageInfo.fromPlatform();
-  var buildNumber = packageInfo.buildNumber;
-  if (buildNumber.isEmpty) {
-    buildNumber = '1';
-  }
-  neonUserAgent = 'Neon ${packageInfo.version}+$buildNumber';
+  buildUserAgent(packageInfo);
 
   final globalOptions = GlobalOptions(
     sharedPreferences,
