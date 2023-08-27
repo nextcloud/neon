@@ -70,6 +70,14 @@
   "errorEmptyField": "This field can not be empty",
   "errorInvalidURL": "Invalid URL provided",
   "errorInvalidQrcode": "Invalid QR-Code provided",
+  "errorRouteNotFound": "Route not found: {route}",
+  "@errorRouteNotFound" : {
+    "placeholders": {
+      "route": {
+        "type": "String"
+      }
+    }
+  },
   "actionYes": "Yes",
   "actionNo": "No",
   "actionClose": "Close",
@@ -81,6 +89,9 @@
   "nextPushSupported": "NextPush is supported!",
   "nextPushSupportedText": "NextPush is a FOSS way of receiving push notifications using the UnifiedPush protocol via a Nextcloud instance.\nYou can install NextPush from the F-Droid app store.",
   "nextPushSupportedInstall": "Install NextPush",
+  "search": "Search",
+  "searchCancel": "Cancel search",
+  "searchNoResults": "No search results",
   "settings": "Settings",
   "settingsApps": "Apps",
   "settingsAccount": "Account",

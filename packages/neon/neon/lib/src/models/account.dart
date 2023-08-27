@@ -77,6 +77,28 @@ class Account implements Credentials {
     // Maybe also show path if it is not '/' ?
     return '$username@${uri.port != 443 ? '${uri.host}:${uri.port}' : uri.host}';
   }
+
+  /// Completes an incomplete [Uri] using the [serverURL].
+  ///
+  /// Some Nextcloud APIs return [Uri]s to resources on the server (e.g. an image) but only give an absolute path.
+  /// Those [Uri]s need to be completed using the [serverURL] to have a working [Uri].
+  ///
+  /// The paths of the [serverURL] and the [uri] need to be join to get the full path, unless the [uri] path is already an absolute path.
+  /// In that case an instance hosted at a sub folder will already contain the sub folder part in the [uri].
+  Uri completeUri(final Uri uri) {
+    final result = Uri.parse(serverURL).replace(
+      queryParameters: uri.queryParameters,
+      fragment: uri.fragment,
+    );
+    return result.replace(
+      path: uri.hasAbsolutePath ? uri.path : '${result.path}/${uri.path}',
+    );
+  }
+
+  /// Removes the [serverURL] part from the [uri].
+  ///
+  /// Should be used when trying to push a [uri] from an API to the router as it might contain the scheme, host and sub path of the instance which will not work with the router.
+  Uri stripUri(final Uri uri) => Uri.parse(uri.toString().replaceFirst(serverURL, ''));
 }
 
 Map<String, String> _idCache = {};

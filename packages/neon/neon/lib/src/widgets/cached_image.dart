@@ -5,12 +5,14 @@ import 'dart:typed_data';
 import 'package:flutter/material.dart';
 import 'package:flutter_cache_manager/flutter_cache_manager.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:neon/src/models/account.dart';
 import 'package:neon/src/widgets/exception.dart';
 import 'package:neon/src/widgets/linear_progress_indicator.dart';
 
 typedef CacheReviver = FutureOr<Uint8List?> Function(CacheManager cacheManager);
 typedef ImageDownloader = FutureOr<Uint8List> Function();
 typedef CacheWriter = Future<void> Function(CacheManager cacheManager, Uint8List image);
+typedef ErrorWidgetBuilder = Widget? Function(BuildContext, dynamic);
 
 class NeonCachedImage extends StatefulWidget {
   const NeonCachedImage({
@@ -21,17 +23,20 @@ class NeonCachedImage extends StatefulWidget {
     this.fit,
     this.svgColor,
     this.iconColor,
+    this.errorBuilder,
   });
 
   NeonCachedImage.url({
     required final String url,
+    final Account? account,
     final Key? key,
     this.isSvgHint = false,
     this.size,
     this.fit,
     this.svgColor,
     this.iconColor,
-  })  : image = _getImageFromUrl(url),
+    this.errorBuilder,
+  })  : image = _getImageFromUrl(url, account),
         super(key: key ?? Key(url));
 
   NeonCachedImage.custom({
@@ -44,6 +49,7 @@ class NeonCachedImage extends StatefulWidget {
     this.fit,
     this.svgColor,
     this.iconColor,
+    this.errorBuilder,
   })  : image = _customImageGetter(
           reviver,
           getImage,
@@ -61,8 +67,20 @@ class NeonCachedImage extends StatefulWidget {
   final Color? svgColor;
   final Color? iconColor;
 
-  static Future<Uint8List> _getImageFromUrl(final String url) async {
-    final file = await _cacheManager.getSingleFile(url);
+  final ErrorWidgetBuilder? errorBuilder;
+
+  static Future<Uint8List> _getImageFromUrl(final String url, final Account? account) async {
+    var uri = Uri.parse(url);
+    if (account != null) {
+      uri = account.completeUri(uri);
+    }
+    final file = await _cacheManager.getSingleFile(
+      uri.toString(),
+      headers:
+          account != null && uri.host == Uri.parse(account.serverURL).host && account.client.authentications.isNotEmpty
+              ? account.client.authentications.first.headers
+              : null,
+    );
     return file.readAsBytes();
   }
 
@@ -116,24 +134,16 @@ class _NeonCachedImageState extends State<NeonCachedImage> {
         child: FutureBuilder<Uint8List>(
           future: widget.image,
           builder: (final context, final fileSnapshot) {
+            if (fileSnapshot.hasError) {
+              return _buildError(fileSnapshot.error);
+            }
+
             if (!fileSnapshot.hasData) {
               return SizedBox(
                 width: widget.size?.width,
                 child: NeonLinearProgressIndicator(
                   color: widget.iconColor,
                 ),
-              );
-            }
-
-            if (fileSnapshot.hasError) {
-              return NeonException(
-                fileSnapshot.error,
-                onRetry: () {
-                  setState(() {});
-                },
-                onlyIcon: true,
-                iconSize: widget.size?.shortestSide,
-                color: widget.iconColor ?? Theme.of(context).colorScheme.error,
               );
             }
 
@@ -160,8 +170,20 @@ class _NeonCachedImageState extends State<NeonCachedImage> {
               width: widget.size?.width,
               fit: widget.fit,
               gaplessPlayback: true,
+              errorBuilder: (final context, final error, final stacktrace) => _buildError(error),
             );
           },
         ),
+      );
+
+  Widget _buildError(final dynamic error) =>
+      widget.errorBuilder?.call(context, error) ??
+      NeonException(
+        error,
+        onRetry: () {
+          setState(() {});
+        },
+        onlyIcon: true,
+        iconSize: widget.size?.shortestSide,
       );
 }

@@ -269,6 +269,12 @@ abstract class AppLocalizations {
   /// **'Invalid QR-Code provided'**
   String get errorInvalidQrcode;
 
+  /// No description provided for @errorRouteNotFound.
+  ///
+  /// In en, this message translates to:
+  /// **'Route not found: {route}'**
+  String errorRouteNotFound(String route);
+
   /// No description provided for @actionYes.
   ///
   /// In en, this message translates to:
@@ -334,6 +340,24 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Install NextPush'**
   String get nextPushSupportedInstall;
+
+  /// No description provided for @search.
+  ///
+  /// In en, this message translates to:
+  /// **'Search'**
+  String get search;
+
+  /// No description provided for @searchCancel.
+  ///
+  /// In en, this message translates to:
+  /// **'Cancel search'**
+  String get searchCancel;
+
+  /// No description provided for @searchNoResults.
+  ///
+  /// In en, this message translates to:
+  /// **'No search results'**
+  String get searchNoResults;
 
   /// No description provided for @settings.
   ///

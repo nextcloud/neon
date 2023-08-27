@@ -3,7 +3,7 @@
 import 'dart:async';
 
 import 'package:flutter/foundation.dart';
-import 'package:flutter/widgets.dart';
+import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:meta/meta.dart';
 import 'package:neon/src/blocs/accounts.dart';
@@ -17,6 +17,7 @@ import 'package:neon/src/pages/login_check_server_status.dart';
 import 'package:neon/src/pages/login_flow.dart';
 import 'package:neon/src/pages/login_qrcode.dart';
 import 'package:neon/src/pages/nextcloud_app_settings.dart';
+import 'package:neon/src/pages/route_not_found.dart';
 import 'package:neon/src/pages/settings.dart';
 import 'package:neon/src/utils/stream_listenable.dart';
 import 'package:provider/provider.dart';
@@ -33,6 +34,7 @@ class AppRouter extends GoRouter {
           refreshListenable: StreamListenable(accountsBloc.activeAccount),
           navigatorKey: navigatorKey,
           initialLocation: const HomeRoute().location,
+          errorPageBuilder: _buildErrorPage,
           redirect: (final context, final state) {
             final loginQrcode = LoginQrcode.tryParse(state.uri.toString());
             if (loginQrcode != null) {
@@ -41,6 +43,13 @@ class AppRouter extends GoRouter {
                 loginName: loginQrcode.username,
                 password: loginQrcode.password,
               ).location;
+            }
+
+            if (accountsBloc.hasAccounts && state.uri.hasScheme) {
+              final strippedUri = accountsBloc.activeAccount.value!.stripUri(state.uri);
+              if (strippedUri != state.uri) {
+                return strippedUri.toString();
+              }
             }
 
             // redirect to loginscreen when no account is logged in
@@ -52,6 +61,12 @@ class AppRouter extends GoRouter {
           },
           routes: $appRoutes,
         );
+
+  static Page _buildErrorPage(final BuildContext context, final GoRouterState state) => MaterialPage(
+        child: RouteNotFoundPage(
+          uri: state.uri,
+        ),
+      );
 }
 
 @immutable
