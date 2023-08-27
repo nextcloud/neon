@@ -52,8 +52,8 @@ Future main() async {
   final binding = IntegrationTestWidgetsFlutterBinding.ensureInitialized();
   final account = Account(
     serverURL: 'http://10.0.2.2',
-    username: 'user1',
-    password: 'user1',
+    username: 'demo',
+    password: 'demo',
   );
 
   setUpAll(() async {
@@ -359,7 +359,7 @@ Future main() async {
     await binding.takeScreenshot('settings_accounts');
 
     // Go to account settings
-    await tester.tap(find.text('user1@10.0.2.2:80'));
+    await tester.tap(find.text('demo@10.0.2.2:80'));
     await tester.pumpAndSettle();
     await tester.tap(find.text('Automatic'));
     await tester.pumpAndSettle();
