@@ -165,9 +165,7 @@ class AppsBloc extends InteractiveBloc implements AppsBlocEvents, AppsBlocStates
     unawaited(appVersions.close());
 
     for (final app in _allAppImplementations) {
-      for (final bloc in app.blocs.values) {
-        bloc.dispose();
-      }
+      app.dispose();
     }
   }
 
