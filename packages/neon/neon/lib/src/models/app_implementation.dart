@@ -29,12 +29,15 @@ abstract class AppImplementation<T extends Bloc, R extends NextcloudAppOptions> 
   String name(final BuildContext context) => nameFromLocalization(AppLocalizations.of(context));
 
   late final R options;
+
+  @protected
   R buildOptions(final AppStorage storage);
 
-  final Map<String, T> blocs = {};
+  final Map<String, T> _blocs = {};
 
-  T getBloc(final Account account) => blocs[account.id] ??= buildBloc(account);
+  T getBloc(final Account account) => _blocs[account.id] ??= buildBloc(account);
 
+  @protected
   T buildBloc(final Account account);
 
   Provider<T> get blocProvider => Provider<T>(
@@ -107,6 +110,9 @@ abstract class AppImplementation<T extends Bloc, R extends NextcloudAppOptions> 
 
   void dispose() {
     options.dispose();
+    for (final bloc in _blocs.values) {
+      bloc.dispose();
+    }
   }
 
   /// A custom theme that will be injected into the widget tree.
