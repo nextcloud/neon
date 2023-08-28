@@ -9,7 +9,7 @@ environment:
 dependencies:
   collection: ^1.17.1
   crypto: ^3.0.3
-  file_picker: ^5.3.0
+  file_picker: ^5.3.4
   filesize: ^2.0.1
   flutter:
     sdk: flutter
