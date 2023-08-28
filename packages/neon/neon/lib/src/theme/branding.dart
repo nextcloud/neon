@@ -58,9 +58,7 @@ class Branding {
     if (identical(this, other)) {
       return true;
     }
-    if (other.runtimeType != runtimeType) {
-      return false;
-    }
+
     return other is Branding && name == other.name && logo == other.logo && legalese == other.legalese;
   }
 }

@@ -55,4 +55,23 @@ class NeonTheme extends ThemeExtension<NeonTheme> {
       dialogTheme: NeonDialogTheme.lerp(dialogTheme, other.dialogTheme, t),
     );
   }
+
+  @override
+  int get hashCode => Object.hashAll([
+        branding,
+        colorScheme,
+        dialogTheme,
+      ]);
+
+  @override
+  bool operator ==(final Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+
+    return other is NeonTheme &&
+        other.branding == branding &&
+        other.colorScheme == colorScheme &&
+        other.dialogTheme == dialogTheme;
+  }
 }
