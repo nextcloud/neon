@@ -21,15 +21,15 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
       - name: Cache dependencies
-        uses: actions/cache@v3
+        uses: actions/cache@88522ab9f39a2ea568f7027eddc7d8d8bc9d59c8 # v3
         with:
           path: ~/.pub-cache/hosted
           key: dart-ci
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744 # v3
 
       - name: Install dart
-        uses: dart-lang/setup-dart@v1
+        uses: dart-lang/setup-dart@d6a63dab3335f427404425de0fbfed4686d93c4f # v1
       - name: Setup
         run: ./tool/setup.sh
       - name: Build test Docker image
