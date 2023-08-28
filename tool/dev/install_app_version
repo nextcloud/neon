@@ -1,0 +1,9 @@
+#!/bin/bash
+set -euxo pipefail
+
+app="$1"
+url="$2"
+
+cd /usr/src/nextcloud
+curl -L "$url" | tar -xz -C "apps"
+./occ app:enable "$app"
