@@ -16,7 +16,7 @@ dependencies:
       path: packages/dynamite/dynamite_runtime
   intl: ^0.18.1
   json_annotation: ^4.8.1
-  universal_io: ^2.2.0
+  universal_io: ^2.2.2
   version: ^3.0.2
   xml: ^6.3.0
   xml_annotation: ^2.2.0
