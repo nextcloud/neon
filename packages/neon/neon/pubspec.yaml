@@ -51,7 +51,7 @@ dependencies:
   tray_manager: ^0.2.0
   unifiedpush: ^5.0.0
   unifiedpush_android: ^2.1.2
-  url_launcher: ^6.1.11
+  url_launcher: ^6.1.12
   vector_graphics: ^1.1.7
   window_manager: ^0.3.2
   xdg_directories: ^1.0.0
