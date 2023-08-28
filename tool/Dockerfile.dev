@@ -12,9 +12,9 @@ RUN OC_PASS="user1" ./occ user:add --password-from-env --display-name "User One"
 RUN OC_PASS="user2" ./occ user:add --password-from-env --display-name "User Two" user2
 RUN OC_PASS="demo" ./occ user:add --password-from-env --display-name "Demo" demo
 
-RUN ./occ app:install news --force --allow-unstable # 21.2.0
-RUN ./occ app:install notes --force --allow-unstable # 4.8.0
-RUN ./occ app:install uppush --force --allow-unstable # 1.4.0
+RUN ./occ app:install --force --allow-unstable news
+RUN ./occ app:install --force --allow-unstable notes
+RUN ./occ app:install --force --allow-unstable uppush
 
 RUN ./occ app:enable password_policy
 RUN (sh /entrypoint.sh php -S 0.0.0.0:8080 &) && \
