@@ -25,7 +25,7 @@ dependencies:
   webview_flutter: ^4.2.0
 
 dev_dependencies:
-  build_runner: ^2.4.4
+  build_runner: ^2.4.6
   go_router_builder: ^2.2.1
   neon_lints:
     git:
