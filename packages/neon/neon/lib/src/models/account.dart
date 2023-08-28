@@ -66,16 +66,26 @@ class Account implements Credentials {
 
   String get id {
     final key = '$username@$serverURL';
-    if (_idCache[key] != null) {
-      return _idCache[key]!;
-    }
-    return _idCache[key] = sha1.convert(utf8.encode(key)).toString();
+
+    return _idCache[key] ??= sha1.convert(utf8.encode(key)).toString();
   }
 
   String get humanReadableID {
     final uri = Uri.parse(serverURL);
+
     // Maybe also show path if it is not '/' ?
-    return '$username@${uri.port != 443 ? '${uri.host}:${uri.port}' : uri.host}';
+    final buffer = StringBuffer()
+      ..write(username)
+      ..write('@')
+      ..write(uri.host);
+
+    if (uri.hasPort) {
+      buffer
+        ..write(':')
+        ..write(uri.port);
+    }
+
+    return buffer.toString();
   }
 
   /// Completes an incomplete [Uri] using the [serverURL].
