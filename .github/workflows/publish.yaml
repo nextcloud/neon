@@ -21,7 +21,7 @@ jobs:
       build_number: ${{ steps.build_number.outputs.BUILD_NUMBER }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744 # v3
 
       - name: Set flutter version
         id: flutter_version
@@ -36,21 +36,21 @@ jobs:
     needs: setup
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
-      - uses: subosito/flutter-action@v2
+        uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744 # v3
+      - uses: subosito/flutter-action@48cafc24713cca54bbe03cdc3a423187d413aafa # v2
         with:
           flutter-version: ${{ needs.setup.outputs.flutter_version }}
           channel: 'stable'
           cache: true
       - name: Pub dependency cache
-        uses: actions/cache@v3
+        uses: actions/cache@88522ab9f39a2ea568f7027eddc7d8d8bc9d59c8 # v3
         with:
           path: ${{ env.PUB_CACHE }}
           key: ${{ runner.os }}-pub-${{ hashFiles('**/pubspec.lock') }}
           restore-keys: |
             ${{ runner.os }}-pub-
       - name: Gradle dependency cache
-        uses: actions/cache@v3
+        uses: actions/cache@88522ab9f39a2ea568f7027eddc7d8d8bc9d59c8 # v3
         with:
           path: |
             ~/.gradle/caches
@@ -59,14 +59,14 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-gradle-
       - name: Set up JDK 11
-        uses: actions/setup-java@v3
+        uses: actions/setup-java@cd89f46ac9d01407894225f350157564c9c7cee2 # v3
         with:
           distribution: 'adopt'
           java-version: 11
 
       - name: Build
         run: cd packages/app && flutter build apk --split-per-abi --build-number="${{ needs.setup.outputs.build_number }}"
-      - uses: ilharp/sign-android-release@v1
+      - uses: ilharp/sign-android-release@2034987c31e3959f7c97e88d5e656e52e6e88bd8 # v1
         name: Sign
         with:
           releaseDir: packages/app/build/app/outputs/flutter-apk
@@ -75,17 +75,17 @@ jobs:
           keyStorePassword: ${{ secrets.KEY_STORE_PASSWORD }}
           keyPassword: ${{ secrets.KEY_PASSWORD }}
 
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@0b7f8abb1508181956e8e162db84b466c27e18ce # v3
         with:
           name: Android arm64-v8a
           path: packages/app/build/app/outputs/flutter-apk/app-arm64-v8a-release-signed.apk
           if-no-files-found: error
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@0b7f8abb1508181956e8e162db84b466c27e18ce # v3
         with:
           name: Android armeabi-v7a
           path: packages/app/build/app/outputs/flutter-apk/app-armeabi-v7a-release-signed.apk
           if-no-files-found: error
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@0b7f8abb1508181956e8e162db84b466c27e18ce # v3
         with:
           name: Android x86_64
           path: packages/app/build/app/outputs/flutter-apk/app-x86_64-release-signed.apk
@@ -111,14 +111,14 @@ jobs:
     needs: setup
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
-      - uses: subosito/flutter-action@v2
+        uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744 # v3
+      - uses: subosito/flutter-action@48cafc24713cca54bbe03cdc3a423187d413aafa # v2
         with:
           flutter-version: ${{ needs.setup.outputs.flutter_version }}
           channel: 'stable'
           cache: true
       - name: Pub dependency cache
-        uses: actions/cache@v3
+        uses: actions/cache@88522ab9f39a2ea568f7027eddc7d8d8bc9d59c8 # v3
         with:
           path: ${{ env.PUB_CACHE }}
           key: ${{ runner.os }}-pub-${{ hashFiles('**/pubspec.lock') }}
@@ -134,7 +134,7 @@ jobs:
       - name: Build
         run: cd packages/app && flutter build linux --build-number="${{ needs.setup.outputs.build_number }}"
 
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@0b7f8abb1508181956e8e162db84b466c27e18ce # v3
         with:
           name: Linux x86_64
           path: packages/app/build/linux/x64/release/bundle/*
@@ -146,7 +146,7 @@ jobs:
     needs: setup
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744 # v3
       - name: Set docker image
         id: docker_image
         run: |
@@ -154,11 +154,11 @@ jobs:
           echo "remote=ghcr.io/$GITHUB_REPOSITORY/build-linux-arm64:${{ needs.setup.outputs.flutter_version }}" >> $GITHUB_OUTPUT
       - run: echo ${{ secrets.GITHUB_TOKEN }} | docker login ghcr.io -u $GITHUB_ACTOR --password-stdin
       - name: Set up QEMU
-        uses: docker/setup-qemu-action@v2
+        uses: docker/setup-qemu-action@2b82ce82d56a2a04d2637cd93a637ae1b359c0a7 # v2
         with:
           platforms: arm64
       - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v2
+        uses: docker/setup-buildx-action@4c0219f9ac95b02789c1075625400b2acbff50b1 # v2
         with:
           platforms: linux/arm64
 
@@ -167,7 +167,7 @@ jobs:
           FLUTTER_VERSION: ${{ needs.setup.outputs.flutter_version }}
         run: ./tool/build-app.sh linux/arm64 --build-number="${{ needs.setup.outputs.build_number }}"
 
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@0b7f8abb1508181956e8e162db84b466c27e18ce # v3
         with:
           name: Linux arm64
           path: packages/app/build/linux/arm64/release/bundle/*

@@ -1,4 +1,4 @@
-FROM nextcloud:27.0.0
+FROM nextcloud:27.0.0@sha256:a4181a159a0eb4d33cf7c5a05a24ca39c1ff6b7df29a125b5e47ab2ea2863bd1
 WORKDIR /usr/src/nextcloud
 RUN chown -R www-data:www-data .
 USER www-data
