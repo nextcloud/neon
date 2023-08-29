@@ -61,10 +61,10 @@ class AccountsBloc extends Bloc implements AccountsBlocEvents, AccountsBlocState
     const lastUsedStorage = SingleValueStorage('last-used-account');
 
     accounts
-      ..add(loadAccounts(_storage))
+      ..add(loadAccounts())
       ..listen((final as) async {
         _globalOptions.updateAccounts(as);
-        await _storage.setStringList(_keyAccounts, as.map((final a) => json.encode(a.toJson())).toList());
+        await saveAccounts(as);
       });
     activeAccount.listen((final aa) async {
       if (aa != null) {
@@ -96,7 +96,6 @@ class AccountsBloc extends Bloc implements AccountsBlocEvents, AccountsBlocState
     }
   }
 
-  late final AppStorage _storage = const AppStorage('accounts');
   final GlobalOptions _globalOptions;
   final Iterable<AppImplementation> _allAppImplementations;
 
@@ -278,10 +277,12 @@ class AccountsBloc extends Bloc implements AccountsBlocEvents, AccountsBlocState
       );
 }
 
-/// Get a list of logged in accounts from [storage].
+/// Gets a list of logged in accounts from storage.
 ///
 /// It is not checked whether the stored information is still valid.
-List<Account> loadAccounts(final AppStorage storage) {
+List<Account> loadAccounts() {
+  const storage = AppStorage('accounts');
+
   if (storage.containsKey(_keyAccounts)) {
     return storage
         .getStringList(_keyAccounts)!
@@ -289,4 +290,12 @@ List<Account> loadAccounts(final AppStorage storage) {
         .toList();
   }
   return [];
+}
+
+/// Saves the given [accounts] to the storage.
+Future<void> saveAccounts(final List<Account> accounts) async {
+  const storage = AppStorage('accounts');
+  final values = accounts.map((final a) => json.encode(a.toJson())).toList();
+
+  await storage.setStringList(_keyAccounts, values);
 }

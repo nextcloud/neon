@@ -93,12 +93,11 @@ class PushUtils {
       } else {
         final localizations = await appLocalizationsFromSystem();
 
-        var accounts = <Account>[];
+        final accounts = loadAccounts();
         Account? account;
         NotificationsNotification? notification;
         AndroidBitmap<Object>? largeIconBitmap;
         try {
-          accounts = loadAccounts(const AppStorage('accounts'));
           account = accounts.tryFind(instance);
           if (account != null) {
             notification =
