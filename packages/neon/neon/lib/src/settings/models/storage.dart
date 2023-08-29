@@ -108,6 +108,8 @@ final class AppStorage implements SettingsStorage {
 
   final String? suffix;
 
+  String get id => suffix ?? key.value;
+
   @visibleForTesting
   String formatKey(final String key) {
     if (suffix != null) {

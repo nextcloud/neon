@@ -1,6 +1,3 @@
-import 'dart:convert';
-import 'dart:typed_data';
-
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
@@ -10,6 +7,7 @@ import 'package:neon/src/models/account.dart';
 import 'package:neon/src/models/app_implementation.dart';
 import 'package:neon/src/platform/platform.dart';
 import 'package:neon/src/router.dart';
+import 'package:neon/src/settings/utils/settings_export_helper.dart';
 import 'package:neon/src/settings/widgets/account_settings_tile.dart';
 import 'package:neon/src/settings/widgets/checkbox_settings_tile.dart';
 import 'package:neon/src/settings/widgets/custom_settings_tile.dart';
@@ -23,7 +21,6 @@ import 'package:neon/src/theme/dialog.dart';
 import 'package:neon/src/utils/confirmation_dialog.dart';
 import 'package:neon/src/utils/global_options.dart';
 import 'package:neon/src/utils/save_file.dart';
-import 'package:neon/src/utils/settings_export_helper.dart';
 import 'package:neon/src/widgets/exception.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:provider/provider.dart';
@@ -250,16 +247,10 @@ class _SettingsPageState extends State<SettingsPage> {
                     final settingsExportHelper = _buildSettingsExportHelper(context);
 
                     try {
-                      final fileName =
-                          'nextcloud-neon-settings-${DateTime.now().millisecondsSinceEpoch ~/ 1000}.json.base64';
-                      final data = base64.encode(
-                        utf8.encode(
-                          json.encode(
-                            settingsExportHelper.toJsonExport(),
-                          ),
-                        ),
-                      );
-                      await saveFileWithPickDialog(fileName, utf8.encode(data) as Uint8List);
+                      final fileName = 'nextcloud-neon-settings-${DateTime.now().millisecondsSinceEpoch ~/ 1000}.json';
+
+                      final data = settingsExportHelper.exportToFile();
+                      await saveFileWithPickDialog(fileName, data);
                     } catch (e, s) {
                       debugPrint(e.toString());
                       debugPrint(s.toString());
@@ -280,14 +271,14 @@ class _SettingsPageState extends State<SettingsPage> {
 
                     try {
                       final result = await FilePicker.platform.pickFiles(
-                        withData: true,
+                        withReadStream: true,
                       );
 
                       if (result == null) {
                         return;
                       }
 
-                      if (!result.files.single.path!.endsWith('.json.base64')) {
+                      if (!result.files.single.path!.endsWith('.json')) {
                         if (mounted) {
                           NeonException.showSnackbar(
                             context,
@@ -297,9 +288,7 @@ class _SettingsPageState extends State<SettingsPage> {
                         return;
                       }
 
-                      final data = json.decode(utf8.decode(base64.decode(utf8.decode(result.files.single.bytes!))));
-
-                      await settingsExportHelper.applyFromJson(data as Map<String, dynamic>);
+                      await settingsExportHelper.applyFromFile(result.files.single.readStream);
                     } catch (e, s) {
                       debugPrint(e.toString());
                       debugPrint(s.toString());
@@ -329,16 +318,16 @@ class _SettingsPageState extends State<SettingsPage> {
   }
 
   SettingsExportHelper _buildSettingsExportHelper(final BuildContext context) {
-    final globalOptions = Provider.of<GlobalOptions>(context);
+    final globalOptions = Provider.of<GlobalOptions>(context, listen: false);
     final accountsBloc = Provider.of<AccountsBloc>(context, listen: false);
-    final appImplementations = Provider.of<Iterable<AppImplementation>>(context);
+    final appImplementations = Provider.of<Iterable<AppImplementation>>(context, listen: false);
 
     return SettingsExportHelper(
-      globalOptions: globalOptions,
-      appImplementations: appImplementations,
-      accountSpecificOptions: accountsBloc.accounts.value.asMap().map(
-            (final _, final account) => MapEntry(account, accountsBloc.getOptionsFor(account).options),
-          ),
+      exportables: {
+        globalOptions,
+        AccountsBlocExporter(accountsBloc),
+        AppImplementationsExporter(appImplementations),
+      },
     );
   }
 }

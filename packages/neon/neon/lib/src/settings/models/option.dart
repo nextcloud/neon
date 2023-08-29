@@ -79,8 +79,18 @@ abstract class Option<T> extends ChangeNotifier implements ValueListenable<T> {
   }
 
   /// Resets the option to its [default] value.
+  @mustBeOverridden
   void reset() {
     value = defaultValue;
+  }
+
+  /// Loads [data] into [value] by calling [deserialize] on it.
+  void load(final Object? data) {
+    final value = deserialize(data);
+
+    if (value != null) {
+      this.value = value;
+    }
   }
 
   /// Deserializes the data.

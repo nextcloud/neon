@@ -1,15 +1,16 @@
 import 'package:meta/meta.dart';
+import 'package:neon/src/settings/models/exportable.dart';
 import 'package:neon/src/settings/models/option.dart';
 import 'package:neon/src/settings/models/options_category.dart';
 import 'package:neon/src/settings/models/storage.dart';
 
 /// Collection of [Option]s.
-abstract class OptionsCollection {
+abstract class OptionsCollection implements Exportable {
   OptionsCollection(this.storage);
 
   /// Storage backend to use.
   @protected
-  final SettingsStorage storage;
+  final AppStorage storage;
 
   /// Collection of options.
   @protected
@@ -32,6 +33,22 @@ abstract class OptionsCollection {
   void dispose() {
     for (final option in options) {
       option.dispose();
+    }
+  }
+
+  @override
+  MapEntry<String, Object?> export() {
+    final data = Map.fromEntries(options.serialize());
+
+    return MapEntry(storage.id, data);
+  }
+
+  @override
+  void import(final Map<String, Object?> data) {
+    final values = data[storage.id] as Map<String, Object?>?;
+
+    if (values != null) {
+      options.deserialize(values);
     }
   }
 }
