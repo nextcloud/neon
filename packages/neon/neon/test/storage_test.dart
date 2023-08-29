@@ -20,10 +20,12 @@ void main() {
       var appStorage = const AppStorage(StorageKeys.accounts);
       var key = appStorage.formatKey('test-key');
       expect(key, 'accounts-test-key');
+      expect(appStorage.id, StorageKeys.accounts.value);
 
       appStorage = const AppStorage(StorageKeys.accounts, 'test-suffix');
       key = appStorage.formatKey('test-key');
       expect(key, 'accounts-test-suffix-test-key');
+      expect(appStorage.id, 'test-suffix');
     });
 
     test('interface', () async {
