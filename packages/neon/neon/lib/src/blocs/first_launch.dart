@@ -16,15 +16,14 @@ abstract class FirstLaunchBlocStates {
 class FirstLaunchBloc extends Bloc implements FirstLaunchBlocEvents, FirstLaunchBlocStates {
   FirstLaunchBloc({
     final bool disabled = false,
-  }) : _storage = const AppStorage(_keyFirstLaunch) {
-    if (!disabled && !_storage.containsKey(_keyFirstLaunch)) {
+  }) {
+    const storage = SingleValueStorage('first-launch');
+
+    if (!disabled && !storage.hasValue()) {
       onFirstLaunch.add(null);
-      unawaited(_storage.setBool(_keyFirstLaunch, false));
+      unawaited(storage.setBool(false));
     }
   }
-
-  final AppStorage _storage;
-  static const _keyFirstLaunch = 'first-launch';
 
   @override
   void dispose() {

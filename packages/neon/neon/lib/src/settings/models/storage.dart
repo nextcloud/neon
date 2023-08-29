@@ -48,6 +48,31 @@ final class NeonStorage {
 
 @immutable
 @internal
+final class SingleValueStorage {
+  const SingleValueStorage(this._id);
+
+  final String _id;
+
+  bool hasValue() => NeonStorage.database.containsKey(_id);
+
+  Future<bool> remove() => NeonStorage.database.remove(_id);
+
+  String? getString() => NeonStorage.database.getString(_id);
+
+  Future setString(final String value) => NeonStorage.database.setString(_id, value);
+
+  bool? getBool() => NeonStorage.database.getBool(_id);
+
+  // ignore: avoid_positional_boolean_parameters
+  Future setBool(final bool value) => NeonStorage.database.setBool(_id, value);
+
+  List<String>? getStringList() => NeonStorage.database.getStringList(_id);
+
+  Future setStringList(final List<String> value) => NeonStorage.database.setStringList(_id, value);
+}
+
+@immutable
+@internal
 class AppStorage implements SettingsStorage {
   const AppStorage(this._id);
 

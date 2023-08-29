@@ -58,6 +58,8 @@ class AccountsBloc extends Bloc implements AccountsBlocEvents, AccountsBlocState
     this._globalOptions,
     this._allAppImplementations,
   ) {
+    const lastUsedStorage = SingleValueStorage('last-used-account');
+
     accounts
       ..add(loadAccounts(_storage))
       ..listen((final as) async {
@@ -66,16 +68,16 @@ class AccountsBloc extends Bloc implements AccountsBlocEvents, AccountsBlocState
       });
     activeAccount.listen((final aa) async {
       if (aa != null) {
-        await _storage.setString(_keyLastUsedAccount, aa.id);
+        await lastUsedStorage.setString(aa.id);
       } else {
-        await _storage.remove(_keyLastUsedAccount);
+        await lastUsedStorage.remove();
       }
     });
 
     final as = accounts.value;
 
-    if (_globalOptions.rememberLastUsedAccount.value && _storage.containsKey(_keyLastUsedAccount)) {
-      final lastUsedAccountID = _storage.getString(_keyLastUsedAccount);
+    if (_globalOptions.rememberLastUsedAccount.value && lastUsedStorage.hasValue()) {
+      final lastUsedAccountID = lastUsedStorage.getString();
       if (lastUsedAccountID != null) {
         final aa = as.tryFind(lastUsedAccountID);
         if (aa != null) {
@@ -97,7 +99,6 @@ class AccountsBloc extends Bloc implements AccountsBlocEvents, AccountsBlocState
   late final AppStorage _storage = const AppStorage('accounts');
   final GlobalOptions _globalOptions;
   final Iterable<AppImplementation> _allAppImplementations;
-  final _keyLastUsedAccount = 'last-used-account';
 
   final _accountsOptions = <String, AccountSpecificOptions>{};
   final _appsBlocs = <String, AppsBloc>{};
