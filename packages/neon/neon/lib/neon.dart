@@ -42,12 +42,10 @@ Future runNeon({
   buildUserAgent(packageInfo);
 
   final globalOptions = GlobalOptions(
-    sharedPreferences,
     packageInfo,
   );
 
   final accountsBloc = AccountsBloc(
-    sharedPreferences,
     globalOptions,
     allAppImplementations,
   );
@@ -58,7 +56,6 @@ Future runNeon({
   }
   final pushNotificationsBloc = PushNotificationsBloc(
     accountsBloc,
-    sharedPreferences,
     globalOptions,
   );
   final firstLaunchBloc = FirstLaunchBloc(
@@ -73,9 +70,6 @@ Future runNeon({
   runApp(
     MultiProvider(
       providers: [
-        Provider<SharedPreferences>(
-          create: (final _) => sharedPreferences,
-        ),
         Provider<GlobalOptions>(
           create: (final _) => globalOptions,
         ),

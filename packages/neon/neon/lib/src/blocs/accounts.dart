@@ -14,7 +14,6 @@ import 'package:neon/src/settings/models/storage.dart';
 import 'package:neon/src/utils/account_options.dart';
 import 'package:neon/src/utils/global_options.dart';
 import 'package:rxdart/rxdart.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 const _keyAccounts = 'accounts';
 
@@ -56,7 +55,6 @@ abstract interface class AccountsBlocStates {
 
 class AccountsBloc extends Bloc implements AccountsBlocEvents, AccountsBlocStates {
   AccountsBloc(
-    this._sharedPreferences,
     this._globalOptions,
     this._allAppImplementations,
   ) {
@@ -97,7 +95,6 @@ class AccountsBloc extends Bloc implements AccountsBlocEvents, AccountsBlocState
   }
 
   late final AppStorage _storage = AppStorage('accounts');
-  final SharedPreferences _sharedPreferences;
   final GlobalOptions _globalOptions;
   final Iterable<AppImplementation> _allAppImplementations;
   final _keyLastUsedAccount = 'last-used-account';

@@ -18,7 +18,6 @@ import 'package:neon/src/theme/colors.dart';
 import 'package:neon/src/utils/global.dart';
 import 'package:neon/src/utils/localizations.dart';
 import 'package:nextcloud/nextcloud.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 @internal
 @immutable
