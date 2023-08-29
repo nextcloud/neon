@@ -44,19 +44,19 @@ part 'widgets/browser_view.dart';
 part 'widgets/file_preview.dart';
 
 class FilesApp extends AppImplementation<FilesBloc, FilesAppSpecificOptions> {
-  FilesApp(super.sharedPreferences);
+  FilesApp();
 
   @override
-  String id = AppIDs.files;
+  final String id = AppIDs.files;
 
   @override
-  LocalizationsDelegate localizationsDelegate = AppLocalizations.delegate;
+  final LocalizationsDelegate localizationsDelegate = AppLocalizations.delegate;
 
   @override
-  List<Locale> supportedLocales = AppLocalizations.supportedLocales;
+  final List<Locale> supportedLocales = AppLocalizations.supportedLocales;
 
   @override
-  FilesAppSpecificOptions buildOptions(final AppStorage storage) => FilesAppSpecificOptions(storage);
+  late final FilesAppSpecificOptions options = FilesAppSpecificOptions(storage);
 
   @override
   FilesBloc buildBloc(final Account account) => FilesBloc(
@@ -65,8 +65,8 @@ class FilesApp extends AppImplementation<FilesBloc, FilesAppSpecificOptions> {
       );
 
   @override
-  Widget get page => const FilesMainPage();
+  final Widget page = const FilesMainPage();
 
   @override
-  RouteBase get route => $filesAppRoute;
+  final RouteBase route = $filesAppRoute;
 }

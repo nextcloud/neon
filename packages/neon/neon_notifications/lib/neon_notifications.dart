@@ -22,19 +22,19 @@ part 'pages/main.dart';
 
 class NotificationsApp extends AppImplementation<NotificationsBloc, NotificationsAppSpecificOptions>
     implements NotificationsAppInterface<NotificationsBloc, NotificationsAppSpecificOptions> {
-  NotificationsApp(super.sharedPreferences);
+  NotificationsApp();
 
   @override
-  String id = AppIDs.notifications;
+  final String id = AppIDs.notifications;
 
   @override
-  LocalizationsDelegate localizationsDelegate = AppLocalizations.delegate;
+  final LocalizationsDelegate localizationsDelegate = AppLocalizations.delegate;
 
   @override
-  List<Locale> supportedLocales = AppLocalizations.supportedLocales;
+  final List<Locale> supportedLocales = AppLocalizations.supportedLocales;
 
   @override
-  NotificationsAppSpecificOptions buildOptions(final AppStorage storage) => NotificationsAppSpecificOptions(storage);
+  late final NotificationsAppSpecificOptions options = NotificationsAppSpecificOptions(storage);
 
   @override
   NotificationsBloc buildBloc(final Account account) => NotificationsBloc(
@@ -43,10 +43,10 @@ class NotificationsApp extends AppImplementation<NotificationsBloc, Notification
       );
 
   @override
-  Widget get page => const NotificationsMainPage();
+  final Widget page = const NotificationsMainPage();
 
   @override
-  RouteBase get route => $notificationsAppRoute;
+  final RouteBase route = $notificationsAppRoute;
 
   @override
   BehaviorSubject<int> getUnreadCounter(final NotificationsBloc bloc) => bloc.unreadCounter;

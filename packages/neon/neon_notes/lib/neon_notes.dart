@@ -42,19 +42,19 @@ part 'widgets/notes_floating_action_button.dart';
 part 'widgets/notes_view.dart';
 
 class NotesApp extends AppImplementation<NotesBloc, NotesAppSpecificOptions> {
-  NotesApp(super.sharedPreferences);
+  NotesApp();
 
   @override
-  String id = AppIDs.notes;
+  final String id = AppIDs.notes;
 
   @override
-  List<Locale> supportedLocales = AppLocalizations.supportedLocales;
+  final List<Locale> supportedLocales = AppLocalizations.supportedLocales;
 
   @override
-  LocalizationsDelegate localizationsDelegate = AppLocalizations.delegate;
+  final LocalizationsDelegate localizationsDelegate = AppLocalizations.delegate;
 
   @override
-  NotesAppSpecificOptions buildOptions(final AppStorage storage) => NotesAppSpecificOptions(storage);
+  late final NotesAppSpecificOptions options = NotesAppSpecificOptions(storage);
 
   @override
   NotesBloc buildBloc(final Account account) => NotesBloc(
@@ -63,8 +63,8 @@ class NotesApp extends AppImplementation<NotesBloc, NotesAppSpecificOptions> {
       );
 
   @override
-  Widget get page => const NotesMainPage();
+  final Widget page = const NotesMainPage();
 
   @override
-  RouteBase get route => $notesAppRoute;
+  final RouteBase route = $notesAppRoute;
 }

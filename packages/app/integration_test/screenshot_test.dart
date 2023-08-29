@@ -20,7 +20,7 @@ Future runTestApp(
   final Account? account,
 }) async {
   await runNeon(
-    getAppImplementations: getAppImplementations,
+    appImplementations: appImplementations,
     theme: neonTheme,
     bindingOverride: binding,
     account: account,

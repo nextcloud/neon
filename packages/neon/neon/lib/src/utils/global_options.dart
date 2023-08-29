@@ -11,7 +11,6 @@ import 'package:neon/src/settings/models/storage.dart';
 import 'package:neon/src/settings/models/toggle_option.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:permission_handler/permission_handler.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 const unifiedPushNextPushID = 'org.unifiedpush.distributor.nextpush';
 
@@ -19,7 +18,6 @@ const unifiedPushNextPushID = 'org.unifiedpush.distributor.nextpush';
 @immutable
 class GlobalOptions {
   GlobalOptions(
-    this._sharedPreferences,
     this._packageInfo,
   ) {
     pushNotificationsEnabled.addListener(_pushNotificationsEnabledListener);
@@ -51,8 +49,7 @@ class GlobalOptions {
     }
   }
 
-  final SharedPreferences _sharedPreferences;
-  late final AppStorage _storage = AppStorage('global', _sharedPreferences);
+  late final AppStorage _storage = AppStorage('global');
   final PackageInfo _packageInfo;
 
   late final _distributorsMap = <String, String Function(BuildContext)>{

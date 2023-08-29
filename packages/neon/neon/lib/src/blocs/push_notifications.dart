@@ -13,7 +13,6 @@ import 'package:neon/src/settings/models/storage.dart';
 import 'package:neon/src/utils/global_options.dart';
 import 'package:neon/src/utils/push_utils.dart';
 import 'package:nextcloud/nextcloud.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:unifiedpush/unifiedpush.dart';
 
 abstract class PushNotificationsBlocEvents {}
@@ -26,7 +25,6 @@ abstract class PushNotificationsBlocStates {
 class PushNotificationsBloc extends Bloc implements PushNotificationsBlocEvents, PushNotificationsBlocStates {
   PushNotificationsBloc(
     this._accountsBloc,
-    this._sharedPreferences,
     this._globalOptions,
   ) {
     if (NeonPlatform.instance.canUsePushNotifications) {
@@ -39,8 +37,7 @@ class PushNotificationsBloc extends Bloc implements PushNotificationsBlocEvents,
   }
 
   final AccountsBloc _accountsBloc;
-  final SharedPreferences _sharedPreferences;
-  late final _storage = AppStorage(AppIDs.notifications, _sharedPreferences);
+  late final _storage = AppStorage(AppIDs.notifications);
   final GlobalOptions _globalOptions;
 
   final _notificationsController = StreamController<PushNotification>();

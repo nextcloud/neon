@@ -2,6 +2,7 @@ import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
+import 'package:meta/meta.dart';
 import 'package:neon/l10n/localizations.dart';
 import 'package:neon/src/bloc/bloc.dart';
 import 'package:neon/src/blocs/accounts.dart';
@@ -11,15 +12,10 @@ import 'package:neon/src/settings/models/storage.dart';
 import 'package:neon/src/widgets/drawer_destination.dart';
 import 'package:provider/provider.dart';
 import 'package:rxdart/rxdart.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
+@immutable
 abstract class AppImplementation<T extends Bloc, R extends NextcloudAppOptions> {
-  AppImplementation(
-    final SharedPreferences sharedPreferences,
-  ) {
-    final storage = AppStorage('app-$id', sharedPreferences);
-    options = buildOptions(storage);
-  }
+  AppImplementation();
 
   String get id;
   LocalizationsDelegate get localizationsDelegate;
@@ -28,10 +24,11 @@ abstract class AppImplementation<T extends Bloc, R extends NextcloudAppOptions> 
   String nameFromLocalization(final AppLocalizations localizations) => localizations.appImplementationName(id);
   String name(final BuildContext context) => nameFromLocalization(AppLocalizations.of(context));
 
-  late final R options;
-
   @protected
-  R buildOptions(final AppStorage storage);
+  late final AppStorage storage = AppStorage('app-$id');
+
+  @mustBeOverridden
+  R get options;
 
   final Map<String, T> _blocs = {};
 
@@ -118,7 +115,7 @@ abstract class AppImplementation<T extends Bloc, R extends NextcloudAppOptions> 
   /// A custom theme that will be injected into the widget tree.
   ///
   /// You can later acess it through `Theme.of(context).extension<ThemeName>()`.
-  ThemeExtension? theme;
+  final ThemeExtension? theme = null;
 }
 
 extension AppImplementationFind on Iterable<AppImplementation> {
