@@ -55,13 +55,13 @@ class NewsApp extends AppImplementation<NewsBloc, NewsAppSpecificOptions> {
   NewsApp();
 
   @override
-  String id = AppIDs.news;
+  final String id = AppIDs.news;
 
   @override
-  LocalizationsDelegate localizationsDelegate = AppLocalizations.delegate;
+  final LocalizationsDelegate localizationsDelegate = AppLocalizations.delegate;
 
   @override
-  List<Locale> supportedLocales = AppLocalizations.supportedLocales;
+  final List<Locale> supportedLocales = AppLocalizations.supportedLocales;
 
   @override
   late final NewsAppSpecificOptions options = NewsAppSpecificOptions(storage);
@@ -73,10 +73,10 @@ class NewsApp extends AppImplementation<NewsBloc, NewsAppSpecificOptions> {
       );
 
   @override
-  Widget get page => const NewsMainPage();
+  final Widget page = const NewsMainPage();
 
   @override
-  RouteBase get route => $newsAppRoute;
+  final RouteBase route = $newsAppRoute;
 
   @override
   BehaviorSubject<int> getUnreadCounter(final NewsBloc bloc) => bloc.unreadCounter;

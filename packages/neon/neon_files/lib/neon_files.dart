@@ -47,13 +47,13 @@ class FilesApp extends AppImplementation<FilesBloc, FilesAppSpecificOptions> {
   FilesApp();
 
   @override
-  String id = AppIDs.files;
+  final String id = AppIDs.files;
 
   @override
-  LocalizationsDelegate localizationsDelegate = AppLocalizations.delegate;
+  final LocalizationsDelegate localizationsDelegate = AppLocalizations.delegate;
 
   @override
-  List<Locale> supportedLocales = AppLocalizations.supportedLocales;
+  final List<Locale> supportedLocales = AppLocalizations.supportedLocales;
 
   @override
   late final FilesAppSpecificOptions options = FilesAppSpecificOptions(storage);
@@ -65,8 +65,8 @@ class FilesApp extends AppImplementation<FilesBloc, FilesAppSpecificOptions> {
       );
 
   @override
-  Widget get page => const FilesMainPage();
+  final Widget page = const FilesMainPage();
 
   @override
-  RouteBase get route => $filesAppRoute;
+  final RouteBase route = $filesAppRoute;
 }

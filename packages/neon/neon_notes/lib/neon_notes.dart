@@ -45,13 +45,13 @@ class NotesApp extends AppImplementation<NotesBloc, NotesAppSpecificOptions> {
   NotesApp();
 
   @override
-  String id = AppIDs.notes;
+  final String id = AppIDs.notes;
 
   @override
-  List<Locale> supportedLocales = AppLocalizations.supportedLocales;
+  final List<Locale> supportedLocales = AppLocalizations.supportedLocales;
 
   @override
-  LocalizationsDelegate localizationsDelegate = AppLocalizations.delegate;
+  final LocalizationsDelegate localizationsDelegate = AppLocalizations.delegate;
 
   @override
   late final NotesAppSpecificOptions options = NotesAppSpecificOptions(storage);
@@ -63,8 +63,8 @@ class NotesApp extends AppImplementation<NotesBloc, NotesAppSpecificOptions> {
       );
 
   @override
-  Widget get page => const NotesMainPage();
+  final Widget page = const NotesMainPage();
 
   @override
-  RouteBase get route => $notesAppRoute;
+  final RouteBase route = $notesAppRoute;
 }
