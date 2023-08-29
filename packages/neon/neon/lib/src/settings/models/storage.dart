@@ -44,6 +44,10 @@ final class NeonStorage {
   /// Make sure it has been initialized wiht [init] before.
   static SharedPreferences? _sharedPreferences;
 
+  @visibleForTesting
+  // ignore: use_setters_to_change_properties
+  static void mock(final SharedPreferences mock) => _sharedPreferences = mock;
+
   /// Sets up the [SharedPreferences] instance.
   ///
   /// Required to be called before accessing [database].
@@ -104,7 +108,8 @@ final class AppStorage implements SettingsStorage {
 
   final String? suffix;
 
-  String _formatKey(final String key) {
+  @visibleForTesting
+  String formatKey(final String key) {
     if (suffix != null) {
       return '${this.key.value}-$suffix-$key';
     }
@@ -112,25 +117,25 @@ final class AppStorage implements SettingsStorage {
     return '${this.key.value}-$key';
   }
 
-  bool containsKey(final String key) => NeonStorage.database.containsKey(_formatKey(key));
+  bool containsKey(final String key) => NeonStorage.database.containsKey(formatKey(key));
 
   @override
-  Future<bool> remove(final String key) => NeonStorage.database.remove(_formatKey(key));
+  Future<bool> remove(final String key) => NeonStorage.database.remove(formatKey(key));
 
   @override
-  String? getString(final String key) => NeonStorage.database.getString(_formatKey(key));
+  String? getString(final String key) => NeonStorage.database.getString(formatKey(key));
 
   @override
-  Future setString(final String key, final String value) => NeonStorage.database.setString(_formatKey(key), value);
+  Future setString(final String key, final String value) => NeonStorage.database.setString(formatKey(key), value);
 
   @override
-  bool? getBool(final String key) => NeonStorage.database.getBool(_formatKey(key));
+  bool? getBool(final String key) => NeonStorage.database.getBool(formatKey(key));
 
   @override
-  Future setBool(final String key, final bool value) => NeonStorage.database.setBool(_formatKey(key), value);
+  Future setBool(final String key, final bool value) => NeonStorage.database.setBool(formatKey(key), value);
 
-  List<String>? getStringList(final String key) => NeonStorage.database.getStringList(_formatKey(key));
+  List<String>? getStringList(final String key) => NeonStorage.database.getStringList(formatKey(key));
 
   Future setStringList(final String key, final List<String> value) =>
-      NeonStorage.database.setStringList(_formatKey(key), value);
+      NeonStorage.database.setStringList(formatKey(key), value);
 }
