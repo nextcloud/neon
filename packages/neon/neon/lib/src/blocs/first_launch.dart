@@ -17,7 +17,7 @@ class FirstLaunchBloc extends Bloc implements FirstLaunchBlocEvents, FirstLaunch
   FirstLaunchBloc({
     final bool disabled = false,
   }) {
-    const storage = SingleValueStorage('first-launch');
+    const storage = SingleValueStorage(StorageKeys.firstLaunch);
 
     if (!disabled && !storage.hasValue()) {
       onFirstLaunch.add(null);

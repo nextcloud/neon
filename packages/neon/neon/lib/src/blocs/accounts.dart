@@ -58,7 +58,7 @@ class AccountsBloc extends Bloc implements AccountsBlocEvents, AccountsBlocState
     this._globalOptions,
     this._allAppImplementations,
   ) {
-    const lastUsedStorage = SingleValueStorage('last-used-account');
+    const lastUsedStorage = SingleValueStorage(StorageKeys.lastUsedAccount);
 
     accounts
       ..add(loadAccounts())
@@ -210,7 +210,7 @@ class AccountsBloc extends Bloc implements AccountsBlocEvents, AccountsBlocState
   /// Use [activeOptions] to get them for the [activeAccount].
   AccountSpecificOptions getOptionsFor(final Account account) =>
       _accountsOptions[account.id] ??= AccountSpecificOptions(
-        AppStorage('accounts-${account.id}'),
+        AppStorage(StorageKeys.accounts, account.id),
         getAppsBlocFor(account),
       );
 
@@ -281,7 +281,7 @@ class AccountsBloc extends Bloc implements AccountsBlocEvents, AccountsBlocState
 ///
 /// It is not checked whether the stored information is still valid.
 List<Account> loadAccounts() {
-  const storage = AppStorage('accounts');
+  const storage = AppStorage(StorageKeys.accounts);
 
   if (storage.containsKey(_keyAccounts)) {
     return storage
@@ -294,7 +294,7 @@ List<Account> loadAccounts() {
 
 /// Saves the given [accounts] to the storage.
 Future<void> saveAccounts(final List<Account> accounts) async {
-  const storage = AppStorage('accounts');
+  const storage = AppStorage(StorageKeys.accounts);
   final values = accounts.map((final a) => json.encode(a.toJson())).toList();
 
   await storage.setStringList(_keyAccounts, values);

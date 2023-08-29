@@ -6,7 +6,6 @@ import 'package:meta/meta.dart';
 import 'package:neon/src/bloc/bloc.dart';
 import 'package:neon/src/blocs/accounts.dart';
 import 'package:neon/src/models/account.dart';
-import 'package:neon/src/models/app_ids.dart';
 import 'package:neon/src/models/push_notification.dart';
 import 'package:neon/src/platform/platform.dart';
 import 'package:neon/src/settings/models/storage.dart';
@@ -37,7 +36,7 @@ class PushNotificationsBloc extends Bloc implements PushNotificationsBlocEvents,
   }
 
   final AccountsBloc _accountsBloc;
-  late final _storage = const AppStorage(AppIDs.notifications);
+  late final _storage = const AppStorage(StorageKeys.notifications);
   final GlobalOptions _globalOptions;
 
   final _notificationsController = StreamController<PushNotification>();
@@ -69,7 +68,7 @@ class PushNotificationsBloc extends Bloc implements PushNotificationsBlocEvents,
 
   Future _setupUnifiedPush() async {
     // We just use a single RSA keypair for all accounts
-    final keypair = await PushUtils.loadRSAKeypair(_storage);
+    final keypair = await PushUtils.loadRSAKeypair();
 
     await UnifiedPush.initialize(
       onNewEndpoint: (final endpoint, final instance) async {

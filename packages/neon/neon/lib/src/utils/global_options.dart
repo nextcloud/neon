@@ -49,7 +49,7 @@ class GlobalOptions {
     }
   }
 
-  late final AppStorage _storage = const AppStorage('global');
+  late final AppStorage _storage = const AppStorage(StorageKeys.global);
   final PackageInfo _packageInfo;
 
   late final _distributorsMap = <String, String Function(BuildContext)>{

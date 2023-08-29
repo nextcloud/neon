@@ -1,4 +1,5 @@
 import 'package:meta/meta.dart';
+import 'package:neon/src/models/app_ids.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 @internal
@@ -13,6 +14,21 @@ abstract interface class SettingsStorage {
   Future setBool(final String key, final bool value);
 
   Future<bool> remove(final String key);
+}
+
+@internal
+enum StorageKeys {
+  apps._('app'),
+  accounts._('accounts'),
+  global._('global'),
+  lastUsedAccount._('last-used-account'),
+  lastEndpoint._('last-endpoint'),
+  firstLaunch._('first-launch'),
+  notifications._(AppIDs.notifications);
+
+  const StorageKeys._(this.value);
+
+  final String value;
 }
 
 @internal
@@ -49,36 +65,47 @@ final class NeonStorage {
 @immutable
 @internal
 final class SingleValueStorage {
-  const SingleValueStorage(this._id);
+  const SingleValueStorage(this.key);
 
-  final String _id;
+  final StorageKeys key;
 
-  bool hasValue() => NeonStorage.database.containsKey(_id);
+  bool hasValue() => NeonStorage.database.containsKey(key.value);
 
-  Future<bool> remove() => NeonStorage.database.remove(_id);
+  Future<bool> remove() => NeonStorage.database.remove(key.value);
 
-  String? getString() => NeonStorage.database.getString(_id);
+  String? getString() => NeonStorage.database.getString(key.value);
 
-  Future setString(final String value) => NeonStorage.database.setString(_id, value);
+  Future setString(final String value) => NeonStorage.database.setString(key.value, value);
 
-  bool? getBool() => NeonStorage.database.getBool(_id);
+  bool? getBool() => NeonStorage.database.getBool(key.value);
 
   // ignore: avoid_positional_boolean_parameters
-  Future setBool(final bool value) => NeonStorage.database.setBool(_id, value);
+  Future setBool(final bool value) => NeonStorage.database.setBool(key.value, value);
 
-  List<String>? getStringList() => NeonStorage.database.getStringList(_id);
+  List<String>? getStringList() => NeonStorage.database.getStringList(key.value);
 
-  Future setStringList(final List<String> value) => NeonStorage.database.setStringList(_id, value);
+  Future setStringList(final List<String> value) => NeonStorage.database.setStringList(key.value, value);
 }
 
 @immutable
 @internal
 final class AppStorage implements SettingsStorage {
-  const AppStorage(this._id);
+  const AppStorage(
+    this.key, [
+    this.suffix,
+  ]);
 
-  final String _id;
+  final StorageKeys key;
 
-  String _formatKey(final String key) => '$_id-$key';
+  final String? suffix;
+
+  String _formatKey(final String key) {
+    if (suffix != null) {
+      return '${this.key.value}-$suffix-$key';
+    }
+
+    return '${this.key.value}-$key';
+  }
 
   bool containsKey(final String key) => NeonStorage.database.containsKey(_formatKey(key));
 
