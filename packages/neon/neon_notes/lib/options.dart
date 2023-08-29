@@ -32,7 +32,7 @@ class NotesAppSpecificOptions extends NextcloudAppOptions {
   late final defaultCategoryOption = SelectOption<DefaultCategory>(
     storage: super.storage,
     category: generalCategory,
-    key: 'default-category',
+    key: NotesOptionKeys.defaultCategory,
     label: (final context) => AppLocalizations.of(context).optionsDefaultCategory,
     defaultValue: DefaultCategory.notes,
     values: {
@@ -44,7 +44,7 @@ class NotesAppSpecificOptions extends NextcloudAppOptions {
   late final defaultNoteViewTypeOption = SelectOption<DefaultNoteViewType>(
     storage: super.storage,
     category: generalCategory,
-    key: 'default-note-view-type',
+    key: NotesOptionKeys.defaultNoteViewType,
     label: (final context) => AppLocalizations.of(context).optionsDefaultNoteViewType,
     defaultValue: DefaultNoteViewType.preview,
     values: {
@@ -56,7 +56,7 @@ class NotesAppSpecificOptions extends NextcloudAppOptions {
   late final notesSortPropertyOption = SelectOption<NotesSortProperty>(
     storage: super.storage,
     category: notesCategory,
-    key: 'notes-sort-property',
+    key: NotesOptionKeys.notesSortProperty,
     label: (final context) => AppLocalizations.of(context).optionsNotesSortProperty,
     defaultValue: NotesSortProperty.lastModified,
     values: {
@@ -70,7 +70,7 @@ class NotesAppSpecificOptions extends NextcloudAppOptions {
   late final notesSortBoxOrderOption = SelectOption<SortBoxOrder>(
     storage: super.storage,
     category: notesCategory,
-    key: 'notes-sort-box-order',
+    key: NotesOptionKeys.notesSortBoxOrder,
     label: (final context) => AppLocalizations.of(context).optionsNotesSortOrder,
     defaultValue: SortBoxOrder.descending,
     values: sortBoxOrderOptionValues,
@@ -79,7 +79,7 @@ class NotesAppSpecificOptions extends NextcloudAppOptions {
   late final categoriesSortPropertyOption = SelectOption<CategoriesSortProperty>(
     storage: super.storage,
     category: categoriesCategory,
-    key: 'categories-sort-property',
+    key: NotesOptionKeys.categoriesSortProperty,
     label: (final context) => AppLocalizations.of(context).optionsCategoriesSortProperty,
     defaultValue: CategoriesSortProperty.alphabetical,
     values: {
@@ -93,11 +93,25 @@ class NotesAppSpecificOptions extends NextcloudAppOptions {
   late final categoriesSortBoxOrderOption = SelectOption<SortBoxOrder>(
     storage: super.storage,
     category: categoriesCategory,
-    key: 'categories-sort-box-order',
+    key: NotesOptionKeys.categoriesSortBoxOrder,
     label: (final context) => AppLocalizations.of(context).optionsCategoriesSortOrder,
     defaultValue: SortBoxOrder.ascending,
     values: sortBoxOrderOptionValues,
   );
+}
+
+enum NotesOptionKeys implements Storable {
+  defaultCategory._('default-category'),
+  defaultNoteViewType._('default-note-view-type'),
+  notesSortProperty._('notes-sort-property'),
+  notesSortBoxOrder._('notes-sort-box-order'),
+  categoriesSortProperty._('categories-sort-property'),
+  categoriesSortBoxOrder._('categories-sort-box-order');
+
+  const NotesOptionKeys._(this.value);
+
+  @override
+  final String value;
 }
 
 enum DefaultNoteViewType {

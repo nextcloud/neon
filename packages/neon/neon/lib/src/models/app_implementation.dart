@@ -25,7 +25,7 @@ abstract class AppImplementation<T extends Bloc, R extends NextcloudAppOptions> 
   String name(final BuildContext context) => nameFromLocalization(AppLocalizations.of(context));
 
   @protected
-  late final AppStorage storage = AppStorage('app-$id');
+  late final AppStorage storage = AppStorage(StorageKeys.apps, id);
 
   @mustBeOverridden
   R get options;

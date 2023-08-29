@@ -23,7 +23,7 @@ class FilesAppSpecificOptions extends NextcloudAppOptions {
   late final filesSortPropertyOption = SelectOption<FilesSortProperty>(
     storage: super.storage,
     category: generalCategory,
-    key: 'files-sort-property',
+    key: FilesOptionKeys.sortProperty,
     label: (final context) => AppLocalizations.of(context).optionsFilesSortProperty,
     defaultValue: FilesSortProperty.name,
     values: {
@@ -37,7 +37,7 @@ class FilesAppSpecificOptions extends NextcloudAppOptions {
   late final filesSortBoxOrderOption = SelectOption<SortBoxOrder>(
     storage: super.storage,
     category: generalCategory,
-    key: 'files-sort-box-order',
+    key: FilesOptionKeys.sortOrder,
     label: (final context) => AppLocalizations.of(context).optionsFilesSortOrder,
     defaultValue: SortBoxOrder.ascending,
     values: sortBoxOrderOptionValues,
@@ -46,7 +46,7 @@ class FilesAppSpecificOptions extends NextcloudAppOptions {
   late final showPreviewsOption = ToggleOption(
     storage: super.storage,
     category: generalCategory,
-    key: 'show-previews',
+    key: FilesOptionKeys.showPreviews,
     label: (final context) => AppLocalizations.of(context).optionsShowPreviews,
     defaultValue: true,
   );
@@ -54,7 +54,7 @@ class FilesAppSpecificOptions extends NextcloudAppOptions {
   late final uploadQueueParallelism = SelectOption<int>(
     storage: storage,
     category: generalCategory,
-    key: 'upload-queue-parallelism',
+    key: FilesOptionKeys.uploadQueueParallelism,
     label: (final context) => AppLocalizations.of(context).optionsUploadQueueParallelism,
     defaultValue: 4,
     values: {
@@ -67,7 +67,7 @@ class FilesAppSpecificOptions extends NextcloudAppOptions {
   late final downloadQueueParallelism = SelectOption<int>(
     storage: storage,
     category: generalCategory,
-    key: 'download-queue-parallelism',
+    key: FilesOptionKeys.downloadQueueParallelism,
     label: (final context) => AppLocalizations.of(context).optionsDownloadQueueParallelism,
     defaultValue: 4,
     values: {
@@ -97,7 +97,7 @@ class FilesAppSpecificOptions extends NextcloudAppOptions {
   late final uploadSizeWarning = SelectOption<int?>(
     storage: storage,
     category: generalCategory,
-    key: 'upload-size-warning',
+    key: FilesOptionKeys.uploadQueueParallelism,
     label: (final context) => AppLocalizations.of(context).optionsUploadSizeWarning,
     defaultValue: _mb(10),
     values: _sizeWarningValues,
@@ -106,11 +106,26 @@ class FilesAppSpecificOptions extends NextcloudAppOptions {
   late final downloadSizeWarning = SelectOption<int?>(
     storage: storage,
     category: generalCategory,
-    key: 'download-size-warning',
+    key: FilesOptionKeys.downloadSizeWarning,
     label: (final context) => AppLocalizations.of(context).optionsDownloadSizeWarning,
     defaultValue: _mb(10),
     values: _sizeWarningValues,
   );
+}
+
+enum FilesOptionKeys implements Storable {
+  sortProperty._('files-sort-property'),
+  sortOrder._('files-sort-box-order'),
+  showPreviews._('show-previews'),
+  uploadQueueParallelism._('upload-queue-parallelism'),
+  downloadQueueParallelism._('download-queue-parallelism'),
+  uploadSizeWarning._('upload-size-warning'),
+  downloadSizeWarning._('download-size-warning');
+
+  const FilesOptionKeys._(this.value);
+
+  @override
+  final String value;
 }
 
 enum FilesSortProperty {

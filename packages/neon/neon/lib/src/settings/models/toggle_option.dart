@@ -11,7 +11,7 @@ class ToggleOption extends Option<bool> {
     required final bool defaultValue,
     super.category,
     super.enabled,
-  }) : super(defaultValue: storage.getBool(key) ?? defaultValue);
+  }) : super(defaultValue: storage.getBool(key.value) ?? defaultValue);
 
   /// Creates a ToggleOption depending on the State of another [Option].
   ToggleOption.depend({
@@ -22,12 +22,12 @@ class ToggleOption extends Option<bool> {
     required super.enabled,
     super.category,
   }) : super.depend(
-          defaultValue: storage.getBool(key) ?? defaultValue,
+          defaultValue: storage.getBool(key.value) ?? defaultValue,
         );
 
   @override
   void reset() {
-    unawaited(storage.remove(key));
+    unawaited(storage.remove(key.value));
 
     super.reset();
   }
@@ -36,7 +36,7 @@ class ToggleOption extends Option<bool> {
   set value(final bool value) {
     super.value = value;
 
-    unawaited(storage.setBool(key, serialize()));
+    unawaited(storage.setBool(key.value, serialize()));
   }
 
   @override

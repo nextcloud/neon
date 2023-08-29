@@ -15,6 +15,15 @@ class MockCallbackFunction extends Mock {
   FutureOr<void> call();
 }
 
+enum StorageKey implements Storable {
+  key._('storage-key');
+
+  const StorageKey._(this.value);
+
+  @override
+  final String value;
+}
+
 enum SelectValues {
   first,
   second,
@@ -23,7 +32,7 @@ enum SelectValues {
 
 void main() {
   final storage = MockStorage();
-  const key = 'storage-key';
+  const key = StorageKey.key;
   String labelBuilder(final _) => 'label';
 
   group('SelectOption', () {
@@ -36,8 +45,8 @@ void main() {
     late SelectOption<SelectValues> option;
 
     setUp(() {
-      when(() => storage.setString(key, any())).thenAnswer((final _) async {});
-      when(() => storage.remove(key)).thenAnswer((final _) async => true);
+      when(() => storage.setString(key.value, any())).thenAnswer((final _) async {});
+      when(() => storage.remove(key.value)).thenAnswer((final _) async => true);
 
       option = SelectOption<SelectValues>(
         storage: storage,
@@ -56,7 +65,7 @@ void main() {
     test('Create', () {
       expect(option.value, option.defaultValue, reason: 'Should default to defaultValue.');
 
-      when(() => storage.getString(key)).thenReturn('SelectValues.second');
+      when(() => storage.getString(key.value)).thenReturn('SelectValues.second');
 
       option = SelectOption<SelectValues>(
         storage: storage,
@@ -96,7 +105,7 @@ void main() {
         ..value = SelectValues.third;
 
       verify(callback.call).called(1);
-      verify(() => storage.setString(key, 'SelectValues.third')).called(1);
+      verify(() => storage.setString(key.value, 'SelectValues.third')).called(1);
       expect(option.value, SelectValues.third, reason: 'Should update the value.');
 
       option.value = SelectValues.third;
@@ -150,7 +159,7 @@ void main() {
       option.reset();
 
       verify(callback.call).called(1);
-      verify(() => storage.remove(key)).called(1);
+      verify(() => storage.remove(key.value)).called(1);
       expect(option.value, option.defaultValue, reason: 'Should reset the value.');
     });
 
@@ -171,8 +180,8 @@ void main() {
     late ToggleOption option;
 
     setUp(() {
-      when(() => storage.setBool(key, any())).thenAnswer((final _) async {});
-      when(() => storage.remove(key)).thenAnswer((final _) async => true);
+      when(() => storage.setBool(key.value, any())).thenAnswer((final _) async {});
+      when(() => storage.remove(key.value)).thenAnswer((final _) async => true);
 
       option = ToggleOption(
         storage: storage,
@@ -190,7 +199,7 @@ void main() {
     test('Create', () {
       expect(option.value, option.defaultValue, reason: 'Should default to defaultValue.');
 
-      when(() => storage.getBool(key)).thenReturn(true);
+      when(() => storage.getBool(key.value)).thenReturn(true);
 
       option = ToggleOption(
         storage: storage,
@@ -228,7 +237,7 @@ void main() {
         ..value = false;
 
       verify(callback.call).called(1);
-      verify(() => storage.setBool(key, false)).called(1);
+      verify(() => storage.setBool(key.value, false)).called(1);
       expect(option.value, false, reason: 'Should update the value.');
 
       option.value = false;
@@ -262,7 +271,7 @@ void main() {
       option.reset();
 
       verify(callback.call).called(1);
-      verify(() => storage.remove(key)).called(1);
+      verify(() => storage.remove(key.value)).called(1);
       expect(option.value, option.defaultValue, reason: 'Should reset the value.');
     });
   });

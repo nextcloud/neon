@@ -11,7 +11,6 @@ import 'package:image/image.dart' as img;
 import 'package:meta/meta.dart';
 import 'package:neon/src/blocs/accounts.dart';
 import 'package:neon/src/models/account.dart';
-import 'package:neon/src/models/app_ids.dart';
 import 'package:neon/src/models/push_notification.dart';
 import 'package:neon/src/settings/models/storage.dart';
 import 'package:neon/src/theme/colors.dart';
@@ -22,7 +21,8 @@ import 'package:nextcloud/nextcloud.dart';
 @internal
 @immutable
 class PushUtils {
-  static Future<RSAKeypair> loadRSAKeypair(final AppStorage storage) async {
+  static Future<RSAKeypair> loadRSAKeypair() async {
+    const storage = AppStorage(StorageKeys.notifications);
     const keyDevicePrivateKey = 'device-private-key';
 
     late RSAKeypair keypair;
@@ -70,9 +70,9 @@ class PushUtils {
         }
       },
     );
-    await AppStorage.init();
+    await NeonStorage.init();
 
-    final keypair = await loadRSAKeypair(AppStorage(AppIDs.notifications));
+    final keypair = await loadRSAKeypair();
 
     for (final message in Uri(query: utf8.decode(messages)).queryParameters.values) {
       final data = json.decode(message) as Map<String, dynamic>;
@@ -93,12 +93,11 @@ class PushUtils {
       } else {
         final localizations = await appLocalizationsFromSystem();
 
-        var accounts = <Account>[];
+        final accounts = loadAccounts();
         Account? account;
         NotificationsNotification? notification;
         AndroidBitmap<Object>? largeIconBitmap;
         try {
-          accounts = loadAccounts(AppStorage('accounts'));
           account = accounts.tryFind(instance);
           if (account != null) {
             notification =

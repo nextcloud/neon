@@ -47,9 +47,18 @@ class AccountSpecificOptions {
 
   late final initialApp = SelectOption<String?>(
     storage: _storage,
-    key: 'initial-app',
+    key: AccountOptionKeys.initialApp,
     label: (final context) => AppLocalizations.of(context).accountOptionsInitialApp,
     defaultValue: null,
     values: {},
   );
+}
+
+enum AccountOptionKeys implements Storable {
+  initialApp._('initial-app');
+
+  const AccountOptionKeys._(this.value);
+
+  @override
+  final String value;
 }
