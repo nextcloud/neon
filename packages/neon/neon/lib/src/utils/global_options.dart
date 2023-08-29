@@ -92,14 +92,13 @@ class GlobalOptions extends OptionsCollection {
   }
 
   void updateAccounts(final List<Account> accounts) {
-    if (accounts.isEmpty) {
-      return;
-    }
     initialAccount.values = {
-      for (final account in accounts) ...{
-        account.id: (final context) => account.humanReadableID,
-      },
+      for (final account in accounts) account.id: (final context) => account.humanReadableID,
     };
+
+    if (accounts.tryFind(initialAccount.value) == null) {
+      initialAccount.reset();
+    }
   }
 
   Future updateDistributors(final List<String> distributors) async {
