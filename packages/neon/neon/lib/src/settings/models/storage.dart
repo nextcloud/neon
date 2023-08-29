@@ -16,8 +16,12 @@ abstract interface class SettingsStorage {
   Future<bool> remove(final String key);
 }
 
+abstract interface class Storable {
+  String get value;
+}
+
 @internal
-enum StorageKeys {
+enum StorageKeys implements Storable {
   apps._('app'),
   accounts._('accounts'),
   global._('global'),
@@ -28,6 +32,7 @@ enum StorageKeys {
 
   const StorageKeys._(this.value);
 
+  @override
   final String value;
 }
 

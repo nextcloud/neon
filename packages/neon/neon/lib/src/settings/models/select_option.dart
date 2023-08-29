@@ -21,7 +21,7 @@ class SelectOption<T> extends Option<T> {
     super.category,
     super.enabled,
   })  : _values = values,
-        super(initialValue: loadValue(values, storage.getString(key), forceLoad: forceLoadValue));
+        super(initialValue: loadValue(values, storage.getString(key.value), forceLoad: forceLoadValue));
 
   /// Creates a SelectOption depending on the State of another [Option].
   SelectOption.depend({
@@ -39,7 +39,7 @@ class SelectOption<T> extends Option<T> {
     final bool forceLoadValue = true,
     super.category,
   })  : _values = values,
-        super.depend(initialValue: loadValue(values, storage.getString(key), forceLoad: forceLoadValue));
+        super.depend(initialValue: loadValue(values, storage.getString(key.value), forceLoad: forceLoadValue));
 
   static T? loadValue<T>(final Map<T, LabelBuilder> vs, final String? stored, {final bool forceLoad = true}) {
     if (forceLoad && vs.isEmpty && stored is T) {
@@ -51,7 +51,7 @@ class SelectOption<T> extends Option<T> {
 
   @override
   void reset() {
-    unawaited(storage.remove(key));
+    unawaited(storage.remove(key.value));
 
     super.reset();
   }
@@ -63,7 +63,7 @@ class SelectOption<T> extends Option<T> {
     super.value = value;
 
     if (value != null) {
-      unawaited(storage.setString(key, serialize()!));
+      unawaited(storage.setString(key.value, serialize()!));
     }
   }
 

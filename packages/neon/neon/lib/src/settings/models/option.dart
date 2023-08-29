@@ -38,7 +38,7 @@ abstract class Option<T> extends ChangeNotifier implements ValueListenable<T> {
   }
 
   final SettingsStorage storage;
-  final String key;
+  final Storable key;
   final LabelBuilder label;
   final T defaultValue;
   final OptionsCategory? category;

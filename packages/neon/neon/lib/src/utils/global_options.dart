@@ -125,7 +125,7 @@ class GlobalOptions {
 
   late final themeMode = SelectOption<ThemeMode>(
     storage: _storage,
-    key: 'theme-mode',
+    key: GlobalOptionKeys.themeMode,
     label: (final context) => AppLocalizations.of(context).globalOptionsThemeMode,
     defaultValue: ThemeMode.system,
     values: {
@@ -137,28 +137,28 @@ class GlobalOptions {
 
   late final themeOLEDAsDark = ToggleOption(
     storage: _storage,
-    key: 'theme-oled-as-dark',
+    key: GlobalOptionKeys.themeOledAsDark,
     label: (final context) => AppLocalizations.of(context).globalOptionsThemeOLEDAsDark,
     defaultValue: false,
   );
 
   late final themeKeepOriginalAccentColor = ToggleOption(
     storage: _storage,
-    key: 'theme-keep-original-accent-color',
+    key: GlobalOptionKeys.themeKeepOriginalAccentColor,
     label: (final context) => AppLocalizations.of(context).globalOptionsThemeKeepOriginalAccentColor,
     defaultValue: false,
   );
 
   late final pushNotificationsEnabled = ToggleOption(
     storage: _storage,
-    key: 'push-notifications-enabled',
+    key: GlobalOptionKeys.pushNotificationsEnabled,
     label: (final context) => AppLocalizations.of(context).globalOptionsPushNotificationsEnabled,
     defaultValue: false,
   );
 
   late final pushNotificationsDistributor = SelectOption<String?>.depend(
     storage: _storage,
-    key: 'push-notifications-distributor',
+    key: GlobalOptionKeys.pushNotificationsDistributor,
     label: (final context) => AppLocalizations.of(context).globalOptionsPushNotificationsDistributor,
     defaultValue: null,
     values: {},
@@ -167,14 +167,14 @@ class GlobalOptions {
 
   late final startupMinimized = ToggleOption(
     storage: _storage,
-    key: 'startup-minimized',
+    key: GlobalOptionKeys.startupMinimized,
     label: (final context) => AppLocalizations.of(context).globalOptionsStartupMinimized,
     defaultValue: false,
   );
 
   late final startupMinimizeInsteadOfExit = ToggleOption(
     storage: _storage,
-    key: 'startup-minimize-instead-of-exit',
+    key: GlobalOptionKeys.startupMinimizeInsteadOfExit,
     label: (final context) => AppLocalizations.of(context).globalOptionsStartupMinimizeInsteadOfExit,
     defaultValue: false,
   );
@@ -183,14 +183,14 @@ class GlobalOptions {
 
   late final systemTrayEnabled = ToggleOption(
     storage: _storage,
-    key: 'systemtray-enabled',
+    key: GlobalOptionKeys.systemtrayEnabled,
     label: (final context) => AppLocalizations.of(context).globalOptionsSystemTrayEnabled,
     defaultValue: false,
   );
 
   late final systemTrayHideToTrayWhenMinimized = ToggleOption.depend(
     storage: _storage,
-    key: 'systemtray-hide-to-tray-when-minimized',
+    key: GlobalOptionKeys.systemtrayHideToTrayWhenMinimized,
     label: (final context) => AppLocalizations.of(context).globalOptionsSystemTrayHideToTrayWhenMinimized,
     defaultValue: true,
     enabled: systemTrayEnabled,
@@ -198,14 +198,14 @@ class GlobalOptions {
 
   late final rememberLastUsedAccount = ToggleOption(
     storage: _storage,
-    key: 'remember-last-used-account',
+    key: GlobalOptionKeys.rememberLastUsedAccount,
     label: (final context) => AppLocalizations.of(context).globalOptionsAccountsRememberLastUsedAccount,
     defaultValue: true,
   );
 
   late final initialAccount = SelectOption<String?>(
     storage: _storage,
-    key: 'initial-account',
+    key: GlobalOptionKeys.initialAccount,
     label: (final context) => AppLocalizations.of(context).globalOptionsAccountsInitialAccount,
     defaultValue: null,
     values: {},
@@ -213,7 +213,7 @@ class GlobalOptions {
 
   late final navigationMode = SelectOption<NavigationMode>(
     storage: _storage,
-    key: 'navigation-mode',
+    key: GlobalOptionKeys.navigationMode,
     label: (final context) => AppLocalizations.of(context).globalOptionsNavigationMode,
     defaultValue: Platform.isAndroid || Platform.isIOS ? NavigationMode.drawer : NavigationMode.drawerAlwaysVisible,
     values: {
@@ -226,6 +226,26 @@ class GlobalOptions {
       NavigationMode.quickBar: (final context) => AppLocalizations.of(context).globalOptionsNavigationModeQuickBar,
     },
   );
+}
+
+enum GlobalOptionKeys implements Storable {
+  themeMode._('theme-mode'),
+  themeOledAsDark._('theme-oled-as-dark'),
+  themeKeepOriginalAccentColor._('theme-keep-original-accent-color'),
+  pushNotificationsEnabled._('push-notifications-enabled'),
+  pushNotificationsDistributor._('push-notifications-distributor'),
+  startupMinimized._('startup-minimized'),
+  startupMinimizeInsteadOfExit._('startup-minimize-instead-of-exit'),
+  systemtrayEnabled._('systemtray-enabled'),
+  systemtrayHideToTrayWhenMinimized._('systemtray-hide-to-tray-when-minimized'),
+  rememberLastUsedAccount._('remember-last-used-account'),
+  initialAccount._('initial-account'),
+  navigationMode._('navigation-mode');
+
+  const GlobalOptionKeys._(this.value);
+
+  @override
+  final String value;
 }
 
 enum NavigationMode {
