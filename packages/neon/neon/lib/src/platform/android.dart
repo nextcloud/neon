@@ -29,12 +29,6 @@ class AndroidNeonPlatform implements NeonPlatform {
   bool get canUseWindowManager => false;
 
   @override
-  Future<String> get applicationCachePath async {
-    final tempDir = await getTemporaryDirectory();
-    return tempDir.absolute.path;
-  }
-
-  @override
   Future<String> get userAccessibleAppDataPath async {
     if (!await Permission.storage.request().isGranted) {
       throw MissingPermissionException(Permission.storage);

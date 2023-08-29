@@ -54,7 +54,6 @@ dependencies:
   url_launcher: ^6.1.12
   vector_graphics: ^1.1.7
   window_manager: ^0.3.6
-  xdg_directories: ^1.0.2
   xml: ^6.3.0
 
 dev_dependencies:

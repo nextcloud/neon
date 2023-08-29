@@ -4,7 +4,6 @@ import 'package:meta/meta.dart';
 import 'package:neon/src/platform/platform.dart';
 import 'package:path/path.dart' as p;
 import 'package:sqflite_common_ffi/sqflite_ffi.dart';
-import 'package:xdg_directories/xdg_directories.dart' as xdg;
 
 @immutable
 @internal
@@ -28,12 +27,6 @@ class LinuxNeonPlatform implements NeonPlatform {
 
   @override
   bool get canUsePushNotifications => false;
-
-  @override
-  String get applicationCachePath => p.join(
-        xdg.cacheHome.absolute.path,
-        'de.provokateurin.neon',
-      );
 
   @override
   String get userAccessibleAppDataPath => p.join(Platform.environment['HOME']!, 'Neon');

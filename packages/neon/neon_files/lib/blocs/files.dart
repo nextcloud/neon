@@ -82,14 +82,8 @@ class FilesBloc extends InteractiveBloc implements FilesBlocEvents, FilesBlocSta
   void openFile(final List<String> path, final String etag, final String? mimeType) {
     wrapAction(
       () async {
-        final file = File(
-          p.join(
-            await NeonPlatform.instance.applicationCachePath,
-            'files',
-            etag.replaceAll('"', ''),
-            path.last,
-          ),
-        );
+        final cacheDir = await getApplicationCacheDirectory();
+        final file = File(p.join(cacheDir.path, 'files', etag.replaceAll('"', ''), path.last));
         if (!file.existsSync()) {
           debugPrint('Downloading ${path.join('/')} since it does not exist');
           if (!file.parent.existsSync()) {

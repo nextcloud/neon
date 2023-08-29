@@ -3,9 +3,9 @@ import 'dart:convert';
 import 'package:flutter/foundation.dart';
 import 'package:meta/meta.dart';
 import 'package:neon/src/bloc/result.dart';
-import 'package:neon/src/platform/platform.dart';
 import 'package:nextcloud/nextcloud.dart';
 import 'package:path/path.dart' as p;
+import 'package:path_provider/path_provider.dart';
 import 'package:rxdart/rxdart.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:xml/xml.dart' as xml;
@@ -194,11 +194,9 @@ class Cache {
       return;
     }
 
+    final cacheDir = await getApplicationCacheDirectory();
     _database = await openDatabase(
-      p.join(
-        await NeonPlatform.instance.applicationCachePath,
-        'cache.db',
-      ),
+      p.join(cacheDir.path, 'cache.db'),
       version: 1,
       onCreate: (final db, final version) async {
         await db.execute('CREATE TABLE cache (id INTEGER PRIMARY KEY, key TEXT, value TEXT, UNIQUE(key))');
