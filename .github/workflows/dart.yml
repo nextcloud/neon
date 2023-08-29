@@ -17,8 +17,11 @@ concurrency:
 
 jobs:
   dart-ci:
-    name: Dart CI
+    name: Dart CI ${{ matrix.target }}
     runs-on: ubuntu-22.04
+    strategy:
+      matrix:
+        target: ['generate', 'analyze', 'test']
     steps:
       - name: Cache dependencies
         uses: actions/cache@88522ab9f39a2ea568f7027eddc7d8d8bc9d59c8 # v3
@@ -32,12 +35,35 @@ jobs:
         uses: dart-lang/setup-dart@d6a63dab3335f427404425de0fbfed4686d93c4f # v1
       - name: Setup
         run: ./tool/setup.sh
-      - name: Build test Docker image
-        run: ./tool/build-dev-container.sh
 
-      - name: Check formatting
-        run: melos run format-check
-      - name: Lint code
-        run: melos run analyze
-      - name: Run tests
-        run: melos run test
+      - name: Generate
+        if: matrix.target == 'generate'
+        run: |
+          # Needed for the sources
+          git submodule update --init --depth=1
+
+          ./tool/generate-file-icons.sh
+
+          ./tool/generate-specs.sh
+          ./tool/generate-nextcloud.sh
+
+          ./tool/generate-neon.sh
+          ./tool/generate-app.sh
+
+          if [[ `git status --porcelain` ]]; then
+            echo "There are uncommitted changes:"
+            git diff
+            exit 1
+          fi
+
+      - name: Analyze
+        if: matrix.target == 'analyze'
+        run: |
+          melos run format-check
+          melos run analyze
+
+      - name: Test
+        if: matrix.target == 'test'
+        run: |
+          ./tool/build-dev-container.sh
+          melos run test
