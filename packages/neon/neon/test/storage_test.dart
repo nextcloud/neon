@@ -4,11 +4,11 @@ import 'package:test/test.dart';
 
 void main() {
   test('AppStorage', () async {
-    expect(() => AppStorage.reqireDatabase, throwsA(isA<StateError>()));
+    expect(() => NeonStorage.database, throwsA(isA<StateError>()));
 
     SharedPreferences.setMockInitialValues({});
-    await AppStorage.init();
+    await NeonStorage.init();
 
-    expect(AppStorage.reqireDatabase, isA<SharedPreferences>());
+    expect(NeonStorage.database, isA<SharedPreferences>());
   });
 }

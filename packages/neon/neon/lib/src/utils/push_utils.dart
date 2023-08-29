@@ -70,7 +70,7 @@ class PushUtils {
         }
       },
     );
-    await AppStorage.init();
+    await NeonStorage.init();
 
     final keypair = await loadRSAKeypair(const AppStorage(AppIDs.notifications));
 

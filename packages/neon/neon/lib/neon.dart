@@ -31,7 +31,7 @@ Future runNeon({
 
   await NeonPlatform.setup();
   await RequestManager.instance.initCache();
-  await AppStorage.init();
+  await NeonStorage.init();
 
   final packageInfo = await PackageInfo.fromPlatform();
   buildUserAgent(packageInfo);
