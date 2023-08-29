@@ -32,6 +32,10 @@ class AppStorage implements SettingsStorage {
   ///
   /// Required to be called before accessing [reqireDatabase].
   static Future init() async {
+    if (_sharedPreferences != null) {
+      return;
+    }
+
     _sharedPreferences = await SharedPreferences.getInstance();
   }
 
