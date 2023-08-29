@@ -6,7 +6,7 @@ environment:
 
 dependencies:
   build: ^2.4.1
-  built_value: ^8.5.0
+  built_value: ^8.6.2
   code_builder: ^4.5.0
   collection: ^1.17.2
   dart_style: ^2.3.2
