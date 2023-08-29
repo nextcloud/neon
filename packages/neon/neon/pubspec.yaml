@@ -36,7 +36,7 @@ dependencies:
   package_info_plus: ^4.0.0
   path: ^1.8.3
   path_provider: ^2.1.0
-  permission_handler: ^10.2.0
+  permission_handler: ^10.4.3
   provider: ^6.0.5
   quick_actions: ^1.0.5
   rxdart: ^0.27.7
