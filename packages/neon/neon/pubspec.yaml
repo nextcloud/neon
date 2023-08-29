@@ -33,7 +33,7 @@ dependencies:
     git:
       url: https://github.com/nextcloud/neon
       path: packages/nextcloud
-  package_info_plus: ^4.0.0
+  package_info_plus: ^4.1.0
   path: ^1.8.3
   path_provider: ^2.0.15
   permission_handler: ^10.2.0
