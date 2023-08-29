@@ -94,7 +94,7 @@ class AccountsBloc extends Bloc implements AccountsBlocEvents, AccountsBlocState
     }
   }
 
-  late final AppStorage _storage = AppStorage('accounts');
+  late final AppStorage _storage = const AppStorage('accounts');
   final GlobalOptions _globalOptions;
   final Iterable<AppImplementation> _allAppImplementations;
   final _keyLastUsedAccount = 'last-used-account';

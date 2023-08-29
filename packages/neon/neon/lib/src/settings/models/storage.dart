@@ -18,7 +18,7 @@ abstract interface class SettingsStorage {
 @immutable
 @internal
 class AppStorage implements SettingsStorage {
-  AppStorage(this._id);
+  const AppStorage(this._id);
 
   final String _id;
 

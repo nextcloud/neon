@@ -72,7 +72,7 @@ class PushUtils {
     );
     await AppStorage.init();
 
-    final keypair = await loadRSAKeypair(AppStorage(AppIDs.notifications));
+    final keypair = await loadRSAKeypair(const AppStorage(AppIDs.notifications));
 
     for (final message in Uri(query: utf8.decode(messages)).queryParameters.values) {
       final data = json.decode(message) as Map<String, dynamic>;
@@ -98,7 +98,7 @@ class PushUtils {
         NotificationsNotification? notification;
         AndroidBitmap<Object>? largeIconBitmap;
         try {
-          accounts = loadAccounts(AppStorage('accounts'));
+          accounts = loadAccounts(const AppStorage('accounts'));
           account = accounts.tryFind(instance);
           if (account != null) {
             notification =

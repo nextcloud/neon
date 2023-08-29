@@ -16,7 +16,7 @@ abstract class FirstLaunchBlocStates {
 class FirstLaunchBloc extends Bloc implements FirstLaunchBlocEvents, FirstLaunchBlocStates {
   FirstLaunchBloc({
     final bool disabled = false,
-  }) : _storage = AppStorage(_keyFirstLaunch) {
+  }) : _storage = const AppStorage(_keyFirstLaunch) {
     if (!disabled && !_storage.containsKey(_keyFirstLaunch)) {
       onFirstLaunch.add(null);
       unawaited(_storage.setBool(_keyFirstLaunch, false));
