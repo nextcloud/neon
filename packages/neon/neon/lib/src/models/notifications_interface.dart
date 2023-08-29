@@ -4,7 +4,7 @@ import 'package:neon/src/settings/models/nextcloud_app_options.dart';
 
 abstract interface class NotificationsAppInterface<T extends NotificationsBlocInterface,
     R extends NotificationsOptionsInterface> extends AppImplementation<T, R> {
-  NotificationsAppInterface(super.sharedPreferences);
+  NotificationsAppInterface();
 }
 
 abstract interface class NotificationsBlocInterface extends InteractiveBloc {

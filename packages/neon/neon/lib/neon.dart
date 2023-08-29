@@ -17,10 +17,9 @@ import 'package:neon/src/utils/request_manager.dart';
 import 'package:neon/src/utils/user_agent.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:provider/provider.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 Future runNeon({
-  required final Iterable<AppImplementation> Function(SharedPreferences) getAppImplementations,
+  required final Iterable<AppImplementation> appImplementations,
   required final NeonTheme theme,
   @visibleForTesting final WidgetsBinding? bindingOverride,
   @visibleForTesting final Account? account,
@@ -30,13 +29,9 @@ Future runNeon({
   final binding = bindingOverride ?? WidgetsFlutterBinding.ensureInitialized();
   FlutterNativeSplash.preserve(widgetsBinding: binding);
 
-  final sharedPreferences = await SharedPreferences.getInstance();
-
   await NeonPlatform.setup();
   await RequestManager.instance.initCache();
   await AppStorage.init();
-
-  final allAppImplementations = getAppImplementations(sharedPreferences);
 
   final packageInfo = await PackageInfo.fromPlatform();
   buildUserAgent(packageInfo);
@@ -47,7 +42,7 @@ Future runNeon({
 
   final accountsBloc = AccountsBloc(
     globalOptions,
-    allAppImplementations,
+    appImplementations,
   );
   if (account != null) {
     accountsBloc
@@ -86,7 +81,7 @@ Future runNeon({
           create: (final _) => nextPushBloc,
         ),
         Provider<Iterable<AppImplementation>>(
-          create: (final _) => allAppImplementations,
+          create: (final _) => appImplementations,
         ),
         Provider<PackageInfo>(
           create: (final _) => packageInfo,

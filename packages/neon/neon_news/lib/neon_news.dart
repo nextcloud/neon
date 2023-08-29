@@ -52,7 +52,7 @@ part 'widgets/folder_view.dart';
 part 'widgets/folders_view.dart';
 
 class NewsApp extends AppImplementation<NewsBloc, NewsAppSpecificOptions> {
-  NewsApp(super.sharedPreferences);
+  NewsApp();
 
   @override
   String id = AppIDs.news;

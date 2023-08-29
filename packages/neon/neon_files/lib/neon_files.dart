@@ -44,7 +44,7 @@ part 'widgets/browser_view.dart';
 part 'widgets/file_preview.dart';
 
 class FilesApp extends AppImplementation<FilesBloc, FilesAppSpecificOptions> {
-  FilesApp(super.sharedPreferences);
+  FilesApp();
 
   @override
   String id = AppIDs.files;

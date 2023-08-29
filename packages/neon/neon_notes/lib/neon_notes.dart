@@ -42,7 +42,7 @@ part 'widgets/notes_floating_action_button.dart';
 part 'widgets/notes_view.dart';
 
 class NotesApp extends AppImplementation<NotesBloc, NotesAppSpecificOptions> {
-  NotesApp(super.sharedPreferences);
+  NotesApp();
 
   @override
   String id = AppIDs.notes;

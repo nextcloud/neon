@@ -11,12 +11,9 @@ import 'package:neon/src/settings/models/storage.dart';
 import 'package:neon/src/widgets/drawer_destination.dart';
 import 'package:provider/provider.dart';
 import 'package:rxdart/rxdart.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 abstract class AppImplementation<T extends Bloc, R extends NextcloudAppOptions> {
-  AppImplementation(
-    final SharedPreferences sharedPreferences,
-  ) {
+  AppImplementation() {
     final storage = AppStorage('app-$id');
     options = buildOptions(storage);
   }
