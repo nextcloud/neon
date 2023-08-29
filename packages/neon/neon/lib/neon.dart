@@ -62,7 +62,6 @@ Future runNeon({
     globalOptions,
   );
   final firstLaunchBloc = FirstLaunchBloc(
-    sharedPreferences,
     disabled: firstLaunchDisabled,
   );
   final nextPushBloc = NextPushBloc(

@@ -2,8 +2,8 @@ import 'dart:async';
 
 import 'package:meta/meta.dart';
 import 'package:neon/src/bloc/bloc.dart';
+import 'package:neon/src/settings/models/storage.dart';
 import 'package:rxdart/rxdart.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 abstract class FirstLaunchBlocEvents {}
 
@@ -11,20 +11,20 @@ abstract class FirstLaunchBlocStates {
   BehaviorSubject get onFirstLaunch;
 }
 
+@immutable
 @internal
 class FirstLaunchBloc extends Bloc implements FirstLaunchBlocEvents, FirstLaunchBlocStates {
-  FirstLaunchBloc(
-    this._sharedPreferences, {
+  FirstLaunchBloc({
     final bool disabled = false,
-  }) {
-    if (!disabled && !_sharedPreferences.containsKey(_keyFirstLaunch)) {
+  }) : _storage = AppStorage(_keyFirstLaunch) {
+    if (!disabled && !_storage.containsKey(_keyFirstLaunch)) {
       onFirstLaunch.add(null);
-      unawaited(_sharedPreferences.setBool(_keyFirstLaunch, false));
+      unawaited(_storage.setBool(_keyFirstLaunch, false));
     }
   }
 
-  final SharedPreferences _sharedPreferences;
-  final _keyFirstLaunch = 'first-launch';
+  final AppStorage _storage;
+  static const _keyFirstLaunch = 'first-launch';
 
   @override
   void dispose() {
@@ -32,5 +32,5 @@ class FirstLaunchBloc extends Bloc implements FirstLaunchBlocEvents, FirstLaunch
   }
 
   @override
-  BehaviorSubject onFirstLaunch = BehaviorSubject();
+  final BehaviorSubject onFirstLaunch = BehaviorSubject();
 }
