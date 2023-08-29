@@ -1,3 +1,4 @@
+import 'package:meta/meta.dart';
 import 'package:neon/src/bloc/bloc.dart';
 import 'package:neon/src/models/app_implementation.dart';
 import 'package:neon/src/settings/models/nextcloud_app_options.dart';
@@ -5,6 +6,10 @@ import 'package:neon/src/settings/models/nextcloud_app_options.dart';
 abstract interface class NotificationsAppInterface<T extends NotificationsBlocInterface,
     R extends NotificationsOptionsInterface> extends AppImplementation<T, R> {
   NotificationsAppInterface();
+
+  @override
+  @mustBeOverridden
+  R get options => throw UnimplementedError();
 }
 
 abstract interface class NotificationsBlocInterface extends InteractiveBloc {

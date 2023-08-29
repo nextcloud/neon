@@ -64,7 +64,7 @@ class NewsApp extends AppImplementation<NewsBloc, NewsAppSpecificOptions> {
   List<Locale> supportedLocales = AppLocalizations.supportedLocales;
 
   @override
-  NewsAppSpecificOptions buildOptions(final AppStorage storage) => NewsAppSpecificOptions(storage);
+  late final NewsAppSpecificOptions options = NewsAppSpecificOptions(storage);
 
   @override
   NewsBloc buildBloc(final Account account) => NewsBloc(

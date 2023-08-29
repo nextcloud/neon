@@ -56,7 +56,7 @@ class FilesApp extends AppImplementation<FilesBloc, FilesAppSpecificOptions> {
   List<Locale> supportedLocales = AppLocalizations.supportedLocales;
 
   @override
-  FilesAppSpecificOptions buildOptions(final AppStorage storage) => FilesAppSpecificOptions(storage);
+  late final FilesAppSpecificOptions options = FilesAppSpecificOptions(storage);
 
   @override
   FilesBloc buildBloc(final Account account) => FilesBloc(

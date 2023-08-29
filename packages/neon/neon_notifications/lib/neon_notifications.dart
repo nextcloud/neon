@@ -34,7 +34,7 @@ class NotificationsApp extends AppImplementation<NotificationsBloc, Notification
   List<Locale> supportedLocales = AppLocalizations.supportedLocales;
 
   @override
-  NotificationsAppSpecificOptions buildOptions(final AppStorage storage) => NotificationsAppSpecificOptions(storage);
+  late final NotificationsAppSpecificOptions options = NotificationsAppSpecificOptions(storage);
 
   @override
   NotificationsBloc buildBloc(final Account account) => NotificationsBloc(

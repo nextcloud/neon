@@ -54,7 +54,7 @@ class NotesApp extends AppImplementation<NotesBloc, NotesAppSpecificOptions> {
   LocalizationsDelegate localizationsDelegate = AppLocalizations.delegate;
 
   @override
-  NotesAppSpecificOptions buildOptions(final AppStorage storage) => NotesAppSpecificOptions(storage);
+  late final NotesAppSpecificOptions options = NotesAppSpecificOptions(storage);
 
   @override
   NotesBloc buildBloc(final Account account) => NotesBloc(
