@@ -1,6 +1,7 @@
 import 'package:meta/meta.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+@internal
 abstract interface class SettingsStorage {
   String? getString(final String key);
 
@@ -14,6 +15,8 @@ abstract interface class SettingsStorage {
   Future<bool> remove(final String key);
 }
 
+@immutable
+@internal
 class AppStorage implements SettingsStorage {
   AppStorage(this._id);
 
