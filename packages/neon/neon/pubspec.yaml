@@ -53,7 +53,7 @@ dependencies:
   unifiedpush_android: ^2.1.2
   url_launcher: ^6.1.12
   vector_graphics: ^1.1.7
-  window_manager: ^0.3.2
+  window_manager: ^0.3.6
   xdg_directories: ^1.0.2
   xml: ^6.3.0
 
