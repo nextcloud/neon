@@ -10,7 +10,7 @@ import 'package:neon/src/models/account.dart';
 import 'package:neon/src/models/app_ids.dart';
 import 'package:neon/src/models/app_implementation.dart';
 import 'package:neon/src/models/notifications_interface.dart';
-import 'package:neon/src/settings/models/nextcloud_app_options.dart';
+import 'package:neon/src/settings/models/options_collection.dart';
 import 'package:neon/src/utils/request_manager.dart';
 import 'package:nextcloud/nextcloud.dart';
 import 'package:provider/provider.dart';

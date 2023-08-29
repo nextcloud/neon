@@ -1,4 +1,3 @@
-import 'dart:async';
 import 'dart:io';
 
 import 'package:flutter/material.dart';
@@ -6,6 +5,7 @@ import 'package:meta/meta.dart';
 import 'package:neon/l10n/localizations.dart';
 import 'package:neon/src/models/account.dart';
 import 'package:neon/src/settings/models/option.dart';
+import 'package:neon/src/settings/models/options_collection.dart';
 import 'package:neon/src/settings/models/select_option.dart';
 import 'package:neon/src/settings/models/storage.dart';
 import 'package:neon/src/settings/models/toggle_option.dart';
@@ -16,10 +16,10 @@ const unifiedPushNextPushID = 'org.unifiedpush.distributor.nextpush';
 
 @internal
 @immutable
-class GlobalOptions {
+class GlobalOptions extends OptionsCollection {
   GlobalOptions(
     this._packageInfo,
-  ) {
+  ) : super(const AppStorage(StorageKeys.global)) {
     pushNotificationsEnabled.addListener(_pushNotificationsEnabledListener);
     rememberLastUsedAccount.addListener(_rememberLastUsedAccountListener);
   }
@@ -49,7 +49,6 @@ class GlobalOptions {
     }
   }
 
-  late final AppStorage _storage = const AppStorage(StorageKeys.global);
   final PackageInfo _packageInfo;
 
   late final _distributorsMap = <String, String Function(BuildContext)>{
@@ -68,6 +67,7 @@ class GlobalOptions {
         AppLocalizations.of(context).globalOptionsPushNotificationsDistributorNoProvider2Push,
   };
 
+  @override
   late final List<Option> options = [
     themeMode,
     themeOLEDAsDark,
@@ -83,16 +83,9 @@ class GlobalOptions {
     navigationMode,
   ];
 
-  void reset() {
-    for (final option in options) {
-      option.reset();
-    }
-  }
-
+  @override
   void dispose() {
-    for (final option in options) {
-      option.dispose();
-    }
+    super.dispose();
 
     pushNotificationsEnabled.removeListener(_pushNotificationsEnabledListener);
     rememberLastUsedAccount.removeListener(_rememberLastUsedAccountListener);
@@ -124,7 +117,7 @@ class GlobalOptions {
   }
 
   late final themeMode = SelectOption<ThemeMode>(
-    storage: _storage,
+    storage: storage,
     key: GlobalOptionKeys.themeMode,
     label: (final context) => AppLocalizations.of(context).globalOptionsThemeMode,
     defaultValue: ThemeMode.system,
@@ -136,28 +129,28 @@ class GlobalOptions {
   );
 
   late final themeOLEDAsDark = ToggleOption(
-    storage: _storage,
+    storage: storage,
     key: GlobalOptionKeys.themeOledAsDark,
     label: (final context) => AppLocalizations.of(context).globalOptionsThemeOLEDAsDark,
     defaultValue: false,
   );
 
   late final themeKeepOriginalAccentColor = ToggleOption(
-    storage: _storage,
+    storage: storage,
     key: GlobalOptionKeys.themeKeepOriginalAccentColor,
     label: (final context) => AppLocalizations.of(context).globalOptionsThemeKeepOriginalAccentColor,
     defaultValue: false,
   );
 
   late final pushNotificationsEnabled = ToggleOption(
-    storage: _storage,
+    storage: storage,
     key: GlobalOptionKeys.pushNotificationsEnabled,
     label: (final context) => AppLocalizations.of(context).globalOptionsPushNotificationsEnabled,
     defaultValue: false,
   );
 
   late final pushNotificationsDistributor = SelectOption<String?>.depend(
-    storage: _storage,
+    storage: storage,
     key: GlobalOptionKeys.pushNotificationsDistributor,
     label: (final context) => AppLocalizations.of(context).globalOptionsPushNotificationsDistributor,
     defaultValue: null,
@@ -166,14 +159,14 @@ class GlobalOptions {
   );
 
   late final startupMinimized = ToggleOption(
-    storage: _storage,
+    storage: storage,
     key: GlobalOptionKeys.startupMinimized,
     label: (final context) => AppLocalizations.of(context).globalOptionsStartupMinimized,
     defaultValue: false,
   );
 
   late final startupMinimizeInsteadOfExit = ToggleOption(
-    storage: _storage,
+    storage: storage,
     key: GlobalOptionKeys.startupMinimizeInsteadOfExit,
     label: (final context) => AppLocalizations.of(context).globalOptionsStartupMinimizeInsteadOfExit,
     defaultValue: false,
@@ -182,14 +175,14 @@ class GlobalOptions {
   // TODO: Autostart option
 
   late final systemTrayEnabled = ToggleOption(
-    storage: _storage,
+    storage: storage,
     key: GlobalOptionKeys.systemtrayEnabled,
     label: (final context) => AppLocalizations.of(context).globalOptionsSystemTrayEnabled,
     defaultValue: false,
   );
 
   late final systemTrayHideToTrayWhenMinimized = ToggleOption.depend(
-    storage: _storage,
+    storage: storage,
     key: GlobalOptionKeys.systemtrayHideToTrayWhenMinimized,
     label: (final context) => AppLocalizations.of(context).globalOptionsSystemTrayHideToTrayWhenMinimized,
     defaultValue: true,
@@ -197,14 +190,14 @@ class GlobalOptions {
   );
 
   late final rememberLastUsedAccount = ToggleOption(
-    storage: _storage,
+    storage: storage,
     key: GlobalOptionKeys.rememberLastUsedAccount,
     label: (final context) => AppLocalizations.of(context).globalOptionsAccountsRememberLastUsedAccount,
     defaultValue: true,
   );
 
   late final initialAccount = SelectOption<String?>(
-    storage: _storage,
+    storage: storage,
     key: GlobalOptionKeys.initialAccount,
     label: (final context) => AppLocalizations.of(context).globalOptionsAccountsInitialAccount,
     defaultValue: null,
@@ -212,7 +205,7 @@ class GlobalOptions {
   );
 
   late final navigationMode = SelectOption<NavigationMode>(
-    storage: _storage,
+    storage: storage,
     key: GlobalOptionKeys.navigationMode,
     label: (final context) => AppLocalizations.of(context).globalOptionsNavigationMode,
     defaultValue: Platform.isAndroid || Platform.isIOS ? NavigationMode.drawer : NavigationMode.drawerAlwaysVisible,

@@ -50,7 +50,7 @@ class SettingsExportHelper {
     }
   }
 
-  Future _applyOptionsMapToOptions(final List<Option> options, final Map<String, dynamic> data) async {
+  Future _applyOptionsMapToOptions(final Iterable<Option> options, final Map<String, dynamic> data) async {
     for (final optionKey in data.keys) {
       for (final option in options) {
         if (option.key.value == optionKey) {
