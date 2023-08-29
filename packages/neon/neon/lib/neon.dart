@@ -10,6 +10,7 @@ import 'package:neon/src/blocs/push_notifications.dart';
 import 'package:neon/src/models/account.dart';
 import 'package:neon/src/models/app_implementation.dart';
 import 'package:neon/src/platform/platform.dart';
+import 'package:neon/src/settings/models/storage.dart';
 import 'package:neon/src/theme/neon.dart';
 import 'package:neon/src/utils/global_options.dart';
 import 'package:neon/src/utils/request_manager.dart';
@@ -33,6 +34,8 @@ Future runNeon({
 
   await NeonPlatform.setup();
   await RequestManager.instance.initCache();
+  await AppStorage.init();
+
   final allAppImplementations = getAppImplementations(sharedPreferences);
 
   final packageInfo = await PackageInfo.fromPlatform();

@@ -71,9 +71,9 @@ class PushUtils {
         }
       },
     );
-    final sharedPreferences = await SharedPreferences.getInstance();
+    await AppStorage.init();
 
-    final keypair = await loadRSAKeypair(AppStorage(AppIDs.notifications, sharedPreferences));
+    final keypair = await loadRSAKeypair(AppStorage(AppIDs.notifications));
 
     for (final message in Uri(query: utf8.decode(messages)).queryParameters.values) {
       final data = json.decode(message) as Map<String, dynamic>;
@@ -99,7 +99,7 @@ class PushUtils {
         NotificationsNotification? notification;
         AndroidBitmap<Object>? largeIconBitmap;
         try {
-          accounts = loadAccounts(AppStorage('accounts', sharedPreferences));
+          accounts = loadAccounts(AppStorage('accounts'));
           account = accounts.tryFind(instance);
           if (account != null) {
             notification =

@@ -17,7 +17,7 @@ abstract class AppImplementation<T extends Bloc, R extends NextcloudAppOptions> 
   AppImplementation(
     final SharedPreferences sharedPreferences,
   ) {
-    final storage = AppStorage('app-$id', sharedPreferences);
+    final storage = AppStorage('app-$id');
     options = buildOptions(storage);
   }
 

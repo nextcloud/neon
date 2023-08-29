@@ -96,7 +96,7 @@ class AccountsBloc extends Bloc implements AccountsBlocEvents, AccountsBlocState
     }
   }
 
-  late final AppStorage _storage = AppStorage('accounts', _sharedPreferences);
+  late final AppStorage _storage = AppStorage('accounts');
   final SharedPreferences _sharedPreferences;
   final GlobalOptions _globalOptions;
   final Iterable<AppImplementation> _allAppImplementations;
@@ -213,7 +213,7 @@ class AccountsBloc extends Bloc implements AccountsBlocEvents, AccountsBlocState
   /// Use [activeOptions] to get them for the [activeAccount].
   AccountSpecificOptions getOptionsFor(final Account account) =>
       _accountsOptions[account.id] ??= AccountSpecificOptions(
-        AppStorage('accounts-${account.id}', _sharedPreferences),
+        AppStorage('accounts-${account.id}'),
         getAppsBlocFor(account),
       );
 

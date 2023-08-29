@@ -40,7 +40,7 @@ class PushNotificationsBloc extends Bloc implements PushNotificationsBlocEvents,
 
   final AccountsBloc _accountsBloc;
   final SharedPreferences _sharedPreferences;
-  late final _storage = AppStorage(AppIDs.notifications, _sharedPreferences);
+  late final _storage = AppStorage(AppIDs.notifications);
   final GlobalOptions _globalOptions;
 
   final _notificationsController = StreamController<PushNotification>();

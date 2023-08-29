@@ -52,7 +52,7 @@ class GlobalOptions {
   }
 
   final SharedPreferences _sharedPreferences;
-  late final AppStorage _storage = AppStorage('global', _sharedPreferences);
+  late final AppStorage _storage = AppStorage('global');
   final PackageInfo _packageInfo;
 
   late final _distributorsMap = <String, String Function(BuildContext)>{
