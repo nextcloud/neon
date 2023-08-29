@@ -73,7 +73,7 @@ final class SingleValueStorage {
 
 @immutable
 @internal
-class AppStorage implements SettingsStorage {
+final class AppStorage implements SettingsStorage {
   const AppStorage(this._id);
 
   final String _id;
