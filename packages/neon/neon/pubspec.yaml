@@ -38,7 +38,7 @@ dependencies:
   path_provider: ^2.1.1
   permission_handler: ^10.4.3
   provider: ^6.0.5
-  quick_actions: ^1.0.5
+  quick_actions: ^1.0.6
   rxdart: ^0.27.7
   scrollable_positioned_list: ^0.3.8
   shared_preferences: ^2.2.0
