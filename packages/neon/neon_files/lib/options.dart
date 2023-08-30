@@ -8,6 +8,7 @@ class FilesAppSpecificOptions extends NextcloudAppOptions {
     super.options = [
       filesSortPropertyOption,
       filesSortBoxOrderOption,
+      showHiddenFilesOption,
       showPreviewsOption,
       uploadQueueParallelism,
       downloadQueueParallelism,
@@ -41,6 +42,14 @@ class FilesAppSpecificOptions extends NextcloudAppOptions {
     label: (final context) => AppLocalizations.of(context).optionsFilesSortOrder,
     defaultValue: SortBoxOrder.ascending,
     values: sortBoxOrderOptionValues,
+  );
+
+  late final showHiddenFilesOption = ToggleOption(
+    storage: super.storage,
+    category: generalCategory,
+    key: 'show-hidden-files',
+    label: (final context) => AppLocalizations.of(context).optionsShowHiddenFiles,
+    defaultValue: false,
   );
 
   late final showPreviewsOption = ToggleOption(
@@ -132,4 +141,5 @@ enum FilesSortProperty {
   name,
   modifiedDate,
   size,
+  isFolder,
 }
