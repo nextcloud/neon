@@ -364,7 +364,7 @@ Future main() async {
     await binding.takeScreenshot('settings_accounts');
 
     // Go to account settings
-    await tester.tap(find.text('demo@10.0.2.2:80'));
+    await tester.tap(find.text('demo@10.0.2.2'));
     await tester.pumpAndSettle();
     await tester.tap(find.text('Automatic'));
     await tester.pumpAndSettle();
