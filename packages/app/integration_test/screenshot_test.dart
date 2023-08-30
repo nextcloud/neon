@@ -77,8 +77,9 @@ Future main() async {
     await SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual, overlays: []);
   });
 
-  setUp(() {
+  setUp(() async {
     SharedPreferences.setMockInitialValues({});
+    NeonStorage.mock(await SharedPreferences.getInstance());
   });
 
   testWidgets('login', (final tester) async {

@@ -36,7 +36,6 @@ enum StorageKeys implements Storable {
   final String value;
 }
 
-@internal
 final class NeonStorage {
   /// Shared preferences instance.
   ///
