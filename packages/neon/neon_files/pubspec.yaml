@@ -17,7 +17,7 @@ dependencies:
   flutter:
     sdk: flutter
   go_router: ^10.1.2
-  image_picker: ^1.0.3
+  image_picker: ^1.0.4
   intersperse: ^2.0.0
   material_design_icons_flutter: ^7.0.7296
   neon:
