@@ -297,6 +297,7 @@ class _NeonAppState extends State<NeonApp> with WidgetsBindingObserver, tray.Tra
                     );
 
                     return MaterialApp.router(
+                      debugShowCheckedModeBanner: false,
                       localizationsDelegates: [
                         ..._appImplementations.map((final app) => app.localizationsDelegate),
                         ...AppLocalizations.localizationsDelegates,
