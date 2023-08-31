@@ -7,7 +7,7 @@ import 'package:neon/l10n/localizations.dart';
 import 'package:neon/src/bloc/bloc.dart';
 import 'package:neon/src/blocs/accounts.dart';
 import 'package:neon/src/models/account.dart';
-import 'package:neon/src/settings/models/nextcloud_app_options.dart';
+import 'package:neon/src/settings/models/options_collection.dart';
 import 'package:neon/src/settings/models/storage.dart';
 import 'package:neon/src/widgets/drawer_destination.dart';
 import 'package:provider/provider.dart';

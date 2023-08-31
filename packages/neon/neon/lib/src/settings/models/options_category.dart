@@ -1,7 +1,9 @@
+import 'package:meta/meta.dart';
 import 'package:neon/src/models/label_builder.dart';
 
+@immutable
 class OptionsCategory {
-  OptionsCategory({
+  const OptionsCategory({
     required this.name,
   });
 

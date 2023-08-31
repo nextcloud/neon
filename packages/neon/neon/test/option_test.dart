@@ -174,6 +174,35 @@ void main() {
 
       expect(option.serialize(), null, reason: 'Should serialize to null. A string containing "null" is an error');
     });
+
+    test('Deserialize', () {
+      final option = SelectOption<SelectValues?>(
+        storage: storage,
+        key: key,
+        label: labelBuilder,
+        defaultValue: null,
+        values: valuesLabel,
+      );
+
+      // ignore: cascade_invocations
+      option.load('SelectValues.second');
+
+      expect(option.value, SelectValues.second);
+    });
+
+    test('Stream', () async {
+      final option = SelectOption<SelectValues?>(
+        storage: storage,
+        key: key,
+        label: labelBuilder,
+        defaultValue: null,
+        values: valuesLabel,
+      );
+
+      expect(await option.stream.first, option.defaultValue);
+      option.value = SelectValues.second;
+      expect(await option.stream.first, SelectValues.second);
+    });
   });
 
   group('ToggleOption', () {
@@ -273,6 +302,15 @@ void main() {
       verify(callback.call).called(1);
       verify(() => storage.remove(key.value)).called(1);
       expect(option.value, option.defaultValue, reason: 'Should reset the value.');
+    });
+
+    test('Deserialize', () {
+      expect(option.value, true);
+
+      // ignore: cascade_invocations
+      option.load(false);
+
+      expect(option.value, false);
     });
   });
 }
