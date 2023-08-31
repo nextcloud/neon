@@ -106,7 +106,7 @@ class FilesAppSpecificOptions extends NextcloudAppOptions {
   late final uploadSizeWarning = SelectOption<int?>(
     storage: storage,
     category: generalCategory,
-    key: FilesOptionKeys.uploadQueueParallelism,
+    key: FilesOptionKeys.uploadSizeWarning,
     label: (final context) => AppLocalizations.of(context).optionsUploadSizeWarning,
     defaultValue: _mb(10),
     values: _sizeWarningValues,
