@@ -1,6 +1,3 @@
-@Retry(3)
-library notifications_test;
-
 import 'dart:async';
 
 import 'package:nextcloud/nextcloud.dart';
@@ -99,43 +96,48 @@ void main() {
     });
   });
 
-  group('push notifications', () {
-    late DockerImage image;
-    setUpAll(() async => image = await getDockerImage());
+  group(
+    'push notifications',
+    () {
+      late DockerImage image;
+      setUpAll(() async => image = await getDockerImage());
 
-    late DockerContainer container;
-    late TestNextcloudClient client;
-    setUp(() async {
-      container = await getDockerContainer(image);
-      client = await getTestClient(
-        container,
-        username: 'admin',
-      );
-    });
-    tearDown(() => container.destroy());
+      late DockerContainer container;
+      late TestNextcloudClient client;
+      setUp(() async {
+        container = await getDockerContainer(image);
+        client = await getTestClient(
+          container,
+          username: 'admin',
+        );
+      });
+      tearDown(() => container.destroy());
 
-    // The key size has to be 2048, other sizes are not accepted by Nextcloud (at the moment at least)
-    // ignore: avoid_redundant_argument_values
-    RSAKeypair generateKeypair() => RSAKeypair.fromRandom(keySize: 2048);
+      // The key size has to be 2048, other sizes are not accepted by Nextcloud (at the moment at least)
+      // ignore: avoid_redundant_argument_values
+      RSAKeypair generateKeypair() => RSAKeypair.fromRandom(keySize: 2048);
 
-    test('Register and remove push device', () async {
-      const pushToken = '789';
-      final keypair = generateKeypair();
+      test('Register and remove push device', () async {
+        const pushToken = '789';
+        final keypair = generateKeypair();
 
-      final subscription = (await client.notifications.registerDevice(
-        pushTokenHash: generatePushTokenHash(pushToken),
-        devicePublicKey: keypair.publicKey.toFormattedPEM(),
-        proxyServer: 'https://example.com/',
-      ))
-          .ocs
-          .data;
-      expect(subscription.publicKey, hasLength(451));
-      RSAPublicKey.fromPEM(subscription.publicKey);
-      expect(subscription.deviceIdentifier, isNotEmpty);
-      expect(subscription.signature, isNotEmpty);
-      expect(subscription.message, isNull);
+        final subscription = (await client.notifications.registerDevice(
+          pushTokenHash: generatePushTokenHash(pushToken),
+          devicePublicKey: keypair.publicKey.toFormattedPEM(),
+          proxyServer: 'https://example.com/',
+        ))
+            .ocs
+            .data;
+        expect(subscription.publicKey, hasLength(451));
+        RSAPublicKey.fromPEM(subscription.publicKey);
+        expect(subscription.deviceIdentifier, isNotEmpty);
+        expect(subscription.signature, isNotEmpty);
+        expect(subscription.message, isNull);
 
-      await client.notifications.removeDevice();
-    });
-  });
+        await client.notifications.removeDevice();
+      });
+    },
+    retry: retryCount,
+    timeout: timeout,
+  );
 }
