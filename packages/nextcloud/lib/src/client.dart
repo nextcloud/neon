@@ -7,7 +7,7 @@ import 'package:nextcloud/nextcloud.dart';
 class NextcloudClient extends DynamiteClient {
   // ignore: public_member_api_docs
   NextcloudClient(
-    super.baseURL, {
+    final String baseURL, {
     this.loginName,
     final String? password,
     final String? appPassword,
@@ -16,6 +16,7 @@ class NextcloudClient extends DynamiteClient {
     final String? userAgentOverride,
     super.cookieJar,
   }) : super(
+          Uri.parse(baseURL),
           baseHeaders: language != null ? {'Accept-Language': language} : null,
           userAgent: userAgentOverride ?? appType.userAgent,
           authentications: [

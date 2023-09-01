@@ -57,7 +57,7 @@ class FilesBloc extends InteractiveBloc implements FilesBlocEvents, FilesBlocSta
   void addFavorite(final List<String> path) {
     wrapAction(
       () async => account.client.webdav.proppatch(
-        path.join('/'),
+        Uri(pathSegments: path),
         set: WebDavProp(ocfavorite: 1),
       ),
     );
@@ -65,17 +65,17 @@ class FilesBloc extends InteractiveBloc implements FilesBlocEvents, FilesBlocSta
 
   @override
   void copy(final List<String> path, final List<String> destination) {
-    wrapAction(() async => account.client.webdav.copy(path.join('/'), destination.join('/')));
+    wrapAction(() async => account.client.webdav.copy(Uri(pathSegments: path), Uri(pathSegments: destination)));
   }
 
   @override
   void delete(final List<String> path) {
-    wrapAction(() async => account.client.webdav.delete(path.join('/')));
+    wrapAction(() async => account.client.webdav.delete(Uri(pathSegments: path)));
   }
 
   @override
   void move(final List<String> path, final List<String> destination) {
-    wrapAction(() async => account.client.webdav.move(path.join('/'), destination.join('/')));
+    wrapAction(() async => account.client.webdav.move(Uri(pathSegments: path), Uri(pathSegments: destination)));
   }
 
   @override
@@ -85,7 +85,7 @@ class FilesBloc extends InteractiveBloc implements FilesBlocEvents, FilesBlocSta
         final cacheDir = await getApplicationCacheDirectory();
         final file = File(p.join(cacheDir.path, 'files', etag.replaceAll('"', ''), path.last));
         if (!file.existsSync()) {
-          debugPrint('Downloading ${path.join('/')} since it does not exist');
+          debugPrint('Downloading ${Uri(pathSegments: path)} since it does not exist');
           if (!file.parent.existsSync()) {
             await file.parent.create(recursive: true);
           }
@@ -109,7 +109,7 @@ class FilesBloc extends InteractiveBloc implements FilesBlocEvents, FilesBlocSta
   void removeFavorite(final List<String> path) {
     wrapAction(
       () async => account.client.webdav.proppatch(
-        path.join('/'),
+        Uri(pathSegments: path),
         set: WebDavProp(ocfavorite: 0),
       ),
     );
@@ -119,8 +119,8 @@ class FilesBloc extends InteractiveBloc implements FilesBlocEvents, FilesBlocSta
   void rename(final List<String> path, final String name) {
     wrapAction(
       () async => account.client.webdav.move(
-        path.join('/'),
-        (path.sublist(0, path.length - 1)..add(name)).join('/'),
+        Uri(pathSegments: path),
+        Uri(pathSegments: List.from(path)..last = name),
       ),
     );
   }

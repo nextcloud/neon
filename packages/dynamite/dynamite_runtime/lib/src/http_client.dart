@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'dart:typed_data';
 
 import 'package:cookie_jar/cookie_jar.dart';
+import 'package:dynamite_runtime/src/uri.dart';
 import 'package:universal_io/io.dart';
 
 export 'package:cookie_jar/cookie_jar.dart';
@@ -110,15 +111,16 @@ class DynamiteHttpBearerAuthentication extends DynamiteAuthentication {
 
 class DynamiteClient {
   DynamiteClient(
-    this.baseURL, {
+    final Uri baseURL, {
     this.baseHeaders,
     final String? userAgent,
     final HttpClient? httpClient,
     this.cookieJar,
     this.authentications = const [],
-  }) : httpClient = (httpClient ?? HttpClient())..userAgent = userAgent;
+  })  : httpClient = (httpClient ?? HttpClient())..userAgent = userAgent,
+        baseURL = baseURL.normalizeEmptyPath();
 
-  final String baseURL;
+  final Uri baseURL;
 
   final Map<String, String>? baseHeaders;
 
