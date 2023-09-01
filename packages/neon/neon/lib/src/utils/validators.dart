@@ -9,8 +9,9 @@ String? validateHttpUrl(
   if (input == null || input.isEmpty) {
     return AppLocalizations.of(context).errorInvalidURL;
   }
-  try {
-    final uri = Uri.parse(input);
+  final uri = Uri.tryParse(input);
+
+  if (uri != null) {
     if (uri.isScheme('https')) {
       return null;
     }
@@ -18,7 +19,8 @@ String? validateHttpUrl(
       // TODO: Maybe make a better error message for http URLs if only https is allowed
       return null;
     }
-  } catch (_) {}
+  }
+
   return AppLocalizations.of(context).errorInvalidURL;
 }
 

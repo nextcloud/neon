@@ -76,10 +76,9 @@ class NeonCachedImage extends StatefulWidget {
     }
     final file = await _cacheManager.getSingleFile(
       uri.toString(),
-      headers:
-          account != null && uri.host == Uri.parse(account.serverURL).host && account.client.authentications.isNotEmpty
-              ? account.client.authentications.first.headers
-              : null,
+      headers: account != null && uri.host == account.serverURL.host && account.client.authentications.isNotEmpty
+          ? account.client.authentications.first.headers
+          : null,
     );
     return file.readAsBytes();
   }

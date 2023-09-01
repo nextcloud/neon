@@ -118,7 +118,11 @@ Future<TestNextcloudClient> getTestClient(
   }
 
   final client = TestNextcloudClient(
-    'http://localhost:${container.port}',
+    Uri(
+      scheme: 'http',
+      host: 'localhost',
+      port: container.port,
+    ),
     loginName: username,
     password: username,
     appPassword: appPassword,

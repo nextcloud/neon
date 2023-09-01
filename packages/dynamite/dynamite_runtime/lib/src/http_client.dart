@@ -132,11 +132,18 @@ class DynamiteClient {
 
   Future<HttpClientResponse> doRequest(
     final String method,
-    final String path,
+    final Uri path,
     final Map<String, String> headers,
     final Uint8List? body,
   ) async {
-    final uri = Uri.parse('$baseURL$path');
+    final uri = baseURL.replace(
+      path: '${baseURL.path}${path.path}',
+      queryParameters: {
+        ...baseURL.queryParameters,
+        ...path.queryParameters,
+      },
+    );
+
     final request = await httpClient.openUrl(method, uri);
     for (final header in {...?baseHeaders, ...headers}.entries) {
       request.headers.add(header.key, header.value);

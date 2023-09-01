@@ -25,7 +25,7 @@ class LoginCheckAccountBloc extends InteractiveBloc
     unawaited(refresh());
   }
 
-  final String serverURL;
+  final Uri serverURL;
   final String loginName;
   final String password;
 

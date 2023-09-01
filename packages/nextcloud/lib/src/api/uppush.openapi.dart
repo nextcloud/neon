@@ -86,7 +86,7 @@ class UppushClient extends DynamiteClient {
     // coverage:ignore-end
     final response = await doRequest(
       'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
       headers,
       body,
     );
@@ -119,7 +119,7 @@ class UppushClient extends DynamiteClient {
     queryParameters['keepalive'] = keepalive.toString();
     final response = await doRequest(
       'put',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
       headers,
       body,
     );
@@ -150,7 +150,7 @@ class UppushClient extends DynamiteClient {
     queryParameters['deviceName'] = deviceName;
     final response = await doRequest(
       'put',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
       headers,
       body,
     );
@@ -183,7 +183,7 @@ class UppushClient extends DynamiteClient {
     path = path.replaceAll('{deviceId}', Uri.encodeQueryComponent(deviceId));
     final response = await doRequest(
       'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
       headers,
       body,
     );
@@ -214,7 +214,7 @@ class UppushClient extends DynamiteClient {
     path = path.replaceAll('{deviceId}', Uri.encodeQueryComponent(deviceId));
     final response = await doRequest(
       'delete',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
       headers,
       body,
     );
@@ -249,7 +249,7 @@ class UppushClient extends DynamiteClient {
     queryParameters['appName'] = appName;
     final response = await doRequest(
       'put',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
       headers,
       body,
     );
@@ -280,7 +280,7 @@ class UppushClient extends DynamiteClient {
     path = path.replaceAll('{token}', Uri.encodeQueryComponent(token));
     final response = await doRequest(
       'delete',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
       headers,
       body,
     );
@@ -313,7 +313,7 @@ class UppushClient extends DynamiteClient {
     path = path.replaceAll('{token}', Uri.encodeQueryComponent(token));
     final response = await doRequest(
       'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
       headers,
       body,
     );
@@ -344,7 +344,7 @@ class UppushClient extends DynamiteClient {
     path = path.replaceAll('{token}', Uri.encodeQueryComponent(token));
     final response = await doRequest(
       'post',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
       headers,
       body,
     );
@@ -374,7 +374,7 @@ class UppushClient extends DynamiteClient {
     // coverage:ignore-end
     final response = await doRequest(
       'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
       headers,
       body,
     );
@@ -404,7 +404,7 @@ class UppushClient extends DynamiteClient {
     // coverage:ignore-end
     final response = await doRequest(
       'post',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
       headers,
       body,
     );

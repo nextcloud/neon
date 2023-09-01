@@ -183,7 +183,7 @@ class LoginFlowRoute extends GoRouteData {
     required this.serverUrl,
   });
 
-  final String serverUrl;
+  final Uri serverUrl;
 
   @override
   Widget build(final BuildContext context, final GoRouterState state) => LoginFlowPage(serverURL: serverUrl);
@@ -233,7 +233,7 @@ class LoginCheckServerStatusRoute extends GoRouteData {
     required String this.password,
   }) : assert(!kIsWeb, 'Might leak the password to the browser history');
 
-  final String serverUrl;
+  final Uri serverUrl;
   final String? loginName;
   final String? password;
 
@@ -282,7 +282,7 @@ class LoginCheckAccountRoute extends GoRouteData {
     required this.password,
   }) : assert(!kIsWeb, 'Might leak the password to the browser history');
 
-  final String serverUrl;
+  final Uri serverUrl;
   final String loginName;
   final String password;
 
@@ -321,7 +321,7 @@ class _AddAccountFlowRoute extends LoginFlowRoute {
   });
 
   @override
-  String get serverUrl => super.serverUrl;
+  Uri get serverUrl => super.serverUrl;
 }
 
 @immutable
@@ -342,7 +342,7 @@ class _AddAccountCheckServerStatusRoute extends LoginCheckServerStatusRoute {
   }) : super.withCredentials();
 
   @override
-  String get serverUrl => super.serverUrl;
+  Uri get serverUrl => super.serverUrl;
   @override
   String? get loginName => super.loginName;
   @override
@@ -358,7 +358,7 @@ class _AddAccountCheckAccountRoute extends LoginCheckAccountRoute {
   });
 
   @override
-  String get serverUrl => super.serverUrl;
+  Uri get serverUrl => super.serverUrl;
   @override
   String get loginName => super.loginName;
   @override
