@@ -1,10 +1,13 @@
 name: neon_lints
 description: Linting package used in the nextcloud-neon project
 version: 1.0.0
+publish_to: none
 
 environment:
   sdk: '>=3.1.0 <4.0.0'
 
-dependencies:
-  http: ^1.1.0
-  yaml: ^3.1.2
+dev_dependencies:
+  lint_maker:
+    git:
+      url: https://github.com/Leptopoda/lint_maker
+      ref: 15bfdd3881bffc1516975368e86e6ec7d60aa991
