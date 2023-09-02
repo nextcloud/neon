@@ -85,26 +85,26 @@ Spec buildHeaderSerializer(final State state, final String identifier, final Ope
                     ..defaultTo = const Code('FullType.unspecified'),
                 ),
               )
-              ..body = Block.of([
-                Code('final result = new ${state.classPrefix}${identifier}Builder();'),
-                const Code(''),
-                const Code('final iterator = serialized.iterator;'),
-                const Code('while (iterator.moveNext()) {'),
-                const Code('final key = iterator.current! as String;'),
-                const Code('iterator.moveNext();'),
-                const Code('final value = iterator.current! as String;'),
-                const Code('switch (key) {'),
-                ...deserializeProperty(state, identifier, spec, schema),
-                const Code('}'),
-                const Code('}'),
-                const Code(''),
-                const Code('return result.build();'),
-              ]);
+              ..body = Code('''
+final result = new ${state.classPrefix}${identifier}Builder();
+
+final iterator = serialized.iterator;
+while (iterator.moveNext()) {
+  final key = iterator.current! as String;
+  iterator.moveNext();
+  final value = iterator.current! as String;
+  switch (key) {
+    ${deserializeProperty(state, identifier, spec, schema).join('\n')}
+  }
+}
+
+return result.build();
+''');
           }),
         ]),
     );
 
-Iterable<Code> deserializeProperty(
+Iterable<String> deserializeProperty(
   final State state,
   final String identifier,
   final OpenAPI spec,
@@ -121,15 +121,15 @@ Iterable<Code> deserializeProperty(
       nullable: isDartParameterNullable(schema.required?.contains(propertyName), propertySchema),
     );
 
-    yield Code("case '$propertyName':");
+    yield "case '$propertyName':";
     if (result.className != 'String') {
       if (result is TypeResultBase || result is TypeResultEnum) {
-        yield Code('result.${toDartName(propertyName)} = ${result.deserialize(result.decode('value!'))};');
+        yield 'result.${toDartName(propertyName)} = ${result.deserialize(result.decode('value!'))};';
       } else {
-        yield Code('result.${toDartName(propertyName)}.replace(${result.deserialize(result.decode('value!'))});');
+        yield 'result.${toDartName(propertyName)}.replace(${result.deserialize(result.decode('value!'))});';
       }
     } else {
-      yield Code('result.${toDartName(propertyName)} = value!;');
+      yield 'result.${toDartName(propertyName)} = value!;';
     }
   }
 }

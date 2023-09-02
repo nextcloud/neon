@@ -79,20 +79,20 @@ List<Class> generateDynamiteOverrides(final State state) => [
                       ..type = refer('HttpClientResponse'),
                   ),
                 )
-                ..body = Block.of([
-                  const Code('String body;'),
-                  const Code('try {'),
-                  const Code('body = await response.body;'),
-                  const Code('} on FormatException {'),
-                  const Code("body = 'binary';"),
-                  const Code('}'),
-                  const Code(''),
-                  Code('return ${state.classPrefix}ApiException('),
-                  const Code('response.statusCode,'),
-                  const Code('response.responseHeaders,'),
-                  const Code('body,'),
-                  const Code(');'),
-                ]),
+                ..body = Code('''
+String body;
+try {
+  body = await response.body;
+} on FormatException {
+  body = 'binary';
+}
+
+return ${state.classPrefix}ApiException(
+  response.statusCode,
+  response.responseHeaders,
+  body,
+);
+'''),
             ),
             Method(
               (final b) => b
@@ -190,14 +190,14 @@ Class buildRootClient(
                 )
                 ..initializers.add(
                   const Code('''
-                          super(
-                            client.baseURL,
-                            baseHeaders: client.baseHeaders,
-                            httpClient: client.httpClient,
-                            cookieJar: client.cookieJar,
-                            authentications: client.authentications,
-                          )
-                        '''),
+super(
+  client.baseURL,
+  baseHeaders: client.baseHeaders,
+  httpClient: client.httpClient,
+  cookieJar: client.cookieJar,
+  authentications: client.authentications,
+)
+'''),
                 ),
             ),
           ]);
@@ -305,11 +305,11 @@ Iterable<Method> buildTags(
                   .join(',') ??
               '';
           final code = StringBuffer('''
-                            var _path = '${pathEntry.key}';
-                            final _queryParameters = <String, dynamic>{};
-                            final _headers = <String, String>{${acceptHeader.isNotEmpty ? "'Accept': '$acceptHeader'," : ''}};
-                            Uint8List? _body;
-                          ''');
+var _path = '${pathEntry.key}';
+final _queryParameters = <String, dynamic>{};
+final _headers = <String, String>{${acceptHeader.isNotEmpty ? "'Accept': '$acceptHeader'," : ''}};
+Uint8List? _body;
+''');
 
           final security = operation.security ?? spec.security ?? [];
           final securityRequirements = security.where((final requirement) => requirement.isNotEmpty);
@@ -318,20 +318,20 @@ Iterable<Method> buildTags(
           for (final requirement in securityRequirements) {
             final securityScheme = spec.components!.securitySchemes![requirement.keys.single]!;
             code.write('''
-                                if (${isRootClient ? 'this' : '_rootClient'}.authentications.where((final a) => a.type == '${securityScheme.type}' && a.scheme == '${securityScheme.scheme}').isNotEmpty) {
-                                  _headers.addAll(${isRootClient ? 'this' : '_rootClient'}.authentications.singleWhere((final a) => a.type == '${securityScheme.type}' && a.scheme == '${securityScheme.scheme}').headers);
-                                }
-                              ''');
+if (${isRootClient ? 'this' : '_rootClient'}.authentications.where((final a) => a.type == '${securityScheme.type}' && a.scheme == '${securityScheme.scheme}').isNotEmpty) {
+  _headers.addAll(${isRootClient ? 'this' : '_rootClient'}.authentications.singleWhere((final a) => a.type == '${securityScheme.type}' && a.scheme == '${securityScheme.scheme}').headers);
+}
+''');
             if (securityRequirements.last != requirement) {
-              code.write('else');
+              code.write('else ');
             }
           }
           if (securityRequirements.isNotEmpty && !isOptionalSecurity) {
             code.write('''
-                                else {
-                                  throw Exception('Missing authentication for ${securityRequirements.map((final r) => r.keys.single).join(' or ')}');
-                                }
-                              ''');
+else {
+  throw Exception('Missing authentication for ${securityRequirements.map((final r) => r.keys.single).join(' or ')}');
+}
+''');
           }
           code.write('    // coverage:ignore-end\n');
 
@@ -355,24 +355,24 @@ Iterable<Method> buildTags(
             if (result.name == 'String') {
               if (parameter.schema?.pattern != null) {
                 code.write('''
-                                  if (!RegExp(r'${parameter.schema!.pattern!}').hasMatch(${toDartName(parameter.name)})) {
-                                    throw Exception('Invalid value "\$${toDartName(parameter.name)}" for parameter "${toDartName(parameter.name)}" with pattern "\${r'${parameter.schema!.pattern!}'}"'); // coverage:ignore-line
-                                  }
-                                  ''');
+if (!RegExp(r'${parameter.schema!.pattern!}').hasMatch(${toDartName(parameter.name)})) {
+  throw Exception('Invalid value "\$${toDartName(parameter.name)}" for parameter "${toDartName(parameter.name)}" with pattern "\${r'${parameter.schema!.pattern!}'}"'); // coverage:ignore-line
+}
+''');
               }
               if (parameter.schema?.minLength != null) {
                 code.write('''
-                                  if (${toDartName(parameter.name)}.length < ${parameter.schema!.minLength!}) {
-                                    throw Exception('Parameter "${toDartName(parameter.name)}" has to be at least ${parameter.schema!.minLength!} characters long'); // coverage:ignore-line
-                                  }
-                                  ''');
+if (${toDartName(parameter.name)}.length < ${parameter.schema!.minLength!}) {
+  throw Exception('Parameter "${toDartName(parameter.name)}" has to be at least ${parameter.schema!.minLength!} characters long'); // coverage:ignore-line
+}
+''');
               }
               if (parameter.schema?.maxLength != null) {
                 code.write('''
-                                  if (${toDartName(parameter.name)}.length > ${parameter.schema!.maxLength!}) {
-                                    throw Exception('Parameter "${toDartName(parameter.name)}" has to be at most ${parameter.schema!.maxLength!} characters long'); // coverage:ignore-line
-                                  }
-                                  ''');
+if (${toDartName(parameter.name)}.length > ${parameter.schema!.maxLength!}) {
+  throw Exception('Parameter "${toDartName(parameter.name)}" has to be at most ${parameter.schema!.maxLength!} characters long'); // coverage:ignore-line
+}
+''');
               }
             }
 
@@ -488,13 +488,13 @@ Iterable<Method> buildTags(
 
           code.write(
             '''
-                            final _response = await ${isRootClient ? 'this' : '_rootClient'}.doRequest(
-                              '$httpMethod',
-                              Uri(path: _path, queryParameters: _queryParameters.isNotEmpty ? _queryParameters : null),
-                              _headers,
-                              _body,
-                            );
-                          ''',
+final _response = await ${isRootClient ? 'this' : '_rootClient'}.doRequest(
+  '$httpMethod',
+  Uri(path: _path, queryParameters: _queryParameters.isNotEmpty ? _queryParameters : null),
+  _headers,
+  _body,
+);
+''',
           );
 
           if (operation.responses != null) {
