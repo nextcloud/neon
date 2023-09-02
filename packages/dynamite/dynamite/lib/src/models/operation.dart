@@ -4,12 +4,14 @@ import 'package:dynamite/src/models/response.dart';
 import 'package:dynamite/src/models/responses.dart';
 import 'package:dynamite/src/models/security_requirement.dart';
 import 'package:json_annotation/json_annotation.dart';
+import 'package:meta/meta.dart';
 
 part 'operation.g.dart';
 
 @JsonSerializable()
+@immutable
 class Operation {
-  Operation({
+  const Operation({
     this.operationId,
     this.summary,
     this.description,

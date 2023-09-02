@@ -6,12 +6,14 @@ import 'package:dynamite/src/models/security_requirement.dart';
 import 'package:dynamite/src/models/server.dart';
 import 'package:dynamite/src/models/tag.dart';
 import 'package:json_annotation/json_annotation.dart';
+import 'package:meta/meta.dart';
 
 part 'open_api.g.dart';
 
 @JsonSerializable()
+@immutable
 class OpenAPI {
-  OpenAPI({
+  const OpenAPI({
     required this.version,
     required this.info,
     this.servers,

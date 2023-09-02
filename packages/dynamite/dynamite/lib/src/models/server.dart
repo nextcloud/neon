@@ -1,11 +1,13 @@
 import 'package:dynamite/src/models/server_variable.dart';
 import 'package:json_annotation/json_annotation.dart';
+import 'package:meta/meta.dart';
 
 part 'server.g.dart';
 
 @JsonSerializable()
+@immutable
 class Server {
-  Server({
+  const Server({
     required this.url,
     this.variables,
   });

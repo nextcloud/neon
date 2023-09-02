@@ -1,10 +1,12 @@
 import 'package:json_annotation/json_annotation.dart';
+import 'package:meta/meta.dart';
 
 part 'server_variable.g.dart';
 
 @JsonSerializable()
+@immutable
 class ServerVariable {
-  ServerVariable({
+  const ServerVariable({
     required this.default_,
     this.enum_,
     this.description,

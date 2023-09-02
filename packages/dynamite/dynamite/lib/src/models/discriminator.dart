@@ -1,10 +1,12 @@
 import 'package:json_annotation/json_annotation.dart';
+import 'package:meta/meta.dart';
 
 part 'discriminator.g.dart';
 
 @JsonSerializable()
+@immutable
 class Discriminator {
-  Discriminator({
+  const Discriminator({
     required this.propertyName,
     this.mapping,
   });

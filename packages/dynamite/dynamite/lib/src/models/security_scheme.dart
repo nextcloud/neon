@@ -1,10 +1,12 @@
 import 'package:json_annotation/json_annotation.dart';
+import 'package:meta/meta.dart';
 
 part 'security_scheme.g.dart';
 
 @JsonSerializable()
+@immutable
 class SecurityScheme {
-  SecurityScheme({
+  const SecurityScheme({
     required this.type,
     this.description,
     this.scheme,

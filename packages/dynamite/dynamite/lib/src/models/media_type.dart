@@ -1,11 +1,13 @@
 import 'package:dynamite/src/models/schema.dart';
 import 'package:json_annotation/json_annotation.dart';
+import 'package:meta/meta.dart';
 
 part 'media_type.g.dart';
 
 @JsonSerializable()
+@immutable
 class MediaType {
-  MediaType({
+  const MediaType({
     this.schema,
   });
 

@@ -1,11 +1,13 @@
 import 'package:dynamite/src/models/media_type.dart';
 import 'package:json_annotation/json_annotation.dart';
+import 'package:meta/meta.dart';
 
 part 'request_body.g.dart';
 
 @JsonSerializable()
+@immutable
 class RequestBody {
-  RequestBody({
+  const RequestBody({
     this.description,
     this.content,
     this.required,
