@@ -29,30 +29,30 @@ class OpenAPIBuilder implements Builder {
         throw Exception('Only OpenAPI ${supportedVersions.join(', ')} are supported');
       }
 
-      var tags = <String?>[
-        null,
-        if (spec.paths != null) ...{
-          for (final pathItem in spec.paths!.values) ...{
-            for (final operation in pathItem.operations.values) ...{
-              ...?operation.tags,
-            },
-          },
-        },
-      ];
-      for (final tag in tags.toList()) {
-        final tagPart = tag?.split('/').first;
-        if (!tags.contains(tagPart)) {
-          tags.add(tagPart);
+      final tags = <String?>[null];
+
+      if (spec.paths != null) {
+        for (final pathItem in spec.paths!.values) {
+          for (final operation in pathItem.operations.values) {
+            if (operation.tags != null) {
+              for (final tag in operation.tags!) {
+                final tagPart = tag.split('/').first;
+                if (!tags.contains(tagPart)) {
+                  tags.add(tagPart);
+                }
+              }
+            }
+          }
         }
       }
-      tags = tags
-        ..sort(
-          (final a, final b) => a == null
-              ? -1
-              : b == null
-                  ? 1
-                  : a.compareTo(b),
-        );
+
+      tags.sort(
+        (final a, final b) => a == null
+            ? -1
+            : b == null
+                ? 1
+                : a.compareTo(b),
+      );
 
       final hasAnySecurity = spec.components?.securitySchemes?.isNotEmpty ?? false;
 
