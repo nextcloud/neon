@@ -2859,22 +2859,25 @@ abstract class ProvisioningApiGroupsAddGroupResponse200ApplicationJson
 
 abstract class ProvisioningApiGroupDetails_Usercount
     implements Built<ProvisioningApiGroupDetails_Usercount, ProvisioningApiGroupDetails_UsercountBuilder> {
-  // coverage:ignore-end
-
   factory ProvisioningApiGroupDetails_Usercount([
     final void Function(ProvisioningApiGroupDetails_UsercountBuilder)? b,
   ]) = _$ProvisioningApiGroupDetails_Usercount;
+
   // coverage:ignore-start
   const ProvisioningApiGroupDetails_Usercount._();
+  // coverage:ignore-end
 
-  JsonObject get data;
-  bool? get $bool;
-  int? get $int;
-  static ProvisioningApiGroupDetails_Usercount fromJson(final Object json) =>
+  // coverage:ignore-start
+  factory ProvisioningApiGroupDetails_Usercount.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+  JsonObject get data;
+  bool? get $bool;
+  int? get $int;
   @BuiltValueSerializer(custom: true)
   static Serializer<ProvisioningApiGroupDetails_Usercount> get serializer =>
       _$ProvisioningApiGroupDetails_UsercountSerializer();
@@ -2916,21 +2919,24 @@ class _$ProvisioningApiGroupDetails_UsercountSerializer
 
 abstract class ProvisioningApiGroupDetails_Disabled
     implements Built<ProvisioningApiGroupDetails_Disabled, ProvisioningApiGroupDetails_DisabledBuilder> {
-  // coverage:ignore-end
-
   factory ProvisioningApiGroupDetails_Disabled([final void Function(ProvisioningApiGroupDetails_DisabledBuilder)? b]) =
       _$ProvisioningApiGroupDetails_Disabled;
+
   // coverage:ignore-start
   const ProvisioningApiGroupDetails_Disabled._();
+  // coverage:ignore-end
 
-  JsonObject get data;
-  bool? get $bool;
-  int? get $int;
-  static ProvisioningApiGroupDetails_Disabled fromJson(final Object json) =>
+  // coverage:ignore-start
+  factory ProvisioningApiGroupDetails_Disabled.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+  JsonObject get data;
+  bool? get $bool;
+  int? get $int;
   @BuiltValueSerializer(custom: true)
   static Serializer<ProvisioningApiGroupDetails_Disabled> get serializer =>
       _$ProvisioningApiGroupDetails_DisabledSerializer();
@@ -3181,22 +3187,25 @@ abstract class ProvisioningApiUserDetails_BackendCapabilities
 
 abstract class ProvisioningApiUserDetailsQuota_Quota
     implements Built<ProvisioningApiUserDetailsQuota_Quota, ProvisioningApiUserDetailsQuota_QuotaBuilder> {
-  // coverage:ignore-end
-
   factory ProvisioningApiUserDetailsQuota_Quota([
     final void Function(ProvisioningApiUserDetailsQuota_QuotaBuilder)? b,
   ]) = _$ProvisioningApiUserDetailsQuota_Quota;
+
   // coverage:ignore-start
   const ProvisioningApiUserDetailsQuota_Quota._();
+  // coverage:ignore-end
 
-  JsonObject get data;
-  num? get $num;
-  String? get string;
-  static ProvisioningApiUserDetailsQuota_Quota fromJson(final Object json) =>
+  // coverage:ignore-start
+  factory ProvisioningApiUserDetailsQuota_Quota.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+  JsonObject get data;
+  num? get $num;
+  String? get string;
   @BuiltValueSerializer(custom: true)
   static Serializer<ProvisioningApiUserDetailsQuota_Quota> get serializer =>
       _$ProvisioningApiUserDetailsQuota_QuotaSerializer();
@@ -3359,25 +3368,28 @@ abstract class ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJs
     implements
         Built<ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJson_Ocs_Data_Users,
             ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJson_Ocs_Data_UsersBuilder> {
-  // coverage:ignore-end
-
   factory ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJson_Ocs_Data_Users([
     final void Function(ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJson_Ocs_Data_UsersBuilder)? b,
   ]) = _$ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJson_Ocs_Data_Users;
+
   // coverage:ignore-start
   const ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJson_Ocs_Data_Users._();
+  // coverage:ignore-end
 
+  // coverage:ignore-start
+  factory ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJson_Ocs_Data_Users.fromJson(
+    final Map<String, dynamic> json,
+  ) =>
+      _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   JsonObject get data;
   ProvisioningApiUserDetails? get userDetails;
   ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJson_Ocs_Data_Users1?
       get groupsGetGroupUsersDetailsResponse200ApplicationJsonOcsDataUsers1;
-  static ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJson_Ocs_Data_Users fromJson(
-    final Object json,
-  ) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
   @BuiltValueSerializer(custom: true)
   static Serializer<ProvisioningApiGroupsGetGroupUsersDetailsResponse200ApplicationJson_Ocs_Data_Users>
       get serializer =>
@@ -4153,23 +4165,28 @@ abstract class ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson_Ocs
     implements
         Built<ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson_Ocs_Data_Users,
             ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson_Ocs_Data_UsersBuilder> {
-  // coverage:ignore-end
-
   factory ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson_Ocs_Data_Users([
     final void Function(ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson_Ocs_Data_UsersBuilder)? b,
   ]) = _$ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson_Ocs_Data_Users;
+
   // coverage:ignore-start
   const ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson_Ocs_Data_Users._();
+  // coverage:ignore-end
 
+  // coverage:ignore-start
+  factory ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson_Ocs_Data_Users.fromJson(
+    final Map<String, dynamic> json,
+  ) =>
+      _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   JsonObject get data;
   ProvisioningApiUserDetails? get userDetails;
   ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson_Ocs_Data_Users1?
       get usersGetUsersDetailsResponse200ApplicationJsonOcsDataUsers1;
-  static ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson_Ocs_Data_Users fromJson(final Object json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
   @BuiltValueSerializer(custom: true)
   static Serializer<ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson_Ocs_Data_Users> get serializer =>
       _$ProvisioningApiUsersGetUsersDetailsResponse200ApplicationJson_Ocs_Data_UsersSerializer();

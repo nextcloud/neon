@@ -592,19 +592,23 @@ abstract class UserStatusPrivate1 implements Built<UserStatusPrivate1, UserStatu
 }
 
 abstract class UserStatusPrivate implements Built<UserStatusPrivate, UserStatusPrivateBuilder> {
-  // coverage:ignore-end
-
   factory UserStatusPrivate([final void Function(UserStatusPrivateBuilder)? b]) = _$UserStatusPrivate;
+
   // coverage:ignore-start
   const UserStatusPrivate._();
+  // coverage:ignore-end
 
-  JsonObject get data;
-  UserStatusPublic get public;
-  UserStatusPrivate1 get private1;
-  static UserStatusPrivate fromJson(final Object json) => _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-start
+  factory UserStatusPrivate.fromJson(final Map<String, dynamic> json) =>
+      _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+  JsonObject get data;
+  UserStatusPublic get public;
+  UserStatusPrivate1 get private1;
   @BuiltValueSerializer(custom: true)
   static Serializer<UserStatusPrivate> get serializer => _$UserStatusPrivateSerializer();
 }
@@ -722,19 +726,23 @@ class UserStatusClearAtTimeType extends EnumClass {
 }
 
 abstract class UserStatusClearAt_Time implements Built<UserStatusClearAt_Time, UserStatusClearAt_TimeBuilder> {
-  // coverage:ignore-end
-
   factory UserStatusClearAt_Time([final void Function(UserStatusClearAt_TimeBuilder)? b]) = _$UserStatusClearAt_Time;
+
   // coverage:ignore-start
   const UserStatusClearAt_Time._();
+  // coverage:ignore-end
 
-  JsonObject get data;
-  int? get $int;
-  UserStatusClearAtTimeType? get clearAtTimeType;
-  static UserStatusClearAt_Time fromJson(final Object json) => _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-start
+  factory UserStatusClearAt_Time.fromJson(final Map<String, dynamic> json) =>
+      _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+  JsonObject get data;
+  int? get $int;
+  UserStatusClearAtTimeType? get clearAtTimeType;
   @BuiltValueSerializer(custom: true)
   static Serializer<UserStatusClearAt_Time> get serializer => _$UserStatusClearAt_TimeSerializer();
 }
@@ -1239,22 +1247,27 @@ abstract class UserStatusUserStatusRevertStatusResponse200ApplicationJson_Ocs_Da
     implements
         Built<UserStatusUserStatusRevertStatusResponse200ApplicationJson_Ocs_Data,
             UserStatusUserStatusRevertStatusResponse200ApplicationJson_Ocs_DataBuilder> {
-  // coverage:ignore-end
-
   factory UserStatusUserStatusRevertStatusResponse200ApplicationJson_Ocs_Data([
     final void Function(UserStatusUserStatusRevertStatusResponse200ApplicationJson_Ocs_DataBuilder)? b,
   ]) = _$UserStatusUserStatusRevertStatusResponse200ApplicationJson_Ocs_Data;
+
   // coverage:ignore-start
   const UserStatusUserStatusRevertStatusResponse200ApplicationJson_Ocs_Data._();
+  // coverage:ignore-end
 
-  JsonObject get data;
-  UserStatusPrivate? get private;
-  JsonObject? get jsonObject;
-  static UserStatusUserStatusRevertStatusResponse200ApplicationJson_Ocs_Data fromJson(final Object json) =>
+  // coverage:ignore-start
+  factory UserStatusUserStatusRevertStatusResponse200ApplicationJson_Ocs_Data.fromJson(
+    final Map<String, dynamic> json,
+  ) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+  JsonObject get data;
+  UserStatusPrivate? get private;
+  JsonObject? get jsonObject;
   @BuiltValueSerializer(custom: true)
   static Serializer<UserStatusUserStatusRevertStatusResponse200ApplicationJson_Ocs_Data> get serializer =>
       _$UserStatusUserStatusRevertStatusResponse200ApplicationJson_Ocs_DataSerializer();
