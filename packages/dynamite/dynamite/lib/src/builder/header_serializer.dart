@@ -84,53 +84,52 @@ Spec buildHeaderSerializer(final State state, final String identifier, final Ope
                     ..named = true
                     ..defaultTo = const Code('FullType.unspecified'),
                 ),
-              );
-            List<Code> deserializeProperty(final MapEntry<String, Schema> property) {
-              final propertyName = property.key;
-              final propertySchema = property.value;
-              final result = resolveType(
-                spec,
-                state,
-                '${identifier}_${toDartName(propertyName, uppercaseFirstCharacter: true)}',
-                propertySchema,
-                nullable: isDartParameterNullable(schema.required?.contains(propertyName), propertySchema),
-              );
-
-              return [
-                Code("case '$propertyName':"),
-                if (result.className != 'String') ...[
-                  if (result is TypeResultBase || result is TypeResultEnum) ...[
-                    Code(
-                      'result.${toDartName(propertyName)} = ${result.deserialize(result.decode('value!'))};',
-                    ),
-                  ] else ...[
-                    Code(
-                      'result.${toDartName(propertyName)}.replace(${result.deserialize(result.decode('value!'))});',
-                    ),
-                  ],
-                ] else ...[
-                  Code(
-                    'result.${toDartName(propertyName)} = value!;',
-                  ),
-                ],
-              ];
-            }
-
-            b.body = Block.of([
-              Code('final result = new ${state.classPrefix}${identifier}Builder();'),
-              const Code(''),
-              const Code('final iterator = serialized.iterator;'),
-              const Code('while (iterator.moveNext()) {'),
-              const Code('final key = iterator.current! as String;'),
-              const Code('iterator.moveNext();'),
-              const Code('final value = iterator.current! as String;'),
-              const Code('switch (key) {'),
-              for (final property in schema.properties!.entries) ...deserializeProperty(property),
-              const Code('}'),
-              const Code('}'),
-              const Code(''),
-              const Code('return result.build();'),
-            ]);
+              )
+              ..body = Block.of([
+                Code('final result = new ${state.classPrefix}${identifier}Builder();'),
+                const Code(''),
+                const Code('final iterator = serialized.iterator;'),
+                const Code('while (iterator.moveNext()) {'),
+                const Code('final key = iterator.current! as String;'),
+                const Code('iterator.moveNext();'),
+                const Code('final value = iterator.current! as String;'),
+                const Code('switch (key) {'),
+                ...deserializeProperty(state, identifier, spec, schema),
+                const Code('}'),
+                const Code('}'),
+                const Code(''),
+                const Code('return result.build();'),
+              ]);
           }),
         ]),
     );
+
+Iterable<Code> deserializeProperty(
+  final State state,
+  final String identifier,
+  final OpenAPI spec,
+  final Schema schema,
+) sync* {
+  for (final property in schema.properties!.entries) {
+    final propertyName = property.key;
+    final propertySchema = property.value;
+    final result = resolveType(
+      spec,
+      state,
+      '${identifier}_${toDartName(propertyName, uppercaseFirstCharacter: true)}',
+      propertySchema,
+      nullable: isDartParameterNullable(schema.required?.contains(propertyName), propertySchema),
+    );
+
+    yield Code("case '$propertyName':");
+    if (result.className != 'String') {
+      if (result is TypeResultBase || result is TypeResultEnum) {
+        yield Code('result.${toDartName(propertyName)} = ${result.deserialize(result.decode('value!'))};');
+      } else {
+        yield Code('result.${toDartName(propertyName)}.replace(${result.deserialize(result.decode('value!'))});');
+      }
+    } else {
+      yield Code('result.${toDartName(propertyName)} = value!;');
+    }
+  }
+}
