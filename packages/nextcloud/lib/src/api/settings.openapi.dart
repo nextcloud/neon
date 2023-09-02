@@ -101,7 +101,7 @@ class SettingsLogSettingsClient {
     // coverage:ignore-end
     final response = await _rootClient.doRequest(
       'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
       headers,
       body,
     );

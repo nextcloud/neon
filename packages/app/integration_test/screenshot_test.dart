@@ -47,7 +47,7 @@ Future prepareScreenshot(final WidgetTester tester, final IntegrationTestWidgets
 }
 
 Future<Account> getAccount(final String username) async {
-  const host = 'http://10.0.2.2';
+  final host = Uri(scheme: 'http', host: '10.0.2.2');
   final appPassword = (await NextcloudClient(
     host,
     loginName: username,

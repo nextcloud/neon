@@ -13,7 +13,7 @@ class LoginFlowPage extends StatefulWidget {
     super.key,
   });
 
-  final String serverURL;
+  final Uri serverURL;
 
   @override
   State<LoginFlowPage> createState() => _LoginFlowPageState();
@@ -39,7 +39,7 @@ class _LoginFlowPageState extends State<LoginFlowPage> {
 
     bloc.result.listen((final result) {
       LoginCheckAccountRoute(
-        serverUrl: result.server,
+        serverUrl: Uri.parse(result.server),
         loginName: result.loginName,
         password: result.appPassword,
       ).pushReplacement(context);

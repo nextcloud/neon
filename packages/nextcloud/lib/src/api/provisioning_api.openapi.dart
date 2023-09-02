@@ -110,7 +110,7 @@ class ProvisioningApiAppConfigClient {
     headers['OCS-APIRequest'] = oCSAPIRequest;
     final response = await _rootClient.doRequest(
       'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
       headers,
       body,
     );
@@ -153,7 +153,7 @@ class ProvisioningApiAppConfigClient {
     headers['OCS-APIRequest'] = oCSAPIRequest;
     final response = await _rootClient.doRequest(
       'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
       headers,
       body,
     );
@@ -202,7 +202,7 @@ class ProvisioningApiAppConfigClient {
     headers['OCS-APIRequest'] = oCSAPIRequest;
     final response = await _rootClient.doRequest(
       'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
       headers,
       body,
     );
@@ -247,7 +247,7 @@ class ProvisioningApiAppConfigClient {
     headers['OCS-APIRequest'] = oCSAPIRequest;
     final response = await _rootClient.doRequest(
       'post',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
       headers,
       body,
     );
@@ -292,7 +292,7 @@ class ProvisioningApiAppConfigClient {
     headers['OCS-APIRequest'] = oCSAPIRequest;
     final response = await _rootClient.doRequest(
       'delete',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
       headers,
       body,
     );
@@ -343,7 +343,7 @@ class ProvisioningApiAppsClient {
     headers['OCS-APIRequest'] = oCSAPIRequest;
     final response = await _rootClient.doRequest(
       'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
       headers,
       body,
     );
@@ -386,7 +386,7 @@ class ProvisioningApiAppsClient {
     headers['OCS-APIRequest'] = oCSAPIRequest;
     final response = await _rootClient.doRequest(
       'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
       headers,
       body,
     );
@@ -429,7 +429,7 @@ class ProvisioningApiAppsClient {
     headers['OCS-APIRequest'] = oCSAPIRequest;
     final response = await _rootClient.doRequest(
       'post',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
       headers,
       body,
     );
@@ -472,7 +472,7 @@ class ProvisioningApiAppsClient {
     headers['OCS-APIRequest'] = oCSAPIRequest;
     final response = await _rootClient.doRequest(
       'delete',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
       headers,
       body,
     );
@@ -529,7 +529,7 @@ class ProvisioningApiGroupsClient {
     headers['OCS-APIRequest'] = oCSAPIRequest;
     final response = await _rootClient.doRequest(
       'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
       headers,
       body,
     );
@@ -576,7 +576,7 @@ class ProvisioningApiGroupsClient {
     headers['OCS-APIRequest'] = oCSAPIRequest;
     final response = await _rootClient.doRequest(
       'post',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
       headers,
       body,
     );
@@ -627,7 +627,7 @@ class ProvisioningApiGroupsClient {
     headers['OCS-APIRequest'] = oCSAPIRequest;
     final response = await _rootClient.doRequest(
       'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
       headers,
       body,
     );
@@ -673,7 +673,7 @@ class ProvisioningApiGroupsClient {
     headers['OCS-APIRequest'] = oCSAPIRequest;
     final response = await _rootClient.doRequest(
       'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
       headers,
       body,
     );
@@ -731,7 +731,7 @@ class ProvisioningApiGroupsClient {
     headers['OCS-APIRequest'] = oCSAPIRequest;
     final response = await _rootClient.doRequest(
       'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
       headers,
       body,
     );
@@ -779,7 +779,7 @@ class ProvisioningApiGroupsClient {
     headers['OCS-APIRequest'] = oCSAPIRequest;
     final response = await _rootClient.doRequest(
       'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
       headers,
       body,
     );
@@ -826,7 +826,7 @@ class ProvisioningApiGroupsClient {
     headers['OCS-APIRequest'] = oCSAPIRequest;
     final response = await _rootClient.doRequest(
       'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
       headers,
       body,
     );
@@ -878,7 +878,7 @@ class ProvisioningApiGroupsClient {
     headers['OCS-APIRequest'] = oCSAPIRequest;
     final response = await _rootClient.doRequest(
       'put',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
       headers,
       body,
     );
@@ -926,7 +926,7 @@ class ProvisioningApiGroupsClient {
     headers['OCS-APIRequest'] = oCSAPIRequest;
     final response = await _rootClient.doRequest(
       'delete',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
       headers,
       body,
     );
@@ -977,7 +977,7 @@ class ProvisioningApiPreferencesClient {
     headers['OCS-APIRequest'] = oCSAPIRequest;
     final response = await _rootClient.doRequest(
       'post',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
       headers,
       body,
     );
@@ -1020,7 +1020,7 @@ class ProvisioningApiPreferencesClient {
     headers['OCS-APIRequest'] = oCSAPIRequest;
     final response = await _rootClient.doRequest(
       'delete',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
       headers,
       body,
     );
@@ -1068,7 +1068,7 @@ class ProvisioningApiPreferencesClient {
     headers['OCS-APIRequest'] = oCSAPIRequest;
     final response = await _rootClient.doRequest(
       'post',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
       headers,
       body,
     );
@@ -1111,7 +1111,7 @@ class ProvisioningApiPreferencesClient {
     headers['OCS-APIRequest'] = oCSAPIRequest;
     final response = await _rootClient.doRequest(
       'delete',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
       headers,
       body,
     );
@@ -1168,7 +1168,7 @@ class ProvisioningApiUsersClient {
     headers['OCS-APIRequest'] = oCSAPIRequest;
     final response = await _rootClient.doRequest(
       'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
       headers,
       body,
     );
@@ -1241,7 +1241,7 @@ class ProvisioningApiUsersClient {
     headers['OCS-APIRequest'] = oCSAPIRequest;
     final response = await _rootClient.doRequest(
       'post',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
       headers,
       body,
     );
@@ -1292,7 +1292,7 @@ class ProvisioningApiUsersClient {
     headers['OCS-APIRequest'] = oCSAPIRequest;
     final response = await _rootClient.doRequest(
       'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
       headers,
       body,
     );
@@ -1343,7 +1343,7 @@ class ProvisioningApiUsersClient {
     headers['OCS-APIRequest'] = oCSAPIRequest;
     final response = await _rootClient.doRequest(
       'post',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
       headers,
       body,
     );
@@ -1384,7 +1384,7 @@ class ProvisioningApiUsersClient {
     headers['OCS-APIRequest'] = oCSAPIRequest;
     final response = await _rootClient.doRequest(
       'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
       headers,
       body,
     );
@@ -1429,7 +1429,7 @@ class ProvisioningApiUsersClient {
     headers['OCS-APIRequest'] = oCSAPIRequest;
     final response = await _rootClient.doRequest(
       'put',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
       headers,
       body,
     );
@@ -1470,7 +1470,7 @@ class ProvisioningApiUsersClient {
     headers['OCS-APIRequest'] = oCSAPIRequest;
     final response = await _rootClient.doRequest(
       'delete',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
       headers,
       body,
     );
@@ -1509,7 +1509,7 @@ class ProvisioningApiUsersClient {
     headers['OCS-APIRequest'] = oCSAPIRequest;
     final response = await _rootClient.doRequest(
       'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
       headers,
       body,
     );
@@ -1548,7 +1548,7 @@ class ProvisioningApiUsersClient {
     headers['OCS-APIRequest'] = oCSAPIRequest;
     final response = await _rootClient.doRequest(
       'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
       headers,
       body,
     );
@@ -1589,7 +1589,7 @@ class ProvisioningApiUsersClient {
     headers['OCS-APIRequest'] = oCSAPIRequest;
     final response = await _rootClient.doRequest(
       'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
       headers,
       body,
     );
@@ -1641,7 +1641,7 @@ class ProvisioningApiUsersClient {
     headers['OCS-APIRequest'] = oCSAPIRequest;
     final response = await _rootClient.doRequest(
       'put',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
       headers,
       body,
     );
@@ -1682,7 +1682,7 @@ class ProvisioningApiUsersClient {
     headers['OCS-APIRequest'] = oCSAPIRequest;
     final response = await _rootClient.doRequest(
       'post',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
       headers,
       body,
     );
@@ -1723,7 +1723,7 @@ class ProvisioningApiUsersClient {
     headers['OCS-APIRequest'] = oCSAPIRequest;
     final response = await _rootClient.doRequest(
       'put',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
       headers,
       body,
     );
@@ -1764,7 +1764,7 @@ class ProvisioningApiUsersClient {
     headers['OCS-APIRequest'] = oCSAPIRequest;
     final response = await _rootClient.doRequest(
       'put',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
       headers,
       body,
     );
@@ -1805,7 +1805,7 @@ class ProvisioningApiUsersClient {
     headers['OCS-APIRequest'] = oCSAPIRequest;
     final response = await _rootClient.doRequest(
       'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
       headers,
       body,
     );
@@ -1850,7 +1850,7 @@ class ProvisioningApiUsersClient {
     headers['OCS-APIRequest'] = oCSAPIRequest;
     final response = await _rootClient.doRequest(
       'post',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
       headers,
       body,
     );
@@ -1893,7 +1893,7 @@ class ProvisioningApiUsersClient {
     headers['OCS-APIRequest'] = oCSAPIRequest;
     final response = await _rootClient.doRequest(
       'delete',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
       headers,
       body,
     );
@@ -1936,7 +1936,7 @@ class ProvisioningApiUsersClient {
     headers['OCS-APIRequest'] = oCSAPIRequest;
     final response = await _rootClient.doRequest(
       'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
       headers,
       body,
     );
@@ -1981,7 +1981,7 @@ class ProvisioningApiUsersClient {
     headers['OCS-APIRequest'] = oCSAPIRequest;
     final response = await _rootClient.doRequest(
       'post',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
       headers,
       body,
     );
@@ -2026,7 +2026,7 @@ class ProvisioningApiUsersClient {
     headers['OCS-APIRequest'] = oCSAPIRequest;
     final response = await _rootClient.doRequest(
       'delete',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
       headers,
       body,
     );
@@ -2067,7 +2067,7 @@ class ProvisioningApiUsersClient {
     headers['OCS-APIRequest'] = oCSAPIRequest;
     final response = await _rootClient.doRequest(
       'post',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
       headers,
       body,
     );

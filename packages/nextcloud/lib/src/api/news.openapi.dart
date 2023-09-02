@@ -86,7 +86,7 @@ class NewsClient extends DynamiteClient {
     // coverage:ignore-end
     final response = await doRequest(
       'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
       headers,
       body,
     );
@@ -115,7 +115,7 @@ class NewsClient extends DynamiteClient {
     // coverage:ignore-end
     final response = await doRequest(
       'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
       headers,
       body,
     );
@@ -143,7 +143,7 @@ class NewsClient extends DynamiteClient {
     queryParameters['name'] = name;
     final response = await doRequest(
       'post',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
       headers,
       body,
     );
@@ -173,7 +173,7 @@ class NewsClient extends DynamiteClient {
     queryParameters['name'] = name;
     final response = await doRequest(
       'put',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
       headers,
       body,
     );
@@ -198,7 +198,7 @@ class NewsClient extends DynamiteClient {
     path = path.replaceAll('{folderId}', Uri.encodeQueryComponent(folderId.toString()));
     final response = await doRequest(
       'delete',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
       headers,
       body,
     );
@@ -227,7 +227,7 @@ class NewsClient extends DynamiteClient {
     queryParameters['newestItemId'] = newestItemId.toString();
     final response = await doRequest(
       'post',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
       headers,
       body,
     );
@@ -253,7 +253,7 @@ class NewsClient extends DynamiteClient {
     // coverage:ignore-end
     final response = await doRequest(
       'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
       headers,
       body,
     );
@@ -287,7 +287,7 @@ class NewsClient extends DynamiteClient {
     }
     final response = await doRequest(
       'post',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
       headers,
       body,
     );
@@ -313,7 +313,7 @@ class NewsClient extends DynamiteClient {
     path = path.replaceAll('{feedId}', Uri.encodeQueryComponent(feedId.toString()));
     final response = await doRequest(
       'delete',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
       headers,
       body,
     );
@@ -344,7 +344,7 @@ class NewsClient extends DynamiteClient {
     }
     final response = await doRequest(
       'post',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
       headers,
       body,
     );
@@ -373,7 +373,7 @@ class NewsClient extends DynamiteClient {
     queryParameters['feedTitle'] = feedTitle;
     final response = await doRequest(
       'post',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
       headers,
       body,
     );
@@ -402,7 +402,7 @@ class NewsClient extends DynamiteClient {
     queryParameters['newestItemId'] = newestItemId.toString();
     final response = await doRequest(
       'post',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
       headers,
       body,
     );
@@ -453,7 +453,7 @@ class NewsClient extends DynamiteClient {
     }
     final response = await doRequest(
       'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
       headers,
       body,
     );
@@ -493,7 +493,7 @@ class NewsClient extends DynamiteClient {
     }
     final response = await doRequest(
       'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
       headers,
       body,
     );
@@ -519,7 +519,7 @@ class NewsClient extends DynamiteClient {
     path = path.replaceAll('{itemId}', Uri.encodeQueryComponent(itemId.toString()));
     final response = await doRequest(
       'post',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
       headers,
       body,
     );
@@ -544,7 +544,7 @@ class NewsClient extends DynamiteClient {
     path = path.replaceAll('{itemId}', Uri.encodeQueryComponent(itemId.toString()));
     final response = await doRequest(
       'post',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
       headers,
       body,
     );
@@ -569,7 +569,7 @@ class NewsClient extends DynamiteClient {
     path = path.replaceAll('{itemId}', Uri.encodeQueryComponent(itemId.toString()));
     final response = await doRequest(
       'post',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
       headers,
       body,
     );
@@ -594,7 +594,7 @@ class NewsClient extends DynamiteClient {
     path = path.replaceAll('{itemId}', Uri.encodeQueryComponent(itemId.toString()));
     final response = await doRequest(
       'post',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
       headers,
       body,
     );

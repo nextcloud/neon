@@ -23,7 +23,7 @@ class LoginCheckServerStatusPage extends StatefulWidget {
     super.key,
   });
 
-  final String serverURL;
+  final Uri serverURL;
   final String? loginName;
   final String? password;
 

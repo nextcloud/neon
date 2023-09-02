@@ -7,6 +7,9 @@ import 'package:nextcloud/nextcloud.dart';
 import 'package:process_run/cmd_run.dart';
 import 'package:test/test.dart';
 
+const retryCount = 3;
+const timeout = Timeout(Duration(seconds: 30));
+
 class DockerContainer {
   DockerContainer({
     required this.id,
@@ -118,7 +121,11 @@ Future<TestNextcloudClient> getTestClient(
   }
 
   final client = TestNextcloudClient(
-    'http://localhost:${container.port}',
+    Uri(
+      scheme: 'http',
+      host: 'localhost',
+      port: container.port,
+    ),
     loginName: username,
     password: username,
     appPassword: appPassword,
@@ -127,12 +134,18 @@ Future<TestNextcloudClient> getTestClient(
     cookieJar: CookieJar(),
   );
 
+  var i = 0;
   while (true) {
-    // Test will timeout after 30s
     try {
       await client.core.getStatus();
       break;
-    } catch (_) {}
+    } on CoreApiException catch (error) {
+      i++;
+      await Future.delayed(const Duration(milliseconds: 100));
+      if (i >= 30) {
+        throw TimeoutException('Failed to get the status of the Server. $error');
+      }
+    }
   }
 
   return client;

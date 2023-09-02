@@ -20,7 +20,7 @@ class LoginCheckServerStatusBloc extends InteractiveBloc
     unawaited(refresh());
   }
 
-  final String serverURL;
+  final Uri serverURL;
 
   @override
   void dispose() {

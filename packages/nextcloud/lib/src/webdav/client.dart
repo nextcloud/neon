@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'dart:typed_data';
 
 import 'package:dynamite_runtime/http_client.dart';
+import 'package:meta/meta.dart';
 import 'package:nextcloud/src/webdav/props.dart';
 import 'package:nextcloud/src/webdav/webdav.dart';
 import 'package:universal_io/io.dart';
@@ -21,17 +22,14 @@ class WebDavClient {
 
   Future<HttpClientResponse> _send(
     final String method,
-    final String url, {
+    final Uri url, {
     final Stream<Uint8List>? dataStream,
     final Uint8List? data,
     final Map<String, String>? headers,
   }) async {
     assert(dataStream == null || data == null, 'Only one of dataStream or data can be specified.');
 
-    final request = await HttpClient().openUrl(
-      method,
-      Uri.parse(url),
-    )
+    final request = await HttpClient().openUrl(method, url)
       ..persistentConnection = true;
     for (final header in {
       HttpHeaders.contentTypeHeader: 'application/xml',
@@ -62,24 +60,26 @@ class WebDavClient {
     return response;
   }
 
-  String _constructPath([final String? path]) => [
-        rootClient.baseURL,
-        webdavBasePath,
-        if (path != null) ...[
-          path,
-        ],
-      ]
-          .map((part) {
-            while (part.startsWith('/')) {
-              part = part.substring(1);
-            }
-            while (part.endsWith('/')) {
-              part = part.substring(0, part.length - 1); // coverage:ignore-line
-            }
-            return part;
-          })
-          .where((final part) => part.isNotEmpty)
-          .join('/');
+  Uri _constructUri([final Uri? path]) => constructUri(rootClient.baseURL, path);
+
+  @visibleForTesting
+  // ignore: public_member_api_docs
+  static Uri constructUri(final Uri baseURL, [final Uri? path]) {
+    assert(
+      path == null || path.path == '/' || !path.path.startsWith('/'),
+      "The path should not start a '/' unless indicating the root folder.",
+    );
+    assert(!baseURL.path.endsWith('/'), "The baseURL should not end with a '/'.");
+
+    final pathBuffer = StringBuffer(baseURL.path)..write(webdavBasePath);
+    if (path != null && path.path != '/') {
+      pathBuffer
+        ..write('/')
+        ..write(path.path);
+    }
+
+    return baseURL.replace(path: pathBuffer.toString());
+  }
 
   Future<WebDavMultistatus> _parseResponse(final HttpClientResponse response) async =>
       WebDavMultistatus.fromXmlElement(xml.XmlDocument.parse(await response.body).rootElement);
@@ -99,7 +99,7 @@ class WebDavClient {
   Future<WebDavOptions> options() async {
     final response = await _send(
       'OPTIONS',
-      _constructPath(),
+      _constructUri(),
     );
     final davCapabilities = response.headers['dav']?.first ?? '';
     final davSearchCapabilities = response.headers['dasl']?.first ?? '';
@@ -112,17 +112,17 @@ class WebDavClient {
   /// Creates a collection at [path].
   ///
   /// See http://www.webdav.org/specs/rfc2518.html#METHOD_MKCOL for more information.
-  Future<HttpClientResponse> mkcol(final String path) async => _send(
+  Future<HttpClientResponse> mkcol(final Uri path) async => _send(
         'MKCOL',
-        _constructPath(path),
+        _constructUri(path),
       );
 
   /// Deletes the resource at [path].
   ///
   /// See http://www.webdav.org/specs/rfc2518.html#METHOD_DELETE for more information.
-  Future<HttpClientResponse> delete(final String path) => _send(
+  Future<HttpClientResponse> delete(final Uri path) => _send(
         'DELETE',
-        _constructPath(path),
+        _constructUri(path),
       );
 
   /// Puts a new file at [path] with [localData] as content.
@@ -132,13 +132,13 @@ class WebDavClient {
   /// See http://www.webdav.org/specs/rfc2518.html#METHOD_PUT for more information.
   Future<HttpClientResponse> put(
     final Uint8List localData,
-    final String path, {
+    final Uri path, {
     final DateTime? lastModified,
     final DateTime? created,
   }) =>
       _send(
         'PUT',
-        _constructPath(path),
+        _constructUri(path),
         data: localData,
         headers: _getUploadHeaders(
           lastModified: lastModified,
@@ -156,7 +156,7 @@ class WebDavClient {
   /// See http://www.webdav.org/specs/rfc2518.html#METHOD_PUT for more information.
   Future<HttpClientResponse> putStream(
     final Stream<Uint8List> localData,
-    final String path, {
+    final Uri path, {
     final DateTime? lastModified,
     final DateTime? created,
     final int? contentLength,
@@ -165,7 +165,7 @@ class WebDavClient {
     var uploaded = 0;
     return _send(
       'PUT',
-      _constructPath(path),
+      _constructUri(path),
       dataStream: contentLength != null
           ? localData.map((final chunk) {
               uploaded += chunk.length;
@@ -190,7 +190,7 @@ class WebDavClient {
   Future<HttpClientResponse> putFile(
     final File file,
     final FileStat fileStat,
-    final String path, {
+    final Uri path, {
     final DateTime? lastModified,
     final DateTime? created,
     final Function(double progres)? onProgress,
@@ -205,17 +205,17 @@ class WebDavClient {
       );
 
   /// Gets the content of the file at [path].
-  Future<Uint8List> get(final String path) async => (await getStream(path)).bodyBytes;
+  Future<Uint8List> get(final Uri path) async => (await getStream(path)).bodyBytes;
 
   /// Gets the content of the file at [path].
-  Future<HttpClientResponse> getStream(final String path) async => _send(
+  Future<HttpClientResponse> getStream(final Uri path) async => _send(
         'GET',
-        _constructPath(path),
+        _constructUri(path),
       );
 
   /// Gets the content of the file at [path].
   Future getFile(
-    final String path,
+    final Uri path,
     final File file, {
     final Function(double progress)? onProgress,
   }) async {
@@ -245,14 +245,14 @@ class WebDavClient {
   /// [depth] can be used to limit scope of the returned resources.
   /// See http://www.webdav.org/specs/rfc2518.html#METHOD_PROPFIND for more information.
   Future<WebDavMultistatus> propfind(
-    final String path, {
+    final Uri path, {
     final WebDavPropWithoutValues? prop,
     final WebDavDepth? depth,
   }) async =>
       _parseResponse(
         await _send(
           'PROPFIND',
-          _constructPath(path),
+          _constructUri(path),
           data: utf8.encode(
             WebDavPropfind(prop: prop ?? WebDavPropWithoutValues()).toXmlElement(namespaces: namespaces).toXmlString(),
           ) as Uint8List,
@@ -265,14 +265,14 @@ class WebDavClient {
   /// Optionally populates the [prop]s on the returned resources.
   /// See https://github.com/owncloud/docs/issues/359 for more information.
   Future<WebDavMultistatus> report(
-    final String path,
+    final Uri path,
     final WebDavOcFilterRules filterRules, {
     final WebDavPropWithoutValues? prop,
   }) async =>
       _parseResponse(
         await _send(
           'REPORT',
-          _constructPath(path),
+          _constructUri(path),
           data: utf8.encode(
             WebDavOcFilterFiles(
               filterRules: filterRules,
@@ -289,13 +289,13 @@ class WebDavClient {
   /// Returns true if the update was successful.
   /// See http://www.webdav.org/specs/rfc2518.html#METHOD_PROPPATCH for more information.
   Future<bool> proppatch(
-    final String path, {
+    final Uri path, {
     final WebDavProp? set,
     final WebDavPropWithoutValues? remove,
   }) async {
     final response = await _send(
       'PROPPATCH',
-      _constructPath(path),
+      _constructUri(path),
       data: utf8.encode(
         WebDavPropertyupdate(
           set: set != null ? WebDavSet(prop: set) : null,
@@ -319,15 +319,15 @@ class WebDavClient {
   /// If [overwrite] is set any existing resource will be replaced.
   /// See http://www.webdav.org/specs/rfc2518.html#METHOD_MOVE for more information.
   Future<HttpClientResponse> move(
-    final String sourcePath,
-    final String destinationPath, {
+    final Uri sourcePath,
+    final Uri destinationPath, {
     final bool overwrite = false,
   }) =>
       _send(
         'MOVE',
-        _constructPath(sourcePath),
+        _constructUri(sourcePath),
         headers: {
-          'Destination': _constructPath(destinationPath),
+          'Destination': _constructUri(destinationPath).toString(),
           'Overwrite': overwrite ? 'T' : 'F',
         },
       );
@@ -337,15 +337,15 @@ class WebDavClient {
   /// If [overwrite] is set any existing resource will be replaced.
   /// See http://www.webdav.org/specs/rfc2518.html#METHOD_COPY for more information.
   Future<HttpClientResponse> copy(
-    final String sourcePath,
-    final String destinationPath, {
+    final Uri sourcePath,
+    final Uri destinationPath, {
     final bool overwrite = false,
   }) =>
       _send(
         'COPY',
-        _constructPath(sourcePath),
+        _constructUri(sourcePath),
         headers: {
-          'Destination': _constructPath(destinationPath),
+          'Destination': _constructUri(destinationPath).toString(),
           'Overwrite': overwrite ? 'T' : 'F',
         },
       );

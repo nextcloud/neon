@@ -105,7 +105,7 @@ class WeatherStatusWeatherStatusClient {
     headers['OCS-APIRequest'] = oCSAPIRequest;
     final response = await _rootClient.doRequest(
       'put',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
       headers,
       body,
     );
@@ -144,7 +144,7 @@ class WeatherStatusWeatherStatusClient {
     headers['OCS-APIRequest'] = oCSAPIRequest;
     final response = await _rootClient.doRequest(
       'put',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
       headers,
       body,
     );
@@ -183,7 +183,7 @@ class WeatherStatusWeatherStatusClient {
     headers['OCS-APIRequest'] = oCSAPIRequest;
     final response = await _rootClient.doRequest(
       'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
       headers,
       body,
     );
@@ -234,7 +234,7 @@ class WeatherStatusWeatherStatusClient {
     headers['OCS-APIRequest'] = oCSAPIRequest;
     final response = await _rootClient.doRequest(
       'put',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
       headers,
       body,
     );
@@ -273,7 +273,7 @@ class WeatherStatusWeatherStatusClient {
     headers['OCS-APIRequest'] = oCSAPIRequest;
     final response = await _rootClient.doRequest(
       'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
       headers,
       body,
     );
@@ -312,7 +312,7 @@ class WeatherStatusWeatherStatusClient {
     headers['OCS-APIRequest'] = oCSAPIRequest;
     final response = await _rootClient.doRequest(
       'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
       headers,
       body,
     );
@@ -353,7 +353,7 @@ class WeatherStatusWeatherStatusClient {
     headers['OCS-APIRequest'] = oCSAPIRequest;
     final response = await _rootClient.doRequest(
       'put',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
       headers,
       body,
     );

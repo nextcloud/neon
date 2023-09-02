@@ -30,7 +30,9 @@ class _LoginPageState extends State<LoginPage> {
 
   void login(final String url) {
     if (_formKey.currentState!.validate()) {
-      LoginCheckServerStatusRoute(serverUrl: url).go(context);
+      final uri = Uri.parse(url);
+
+      LoginCheckServerStatusRoute(serverUrl: uri).go(context);
     } else {
       _focusNode.requestFocus();
     }

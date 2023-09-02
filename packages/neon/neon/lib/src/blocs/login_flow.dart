@@ -20,7 +20,7 @@ class LoginFlowBloc extends InteractiveBloc implements LoginFlowBlocEvents, Logi
     unawaited(refresh());
   }
 
-  final String serverURL;
+  final Uri serverURL;
   late final _client = NextcloudClient(
     serverURL,
     userAgentOverride: neonUserAgent,

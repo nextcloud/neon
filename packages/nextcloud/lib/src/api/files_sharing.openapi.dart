@@ -107,7 +107,7 @@ class FilesSharingDeletedShareapiClient {
     headers['OCS-APIRequest'] = oCSAPIRequest;
     final response = await _rootClient.doRequest(
       'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
       headers,
       body,
     );
@@ -148,7 +148,7 @@ class FilesSharingDeletedShareapiClient {
     headers['OCS-APIRequest'] = oCSAPIRequest;
     final response = await _rootClient.doRequest(
       'post',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
       headers,
       body,
     );
@@ -193,7 +193,7 @@ class FilesSharingPublicPreviewClient {
     headers['OCS-APIRequest'] = oCSAPIRequest;
     final response = await _rootClient.doRequest(
       'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
       headers,
       body,
     );
@@ -245,7 +245,7 @@ class FilesSharingPublicPreviewClient {
     headers['OCS-APIRequest'] = oCSAPIRequest;
     final response = await _rootClient.doRequest(
       'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
       headers,
       body,
     );
@@ -285,7 +285,7 @@ class FilesSharingRemoteClient {
     headers['OCS-APIRequest'] = oCSAPIRequest;
     final response = await _rootClient.doRequest(
       'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
       headers,
       body,
     );
@@ -324,7 +324,7 @@ class FilesSharingRemoteClient {
     headers['OCS-APIRequest'] = oCSAPIRequest;
     final response = await _rootClient.doRequest(
       'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
       headers,
       body,
     );
@@ -365,7 +365,7 @@ class FilesSharingRemoteClient {
     headers['OCS-APIRequest'] = oCSAPIRequest;
     final response = await _rootClient.doRequest(
       'post',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
       headers,
       body,
     );
@@ -406,7 +406,7 @@ class FilesSharingRemoteClient {
     headers['OCS-APIRequest'] = oCSAPIRequest;
     final response = await _rootClient.doRequest(
       'delete',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
       headers,
       body,
     );
@@ -447,7 +447,7 @@ class FilesSharingRemoteClient {
     headers['OCS-APIRequest'] = oCSAPIRequest;
     final response = await _rootClient.doRequest(
       'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
       headers,
       body,
     );
@@ -488,7 +488,7 @@ class FilesSharingRemoteClient {
     headers['OCS-APIRequest'] = oCSAPIRequest;
     final response = await _rootClient.doRequest(
       'delete',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
       headers,
       body,
     );
@@ -543,7 +543,7 @@ class FilesSharingShareInfoClient {
     }
     final response = await _rootClient.doRequest(
       'post',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
       headers,
       body,
     );
@@ -608,7 +608,7 @@ class FilesSharingShareapiClient {
     headers['OCS-APIRequest'] = oCSAPIRequest;
     final response = await _rootClient.doRequest(
       'get',
-      Uri(path: path0, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
+      Uri(path: path0, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
       headers,
       body,
     );
@@ -691,7 +691,7 @@ class FilesSharingShareapiClient {
     headers['OCS-APIRequest'] = oCSAPIRequest;
     final response = await _rootClient.doRequest(
       'post',
-      Uri(path: path0, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
+      Uri(path: path0, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
       headers,
       body,
     );
@@ -732,7 +732,7 @@ class FilesSharingShareapiClient {
     headers['OCS-APIRequest'] = oCSAPIRequest;
     final response = await _rootClient.doRequest(
       'get',
-      Uri(path: path0, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
+      Uri(path: path0, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
       headers,
       body,
     );
@@ -771,7 +771,7 @@ class FilesSharingShareapiClient {
     headers['OCS-APIRequest'] = oCSAPIRequest;
     final response = await _rootClient.doRequest(
       'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
       headers,
       body,
     );
@@ -816,7 +816,7 @@ class FilesSharingShareapiClient {
     headers['OCS-APIRequest'] = oCSAPIRequest;
     final response = await _rootClient.doRequest(
       'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
       headers,
       body,
     );
@@ -893,7 +893,7 @@ class FilesSharingShareapiClient {
     headers['OCS-APIRequest'] = oCSAPIRequest;
     final response = await _rootClient.doRequest(
       'put',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
       headers,
       body,
     );
@@ -934,7 +934,7 @@ class FilesSharingShareapiClient {
     headers['OCS-APIRequest'] = oCSAPIRequest;
     final response = await _rootClient.doRequest(
       'delete',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
       headers,
       body,
     );
@@ -975,7 +975,7 @@ class FilesSharingShareapiClient {
     headers['OCS-APIRequest'] = oCSAPIRequest;
     final response = await _rootClient.doRequest(
       'post',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
       headers,
       body,
     );
@@ -1049,7 +1049,7 @@ class FilesSharingShareesapiClient {
     headers['OCS-APIRequest'] = oCSAPIRequest;
     final response = await _rootClient.doRequest(
       'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
       headers,
       body,
     );
@@ -1104,7 +1104,7 @@ class FilesSharingShareesapiClient {
     headers['OCS-APIRequest'] = oCSAPIRequest;
     final response = await _rootClient.doRequest(
       'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
       headers,
       body,
     );

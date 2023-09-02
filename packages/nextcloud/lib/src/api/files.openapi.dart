@@ -115,7 +115,7 @@ class FilesApiClient {
     path = path.replaceAll('{file}', Uri.encodeQueryComponent(file));
     final response = await _rootClient.doRequest(
       'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
       headers,
       body,
     );
@@ -146,7 +146,7 @@ class FilesApiClient {
     // coverage:ignore-end
     final response = await _rootClient.doRequest(
       'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
       headers,
       body,
     );
@@ -192,7 +192,7 @@ class FilesDirectEditingClient {
     headers['OCS-APIRequest'] = oCSAPIRequest;
     final response = await _rootClient.doRequest(
       'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
       headers,
       body,
     );
@@ -235,7 +235,7 @@ class FilesDirectEditingClient {
     headers['OCS-APIRequest'] = oCSAPIRequest;
     final response = await _rootClient.doRequest(
       'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
       headers,
       body,
     );
@@ -284,7 +284,7 @@ class FilesDirectEditingClient {
     headers['OCS-APIRequest'] = oCSAPIRequest;
     final response = await _rootClient.doRequest(
       'post',
-      Uri(path: path0, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
+      Uri(path: path0, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
       headers,
       body,
     );
@@ -333,7 +333,7 @@ class FilesDirectEditingClient {
     headers['OCS-APIRequest'] = oCSAPIRequest;
     final response = await _rootClient.doRequest(
       'post',
-      Uri(path: path0, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
+      Uri(path: path0, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
       headers,
       body,
     );
@@ -380,7 +380,7 @@ class FilesOpenLocalEditorClient {
     headers['OCS-APIRequest'] = oCSAPIRequest;
     final response = await _rootClient.doRequest(
       'post',
-      Uri(path: path0, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
+      Uri(path: path0, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
       headers,
       body,
     );
@@ -423,7 +423,7 @@ class FilesOpenLocalEditorClient {
     headers['OCS-APIRequest'] = oCSAPIRequest;
     final response = await _rootClient.doRequest(
       'post',
-      Uri(path: path0, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
+      Uri(path: path0, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
       headers,
       body,
     );
@@ -466,7 +466,7 @@ class FilesTemplateClient {
     headers['OCS-APIRequest'] = oCSAPIRequest;
     final response = await _rootClient.doRequest(
       'get',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
       headers,
       body,
     );
@@ -515,7 +515,7 @@ class FilesTemplateClient {
     headers['OCS-APIRequest'] = oCSAPIRequest;
     final response = await _rootClient.doRequest(
       'post',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
       headers,
       body,
     );
@@ -562,7 +562,7 @@ class FilesTemplateClient {
     headers['OCS-APIRequest'] = oCSAPIRequest;
     final response = await _rootClient.doRequest(
       'post',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
       headers,
       body,
     );
@@ -611,7 +611,7 @@ class FilesTransferOwnershipClient {
     headers['OCS-APIRequest'] = oCSAPIRequest;
     final response = await _rootClient.doRequest(
       'post',
-      Uri(path: path0, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
+      Uri(path: path0, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
       headers,
       body,
     );
@@ -652,7 +652,7 @@ class FilesTransferOwnershipClient {
     headers['OCS-APIRequest'] = oCSAPIRequest;
     final response = await _rootClient.doRequest(
       'post',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
       headers,
       body,
     );
@@ -693,7 +693,7 @@ class FilesTransferOwnershipClient {
     headers['OCS-APIRequest'] = oCSAPIRequest;
     final response = await _rootClient.doRequest(
       'delete',
-      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null).toString(),
+      Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null),
       headers,
       body,
     );

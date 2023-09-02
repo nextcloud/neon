@@ -43,7 +43,7 @@ class FilesBrowserBloc extends InteractiveBloc implements FilesBrowserBlocEvents
       'files-${path.value.join('/')}',
       files,
       () async => account.client.webdav.propfind(
-        path.value.join('/'),
+        Uri(pathSegments: path.value),
         prop: WebDavPropWithoutValues.fromBools(
           davgetcontenttype: true,
           davgetetag: true,
@@ -67,6 +67,6 @@ class FilesBrowserBloc extends InteractiveBloc implements FilesBrowserBlocEvents
 
   @override
   void createFolder(final List<String> path) {
-    wrapAction(() async => account.client.webdav.mkcol(path.join('/')));
+    wrapAction(() async => account.client.webdav.mkcol(Uri(pathSegments: path)));
   }
 }

@@ -6,8 +6,8 @@ void main() {
     const qrCodePath = '/user:JohnDoe&password:super_secret&server:example.com';
     const qrCode = 'nc://login$qrCodePath';
     const invalidUrl = '::Not valid LoginQrcode::';
-    const credentials = LoginQrcode(
-      serverURL: 'example.com',
+    final credentials = LoginQrcode(
+      serverURL: Uri.parse('example.com'),
       username: 'JohnDoe',
       password: 'super_secret',
     );
@@ -33,7 +33,7 @@ void main() {
     ]) {
       group(serverURL, () {
         final account = Account(
-          serverURL: serverURL,
+          serverURL: Uri.parse(serverURL),
           username: 'example',
         );
 
@@ -63,7 +63,7 @@ void main() {
 
   group('Account', () {
     final account = Account(
-      serverURL: 'http://example.com',
+      serverURL: Uri(scheme: 'http', host: 'example.com'),
       username: 'JohnDoe',
       password: 'super_secret',
     );
@@ -89,7 +89,7 @@ void main() {
       expect(account.humanReadableID, 'JohnDoe@example.com');
 
       final accountWithDefaultPort = Account(
-        serverURL: 'http://example.com:80',
+        serverURL: Uri(scheme: 'http', host: 'example.com', port: 80),
         username: 'JohnDoe',
         password: 'super_secret',
       );
@@ -97,7 +97,7 @@ void main() {
       expect(accountWithDefaultPort.humanReadableID, 'JohnDoe@example.com');
 
       final accountWithPort = Account(
-        serverURL: 'http://example.com:8080',
+        serverURL: Uri(scheme: 'http', host: 'example.com', port: 8080),
         username: 'JohnDoe',
         password: 'super_secret',
       );
@@ -108,27 +108,27 @@ void main() {
 
   test('AccountFind', () {
     final account1 = Account(
-      serverURL: 'http://example.com',
+      serverURL: Uri(scheme: 'http', host: 'example.com'),
       username: 'JohnDoe',
       password: 'super_secret',
     );
     final account2 = Account(
-      serverURL: 'http://example.com',
+      serverURL: Uri(scheme: 'http', host: 'example.com'),
       username: 'JohnDoe2',
       password: 'super_secret',
     );
     final account3 = Account(
-      serverURL: 'http://example.com',
+      serverURL: Uri(scheme: 'http', host: 'example.com'),
       username: 'JohnDoe3',
       password: 'super_secret',
     );
     final account4 = Account(
-      serverURL: 'http://example.com',
+      serverURL: Uri(scheme: 'http', host: 'example.com'),
       username: 'JohnDoe4',
       password: 'super_secret',
     );
     final account5 = Account(
-      serverURL: 'http://example.com',
+      serverURL: Uri(scheme: 'http', host: 'example.com'),
       username: 'JohnDoe5',
       password: 'super_secret',
     );

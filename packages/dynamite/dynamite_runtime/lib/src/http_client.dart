@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'dart:typed_data';
 
 import 'package:cookie_jar/cookie_jar.dart';
+import 'package:dynamite_runtime/src/uri.dart';
 import 'package:universal_io/io.dart';
 
 export 'package:cookie_jar/cookie_jar.dart';
@@ -110,15 +111,16 @@ class DynamiteHttpBearerAuthentication extends DynamiteAuthentication {
 
 class DynamiteClient {
   DynamiteClient(
-    this.baseURL, {
+    final Uri baseURL, {
     this.baseHeaders,
     final String? userAgent,
     final HttpClient? httpClient,
     this.cookieJar,
     this.authentications = const [],
-  }) : httpClient = (httpClient ?? HttpClient())..userAgent = userAgent;
+  })  : httpClient = (httpClient ?? HttpClient())..userAgent = userAgent,
+        baseURL = baseURL.normalizeEmptyPath();
 
-  final String baseURL;
+  final Uri baseURL;
 
   final Map<String, String>? baseHeaders;
 
@@ -130,11 +132,18 @@ class DynamiteClient {
 
   Future<HttpClientResponse> doRequest(
     final String method,
-    final String path,
+    final Uri path,
     final Map<String, String> headers,
     final Uint8List? body,
   ) async {
-    final uri = Uri.parse('$baseURL$path');
+    final uri = baseURL.replace(
+      path: '${baseURL.path}${path.path}',
+      queryParameters: {
+        ...baseURL.queryParameters,
+        ...path.queryParameters,
+      },
+    );
+
     final request = await httpClient.openUrl(method, uri);
     for (final header in {...?baseHeaders, ...headers}.entries) {
       request.headers.add(header.key, header.value);

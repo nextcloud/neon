@@ -25,7 +25,7 @@ class FilesDownloadTask extends FilesTask {
 
   Future execute(final NextcloudClient client) async {
     await client.webdav.getFile(
-      path.join('/'),
+      Uri(pathSegments: path),
       file,
       onProgress: (final progress) {
         streamController.add(progress);
@@ -47,7 +47,7 @@ class FilesUploadTask extends FilesTask {
     await client.webdav.putFile(
       file,
       stat,
-      path.join('/'),
+      Uri(pathSegments: path),
       lastModified: stat.modified,
       onProgress: (final progress) {
         streamController.add(progress);

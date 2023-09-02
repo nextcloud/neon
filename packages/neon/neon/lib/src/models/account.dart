@@ -13,7 +13,7 @@ part 'account.g.dart';
 @immutable
 abstract interface class Credentials {
   /// Url of the server
-  abstract final String serverURL;
+  abstract final Uri serverURL;
 
   /// Username
   abstract final String username;
@@ -44,7 +44,7 @@ class Account implements Credentials {
   Map<String, dynamic> toJson() => _$AccountToJson(this);
 
   @override
-  final String serverURL;
+  final Uri serverURL;
   @override
   final String username;
   @override
@@ -70,19 +70,18 @@ class Account implements Credentials {
     return _idCache[key] ??= sha1.convert(utf8.encode(key)).toString();
   }
 
+  /// A human readable representation of [username] and [serverURL].
   String get humanReadableID {
-    final uri = Uri.parse(serverURL);
-
     // Maybe also show path if it is not '/' ?
     final buffer = StringBuffer()
       ..write(username)
       ..write('@')
-      ..write(uri.host);
+      ..write(serverURL.host);
 
-    if (uri.hasPort) {
+    if (serverURL.hasPort) {
       buffer
         ..write(':')
-        ..write(uri.port);
+        ..write(serverURL.port);
     }
 
     return buffer.toString();
@@ -96,7 +95,7 @@ class Account implements Credentials {
   /// The paths of the [serverURL] and the [uri] need to be join to get the full path, unless the [uri] path is already an absolute path.
   /// In that case an instance hosted at a sub folder will already contain the sub folder part in the [uri].
   Uri completeUri(final Uri uri) {
-    final result = Uri.parse(serverURL).replace(
+    final result = serverURL.replace(
       queryParameters: uri.queryParameters,
       fragment: uri.fragment,
     );
@@ -108,7 +107,7 @@ class Account implements Credentials {
   /// Removes the [serverURL] part from the [uri].
   ///
   /// Should be used when trying to push a [uri] from an API to the router as it might contain the scheme, host and sub path of the instance which will not work with the router.
-  Uri stripUri(final Uri uri) => Uri.parse(uri.toString().replaceFirst(serverURL, ''));
+  Uri stripUri(final Uri uri) => Uri.parse(uri.toString().replaceFirst(serverURL.toString(), ''));
 }
 
 Map<String, String> _idCache = {};
@@ -134,7 +133,7 @@ class LoginQrcode implements Credentials {
   });
 
   @override
-  final String serverURL;
+  final Uri serverURL;
   @override
   final String username;
   @override
@@ -176,7 +175,7 @@ class LoginQrcode implements Credentials {
       }
 
       return LoginQrcode(
-        serverURL: match.group(3)!,
+        serverURL: Uri.parse(match.group(3)!),
         username: match.group(1)!,
         password: match.group(2)!,
       );
