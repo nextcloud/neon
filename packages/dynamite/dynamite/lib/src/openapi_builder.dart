@@ -320,18 +320,7 @@ class OpenAPIBuilder implements Builder {
                             final parameters = <spec_parameter.Parameter>[
                               ...?pathEntry.value.parameters,
                               ...?operation.parameters,
-                            ]..sort(
-                                (final a, final b) => sortRequiredElements(
-                                  _isDartParameterRequired(
-                                    a.required,
-                                    a.schema?.default_,
-                                  ),
-                                  _isDartParameterRequired(
-                                    b.required,
-                                    b.schema?.default_,
-                                  ),
-                                ),
-                              );
+                            ]..sort(sortRequiredParameters);
                             b
                               ..name = _toDartName(_filterMethodName(operationId, tag ?? ''))
                               ..modifier = MethodModifier.async
@@ -390,10 +379,7 @@ class OpenAPIBuilder implements Builder {
                                 parameter.schema?.nullable,
                                 parameter.schema?.default_,
                               );
-                              final dartParameterRequired = _isDartParameterRequired(
-                                parameter.required,
-                                parameter.schema?.default_,
-                              );
+                              final dartParameterRequired = _isDartParameterRequired(parameter);
 
                               final result = resolveType(
                                 spec,
@@ -514,7 +500,7 @@ class OpenAPIBuilder implements Builder {
                                 switch (mimeType) {
                                   case 'application/json':
                                   case 'application/x-www-form-urlencoded':
-                                    final dartParameterRequired = _isDartParameterRequired(
+                                    final dartParameterRequired = _isRequired(
                                       operation.requestBody!.required,
                                       mediaType.schema?.default_,
                                     );
@@ -848,7 +834,10 @@ bool _isDartParameterNullable(
 ) =>
     (!(required ?? false) && default_ == null) || (nullable ?? false);
 
-bool _isDartParameterRequired(
+bool _isDartParameterRequired(final spec_parameter.Parameter parameter) =>
+    _isRequired(parameter.required, parameter.schema?.default_);
+
+bool _isRequired(
   final bool? required,
   final dynamic default_,
 ) =>
@@ -1738,9 +1727,12 @@ TypeResult resolveType(
 }
 
 // ignore: avoid_positional_boolean_parameters
-int sortRequiredElements(final bool a, final bool b) {
-  if (a != b) {
-    if (a && !b) {
+int sortRequiredParameters(final spec_parameter.Parameter a, final spec_parameter.Parameter b) {
+  final aRequired = _isDartParameterRequired(a);
+  final bRequired = _isDartParameterRequired(b);
+
+  if (aRequired != bRequired) {
+    if (aRequired && !bRequired) {
       return -1;
     } else {
       return 1;
