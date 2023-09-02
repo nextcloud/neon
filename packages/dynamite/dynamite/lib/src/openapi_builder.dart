@@ -288,14 +288,9 @@ class OpenAPIBuilder implements Builder {
                     ),
                   );
               }
-              final matchedTags = spec.tags?.where((final t) => t.name == tag);
               b
                 ..name = '$classPrefix${isRootClient ? 'Client' : _clientName(tag)}'
-                ..docs.addAll(
-                  _descriptionToDocs(
-                    matchedTags != null && matchedTags.isNotEmpty ? matchedTags.single.description : null,
-                  ),
-                )
+                ..docs.addAll(spec.formattedTagsFor(tag))
                 ..methods.addAll(
                   [
                     for (final t in tags.whereType<String>().where(
@@ -324,13 +319,7 @@ class OpenAPIBuilder implements Builder {
                             b
                               ..name = _toDartName(_filterMethodName(operationId, tag ?? ''))
                               ..modifier = MethodModifier.async
-                              ..docs.addAll([
-                                ..._descriptionToDocs(operation.summary),
-                                if (operation.summary != null && operation.description != null) ...[
-                                  '///',
-                                ],
-                                ..._descriptionToDocs(operation.description),
-                              ]);
+                              ..docs.addAll(operation.formattedDescription);
                             if (operation.deprecated ?? false) {
                               b.annotations.add(refer('Deprecated').call([refer("''")]));
                             }
@@ -871,14 +860,6 @@ String _toCamelCase(final String name) {
   return result;
 }
 
-List<String> _descriptionToDocs(final String? description) => [
-      if (description != null && description.isNotEmpty) ...[
-        for (final line in description.split('\n')) ...[
-          '/// $line',
-        ],
-      ],
-    ];
-
 String _filterMethodName(final String operationId, final String tag) {
   final expandedTag = tag.split('/').toList();
   final parts = operationId.split('-');
@@ -918,7 +899,7 @@ TypeResult resolveObject(
         (final b) {
           b
             ..name = '${state.prefix}$identifier'
-            ..docs.addAll(_descriptionToDocs(schema.description))
+            ..docs.addAll(schema.formattedDescription)
             ..abstract = true
             ..implements.add(
               refer(
@@ -988,7 +969,7 @@ TypeResult resolveObject(
                       ..name = _toDartName(propertyName)
                       ..returns = refer(result.nullableName)
                       ..type = MethodType.getter
-                      ..docs.addAll(_descriptionToDocs(propertySchema.description));
+                      ..docs.addAll(propertySchema.formattedDescription);
 
                     if (_toDartName(propertyName) != propertyName) {
                       b.annotations.add(
@@ -1302,7 +1283,7 @@ TypeResult resolveType(
                         ..name = fields[result.name]
                         ..returns = refer(result.nullableName)
                         ..type = MethodType.getter
-                        ..docs.addAll(_descriptionToDocs(s.description));
+                        ..docs.addAll(s.formattedDescription);
                     },
                   ),
                 ],

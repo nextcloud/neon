@@ -1,3 +1,4 @@
+import 'package:dynamite/src/helpers/docs.dart';
 import 'package:dynamite/src/models/discriminator.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
@@ -85,6 +86,8 @@ class Schema {
   final bool? nullable;
 
   bool get isContentString => type == 'string' && (contentMediaType?.isNotEmpty ?? false) && contentSchema != null;
+
+  Iterable<String> get formattedDescription => descriptionToDocs(description);
 }
 
 class EmptySchema extends Schema {

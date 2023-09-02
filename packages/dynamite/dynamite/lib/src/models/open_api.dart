@@ -40,4 +40,12 @@ class OpenAPI {
   final Components? components;
 
   final Paths? paths;
+
+  Iterable<String> formattedTagsFor(final String? tag) sync* {
+    final matchedTags = tags?.where((final t) => t.name == tag);
+
+    if (matchedTags != null && matchedTags.isNotEmpty) {
+      yield* matchedTags.single.formattedDescription;
+    }
+  }
 }

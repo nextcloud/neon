@@ -1,3 +1,4 @@
+import 'package:dynamite/src/helpers/docs.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
 
@@ -17,4 +18,6 @@ class Tag {
   final String name;
 
   final String? description;
+
+  Iterable<String> get formattedDescription => descriptionToDocs(description);
 }
