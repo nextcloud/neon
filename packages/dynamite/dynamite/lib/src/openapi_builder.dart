@@ -177,19 +177,16 @@ class OpenAPIBuilder implements Builder {
         final paths = <String, PathItem>{};
 
         if (spec.paths != null) {
-          for (final path in spec.paths!.keys) {
-            final pathItem = spec.paths![path]!;
-            for (final method in pathItem.operations.keys) {
-              final operation = pathItem.operations[method]!;
+          for (final path in spec.paths!.entries) {
+            for (final operationEntry in path.value.operations.entries) {
+              final operation = operationEntry.value;
               if ((tag != null && operation.tags != null && operation.tags!.contains(tag)) ||
                   (tag == null && (operation.tags == null || operation.tags!.isEmpty))) {
-                if (paths[path] == null) {
-                  paths[path] = PathItem(
-                    description: pathItem.description,
-                    parameters: pathItem.parameters,
-                  );
-                }
-                paths[path] = paths[path]!.copyWithOperations({method: operation});
+                paths[path.key] ??= PathItem(
+                  description: path.value.description,
+                  parameters: path.value.parameters,
+                );
+                paths[path.key] = paths[path.key]!.copyWithOperations({operationEntry.key: operation});
               }
             }
           }
@@ -316,18 +313,16 @@ class OpenAPIBuilder implements Builder {
                           ..body = Code('$classPrefix${_clientName(t)}(${isRootClient ? 'this' : '_rootClient'})'),
                       ),
                     ],
-                    for (final path in paths.keys) ...[
-                      for (final httpMethod in paths[path]!.operations.keys) ...[
+                    for (final pathEntry in paths.entries) ...[
+                      for (final operationEntry in pathEntry.value.operations.entries) ...[
                         Method(
                           (final b) {
-                            final operation = paths[path]!.operations[httpMethod]!;
-                            final operationId = operation.operationId ?? _toDartName('$httpMethod-$path');
-                            final pathParameters = <spec_parameter.Parameter>[
-                              if (paths[path]!.parameters != null) ...paths[path]!.parameters!,
-                            ];
+                            final httpMethod = operationEntry.key;
+                            final operation = operationEntry.value;
+                            final operationId = operation.operationId ?? _toDartName('$httpMethod-${pathEntry.key}');
                             final parameters = <spec_parameter.Parameter>[
-                              ...pathParameters,
-                              if (operation.parameters != null) ...operation.parameters!,
+                              ...?pathEntry.value.parameters,
+                              ...?operation.parameters,
                             ]..sort(
                                 (final a, final b) => sortRequiredElements(
                                   _isDartParameterRequired(
@@ -354,15 +349,15 @@ class OpenAPIBuilder implements Builder {
                               b.annotations.add(refer('Deprecated').call([refer("''")]));
                             }
 
-                            final acceptHeader = (operation.responses?.values
-                                        .map((final response) => response.content?.keys)
-                                        .whereNotNull()
-                                        .expand((final element) => element)
-                                        .toSet() ??
-                                    {})
-                                .join(',');
+                            final acceptHeader = operation.responses?.values
+                                    .map((final response) => response.content?.keys)
+                                    .whereNotNull()
+                                    .expand((final element) => element)
+                                    .toSet()
+                                    .join(',') ??
+                                '';
                             final code = StringBuffer('''
-                            var _path = '$path';
+                            var _path = '${pathEntry.key}';
                             final _queryParameters = <String, dynamic>{};
                             final _headers = <String, String>{${acceptHeader.isNotEmpty ? "'Accept': '$acceptHeader'," : ''}};
                             Uint8List? _body;
@@ -498,8 +493,9 @@ class OpenAPIBuilder implements Builder {
                               if (operation.requestBody!.content!.length > 1) {
                                 throw Exception('Can not work with multiple mime types right now');
                               }
-                              for (final mimeType in operation.requestBody!.content!.keys) {
-                                final mediaType = operation.requestBody!.content![mimeType]!;
+                              for (final content in operation.requestBody!.content!.entries) {
+                                final mimeType = content.key;
+                                final mediaType = content.value;
 
                                 code.write("_headers['Content-Type'] = '$mimeType';");
 
@@ -565,8 +561,9 @@ class OpenAPIBuilder implements Builder {
                               if (operation.responses!.length > 1) {
                                 throw Exception('Can not work with multiple status codes right now');
                               }
-                              for (final statusCode in operation.responses!.keys) {
-                                final response = operation.responses![statusCode]!;
+                              for (final responseEntry in operation.responses!.entries) {
+                                final statusCode = responseEntry.key;
+                                final response = responseEntry.value;
                                 code.write('if (_response.statusCode == $statusCode) {');
 
                                 String? headersType;
@@ -600,8 +597,9 @@ class OpenAPIBuilder implements Builder {
                                   if (response.content!.length > 1) {
                                     throw Exception('Can not work with multiple mime types right now');
                                   }
-                                  for (final mimeType in response.content!.keys) {
-                                    final mediaType = response.content![mimeType]!;
+                                  for (final content in response.content!.entries) {
+                                    final mimeType = content.key;
+                                    final mediaType = content.value;
 
                                     final result = resolveType(
                                       spec,
@@ -681,11 +679,9 @@ class OpenAPIBuilder implements Builder {
       }
 
       if (spec.components?.schemas != null) {
-        for (final name in spec.components!.schemas!.keys) {
-          final schema = spec.components!.schemas![name]!;
-
-          final identifier = _toDartName(name, uppercaseFirstCharacter: true);
-          if (schema.type == null && schema.ref == null && schema.ofs == null) {
+        for (final schema in spec.components!.schemas!.entries) {
+          final identifier = _toDartName(schema.key, uppercaseFirstCharacter: true);
+          if (schema.value.type == null && schema.value.ref == null && schema.value.ofs == null) {
             output.add('typedef $identifier = dynamic;');
           } else {
             final result = resolveType(
@@ -693,7 +689,7 @@ class OpenAPIBuilder implements Builder {
               variablePrefix,
               state,
               identifier,
-              schema,
+              schema.value,
             );
             if (result is TypeResultBase) {
               output.add('typedef $identifier = ${result.name};');
@@ -988,10 +984,11 @@ TypeResult resolveObject(
                   ..lambda = true
                   ..body = const Code('_jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>'),
               ),
-              for (final propertyName in schema.properties!.keys) ...[
+              for (final property in schema.properties!.entries) ...[
                 Method(
                   (final b) {
-                    final propertySchema = schema.properties![propertyName]!;
+                    final propertyName = property.key;
+                    final propertySchema = property.value;
                     final result = resolveType(
                       spec,
                       variablePrefix,
@@ -1040,8 +1037,8 @@ TypeResult resolveObject(
             ]);
 
           final defaults = <String>[];
-          for (final propertyName in schema.properties!.keys) {
-            final propertySchema = schema.properties![propertyName]!;
+          for (final property in schema.properties!.entries) {
+            final propertySchema = property.value;
             if (propertySchema.default_ != null) {
               final value = propertySchema.default_!.toString();
               final result = resolveType(
@@ -1051,7 +1048,7 @@ TypeResult resolveObject(
                 propertySchema.type!,
                 propertySchema,
               );
-              defaults.add('..${_toDartName(propertyName)} = ${_valueToEscapedValue(result, value)}');
+              defaults.add('..${_toDartName(property.key)} = ${_valueToEscapedValue(result, value)}');
             }
           }
           if (defaults.isNotEmpty) {
@@ -1168,8 +1165,9 @@ TypeResult resolveObject(
                         ..defaultTo = const Code('FullType.unspecified'),
                     ),
                   );
-                List<Code> deserializeProperty(final String propertyName) {
-                  final propertySchema = schema.properties![propertyName]!;
+                List<Code> deserializeProperty(final MapEntry<String, Schema> property) {
+                  final propertyName = property.key;
+                  final propertySchema = property.value;
                   final result = resolveType(
                     spec,
                     variablePrefix,
@@ -1212,9 +1210,7 @@ TypeResult resolveObject(
                   const Code('iterator.moveNext();'),
                   const Code('final value = iterator.current! as String;'),
                   const Code('switch (key) {'),
-                  for (final propertyName in schema.properties!.keys) ...[
-                    ...deserializeProperty(propertyName),
-                  ],
+                  for (final property in schema.properties!.entries) ...deserializeProperty(property),
                   const Code('}'),
                   const Code('}'),
                   const Code(''),
