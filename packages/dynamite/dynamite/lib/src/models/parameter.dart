@@ -1,3 +1,4 @@
+import 'package:dynamite/src/helpers/dynamite.dart';
 import 'package:dynamite/src/models/schema.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
@@ -28,4 +29,6 @@ class Parameter {
   final bool? required;
 
   final Schema? schema;
+
+  bool get isDartRequired => isRequired(required, schema?.default_);
 }

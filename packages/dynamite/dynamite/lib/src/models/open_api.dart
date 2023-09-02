@@ -41,6 +41,8 @@ class OpenAPI {
 
   final Paths? paths;
 
+  bool get hasAnySecurity => components?.securitySchemes?.isNotEmpty ?? false;
+
   Iterable<String> formattedTagsFor(final String? tag) sync* {
     final matchedTags = tags?.where((final t) => t.name == tag);
 
