@@ -11,7 +11,7 @@ import 'package:dynamite/src/models/path_item.dart';
 import 'package:dynamite/src/models/schema.dart';
 import 'package:dynamite/src/type_result/type_result.dart';
 
-List<Spec> generateDynamiteOverrides(final State state) => [
+List<Class> generateDynamiteOverrides(final State state) => [
       Class(
         (final b) => b
           ..name = '${state.classPrefix}Response'
@@ -112,6 +112,8 @@ Iterable<Class> generateClients(
   final OpenAPI spec,
   final State state,
 ) sync* {
+  yield* generateDynamiteOverrides(state);
+
   final tags = generateTags(spec);
   yield buildRootClient(spec, state, tags);
 

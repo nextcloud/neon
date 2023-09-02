@@ -1,0 +1,24 @@
+import 'package:build/build.dart';
+import 'package:code_builder/code_builder.dart';
+import 'package:path/path.dart' as p;
+
+List<Spec> generateImports(final AssetId outputId) => [
+      const Code('// ignore_for_file: camel_case_types'),
+      const Code('// ignore_for_file: public_member_api_docs'),
+      Directive.import('dart:convert'),
+      Directive.import('dart:typed_data'),
+      const Code(''),
+      Directive.import('package:built_collection/built_collection.dart'),
+      Directive.import('package:built_value/built_value.dart'),
+      Directive.import('package:built_value/json_object.dart'),
+      Directive.import('package:built_value/serializer.dart'),
+      Directive.import('package:built_value/standard_json_plugin.dart'),
+      Directive.import('package:dynamite_runtime/content_string.dart'),
+      Directive.import('package:dynamite_runtime/http_client.dart'),
+      Directive.import('package:universal_io/io.dart'),
+      const Code(''),
+      Directive.export('package:dynamite_runtime/http_client.dart'),
+      const Code(''),
+      Directive.part(p.basename(outputId.changeExtension('.g.dart').path)),
+      const Code(''),
+    ];

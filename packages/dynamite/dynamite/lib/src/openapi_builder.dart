@@ -1,16 +1,17 @@
 import 'dart:convert';
 
 import 'package:build/build.dart';
+import 'package:built_collection/built_collection.dart';
 import 'package:code_builder/code_builder.dart';
 import 'package:dart_style/dart_style.dart';
 import 'package:dynamite/src/builder/client.dart';
+import 'package:dynamite/src/builder/imports.dart';
 import 'package:dynamite/src/builder/resolve_type.dart';
 import 'package:dynamite/src/builder/serializer.dart';
 import 'package:dynamite/src/builder/state.dart';
 import 'package:dynamite/src/helpers/dart_helpers.dart';
 import 'package:dynamite/src/models/open_api.dart';
 import 'package:dynamite/src/type_result/type_result.dart';
-import 'package:path/path.dart' as p;
 
 class OpenAPIBuilder implements Builder {
   @override
@@ -42,34 +43,21 @@ class OpenAPIBuilder implements Builder {
 
       final state = State(spec.info.title);
 
-      final output = <String>[
-        '// ignore_for_file: camel_case_types',
-        '// ignore_for_file: public_member_api_docs',
-        "import 'dart:convert';",
-        "import 'dart:typed_data';",
-        '',
-        "import 'package:built_collection/built_collection.dart';",
-        "import 'package:built_value/built_value.dart';",
-        "import 'package:built_value/json_object.dart';",
-        "import 'package:built_value/serializer.dart';",
-        "import 'package:built_value/standard_json_plugin.dart';",
-        "import 'package:dynamite_runtime/content_string.dart';",
-        "import 'package:dynamite_runtime/http_client.dart';",
-        "import 'package:universal_io/io.dart';",
-        '',
-        "export 'package:dynamite_runtime/http_client.dart';",
-        '',
-        "part '${p.basename(outputId.changeExtension('.g.dart').path)}';",
-        '',
-        ...generateDynamiteOverrides(state).map((final e) => e.accept(emitter).toString()),
-        ...generateClients(spec, state).map((final e) => e.accept(emitter).toString()),
-      ];
+      final output = ListBuilder<Spec>()
+        ..addAll(generateImports(outputId))
+        ..addAll(generateClients(spec, state));
 
       if (spec.components?.schemas != null) {
         for (final schema in spec.components!.schemas!.entries) {
           final identifier = toDartName(schema.key, uppercaseFirstCharacter: true);
           if (schema.value.type == null && schema.value.ref == null && schema.value.ofs == null) {
-            output.add('typedef $identifier = dynamic;');
+            output.add(
+              TypeDef(
+                (final b) => b
+                  ..name = identifier
+                  ..definition = refer('dynamic'),
+              ),
+            );
           } else {
             final result = resolveType(
               spec,
@@ -78,14 +66,20 @@ class OpenAPIBuilder implements Builder {
               schema.value,
             );
             if (result is TypeResultBase) {
-              output.add('typedef $identifier = ${result.name};');
+              output.add(
+                TypeDef(
+                  (final b) => b
+                    ..name = identifier
+                    ..definition = refer(result.name),
+                ),
+              );
             }
           }
         }
       }
 
       output
-        ..addAll(state.output.map((final e) => e.accept(emitter).toString()))
+        ..addAll(state.output)
         ..addAll(buildSerializer(state));
 
       final patterns = [
@@ -102,7 +96,8 @@ class OpenAPIBuilder implements Builder {
           r'static BuiltSet<.*> get values => _\$.*Values;',
         ),
       ];
-      var outputString = output.join('\n');
+
+      var outputString = output.build().map((final e) => e.accept(emitter)).join('\n');
       for (final pattern in patterns) {
         outputString = outputString.replaceAllMapped(
           pattern,
