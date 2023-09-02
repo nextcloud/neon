@@ -1,7 +1,7 @@
 import 'package:dynamite/src/helpers/dart_helpers.dart';
 import 'package:dynamite/src/type_result/type_result.dart';
 
-String valueToEscapedValue(final TypeResult result, final dynamic value) {
+String valueToEscapedValue(final TypeResult result, final String value) {
   if (result is TypeResultBase && result.name == 'String') {
     return "'$value'";
   }
@@ -9,7 +9,7 @@ String valueToEscapedValue(final TypeResult result, final dynamic value) {
     return 'const $value';
   }
   if (result is TypeResultEnum) {
-    return '${result.name}.${toDartName(value.toString())}';
+    return '${result.name}.${toDartName(value)}';
   }
-  return value.toString();
+  return value;
 }

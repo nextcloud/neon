@@ -10,7 +10,7 @@ import 'package:dynamite/src/builder/serializer.dart';
 import 'package:dynamite/src/builder/state.dart';
 import 'package:dynamite/src/helpers/dart_helpers.dart';
 import 'package:dynamite/src/helpers/dynamite.dart';
-import 'package:dynamite/src/helpers/typeresult.dart';
+import 'package:dynamite/src/helpers/type_result.dart';
 import 'package:dynamite/src/models/open_api.dart';
 import 'package:dynamite/src/models/path_item.dart';
 import 'package:dynamite/src/models/schema.dart';
@@ -424,7 +424,7 @@ class OpenAPIBuilder implements Builder {
                               }
 
                               final defaultValueCode = parameter.schema?.default_ != null
-                                  ? valueToEscapedValue(result, parameter.schema!.default_)
+                                  ? valueToEscapedValue(result, parameter.schema!.default_.toString())
                                   : null;
 
                               b.optionalParameters.add(
