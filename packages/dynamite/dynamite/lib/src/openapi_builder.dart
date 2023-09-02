@@ -1587,52 +1587,47 @@ TypeResult resolveType(
         }
       case 'object':
         if (schema.properties == null) {
-          if (schema.additionalProperties != null) {
-            if (schema.additionalProperties is EmptySchema) {
-              result = TypeResultMap(
-                'BuiltMap',
-                TypeResultBase('JsonObject'),
-                nullable: nullable,
-              );
-            } else {
-              final subResult = resolveType(
-                spec,
-                variablePrefix,
-                state,
-                identifier,
-                schema.additionalProperties!,
-              );
-              result = TypeResultMap(
-                'BuiltMap',
-                subResult,
-                nullable: nullable,
-              );
-            }
-            break;
+          if (schema.additionalProperties == null) {
+            result = TypeResultBase(
+              'JsonObject',
+              nullable: nullable,
+            );
+          } else if (schema.additionalProperties is EmptySchema) {
+            result = TypeResultMap(
+              'BuiltMap',
+              TypeResultBase('JsonObject'),
+              nullable: nullable,
+            );
+          } else {
+            final subResult = resolveType(
+              spec,
+              variablePrefix,
+              state,
+              identifier,
+              schema.additionalProperties!,
+            );
+            result = TypeResultMap(
+              'BuiltMap',
+              subResult,
+              nullable: nullable,
+            );
           }
-          result = TypeResultBase(
-            'JsonObject',
-            nullable: nullable,
-          );
-          break;
-        }
-        if (schema.properties!.isEmpty) {
+        } else if (schema.properties!.isEmpty) {
           result = TypeResultMap(
             'BuiltMap',
             TypeResultBase('JsonObject'),
             nullable: nullable,
           );
-          break;
+        } else {
+          result = resolveObject(
+            spec,
+            variablePrefix,
+            state,
+            identifier,
+            schema,
+            nullable: nullable,
+          );
         }
-
-        result = resolveObject(
-          spec,
-          variablePrefix,
-          state,
-          identifier,
-          schema,
-          nullable: nullable,
-        );
     }
   }
 
