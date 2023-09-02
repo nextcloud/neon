@@ -39,8 +39,7 @@ class OpenAPIBuilder implements Builder {
           await buildStep.readAsString(inputId),
         ) as Map<String, dynamic>,
       );
-      final classPrefix = toDartName(spec.info.title, uppercaseFirstCharacter: true);
-      final variablePrefix = toDartName(spec.info.title);
+
       final supportedVersions = ['3.0.3', '3.1.0'];
       if (!supportedVersions.contains(spec.version)) {
         throw Exception('Only OpenAPI ${supportedVersions.join(', ')} are supported');
@@ -71,10 +70,7 @@ class OpenAPIBuilder implements Builder {
                 : a.compareTo(b),
       );
 
-      final state = State(
-        classPrefix: classPrefix,
-        variablePrefix: variablePrefix,
-      );
+      final state = State(spec.info.title);
 
       final output = <String>[
         '// ignore_for_file: camel_case_types',
@@ -97,7 +93,7 @@ class OpenAPIBuilder implements Builder {
         '',
         Class(
           (final b) => b
-            ..name = '${classPrefix}Response'
+            ..name = '${state.classPrefix}Response'
             ..types.addAll([
               refer('T'),
               refer('U'),
@@ -125,14 +121,14 @@ class OpenAPIBuilder implements Builder {
                   ..annotations.add(refer('override'))
                   ..lambda = true
                   ..body = Code(
-                    "'${classPrefix}Response(data: \$data, headers: \$headers)'",
+                    "'${state.classPrefix}Response(data: \$data, headers: \$headers)'",
                   ),
               ),
             ),
         ).accept(emitter).toString(),
         Class(
           (final b) => b
-            ..name = '${classPrefix}ApiException'
+            ..name = '${state.classPrefix}ApiException'
             ..extend = refer('DynamiteApiException')
             ..constructors.add(
               Constructor(
@@ -152,7 +148,7 @@ class OpenAPIBuilder implements Builder {
               Method(
                 (final b) => b
                   ..name = 'fromResponse'
-                  ..returns = refer('Future<${classPrefix}ApiException>')
+                  ..returns = refer('Future<${state.classPrefix}ApiException>')
                   ..static = true
                   ..modifier = MethodModifier.async
                   ..requiredParameters.add(
@@ -170,7 +166,7 @@ class OpenAPIBuilder implements Builder {
                     const Code("body = 'binary';"),
                     const Code('}'),
                     const Code(''),
-                    Code('return ${classPrefix}ApiException('),
+                    Code('return ${state.classPrefix}ApiException('),
                     const Code('response.statusCode,'),
                     const Code('response.responseHeaders,'),
                     const Code('body,'),
@@ -184,7 +180,7 @@ class OpenAPIBuilder implements Builder {
                   ..annotations.add(refer('override'))
                   ..lambda = true
                   ..body = Code(
-                    "'${classPrefix}ApiException(statusCode: \$statusCode, headers: \$headers, body: \$body)'",
+                    "'${state.classPrefix}ApiException(statusCode: \$statusCode, headers: \$headers, body: \$body)'",
                   ),
               ),
             ]),
@@ -291,7 +287,7 @@ class OpenAPIBuilder implements Builder {
                     Field(
                       (final b) => b
                         ..name = '_rootClient'
-                        ..type = refer('${classPrefix}Client')
+                        ..type = refer('${state.classPrefix}Client')
                         ..modifier = FieldModifier.final$,
                     ),
                   )
@@ -308,7 +304,7 @@ class OpenAPIBuilder implements Builder {
                   );
               }
               b
-                ..name = '$classPrefix${isRootClient ? 'Client' : clientName(tag)}'
+                ..name = '${state.classPrefix}${isRootClient ? 'Client' : clientName(tag)}'
                 ..docs.addAll(spec.formattedTagsFor(tag))
                 ..methods.addAll(
                   [
@@ -320,8 +316,9 @@ class OpenAPIBuilder implements Builder {
                           ..name = toDartName(tag == null ? t : t.substring('$tag/'.length))
                           ..lambda = true
                           ..type = MethodType.getter
-                          ..returns = refer('$classPrefix${clientName(t)}')
-                          ..body = Code('$classPrefix${clientName(t)}(${isRootClient ? 'this' : '_rootClient'})'),
+                          ..returns = refer('${state.classPrefix}${clientName(t)}')
+                          ..body =
+                              Code('${state.classPrefix}${clientName(t)}(${isRootClient ? 'this' : '_rootClient'})'),
                       ),
                     ],
                     for (final pathEntry in paths.entries) ...[
@@ -389,7 +386,6 @@ class OpenAPIBuilder implements Builder {
 
                               final result = resolveType(
                                 spec,
-                                variablePrefix,
                                 state,
                                 toDartName(
                                   '$operationId-${parameter.name}',
@@ -495,13 +491,12 @@ class OpenAPIBuilder implements Builder {
 
                                 final result = resolveType(
                                   spec,
-                                  variablePrefix,
                                   state,
                                   toDartName('$operationId-request-$mimeType', uppercaseFirstCharacter: true),
                                   mediaType.schema!,
                                   nullable: dartParameterNullable,
                                 );
-                                final parameterName = toDartName(result.name.replaceFirst(classPrefix, ''));
+                                final parameterName = toDartName(result.name.replaceFirst(state.classPrefix, ''));
                                 switch (mimeType) {
                                   case 'application/json':
                                   case 'application/x-www-form-urlencoded':
@@ -561,7 +556,6 @@ class OpenAPIBuilder implements Builder {
                                       '${tag != null ? toDartName(tag, uppercaseFirstCharacter: true) : null}${toDartName(operationId, uppercaseFirstCharacter: true)}Headers';
                                   final result = resolveObject(
                                     spec,
-                                    variablePrefix,
                                     state,
                                     identifier,
                                     Schema(
@@ -591,7 +585,6 @@ class OpenAPIBuilder implements Builder {
 
                                     final result = resolveType(
                                       spec,
-                                      variablePrefix,
                                       state,
                                       toDartName(
                                         '$operationId-response-$statusCode-$mimeType',
@@ -631,9 +624,9 @@ class OpenAPIBuilder implements Builder {
                                 }
 
                                 if (headersType != null && dataType != null) {
-                                  b.returns = refer('Future<${classPrefix}Response<$dataType, $headersType>>');
+                                  b.returns = refer('Future<${state.classPrefix}Response<$dataType, $headersType>>');
                                   code.write(
-                                    'return ${classPrefix}Response<$dataType, $headersType>(${dataNeedsAwait ?? false ? 'await ' : ''}$dataValue, $headersValue,);',
+                                    'return ${state.classPrefix}Response<$dataType, $headersType>(${dataNeedsAwait ?? false ? 'await ' : ''}$dataValue, $headersValue,);',
                                   );
                                 } else if (headersType != null) {
                                   b.returns = refer('Future<$headersType>');
@@ -649,7 +642,7 @@ class OpenAPIBuilder implements Builder {
                                 code.write('}');
                               }
                               code.write(
-                                'throw await ${classPrefix}ApiException.fromResponse(_response); // coverage:ignore-line\n',
+                                'throw await ${state.classPrefix}ApiException.fromResponse(_response); // coverage:ignore-line\n',
                               );
                             } else {
                               b.returns = refer('Future');
@@ -674,7 +667,6 @@ class OpenAPIBuilder implements Builder {
           } else {
             final result = resolveType(
               spec,
-              variablePrefix,
               state,
               identifier,
               schema.value,
