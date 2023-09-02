@@ -288,7 +288,7 @@ class OpenAPIBuilder implements Builder {
                     ),
                   );
               }
-              final matchedTags = spec.tags?.where((final t) => t.name == tag).toList();
+              final matchedTags = spec.tags?.where((final t) => t.name == tag);
               b
                 ..name = '$classPrefix${isRootClient ? 'Client' : _clientName(tag)}'
                 ..docs.addAll(
@@ -298,12 +298,9 @@ class OpenAPIBuilder implements Builder {
                 )
                 ..methods.addAll(
                   [
-                    for (final t in tags
-                        .whereType<String>()
-                        .where(
+                    for (final t in tags.whereType<String>().where(
                           (final t) => (tag != null && (t.startsWith('$tag/'))) || (tag == null && !t.contains('/')),
-                        )
-                        .toList()) ...[
+                        )) ...[
                       Method(
                         (final b) => b
                           ..name = _toDartName(tag == null ? t : t.substring('$tag/'.length))
