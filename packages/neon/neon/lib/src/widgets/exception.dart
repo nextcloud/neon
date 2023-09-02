@@ -3,6 +3,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart';
+import 'package:meta/meta.dart';
 import 'package:neon/l10n/localizations.dart';
 import 'package:neon/src/blocs/accounts.dart';
 import 'package:neon/src/router.dart';
@@ -109,48 +110,49 @@ class NeonException extends StatelessWidget {
     );
   }
 
-  static _ExceptionDetails getDetails(final BuildContext context, final dynamic exception) {
+  @internal
+  static ExceptionDetails getDetails(final BuildContext context, final dynamic exception) {
     if (exception is String) {
-      return _ExceptionDetails(
+      return ExceptionDetails(
         text: exception,
       );
     }
 
     if (exception is MissingPermissionException) {
-      return _ExceptionDetails(
+      return ExceptionDetails(
         text: AppLocalizations.of(context).errorMissingPermission(exception.permission.toString().split('.')[1]),
       );
     }
 
     if (exception is UnableToOpenFileException) {
-      return _ExceptionDetails(
+      return ExceptionDetails(
         text: AppLocalizations.of(context).errorUnableToOpenFile,
       );
     }
 
     if (exception is InvalidQrcodeException) {
-      return _ExceptionDetails(
+      return ExceptionDetails(
         text: AppLocalizations.of(context).errorInvalidQrcode,
       );
     }
 
     if (exception is DynamiteApiException) {
       if (exception.statusCode == 401) {
-        return _ExceptionDetails(
+        return ExceptionDetails(
           text: AppLocalizations.of(context).errorCredentialsForAccountNoLongerMatch,
           isUnauthorized: true,
         );
       }
 
       if (exception.statusCode >= 500 && exception.statusCode <= 599) {
-        return _ExceptionDetails(
+        return ExceptionDetails(
           text: AppLocalizations.of(context).errorServerHadAProblemProcessingYourRequest,
         );
       }
     }
 
     if (exception is SocketException) {
-      return _ExceptionDetails(
+      return ExceptionDetails(
         text: exception.address != null
             ? AppLocalizations.of(context).errorUnableToReachServerAt(exception.address!.host)
             : AppLocalizations.of(context).errorUnableToReachServer,
@@ -158,7 +160,7 @@ class NeonException extends StatelessWidget {
     }
 
     if (exception is ClientException) {
-      return _ExceptionDetails(
+      return ExceptionDetails(
         text: exception.uri != null
             ? AppLocalizations.of(context).errorUnableToReachServerAt(exception.uri!.host)
             : AppLocalizations.of(context).errorUnableToReachServer,
@@ -166,7 +168,7 @@ class NeonException extends StatelessWidget {
     }
 
     if (exception is HttpException) {
-      return _ExceptionDetails(
+      return ExceptionDetails(
         text: exception.uri != null
             ? AppLocalizations.of(context).errorUnableToReachServerAt(exception.uri!.host)
             : AppLocalizations.of(context).errorUnableToReachServer,
@@ -174,12 +176,12 @@ class NeonException extends StatelessWidget {
     }
 
     if (exception is TimeoutException) {
-      return _ExceptionDetails(
+      return ExceptionDetails(
         text: AppLocalizations.of(context).errorConnectionTimedOut,
       );
     }
 
-    return _ExceptionDetails(
+    return ExceptionDetails(
       text: AppLocalizations.of(context).errorSomethingWentWrongTryAgainLater,
     );
   }
@@ -193,8 +195,9 @@ class NeonException extends StatelessWidget {
   }
 }
 
-class _ExceptionDetails {
-  _ExceptionDetails({
+@internal
+class ExceptionDetails {
+  ExceptionDetails({
     required this.text,
     this.isUnauthorized = false,
   });

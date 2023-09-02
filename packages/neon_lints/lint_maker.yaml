@@ -1,6 +1,6 @@
 dart:
   commitHash: 0a567d0
-  output: 'lib/dart.yaml'
+  output: 'lib/src/base.yaml'
   disabledRules:
     - always_specify_types
     - avoid_annotating_with_dynamic
