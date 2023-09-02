@@ -1,4 +1,15 @@
-part of '../dynamite.dart';
+import 'dart:convert';
+
+import 'package:build/build.dart';
+import 'package:code_builder/code_builder.dart';
+import 'package:collection/collection.dart';
+import 'package:dart_style/dart_style.dart';
+import 'package:dynamite/src/models/open_api.dart';
+import 'package:dynamite/src/models/parameter.dart' as spec_parameter;
+import 'package:dynamite/src/models/path_item.dart';
+import 'package:dynamite/src/models/schema.dart';
+import 'package:dynamite/src/type_result/type_result.dart';
+import 'package:path/path.dart' as p;
 
 class OpenAPIBuilder implements Builder {
   @override
