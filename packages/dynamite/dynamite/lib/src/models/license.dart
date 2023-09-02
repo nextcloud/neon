@@ -1,10 +1,12 @@
 import 'package:json_annotation/json_annotation.dart';
+import 'package:meta/meta.dart';
 
 part 'license.g.dart';
 
 @JsonSerializable()
+@immutable
 class License {
-  License({
+  const License({
     required this.name,
     this.identifier,
     this.url,

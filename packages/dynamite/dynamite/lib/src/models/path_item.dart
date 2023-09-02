@@ -1,12 +1,14 @@
 import 'package:dynamite/src/models/operation.dart';
 import 'package:dynamite/src/models/parameter.dart';
 import 'package:json_annotation/json_annotation.dart';
+import 'package:meta/meta.dart';
 
 part 'path_item.g.dart';
 
 @JsonSerializable()
+@immutable
 class PathItem {
-  PathItem({
+  const PathItem({
     this.description,
     this.parameters,
     this.get,

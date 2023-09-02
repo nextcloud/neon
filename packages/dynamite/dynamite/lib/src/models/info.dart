@@ -1,11 +1,13 @@
 import 'package:dynamite/src/models/license.dart';
 import 'package:json_annotation/json_annotation.dart';
+import 'package:meta/meta.dart';
 
 part 'info.g.dart';
 
 @JsonSerializable()
+@immutable
 class Info {
-  Info({
+  const Info({
     required this.title,
     required this.version,
     required this.license,

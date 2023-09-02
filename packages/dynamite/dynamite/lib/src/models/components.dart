@@ -1,12 +1,14 @@
 import 'package:dynamite/src/models/schema.dart';
 import 'package:dynamite/src/models/security_scheme.dart';
 import 'package:json_annotation/json_annotation.dart';
+import 'package:meta/meta.dart';
 
 part 'components.g.dart';
 
 @JsonSerializable()
+@immutable
 class Components {
-  Components({
+  const Components({
     this.securitySchemes,
     this.schemas,
   });

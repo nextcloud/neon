@@ -1,11 +1,13 @@
 import 'package:dynamite/src/models/schema.dart';
 import 'package:json_annotation/json_annotation.dart';
+import 'package:meta/meta.dart';
 
 part 'header.g.dart';
 
 @JsonSerializable()
+@immutable
 class Header {
-  Header({
+  const Header({
     this.description,
     this.required,
     this.schema,

@@ -1,11 +1,14 @@
+import 'package:dynamite/src/helpers/docs.dart';
 import 'package:dynamite/src/models/discriminator.dart';
 import 'package:json_annotation/json_annotation.dart';
+import 'package:meta/meta.dart';
 
 part 'schema.g.dart';
 
 @JsonSerializable()
+@immutable
 class Schema {
-  Schema({
+  const Schema({
     this.ref,
     this.oneOf,
     this.anyOf,
@@ -83,9 +86,13 @@ class Schema {
   final bool? nullable;
 
   bool get isContentString => type == 'string' && (contentMediaType?.isNotEmpty ?? false) && contentSchema != null;
+
+  Iterable<String> get formattedDescription => descriptionToDocs(description);
 }
 
-class EmptySchema extends Schema {}
+class EmptySchema extends Schema {
+  const EmptySchema();
+}
 
 Schema? _parseAdditionalProperties(final dynamic data) {
   if (data == null) {
@@ -93,7 +100,7 @@ Schema? _parseAdditionalProperties(final dynamic data) {
   }
 
   if (data is bool) {
-    return data ? EmptySchema() : null;
+    return data ? const EmptySchema() : null;
   }
 
   if (data is Map<String, dynamic>) {

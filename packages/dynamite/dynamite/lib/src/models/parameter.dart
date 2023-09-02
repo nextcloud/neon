@@ -1,11 +1,14 @@
+import 'package:dynamite/src/helpers/dynamite.dart';
 import 'package:dynamite/src/models/schema.dart';
 import 'package:json_annotation/json_annotation.dart';
+import 'package:meta/meta.dart';
 
 part 'parameter.g.dart';
 
 @JsonSerializable()
+@immutable
 class Parameter {
-  Parameter({
+  const Parameter({
     required this.name,
     required this.in_,
     this.description,
@@ -26,4 +29,6 @@ class Parameter {
   final bool? required;
 
   final Schema? schema;
+
+  bool get isDartRequired => isRequired(required, schema?.default_);
 }

@@ -3124,20 +3124,24 @@ abstract class CoreHoverCardGetUserResponse200ApplicationJson
 }
 
 abstract class CoreNavigationEntry_Order implements Built<CoreNavigationEntry_Order, CoreNavigationEntry_OrderBuilder> {
-  // coverage:ignore-end
-
   factory CoreNavigationEntry_Order([final void Function(CoreNavigationEntry_OrderBuilder)? b]) =
       _$CoreNavigationEntry_Order;
+
   // coverage:ignore-start
   const CoreNavigationEntry_Order._();
+  // coverage:ignore-end
 
-  JsonObject get data;
-  int? get $int;
-  String? get string;
-  static CoreNavigationEntry_Order fromJson(final Object json) => _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-start
+  factory CoreNavigationEntry_Order.fromJson(final Map<String, dynamic> json) =>
+      _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+  JsonObject get data;
+  int? get $int;
+  String? get string;
   @BuiltValueSerializer(custom: true)
   static Serializer<CoreNavigationEntry_Order> get serializer => _$CoreNavigationEntry_OrderSerializer();
 }
@@ -4447,14 +4451,24 @@ abstract class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabil
     implements
         Built<CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities,
             CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_CapabilitiesBuilder> {
-  // coverage:ignore-end
-
   factory CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities([
     final void Function(CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_CapabilitiesBuilder)? b,
   ]) = _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities;
+
   // coverage:ignore-start
   const CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities._();
+  // coverage:ignore-end
 
+  // coverage:ignore-start
+  factory CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities.fromJson(
+    final Map<String, dynamic> json,
+  ) =>
+      _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
   JsonObject get data;
   CoreCommentsCapabilities? get commentsCapabilities;
   CoreDavCapabilities? get davCapabilities;
@@ -4469,11 +4483,6 @@ abstract class CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabil
   CoreThemingPublicCapabilities? get themingPublicCapabilities;
   CoreUserStatusCapabilities? get userStatusCapabilities;
   CoreWeatherStatusCapabilities? get weatherStatusCapabilities;
-  static CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities fromJson(final Object json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
   @BuiltValueSerializer(custom: true)
   static Serializer<CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_Capabilities> get serializer =>
       _$CoreOcsGetCapabilitiesResponse200ApplicationJson_Ocs_Data_CapabilitiesSerializer();
@@ -4847,22 +4856,27 @@ abstract class CoreReferenceApiResolveResponse200ApplicationJson_Ocs_Data_Refere
     implements
         Built<CoreReferenceApiResolveResponse200ApplicationJson_Ocs_Data_References,
             CoreReferenceApiResolveResponse200ApplicationJson_Ocs_Data_ReferencesBuilder> {
-  // coverage:ignore-end
-
   factory CoreReferenceApiResolveResponse200ApplicationJson_Ocs_Data_References([
     final void Function(CoreReferenceApiResolveResponse200ApplicationJson_Ocs_Data_ReferencesBuilder)? b,
   ]) = _$CoreReferenceApiResolveResponse200ApplicationJson_Ocs_Data_References;
+
   // coverage:ignore-start
   const CoreReferenceApiResolveResponse200ApplicationJson_Ocs_Data_References._();
+  // coverage:ignore-end
 
-  JsonObject get data;
-  CoreReference? get reference;
-  JsonObject? get jsonObject;
-  static CoreReferenceApiResolveResponse200ApplicationJson_Ocs_Data_References fromJson(final Object json) =>
+  // coverage:ignore-start
+  factory CoreReferenceApiResolveResponse200ApplicationJson_Ocs_Data_References.fromJson(
+    final Map<String, dynamic> json,
+  ) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+  JsonObject get data;
+  CoreReference? get reference;
+  JsonObject? get jsonObject;
   @BuiltValueSerializer(custom: true)
   static Serializer<CoreReferenceApiResolveResponse200ApplicationJson_Ocs_Data_References> get serializer =>
       _$CoreReferenceApiResolveResponse200ApplicationJson_Ocs_Data_ReferencesSerializer();
@@ -4991,22 +5005,27 @@ abstract class CoreReferenceApiExtractResponse200ApplicationJson_Ocs_Data_Refere
     implements
         Built<CoreReferenceApiExtractResponse200ApplicationJson_Ocs_Data_References,
             CoreReferenceApiExtractResponse200ApplicationJson_Ocs_Data_ReferencesBuilder> {
-  // coverage:ignore-end
-
   factory CoreReferenceApiExtractResponse200ApplicationJson_Ocs_Data_References([
     final void Function(CoreReferenceApiExtractResponse200ApplicationJson_Ocs_Data_ReferencesBuilder)? b,
   ]) = _$CoreReferenceApiExtractResponse200ApplicationJson_Ocs_Data_References;
+
   // coverage:ignore-start
   const CoreReferenceApiExtractResponse200ApplicationJson_Ocs_Data_References._();
+  // coverage:ignore-end
 
-  JsonObject get data;
-  CoreReference? get reference;
-  JsonObject? get jsonObject;
-  static CoreReferenceApiExtractResponse200ApplicationJson_Ocs_Data_References fromJson(final Object json) =>
+  // coverage:ignore-start
+  factory CoreReferenceApiExtractResponse200ApplicationJson_Ocs_Data_References.fromJson(
+    final Map<String, dynamic> json,
+  ) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+  JsonObject get data;
+  CoreReference? get reference;
+  JsonObject? get jsonObject;
   @BuiltValueSerializer(custom: true)
   static Serializer<CoreReferenceApiExtractResponse200ApplicationJson_Ocs_Data_References> get serializer =>
       _$CoreReferenceApiExtractResponse200ApplicationJson_Ocs_Data_ReferencesSerializer();
@@ -5981,21 +6000,24 @@ abstract class CoreUnifiedSearchGetProvidersResponse200ApplicationJson
 
 abstract class CoreUnifiedSearchSearchCursor
     implements Built<CoreUnifiedSearchSearchCursor, CoreUnifiedSearchSearchCursorBuilder> {
-  // coverage:ignore-end
-
   factory CoreUnifiedSearchSearchCursor([final void Function(CoreUnifiedSearchSearchCursorBuilder)? b]) =
       _$CoreUnifiedSearchSearchCursor;
+
   // coverage:ignore-start
   const CoreUnifiedSearchSearchCursor._();
+  // coverage:ignore-end
 
-  JsonObject get data;
-  int? get $int;
-  String? get string;
-  static CoreUnifiedSearchSearchCursor fromJson(final Object json) =>
+  // coverage:ignore-start
+  factory CoreUnifiedSearchSearchCursor.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+  JsonObject get data;
+  int? get $int;
+  String? get string;
   @BuiltValueSerializer(custom: true)
   static Serializer<CoreUnifiedSearchSearchCursor> get serializer => _$CoreUnifiedSearchSearchCursorSerializer();
 }
@@ -6062,21 +6084,24 @@ abstract class CoreUnifiedSearchResultEntry
 
 abstract class CoreUnifiedSearchResult_Cursor
     implements Built<CoreUnifiedSearchResult_Cursor, CoreUnifiedSearchResult_CursorBuilder> {
-  // coverage:ignore-end
-
   factory CoreUnifiedSearchResult_Cursor([final void Function(CoreUnifiedSearchResult_CursorBuilder)? b]) =
       _$CoreUnifiedSearchResult_Cursor;
+
   // coverage:ignore-start
   const CoreUnifiedSearchResult_Cursor._();
+  // coverage:ignore-end
 
-  JsonObject get data;
-  int? get $int;
-  String? get string;
-  static CoreUnifiedSearchResult_Cursor fromJson(final Object json) =>
+  // coverage:ignore-start
+  factory CoreUnifiedSearchResult_Cursor.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
+  JsonObject get data;
+  int? get $int;
+  String? get string;
   @BuiltValueSerializer(custom: true)
   static Serializer<CoreUnifiedSearchResult_Cursor> get serializer => _$CoreUnifiedSearchResult_CursorSerializer();
 }
