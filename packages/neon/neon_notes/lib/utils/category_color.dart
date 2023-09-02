@@ -1,6 +1,8 @@
 part of '../neon_notes.dart';
 
 class NotesCategoryColor {
+  const NotesCategoryColor._();
+
   static final Map<String, Color> _colors = {};
 
   static Color compute(final String category) {

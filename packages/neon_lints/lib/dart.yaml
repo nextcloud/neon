@@ -18,8 +18,8 @@ linter:
     avoid_annotating_with_dynamic: false
     avoid_bool_literals_in_conditional_expressions: true
     avoid_catches_without_on_clauses: false
-    avoid_catching_errors: false
-    avoid_classes_with_only_static_members: false
+    avoid_catching_errors: true
+    avoid_classes_with_only_static_members: true
     avoid_double_and_int_checks: true
     avoid_dynamic_calls: true
     avoid_empty_else: true

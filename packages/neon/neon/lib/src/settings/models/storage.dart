@@ -38,6 +38,8 @@ enum StorageKeys implements Storable {
 
 @internal
 final class NeonStorage {
+  const NeonStorage._();
+
   /// Shared preferences instance.
   ///
   /// Use [database] to access it.
