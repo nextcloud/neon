@@ -376,8 +376,7 @@ class OpenAPIBuilder implements Builder {
                             for (final parameter in parameters) {
                               final dartParameterNullable = _isDartParameterNullable(
                                 parameter.required,
-                                parameter.schema?.nullable,
-                                parameter.schema?.default_,
+                                parameter.schema,
                               );
                               final dartParameterRequired = _isDartParameterRequired(parameter);
 
@@ -484,8 +483,7 @@ class OpenAPIBuilder implements Builder {
 
                                 final dartParameterNullable = _isDartParameterNullable(
                                   operation.requestBody!.required,
-                                  mediaType.schema?.nullable,
-                                  mediaType.schema?.default_,
+                                  mediaType.schema,
                                 );
 
                                 final result = resolveType(
@@ -829,10 +827,9 @@ String _toFieldName(final String dartName, final String type) => dartName == typ
 
 bool _isDartParameterNullable(
   final bool? required,
-  final bool? nullable,
-  final dynamic default_,
+  final Schema? schema,
 ) =>
-    (!(required ?? false) && default_ == null) || (nullable ?? false);
+    (!(required ?? false) && schema?.default_ == null) || (schema?.nullable ?? false);
 
 bool _isDartParameterRequired(final spec_parameter.Parameter parameter) =>
     _isRequired(parameter.required, parameter.schema?.default_);
@@ -983,8 +980,7 @@ TypeResult resolveObject(
                       propertySchema,
                       nullable: _isDartParameterNullable(
                         schema.required?.contains(propertyName),
-                        propertySchema.nullable,
-                        propertySchema.default_,
+                        propertySchema,
                       ),
                     );
 
@@ -1160,11 +1156,7 @@ TypeResult resolveObject(
                     state,
                     '${identifier}_${_toDartName(propertyName, uppercaseFirstCharacter: true)}',
                     propertySchema,
-                    nullable: _isDartParameterNullable(
-                      schema.required?.contains(propertyName),
-                      propertySchema.nullable,
-                      propertySchema.default_,
-                    ),
+                    nullable: _isDartParameterNullable(schema.required?.contains(propertyName), propertySchema),
                   );
 
                   return [
