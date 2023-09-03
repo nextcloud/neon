@@ -60,7 +60,7 @@ class GlobalPopups {
               action: SnackBarAction(
                 label: AppLocalizations.of(_context).settings,
                 onPressed: () {
-                  const SettingsRoute(initialCategory: SettingsCageories.pushNotifications).go(_context);
+                  const SettingsRoute(initialCategory: SettingsCategories.pushNotifications).go(_context);
                 },
               ),
             ),

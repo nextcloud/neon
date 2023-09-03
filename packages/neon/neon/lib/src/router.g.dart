@@ -78,13 +78,13 @@ extension $HomeRouteExtension on HomeRoute {
 extension $SettingsRouteExtension on SettingsRoute {
   static SettingsRoute _fromState(GoRouterState state) => SettingsRoute(
         initialCategory:
-            _$convertMapValue('initial-category', state.uri.queryParameters, _$SettingsCageoriesEnumMap._$fromName),
+            _$convertMapValue('initial-category', state.uri.queryParameters, _$SettingsCategoriesEnumMap._$fromName),
       );
 
   String get location => GoRouteData.$location(
         '/settings',
         queryParams: {
-          if (initialCategory != null) 'initial-category': _$SettingsCageoriesEnumMap[initialCategory!],
+          if (initialCategory != null) 'initial-category': _$SettingsCategoriesEnumMap[initialCategory!],
         },
       );
 
@@ -97,15 +97,15 @@ extension $SettingsRouteExtension on SettingsRoute {
   void replace(BuildContext context) => context.replace(location);
 }
 
-const _$SettingsCageoriesEnumMap = {
-  SettingsCageories.apps: 'apps',
-  SettingsCageories.theme: 'theme',
-  SettingsCageories.navigation: 'navigation',
-  SettingsCageories.pushNotifications: 'push-notifications',
-  SettingsCageories.startup: 'startup',
-  SettingsCageories.systemTray: 'system-tray',
-  SettingsCageories.accounts: 'accounts',
-  SettingsCageories.other: 'other',
+const _$SettingsCategoriesEnumMap = {
+  SettingsCategories.apps: 'apps',
+  SettingsCategories.theme: 'theme',
+  SettingsCategories.navigation: 'navigation',
+  SettingsCategories.pushNotifications: 'push-notifications',
+  SettingsCategories.startup: 'startup',
+  SettingsCategories.systemTray: 'system-tray',
+  SettingsCategories.accounts: 'accounts',
+  SettingsCategories.other: 'other',
 };
 
 extension $NextcloudAppSettingsRouteExtension on NextcloudAppSettingsRoute {

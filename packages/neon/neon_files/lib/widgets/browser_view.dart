@@ -4,7 +4,7 @@ part of '../neon_files.dart';
 enum FilesBrowserMode {
   /// Default file browser mode.
   ///
-  /// When a file is selecteed it will be opened or downloaded.
+  /// When a file is selected it will be opened or downloaded.
   browser,
 
   /// Select directory.
