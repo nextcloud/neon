@@ -92,8 +92,8 @@ void main() {
         },
       );
 
-      const value = MapEntry('sxportableKey', 'value');
-      const export = {'sxportableKey': 'value'};
+      const value = MapEntry('exportableKey', 'value');
+      const export = {'exportableKey': 'value'};
 
       when(exportable.export).thenAnswer((final _) => value);
 
@@ -111,8 +111,8 @@ void main() {
         },
       );
 
-      const value = MapEntry('sxportableKey', 'value');
-      const jsonExport = {'sxportableKey': 'value'};
+      const value = MapEntry('exportableKey', 'value');
+      const jsonExport = {'exportableKey': 'value'};
       final export = JsonUtf8Encoder().convert(jsonExport) as Uint8List;
 
       when(exportable.export).thenAnswer((final _) => value);

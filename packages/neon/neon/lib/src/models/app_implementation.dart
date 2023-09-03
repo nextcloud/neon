@@ -74,7 +74,7 @@ abstract class AppImplementation<T extends Bloc, R extends NextcloudAppOptions> 
   /// Route for the app.
   ///
   /// All pages of the app must be specified as subroutes.
-  /// If this is not [GoRoute] an inital route name must be specified by overriding [initialRouteName].
+  /// If this is not [GoRoute] an initial route name must be specified by overriding [initialRouteName].
   RouteBase get route;
 
   /// Name of the initial route for this app.
@@ -114,7 +114,7 @@ abstract class AppImplementation<T extends Bloc, R extends NextcloudAppOptions> 
 
   /// A custom theme that will be injected into the widget tree.
   ///
-  /// You can later acess it through `Theme.of(context).extension<ThemeName>()`.
+  /// You can later access it through `Theme.of(context).extension<ThemeName>()`.
   final ThemeExtension? theme = null;
 }
 

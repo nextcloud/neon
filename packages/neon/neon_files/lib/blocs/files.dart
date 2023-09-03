@@ -29,8 +29,8 @@ class FilesBloc extends InteractiveBloc implements FilesBlocEvents, FilesBlocSta
     this.options,
     this.account,
   ) {
-    options.uploadQueueParallelism.addListener(_uploadParalelismListener);
-    options.downloadQueueParallelism.addListener(_downloadParalelismListener);
+    options.uploadQueueParallelism.addListener(_uploadParallelismListener);
+    options.downloadQueueParallelism.addListener(_downloadParallelismListener);
   }
 
   final FilesAppSpecificOptions options;
@@ -46,8 +46,8 @@ class FilesBloc extends InteractiveBloc implements FilesBlocEvents, FilesBlocSta
     _downloadQueue.dispose();
     unawaited(tasks.close());
 
-    options.uploadQueueParallelism.removeListener(_uploadParalelismListener);
-    options.downloadQueueParallelism.removeListener(_downloadParalelismListener);
+    options.uploadQueueParallelism.removeListener(_uploadParallelismListener);
+    options.downloadQueueParallelism.removeListener(_downloadParallelismListener);
   }
 
   @override
@@ -177,11 +177,11 @@ class FilesBloc extends InteractiveBloc implements FilesBlocEvents, FilesBlocSta
 
   FilesBrowserBloc getNewFilesBrowserBloc() => FilesBrowserBloc(options, account);
 
-  void _downloadParalelismListener() {
+  void _downloadParallelismListener() {
     _downloadQueue.parallel = options.downloadQueueParallelism.value;
   }
 
-  void _uploadParalelismListener() {
+  void _uploadParallelismListener() {
     _uploadQueue.parallel = options.uploadQueueParallelism.value;
   }
 }

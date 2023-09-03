@@ -52,7 +52,7 @@ class AppRouter extends GoRouter {
               }
             }
 
-            // redirect to loginscreen when no account is logged in
+            // redirect to login screen when no account is logged in
             if (!accountsBloc.hasAccounts && !state.uri.toString().startsWith(const LoginRoute().location)) {
               return const LoginRoute().location;
             }
@@ -387,7 +387,7 @@ class SettingsRoute extends GoRouteData {
   const SettingsRoute({this.initialCategory});
 
   /// The initial category to show.
-  final SettingsCageories? initialCategory;
+  final SettingsCategories? initialCategory;
 
   @override
   Widget build(final BuildContext context, final GoRouterState state) => SettingsPage(initialCategory: initialCategory);

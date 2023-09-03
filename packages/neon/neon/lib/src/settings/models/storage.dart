@@ -41,7 +41,7 @@ final class NeonStorage {
   /// Shared preferences instance.
   ///
   /// Use [database] to access it.
-  /// Make sure it has been initialized wiht [init] before.
+  /// Make sure it has been initialized with [init] before.
   static SharedPreferences? _sharedPreferences;
 
   @visibleForTesting

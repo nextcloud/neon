@@ -26,7 +26,7 @@ class ResultBuilder<T> extends StreamBuilderBase<Result<T>, Result<T>> {
 
   @override
   Result<T> afterData(final Result<T> current, final Result<T> data) {
-    // prevent rebuild when only the cache state cahnges
+    // prevent rebuild when only the cache state changes
     if (current == data) {
       return current;
     }

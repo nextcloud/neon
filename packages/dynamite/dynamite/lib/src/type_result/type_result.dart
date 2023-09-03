@@ -13,7 +13,7 @@ abstract class TypeResult {
     this.className, {
     this.generics = const [],
     this.nullable = false,
-  })  : assert(!className.contains('<'), 'Specifiy generics in the generics parameter.'),
+  })  : assert(!className.contains('<'), 'Specify generics in the generics parameter.'),
         assert(!className.contains('?'), 'Nullability should not be specified in the type.');
 
   final String className;

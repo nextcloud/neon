@@ -53,7 +53,7 @@ abstract class OptionsCollection implements Exportable {
   }
 }
 
-/// OpptionsCollection for a neon app.
+/// OptionsCollection for a neon app.
 abstract class NextcloudAppOptions extends OptionsCollection {
   NextcloudAppOptions(super.storage);
 

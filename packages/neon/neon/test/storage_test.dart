@@ -33,48 +33,48 @@ void main() {
       NeonStorage.mock(sharedPreferences);
       const appStorage = AppStorage(StorageKeys.accounts);
       const key = 'key';
-      final formatedKey = appStorage.formatKey(key);
+      final formattedKey = appStorage.formatKey(key);
 
-      when(() => sharedPreferences.containsKey(formatedKey)).thenReturn(true);
+      when(() => sharedPreferences.containsKey(formattedKey)).thenReturn(true);
       dynamic result = appStorage.containsKey(key);
       expect(result, equals(true));
-      verify(() => sharedPreferences.containsKey(formatedKey)).called(1);
+      verify(() => sharedPreferences.containsKey(formattedKey)).called(1);
 
-      when(() => sharedPreferences.remove(formatedKey)).thenAnswer((final _) => Future.value(false));
+      when(() => sharedPreferences.remove(formattedKey)).thenAnswer((final _) => Future.value(false));
       result = await appStorage.remove(key);
       expect(result, equals(false));
-      verify(() => sharedPreferences.remove(formatedKey)).called(1);
+      verify(() => sharedPreferences.remove(formattedKey)).called(1);
 
-      when(() => sharedPreferences.getString(formatedKey)).thenReturn(null);
+      when(() => sharedPreferences.getString(formattedKey)).thenReturn(null);
       result = appStorage.getString(key);
       expect(result, isNull);
-      verify(() => sharedPreferences.getString(formatedKey)).called(1);
+      verify(() => sharedPreferences.getString(formattedKey)).called(1);
 
-      when(() => sharedPreferences.setString(formatedKey, 'value')).thenAnswer((final _) => Future.value(false));
+      when(() => sharedPreferences.setString(formattedKey, 'value')).thenAnswer((final _) => Future.value(false));
       result = await appStorage.setString(key, 'value');
       expect(result, false);
-      verify(() => sharedPreferences.setString(formatedKey, 'value')).called(1);
+      verify(() => sharedPreferences.setString(formattedKey, 'value')).called(1);
 
-      when(() => sharedPreferences.getBool(formatedKey)).thenReturn(true);
+      when(() => sharedPreferences.getBool(formattedKey)).thenReturn(true);
       result = appStorage.getBool(key);
       expect(result, equals(true));
-      verify(() => sharedPreferences.getBool(formatedKey)).called(1);
+      verify(() => sharedPreferences.getBool(formattedKey)).called(1);
 
-      when(() => sharedPreferences.setBool(formatedKey, true)).thenAnswer((final _) => Future.value(true));
+      when(() => sharedPreferences.setBool(formattedKey, true)).thenAnswer((final _) => Future.value(true));
       result = await appStorage.setBool(key, true);
       expect(result, true);
-      verify(() => sharedPreferences.setBool(formatedKey, true)).called(1);
+      verify(() => sharedPreferences.setBool(formattedKey, true)).called(1);
 
-      when(() => sharedPreferences.getStringList(formatedKey)).thenReturn(['hi there']);
+      when(() => sharedPreferences.getStringList(formattedKey)).thenReturn(['hi there']);
       result = appStorage.getStringList(key);
       expect(result, equals(['hi there']));
-      verify(() => sharedPreferences.getStringList(formatedKey)).called(1);
+      verify(() => sharedPreferences.getStringList(formattedKey)).called(1);
 
-      when(() => sharedPreferences.setStringList(formatedKey, ['hi there']))
+      when(() => sharedPreferences.setStringList(formattedKey, ['hi there']))
           .thenAnswer((final _) => Future.value(false));
       result = await appStorage.setStringList(key, ['hi there']);
       expect(result, false);
-      verify(() => sharedPreferences.setStringList(formatedKey, ['hi there'])).called(1);
+      verify(() => sharedPreferences.setStringList(formattedKey, ['hi there'])).called(1);
     });
   });
 

@@ -25,7 +25,7 @@ import 'package:neon/src/widgets/exception.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:provider/provider.dart';
 
-enum SettingsCageories {
+enum SettingsCategories {
   apps,
   theme,
   navigation,
@@ -42,7 +42,7 @@ class SettingsPage extends StatefulWidget {
     super.key,
   });
 
-  final SettingsCageories? initialCategory;
+  final SettingsCategories? initialCategory;
 
   @override
   State<SettingsPage> createState() => _SettingsPageState();
@@ -96,7 +96,7 @@ class _SettingsPageState extends State<SettingsPage> {
           categories: [
             SettingsCategory(
               title: Text(AppLocalizations.of(context).settingsApps),
-              key: ValueKey(SettingsCageories.apps.name),
+              key: ValueKey(SettingsCategories.apps.name),
               tiles: <SettingsTile>[
                 for (final appImplementation in appImplementations) ...[
                   if (appImplementation.options.options.isNotEmpty) ...[
@@ -113,7 +113,7 @@ class _SettingsPageState extends State<SettingsPage> {
             ),
             SettingsCategory(
               title: Text(AppLocalizations.of(context).optionsCategoryTheme),
-              key: ValueKey(SettingsCageories.theme.name),
+              key: ValueKey(SettingsCategories.theme.name),
               tiles: [
                 DropdownButtonSettingsTile(
                   option: globalOptions.themeMode,
@@ -128,7 +128,7 @@ class _SettingsPageState extends State<SettingsPage> {
             ),
             SettingsCategory(
               title: Text(AppLocalizations.of(context).optionsCategoryNavigation),
-              key: ValueKey(SettingsCageories.navigation.name),
+              key: ValueKey(SettingsCategories.navigation.name),
               tiles: [
                 DropdownButtonSettingsTile(
                   option: globalOptions.navigationMode,
@@ -138,7 +138,7 @@ class _SettingsPageState extends State<SettingsPage> {
             if (NeonPlatform.instance.canUsePushNotifications) ...[
               SettingsCategory(
                 title: Text(AppLocalizations.of(context).optionsCategoryPushNotifications),
-                key: ValueKey(SettingsCageories.pushNotifications.name),
+                key: ValueKey(SettingsCategories.pushNotifications.name),
                 tiles: [
                   if (!globalOptions.pushNotificationsEnabled.enabled) ...[
                     TextSettingsTile(
@@ -162,7 +162,7 @@ class _SettingsPageState extends State<SettingsPage> {
             if (NeonPlatform.instance.canUseWindowManager) ...[
               SettingsCategory(
                 title: Text(AppLocalizations.of(context).optionsCategoryStartup),
-                key: ValueKey(SettingsCageories.startup.name),
+                key: ValueKey(SettingsCategories.startup.name),
                 tiles: [
                   CheckBoxSettingsTile(
                     option: globalOptions.startupMinimized,
@@ -176,7 +176,7 @@ class _SettingsPageState extends State<SettingsPage> {
             if (NeonPlatform.instance.canUseWindowManager && NeonPlatform.instance.canUseSystemTray) ...[
               SettingsCategory(
                 title: Text(AppLocalizations.of(context).optionsCategorySystemTray),
-                key: ValueKey(SettingsCageories.systemTray.name),
+                key: ValueKey(SettingsCategories.systemTray.name),
                 tiles: [
                   CheckBoxSettingsTile(
                     option: globalOptions.systemTrayEnabled,
@@ -189,7 +189,7 @@ class _SettingsPageState extends State<SettingsPage> {
             ],
             SettingsCategory(
               title: Text(AppLocalizations.of(context).optionsCategoryAccounts),
-              key: ValueKey(SettingsCageories.accounts.name),
+              key: ValueKey(SettingsCategories.accounts.name),
               tiles: [
                 if (accountsSnapshot.requireData.length > 1) ...[
                   CheckBoxSettingsTile(
@@ -218,7 +218,7 @@ class _SettingsPageState extends State<SettingsPage> {
             ),
             SettingsCategory(
               title: Text(AppLocalizations.of(context).optionsCategoryOther),
-              key: ValueKey(SettingsCageories.other.name),
+              key: ValueKey(SettingsCategories.other.name),
               tiles: <SettingsTile>[
                 CustomSettingsTile(
                   leading: Icon(
